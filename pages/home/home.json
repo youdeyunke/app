@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+      "mytabs": "/components/tabs",
+      "myslider": "/components/slider"
+    }
+
+}

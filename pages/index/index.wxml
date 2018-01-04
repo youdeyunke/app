@@ -1,4 +1,5 @@
 <!--index.wxml-->
+<import src="../../tpls/layout.wxml"></import>
 <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
@@ -10,4 +11,6 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+
+  <template is="tabs"></template>
 </view>

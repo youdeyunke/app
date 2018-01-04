@@ -1,12 +1,49 @@
 {
-  "pages":[
+  "pages": [
+    "pages/home/home",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/myself/myself",
+    "pages/qa/qa",
+    "pages/qa/new",
+    "pages/post/index",
+    "pages/post/post"
+
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+
+  "tabBar": {
+    "selectedColor": "#ff0000",
+    "backgroundColor": "#cecece",
+    "positon": "bottom",
+    "color": "#100000",
+    "list": [
+
+      {
+        "iconPath": "/assets/images/qa.1.png",
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/post/index",
+        "text": "评测"
+      },      
+      {
+        "pagePath": "pages/qa/qa",
+        "text": "问答"
+      },
+      {
+        "pagePath": "pages/myself/myself",
+        "text": "我的"
+      }            
+    ]
+  },
+
+  "window": {
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ffdb2d",
+    "backgroundColor": "#ffdb2d",
+    "navigationBarTitleText": "家有好房",
+    "navigationBarTextStyle": "black"
   }
 }

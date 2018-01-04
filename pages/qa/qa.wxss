@@ -1,0 +1,11 @@
+/* pages/qa/qa.wxss */
+.qa-btn{
+  display: block;
+  height: 30px;
+  width: 30ppx;
+  background:yellow;
+  position: fixed;
+  bottom:50px;
+  right:10px;
+  border-radius: 100%;
+}

@@ -3,8 +3,19 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
+  justify-content: space-around;
+  padding: 0;
   box-sizing: border-box;
+  position: relative;
 } 
+
+mytabs{
+  width:100%;
+ 
+  position: fixed;
+  bottom:0rpx;
+}
+
+video{
+  width:100%;
+}

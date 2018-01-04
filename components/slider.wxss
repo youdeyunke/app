@@ -1,0 +1,5 @@
+/* components/slider.wxss */
+
+myslider image{
+  width:100%;
+}

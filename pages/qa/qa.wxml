@@ -1,0 +1,11 @@
+<!--pages/qa/qa.wxml-->
+<view class="container">
+  
+  <text>pages/qa/qa.wxml</text>
+  
+  <view class="qa-btn">
+    <navigator open-type='navigate' url="/pages/qa/new">new</navigator>
+  </view>
+
+</view>
+
