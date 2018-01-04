@@ -1,4 +1,8 @@
 /* pages/qa/qa.wxss */
+page{
+  background-color: #ffdb2d;
+}
+
 .qa-btn{
   display: block;
   height: 30px;
@@ -8,4 +12,46 @@
   bottom:50px;
   right:10px;
   border-radius: 100%;
+}
+
+.qa-items{
+  display: flex;
+  flex-direction: column;
+  padding:20rpx 20rpx;
+}
+
+.qa-items .qa-item{
+  background: #fff;
+  padding:20rpx;
+  border-radius: 5px;
+}
+
+.qa-items .qa-item .header{
+  position: relative;
+  padding-left:100rpx;
+}
+
+.qa-items .qa-item  .icon{
+  font-size:28rpx;
+  width:100rpx;
+  position: absolute;
+  left:-20rpx;
+  background-color: #ffdb2d;
+  border-top-right-radius: 30rpx;
+  border-bottom-right-radius: 30rpx;
+  text-align: center;
+}
+
+.qa-items .qa-item .body{
+  position: relative;
+  margin-top:30rpx;
+}
+
+.qa-items .qa-item .body .answer{
+    background-color:#f5f5f5;
+    padding:20rpx 20rpx 20rpx 120rpx;
+}
+
+.qa-items .qa-item .body .icon{
+  top:20rpx;
 }

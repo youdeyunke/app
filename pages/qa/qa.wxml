@@ -1,8 +1,19 @@
 <!--pages/qa/qa.wxml-->
 <view class="container">
-  
-  <text>pages/qa/qa.wxml</text>
-  
+  <view class="qa-items">
+    <view class="qa-item">
+      <view class="header">
+        <text class="icon">问</text>
+        <text class="title">adbddfe?</text>
+        <view class="meta"></view>
+      </view>
+      <view class="body">
+         <text class="icon">问</text>
+          <view class="answer">这是是回答</view>
+      </view>
+    </view>
+  </view>
+
   <view class="qa-btn">
     <navigator open-type='navigate' url="/pages/qa/new">new</navigator>
   </view>
