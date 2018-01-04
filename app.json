@@ -1,9 +1,10 @@
 {
   "pages": [
+
     "pages/home/home",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/myself/myself",
+    "pages/myself/myself", 
     "pages/qa/qa",
     "pages/qa/new",
     "pages/post/index",
@@ -12,10 +13,10 @@
   ],
 
   "tabBar": {
-    "selectedColor": "#ff0000",
-    "backgroundColor": "#cecece",
+    "selectedColor": "#333",
+    "backgroundColor": "#fff",
     "positon": "bottom",
-    "color": "#100000",
+    "color": "#999",
     "list": [
 
       {

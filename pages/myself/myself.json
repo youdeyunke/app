@@ -1,6 +1,4 @@
 {
-    "usingComponents": {
-      "mytabs": "/components/tabs"
-    }
+    "enablePullDownRefresh": true
 
 }

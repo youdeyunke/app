@@ -1,4 +1,23 @@
 <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+
+  <view class="useractions">
+
+    <navigator class="item border" open-type='navigate' url="/pages/post/post">
+      <text>我的关注</text>
+      <text class="arrow">></text>
+    </navigator>
+    <navigator class="item border" open-type='navigate' url="/pages/post/post">
+      <text>我的关注</text>
+      <text class="arrow">></text>
+    </navigator>    
 
 
+  </view>
 </view>
