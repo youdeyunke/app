@@ -1,9 +1,9 @@
 <!--index.wxml-->
 <swiper class="swiper home" indicator-dots="true" autoplay="true" interval="5000"
-duration="1000" circular="true" indicator-color="rgba(255,255,255,0.95)" indicator-active-color="#ffdb2d" >
+duration="500" circular="true" indicator-color="rgba(255,255,255,0.7)" autoplay indicator-active-color="#fff" >
     <block wx:for="{{items}}" wx:for-index="index">
         <swiper-item>
-            <image  src="{{item.src}}" class="slide-image" mode="aspectFill" />
+            <image  src="{{item.src}}" class="slide-image" />
         </swiper-item>
     </block>
 </swiper>

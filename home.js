@@ -1,6 +1,4 @@
-// pages/post/post.js
-
-
+// home.js
 Page({
 
   /**

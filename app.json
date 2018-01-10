@@ -1,41 +1,59 @@
 {
   "pages": [
-    "pages/qa/qa",
+
     "pages/home/home",
     "pages/index/index",
     "pages/logs/logs",
     "pages/myself/myself", 
-
+    "pages/qa/qa",
     "pages/qa/new",
     "pages/post/index",
     "pages/post/post"
 
   ],
 
-  "tabBar": {
+  "tabBar": {    
     "selectedColor": "#333",
     "backgroundColor": "#fff",
     "positon": "bottom",
     "color": "#999",
+    "borderStyle": "black",
     "list": [
 
       {
-        "iconPath": "/assets/images/qa.1.png",
+        "iconPath": "/assets/icons/底部导航_01.png",
+        "selectedIconPath": "/assets/icons/底部导航_08.png",
         "pagePath": "pages/home/home",
         "text": "首页"
       },
+
       {
+        "iconPath": "/assets/icons/底部导航_07.png",
+        "selectedIconPath": "/assets/icons/底部导航_02.png",
         "pagePath": "pages/post/index",
-        "text": "评测"
-      },      
+        "text": "好房"
+      },    
       {
-        "pagePath": "pages/qa/qa",
+        "iconPath": "/assets/icons/底部导航_09.png",
+        "selectedIconPath": "/assets/icons/底部导航_03.png",
+        "pagePath": "pages/qa/index",
         "text": "问答"
       },
+
       {
+        "iconPath": "/assets/icons/底部导航_10.png",
+        "selectedIconPath": "/assets/icons/底部导航_04.png",
+        "pagePath": "pages/home/home",
+        "text": "地图"
+      },     
+      
+      {
+        "iconPath": "/assets/icons/底部导航_06.png",
+        "selectedIconPath": "/assets/icons/底部导航_05.png",
         "pagePath": "pages/myself/myself",
         "text": "我的"
-      }            
+      }
+      
     ]
   },
 
@@ -44,7 +62,7 @@
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#ffdb2d",
     "backgroundColor": "#ffdb2d",
-    "navigationBarTitleText": "家有好房",
+    "navigationBarTitleText": "真有好房",
     "navigationBarTextStyle": "black"
   }
 }

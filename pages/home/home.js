@@ -1,6 +1,14 @@
 // pages/home/home.js
 Page({
 
+  onShareAppMessage: function () {
+    return {
+      title: '真有好房',
+      desc: '真有好房',
+      path: 'pages/index/index'
+    }
+  },
+
   /** 下拉刷新
    * 
   */
@@ -20,8 +28,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    cityList: ['a', 'b', 'c']
-  
+    selectedCity: 0,
+    cityList: ['上海', '北京', '广州'],
+    tabIcons: [
+      {name: '看测评', url: '/pages/home/home'},
+      {name: '问专家', url: '/pages/home/home'},
+      {name :'挑好房', url: '/pages/home/home'},
+      {name: '学知识', url: '/pages/home/home'},
+    ]
+  },
+
+  cityChangeHandle: function(e){
+    this.setData({ selectedCity: e.detail.value})
   },
 
   /**

@@ -12,16 +12,16 @@ Component({
    */
   data: {
     items: [{
-      src: 'http://img04.tooopen.com/images/20130712/tooopen_17270713.jpg'
+      src: 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2276542338,4010545408&fm=27&gp=0.jpg'
     },
     {
-      src: 'http://img04.tooopen.com/images/20130617/tooopen_21241404.jpg'
+      src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1515584121242&di=e83758ca772f7ad36977f7b687c6ad1b&imgtype=0&src=http%3A%2F%2Fimg4.cache.netease.com%2Fphoto%2F0087%2F2010-08-02%2F6D3EJDA5123V0087.jpg'
     },
     {
-      src: 'http://img04.tooopen.com/images/20130701/tooopen_20083555.jpg'
+      src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1515584121241&di=ce9274ead167443e4df652bdbf02bb59&imgtype=0&src=http%3A%2F%2Fimgs.jiwu.com%2Fattachment%2Fbuildpic%2F2011%2F11%2F30%2F1189663_m.jpg'
     },
     {
-      src: 'http://img02.tooopen.com/images/20141231/sy_78327074576.jpg'
+      src: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1515584121241&di=d45bb02c538de1d33106e168046ceb63&imgtype=0&src=http%3A%2F%2Ftu.yihaojiaju.com%2FUploadFile%2F9%2FHouse%2Foriginal%2F201411%2F6%2F061029019473.jpg'
     }]
   },
 

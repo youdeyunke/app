@@ -1,1 +1,9 @@
-/* pages/qa/new.wxss */
+page{
+  background-color: #ededed;
+}
+
+textarea{
+  background-color: #fff;
+  width:100%;
+  height: 300rpx;
+}
