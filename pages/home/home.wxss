@@ -178,23 +178,9 @@ page .container{
 .posts .item .desc{
   color:#666;
   font-size:18rpx;
+  margin-bottom:6rpx;
 }
 
-.posts .item .meta .tags{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: flex-start;
+.posts .item .meta mytags .tags{
   margin-top:6rpx;
-}
-
-.posts .item .meta .tags text{
-  display: inline-block;
-  background: #EFEFEF;
-  color: #666;
-  font-size:20rpx;
-  border-radius: 10rpx;
-  margin-left:15rpx;
-  padding:0 15rpx;
-  text-align: center;
 }

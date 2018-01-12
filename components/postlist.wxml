@@ -1,0 +1,30 @@
+
+  <view class="post-list">
+  
+    <navigator class="post" wx:for="{{[1,2,3,4]}}">
+    <image class="footer" src="/assets/images/post-list-footer.png"></image>
+      <view class="cover">
+        <image class="i" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1515584121240&di=ea9c32bc883e7cbf734722d8e4c596e0&imgtype=0&src=http%3A%2F%2Ftu.yihaojiaju.com%2FUploadFile%2F90%2FHouse%2Foriginal%2F201503%2F30%2F301503311767.jpg"></image>
+        <image class="play-btn" src="/assets/images/play-btn.png"></image>
+      </view>
+      <view class="meta">
+        <text class="title">保利湖畔阳光苑</text>
+        <view class="loc">
+          <image src="/assets/icons/location.png"></image>
+          嘉定 - 嘉定新城 - 永嘉路
+        </view>
+        <view class="area-price">
+          <text class="area">3室2厅2卫 100平</text>
+          <text class="price">300万</text>
+        </view>
+
+        <view class="tags-time">
+          <mytags items="{{['地铁','超市']}}"></mytags>
+          <text class="time">
+            评测 / 19:22
+          </text>
+        </view>
+        
+      </view>
+    </navigator>
+  </view>

@@ -1,1 +1,127 @@
-/* pages/post/post.wxss */
+/* pages/home/home.wxss */
+
+page{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-repeat: no-repeat;
+  justify-content: space-between;
+  background-image: url("http://jiayaosu-10013564.image.myqcloud.com/96cfe6df-eb50-4b8e-bac4-ecd04add3a80#750*850");
+  background-size: 750rpx 850rpx;
+  background-color: #f0f0f0;
+}
+
+page .container{
+  width:690rpx;
+  margin:0 auto;
+}
+
+
+ .myvideo{
+  width:690rpx;
+  height: 390rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.box{
+  border-radius: 20rpx;
+  background:#fff;
+  padding:25rpx 20rpx;
+  margin: 20rpx 0 35rpx;
+}
+
+.box .header .line{
+  border-bottom:1rpx dashed #d8d8d8;
+  height: 1rpx;
+  margin:20rpx 0 20rpx 0;
+}
+
+.box .header .title{
+  font-size:28rpx;
+  color:#333;
+  margin-bottom:30rpx;
+  display: inline-block;
+}
+.box .tags{
+  margin-bottom:10rpx;
+}
+
+.box .header .meta text{
+  font-size:22rpx;
+  color:#000;
+}
+
+.box .header .meta text.label{
+  color:#666;
+  width:150rpx;
+  display: inline-block;
+}
+
+.box .raw{
+  color: #808080;
+  font-size:20rpx;
+  line-height: 32rpx;
+  letter-spacing: 2rpx;
+}
+
+.box .raw image{
+  margin:20rpx 0;
+}
+
+.coupon{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.coupon .name{
+  display: flex;
+  flex-direction: column;
+  width:367rpx;
+}
+
+.coupon .name .t{
+  color:#333;
+  font-size:26rpx;
+}
+
+.coupon .name .d{
+  color:#666;
+  font-size: 20rpx;
+}
+
+.coupon .icon {
+  margin-right:36rpx;
+  margin-left:15rpx;
+  background:#ffd900;
+  width:82rpx;
+  height: 82rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 82rpx;
+}
+
+.coupon .icon image{
+  width:56rpx;
+  height: 60rpx;
+}
+
+.coupon .btn{
+  width:162rpx;
+  height: 52rpx;
+  font-size: 26rpx;
+  background:#ffd900;
+  text-align: center;
+  line-height: 52rpx;
+  border-radius: 10rpx;
+}
+
+.h1{
+  font-size:30rpx;
+  color:#000;
+  margin: 0 0 20rpx 0;
+}

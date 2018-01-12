@@ -1,1 +1,6 @@
-{}
+{
+  "usingComponents": {
+    "mytags": "/components/tags",
+    "mypostlist": "/components/postlist"
+  }
+}

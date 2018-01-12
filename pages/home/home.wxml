@@ -40,15 +40,10 @@
       <view class="desc">
         周边大型购物商场有台北风情街、宝龙城(这里是描述信息)
       </view>
-      <view class="tags">
-        <text class="tag">地铁</text>
-        <text class="tag">学区房</text>
-        <text class="tag">学区房</text>
-      </view>
+
+      <mytags right items="['学区房','地铁','商场']"></mytags>
     </view>
   </navigator>
-
-  
 
 </view>
 
