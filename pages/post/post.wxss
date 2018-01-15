@@ -1,11 +1,8 @@
 /* pages/home/home.wxss */
 
 page{
-  display:flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+
   background-repeat: no-repeat;
-  justify-content: space-between;
   background-image: url("http://jiayaosu-10013564.image.myqcloud.com/96cfe6df-eb50-4b8e-bac4-ecd04add3a80#750*850");
   background-size: 750rpx 850rpx;
   background-color: #f0f0f0;
@@ -13,11 +10,10 @@ page{
 
 page .container{
   width:690rpx;
-  margin:0 auto;
+  margin:0 auto 100rpx auto;
 }
 
-
- .myvideo{
+.myvideo{
   width:690rpx;
   height: 390rpx;
   border-radius: 20rpx;
@@ -29,6 +25,10 @@ page .container{
   background:#fff;
   padding:25rpx 20rpx;
   margin: 20rpx 0 35rpx;
+}
+
+.box .header{
+  position: relative;
 }
 
 .box .header .line{
@@ -74,6 +74,7 @@ page .container{
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: nowrap;
+  height: 126rpx;
   align-items: center;
 }
 
@@ -124,4 +125,121 @@ page .container{
   font-size:30rpx;
   color:#000;
   margin: 0 0 20rpx 0;
+}
+
+
+.footer-btns{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: center;
+  background: #fff;
+  width:750rpx;
+  padding:0rpx;
+  position: fixed;
+  bottom:0rpx;
+
+  height: 100rpx;
+  z-index:20;
+}
+
+.footer-btns .share{
+  width:70rpx;
+  font-size:22rpx;
+  color:#666;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-btns .share image{
+  width:35rpx;
+  height: 36rpx;
+}
+
+.footer-btns .qa {
+
+  width:366rpx;
+  font-size:26rpx;
+  color:#000;
+  background:#ffd900;
+}
+
+.footer-btns .qa image{
+  height: 28rpx;
+  width: 22rpx;
+  margin-left:20rpx;
+}
+
+.footer-btns .call{
+
+  background: #4a68e2;
+  width:222rpx;
+  font-size:26rpx;
+  color:#fff;
+}
+
+.footer-btns .call image{
+  width:30rpx;
+  height: 30rpx;
+   margin-left:20rpx;
+}
+
+.footer-btns .qa, .footer-btns .call{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 66rpx;
+  border-radius: 10rpx;
+}
+
+
+
+.like image{
+  width:28rpx;
+  height: 28rpx;
+}
+ .like{
+  padding-left:10rpx;
+  padding-right:5rpx;
+  width:84rpx;
+  height: 34rpx;
+  font-size:20rpx;
+  color:#fff;
+  background: rgba(0,0, 0, 0.5);
+  border-top-left-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+  position: absolute;
+  right:-20rpx;
+  top:0rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.mask{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  background: #000;
+  opacity: 0.9;
+  z-index:90;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hide{
+  display: none;
+  height: 0rpx;
+  width:0rpx;
+}
+
+.overflow-hidden{
+  position: fixed;
+  top:10rpx;
+  left:30rpx;
 }

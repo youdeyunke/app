@@ -7,9 +7,19 @@ Page({
    * 页面的初始数据
    */
   data: {
+
+    showMask: false,
   
   },
 
+  maskClickHandle: function(e){
+    this.setData({showMask: false})
+  },
+
+  shareClickHandle: function(e){
+    this.setData({showMask: true})
+  },
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -44,6 +54,13 @@ Page({
   onUnload: function () {
   
   },
+
+  callMe: function () {
+    wx.makePhoneCall({
+      phoneNumber: '15102993376' //仅为示例，并非真实的电话号码
+    })
+  },
+
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
