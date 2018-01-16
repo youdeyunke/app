@@ -3,8 +3,8 @@
 page{
 
   background-repeat: no-repeat;
-  background-image: url("http://jiayaosu-10013564.image.myqcloud.com/96cfe6df-eb50-4b8e-bac4-ecd04add3a80#750*850");
-  background-size: 750rpx 850rpx;
+  background-image: url("http://jiayaosu-10013564.image.myqcloud.com/63405b8d-6738-4b16-8052-1a5efb692768");
+  background-size: 750rpx 301rpx;
   background-color: #f0f0f0;
 }
 
@@ -13,7 +13,7 @@ page .container{
   margin:0 auto 100rpx auto;
 }
 
-.myvideo{
+.myvideo video{
   width:690rpx;
   height: 390rpx;
   border-radius: 20rpx;
@@ -24,7 +24,8 @@ page .container{
   border-radius: 20rpx;
   background:#fff;
   padding:25rpx 20rpx;
-  margin: 20rpx 0 35rpx;
+
+  box-shadow: 6rpx 6rpx 18rpx rgba(0,0,0, 0.1);
 }
 
 .box .header{
@@ -67,15 +68,22 @@ page .container{
 
 .box .raw image{
   margin:20rpx 0;
+  width:100%;
+}
+
+.main{
+  margin:18rpx 0 35rpx 0;
 }
 
 .coupon{
+  margin: 0 0 23rpx 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: nowrap;
   height: 126rpx;
   align-items: center;
+  box-shadow: 6rpx 6rpx 18rpx rgba(0,0,0, 0.1);
 }
 
 .coupon .name{
@@ -138,6 +146,7 @@ page .container{
   padding:0rpx;
   position: fixed;
   bottom:0rpx;
+  border-top:1px solid ＃efefef;
 
   height: 100rpx;
   z-index:20;
@@ -154,8 +163,8 @@ page .container{
 }
 
 .footer-btns .share image{
-  width:35rpx;
-  height: 36rpx;
+  width:30rpx;
+  height: 30rpx;
 }
 
 .footer-btns .qa {
@@ -167,8 +176,8 @@ page .container{
 }
 
 .footer-btns .qa image{
-  height: 28rpx;
-  width: 22rpx;
+  height: 30rpx;
+  width: 30rpx;
   margin-left:20rpx;
 }
 
@@ -230,6 +239,14 @@ page .container{
   z-index:90;
   height: 100%;
   overflow: hidden;
+}
+
+.mask image{
+  position: absolute;
+  width:515rpx;
+  height: 226rpx;
+  top:10rpx;
+  right:0rpx;
 }
 
 .hide{

@@ -2,12 +2,16 @@
 
 <view bindtap="maskClickHandle" class="mask {{showMask ? '' : 'hide'}}">
 showMask: {{ showMask }}
+  <image src="/assets/images/share_tip.png"></image>
+
 </view>
 
 <view class="container {{showMask ? 'overflow-hidden' : ''}}">
-   <video  autoplay controls class="myvideo" poster="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2276542338,4010545408&fm=27&gp=0.jpg" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+  <view class="myvideo">
+   <video  autoplay controls poster="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2276542338,4010545408&fm=27&gp=0.jpg" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+   </view>
 
-  <view class="box">
+  <view class="box main">
     <view class="header">
       <view class="like">
         <image src="/assets/icons/hart.png" ></image>
@@ -24,6 +28,16 @@ showMask: {{ showMask }}
         <text class="label">参考总价</text>
         <text> 360万 - 470万</text>
       </view>
+      <view class="meta">
+        <text class="label">主推户型</text>
+        <text> 3室2厅2卫 100平</text>
+      </view>
+      <view class="meta">
+        <text class="label">地址</text>
+        <text> 松江-新桥-明兴路18弄</text>
+      </view>      
+
+
       <view class="line"></view>
     </view>
 

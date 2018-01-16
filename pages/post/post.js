@@ -57,7 +57,7 @@ Page({
 
   callMe: function () {
     wx.makePhoneCall({
-      phoneNumber: '15102993376' //仅为示例，并非真实的电话号码
+      phoneNumber: '15002164370' //仅为示例，并非真实的电话号码
     })
   },
 

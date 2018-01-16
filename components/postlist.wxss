@@ -69,8 +69,8 @@
 }
 
 .post-list .post .meta .loc image{
-  width:18rpx;
-  height: 24rpx;
+  width:21rpx;
+  height: 21rpx;
   margin-right:10rpx;
 }
 
