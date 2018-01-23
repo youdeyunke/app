@@ -1,11 +1,10 @@
 {
   "pages": [
- 
     "pages/home/home",
+    "pages/qa/qa",
     "pages/index/index",
     "pages/post/post",
     "pages/myself/myself", 
-    "pages/qa/qa",
     "pages/qa/new",
     "pages/qa/index",
     "pages/post/index",
@@ -37,7 +36,7 @@
       {
         "iconPath": "/assets/icons/底部导航_09.png",
         "selectedIconPath": "/assets/icons/底部导航_03.png",
-        "pagePath": "pages/qa/index",
+        "pagePath": "pages/qa/qa",
         "text": "问答"
       },
 
@@ -59,10 +58,10 @@
   },
 
   "window": {
-    "enablePullDownRefresh": true,
+    "enablePullDownRefresh": false,
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#ffdb2d",
-    "backgroundColor": "#ffdb2d",
+    "navigationBarBackgroundColor": "#f9f9f9",
+    "backgroundColor": "#f9f9f9",
     "navigationBarTitleText": "真有好房",
     "navigationBarTextStyle": "black"
   }

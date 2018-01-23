@@ -1,21 +1,43 @@
-<!--pages/qa/qa.wxml-->
+
+<view class="form">
+  <textarea placeholder='在这里输入您的问题'>
+  </textarea>
+  <button>submit</button>
+  <scroll-view  style="width:700rpx; margin:0 auto;" scroll-x >
+    
+    <view class="tags" >
+    <text class="item" wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12,13]}}" id="item-{{index}}">标签{{index}}</text>
+    <text class="item active">标签2</text>
+    <text class="item">标签3</text>
+    </view>
+  
+  </scroll-view>
+
+</view>
+
 <view class="container">
+  <view class="search">
+    <input placeholder='买房、租房、评测'></input>
+  </view>
+
   <view class="qa-items">
-    <view class="qa-item">
+    <view class="qa-item" wx:for="{{[1,2,3,4,4,5]}}">
       <view class="header">
         <text class="icon">问</text>
         <text class="title">adbddfe?</text>
-        <view class="meta"></view>
+        <view class="author">商户用户</view>
       </view>
       <view class="body">
-         <text class="icon">问</text>
-          <view class="answer">这是是回答</view>
+         <text class="icon">答</text>
+          <view class="answer">
+            <text>这是是回答</text>
+            <view class="author">
+              <image src=""></image>
+              <text>user nickname</text>
+            </view>
+          </view>
       </view>
     </view>
-  </view>
-
-  <view class="qa-btn">
-    <navigator open-type='navigate' url="/pages/qa/new">new</navigator>
   </view>
 
 </view>
