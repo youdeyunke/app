@@ -160,11 +160,21 @@ page{
   margin:22rpx auto 22rpx auto;
   border-radius: 20rpx;
   background: rgba(255, 255, 255, 0.6);
-  font-size:20rpx;
+  font-size:22rpx;
+  position: relative;
 }
 
 .search input{
   width:696rpx;
   margin:0 auto;
   text-align: center;
+  padding:0 30rpx;
+}
+
+.search image{
+  width:40rpx;
+  height: 40rpx;
+  position: absolute;
+  left:200rpx;
+  bottom:0rpx;
 }

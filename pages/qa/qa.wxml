@@ -1,8 +1,8 @@
 
 <view class="form">
-  <textarea placeholder='在这里输入您的问题'>
+  <textarea placeholder='在这里输入您的问题...'>
   </textarea>
-  <button>submit</button>
+  <button>我要提问</button>
   <scroll-view  style="width:700rpx; margin:0 auto;" scroll-x >
     
     <view class="tags" >
@@ -17,6 +17,7 @@
 
 <view class="container">
   <view class="search">
+    <image src="/assets/icons/search.png"></image>
     <input placeholder='买房、租房、评测'></input>
   </view>
 
