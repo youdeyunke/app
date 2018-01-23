@@ -17,15 +17,15 @@ page{
 .qa-items{
   display: flex;
   flex-direction: column;
-  padding:15rpx 20rpx;
-   
+  padding:0rpx 20rpx 15rpx 20rpx;   
 }
 
 .qa-items .qa-item{
   background: #fff;
   padding:20rpx;
   border-radius: 5px;
-   margin-bottom:18rpx;
+   margin-bottom:calc(38rpx + 18rpx);
+   position: relative;
 }
 
 .qa-items .qa-item .header{
@@ -115,6 +115,8 @@ page{
 }
 
 .form button{
+  border:none;
+  outline: none;
   background: #ffdb2d;
   color:#000;
   width:164rpx;
@@ -177,4 +179,12 @@ page{
   position: absolute;
   left:200rpx;
   bottom:0rpx;
+}
+
+.qa-items .qa-item .footer{
+  width:100%;
+  height: 35rpx;
+  position: absolute;
+  bottom:-38rpx;
+  left:0;
 }

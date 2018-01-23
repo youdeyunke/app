@@ -38,6 +38,8 @@
             </view>
           </view>
       </view>
+      <image class="footer" src="/assets/images/post-list-footer.png"></image>
+
     </view>
   </view>
 
