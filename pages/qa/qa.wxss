@@ -133,7 +133,6 @@ page{
   height: 70rpx;
   width: 2000rpx;
   padding:0 ;
-
 }
 
 .tags .item{

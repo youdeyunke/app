@@ -6,8 +6,22 @@ Page({
   /**
    * 页面的初始数据
    */
+
+  loginTapHandle: function(){
+    
+    var _this = this
+    app.getUserInfo(function(userInfo){
+      //更新数据
+      _this.setData({
+        userInfo:userInfo,
+        hasUserInfo: true
+      })
+    })
+
+  },
+
   data: {
-    userInfo: null,
+    userInfo: {},
     hasUserInfo: false
   },
 
@@ -28,12 +42,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    this.setData({
-      userInfo: app.globalData.userInfo,
-      hasUserInfo: true
-    })  
-  
+  onShow: function () {  
   },
 
   /**
