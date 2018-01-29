@@ -6,7 +6,7 @@ page{
   flex-wrap: nowrap;
   background-repeat: no-repeat;
   justify-content: space-between;
-  background-image: url("http://jiayaosu-10013564.image.myqcloud.com/96cfe6df-eb50-4b8e-bac4-ecd04add3a80#750*850");
+  background-image: url("http://jiayaosu-10013564.image.myqcloud.com/39d0ccd7-721a-471e-a853-54ec69f564f5");
   background-size: 750rpx 850rpx;
 }
 

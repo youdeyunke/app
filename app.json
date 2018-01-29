@@ -1,11 +1,10 @@
 {
   "pages": [
-
+    "pages/myself/myself",
     "pages/home/home",
     "pages/qa/qa",
     "pages/index/index",
     "pages/post/post",
-    "pages/myself/myself", 
     "pages/qa/new",
     "pages/qa/index",
     "pages/post/index",

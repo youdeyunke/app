@@ -8,28 +8,25 @@ Page({
    */
 
   loginTapHandle: function(){
-    
     var _this = this
     app.getUserInfo(function(userInfo){
-      //更新数据
-      _this.setData({
-        userInfo:userInfo,
-        hasUserInfo: true
-      })
+      _this.setData({userInfo: userInfo})
+      console.log('set user info in myself.js ', userInfo)
     })
-
+    
   },
 
   data: {
-    userInfo: {},
-    hasUserInfo: false
+    userInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      userInfo: app.globalData.userInfo
+    })
   },
 
   /**
