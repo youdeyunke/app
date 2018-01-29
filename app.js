@@ -5,6 +5,7 @@ App({
   globalData: {
     userInfo: null,
     token: null,
+    loadingStatus: 0,
     apiHost: 'http://localhost:3000',
   },
 
@@ -78,6 +79,39 @@ App({
         }
       }
     });    
+  },
+
+  authRequired: function(){
+  },
+
+  request: function(obj) {
+    var _this = this
+
+    var header = obj.header || {}
+    if (!header['Content-Type']) {
+      header['Content-Type'] = 'application/json'
+    }
+    if (!header['Authorization']) {
+      header['Authorization'] = this.globalData.token
+    }
+    
+    // 如果接口需要登录
+    if(obj.authRequired && !_this.globalData.token){
+      return  _this.authRequired()
+    }
+
+    // This must be wx.request !
+    wx.request({
+      url: _this.globalData.apiHost + obj.url,
+      data: obj.data || {},
+      method: obj.method || 'GET',
+      header: header,
+      success: function(res) {
+        typeof obj.success == "function" && obj.success(res)
+      },
+      fail: obj.fail || function() {},
+      complete: obj.complete || function() {}
+    })
   },
 
 

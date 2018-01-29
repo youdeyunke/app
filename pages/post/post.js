@@ -1,5 +1,6 @@
-// pages/post/post.js
-
+// pages/post/index.js
+const app = getApp()
+var WxParse = require('../../utils/wxParse/wxParse.js');
 
 Page({
 
@@ -7,24 +8,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-
-    showMask: false,
-  
+    post: null,
+    htmlContent: '',
   },
 
-  maskClickHandle: function(e){
-    this.setData({showMask: false})
+  loadPost: function(postId){
+    var _this = this
+
+    app.request({
+      url: '/api/v1/posts/' + postId,
+      success: function(resp){
+        _this.setData({post: resp.data.data})
+        WxParse.wxParse('htmlContent', 'html', resp.data.data.content ,  _this, 5);
+
+      },
+
+    })
+
   },
 
-  shareClickHandle: function(e){
-    this.setData({showMask: true})
-  },
-  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var postId = options.id
+    this.loadPost(postId)
+
   },
 
   /**
@@ -54,13 +63,6 @@ Page({
   onUnload: function () {
   
   },
-
-  callMe: function () {
-    wx.makePhoneCall({
-      phoneNumber: '15002164370' //仅为示例，并非真实的电话号码
-    })
-  },
-
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作

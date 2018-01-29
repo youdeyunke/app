@@ -1,5 +1,21 @@
 // pages/home/home.js
+const app = getApp()
 Page({
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    selectedCity: 0,
+    posts: [],
+    cityList: ['上海', '北京', '广州'],
+    tabIcons: [
+      {name: '看测评', url: '/pages/home/home'},
+      {name: '问专家', url: '/pages/home/home'},
+      {name :'挑好房', url: '/pages/home/home'},
+      {name: '学知识', url: '/pages/home/home'},
+    ]
+  },
+
 
   onShareAppMessage: function () {
     return {
@@ -7,6 +23,18 @@ Page({
       desc: '真有好房',
       path: 'pages/index/index'
     }
+  },
+
+  loadPosts: function(){
+    var _this = this
+    app.request({
+      url: '/api/v1/posts',
+      data: {},
+      success: function(resp){
+        console.log(resp.data)
+        _this.setData({ posts: resp.data.data })
+      },
+    })
   },
 
   /** 下拉刷新
@@ -24,20 +52,6 @@ Page({
     }, 150);
   },
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    selectedCity: 0,
-    cityList: ['上海', '北京', '广州'],
-    tabIcons: [
-      {name: '看测评', url: '/pages/home/home'},
-      {name: '问专家', url: '/pages/home/home'},
-      {name :'挑好房', url: '/pages/home/home'},
-      {name: '学知识', url: '/pages/home/home'},
-    ]
-  },
-
   cityChangeHandle: function(e){
     this.setData({ selectedCity: e.detail.value})
   },
@@ -46,7 +60,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.loadPosts()
   },
 
   /**

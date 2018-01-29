@@ -6,18 +6,15 @@ Page({
   /**
    * 页面的初始数据
    */
-
-  loginTapHandle: function(){
-    var _this = this
-    app.getUserInfo(function(userInfo){
-      _this.setData({userInfo: userInfo})
-      console.log('set user info in myself.js ', userInfo)
-    })
-    
+  loadingStatusHandle: function(){
+    app.globalData.loadingStatus += 1
+    console.log('abc')
   },
 
+
   data: {
-    userInfo: {}
+    userInfo: null,
+    loadingStatus : null
   },
 
   /**
@@ -25,7 +22,8 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      userInfo: app.globalData.userInfo
+      userInfo: app.globalData.userInfo,
+      loadingStatus : app.globalData.loadingStatus
     })
   },
 

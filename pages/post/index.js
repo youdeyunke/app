@@ -1,17 +1,33 @@
 // pages/post/index.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    post: null,
+  },
+
+  loadPost: function(postId){
+    var _this = this
+
+    app.request({
+      url: '/api/v1/posts/' + postId,
+      success: function(resp){
+        _this.setData({post: resp.data.data})
+      },
+
+    })
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var postId = options.id
   
   },
 

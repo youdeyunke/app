@@ -1,4 +1,4 @@
-
+<import src="/utils/wxParse/wxParse.wxml"/>
 
 <view bindtap="maskClickHandle" class="mask {{showMask ? '' : 'hide'}}">
 showMask: {{ showMask }}
@@ -8,7 +8,7 @@ showMask: {{ showMask }}
 
 <view class="container {{showMask ? 'overflow-hidden' : ''}}">
   <view class="myvideo">
-   <video  autoplay controls poster="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=2276542338,4010545408&fm=27&gp=0.jpg" src="http://oc4tj4k6j.bkt.clouddn.com/uploads/WeChatSight1352.mp4" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+          <video  autoplay controls poster="{{ post.cover}}" src="{{post.video}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
    </view>
 
   <view class="box main">
@@ -18,7 +18,7 @@ showMask: {{ showMask }}
         <text>1999</text>
       </view>
 
-      <text class="title">金地双都汇</text>
+      <text class="title">{{ post.title }}{{ post.tags }}</text>
       <mytags items="['地铁','学区房', '地体', '学区房']" ></mytags>
       <view class="meta">
         <text class="label">开发商报价</text>
@@ -42,10 +42,7 @@ showMask: {{ showMask }}
     </view>
 
     <view class="raw">
-      1月12日早盘，沪综指低开高走，盘中再创反弹新高，之后回落到平盘线附近震荡整理。相对而言，“中小创”板块表现逊于主板，创业板指再次下破1800点整数关口。盘面上，行业、个股涨跌互现，银行、房地产等大金融板块表现强势，房地产指数一度涨逾2%，领涨两市行业指数。
-截至10:30，上证综指报3427.22点，涨0.05%；深证成指报11466.66点，涨0.02%；创业板指报1795.43点，跌0.49%；中小板指报7770.51点，跌0.14%。
-行业板块方面，中信一级行业指数中，房地产、非银行金融、家电、银行、轻工制造等涨幅居前；通信、有色金属、国防军工、计算机、食品饮料等跌幅居前。概念板块方面，Wind概念指数中，区打板、新型城镇化、新三板、西藏振兴等涨幅居前；食品安全、宽带提速、无线充电、稀土永磁等概念跌幅居前。
-            <image class="i" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1515584121240&di=ea9c32bc883e7cbf734722d8e4c596e0&imgtype=0&src=http%3A%2F%2Ftu.yihaojiaju.com%2FUploadFile%2F90%2FHouse%2Foriginal%2F201503%2F30%2F301503311767.jpg"></image>
+        <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>
     </view>
   </view>
 

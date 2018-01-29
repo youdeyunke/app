@@ -21,9 +21,9 @@
 </view>
 
 <view class="posts">
-  <navigator hover-class="none" wx:for="{{[1,1,1,1]}}" hover-class="none" url="/pages/post/post?id=11" class="item">
+        <navigator hover-class="none" wx:for="{{posts}}" hover-class="none" url="/pages/post/post?id={{item.id}}" class="item">
     <view class="header">
-      <image class="cover" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1515584121240&di=ea9c32bc883e7cbf734722d8e4c596e0&imgtype=0&src=http%3A%2F%2Ftu.yihaojiaju.com%2FUploadFile%2F90%2FHouse%2Foriginal%2F201503%2F30%2F301503311767.jpg"></image>
+            <image class="cover" src="{{item.cover}}"></image>
 
       <image src="/assets/images/play-btn.png" class="play-btn"></image>
       <view class="like">
@@ -34,7 +34,7 @@
 
     <view class="meta">
       <view class="price">
-        <text class="title">[板块评测]-上海-嘉定新城</text>
+              <text class="title">{{item.title}}</text>
         <text class="price">450万-620万</text>
       </view>
       <view class="desc">

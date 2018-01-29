@@ -1,5 +1,4 @@
 <view class="container">
-
   <view class="userinfo">
     <button wx:if="{{ !userInfo }}" bindtap="loginTapHandle"> 使用微信登录 </button>
     <block wx:else>
