@@ -20,4 +20,39 @@ video{
   width:100%;
 }
 
+.tags{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tags-left{
+  justify-content: flex-start;
+}
+
+.tags-right{
+  justify-content: flex-end;
+}
+
+.tags-left text{
+  margin-right:15rpx;
+}
+
+.tags-right text{
+  margin-left:15rpx;
+}
+
+.tags text{
+  display: inline-block;
+  background: #EFEFEF;
+  color: #666;
+  font-size:20rpx;
+  border-radius: 10rpx;
+  padding:0 15rpx;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+@import "/components/tags.wxss";
 @import "/utils/wxParse/wxParse.wxss";
+

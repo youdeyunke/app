@@ -18,37 +18,37 @@ showMask: {{ showMask }}
         <text>1999</text>
       </view>
 
-      <text class="title">{{ post.title }}{{ post.tags }}</text>
-      <mytags items="['地铁','学区房', '地体', '学区房']" ></mytags>
+      <text class="title">{{ post.title }}</text>
+      <mytags items="{{ post.tags_list }}" ></mytags>
 
-      <view wx-if="{{post.block && post.block.cate == 'block'}}">
+      <view wx-if="{{post.block_info && post.block_info.cate == 'block'}}">
               <view class="meta">
                 <text class="label">板块均价</text>
-                <text> {{post.block.block_average_price}}元/平米</text>
+                <text> {{post.block_info.block_average_price}}元/平米</text>
               </view>
 
 
               <view class="meta">
                 <text class="label">板块供求</text>
-                <text>{{ post.block.block_supply }}</text>
+                <text>{{ post.block_info.block_supply }}</text>
               </view>
 
               <view class="meta">
                 <text class="label">板块亮点</text>
-                <text> {{ post.block.block_features }}</text>
+                <text> {{ post.block_info.block_features }}</text>
               </view>
 
       </view>
 
-      <view wx-if="{{post.block && post.block.cate == 'item'}}">
+      <view wx-if="{{post.block_info && post.block_info.cate == 'item'}}">
               <view class="meta">
                 <text class="label">开发商报价</text>
-                <text>{{ post.block.item_price }} 元/㎡</text>
+                <text>{{ post.block_info.item_price }} 元/㎡</text>
               </view>
 
               <view class="meta">
                 <text class="label">参考总价</text>
-                <text> {{ post.block.item_total_price_min }}万-{{ post.block.item_total_price_max }}万</text>
+                <text> {{ post.block_info.item_total_price_min }}万-{{ post.block_info.item_total_price_max }}万</text>
               </view>
 
               <view class="meta">
@@ -84,7 +84,8 @@ showMask: {{ showMask }}
   </navigator>
   
   <text class="h1">好房推荐</text>
-  <mypostlist></mypostlist>
+  <mypostlist items="{{ recoms }}"></mypostlist>
+
 </view>
 
 <view class="footer-btns  {{ showMask == true ? 'hide' : ''}}">

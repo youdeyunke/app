@@ -1,4 +1,3 @@
-
 .tags{
   display: flex;
   flex-direction: row;
@@ -29,4 +28,6 @@
   border-radius: 10rpx;
   padding:0 15rpx;
   text-align: center;
+  flex-shrink: 0;
 }
+

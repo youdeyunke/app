@@ -98,3 +98,8 @@
   font-size:20rpx;
   color:#666;
 }
+
+.post-list .post  mytags{
+}
+
+@import "/components/tags.wxss";

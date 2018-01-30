@@ -9,7 +9,19 @@ Page({
    */
   data: {
     post: null,
-    htmlContent: '',
+    recoms: null,
+    htmlContent: null
+  },
+
+  loadRecoms: function(postId){
+    var _this = this
+    app.request({
+      url: '/api/v1/posts/',
+      data: {pid: postId, type:'recoms'},
+      success: function(resp){
+        _this.setData({recoms: resp.data.data})
+      },
+    })
   },
 
   loadPost: function(postId){
@@ -33,6 +45,7 @@ Page({
   onLoad: function (options) {
     var postId = options.id
     this.loadPost(postId)
+    this.loadRecoms(postId)
 
   },
 

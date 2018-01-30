@@ -37,9 +37,10 @@
               <text class="title">{{item.title}}</text>
         <text class="price">450万-620万</text>
       </view>
-      <view class="desc" wx:if="item.desc"> {{ item.desc }} </view>
+      <view class="desc" wx:if="{{item.desc}}"> {{ item.desc }} </view>
 
       <mytags right items="{{item.tags_list}}"></mytags>
+
     </view>
   </navigator>
 
