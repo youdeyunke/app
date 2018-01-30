@@ -1,7 +1,7 @@
 
   <view class="post-list">
   
-    <navigator class="post" url="/pages/post/post?id={{index}}" wx:index="index" wx:for="{{items}}">
+    <navigator class="post" url="/pages/post/post?id={{item.id}}" wx:index="index" wx:for="{{items}}">
     <image class="footer" src="/assets/images/post-list-footer.png"></image>
       <view class="cover">
               <image class="i" src="{{ item.cover }}"></image>
