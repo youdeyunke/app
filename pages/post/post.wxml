@@ -20,18 +20,44 @@ showMask: {{ showMask }}
 
       <text class="title">{{ post.title }}{{ post.tags }}</text>
       <mytags items="['地铁','学区房', '地体', '学区房']" ></mytags>
-      <view class="meta">
-        <text class="label">开发商报价</text>
-        <text> 45000元/平米</text>
+
+      <view wx-if="{{post.block && post.block.cate == 'block'}}">
+              <view class="meta">
+                <text class="label">板块均价</text>
+                <text> {{post.block.block_average_price}}元/平米</text>
+              </view>
+
+
+              <view class="meta">
+                <text class="label">板块供求</text>
+                <text>{{ post.block.block_supply }}</text>
+              </view>
+
+              <view class="meta">
+                <text class="label">板块亮点</text>
+                <text> {{ post.block.block_features }}</text>
+              </view>
+
       </view>
-      <view class="meta">
-        <text class="label">参考总价</text>
-        <text> 360万 - 470万</text>
+
+      <view wx-if="{{post.block && post.block.cate == 'item'}}">
+              <view class="meta">
+                <text class="label">开发商报价</text>
+                <text>{{ post.block.item_price }} 元/㎡</text>
+              </view>
+
+              <view class="meta">
+                <text class="label">参考总价</text>
+                <text> {{ post.block.item_total_price_min }}万-{{ post.block.item_total_price_max }}万</text>
+              </view>
+
+              <view class="meta">
+                <text class="label">主推户型</text>
+                <text> {{ post.item_layout }}</text>
+              </view>
       </view>
-      <view class="meta">
-        <text class="label">主推户型</text>
-        <text> 3室2厅2卫 100平</text>
-      </view>
+
+
       <view class="meta">
         <text class="label">地址</text>
         <text> 松江-新桥-明兴路18弄</text>

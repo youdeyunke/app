@@ -39,9 +39,6 @@ page .container{
   margin:20rpx 0 20rpx 0;
 }
 
-.box .header view.meta{
-        width:320rpx;}
-
 .box .header .title{
   font-size:28rpx;
   color:#333;
