@@ -48,6 +48,7 @@ page .container{
   margin-bottom:30rpx;
   display: inline-block;
 }
+
 .box .tags{
   margin-bottom:10rpx;
 }
