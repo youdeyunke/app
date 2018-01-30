@@ -2,11 +2,13 @@
   "pages": [
     "pages/home/home",
     "pages/myself/myself",
-    "pages/qa/qa",
     "pages/index/index",
     "pages/post/post",
+
+    "pages/qa/qa",
     "pages/qa/new",
     "pages/qa/index",
+
     "pages/post/index",
     "pages/logs/logs"
 

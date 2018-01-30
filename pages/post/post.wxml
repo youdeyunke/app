@@ -93,7 +93,7 @@ showMask: {{ showMask }}
     <image src="/assets/icons/share.png"></image>
     分享
    </view>
-   <navigator class="qa" url="/pages/qa/qa?postId={{post.id}}">
+   <navigator open-type='redirect' class="qa" url="/pages/qa/qa?postId={{post.id}}">
     我要提问<image src="/assets/icons/pen.png"></image>
    </navigator>
    <view class="call" bindtap="callMe">
