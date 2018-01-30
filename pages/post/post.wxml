@@ -13,7 +13,7 @@ showMask: {{ showMask }}
 
   <view class="box main">
     <view class="header">
-      <view class="like">
+      <view class="like item">
         <image src="/assets/icons/hart.png" ></image>
         <text>1999</text>
       </view>
@@ -66,9 +66,9 @@ showMask: {{ showMask }}
     <image src="/assets/icons/share.png"></image>
     分享
    </view>
-   <view class="qa">
+   <navigator class="qa" url="/pages/qa/qa?postId={{post.id}}">
     我要提问<image src="/assets/icons/pen.png"></image>
-   </view>
+   </navigator>
    <view class="call" bindtap="callMe">
     预约看房<image src="/assets/icons/call.png"></image>
    </view>

@@ -50,7 +50,8 @@ App({
     var _this = this
 
     // 发送给服务器
-    wx.request({
+    _this.request({
+
       data: { 
         code: code, 
         encryptedData: encryptedData, 
@@ -87,6 +88,11 @@ App({
   request: function(obj) {
     var _this = this
 
+    wx.showLoading({
+      title: '加载中',
+      mask: false
+    })
+
     var header = obj.header || {}
     if (!header['Content-Type']) {
       header['Content-Type'] = 'application/json'
@@ -107,10 +113,16 @@ App({
       method: obj.method || 'GET',
       header: header,
       success: function(res) {
+        wx.hideLoading()
         typeof obj.success == "function" && obj.success(res)
       },
-      fail: obj.fail || function() {},
-      complete: obj.complete || function() {}
+      fail: function() {
+        wx.hideLoading()
+      },
+      complete: function() {
+        wx.hideLoading()
+        typeof obj.complete == "function" && obj.complete()
+      }
     })
   },
 

@@ -30,6 +30,7 @@ page .container{
 
 .box .header{
   position: relative;
+  width:680rpx;
 }
 
 .box .header .line{
@@ -37,6 +38,9 @@ page .container{
   height: 1rpx;
   margin:20rpx 0 20rpx 0;
 }
+
+.box .header view.meta{
+        width:320rpx;}
 
 .box .header .title{
   font-size:28rpx;
@@ -66,9 +70,9 @@ page .container{
   letter-spacing: 2rpx;
 }
 
-.box .raw image{
-  margin:20rpx 0;
-  width:100%;
+.box .raw image.wxParse-img{
+  margin:20rpx auto;
+  width:300rpx;
 }
 
 .main{
@@ -220,7 +224,7 @@ page .container{
   border-top-left-radius: 10rpx;
   border-bottom-left-radius: 10rpx;
   position: absolute;
-  right:-20rpx;
+  right:10rpx;
   top:0rpx;
   display: flex;
   flex-direction: row;
