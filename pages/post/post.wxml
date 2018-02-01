@@ -15,7 +15,7 @@ showMask: {{ showMask }}
     <view class="header">
       <view class="like item">
         <image src="/assets/icons/hart.png" ></image>
-        <text>1999</text>
+        <text>{{post.like_nums_base}}</text>
       </view>
 
       <text class="title">{{ post.title }}</text>

@@ -59,7 +59,7 @@ App({
       },
 
       method: 'POST',
-      url: _this.globalData.apiHost + '/api/v1/sessions',
+      url: '/api/v1/sessions',
       success: function (resp) {
         var data = resp.data
 
@@ -107,13 +107,36 @@ App({
     }
 
     // This must be wx.request !
+    var url = _this.globalData.apiHost + obj.url
+    console.log('app.request, url:', url)
+
     wx.request({
-      url: _this.globalData.apiHost + obj.url,
+      url: url,
       data: obj.data || {},
       method: obj.method || 'GET',
       header: header,
       success: function(res) {
         wx.hideLoading()
+        console.log(res.data)
+        if(res.data.status == 2000){
+          console.log('login required')
+          wx.showModal({
+            title: '需要登录',
+            content: '请先登录账号，再继续操作',
+            success: function(res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+                wx.switchTab({ url: '/pages/myself/myself' })
+
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
+
+          return false
+        }
+
         typeof obj.success == "function" && obj.success(res)
       },
       fail: function() {

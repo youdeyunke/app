@@ -6,9 +6,13 @@ Page({
   /**
    * 页面的初始数据
    */
-  loadingStatusHandle: function(){
+  loginTapHandle: function(){
+    var _this = this
     app.globalData.loadingStatus += 1
     console.log('abc')
+    app.getUserInfo(function(userInfo){
+      _this.setData({userInfo: userInfo})
+    })
   },
 
 

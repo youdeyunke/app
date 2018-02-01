@@ -28,7 +28,7 @@
       <image src="/assets/images/play-btn.png" class="play-btn"></image>
       <view class="like">
         <image src="/assets/icons/hart.png" ></image>
-        <text>1999</text>
+        <text>{{item.like_nums_base}}</text>
       </view>
     </view>
 
