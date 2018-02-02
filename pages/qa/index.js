@@ -21,6 +21,16 @@ Page({
     this.loadItems()
   },
 
+  itemHandle: function(e){
+    console.log(e)
+    var index = e.currentTarget.dataset['index']
+    var item =  this.data.items[index]
+    console.log('index,', index)
+    console.log('item,', item)
+    wx.setStorageSync('question_' + item.id, item)
+    wx.navigateTo({ url: '/pages/qa/qa?id=' + item.id })
+  },
+
   inputHandle :function(e){
     var v = e.detail.value
     this.setData({ questionContent: v })

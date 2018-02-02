@@ -21,7 +21,7 @@
   </view>
 
   <view class="qa-items">
-          <view class="qa-item" wx:for="{{items}}">
+          <view class="qa-item" wx:for="{{items}}" bindtap="itemHandle" data-index="{{index}}">
       <view class="header">
         <text class="icon">问</text>
         <text class="title">{{item.content}}</text>

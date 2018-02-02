@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    item: null,
   
   },
 
@@ -12,7 +13,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    var qid = options.id
+    this.setData({item: wx.getStorageSync('question_' + qid)})
+  },
+
+  loadQuestion: function(qid){
   },
 
   /**
