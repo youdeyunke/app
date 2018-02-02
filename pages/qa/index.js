@@ -10,7 +10,7 @@ Page({
     catId: null,
     cats: [{name: '全部', id: 0}],
     items: null,
-    questionContent: wx.getStorageSync('question_content')
+    questionContent: wx.getStorageSync('question_content') || ''
   },
 
   /**
@@ -21,16 +21,15 @@ Page({
     this.loadItems()
   },
 
-  inputHandle: function(e){
+  inputHandle :function(e){
     var v = e.detail.value
-    console.log('input: ', v)
-    // cache
-    wx.setStorageSync('question_content', v)
+    this.setData({ questionContent: v })
   },
 
+
   submitHandle: function(){
-    var content = wx.getStorageSync('question_content')
     var _this = this
+    var content =  _this.data.questionContent
     var qLen = content.length
     var qMinLength = 10
 
@@ -54,20 +53,24 @@ Page({
   },
 
   doSubmit: function(){
-    var content = wx.getStorageSync('question_content')
     var _this = this
+    var content = _this.data.questionContent 
+    // 保存到本地，用户跳转到登录后，文本不丢失
+    wx.setStorageSync('question_content', content)
+
     app.request({
       method: 'POST',
       url: '/api/v1/questions/',
       data: { content: content, cid:  this.data.catId },
       success: function(resp){
+        // clear cache
+        _this.setData({questionContent : ''})
+        wx.setStorageSync('question_content', '')
         wx.showToast({
           title: '问题提交成功，我们会尽快回复您',
           icon: 'success',
           duration: 4000
         })
-        // clear cache
-        wx.setStorageSync('question_content', null)
       }
     })
   },

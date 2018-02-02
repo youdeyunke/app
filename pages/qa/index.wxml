@@ -1,7 +1,7 @@
 
 <view class="form">
   <form  bindsubmit="submitHandle" >
-    <textarea name="content" bindinput="inputHandle" placeholder='在这里输入您的问题...'> </textarea>
+          <textarea bindinput="inputHandle" maxlength="200" value="{{questionContent}}" name="content" placeholder='在这里输入您的问题...'></textarea>
     <button  class="button" type="default" form-type="submit" >我要提问</button>
   </form>
 
