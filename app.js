@@ -9,6 +9,16 @@ App({
     apiHost: 'http://localhost:3000',
   },
 
+  loadPosts:function(cb){
+    this.request({
+      url: '/api/v1/posts',
+      data: {},
+      success: function(resp){
+        typeof cb == "function" && cb(resp.data)
+      },
+    })
+  },
+
   onLaunch: function () {
     var _this = this
     var logs = wx.getStorageSync('logs') || []

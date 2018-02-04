@@ -1,1 +1,67 @@
-{{item}}
+<view class="container">
+
+  <view class="box q">
+    <view class="box-header">
+      <view class="icon">问</view>
+      <view class="content">{{item.content}}</view>
+    </view>
+    <view class="box-body">
+      <view class="author">{{item.user.nickname}}</view>
+      <view class="time">{{item.created_at}}</view>
+    </view>
+    <image class="box-footer" src="/assets/images/post-list-footer.png"></image>
+  </view>
+
+  <view class="box a">
+    <view class="box-header">
+      <view class="icon">答</view>
+      <view class="author">
+        <view class="name">
+          <image src="{{item.user.avatar}}"></image>
+          <view class="nickname">{{ item.admin_user.name }}</view>
+          <view class="instr">{{item.admin_user.desc}}</view>
+        </view>
+        <view class="btn-add-q" bindtap="newHandle">向他提问</view>
+      </view>
+    </view>
+    <view class="box-body">
+      <view class="about">
+        <view class="part1 item">
+          <view class="label">咨询人数</view>
+          <view class="value">{{item.admin_user.zixun_num}}人</view>
+        </view>
+        <view class="part2 item">
+          <view class="label">参考楼盘</view>
+          <view class="value">{{item.admin_user.loupan_num}}次</view>
+        </view>
+      </view>
+
+      <view class="answer"> {{item.answer}}</view>
+      <view class="info">
+        <view class="time">{{item.updated_at}}</view>
+        <view class="like">
+          <view class="number">有用(119)</view>
+        </view>
+      </view>
+    </view>
+    <image class="box-footer" src="/assets/images/post-list-footer.png"></image>
+  </view>
+
+
+<view class="blank-block" bindtap="moreHandle">
+  <view class="name">你可能还想了解</view>
+  <view class="more">查看全部问答 > </view>
+</view>
+
+<view class="more-qas">
+  <navigator url="/pages/qa/qa?id={{item.id}}"  class="box q" wx:for="{{qas}}">
+    <view class="box-header">
+      <view class="icon">问</view>
+      <view class="content">{{item.content}}</view>
+    </view>
+    <image class="box-footer" src="/assets/images/post-list-footer.png"></image>
+  </navigator>
+</view>
+
+</view>
+

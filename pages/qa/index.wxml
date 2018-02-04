@@ -21,7 +21,7 @@
   </view>
 
   <view class="qa-items">
-          <view class="qa-item" wx:for="{{items}}" bindtap="itemHandle" data-index="{{index}}">
+    <view class="qa-item" wx:for="{{items}}" bindtap="itemHandle" data-index="{{index}}">
       <view class="header">
         <text class="icon">问</text>
         <text class="title">{{item.content}}</text>
@@ -32,8 +32,8 @@
           <view class="answer">
             <text>{{item.answer}}</text>
             <view class="author">
-              <image src=""></image>
-              <text></text>
+              <image src="{{item.admin_user.avatar}}"></image>
+              <text>{{item.admin_user.name}}</text>
             </view>
           </view>
       </view>

@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    catId: null,
+    catId: 0,
     cats: [{name: '全部', id: 0}],
     items: null,
     questionContent: wx.getStorageSync('question_content') || ''
@@ -111,9 +111,8 @@ Page({
       url: '/api/v1/questions/',
       data: {cat_id: _this.data.catId},
       success: function(res){
-        _this.setData({
-          items: res.data.data
-        })
+        _this.setData({ items: res.data.data })
+        wx.setStorageSync('questions', res.data.data)
       }
     })
   },

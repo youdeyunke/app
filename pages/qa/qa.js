@@ -1,4 +1,6 @@
 // pages/qa/qa.js
+const app = getApp()
+
 Page({
 
   /**
@@ -6,7 +8,44 @@ Page({
    */
   data: {
     item: null,
+    qas: null,
   
+  },
+
+  moreHandle: function(e){
+    console.log('more handle')
+    wx.switchTab({
+
+      url: '/pages/qa/index',
+    })
+  },
+
+  newHandle: function(e){
+    wx.switchTab({
+      url: '/pages/qa/index',
+    })
+  },
+
+  randomQas: function(len=2){
+    var qas = []
+    var QAS = wx.getStorageSync('questions')
+    var _this = this
+    console.log('QAS,', QAS)
+
+    for(var i=0;i<QAS.length;i++){
+      if(qas.length == len){
+        break
+      }
+
+      var qa = QAS[i]
+      if(qa['id'] != this.data.item['id']){
+        qas.push(qa)
+      } 
+    }
+
+    _this.setData({qas: qas})
+    console.log('qas,', qas)
+
   },
 
   /**
@@ -15,9 +54,7 @@ Page({
   onLoad: function (options) {
     var qid = options.id
     this.setData({item: wx.getStorageSync('question_' + qid)})
-  },
-
-  loadQuestion: function(qid){
+    this.randomQas(2)
   },
 
   /**

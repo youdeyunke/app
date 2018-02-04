@@ -1,5 +1,6 @@
 // pages/home/home.js
 const app = getApp()
+
 Page({
   /**
    * 页面的初始数据
@@ -9,8 +10,8 @@ Page({
     posts: [],
     cityList: ['上海', '北京', '广州'],
     tabIcons: [
-      {name: '看测评', url: '/pages/home/home'},
-      {name: '问专家', url: '/pages/home/home'},
+      {name: '看测评', url: '/pages/post/index'},
+      {name: '问专家', url: '/pages/qa/index'},
       {name :'挑好房', url: '/pages/home/home'},
       {name: '学知识', url: '/pages/home/home'},
     ]
@@ -25,17 +26,6 @@ Page({
     }
   },
 
-  loadPosts: function(){
-    var _this = this
-    app.request({
-      url: '/api/v1/posts',
-      data: {},
-      success: function(resp){
-        console.log(resp.data)
-        _this.setData({ posts: resp.data.data })
-      },
-    })
-  },
 
   /** 下拉刷新
    * 
@@ -60,7 +50,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.loadPosts()
+    var _this = this
+    app.loadPosts(function(resp){
+      console.log('home.js posts:', resp.data)
+      _this.setData({posts: resp.data})
+    })
   },
 
   /**

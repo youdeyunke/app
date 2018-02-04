@@ -1,17 +1,11 @@
 {
   "pages": [
-    "pages/qa/index",
     "pages/home/home",
-    "pages/myself/myself",
-    "pages/index/index",
-    "pages/post/post",
-
-    "pages/qa/new",
     "pages/qa/qa",
-
+    "pages/qa/index",
+    "pages/post/post",
     "pages/post/index",
-    "pages/logs/logs"
-
+    "pages/myself/myself"
   ],
 
   "tabBar": {    
