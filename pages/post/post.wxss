@@ -262,3 +262,5 @@ page .container{
   top:10rpx;
   left:30rpx;
 }
+
+@import "/tpls/posts/mini_listing.wxss";

@@ -6,14 +6,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    selectedCity: 0,
     posts: [],
-    cityList: ['上海', '北京', '广州'],
     tabIcons: [
-      {name: '看测评', url: '/pages/post/index'},
-      {name: '问专家', url: '/pages/qa/index'},
-      {name :'挑好房', url: '/pages/home/home'},
-      {name: '学知识', url: '/pages/home/home'},
+      {name: '看测评', url: '/pages/post/index', opentype:"navigate"},
+      {name: '问专家', url: '/pages/qa/index', opentype:"switchTab"},
+      {name :'挑好房', url: '/pages/home/home', opentype:"switchTab"},
+      {name: '学知识', url: '/pages/home/home', opentype:"switchTab"},
     ]
   },
 
@@ -42,9 +40,6 @@ Page({
     }, 150);
   },
 
-  cityChangeHandle: function(e){
-    this.setData({ selectedCity: e.detail.value})
-  },
 
   /**
    * 生命周期函数--监听页面加载

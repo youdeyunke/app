@@ -1,26 +1,15 @@
 <import src="/tpls/posts/listing.wxml"/>
 
 <view class="container">
-<view class="top-bar">
-  <picker bindchange="cityChangeHandle" value="0" mode="selector" range="{{cityList}}">
-    {{cityList[selectedCity]}} <image src="/assets/icons/home-arrow.png" ></image>
-  </picker>
-
-  <view class="search-bar">
-    <image class="btn" src="/assets/icons/search.png" ></image>
-    <input placeholder='买房 租房 评测' />
-  </view>
-</view>
-
-
-<myslider></myslider>
-<view class="tab-icons">
+  <mytopbar></mytopbar>
+  <myslider></myslider>
+  <view class="tab-icons">
   
-  <navigator open-type='switchTab' hover-class="none"  wx:for-index="index" url="{{item.url}}" wx:for="{{tabIcons}}">
-    <image src="/assets/icons/{{index}}.png"></image>
-    <text>{{ item.name }}</text>
-  </navigator>
-</view>
+          <navigator open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" url="{{item.url}}" wx:for="{{tabIcons}}">
+      <image src="/assets/icons/{{index}}.png"></image>
+      <text>{{ item.name }}</text>
+    </navigator>
+  </view>
   <template is="posts"  data="{{ posts }}"></template>
 
 

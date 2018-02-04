@@ -9,7 +9,7 @@ Page({
    */
   data: {
     post: null,
-    recoms: null,
+    posts: null,
     htmlContent: null
   },
 
@@ -19,7 +19,7 @@ Page({
       url: '/api/v1/posts/',
       data: {pid: postId, type:'recoms'},
       success: function(resp){
-        _this.setData({recoms: resp.data.data})
+        _this.setData({posts: resp.data.data})
       },
     })
   },

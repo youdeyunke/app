@@ -15,57 +15,6 @@ page .container{
   margin:0 auto;
 }
 
-.top-bar{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: nowrap;
-  height: 110rpx;
-}
-
-.top-bar picker{
-  width:138rpx;
-  font-size:28rpx;
-  color:#000;
-  padding-left:10rpx;
-}
-
-.top-bar picker image{
-  width:18rpx;
-  height: 18rpx;
-}
-
-.top-bar .search-bar{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  width:552rpx;
-  position: relative;
-}
-
-.top-bar .search-bar .btn{
-  width:40rpx;
-  height: 40rpx;
-  border:none;
-  position: absolute;
-  left:30rpx;
-  top:7rpx;
-  z-index: 10;
-  
-}
-
-.top-bar .search-bar input{
-  height: 46rpx; 
-  background: #fff;
-  opacity: 0.6;
-  border-radius: 40rpx;
-  width:100%;
-  padding-left:100rpx;
-  font-size:22rpx;
-  line-height: 46rpx;
-
-  }
-
 .tab-icons{
   display: flex;
   flex-direction: row;
@@ -93,4 +42,4 @@ page .container{
   font-size:24rpx;
   margin-top:20rpx;
 }
-@import "/pages/post/index.wxss";
+@import "/tpls/posts/listing.wxss";

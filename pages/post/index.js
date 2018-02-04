@@ -7,29 +7,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    post: null,
+    post: [],
   },
 
-  loadPost: function(postId){
-    var _this = this
 
-    app.request({
-      url: '/api/v1/posts/' + postId,
-      success: function(resp){
-        _this.setData({post: resp.data.data})
-      },
-
-    })
-
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    var postId = options.id
-  
+    var _this = this
+    app.loadPosts(function(resp){
+      console.log('home.js posts:', resp.data)
+      _this.setData({posts: resp.data})
+    })
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,4 +1,5 @@
 <import src="/utils/wxParse/wxParse.wxml"/>
+<import src="/tpls/posts/mini_listing.wxml"/>
 
 <view bindtap="maskClickHandle" class="mask {{showMask ? '' : 'hide'}}">
 showMask: {{ showMask }}
@@ -84,7 +85,7 @@ showMask: {{ showMask }}
   </navigator>
   
   <text class="h1">好房推荐</text>
-  <mypostlist items="{{ recoms }}"></mypostlist>
+  <template is="miniposts"  data="{{ posts }}"></template>
 
 </view>
 

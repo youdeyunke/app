@@ -1,0 +1,10 @@
+<view class="top-bar">
+  <picker bindchange="cityChangeHandle" value="0" mode="selector" range="{{cityList}}">
+    {{cityList[selectedCity]}} <image src="/assets/icons/home-arrow.png" ></image>
+  </picker>
+
+  <view class="search-bar">
+    <image class="btn" src="/assets/icons/search.png" ></image>
+    <input placeholder='买房 租房 评测' />
+  </view>
+</view>

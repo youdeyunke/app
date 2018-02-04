@@ -26,7 +26,7 @@
       {
         "iconPath": "/assets/icons/底部导航_07.png",
         "selectedIconPath": "/assets/icons/底部导航_02.png",
-        "pagePath": "pages/post/index",
+        "pagePath": "pages/home/home",
         "text": "好房"
       },    
       {

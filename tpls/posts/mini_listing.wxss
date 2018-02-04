@@ -1,0 +1,105 @@
+.post-list .post{
+  border-radius: 20rpx;
+  background: #fff;
+  height: 184rpx;
+  position: relative;
+  margin-bottom:45rpx;
+}
+
+.post-list .post .footer{
+  position: absolute;
+  bottom:-29rpx;
+  left:0rpx;
+  z-index: 10;
+  height: 30rpx;
+  width: 100%;  
+}
+
+.post-list .post{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding:25rpx 20rpx;
+}
+
+.post-list .post .cover{
+  position: relative;
+  border-radius: 10rpx;
+  overflow: hidden;
+  width:266rpx;
+  height: 184rpx;  
+}
+
+.post-list .post .cover .i{
+  width:100%;
+  height: 100%;
+}
+
+.post-list .post .play-btn{
+  position: absolute;
+  width:36rpx;
+  height: 36rpx;
+  left:calc(266rpx * 0.5 - 36rpx * 0.5);
+  top:calc(184rpx * 0.5 - 36rpx * 0.5);
+
+}
+
+.post-list .post .meta{
+  width:362rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.post-list .post .meta .title{
+  color:#333;
+  font-size:26rpx;
+   border-bottom:1px solid #f3f3f3;
+   padding-bottom:17rpx;
+   margin-bottom:17rpx;
+
+}
+
+.post-list .post .meta .loc{
+  font-size: 20rpx;
+  color:#666;
+  display: flex;
+  align-items: center;
+
+}
+
+.post-list .post .meta .loc image{
+  width:21rpx;
+  height: 21rpx;
+  margin-right:10rpx;
+}
+
+.post-list .post .meta .area-price{
+  font-size:20rpx;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.post-list .post .meta .area-price .area{
+  color:#000;
+}
+
+.post-list .post .meta .area-price .price{
+  color:#666;
+}
+
+.post-list .post .meta .tags-time{
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-list .post .meta .tags-time .time{
+  font-size:20rpx;
+  color:#666;
+}
+
+.post-list .post  mytags{
+}
+
+@import "/components/tags.wxss";

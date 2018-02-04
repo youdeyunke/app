@@ -1,2 +1,10 @@
 <!--pages/post/index.wxml-->
-<text>pages/post/index.wxml</text>
+<import src="/tpls/posts/mini_listing.wxml"/>
+
+<view class="container">
+
+  <mytopbar></mytopbar>
+  <myslider></myslider>
+  <template is="miniposts"  data="{{ posts }}"></template>
+
+</view>

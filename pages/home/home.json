@@ -1,6 +1,6 @@
 {
     "usingComponents": {
-      "mytabs": "/components/tabs",
+      "mytopbar": "/components/topbar",
       "mytags": "/components/tags",
       "myslider": "/components/slider"
     }
