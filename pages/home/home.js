@@ -46,7 +46,7 @@ Page({
    */
   onLoad: function (options) {
     var _this = this
-    app.loadPosts(function(resp){
+    app.loadPosts({}, function(resp){
       console.log('home.js posts:', resp.data)
       _this.setData({posts: resp.data})
     })

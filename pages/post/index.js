@@ -7,16 +7,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-    post: [],
+    itemPosts: [],
+    blockPosts: []
   },
 
 
   onLoad: function (options) {
     var _this = this
-    app.loadPosts(function(resp){
+    app.loadPosts({cate: 'item'} ,function(resp){
       console.log('home.js posts:', resp.data)
-      _this.setData({posts: resp.data})
+      _this.setData({itemPosts: resp.data})
     })
+
+    app.loadPosts({cate: 'block'}, function(resp){
+      console.log('home.js posts:', resp.data)
+      _this.setData({blockPosts: resp.data})
+    })
+
   },
 
 

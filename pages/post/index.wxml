@@ -5,6 +5,6 @@
 
   <mytopbar></mytopbar>
   <myslider></myslider>
-  <template is="miniposts"  data="{{ posts }}"></template>
+  <template is="miniposts"  data="{{ posts: itemPosts }}"></template>
 
 </view>

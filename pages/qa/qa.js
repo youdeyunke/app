@@ -99,10 +99,14 @@ Page({
   
   },
 
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function () {
-  
-  }
+    var _this = this
+    return {
+      desc: _this.data.item['content'],
+      title: '真有好房',
+      path: 'pages/qa/qa?id=' + _this.data.item['id']
+    }
+  },
+
+
 })

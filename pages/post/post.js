@@ -90,11 +90,14 @@ Page({
   onReachBottom: function () {
   
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
   
-  }
+  onShareAppMessage: function () {
+    var _this = this
+    return {
+      title: _this.data.post['title'],
+      desc: '好房评测',
+      path: 'pages/post/post?id=' + _this.data.item['id']
+    }
+  },
+
 })

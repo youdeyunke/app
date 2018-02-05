@@ -9,10 +9,10 @@ App({
     apiHost: 'http://localhost:3000',
   },
 
-  loadPosts:function(cb){
+  loadPosts:function(data, cb){
     this.request({
       url: '/api/v1/posts',
-      data: {},
+      data: data,
       success: function(resp){
         typeof cb == "function" && cb(resp.data)
       },
