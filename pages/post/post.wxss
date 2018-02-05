@@ -155,14 +155,25 @@ page .container{
 }
 
 .footer-btns .share{
-  width:70rpx;
   font-size:22rpx;
   color:#666;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  width:120rpx;
+  background-color:#fff;
+  outline:none;
+  border:1rpx solid #fff;
+  padding-top:10rpx;
 }
+
+.footer-btns button.share::after{
+        border:0px solid #fff;
+}
+
+
 
 .footer-btns .share image{
   width:30rpx;

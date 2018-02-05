@@ -90,10 +90,10 @@ showMask: {{ showMask }}
 </view>
 
 <view class="footer-btns  {{ showMask == true ? 'hide' : ''}}">
-   <view class="share" bindtap='shareClickHandle'>
+   <button class="share" open-type="share">
     <image src="/assets/icons/share.png"></image>
     分享
-   </view>
+   </button>
    <navigator open-type='redirect' class="qa" url="/pages/qa/qa?postId={{post.id}}">
     我要提问<image src="/assets/icons/pen.png"></image>
    </navigator>

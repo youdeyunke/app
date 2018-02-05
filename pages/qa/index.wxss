@@ -135,6 +135,9 @@ page{
   text-align: center;
   float:right;
 }
+.form button.button::after{
+  border:0px solid #fff;
+}
 
 .tags{
   height: 70rpx;
