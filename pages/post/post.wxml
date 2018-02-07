@@ -54,7 +54,7 @@ showMask: {{ showMask }}
 
               <view class="meta">
                 <text class="label">主推户型</text>
-                <text> {{ post.item_layout }}</text>
+                <text> {{ post.block_info.item_layout }}</text>
               </view>
       </view>
 

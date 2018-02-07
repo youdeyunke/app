@@ -32,7 +32,7 @@
           <view class="answer">
             <text>{{item.answer}}</text>
             <view class="author">
-              <image src="{{item.admin_user.avatar}}"></image>
+              <image src="{{item.admin_user.avatar.url}}"></image>
               <text>{{item.admin_user.name}}</text>
             </view>
           </view>

@@ -24,6 +24,13 @@ Page({
     })
   },
 
+  callMe: function(){
+    var m = '15002164370'
+    wx.makePhoneCall({
+        phoneNumber: m //仅为示例，并非真实的电话号码
+    })
+  },
+
   loadPost: function(postId){
     var _this = this
 
@@ -32,6 +39,10 @@ Page({
       success: function(resp){
         _this.setData({post: resp.data.data})
         WxParse.wxParse('htmlContent', 'html', resp.data.data.content ,  _this, 5);
+
+        wx.setNavigationBarTitle({
+          title: resp.data.data['title']
+        })        
 
       },
 

@@ -1,10 +1,33 @@
 <!--pages/post/index.wxml-->
 <import src="/tpls/posts/mini_listing.wxml"/>
+<import src="/tpls/posts/blocks_listing.wxml"/>
 
 <view class="container">
-
   <mytopbar></mytopbar>
   <myslider></myslider>
+
+  <view class="title">
+    <view class="h1">板块评测 
+      <image src="/assets/images/title-more-arrow.png"></image>
+    </view>
+    <navigator open-type="navigate" url="/pages/post/blocks" class="more">
+      <image src="/assets/images/title-more.png"></image>
+      <view>查看更多</view>
+    </navigator>
+  </view>
+
+  <template is="blockposts"  data="{{ posts: blockPosts }}"></template>
+
+  <view class="title">
+    <view class="h1">好房评测
+    <image src="/assets/images/title-more-arrow.png"></image>
+    </view>
+    <navigator open-type="navigate" url="/pages/post/items" class="more">
+      <image src="/assets/images/title-more.png"></image>
+      <view>查看更多</view>
+    </navigator>
+  </view>
+
   <template is="miniposts"  data="{{ posts: itemPosts }}"></template>
 
 </view>

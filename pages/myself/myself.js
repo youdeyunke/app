@@ -2,10 +2,21 @@
 const app = getApp()
 
 Page({
+  data: {
+    userInfo: null,
+    loadingStatus : null,
+    debugClicks: 0
+  },
 
-  /**
-   * 页面的初始数据
-   */
+  debugHandle: function(e){
+    console.log('debugpage_click_count ', this.data.debugClicks)
+  
+    this.data.debugClicks += 1
+    if (this.data.debugClicks % 20 == 0) {
+      wx.navigateTo({ url: '/pages/home/debug' })
+    }
+  },
+
   loginTapHandle: function(){
     var _this = this
     app.globalData.loadingStatus += 1
@@ -15,11 +26,27 @@ Page({
     })
   },
 
-
-  data: {
-    userInfo: null,
-    loadingStatus : null
+  bindMobileHandle: function(e){
+    console.log(e.detail.errMsg) 
+    console.log(e.detail.iv) 
+    console.log(e.detail.encryptedData) 
+    var _this  = this
+    app.request({
+      url: '/api/v1/users/bind_xcx_mobile',
+      method: 'POST',
+      data: { iv: e.detail.iv, encryptedData: e.detail.encryptedData },
+      success: function(resp){
+        _this.setData({userInfo: resp.data.data})
+        wx.setStorageSync('userInfo', resp.data.data)
+        wx.showToast({
+            title: '绑定手机号成功',
+            icon: 'success',
+            duration: 2000
+        })
+      }
+    })
   },
+
 
   /**
    * 生命周期函数--监听页面加载

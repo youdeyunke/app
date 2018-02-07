@@ -2,7 +2,7 @@
   <view class="posts">
   <navigator hover-class="none" wx:for="{{posts}}" hover-class="none" url="/pages/post/post?id={{item.id}}" class="item">
     <view class="header">
-            <image class="cover" src="{{item.cover}}"></image>
+            <image class="cover" src="{{item.cover.url}}"></image>
 
       <image src="/assets/images/play-btn.png" class="play-btn"></image>
       <view class="like">
@@ -13,7 +13,7 @@
 
     <view class="meta">
       <view class="price">
-              <text class="title">{{item.title}}</text>
+              <text class="title"> <text wx:if="{{item.cate == 'block'}}">[板块评测]</text> <text wx:if="{{item.cate == 'item'}}">[好房评测]</text> {{item.title}} </text>
         <text class="price">450万-620万</text>
       </view>
       <view class="desc" wx:if="{{item.desc}}"> {{ item.desc }} </view>

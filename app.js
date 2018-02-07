@@ -6,7 +6,7 @@ App({
     userInfo: null,
     token: null,
     loadingStatus: 0,
-    apiHost: 'http://localhost:3000',
+    apiHost: wx.getStorageSync('apiHost') || "http://www.jiayaosu.com:9000" ,
   },
 
   loadPosts:function(data, cb){
@@ -26,6 +26,7 @@ App({
 
     this.globalData.token = wx.getStorageSync('token')    
     this.globalData.userInfo = wx.getStorageSync('userInfo')
+    console.log('api host: ', _this.globalData.apiHost)
 
   },
 
@@ -92,8 +93,22 @@ App({
     });    
   },
 
-  authRequired: function(){
+  gotoAccount: function(title, content){
+    wx.showModal({
+      title: title,
+      content: content,
+      success: function(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          wx.switchTab({ url: '/pages/myself/myself' })
+
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   },
+
 
   request: function(obj) {
     var _this = this
@@ -111,13 +126,14 @@ App({
       header['Authorization'] = this.globalData.token
     }
     
-    // 如果接口需要登录
-    if(obj.authRequired && !_this.globalData.token){
-      return  _this.authRequired()
-    }
-
     // This must be wx.request !
-    var url = _this.globalData.apiHost + obj.url
+    var defaultApiHost = 'https://www.jiayaosu.com/haofang'
+    var customApiHost = wx.getStorageSync('apiHost')
+    var apiHost = customApiHost ||defaultApiHost
+    var url = apiHost + obj.url
+    console.log('default api host, ', defaultApiHost)
+    console.log('custom api host, ', customApiHost)
+    console.log('api host, ', apiHost)
     console.log('app.request, url:', url)
 
     wx.request({
@@ -128,22 +144,15 @@ App({
       success: function(res) {
         wx.hideLoading()
         console.log(res.data)
+
         if(res.data.status == 2000){
           console.log('login required')
-          wx.showModal({
-            title: '需要登录',
-            content: '请先登录账号，再继续操作',
-            success: function(res) {
-              if (res.confirm) {
-                console.log('用户点击确定')
-                wx.switchTab({ url: '/pages/myself/myself' })
-
-              } else if (res.cancel) {
-                console.log('用户点击取消')
-              }
-            }
-          })
-
+          _this.gotoAccount('需要登录', '提问前请先登录你的账号并绑定手机号')
+          return false
+        }
+        if(res.data.status == 2001){
+          console.log('login required')
+          _this.gotoAccount('绑定手机', '提问前请先绑定你的手机号码')
           return false
         }
 

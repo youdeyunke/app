@@ -13,7 +13,45 @@ page .container{
 }
 
 @import "/tpls/posts/mini_listing.wxss";
+@import "/tpls/posts/blocks_listing.wxss";
 
 .post-list{
   margin-top:20rpx;
+}
+
+.title{
+  display: flex;
+  justify-content: space-between;
+    margin:30rpx 0 25rpx 0;
+}
+
+.title .h1{
+  font-size:28rpx;
+  color: #000;
+}
+
+.title .h1 image{
+  height:18rpx;
+  width: 10rpx;
+}
+
+.title .more{
+  font-size: 20rpx;
+  color: #000;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: #ffd900;
+  width: 180rpx;
+  height: 28rpx;
+  border-radius: 10rpx;
+  text-align: center;
+
+}
+
+.title .more image{
+  width:20rpx;
+  height: 20rpx;
+  margin-left:30rpx;
+  margin-right:10rpx;
 }

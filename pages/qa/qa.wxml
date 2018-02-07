@@ -17,7 +17,7 @@
       <view class="icon">答</view>
       <view class="author">
         <view class="name">
-          <image src="{{item.user.avatar}}"></image>
+          <image src="{{item.admin_user.avatar.url}}"></image>
           <view class="nickname">{{ item.admin_user.name }}</view>
           <view class="instr">{{item.admin_user.desc}}</view>
         </view>

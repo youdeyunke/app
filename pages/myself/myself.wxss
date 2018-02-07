@@ -5,6 +5,13 @@ page{
    padding:0;
 }
 
+button.bind{
+height:40rpx;
+font-size:28rpx;
+line-height:40rpx;
+
+}
+
 
 /**index.wxss**/
 .userinfo {

@@ -1,62 +1,59 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/post/index",
+    "pages/post/items",
+    "pages/post/blocks",
     "pages/qa/qa",
     "pages/qa/index",
     "pages/post/post",
-    "pages/post/index",
+    "pages/home/debug",
     "pages/myself/myself"
   ],
-
-  "tabBar": {    
+  "tabBar": {
     "selectedColor": "#333",
     "backgroundColor": "#fff",
     "positon": "bottom",
     "color": "#999",
     "borderStyle": "black",
     "list": [
-
       {
         "iconPath": "/assets/icons/底部导航_01.png",
         "selectedIconPath": "/assets/icons/底部导航_08.png",
         "pagePath": "pages/home/home",
         "text": "首页"
       },
-
       {
         "iconPath": "/assets/icons/底部导航_07.png",
         "selectedIconPath": "/assets/icons/底部导航_02.png",
         "pagePath": "pages/home/home",
         "text": "好房"
-      },    
+      },
       {
         "iconPath": "/assets/icons/底部导航_09.png",
         "selectedIconPath": "/assets/icons/底部导航_03.png",
         "pagePath": "pages/qa/index",
         "text": "问答"
       },
-
       {
         "iconPath": "/assets/icons/底部导航_10.png",
         "selectedIconPath": "/assets/icons/底部导航_04.png",
         "pagePath": "pages/home/home",
         "text": "地图"
-      },     
-      
+      },
       {
         "iconPath": "/assets/icons/底部导航_06.png",
         "selectedIconPath": "/assets/icons/底部导航_05.png",
         "pagePath": "pages/myself/myself",
         "text": "我的"
       }
-      
     ]
   },
-
   "window": {
     "enablePullDownRefresh": false,
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "ffd900",
+    "navigationBarBackgroundColor": "#ffd900",
+    "navigationStyle": "default",
     "backgroundColor": "#f9f9f9",
     "navigationBarTitleText": "真有好房",
     "navigationBarTextStyle": "black"

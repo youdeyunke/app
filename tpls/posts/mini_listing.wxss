@@ -51,7 +51,7 @@
   justify-content: space-between;
 }
 
-.post-list .post .meta .title{
+.post-list .post .meta .item-title{
   color:#333;
   font-size:26rpx;
    border-bottom:1px solid #f3f3f3;

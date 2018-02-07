@@ -144,12 +144,11 @@ page .container{
   justify-content: space-around;
   align-items: center;
   background: #fff;
-  width:750rpx;
-  padding:0rpx;
+  width:690rpx;
+  padding:0rpx 30rpxs;
   position: fixed;
   bottom:0rpx;
   border-top:1px solid ＃efefef;
-
   height: 100rpx;
   z-index:20;
 }
@@ -171,6 +170,7 @@ page .container{
 
 .footer-btns button.share::after{
         border:0px solid #fff;
+        margin:0;
 }
 
 
@@ -186,6 +186,7 @@ page .container{
   font-size:26rpx;
   color:#000;
   background:#ffd900;
+  margin-right:30rpx;
 }
 
 .footer-btns .qa image{
