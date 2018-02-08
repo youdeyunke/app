@@ -42,6 +42,7 @@
       <view class="info">
         <view class="time">{{item.updated_at_pretty}}</view>
         <view class="like">
+                <image src="/assets/icons/qa-like.png"></image>
                 <view class="number">有用({{item.like_nums_base || 0}})</view>
         </view>
       </view>

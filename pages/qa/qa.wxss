@@ -186,6 +186,15 @@ page{
 .box.a .box-body .info .like{
   font-size:20rpx;
   color:#666;
+  display:flex;
+  align-items:center;
+
+}
+
+.box.a .box-body .info .like image{
+    width:36rpx;
+    height:36rpx;
+    margin-right:15rpx;
 }
 
 .blank-block{
