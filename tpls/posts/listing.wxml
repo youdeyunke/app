@@ -18,7 +18,7 @@
       </view>
       <view class="desc" wx:if="{{item.desc}}"> {{ item.desc }} </view>
 
-      <mytags right items="{{item.tags_list}}"></mytags>
+      <mytags right max="4" items="{{item.tags_list}}"></mytags>
 
     </view>
   </navigator>

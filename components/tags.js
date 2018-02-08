@@ -4,13 +4,14 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    max: {type: Number, value: 2},
     items: { type: Array, value: [] },
     right: {type: Boolean, value: false}
   },
 
   attached: function(){
     console.log('this.data, ', this.data)
-    var safeItems =  this.data.items.slice(0, 2)
+    var safeItems =  this.data.items.slice(0, this.data.max)
     this.setData({safeItems: safeItems})
   },
 

@@ -61,6 +61,11 @@
   font-size:24rpx;
   color:#000;
   font-weight: bolder;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width:450rpx;
 }
 
 .posts .item .meta{  

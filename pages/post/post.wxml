@@ -9,7 +9,7 @@ showMask: {{ showMask }}
 
 <view class="container {{showMask ? 'overflow-hidden' : ''}}">
   <view class="myvideo">
-          <video  autoplay controls poster="{{ post.cover}}" src="{{post.video}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+          <video  autoplay controls poster="{{ post.cover.url}}" src="{{post.video}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
    </view>
 
   <view class="box main">
@@ -84,7 +84,7 @@ showMask: {{ showMask }}
     <view class="btn">优惠券</view>
   </navigator>
   
-  <text class="h1">好房推荐</text>
+  <text class="h1" wx:if="{{posts.length > 0}}">好房推荐</text>
   <template is="miniposts"  data="{{ posts }}"></template>
 
 </view>

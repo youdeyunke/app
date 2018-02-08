@@ -145,7 +145,7 @@ page .container{
   align-items: center;
   background: #fff;
   width:690rpx;
-  padding:0rpx 30rpxs;
+  padding:0rpx 30rpx;
   position: fixed;
   bottom:0rpx;
   border-top:1px solid ＃efefef;

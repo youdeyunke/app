@@ -6,7 +6,7 @@
   <mytopbar></mytopbar>
   <myslider></myslider>
 
-  <view class="title">
+  <view class="title" wx:if="{{blockPosts.length > 0}}">
     <view class="h1">板块评测 
       <image src="/assets/images/title-more-arrow.png"></image>
     </view>
@@ -18,7 +18,7 @@
 
   <template is="blockposts"  data="{{ posts: blockPosts }}"></template>
 
-  <view class="title">
+  <view class="title" wx:if="{{ itemPosts.length > 0}}">
     <view class="h1">好房评测
     <image src="/assets/images/title-more-arrow.png"></image>
     </view>
