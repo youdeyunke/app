@@ -71,11 +71,21 @@ page{
     background-color:#f3f3f3;
     padding:20rpx 20rpx 20rpx 40rpx;
     color:#666;
-    font-size:22rpx;
+    font-size:26rpx;
     border-radius: 10rpx;
     display: flex;
     flex-direction: column; 
 }
+
+.qa-items .qa-item .body .answer text{
+
+  display: -webkit-box ;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:3; 
+ }
 
 .qa-items .qa-item .body .answer .author{
   display: flex;

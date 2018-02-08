@@ -6,7 +6,6 @@ App({
     userInfo: null,
     token: null,
     loadingStatus: 0,
-    apiHost: wx.getStorageSync('apiHost') || "http://www.jiayaosu.com:9000" ,
   },
 
   loadPosts:function(data, cb){
@@ -26,7 +25,6 @@ App({
 
     this.globalData.token = wx.getStorageSync('token')    
     this.globalData.userInfo = wx.getStorageSync('userInfo')
-    console.log('api host: ', _this.globalData.apiHost)
 
   },
 

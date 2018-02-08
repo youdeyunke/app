@@ -57,6 +57,10 @@
    border-bottom:1px solid #f3f3f3;
    padding-bottom:17rpx;
    margin-bottom:17rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width:320rpx;
 
 }
 
@@ -67,6 +71,16 @@
   align-items: center;
 
 }
+
+.post-list .post .meta .loc text{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width:310rpx;
+
+}
+
+
 
 .post-list .post .meta .loc image{
   width:21rpx;

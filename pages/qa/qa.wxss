@@ -169,7 +169,9 @@ page{
   font-size:20rpx;
   color:#666;
   margin:30rpx 0 50rpx 0;
+}
 
+.box.a .box-body .answer text{
 }
 
 .box.a .box-body .info{

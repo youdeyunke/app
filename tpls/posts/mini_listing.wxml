@@ -11,7 +11,7 @@
               <text class="item-title">{{ item.title }}</text>
         <view class="loc">
           <image src="/assets/icons/location.png"></image>
-          {{ item.block_info.district.name }} - {{ item.block_info.street }}
+          <text>{{ item.block_info.district.name }} - {{ item.block_info.street }}</text>
         </view>
         
         <view class="area-price">
