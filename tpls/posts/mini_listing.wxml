@@ -16,7 +16,7 @@
         
         <view class="area-price">
            <text class="area" wx-if="{{item.block_info.item_layout}}">{{ item.block_info.item_layout }}</text>
-           <text class="price" wx-if="{{item.block_info.item_price}}">{{ item.block_info.item_price }}万</text>
+           <text class="price" wx-if="{{item.block_info.item_price}}">{{ item.block_info.item_price }} 元/㎡</text>
         </view>
 
         <view class="tags-time">

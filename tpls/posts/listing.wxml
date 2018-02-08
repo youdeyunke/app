@@ -12,10 +12,18 @@
     </view>
 
     <view class="meta">
-      <view class="price">
-              <text class="title"> <text wx:if="{{item.cate == 'block'}}">[板块评测]</text> <text wx:if="{{item.cate == 'item'}}">[好房评测]</text> {{item.title}} </text>
-        <text class="price">450万-620万</text>
+      <view class="price" wx:if="{{item.cate == 'item'}}">
+          <text class="title"> <text>[好房评测]</text> {{item.title}} </text>
+          <text class="price">{{item.block_info.item_total_price_max}}万-{{item.block_info.item_total_price_min}}万</text>
       </view>
+      <block wx:else>
+        <view class="price">
+          <text class="title"> <text>[板块评测]</text> {{item.title}} </text>
+          <text class="price">均价{{item.block_info.block_average_price}}万</text>
+        </view>
+
+      </block >
+
       <view class="desc" wx:if="{{item.desc}}"> {{ item.desc }} </view>
 
       <mytags right max="4" items="{{item.tags_list}}"></mytags>
