@@ -6,7 +6,7 @@ page{
   background: #fff;
   border-radius: 10rpx;
   width:689rpx;
-  margin:0  auto 20rpx auto;
+  margin:0  auto 45rpx auto;
   position: relative;
 
 }
@@ -67,7 +67,6 @@ page{
   height: 35rpx;
   position: absolute;
   bottom:-34rpx;
-  left:calc(750*0.5 - 689*0.5);
 }
 
 .box.a{
