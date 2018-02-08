@@ -25,7 +25,10 @@
       <view class="header">
         <text class="icon">问</text>
         <text class="title">{{item.content}}</text>
-        <view class="author">{{item.user.nickname}}</view>
+        <view class="author">
+                <text>{{item.user.nickname}}</text>
+                <text>{{item.created_at_pretty }}</text>
+        </view>
       </view>
       <view class="body">
          <text class="icon">答</text>

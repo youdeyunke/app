@@ -37,6 +37,7 @@ Page({
       data: { iv: e.detail.iv, encryptedData: e.detail.encryptedData },
       success: function(resp){
         _this.setData({userInfo: resp.data.data})
+        app.globalData.userInfo = resp.data.data
         wx.setStorageSync('userInfo', resp.data.data)
         wx.showToast({
             title: '绑定手机号成功',

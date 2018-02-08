@@ -45,7 +45,7 @@ page{
   color:#666;
   margin-top:10rpx;
   display:flex;
-  justify-content:flex-start;
+  justify-content:space-between;
   align-items:center;
 }
 
@@ -92,6 +92,8 @@ page{
   justify-content: flex-start;
   align-items: center;
   height: 35rpx;
+  margin-top:14rpx;
+
 }
 
 .qa-items .qa-item .body .answer .author image{

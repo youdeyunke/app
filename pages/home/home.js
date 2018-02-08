@@ -31,13 +31,15 @@ Page({
   onPullDownRefresh: function () {
     wx.stopPullDownRefresh()
     wx.showNavigationBarLoading() //在标题栏中显示加载
+    var _this = this
+    console.log('pull down refresh')
+    app.loadPosts({}, function(resp){
+      _this.setData({posts: resp.data})
 
-    //模拟加载
-    setTimeout(function () {
-      // complete
       wx.hideNavigationBarLoading()
       wx.stopPullDownRefresh() //停止下拉刷新
-    }, 150);
+    })
+
   },
 
 
@@ -83,10 +85,6 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-  
-  },
-
   /**
    * 页面上拉触底事件的处理函数
    */

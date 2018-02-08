@@ -53,8 +53,8 @@ Page({
    */
   onLoad: function (options) {
     var qid = options.id
-    this.setData({item: wx.getStorageSync('question_' + qid)})
-    console.log('item:', this.data.item)
+    this.setData({item: wx.getStorageSync('question.' + qid)})
+    console.log('item in qa.js:', this.data.item)
     this.randomQas(2)
   },
 

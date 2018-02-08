@@ -1,3 +1,5 @@
+<wxs src="./../common.wxs" module="tools" />
+
 <view class="container">
 
   <view class="box q">
@@ -7,7 +9,7 @@
     </view>
     <view class="box-body">
       <view class="author">{{item.user.nickname}}</view>
-      <view class="time">{{item.created_at}}</view>
+      <view class="time">{{item.created_at_pretty}}</view>
     </view>
     <image class="box-footer" src="/assets/images/post-list-footer.png"></image>
   </view>
@@ -28,19 +30,19 @@
       <view class="about">
         <view class="part1 item">
           <view class="label">咨询人数</view>
-          <view class="value">{{item.admin_user.zixun_num}}人</view>
+          <view class="value">{{item.admin_user.zixun_num || 0}}人</view>
         </view>
         <view class="part2 item">
           <view class="label">参考楼盘</view>
-          <view class="value">{{item.admin_user.loupan_num}}次</view>
+          <view class="value">{{item.admin_user.loupan_num || 0}}次</view>
         </view>
       </view>
 
       <view class="answer"> {{item.answer}}</view>
       <view class="info">
-        <view class="time">{{item.updated_at}}</view>
+        <view class="time">{{item.updated_at_pretty}}</view>
         <view class="like">
-          <view class="number">有用(119)</view>
+                <view class="number">有用({{item.like_nums_base || 0}})</view>
         </view>
       </view>
     </view>

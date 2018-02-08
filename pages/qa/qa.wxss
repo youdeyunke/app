@@ -152,7 +152,7 @@ page{
 
 .box.a .box-body .about .item{
   display: flex;
-  width: 150rpx;
+  width: 180rpx;
 }
 
 .box.a .box-body .about .label{

@@ -1,5 +1,6 @@
 // pages/qa/index.js
 const app = getApp()
+var util = require('../../utils/util.js');
 
 Page({
 
@@ -25,9 +26,6 @@ Page({
     console.log(e)
     var index = e.currentTarget.dataset['index']
     var item =  this.data.items[index]
-    console.log('index,', index)
-    console.log('item,', item)
-    wx.setStorageSync('question_' + item.id, item)
     wx.navigateTo({ url: '/pages/qa/qa?id=' + item.id })
   },
 
@@ -111,6 +109,12 @@ Page({
       url: '/api/v1/questions/',
       data: {cat_id: _this.data.catId},
       success: function(res){
+        res.data.data.forEach(function(item, i){
+          item['created_at_pretty'] = util.prettyTime(item['created_at'])
+          item['updated_at_pretty'] = util.prettyTime(item['updated_at'])
+          wx.setStorageSync('question.' + item.id, item)
+          console.log('set sotrage item', item)
+        })
         _this.setData({ items: res.data.data })
         wx.setStorageSync('questions', res.data.data)
       }
