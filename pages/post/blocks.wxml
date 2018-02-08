@@ -1,0 +1,8 @@
+<!--pages/post/index.wxml-->
+<import src="/tpls/posts/mini_listing.wxml"/>
+<import src="/tpls/posts/blocks_listing.wxml"/>
+
+<view class="container">
+  <template is="blockposts"  data="{{ posts }}"></template>
+
+</view>

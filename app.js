@@ -145,6 +145,10 @@ App({
         wx.hideLoading()
         console.log(res.data)
 
+        if(typeof res != "object"){
+          console.log('server error')
+        }
+
         if(res.data.status == 2000){
           console.log('login required')
           _this.gotoAccount('需要登录', '提问前请先登录你的账号并绑定手机号')

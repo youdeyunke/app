@@ -1,0 +1,7 @@
+
+<view class="container">
+<form bindsubmit="submitHandle" name="configs">
+  <input name="api" value="{{apiHost}}"></input>
+  <button type="primary" form-type="submit" >save</button>
+</form>
+</view>

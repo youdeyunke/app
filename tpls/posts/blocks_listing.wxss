@@ -1,0 +1,42 @@
+.blockpost-list{
+  display:flex;
+  justify-content: space-between;
+}
+
+.blockpost-list .post{
+  position: relative;
+
+}
+
+.blockpost-list .post .cover{
+    width:320rpx;
+    height:194rpx;
+  border-radius: 10rpx;
+  overflow: hidden;    
+}
+
+.blockpost-list .post .badge{
+  width:109rpx;
+  height: 77rpx;
+  position: absolute;
+  top:-5rpx;
+  left:-5rpx;
+}
+
+.blockpost-list .post .badge-text{
+  position: absolute;
+  top:11rpx;
+  left:-22rpx;
+  width:100rpx;
+  height: 28rpx;
+  font-size:20rpx;
+  color:#333;
+   transform: rotate(-33deg);
+display:flex;
+justify-content:center;
+align-items:center;
+   
+  
+}
+
+
