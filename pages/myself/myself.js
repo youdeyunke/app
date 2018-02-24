@@ -5,7 +5,21 @@ Page({
   data: {
     userInfo: null,
     loadingStatus : null,
-    debugClicks: 0
+    debugClicks: 0,
+    lastViewPost: null,
+    actions: [
+      {nams: '我的收藏'},
+      {name: '我的点评'},
+      {name: '帮我找房'},
+      {name: '我的课程'},
+      {name: '看房记录'},
+      {name: '联系客服'},
+    ],
+    actionsB: [
+      {name: '我要反馈'},
+      {name: '分享给好友'},
+      {name: '关于好房'},
+    ]
   },
 
   debugHandle: function(e){
@@ -21,9 +35,6 @@ Page({
     var _this = this
     app.globalData.loadingStatus += 1
     console.log('abc')
-    app.getUserInfo(function(userInfo){
-      _this.setData({userInfo: userInfo})
-    })
   },
 
   bindMobileHandle: function(e){
@@ -40,7 +51,7 @@ Page({
         app.globalData.userInfo = resp.data.data
         wx.setStorageSync('userInfo', resp.data.data)
         wx.showToast({
-            title: '绑定手机号成功',
+            title: '登录成功',
             icon: 'success',
             duration: 2000
         })
@@ -53,10 +64,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      userInfo: app.globalData.userInfo,
-      loadingStatus : app.globalData.loadingStatus
+    var _this = this
+    app.getUserInfo(function (userInfo) {
+      _this.setData({ userInfo: userInfo })
     })
+
+    _this.setData({
+      lastViewPost: wx.getStorageSync('last_view_post')
+    })
+
+    console.log('last view post', _this.data.lastViewPost)
   },
 
   /**

@@ -48,10 +48,15 @@ Page({
    */
   onLoad: function (options) {
     var _this = this
+    app.getUserInfo(function (userInfo) {
+      _this.setData({ userInfo: userInfo })
+    })    
+    
     app.loadPosts({}, function(resp){
       console.log('home.js posts:', resp.data)
       _this.setData({posts: resp.data})
     })
+
   },
 
   /**

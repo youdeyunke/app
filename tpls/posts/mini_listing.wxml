@@ -8,7 +8,7 @@
         <image class="play-btn" src="/assets/images/play-btn.png"></image>
       </view>
       <view class="meta">
-              <text class="item-title">{{ item.title }}</text>
+              <text class="item-title">{{ item.title }}{{item.tags_list}}</text>
         <view class="loc">
           <image src="/assets/icons/location.png"></image>
           <text>{{ item.block_info.district.name }} - {{ item.block_info.street }}</text>

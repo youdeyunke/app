@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/myself/myself",    
     "pages/home/home",
     "pages/post/index",
     "pages/post/items",
@@ -7,8 +8,7 @@
     "pages/qa/qa",
     "pages/qa/index",
     "pages/post/post",
-    "pages/home/debug",
-    "pages/myself/myself"
+    "pages/home/debug"
   ],
   "tabBar": {
     "selectedColor": "#333",

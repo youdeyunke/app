@@ -38,6 +38,7 @@ Page({
       url: '/api/v1/posts/' + postId,
       success: function(resp){
         _this.setData({post: resp.data.data})
+        wx.setStorageSync('last_view_post', resp.data.data)
         WxParse.wxParse('htmlContent', 'html', resp.data.data.content ,  _this, 5);
 
         wx.setNavigationBarTitle({
@@ -57,7 +58,7 @@ Page({
     var postId = options.id
     this.loadPost(postId)
     this.loadRecoms(postId)
-
+    
   },
 
   /**
@@ -107,7 +108,8 @@ Page({
     return {
       title: _this.data.post['title'],
       desc: '好房评测',
-      path: 'pages/post/post?id=' + _this.data.item['id']
+      path: 'pages/post/post?id=' + _this.data.post['id'],
+      imageUrl: _this.data.post['cover'] ? _this.data.post['cover']['url'] : null
     }
   },
 

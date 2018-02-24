@@ -1,31 +1,32 @@
+<import src="/tpls/posts/mini_listing.wxml"/>
 <view class="container">
   <view class="userinfo">
-    <button   wx:if="{{ !userInfo }}" bindtap="loginTapHandle"> 使用微信登录 </button>
+        <button wx:if="{{ userInfo && !userInfo.mobile }}" class="bind" open-type="getPhoneNumber"  wx:if="{{ !userInfo.mobile }}" bindgetphonenumber="bindMobileHandle"> 注册/登录 </button>
+
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.custom_avatar.url || userInfo.avatar }}" background-size="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickname}}</text>
-
 
     </block>
   </view>
 
   <view class="useractions">
-      <view class="item border" wx:if="{{userInfo}}">
-        <text>手机号:</text>
-        <button class="bind" open-type="getPhoneNumber"  wx:if="{{ !userInfo.mobile }}" bindgetphonenumber="bindMobileHandle"> 绑定手机号 </button>
-        <block wx:else> <text wx:if="typeof userInfo.mobile">{{userInfo.mobile}}</text> </block>
-    </view>
-
-    <view bindtap="commingSoon"  class="item border" open-type='navigate' url="/pages/post/post">
-      <text>我的关注</text>
-      <text class="arrow">></text>
-    </view>
-
-    <view class="item border" open-type='navigate' url="/pages/post/post">
-      <text bindtap="debugHandle">我的问答</text>
-      <text class="arrow">></text>
-    </view>    
-
-
+    <navigator class="item" wx:for="{{actions}}">
+      <image class="icon"></image>
+      <view>{{item.name}}</view>
+    </navigator>
   </view>
+
+  <view class="useractions useractions-b">
+    <navigator class="item" wx:for="{{actionsB}}">
+      <image class="icon"></image>
+      <view>{{item.name}}</view>
+    </navigator>
+  </view>  
+
+  <view class="last-view">
+    <view>我的游览</view>
+    <template is="miniposts"  data="{{ posts: [lastViewPost]  }}"></template>
+  </view>
+  
 </view>

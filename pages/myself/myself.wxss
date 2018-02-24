@@ -1,15 +1,20 @@
 /* pages/myself/myself.wxss */
 
+@import "/tpls/posts/mini_listing.wxss";
+
 page{
-   background-color: #ededed;
-   padding:0;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-repeat: no-repeat;
+  justify-content: space-between;
+  background-image: url("http://jiayaosu-10013564.image.myqcloud.com/39d0ccd7-721a-471e-a853-54ec69f564f5");
+  background-size: 750rpx 850rpx;
 }
 
-button.bind{
-height:40rpx;
-font-size:28rpx;
-line-height:40rpx;
-
+page .container{
+  width:690rpx;
+  margin:0 auto;
 }
 
 
@@ -19,14 +24,14 @@ line-height:40rpx;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color:#fff;
-  height: 400rpx;
+
+  height: 180rpx;
   margin-bottom:20rpx;
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
+  width: 50rpx;
+  height: 50rpx;
   margin: 20rpx;
   border-radius: 50%;
 }
@@ -35,34 +40,25 @@ line-height:40rpx;
   color: #aaa;
 }
 
-.usermotto {
-  margin-top: 200px;
-}
-
 .useractions{
+  width:100%;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-content: space-between;
-  background-color: #fff;
-  padding:0 20rpx;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border:1px solid blue;
+  height: 400rpx;
 }
 
 .useractions .item{
-  padding:20rpx 20rpx;
+  height: 100rpx;
+  width:200rpx;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.useractions .item.border{
-  border-bottom:2px solid #EDEDED;
-}
-
-.useractions .item:hover{
-  background: none;
-}
-
-.useractions .item .arrow{
-  color:#EDEDED;
+.useractions-b{
+  height: 100rpx;
 }

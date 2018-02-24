@@ -38,6 +38,7 @@ App({
       wx.login({
         success: function (res) {
           var code = res.code
+          console.log('login code: ',code ,res)
 
           if(code){
             // 获取用户信息
@@ -48,6 +49,22 @@ App({
               }
             })
           }
+        },
+        complete: function(){
+          // 判断一下，用户同意还是拒绝
+          wx.getSetting({
+            success: (res) => {
+              /*
+               * res.authSetting = {
+               *   "scope.userInfo": true,
+               *   "scope.userLocation": true
+               * }
+               */
+              if (!res.authSetting['scope.userInfo']){
+                wx.openSetting({})
+              }
+            }
+          })                    
         }
       })
     }

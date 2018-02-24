@@ -9,7 +9,7 @@ Component({
     right: {type: Boolean, value: false}
   },
 
-  attached: function(){
+  ready: function(){
     console.log('this.data, ', this.data)
     var safeItems =  this.data.items.slice(0, this.data.max)
     this.setData({safeItems: safeItems})
