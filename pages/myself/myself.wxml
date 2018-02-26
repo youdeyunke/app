@@ -2,7 +2,7 @@
 <view class="container">
   <view class="userinfo">
   <block wx:if="{{ userInfo && !userInfo.mobile }}">
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="/assets/images/none-avatar.png" background-size="cover"></image>    
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="/assets/images/avatar-none.png" background-size="cover"></image>    
     <button class="login-btn" open-type="getPhoneNumber"  wx:if="{{ !userInfo.mobile }}" bindgetphonenumber="bindMobileHandle"> 注册/登录 </button>
   </block>
 
