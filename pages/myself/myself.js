@@ -8,7 +8,7 @@ Page({
     debugClicks: 0,
     lastViewPost: null,
     actions: [
-      {nams: '我的收藏'},
+      {name: '我的收藏'},
       {name: '我的点评'},
       {name: '帮我找房'},
       {name: '我的课程'},
@@ -65,15 +65,43 @@ Page({
    */
   onLoad: function (options) {
     var _this = this
-    app.getUserInfo(function (userInfo) {
-      _this.setData({ userInfo: userInfo })
-    })
 
+    console.log('myself onload')
+  },
+
+  actionHandle: function(e){
+    console.log(e)
+    var index = e.currentTarget.dataset.index
+    if(index == 5){
+      wx.makePhoneCall({
+          phoneNumber: app.globalData.serverMobile 
+      })
+      return
+    }
+    app.comingSoon()
+  },
+  actionHandleB: function (e) {
+    console.log(e)
+    var index = e.currentTarget.dataset.index
+    if (index == 0) {
+      wx.makePhoneCall({
+        phoneNumber: app.globalData.serverMobile
+      })
+      return
+    }
+    app.comingSoon()
+  },
+
+  onShow:function(){
+    var _this = this
     _this.setData({
       lastViewPost: wx.getStorageSync('last_view_post')
     })
-
-    console.log('last view post', _this.data.lastViewPost)
+    app.getUserInfo(function (userInfo) {
+      _this.setData({ userInfo: userInfo })
+    })    
+    console.log('myself.onshow ', wx.getStorageSync('last_view_post'))
+    console.log('last view post', _this.data.lastViewPost)    
   },
 
   /**
@@ -83,11 +111,6 @@ Page({
   
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {  
-  },
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -117,10 +140,12 @@ Page({
   
   },
 
-  /**
-   * 用户点击右上角分享
-   */
   onShareAppMessage: function () {
-  
-  }
+    var _this = this
+    return {
+      title: '真有好房',
+      desc: '真有好房',
+      path: 'pages/home/home'
+    }
+  },
 })

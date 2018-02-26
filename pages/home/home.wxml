@@ -1,7 +1,7 @@
 <import src="/tpls/posts/listing.wxml"/>
 
 <view class="container">
-  <mytopbar></mytopbar>
+  <mytopbar bindcitychanged="cityHandle"></mytopbar>
   <myslider></myslider>
   <view class="tab-icons">
   
@@ -10,7 +10,7 @@
       <text>{{ item.name }}</text>
     </navigator>
   </view>
-  <template is="posts"  data="{{ posts }}"></template>
+  <template wx:for="{{posts}}" is="posts"  data="{{ posts:item }}"></template>
 
 
 </view>

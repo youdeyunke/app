@@ -1,4 +1,5 @@
 {
+    "enablePullDownRefresh": false,
     "usingComponents": {
       "mytags": "/components/tags"
     }

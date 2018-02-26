@@ -1,13 +1,7 @@
 <import src="/utils/wxParse/wxParse.wxml"/>
 <import src="/tpls/posts/mini_listing.wxml"/>
 
-<view bindtap="maskClickHandle" class="mask {{showMask ? '' : 'hide'}}">
-showMask: {{ showMask }}
-  <image src="/assets/images/share_tip.png"></image>
-
-</view>
-
-<view class="container {{showMask ? 'overflow-hidden' : ''}}">
+<view class="container ">
   <view class="myvideo">
           <video  autoplay controls poster="{{ post.cover.url}}" src="{{post.video}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
    </view>
@@ -89,7 +83,7 @@ showMask: {{ showMask }}
 
 </view>
 
-<view class="footer-btns  {{ showMask == true ? 'hide' : ''}}">
+<view class="footer-btns ">
    <button class="share" open-type="share">
     <image src="/assets/icons/share.png"></image>
     分享

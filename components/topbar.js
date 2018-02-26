@@ -1,4 +1,6 @@
 // components/topbar.js
+const app = getApp()
+
 Component({
   /**
    * 组件的属性列表
@@ -12,7 +14,15 @@ Component({
    */
   data: {
     selectedCity: 0,
-    cityList: ['上海', '北京', '广州'],
+    cityList: [],
+  },
+
+  ready: function(){
+    var _this = this
+    app.loadCities(function(data){
+      console.log('load cities', data)
+      _this.setData({cityList:data })
+    })
   },
 
   /**
@@ -20,7 +30,11 @@ Component({
    */
   methods: {
     cityChangeHandle: function(e){
-      this.setData({ selectedCity: e.detail.value})
+      var i = e.detail.value
+      var city = this.data.cityList[i]
+      this.setData({ selectedCity: i})
+
+      this.triggerEvent('citychanged', {city: city})
     },
 
   }

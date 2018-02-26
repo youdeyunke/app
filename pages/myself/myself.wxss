@@ -8,8 +8,9 @@ page{
   flex-wrap: nowrap;
   background-repeat: no-repeat;
   justify-content: space-between;
-  background-image: url("http://jiayaosu-10013564.image.myqcloud.com/39d0ccd7-721a-471e-a853-54ec69f564f5");
-  background-size: 750rpx 850rpx;
+  background-image: url("http://jiayaosu-10013564.image.myqcloud.com/4051facf-bcfa-4f32-8aaa-fc09b0992d91");
+  background-size: 750rpx 1050rpx;
+  background-color: #f0f0f0;
 }
 
 page .container{
@@ -25,19 +26,19 @@ page .container{
   align-items: center;
   justify-content: center;
 
-  height: 180rpx;
   margin-bottom:20rpx;
 }
 
 .userinfo-avatar {
-  width: 50rpx;
-  height: 50rpx;
+  width: 135rpx;
+  height:135rpx;
   margin: 20rpx;
   border-radius: 50%;
 }
 
 .userinfo-nickname {
-  color: #aaa;
+  color: #333;
+  font-size:24rpx;
 }
 
 .useractions{
@@ -46,19 +47,87 @@ page .container{
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  border:1px solid blue;
-  height: 400rpx;
+
+  height: 354rpx;
+  background:#fff;
+  border-radius: 10rpx;
+  padding: 34rpx 0;  
 }
 
 .useractions .item{
-  height: 100rpx;
-  width:200rpx;
+
+  width:33.33%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  font-size:22rpx;
+
+}
+
+.useractions .item image{
+  width:72rpx;
+  height: 72rpx;
+  margin-bottom:18rpx;
+}
+
+.useractions .item view{
+
 }
 
 .useractions-b{
-  height: 100rpx;
+  height: 162rpx;
+  margin:40rpx 0 40rpx 0;
+  position: relative;
+}
+
+.useractions-b .footer{
+position:absolute;
+bottom:-29rpx;
+left:0rpx;
+z-index:10;
+height:30rpx;
+width:100%;  
+}
+.useractions-b button{
+  display: flex;
+  background-color:#fff;
+  outline:none;
+}
+
+.useractions-b button::after{
+    border:0px solid #fff;
+    margin:0;
+    padding:0;
+}
+
+
+.login-btn{
+  width:265rpx;
+  height: 42rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+
+  outline: none;
+  font-size:24rpx;
+
+}
+button.login-btn::after{
+  outline: none;
+  box-shadow: none;
+    border:1px solid #000;
+    letter-spacing: 2rpx;
+    padding:0 80rpx;
+}
+
+.last-view{
+  border-radius: 10rpx;
+}
+
+
+.last-view .name{
+  font-size:22rpx;
+  margin:10rpx 0rpx 10rpx 0rpx ;
 }

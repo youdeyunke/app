@@ -1,6 +1,6 @@
 <view class="top-bar">
-  <picker bindchange="cityChangeHandle" value="0" mode="selector" range="{{cityList}}">
-    {{cityList[selectedCity]}} <image src="/assets/icons/home-arrow.png" ></image>
+  <picker bindchange="cityChangeHandle" value="{{index}}" mode="selector" range-key="name" range="{{cityList}}">
+    {{cityList[selectedCity].name}} <image src="/assets/icons/home-arrow.png" ></image>
   </picker>
 
   <view class="search-bar">

@@ -25,7 +25,7 @@ Page({
   },
 
   callMe: function(){
-    var m = '15002164370'
+    var m = app.globalData.serverMobile
     wx.makePhoneCall({
         phoneNumber: m //仅为示例，并非真实的电话号码
     })

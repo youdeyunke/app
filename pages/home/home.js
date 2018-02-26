@@ -6,6 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    city_id: null,
+    offset: 0,
+    total: 0,
+    limit: 10,
+    hasMore: true,
     posts: [],
     tabIcons: [
       {name: '看测评', url: '/pages/post/index', opentype:"navigate"},
@@ -15,6 +20,12 @@ Page({
     ]
   },
 
+  cityHandle: function(e){
+    console.log('city change handle', e.detail.city)
+    var _this = this
+    _this.setData({city_id: e.detail.city.id, posts: [], offset: 0})
+    _this.loadPosts()  
+  },
 
   onShareAppMessage: function () {
     return {
@@ -33,15 +44,16 @@ Page({
     wx.showNavigationBarLoading() //在标题栏中显示加载
     var _this = this
     console.log('pull down refresh')
-    app.loadPosts({}, function(resp){
-      _this.setData({posts: resp.data})
-
-      wx.hideNavigationBarLoading()
-      wx.stopPullDownRefresh() //停止下拉刷新
+    _this.setData({
+      posts: [],
+      offset: 0,
+      hasMore: true,
     })
+    _this.loadPosts()
+    wx.hideNavigationBarLoading()
+    wx.stopPullDownRefresh() //停止下拉刷新    
 
   },
-
 
   /**
    * 生命周期函数--监听页面加载
@@ -51,12 +63,30 @@ Page({
     app.getUserInfo(function (userInfo) {
       _this.setData({ userInfo: userInfo })
     })    
-    
-    app.loadPosts({}, function(resp){
-      console.log('home.js posts:', resp.data)
-      _this.setData({posts: resp.data})
-    })
+    _this.loadPosts()
+  },
 
+  loadPosts: function(){
+    var _this = this
+    if(!_this.data.hasMore){
+      return false
+    }
+    var query = {
+      city_id: _this.data.city_id || '',
+      offset: _this.data.offset || 0,
+      limit: _this.data.limit || 0,
+    }
+    app.loadPosts(query, function (resp) {
+      console.log('home.js posts:', resp.data)
+      var d = {}
+      var k = "posts[" + _this.data.offset + "]"
+      d[k] = resp.data
+      if(resp.data.length == 0){
+        d.hasMore = false
+      }
+      d.offset = resp.paginate.offset
+      _this.setData(d)
+    })
   },
 
   /**
@@ -94,7 +124,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    var _this = this
+    _this.setData({
+      offset: _this.data.offset + _this.data.limit,
+    })
+    _this.loadPosts()
   },
 
   /**

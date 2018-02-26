@@ -1,7 +1,10 @@
 <import src="/tpls/posts/mini_listing.wxml"/>
 <view class="container">
   <view class="userinfo">
-        <button wx:if="{{ userInfo && !userInfo.mobile }}" class="bind" open-type="getPhoneNumber"  wx:if="{{ !userInfo.mobile }}" bindgetphonenumber="bindMobileHandle"> 注册/登录 </button>
+  <block wx:if="{{ userInfo && !userInfo.mobile }}">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="/assets/images/none-avatar.png" background-size="cover"></image>    
+    <button class="login-btn" open-type="getPhoneNumber"  wx:if="{{ !userInfo.mobile }}" bindgetphonenumber="bindMobileHandle"> 注册/登录 </button>
+  </block>
 
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.custom_avatar.url || userInfo.avatar }}" background-size="cover"></image>
@@ -11,21 +14,34 @@
   </view>
 
   <view class="useractions">
-    <navigator class="item" wx:for="{{actions}}">
-      <image class="icon"></image>
+    <view bindtap="actionHandle" data-index="{{index}}"  class="item" wx:for="{{actions}}">
+      <image src="/assets/icons/myself-{{index+1}}.png" class="icon"></image>
       <view>{{item.name}}</view>
-    </navigator>
+    </view>
   </view>
 
   <view class="useractions useractions-b">
-    <navigator class="item" wx:for="{{actionsB}}">
-      <image class="icon"></image>
+  <block wx:for="{{actionsB}}">
+   <block wx:if="{{index==1}}">
+    <button class="item" open-type="share">
+      <image src="/assets/icons/myself-b-{{index+1}}.png" class="icon"></image>
       <view>{{item.name}}</view>
-    </navigator>
+    </button>
+   </block>
+   <block wx:else>
+    <view bindtap="actionHandleB" class="item" data-index="{{index}}">
+      <image src="/assets/icons/myself-b-{{index+1}}.png" class="icon"></image>
+      <view>{{item.name}}</view>
+    </view>
+    </block>
+    
+  </block>
+
+    <image src="/assets/images/post-list-footer.png" class="footer"></image>
   </view>  
 
-  <view class="last-view">
-    <view>我的游览</view>
+  <view class="last-view" hidden="{{!lastViewPost}}">
+    <view class="name">我的游览</view>
     <template is="miniposts"  data="{{ posts: [lastViewPost]  }}"></template>
   </view>
   

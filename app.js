@@ -6,12 +6,33 @@ App({
     userInfo: null,
     token: null,
     loadingStatus: 0,
+    cities: [],
+    serverMobile: '15002164370'
   },
 
-  loadPosts:function(data, cb){
+  comingSoon: function(){
+    wx.showToast({
+      title: 'Coming Soon :)',
+      icon: 'none',
+      duration: 2000
+    })    
+  },
+
+  loadCities: function(cb){
+    var _this = this
+    this.request({
+      url :'/api/v1/cities',
+      success: function(resp){
+        typeof cb == 'function' && cb(resp.data.data)
+      }
+    })
+  },
+
+  loadPosts:function(query, cb){
+    console.log('query.. ', query)
     this.request({
       url: '/api/v1/posts',
-      data: data,
+      data: query,
       success: function(resp){
         typeof cb == "function" && cb(resp.data)
       },
@@ -25,6 +46,7 @@ App({
 
     this.globalData.token = wx.getStorageSync('token')    
     this.globalData.userInfo = wx.getStorageSync('userInfo')
+    
 
   },
 
@@ -46,26 +68,18 @@ App({
               success: function (res) {
                 // 发送给服务器,换取token
                 that.getSessionToken(code, res.encryptedData, res.iv, cb)
+              },
+              complete: function(res){
+                // 用户拒绝,跳转到设置界面
+                console.log('getUserInfo complete,', res)
+                if (res.errMsg == 'getUserInfo:fail auth deny'){
+                  wx.openSetting({})
+                } 
               }
             })
           }
         },
-        complete: function(){
-          // 判断一下，用户同意还是拒绝
-          wx.getSetting({
-            success: (res) => {
-              /*
-               * res.authSetting = {
-               *   "scope.userInfo": true,
-               *   "scope.userLocation": true
-               * }
-               */
-              if (!res.authSetting['scope.userInfo']){
-                wx.openSetting({})
-              }
-            }
-          })                    
-        }
+      
       })
     }
   },
@@ -143,6 +157,7 @@ App({
     
     // This must be wx.request !
     var defaultApiHost = 'https://www.jiayaosu.com/haofang'
+
     var customApiHost = wx.getStorageSync('apiHost')
     var apiHost = customApiHost ||defaultApiHost
     var url = apiHost + obj.url
@@ -163,15 +178,11 @@ App({
         if(typeof res != "object"){
           console.log('server error')
         }
+  
 
-        if(res.data.status == 2000){
+        if([2000, 2001].includes(res.data.status)){
           console.log('login required')
-          _this.gotoAccount('需要登录', '提问前请先登录你的账号并绑定手机号')
-          return false
-        }
-        if(res.data.status == 2001){
-          console.log('login required')
-          _this.gotoAccount('绑定手机', '提问前请先绑定你的手机号码')
+          _this.gotoAccount('需要登录', '请先登录账号')
           return false
         }
 
