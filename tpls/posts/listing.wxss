@@ -55,6 +55,9 @@
   justify-content: space-between;
 }
 
+.posts .item .like text{
+
+}
 
 
 .posts .item .title{

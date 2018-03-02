@@ -138,8 +138,7 @@ Page({
    */
   onReachBottom: function () {
   
-  },                                                                                                                                                                                                                                                                                                                                                              
-
+  },                                                                                                                                                              
   onShareAppMessage: function () {
     var _this = this
     return {

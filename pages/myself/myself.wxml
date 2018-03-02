@@ -9,7 +9,6 @@
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.custom_avatar.url || userInfo.avatar }}" background-size="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickname}}</text>
-
     </block>
   </view>
 
@@ -34,7 +33,6 @@
       <view>{{item.name}}</view>
     </view>
     </block>
-    
   </block>
 
     <image src="/assets/images/post-list-footer.png" class="footer"></image>

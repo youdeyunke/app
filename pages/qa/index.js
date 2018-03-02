@@ -10,7 +10,7 @@ Page({
   data: {
     catId: 0,
     cats: [{name: '全部', id: 0}],
-    items: null,
+    items: [],
     questionContent: wx.getStorageSync('question_content') || ''
   },
 
@@ -86,7 +86,8 @@ Page({
   catHandle: function(e){
     console.log('cid:', e.target.dataset['cid'])
     this.setData({
-      catId: e.target.dataset['cid']
+      catId: e.target.dataset['cid'],
+      items: [],
     })
     this.loadItems()
   },
@@ -109,13 +110,19 @@ Page({
       url: '/api/v1/questions/',
       data: {cat_id: _this.data.catId},
       success: function(res){
+        var d = {}
         res.data.data.forEach(function(item, i){
+          
+          var index = _this.data.items.length + i
+          var k = "items[" + index + "]"
+          
+
           item['created_at_pretty'] = util.prettyTime(item['created_at'])
           item['updated_at_pretty'] = util.prettyTime(item['updated_at'])
+          d[k] = item
           wx.setStorageSync('question.' + item.id, item)
-          console.log('set sotrage item', item)
-        })
-        _this.setData({ items: res.data.data })
+        }) 
+        _this.setData(d)
         wx.setStorageSync('questions', res.data.data)
       }
     })
