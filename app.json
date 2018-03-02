@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/about/index",
+    "pages/tiao/index",    
     "pages/home/home",
     "pages/post/index",
     "pages/post/items",
@@ -9,6 +9,7 @@
     "pages/qa/index",
     "pages/post/post",
     "pages/myself/myself",
+    "pages/about/index",
     "pages/home/debug"
   ],
   "tabBar": {

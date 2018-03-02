@@ -1,0 +1,16 @@
+<navigator open-type='navigateTo' hover-class='none' wx:for="{{posts}}" url="/pages/post/post?id={{item.id}}">
+  <view class="poster-block">
+    <image src="{{item.cover.url}}"></image>
+  </view>
+  <view class="title-block">
+    <view class="l">logo</view>
+    <view class="m">
+      <view class="title">{{item.block_info.name}}</view>
+      <view class="address">{{item.block_info.street}}</view>
+    </view>
+    <view class="r">xxxxx</view>
+  </view>
+  <view class="tag-block">
+    <view class="tag tag-bg" wx:for="{{item.tags_list}}" wx:for-item="tag">{{tag}}</view>
+  </view>
+</navigator>

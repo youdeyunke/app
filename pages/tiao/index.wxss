@@ -1,0 +1,30 @@
+
+page{
+  background: #ffd900;
+  height: 100%;
+}
+
+.title-block{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-block .l{}
+.title-block .m{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.title-block .m .title{}
+
+.title-block .m .address{}
+
+.title-block .r{}
+
+.tag-block{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}

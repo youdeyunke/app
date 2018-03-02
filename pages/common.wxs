@@ -1,0 +1,11 @@
+
+var formatTimeStr = function(timeStr) {
+    return "fuck"
+    var d = timeStr.slice(0, 10)
+    var t = timeStr.slice(11, 16)
+    return d + ' ' + t
+}
+
+module.exports = {
+  formatTimeStr: formatTimeStr,
+};
