@@ -1,30 +1,88 @@
 
 page{
   background: #ffd900;
-  height: 100%;
+}
+
+
+page .container{
+  width:690rpx;
+  margin: auto;
+}
+
+.item{
+  background: #fff;
+  padding:30rpx;
+  width:calc(100% - 60rpx);
+  position: relative;
+  margin-bottom:50rpx;
+  border-radius: 10rpx;
 }
 
 .title-block{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom:30rpx;
 }
 
-.title-block .l{}
+.title-block .l{
+  width:80rpx;
+  height: 80rpx;
+  background: red;
+}
 .title-block .m{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+  width:calc(100% - 80rpx - 120rpx - 40rpx);
 }
-.title-block .m .title{}
+.title-block .m .title{
+  font-size:28rpx;
+  color:#000;
+}
 
-.title-block .m .address{}
+.title-block .m .address{
+  font-size:24rpx;
+  color: #cecece;
+}
 
-.title-block .r{}
+.title-block .m .address image{
+  width:25rpx;
+  height: 25rpx;
+}
+
+.title-block .r{
+  width:120rpx;
+  background: green;
+}
 
 .tag-block{
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.tag-block view{
+  background: #EFEFEF;
+  color: #666;
+  font-size:20rpx;
+  border-radius: 10rpx;
+  padding:5rpx 15rpx;
+  text-align: center;
+  flex-shrink: 0;
+  margin-right:10rpx;
+}
+
+.tag-block view.tag-yellow{
+  background: #ffd900;
+}
+
+.item .footer{
+position:absolute;
+bottom:-29rpx;
+left:0rpx;
+z-index:10;
+height:30rpx;
+width:100%;  
 }
