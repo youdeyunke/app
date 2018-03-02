@@ -4,7 +4,9 @@
       <image src="{{item.cover.url}}"></image>
     </view>
     <view class="title-block">
-      <view class="l">logo</view>
+      <view class="l">
+        <image src="/assets/images/logo.jpeg"></image>
+      </view>
       <view class="m">
         <view class="title line-limit">{{item.block_info.name}}</view>
         <view class="address line-limit">
@@ -12,7 +14,12 @@
         {{item.block_info.district.name}}-{{item.block_info.street}}
         </view>
       </view>
-      <view class="r">xxxxx</view>
+      <view class="r">
+      <block wx:for="{{[1,2,3,4,5]}}" wx:for-item="score">
+        <image wx:if="{{item.score >= score }}" src="/assets/icons/star-yellow.png"></image>
+        <image wx:if="{{item.score < score }}" src="/assets/icons/star-dark.png"></image>
+      </block>
+      </view>
     </view>
     <view class="tag-block">
       <view class="tag {{tagIndex <= 2 ? 'tag-yellow' : '' }}" wx:for="{{item.tags_list}}" wx:for-item="tag" wx:for-index="tagIndex">{{tag}}</view>

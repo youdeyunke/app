@@ -10,16 +10,26 @@ Page({
     posts: []
   },
 
+  itemPipline: function(item){
+    if (!item.tiao_cover) {
+      item.tiao_cover = { url: '/assets/images/logo.jpeg' }
+    }
+    if (!item.score) {
+      item.score = 5
+    }
+    return item
+  },
+
   onLoad: function (options) {
     var _this = this
     var d = {}
     app.loadPosts({ cate: 'item' }, function (resp) {
-      _this.setData({ posts: resp.data })
       var baseIndex = _this.data.posts.length
       var dict = {}
       resp.data.forEach(function(item , i ){
         var index = baseIndex + i
         var k = "posts[" + index + "]"
+        item = _this.itemPipline(item)
         console.log('item', item)
         dict[k] = item
       })

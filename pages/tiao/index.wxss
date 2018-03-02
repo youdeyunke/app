@@ -28,7 +28,6 @@ page .container{
 .title-block .l{
   width:80rpx;
   height: 80rpx;
-  background: red;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,6 +35,8 @@ page .container{
 
 .title-block .l image{
   border-radius: 100%;
+  width:100%;
+  height: 100%;
 }
 
 
@@ -66,13 +67,22 @@ page .container{
 
 .title-block .r{
   width:120rpx;
-  background: green;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.title-block .r image{
+  width:31rpx;
+  height: 31rpx;
 }
 
 .tag-block{
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;                  
 }
 
 .tag-block view{
