@@ -3,7 +3,7 @@
 
 <view class="container ">
   <view class="myvideo">
-          <video  autoplay controls poster="{{ post.cover.url}}" src="{{post.video}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+          <video  controls poster="{{ post.cover.url}}" src="{{post.video}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
    </view>
 
   <view class="box main">

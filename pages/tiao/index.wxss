@@ -29,7 +29,16 @@ page .container{
   width:80rpx;
   height: 80rpx;
   background: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.title-block .l image{
+  border-radius: 100%;
+}
+
+
 .title-block .m{
   display: flex;
   flex-direction: column;
@@ -40,11 +49,14 @@ page .container{
 .title-block .m .title{
   font-size:28rpx;
   color:#000;
+  
 }
 
 .title-block .m .address{
   font-size:24rpx;
   color: #cecece;
+  width:100%;
+
 }
 
 .title-block .m .address image{

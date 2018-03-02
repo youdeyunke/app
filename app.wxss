@@ -53,6 +53,12 @@ video{
   flex-shrink: 0;
 }
 
+.line-limit{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;  
+}
+
 @import "/components/tags.wxss";
 @import "/utils/wxParse/wxParse.wxss";
 
