@@ -14,8 +14,8 @@ Page({
     if (!item.tiao_cover) {
       item.tiao_cover = { url: '/assets/images/tiao_cover.jpeg' }
     }
-    if (!item.block_info.logo) {
-      item.block_info.logo = { url: '/assets/images/logo.jpeg' }
+    if (!item.block_info.item_logo) {
+      item.block_info.item_logo = { url: '/assets/images/logo.jpeg' }
     }    
 
     if (!item.score) {

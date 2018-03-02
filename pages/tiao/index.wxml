@@ -5,7 +5,7 @@
     </view>
     <view class="title-block">
       <view class="l">
-        <image src="{{item.block_info.logo.url}}"></image>
+        <image src="{{item.block_info.item_logo.url}}"></image>
       </view>
       <view class="m">
         <view class="title line-limit">{{item.block_info.name}}</view>
