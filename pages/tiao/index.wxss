@@ -23,6 +23,7 @@ page .container{
   justify-content: space-between;
   align-items: center;
   margin-bottom:30rpx;
+  margin-top:10rpx;
 }
 
 .title-block .l{

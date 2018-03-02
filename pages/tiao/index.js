@@ -12,8 +12,12 @@ Page({
 
   itemPipline: function(item){
     if (!item.tiao_cover) {
-      item.tiao_cover = { url: '/assets/images/logo.jpeg' }
+      item.tiao_cover = { url: '/assets/images/tiao_cover.jpeg' }
     }
+    if (!item.block_info.logo) {
+      item.block_info.logo = { url: '/assets/images/logo.jpeg' }
+    }    
+
     if (!item.score) {
       item.score = 5
     }

@@ -1,11 +1,11 @@
 <view class="container">
   <navigator class="item" open-type='navigateTo' hover-class='none' wx:for="{{posts}}" url="/pages/post/post?id={{item.id}}">
     <view class="poster-block">
-      <image src="{{item.cover.url}}"></image>
+      <image src="{{item.tiao_cover.url}}"></image>
     </view>
     <view class="title-block">
       <view class="l">
-        <image src="/assets/images/logo.jpeg"></image>
+        <image src="{{item.block_info.logo.url}}"></image>
       </view>
       <view class="m">
         <view class="title line-limit">{{item.block_info.name}}</view>
