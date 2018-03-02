@@ -24,6 +24,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var _this = this
+    var today = new Date();  //开始时间
+    var lastDay = new Date('2018/04/01');    //结束时间
+    var delta = lastDay.getTime() - today.getTime()
+    console.log('delta', delta)
+    if(delta <= 0){
+      _this.setData({ showInfo: true })
+    }else{
+      var days = Math.floor(delta / (24 * 3600 * 1000))
+      console.log('days ', days)
+    }
+
+    
   
   },
 

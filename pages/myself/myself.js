@@ -18,7 +18,7 @@ Page({
     actionsB: [
       {name: '我要反馈'},
       {name: '分享给好友'},
-      {name: '关于好房'},
+      {name: '关于好房', url: '/pages/about/index', openType: 'navigateTo'},
     ]
   },
 
@@ -89,6 +89,15 @@ Page({
       })
       return
     }
+
+    if(index == 2){
+      wx.navigateTo({
+        url: '/pages/about/index',
+      })
+      return
+    }
+
+
     app.comingSoon()
   },
 

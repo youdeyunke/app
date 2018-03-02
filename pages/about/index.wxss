@@ -7,7 +7,7 @@ page{
 .container{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   height: 100%;
 }
@@ -15,6 +15,7 @@ page{
 .logo{
   height: 40%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -22,14 +23,32 @@ page{
 .logo image{
   height: 200rpx;
   width:200rpx;
+  border-radius:100%;
+  border:2rpx solid #fff;
+}
+
+.logo .desc{
+  font-size:28rpx;
+  width:80%;
+  margin: 20rpx 0 0 0 ;
+  text-align: center;
+}
+
+.title{
+  font-size:28rpx;
+  width:calc(100% - 20rpx);
+  padding:30rpx 0 10rpx 10rpx;
 }
 
 .meta{
-  height: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
   width:100%;
+}
+
+.meta .label{
+  width:330rpx;
 }
 
 .meta .item{
