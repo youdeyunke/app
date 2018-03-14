@@ -11,10 +11,10 @@ Page({
   },
 
   itemPipline: function(item){
-    if (!item.tiao_cover) {
+    if (!item.tiao_cover.url) {
       item.tiao_cover = { url: '/assets/images/tiao_cover.jpeg' }
     }
-    if (!item.block_info.item_logo) {
+    if (!item.block_info.item_logo.url) {
       item.block_info.item_logo = { url: '/assets/images/logo.jpeg' }
     }    
 

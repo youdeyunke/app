@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    loginFlag: true,
     city_id: null,
     offset: 0,
     total: 0,

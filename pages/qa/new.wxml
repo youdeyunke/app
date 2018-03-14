@@ -1,3 +1,15 @@
+<view class="cover">
+  <image src="/assets/images/qa-new-bg.png"></image>
+</view>
 <view class="container">
-<textarea bindblur="bindTextAreaBlur" auto-height placeholder="自动变高" maxlength="400" show-confirm-bar="true" />
+  <button class="booking" bindtap="callMe">快速预约</button>
+  <view class="dark">或者</view>
+  <view class="form">
+    <form  bindsubmit="submitHandle" >
+            <textarea bindinput="inputHandle" maxlength="200" value="{{questionContent}}" name="content" placeholder='在这里输入您的问题...'></textarea>
+      <button  class="button" type="default" form-type="submit" >我要提问</button>
+    </form>
+  </view>
+
+
 </view>

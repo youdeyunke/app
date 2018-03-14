@@ -3,6 +3,7 @@
     "usingComponents": {
       "mytopbar": "/components/topbar",
       "mytags": "/components/tags",
+      "mylogin": "/components/login",
       "myslider": "/components/slider"
     }
 

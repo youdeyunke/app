@@ -9,7 +9,7 @@
     "pages/post/post",
     "pages/myself/myself",
     "pages/about/index",
-    
+    "pages/qa/new",    
     "pages/tiao/index",    
     "pages/home/debug"
   ],

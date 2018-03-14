@@ -1,4 +1,5 @@
 <import src="/tpls/posts/listing.wxml"/>
+<mylogin flag="{{loginFlag}}"></mylogin>
 
 <view class="container">
   <mytopbar bindcitychanged="cityHandle"></mytopbar>

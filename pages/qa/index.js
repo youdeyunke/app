@@ -38,7 +38,7 @@ Page({
   submitHandle: function(){
     var _this = this
     var content =  _this.data.questionContent
-    var qLen = content.length
+    var qLen = typeof content == 'undefined' ? 0 : content.length 
     var qMinLength = 10
 
     if(qLen >= 200){
