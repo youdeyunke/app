@@ -1,4 +1,5 @@
 <import src="/tpls/posts/mini_listing.wxml"/>
+<mylogin flag="{{loginFlag}}"></mylogin>
 <view class="container">
   <view class="userinfo">
     <block wx:if="{{ userInfo && !userInfo.mobile }}">

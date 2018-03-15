@@ -1,7 +1,10 @@
 {
     "enablePullDownRefresh": false,
     "usingComponents": {
-      "mytags": "/components/tags"
+      "mytopbar": "/components/topbar",
+      "mytags": "/components/tags",
+      "mylogin": "/components/login",
+      "myslider": "/components/slider"
     }
 
 }

@@ -4,6 +4,7 @@ const app = getApp()
 Page({
   data: {
     userInfo: null,
+    loginFlag: null,
     loadingStatus : null,
     debugClicks: 0,
     lastViewPost: null,
@@ -106,9 +107,14 @@ Page({
     _this.setData({
       lastViewPost: wx.getStorageSync('last_view_post')
     })
+
     app.getUserInfo(function (userInfo) {
-      _this.setData({ userInfo: userInfo })
+      if(!userInfo.mobile){
+        _this.data.loginFlag = true
+      }
+      _this.setData({ userInfo: userInfo, loginFlag: _this.data.loginFlag })
     })    
+
     console.log('myself.onshow ', wx.getStorageSync('last_view_post'))
     console.log('last view post', _this.data.lastViewPost)    
   },

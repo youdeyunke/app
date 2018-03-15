@@ -1,4 +1,6 @@
 // components/login.js
+const app = getApp()
+
 Component({
   /**
    * 组件的属性列表
@@ -59,7 +61,24 @@ Component({
     },
 
     formSubmit: function (e) {
-      console.log('submit ', e.detail.value)
+      var data =  e.detail.value
+      var _this = this
+      app.request({
+        url: '/api/v1/users/bind_mobile',
+        method: 'POST',
+        data: data,
+        success: function (resp) {
+          app.globalData.userInfo = resp.data.data
+          wx.setStorageSync('userInfo', resp.data.data)
+          wx.showToast({
+            title: '登录成功',
+            icon: 'success',
+            duration: 2000,
+          })
+          
+
+        }
+      })      
     },
 
   }

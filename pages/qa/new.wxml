@@ -1,3 +1,6 @@
+<mylogin flag="{{loginFlag}}"></mylogin>
+
+
 <view class="cover">
   <image src="/assets/images/qa-new-bg.png"></image>
 </view>

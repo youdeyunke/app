@@ -178,7 +178,6 @@ App({
         if(typeof res != "object"){
           console.log('server error')
         }
-  
 
         if([2000, 2001].includes(res.data.status)){
           console.log('login required')
