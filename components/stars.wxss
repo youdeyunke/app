@@ -1,0 +1,13 @@
+.mystars{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: calc(31rpx*5 + 10rpx);
+}
+
+.mystars image{
+    width:31rpx;
+   height: 31rpx;
+}

@@ -14,6 +14,7 @@ Component({
    */
   data: {
     countDown: 0,
+    _code: 0,
   },
   
 
@@ -56,26 +57,46 @@ Component({
       }
 
       // send captcha
-      _this.setData({countDown: 5})
+      
+      _this.setData({countDown: 5, _code: '5555'})
       _this.timer()
     },
 
     formSubmit: function (e) {
       var data =  e.detail.value
       var _this = this
+      // check code
+      var verify = data.code == _this.data._code
+      console.log('data.code', data.code, 'this.data.code', _this.data.code)
+      if(!verify){
+        console.log('this.data.code ', _this.data.code, 'data.code', data)
+        wx.showToast({
+          title: '验证码错误',
+          icon: 'none',
+        })
+        return false
+      }
+      
+
       app.request({
         url: '/api/v1/users/bind_mobile',
         method: 'POST',
         data: data,
         success: function (resp) {
-          app.globalData.userInfo = resp.data.data
-          wx.setStorageSync('userInfo', resp.data.data)
+          if(resp.data.status != 0){
+            console.log('bind :', resp)
+            return false
+          }
+
           wx.showToast({
             title: '登录成功',
             icon: 'success',
             duration: 2000,
+            success: function(){
+              console.log('success trigger event')
+              _this.triggerEvent('success', {}, {})
+            }
           })
-          
 
         }
       })      

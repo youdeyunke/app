@@ -6,7 +6,7 @@
     <view class="head">手机快速登录</view>
     <input id="mobile" bindinput='inputHandle' class="mobile" name="mobile" placeholder='手机号码'></input>
     <view class="input-group">
-      <input bindinput='inputHandle' placeholder='验证码' name="captcha" id="captcha" ></input>
+      <input bindinput='inputHandle' placeholder='验证码' name="code" id="code" ></input>
       
       <view wx:if="{{countDown == 0}}" bindtap='captchaHandle' class="captcha enable">获取验证码</view>
       <view wx:if="{{countDown > 0}}" class="captcha disable">

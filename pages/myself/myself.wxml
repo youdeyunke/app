@@ -1,16 +1,22 @@
 <import src="/tpls/posts/mini_listing.wxml"/>
-<mylogin flag="{{loginFlag}}"></mylogin>
+
+<mylogin flag="{{loginFlag}}" bind:success="loadData"></mylogin>
+
 <view class="container">
   <view class="userinfo">
-    <block wx:if="{{ userInfo && !userInfo.mobile }}">
+
+    <block wx:if="{{ userInfo && userInfo.mobile }}">
+
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.custom_avatar.url || userInfo.avatar }}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickname}}</text>
+    </block>
+
+    <block wx:else>
         <image bindtap="bindViewTap" class="userinfo-avatar" src="/assets/images/avatar-none.png" background-size="cover"></image>    
       <button class="login-btn" open-type="getPhoneNumber"  wx:if="{{ !userInfo.mobile }}" bindgetphonenumber="bindMobileHandle"> 注册/登录 </button>
     </block>
 
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.custom_avatar.url || userInfo.avatar }}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickname}}</text>
-    </block>
+
   </view>
 
   <view class="useractions">

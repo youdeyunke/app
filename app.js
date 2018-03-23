@@ -83,6 +83,17 @@ App({
       })
     }
   },
+
+  sendSms: function(mobile, cb){
+    var _this = this
+    _this.request({
+      url: '/api/v1/sms/sendto',
+      data: {mobile: mobile},
+      success: function(resp){
+        console.log('send sms resp', resp)
+      }
+    })
+  },
   
 
   getSessionToken: function(code, encryptedData, iv, cb){
@@ -157,7 +168,7 @@ App({
     
     // This must be wx.request !
     var defaultApiHost = 'https://www.jiayaosu.com/haofang'
-    //var defaultApiHost = 'http://localhost:3000/haofang'
+    var defaultApiHost = 'http://localhost:3000/haofang'
     var customApiHost = wx.getStorageSync('apiHost')
     var apiHost = customApiHost ||defaultApiHost
     var url = apiHost + obj.url

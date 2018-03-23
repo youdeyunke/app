@@ -8,6 +8,7 @@ page{
   background-color: #f0f0f0;
 }
 
+
 page .container{
   width:690rpx;
   margin:0 auto 100rpx auto;
@@ -24,7 +25,6 @@ page .container{
   border-radius: 20rpx;
   background:#fff;
   padding:25rpx 20rpx;
-
   box-shadow: 6rpx 6rpx 18rpx rgba(0,0,0, 0.1);
 }
 
@@ -73,6 +73,26 @@ page .container{
   width:300rpx;
 }
 
+.box.html-content{
+  margin-bottom:40rpx;
+}
+
+.box.html-content.small, box.box.html-content.small .raw{
+  height: 400rpx;
+  overflow: hidden;
+  position: relative;
+  padding-bottom:20rpx;
+}
+
+.box.html-content.small .readmore{
+  position: absolute;
+  bottom:10rpx;
+  left:10rpx;
+  font-size:24rpx;
+  width: 100%;
+  background: #fff;
+}
+
 .main{
   margin:18rpx 0 35rpx 0;
 }
@@ -83,7 +103,6 @@ page .container{
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: nowrap;
-  height: 126rpx;
   align-items: center;
   box-shadow: 6rpx 6rpx 18rpx rgba(0,0,0, 0.1);
 }
@@ -134,6 +153,7 @@ page .container{
 .h1{
   font-size:30rpx;
   color:#000;
+  padding: 0 20rpx;
   margin: 0 0 20rpx 0;
 }
 
@@ -276,3 +296,47 @@ page .container{
 }
 
 @import "/tpls/posts/mini_listing.wxss";
+
+#audio{
+  width:100%;
+  margin-bottom:20rpx;
+}
+
+.housetype{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom:20rpx;
+}
+
+.housetype .poster, .housetype .poster image{
+  width: 280rpx;
+  height: 200rpx;
+}
+.housetype .meta{
+  font-size: 24rpx;
+  width: calc(100% - 280rpx);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.housetype .name{
+  font-size:30rpx;
+  border-bottom:2rpx solid #f4f4f4;
+  width:100%;
+  padding:10rpx 0;
+  height:50rpx;
+  margin-bottom:15rpx;
+}
+.housetype .kvs text{
+  color: red;
+}
+
+.housetype .kvs{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}

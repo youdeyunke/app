@@ -65,10 +65,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var _this = this
-
-    console.log('myself onload')
+    this.loadData()
   },
+
+  loadData: function(){
+    console.log('load data event')
+    app.globalData.userInfo = null
+    var _this = this
+    app.getUserInfo(function (userInfo) {
+      _this.data.userInfo = userInfo
+      _this.data.loginFlag = !userInfo.mobile ? true: false
+
+      _this.setData({ userInfo: _this.data.userInfo, loginFlag: _this.data.loginFlag })
+    })    
+  },  
 
   actionHandle: function(e){
     console.log(e)

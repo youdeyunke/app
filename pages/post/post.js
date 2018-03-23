@@ -10,7 +10,12 @@ Page({
   data: {
     post: null,
     posts: null,
-    htmlContent: null
+    htmlContent: null,
+    readmore: false,
+  },
+
+  readMore: function(){
+    this.setData({ readmore: true })
   },
 
   loadRecoms: function(postId){
@@ -40,6 +45,7 @@ Page({
         _this.setData({post: resp.data.data})
         wx.setStorageSync('last_view_post', resp.data.data)
         WxParse.wxParse('htmlContent', 'html', resp.data.data.content ,  _this, 5);
+        WxParse.wxParse('htmlContentSimple', 'html', resp.data.data.content_simple, _this, 5);
 
         wx.setNavigationBarTitle({
           title: resp.data.data['title']
