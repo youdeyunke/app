@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/comments/index",    
+   
     "pages/home/home",
     "pages/post/index",
     "pages/post/items",
@@ -14,7 +14,8 @@
     "pages/tiao/index",
     "pages/post/coupon",
     "pages/home/debug",
-
+    "pages/comments/index",
+    
     "pages/comments/new"
   ],
   "tabBar": {
