@@ -1,1 +1,68 @@
-/* pages/comments/new.wxss */
+page{
+  background-repeat: no-repeat;
+  background-size: 750rpx 301rpx;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+}
+
+page .container{
+  width:690rpx;
+  margin-top:20rpx;
+
+}
+
+.box{
+  border-radius: 20rpx;
+  background:#fff;
+  padding:25rpx 20rpx;
+  box-shadow: 6rpx 6rpx 18rpx rgba(0,0,0, 0.1);  
+}
+
+.comment-form  button{
+  background: #ffdb2d;
+  font-size:24rpx;
+  outline: none;
+  background: #ffdb2d;
+  color:#000;
+  text-align: center;
+}
+.comment-form  button.button::after{
+  border:0px solid #fff;
+}
+
+.comment-header{
+  height: 280rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom:40rpx;
+}
+
+.comment-header .cats{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  font-size:24rpx;
+}
+
+.comment-header .cats text{
+  background: #f4f4f4;
+  border-radius: 10rpx;
+  color: #333;
+  padding:2rpx 25rpx;
+}
+
+.h1{
+  font-size:26rpx;
+  font-weight: 800;
+}
+
+textarea{
+  font-size:24rpx;
+}
+
+@import "/tpls/posts/mini_listing.wxss";

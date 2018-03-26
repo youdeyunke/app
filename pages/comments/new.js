@@ -1,18 +1,52 @@
 // pages/comments/new.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    cats: [
+      {name: '考虑看房', id: 1}
+    ],
+
+    posts: [{}],
+
+    comment: {
+      score: 1,
+      cat_id: 0,
+      content: '',
+      target_type: 'post',
+      target_id: '',
+    }
+  },
+
+  scoreHandle: function(e){
+    console.log('e', e)
+    this.data.comment.score = e.detail.score
+    this.setData({comment: this.data.comment})
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  onLoad: function (q) {
+    this.data.comment.target_id = q.target_id
+    this.data.comment.target_type = q.target_type || 'post'
+    this.loadTarget()
+  },
+
+  loadTarget: function(){
+    var ids = this.data.comment.target_id
+    var _this = this
+    app.loadPosts({ids: ids}, function(res){
+      _this.setData({posts: res.data})
+    })
+  },
+
+  submitHandle: function(e){
+    
   },
 
   /**

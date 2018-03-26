@@ -11,3 +11,11 @@
     width:31rpx;
    height: 31rpx;
 }
+
+.mystars-big{
+  width: calc(50rpx*5 + 10rpx);
+}
+.mystars-big image{
+  width: 50rpx;
+  height: 50rpx;
+}

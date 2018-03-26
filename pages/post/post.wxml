@@ -129,6 +129,8 @@
 
   <text class="h1" wx:if="{{posts.length > 0}}">好房推荐</text>
   <template is="miniposts"  data="{{ posts }}"></template>
+
+  <navigator class="add-comment" url="/pages/comments/new?target_id={{post.id}}">append new comment</navigator>
 </view>
 
 <view class="footer-btns ">

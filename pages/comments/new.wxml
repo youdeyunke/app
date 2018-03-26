@@ -1,2 +1,19 @@
-<!--pages/comments/new.wxml-->
-<text>pages/comments/new.wxml</text>
+<import src="/tpls/posts/mini_listing.wxml"/>
+
+<view class="container">
+  <template is="miniposts"  data="{{posts}}"></template>
+
+  <view class="comment-header box">
+    <view class="h1">楼盘评价</view>
+    <mystars bind:scoreChange="scoreHandle" big value="{{comment.score}}"></mystars>
+    <view class="h1">您的身份</view>
+    <view class="cats">
+      <text>考虑看房</text>
+    </view>
+  </view>
+
+  <view class="comment-form box">
+    <textarea placeholder='其他人都各抒己见，让大家也听听您的意见吧'></textarea>
+    <button class="submit btn">提交</button>
+  </view>
+</view>

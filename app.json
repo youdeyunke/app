@@ -1,7 +1,7 @@
 {
   "pages": [
-   
-    "pages/home/home",
+    "pages/home/home",    
+    "pages/comments/new",
     "pages/post/index",
     "pages/post/items",
     "pages/post/blocks",
@@ -15,9 +15,7 @@
     "pages/post/coupon",
     "pages/home/debug",
     "pages/webview/webview",
-    "pages/comments/index",
-    
-    "pages/comments/new"
+    "pages/comments/index"
   ],
   "tabBar": {
     "selectedColor": "#333",
