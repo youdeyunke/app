@@ -166,9 +166,10 @@ App({
       header['Authorization'] = this.globalData.token
     }
     
+    
     // This must be wx.request !
     var defaultApiHost = 'https://www.jiayaosu.com/haofang'
-    //var defaultApiHost = 'http://localhost:3000/haofang'
+    var defaultApiHost = 'http://localhost:3000/haofang'
     var customApiHost = wx.getStorageSync('apiHost')
     var apiHost = customApiHost ||defaultApiHost
     var url = apiHost + obj.url

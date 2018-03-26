@@ -114,6 +114,19 @@
     </view>
   </view>  
 
+  <text class="h1" >买房必读</text>
+  <navigator open-type='navigateTo' url="/pages/webview/webview?url={{post.more_url}}" class="box moreurl">
+    <view class="poster">
+      <image src="/assets/images/read-more.png"></image>
+    </view>
+    <view class="meta">
+      <view class="t">{{post.more_title}}</view>
+      <view class="d">{{post.more_desc}}</view>
+    </view>
+
+    <image src="/assets/images/post-list-footer.png" class="footer"></image>
+  </navigator>
+
   <text class="h1" wx:if="{{posts.length > 0}}">好房推荐</text>
   <template is="miniposts"  data="{{ posts }}"></template>
 </view>

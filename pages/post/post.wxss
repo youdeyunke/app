@@ -310,8 +310,8 @@ page .container{
 }
 
 .housetype .poster, .housetype .poster image{
-  width: 280rpx;
-  height: 200rpx;
+  width: 250rpx;
+  height: 180rpx;
 }
 .housetype .meta{
   font-size: 24rpx;
@@ -339,4 +339,48 @@ page .container{
   justify-content: space-between;
   align-items: center;
   width: 90%;
+}
+
+
+.moreurl{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 152rpx;
+  margin-bottom:40rpx;
+  position:relative;
+}
+
+.moreurl .poster, .moreurl .poster image{
+  width: 266rpx;
+  height: 152rpx;
+  border-radius: 30rpx;
+  overflow: hidden;
+}
+
+.moreurl .meta{
+  width: 338rpx;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.moreurl .meta .t{
+  font-size: 32rpx;
+  color: #000;
+}
+.moreurl .meta .d{
+  color: #333;
+  font-size:24rpx;
+}
+
+.moreurl .footer{
+position:absolute;
+bottom:-29rpx;
+left:0rpx;
+z-index:10;
+height:30rpx;
+width:100%;  
 }
