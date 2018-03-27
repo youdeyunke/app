@@ -1,6 +1,9 @@
 {
   "pages": [
+
     "pages/home/home",    
+    "pages/webview/webview",
+    
     "pages/comments/new",
     "pages/post/index",
     "pages/post/items",
@@ -14,7 +17,7 @@
     "pages/tiao/index",
     "pages/post/coupon",
     "pages/home/debug",
-    "pages/webview/webview",
+
     "pages/comments/index"
   ],
   "tabBar": {

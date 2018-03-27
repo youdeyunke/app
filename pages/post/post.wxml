@@ -77,29 +77,30 @@
     </view>
     <view class="meta">
       <view class="name">{{post.housetype_name_a}}</view>
-      <view class="kv">朝向    {{post.housetype_position_a}}</view>
-      <view class="kv">建面    {{post.housetype_area_a}}㎡</view>
+      <view class="kv"><text decode="{{true}}">朝向&nbsp; &nbsp;&nbsp;{{post.housetype_position_a}}</text></view>
+      <view class="kv"><text decode="{{true}}">建面&nbsp; &nbsp;&nbsp;{{post.housetype_area_a}}㎡</text></view>
       <view class="kvs">
-        <view class="kv">单价    <text>{{post.housetype_price_a}}</text></view>
-        <view class="kv">总价    <text>{{post.housetype_total_price_a}}</text></view>
+        <view class="kv">单价<text decode="{{true}}">&nbsp; &nbsp;&nbsp;{{post.housetype_price_a}}</text></view>
+        <view class="kv">总价    <text decode="{{true}}">&nbsp; &nbsp;&nbsp;{{post.housetype_total_price_a}}</text></view>
       </view>
     </view>
   </view>
 
-  <view class="box housetype" wx:if="{{post.housetype_name_b}}">
+  <view class="box housetype" wx:if="{{post.housetype_name_b }}">
     <view class="poster">
       <image src="{{post.housetype_poster_b.url}}"></image>
     </view>
     <view class="meta">
-      <view class="name">{{post.housetype_name_b}}</view>
-      <view class="kv">朝向    {{post.housetype_position_b}}</view>
-      <view class="kv">建面    {{post.housetype_area_b}}㎡</view>
+      <view class="name">{{post.housetype_name_b }}</view>
+      <view class="kv"><text decode="{{true}}">朝向&nbsp; &nbsp;&nbsp;{{post.housetype_position_b}}</text></view>
+      <view class="kv"><text decode="{{true}}">建面&nbsp; &nbsp;&nbsp;{{post.housetype_area_b}}㎡</text></view>
       <view class="kvs">
-        <view class="kv">单价    <text>{{post.housetype_price_b}}</text></view>
-        <view class="kv">总价    <text>{{post.housetype_total_price_b}}</text></view>
+        <view class="kv">单价<text decode="{{true}}">&nbsp; &nbsp;&nbsp;{{post.housetype_price_b}}</text></view>
+        <view class="kv">总价    <text decode="{{true}}">&nbsp; &nbsp;&nbsp;{{post.housetype_total_price_b}}</text></view>
       </view>
     </view>
-  </view> 
+  </view>
+
 
   <view class="box html-content" hidden="{{readmore}}" wx:if="{{post.content_simple.length > 0}}">
     <view class="raw">
@@ -114,8 +115,8 @@
     </view>
   </view>  
 
-  <text class="h1" >买房必读</text>
-  <navigator open-type='navigateTo' url="/pages/webview/webview?url={{post.more_url}}" class="box moreurl">
+  <text class="h1" wx:if="{{post.more_url}}" >买房必读</text>
+  <view wx:if="{{post.more_url}}" bindtap='openWebview' class="box moreurl">
     <view class="poster">
       <image src="/assets/images/read-more.png"></image>
     </view>
@@ -125,12 +126,12 @@
     </view>
 
     <image src="/assets/images/post-list-footer.png" class="footer"></image>
-  </navigator>
+  </view>
 
   <text class="h1" wx:if="{{posts.length > 0}}">好房推荐</text>
   <template is="miniposts"  data="{{ posts }}"></template>
 
-  <navigator class="add-comment" url="/pages/comments/new?target_id={{post.id}}">append new comment</navigator>
+  <navigator class="add-comment" url="/pages/comments/new?target_id={{post.id}}"><text decode="{{true}}">&gt;&gt;我要评论&lt;&lt;</text></navigator>
 </view>
 
 <view class="footer-btns ">

@@ -1,1 +1,11 @@
-/* pages/webview/webview.wxss */
+page{
+  font-size:28rpx;
+}
+
+page .h1{
+  font-size:36rpx;
+  color: #000;
+  font-weight: 800;
+  text-align: center;
+  margin:10rpx auto 20rpx auto;
+}

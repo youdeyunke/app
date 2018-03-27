@@ -5,13 +5,26 @@ var WxParse = require('../../utils/wxParse/wxParse.js');
 Page({
 
   /**
-   * 页面的初始数据
+   * 页面的初始 数据
    */
   data: {
     post: null,
     posts: null,
     htmlContent: null,
     readmore: false,
+  },
+
+
+  openWebview: function(e){
+    var url = this.data.post.more_url
+    if(!url){
+      return
+    }
+    var _this = this
+    wx.setStorageSync('webview', this.data.post.more_url)
+    wx.navigateTo({
+      url: '/pages/webview/webview?title='+ _this.data.post.title,
+    })
   },
 
   readMore: function(){

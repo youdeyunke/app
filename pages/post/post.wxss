@@ -312,6 +312,8 @@ page .container{
 .housetype .poster, .housetype .poster image{
   width: 250rpx;
   height: 180rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
 }
 .housetype .meta{
   font-size: 24rpx;
@@ -383,4 +385,10 @@ left:0rpx;
 z-index:10;
 height:30rpx;
 width:100%;  
+}
+
+.add-comment{
+  font-size:28rpx;
+  color: #333;
+  margin:10rpx auto 20rpx auto;
 }
