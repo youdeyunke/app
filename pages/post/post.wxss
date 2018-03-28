@@ -392,3 +392,7 @@ width:100%;
   color: #333;
   margin:10rpx auto 20rpx auto;
 }
+
+.comments .item.box {
+  margin-bottom:45rpx;
+}

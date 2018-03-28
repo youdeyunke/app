@@ -1,5 +1,6 @@
 <import src="/utils/wxParse/wxParse.wxml"/>
 <import src="/tpls/posts/mini_listing.wxml"/>
+<import src="/tpls/comment-item.wxml" />
 
 <view class="container ">
   <view class="myvideo">
@@ -130,6 +131,11 @@
 
   <text class="h1" wx:if="{{posts.length > 0}}">好房推荐</text>
   <template is="miniposts"  data="{{ posts }}"></template>
+
+  <view class="comments">
+    <template wx:for="{{ [1,2,3,4] }}" is="comment-item" data="{{ comment }}" showTarget="{{false}}" ></template>
+  </view>
+
 
   <navigator class="add-comment" url="/pages/comments/new?target_id={{post.id}}"><text decode="{{true}}">&gt;&gt;我要评论&lt;&lt;</text></navigator>
 </view>

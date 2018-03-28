@@ -1,22 +1,4 @@
+<import src="/tpls/comments-item.wxml"/>
 <view class="container comments">
-  <view class="item box">
-    <view class="user"></view>
-    <view class="meta">
-      <view class="nickname">
-        <view class="uname">USER1</view>
-        <view class="cat">看过</view>
-      </view>
-      <view class="score">
-        <view class="stars">
-          <mystars></mystars>
-        </view>
-        <view class="start-text">非常赞，值得推荐</view>
-      </view>
-      <view class="content">content text here</view>
-      <view class="datetime">
-        <text class="time">2018-12-12 12:30</text>
-        <text>有用（100）</text>
-      </view>
-    </view>
-  </view>
+  <template is="comment-item" item="{{}}"></template>
 </view>

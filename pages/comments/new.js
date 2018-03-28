@@ -8,7 +8,9 @@ Page({
    */
   data: {
     cats: [
-      {name: '考虑看房', id: 1}
+      {name: '考虑看房', id: 1},
+      {name: '看过该房', id: 2},
+      {name: '我是业主', id: 3},
     ],
 
     posts: [{}],

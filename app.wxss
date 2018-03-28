@@ -62,3 +62,108 @@ video{
 @import "/components/tags.wxss";
 @import "/utils/wxParse/wxParse.wxss";
 
+
+
+
+.comments .item.box{
+  border-radius: 10rpx;
+  background:#fff;
+  padding:25rpx 20rpx;
+  box-shadow: 6rpx 6rpx 18rpx rgba(0,0,0, 0.1);
+  position: relative;
+}
+
+.comments .item.box .footer{
+
+position:absolute;
+bottom:-29rpx;
+left:0rpx;
+z-index:10;
+height:30rpx;
+width:100%;  
+
+}
+
+.comments .item.box {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+
+.comments .item .user{
+  width: 60rpx;
+  height: 60rpx;
+  background: darkgray;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.comments .item .meta{
+  font-size:24rpx;
+  width: calc(100% - 60rpx - 30rpx);
+}
+
+.comments .item .meta  .nickname{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.comments .item .meta  .nickname .uname{
+  color: #000;
+  font-weight: bold;
+}
+.comments .item .meta  .nickname .cat{
+  background: #ffd900;
+  padding:0 35rpx;
+  color: #000;
+  margin-left:30rpx;
+  border-radius: 30rpx;
+}
+
+.comments .item .meta  .score{
+    width:100%;
+    border-bottom:1rpx solid #f4f4f4;
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+    height:40rpx;
+    padding:15rpx 0;
+    margin-bottom:15rpx;
+}
+
+.comments .item .meta .target{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top:30rpx;
+}
+
+.comments .item .meta .target .red{
+  color: red;
+  margin-left: 20rpx;
+}
+
+
+.comments .item .meta .score .start-text{
+  margin-left:30rpx;
+}
+
+.comments .item .meta .content{
+    min-height: 100rpx;
+}
+
+.comments .item .meta .datetime{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.comments .item .meta .datetime .time{
+  color: #f4f4f4;
+}
+
