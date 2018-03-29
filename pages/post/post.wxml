@@ -133,7 +133,7 @@
   <template is="miniposts"  data="{{ posts }}"></template>
 
   <view class="comments">
-    <template wx:for="{{ [1,2,3,4] }}" is="comment-item" data="{{ comment }}" showTarget="{{false}}" ></template>
+    <template wx:for-item="comment" wx:for="{{ comments }}" is="comment-item" data="{{ comment, index, showTarget:false }}"  ></template>
   </view>
 
 
@@ -146,9 +146,9 @@
     分享
    </button>
    <navigator open-type='navigateTo' class="qa" url="/pages/qa/new?postId={{post.id}}">
-    我要提问<image src="/assets/icons/pen.png"></image>
+    咨询提问<image src="/assets/icons/pen.png"></image>
    </navigator>
    <view class="call" bindtap="callMe">
-    预约看房<image src="/assets/icons/call.png"></image>
+    预约报名<image src="/assets/icons/call.png"></image>
    </view>
 </view>

@@ -9,8 +9,8 @@ page .container{
   margin:0 auto 100rpx auto;
 }
 
-.comments {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+
+
+.comments .item{
+  margin-bottom: 40rpx;  
 }

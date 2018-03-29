@@ -42,6 +42,30 @@
 					"name": "webview",
 					"pathName": "pages/webview/webview",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "nwe-comment",
+					"pathName": "pages/comments/new",
+					"query": "target_id=1&target_type=post"
+				},
+				{
+					"id": 3,
+					"name": "post",
+					"pathName": "pages/post/post",
+					"query": "id=1"
+				},
+				{
+					"id": -1,
+					"name": "my-comments",
+					"pathName": "pages/comments/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "myself",
+					"pathName": "pages/myself/myself",
+					"query": ""
 				}
 			]
 		}

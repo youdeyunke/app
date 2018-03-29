@@ -8,12 +8,12 @@
     <mystars bind:scoreChange="scoreHandle" big value="{{comment.score}}"></mystars>
     <view class="h1">您的身份</view>
     <view class="cats">
-      <text>考虑看房</text>
+      <text bindtap='catHandle' data-index="{{index}}" class="{{ comment.cat_id == item.id ? 'active' : '' }}" wx:for="{{cats}}">{{item.name}}</text>
     </view>
   </view>
 
   <view class="comment-form box">
-    <textarea placeholder='其他人都各抒己见，让大家也听听您的意见吧'></textarea>
-    <button class="submit btn">提交</button>
+    <textarea bindinput='contentHandle' placeholder='其他人都各抒己见，让大家也听听您的意见吧'></textarea>
+    <button bindtap='submitHandle' class="submit btn">提交</button>
   </view>
 </view>

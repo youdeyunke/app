@@ -54,6 +54,11 @@ page .container{
   border-radius: 10rpx;
   color: #333;
   padding:2rpx 25rpx;
+  margin:0 10rpx;
+}
+
+.comment-header .cats text.active{
+  background: #ffd900;
 }
 
 .h1{

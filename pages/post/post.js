@@ -31,6 +31,43 @@ Page({
     this.setData({ readmore: true })
   },
 
+  commentlikeHandle: function(e){
+
+    var i = e.currentTarget.dataset.index
+    var cid = this.data.comments[i].id
+    var key = 'liked_comment.' + cid
+    if(wx.getStorageSync(key)){
+      console.log('重复点击', key)
+      return false
+    }
+    this.data.comments[i].like_nums +=1 
+    this.setData({comments: this.data.comments})
+
+    app.request({
+      url: '/api/v1/mycomments/like',
+      method: 'POST',
+      data: {id: cid},
+      success: function(resp){
+        console.log('resp')
+        wx.setStorage({
+          key: key,
+          data: true,
+        })        
+      }
+    })
+  },
+
+  loadComments: function(postId){
+    var _this = this
+    app.request({
+      url: '/api/v1/mycomments',
+      data: { target_id: postId, target_type: 'post' },
+      success: function (resp) {
+        _this.setData({ comments: resp.data.data })
+      },
+    })    
+  },
+
   loadRecoms: function(postId){
     var _this = this
     app.request({
@@ -77,6 +114,7 @@ Page({
     var postId = options.id
     this.loadPost(postId)
     this.loadRecoms(postId)
+    this.loadComments(postId)
     
   },
 

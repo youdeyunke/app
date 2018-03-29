@@ -1,10 +1,13 @@
 // pages/comments/index.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    comments: []
   
   },
 
@@ -12,7 +15,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.loadData()
+    wx.setNavigationBarTitle({
+      title: '我的评论',
+    })
+  },
+
+
+  loadData: function () {
+    var _this = this
+    app.request({
+      url: '/api/v1/mycomments',
+      data: { myself: true },
+      success: function (resp) {
+        _this.setData({ comments: resp.data.data })
+      },
+    })
   },
 
   /**

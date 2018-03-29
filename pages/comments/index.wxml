@@ -1,4 +1,7 @@
-<import src="/tpls/comments-item.wxml"/>
+<import src="/tpls/comment-item.wxml" />
 <view class="container comments">
-  <template is="comment-item" item="{{}}"></template>
+
+    <template wx:for-item="comment" wx:for="{{ comments }}" is="comment-item" data="{{ comment, index, showTarget:trie }}"  ></template>
+
+
 </view>

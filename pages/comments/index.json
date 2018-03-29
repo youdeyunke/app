@@ -1,9 +1,6 @@
 {
-  "usingComponents":{
-        "mytopbar": "/components/topbar",
-        "mytags": "/components/tags",
-        "mylogin": "/components/login",
-        "mystars": "/components/stars",
-        "myslider": "/components/slider"
+  "usingComponents": {
+    "mytags": "/components/tags",
+    "mystars": "/components/stars"
   }
 }

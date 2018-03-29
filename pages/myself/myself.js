@@ -83,6 +83,12 @@ Page({
   actionHandle: function(e){
     console.log(e)
     var index = e.currentTarget.dataset.index
+    if(index == 1){
+      wx.navigateTo({
+        url: '/pages/comments/index',
+      })
+      return
+    }
     if(index == 5){
       wx.makePhoneCall({
           phoneNumber: app.globalData.serverMobile 
@@ -114,6 +120,8 @@ Page({
 
   onShow:function(){
     var _this = this
+    console.log('myself.myself.onshow-----------')
+
     _this.setData({
       lastViewPost: wx.getStorageSync('last_view_post')
     })
