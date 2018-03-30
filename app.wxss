@@ -73,6 +73,17 @@ video{
   position: relative;
 }
 
+.comments .item.box .comment-like{
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+}
+
+.comments .item.box .comment-like image{
+  width:36rpx;
+  height: 36rpx;
+}
+
 .comments .item.box .footer{
 
 position:absolute;

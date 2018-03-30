@@ -1,3 +1,3 @@
 <view class="tags {{ right ? 'tags-right' : 'tags-left' }}">
-  <text class="tag" wx:for="{{safeItems}}">{{ item }}</text>
+  <text class="tag" wx:for-item="tagItem" wx:for="{{safeItems}}">{{ tagItem }}</text>
 </view>

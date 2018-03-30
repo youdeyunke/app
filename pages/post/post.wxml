@@ -136,8 +136,9 @@
     <template wx:for-item="comment" wx:for="{{ comments }}" is="comment-item" data="{{ comment, index, showTarget:false }}"  ></template>
   </view>
 
-
   <navigator class="add-comment" url="/pages/comments/new?target_id={{post.id}}"><text decode="{{true}}">&gt;&gt;我要评论&lt;&lt;</text></navigator>
+  <view style="height:120rpx;"></view>
+
 </view>
 
 <view class="footer-btns ">

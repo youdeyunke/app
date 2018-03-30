@@ -19,7 +19,8 @@
       <view class="content">{{comment.content}}</view>
       <view class="datetime">
         <text class="time">{{comment.created_at_pertty}}</text>
-        <text data-index="{{index}}" bindtap='commentlikeHandle'>有用（{{comment.like_nums || 0}}）</text>
+        <view class="comment-like" data-index="{{index}}" bindtap='commentlikeHandle'>
+        <image src="/assets/icons/qa-like.png"></image> 有用（{{comment.like_nums || 0}}）</view>
       </view>
     </view>
       <image src="/assets/images/post-list-footer.png" class="footer"></image>
