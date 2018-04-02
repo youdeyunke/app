@@ -2,6 +2,7 @@
     "enablePullDownRefresh": true,
     "usingComponents": {
       "mytopbar": "/components/topbar",
+      "myfav": "/components/fav",
       "mytags": "/components/tags",
       "mylogin": "/components/login",
       "myslider": "/components/slider"

@@ -1,0 +1,4 @@
+<view class="like item" bindtap='clickHandle'>
+  <image src="/assets/icons/hart.png" ></image>
+  <text>{{post.favs_count}}</text>
+</view>

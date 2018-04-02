@@ -46,10 +46,10 @@
         "text": "问答"
       },
       {
-        "iconPath": "/assets/icons/底部导航_10.png",
-        "selectedIconPath": "/assets/icons/底部导航_04.png",
+        "iconPath": "/assets/icons/huodong.png",
+        "selectedIconPath": "/assets/icons/huodong.1.png",
         "pagePath": "pages/home/home",
-        "text": "地图"
+        "text": "活动"
       },
       {
         "iconPath": "/assets/icons/底部导航_06.png",

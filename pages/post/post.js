@@ -61,7 +61,7 @@ Page({
     var _this = this
     app.request({
       url: '/api/v1/mycomments',
-      data: { target_id: postId, target_type: 'post' },
+      data: { target_id: postId, target_type: 'post', limit: 5 },
       success: function (resp) {
         _this.setData({ comments: resp.data.data })
       },
@@ -129,6 +129,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var eb = wx.getStorageSync('eventBus')
+    if(!eb){
+      return
+    }
+    
+    if(eb.key == 'reloadComments'){
+      this.loadComments(eb.value)
+      wx.setStorage({
+        key: 'eventBus',
+        data: null,
+      })
+      console.log('event bus,' , eb)
+    }
   
   },
 

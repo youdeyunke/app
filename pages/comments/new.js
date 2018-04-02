@@ -14,15 +14,7 @@ Page({
     ],
 
     posts: [{}],
-
-    comment: {
-      user_id: app.globalData.userInfo.id,
-      score: 1,
-      cat_id: 0,
-      content: '',
-      target_type: 'post',
-      target_id: '',
-    }
+    comment: {},
   },
 
   contentHandle: function(e){
@@ -53,8 +45,10 @@ Page({
   onLoad: function (q) {
     wx.setStorageSync('login_back_page', '/pages/comments/new?target_id=' + q.target_id + '&target_type=' + q.target_type)
 
-    this.data.comment.target_id = q.target_id
-    this.data.comment.target_type = q.target_type || 'post'
+    this.setData({
+      target_id: q.target_id, 
+      target_type: q.target_type || 'post'
+    })
     this.loadTarget()
   },
 
@@ -96,15 +90,27 @@ Page({
       return fasle
     }
 
+    // 防止从缓存中取出commment账号target没有更新
+    comment.target_id = this.data.target_id
+    comment.target_type = this.data.target_type
+
     // do submit
+    var _this = this
     app.request({
       url: '/api/v1/mycomments',
       method: 'POST',
       data: comment,
       success: function(resp){
-        wx.navigateTo({
-          url: '/pages/post/post?id=' + comment.target_id,
-        })
+        // 页面卸载的收，会将this.data.comment写入globalData.newComment
+        // 发布成功后，就清空
+        _this.setData({comment: null})
+
+        wx.setStorageSync('eventBus', {key: 'reloadComments', value: comment.target_id})
+        
+        wx.showToast({title: '提交评论成功', })
+        setTimeout(function(){
+          wx.navigateBack({ delta: 1 })
+        }, 1500)
       }
     })
     
@@ -121,21 +127,33 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var newComment = app.globalData.newComment
+    if(newComment){
+      this.setData({comment: newComment})
+    }else{
+      this.setData({comment: {
+        user_id: app.globalData.userInfo.id,
+        score: 1,
+        cat_id: 0,
+        content: '',
+        target_type: this.data.target_type,
+        target_id: this.data.target_id,
+      }})      
+    }
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    app.globalData.newComment = this.data.comment
   },
 
   /**

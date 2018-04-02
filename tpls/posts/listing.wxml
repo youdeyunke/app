@@ -5,10 +5,7 @@
             <image class="cover" src="{{item.cover.url}}"></image>
 
       <image src="/assets/images/play-btn.png" class="play-btn"></image>
-      <view class="like">
-        <image src="/assets/icons/hart.png" ></image>
-        <text>{{item.like_nums_base}}</text>
-      </view>
+      <myfav post="{{item}}"></myfav>
     </view>
 
     <view class="meta">

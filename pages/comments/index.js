@@ -14,10 +14,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function (q) {
     this.loadData()
     wx.setNavigationBarTitle({
-      title: '我的评论',
+      title: q.title || '我的评论',
     })
   },
 

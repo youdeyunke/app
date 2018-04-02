@@ -9,10 +9,7 @@
 
   <view class="box main">
     <view class="header">
-      <view class="like item">
-        <image src="/assets/icons/hart.png" ></image>
-        <text>{{post.like_nums_base}}</text>
-      </view>
+      <myfav post="{{post}}"></myfav>
       <text class="title">{{ post.title }}</text>
       <mytags items="{{ post.tags_list }}" ></mytags>
 
@@ -58,7 +55,6 @@
     </view>
   </view>
 
-  <audio poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{src}}" id="audio" controls loop></audio>
 
   <navigator url='/pages/post/coupon' open-type='navigateTo' class="box coupon">
     <view class="icon">
@@ -132,12 +128,16 @@
   <text class="h1" wx:if="{{posts.length > 0}}">好房推荐</text>
   <template is="miniposts"  data="{{ posts }}"></template>
 
+  <view class="block-title">
+    <text class="h1">用户点评</text>
+    <navigator url="/pages/comments/index?target_id={{post.id}}&target_type=post&title=全部评价" class="desc" decode='{{true}}'><text wx:if="{{post.comments_count > 5}}" decode="{{true}}">查看全部{{post.comments_count}}条点评&gt;</text></navigator>
+  </view>
   <view class="comments">
     <template wx:for-item="comment" wx:for="{{ comments }}" is="comment-item" data="{{ comment, index, showTarget:false }}"  ></template>
   </view>
 
   <navigator class="add-comment" url="/pages/comments/new?target_id={{post.id}}"><text decode="{{true}}">&gt;&gt;我要评论&lt;&lt;</text></navigator>
-  <view style="height:120rpx;"></view>
+  <view style="height:90rpx;"></view>
 
 </view>
 

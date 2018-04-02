@@ -13,7 +13,7 @@
   </view>
 
   <view class="comment-form box">
-    <textarea bindinput='contentHandle' placeholder='其他人都各抒己见，让大家也听听您的意见吧'></textarea>
+    <textarea value="{{comment.content}}" bindinput='contentHandle' placeholder='其他人都各抒己见，让大家也听听您的意见吧'></textarea>
     <button bindtap='submitHandle' class="submit btn">提交</button>
   </view>
 </view>

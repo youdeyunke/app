@@ -85,7 +85,7 @@ Page({
     var index = e.currentTarget.dataset.index
     if(index == 1){
       wx.navigateTo({
-        url: '/pages/comments/index',
+        url: '/pages/comments/index?title=我的点评',
       })
       return
     }

@@ -178,3 +178,28 @@ width:100%;
   color: #f4f4f4;
 }
 
+
+myfav image{
+  width:28rpx;
+  height: 28rpx;
+}
+myfav{
+  padding-left:10rpx;
+  padding-right:5rpx;
+  width:84rpx;
+  height: 34rpx;
+  font-size:20rpx;
+  color:#fff;
+  background: rgba(0,0, 0, 0.5);
+  border-top-left-radius: 10rpx;
+  border-bottom-left-radius: 10rpx;
+  position: absolute;
+  right:10rpx;
+  top:0rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
