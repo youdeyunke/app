@@ -18,7 +18,7 @@ Page({
       {name: '看测评', url: '/pages/post/index', opentype:"navigateTo"},
       {name: '问专家', url: '/pages/qa/index', opentype:"switchTab"},
       {name :'挑好房', url: '/pages/tiao/index', opentype:"navigateTo"},
-      {name: '学知识', url: '/pages/home/home', opentype:"switchTab"},
+      {name: '学知识', url: '/pages/zhishi/index', opentype:"navigateTo"},
     ]
   },
 

@@ -1,0 +1,69 @@
+page{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-repeat: no-repeat;
+  justify-content: space-between;
+  background-color: #f0f0f0;
+}
+
+page .container{
+  width:690rpx;
+  margin:20rpx auto 0 auto;
+}
+
+.course{
+  display: flex;
+  justify-content: space-between;
+  height: 240rpx;
+  padding:0 20rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  align-items: center;
+  margin-bottom:40rpx;
+}
+
+.course .poster{
+  width: 270rpx;
+  height: 176rpx;
+  border-radius: 10rpx;
+}
+
+.course .meta{
+  width: 364rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.course .meta .desc{
+  color: #999;
+  font-size:24rpx;
+}
+
+.course .meta .price-block{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: red;
+  width: 100%;
+}
+
+.course .meta .node{
+  font-size:24rpx;
+  color: #999;
+}
+
+.course .meta .name{
+  font-size:44rpx;
+  color: #000;
+}
+
+.course .meta .symbol{
+  font-size:32rpx;
+}
+.course .meta .price{
+  font-size:44rpx;
+}
+

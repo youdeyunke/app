@@ -1,0 +1,5 @@
+<!--pages/post/index.wxml-->
+<import src="/tpls/posts/mini_listing.wxml"/>
+<view class="container">
+  <template is="miniposts"  data="{{ posts}}"></template>
+</view>

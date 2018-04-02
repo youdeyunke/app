@@ -1,0 +1,18 @@
+/* pages/myself/favposts.wxss */
+
+page{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-repeat: no-repeat;
+  justify-content: space-between;
+  background-color: #f0f0f0;
+}
+
+page .container{
+  width:690rpx;
+  margin:20rpx auto 0 auto;
+}
+
+
+@import "/tpls/posts/mini_listing.wxss";

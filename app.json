@@ -16,7 +16,8 @@
     "pages/post/coupon",
     "pages/home/debug",
     "pages/comments/index",
-    "pages/myself/favposts"
+    "pages/myself/favposts",
+    "pages/zhishi/index"
   ],
   "tabBar": {
     "selectedColor": "#333",

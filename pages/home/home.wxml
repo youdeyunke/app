@@ -4,7 +4,7 @@
   <mytopbar bindcitychanged="cityHandle"></mytopbar>
   <myslider></myslider>
   <view class="tab-icons">
-  
+
           <navigator open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" url="{{item.url}}" wx:for="{{tabIcons}}">
       <image src="/assets/icons/{{index}}.png"></image>
       <text>{{ item.name }}</text>

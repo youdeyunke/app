@@ -66,6 +66,12 @@
 					"name": "myself",
 					"pathName": "pages/myself/myself",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "zhishi",
+					"pathName": "pages/zhishi/index",
+					"query": ""
 				}
 			]
 		}
