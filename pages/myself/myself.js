@@ -83,6 +83,12 @@ Page({
   actionHandle: function(e){
     console.log(e)
     var index = e.currentTarget.dataset.index
+    if(index == 0){
+      wx.navigateTo({
+        url: '/pages/myself/favposts',
+      })
+      return false
+    }
     if(index == 1){
       wx.navigateTo({
         url: '/pages/comments/index?title=我的点评',
