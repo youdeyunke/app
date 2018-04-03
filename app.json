@@ -35,7 +35,7 @@
       {
         "iconPath": "/assets/icons/底部导航_07.png",
         "selectedIconPath": "/assets/icons/底部导航_02.png",
-        "pagePath": "pages/home/home",
+        "pagePath": "pages/tiao/index",
         "text": "好房"
       },
       {

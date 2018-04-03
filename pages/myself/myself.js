@@ -95,6 +95,13 @@ Page({
       })
       return
     }
+
+    if(index == 3){
+      wx.navigateTo({
+        url: '/pages/zhishi/index',
+      })
+      return false
+    }
     if(index == 5){
       wx.makePhoneCall({
           phoneNumber: app.globalData.serverMobile 

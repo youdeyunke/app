@@ -70,7 +70,7 @@
   <text class="h1" >户型分析</text>
   <view class="box housetype" wx:if="{{post.housetype_name_a }}">
     <view class="poster">
-      <image src="{{post.housetype_poster_a.url}}"></image>
+      <image bindtap="imageView" data-target="a" src="{{post.housetype_poster_a.url}}"></image>
     </view>
     <view class="meta">
       <view class="name">{{post.housetype_name_a}}</view>
@@ -85,7 +85,7 @@
 
   <view class="box housetype" wx:if="{{post.housetype_name_b }}">
     <view class="poster">
-      <image src="{{post.housetype_poster_b.url}}"></image>
+      <image bindtap="imageView" data-target="b" src="{{post.housetype_poster_b.url}}"></image>
     </view>
     <view class="meta">
       <view class="name">{{post.housetype_name_b }}</view>

@@ -79,6 +79,22 @@ Page({
     })
   },
 
+  imageView: function(e){
+    var t = e.currentTarget.dataset.target
+    var url = ''
+    if(t == 'a'){
+      url = this.data.post.housetype_poster_a.url
+    }else{
+      url = this.data.post.housetype_poster_b.url
+    }
+
+    wx.previewImage({
+      urls: [url],
+    })
+
+
+  },
+
   callMe: function(){
     var m = app.globalData.serverMobile
     wx.makePhoneCall({
