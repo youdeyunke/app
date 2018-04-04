@@ -31,6 +31,10 @@ Page({
     this.setData({ readmore: true })
   },
 
+  readLess: function () {
+    this.setData({ readmore: false })
+  },  
+
   commentlikeHandle: function(e){
 
     var i = e.currentTarget.dataset.index

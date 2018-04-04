@@ -33,28 +33,33 @@
 
       <view wx-if="{{post.block_info && post.block_info.cate == 'item'}}">
           <view class="meta">
-            <text class="label">开发商报价</text>
+            <text class="label">均价</text>
             <text>{{ post.block_info.item_price }} 元/㎡</text>
           </view>
 
           <view class="meta">
-            <text class="label">参考总价</text>
+            <text class="label">总价</text>
             <text> {{ post.block_info.item_total_price_min }}万-{{ post.block_info.item_total_price_max }}万</text>
           </view>
 
+        <view class="meta">
+          <text class="label">地址</text>
+          <text>{{ post.block_info.district.name }} {{post.block_info.street}}</text>
+        </view> 
+        
           <view class="meta">
-            <text class="label">主推户型</text>
-            <text> {{ post.block_info.item_layout }}</text>
+            <text class="label">开盘</text>
+            <text> {{ post.block_info.open_at }}</text>
           </view>
+
         </view>
 
-      <view class="meta">
-        <text class="label">地址</text>
-        <text> 松江-新桥-明兴路18弄</text>
-      </view>      
+
+           
     </view>
   </view>
 
+  <myaudio></myaudio>
 
   <navigator url='/pages/post/coupon' open-type='navigateTo' class="box coupon">
     <view class="icon">
@@ -109,6 +114,7 @@
   <view class="box html-content"  hidden="{{readmore == false && post.content_simple.length > 0}}">
     <view class="raw">
       <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>
+      <view class="readmore" bindtap='readLess'>收起</view>
     </view>
   </view>  
 

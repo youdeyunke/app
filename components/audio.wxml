@@ -1,0 +1,25 @@
+<view class="player">
+  <view class="player_header">
+    <view class="name">xxx</view>
+    <image class="avatar" src="/assets/images/player-avatar.png">
+    
+    </image>
+    <view class="action">
+      <navigator class="qa" url="/pages/qa/new">想他提问</navigator>
+    </view>
+  </view>
+
+  <view class="player_body">
+    <view class="status" bindtap='statusHandle'>
+      <image src="/assets/icons/player-status-{{status}}.png"></image>
+    </view>
+    <view class="progress-box">
+      <view class="progress-bar" style="width:{{progressValue}};"></view>
+    </view>
+  </view>
+
+  <view class="player_foot">
+  {{currentTimeStr}} / {{durationStr}}
+  </view>
+
+</view>
