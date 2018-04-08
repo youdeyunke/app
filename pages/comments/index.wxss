@@ -9,8 +9,6 @@ page .container{
   margin:0 auto 100rpx auto;
 }
 
-
-
 .comments .item{
   margin-bottom: 40rpx;  
 }

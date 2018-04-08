@@ -17,7 +17,9 @@
     "pages/home/debug",
     "pages/comments/index",
     "pages/myself/favposts",
-    "pages/zhishi/index"
+    "pages/zhishi/index",
+    "pages/post/booking",
+    "pages/huodong/index"
   ],
   "tabBar": {
     "selectedColor": "#333",

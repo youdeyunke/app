@@ -1,11 +1,11 @@
 <view class="player">
   <view class="player_header">
-    <view class="name">xxx</view>
+    <view class="name">卢俊点评</view>
     <image class="avatar" src="/assets/images/player-avatar.png">
     
     </image>
     <view class="action">
-      <navigator class="qa" url="/pages/qa/new">想他提问</navigator>
+      <navigator class="qa" url="/pages/qa/new">向他提问</navigator>
     </view>
   </view>
 

@@ -14,6 +14,12 @@ Page({
     var v = e.detail.value
     this.setData({ questionContent: v })
   },
+
+  booking: function(){
+    wx.navigateTo({
+      url: '/pages/post/booking',
+    })
+  },
  
   callMe: function () {
     var m = app.globalData.serverMobile

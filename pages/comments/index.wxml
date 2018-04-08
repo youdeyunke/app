@@ -2,6 +2,4 @@
 <view class="container comments">
 
     <template wx:for-item="comment" wx:for="{{ comments }}" is="comment-item" data="{{ comment, index, showTarget:trie }}"  ></template>
-
-
 </view>

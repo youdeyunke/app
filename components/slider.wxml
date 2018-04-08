@@ -3,7 +3,7 @@
 duration="500" circular="true" indicator-color="rgba(255,255,255,0.7)" autoplay indicator-active-color="#fff" >
     <block wx:for="{{items}}" wx:for-index="index">
         <swiper-item>
-            <navigator open-type="navigate" url="/pages/post/index">
+            <navigator open-type="{{item.opentype}}" url="{{item.url}}">
             <image  src="{{item.src}}" class="slide-image" />
             </navigator>
         </swiper-item>

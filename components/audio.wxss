@@ -1,8 +1,7 @@
 .player{
-  
-
   background: #fff;
   border-radius: 10rpx;
+  margin-top:20rpx;
   margin-bottom:20rpx;
   padding:10rpx 30rpx;
   width: calc(100% - 60rpx);

@@ -1,0 +1,6 @@
+<view class="container" >
+  <view class="image-container">
+    <image src="/assets/images/book-res.png"></image>
+    <view class="confirm" bindtap='gobackHandle'></view>  
+  </view>
+</view>
