@@ -4,11 +4,17 @@
   <mytopbar bindcitychanged="cityHandle"></mytopbar>
   <myslider></myslider>
   <view class="tab-icons">
-
-          <navigator open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" url="{{item.url}}" wx:for="{{tabIcons}}">
+    <navigator open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" url="{{item.url}}" wx:for="{{tabIcons}}">
       <image src="/assets/icons/{{index}}.png"></image>
       <text>{{ item.name }}</text>
     </navigator>
+
+    <navigator bindtap='xuezhishi'>
+      <image src="/assets/icons/3.png"></image>
+      <text>学知识</text>
+    </navigator>
+
+
   </view>
   <template wx:for="{{posts}}" is="posts"  data="{{ posts:item }}"></template>
 

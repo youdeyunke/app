@@ -2,7 +2,7 @@
 
 
 <view class="cover">
-  <image src="/assets/images/qa-new-bg.png"></image>
+  <image src="http://jiayaosu-10013564.image.myqcloud.com/3b696fea-ba6a-47b1-8295-9bff2f5c3252"></image>
 </view>
 <view class="container">
   <button class="booking" bindtap="booking">快速预约</button>
