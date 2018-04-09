@@ -203,3 +203,20 @@ myfav{
   justify-content: space-between;
 }
 
+
+.gohome{
+  font-size:24rpx;
+  height: 36rpx;
+  line-height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130rpx;
+  background: #ffd900;
+  border-top-left-radius: 30rpx;
+  border-bottom-left-radius: 30rpx;
+  position: fixed;
+  top:40rpx;
+  right:0rpx;
+}

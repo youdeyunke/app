@@ -10,6 +10,12 @@ Page({
   
   },
 
+  gohome: function(e){
+    wx.switchTab({
+      url: '/pages/home/home',
+    })
+  },
+
   inputHandle: function (e) {
     var v = e.detail.value
     this.setData({ questionContent: v })

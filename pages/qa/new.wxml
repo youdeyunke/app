@@ -8,6 +8,9 @@
     <form  bindsubmit="submitHandle" >
             <textarea bindinput="inputHandle" maxlength="200" value="{{questionContent}}" name="content" placeholder='在这里输入您的问题...'></textarea>
       <button  class="button" type="default" form-type="submit" >我要提问</button>
+
+      <text class="gohome" bindtap="gohome" >回到首页</text>
+
     </form>
   </view>
 
