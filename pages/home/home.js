@@ -22,6 +22,8 @@ Page({
   },
 
   xuezhishi: function(e){
+    app.comingSoon()
+    return false
     wx.navigateToMiniProgram({
       appId: 'wxae515be8cfd1d1bc'
     })    

@@ -17,7 +17,7 @@ Component({
 
       { src: 'http://jiayaosu-10013564.image.myqcloud.com/01871a47-06ff-4fc8-81de-ba4dcd9505df', opentype: 'navigateTo',url: '/pages/post/post?id=1'},
       
-      { src: 'http://jiayaosu-10013564.image.myqcloud.com/9f3ac103-ab48-4123-933c-b5ce2eaeac70', opentype: 'navigateTo',url: '/pages/posts/index'},
+      { src: 'http://jiayaosu-10013564.image.myqcloud.com/9f3ac103-ab48-4123-933c-b5ce2eaeac70', opentype: 'navigateTo',url: '/pages/post/index'},
     ]
   },
 

@@ -105,6 +105,8 @@ Page({
     }
 
     if(index == 3){
+      app.comingSoon()
+      return false
       wx.navigateTo({
         url: '/pages/zhishi/index',
       })
