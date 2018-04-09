@@ -7,7 +7,7 @@ App({
     token: null,
     loadingStatus: 0,
     cities: [],
-    serverMobile: '15002164370'
+    serverMobile: '4008627058'
   },
 
   comingSoon: function(){

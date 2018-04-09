@@ -25,7 +25,6 @@ Page({
     wx.navigateToMiniProgram({
       appId: 'wxae515be8cfd1d1bc'
     })    
-
   },
 
   cityHandle: function(e){

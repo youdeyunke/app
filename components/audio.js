@@ -29,6 +29,10 @@ Component({
       this.setData({status: 0})
     })
 
+    audio.onSeeking(() => {
+      console.log('seeking')
+    })
+
     audio.onTimeUpdate( () => {
       console.log('on onTimeUpdate', audio.duration)
       var durationStr = this.s2m(audio.duration)
