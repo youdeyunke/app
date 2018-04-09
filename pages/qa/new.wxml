@@ -1,6 +1,3 @@
-<mylogin flag="{{loginFlag}}"></mylogin>
-
-
 <view class="cover">
   <image src="http://jiayaosu-10013564.image.myqcloud.com/3b696fea-ba6a-47b1-8295-9bff2f5c3252"></image>
 </view>

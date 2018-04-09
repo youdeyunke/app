@@ -64,8 +64,8 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this.loadData()
+  onLoad: function (q) {
+    this.loadData()  
   },
 
   loadData: function(){
@@ -75,8 +75,16 @@ Page({
     app.getUserInfo(function (userInfo) {
       _this.data.userInfo = userInfo
       _this.data.loginFlag = !userInfo.mobile ? true: false
-
       _this.setData({ userInfo: _this.data.userInfo, loginFlag: _this.data.loginFlag })
+
+      if(userInfo.mobile){
+        // login back ?
+        var p = wx.getStorageSync('login_back_page')
+        if (p) {
+          wx.setStorageSync('login_back_page', null)
+          wx.navigateTo({ url: p })
+        }            
+      }
     })    
   },  
 

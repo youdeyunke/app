@@ -57,9 +57,16 @@ Component({
       }
 
       // send captcha
-      
-      _this.setData({countDown: 5, _code: '5555'})
-      _this.timer()
+      app.request({
+        url: '/api/v1/sms/sendto',
+        method: 'GET',
+        data: {mobile: _this.data.mobile},
+        success: function(res){
+          console.log('res.', res)
+          _this.setData({ countDown: 5, _code: res.data.code })
+          _this.timer()
+        }
+      })
     },
 
     formSubmit: function (e) {

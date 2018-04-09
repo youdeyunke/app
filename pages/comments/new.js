@@ -43,12 +43,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
-    wx.setStorageSync('login_back_page', '/pages/comments/new?target_id=' + q.target_id + '&target_type=' + q.target_type)
-
     this.setData({
       target_id: q.target_id, 
       target_type: q.target_type || 'post'
     })
+
+    app.getUserInfo(function (userInfo) {
+      if (userInfo && userInfo.mobile) {
+        // success
+        console.log('userinfo.mobile, ', userInfo.mobile)
+      } else {
+
+        // 前往登录，并设置登录成功后回调页面
+        wx.setStorageSync('login_back_page', '/pages/comments/new?target_id=' + q.target_id + '&target_type=' + q.target_type)
+        app.gotoAccount("请先登录", "请先登录")
+      }
+    })  
+
     this.loadTarget()
   },
 

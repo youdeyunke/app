@@ -18,7 +18,7 @@ Component({
     audio.onError((res) => {
       console.log(res.errMsg)
       console.log(res.errCode)
-    })   
+    }) 
 
     audio.onPlay( () => {
       console.log('on play ', audio.duration)
@@ -35,19 +35,13 @@ Component({
 
     audio.onTimeUpdate( () => {
       console.log('on onTimeUpdate', audio.duration)
-      var durationStr = this.s2m(audio.duration)
-      var currentTimeStr = this.s2m(audio.currentTime)
-      
-      var per = audio.currentTime /  audio.duration * 100
-      var progressValue = '' + per + '%'
-      _this.setData({
-        durationStr: durationStr,
-        currentTimeStr: currentTimeStr,
-        progressValue: progressValue
-      })
+      this.updateTimer()
     })
 
+    console.log('audio.duration, ', audio.duration)
+
   },
+
 
   /**
    * 组件的初始数据
@@ -63,6 +57,31 @@ Component({
    * 组件的方法列表
    */
   methods: {
+
+    updateTimer: function () {
+      var _this = this
+      var durationStr = this.s2m(audio.duration)
+      var currentTimeStr = this.s2m(audio.currentTime)
+      var per = audio.currentTime / audio.duration * 100
+      var progressValue = '' + per + '%'
+      _this.setData({
+        durationStr: durationStr,
+        currentTimeStr: currentTimeStr,
+        progressValue: progressValue
+      })
+    },
+
+    getDuration: function () {
+      return
+      var _this = this
+      if (audio.duration == 0) {
+        console.log('duration is null')
+        setTimeout(_this.getDuration(), 1000)
+      } else {
+        _this.updateTimer()
+        return
+      }
+    },    
     
     i2ii: function(i){
       if(i<10){
@@ -98,6 +117,7 @@ Component({
       
         s = 1
         audio.play()
+        
       }
       this.setData({status:s})
     }
