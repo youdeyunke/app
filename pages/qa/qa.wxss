@@ -165,7 +165,7 @@ page{
   margin-left:10rpx;
 }
 .box.a .box-body .answer{
-  font-size:20rpx;
+  font-size:26rpx;
   color:#666;
   margin:30rpx 0 50rpx 0;
 }

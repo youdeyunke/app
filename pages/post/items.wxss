@@ -2,8 +2,6 @@
 
 page{
 
-  background-repeat: no-repeat;
-  background-image: url("http://jiayaosu-10013564.image.myqcloud.com/63405b8d-6738-4b16-8052-1a5efb692768");
   background-size: 750rpx 301rpx;
   background-color: #f0f0f0;
 }

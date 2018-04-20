@@ -63,7 +63,7 @@ Component({
         data: {mobile: _this.data.mobile},
         success: function(res){
           console.log('res.', res)
-          _this.setData({ countDown: 5, _code: res.data.code })
+          _this.setData({ countDown: 60, _code: res.data.code })
           _this.timer()
         }
       })

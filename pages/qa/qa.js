@@ -14,8 +14,7 @@ Page({
 
   moreHandle: function(e){
     console.log('more handle')
-    wx.switchTab({
-
+    wx.navigateTo({
       url: '/pages/qa/index',
     })
   },
@@ -25,6 +24,31 @@ Page({
       url: '/pages/qa/index',
     })
   },
+
+  likeHandle: function(e){
+    var qid = this.data.item.id
+    var key = 'liked_qa.' + qid
+    if(wx.getStorageSync(key)){
+      console.log('重复点击', key)
+      return false
+    }
+    this.data.item.like_nums +=1 
+    this.setData({item: this.data.item})
+
+    app.request({
+      url: '/api/v1/questions/like',
+      method: 'POST',
+      data: {id: qid},
+      success: function(resp){
+        console.log('resp')
+        wx.setStorage({
+          key: key,
+          data: true,
+        })        
+      }
+    })
+  },
+
 
   randomQas: function(len=2){
     var qas = []

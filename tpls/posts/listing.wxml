@@ -4,7 +4,7 @@
     <view class="header">
             <image class="cover" src="{{item.cover.url}}"></image>
 
-      <image src="/assets/images/play-btn.png" class="play-btn"></image>
+      <image wx:if="{{false}}" src="/assets/images/play-btn.png" class="play-btn"></image>
       <myfav post="{{item}}"></myfav>
     </view>
 

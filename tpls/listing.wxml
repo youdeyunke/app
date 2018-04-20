@@ -3,7 +3,7 @@
     <view class="header">
             <image class="cover" src="{{item.cover}}"></image>
 
-      <image src="/assets/images/play-btn.png" class="play-btn"></image>
+      <image wx:if="{{false}}" src="/assets/images/play-btn.png" class="play-btn"></image>
       <view class="like">
         <image src="/assets/icons/hart.png" ></image>
         <text>{{item.like_nums_base}}</text>

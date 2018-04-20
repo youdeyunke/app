@@ -43,3 +43,9 @@ page .container{
   margin-top:20rpx;
 }
 @import "/tpls/posts/listing.wxss";
+
+myfav{
+  position: absolute;
+  top:30rpx;
+  right:0rpx;
+}

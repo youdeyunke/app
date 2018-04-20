@@ -16,14 +16,13 @@ Page({
     posts: [],
     tabIcons: [
       {name: '看测评', url: '/pages/post/index', opentype:"navigateTo"},
-      {name: '问专家', url: '/pages/qa/index', opentype:"switchTab"},
+      {name: '问专家', url: '/pages/qa/index', opentype:"navigateTo"},
       {name :'挑好房', url: '/pages/tiao/index', opentype:"switchTab"}
     ]
   },
 
   xuezhishi: function(e){
-    app.comingSoon()
-    return false
+
     wx.navigateToMiniProgram({
       appId: 'wxae515be8cfd1d1bc'
     })    

@@ -17,12 +17,12 @@
 </view>
 
 <view class="container">
-  <view class="search">
+  <view wx:if="{{false}}" class="search">
     <image src="/assets/icons/search.png"></image>
     <input placeholder='买房、租房、评测'></input>
   </view>
 
-  <view class="qa-items">
+  <view class="qa-items" style="padding-top:20rpx;">
     <view class="qa-item" wx:for="{{items}}" bindtap="itemHandle" data-index="{{index}}">
       <view class="header">
         <text class="icon">问</text>

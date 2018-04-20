@@ -5,7 +5,7 @@
     <image class="footer" src="/assets/images/post-list-footer.png"></image>
       <view class="cover">
               <image class="i" src="{{ item.cover.url }}"></image>
-        <image class="play-btn" src="/assets/images/play-btn.png"></image>
+        <image wx:if="{{false}}" class="play-btn" src="/assets/images/play-btn.png"></image>
       </view>
       <view class="meta">
               <text class="item-title">{{ item.title }}{{item.tags_list}}</text>

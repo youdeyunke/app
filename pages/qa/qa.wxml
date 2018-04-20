@@ -41,9 +41,9 @@
       <view class="answer"> {{item.answer}}</view>
       <view class="info">
         <view class="time">{{item.updated_at_pretty}}</view>
-        <view class="like">
+        <view class="like" bindtap='likeHandle' >
                 <image src="/assets/icons/qa-like.png"></image>
-                <view class="number">有用({{item.like_nums_base || 0}})</view>
+                <view class="number">有用({{item.like_nums_total}})</view>
         </view>
       </view>
     </view>

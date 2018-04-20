@@ -10,10 +10,10 @@ Page({
     lastViewPost: null,
     actions: [
       {name: '我的收藏'},
-      {name: '我的点评'},
+      {name: '我的问答'},
       {name: '帮我找房'},
       {name: '我的课程'},
-      {name: '看房记录'},
+      {name: '我的点评'},
       {name: '联系客服'},
     ],
     actionsB: [
@@ -97,7 +97,7 @@ Page({
       })
       return false
     }
-    if(index == 1){
+    if(index == 4){
       wx.navigateTo({
         url: '/pages/comments/index?title=我的点评',
       })
@@ -105,11 +105,10 @@ Page({
     }
 
     if(index == 3){
-      app.comingSoon()
-      return false
-      wx.navigateTo({
-        url: '/pages/zhishi/index',
-      })
+
+      wx.navigateToMiniProgram({
+        appId: 'wxae515be8cfd1d1bc'
+      })         
       return false
     }
     if(index == 5){

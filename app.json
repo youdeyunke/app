@@ -41,12 +41,6 @@
         "text": "好房"
       },
       {
-        "iconPath": "/assets/icons/底部导航_09.png",
-        "selectedIconPath": "/assets/icons/底部导航_03.png",
-        "pagePath": "pages/qa/index",
-        "text": "问答"
-      },
-      {
         "iconPath": "/assets/icons/底部导航_06.png",
         "selectedIconPath": "/assets/icons/底部导航_05.png",
         "pagePath": "pages/myself/myself",

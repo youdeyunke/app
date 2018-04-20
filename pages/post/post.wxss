@@ -21,6 +21,13 @@ page .container{
   overflow: hidden;
 }
 
+.myvideo image{
+  width:690rpx;
+  height: 390rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
 .box{
   border-radius: 20rpx;
   background:#fff;
@@ -63,7 +70,7 @@ page .container{
 
 .box .raw{
   color: #808080;
-  font-size:20rpx;
+  font-size:26rpx;
   line-height: 32rpx;
   letter-spacing: 2rpx;
 }
@@ -91,6 +98,12 @@ page .container{
   font-size:24rpx;
   width: 100%;
   background: #fff;
+
+}
+
+.readmore text{
+  text-decoration: underline;
+    font-weight: 800;
 }
 
 .main{

@@ -12,7 +12,7 @@ App({
 
   comingSoon: function(){
     wx.showToast({
-      title: '功能正在完善中，很快就好哦 :)',
+      title: '功能正在完善中，敬请期待 :)',
       icon: 'none',
       duration: 2000
     })    

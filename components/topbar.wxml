@@ -1,4 +1,4 @@
-<view class="top-bar">
+<view class="top-bar" wx:if="{{false}}">
   <picker bindchange="cityChangeHandle" value="{{index}}" mode="selector" range-key="name" range="{{cityList}}">
     {{cityList[selectedCity].name}} <image src="/assets/icons/home-arrow.png" ></image>
   </picker>
