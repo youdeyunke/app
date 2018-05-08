@@ -22,7 +22,6 @@ Page({
   },
 
   xuezhishi: function(e){
-
     wx.navigateToMiniProgram({
       appId: 'wxae515be8cfd1d1bc'
     })    

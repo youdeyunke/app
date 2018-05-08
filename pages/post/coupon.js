@@ -6,14 +6,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+    showCoupon: false,
   
   },
 
-  markCoupon: function(){
+  markCoupon: function(post_id){
     app.request({
       url: '/api/v1/users/mark_coupon', 
       method: 'POST',
-      data: {},
+      data: {post_id:post_id},
       success: function(resp){
         console.log('resp', resp)
       }
@@ -30,9 +31,12 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this.markCoupon()
-  
+  onLoad: function (q) {
+    var _this = this
+    app.ensureMobile("/pages/post/coupon?post_id=" + q.post_id, function(userInfo){
+      _this.setData({ showCoupon: true })
+      _this.markCoupon(q.post_id)
+    })
   },
 
   /**

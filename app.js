@@ -9,6 +9,15 @@ App({
     cities: [],
     serverMobile: '4008627058'
   },
+  
+  navigateToVideo: function(){
+    console.log('navigate to video')
+    wx.setStorageSync('login_back_navigate_to_video', null)
+    wx.navigateToMiniProgram({
+      appId: 'wxae515be8cfd1d1bc',
+      path: 'page/home/content/content_video/content_video?id=v_5adefeda59fc1_nbehPpsv'
+    })    
+  },
 
   comingSoon: function(){
     wx.showToast({
@@ -44,16 +53,92 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
 
-    this.globalData.token = wx.getStorageSync('token')    
-    this.globalData.userInfo = wx.getStorageSync('userInfo')
-    
+  },
 
+  uploadFormids: function(){
+    // 上传本地formid
+    var _this = this
+    var ids = wx.getStorageSync('formids')
+    if(!ids){
+      return false
+    }
+    _this.request({
+      url: '/api/v1/formid/',
+      data: { formids: ids },
+      method: 'POST',
+      success: function (resp) {
+        if(resp.data.status == 0){
+          wx.setStorageSync('formids', null)
+        }
+      }
+    })
+  },
+  saveFormId: function(e){
+    // 保存formid
+    var formId = e.detail.formId
+    var _this = this
+    var token = wx.getStorageSync('token')
+
+    if(!token){
+      // 如果没有登录，就保存到本地
+      var ids = wx.getStorageSync('formids') || []
+      ids.push(formId)
+      wx.setStorageSync('formids', ids)
+      return false
+    }
+
+    _this.request({
+      url: '/api/v1/formid/',
+      data: {formids: [formId]},
+      method: 'POST',
+      success: function(resp){
+      }
+    })
+  },
+
+  ensureMobile: function(backPage, cb=null){
+    // 确保用户已经填写手机号
+    var _this = this
+    this.getUserInfo(function(userInfo){
+      if(userInfo && userInfo.mobile){
+        if(typeof cb == 'function'){
+          return cb(userInfo)
+        }else{
+          return userInfo
+        }
+      }
+      // 去验证手机号
+      wx.setStorageSync('login_back_page', backPage)
+      _this.gotoAccount("请先登录", "请先登录")           
+    })
+  },
+
+  loadUserInfo: function(cb){
+    // 从服务器拉去用户信息
+    var _this  = this
+    _this.request({
+      url: '/api/v1/sessions/',
+      success: function(resp){
+        if(resp.data.status != 0){
+          console.error('sync user info error')
+          return cb({})
+        }
+        // 更新到本地数据
+        var userInfo = resp.data.data
+        wx.setStorageSync('userInfo', userInfo)
+        console.log('sync user info to local success', userInfo)
+        return cb(userInfo)
+      }
+    })
   },
 
   getUserInfo:function(cb){
     var that = this
-    if(this.globalData.userInfo){
-      typeof cb == "function" && cb(this.globalData.userInfo)
+    var token =  wx.getStorageSync('token')
+    var userInfo =  wx.getStorageSync('userInfo')
+
+    if(userInfo && token){
+      typeof cb == "function" && cb(userInfo)
     }else{
 
       //调用登录接口
@@ -113,20 +198,20 @@ App({
       url: '/api/v1/sessions',
       success: function (resp) {
         var data = resp.data
-
         if (data.status == 0) {
-          console.log('server response ', resp)
+          var token = data.data.token
+          var userInfo = data.data.user
 
           // 保存下服务器返回的token
-          wx.setStorageSync('token', data.data.token)
-          wx.setStorageSync('userInfo', data.data.user)
+          wx.setStorageSync('token', token)
+          wx.setStorageSync('userInfo', userInfo)
 
-          // refresh global data
-          _this.globalData.token = data.data.token
-          _this.globalData.userInfo = data.data.user
+          // upload formids
+          console.log('upload formids')
+          _this.uploadFormids()
 
           // callback
-          typeof cb == "function" && cb(_this.globalData.userInfo)
+          typeof cb == "function" && cb(userInfo)
 
         }
       }
@@ -152,6 +237,7 @@ App({
 
   request: function(obj) {
     var _this = this
+    var token = wx.getStorageSync('token')
 
     wx.showLoading({
       title: '加载中',
@@ -163,7 +249,7 @@ App({
       header['Content-Type'] = 'application/json'
     }
     if (!header['Authorization']) {
-      header['Authorization'] = this.globalData.token
+      header['Authorization'] = token
     }
     
     

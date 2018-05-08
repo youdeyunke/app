@@ -12,22 +12,54 @@ Component({
   /**
    * 组件的初始数据
    */
-  data: {
-    items: [
-      {src: 'http://jiayaosu-10013564.image.myqcloud.com/8d0a4fc3-dd7d-4c2b-88d1-b12f38e96053', opentype: 'navigateTo', url: '/pages/huodong/index', disable: true },   
-
-      { src: 'http://jiayaosu-10013564.image.myqcloud.com/01871a47-06ff-4fc8-81de-ba4dcd9505df', opentype: 'navigateTo',url: '/pages/post/post?id=7'},
-      
-      { src: 'http://jiayaosu-10013564.image.myqcloud.com/9f3ac103-ab48-4123-933c-b5ce2eaeac70', opentype: 'switchTab',url: '/pages/tiao/index'},
-
-      { src: 'http://jiayaosu-10013564.image.myqcloud.com/68972d89-6f43-4877-af6c-200441aed794#690*390', disable: true}
-    ]
-  },
+  data: {},
 
   /**
    * 组件的方法列表
    */
   methods: {
+
+    gotoAbout: function(e){
+      wx.navigateTo({
+        url: '/pages/static/about',
+      })
+    },
+
+    gotoQa: function(e){
+      wx.navigateTo({
+        url: '/pages/qa/index',
+      })
+    },
+
+    gotoTiao: function(e){
+      console.log('e')
+      wx.switchTab({
+        url: '/pages/tiao/index',
+      })
+    },
+
+    gotoPost: function(e){
+      wx.navigateTo({
+        url: '/pages/post/index',
+      })
+    },
+
+    gotoVideo: function(e){
+      console.log('e', e)
+      app.getUserInfo(function(userInfo){
+        if(userInfo && !userInfo.mobile){
+          // 前往登录，并设置登录成功后回调页面
+          wx.setStorageSync('login_back_navigate_to_video',true)
+          app.gotoAccount("请先登录", "请先登录")               
+        }else{
+          app.navigateToVideo()
+        }
+      })
+
+
+      
+
+    },
 
     soon: function(e){
       app.comingSoon()

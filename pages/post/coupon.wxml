@@ -1,6 +1,6 @@
 <view class="container" >
   <view class="image-container">
-    <image src="http://jiayaosu-10013564.image.myqcloud.com/8e72fc1a-8e9c-4eea-adc2-6cc01c867935"></image>
+    <image wx:if="{{showCoupon}}" src="http://jiayaosu-10013564.image.myqcloud.com/8e72fc1a-8e9c-4eea-adc2-6cc01c867935"></image>
     <view class="confirm" bindtap='gobackHandle'></view>  
   </view>
 </view>

@@ -84,7 +84,6 @@ Component({
         return false
       }
       
-
       app.request({
         url: '/api/v1/users/bind_mobile',
         method: 'POST',
@@ -102,13 +101,6 @@ Component({
             success: function(){
               console.log('success trigger event')
               _this.triggerEvent('success', {}, {})
-              // login back ?
-              var p = wx.getStorageSync('login_back_page')
-              if (p) {
-                wx.setStorageSync('login_back_page', null)
-                wx.navigateTo({ url: p })
-              }
-
             }
           })
 

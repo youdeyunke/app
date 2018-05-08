@@ -36,14 +36,9 @@ Page({
 
 
   submitHandle: function(){
+    app.ensureMobile('/pages/qa/index')
+
     var _this = this
-
-    if(!app.globalData.userInfo.mobile){
-      app.gotoAccount('需要登录', '请先登录账号')
-      console.log('gotoAccount')
-      return
-    }
-
     var content =  _this.data.questionContent
     var qLen = typeof content == 'undefined' ? 0 : content.length 
     var qMinLength = 10

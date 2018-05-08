@@ -4,7 +4,7 @@ const app = getApp()
 Page({
   data: {
     userInfo: null,
-    loginFlag: null,
+
     loadingStatus : null,
     debugClicks: 0,
     lastViewPost: null,
@@ -38,28 +38,6 @@ Page({
     console.log('abc')
   },
 
-  bindMobileHandle: function(e){
-    console.log(e.detail.errMsg) 
-    console.log(e.detail.iv) 
-    console.log(e.detail.encryptedData) 
-    var _this  = this
-    app.request({
-      url: '/api/v1/users/bind_xcx_mobile',
-      method: 'POST',
-      data: { iv: e.detail.iv, encryptedData: e.detail.encryptedData },
-      success: function(resp){
-        _this.setData({userInfo: resp.data.data})
-        app.globalData.userInfo = resp.data.data
-        wx.setStorageSync('userInfo', resp.data.data)
-        wx.showToast({
-            title: '登录成功',
-            icon: 'success',
-            duration: 2000
-        })
-      }
-    })
-  },
-
 
   /**
    * 生命周期函数--监听页面加载
@@ -68,14 +46,22 @@ Page({
     this.loadData()  
   },
 
+  bindMobileSuccess: function(){
+    var _this = this
+
+    console.log('bind mobile success func')
+    var _this = this
+    app.loadUserInfo(function(userInfo){
+      console.log('set data to user info', userInfo)
+      _this.setData({ userInfo: userInfo })   
+      _this.loadData()
+    })
+  },
+
   loadData: function(){
-    console.log('load data event')
-    app.globalData.userInfo = null
     var _this = this
     app.getUserInfo(function (userInfo) {
-      _this.data.userInfo = userInfo
-      _this.data.loginFlag = !userInfo.mobile ? true: false
-      _this.setData({ userInfo: _this.data.userInfo, loginFlag: _this.data.loginFlag })
+      _this.setData({ userInfo: userInfo})
 
       if(userInfo.mobile){
         // login back ?
@@ -83,7 +69,12 @@ Page({
         if (p) {
           wx.setStorageSync('login_back_page', null)
           wx.navigateTo({ url: p })
-        }            
+        }    
+        var p = wx.getStorageSync('login_back_navigate_to_video')
+        console.log('login back p', p)
+        if(p){
+          app.navigateToVideo()
+        }        
       }
     })    
   },  

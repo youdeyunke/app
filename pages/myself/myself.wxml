@@ -1,6 +1,6 @@
 <import src="/tpls/posts/mini_listing.wxml"/>
 
-<mylogin flag="{{loginFlag}}" bind:success="loadData"></mylogin>
+<mylogin flag="{{!userInfo.mobile}}" bind:success="bindMobileSuccess"></mylogin>
 
 <view class="container">
   <view class="userinfo">

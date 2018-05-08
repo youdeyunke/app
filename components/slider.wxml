@@ -1,16 +1,20 @@
 <!--index.wxml-->
 <swiper class="swiper home" indicator-dots="true" autoplay="true" interval="5000"
 duration="500" circular="true" indicator-color="rgba(255,255,255,0.7)" autoplay indicator-active-color="#fff" >
-    <block wx:for="{{items}}" wx:for-index="index">
-        <swiper-item>
-            <navigator wx:if="{{item.disable}}" bindtap="soon">
-               <image  src="{{item.src}}" class="slide-image" />
-            </navigator>
+    <swiper-item bindtap="gotoVideo">
+      <image src="http://jiayaosu-10013564.image.myqcloud.com/8d0a4fc3-dd7d-4c2b-88d1-b12f38e96053"></image>
+    </swiper-item>
 
-            <navigator wx:if="{{!item.disable}}" open-type="{{item.opentype}}" url="{{item.url}}">
-            <image  src="{{item.src}}" class="slide-image" />
-            </navigator>
+    <swiper-item bindtap="gotoAbout">
+      <image src="http://jiayaosu-10013564.image.myqcloud.com/9f3ac103-ab48-4123-933c-b5ce2eaeac70"></image>
+    </swiper-item>   
 
-        </swiper-item>
-    </block>
+    <swiper-item bindtap="gotoTiao">
+      <image src="http://jiayaosu-10013564.image.myqcloud.com/68972d89-6f43-4877-af6c-200441aed794#690*390"></image>
+    </swiper-item>   
+
+    <swiper-item bindtap="gotoQa">
+      <image src="http://jiayaosu-10013564.image.myqcloud.com/ec5311dd-ebbd-42cb-a108-223fdb3b7528#690*390"></image>
+    </swiper-item>  
+    
 </swiper>

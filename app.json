@@ -19,7 +19,8 @@
     "pages/myself/favposts",
     "pages/zhishi/index",
     "pages/post/booking",
-    "pages/huodong/index"
+    "pages/huodong/index",
+    "pages/static/about"
   ],
   "tabBar": {
     "selectedColor": "#333",

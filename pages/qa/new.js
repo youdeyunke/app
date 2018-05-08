@@ -22,8 +22,9 @@ Page({
   },
 
   booking: function(){
+    var post_id = this.data.post_id
     wx.navigateTo({
-      url: '/pages/post/booking',
+      url: '/pages/post/booking?post_id='+post_id,
     })
   },
  
@@ -70,7 +71,6 @@ Page({
     // 保存到本地，用户跳转到登录后，文本不丢失
     wx.setStorageSync('question_content', content)
 
-
     app.request({
       method: 'POST',
       url: '/api/v1/questions/',
@@ -91,17 +91,9 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    app.getUserInfo(function(userInfo){
-      if(userInfo && userInfo.mobile){
-        // success
-        console.log('userinfo.mobile, ', userInfo.mobile)
-      }else{
-        // 前往登录，并设置登录成功后回调页面
-        wx.setStorageSync('login_back_page', '/pages/qa/new')
-        app.gotoAccount("请先登录", "请先登录")        
-      }
-    })    
+  onLoad: function (q) {
+    this.setData({post_id: q.post_id})
+    app.ensureMobile('/pages/qa/new?post_id='+ q.post_id)   
   },
 
   /**

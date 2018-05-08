@@ -58,7 +58,7 @@
 
   <myaudio wx:if="{{false}}"></myaudio>
 
-  <navigator wx:if="{{post.coupon_desc}}" url='/pages/post/coupon' open-type='navigateTo' class="box coupon">
+  <navigator wx:if="{{post.coupon_desc}}" url="/pages/post/coupon?post_id={{post.id}}" open-type='navigateTo' class="box coupon">
     <view class="icon">
       <image src="/assets/images/coupon.png"></image>
     </view>
@@ -144,18 +144,26 @@
 
 </view>
 
-<view class="footer-btns ">
-   <button class="share" open-type="share">
-    <image src="/assets/icons/share.png"></image>
-    分享
-   </button>
+<form report-submit bindsubmit='btnsHandle' class="footer-btns">
+  <ul>
+    <li>
+    <button class="share" open-type="share">
+      <image src="/assets/icons/share.png"></image>
+      分享
+    </button>                
+    </li>
+    <li>
+<button form-type='submit' data-action="callme" class="qa" >
+咨询提问<image src="/assets/icons/pen.png"></image>
+</button>
 
-   <view bindtap="callMe" class="qa" >
-    咨询提问<image src="/assets/icons/pen.png"></image>
-   </view>
+    </li>
+    <li>
+<button form-type="submit" data-action="booking" class="call">
+预约报名<image src="/assets/icons/call.png"></image>
+</button>   
+    
+    </li>
+  </ul>
 
-   <navigator class="call"  open-type='navigateTo' url="/pages/qa/new?postId={{post.id}}">
-    预约报名<image src="/assets/icons/call.png"></image>
-   </navigator>   
-
-</view>
+</form>

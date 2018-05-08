@@ -142,8 +142,11 @@ Page({
     if(newComment){
       this.setData({comment: newComment})
     }else{
+      var userInfo = wx.getStorageSync(
+        'userInfo'
+      )
       this.setData({comment: {
-        user_id: app.globalData.userInfo.id,
+        user_id: userInfo.id,
         score: 1,
         cat_id: 0,
         content: '',

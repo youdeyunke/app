@@ -53,7 +53,7 @@
 					"id": 3,
 					"name": "post",
 					"pathName": "pages/post/post",
-					"query": "id=1"
+					"query": "id=7"
 				},
 				{
 					"id": -1,
@@ -83,6 +83,12 @@
 					"id": -1,
 					"name": "qa-new",
 					"pathName": "pages/qa/new",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "webview",
+					"pathName": "pages/static/about",
 					"query": ""
 				}
 			]

@@ -1,8 +1,7 @@
 <view class="mask" hidden="{{!flag}}">
   <form class="window" bindsubmit="formSubmit">
 
-      <view bindtap='closeHandle' class="close">x</view>
-
+    <view bindtap='closeHandle' class="close">x</view>
     <view class="head">手机快速登录</view>
     <input id="mobile" bindinput='inputHandle' class="mobile" name="mobile" placeholder='手机号码'></input>
     <view class="input-group">

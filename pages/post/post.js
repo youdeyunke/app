@@ -14,6 +14,23 @@ Page({
     readmore: false,
   },
 
+  btnsHandle: function(e){
+    // 底部按钮
+    var _this = this
+    console.log('submit', e)
+    app.saveFormId(e)
+
+    var action = e.detail.target.dataset.action
+    if(action == 'callme'){
+      _this.callMe()
+      return false
+    }else{
+      wx.navigateTo({
+        url: '/pages/qa/new?post_id=' + _this.data.postId,
+      })
+    }
+  },
+
 
   openWebview: function(e){
     var url = this.data.post.more_url
@@ -132,6 +149,7 @@ Page({
    */
   onLoad: function (options) {
     var postId = options.id
+    this.setData({ postId: postId})
     this.loadPost(postId)
     this.loadRecoms(postId)
     this.loadComments(postId)
