@@ -90,6 +90,18 @@
 					"name": "webview",
 					"pathName": "pages/static/about",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "post",
+					"pathName": "pages/about/index",
+					"query": "id=7"
+				},
+				{
+					"id": -1,
+					"name": "about",
+					"pathName": "pages/about/index",
+					"query": ""
 				}
 			]
 		}

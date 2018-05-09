@@ -5,23 +5,31 @@
     </view>
     <view class="meta">
         <view class="item">
-          <view class="label">版本</view>
+          <view class="label">咨询电话</view>
+          <view class="value">{{serverMobile}}</view>
+        </view>           
+
+        <view class="item">
+          <view class="label">当前版本</view>
           <view class="value" bindtap="debugHandle">1.0.1</view>
         </view>
+        
         <view class="item">
           <view class="label">最近更新</view>
-          <view class="value">优化了数据加载速度</view>
-        </view>      
+          <view class="value">新增消息推送功能</view>
+        </view>     
+         
+        <view class="meta">
+              <view class="item contact">
+                <view class="label">技术支持</view>
+                <view class="value">
+                  <text>wxhxgs</text>
+                  <image src="/assets/icons/wechat.jpg"></image>
+                </view>
+              </view>   
+        </view>        
+     
     </view>
 
-  <block wx:if="{{showInfo}}">
-  <view  class="title">技术支持</view>
-  <view class="meta">
-        <view class="item">
-          <view class="label">微信</view>
-          <view class="value">wxhxgs</view>
-        </view>   
-  </view>
-  </block>
 
 </view>

@@ -66,3 +66,17 @@ page{
   padding-bottom:30rpx;
 
 }
+
+.meta .item.contact .value{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+}
+
+.meta .item.contact .value image{
+  width: 28rpx;
+  height: 28rpx;
+  margin-left:10rpx;
+
+}

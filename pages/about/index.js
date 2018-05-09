@@ -1,4 +1,6 @@
 // pages/about/index.js
+const app = getApp()
+
 Page({
 
   /**
@@ -6,6 +8,7 @@ Page({
    */
   data: {
     debugClickCounter: 0,
+    serverMobile: app.globalData.serverMobile
   },
 
   debugHandle :function(e){

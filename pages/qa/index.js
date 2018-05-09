@@ -35,15 +35,22 @@ Page({
   },
 
 
-  submitHandle: function(){
-    app.ensureMobile('/pages/qa/index')
-
+  submitHandle: function(e){
+    app.saveFormId(e)
+    
     var _this = this
-    var content =  _this.data.questionContent
-    var qLen = typeof content == 'undefined' ? 0 : content.length 
+    app.ensureMobile('/pages/qa/index', function(userInfo){
+      _this.doSubmit()
+    })
+  },
+
+  doSubmit: function(){
+    var _this = this
+    var content = _this.data.questionContent
+    var qLen = typeof content == 'undefined' ? 0 : content.length
     var qMinLength = 10
 
-    if(qLen >= 200){
+    if (qLen >= 200) {
       wx.showToast({
         title: '文本太长',
         icon: 'none',
@@ -51,7 +58,7 @@ Page({
       })
       return false
     }
-    if(qLen <= qMinLength){
+    if (qLen <= qMinLength) {
       wx.showToast({
         title: '请至少填写' + qMinLength + '个字符',
         icon: 'none',
@@ -59,12 +66,8 @@ Page({
       })
       return false
     }
-    _this.doSubmit()
-  },
 
-  doSubmit: function(){
-    var _this = this
-    var content = _this.data.questionContent 
+
     // 保存到本地，用户跳转到登录后，文本不丢失
     wx.setStorageSync('question_content', content)
 
