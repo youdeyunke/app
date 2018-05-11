@@ -60,8 +60,13 @@ Component({
     },
 
     sliderChange: function(e){
-      console.log('v1,', this.data.value1, 'v2', this.data.value2)
-      this.triggerEvent('change', {}, {})
+      var _this = this
+      var res = this.ensureValueOrder(
+        _this.data.value1,
+        _this.data.value2
+      )
+    
+      this.triggerEvent('change', {range:res, text: _this.data.currentValueText }, {})
     },
 
     sliderChangeing: function(e){
