@@ -1,4 +1,30 @@
 
 <view class="container">
+  <form>
+
+  <view class="h1">预算</view>
   <rangeslider bind:change="rangeChange" ></rangeslider>
+ 
+  <view class="purpose">
+    <view class="h1">买房目的</view>
+    <ul>
+    <li bindtap="purposeHandle" data-index="{{index}}" class="{{item.selected ? 'active' : '' }}" wx:for="{{purposeList}}">{{item.name}}</li>
+    </ul>
+  </view>
+
+  <view class="position">
+    <view class="h1">我关注的地区</view>
+    <textarea placeholder='填写您关注的板块和地区'>   </textarea>
+  </view>
+
+  <view class="contact">
+    <view class="h1">联系方式</view>
+    <textarea placeholder='留下您的手机号或者微信号，方便我们尽快l联系您'>   </textarea>
+  </view>  
+
+
+  <button class="button" form-type='submit'>帮我找房</button>
+
+  </form>
+
 </view>

@@ -5,7 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+
+    purposeList: [
+      { name: '刚需'},
+      { name: '结婚'},
+      {name: '投资'},
+      {name: '给父母住'},
+      {name: '孩子上学'},
+      {name: '改善条件'},
+      {name: '其他'}
+    ]
   },
 
   /**
@@ -13,6 +22,15 @@ Page({
    */
   onLoad: function (options) {
   
+  },
+
+  purposeHandle: function(e){
+    var i = e.currentTarget.dataset.index
+    var ps = this.data.purposeList
+    var p = ps[i]
+    p.selected = !p.selected
+    ps[i] = p 
+    this.setData({ purposeList:ps })
   },
 
   rangeChange: function(e){

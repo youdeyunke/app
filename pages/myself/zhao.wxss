@@ -1,1 +1,59 @@
-/* pages/myself/zhao.wxss */
+.container{
+  padding:10rpx 30rpx;
+  font-size:24rpx;
+}
+
+.h1{
+  font-size:28rpx;
+  margin:30rpx 0 20rpx 0;
+}
+
+.purpose ul{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.purpose ul li{
+  width: 100rpx;
+  text-align: center;
+  padding:4rpx 20rpx;
+  border-radius: 10rpx;
+  color: #999;
+  background: #f4f4f4;
+  margin:15rpx 30rpx 10rpx 0;
+
+  
+}
+
+.purpose ul li.active{
+  background: #ffd900;
+  color:#000;
+}
+
+textarea{
+  background: #f4f4f4;
+  width: 100%;
+  border-radius: 20rpx;
+  height: 140rpx;
+  padding:10rpx;
+}
+
+
+
+form .button{
+  border:none;
+  outline: none;
+  background: #ffdb2d;
+  color:#000;
+  height: 50rpx;
+  line-height: 44rpx;
+  font-size:26rpx;
+  text-align: center;
+  float:right;
+  width: 100%;
+  margin:100rpx  auto 20rpx auto;
+}
+.form button.button::after{
+  border:0px solid #fff;
+}
