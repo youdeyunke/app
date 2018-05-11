@@ -1,0 +1,4 @@
+.main, .main image{
+  width: 750rpx;
+  height: 9018rpx;
+}

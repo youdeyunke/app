@@ -1,0 +1,50 @@
+
+.range-slider{
+  width:690rpx;
+  margin:0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.range-slider-body{
+  position: relative;
+  width: 100%;
+  height: 80rpx;
+  margin:0 auto;
+}
+
+.range-slider-body slider{
+  position: absolute;
+  top:20rpx;
+  left: 0rpx;
+  width: 100%;
+  margin:0 auto;
+}
+
+.range-slider-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.range-slider-footer view{
+  width: 33%;
+  font-size:24rpx;
+}
+
+.range-slider-footer view.v1{
+  color: #cecece;
+}
+
+.range-slider-footer view.v2{
+  color: red;
+  text-align: center;
+}
+
+.range-slider-footer view.v3{
+  color: #cecece;
+  text-align: right;
+}
+
