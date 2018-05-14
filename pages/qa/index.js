@@ -113,7 +113,11 @@ Page({
     var _this = this
     app.request({
       url: '/api/v1/questions/',
-      data: {cat_id: _this.data.catId},
+      data: {
+        cat_id: _this.data.catId, 
+        offset: _this.data.items.length,
+        limit: 10,
+      },
       success: function(res){
         var d = {}
         res.data.data.forEach(function(item, i){
@@ -167,14 +171,19 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    // 下拉加载更多
+    var _this = this
+    _this.setData({items: []})
+    _this.loadItems()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    console.log('load more')
+    var _this = this
+    _this.loadItems()
   },
 
   /**

@@ -21,7 +21,8 @@
     "pages/post/booking",
     "pages/huodong/index",
     "pages/static/about",
-    "pages/myself/zhao"
+    "pages/myself/zhao",
+    "pages/myself/qa"
   ],
   "tabBar": {
     "selectedColor": "#333",

@@ -87,12 +87,18 @@ Page({
       })
       return false
     }
-    if(index == 4){
+    if(index == 1){
       wx.navigateTo({
-        url: '/pages/comments/index?title=我的点评',
+        url: '/pages/myself/qa',
       })
-      return
+      return false
     }
+    if (index == 2) {
+      wx.navigateTo({
+        url: '/pages/myself/zhao',
+      })
+      return false
+    }    
 
     if(index == 3){
 
@@ -101,6 +107,14 @@ Page({
       })         
       return false
     }
+
+    if (index == 4) {
+      wx.navigateTo({
+        url: '/pages/comments/index?title=我的点评',
+      })
+      return
+    }
+
     if(index == 5){
       wx.makePhoneCall({
           phoneNumber: app.globalData.serverMobile 
