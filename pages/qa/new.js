@@ -93,7 +93,9 @@ Page({
    */
   onLoad: function (q) {
     this.setData({post_id: q.post_id})
-    app.ensureMobile('/pages/qa/new?post_id='+ q.post_id)   
+    app.ensureMobile('/pages/qa/new?post_id='+ q.post_id, function(u){
+      
+    })   
   },
 
   /**

@@ -13,7 +13,7 @@
 
     <block wx:else>
         <image bindtap="bindViewTap" class="userinfo-avatar" src="/assets/images/avatar-none.png" background-size="cover"></image>    
-      <button class="login-btn" open-type="getPhoneNumber"  wx:if="{{ !userInfo.mobile }}" bindgetphonenumber="bindMobileHandle"> 注册/登录 </button>
+      <button class="login-btn" open-type="getUserInfo"  wx:if="{{ !userInfo.mobile }}" bindgetuserinfo="bindMobileHandle"> 注册/登录 </button>
     </block>
 
 

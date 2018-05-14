@@ -1,8 +1,8 @@
 <view class="range-slider">
 
   <view class="range-slider-body">
-  <slider block-size="18" class="slider1" step="50" data-name="slider1" value="{{value1}}" bindchange="sliderChange" bindchanging="sliderChangeing" min="{{minValue}}" max="{{maxValue}}" activeColor="#e9e9e9" />
-    <slider block-size="18" class="slider2" step="50" data-name="slider2"  bindchange="sliderChange" bindchanging="sliderChangeing" value="{{value2}}" min="{{minValue}}" max="{{maxValue}}"  activeColor="#e9e9e9" />
+  <slider block-size="18" class="slider1" step="1" data-name="slider1" value="{{value1}}" bindchange="sliderChange" bindchanging="sliderChangeing" min="{{minValue}}" max="{{maxValue}}" activeColor="#e9e9e9" />
+    <slider block-size="18" class="slider2" step="1" data-name="slider2"  bindchange="sliderChange" bindchanging="sliderChangeing" value="{{value2}}" min="{{minValue}}" max="{{maxValue}}"  activeColor="#e9e9e9" />
     
   </view>
 

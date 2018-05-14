@@ -35,7 +35,6 @@ Page({
   loginTapHandle: function(){
     var _this = this
     app.globalData.loadingStatus += 1
-    console.log('abc')
   },
 
 
@@ -131,6 +130,18 @@ Page({
     app.comingSoon()
   },
 
+  bindMobileHandle: function(e){
+    // 点击登录注册按钮
+    console.log('login with btn', e)
+    wx.login({
+      success: function(res){
+        var code = res.code
+        console.log('login code: ', code, res)        
+      }
+    })    
+
+  },
+
   onShow:function(){
     var _this = this
     console.log('myself.myself.onshow-----------')
@@ -142,6 +153,8 @@ Page({
     app.getUserInfo(function (userInfo) {
       if(!userInfo.mobile){
         _this.data.loginFlag = true
+      }else{
+        _this.data.loginFlag = false
       }
       _this.setData({ userInfo: userInfo, loginFlag: _this.data.loginFlag })
     })    

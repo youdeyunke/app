@@ -63,6 +63,7 @@ App({
       return false
     }
     _this.request({
+      hideLoading: true,
       url: '/api/v1/formid/',
       data: { formids: ids },
       method: 'POST',
@@ -88,6 +89,7 @@ App({
     }
 
     _this.request({
+      hideLoading: true,
       url: '/api/v1/formid/',
       data: {formids: [formId]},
       method: 'POST',
@@ -100,16 +102,19 @@ App({
     // 确保用户已经填写手机号
     var _this = this
     this.getUserInfo(function(userInfo){
+      console.log('ensure mobile', userInfo)      
       if(userInfo && userInfo.mobile){
         if(typeof cb == 'function'){
           return cb(userInfo)
         }else{
           return userInfo
         }
+      }else{
+        // 去验证手机号
+        console.log('no userinfo', userInfo)
+        wx.setStorageSync('login_back_page', backPage)   
+        _this.gotoAccount("请先登录", "请先登录")   
       }
-      // 去验证手机号
-      wx.setStorageSync('login_back_page', backPage)
-      _this.gotoAccount("请先登录", "请先登录")           
     })
   },
 
@@ -120,7 +125,6 @@ App({
       url: '/api/v1/sessions/',
       success: function(resp){
         if(resp.data.status != 0){
-          console.error('sync user info error')
           return cb({})
         }
         // 更新到本地数据
@@ -137,8 +141,10 @@ App({
     var token =  wx.getStorageSync('token')
     var userInfo =  wx.getStorageSync('userInfo')
 
-    if(userInfo && token){
-      typeof cb == "function" && cb(userInfo)
+    if(token && userInfo){
+      // 如果token，存在，就从服务器取得
+      return cb(userInfo)
+
     }else{
 
       //调用登录接口
@@ -238,11 +244,12 @@ App({
   request: function(obj) {
     var _this = this
     var token = wx.getStorageSync('token')
-
-    wx.showLoading({
-      title: '加载中',
-      mask: false
-    })
+    if(!obj.hideLoading){
+      wx.showLoading({
+        title: '加载中',
+        mask: false
+      })
+    }
 
     var header = obj.header || {}
     if (!header['Content-Type']) {
@@ -279,6 +286,9 @@ App({
 
         if([2000, 2001].includes(res.data.status)){
           console.log('login required')
+          // token 过期
+          wx.setStorageSync('userInfo', null)
+          wx.setStorageSync('token', null)               
           _this.gotoAccount('需要登录', '请先登录账号')
           return false
         }
