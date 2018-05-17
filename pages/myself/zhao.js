@@ -27,8 +27,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-  
+  onLoad: function (q) {
+    var _this  = this
+    app.getUserInfo(function(userInfo){
+      _this.setData({contact: userInfo.mobile || ''})
+    })
   },
 
   getFormData: function(){

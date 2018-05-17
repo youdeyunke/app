@@ -36,7 +36,8 @@ textarea{
   width: 100%;
   border-radius: 20rpx;
   height: 140rpx;
-  padding:10rpx;
+  padding:30rpx;
+  font-size:26rpx;
 }
 
 
@@ -46,7 +47,7 @@ form .button{
   outline: none;
   background: #ffdb2d;
   color:#000;
-  height: 50rpx;
+  height: 60rpx;
   line-height: 44rpx;
   font-size:26rpx;
   text-align: center;

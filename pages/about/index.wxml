@@ -6,7 +6,9 @@
     <view class="meta">
         <view class="item">
           <view class="label">咨询电话</view>
-          <view class="value">{{serverMobile}}</view>
+          <view class="value">
+            <text selectable="{{true}}">{{serverMobile}}</text>
+            </view>
         </view>           
 
         <view class="item">
@@ -16,14 +18,14 @@
         
         <view class="item">
           <view class="label">最近更新</view>
-          <view class="value">新增消息推送功能</view>
+          <view class="value">新增“帮我找房”功能</view>
         </view>     
          
         <view class="meta">
               <view class="item contact">
                 <view class="label">技术支持</view>
                 <view class="value">
-                  <text>wxhxgs</text>
+                  <text selectable="{{true}}">wxhxgs</text>
                   <image src="/assets/icons/wechat.jpg"></image>
                 </view>
               </view>   

@@ -23,7 +23,8 @@
           <view class="nickname">{{ item.admin_user.name }}</view>
           <view class="instr">{{item.admin_user.desc}}</view>
         </view>
-        <view class="btn-add-q" bindtap="newHandle">向他提问</view>
+        <navigator class="btn-add-q"  open-type='navigateTo' url="/pages/qa/index">向他提问</navigator>
+               
       </view>
     </view>
     <view class="box-body">

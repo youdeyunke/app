@@ -16,7 +16,7 @@ App({
     wx.navigateToMiniProgram({
       appId: 'wxae515be8cfd1d1bc',
       path: 'page/home/content/content_video/content_video?id=v_5adefeda59fc1_nbehPpsv'
-    })    
+    })
   },
 
   comingSoon: function(){
@@ -24,7 +24,7 @@ App({
       title: '功能正在完善中，敬请期待 :)',
       icon: 'none',
       duration: 2000
-    })    
+    })
   },
 
   loadCities: function(cb){
@@ -52,7 +52,6 @@ App({
     var _this = this
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
-
   },
 
   uploadFormids: function(){
@@ -74,6 +73,7 @@ App({
       }
     })
   },
+  
   saveFormId: function(e){
     // 保存formid
     var formId = e.detail.formId
@@ -262,7 +262,7 @@ App({
     
     // This must be wx.request !
     var defaultApiHost = 'https://www.jiayaosu.com/haofang'
-    var defaultApiHost = 'http://localhost:3000/haofang'
+    //var defaultApiHost = 'http://localhost:3000/haofang'
     var customApiHost = wx.getStorageSync('apiHost')
     var apiHost = customApiHost ||defaultApiHost
     var url = apiHost + obj.url

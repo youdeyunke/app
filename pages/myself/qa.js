@@ -21,10 +21,24 @@ Page({
     app.request({
       url: '/api/v1/myself/questions',
       success: function(resp){
+        if (resp.data.data.replied.length == 0 && resp.data.data.unreplied.length == 0){
+          wx.showModal({
+            title: '没有数据',
+            content: '您还没有咨询过任何问题',
+            success: function (res) {
+              wx.navigateBack({
+                delta: -1
+              })
+            }
+          })
+
+          return
+        }
         _this.setData({
           replied: resp.data.data.replied,
           unreplied: resp.data.data.unreplied
         })
+
       }
     })
   },

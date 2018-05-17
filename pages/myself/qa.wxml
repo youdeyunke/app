@@ -2,7 +2,8 @@
 
 <view class="container">
 
-  <view class="h1">待回答的提问</view>
+  <view class="h1" wx:if="{{unreplied.length > 0}}">待回答的提问</view>
+
   <view class="box q" wx:for="{{unreplied}}">
     <view class="box-header">
       <view class="icon">问</view>
@@ -15,7 +16,7 @@
     <image class="box-footer" src="/assets/images/post-list-footer.png"></image>
   </view>
 
-<view class="h1">已回答的提问</view>
+<view class="h1" wx:if="{{replied.length > 0}}">已回答的提问</view>
 <block wx:for="{{replied}}">
   <view class="box q">
     <view class="box-header">
@@ -38,7 +39,10 @@
           <view class="nickname">{{ item.admin_user.name }}</view>
           <view class="instr">{{item.admin_user.desc}}</view>
         </view>
-        <view class="btn-add-q" bindtap="newHandle">向他提问</view>
+
+        <navigator class="btn-add-q"  open-type='navigateTo' url="/pages/qa/index">向他提问</navigator>
+       
+
       </view>
     </view>
     <view class="box-body">
