@@ -18,6 +18,14 @@ Page({
     this.loadData()
   },
 
+  gotoNew: function(e){
+    console.log('submit', e)
+    app.uploadFormId(e)
+    wx.navigateTo({
+      url: '/pages/qa/new'
+    })
+  },
+
   itemHandle: function(e){
     console.log(e)
     var qid = e.currentTarget.dataset['qid']

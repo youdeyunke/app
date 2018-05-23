@@ -78,8 +78,16 @@ Page({
   onLoad: function (options) {
     var qid = options.id
     this.setData({item: wx.getStorageSync('question.' + qid)})
-    console.log('item in qa.js:', this.data.item)
+    console.log('item in qa.js:', this.data.item, 'qid', qid)
     this.randomQas(2)
+  },
+
+  gotoNew: function(e){
+    console.log('submit', e)
+    app.uploadFormId(e)
+    wx.navigateTo({
+      url: '/pages/qa/new'
+    })
   },
 
   /**

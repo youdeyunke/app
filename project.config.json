@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 13,
+			"current": 0,
 			"list": [
 				{
 					"id": -1,
@@ -114,6 +114,12 @@
 					"name": "myself-qa",
 					"pathName": "pages/myself/qa",
 					"query": ""
+				},
+				{
+					"id": 14,
+					"name": "qa-detail",
+					"pathName": "pages/qa/qa",
+					"query": "id=10"
 				}
 			]
 		}
