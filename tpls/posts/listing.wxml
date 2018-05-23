@@ -2,7 +2,7 @@
   <view class="posts">
   <navigator hover-class="none" wx:for="{{posts}}" hover-class="none" url="/pages/post/post?id={{item.id}}" class="item">
     <view class="header">
-            <image class="cover" src="{{item.cover.url}}"></image>
+            <image class="cover" src="{{item.cover.url}}?imageView2/2/w/750"></image>
 
       <image wx:if="{{false}}" src="/assets/images/play-btn.png" class="play-btn"></image>
       <myfav post="{{item}}"></myfav>

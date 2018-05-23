@@ -71,7 +71,7 @@ page .container{
 .box .raw{
   color: #808080;
   font-size:26rpx;
-  line-height: 32rpx;
+  line-height: 54rpx;
   letter-spacing: 2rpx;
 }
 
@@ -98,7 +98,6 @@ page .container{
   font-size:24rpx;
   width: 100%;
   background: #fff;
-
 }
 
 .readmore text{

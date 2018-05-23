@@ -79,6 +79,10 @@ page .container{
   height: 31rpx;
 }
 
+.poster-block image{
+  width: 100%;
+}
+
 .tag-block{
   display: flex;
   justify-content: flex-start;

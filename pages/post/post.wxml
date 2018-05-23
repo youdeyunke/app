@@ -4,7 +4,7 @@
 
 <view class="container ">
   <view class="myvideo" >
-      <image wx:if="{{true}}" class="poster" src="{{post.cover.url}}"></image>
+      <image wx:if="{{true}}" class="poster" src="{{post.cover.url}}?imageView2/2/w/750"></image>
       <video wx:if="{{false}}" controls poster="{{ post.cover.url}}" src="{{post.video}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
    </view>
 
@@ -87,7 +87,7 @@
 
   <view class="box housetype" wx:if="{{post.housetype_name_b }}">
     <view class="poster">
-      <image bindtap="imageView" data-target="b" src="{{post.housetype_poster_b.url}}"></image>
+      <image bindtap="imageView" data-target="b" src="{{post.housetype_poster_b.url}}?imageView2/2/w/750"></image>
     </view>
     <view class="meta">
       <view class="name">{{post.housetype_name_b }}</view>
@@ -115,7 +115,7 @@
     </view>
   </view>  
 
-  <text class="h1" wx:if="{{post.more_url}}" >买房必读</text>
+  <text class="h1" wx:if="{{post.more_url}}?imageView2/2/w/250" >买房必读</text>
   <view wx:if="{{post.more_url}}" bindtap='openWebview' class="box moreurl">
     <view class="poster">
       <image src="/assets/images/read-more.png"></image>

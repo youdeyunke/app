@@ -4,7 +4,7 @@
     <navigator class="post" open-type="navigate" url="/pages/post/post?id={{item.id}}" wx:index="index" wx:for="{{posts}}">
     <image class="footer" src="/assets/images/post-list-footer.png"></image>
       <view class="cover">
-              <image class="i" src="{{ item.cover.url }}"></image>
+              <image class="i" src="{{ item.cover.url }}?imageView2/2/w/250"></image>
         <image wx:if="{{false}}" class="play-btn" src="/assets/images/play-btn.png"></image>
       </view>
       <view class="meta">

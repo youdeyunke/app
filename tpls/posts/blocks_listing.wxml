@@ -1,7 +1,7 @@
 <template name="blockposts">
   <view class="blockpost-list">
     <navigator class="post" open-type="navigate" url="/pages/post/post?id={{item.id}}" wx:index="index" wx:for="{{posts}}">
-      <image class="cover" src="{{item.block_info.cover.url}}"></image>
+      <image class="cover" src="{{item.block_info.cover.url}}?imageView2/2/w/750"></image>
       <image class="badge" src="/assets/images/block-badge.png"></image>
       <view class="badge-text">{{item.block_info.district.name}}</view>
     </navigator>
