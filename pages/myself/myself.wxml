@@ -1,51 +1,45 @@
-<import src="/tpls/posts/mini_listing.wxml"/>
-
-<mylogin flag="{{!userInfo.mobile}}" bind:success="bindMobileSuccess"></mylogin>
-
-<view class="container">
-  <view class="userinfo">
-
-    <block wx:if="{{ userInfo && userInfo.mobile }}">
-
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.custom_avatar.url || userInfo.avatar }}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickname}}</text>
-    </block>
-
-    <block wx:else>
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="/assets/images/avatar-none.png" background-size="cover"></image>    
-      <button class="login-btn" open-type="getUserInfo"  wx:if="{{ !userInfo.mobile }}" bindgetuserinfo="bindMobileHandle"> 注册/登录 </button>
-    </block>
 
 
+<view class="weui-panel  user-login" wx:if="{{!userInfo}}">
+
+    <view class="avatar">
+      <image src="/assets/images/default-avatar.png"></image>
+    </view>  
+
+    <text class="tip">登录账号，体验更多服务</text>
+    
+    <button type="primary" class="weui-btn "  open-type='getUserInfo' bindgetuserinfo='loginHandle'>使用微信登录</button>
+
+</view>
+
+
+<view class="weui-panel user" wx:if="{{userInfo}}">
+  <view class="avatar">
+    <image src="{{userInfo.avatar}}"></image>
   </view>
 
-  <view class="useractions">
-    <view bindtap="actionHandle" data-index="{{index}}"  class="item" wx:for="{{actions}}">
-      <image src="/assets/icons/myself-{{index+1}}.png" class="icon"></image>
-      <view>{{item.name}}</view>
+
+  <view class="nickname">{{userInfo.nickname}}</view>
+ 
+</view>
+
+
+<view class="weui-panel" wx:if="{{userInfo}}">
+  <view class="actions">
+      <navigator hover-class="none" class="weui-cell weui-cell_access">
+          <view class="weui-cell__bd">我的评论</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+
+      <navigator hover-class="none"  class="weui-cell weui-cell_access">
+          <view class="weui-cell__bd">关于</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>      
+
+      <navigator hover-class="none"  class="weui-cell weui-cell_access">
+          <view class="weui-cell__bd">联系客服</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>     
+
     </view>
-  </view>
-
-  <view class="useractions useractions-b">
-    <block wx:for="{{actionsB}}">
-    <block wx:if="{{index==1}}">
-      <button class="item" open-type="share">
-        <image src="/assets/icons/myself-b-{{index+1}}.png" class="icon"></image>
-        <view>{{item.name}}</view>
-      </button>
-    </block>
-    <block wx:else>
-      <view bindtap="actionHandleB" class="item" data-index="{{index}}">
-        <image src="/assets/icons/myself-b-{{index+1}}.png" class="icon"></image>
-        <view>{{item.name}}</view>
-      </view>
-      </block>
-    </block>
-    <image src="/assets/images/post-list-footer.png" class="footer"></image>
-  </view>  
-
-  <view class="last-view" hidden="{{!lastViewPost}}">
-    <view class="name">我的游览</view>
-    <template is="miniposts"  data="{{ posts: [lastViewPost]  }}"></template>
-  </view>
 </view>

@@ -1,133 +1,47 @@
-/* pages/myself/myself.wxss */
-
-@import "/tpls/posts/mini_listing.wxss";
 
 page{
-  display:flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  background-repeat: no-repeat;
-  justify-content: space-between;
-  background-image: url("http://jiayaosu-10013564.image.myqcloud.com/4051facf-bcfa-4f32-8aaa-fc09b0992d91");
-  background-size: 750rpx 1050rpx;
-  background-color: #f0f0f0;
+  height:auto;
+  min-height:100%;
 }
 
-page .container{
-  width:690rpx;
-  margin:0 auto;
-}
-
-
-/**index.wxss**/
-.userinfo {
+.user{
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-
-  margin-bottom:20rpx;
-}
-
-.userinfo-avatar {
-  width: 135rpx;
-  height:135rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #333;
-  font-size:24rpx;
-}
-
-.useractions{
+  align-items: center;
+  height: 333rpx;
   width:100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-
-  height: 354rpx;
-  background:#fff;
-  border-radius: 10rpx;
-  padding: 34rpx 0;  
 }
 
-.useractions .item{
-
-  width:33.33%;
+.user-login{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  font-size:22rpx;
-
-}
-
-.useractions .item image{
-  width:72rpx;
-  height: 72rpx;
-  margin-bottom:18rpx;
-}
-
-.useractions .item view{
-
-}
-
-.useractions-b{
-  height: 162rpx;
-  margin:40rpx 0 40rpx 0;
-  position: relative;
-}
-
-.useractions-b .footer{
-position:absolute;
-bottom:-29rpx;
-left:0rpx;
-z-index:10;
-height:30rpx;
-width:100%;  
-}
-.useractions-b button{
-  display: flex;
-  background-color:#fff;
-  outline:none;
-}
-
-.useractions-b button::after{
-    border:0px solid #fff;
-    margin:0;
-    padding:0;
-}
-
-
-.login-btn{
-  width:265rpx;
-  height: 42rpx;
-  display: flex;
   justify-content: center;
   align-items: center;
-  background: none;
+  padding:40rpx 0 50rpx 0;
+  width:100%;
+}
 
-  outline: none;
+.user-login .avatar{
+  margin-bottom:40rpx;
+  margin-top:50rpx;
+  border:1px solid #cecece;
+}
+
+.user-login .tip{
   font-size:24rpx;
-
-}
-button.login-btn::after{
-  outline: none;
-  box-shadow: none;
-    border:1px solid #000;
-    letter-spacing: 2rpx;
-    padding:0 80rpx;
+  color:#999;
+  height:80rpx;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-.last-view{
-  border-radius: 10rpx;
+.avatar, .avatar image{
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 100%;
+  overflow: hidden;
+  margin-bottom:10rpx;
 }
 
-
-.last-view .name{
-  font-size:22rpx;
-  margin:10rpx 0rpx 10rpx 0rpx ;
-}

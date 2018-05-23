@@ -1,78 +1,23 @@
 <wxs src="./../common.wxs" module="tools" />
+<import src="/tpls/qa.wxml"/>
 
-<view class="container">
-
-  <view class="h1" wx:if="{{unreplied.length > 0}}">待回答的提问</view>
-
-  <view class="box q" wx:for="{{unreplied}}">
-    <view class="box-header">
-      <view class="icon">问</view>
-      <view class="content">{{item.content}}</view>
-    </view>
-    <view class="box-body">
-      <view class="author">{{item.user.nickname}}</view>
-      <view class="time">{{item.created_at_pretty}}</view>
-    </view>
-    <image class="box-footer" src="/assets/images/post-list-footer.png"></image>
+<view class="container container-bg-none">
+  <view class="h2">
+    未回复的
   </view>
-
-<view class="h1" wx:if="{{replied.length > 0}}">已回答的提问</view>
-<block wx:for="{{replied}}">
-  <view class="box q">
-    <view class="box-header">
-      <view class="icon">问</view>
-      <view class="content">{{item.content}}</view>
-    </view>
-    <view class="box-body">
-      <view class="author">{{item.user.nickname}}</view>
-      <view class="time">{{item.created_at_pretty}}</view>
-    </view>
-    <image class="box-footer" src="/assets/images/post-list-footer.png"></image>
-  </view>
-
-  <view class="box a">
-    <view class="box-header">
-      <view class="icon">答</view>
-      <view class="author">
-        <view class="name">
-          <image src="{{item.admin_user.avatar.url}}"></image>
-          <view class="nickname">{{ item.admin_user.name }}</view>
-          <view class="instr">{{item.admin_user.desc}}</view>
-        </view>
-
-        <navigator class="btn-add-q"  open-type='navigateTo' url="/pages/qa/index">向他提问</navigator>
-       
-
-      </view>
-    </view>
-    <view class="box-body">
-      <view class="about">
-        <view class="part1 item">
-          <view class="label">咨询人数</view>
-          <view class="value">{{item.admin_user.zixun_num || 0}}人</view>
-        </view>
-        <view class="part2 item">
-          <view class="label">参考楼盘</view>
-          <view class="value">{{item.admin_user.loupan_num || 0}}次</view>
-        </view>
-      </view>
-
-      <view class="answer"> {{item.answer}}</view>
-      <view class="info">
-        <view class="time">{{item.updated_at_pretty}}</view>
-        <view class="like" bindtap='likeHandle' >
-                <image src="/assets/icons/qa-like.png"></image>
-                <view class="number">有用({{item.like_nums_total}})</view>
-        </view>
-      </view>
-    </view>
-    <image class="box-footer" src="/assets/images/post-list-footer.png"></image>
-  </view>
-
-</block>
-
-
-
-
 </view>
 
+
+<view class="qa-items">
+  <template is="qa-item" data="{{item}}" wx:for="{{unreplied}}"></template>
+</view>
+
+<view class="container container-bg-none">
+  <view class="h2">
+    已回复的
+  </view>
+</view>
+
+<view class="qa-items">
+  <template is="qa-item" data="{{item}}" wx:for="{{replied}}"></template>
+</view>

@@ -2,179 +2,91 @@
 const app = getApp()
 
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    userInfo: null,
-
-    loadingStatus : null,
-    debugClicks: 0,
-    lastViewPost: null,
-    actions: [
-      {name: '我的收藏'},
-      {name: '我的问答'},
-      {name: '帮我找房'},
-      {name: '我的课程'},
-      {name: '我的点评'},
-      {name: '联系客服'},
-    ],
-    actionsB: [
-      {name: '我要反馈'},
-      {name: '分享给好友'},
-      {name: '关于好房', url: '/pages/about/index', openType: 'navigateTo'},
-    ]
+    userInfo: {},
   },
 
-  debugHandle: function(e){
-    console.log('debugpage_click_count ', this.data.debugClicks)
-  
-    this.data.debugClicks += 1
-    if (this.data.debugClicks % 20 == 0) {
-      wx.navigateTo({ url: '/pages/home/debug' })
-    }
-  },
 
-  loginTapHandle: function(){
+  loginHandle: function(e){
     var _this = this
-    app.globalData.loadingStatus += 1
+    console.log('uinfo', e)
+    if (e.detail.errMsg != 'getUserInfo:ok'){
+      console.error('授权时候出错', e)
+      return
+    }
+
+    var encryptedData = e.detail.encryptedData
+    var iv = e.detail.iv
+    console.log(11111)
+    // 获取code
+    wx.login({
+      success: function(res){
+        if(res.code){
+          // 换取服务器的token
+          _this.getSessionToken(res.code, encryptedData, iv, function(userInfo){
+            _this.setData({userInfo: userInfo})
+          })
+        }
+      },
+      complete: function (res) {
+        // 用户拒绝,跳转到设置界面
+        console.log('getUserInfo complete,', res)
+        if (res.errMsg == 'getUserInfo:fail auth deny') {
+          wx.openSetting({})
+        }
+      }
+    })
+  },
+
+
+  getSessionToken: function(code, encryptedData, iv, cb){
+    // 重新获取token，并刷新 user info
+    var _this = this
+
+    // 发送给服务器
+    app.request({
+      data: { 
+        code: code, 
+        encryptedData: encryptedData, 
+        iv: iv
+      },
+
+      method: 'POST',
+      url: '/api/v1/sessions',
+      success: function (resp) {
+        var data = resp.data
+        if (data.status == 0) {
+          var token = data.data.token
+          var userInfo = data.data.user
+
+          // 保存下服务器返回的token
+          wx.setStorageSync('token', token)
+          wx.setStorageSync('userInfo', userInfo)
+          // upload formids
+          app.uploadFormId()
+          return cb(userInfo)
+        }
+      }
+    });    
+  },  
+
+
+  aboutHandle: function(e){
+    wx.showToast({
+      title: '了解更多，请访问家的要素官网：http://www.jiayaosu.com',
+      icon:'none'
+    })
   },
 
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (q) {
-    this.loadData()  
-  },
-
-  bindMobileSuccess: function(){
-    var _this = this
-
-    console.log('bind mobile success func')
-    var _this = this
-    app.loadUserInfo(function(userInfo){
-      console.log('set data to user info', userInfo)
-      _this.setData({ userInfo: userInfo })   
-      _this.loadData()
-    })
-  },
-
-  loadData: function(){
-    var _this = this
-    app.getUserInfo(function (userInfo) {
-      _this.setData({ userInfo: userInfo})
-
-      if(userInfo.mobile){
-        // login back ?
-        var p = wx.getStorageSync('login_back_page')
-        if (p) {
-          wx.setStorageSync('login_back_page', null)
-          wx.navigateTo({ url: p })
-        }    
-        var p = wx.getStorageSync('login_back_navigate_to_video')
-        console.log('login back p', p)
-        if(p){
-          app.navigateToVideo()
-        }        
-      }
-    })    
-  },  
-
-  actionHandle: function(e){
-    console.log(e)
-    var index = e.currentTarget.dataset.index
-    if(index == 0){
-      wx.navigateTo({
-        url: '/pages/myself/favposts',
-      })
-      return false
-    }
-    if(index == 1){
-      wx.navigateTo({
-        url: '/pages/myself/qa',
-      })
-      return false
-    }
-    if (index == 2) {
-      wx.navigateTo({
-        url: '/pages/myself/zhao',
-      })
-      return false
-    }    
-
-    if(index == 3){
-
-      wx.navigateToMiniProgram({
-        appId: 'wxae515be8cfd1d1bc'
-      })         
-      return false
-    }
-
-    if (index == 4) {
-      wx.navigateTo({
-        url: '/pages/comments/index?title=我的点评',
-      })
-      return
-    }
-
-    if(index == 5){
-      wx.makePhoneCall({
-          phoneNumber: app.globalData.serverMobile 
-      })
-      return
-    }
-    app.comingSoon()
-  },
-  actionHandleB: function (e) {
-    console.log(e)
-    var index = e.currentTarget.dataset.index
-    if (index == 0) {
-      wx.makePhoneCall({
-        phoneNumber: app.globalData.serverMobile
-      })
-      return
-    }
-
-    if(index == 2){
-      wx.navigateTo({
-        url: '/pages/about/index',
-      })
-      return
-    }
-
-
-    app.comingSoon()
-  },
-
-  bindMobileHandle: function(e){
-    // 点击登录注册按钮
-    console.log('login with btn', e)
-    wx.login({
-      success: function(res){
-        var code = res.code
-        console.log('login code: ', code, res)        
-      }
-    })    
-
-  },
-
-  onShow:function(){
-    var _this = this
-    console.log('myself.myself.onshow-----------')
-
-    _this.setData({
-      lastViewPost: wx.getStorageSync('last_view_post')
-    })
-
-    app.getUserInfo(function (userInfo) {
-      if(!userInfo.mobile){
-        _this.data.loginFlag = true
-      }else{
-        _this.data.loginFlag = false
-      }
-      _this.setData({ userInfo: userInfo, loginFlag: _this.data.loginFlag })
-    })    
-
-    console.log('myself.onshow ', wx.getStorageSync('last_view_post'))
-    console.log('last view post', _this.data.lastViewPost)    
+  onLoad: function (options) {
   },
 
   /**
@@ -184,6 +96,16 @@ Page({
   
   },
 
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    this.setData({
+      userInfo: wx.getStorageSync('userInfo')
+    })
+    console.log(this.data.userInfo)
+  
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -211,13 +133,12 @@ Page({
    */
   onReachBottom: function () {
   
-  },                                                                                                                                                              
-  onShareAppMessage: function () {
-    var _this = this
-    return {
-      title: '真有好房',
-      desc: '真有好房',
-      path: 'pages/home/home'
-    }
   },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+  
+  }
 })

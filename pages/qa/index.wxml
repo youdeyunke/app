@@ -1,51 +1,16 @@
 
-<mylogin flag="{{loginFlag}}"></mylogin>
+<import src="/tpls/qa.wxml"/>
 
-<view class="form">
-  <form  bindsubmit="submitHandle" >
-          <textarea bindinput="inputHandle" maxlength="200" value="{{questionContent}}" name="content" placeholder='在这里输入您的问题...'></textarea>
-    <button  class="button" type="default" form-type="submit" >我要咨询</button>
+  <view class="cats" >
+    <text data-cid="{{item.id}}" bindtap="catHandle" class="item {{  catId == item.id ? 'active' : '' }}" wx:for="{{cats}}" id="item-{{index}}">{{item.name}}</text>
+  </view>
+
+  <form report-submit class="qa-items" bindsubmit='gotoNew'>
+      <template is="qa-item" data="{{item}}" wx:for="{{items}}"></template>
   </form>
 
-  <scroll-view  style="width:700rpx; margin:0 auto;" scroll-x >
-    <view class="tags" >
-      <text data-cid="{{item.id}}" bindtap="catHandle" class="item {{  catId == item.id ? 'active' : '' }}" wx:for="{{cats}}" id="item-{{index}}">{{item.name}}</text>
-    </view>
-  
-  </scroll-view>
 
-</view>
 
-<view class="container">
-  <view wx:if="{{false}}" class="search">
-    <image src="/assets/icons/search.png"></image>
-    <input placeholder='买房、租房、评测'></input>
-  </view>
 
-  <view class="qa-items" style="padding-top:20rpx;">
-    <view class="qa-item" wx:for="{{items}}" bindtap="itemHandle" data-index="{{index}}">
-      <view class="header">
-        <text class="icon">问</text>
-        <text class="title">{{item.content}}</text>
-        <view class="author">
-                <text>{{item.user.nickname}}</text>
-                <text>{{item.created_at_pretty }}</text>
-        </view>
-      </view>
-      <view class="body">
-         <text class="icon">答</text>
-          <view class="answer">
-            <text>{{item.answer}}</text>
-            <view class="author">
-              <image src="{{item.admin_user.avatar.url}}"></image>
-              <text>{{item.admin_user.name}}</text>
-            </view>
-          </view>
-      </view>
-      <image class="footer" src="/assets/images/post-list-footer.png"></image>
 
-    </view>
-  </view>
-
-</view>
 

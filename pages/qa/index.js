@@ -23,26 +23,10 @@ Page({
   },
 
   itemHandle: function(e){
-    console.log(e)
-    var index = e.currentTarget.dataset['index']
-    var item =  this.data.items[index]
-    wx.navigateTo({ url: '/pages/qa/qa?id=' + item.id })
+    var qid = e.currentTarget.dataset['qid']
+    wx.navigateTo({ url: '/pages/qa/qa?id=' + qid })
   },
 
-  inputHandle :function(e){
-    var v = e.detail.value
-    this.setData({ questionContent: v })
-  },
-
-
-  submitHandle: function(e){
-    app.saveFormId(e)
-    
-    var _this = this
-    app.ensureMobile('/pages/qa/index', function(userInfo){
-      _this.doSubmit()
-    })
-  },
 
   doSubmit: function(){
     var _this = this
@@ -137,7 +121,13 @@ Page({
     })
   },
 
-
+  gotoNew: function(e){
+    console.log('submit', e)
+    app.uploadFormId(e)
+    wx.navigateTo({
+      url: '/pages/qa/new'
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

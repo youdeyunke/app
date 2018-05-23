@@ -18,5 +18,4 @@
   </view>
   <template wx:for="{{posts}}" is="posts"  data="{{ posts:item }}"></template>
 
-
 </view>

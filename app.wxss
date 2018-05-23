@@ -1,7 +1,25 @@
+@import './weui.wxss';
+@import "/components/tags.wxss";
+@import "/utils/wxParse/wxParse.wxss";
 
+page{
+  height: auto;
+  background: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background: #f4f4f4;
+  font-size:32rpx;
+  color:#333;
+  font-weight:normal;
+  --color-green: #1AAD19;
+}
 
 .container {
-  height: 100%;
+  background:#fff;
+  width:700rpx;
+  margin:0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -9,22 +27,90 @@
   box-sizing: border-box;
   position: relative;
 } 
-mytabs{
-  width:100%;
- 
-  position: fixed;
-  bottom:0rpx;
+
+.container-bg-none{
+  background:none;
+  
 }
 
-video{
+.weui-panel{
   width:100%;
+}
+
+h1,.h2{
+  color: var(--color-title);
+  width:100%;
+}
+.h1{
+  font-size: 44rpx;
+}
+.h2{
+  font-size: 32rpx;
+}
+
+
+.cats{
+  height:100rpx;
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  border-bottom:2rpx solid #f4f4f4;
+  padding: 0 20rpx;
+  background:#fff;
+  width:100%;
+  position:fixed;
+  top:0rpx;
+  z-index:99;
+}
+
+.cats .item{
+  height:calc(100% - 2rpx);
+  border-bottom:2rpx solid #f4f4f4;
+  display:flex;
+  flex-direction:column;
+  padding:0 20rpx;
+  justify-content:center;
+}
+
+.cats .item.active{
+  border-bottom:2rpx solid var(--color-green);
+}
+
+
+
+
+.box{
+  width:100%;
+  line-height: 54rpx;
+  font-weight: 300;
+  background: #fff;
 }
 
 .tags{
+  height: 70rpx;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: center;  
+  padding:0 ;
 }
+
+.tags .item{
+  color: #666;
+  border-radius: 0rpx;
+  height: 40rpx;
+  display: inline-block;
+  line-height: 39rpx;
+  padding:15rpx 30rpx;
+  background: #f4f4f4;
+  margin-right:15rpx;
+  font-size:28rpx;
+}
+
+.tags .item.active{
+  background: var(--color-green);
+  color:#fff;
+}
+
 
 .tags-left{
   justify-content: flex-start;
@@ -42,27 +128,12 @@ video{
   margin-left:15rpx;
 }
 
-.tags text{
-  display: inline-block;
-  background: #EFEFEF;
-  color: #666;
-  font-size:20rpx;
-  border-radius: 10rpx;
-  padding:0 15rpx;
-  text-align: center;
-  flex-shrink: 0;
-}
 
 .line-limit{
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;  
 }
-
-@import "/components/tags.wxss";
-@import "/utils/wxParse/wxParse.wxss";
-
-
 
 
 .comments .item.box{
@@ -183,6 +254,7 @@ myfav image{
   width:28rpx;
   height: 28rpx;
 }
+
 myfav{
   padding-left:10rpx;
   padding-right:5rpx;
@@ -219,4 +291,9 @@ myfav{
   position: fixed;
   top:40rpx;
   right:0rpx;
+}
+
+.btn-mini{
+  font-size:24rpx;
+  height: 60rpx;
 }

@@ -6,7 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    replied: [],
+    unreplied: [],
+
   },
 
   /**
@@ -14,6 +16,12 @@ Page({
    */
   onLoad: function (options) {
     this.loadData()
+  },
+
+  itemHandle: function(e){
+    console.log(e)
+    var qid = e.currentTarget.dataset['qid']
+    wx.navigateTo({ url: '/pages/qa/qa?id=' + qid })
   },
 
   loadData: function(){

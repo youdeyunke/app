@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
 	"appid": "wx2b22e217100684de",
-	"projectname": "%E7%9C%9F%E6%9C%89%E5%A5%BD%E6%88%BF",
+	"projectname": "HaoFangV2",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 13,
 			"list": [
 				{
 					"id": -1,

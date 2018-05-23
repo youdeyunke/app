@@ -1,47 +1,28 @@
 /* pages/qa/qa.wxss */
-page{
-  background-color: #ffdb2d;
-}
-
-.qa-btn{
-  display: block;
-  height: 30px;
-  width: 30ppx;
-  background:yellow;
-  position: fixed;
-  bottom:50px;
-  right:10px;
-  border-radius: 100%;
-}
 
 .qa-items{
   display: flex;
   flex-direction: column;
-  padding:0rpx 20rpx 15rpx 20rpx;   
+  padding:120rpx 20rpx 15rpx 20rpx;   
 }
 
 .qa-items .qa-item{
   background: #fff;
   padding:20rpx;
-  border-radius: 5px;
+  border-radius: 0px;
    margin-bottom:calc(38rpx + 18rpx);
    position: relative;
 }
 
-.qa-items .qa-item .header{
+.qa-items .qa-item .body{
   position: relative;
-  padding-left:40rpx;
-  display: flex;
-  flex-direction: column;
+  margin-top:10rpx;
+  padding:10rpx;
 }
 
-.qa-items .qa-item .header .title{
-  font-size:26rpx;
-  color: #333;
-}
 
-.qa-items .qa-item .header .author{
-  font-size:20rpx;
+.qa-items .qa-item  .author{
+  font-size:28rpx;
   color:#666;
   margin-top:10rpx;
   display:flex;
@@ -49,35 +30,46 @@ page{
   align-items:center;
 }
 
+.qa-items .qa-item .author .name{
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+}
+
+.qa-item .author image{
+  width:35rpx;
+  height: 35rpx;
+  widows: 35rpx;
+  border-radius: 100%;
+  margin-right:10rpx;
+}
+
 .qa-items .qa-item  .icon{
-  width:49rpx;
-  height: 32rpx;
-  position: absolute;
-  left:-20rpx;
-  background-color: #ffdb2d;
-  border-top-right-radius: 30rpx;
-  border-bottom-right-radius: 30rpx;
+  padding:0 20rpx;
+  height: 40rpx;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   text-align: center;
-  font-size:22rpx;
-  color:#000;
+  font-size:24rpx;
+  color:var(--color-green);
+  border:1px solid var(--color-green);
+
 }
 
-.qa-items .qa-item .body{
-  position: relative;
-  margin-top:10rpx;
+
+.qa-items .qa-item .line{
+      border-top:4rpx dashed #f4f4f4;
 }
 
-.qa-items .qa-item .body .answer{
-    background-color:#f3f3f3;
-    padding:20rpx 20rpx 20rpx 40rpx;
+.qa-items .qa-item .body .content{
+    padding:15rpx 0;
     color:#666;
-    font-size:26rpx;
-    border-radius: 10rpx;
     display: flex;
     flex-direction: column; 
 }
 
-.qa-items .qa-item .body .answer text{
+.qa-items .qa-item .body .content text{
 
   display: -webkit-box ;
   overflow: hidden;
@@ -87,125 +79,5 @@ page{
   -webkit-line-clamp:3; 
  }
 
-.qa-items .qa-item .body .answer .author{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 35rpx;
-  margin-top:14rpx;
 
-}
 
-.qa-items .qa-item .body .answer .author image{
-  width:35rpx;
-  height: 35rpx;
-  widows: 35rpx;
-  border-radius: 100%;
-  margin-right:10rpx;
-}
-
-.qa-items .qa-item .header .icon{
-  top:0rpx;
-}
-
-.qa-items .qa-item .body .icon{
-  top:15rpx;
-}
-
-.form{
-  background: #fff;
-  padding-top:27rpx;
-  padding-bottom:10rpx;
-}
-
-.form form{
-  background: #f1f1f1;
-  border-radius: 16rpx;
-  margin: 0rpx auto 30rpx auto;
-  font-size:22rpx;
-  color:#afafaf;
-  padding:15rpx;
-  width: calc(696rpx - 15*2rpx);
-  height: 242rpx;
-  display:block;
-}
-
-.form form textarea{
-  height: 192rpx;
-  width:100%;
-}
-
-.form .button{
-  border:none;
-  outline: none;
-  background: #ffdb2d;
-  color:#000;
-  width:164rpx;
-  height: 44rpx;
-  line-height: 44rpx;
-  font-size:26rpx;
-  text-align: center;
-  float:right;
-}
-.form button.button::after{
-  border:0px solid #fff;
-}
-
-.tags{
-  height: 70rpx;
-  width: 2000rpx;
-  padding:0 ;
-}
-
-.tags .item{
-  color: #666;
-  font-size:20rpx;
-  border-radius: 10rpx;
-  height: 39rpx;
-  display: inline-block;
-  line-height: 39rpx;
-  padding:0 30rpx;
-  background: #f1f1f1;
-  margin-right:15rpx;
-}
-
-.tags .item.active{
-  background: #ffdb2d;
-  color:#000;
-}
-
-.search {
-  width:696rpx;
-  display: flex;
-  justify-content: center;
-  height: 46rpx;
-  line-height: 46rpx;
-  margin:22rpx auto 22rpx auto;
-  border-radius: 20rpx;
-  background: rgba(255, 255, 255, 0.6);
-  font-size:22rpx;
-  position: relative;
-}
-
-.search input{
-  width:696rpx;
-  margin:0 auto;
-  text-align: center;
-  padding:0 30rpx;
-}
-
-.search image{
-  width:40rpx;
-  height: 40rpx;
-  position: absolute;
-  left:200rpx;
-  bottom:0rpx;
-}
-
-.qa-items .qa-item .footer{
-  width:100%;
-  height: 35rpx;
-  position: absolute;
-  bottom:-34rpx;
-  left:0;
-}

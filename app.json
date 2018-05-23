@@ -1,18 +1,22 @@
 {
   "pages": [
+     "pages/tiao/index",
+    "pages/myself/zhao",
     "pages/home/home",
+    "pages/qa/index",    
+
     "pages/webview/webview",
     "pages/comments/new",
     "pages/post/index",
     "pages/post/items",
     "pages/post/blocks",
     "pages/qa/qa",
-    "pages/qa/index",
+
     "pages/post/post",
     "pages/myself/myself",
     "pages/about/index",
     "pages/qa/new",
-    "pages/tiao/index",
+
     "pages/post/coupon",
     "pages/home/debug",
     "pages/comments/index",
@@ -21,7 +25,7 @@
     "pages/post/booking",
     "pages/huodong/index",
     "pages/static/about",
-    "pages/myself/zhao",
+
     "pages/myself/qa"
   ],
   "tabBar": {
@@ -32,17 +36,25 @@
     "borderStyle": "black",
     "list": [
       {
-        "iconPath": "/assets/icons/底部导航_01.png",
-        "selectedIconPath": "/assets/icons/底部导航_08.png",
-        "pagePath": "pages/home/home",
-        "text": "首页"
-      },
-      {
         "iconPath": "/assets/icons/底部导航_07.png",
         "selectedIconPath": "/assets/icons/底部导航_02.png",
         "pagePath": "pages/tiao/index",
-        "text": "好房"
+        "text": "发现"
+      },   
+      {
+        "iconPath": "/assets/icons/底部导航_07.png",
+        "selectedIconPath": "/assets/icons/底部导航_02.png",
+        "pagePath": "pages/myself/zhao",
+        "text": "找房"
       },
+      
+      {
+        "iconPath": "/assets/icons/底部导航_01.png",
+        "selectedIconPath": "/assets/icons/底部导航_08.png",
+        "pagePath": "pages/qa/index",
+        "text": "咨询"
+      },
+      
       {
         "iconPath": "/assets/icons/底部导航_06.png",
         "selectedIconPath": "/assets/icons/底部导航_05.png",
@@ -54,9 +66,9 @@
   "window": {
     "enablePullDownRefresh": false,
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#ffd900",
+    "navigationBarBackgroundColor": "#fff",
     "navigationStyle": "default",
-    "backgroundColor": "#ffd900",
+    "backgroundColor": "#f4f4f4",
     "navigationBarTitleText": "真有好房",
     "navigationBarTextStyle": "black"
   }

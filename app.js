@@ -54,36 +54,20 @@ App({
     logs.unshift(Date.now())
   },
 
-  uploadFormids: function(){
-    // 上传本地formid
-    var _this = this
-    var ids = wx.getStorageSync('formids')
-    if(!ids){
-      return false
-    }
-    _this.request({
-      hideLoading: true,
-      url: '/api/v1/formid/',
-      data: { formids: ids },
-      method: 'POST',
-      success: function (resp) {
-        if(resp.data.status == 0){
-          wx.setStorageSync('formids', null)
-        }
-      }
-    })
-  },
-  
-  saveFormId: function(e){
+  uploadFormId: function(e){
     // 保存formid
-    var formId = e.detail.formId
+
     var _this = this
     var token = wx.getStorageSync('token')
+    var ids = wx.getStorageSync('formids') || []
 
-    if(!token){
-      // 如果没有登录，就保存到本地
-      var ids = wx.getStorageSync('formids') || []
+    if(e){
+      var formId = e.detail.formId
       ids.push(formId)
+    }
+
+    if (!token) {
+      // 如果没有登录，就保存到本地
       wx.setStorageSync('formids', ids)
       return false
     }
@@ -91,12 +75,15 @@ App({
     _this.request({
       hideLoading: true,
       url: '/api/v1/formid/',
-      data: {formids: [formId]},
+      data: { formids: ids },
       method: 'POST',
-      success: function(resp){
+      success: function (resp) {
+        // 清空缓存
+        wx.setStorageSync('formids', [])
       }
-    })
-  },
+    })    
+  },  
+
 
   ensureMobile: function(backPage, cb=null){
     // 确保用户已经填写手机号
@@ -187,43 +174,6 @@ App({
   },
   
 
-  getSessionToken: function(code, encryptedData, iv, cb){
-    // 重新获取token，并刷新 user info
-    var _this = this
-
-    // 发送给服务器
-    _this.request({
-
-      data: { 
-        code: code, 
-        encryptedData: encryptedData, 
-        iv: iv
-      },
-
-      method: 'POST',
-      url: '/api/v1/sessions',
-      success: function (resp) {
-        var data = resp.data
-        if (data.status == 0) {
-          var token = data.data.token
-          var userInfo = data.data.user
-
-          // 保存下服务器返回的token
-          wx.setStorageSync('token', token)
-          wx.setStorageSync('userInfo', userInfo)
-
-          // upload formids
-          console.log('upload formids')
-          _this.uploadFormids()
-
-          // callback
-          typeof cb == "function" && cb(userInfo)
-
-        }
-      }
-    });    
-  },
-
   gotoAccount: function(title, content){
     wx.showModal({
       title: title,
@@ -262,7 +212,7 @@ App({
     
     // This must be wx.request !
     var defaultApiHost = 'https://www.jiayaosu.com/haofang'
-    //var defaultApiHost = 'http://localhost:3000/haofang'
+    var defaultApiHost = 'http://localhost:3000/haofang'
     var customApiHost = wx.getStorageSync('apiHost')
     var apiHost = customApiHost ||defaultApiHost
     var url = apiHost + obj.url
