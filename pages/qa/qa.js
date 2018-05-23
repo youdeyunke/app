@@ -1,5 +1,6 @@
 // pages/qa/qa.js
 const app = getApp()
+var util = require('../../utils/util.js');
 
 Page({
 
@@ -77,9 +78,22 @@ Page({
    */
   onLoad: function (options) {
     var qid = options.id
-    this.setData({item: wx.getStorageSync('question.' + qid)})
-    console.log('item in qa.js:', this.data.item, 'qid', qid)
-    this.randomQas(2)
+    this.setData({id: qid})
+    this.loadData()
+  },
+
+  loadData: function(){
+    var _this = this
+    app.request({
+      url: '/api/v1/questions/' + _this.data.id,
+      success: function(resp){
+        var item = resp.data.data
+        item['created_at_pretty'] = util.prettyTime(item['created_at'])
+        item['updated_at_pretty'] = util.prettyTime(item['updated_at'])
+        _this.setData({item: item})
+      }
+    })
+
   },
 
   gotoNew: function(e){

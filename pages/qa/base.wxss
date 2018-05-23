@@ -32,9 +32,9 @@
 }
 
 .qa-item .author image{
-  width:35rpx;
-  height: 35rpx;
-  widows: 35rpx;
+  width:45rpx;
+  height: 45rpx;
+  border:2rpx solid #f4f4f4;
   border-radius: 100%;
   margin-right:10rpx;
 }

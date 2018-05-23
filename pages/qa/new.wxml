@@ -1,18 +1,15 @@
-<view class="cover">
-  <image src="http://jiayaosu-10013564.image.myqcloud.com/3b696fea-ba6a-47b1-8295-9bff2f5c3252"></image>
-</view>
-<view class="container">
-  <button class="booking" bindtap="booking">快速预约</button>
-  <view class="dark">或者</view>
-  <view class="form">
-    <form  bindsubmit="submitHandle" >
-            <textarea bindinput="inputHandle" maxlength="200" value="{{questionContent}}" name="content" placeholder='在这里输入您的问题...'></textarea>
-      <button  class="button" type="default" form-type="submit" >我要提问</button>
 
-      <text class="gohome" bindtap="gohome" >返回首页</text>
-
-    </form>
+<form  bindsubmit="submitHandle" >
+  <view class="container">
+        <textarea bindinput="inputHandle" maxlength="200" value="{{questionContent}}" name="content" placeholder='在这里输入您的问题...'></textarea>
   </view>
 
+  <view class="container container-bg-none">
+    <button  class="weui-btn" type="primary" form-type="submit" >我要提问</button>
+    <button class="weui-btn" type="default" form-type="reset" >返回</button>
+  </view>
 
-</view>
+  
+</form>
+
+

@@ -1,61 +1,15 @@
 page{
-  background-color: #fff;
+	padding-top:20rpx;
+}
+
+.container{
+	margin-bottom:20rpx;
 }
 
 textarea{
-  background-color: #fff;
-  width:100%;
-  height: 300rpx;
+	padding:20rpx;
 }
 
-
-.cover image{
-  width:750rpx;
-  height: 445rpx;
-}
-
-.form{
-  background: #fff;
-  padding-top:27rpx;
-  padding-bottom:10rpx;
-}
-
-.form form{ 
-}
-
-.form form textarea{
-  background: #f1f1f1;
-  border-radius: 16rpx;
-  margin: 0rpx auto 30rpx auto;
-  font-size:22rpx;
-  color:#afafaf;
-  padding:15rpx;
-  width: calc(696rpx - 15*2rpx);
-  height: 242rpx;
-}
-
-.form .button{
-  background: #ffdb2d;
-  font-size:24rpx;
-  width:690rpx;
-  outline: none;
-  background: #ffdb2d;
-  color:#000;
-  text-align: center;
-}
-.form button.button::after{
-  border:0px solid #fff;
-}
-
-.booking{
-  background: #ffdb2d;
-  font-size:24rpx;
-  width:690rpx;
-}
-
-.dark{
-  width: 100%;
-  font-size:24rpx;
-  color: #cecece;
-  text-align: center;
+button{
+	width:100%;
 }

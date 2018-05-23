@@ -79,10 +79,15 @@ Page({
         // clear cache
         _this.setData({ questionContent: '' })
         wx.setStorageSync('question_content', '')
+        // redirect
+        wx.navigateBack({
+          delta: -1
+        })
+        
         wx.showToast({
           title: '问题提交成功，我们会尽快回复您',
           icon: 'success',
-          duration: 4000
+          duration: 2000
         })
       }
     })
