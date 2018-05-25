@@ -1,5 +1,6 @@
-<view class="container">
-  <navigator class="item" open-type='navigateTo' hover-class='none' wx:for="{{posts}}" url="/pages/post/post?id={{item.id}}">
+<myslider></myslider>
+
+  <navigator class="container post-item" open-type='navigateTo' hover-class='none' wx:for="{{posts}}" url="/pages/post/post?id={{item.id}}">
     <view class="poster-block">
       <image src="{{item.tiao_cover.url}}?imageView2/2/w/750"></image>
     </view>
@@ -21,12 +22,18 @@
       </block>
       </view>
     </view>
-    <view class="tag-block">
-      <view class="tag {{tagIndex <= 2 ? 'tag-yellow' : '' }}" wx:for="{{item.tags_list}}" wx:for-item="tag" wx:for-index="tagIndex">{{tag}}</view>
+    <view class="tag-block tags">
+      <view class="item" wx:if="{{tagIndex <= 2}}" wx:for="{{item.tags_list}}" wx:for-item="tag" wx:for-index="tagIndex">{{tag}}</view>
     </view>
-
-  <image src="/assets/images/post-list-footer.png" class="footer"></image>
   </navigator>
 
-
+<view  class="weui-loadmore" wx:if="{{hasMore}}">
+      <i class="weui-loading"></i>
+      <text class="weui-loadmore__tips">正在加载</text>
 </view>
+
+<view  class="weui-loadmore weui-loadmore_line" wx:if="{{!hasMore}}">
+      <text class="weui-loadmore__tips weui-loadmore__tips_in-line">END</text>
+</view>
+
+

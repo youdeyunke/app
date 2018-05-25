@@ -3,6 +3,7 @@
 @import "/utils/wxParse/wxParse.wxss";
 
 page{
+  padding-top:30rpx;
   height: auto;
   background: #f4f4f4;
   display: flex;
@@ -18,19 +19,26 @@ page{
 
 .container {
   background:#fff;
-  width:700rpx;
+  width:730rpx;
   margin:0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   padding: 0;
   box-sizing: border-box;
+  border-radius: 6rpx;
   position: relative;
+  box-shadow: 0 1px 2px rgba(150, 150, 150, 0.3);  
+  margin-bottom:30rpx;
 } 
 
 .container-bg-none{
   background:none;
   
+}
+
+textarea{
+  width:100%;
 }
 
 .weui-panel{
@@ -42,10 +50,38 @@ h1,.h2{
   width:100%;
 }
 .h1{
-  font-size: 44rpx;
+
+  font-size: 38rpx;
 }
 .h2{
-  font-size: 32rpx;
+  font-size: 34rpx;
+}
+
+.weui-loadmore{
+  margin:0 auto
+}
+
+.weui-loadmore__tips_in-line{
+  background:none !important;
+}
+
+
+.loading-more{
+  width:100%;
+  text-align: center;
+  align-items: center;
+  font-size:24rpx;
+  color:#333;
+}
+
+.data-end{
+  width:100%;
+  text-align: center;
+  align-items: center;
+  font-size:24rpx;
+  color:#333;
+  border-bottom:1px solid #333
+
 }
 
 
@@ -77,17 +113,7 @@ h1,.h2{
 }
 
 
-
-
-.box{
-  width:100%;
-  line-height: 54rpx;
-  font-weight: 300;
-  background: #fff;
-}
-
 .tags{
-  height: 70rpx;
   display: flex;
   flex-direction: row;
   align-items: center;  
@@ -110,7 +136,6 @@ h1,.h2{
   background: var(--color-green);
   color:#fff;
 }
-
 
 .tags-left{
   justify-content: flex-start;
@@ -155,16 +180,6 @@ h1,.h2{
   height: 36rpx;
 }
 
-.comments .item.box .footer{
-
-position:absolute;
-bottom:-29rpx;
-left:0rpx;
-z-index:10;
-height:30rpx;
-width:100%;  
-
-}
 
 .comments .item.box {
   display: flex;
@@ -198,6 +213,7 @@ width:100%;
   color: #000;
   font-weight: bold;
 }
+
 .comments .item .meta  .nickname .cat{
   background: #ffd900;
   padding:0 35rpx;

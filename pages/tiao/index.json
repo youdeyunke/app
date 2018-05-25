@@ -1,1 +1,10 @@
-{}
+{
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+      "mytopbar": "/components/topbar",
+      "myfav": "/components/fav",
+      "mytags": "/components/tags",
+      "myslider": "/components/slider"
+    }
+
+}

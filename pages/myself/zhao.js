@@ -29,8 +29,14 @@ Page({
    */
   onLoad: function (q) {
     var _this  = this
-    app.getUserInfo(function(userInfo){
-      _this.setData({contact: userInfo.mobile || ''})
+    app.ensureUser({
+      success: function(userInfo){
+        _this.setData({contact: userInfo.mobile || ''})        
+      },
+      loginEventBus: {
+        key: 'switchTab',
+        value: '/pages/myself/zhao',
+      }
     })
   },
 
@@ -72,32 +78,37 @@ Page({
   },
 
   submitHandle: function(e){
-    app.saveFormId(e)
     var _this = this
-    app.getUserInfo(function(userInfo){
-      _this.validate(function (data) {
-        app.request({
-          url: '/api/v1/needs',
-          data: data,
-          method: 'POST',
-          success: function(resp){
-            if(resp.data.status != 0){
+    app.uploadFormId(e)
+    app.ensureUser({
+      success: function(userInfo){
+        _this.validate(function (data) {
+          app.request({
+            url: '/api/v1/needs',
+            data: data,
+            method: 'POST',
+            success: function(resp){
+              if(resp.data.status != 0){
+                wx.showToast({
+                  title: '服务器出现错误，请稍后再试',
+                  icon: 'fail',
+                })
+                return false
+              }
               wx.showToast({
-                title: '服务器出现错误，请稍后再试',
-                icon: 'fail',
+                title: '提交成功',
               })
-              return false
-            }
-            wx.showToast({
-              title: '提交成功',
-            })
 
-            wx.navigateBack({
-              delta: -1
-            })
-          }
+              wx.navigateBack({
+                delta: -1
+              })
+            }
+          })
         })
-      })
+      },
+      fail: function(){
+        // set page cb url
+      }
     })
 
   },

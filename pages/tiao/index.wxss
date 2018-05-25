@@ -1,21 +1,18 @@
 
 page{
-  background: #ffd900;
+  padding-top:0rpx;
 }
 
-
-page .container{
-  width:690rpx;
-  margin: auto;
+myslider{
+  margin-bottom:30rpx;
 }
 
-.item{
+.post-item{
   background: #fff;
   padding:30rpx;
-  width:calc(100% - 60rpx);
   position: relative;
-  margin-bottom:50rpx;
-  border-radius: 10rpx;
+  margin-bottom:30rpx;
+  border-radius: 0rpx;
 }
 
 .title-block{
@@ -101,9 +98,6 @@ page .container{
   margin-right:10rpx;
 }
 
-.tag-block view.tag-yellow{
-  background: #ffd900;
-}
 
 .item .footer{
 position:absolute;

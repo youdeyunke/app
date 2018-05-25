@@ -1,8 +1,8 @@
 /* components/slider.wxss */
 
  myslider swiper, myslider image{
-  width:690rpx;
-  height: 390rpx;
-  border-radius: 10rpx;
+  width:750rpx;
+  height: 400rpx;
+  border-radius: 0rpx;
   overflow: hidden;
 }

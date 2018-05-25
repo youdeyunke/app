@@ -1,30 +1,38 @@
+<form bindsubmit='submitHandle'>
 
 <view class="container">
-  <form bindsubmit='submitHandle'>
-
   <view class="h1">预算</view>
   <rangeslider bind:change="rangeChange" ></rangeslider>
- 
+</view>
+
+<view class="container">
   <view class="purpose">
     <view class="h1">买房目的</view>
-    <ul>
-    <li bindtap="purposeHandle" data-index="{{index}}" class="{{item.selected ? 'active' : '' }}" wx:for="{{purposeList}}">{{item.name}}</li>
-    </ul>
-  </view>
+    <view class="tags">
 
+      <text  bindtap="purposeHandle" data-index="{{index}}" class="item {{item.selected ? 'active' : '' }}" wx:for="{{purposeList}}">{{item.name}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="container">
   <view class="position">
     <view class="h1">我关注的地区</view>
     <textarea bindinput='positionHandle' value="{{position}}" placeholder='填写您关注的板块和地区'>   </textarea>
   </view>
+</view>
+
+<view class="container">
 
   <view class="contact">
     <view class="h1">联系方式</view>
     <textarea bindinput='contactHandle'  value="{{contact}}" placeholder='留下您的手机号或者微信号，方便我们尽快l联系您'>   </textarea>
-  </view>  
-
-
-  <button class="button" form-type='submit'>帮我找房</button>
-
-  </form>
+  </view>
 
 </view>
+
+  <view class="container container-bg-none">
+    <button class="weui-btn" type="primary" form-type='submit'>帮我找房</button>
+  </view>
+
+</form>

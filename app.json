@@ -23,11 +23,10 @@
     "pages/myself/favposts",
     "pages/zhishi/index",
     "pages/post/booking",
-    "pages/huodong/index",
     "pages/static/about",
-
     "pages/myself/qa"
   ],
+
   "tabBar": {
     "selectedColor": "#333",
     "backgroundColor": "#fff",
@@ -47,14 +46,12 @@
         "pagePath": "pages/myself/zhao",
         "text": "找房"
       },
-      
       {
         "iconPath": "/assets/icons/底部导航_01.png",
         "selectedIconPath": "/assets/icons/底部导航_08.png",
         "pagePath": "pages/qa/index",
         "text": "咨询"
       },
-      
       {
         "iconPath": "/assets/icons/底部导航_06.png",
         "selectedIconPath": "/assets/icons/底部导航_05.png",
@@ -63,13 +60,15 @@
       }
     ]
   },
+
   "window": {
     "enablePullDownRefresh": false,
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationStyle": "default",
     "backgroundColor": "#f4f4f4",
-    "navigationBarTitleText": "真有好房",
+    "navigationBarTitleText": "APP NAME",
     "navigationBarTextStyle": "black"
   }
+  
 }

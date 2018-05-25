@@ -26,10 +26,10 @@ Page({
 
   onLoad: function (options) {
     var _this = this
-    var d = {}
+    
     app.loadPosts({ cate: 'item' }, function (resp) {
       var baseIndex = _this.data.posts.length
-      var dict = {}
+      var dict = {hasMore: true}
       resp.data.forEach(function(item , i ){
         var index = baseIndex + i
         var k = "posts[" + index + "]"
@@ -37,6 +37,9 @@ Page({
         console.log('item', item)
         dict[k] = item
       })
+      if(resp.data.length < 10){
+        dict['hasMore'] = false
+      }
       _this.setData(dict)
     })
   },

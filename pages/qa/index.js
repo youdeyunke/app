@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    hasMore: true,
     catId: 0,
     cats: [{name: '全部', id: 0}],
     items: [],
@@ -49,30 +50,39 @@ Page({
     })
   },
 
-  loadItems: function(){
+  loadItems: function(cb){
+    var pageSize = 10
     var _this = this
     app.request({
       url: '/api/v1/questions/',
       data: {
         cat_id: _this.data.catId, 
         offset: _this.data.items.length,
-        limit: 10,
+        limit: pageSize,
       },
       success: function(res){
-        var d = {}
+        var d = {hasMore: true}
+        if(res.data.data.length < pageSize){
+          d['hasMore'] = false
+        }
+
         res.data.data.forEach(function(item, i){
-          
           var index = _this.data.items.length + i
           var k = "items[" + index + "]"
-          
-
           item['created_at_pretty'] = util.prettyTime(item['created_at'])
           item['updated_at_pretty'] = util.prettyTime(item['updated_at'])
           d[k] = item
           wx.setStorageSync('question.' + item.id, item)
         }) 
+       
         _this.setData(d)
-        wx.setStorageSync('questions', res.data.data)
+        
+
+
+        if(typeof cb == 'function'){
+          return cb()
+        }
+        
       }
     })
   },
@@ -118,9 +128,13 @@ Page({
    */
   onPullDownRefresh: function () {
     // 下拉加载更多
+    wx.showNavigationBarLoading()
     var _this = this
     _this.setData({items: []})
-    _this.loadItems()
+    _this.loadItems(function(){
+      wx.hideLoading()
+      wx.hideNavigationBarLoading()
+    })
   },
 
   /**

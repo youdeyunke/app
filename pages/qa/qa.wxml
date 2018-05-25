@@ -33,7 +33,7 @@
           </view>
 
           <view class="content answer" bindtap="itemHandle" data-qid="{{item.id}}">
-            <text class="main">  {{item.answer}}</text>
+            <text class="main answer-text">  {{item.answer}}</text>
           </view>
       </view>
     </view>

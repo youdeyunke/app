@@ -26,8 +26,18 @@
 
 <view class="weui-panel" wx:if="{{userInfo}}">
   <view class="actions">
-      <navigator hover-class="none" class="weui-cell weui-cell_access">
+      <navigator url="/pages/myself/qa" hover-class="none" class="weui-cell weui-cell_access">
+          <view class="weui-cell__bd">我的咨询</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+
+      <navigator url="/pages/comments/index" hover-class="none" class="weui-cell weui-cell_access">
           <view class="weui-cell__bd">我的评论</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+
+      <navigator url="/pages/myself/favposts" hover-class="none" class="weui-cell weui-cell_access">
+          <view class="weui-cell__bd">我的收藏</view>
           <view class="weui-cell__ft weui-cell__ft_in-access"></view>
       </navigator>
 

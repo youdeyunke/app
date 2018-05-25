@@ -10,14 +10,6 @@ App({
     serverMobile: '4008627058'
   },
   
-  navigateToVideo: function(){
-    console.log('navigate to video')
-    wx.setStorageSync('login_back_navigate_to_video', null)
-    wx.navigateToMiniProgram({
-      appId: 'wxae515be8cfd1d1bc',
-      path: 'page/home/content/content_video/content_video?id=v_5adefeda59fc1_nbehPpsv'
-    })
-  },
 
   comingSoon: function(){
     wx.showToast({
@@ -84,24 +76,38 @@ App({
     })    
   },  
 
+  ensureUser: function (obj) {
+    // obj like {success: function(uinfo){...}, login_back: '/pages/index/index', }
+    var _this = this
+    var token = wx.getStorageSync('token')
+    var userInfo = wx.getStorageSync('userInfo')
 
-  ensureMobile: function(backPage, cb=null){
+    if (token && userInfo) {
+      // 如果token，存在，就从服务器取得
+      return obj.success(userInfo)
+    } 
+
+    // 设置登录后重定向的页面
+    wx.setStorageSync('loginEventBus', obj.loginEventBus) 
+    _this.gotoAccount('请先登录', '请先登录')
+    
+  },
+
+  ensureMobile: function(obj){
     // 确保用户已经填写手机号
     var _this = this
-    this.getUserInfo(function(userInfo){
-      console.log('ensure mobile', userInfo)      
-      if(userInfo && userInfo.mobile){
-        if(typeof cb == 'function'){
-          return cb(userInfo)
-        }else{
-          return userInfo
+    _this.ensureUser({
+      success: function(userInfo){
+        if(userInfo.mobile){
+          return obj.success(userInfo)
         }
-      }else{
-        // 去验证手机号
-        console.log('no userinfo', userInfo)
-        wx.setStorageSync('login_back_page', backPage)   
-        _this.gotoAccount("请先登录", "请先登录")   
-      }
+
+        // 去绑定手机号
+        _this.gotoBindMobile('请先绑定手机号', '请先绑定您的手机号，以便我们能联系您')
+        wx.setStorageSync('login_back', -1)
+
+      },
+      login_back: obj.login_back,
     })
   },
 
@@ -123,44 +129,7 @@ App({
     })
   },
 
-  getUserInfo:function(cb){
-    var that = this
-    var token =  wx.getStorageSync('token')
-    var userInfo =  wx.getStorageSync('userInfo')
 
-    if(token && userInfo){
-      // 如果token，存在，就从服务器取得
-      return cb(userInfo)
-
-    }else{
-
-      //调用登录接口
-      wx.login({
-        success: function (res) {
-          var code = res.code
-          console.log('login code: ',code ,res)
-
-          if(code){
-            // 获取用户信息
-            wx.getUserInfo({
-              success: function (res) {
-                // 发送给服务器,换取token
-                that.getSessionToken(code, res.encryptedData, res.iv, cb)
-              },
-              complete: function(res){
-                // 用户拒绝,跳转到设置界面
-                console.log('getUserInfo complete,', res)
-                if (res.errMsg == 'getUserInfo:fail auth deny'){
-                  wx.openSetting({})
-                } 
-              }
-            })
-          }
-        },
-      
-      })
-    }
-  },
 
   sendSms: function(mobile, cb){
     var _this = this
@@ -172,6 +141,24 @@ App({
       }
     })
   },
+
+  gotoBindMobile: function(title, content){
+    wx.showModal({
+      title: title,
+      content: content,
+      success: function(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          wx.navigateTo({
+            url: '/pages/myself/mobile'
+          })
+
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },  
   
 
   gotoAccount: function(title, content){
@@ -212,7 +199,7 @@ App({
     
     // This must be wx.request !
     var defaultApiHost = 'https://www.jiayaosu.com/haofang'
-    var defaultApiHost = 'http://localhost:3000/haofang'
+    //var defaultApiHost = 'http://localhost:3000/haofang'
     var customApiHost = wx.getStorageSync('apiHost')
     var apiHost = customApiHost ||defaultApiHost
     var url = apiHost + obj.url

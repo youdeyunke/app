@@ -2,16 +2,17 @@
 
 @import './base.wxss';
 
+page{
+	padding-top:0;
+}
+
 .qa-items{
   display: flex;
   flex-direction: column;
-  padding:120rpx 20rpx 15rpx 20rpx;   
+  padding:120rpx 20rpx 0rpx 20rpx;   
 }
 
-
-
 .qa-item .body .content text{
-
   display: -webkit-box ;
   overflow: hidden;
   text-overflow: ellipsis;

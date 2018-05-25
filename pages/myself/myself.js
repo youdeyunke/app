@@ -21,20 +21,39 @@ Page({
 
     var encryptedData = e.detail.encryptedData
     var iv = e.detail.iv
-    console.log(11111)
+  
     // 获取code
     wx.login({
       success: function(res){
         if(res.code){
           // 换取服务器的token
           _this.getSessionToken(res.code, encryptedData, iv, function(userInfo){
+            // success
             _this.setData({userInfo: userInfo})
+
+            // event bus
+            var eb = wx.getStorageSync('loginEventBus')
+            if(eb){
+              // clear
+              wx.setStorageSync('loginEventBus', null)
+              var k = eb.key
+              var v = eb.value
+              if(k == 'switchTab'){
+                wx.switchTab({
+                  url: v
+                })
+              }
+              if(k == 'navigateBack'){
+                wx.navigateBack({
+                  delta: v
+                })
+              }
+            }
           })
         }
       },
       complete: function (res) {
         // 用户拒绝,跳转到设置界面
-        console.log('getUserInfo complete,', res)
         if (res.errMsg == 'getUserInfo:fail auth deny') {
           wx.openSetting({})
         }
@@ -62,7 +81,6 @@ Page({
         if (data.status == 0) {
           var token = data.data.token
           var userInfo = data.data.user
-
           // 保存下服务器返回的token
           wx.setStorageSync('token', token)
           wx.setStorageSync('userInfo', userInfo)

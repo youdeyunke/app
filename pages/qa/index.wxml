@@ -10,7 +10,11 @@
   </form>
 
 
+<view  class="weui-loadmore" wx:if="{{hasMore}}">
+    	<i class="weui-loading"></i>
+    	<text class="weui-loadmore__tips">正在加载</text>
+</view>
 
-
-
-
+<view  class="weui-loadmore weui-loadmore_line" wx:if="{{!hasMore}}">
+    	<text class="weui-loadmore__tips weui-loadmore__tips_in-line">END</text>
+</view>

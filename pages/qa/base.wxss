@@ -5,8 +5,7 @@
   background: #fff;
   padding:20rpx;
   border-radius: 0px;
-   margin-bottom:20rpx;
-   position: relative;
+  position: relative;
 }
 
 .qa-item .body{
@@ -62,4 +61,8 @@
     color:#666;
     display: flex;
     flex-direction: column; 
+}
+
+.qa-item .answer-text{
+  color:#000;
 }

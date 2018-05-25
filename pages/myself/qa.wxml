@@ -1,7 +1,7 @@
 <wxs src="./../common.wxs" module="tools" />
 <import src="/tpls/qa.wxml"/>
 
-<view class="container container-bg-none">
+<view class="container container-bg-none" >
   <view class="h2">
     未回复的
   </view>
