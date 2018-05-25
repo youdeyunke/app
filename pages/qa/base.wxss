@@ -15,6 +15,10 @@
 }
 
 
+.qa-item .nickname{
+  width:200rpx;
+}
+
 .qa-item  .author{
   font-size:28rpx;
   color:#666;

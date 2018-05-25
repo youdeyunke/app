@@ -9,22 +9,22 @@
         <image src="{{item.block_info.item_logo.url}}?imageView2/2/w/100"></image>
       </view>
       <view class="m">
-        <view class="title line-limit">{{item.block_info.name}}</view>
-        <view class="address line-limit">
-        <image src="/assets/icons/location.png"></image>
-        {{item.block_info.district.name}}-{{item.block_info.street}}
-        </view>
+        <view class="title h1 line-limit">{{item.block_info.name}}</view>
       </view>
       <view class="r">
-      <block wx:for="{{[1,2,3,4,5]}}" wx:for-item="score">
-        <image wx:if="{{item.score >= score }}" src="/assets/icons/star-yellow.png"></image>
-        <image wx:if="{{item.score < score }}" src="/assets/icons/star-dark.png"></image>
-      </block>
+          <mystars value="{{item.score}}"></mystars>
       </view>
     </view>
+
+      <view class="address" wx:if="{{item.block_info.street}}">
+        <image src="/assets/icons/location.png"></image>
+      {{item.block_info.district.name}}-{{item.block_info.street}}
+      </view>
+
     <view class="tag-block tags">
       <view class="item" wx:if="{{tagIndex <= 2}}" wx:for="{{item.tags_list}}" wx:for-item="tag" wx:for-index="tagIndex">{{tag}}</view>
     </view>
+
   </navigator>
 
 <view  class="weui-loadmore" wx:if="{{hasMore}}">

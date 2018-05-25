@@ -5,10 +5,10 @@
         <view class="author">
           <view class="name">
                 <image src="{{item.user.avatar}}"></image>
-                <text>{{item.user.nickname}}</text>            
+                <text class="line-limit nickname">{{item.user.nickname}}</text>            
                 <text>在{{item.created_at_pretty }}咨询：</text>          
           </view>        
-          <view>
+        <view>
                                
           </view>           
         </view>      

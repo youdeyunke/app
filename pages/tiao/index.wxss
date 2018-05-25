@@ -19,13 +19,13 @@ myslider{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom:30rpx;
-  margin-top:10rpx;
+  width:100%;
+  margin-top:15rpx;
 }
 
 .title-block .l{
-  width:80rpx;
-  height: 80rpx;
+  width:50rpx;
+  height: 50rpx;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,24 +43,20 @@ myslider{
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  width:calc(100% - 80rpx - 120rpx - 40rpx);
+  width:calc(100% - 40rpx - 120rpx - 40rpx);
 }
 .title-block .m .title{
-  font-size:28rpx;
   color:#000;
-  
 }
 
-.title-block .m .address{
-  font-size:24rpx;
-  color: #cecece;
+ .address{
   width:100%;
-
+  margin-top:15rpx;
 }
 
-.title-block .m .address image{
-  width:25rpx;
-  height: 25rpx;
+.address image{
+  width:35rpx;
+  height: 35rpx;
 }
 
 .title-block .r{
@@ -84,7 +80,9 @@ myslider{
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  flex-wrap: wrap;                  
+  flex-wrap: wrap;       
+  margin-top:15rpx;
+  width:100%;           
 }
 
 .tag-block view{
