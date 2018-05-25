@@ -10,6 +10,36 @@ Page({
     userInfo: {},
   },
 
+  getPhoneNumber: function (e) {
+    if(!e.detail.iv){
+        this.setData({mobile: ' '}) 
+        return false
+    }
+
+    if(this.data.mobile){
+        return false
+    }
+
+    wx.showLoading({title:'处理中', mask: true})  
+    var token = wx.getStorageSync('token')
+    var that = this
+    app.request({
+      method: 'POST',
+      url: '/api/v1/users/bind_xcx_mobile',
+      data:  {'iv': e.detail.iv, 'encryptedData': e.detail.encryptedData}, 
+
+      success: function(res){
+        if(res.data.status != 0){
+           wx.showModal({content:'服务器出现错误，请稍后再试', showCancle: false})
+        }else{
+            that.setData({user: res.data.data})
+            console.log(that.data.mobile)
+        }
+      }
+    })
+
+  },
+
 
   loginHandle: function(e){
     var _this = this
