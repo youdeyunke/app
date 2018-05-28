@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -92,10 +92,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "post",
+					"id": 10,
+					"name": "about",
 					"pathName": "pages/about/index",
-					"query": "id=7"
+					"query": ""
 				},
 				{
 					"id": -1,

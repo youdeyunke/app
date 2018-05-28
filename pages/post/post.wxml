@@ -1,62 +1,23 @@
 <import src="/utils/wxParse/wxParse.wxml"/>
 <import src="/tpls/posts/mini_listing.wxml"/>
 <import src="/tpls/comment-item.wxml" />
+<import src="/tpls/posts/detail-housetype.wxml" />
+
+<image wx:if="{{true}}" class="post-cover" src="{{post.cover.url}}?imageView2/2/w/750"></image>
+
+<view class="container">
+  <template is="housetype" data="{{post: post}}" />
+</view>
 
 <view class="container ">
-  <view class="myvideo" >
-      <image wx:if="{{true}}" class="poster" src="{{post.cover.url}}?imageView2/2/w/750"></image>
-      <video wx:if="{{false}}" controls poster="{{ post.cover.url}}" src="{{post.video}}" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
-   </view>
+  <view class="h1 post-title">{{ post.title }}</view>
 
   <view class="box main">
     <view class="header">
       <myfav post="{{post}}"></myfav>
-      <text class="title">{{ post.title }}</text>
       <mytags items="{{ post.tags_list }}" ></mytags>
-
-      <view wx-if="{{post.block_info && post.block_info.cate == 'block'}}">
-              <view class="meta">
-                <text class="label">板块均价</text>
-                <text> {{post.block_info.block_average_price}}元/平米</text>
-              </view>
-
-              <view class="meta">
-                <text class="label">板块供求</text>
-                <text>{{ post.block_info.block_supply }}</text>
-              </view>
-
-              <view class="meta">
-                <text class="label">板块亮点</text>
-                <text> {{ post.block_info.block_features }}</text>
-              </view>
-
-      </view>
-
-      <view wx-if="{{post.block_info && post.block_info.cate == 'item'}}">
-          <view class="meta">
-            <text class="label">均价</text>
-            <text>{{ post.block_info.item_price }} 元/㎡</text>
-          </view>
-
-          <view class="meta">
-            <text class="label">总价</text>
-            <text> {{ post.block_info.item_total_price_min }}万-{{ post.block_info.item_total_price_max }}万</text>
-          </view>
-
-        <view class="meta">
-          <text class="label">地址</text>
-          <text>{{ post.block_info.district.name }} {{post.block_info.street}}</text>
-        </view> 
-        
-          <view class="meta">
-            <text class="label">开盘</text>
-            <text> {{ post.block_info.open_at }}</text>
-          </view>
-        </view>
-    </view>
+    </view>    
   </view>
-
-  <myaudio wx:if="{{false}}"></myaudio>
 
   <navigator wx:if="{{post.coupon_desc}}" url="/pages/post/coupon?post_id={{post.id}}" open-type='navigateTo' class="box coupon">
     <view class="icon">
@@ -69,36 +30,6 @@
     <view class="btn">优惠券</view>
   </navigator>  
 
-  <text class="h1" >户型分析</text>
-  <view class="box housetype" wx:if="{{post.housetype_name_a }}">
-    <view class="poster">
-      <image bindtap="imageView" data-target="a" src="{{post.housetype_poster_a.url}}"></image>
-    </view>
-    <view class="meta">
-      <view class="name">{{post.housetype_name_a}}</view>
-      <view class="kv"><text decode="{{true}}">朝向&nbsp; &nbsp;&nbsp;{{post.housetype_position_a}}</text></view>
-      <view class="kv"><text decode="{{true}}">建面&nbsp; &nbsp;&nbsp;{{post.housetype_area_a}}㎡</text></view>
-      <view class="kvs">
-        <view class="kv">单价<text decode="{{true}}">&nbsp; &nbsp;&nbsp;{{post.housetype_price_a}}</text></view>
-        <view class="kv">总价    <text decode="{{true}}">&nbsp; &nbsp;&nbsp;{{post.housetype_total_price_a}}</text></view>
-      </view>
-    </view>
-  </view>
-
-  <view class="box housetype" wx:if="{{post.housetype_name_b }}">
-    <view class="poster">
-      <image bindtap="imageView" data-target="b" src="{{post.housetype_poster_b.url}}?imageView2/2/w/750"></image>
-    </view>
-    <view class="meta">
-      <view class="name">{{post.housetype_name_b }}</view>
-      <view class="kv"><text decode="{{true}}">朝向&nbsp; &nbsp;&nbsp;{{post.housetype_position_b}}</text></view>
-      <view class="kv"><text decode="{{true}}">建面&nbsp; &nbsp;&nbsp;{{post.housetype_area_b}}㎡</text></view>
-      <view class="kvs">
-        <view class="kv">单价<text decode="{{true}}">&nbsp; &nbsp;&nbsp;{{post.housetype_price_b}}</text></view>
-        <view class="kv">总价    <text decode="{{true}}">&nbsp; &nbsp;&nbsp;{{post.housetype_total_price_b}}</text></view>
-      </view>
-    </view>
-  </view>
 
 
   <view class="box html-content" hidden="{{readmore}}" wx:if="{{post.content_simple.length > 0}}">
@@ -129,6 +60,7 @@
   </view>
 
   <text class="h1" wx:if="{{posts.length > 0}}">好房推荐</text>
+  
   <template is="miniposts"  data="{{ posts }}"></template>
 
   <view class="block-title">

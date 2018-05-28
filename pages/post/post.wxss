@@ -1,38 +1,30 @@
 /* pages/home/home.wxss */
 
 page{
-
-  background-repeat: no-repeat;
-  background-image: url("http://jiayaosu-10013564.image.myqcloud.com/63405b8d-6738-4b16-8052-1a5efb692768");
-  background-size: 750rpx 301rpx;
-  background-color: #f0f0f0;
+  padding:0;
 }
-
 
 page .container{
-  width:690rpx;
-  margin:0 auto 100rpx auto;
+  width:750rpx;
+  margin:0 auto 30rpx auto;
+  padding:0 30rpx;
+  border-radius: 0;
+  box-shadow: none;
 }
 
-.myvideo video{
-  width:690rpx;
-  height: 390rpx;
-  border-radius: 20rpx;
+.post-cover{
+  width:750rpx;
+  height: 410rpx;
+  border-radius: 0rpx;
   overflow: hidden;
-}
-
-.myvideo image{
-  width:690rpx;
-  height: 390rpx;
-  border-radius: 20rpx;
-  overflow: hidden;
+  margin:0rpx;
+  padding:0rpx;
 }
 
 .box{
-  border-radius: 20rpx;
-  background:#fff;
+  border-radius: 0rpx;
   padding:25rpx 20rpx;
-  box-shadow: 6rpx 6rpx 18rpx rgba(0,0,0, 0.1);
+  background: #fff;
 }
 
 .box .header{
@@ -46,11 +38,10 @@ page .container{
   margin:20rpx 0 20rpx 0;
 }
 
-.box .header .title{
-  font-size:28rpx;
+ .post-title{
   color:#333;
-  margin-bottom:30rpx;
-  display: inline-block;
+  margin: 20rpx auto 30rpx auto !important;
+  text-align: center;
 }
 
 .box .tags{
@@ -58,7 +49,6 @@ page .container{
 }
 
 .box .header .meta text{
-  font-size:22rpx;
   color:#000;
 }
 
@@ -70,7 +60,6 @@ page .container{
 
 .box .raw{
   color: #808080;
-  font-size:26rpx;
   line-height: 54rpx;
   letter-spacing: 2rpx;
 }
@@ -95,7 +84,7 @@ page .container{
   position: absolute;
   bottom:10rpx;
   left:10rpx;
-  font-size:24rpx;
+
   width: 100%;
   background: #fff;
 }
@@ -127,12 +116,11 @@ page .container{
 
 .coupon .name .t{
   color:#333;
-  font-size:26rpx;
 }
 
 .coupon .name .d{
   color:#666;
-  font-size: 20rpx;
+
 }
 
 .coupon .icon {
@@ -155,18 +143,11 @@ page .container{
 .coupon .btn{
   width:162rpx;
   height: 52rpx;
-  font-size: 26rpx;
+
   background:#ffd900;
   text-align: center;
   line-height: 52rpx;
   border-radius: 10rpx;
-}
-
-.h1{
-  font-size:30rpx;
-  color:#000;
-  padding: 0 20rpx;
-  margin: 0 0 20rpx 0;
 }
 
 
@@ -192,7 +173,7 @@ page .container{
 
 
 .footer-btns .share{
-  font-size:22rpx;
+
   color:#666;
   display: flex;
   flex-direction: column;
@@ -220,7 +201,7 @@ page .container{
 .footer-btns .qa {
 
   width:366rpx;
-  font-size:26rpx;
+
   color:#000;
   background:#ffd900;
   margin-right:30rpx;
@@ -236,7 +217,7 @@ page .container{
 
   background: #4a68e2;
   width:222rpx;
-  font-size:26rpx;
+
   color:#fff;
 }
 
@@ -310,7 +291,7 @@ page .container{
   overflow: hidden;
 }
 .housetype .meta{
-  font-size: 24rpx;
+
   width: calc(100% - 280rpx);
   display: flex;
   flex-direction: column;
