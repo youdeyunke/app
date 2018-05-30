@@ -46,6 +46,10 @@ App({
     logs.unshift(Date.now())
   },
 
+  saveFormId: function(e){
+    return this.uploadFormId(e)
+  },
+
   uploadFormId: function(e){
     // 保存formid
 
@@ -76,7 +80,7 @@ App({
     })    
   },  
 
-  ensureUser: function (obj) {
+  ensureUser: function (cb) {
     // obj like {success: function(uinfo){...}, login_back: '/pages/index/index', }
     var _this = this
     var token = wx.getStorageSync('token')
@@ -84,30 +88,47 @@ App({
 
     if (token && userInfo) {
       // 如果token，存在，就从服务器取得
-      return obj.success(userInfo)
+      return cb(userInfo)
     } 
-
     // 设置登录后重定向的页面
-    wx.setStorageSync('loginEventBus', obj.loginEventBus) 
     _this.gotoAccount('请先登录', '请先登录')
     
   },
 
-  ensureMobile: function(obj){
+  setLoginBack: function(eb){
+    return wx.setStorageSync('login_back', eb)
+  },
+
+  loginBack: function(){
+    // 回到登录前页面
+    var eb = wx.getStorageSync('login_back')
+    if(eb.key && eb.value){
+      if(eb.key == 'redirect'){
+        wx.redirectTo({
+          url: eb.value,
+        })
+      }if(eb.key == 'switch'){
+        wx.switchTab({
+          url: eb.value
+        })
+      }
+      wx.setStorage({
+        key: 'login_back',
+        data: null,
+      })
+    }
+  },
+
+
+  ensureMobile: function(cb){
     // 确保用户已经填写手机号
     var _this = this
-    _this.ensureUser({
-      success: function(userInfo){
+    _this.ensureUser(function(userInfo){
         if(userInfo.mobile){
-          return obj.success(userInfo)
+          return cb(userInfo)
         }
-
         // 去绑定手机号
-        _this.gotoBindMobile('请先绑定手机号', '请先绑定您的手机号，以便我们能联系您')
-        wx.setStorageSync('login_back', -1)
-
-      },
-      login_back: obj.login_back,
+        _this.gotoAccount('请先绑定手机号', '请先绑定您的手机号，以便我们能联系您')
     })
   },
 
@@ -142,24 +163,6 @@ App({
     })
   },
 
-  gotoBindMobile: function(title, content){
-    wx.showModal({
-      title: title,
-      content: content,
-      success: function(res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-          wx.navigateTo({
-            url: '/pages/myself/mobile'
-          })
-
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
-  },  
-  
 
   gotoAccount: function(title, content){
     wx.showModal({

@@ -4,12 +4,22 @@ page{
   padding:0;
 }
 
+.line{
+  border-bottom:4rpx dashed #f4f4f4;
+}
+
+.h1{
+  font-weight: normal;
+  color:#000;
+}
+
+.pager .container-border-top-none{
+  
+}
+
 page .container{
-  width:750rpx;
-  margin:0 auto 30rpx auto;
-  padding:0 30rpx;
-  border-radius: 0;
-  box-shadow: none;
+  margin:0rpx auto 20rpx auto;
+  padding:20rpx 30rpx;
 }
 
 .post-cover{
@@ -17,7 +27,7 @@ page .container{
   height: 410rpx;
   border-radius: 0rpx;
   overflow: hidden;
-  margin:0rpx;
+  margin:0 0 20rpx 0;
   padding:0rpx;
 }
 
@@ -27,41 +37,28 @@ page .container{
   background: #fff;
 }
 
-.box .header{
-  position: relative;
-  width:680rpx;
+
+.detail-meta .meta{
+ display:flex;
+
 }
 
-.box .header .line{
-  border-bottom:1rpx dashed #d8d8d8;
-  height: 1rpx;
-  margin:20rpx 0 20rpx 0;
+.detail-meta .meta text{
+  color:#999;
+  margin-bottom:20rpx;
+}
+
+.detail-meta  .meta text.label{
+  color:#666;
+  width:110rpx;
+  display: inline-block;
 }
 
  .post-title{
   color:#333;
+  font-size:40rpx;
   margin: 20rpx auto 30rpx auto !important;
   text-align: center;
-}
-
-.box .tags{
-  margin-bottom:10rpx;
-}
-
-.box .header .meta text{
-  color:#000;
-}
-
-.box .header .meta text.label{
-  color:#666;
-  width:150rpx;
-  display: inline-block;
-}
-
-.box .raw{
-  color: #808080;
-  line-height: 54rpx;
-  letter-spacing: 2rpx;
 }
 
 .box .raw image.wxParse-img{
@@ -71,6 +68,9 @@ page .container{
 
 .box.html-content{
   margin-bottom:40rpx;
+  line-height: 64rpx;
+  letter-spacing: 2rpx;  
+  font-weight: lighter;
 }
 
 .box.html-content.small, box.box.html-content.small .raw{
@@ -290,6 +290,7 @@ page .container{
   border-radius: 10rpx;
   overflow: hidden;
 }
+
 .housetype .meta{
 
   width: calc(100% - 280rpx);
@@ -331,7 +332,7 @@ page .container{
 .moreurl .poster, .moreurl .poster image{
   width: 266rpx;
   height: 152rpx;
-  border-radius: 30rpx;
+  border-radius: 0rpx;
   overflow: hidden;
 }
 

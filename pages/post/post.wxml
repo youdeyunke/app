@@ -2,35 +2,15 @@
 <import src="/tpls/posts/mini_listing.wxml"/>
 <import src="/tpls/comment-item.wxml" />
 <import src="/tpls/posts/detail-housetype.wxml" />
-
+<import src="/tpls/posts/detail-meta.wxml" />
+<import src="/tpls/posts/house-coupon.wxml" />
+<import src="/tpls/posts/more-url" />
 <image wx:if="{{true}}" class="post-cover" src="{{post.cover.url}}?imageView2/2/w/750"></image>
 
 <view class="container">
-  <template is="housetype" data="{{post: post}}" />
-</view>
-
-<view class="container ">
-  <view class="h1 post-title">{{ post.title }}</view>
-
-  <view class="box main">
-    <view class="header">
-      <myfav post="{{post}}"></myfav>
-      <mytags items="{{ post.tags_list }}" ></mytags>
-    </view>    
-  </view>
-
-  <navigator wx:if="{{post.coupon_desc}}" url="/pages/post/coupon?post_id={{post.id}}" open-type='navigateTo' class="box coupon">
-    <view class="icon">
-      <image src="/assets/images/coupon.png"></image>
-    </view>
-    <view class="name">
-      <text class="t">优惠券</text>
-      <text class="d">{{post.coupon_desc || '专用优惠券' }}</text>
-    </view>
-    <view class="btn">优惠券</view>
-  </navigator>  
-
-
+   <view class=" post-title">{{ post.title }}</view>
+   <template is="detail-meta" data="{{post: post }}" />  
+   <view class="line"></view>
 
   <view class="box html-content" hidden="{{readmore}}" wx:if="{{post.content_simple.length > 0}}">
     <view class="raw">
@@ -45,35 +25,20 @@
       <view class="readmore" bindtap='readLess'><text>收起</text></view>
     </view>
   </view>  
+</view>
 
-  <text class="h1" wx:if="{{post.more_url}}?imageView2/2/w/250" >买房必读</text>
-  <view wx:if="{{post.more_url}}" bindtap='openWebview' class="box moreurl">
-    <view class="poster">
-      <image src="/assets/images/read-more.png"></image>
-    </view>
-    <view class="meta">
-      <view class="t">{{post.more_title}}</view>
-      <view class="d">{{post.more_desc}}</view>
-    </view>
+<view class="container">
+  <template is="housetype" data="{{post: post}}" />
+</view>
 
-    <image src="/assets/images/post-list-footer.png" class="footer"></image>
-  </view>
-
+<view class="container">
+  <template is="more-url" data="{{post : post}}" />
   <text class="h1" wx:if="{{posts.length > 0}}">好房推荐</text>
-  
   <template is="miniposts"  data="{{ posts }}"></template>
+</view>
 
-  <view class="block-title">
-    <text class="h1">用户点评</text>
-    <navigator url="/pages/comments/index?target_id={{post.id}}&target_type=post&title=全部评价" class="desc" decode='{{true}}'><text wx:if="{{post.comments_count > 5}}" decode="{{true}}">查看全部{{post.comments_count}}条点评&gt;</text></navigator>
-  </view>
-  <view class="comments">
-    <template wx:for-item="comment" wx:for="{{ comments }}" is="comment-item" data="{{ comment, index, showTarget:false }}"  ></template>
-  </view>
-
-  <navigator class="add-comment" url="/pages/comments/new?target_id={{post.id}}"><text decode="{{true}}">&gt;&gt;我要评论&lt;&lt;</text></navigator>
-  <view style="height:90rpx;"></view>
-
+<view class="container">
+  <template is="post-comments" data="{{comments: comments, post: post}}" />
 </view>
 
 <form report-submit bindsubmit='btnsHandle' class="footer-btns">
@@ -94,8 +59,6 @@
 <button form-type="submit" data-action="booking" class="call">
 预约报名<image src="/assets/icons/call.png"></image>
 </button>   
-    
     </li>
   </ul>
-
 </form>

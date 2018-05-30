@@ -1,0 +1,12 @@
+<template name="house-coupon">
+  <navigator wx:if="{{post.coupon_desc}}" url="/pages/post/coupon?post_id={{post.id}}" open-type='navigateTo' class="box coupon">
+    <view class="icon">
+      <image src="/assets/images/coupon.png"></image>
+    </view>
+    <view class="name">
+      <text class="t">优惠券</text>
+      <text class="d">{{post.coupon_desc || '专用优惠券' }}</text>
+    </view>
+    <view class="btn">优惠券</view>
+  </navigator>  
+</template>

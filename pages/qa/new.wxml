@@ -1,5 +1,5 @@
 
-<form  bindsubmit="submitHandle" >
+<form  bindsubmit="submitHandle" bindreset="resetHandle" >
   <view class="container">
         <textarea bindinput="inputHandle" maxlength="200" value="{{questionContent}}" name="content" placeholder='在这里输入您的问题...'></textarea>
   </view>

@@ -1,28 +1,20 @@
 
 
 <view class="weui-panel  user-login" wx:if="{{!userInfo}}">
-
     <view class="avatar">
       <image src="/assets/images/default-avatar.png"></image>
     </view>  
 
     <text class="tip">登录账号，体验更多服务</text>
-    
     <button type="primary" class="weui-btn "  open-type='getUserInfo' bindgetuserinfo='loginHandle'>使用微信登录</button>
-
 </view>
-
 
 <view class="weui-panel user" wx:if="{{userInfo}}">
   <view class="avatar">
     <image src="{{userInfo.avatar}}"></image>
   </view>
-
-
   <view class="nickname">{{userInfo.nickname}}</view>
- 
 </view>
-
 
 <view class="weui-panel" wx:if="{{userInfo}}">
   <view class="actions">
@@ -57,6 +49,5 @@
           <view class="weui-cell__bd">联系客服</view>
           <view class="weui-cell__ft weui-cell__ft_in-access"></view>
       </navigator>     
-
     </view>
 </view>

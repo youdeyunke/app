@@ -1,6 +1,6 @@
 <template name="housetype">
   <block>
-  <text class="h1" >户型分析</text>
+  <text class="h1" >热门户型</text>
   <view class="box housetype" wx:if="{{post.housetype_name_a }}">
     <view class="poster">
       <image bindtap="imageView" data-target="a" src="{{post.housetype_poster_a.url}}"></image>

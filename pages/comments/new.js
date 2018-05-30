@@ -47,6 +47,8 @@ Page({
       target_id: q.target_id, 
       target_type: q.target_type || 'post'
     })
+    app.ensureUser({
+    })
 
     app.getUserInfo(function (userInfo) {
       if (userInfo && userInfo.mobile) {
@@ -54,7 +56,6 @@ Page({
         console.log('userinfo.mobile, ', userInfo.mobile)
       } else {
 
-        // 前往登录，并设置登录成功后回调页面
         wx.setStorageSync('login_back_page', '/pages/comments/new?target_id=' + q.target_id + '&target_type=' + q.target_type)
         app.gotoAccount("请先登录", "请先登录")
       }

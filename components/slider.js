@@ -44,23 +44,6 @@ Component({
       })
     },
 
-    gotoVideo: function(e){
-      console.log('e', e)
-      app.getUserInfo(function(userInfo){
-        if(userInfo && !userInfo.mobile){
-          // 前往登录，并设置登录成功后回调页面
-          wx.setStorageSync('login_back_navigate_to_video',true)
-          app.gotoAccount("请先登录", "请先登录")               
-        }else{
-          app.navigateToVideo()
-        }
-      })
-
-
-      
-
-    },
-
     soon: function(e){
       app.comingSoon()
     }

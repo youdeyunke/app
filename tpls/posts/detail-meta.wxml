@@ -1,6 +1,6 @@
 <template name="detail-meta">
   <block>
-      <view wx-if="{{post.block_info && post.block_info.cate == 'block'}}">
+      <view class="detail-meta" wx-if="{{post.block_info && post.block_info.cate == 'block'}}">
               <view class="meta">
                 <text class="label">板块均价</text>
                 <text> {{post.block_info.block_average_price}}元/平米</text>
@@ -18,7 +18,7 @@
 
       </view>
 
-      <view wx-if="{{post.block_info && post.block_info.cate == 'item'}}">
+      <view  class="detail-meta" wx-if="{{post.block_info && post.block_info.cate == 'item'}}">
           <view class="meta">
             <text class="label">均价</text>
             <text>{{ post.block_info.item_price }} 元/㎡</text>

@@ -1,0 +1,14 @@
+<template name="more-url">
+<block>
+  <text class="h1" wx:if="{{post.more_url}}">买房必读</text>
+  <view wx:if="{{post.more_url}}" bindtap='openWebview' class="box moreurl">
+    <view class="poster">
+      <image src="/assets/images/read-more.png"></image>
+    </view>
+    <view class="meta">
+      <view class="t">{{post.more_title}}</view>
+      <view class="d">{{post.more_desc}}</view>
+    </view>
+  </view>
+</block>
+</template>

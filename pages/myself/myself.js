@@ -32,8 +32,10 @@ Page({
         if(res.data.status != 0){
            wx.showModal({content:'服务器出现错误，请稍后再试', showCancle: false})
         }else{
-            that.setData({user: res.data.data})
-            console.log(that.data.mobile)
+          // 绑定手机号成功
+          that.setData({user: res.data.data})
+          console.log(that.data.mobile)
+          app.loginBack()
         }
       }
     })
@@ -60,25 +62,9 @@ Page({
           _this.getSessionToken(res.code, encryptedData, iv, function(userInfo){
             // success
             _this.setData({userInfo: userInfo})
+            // login back
+            app.loginBack()
 
-            // event bus
-            var eb = wx.getStorageSync('loginEventBus')
-            if(eb){
-              // clear
-              wx.setStorageSync('loginEventBus', null)
-              var k = eb.key
-              var v = eb.value
-              if(k == 'switchTab'){
-                wx.switchTab({
-                  url: v
-                })
-              }
-              if(k == 'navigateBack'){
-                wx.navigateBack({
-                  delta: v
-                })
-              }
-            }
           })
         }
       },

@@ -35,6 +35,9 @@ Page({
     })
   },
 
+  resetHandle: function(){
+    wx.navigateBack({ delta: -1 })
+  },
 
   submitHandle: function () {
     var _this = this
@@ -98,9 +101,15 @@ Page({
    */
   onLoad: function (q) {
     this.setData({post_id: q.post_id})
-    app.ensureMobile('/pages/qa/new?post_id='+ q.post_id, function(u){
-      
-    })   
+    var _this = this
+    var eb = {
+      key: 'redirect',
+      value: '/pages/qa/new'
+    }
+    app.setLoginBack(eb)
+    app.ensureMobile(function(userInfo){
+        _this.setData({userInfo: userInfo})
+    })
   },
 
   /**
