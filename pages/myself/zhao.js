@@ -29,15 +29,11 @@ Page({
    */
   onLoad: function (q) {
     var _this  = this
-    app.ensureUser({
-      success: function(userInfo){
-        _this.setData({contact: userInfo.mobile || ''})        
-      },
-      loginEventBus: {
-        key: 'switchTab',
+    var eb = {
+        key: 'switch',
         value: '/pages/myself/zhao',
-      }
-    })
+    }
+    app.setLoginBack()
   },
 
   getFormData: function(){
@@ -80,9 +76,12 @@ Page({
   submitHandle: function(e){
     var _this = this
     app.uploadFormId(e)
-    app.ensureUser({
-      success: function(userInfo){
-        _this.validate(function (data) {
+    app.ensureUser(function(userInfo){
+        if(userInfo.mobile){
+          _this.setData({contact: userInfo.mobile})
+        }
+
+        _this.validate(function(data) {
           app.request({
             url: '/api/v1/needs',
             data: data,
@@ -105,11 +104,7 @@ Page({
             }
           })
         })
-      },
-      fail: function(){
-        // set page cb url
-      }
-    })
+      })
 
   },
 
@@ -157,6 +152,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    app.ensureUser()
   
   },
 

@@ -11,6 +11,9 @@ page{
 .h1{
   font-weight: normal;
   color:#000;
+  width:100%;
+  padding: 0 0 0 30rpx;
+  margin: 10rpx 0 10rpx 0;
 }
 
 .pager .container-border-top-none{
@@ -30,13 +33,6 @@ page .container{
   margin:0 0 20rpx 0;
   padding:0rpx;
 }
-
-.box{
-  border-radius: 0rpx;
-  padding:25rpx 20rpx;
-  background: #fff;
-}
-
 
 .detail-meta .meta{
  display:flex;
@@ -58,29 +54,27 @@ page .container{
   color:#333;
   font-size:40rpx;
   margin: 20rpx auto 30rpx auto !important;
-  text-align: center;
 }
 
-.box .raw image.wxParse-img{
+.raw image.wxParse-img{
   margin:20rpx auto;
   width:300rpx;
 }
-
-.box.html-content{
+.html-content{
   margin-bottom:40rpx;
   line-height: 64rpx;
   letter-spacing: 2rpx;  
   font-weight: lighter;
 }
 
-.box.html-content.small, box.box.html-content.small .raw{
+.html-content.small, box.box.html-content.small .raw{
   height: 400rpx;
   overflow: hidden;
   position: relative;
   padding-bottom:20rpx;
 }
 
-.box.html-content.small .readmore{
+.html-content.small .readmore{
   position: absolute;
   bottom:10rpx;
   left:10rpx;
@@ -325,7 +319,6 @@ page .container{
   justify-content: space-between;
   align-items: center;
   height: 152rpx;
-  margin-bottom:40rpx;
   position:relative;
 }
 

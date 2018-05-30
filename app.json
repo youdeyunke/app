@@ -35,14 +35,14 @@
     "borderStyle": "black",
     "list": [
       {
-        "iconPath": "/assets/icons/底部导航_07.png",
-        "selectedIconPath": "/assets/icons/底部导航_02.png",
+        "iconPath": "/assets/icons/home.0.png",
+        "selectedIconPath": "/assets/icons/home.1.png",
         "pagePath": "pages/tiao/index",
         "text": "发现"
       },   
       {
-        "iconPath": "/assets/icons/底部导航_07.png",
-        "selectedIconPath": "/assets/icons/底部导航_02.png",
+        "iconPath": "/assets/icons/gaizao.0.png",
+        "selectedIconPath": "/assets/icons/gaizao.1.png",
         "pagePath": "pages/myself/zhao",
         "text": "找房"
       },
@@ -53,8 +53,8 @@
         "text": "咨询"
       },
       {
-        "iconPath": "/assets/icons/底部导航_06.png",
-        "selectedIconPath": "/assets/icons/底部导航_05.png",
+        "iconPath": "/assets/icons/myself.0.png",
+        "selectedIconPath": "/assets/icons/myself.1.png",
         "pagePath": "pages/myself/myself",
         "text": "我的"
       }

@@ -27,13 +27,18 @@
   </view>  
 </view>
 
-<view class="container">
-  <template is="housetype" data="{{post: post}}" />
-</view>
+<view class="h1">热门户型</view>
+<template is="housetype" data="{{post: post}}" />
 
+
+<view class="h1">买房必读</view>
 <view class="container">
   <template is="more-url" data="{{post : post}}" />
-  <text class="h1" wx:if="{{posts.length > 0}}">好房推荐</text>
+</view>
+
+<text class="h1" wx:if="{{posts.length > 0}}">好房推荐</text>
+<view class="container">
+
   <template is="miniposts"  data="{{ posts }}"></template>
 </view>
 

@@ -1,32 +1,35 @@
 <template name="housetype">
   <block>
-  <text class="h1" >热门户型</text>
-  <view class="box housetype" wx:if="{{post.housetype_name_a }}">
-    <view class="poster">
-      <image bindtap="imageView" data-target="a" src="{{post.housetype_poster_a.url}}"></image>
-    </view>
-    <view class="meta">
-      <view class="name">{{post.housetype_name_a}}</view>
-      <view class="kv"><text decode="{{true}}">朝向&nbsp; &nbsp;&nbsp;{{post.housetype_position_a}}</text></view>
-      <view class="kv"><text decode="{{true}}">建面&nbsp; &nbsp;&nbsp;{{post.housetype_area_a}}㎡</text></view>
-      <view class="kvs">
-        <view class="kv">单价<text decode="{{true}}">&nbsp; &nbsp;&nbsp;{{post.housetype_price_a}}</text></view>
-        <view class="kv">总价    <text decode="{{true}}">&nbsp; &nbsp;&nbsp;{{post.housetype_total_price_a}}</text></view>
+  <view class="container">
+    <view class="box housetype" wx:if="{{post.housetype_name_a }}">
+      <view class="poster">
+        <image bindtap="imageView" data-target="a" src="{{post.housetype_poster_a.url}}"></image>
+      </view>
+      <view class="meta">
+        <view class="name">{{post.housetype_name_a}}</view>
+        <view class="kv"><text decode="{{true}}">朝向&nbsp; &nbsp;&nbsp;{{post.housetype_position_a}}</text></view>
+        <view class="kv"><text decode="{{true}}">建面&nbsp; &nbsp;&nbsp;{{post.housetype_area_a}}㎡</text></view>
+        <view class="kvs">
+          <view class="kv">单价<text decode="{{true}}">&nbsp; &nbsp;&nbsp;{{post.housetype_price_a}}</text></view>
+          <view class="kv">总价    <text decode="{{true}}">&nbsp; &nbsp;&nbsp;{{post.housetype_total_price_a}}</text></view>
+        </view>
       </view>
     </view>
-  </view>
-
-  <view class="box housetype" wx:if="{{post.housetype_name_b }}">
-    <view class="poster">
-      <image bindtap="imageView" data-target="b" src="{{post.housetype_poster_b.url}}?imageView2/2/w/750"></image>
-    </view>
-    <view class="meta">
-      <view class="name">{{post.housetype_name_b }}</view>
-      <view class="kv"><text decode="{{true}}">朝向&nbsp; &nbsp;&nbsp;{{post.housetype_position_b}}</text></view>
-      <view class="kv"><text decode="{{true}}">建面&nbsp; &nbsp;&nbsp;{{post.housetype_area_b}}㎡</text></view>
-      <view class="kvs">
-        <view class="kv">单价<text decode="{{true}}">&nbsp; &nbsp;&nbsp;{{post.housetype_price_b}}</text></view>
-        <view class="kv">总价    <text decode="{{true}}">&nbsp; &nbsp;&nbsp;{{post.housetype_total_price_b}}</text></view>
+    
+    <view class="line"></view>
+    
+    <view class="box housetype" wx:if="{{post.housetype_name_b }}">
+      <view class="poster">
+        <image bindtap="imageView" data-target="b" src="{{post.housetype_poster_b.url}}?imageView2/2/w/750"></image>
+      </view>
+      <view class="meta">
+        <view class="name">{{post.housetype_name_b }}</view>
+        <view class="kv"><text decode="{{true}}">朝向&nbsp; &nbsp;&nbsp;{{post.housetype_position_b}}</text></view>
+        <view class="kv"><text decode="{{true}}">建面&nbsp; &nbsp;&nbsp;{{post.housetype_area_b}}㎡</text></view>
+        <view class="kvs">
+          <view class="kv">单价<text decode="{{true}}">&nbsp; &nbsp;&nbsp;{{post.housetype_price_b}}</text></view>
+          <view class="kv">总价    <text decode="{{true}}">&nbsp; &nbsp;&nbsp;{{post.housetype_total_price_b}}</text></view>
+        </view>
       </view>
     </view>
   </view>

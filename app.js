@@ -85,12 +85,12 @@ App({
     var _this = this
     var token = wx.getStorageSync('token')
     var userInfo = wx.getStorageSync('userInfo')
-
     if (token && userInfo) {
-      // 如果token，存在，就从服务器取得
-      return cb(userInfo)
+      if(typeof cb != 'undefined'){
+        return cb(userInfo)
+      }
+      return  null
     } 
-    // 设置登录后重定向的页面
     _this.gotoAccount('请先登录', '请先登录')
     
   },
@@ -202,7 +202,7 @@ App({
     
     // This must be wx.request !
     var defaultApiHost = 'https://www.jiayaosu.com/haofang'
-    //var defaultApiHost = 'http://localhost:3000/haofang'
+    var defaultApiHost = 'http://localhost:3000/haofang'
     var customApiHost = wx.getStorageSync('apiHost')
     var apiHost = customApiHost ||defaultApiHost
     var url = apiHost + obj.url
