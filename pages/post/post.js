@@ -14,23 +14,6 @@ Page({
     readmore: false,
   },
 
-  btnsHandle: function(e){
-    // 底部按钮
-    var _this = this
-    console.log('submit', e)
-    app.saveFormId(e)
-
-    var action = e.detail.target.dataset.action
-    if(action == 'callme'){
-      _this.callMe()
-      return false
-    }else{
-      wx.navigateTo({
-        url: '/pages/qa/new?post_id=' + _this.data.postId,
-      })
-    }
-  },
-
 
   openWebview: function(e){
     var url = this.data.post.more_url
@@ -120,6 +103,12 @@ Page({
     var m = app.globalData.serverMobile
     wx.makePhoneCall({
         phoneNumber: m //仅为示例，并非真实的电话号码
+    })
+  },
+
+  booking: function(){
+    wx.navigateTo({
+      url: '/pages/post/booking?post_id=' + this.data.postId
     })
   },
 

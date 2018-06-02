@@ -1,7 +1,7 @@
 /* pages/home/home.wxss */
 
 page{
-  padding:0;
+  padding:0 0 120rpx 0;
 }
 
 .line{
@@ -164,11 +164,11 @@ page .container{
 
 .footer-btns{
   background: #fff;
-  width:690rpx;
-  padding:0rpx 30rpx;
+  width:100%;
+  padding:0rpx 0rpx;
   position: fixed;
   bottom:0rpx;
-  border-top:1px solid ＃efefef;
+  border-top:none;
   height: 100rpx;
   z-index:20;
 }
@@ -176,78 +176,34 @@ page .container{
 .footer-btns ul{
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
   height: 100%;
 }
 
-
-.footer-btns .share{
-
-  color:#666;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  width:120rpx;
-  background-color:#fff;
-  outline:none;
-  border:1rpx solid #fff;
-  padding-top:10rpx;
-}
-
-.footer-btns button.share::after{
-        border:0px solid #fff;
-        margin:0;
-}
-
-
-.footer-btns .share image{
-  width:30rpx;
-  height: 30rpx;
-}
-
-.footer-btns .qa {
-
-  width:366rpx;
-
-  color:#000;
-  background:#ffd900;
-  margin-right:30rpx;
-}
-
-.footer-btns .qa image{
-  height: 30rpx;
-  width: 30rpx;
-  margin-left:20rpx;
-}
-
-.footer-btns .call{
-
-  background: #4a68e2;
-  width:222rpx;
-
+.footer-btns li{
+  width:50%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   color:#fff;
+  opacity: 0.93;
 }
 
-.footer-btns .call image{
-  width:30rpx;
-  height: 30rpx;
-   margin-left:20rpx;
+.footer-btns li image{
+  height: 40rpx;
+  width: 40rpx;
+  margin-right:20rpx;
 }
 
-.footer-btns .qa, .footer-btns .call{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 66rpx;
-  border-radius: 10rpx;
+.footer-btns li.call{
+  background:#e5d210;
 }
-
-
-
+.footer-btns li.booking{
+  background:#7c0875;
+}
 
 .mask{
   position: absolute;

@@ -50,22 +50,11 @@
 
 <form report-submit bindsubmit='btnsHandle' class="footer-btns">
   <ul>
-    <li>
-    <button class="share" open-type="share">
-      <image src="/assets/icons/share.png"></image>
-      分享
-    </button>                
+    <li class="call" bindtap="callMe">
+      <image src="/assets/icons/call.png"></image>咨询客服
     </li>
-    <li>
-<button form-type='submit' data-action="callme" class="qa" >
-咨询提问<image src="/assets/icons/pen.png"></image>
-</button>
-
-    </li>
-    <li>
-<button form-type="submit" data-action="booking" class="call">
-预约报名<image src="/assets/icons/call.png"></image>
-</button>   
+    <li class="booking" bindtap="booking">
+      <image src="/assets/icons/pen.png"></image>预约看房
     </li>
   </ul>
 </form>
