@@ -1,6 +1,0 @@
-
-  <view class="item tabs home">
-    <view class="item {{ item.id == activeId ? 'active' : '' }}" wx:for="{{items}}">
-      <navigator open-type='redirect' url="/pages/{{ item.id}}/{{ item.id }}">{{ item.text }}</navigator>
-    </view>
-  </view>

@@ -5,7 +5,6 @@
     "pages/home/home",
     "pages/qa/index",    
 
-    "pages/webview/webview",
     "pages/comments/new",
     "pages/post/index",
     "pages/post/items",
@@ -21,7 +20,6 @@
     "pages/home/debug",
     "pages/comments/index",
     "pages/myself/favposts",
-    "pages/zhishi/index",
     "pages/post/booking",
     "pages/static/about",
     "pages/myself/qa"

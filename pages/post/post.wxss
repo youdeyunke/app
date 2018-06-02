@@ -8,6 +8,7 @@ page{
   border-bottom:4rpx dashed #f4f4f4;
 }
 
+
 .h1{
   font-weight: normal;
   color:#000;
@@ -33,6 +34,7 @@ page .container{
   margin:0 0 20rpx 0;
   padding:0rpx;
 }
+
 
 .detail-meta .meta{
  display:flex;
@@ -72,6 +74,21 @@ page .container{
   overflow: hidden;
   position: relative;
   padding-bottom:20rpx;
+}
+
+.readmore-container{
+  background:#fff;
+  width:730rpx;
+  margin:0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 6rpx;
+  position: relative;
+  box-shadow: 0 1px 2px rgba(150, 150, 150, 0.3);  
+  margin-bottom:30rpx;
 }
 
 .html-content.small .readmore{
@@ -280,7 +297,7 @@ page .container{
 
 .housetype .poster, .housetype .poster image{
   width: 250rpx;
-  height: 180rpx;
+  height: 200rpx;
   border-radius: 10rpx;
   overflow: hidden;
 }
@@ -296,14 +313,16 @@ page .container{
 
 .housetype .name{
   font-size:30rpx;
-  border-bottom:2rpx solid #f4f4f4;
   width:100%;
   padding:10rpx 0;
   height:50rpx;
   margin-bottom:15rpx;
 }
 .housetype .kvs text{
-  color: red;
+  color: 000;
+}
+.housetype .kv{
+  font-size:28rpx;
 }
 
 .housetype .kvs{
@@ -330,7 +349,7 @@ page .container{
 }
 
 .moreurl .meta{
-  width: 338rpx;
+  width: 438rpx;
   height: 90%;
   display: flex;
   flex-direction: column;
@@ -376,3 +395,4 @@ width:100%;
   font-size:24rpx;
   color: #999;
 }
+@import "/tpls/posts/mini_listing.wxss";

@@ -1,5 +1,4 @@
 <myslider></myslider>
-
   <navigator class="container post-item" open-type='navigateTo' hover-class='none' wx:for="{{posts}}" url="/pages/post/post?id={{item.id}}">
     <view class="poster-block">
       <image src="{{item.tiao_cover.url}}?imageView2/2/w/750"></image>
@@ -28,12 +27,10 @@
   </navigator>
 
 <view  class="weui-loadmore" wx:if="{{hasMore}}">
-      <i class="weui-loading"></i>
-      <text class="weui-loadmore__tips">正在加载</text>
+  <i class="weui-loading"></i>
+  <text class="weui-loadmore__tips">正在加载</text>
 </view>
 
 <view  class="weui-loadmore weui-loadmore_line" wx:if="{{!hasMore}}">
-      <text class="weui-loadmore__tips weui-loadmore__tips_in-line">END</text>
+  <text class="weui-loadmore__tips weui-loadmore__tips_in-line">END</text>
 </view>
-
-

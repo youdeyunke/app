@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -125,6 +125,12 @@
 					"id": -1,
 					"name": "tiao",
 					"pathName": "pages/tiao/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "myself-fav",
+					"pathName": "pages/myself/favposts",
 					"query": ""
 				}
 			]

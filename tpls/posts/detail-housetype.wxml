@@ -15,8 +15,10 @@
         </view>
       </view>
     </view>
+  </view>
+  <view class="container">
     
-    <view class="line"></view>
+  
     
     <view class="box housetype" wx:if="{{post.housetype_name_b }}">
       <view class="poster">

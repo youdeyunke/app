@@ -1,22 +1,2 @@
-<view class="container">
-
-  <view class="course">
-  
-        <image class="badge" src="/assets/images/block-badge.png" class="badge"></image>    
-        <text class="badge">VIP</text>
-
-
-    <image src="http://jiayaosu-10013564.image.myqcloud.com/0cc951cd-7a64-4223-815a-39502ac0138c#268*179" class="poster"></image>
-    <view class="meta">
-      <view class="name">xxx</view>
-      <view class="desc">xxxx</view>
-      <view class="price-block">
-        <view class="node">yyy</view>
-        <view class="price"><text class="symbol">￥</text> <text class="price">69</text></view>
-      </view>
-    </view>
-    <image src="/assets/images/post-list-footer.png" class="footer"></image>
-  </view>
-
-
-</view>
+<!--pages/zhishi/index.wxml-->
+<text>pages/zhishi/index.wxml</text>

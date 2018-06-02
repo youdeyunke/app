@@ -12,7 +12,6 @@
 .blockpost-list .post .cover{
     width:320rpx;
     height:194rpx;
-  border-radius: 10rpx;
   overflow: hidden;    
 }
 
