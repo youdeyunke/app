@@ -10,11 +10,12 @@
 <view class="container">
    <view class=" post-title">{{ post.title }}</view>
    <template is="detail-meta" data="{{post: post }}" />  
-   <view class="block-2x"></view>
-   <view class="line"></view>
-   <view class="block-2x"></view>
 
   <view class="box html-content" hidden="{{readmore}}" wx:if="{{post.content_simple.length > 0}}">
+   <view class="blank-2x"></view>
+   <view class="line"></view>
+   <view class="blank-2x"></view>
+
     <view class="raw">
       <template is="wxParse" data="{{wxParseData:htmlContentSimple.nodes}}"/>
      <view class="readmore" bindtap='readMore'><text>展开全文</text></view>
@@ -34,7 +35,7 @@
 
 <block wx:if="{{post.more_url}}">
 <view class="h1">买房必读</view>
-<view class="readmore-container">
+<view class="container">
   <template is="more-url" data="{{post : post}}" />
 </view>
 </block>

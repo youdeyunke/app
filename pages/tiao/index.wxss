@@ -74,6 +74,7 @@ myslider{
 
 .poster-block image{
   width: 100%;
+  border-radius: 10rpx;
 }
 
 .tag-block{
