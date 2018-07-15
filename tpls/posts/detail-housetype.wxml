@@ -1,6 +1,6 @@
 <template name="housetype">
-  <block>
-  <view class="container">
+<view class="container">
+    <view class="h2">主力户型</view>
     <view class="box housetype" wx:if="{{post.housetype_name_a }}">
       <view class="poster">
         <image bindtap="imageView" data-target="a" src="{{post.housetype_poster_a.url}}"></image>
@@ -15,10 +15,6 @@
         </view>
       </view>
     </view>
-  </view>
-  <view class="container">
-    
-  
     
     <view class="box housetype" wx:if="{{post.housetype_name_b }}">
       <view class="poster">
@@ -34,7 +30,7 @@
         </view>
       </view>
     </view>
-  </view>
 
-  </block>
+</view>
+
 </template>

@@ -1,19 +1,24 @@
-<import src="/tpls/posts/mini_listing.wxml"/>
-
 <view class="container">
-  <template is="miniposts"  data="{{posts}}"></template>
-
-  <view class="comment-header box">
+  <view class="comment-header ">
     <view class="h1">楼盘评价</view>
     <mystars bind:scoreChange="scoreHandle" big value="{{comment.score}}"></mystars>
-    <view class="h1">您的身份</view>
-    <view class="cats">
-      <text bindtap='catHandle' data-index="{{index}}" class="{{ comment.cat_id == item.id ? 'active' : '' }}" wx:for="{{cats}}">{{item.name}}</text>
-    </view>
-  </view>
-
-  <view class="comment-form box">
-    <textarea value="{{comment.content}}" bindinput='contentHandle' placeholder='其他人都各抒己见，让大家也听听您的意见吧'></textarea>
-    <button bindtap='submitHandle' class="submit btn">提交</button>
   </view>
 </view>
+
+<view class="container">
+    <view class="h1">您的身份</view>
+    <view class="tags">
+      <text bindtap='catHandle' data-index="{{index}}" class="item {{ comment.cat_id == item.id ? 'active' : '' }}" wx:for="{{cats}}">{{item.name}}</text>
+    </view>
+</view>
+
+<view class="container">
+  <view class="comment-form ">
+    <textarea value="{{comment.content}}" bindinput='contentHandle' placeholder='其他人都各抒己见，让大家也听听您的意见吧'></textarea>
+  </view>
+</view>
+
+
+  <view style="width:100%" class="container-bg-none">
+    <button style="width:100%" bindtap='submitHandle' class="weui-btn" type="primary">提交</button>
+  </view>

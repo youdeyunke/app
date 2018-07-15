@@ -13,6 +13,7 @@ myslider{
   position: relative;
   margin-bottom:30rpx;
   border-radius: 0rpx;
+
 }
 
 .title-block{

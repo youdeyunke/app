@@ -1,21 +1,17 @@
-<import src="/tpls/posts/listing.wxml"/>
+<import src="/tpls/posts/mini_listing.wxml"/>
 
 <view class="container">
   <mytopbar bindcitychanged="cityHandle"></mytopbar>
   <myslider></myslider>
   <view class="tab-icons">
-    <navigator open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" url="{{item.url}}" wx:for="{{tabIcons}}">
-      <image src="/assets/icons/{{index}}.png"></image>
+    <navigator open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" url="{{item.url}}?cat={{item.id}}" wx:for="{{tabIcons}}">
+      <image src="/assets/icons/tab-{{item.id}}.png"></image>
       <text>{{ item.name }}</text>
     </navigator>
 
-    <navigator bindtap='xuezhishi'>
-      <image src="/assets/icons/3.png"></image>
-      <text>学知识</text>
-    </navigator>
-
-
   </view>
-  <template wx:for="{{posts}}" is="posts"  data="{{ posts:item }}"></template>
-
 </view>
+
+  <view class="post-mini container" wx:for="{{posts}}" wx:for-item="postitems">
+    <template is="miniposts"  data="{{ posts: postitems}}"></template>
+  </view>

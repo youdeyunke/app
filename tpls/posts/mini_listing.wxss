@@ -1,8 +1,6 @@
-
-
-.post-mini .post{
-  height: 184rpx;
-  position: relative;
+.post-mini .tags {
+  font-size:20rpx;
+  color: 333;
 }
 
 
@@ -10,7 +8,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding:25rpx 20rpx;
+  margin-bottom:20rpx;
+  padding-bottom:20rpx;
+  border-bottom:1px solid #f4f4f4;
 }
 
 .post-mini .post .cover{
@@ -35,52 +35,32 @@
 }
 
 .post-mini .post .meta{
-  width:362rpx;
+  width:390rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .post-mini .post .meta .item-title{
-  color:#333;
-   padding-bottom:17rpx;
-   margin-bottom:17rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   width:320rpx;
+  font-size:24rpx;
+  color: #000;
+  font-weight: bold;
 
 }
 
-.post-mini .post .meta .loc{
-  font-size: 24rpx;
-  color:#666;
-  display: flex;
-  align-items: center;
-
-}
-
-.post-mini .post .meta .loc text{
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width:310rpx;
-
-}
-
-
-
-.post-mini .post .meta .loc image{
-  width:21rpx;
-  height: 21rpx;
-  margin-right:10rpx;
-}
 
 .post-mini .post .meta .area-price{
   font-size:24rpx;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; 
+}
 
+.post-mini .post .meta .location{
+  font-size:24rpx;
 }
 
 .post-mini .post .meta .area-price .area{
@@ -88,20 +68,11 @@
 }
 
 .post-mini .post .meta .area-price .price{
-  color:#666;
+    color: orangered;
+    font-weight: bold;
 }
 
-.post-mini .post .meta .tags-time{
-  display: flex;
-  justify-content: space-between;
-}
 
-.post-mini .post .meta .tags-time .time{
-  font-size:24rpx;
-  color:#666;
-}
 
-.post-mini .post  mytags{
-}
 
 @import "/components/tags.wxss";

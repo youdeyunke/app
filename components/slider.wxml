@@ -1,12 +1,9 @@
 <!--index.wxml-->
 <swiper class="swiper home" indicator-dots="true" autoplay="true" interval="5000"
 duration="500" circular="true" indicator-color="rgba(255,255,255,0.7)" autoplay indicator-active-color="#fff" >
-    <swiper-item bindtap="gotoVideo">
-      <image src="http://jiayaosu-10013564.image.myqcloud.com/8d0a4fc3-dd7d-4c2b-88d1-b12f38e96053"></image>
-    </swiper-item>
 
     <swiper-item bindtap="gotoAbout">
-      <image src="http://jiayaosu-10013564.image.myqcloud.com/9f3ac103-ab48-4123-933c-b5ce2eaeac70"></image>
+      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528721262907&di=a0488c17f9633a075ff10ca39c314bbf&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F13%2F29%2F64%2F42e58PICHSG_1024.jpg"></image>
     </swiper-item>   
 
     <swiper-item bindtap="gotoTiao">
@@ -14,7 +11,7 @@ duration="500" circular="true" indicator-color="rgba(255,255,255,0.7)" autoplay 
     </swiper-item>   
 
     <swiper-item bindtap="gotoQa">
-      <image src="http://jiayaosu-10013564.image.myqcloud.com/ec5311dd-ebbd-42cb-a108-223fdb3b7528#690*390"></image>
+      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1529316090&di=f60a7eeb5aae3aa484bc4f5954c06080&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F10dfa9ec8a136327ac85a4149b8fa0ec08fac7a9.jpg"></image>
     </swiper-item>  
     
 </swiper>

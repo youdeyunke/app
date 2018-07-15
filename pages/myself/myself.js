@@ -33,8 +33,12 @@ Page({
            wx.showModal({content:'服务器出现错误，请稍后再试', showCancle: false})
         }else{
           // 绑定手机号成功
-          that.setData({user: res.data.data})
+          that.setData({userInfo: res.data.data})
+          wx.setStorageSync('userInfo', res.data.data)
           console.log(that.data.mobile)
+          wx.showToast({
+            title: '绑定手机号成功',
+          })
           app.loginBack()
         }
       }

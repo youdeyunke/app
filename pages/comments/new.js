@@ -43,23 +43,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
+    app.ensureMobile()
+
     this.setData({
       target_id: q.target_id, 
       target_type: q.target_type || 'post'
     })
-    app.ensureUser({
-    })
-
-    app.getUserInfo(function (userInfo) {
-      if (userInfo && userInfo.mobile) {
-        // success
-        console.log('userinfo.mobile, ', userInfo.mobile)
-      } else {
-
-        wx.setStorageSync('login_back_page', '/pages/comments/new?target_id=' + q.target_id + '&target_type=' + q.target_type)
-        app.gotoAccount("请先登录", "请先登录")
-      }
-    })  
 
     this.loadTarget()
   },
@@ -121,7 +110,7 @@ Page({
         
         wx.showToast({title: '提交评论成功', })
         setTimeout(function(){
-          wx.navigateBack({ delta: 1 })
+          wx.navigateBack({ delta: -1 })
         }, 1500)
       }
     })

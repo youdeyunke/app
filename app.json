@@ -1,14 +1,12 @@
 {
   "pages": [
+    "pages/home/home",    
      "pages/tiao/index",
     "pages/myself/zhao",
-    "pages/home/home",
     "pages/qa/index",    
 
     "pages/comments/new",
     "pages/post/index",
-    "pages/post/items",
-    "pages/post/blocks",
     "pages/qa/qa",
 
     "pages/post/post",
@@ -33,9 +31,27 @@
     "borderStyle": "black",
     "list": [
       {
+        "pagePath": "pages/home/home",
+        "text": "发现"
+      },
+      {
+        "pagePath": "pages/myself/zhao",
+        "text": "找房"
+      },
+      {
+        "pagePath": "pages/qa/index",
+        "text": "咨询"
+      },
+      {
+        "pagePath": "pages/myself/myself",
+        "text": "我的"
+      }
+    ],    
+    "list2": [
+      {
         "iconPath": "/assets/icons/home.0.png",
         "selectedIconPath": "/assets/icons/home.1.png",
-        "pagePath": "pages/tiao/index",
+        "pagePath": "pages/home/home",
         "text": "发现"
       },   
       {

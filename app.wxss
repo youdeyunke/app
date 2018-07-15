@@ -11,10 +11,15 @@ page{
   justify-content: flex-start;
   align-items: center;
   background: #f4f4f4;
-  font-size:32rpx;
+  font-size:24rpx;
   color:#333;
   font-weight:normal;
   --color-green: #1AAD19;
+}
+
+.i{
+    color: orangered !important;
+    font-weight: bold !important;
 }
 
 .blak-1x{
@@ -31,17 +36,18 @@ page{
 
 .container {
   background:#fff;
-  width:730rpx;
+  width:750rpx;
   margin:0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 0;
-  box-sizing: border-box;
-  border-radius: 6rpx;
+
   position: relative;
   box-shadow: 0 1px 2px rgba(150, 150, 150, 0.3);  
-  margin-bottom:30rpx;
+  margin-bottom:20rpx;
+  box-sizing: border-box;
+  padding:30rpx 30rpx;
+  border-radius: 0;
 } 
 
 page .container.container-padding-none{
@@ -61,16 +67,13 @@ textarea{
   width:100%;
 }
 
-h1,.h2{
-  color: var(--color-title);
-  width:100%;
+.h1,.h2{ color:#000; width:100%;
 }
 .h1{
-
-  font-size: 38rpx;
+  font-size:32rpx;
 }
 .h2{
-  font-size: 34rpx;
+  font-size:28rpx;
 }
 
 .weui-loadmore{
@@ -139,13 +142,10 @@ h1,.h2{
 .tags .item{
   color: #666;
   border-radius: 0rpx;
-  height: 40rpx;
   display: inline-block;
-  line-height: 39rpx;
-  padding:15rpx 30rpx;
+  padding:0rpx 16rpx;
   background: #f4f4f4;
   margin-right:15rpx;
-  font-size:28rpx;
 }
 
 .tags .item.active{
@@ -181,7 +181,6 @@ h1,.h2{
   border-radius: 10rpx;
   background:#fff;
   padding:25rpx 20rpx;
-  box-shadow: 6rpx 6rpx 18rpx rgba(0,0,0, 0.1);
   position: relative;
 }
 
@@ -328,4 +327,24 @@ myfav{
 .btn-mini{
   font-size:24rpx;
   height: 60rpx;
+}
+
+
+.mini-tags {
+  font-size:20rpx;
+  color: 333;
+}
+
+.mini-tags text{
+  border:1px solid #cecece;
+  padding:0 10rpx;
+  margin-right: 20rpx;
+}
+
+.line{
+  border-bottom:4rpx solid #f4f4f4;
+}
+
+.line{
+  border-bottom:4rpx solid #f4f4f4;
 }

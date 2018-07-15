@@ -1,3 +1,5 @@
+@import "/tpls/posts/mini_listing.wxss";
+
 
 page{
 
@@ -12,8 +14,6 @@ page .container{
   margin:0 auto 100rpx auto;
 }
 
-@import "/tpls/posts/mini_listing.wxss";
-@import "/tpls/posts/blocks_listing.wxss";
 
 .post-list{
   margin-top:20rpx;

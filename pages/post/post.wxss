@@ -4,19 +4,6 @@ page{
   padding:0 0 120rpx 0;
 }
 
-.line{
-  border-bottom:4rpx solid #f4f4f4;
-}
-
-
-.h1{
-  font-weight: normal;
-  color:#000;
-  width:100%;
-  padding: 0 0 0 30rpx;
-  margin: 10rpx 0 10rpx 0;
-}
-
 .pager .container-border-top-none{
   
 }
@@ -36,7 +23,6 @@ page .container{
 }
 
 .detail-meta{
-  background:#f6f6f6;
   padding:20rpx 30rpx;
   border-radius:10rpx;
 }
@@ -44,8 +30,8 @@ page .container{
 
 .detail-meta .meta{
  display:flex;
-
 }
+
 
 .detail-meta .meta text{
   color:#999;
@@ -59,10 +45,28 @@ page .container{
 }
 
  .post-title{
-  color:#333;
-  font-size:40rpx;
-  margin: 20rpx auto 30rpx auto !important;
+  color:#000;
+  margin: 20rpx auto 20rpx auto !important;
+  font-weight:bold;
+
 }
+
+.header{
+  background:#fff;
+  position:relative;
+  width:100%;
+  height:400rpx;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.header .container{
+  width:710rpx;
+  position:absolute;
+  top:-60rpx;
+}
+
 
 .raw image.wxParse-img{
   margin:20rpx auto;
@@ -87,10 +91,11 @@ page .container{
   position: absolute;
   bottom:10rpx;
   left:10rpx;
-
   width: 100%;
   background: #fff;
 }
+
+
 
 .readmore text{
   text-decoration: underline;
@@ -251,8 +256,7 @@ page .container{
 }
 
 .housetype .meta{
-
-  width: calc(100% - 280rpx);
+  width: 600rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -260,7 +264,6 @@ page .container{
 }
 
 .housetype .name{
-  font-size:30rpx;
   width:100%;
   padding:10rpx 0;
   height:50rpx;
@@ -270,7 +273,6 @@ page .container{
   color: 000;
 }
 .housetype .kv{
-  font-size:28rpx;
 }
 
 .housetype .kvs{
@@ -281,20 +283,18 @@ page .container{
 }
 
 
+.moreurl .arrow image{
+   width:40rpx;
+   height:40rpx;
+}
+
 .moreurl{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 152rpx;
-  position:relative;
+  height: 120rpx;
 }
 
-.moreurl .poster, .moreurl .poster image{
-  width: 266rpx;
-  height: 152rpx;
-  border-radius: 0rpx;
-  overflow: hidden;
-}
 
 .moreurl .meta{
   width: 368rpx;
@@ -303,28 +303,29 @@ page .container{
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
+
 }
 
 .moreurl .meta .t{
-  font-size: 32rpx;
   color: #000;
+  display: -webkit-box ;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:1;
 }
 .moreurl .meta .d{
   color: #333;
-  font-size:24rpx;
-}
-
-.moreurl .footer{
-  position:absolute;
-  bottom:-29rpx;
-  left:0rpx;
-  z-index:10;
-  height:30rpx;
-  width:100%;  
+  display: -webkit-box ;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
 }
 
 .add-comment{
-  font-size:28rpx;
   color: #333;
   margin:10rpx auto 20rpx auto;
 }
@@ -340,7 +341,6 @@ page .container{
 }
 
 .block-title .desc{
-  font-size:24rpx;
   color: #999;
 }
 @import "/tpls/posts/mini_listing.wxss";

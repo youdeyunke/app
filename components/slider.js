@@ -26,7 +26,7 @@ Component({
     },
 
     gotoQa: function(e){
-      wx.navigateTo({
+      wx.switchTab({
         url: '/pages/qa/index',
       })
     },
@@ -34,7 +34,7 @@ Component({
     gotoTiao: function(e){
       console.log('e')
       wx.switchTab({
-        url: '/pages/tiao/index',
+        url: '/pages/myself/zhao',
       })
     },
 

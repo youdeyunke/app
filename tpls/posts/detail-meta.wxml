@@ -21,7 +21,7 @@
       <view  class="detail-meta" wx-if="{{post.block_info && post.block_info.cate == 'item'}}">
           <view class="meta">
             <text class="label">均价</text>
-            <text>{{ post.block_info.item_price }} 元/㎡</text>
+            <text class="i h1">{{ post.block_info.item_price }} 元/㎡</text>
           </view>
 
           <view class="meta">

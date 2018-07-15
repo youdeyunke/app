@@ -1,30 +1,6 @@
 <myslider></myslider>
-  <navigator class="container post-item" open-type='navigateTo' hover-class='none' wx:for="{{posts}}" url="/pages/post/post?id={{item.id}}">
-    <view class="poster-block">
-      <image src="{{item.tiao_cover.url}}?imageView2/2/w/750"></image>
-    </view>
-    <view class="title-block">
-      <view class="l">
-        <image src="{{item.block_info.item_logo.url}}?imageView2/2/w/100"></image>
-      </view>
-      <view class="m">
-        <view class="title h1 line-limit">{{item.block_info.name}}</view>
-      </view>
-      <view class="r">
-          <mystars value="{{item.score}}"></mystars>
-      </view>
-    </view>
 
-      <view class="address" wx:if="{{item.block_info.street}}">
-        <image src="/assets/icons/location.png"></image>
-      {{item.block_info.district.name}}-{{item.block_info.street}}
-      </view>
 
-    <view class="tag-block tags">
-      <view class="item" wx:if="{{tagIndex <= 2}}" wx:for="{{item.tags_list}}" wx:for-item="tag" wx:for-index="tagIndex">{{tag}}</view>
-    </view>
-
-  </navigator>
 
 <view  class="weui-loadmore" wx:if="{{hasMore}}">
   <i class="weui-loading"></i>

@@ -1,12 +1,5 @@
 page{
-  background-repeat: no-repeat;
-  background-size: 750rpx 301rpx;
-  background-color: #f0f0f0;
-}
 
-page .container{
-  width:690rpx;
-  margin:0 auto 100rpx auto;
 }
 
 .comments .item{

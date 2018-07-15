@@ -1,13 +1,13 @@
 <template name="more-url">
-<block>
+<view class="container">
   <view wx:if="{{post.more_url}}" bindtap='openWebview' class="box moreurl">
-    <view class="poster">
-      <image src="/assets/images/read-more.png"></image>
-    </view>
     <view class="meta">
-      <view class="t">{{post.more_title}}</view>
+      <view class="t h2">{{post.more_title}}</view>
       <view class="d">{{post.more_desc}}</view>
     </view>
+    <view class="arrow">
+            <image src="/assets/icons/right-arrow.png"></image>
+    </view>
   </view>
-</block>
+</view>
 </template>

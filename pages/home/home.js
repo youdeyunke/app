@@ -15,9 +15,11 @@ Page({
     hasMore: true,
     posts: [],
     tabIcons: [
-      {name: '看测评', url: '/pages/post/index', opentype:"navigateTo"},
-      {name: '问专家', url: '/pages/qa/index', opentype:"navigateTo"},
-      {name :'挑好房', url: '/pages/tiao/index', opentype:"switchTab"}
+      { name: '全部房源', url: '/pages/post/index', opentype:"navigateTo", id: 'all'},
+      {name: '热卖楼盘', url: '/pages/post/index', opentype:"navigateTo", id: 'hot'},
+      { name: '二手房源', url: '/pages/post/index', opentype:"navigateTo", id: 'youhui'},
+      { name: '最新开盘', url: '/pages/post/index', opentype: "navigateTo", id: 'new' }      
+
     ]
   },
 
@@ -66,10 +68,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var _this = this
-    app.getUserInfo(function (userInfo) {
-      _this.setData({ userInfo: userInfo })
-    })    
+    var _this = this   
     _this.loadPosts()
   },
 
@@ -93,6 +92,7 @@ Page({
       }
       d.offset = resp.paginate.offset
       _this.setData(d)
+      console.log('set data, posts:', d)
     })
   },
 

@@ -23,6 +23,6 @@
         <image src="/assets/icons/qa-like.png"></image> 有用（{{comment.like_nums || 0}}）</view>
       </view>
     </view>
-      <image src="/assets/images/post-list-footer.png" class="footer"></image>
+
   </view>
 </template>

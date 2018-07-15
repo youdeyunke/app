@@ -7,13 +7,19 @@
 <import src="/tpls/posts/more-url" />
 <image wx:if="{{true}}" class="post-cover" src="{{post.cover.url}}?imageView2/2/w/750"></image>
 
-<view class="container">
-   <view class=" post-title">{{ post.title }}</view>
-   <template is="detail-meta" data="{{post: post }}" />  
+<view class="header">
+  <view class="container">
+     <view class=" post-title h1">{{ post.title }}</view>
+     <view class="tags">
+        <text class="item" wx:for="{{post.tags_list}}" wx:for-item="tag">{{tag}}</text>
+     </view>
+     <template is="detail-meta" data="{{post: post }}" />  
+  </view>
+</view>
 
-  <view class="box html-content" hidden="{{readmore}}" wx:if="{{post.content_simple.length > 0}}">
-   <view class="blank-2x"></view>
-   <view class="line"></view>
+<view class="container">
+   <view class="h2">项目测评</view>
+   <view class="box html-content" hidden="{{readmore}}" wx:if="{{post.content_simple.length > 0}}">
    <view class="blank-2x"></view>
 
     <view class="raw">
@@ -24,29 +30,27 @@
 
   <view class="box html-content"  hidden="{{readmore == false && post.content_simple.length > 0}}">
     <view class="raw">
+      <template is="wxParse" data="{{wxParseData:htmlContentSimple.nodes}}"/>
       <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>
       <view class="readmore" bindtap='readLess'><text>收起</text></view>
     </view>
   </view>  
 </view>
 
-<view class="h1">热门户型</view>
 <template is="housetype" data="{{post: post}}" />
-
-<block wx:if="{{post.more_url}}">
-<view class="h1">买房必读</view>
-<view class="container">
-  <template is="more-url" data="{{post : post}}" />
-</view>
-</block>
+<template is="more-url" data="{{post : post}}" />
 
 <text class="h1" wx:if="{{posts.length > 0}}">猜你喜欢</text>
 <view class="container post-mini" wx:for="{{posts}}">
   <template is="miniposts"  data="{{ item}}"></template>
 </view>
 
-<view class="container">
-  <template is="post-comments" data="{{comments: comments, post: post}}" />
+<view class="container" wx:if="comments">
+  <view class="comments">
+    <template wx:for-item="comment" wx:for="{{ comments }}" is="comment-item" data="{{ comment, index, showTarget:false }}"  ></template>
+
+      <navigator class="add-comment" url="/pages/comments/new?target_id={{post.id}}"><text decode="{{true}}">我要点评</text></navigator>
+</view>
 </view>
 
 <form report-submit bindsubmit='btnsHandle' class="footer-btns">

@@ -1,12 +1,20 @@
+@import "/tpls/posts/mini_listing.wxss";
+
+page{
+  padding-top:0rpx;
+}
+
+.post-list{
+  margin-top:20rpx;
+}
 
 .tab-icons{
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-between;
-
-  margin-top:40rpx;
-  margin-bottom:40rpx;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  margin-top:30rpx;
 }
 
 .tab-icons navigator{
@@ -17,16 +25,16 @@
 }
 
 .tab-icons navigator image{
-  width:120rpx;
-  height: 120rpx;
+  width:40rpx;
+  height: 40rpx;
+  margin-bottom:10rpx;
 }
 
 .tab-icons navigator text{
-  color: #666;
   font-size:24rpx;
-  margin-top:20rpx;
+  color: #000;
+  font-weight: normal;
 }
-@import "/tpls/posts/listing.wxss";
 
 myfav{
   position: absolute;

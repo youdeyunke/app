@@ -9,8 +9,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
-	"appid": "wx2b22e217100684de",
-	"projectname": "HaoFangV2",
+	"appid": "wx8c1dc039a8e298d4",
+	"projectname": "Fang",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -53,7 +53,7 @@
 					"id": 3,
 					"name": "post",
 					"pathName": "pages/post/post",
-					"query": "id=1"
+					"query": "id=8"
 				},
 				{
 					"id": -1,

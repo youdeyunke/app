@@ -9,7 +9,6 @@
   <view class="purpose">
     <view class="h1">买房目的</view>
     <view class="tags">
-
       <text  bindtap="purposeHandle" data-index="{{index}}" class="item {{item.selected ? 'active' : '' }}" wx:for="{{purposeList}}">{{item.name}}</text>
     </view>
   </view>
