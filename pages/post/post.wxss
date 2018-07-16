@@ -42,21 +42,18 @@ page{
 
 .header{
   background:#fff;
-  position:relative;
   width:100%;
-  height:490rpx;
   display:flex;
   justify-content:center;
   align-items:center;
 }
 
 .header .container{
-  width:710rpx;
-  position:absolute;
-  top:-60rpx;
+  width:700rpx;
   border-radius: 10rpx;
   display: flex;
   justify-content: space-between;
+  margin-top:-60rpx;
 }
 
 
@@ -78,25 +75,6 @@ page{
   padding-bottom:20rpx;
 }
 
-
-.html-content.small .readmore{
-  position: absolute;
-  bottom:10rpx;
-  left:10rpx;
-  width: 100%;
-  background: #fff;
-}
-
-.readmore{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.readmore text{
-  text-decoration: underline;
-    font-weight: 800;
-}
 
 .main{
   margin:18rpx 0 35rpx 0;
@@ -249,12 +227,12 @@ myfav .myfav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom:20rpx;
 }
 
 .housetype .poster, .housetype .poster image{
   width: 250rpx;
   height: 200rpx;
-  border-radius: 10rpx;
   overflow: hidden;
 }
 
@@ -319,4 +297,34 @@ myfav .myfav {
 .block-title .desc{
   color: #999;
 }
+
+.content-switch{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-switch image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.content-switch .down{
+  transform:rotate(90deg);
+  -ms-transform:rotate(90deg); /* Internet Explorer */
+  -moz-transform:rotate(90deg); /* Firefox */
+  -webkit-transform:rotate(90deg); /* Safari 和 Chrome */
+  -o-transform:rotate(90deg); /* Opera */
+}
+
+.content-switch .up{
+  transform:rotate(-90deg);
+  -ms-transform:rotate(-90deg); /* Internet Explorer */
+  -moz-transform:rotate(-90deg); /* Firefox */
+  -webkit-transform:rotate(-90deg); /* Safari 和 Chrome */
+  -o-transform:rotate(-90deg); /* Opera */
+}
+
+
 @import "/tpls/posts/mini_listing.wxss";

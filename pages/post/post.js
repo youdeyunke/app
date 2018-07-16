@@ -11,10 +11,15 @@ Page({
     post: null,
     posts: null,
     htmlContent: null,
-    readmore: false,
-    miniContent: true,
+    minicontent: true,
   },
 
+
+  contentHandle: function(e){
+    this.setData({
+      minicontent: ! this.data.minicontent
+    })
+  },
 
   openWebview: function(e){
     var url = this.data.post.more_url

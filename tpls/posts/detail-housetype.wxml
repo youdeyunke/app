@@ -14,7 +14,7 @@
         <view class="kv"><text decode="{{true}}">建面&nbsp; &nbsp;&nbsp;{{post.housetype_area_a}}㎡</text></view>
         <view class="kvs">
           <view class="kv">单价<text decode="{{true}}">&nbsp; &nbsp;&nbsp;{{post.housetype_price_a}}</text></view>
-          <view class="kv">总价    <text decode="{{true}}">&nbsp; &nbsp;&nbsp;{{post.housetype_total_price_a}}</text></view>
+          <view class="kv">总价    <text decode="{{true}}" class="i">&nbsp; &nbsp;&nbsp;{{post.housetype_total_price_a}}</text></view>
         </view>
       </view>
     </view>

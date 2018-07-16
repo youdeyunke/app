@@ -23,24 +23,26 @@
 </view>
 
 <view class="container" style="padding-top:0;">
-
-
    <view class="h2">项目测评</view>
-   <view class="box html-content" hidden="{{readmore}}" wx:if="{{post.content_simple.length > 0}}">
+   <view class="box html-content" hidden="{{ minicontent == false }}" wx:if="{{post.content_simple.length > 0}}">
 
     <view class="raw">
       <template is="wxParse" data="{{wxParseData:htmlContentSimple.nodes}}"/>
-     <view class="readmore" bindtap='readMore'><text>展开全文</text></view>
+
     </view>
   </view>
 
-  <view class="box html-content"  hidden="{{readmore == false && post.content_simple.length > 0}}">
-    <view class="raw">
-      <template is="wxParse" data="{{wxParseData:htmlContentSimple.nodes}}"/>
-      <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>
-      <view class="readmore" bindtap='readLess'><text>收起</text></view>
+    <view class="box html-content"  hidden="{{ minicontent == true && post.content_simple.length > 0}}">
+      <view class="raw">
+        <template is="wxParse" data="{{wxParseData:htmlContentSimple.nodes}}"/>
+        <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>
+
     </view>
   </view>  
+
+  <view class="content-switch" bindtap='contentHandle'>
+    <image class="{{ minicontent == true ? 'down' : 'up' }}" src="/assets/icons/right-arrow.png"></image>
+  </view>
 </view>
 
 <template is="housetype" data="{{post: post}}" />
