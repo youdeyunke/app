@@ -3,25 +3,44 @@
     <image class="user" src="{{comment.user.avatar}}"></image>
     <view class="meta">
       <view class="nickname">
-        <view class="uname">{{comment.user.nickname}}</view>
-        <view class="cat">{{comment.cat_name}}</view>
+        <view class="main">
+          <view class="uname">{{comment.user.nickname}}</view>
+          <view class="mini-tags"><text>{{comment.cat_name}}</text></view>
+        </view>
+        <view class="score">
+          <view class="stars">
+            <mystars value="{{comment.score}}"></mystars>
+          </view>
+          <view class="start-text">{{comment.score_text}}</view>
+        </view>
+
       </view>
       <view class="target" wx:if="{{showTarget}}">
         <text>点评楼盘：</text>
         <text class="red">{{comment.post_info.block.name}}</text>
       </view>
-      <view class="score">
-        <view class="stars">
-          <mystars value="{{comment.score}}"></mystars>
-        </view>
-        <view class="start-text">{{comment.score_text}}</view>
-      </view>
+
+
       <view class="content">{{comment.content}}</view>
       <view class="datetime">
         <text class="time">{{comment.created_at_pertty}}</text>
         <view class="comment-like" data-index="{{index}}" bindtap='commentlikeHandle'>
         <image src="/assets/icons/qa-like.png"></image> 有用（{{comment.like_nums || 0}}）</view>
       </view>
+    </view>
+
+  </view>
+</template>
+
+
+<template name="comment-item-simple">
+<view class="item box mini">
+    <image class="user" src="{{comment.user.avatar}}"></image>
+    <view class="meta">
+      <view class="nickname">
+        <view class="uname">{{comment.user.nickname}}</view>
+      </view>
+      <view class="content">{{comment.content}}</view>
     </view>
 
   </view>

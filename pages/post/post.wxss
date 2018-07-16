@@ -4,15 +4,6 @@ page{
   padding:0 0 120rpx 0;
 }
 
-.pager .container-border-top-none{
-  
-}
-
-page .container{
-  margin:0rpx auto 20rpx auto;
-  padding:20rpx 30rpx;
-}
-
 .post-cover{
   width:750rpx;
   height: 410rpx;
@@ -23,25 +14,23 @@ page .container{
 }
 
 .detail-meta{
-  padding:20rpx 30rpx;
+  padding:20rpx 0 0 20rpx;
   border-radius:10rpx;
 }
 
-
 .detail-meta .meta{
  display:flex;
-}
-
-
-.detail-meta .meta text{
-  color:#999;
-  margin-bottom:20rpx;
+ height: 50rpx;
+ justify-content: flex-start;
+ align-items: center;
 }
 
 .detail-meta  .meta text.label{
   color:#666;
   width:110rpx;
-  display: inline-block;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
  .post-title{
@@ -55,7 +44,7 @@ page .container{
   background:#fff;
   position:relative;
   width:100%;
-  height:400rpx;
+  height:440rpx;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -65,6 +54,7 @@ page .container{
   width:710rpx;
   position:absolute;
   top:-60rpx;
+  border-radius: 10rpx;
 }
 
 
@@ -73,7 +63,7 @@ page .container{
   width:300rpx;
 }
 .html-content{
-  margin-bottom:40rpx;
+
   line-height: 64rpx;
   letter-spacing: 2rpx;  
   font-weight: lighter;
@@ -95,7 +85,11 @@ page .container{
   background: #fff;
 }
 
-
+.readmore{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .readmore text{
   text-decoration: underline;
@@ -180,7 +174,6 @@ page .container{
 }
 
 .footer-btns li{
-  width:50%;
   height:100%;
   display:flex;
   justify-content:center;
@@ -192,15 +185,44 @@ page .container{
 .footer-btns li image{
   height: 40rpx;
   width: 40rpx;
-  margin-right:20rpx;
+
 }
 
 .footer-btns li.call{
-  background:#e5d210;
+  background:green;
+
+  color: #fff;
+  font-weight: bold;
+  width: 40%;
 }
+.footer-btns li.call image{
+  margin-right:20rpx;
+}
+
 .footer-btns li.booking{
   background:#7c0875;
+  width:40%;
 }
+
+.footer-btns li.booking image{
+    margin-right:20rpx;
+}
+
+.footer-btns li.fav{
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  text-align: center;
+}
+
+myfav .myfav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 .mask{
   position: absolute;
@@ -245,7 +267,6 @@ page .container{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom:20rpx;
 }
 
 .housetype .poster, .housetype .poster image{
@@ -256,7 +277,7 @@ page .container{
 }
 
 .housetype .meta{
-  width: 600rpx;
+  width: 400rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -272,8 +293,6 @@ page .container{
 .housetype .kvs text{
   color: 000;
 }
-.housetype .kv{
-}
 
 .housetype .kvs{
   display: flex;
@@ -283,55 +302,30 @@ page .container{
 }
 
 
-.moreurl .arrow image{
-   width:40rpx;
-   height:40rpx;
+.moreurl .container-body .h2{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
 }
 
-.moreurl{
+
+.comments-empty{
+  text-align: center;
+  padding:20rpx 0;
+}
+
+.comments-add{
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  height: 120rpx;
 }
 
-
-.moreurl .meta{
-  width: 368rpx;
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-
-}
-
-.moreurl .meta .t{
-  color: #000;
-  display: -webkit-box ;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: break-all;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp:1;
-}
-.moreurl .meta .d{
-  color: #333;
-  display: -webkit-box ;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: break-all;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp:2;
-}
-
-.add-comment{
-  color: #333;
-  margin:10rpx auto 20rpx auto;
-}
-
-.comments .item.box {
-  margin-bottom:45rpx;
+.comments-add image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
 }
 
 .block-title{

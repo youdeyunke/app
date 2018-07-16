@@ -45,4 +45,8 @@ page{
   overflow: hidden;
   margin-bottom:10rpx;
 }
-
+.weui-cell__hd image{
+  width: 40rpx;
+  height: 40rpx;
+margin-right: 15rpx;vertical-align: middle;
+}

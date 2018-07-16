@@ -59,6 +59,40 @@ page .container.container-padding-none{
   
 }
 
+.container-head{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f4f4f4;
+  padding:0 0 15rpx 0;
+  width: 100%;
+}
+
+.container-head-action{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 300rpx;
+}
+
+.container-head-action image{
+  width: 24rpx;
+  height: 24rpx;
+  margin-right:10rpx;
+}
+
+.container-head .h2{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.container-body{
+  padding-top:20rpx;
+}
+
 textarea{
   width:100%;
 }
@@ -176,12 +210,12 @@ textarea{
   white-space: nowrap;  
 }
 
-
 .comments .item.box{
-  border-radius: 10rpx;
   background:#fff;
-  padding:25rpx 20rpx;
   position: relative;
+  margin:10rpx 0 20rpx 0;
+  padding:0 0 20rpx 0;
+  border-bottom:1rpx solid #f4f4f4;
 }
 
 .comments .item.box .comment-like{
@@ -220,26 +254,24 @@ textarea{
 
 .comments .item .meta  .nickname{
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 }
 
 .comments .item .meta  .nickname .uname{
   color: #000;
   font-weight: bold;
+  margin-right:20rpx;
 }
 
-.comments .item .meta  .nickname .cat{
-  background: #ffd900;
-  padding:0 35rpx;
-  color: #000;
-  margin-left:30rpx;
-  border-radius: 30rpx;
+.comments .item .meta  .nickname .main {
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+
 }
 
 .comments .item .meta  .score{
-    width:100%;
-    border-bottom:1rpx solid #f4f4f4;
     display:flex;
     justify-content:flex-start;
     align-items:center;
@@ -266,7 +298,7 @@ textarea{
 }
 
 .comments .item .meta .content{
-    min-height: 100rpx;
+    min-height: 60rpx;
 }
 
 .comments .item .meta .datetime{
@@ -280,31 +312,6 @@ textarea{
   color: #f4f4f4;
 }
 
-
-myfav image{
-  width:28rpx;
-  height: 28rpx;
-}
-
-myfav{
-  padding-left:10rpx;
-  padding-right:5rpx;
-  width:84rpx;
-  height: 34rpx;
-  font-size:20rpx;
-  color:#fff;
-  background: rgba(0,0, 0, 0.5);
-  border-top-left-radius: 10rpx;
-  border-bottom-left-radius: 10rpx;
-  position: absolute;
-  right:10rpx;
-  top:0rpx;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-}
 
 
 .gohome{
@@ -337,7 +344,7 @@ myfav{
 
 .mini-tags text{
   border:1px solid #cecece;
-  padding:0 10rpx;
+  padding:5rpx 10rpx;
   margin-right: 20rpx;
 }
 

@@ -1,4 +1,6 @@
-<view class="like item" bindtap='clickHandle'>
-  <image src="/assets/icons/hart.png" ></image>
-  <text>{{post.favs_count}}</text>
+<view class="myfav"  bindtap='clickHandle'>
+  <image src="/assets/icons/fav.{{status }}.png" ></image>
+  <text wx:if="{{showcount}}" class="count">{{count}}</text>
+  <text wx:if="{{showstatus}}" class="status"> {{status == 0 ? '关注' : '已关注'}}</text>
+
 </view>

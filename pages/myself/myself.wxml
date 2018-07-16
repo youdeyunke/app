@@ -19,34 +19,49 @@
 <view class="weui-panel" wx:if="{{userInfo}}">
   <view class="actions">
       <view class="weui-cell weui-cell_access" wx:if="{{!userInfo.mobile}}">
-          <view class="weui-cell__bd">绑定手机号</view>
+          <view class="weui-cell__bd h1">绑定手机号</view>
           <view class="weui-cell__ft">
             <button class="weui-btn btn-mini" type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain>马上绑定</button>
           </view>
       </view>
       
       <navigator url="/pages/myself/qa" hover-class="none" class="weui-cell weui-cell_access">
-          <view class="weui-cell__bd">我的咨询</view>
+          <view class="weui-cell__hd">
+            <image src="/assets/icons/m-qa.png"></image>
+          </view>
+          <view class="weui-cell__bd h1">我的咨询</view>
           <view class="weui-cell__ft weui-cell__ft_in-access"></view>
       </navigator>
 
       <navigator url="/pages/comments/index" hover-class="none" class="weui-cell weui-cell_access">
-          <view class="weui-cell__bd">我的评论</view>
+          <view class="weui-cell__hd">
+            <image src="/assets/icons/m-comment.png"></image>
+          </view>      
+          <view class="weui-cell__bd h1">我的评论</view>
           <view class="weui-cell__ft weui-cell__ft_in-access"></view>
       </navigator>
 
       <navigator url="/pages/myself/favposts" hover-class="none" class="weui-cell weui-cell_access">
-          <view class="weui-cell__bd">我的收藏</view>
+          <view class="weui-cell__hd">
+            <image src="/assets/icons/m-fav.png"></image>
+          </view>          
+          <view class="weui-cell__bd h1">我的收藏</view>
           <view class="weui-cell__ft weui-cell__ft_in-access"></view>
       </navigator>
 
       <navigator hover-class="none"  class="weui-cell weui-cell_access">
-          <view class="weui-cell__bd">关于</view>
+          <view class="weui-cell__hd">
+            <image src="/assets/icons/m-about.png"></image>
+          </view>          
+          <view class="weui-cell__bd h1">关于</view>
           <view class="weui-cell__ft weui-cell__ft_in-access"></view>
       </navigator>      
 
       <navigator hover-class="none"  class="weui-cell weui-cell_access">
-          <view class="weui-cell__bd">联系客服</view>
+                    <view class="weui-cell__hd">
+            <image src="/assets/icons/m-call.png"></image>
+          </view>    
+          <view class="weui-cell__bd h1">联系客服</view>
           <view class="weui-cell__ft weui-cell__ft_in-access"></view>
       </navigator>     
     </view>

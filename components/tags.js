@@ -4,9 +4,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    mini: {type: Boolean, value: false },
     max: {type: Number, value: 2},
     items: { type: Array, value: [] },
-    right: {type: Boolean, value: false}
   },
 
   ready: function(){

@@ -8,7 +8,7 @@
 <view class="container">
   <view class="purpose">
     <view class="h1">买房目的</view>
-    <view class="tags">
+    <view class="container-body tags">
       <text  bindtap="purposeHandle" data-index="{{index}}" class="item {{item.selected ? 'active' : '' }}" wx:for="{{purposeList}}">{{item.name}}</text>
     </view>
   </view>
@@ -25,7 +25,7 @@
 
   <view class="contact">
     <view class="h1">联系方式</view>
-    <textarea bindinput='contactHandle'  value="{{contact}}" placeholder='留下您的手机号或者微信号，方便我们尽快l联系您'>   </textarea>
+    <input> bindinput='contactHandle'  value="{{contact}}" placeholder='留下您的手机号或者微信号，方便我们尽快l联系您'>   </input>
   </view>
 
 </view>

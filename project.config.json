@@ -8,8 +8,8 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.94",
-	"appid": "wx8c1dc039a8e298d4",
+	"libVersion": "2.2.0",
+	"appid": "wx2b22e217100684de",
 	"projectname": "Fang",
 	"condition": {
 		"search": {
@@ -53,7 +53,7 @@
 					"id": 3,
 					"name": "post",
 					"pathName": "pages/post/post",
-					"query": "id=8"
+					"query": "id=1"
 				},
 				{
 					"id": -1,

@@ -12,6 +12,7 @@ Page({
     posts: null,
     htmlContent: null,
     readmore: false,
+    miniContent: true,
   },
 
 
@@ -112,6 +113,22 @@ Page({
     })
   },
 
+  parseHtml: function(){
+    var _this = this
+    var key1 = "htlm_content." + _this.data.postId
+    var key2 = "htlm_content_simple." + _this.data.postId
+    var html1 = wx.getStorageSync(key1)
+    var html2 = wx.getStorageSync(key2)
+    if(html1 && html2 ){
+      _this.setData({htmlContent: html1, htmlContentSimple: html2})
+      return
+    }
+    WxParse.wxParse('htmlContent', 'html', _this.data.post.content ,  _this, 5);
+    WxParse.wxParse('htmlContentSimple', 'html', _this.data.post.content_simple, _this, 5);
+    wx.setStorageSync(key1, _this.data.htmlContent)
+    wx.setStorageSync(key2, _this.data.htmlContentSimple)
+  },
+
   loadPost: function(postId){
     var _this = this
 
@@ -119,10 +136,8 @@ Page({
       url: '/api/v1/posts/' + postId,
       success: function(resp){
         _this.setData({post: resp.data.data})
+        _this.parseHtml()
         wx.setStorageSync('last_view_post', resp.data.data)
-        WxParse.wxParse('htmlContent', 'html', resp.data.data.content ,  _this, 5);
-        WxParse.wxParse('htmlContentSimple', 'html', resp.data.data.content_simple, _this, 5);
-
         wx.setNavigationBarTitle({
           title: resp.data.data['title']
         })        

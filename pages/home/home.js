@@ -85,10 +85,12 @@ Page({
     app.loadPosts(query, function (resp) {
       console.log('home.js posts:', resp.data)
       var d = {}
-      var k = "posts[" + _this.data.offset + "]"
-      d[k] = resp.data
-      if(resp.data.length == 0){
+
+      if(resp.data.length == 0 ){
         d.hasMore = false
+      }else{
+        var k = "posts[" + _this.data.offset + "]"
+        d[k] = resp.data
       }
       d.offset = resp.paginate.offset
       _this.setData(d)

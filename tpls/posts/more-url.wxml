@@ -1,13 +1,15 @@
 <template name="more-url">
-<view class="container">
-  <view wx:if="{{post.more_url}}" bindtap='openWebview' class="box moreurl">
-    <view class="meta">
-      <view class="t h2">{{post.more_title}}</view>
-      <view class="d">{{post.more_desc}}</view>
+<view class="container moreurl"  wx:if="{{post.more_url}}" bindtap='openWebview'>
+  <view class="container-head">
+    <view class="h2">相关资讯</view>
+    <view class="container-head-action">
+            <image src="/assets/icons/right-arrow.png"></image>    
     </view>
-    <view class="arrow">
-            <image src="/assets/icons/right-arrow.png"></image>
-    </view>
+  </view>
+
+  <view class="container-body">
+      <view class="desc">{{post.more_title}}</view>
+      <view class="desc">{{post.more_desc}}</view>
   </view>
 </view>
 </template>

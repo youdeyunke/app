@@ -1,5 +1,5 @@
 page{
-
+  padding-top: 0rpx;
 }
 
 .comments .item{

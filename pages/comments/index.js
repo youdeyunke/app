@@ -7,7 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    comments: []
+    comments: [],
+    target_id: '',
+    myself: false,
   
   },
 
@@ -15,6 +17,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
+    this.setData(q)
     this.loadData()
     wx.setNavigationBarTitle({
       title: q.title || '我的评论',
@@ -26,7 +29,7 @@ Page({
     var _this = this
     app.request({
       url: '/api/v1/mycomments',
-      data: { myself: true },
+      data: { myself: _this.data.myself, target_id: _this.data.myself },
       success: function (resp) {
         _this.setData({ comments: resp.data.data })
       },

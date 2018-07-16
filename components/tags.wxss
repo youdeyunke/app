@@ -1,0 +1,14 @@
+.mini-tags .tag {
+  border:1rpx solid #E5E5E5;
+  color:#9C9FA1;
+  padding:4rpx 4rpx;
+ }
+
+.tags .tag{
+  color: #666;
+  border-radius: 0rpx;
+  display: inline-block;
+  padding:0rpx 16rpx;
+  background: #f4f4f4;
+  margin-right:15rpx;
+}

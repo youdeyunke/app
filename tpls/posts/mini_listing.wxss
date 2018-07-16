@@ -15,10 +15,28 @@
 
 .post-mini .post .cover{
   position: relative;
-  overflow: hidden;
   width:266rpx;
   height: 184rpx;  
 }
+
+.post-mini .post .badge{
+    position: absolute;
+    color: #fff;
+    background-color: #FA5741;  
+    left:-10rpx;
+    bottom:20rpx;
+    padding:10rpx 15rpx;
+    line-height: 100%;
+}
+
+.post-mini .post .badge .arrow{
+  width: 10rpx;
+  height: 10rpx;
+  position: absolute;
+  left: 0rpx;
+  bottom: -5rpx;
+}
+
 
 .post-mini .post .cover .i{
   width:100%;
@@ -71,8 +89,8 @@
     color: orangered;
     font-weight: bold;
 }
-
-
+.post-mini mytags .tag{
+}
 
 
 @import "/components/tags.wxss";
