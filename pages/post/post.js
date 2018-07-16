@@ -212,8 +212,50 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
+
+  couponHandle: function(){
+    var pid = this.data.postId
+    var _this = this
+    if(_this.data.post.user_has_coupon){
+      return false
+    }
+    app.request({
+      url: '/api/v1/users/mark_coupon',
+      method: 'POST',
+      data: { post_id: pid },
+      success: function (resp) {
+        console.log('resp', resp)   
+        wx.showToast({
+          title: '领取优惠券成功',
+          icon: 'success',
+        })
+        _this.loadPost(pid)
+      }
+    })    
+  },
+
+  bookingHandle: function () {
+    var pid = this.data.postId
+    var _this = this
+    if (_this.data.post.user_has_booking) {
+      return false
+    }
+    app.request({
+      url: '/api/v1/users/mark_book',
+      method: 'POST',
+      data: { post_id: pid },
+      success: function (resp) {
+        console.log('resp', resp)
+        wx.showToast({
+          title: '预约成功，客服稍后会与您联系',
+          icon: 'success',
+        })
+        _this.loadPost(pid)
+      }
+    })
+  },  
   
   onShareAppMessage: function () {
     var _this = this

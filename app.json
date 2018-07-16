@@ -13,12 +13,9 @@
     "pages/myself/myself",
     "pages/about/index",
     "pages/qa/new",
-
-    "pages/post/coupon",
     "pages/home/debug",
     "pages/comments/index",
     "pages/myself/favposts",
-    "pages/post/booking",
     "pages/static/about",
     "pages/myself/qa"
   ],
