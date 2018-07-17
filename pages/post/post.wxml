@@ -50,8 +50,10 @@
   <view>{{ post.more_desc }}</view>
 </mycard>
 
-<mycard number="{{post.comments_count}}" title="用户评价" url="/pages/comments/index?target_id={{postId}}" >
+<mycard number="{{post.comments_count}}" title="用户评价" url="{{ post.comments_count > 5 ?  '/pages/comments/index?target_id=' +postId : null}}" >
   <comments mini="true" items="{{comments}}"></comments>
+
+  <view class="comments-empty" wx:if="{{post.comments_count == 0}}">暂无评论</view>
 
   <view class="comments-add">
     <image src='/assets/icons/pen.png'></image>

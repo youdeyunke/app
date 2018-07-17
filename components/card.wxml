@@ -5,7 +5,7 @@
               <text wx:if="{{number>0}}">({{number}})</text>
             </view>
     </view>
-    <view class="card-header-action" bindtap='actionHandle'>
+    <view wx:if="{{url}}" class="card-header-action" bindtap='actionHandle'>
       <text class="card-header-action-name">{{action}}</text>
       <image class="card-header-action-image" src="/assets/icons/right-arrow.png"></image> 
     </view>
