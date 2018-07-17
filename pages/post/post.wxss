@@ -4,6 +4,10 @@ page{
   padding:0 0 120rpx 0;
 }
 
+mycard{
+  width: 750rpx;
+}
+
 .post-cover{
   width:750rpx;
   height: 410rpx;
@@ -94,6 +98,7 @@ page{
 }
 .coupon .name{
   height: 100rpx;
+  width: 380rpx;
   display: flex;
   justify-content: flex-start;
   align-items:  center;

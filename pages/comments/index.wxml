@@ -1,4 +1,9 @@
 <import src="/tpls/comment-item.wxml" />
 <view class="container comments">
-    <template wx:for-item="comment" wx:for="{{ comments }}" is="comment-item" data="{{ comment, index, showTarget:showTarget }}"  ></template>
+    <comments items="{{comments}}"></comments>
+</view>
+
+<view class="empty" wx:if="{{loaded && comments.length == 0}}">
+   <image src="/assets/images/cover-none.png"></image>
+   <view>没有数据</view>
 </view>

@@ -1,0 +1,57 @@
+/* components/card.wxss */
+@import "../app.wxss";
+
+.card{
+  background:#fff;
+  width:100%;
+  margin:0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  position: relative;
+  box-shadow: 0 1px 2px rgba(150, 150, 150, 0.3);  
+  margin-bottom:20rpx;
+  box-sizing: border-box;
+  padding:30rpx 30rpx;
+  border-radius: 0;
+}
+
+.card-header{
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #f4f4f4;
+  padding:0 0 15rpx 0;
+  width: 100%;  
+}
+
+.card-header-action{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 60%;
+}
+
+.card-header-action-name{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  line-height: 100%;
+  margin-right:10rpx;
+}
+
+.card-header-action-image{
+  width: 24rpx;
+  height: 24rpx;
+  margin-right:10rpx;  
+  vertical-align: middle;
+}
+
+.card-body{
+  padding-top:20rpx;
+}
+
+.card-footer{}

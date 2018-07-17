@@ -4,9 +4,9 @@
       <view class="cover">
         <view class="badge" wx:if="{{item.coupon_desc}}">
           {{item.coupon_desc}}
-          <image class="arrow" src="/assets/icons/badge-arrow.png"></image>
         </view>
-              <image class="i" src="{{ item.cover.url }}?imageView2/2/w/250"></image>
+        <image wx:if="{{item.coupon_desc}}" class="badge-arrow" src="/assets/icons/badge-arrow.png"></image>
+              <image class="i" src="{{ item.cover.url || '/assets/images/cover-none.png' }}?imageView2/2/w/250"></image>
         <image wx:if="{{false}}" class="play-btn" src="/assets/images/play-btn.png"></image>
       </view>
       <view class="meta">

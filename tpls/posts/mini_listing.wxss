@@ -27,14 +27,19 @@
     bottom:20rpx;
     padding:10rpx 15rpx;
     line-height: 100%;
+    box-sizing: border-box;
+    max-width: 266rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;    
 }
 
-.post-mini .post .badge .arrow{
+.post-mini .post .badge-arrow{
   width: 10rpx;
   height: 10rpx;
   position: absolute;
-  left: 0rpx;
-  bottom: -5rpx;
+  left: -9rpx;
+  bottom: 10rpx;
 }
 
 

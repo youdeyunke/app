@@ -9,7 +9,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.2.0",
-	"appid": "wx2b22e217100684de",
+	"appid": "wx22f2238c72f84e69",
 	"projectname": "Fang",
 	"condition": {
 		"search": {
@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -132,6 +132,18 @@
 					"name": "myself-fav",
 					"pathName": "pages/myself/favposts",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "post-index",
+					"pathName": "pages/post/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "comments-index-target",
+					"pathName": "pages/comments/index",
+					"query": "target_id=1"
 				}
 			]
 		}

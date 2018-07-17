@@ -2,6 +2,11 @@
 <import src="/tpls/posts/mini_listing.wxml"/>
 
 <view class="container post-mini" wx:for="{{posts}}">
-	<template is="miniposts"  data="{{ item}}"></template>
+    <template is="miniposts"  data="{{ item}}"></template>
+</view>
+
+<view class="empty" wx:if="{{posts.length == 0}}">
+   <image src="/assets/images/cover-none.png"></image>
+   <view>{{ emptyText || '没有数据'}}</view>
 </view>
 

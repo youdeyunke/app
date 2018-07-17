@@ -1,13 +1,10 @@
 <!--index.wxml-->
 <swiper class="swiper home" indicator-dots="true" autoplay="true" interval="5000"
 duration="500" circular="true" indicator-color="rgba(255,255,255,0.7)" autoplay indicator-active-color="#fff" >
-
-    <swiper-item bindtap="gotoAbout">
-      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528721262907&di=a0488c17f9633a075ff10ca39c314bbf&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F13%2F29%2F64%2F42e58PICHSG_1024.jpg"></image>
-    </swiper-item>   
+ 
 
     <swiper-item bindtap="gotoTiao">
-      <image src="http://jiayaosu-10013564.image.myqcloud.com/68972d89-6f43-4877-af6c-200441aed794#690*390"></image>
+      <image src="https://pic1.ajkimg.com/display/hj/f2311fe332b25ee488afdcf828848f56/240x180c.jpg?t=1"></image>
     </swiper-item>   
 
     <swiper-item bindtap="gotoQa">

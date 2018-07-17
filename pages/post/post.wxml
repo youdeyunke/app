@@ -3,9 +3,8 @@
 <import src="/tpls/comment-item.wxml" />
 <import src="/tpls/posts/detail-housetype.wxml" />
 <import src="/tpls/posts/detail-meta.wxml" />
-<import src="/tpls/posts/house-coupon.wxml" />
 <import src="/tpls/posts/more-url" />
-<image wx:if="{{true}}" class="post-cover" src="{{post.cover.url}}?imageView2/2/w/750"></image>
+<image wx:if="{{true}}" class="post-cover" src="{{post.cover.url || '/assets/images/cover-none.png' }}?imageView2/2/w/750"></image>
 
 <view class="header">
   <view class="container">
@@ -15,7 +14,7 @@
      <template is="detail-meta" data="{{post: post }}" /> 
 
    <view bindtap='couponHandle' class="coupon" wx:if="{{post && post.coupon_desc}}">
-    <view class="name">{{post.coupon_desc}}</view>
+    <view class="name line-limit">{{post.coupon_desc}}</view>
     <view class="action">{{ post.user_has_coupon ? '已领取' : '领取优惠券' }}</view>
    </view>     
 
@@ -46,33 +45,22 @@
 </view>
 
 <template is="housetype" data="{{post: post}}" />
-<template is="more-url" data="{{post : post}}" />
 
+<mycard title="{{post.more_title}}" path="{{post.more_url}}">
+  <view>{{ post.more_desc }}</view>
+</mycard>
 
-<view class="container">
-  <view class="container-head">
-    <view class="h2">用户点评
-      <block wx:if="{{post.comments_count > 0}}">
-        ({{post.comments_count}})
-      </block>
-    </view>
-    <view class="container-head-action">
-      <navigator url="/pages/comments/index?target_id={{postId}}&title=全部评论">查看全部</navigator>
-      <image src="/assets/icons/right-arrow.png"></image> 
-    </view>
+<mycard number="{{post.comments_count}}" title="用户评价" path="/pages/comments/index?target_id={{postId}}" >
+  <comments mini="true" items="{{comments}}"></comments>
+
+  <view class="comments-add">
+    <image src='/assets/icons/pen.png'></image>
+    <navigator url="/pages/comments/new?target_id={{post.id}}">我要点评</navigator>      
   </view>
 
-  <view class="comments container-body">
-    <view class="comments-empty" wx:if="{{comments.length == 0}}">暂无评论</view>
+</mycard>
 
-    <template wx:for-item="comment" wx:for="{{ comments }}" is="comment-item-simple" data="{{ comment, index, showTarget:false }}"  ></template>
 
-    <view class="comments-add">
-      <image src='/assets/icons/pen.png'></image>
-      <navigator url="/pages/comments/new?target_id={{post.id}}">我要点评</navigator>      
-    </view>
-  </view>
-</view>
 
 <form report-submit bindsubmit='btnsHandle' class="footer-btns">
   <ul>

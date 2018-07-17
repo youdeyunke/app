@@ -1,21 +1,10 @@
 <import src="/tpls/qa.wxml"/>
 
-<view class="container container-bg-none" >
-  <view class="h2">
-    未回复的
-  </view>
-</view>
-
-<view class="qa-items">
-  <template is="qa-item" data="{{item}}" wx:for="{{unreplied}}"></template>
-</view>
-
-<view class="container container-bg-none">
-  <view class="h2">
-    已回复的
-  </view>
-</view>
-
 <view class="qa-items">
   <template is="qa-item" data="{{item}}" wx:for="{{replied}}"></template>
+</view>
+
+<view class="empty" wx:if="{{items.length == 0}}">
+   <image src="/assets/images/cover-none.png"></image>
+   <view>{{ emptyText || '没有数据'}}</view>
 </view>

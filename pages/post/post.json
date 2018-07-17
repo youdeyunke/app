@@ -2,6 +2,8 @@
   "usingComponents": {
     "mytags": "/components/tags",
     "myfav": "/components/fav",
-    "mystars": "/components/stars"
+    "mycard": "/components/card",
+    "mystars": "/components/stars",
+    "comments": "/components/comments"
   }
 }

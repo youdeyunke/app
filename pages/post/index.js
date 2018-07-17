@@ -7,23 +7,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    itemPosts: [],
-    blockPosts: []
+    posts: [],
+    cid: null,
+    city_id: null,
+    offset: 0,
+    total: 0,
+    limit: 10,
+    hasMore: true,
+    posts: [],
   },
 
 
-  onLoad: function (options) {
+  onLoad: function (query) {
+    var cid =  query.cid
     var _this = this
-    app.loadPosts({cate: 'item'} ,function(resp){
-      console.log('home.js posts:', resp.data)
-      _this.setData({itemPosts: resp.data})
-    })
-
-    app.loadPosts({cate: 'block'}, function(resp){
-      console.log('home.js posts:', resp.data)
-      _this.setData({blockPosts: resp.data})
-    })
-
+    app.loadPosts(_this)
   },
 
 

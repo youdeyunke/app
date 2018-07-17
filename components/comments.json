@@ -1,7 +1,7 @@
 {
+  "component": true,
   "usingComponents": {
     "mytags": "/components/tags",
-    "comments": "/components/comments",
     "mystars": "/components/stars"
   }
 }

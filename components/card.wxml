@@ -1,0 +1,17 @@
+<view class="card">
+  <view class="card-header">
+    <view class="card-header-title">
+            <view class="h2">{{title}}
+              <text wx:if="{{number>0}}">({{number}})</text>
+            </view>
+    </view>
+    <view class="card-header-action" bindtap='actionHandle'>
+      <text class="card-header-action-name">{{action}}</text>
+      <image class="card-header-action-image" src="/assets/icons/right-arrow.png"></image> 
+    </view>
+  </view>
+  <view class="card-body">
+    <slot></slot>
+  </view>
+  <view class="card-footer"></view>
+</view>

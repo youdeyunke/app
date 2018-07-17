@@ -9,6 +9,35 @@ App({
     cities: [],
     serverMobile: '4008627058'
   },
+
+  loadPosts: function(that){
+    if(!that.data.hasMore){
+      return false
+    }
+    var query = {
+      city_id: that.data.city_id || '',
+      offset: that.data.offset || 0,
+      limit: that.data.limit || 0,
+    }
+    var _this = this
+    this.request({
+      url: '/api/v1/posts',
+      data: query,
+      success: function(resp){
+        console.log('app.resp', resp)
+        var d = {}
+        if(resp.data.data.length == 0 ){
+          d.hasMore = false
+        }else{
+          var k = "posts[" + that.data.offset + "]"
+          d[k] = resp.data.data
+        }
+        d.offset = resp.data.paginate.offset
+        that.setData(d)
+
+      }
+    })
+  },
   
 
   comingSoon: function(){
@@ -29,16 +58,6 @@ App({
     })
   },
 
-  loadPosts:function(query, cb){
-    console.log('query.. ', query)
-    this.request({
-      url: '/api/v1/posts',
-      data: query,
-      success: function(resp){
-        typeof cb == "function" && cb(resp.data)
-      },
-    })
-  },
 
   onLaunch: function () {
     var _this = this
@@ -201,8 +220,8 @@ App({
     
     
     // This must be wx.request !
-    var defaultApiHost = 'https://zzsx.udeve.cn/haofang'
-    var defaultApiHost = 'http://localhost:3000/haofang'
+    var defaultApiHost = 'http://47.96.69.232:9000/haofang'
+    //var defaultApiHost = 'http://localhost:3000/haofang'
     var customApiHost = wx.getStorageSync('apiHost')
     var apiHost = customApiHost ||defaultApiHost
     var url = apiHost + obj.url

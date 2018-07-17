@@ -1,27 +1,24 @@
-// components/slider.js
-const app = getApp()
-
+// components/comments.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-
+    mini: {type: Boolean, value: false},
+    items: {type: Array, value: []},
   },
 
   /**
    * 组件的初始数据
    */
-  data: {},
+  data: {
+
+  },
 
   /**
    * 组件的方法列表
    */
   methods: {
-
-    soon: function(e){
-      app.comingSoon()
-    }
 
   }
 })

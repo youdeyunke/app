@@ -10,6 +10,7 @@ Page({
     comments: [],
     target_id: '',
     myself: false,
+    loaded: false,
   
   },
 
@@ -29,9 +30,12 @@ Page({
     var _this = this
     app.request({
       url: '/api/v1/mycomments',
-      data: { myself: _this.data.myself, target_id: _this.data.myself },
+      data: { myself: _this.data.myself, target_id: _this.data.target_id },
       success: function (resp) {
-        _this.setData({ comments: resp.data.data })
+        _this.setData({ 
+          comments: resp.data.data,
+          loaded: true,
+         })
       },
     })
   },

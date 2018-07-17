@@ -210,109 +210,6 @@ textarea{
   white-space: nowrap;  
 }
 
-.comments .item.box{
-  background:#fff;
-  position: relative;
-  margin:10rpx 0 20rpx 0;
-  padding:0 0 20rpx 0;
-  border-bottom:1rpx solid #f4f4f4;
-}
-
-.comments .item.box .comment-like{
-  display: flex;
-  justify-content: flex-start;
-  align-content: center;
-}
-
-.comments .item.box .comment-like image{
-  width:36rpx;
-  height: 36rpx;
-}
-
-
-.comments .item.box {
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-
-.comments .item .user{
-  width: 60rpx;
-  height: 60rpx;
-  background: darkgray;
-  border-radius: 100%;
-  overflow: hidden;
-}
-
-.comments .item .meta{
-  font-size:24rpx;
-  width: calc(100% - 60rpx - 30rpx);
-}
-
-.comments .item .meta  .nickname{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.comments .item .meta  .nickname .uname{
-  color: #000;
-  font-weight: bold;
-  margin-right:20rpx;
-}
-
-.comments .item .meta  .nickname .main {
-    display:flex;
-    justify-content:flex-start;
-    align-items:center;
-
-}
-
-.comments .item .meta  .score{
-    display:flex;
-    justify-content:flex-start;
-    align-items:center;
-    height:40rpx;
-    padding:15rpx 0;
-    margin-bottom:15rpx;
-}
-
-.comments .item .meta .target{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top:30rpx;
-}
-
-.comments .item .meta .target .red{
-  color: red;
-  margin-left: 20rpx;
-}
-
-
-.comments .item .meta .score .start-text{
-  margin-left:30rpx;
-}
-
-.comments .item .meta .content{
-    min-height: 60rpx;
-}
-
-.comments .item .meta .datetime{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.comments .item .meta .datetime .time{
-  color: #f4f4f4;
-}
-
-
 
 .gohome{
   font-size:24rpx;
@@ -354,4 +251,13 @@ textarea{
 
 .line{
   border-bottom:4rpx solid #f4f4f4;
+}
+
+.empty{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 4rpx;
+  color: #999;
 }
