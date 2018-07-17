@@ -7,8 +7,8 @@ Component({
     title: {type: String, value: 'CARD标题'},
     number: {type: Number, value: 0,},
     action: { type: String, value: '查看更多'},
-    path: { type: String, value: null},
-    opentype: {type: String, value: 'redirectTo'}
+    url: { type: String, value: null},
+    opentype: {type: String, value: 'navigateTo'}
   },
 
   /**
@@ -24,13 +24,33 @@ Component({
   methods: {
 
     actionHandle: function(e){
-      if(!this.data.path){
+      console.log('url:', this.data.url, 'opentype', this.data.opentype)
+      if(!this.data.url){
         return false
       }
+
       var _this = this
-      wx.navigateTo({
-        url: _this.data.path,
-      })
+      var url = _this.data.url
+      switch (_this.data.opentype.toLowerCase()){
+        case 'navigateto':
+          wx.navigateTo({
+            url: url,
+          })
+          break;
+        case "switchtab":
+          wx.switchTab({
+            url: url,
+          })
+          break;
+        case "webview":
+          wx.navigateTo({
+            url: '/pages/webview/webview?url=' + url,
+          })
+          console.log('hello')
+          break;
+        default:
+          console.log('default:', _this.data.opentype.toLowerCase, 'url', url)
+      }
     },
 
   }

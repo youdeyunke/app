@@ -46,11 +46,11 @@
 
 <template is="housetype" data="{{post: post}}" />
 
-<mycard title="{{post.more_title}}" path="{{post.more_url}}">
+<mycard title="{{post.more_title}}" opentype="webview" url="{{post.more_url}}">
   <view>{{ post.more_desc }}</view>
 </mycard>
 
-<mycard number="{{post.comments_count}}" title="用户评价" path="/pages/comments/index?target_id={{postId}}" >
+<mycard number="{{post.comments_count}}" title="用户评价" url="/pages/comments/index?target_id={{postId}}" >
   <comments mini="true" items="{{comments}}"></comments>
 
   <view class="comments-add">
