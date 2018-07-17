@@ -3,6 +3,7 @@
     "mytags": "/components/tags",
     "myfav": "/components/fav",
     "mycard": "/components/card",
+    "qas": "/components/qas",
     "mystars": "/components/stars",
     "comments": "/components/comments"
   }

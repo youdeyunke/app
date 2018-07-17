@@ -59,7 +59,10 @@
     <image src='/assets/icons/pen.png'></image>
     <navigator url="/pages/comments/new?target_id={{post.id}}">我要点评</navigator>      
   </view>
+</mycard>
 
+<mycard title="大家都在问" number="100">
+  <qas></qas>
 </mycard>
 
 

@@ -293,6 +293,8 @@ myfav .myfav {
   vertical-align: middle;
 }
 
+
+
 .block-title{
   display: flex;
   justify-content: space-between;
@@ -330,6 +332,7 @@ myfav .myfav {
   -webkit-transform:rotate(-90deg); /* Safari 和 Chrome */
   -o-transform:rotate(-90deg); /* Opera */
 }
+
 
 
 @import "/tpls/posts/mini_listing.wxss";
