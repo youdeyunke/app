@@ -37,10 +37,6 @@
         "text": "找房"
       },
       {
-        "pagePath": "pages/qa/index",
-        "text": "咨询"
-      },
-      {
         "pagePath": "pages/myself/myself",
         "text": "我的"
       }

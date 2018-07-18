@@ -1,5 +1,4 @@
 page{
-  padding-top:20rpx;
+  padding-top:0rpx !important;
 }
 
-@import './base.wxss';

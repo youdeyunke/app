@@ -10,7 +10,10 @@ Page({
   data: {
     hasMore: true,
     catId: 0,
-    cats: [{name: '全部', id: 0}],
+    cats: [
+      {name: '全部', id: 'all'}, 
+      {name: '已回复', id: 'replied'}, 
+      {name: '未回复', id: 'unreplied'}],
     items: [],
     questionContent: wx.getStorageSync('question_content') || ''
   },
@@ -18,8 +21,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this.loadCats()
+  onLoad: function (q) {
+    this.setData({
+      postId: q.post_id,
+      catId: q.cat_id || 'all',
+    })
     this.loadItems()
   },
 
@@ -38,25 +44,14 @@ Page({
     this.loadItems()
   },
 
-  loadCats: function(){
-    var _this = this
-    app.request({
-      url: '/api/v1/question_cats/',
-      success: function(res){
-        _this.setData({
-          cats: _this.data.cats.concat(res.data.data)
-        })
-      }
-    })
-  },
-
   loadItems: function(cb){
     var pageSize = 10
     var _this = this
     app.request({
       url: '/api/v1/questions/',
       data: {
-        cat_id: _this.data.catId, 
+        cat: _this.data.catId, 
+        post_id: _this.data.postId,
         offset: _this.data.items.length,
         limit: pageSize,
       },

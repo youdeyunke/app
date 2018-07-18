@@ -5,10 +5,7 @@
     <text data-cid="{{item.id}}" bindtap="catHandle" class="item {{  catId == item.id ? 'active' : '' }}" wx:for="{{cats}}" id="item-{{index}}">{{item.name}}</text>
   </view>
 
-  <form report-submit class="qa-items" bindsubmit='gotoNew'>
-      <template is="qa-item" data="{{item}}" wx:for="{{items}}"></template>
-  </form>
-
+<qa class="container" wx:for="{{items}}" item="{{item}}"></qa>
 
 <view  class="weui-loadmore" wx:if="{{hasMore}}">
     	<i class="weui-loading"></i>

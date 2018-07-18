@@ -1,4 +1,6 @@
 {
       "usingComponents": {
+        "card": "/components/card",
+        "qa": "/components/qa"
       }
 }

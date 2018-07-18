@@ -10,21 +10,10 @@ Page({
   data: {
     item: null,
     qas: null,
+    empty: false,
   
   },
 
-  moreHandle: function(e){
-    console.log('more handle')
-    wx.navigateTo({
-      url: '/pages/qa/index',
-    })
-  },
-
-  newHandle: function(e){
-    wx.switchTab({
-      url: '/pages/qa/index',
-    })
-  },
 
   likeHandle: function(e){
     var qid = this.data.item.id
@@ -91,6 +80,13 @@ Page({
         item['created_at_pretty'] = util.prettyTime(item['created_at'])
         item['updated_at_pretty'] = util.prettyTime(item['updated_at'])
         _this.setData({item: item})
+        var empty = true
+        if(item.answer){
+          if(item.answer.length > 10){
+            empty = false
+          }
+        }
+        _this.setData({empty: empty})
       }
     })
 

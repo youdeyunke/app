@@ -1,7 +1,7 @@
   <view class="qas">
-    <view class="qas-item" wx:for="{{items}}">
+    <navigator hover-class='none' url="/pages/qa/qa?id={{item.id}}" class="qas-item" wx:for="{{items}}">
       <view class="qas-item-title line-limit">
        <view class="qas-item-title-icon">问</view>{{item.content}}</view>
       <view class="qas-item-status">{{ item.answer.length > 10 ? '已回复' : '未回复'}}</view>
-    </view>
+    </navigator>
   </view>

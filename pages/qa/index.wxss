@@ -1,25 +1,10 @@
 /* pages/qa/qa.wxss */
 
-@import './base.wxss';
 
 page{
-	padding-top:0;
+	padding-top:120rpx !important; 
 }
 
-.qa-items{
-  display: flex;
-  flex-direction: column;
-  padding:120rpx 20rpx 0rpx 20rpx;   
+#qa{
+  width: 100%;
 }
-
-.qa-item .body .content text{
-  display: -webkit-box ;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: break-all;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp:3; 
- }
-
-
-

@@ -48,10 +48,8 @@ Page({
       })
       return false
     }
-    app.getUserInfo(function(userInfo){
-      if(userInfo && userInfo.mobile){
+    app.ensureUser(function(userInfo){
         _this.doSubmit()
-      }
     })
   },
 
