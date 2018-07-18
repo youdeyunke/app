@@ -221,7 +221,7 @@ App({
     
     // This must be wx.request !
     var defaultApiHost = 'http://47.96.69.232:9000/haofang'
-    //var defaultApiHost = 'http://localhost:3000/haofang'
+    var defaultApiHost = 'http://localhost:3000/haofang'
     var customApiHost = wx.getStorageSync('apiHost')
     var apiHost = customApiHost ||defaultApiHost
     var url = apiHost + obj.url

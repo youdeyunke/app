@@ -67,6 +67,20 @@ Page({
     })
   },
 
+  loadQas: function(postId){
+    var _this = this
+    console.log('load qas')
+    app.request({
+      url: '/api/v1/questions/',
+      data: {post_id: postId, limit: 5},
+      success: function(resp){
+        _this.setData({
+          qas: resp.data.data
+        })
+      }
+    })
+  },
+
   loadComments: function(postId){
     var _this = this
     app.request({
@@ -162,7 +176,7 @@ Page({
     this.loadPost(postId)
     this.loadRecoms(postId)
     this.loadComments(postId)
-    
+    this.loadQas(postId)    
   },
 
   /**
@@ -180,15 +194,7 @@ Page({
     if(!eb){
       return
     }
-    
-    if(eb.key == 'reloadComments'){
-      this.loadComments(eb.value)
-      wx.setStorage({
-        key: 'eventBus',
-        data: null,
-      })
-      console.log('event bus,' , eb)
-    }
+
   
   },
 

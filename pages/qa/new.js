@@ -21,19 +21,6 @@ Page({
     this.setData({ questionContent: v })
   },
 
-  booking: function(){
-    var post_id = this.data.post_id
-    wx.navigateTo({
-      url: '/pages/post/booking?post_id='+post_id,
-    })
-  },
- 
-  callMe: function () {
-    var m = app.globalData.serverMobile
-    wx.makePhoneCall({
-      phoneNumber: m //仅为示例，并非真实的电话号码
-    })
-  },
 
   resetHandle: function(){
     wx.navigateBack({ delta: -1 })
@@ -77,7 +64,7 @@ Page({
     app.request({
       method: 'POST',
       url: '/api/v1/questions/',
-      data: { content: content, cid: this.data.catId },
+      data: { content: content, post_id: _this.data.post_id},
       success: function (resp) {
         // clear cache
         _this.setData({ questionContent: '' })
