@@ -46,7 +46,7 @@
 
 <template is="housetype" data="{{post: post}}" />
 
-<mycard title="{{post.more_title}}" opentype="webview" url="{{post.more_url}}">
+<mycard wx:if="{{post.more_url}}" title="{{post.more_title}}" opentype="webview" url="{{post.more_url}}">
   <view>{{ post.more_desc }}</view>
 </mycard>
 
@@ -63,7 +63,9 @@
 
 <mycard title="大家都在问" number="{{post.questions_count}}" url="{{ post.questions_count > 5 ? '/pages/qa/index?post_id='+postId : null }}">
   
-  <qa class="qa" answer="{{false}}" wx:for="{{qas}}" item="{{item}}" mini></qa>
+  <view class="qa"  wx:for="{{qas}}">
+  <qa answer="{{false}}" item="{{item}}" mini></qa>
+  </view>
 
   <view class="comments-empty" wx:if="{{questions.length ==0}}">暂无提问</view>
     <view class="comments-add">

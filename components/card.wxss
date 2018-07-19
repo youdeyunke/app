@@ -23,7 +23,7 @@
   border-bottom: 1px solid #f4f4f4;
   padding:0 0 15rpx 0;
   width: 100%;  
-  letter-spacing: 4rpx;
+  letter-spacing: 2rpx;
 }
 
 .card-header-action{

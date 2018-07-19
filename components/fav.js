@@ -1,5 +1,6 @@
 // components/fav.js
 const app = getApp()
+var auth = require('../utils/auth.js');
 
 Component({
   /**
@@ -47,7 +48,7 @@ Component({
     clickHandle: function(e){
       var pid = this.data.pid
       var _this = this
-      app.ensureUser(function(userInfo){
+      auth.ensureUser(function(userInfo){
         _this.doSubmit(pid)
       })
     },

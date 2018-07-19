@@ -126,11 +126,6 @@ Page({
     })
   },
 
-  booking: function(){
-    wx.navigateTo({
-      url: '/pages/post/booking?post_id=' + this.data.postId
-    })
-  },
 
   parseHtml: function(){
     var _this = this
@@ -259,9 +254,9 @@ Page({
       data: { post_id: pid },
       success: function (resp) {
         console.log('resp', resp)
-        wx.showToast({
-          title: '预约成功，客服稍后会与您联系',
-          icon: 'success',
+        wx.showModal({
+          title: '预约成功！',
+          content: '客服会来电与您确认具体看房时间，请留意来电',
         })
         _this.loadPost(pid)
       }

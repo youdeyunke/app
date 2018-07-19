@@ -29,13 +29,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": -1,
 			"list": [
 				{
 					"id": 0,
 					"name": "qa",
 					"pathName": "pages/qa/index",
-					"query": "post_id=7"
+					"query": "post_id=1"
 				},
 				{
 					"id": -1,
@@ -53,7 +53,7 @@
 					"id": 3,
 					"name": "post",
 					"pathName": "pages/post/post",
-					"query": "id=7"
+					"query": "id=1"
 				},
 				{
 					"id": -1,

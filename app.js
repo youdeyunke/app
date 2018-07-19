@@ -1,4 +1,6 @@
 //app.js
+var auth = require('utils/auth.js');
+
 
 App({
 
@@ -7,7 +9,7 @@ App({
     token: null,
     loadingStatus: 0,
     cities: [],
-    serverMobile: '4008627058'
+    serverMobile: '400111222'
   },
 
   loadPosts: function(that){
@@ -65,9 +67,6 @@ App({
     logs.unshift(Date.now())
   },
 
-  saveFormId: function(e){
-    return this.uploadFormId(e)
-  },
 
   uploadFormId: function(e){
     // 保存formid
@@ -99,20 +98,6 @@ App({
     })    
   },  
 
-  ensureUser: function (cb) {
-    // obj like {success: function(uinfo){...}, login_back: '/pages/index/index', }
-    var _this = this
-    var token = wx.getStorageSync('token')
-    var userInfo = wx.getStorageSync('userInfo')
-    if (token && userInfo) {
-      if(typeof cb != 'undefined'){
-        return cb(userInfo)
-      }
-      return  null
-    } 
-    _this.gotoAccount('请先登录', '请先登录')
-    
-  },
 
   setLoginBack: function(eb){
     return wx.setStorageSync('login_back', eb)
@@ -147,29 +132,9 @@ App({
           return cb(userInfo)
         }
         // 去绑定手机号
-        _this.gotoAccount('请先绑定手机号', '请先绑定您的手机号，以便我们能联系您')
+        auth.gotoAccount('请先绑定手机号', '请先绑定您的手机号，以便我们能联系您')
     })
   },
-
-  loadUserInfo: function(cb){
-    // 从服务器拉去用户信息
-    var _this  = this
-    _this.request({
-      url: '/api/v1/sessions/',
-      success: function(resp){
-        if(resp.data.status != 0){
-          return cb({})
-        }
-        // 更新到本地数据
-        var userInfo = resp.data.data
-        wx.setStorageSync('userInfo', userInfo)
-        console.log('sync user info to local success', userInfo)
-        return cb(userInfo)
-      }
-    })
-  },
-
-
 
   sendSms: function(mobile, cb){
     var _this = this
@@ -220,8 +185,8 @@ App({
     
     
     // This must be wx.request !
-    var defaultApiHost = 'http://47.96.69.232:9000/haofang'
-    var defaultApiHost = 'http://localhost:3000/haofang'
+    var defaultApiHost = 'https:///fang.udeve.cn/haofang'
+    //var defaultApiHost = 'http://localhost:3000/haofang'
     var customApiHost = wx.getStorageSync('apiHost')
     var apiHost = customApiHost ||defaultApiHost
     var url = apiHost + obj.url
@@ -248,7 +213,7 @@ App({
           // token 过期
           wx.setStorageSync('userInfo', null)
           wx.setStorageSync('token', null)               
-          _this.gotoAccount('需要登录', '请先登录账号')
+          auth.gotoAccount('需要登录', '请先登录账号')
           return false
         }
 

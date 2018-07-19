@@ -93,6 +93,7 @@
 .post-mini .post .meta .area-price .price{
     color: orangered;
     font-weight: bold;
+    font-size: 28rpx;
 }
 .post-mini mytags .tag{
 }

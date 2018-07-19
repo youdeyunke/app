@@ -1,5 +1,6 @@
 // pages/qa/new.js
 const app = getApp()
+var auth = require('../../utils/auth.js');
 
 Page({
 
@@ -48,7 +49,7 @@ Page({
       })
       return false
     }
-    app.ensureUser(function(userInfo){
+    auth.ensureUser(function(userInfo){
         _this.doSubmit()
     })
   },
@@ -92,7 +93,7 @@ Page({
       value: '/pages/qa/new'
     }
     app.setLoginBack(eb)
-    app.ensureMobile(function(userInfo){
+    auth.ensureMobile(function(userInfo){
         _this.setData({userInfo: userInfo})
     })
   },

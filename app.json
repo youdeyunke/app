@@ -11,7 +11,7 @@
     "pages/qa/qa",
 
     "pages/post/post",
-    "pages/myself/myself",
+    "pages/myself/index",
     "pages/about/index",
     "pages/qa/new",
     "pages/home/debug",
@@ -37,7 +37,7 @@
         "text": "找房"
       },
       {
-        "pagePath": "pages/myself/myself",
+        "pagePath": "pages/myself/index",
         "text": "我的"
       }
     ],    

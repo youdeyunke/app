@@ -1,5 +1,6 @@
 // pages/myself/zhao.js
 const app = getApp()
+var auth = require('../../utils/auth.js');
 
 Page({
 
@@ -76,7 +77,7 @@ Page({
   submitHandle: function(e){
     var _this = this
     app.uploadFormId(e)
-    app.ensureUser(function(userInfo){
+    auth.ensureUser(function(userInfo){
         if(userInfo.mobile){
           _this.setData({contact: userInfo.mobile})
         }
@@ -152,7 +153,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    app.ensureUser()
+    auth.ensureUser()
   
   },
 
