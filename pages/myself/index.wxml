@@ -29,7 +29,7 @@
           <view class="weui-cell__hd">
             <image src="/assets/icons/m-qa.png"></image>
           </view>
-          <view class="weui-cell__bd h1">我的咨询</view>
+          <view class="weui-cell__bd h1">我的提问</view>
           <view class="weui-cell__ft weui-cell__ft_in-access"></view>
       </navigator>
 
@@ -50,19 +50,20 @@
       </navigator>
 
       <navigator hover-class="none"  class="weui-cell weui-cell_access">
-          <view class="weui-cell__hd">
-            <image src="/assets/icons/m-about.png"></image>
-          </view>          
-          <view class="weui-cell__bd h1">关于</view>
-          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-      </navigator>      
-
-      <navigator hover-class="none"  class="weui-cell weui-cell_access">
                     <view class="weui-cell__hd">
             <image src="/assets/icons/m-call.png"></image>
           </view>    
           <view class="weui-cell__bd h1">联系客服</view>
           <view class="weui-cell__ft weui-cell__ft_in-access"></view>
       </navigator>     
+
+      <navigator hover-class="none"  class="weui-cell weui-cell_access">
+          <view class="weui-cell__hd">
+            <image src="/assets/icons/m-about.png"></image>
+          </view>          
+          <view class="weui-cell__bd h1">关于小程序</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>      
+
     </view>
 </view>

@@ -20,8 +20,9 @@ Page({
   onLoad: function (q) {
     this.setData(q)
     this.loadData()
+    var _this = this
     wx.setNavigationBarTitle({
-      title: q.title || '我的评论',
+      title:  _this.data.myself == false ? '全部评论' : '我的评论',
     })
   },
 
