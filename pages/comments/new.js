@@ -1,5 +1,6 @@
 // pages/comments/new.js
 const app = getApp()
+var auth = require('../../utils/auth.js');
 
 Page({
 
@@ -7,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    user_id: null,
     cats: [
       {name: '考虑看房', id: 1},
       {name: '看过该房', id: 2},
@@ -22,8 +24,14 @@ Page({
     this.data.comment.content = e.detail.value
     this.setData({ comment: this.data.comment })
   },
-
   catHandle: function(e){
+    var _this = this
+    auth.ensureMobile(function(userInfo){
+      _this._catHandle(e)
+    })
+  },
+
+  _catHandle: function(e){
     console.log('e', e)
     var i =  e.currentTarget.dataset.index
     var cat = this.data.cats[i]
@@ -43,7 +51,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
-    app.ensureMobile()
 
     this.setData({
       target_id: q.target_id, 
@@ -136,7 +143,6 @@ Page({
         'userInfo'
       )
       this.setData({comment: {
-        user_id: userInfo.id,
         score: 1,
         cat_id: 0,
         content: '',

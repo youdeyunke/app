@@ -26,11 +26,15 @@
   letter-spacing: 2rpx;
 }
 
+.card-header-title{
+  width:60%;
+}
+
 .card-header-action{
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 60%;
+  width: 40%;
 }
 
 .card-header-action-name{

@@ -124,17 +124,6 @@ App({
   },
 
 
-  ensureMobile: function(cb){
-    // 确保用户已经填写手机号
-    var _this = this
-    _this.ensureUser(function(userInfo){
-        if(userInfo.mobile){
-          return cb(userInfo)
-        }
-        // 去绑定手机号
-        auth.gotoAccount('请先绑定手机号', '请先绑定您的手机号，以便我们能联系您')
-    })
-  },
 
   sendSms: function(mobile, cb){
     var _this = this

@@ -2,7 +2,6 @@
   "pages": [
     "pages/home/home",    
     "pages/webview/webview",
-    "pages/tiao/index",
     "pages/myself/zhao",
     "pages/qa/index",    
 

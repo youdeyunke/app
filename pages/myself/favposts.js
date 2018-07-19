@@ -7,23 +7,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-    posts: []
-  
+    posts: [],
+    city_id: null,
+    offset: 0,
+    total: 0,
+    limit: 10,
+    hasMore: true
   },
 
   loadData: function(){
-    var _this = this
-    app.loadPosts({
-      cate: 'favposts', 
-    }, function(resp){
-      _this.setData({posts: resp.data})
-    })
+    app.loadPosts(this)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.setNavigationBarTitle({
+      title: '我的关注',
+    })
     this.loadData()
   
   },

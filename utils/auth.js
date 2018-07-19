@@ -34,6 +34,18 @@ module.exports = {
     })
   },
 
+  ensureMobile: function(cb){
+    // 确保用户已经填写手机号
+    var _this = this
+    this.ensureUser(function(userInfo){
+        if(userInfo.mobile){
+          return cb(userInfo)
+        }
+        // 去绑定手机号
+        _this.gotoAccount('请先绑定手机号', '请先绑定您的手机号，以便我们能联系您')
+    })
+  },
+
   ensureUser: function (cb) {
     // obj like {success: function(uinfo){...}, login_back: '/pages/index/index', }
     var token = wx.getStorageSync('token')
@@ -47,8 +59,21 @@ module.exports = {
     this.gotoAccount('请先登录', '请先登录')
   },
 
+
   gotoAccount: function(title, content){
-    wx.switchTab({ url: '/pages/myself/index' })
+    wx.showModal({
+      title: title,
+      content: content,
+      success: function(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+          wx.switchTab({ url: '/pages/myself/index' })
+
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   },
 
 

@@ -1,5 +1,8 @@
 /* pages/myself/favposts.wxss */
 
-page{}
-
 @import "/tpls/posts/mini_listing.wxss";
+
+page{
+   padding-top:0rpx !important;
+}
+
