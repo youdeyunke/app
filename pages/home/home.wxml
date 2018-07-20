@@ -4,8 +4,13 @@
   <mytopbar bindcitychanged="cityHandle"></mytopbar>
   <myslider></myslider>
   <view class="tab-icons">
-          <navigator url="/pages/post/index?cid={{item.id}}"  open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" wx:for="{{tabIcons}}">
-      <image src="/assets/icons/tab-{{item.id}}.png"></image>
+        <navigator open-type='navigateTo' url="/pages/post/index" hover-class='none'>
+          <image src="/assets/icons/tab-all.png"></image>
+          <text>全部</text>
+        </navigator>
+
+          <navigator url="/pages/post/index?cat_id={{item.id}}"  open-type="navigateTo" hover-class="none"  wx:for-index="index" wx:for="{{cats}}">
+      <image src="{{item.icon}}"></image>
       <text>{{ item.name }}</text>
     </navigator>
 

@@ -12,7 +12,7 @@ page, page .container.main{
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: flex-start;
+  justify-content: space-around;
   box-sizing: border-box;
   margin-top:30rpx;
 }

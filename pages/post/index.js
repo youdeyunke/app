@@ -8,7 +8,7 @@ Page({
    */
   data: {
     posts: [],
-    cid: null,
+    cat_id: null,
     city_id: null,
     offset: 0,
     total: 0,
@@ -19,8 +19,12 @@ Page({
 
 
   onLoad: function (query) {
-    var cid =  query.cid
     var _this = this
+    _this.setData({
+      cat_id: query.cat_id,
+      city_id: query.city_id,
+    })
+    
     app.loadPosts(_this)
   },
 

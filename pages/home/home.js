@@ -57,6 +57,7 @@ Page({
   onPullDownRefresh: function () {
     wx.stopPullDownRefresh()
     wx.showNavigationBarLoading() //在标题栏中显示加载
+    this.loadCats()
     var _this = this
     _this.setData({
       posts: [],
@@ -74,6 +75,7 @@ Page({
    */
   onLoad: function (options) {
     var _this = this   
+    this.loadCats()
     app.loadPosts(_this)
   },
 
@@ -118,6 +120,17 @@ Page({
       offset: _this.data.offset + _this.data.limit,
     })
     app.loadPosts(_this)
+  },
+
+  loadCats: function(){
+    var _this = this
+    app.request({
+      url: '/api/v1/cats',
+      data: {},
+      success: function(resp){
+        _this.setData({cats: resp.data.data})
+      }
+    })
   },
 
   /**

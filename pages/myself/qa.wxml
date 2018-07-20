@@ -1,8 +1,5 @@
-<import src="/tpls/qa.wxml"/>
 
-<view class="qa-items">
-  <template is="qa-item" data="{{item}}" wx:for="{{replied}}"></template>
-</view>
+<qa class="container" wx:for="{{items}}" item="{{item}}"></qa>
 
 <view class="empty" wx:if="{{items.length == 0}}">
    <image src="/assets/images/cover-none.png"></image>

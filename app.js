@@ -20,6 +20,7 @@ App({
       city_id: that.data.city_id || '',
       offset: that.data.offset || 0,
       limit: that.data.limit || 0,
+      cat_id: that.data.cat_id || '',
     }
     var _this = this
     this.request({
