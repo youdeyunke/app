@@ -17,6 +17,9 @@
   </view>
 </view>
 
-  <view class="post-mini container" wx:for="{{posts}}" wx:for-item="postitems">
-    <template is="miniposts"  data="{{ posts: postitems}}"></template>
+
+  <view class="posts-list">
+    <block wx:for="{{posts}}" wx:for-item="postitems">
+      <mypost wx:for="{{postitems}}" item="{{item}}"></mypost>
+    </block>
   </view>

@@ -1,5 +1,5 @@
-<template name="miniposts">
-        <navigator wx:for="{{posts}}" class="post" open-type="navigate" url="/pages/post/post?id={{item.id}}" >
+
+<navigator class="post" open-type="navigate" url="/pages/post/post?id={{item.id}}" >
       <view class="cover">
         <view class="badge" wx:if="{{item.coupon_desc}}">
           {{item.coupon_desc}}
@@ -21,5 +21,4 @@
            <text class="price" wx-if="{{item.block_info.item_price}}">{{ item.block_info.item_price }} 元/㎡</text>
         </view>
       </view>
-    </navigator>
-</template>
+</navigator>

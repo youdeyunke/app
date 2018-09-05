@@ -1,36 +1,31 @@
-.post-mini{
-  width: 100%;
-}
 
-.post-mini .post{
+ .post{
   background: #fff;
   box-sizing: border-box;
   padding:20rpx;
   margin:0 20rpx;
-}
-
-.post-mini .tags {
-  font-size:20rpx;
-  color: 333;
-}
-
-
-.post-mini .post{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom:20rpx;
   padding-bottom:20rpx;
-  border-bottom:1px solid #f4f4f4;
+  border-bottom:1px solid #f4f4f4;  
+  width: calc(100% - 40rpx);
+  border-radius: 6rpx;
+  box-shadow: 1rpx 2rpx 6rpx rgba(0,0,0, 0.05);
 }
 
-.post-mini .post .cover{
+.tags {
+  font-size:20rpx;
+  color: 333;
+}
+
+.post .cover{
   position: relative;
   width:266rpx;
   height: 184rpx;  
 }
-
-.post-mini .post .badge{
+.post .badge{
     position: absolute;
     color: #fff;
     background-color: #FA5741;  
@@ -44,8 +39,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;    
 }
-
-.post-mini .post .badge-arrow{
+ .post .badge-arrow{
   width: 10rpx;
   height: 10rpx;
   position: absolute;
@@ -53,13 +47,11 @@
   bottom: 10rpx;
 }
 
-
-.post-mini .post .cover .i{
+.post .cover .i{
   width:100%;
   height: 100%;
 }
-
-.post-mini .post .play-btn{
+.post .play-btn{
   position: absolute;
   width:36rpx;
   height: 36rpx;
@@ -67,15 +59,13 @@
   top:calc(184rpx * 0.5 - 36rpx * 0.5);
 
 }
-
-.post-mini .post .meta{
+ .post .meta{
   width:390rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-
-.post-mini .post .meta .item-title{
+.post .meta .item-title{
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -86,28 +76,25 @@
 
 }
 
-
-.post-mini .post .meta .area-price{
+.post .meta .area-price{
   font-size:24rpx;
   display: flex;
   justify-content: space-between; 
 }
 
-.post-mini .post .meta .location{
+.post .meta .location{
   font-size:24rpx;
 }
 
-.post-mini .post .meta .area-price .area{
+.post .meta .area-price .area{
   color:#000;
 }
-
-.post-mini .post .meta .area-price .price{
+.post .meta .area-price .price{
     color: orangered;
     font-weight: bold;
     font-size: 28rpx;
 }
-.post-mini mytags .tag{
+ mytags .tag{
 }
-
 
 @import "/components/tags.wxss";

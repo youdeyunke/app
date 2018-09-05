@@ -14,7 +14,6 @@ Page({
     total: 0,
     limit: 10,
     hasMore: true,
-    posts: [],
   },
 
 

@@ -2,8 +2,13 @@
 
 
 page{
-  padding-top:0rpx;
+  padding-top:10rpx;
 }
 
 page .container{
+}
+
+
+.posts-list{
+  width: 100%;
 }

@@ -1,8 +1,10 @@
 <!--pages/post/index.wxml-->
 <import src="/tpls/posts/mini_listing.wxml"/>
 
-<view class="post-mini container" wx:for="{{posts}}" wx:for-item="postitems">
-  <template is="miniposts"  data="{{ posts: postitems}}"></template>
+<view class="posts-list">
+  <block wx:for="{{posts}}" wx:for-item="postitems">
+    <mypost wx:for="{{postitems}}" item="{{item}}"></mypost>
+  </block>
 </view>
 
 <view class="empty" wx:if="{{posts.length == 0}}">

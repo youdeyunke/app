@@ -4,7 +4,8 @@
       "mytopbar": "/components/topbar",
       "myfav": "/components/fav",
       "mytags": "/components/tags",
-      "myslider": "/components/slider"
+      "myslider": "/components/slider",
+      "mypost": "/components/post"
     }
 
 }

@@ -25,9 +25,15 @@ page, page .container.main{
 }
 
 .tab-icons navigator image{
-  width:40rpx;
-  height: 40rpx;
+  width:35rpx;
+  height: 35rpx;
   margin-bottom:10rpx;
+
+  border:2rpx solid #f4f4f4;
+  padding:12rpx;
+  border-radius:100%;
+  box-shadow:1rpx 2rpx 2rpx rgba(0,0,0, 0.1);
+  
 }
 
 .tab-icons navigator text{
@@ -40,4 +46,9 @@ myfav{
   position: absolute;
   top:30rpx;
   right:0rpx;
+}
+
+
+.posts-list{
+  width: 100%;
 }

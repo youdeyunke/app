@@ -1,1 +1,9 @@
-{}
+{
+  "usingComponents": {
+    "mytopbar": "/components/topbar",
+    "myfav": "/components/fav",
+    "mytags": "/components/tags",
+    "mypost": "/components/post",
+    "myslider": "/components/slider"
+  }
+}
