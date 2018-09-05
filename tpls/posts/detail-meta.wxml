@@ -18,10 +18,10 @@
 
       </view>
 
-      <view  class="detail-meta" wx-if="{{post.block_info && post.block_info.cate == 'item'}}">
+      <view  class="detail-meta" >
           <view class="meta">
-            <text class="label">均价</text>
-            <text class="i h1">{{ post.block_info.item_price }} 元/㎡</text>
+            <text class="label">类型</text>
+            <text>{{ post.cat.name }}</text>
           </view>
 
           <view class="meta">
@@ -31,13 +31,19 @@
 
         <view class="meta">
           <text class="label">地址</text>
-          <text>{{ post.block_info.district.name }} {{post.block_info.street}}</text>
+          <text>{{ post.address }} {{post.street}}</text>
+        </view> 
+
+        <view class="meta">
+          <text class="label">小区</text>
+          <text>{{ post.area }}</text>
         </view> 
         
-          <view class="meta">
+        <view class="meta" wx:if="{{post.open_at_unknow == false }}">
             <text class="label">开盘</text>
-            <text> {{ post.block_info.open_at }}</text>
+            <text> {{ post.open_at }}</text>
           </view>
         </view>
+
   </block>
 </template>

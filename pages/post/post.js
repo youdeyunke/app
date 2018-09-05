@@ -14,10 +14,10 @@ Page({
     minicontent: true,
   },
 
-
+  
   contentHandle: function(e){
     this.setData({
-      minicontent: ! this.data.minicontent
+      minicontent: ! this.data.minicontent 
     })
   },
 
@@ -130,17 +130,13 @@ Page({
   parseHtml: function(){
     var _this = this
     var key1 = "htlm_content." + _this.data.postId
-    var key2 = "htlm_content_simple." + _this.data.postId
     var html1 = wx.getStorageSync(key1)
-    var html2 = wx.getStorageSync(key2)
-    if(html1 && html2 ){
-      _this.setData({htmlContent: html1, htmlContentSimple: html2})
+    if(html1 ){
+      _this.setData({htmlContent: html1})
       return
     }
     WxParse.wxParse('htmlContent', 'html', _this.data.post.content ,  _this, 5);
-    WxParse.wxParse('htmlContentSimple', 'html', _this.data.post.content_simple, _this, 5);
     wx.setStorageSync(key1, _this.data.htmlContent)
-    wx.setStorageSync(key2, _this.data.htmlContentSimple)
   },
 
   loadPost: function(postId){

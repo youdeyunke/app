@@ -13,7 +13,7 @@
 
      <template is="detail-meta" data="{{post: post }}" /> 
 
-   <view bindtap='couponHandle' class="coupon" wx:if="{{post && post.coupon_desc}}">
+   <view bindtap='couponHandle' class="coupon" wx:if="{{post && post.coupon_enable}}">
     <view class="name line-limit">{{post.coupon_desc}}</view>
     <view class="action">{{ post.user_has_coupon ? '已领取' : '领取优惠券' }}</view>
    </view>     
@@ -22,25 +22,15 @@
 </view>
 
 <view class="container" style="padding-top:0;">
-   <view class="h2">项目测评</view>
-   <view class="box html-content" hidden="{{ minicontent == false }}" wx:if="{{post.content_simple.length > 0}}">
-
-    <view class="raw">
-      <template is="wxParse" data="{{wxParseData:htmlContentSimple.nodes}}"/>
-
-    </view>
-  </view>
-
-    <view class="box html-content"  hidden="{{ minicontent == true && post.content_simple.length > 0}}">
+   <view class="h2">详细内容</view>
+   <view class="box html-content {{ minicontent == true ? 'mini' : 'full' }}">
       <view class="raw">
-        <template is="wxParse" data="{{wxParseData:htmlContentSimple.nodes}}"/>
         <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>
-
     </view>
   </view>  
 
-  <view class="content-switch" bindtap='contentHandle'>
-    <image class="{{ minicontent == true ? 'down' : 'up' }}" src="/assets/icons/right-arrow.png"></image>
+  <view class="content-switch" bindtap="contentHandle" wx:if="{{minicontent}}">
+    加载全文 <image class="{{ minicontent == true ? 'down' : 'up' }}" src="/assets/icons/right-arrow.png"></image>
   </view>
 </view>
 

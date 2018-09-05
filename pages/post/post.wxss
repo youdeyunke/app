@@ -65,14 +65,14 @@ mycard{
   margin:20rpx auto;
   width:300rpx;
 }
-.html-content{
 
+.html-content{
   line-height: 64rpx;
   letter-spacing: 2rpx;  
   font-weight: lighter;
 }
 
-.html-content.small, box.box.html-content.small .raw{
+.html-content.mini, box.box.html-content.mini .raw{
   height: 400rpx;
   overflow: hidden;
   position: relative;
@@ -94,7 +94,8 @@ mycard{
   justify-content: space-between;
   align-items: center;
   margin-bottom:20rpx;
-   letter-spacing: 5rpx;
+  margin-top:30rpx;
+  letter-spacing: 5rpx;
 }
 .coupon .name{
   height: 100rpx;
@@ -306,15 +307,21 @@ myfav .myfav {
 }
 
 .content-switch{
-  width: 100%;
+  width: 400rpx;
   display: flex;
   justify-content: center;
   align-items: center;
+  height:60rpx;
+  background:#fff;
+  border-radius:30rpx;
+  border:1rpx solid #333;
+  margin:40rpx auto 10rpx auto;
 }
 
 .content-switch image{
-  width: 40rpx;
-  height: 40rpx;
+  width: 30rpx;
+  height: 30rpx;
+  margin-left:20rpx;
 }
 
 .content-switch .down{
