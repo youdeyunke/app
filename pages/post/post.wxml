@@ -22,7 +22,6 @@
 </view>
 
 <view class="container" style="padding-top:0;">
-   <view class="h2">详细内容</view>
    <view class="box html-content {{ minicontent == true ? 'mini' : 'full' }}">
       <view class="raw">
         <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>

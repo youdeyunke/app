@@ -38,7 +38,7 @@
 }
 
 .comments .item .meta{
-  font-size:24rpx;
+  font-size:28rpx;
   width: calc(100% - 60rpx - 30rpx);
 }
 

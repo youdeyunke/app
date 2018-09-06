@@ -11,7 +11,7 @@ page{
   justify-content: flex-start;
   align-items: center;
   background: #f4f4f4;
-  font-size:24rpx;
+  font-size:28rpx;
   color:#333;
   font-weight:normal;
   --color-green: #1AAD19;
