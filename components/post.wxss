@@ -79,7 +79,7 @@
 .post .meta .area-price{
   font-size:24rpx;
   display: flex;
-  justify-content: flex-end; 
+  justify-content: space-between; 
 }
 
 .post .meta .location{
@@ -92,7 +92,7 @@
 .post .meta .area-price .price{
     color: orangered;
     font-weight: bold;
-    font-size: 28rpx;
+    font-size: 24rpx;
 }
  mytags .tag{
 }

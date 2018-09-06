@@ -17,7 +17,10 @@
         </view>
         
         <view class="area-price">
-           <text class="price">{{ item.price_info.perfix}} {{item.price_info.value}} {{item.price_info.suffix}}</text>
+            <text class="area" wx:if="{{item.area_info.min == item.area_info.max}}">建面: {{item.area_info.min}}</text>
+            <text class="area" wx:if="{{item.area_info.min < item.area_info.max}}">建面:{{item.area_info.min}} - {{ item.area_info.max}}</text>
+           <text class="price" wx:if="{{item.price_info.name != 'about_ave_price'}}">{{item.price_info.value}} {{item.price_info.suffix}}</text>
+           <text class="price" wx:if="{{item.price_info.name == 'about_ave_price'}}">售价待定</text>
         </view>
       </view>
 </navigator>
