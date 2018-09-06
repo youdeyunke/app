@@ -13,12 +13,11 @@
         <mytags mini="true" items="{{item.tags_list}}" max="3"></mytags>
 
         <view class="location">
-          {{item.block_info.district.name}} {{item.block_info.name}}
+          {{item.desc}}
         </view>
         
         <view class="area-price">
-           <text class="area" wx-if="{{item.block_info.item_layout}}">{{ item.block_info.item_layout }}</text>
-           <text class="price" wx-if="{{item.block_info.item_price}}">{{ item.block_info.item_price }} 元/㎡</text>
+           <text class="price">{{ item.price_info.perfix}} {{item.price_info.value}} {{item.price_info.suffix}}</text>
         </view>
       </view>
 </navigator>

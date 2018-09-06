@@ -79,7 +79,7 @@
 .post .meta .area-price{
   font-size:24rpx;
   display: flex;
-  justify-content: space-between; 
+  justify-content: flex-end; 
 }
 
 .post .meta .location{

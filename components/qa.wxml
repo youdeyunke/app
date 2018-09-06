@@ -14,7 +14,7 @@
     <view class="qa-item-body-content">{{item.answer}}      </view>
   </view>
   <view wx:if="{{  mini == false }}" class="qa-item-author">
-      {{ item.admin_user.name}} {{item.admin_user.desc}} {{ item.updated_at_pretty}} 回复
+      管理员在{{ item.updated_at_pretty}} 回复
   </view>  
   </block>
 

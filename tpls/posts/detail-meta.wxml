@@ -1,33 +1,10 @@
 <template name="detail-meta">
   <block>
-      <view class="detail-meta" wx-if="{{post.block_info && post.block_info.cate == 'block'}}">
-              <view class="meta">
-                <text class="label">板块均价</text>
-                <text> {{post.block_info.block_average_price}}元/平米</text>
-              </view>
-
-              <view class="meta">
-                <text class="label">板块供求</text>
-                <text>{{ post.block_info.block_supply }}</text>
-              </view>
-
-              <view class="meta">
-                <text class="label">板块亮点</text>
-                <text> {{ post.block_info.block_features }}</text>
-              </view>
-
-      </view>
-
       <view  class="detail-meta" >
-          <view class="meta">
-            <text class="label">类型</text>
-            <text>{{ post.cat.name }}</text>
-          </view>
-
-          <view class="meta">
-            <text class="label">总价</text>
-            <text> {{ post.block_info.item_total_price_min }}万-{{ post.block_info.item_total_price_max }}万</text>
-          </view>
+        <view class="meta">
+          <text class="label">类型</text>
+          <text>{{ post.cat.name }}</text>
+        </view>
 
         <view class="meta">
           <text class="label">地址</text>
@@ -36,14 +13,14 @@
 
         <view class="meta">
           <text class="label">小区</text>
-          <text>{{ post.area }}</text>
+          <text>{{ post.area_name }}</text>
         </view> 
         
         <view class="meta" wx:if="{{post.open_at_unknow == false }}">
             <text class="label">开盘</text>
             <text> {{ post.open_at }}</text>
-          </view>
         </view>
 
+      </view>
   </block>
 </template>
