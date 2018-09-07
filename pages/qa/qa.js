@@ -146,7 +146,7 @@ Page({
     var _this = this
     return {
       desc: _this.data.item['content'],
-      title: '真有好房',
+      title: '',
       path: 'pages/qa/qa?id=' + _this.data.item['id']
     }
   },
