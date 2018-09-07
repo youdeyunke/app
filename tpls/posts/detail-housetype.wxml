@@ -1,7 +1,7 @@
 <template name="housetype">
 <view class="container">
     <view class="container-head">
-      <view class="h2">主力户型</view>
+      <view class="h2">户型信息</view>
     </view>
     
     <view class="container-body housetype" wx:for="{{post.types}}">
@@ -11,9 +11,8 @@
       <view class="meta">
         <view class="name">{{item.name}}</view>
         <view class="kv"><text decode="{{true}}">朝向&nbsp; &nbsp;&nbsp;{{item.position}}</text></view>
-        <view class="kv"><text decode="{{true}}">建面&nbsp; &nbsp;&nbsp;{{item.area}} ㎡</text></view>
         <view class="kvs">
-          <view class="kv">单价<text decode="{{true}}">&nbsp; &nbsp;&nbsp;{{item.ave_price}} 万</text></view>
+           <view class="kv"><text decode="{{true}}">建面&nbsp; &nbsp;&nbsp;{{item.area}} ㎡</text></view>
           <view class="kv">总价<text decode="{{true}}" class="i">&nbsp; &nbsp;&nbsp;{{item.total_price}} 万</text></view>
         </view>
       </view>

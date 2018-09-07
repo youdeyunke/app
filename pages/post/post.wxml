@@ -4,7 +4,20 @@
 <import src="/tpls/posts/detail-housetype.wxml" />
 <import src="/tpls/posts/detail-meta.wxml" />
 <import src="/tpls/posts/more-url" />
-<image wx:if="{{true}}" class="post-cover" src="{{post.cover.url || '/assets/images/cover-none.png' }}?imageView2/2/w/750"></image>
+<view class="post-cover">
+       <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000"
+        duration="500" circular="true" indicator-color="rgba(255,255,255,0.7)" autoplay indicator-active-color="#fff" >
+         
+            <swiper-item bindtap="viewImage">
+                <image src="{{post.cover.url}}"></image>
+            </swiper-item>   
+            <swiper-item bindtap="viewImage" wx:for="{{post.types}}">
+                <image src="{{item.image.url}}"></image>
+            </swiper-item>   
+            
+        </swiper>
+</view>
+
 
 <view class="header">
   <view class="container">
@@ -15,7 +28,7 @@
 
    <view bindtap='couponHandle' class="coupon" wx:if="{{post.group == 'new' && post && post.coupon_enable}}">
     <view class="name line-limit">{{post.coupon_desc}}</view>
-    <view class="action">{{ post.user_has_coupon ? '已领取' : '领取优惠券' }}</view>
+    <view class="action">{{ post.user_has_coupon ? '已领券' : '领取优惠券' }}</view>
    </view>     
 
   </view>
@@ -31,6 +44,7 @@
   <view class="content-switch" bindtap="contentHandle" wx:if="{{minicontent}}">
     加载全文 <image class="{{ minicontent == true ? 'down' : 'up' }}" src="/assets/icons/right-arrow.png"></image>
   </view>
+
 </view>
 
 <template is="housetype" data="{{post: post}}" />
@@ -64,17 +78,20 @@
 </mycard>
 
 
-
 <form report-submit bindsubmit='btnsHandle' class="footer-btns">
   <ul>
-    <li class="fav">
-      <myfav wx:if="{{post.id}}" showstatus="{{true}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
+    <li class="staff">
+       <view class="staff-avatar"><image src="{{post.staff_user.avatar.url}}?"></image></view>
+       <view class="staff-info">
+               <view class="staff-name line-limit">{{post.staff_user.name}}</view>
+               <view class="staff-desc line-limit">{{post.staff_user.desc}}</view>
+       </view>
     </li>
     <li bindtap="bookingHandle" class="booking"><image src="/assets/icons/btn-booking.png"></image>
       {{ post.user_has_booking ? '已预约' : '预约看房'}}
     </li>
     <li class="call" bindtap="callMe">
-      <image src="/assets/icons/btn-call.png"></image>电话咨询
+      <image src="/assets/icons/btn-call.png"></image>电话
     </li>
 
   </ul>

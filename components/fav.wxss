@@ -1,3 +1,5 @@
 image{
   vertical-align: middle;
+  width:30rpx;
+  height:30rpx;
 }

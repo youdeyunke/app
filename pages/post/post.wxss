@@ -17,6 +17,16 @@ mycard{
   padding:0rpx;
 }
 
+.post-cover swiper{
+  width:750rpx;
+  height:410rpx;
+}
+
+.post-cover image{
+  width:750rpx;
+  height:410rpx;
+}
+
 .detail-meta{
   padding:20rpx 0 0 20rpx;
   border-radius:10rpx;
@@ -136,7 +146,7 @@ mycard{
   position: fixed;
   bottom:0rpx;
   border-top:none;
-  height: 100rpx;
+  height: 90rpx;
   z-index:20;
   letter-spacing: 4rpx;
 }
@@ -166,19 +176,18 @@ mycard{
 }
 
 .footer-btns li.call{
-  background:green;
-
+  background:lightgreen;
   color: #fff;
   font-weight: bold;
-  width: 40%;
+  width: 33%;
 }
 .footer-btns li.call image{
   margin-right:20rpx;
 }
 
 .footer-btns li.booking{
-  background:#7c0875;
-  width:40%;
+  background:orange;
+  width:33%;
 }
 
 .footer-btns li.booking image{
@@ -194,12 +203,54 @@ mycard{
   text-align: center;
 }
 
+.footer-btns li.staff{
+   display:flex;
+   justify-content:space-around;
+   width:34%;
+   letter-spacing:0.5rpx;
+   padding:10rpx 10rpx;
+}
+
+.footer-btns li.staff .staff-avatar{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+}
+.footer-btns li.staff .staff-avatar image{
+   width:35px;
+   height:35px;
+   border-radius:100%;
+   overflow:hidden;
+}
+
+.footer-btns li.staff .staff-info{
+   display:flex;
+   flex-direction:column;
+   justify-content:space-between;
+   justify-content:flex-start;
+}
+
+.footer-btns li.staff .staff-name{
+    width:150rpx;
+    font-size:24rpx;
+    color:#000;
+}
+
+.footer-btns li.staff .staff-desc{
+    width:150rpx;
+    font-size:24rpx;
+    color:#666;
+}
+
+
 myfav .myfav {
   display: flex;
   justify-content: center;
   align-items: center;
+  position:absolute;
+  right:100rpx;
+  top:100rpx;
 }
-
 
 .mask{
   position: absolute;
@@ -249,7 +300,7 @@ myfav .myfav {
 
 .housetype .poster, .housetype .poster image{
   width: 250rpx;
-  height: 200rpx;
+  height: 150rpx;
   overflow: hidden;
 }
 
@@ -325,7 +376,7 @@ myfav .myfav {
   height:60rpx;
   background:#fff;
   border-radius:30rpx;
-  border:1rpx solid #333;
+  border:1rpx solid #999;
   margin:40rpx auto 10rpx auto;
 }
 

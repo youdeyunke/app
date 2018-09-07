@@ -78,19 +78,9 @@ Page({
   },
 
   imageView: function(e){
-    var t = e.currentTarget.dataset.target
-    var url = ''
-    if(t == 'a'){
-      url = this.data.post.housetype_poster_a.url
-    }else{
-      url = this.data.post.housetype_poster_b.url
-    }
-
     wx.previewImage({
       urls: [url],
     })
-
-
   },
 
   callMe: function(){
@@ -226,7 +216,7 @@ Page({
         console.log('resp', resp)
         wx.showModal({
           title: '预约成功！',
-          content: '客服会来电与您确认具体看房时间，请留意来电',
+          content: '经济人稍后会来电与您确认具体看房时间，请留意',
         })
         _this.loadPost(pid)
       }
