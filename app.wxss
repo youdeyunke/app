@@ -14,11 +14,19 @@ page{
   font-size:28rpx;
   color:#333;
   font-weight:normal;
-  --color-green: #1AAD19;
+  --color-a: #00ae66;
+  --color-b: #ff911b;
+  --color-c: red;
+  
+}
+
+
+button[type="primary"]{
+  background: var(--color-a);
 }
 
 .i{
-    color: orangered !important;
+    color: var(--color-b2) !important;
     font-weight: bold !important;
 }
 

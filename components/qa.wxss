@@ -24,11 +24,11 @@
 
 
 .qa-item-a .qa-item-body-icon{
-  background: green;
+  background:var(--color-a);
 }
 
 .qa-item-q .qa-item-body-icon{
-  background:orangered;
+  background:var(--color-b);
 }
 
 .qa-item-body-icon-q{}

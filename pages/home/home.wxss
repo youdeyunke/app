@@ -29,10 +29,10 @@ page, page .container.main{
   height: 35rpx;
   margin-bottom:10rpx;
 
-  border:2rpx solid #f4f4f4;
-  padding:12rpx;
+  border:1rpx solid #f4f4f4;
+  padding:18rpx;
   border-radius:100%;
-  box-shadow:1rpx 2rpx 2rpx rgba(0,0,0, 0.1);
+  box-shadow: 1rpx 1rpx 1rpx rgba(0,0,0, 0.1);
   
 }
 

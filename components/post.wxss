@@ -3,14 +3,14 @@
   background: #fff;
   box-sizing: border-box;
   padding:20rpx;
-  margin:0 20rpx;
+  margin:0 10rpx;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom:20rpx;
   padding-bottom:20rpx;
   border-bottom:1px solid #f4f4f4;  
-  width: calc(100% - 40rpx);
+  width: calc(100% - 20rpx);
   border-radius: 6rpx;
   box-shadow: 1rpx 2rpx 6rpx rgba(0,0,0, 0.05);
 }
@@ -28,7 +28,7 @@
 .post .badge{
     position: absolute;
     color: #fff;
-    background-color: #FA5741;  
+    background-color:var(--color-b);  
     left:-10rpx;
     bottom:20rpx;
     padding:10rpx 15rpx;
@@ -90,7 +90,7 @@
   color:#000;
 }
 .post .meta .area-price .price{
-    color: orangered;
+    color:var(--color-c);
     font-weight: bold;
     font-size: 24rpx;
 }

@@ -71,11 +71,11 @@
   "window": {
     "enablePullDownRefresh": false,
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#00ae66",
     "navigationStyle": "default",
     "backgroundColor": "#f4f4f4",
     "navigationBarTitleText": "APP NAME",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "light"
   }
   
 }

@@ -176,7 +176,7 @@ mycard{
 }
 
 .footer-btns li.call{
-  background:lightgreen;
+  background: var(--color-a);
   color: #fff;
   font-weight: bold;
   width: 33%;
@@ -186,7 +186,7 @@ mycard{
 }
 
 .footer-btns li.booking{
-  background:orange;
+  background: var(--color-b);
   width:33%;
 }
 
