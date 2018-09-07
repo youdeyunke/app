@@ -9,7 +9,7 @@
 <view class="header">
   <view class="container">
      <view class=" post-title h1">{{ post.title }}</view>
-     <mytags wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
+     <mytags wx:if="{{post.tags_list}}" cat="{{post.cat.name}}" items="{{post.tags_list}}"></mytags>
 
      <template is="detail-meta" data="{{post: post }}" /> 
 

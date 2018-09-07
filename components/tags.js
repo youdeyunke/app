@@ -7,6 +7,7 @@ Component({
     mini: {type: Boolean, value: false },
     max: {type: Number, value: 2},
     items: { type: Array, value: [] },
+    colorIndex: {type: Number, value: 9999},
   },
 
   ready: function(){

@@ -94,7 +94,5 @@
     font-weight: bold;
     font-size: 24rpx;
 }
- mytags .tag{
-}
 
 @import "/components/tags.wxss";

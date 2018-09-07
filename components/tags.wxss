@@ -4,6 +4,7 @@
   padding:4rpx 5rpx;
   margin-right:10rpx;
   border-radius:6rpx;
+  font-size:24rpx;
  }
 
 .tags .tag{
@@ -13,4 +14,16 @@
   padding:4rpx 16rpx;
   background: #f4f4f4;
   margin-right:15rpx;
+}
+
+
+.tag-bg1{
+  background:lightyellow;
+  border-color:lightyellow !important;
+  color:orange !important;
+}
+
+.tag-bg2{
+  background:lightblue;
+  color:darkblue !important;
 }

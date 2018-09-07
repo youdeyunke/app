@@ -14,10 +14,10 @@ Page({
     hasMore: true,
     posts: [],
     tabIcons: [
-      { name: '全部房源', url: '/pages/post/index', opentype:"navigateTo", id: 'all'},
-      {name: '热卖楼盘', url: '/pages/post/index', opentype:"navigateTo", id: 'hot'},
-      { name: '二手房源', url: '/pages/post/index', opentype:"navigateTo", id: 'youhui'},
-      { name: '最新开盘', url: '/pages/post/index', opentype: "navigateTo", id: 'new' }      
+      { name: '全部', url: '/pages/post/index', opentype:"navigateTo", id: 'all'},
+      {name: '新房', url: '/pages/post/index', opentype:"navigateTo", id: 'new'},
+      { name: '二手', url: '/pages/post/index', opentype:"navigateTo", id: 'old'},
+      { name: '优惠', url: '/pages/post/index', opentype: "navigateTo", id: 'hot' }      
 
     ]
   },
@@ -29,11 +29,6 @@ Page({
     })
   },
 
-  xuezhishi: function(e){
-    wx.navigateToMiniProgram({
-      appId: 'wxae515be8cfd1d1bc'
-    })    
-  },
 
   cityHandle: function(e){
     console.log('city change handle', e.detail.city)
@@ -44,8 +39,8 @@ Page({
 
   onShareAppMessage: function () {
     return {
-      title: '真有好房',
-      desc: '真有好房',
+      title: '',
+      desc: '',
       path: 'pages/index/index'
     }
   },
@@ -57,7 +52,6 @@ Page({
   onPullDownRefresh: function () {
     wx.stopPullDownRefresh()
     wx.showNavigationBarLoading() //在标题栏中显示加载
-    this.loadCats()
     var _this = this
     _this.setData({
       posts: [],
@@ -75,7 +69,6 @@ Page({
    */
   onLoad: function (options) {
     var _this = this   
-    this.loadCats()
     app.loadPosts(_this)
   },
 
@@ -120,17 +113,6 @@ Page({
       offset: _this.data.offset + _this.data.limit,
     })
     app.loadPosts(_this)
-  },
-
-  loadCats: function(){
-    var _this = this
-    app.request({
-      url: '/api/v1/cats',
-      data: {},
-      success: function(resp){
-        _this.setData({cats: resp.data.data})
-      }
-    })
   },
 
   /**

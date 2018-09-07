@@ -17,10 +17,10 @@ App({
       return false
     }
     var query = {
-      city_id: that.data.city_id || '',
+      //city_id: that.data.city_id || '',
       offset: that.data.offset || 0,
       limit: that.data.limit || 0,
-      cat_id: that.data.cat_id || '',
+      group: that.data.group || 'all',
     }
     var _this = this
     this.request({

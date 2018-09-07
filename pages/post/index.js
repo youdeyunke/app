@@ -20,8 +20,8 @@ Page({
   onLoad: function (query) {
     var _this = this
     _this.setData({
-      cat_id: query.cat_id,
       city_id: query.city_id,
+      group: query.group,
     })
     
     app.loadPosts(_this)
