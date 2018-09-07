@@ -35,11 +35,11 @@
 
 <template is="housetype" data="{{post: post}}" />
 
-<mycard wx:if="{{post.more_url}}" title="{{post.more_title}}" opentype="webview" url="{{post.more_url}}">
+<mycard wx:if="{{post.group == 'new' && post.more_url}}" title="{{post.more_title}}" opentype="webview" url="{{post.more_url}}">
   <view>{{ post.more_desc }}</view>
 </mycard>
 
-<mycard number="{{post.comments_count}}" title="用户评价" url="{{ post.comments_count > 5 ?  '/pages/comments/index?target_id=' +postId : null}}" >
+<mycard wx:if="{{post.comment_enable}}" number="{{post.comments_count}}" title="用户评价" url="{{ post.comments_count > 5 ?  '/pages/comments/index?target_id=' +postId : null}}" >
   <comments mini="true" items="{{comments}}"></comments>
 
   <view class="comments-empty" wx:if="{{post.comments_count == 0}}">暂无评论</view>
@@ -50,7 +50,7 @@
   </view>
 </mycard>
 
-<mycard title="大家都在问" number="{{post.questions_count}}" url="{{ post.questions_count > 5 ? '/pages/qa/index?post_id='+postId : null }}">
+<mycard wx:if="{{post.qa_enable}}" title="大家都在问" number="{{post.questions_count}}" url="{{ post.questions_count > 5 ? '/pages/qa/index?post_id='+postId : null }}">
   
   <view class="qa"  wx:for="{{qas}}">
   <qa answer="{{false}}" item="{{item}}" mini></qa>
