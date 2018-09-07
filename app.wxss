@@ -21,10 +21,6 @@ page{
 }
 
 
-button[type="primary"]{
-  background: var(--color-a);
-}
-
 .i{
     color: var(--color-b2) !important;
     font-weight: bold !important;
