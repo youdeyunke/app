@@ -9,8 +9,7 @@
         <image wx:if="{{false}}" class="play-btn" src="/assets/images/play-btn.png"></image>
       </view>
       <view class="meta">
-        <text class="item-title">{{ item.title }}</text>
-        <mytags mini="true" items="{{[item.cat.name]}}" ></mytags>
+        <text class="item-title">{{ item.group == 'new' ? item.block_name : item.title }}</text>
         <mytags mini="true" items="{{item.tags_list}}" max="3"></mytags>
 
         <view class="location">

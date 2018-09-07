@@ -8,12 +8,12 @@
 
 <view class="header">
   <view class="container">
-     <view class=" post-title h1">{{ post.title }}</view>
+     <view class=" post-title h1">{{ post.group == 'new' ? post.block_name + ' ' + post.desc : post.title }}</view>
      <mytags wx:if="{{post.tags_list}}" cat="{{post.cat.name}}" items="{{post.tags_list}}"></mytags>
 
      <template is="detail-meta" data="{{post: post }}" /> 
 
-   <view bindtap='couponHandle' class="coupon" wx:if="{{post && post.coupon_enable}}">
+   <view bindtap='couponHandle' class="coupon" wx:if="{{post.group == 'new' && post && post.coupon_enable}}">
     <view class="name line-limit">{{post.coupon_desc}}</view>
     <view class="action">{{ post.user_has_coupon ? '已领取' : '领取优惠券' }}</view>
    </view>     
