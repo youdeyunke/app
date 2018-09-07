@@ -5,8 +5,6 @@
         <view class="nickname">
           <view class="main">
             <view class="uname">{{comment.user.nickname}}</view>
-            <mytags mini items="{{ [comment.cat_name] }}"></mytags>
-
           </view>
           <view class="score" wx:if="{{!mini}}">
             <mystars value="{{comment.score}}"></mystars>
@@ -14,11 +12,6 @@
           </view>
 
         </view>
-        <view class="target" wx:if="{{showTarget}}">
-          <text>点评楼盘：</text>
-          <text class="red">{{comment.post_info.block.name}}</text>
-        </view>
-
 
         <view class="content">{{comment.content}}</view>
         <view class="datetime" wx:if="{{!mini}}">
