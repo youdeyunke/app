@@ -20,6 +20,18 @@ mycard{
 .detail-meta{
   padding:20rpx 0 0 20rpx;
   border-radius:10rpx;
+  font-size:24rpx;
+}
+
+
+.detail-meta.old{
+  display:flex;
+  justify-content:flex-start;
+  flex-wrap:wrap;
+}
+
+.detail-meta.old .meta{
+  width:50%;
 }
 
 .detail-meta .meta{
