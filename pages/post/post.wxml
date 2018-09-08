@@ -5,6 +5,7 @@
 <import src="/tpls/posts/detail-meta.wxml" />
 <import src="/tpls/posts/more-url" />
 <view class="post-cover">
+        <view class="x">hello</view>
        <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000"
         duration="500" circular="true" indicator-color="rgba(255,255,255,0.7)" autoplay indicator-active-color="#fff" >
          

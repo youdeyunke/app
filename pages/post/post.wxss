@@ -15,6 +15,15 @@ mycard{
   overflow: hidden;
   margin:0 0 20rpx 0;
   padding:0rpx;
+  position:relative;
+}
+
+
+.post-cover .x{
+  position:absolute;
+  right:100rpx;
+  top:100rpx;
+  z-index:999;
 }
 
 .post-cover swiper{
