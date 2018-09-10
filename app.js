@@ -37,7 +37,6 @@ App({
         }
         d.offset = resp.data.paginate.offset
         that.setData(d)
-
       }
     })
   },

@@ -1,14 +1,7 @@
 <!--index.wxml-->
 <swiper class="swiper home" indicator-dots="true" autoplay="true" interval="5000"
 duration="500" circular="true" indicator-color="rgba(255,255,255,0.7)" autoplay indicator-active-color="#fff" >
- 
-
-    <swiper-item bindtap="gotoTiao">
-      <image src="https://pic1.ajkimg.com/display/hj/f2311fe332b25ee488afdcf828848f56/240x180c.jpg?t=1"></image>
-    </swiper-item>   
-
-    <swiper-item bindtap="gotoQa">
-      <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1529316090&di=f60a7eeb5aae3aa484bc4f5954c06080&imgtype=jpg&er=1&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2F10dfa9ec8a136327ac85a4149b8fa0ec08fac7a9.jpg"></image>
-    </swiper-item>  
-    
+<swiper-item wx:for="{{items}}" bindtap="goto" data-index="{{index}}">
+    <image src="{{item.image.url}}"></image>
+</swiper-item>   
 </swiper>

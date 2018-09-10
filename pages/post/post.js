@@ -46,6 +46,7 @@ Page({
     console.log('load qas')
     app.request({
       url: '/api/v1/questions/',
+      hideLoading: true,
       data: {post_id: postId, limit: 5},
       success: function(resp){
         _this.setData({
@@ -58,6 +59,7 @@ Page({
   loadComments: function(postId){
     var _this = this
     app.request({
+      hideLoading: true,
       url: '/api/v1/mycomments',
       data: { target_id: postId, target_type: 'post', limit: 5 },
       success: function (resp) {
@@ -69,6 +71,7 @@ Page({
   loadRecoms: function(postId){
     var _this = this
     app.request({
+      hideLoading: true,
       url: '/api/v1/posts/',
       data: {pid: postId, type:'recoms'},
       success: function(resp){
@@ -108,9 +111,11 @@ Page({
     var _this = this
 
     app.request({
+      hideLoading: true,
       url: '/api/v1/posts/' + postId,
       success: function(resp){
         _this.setData({post: resp.data.data})
+        wx.setStorage({key: 'post.data.' + postId, data: resp.data.data})
         _this.parseHtml()
         wx.setStorageSync('last_view_post', resp.data.data)
         wx.setNavigationBarTitle({
@@ -128,7 +133,8 @@ Page({
    */
   onLoad: function (options) {
     var postId = options.id
-    this.setData({ postId: postId})
+    var post = wx.getStorageSync('post.data.' + postId)
+    this.setData({ postId: postId, post: post})
     this.loadPost(postId)
     this.loadRecoms(postId)
     this.loadComments(postId)
