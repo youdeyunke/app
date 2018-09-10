@@ -78,8 +78,9 @@ Page({
   },
 
   imageView: function(e){
+    var urls = this.data.post.full_images_list
     wx.previewImage({
-      urls: [url],
+      urls: urls,
     })
   },
 

@@ -5,15 +5,16 @@
 <import src="/tpls/posts/detail-meta.wxml" />
 <import src="/tpls/posts/more-url" />
 <view class="post-cover">
-        <view class="x">hello</view>
+        <view class="image-count">{{post.full_images_list.length}} 图</view>
+       <myfav wx:if="{{post.id}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
        <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000"
         duration="500" circular="true" indicator-color="rgba(255,255,255,0.7)" autoplay indicator-active-color="#fff" >
          
             <swiper-item bindtap="viewImage">
-                <image src="{{post.cover.url}}"></image>
+                <image src="{{post.cover}}"></image>
             </swiper-item>   
-            <swiper-item bindtap="viewImage" wx:for="{{post.types}}">
-                <image src="{{item.image.url}}"></image>
+            <swiper-item bindtap="viewImage" wx:for="{{post.full_images_list}}">
+                <image src="{{item}}"></image>
             </swiper-item>   
             
         </swiper>

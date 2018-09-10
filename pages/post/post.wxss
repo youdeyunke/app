@@ -13,17 +13,35 @@ mycard{
   height: 410rpx;
   border-radius: 0rpx;
   overflow: hidden;
-  margin:0 0 20rpx 0;
+  margin:0 0 0rpx 0;
   padding:0rpx;
   position:relative;
 }
 
 
-.post-cover .x{
+.post-cover myfav{
+  color:#fff;
   position:absolute;
-  right:100rpx;
-  top:100rpx;
+  right:50rpx;
+  top:50rpx;
   z-index:999;
+}
+
+.post-cover .image-count{
+  color:#fff;
+  background:rgba(0,0,0, 0.5);
+  position:absolute;
+  bottom:80rpx;
+  right:50rpx;
+  width:100rpx;
+  height:40rpx;
+  border-radius:40rpx;
+  font-size:24rpx;
+  z-index:999;
+  display:flex;
+  letter-spacing:1rpx;
+  justify-content:center;
+  align-items:center;
 }
 
 .post-cover swiper{
