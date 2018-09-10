@@ -1,4 +1,3 @@
-@import './weui.wxss';
 @import "/components/tags.wxss";
 @import "/utils/wxParse/wxParse.wxss";
 
