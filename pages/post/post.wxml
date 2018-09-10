@@ -5,14 +5,14 @@
 <view class="post-cover">
         <view class="image-count">{{post.full_images_list.length}} 图</view>
        <myfav wx:if="{{post.id}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
-       <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000"
+       <swiper class="swiper" indicator-dots="true" autoplay="{{post.images_list.length > 1}}" interval="5000"
         duration="500" circular="true" indicator-color="rgba(255,255,255,0.7)" autoplay indicator-active-color="#fff" >
          
             <swiper-item bindtap="viewImage">
-                <image src="{{post.cover}}"></image>
+                    <image src="{{post.cover}}?imageView2/2/w/750"></image>
             </swiper-item>   
             <swiper-item bindtap="viewImage" wx:for="{{post.full_images_list}}">
-                <image src="{{item}}"></image>
+                    <image src="{{item}}?imageView2/2/w/750"></image>
             </swiper-item>   
             
         </swiper>
@@ -81,7 +81,7 @@
 <form report-submit bindsubmit='btnsHandle' class="footer-btns">
   <ul>
     <li class="staff">
-       <view class="staff-avatar"><image src="{{post.staff_user.avatar.url}}?"></image></view>
+            <view class="staff-avatar"><image src="{{post.staff_user.avatar.url}}?imageView2/2/w/100"></image></view>
        <view class="staff-info">
                <view class="staff-name line-limit">{{post.staff_user.name}}</view>
                <view class="staff-desc line-limit">{{post.staff_user.desc}}</view>

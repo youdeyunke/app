@@ -1,1 +1,3 @@
 /tmp/*
+tpls/posts/mini_listing.wxml
+tpls/posts/mini_listing.wxss

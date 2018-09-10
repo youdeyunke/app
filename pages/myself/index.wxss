@@ -50,3 +50,4 @@ page{
   height: 40rpx;
 margin-right: 15rpx;vertical-align: middle;
 }
+@import '../../weui.wxss'
