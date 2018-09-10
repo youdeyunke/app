@@ -77,7 +77,7 @@ Page({
     })
   },
 
-  imageView: function(e){
+  viewImage: function(e){
     var urls = this.data.post.full_images_list
     wx.previewImage({
       urls: urls,
