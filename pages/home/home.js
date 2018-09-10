@@ -17,7 +17,7 @@ Page({
       { name: '全部', url: '/pages/post/index', opentype:"navigateTo", id: 'all'},
       {name: '新房', url: '/pages/post/index', opentype:"navigateTo", id: 'new'},
       { name: '二手', url: '/pages/post/index', opentype:"navigateTo", id: 'old'},
-      { name: '优惠', url: '/pages/post/index', opentype: "navigateTo", id: 'hot' }      
+      { name: '优惠', url: '/pages/post/index', opentype: "navigateTo", id: 'coupon' }      
 
     ]
   },

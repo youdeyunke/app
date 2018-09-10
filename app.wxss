@@ -21,7 +21,7 @@ page{
 
 
 .i{
-    color: var(--color-b2) !important;
+    color: var(--color-b) !important;
     font-weight: bold !important;
 }
 

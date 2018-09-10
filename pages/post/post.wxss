@@ -414,13 +414,6 @@ myfav .myfav {
   margin-left:20rpx;
 }
 
-.content-switch .down{
-  transform:rotate(90deg);
-  -ms-transform:rotate(90deg); /* Internet Explorer */
-  -moz-transform:rotate(90deg); /* Firefox */
-  -webkit-transform:rotate(90deg); /* Safari 和 Chrome */
-  -o-transform:rotate(90deg); /* Opera */
-}
 
 .content-switch .up{
   transform:rotate(-90deg);

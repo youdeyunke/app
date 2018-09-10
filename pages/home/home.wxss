@@ -23,12 +23,12 @@ page, page .container.main{
 }
 
 .tab-icons navigator image{
-  width:35rpx;
-  height: 35rpx;
+  width:45rpx;
+  height: 45rpx;
   margin-bottom:10rpx;
 
   border:1rpx solid #f4f4f4;
-  padding:18rpx;
+  padding:13rpx;
   border-radius:100%;
   box-shadow: 1rpx 1rpx 1rpx rgba(0,0,0, 0.1);
   

@@ -42,7 +42,7 @@
   </view>  
 
   <view class="content-switch" bindtap="contentHandle" wx:if="{{minicontent}}">
-    加载全文 <image class="{{ minicontent == true ? 'down' : 'up' }}" src="/assets/icons/right-arrow.png"></image>
+    加载全文 <image class="{{ minicontent == true ? 'down' : 'up' }}" src="/assets/icons/down-arrow.png"></image>
   </view>
 
 </view>
