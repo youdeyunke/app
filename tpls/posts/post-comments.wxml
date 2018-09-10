@@ -1,9 +1,0 @@
-<template name="post-comments">
-  <block>
- <text class="h1">用户点评</text>
-  <view class="comments">
-    <template wx:for-item="comment" wx:for="{{ comments }}" is="comment-item" data="{{ comment, index, showTarget:false }}"  ></template>
-  </view>
-  <navigator url="/pages/comments/index?target_id={{post.id}}&target_type=post&title=全部评价" class="desc" decode='{{true}}'><text wx:if="{{post.comments_count > 5}}" decode="{{true}}">查看全部{{post.comments_count}}条点评&gt;</text></navigator>
-  </block>
-</template>
