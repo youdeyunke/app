@@ -78,6 +78,11 @@
 </mycard>
 
 
+<mycard wx:if="{{posts}}" title="猜你喜欢">
+        <mypost wx:if="{{item}}" border="true" shadow="{{false}}" wx:for="{{posts}}" item="{{item}}"></mypost>
+</mycard>
+
+
 <form report-submit bindsubmit='btnsHandle' class="footer-btns">
   <ul>
     <li class="staff">

@@ -1,6 +1,7 @@
+<myslider></myslider>
+
 <view class="container main">
   <mytopbar bindcitychanged="cityHandle"></mytopbar>
-  <myslider></myslider>
   <view class="tab-icons">
           <navigator url="/pages/post/index?group={{item.id}}"  open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" wx:for="{{tabIcons}}">
           <image src="/assets/icons/tab-{{item.id}}.png"></image>

@@ -4,6 +4,7 @@
     "myfav": "/components/fav",
     "mycard": "/components/card",
     "qa": "/components/qa",
+    "mypost": "/components/post",
     "mystars": "/components/stars",
     "comments": "/components/comments"
   }

@@ -32,7 +32,7 @@ mycard{
   background:rgba(0,0,0, 0.1);
   position:absolute;
   bottom:80rpx;
-  right:50rpx;
+  left:calc(50% - 50rpx);
   width:100rpx;
   height:40rpx;
   border-radius:40rpx;
@@ -402,7 +402,9 @@ myfav .myfav {
   height:60rpx;
   background:#fff;
   border-radius:30rpx;
-  border:1rpx solid #999;
+  border:1rpx solid var(--color-a);
+  color: var(--color-a);
+  opacity: 0.7;
   margin:40rpx auto 10rpx auto;
 }
 

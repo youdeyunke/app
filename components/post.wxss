@@ -2,18 +2,27 @@
  .post{
   background: #fff;
   box-sizing: border-box;
-  padding:20rpx;
-  margin:0 10rpx;
+  padding:20rpx 0;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  margin-bottom:20rpx;
-  padding-bottom:20rpx;
+  justify-content: space-around;
+  margin:0rpx auto 10rpx auto;
   border-bottom:1px solid #f4f4f4;  
   width: calc(100% - 20rpx);
   border-radius: 6rpx;
   box-shadow: 1rpx 2rpx 6rpx rgba(0,0,0, 0.05);
 }
+
+
+.post.shadow-none{
+  box-shadow:none;
+}
+
+.post.border-none{
+  border:none;
+}
+
+.post.mini{}
 
 .tags {
   font-size:20rpx;
@@ -60,10 +69,10 @@
 
 }
  .post .meta{
-  width:390rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: calc(100% - 266rpx;)
 }
 .post .meta .item-title{
   overflow: hidden;

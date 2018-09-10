@@ -1,10 +1,10 @@
 /* components/slider.wxss */
 
  myslider swiper, myslider image{
-  width:700rpx;
-  height: 350rpx;
+  width:750rpx;
+  height: 360rpx;
   margin:0 auto;
-  border-radius: 20rpx;
+  border-radius: 0rpx;
   overflow: hidden;
   display: flex;
   justify-content: center;
