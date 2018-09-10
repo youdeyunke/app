@@ -100,8 +100,8 @@ Page({
     var key1 = "htlm_content." + _this.data.postId
     var html1 = wx.getStorageSync(key1)
     if(html1 ){
-      _this.setData({htmlContent: html1})
-      return
+      //_this.setData({htmlContent: html1})
+      //return
     }
     WxParse.wxParse('htmlContent', 'html', _this.data.post.content ,  _this, 5);
     wx.setStorageSync(key1, _this.data.htmlContent)

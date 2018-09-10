@@ -1,0 +1,4 @@
+<!--components/button.wxml-->
+<view class="mybutton {{ type }}" style="width:{{width}};">
+    <slot></slot>
+</view>

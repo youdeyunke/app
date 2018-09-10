@@ -10,7 +10,7 @@ mycard{
 
 .post-cover{
   width:750rpx;
-  height: 410rpx;
+  height: 480rpx;
   border-radius: 0rpx;
   overflow: hidden;
   margin:0 0 0rpx 0;
@@ -45,19 +45,19 @@ mycard{
 }
 
 .post-cover swiper{
-  width:750rpx;
-  height:410rpx;
+  width:100%;
+  height:100%;
 }
 
 .post-cover image{
-  width:750rpx;
-  height:410rpx;
+  width:100%;
+  height:100%;
 }
 
 .detail-meta{
   padding:20rpx 0 0 20rpx;
   border-radius:10rpx;
-  font-size:24rpx;
+  font-size:28rpx;
 }
 
 
@@ -102,17 +102,20 @@ mycard{
 }
 
 .header .container{
-  width:700rpx;
-  border-radius: 10rpx;
   display: flex;
   justify-content: space-between;
-  margin-top:-60rpx;
 }
 
 
 .raw image.wxParse-img{
   margin:20rpx auto;
   width:300rpx;
+}
+
+.raw .wxParse-inline {
+  line-height: 1.9;
+  letter-spacing: 2rpx;  
+  font-weight: lighter;
 }
 
 .html-content{
@@ -322,6 +325,7 @@ myfav .myfav {
   justify-content: space-between;
   align-items: center;
   margin-bottom:20rpx;
+  font-size:28rpx;
 }
 
 .housetype .poster, .housetype .poster image{
@@ -394,21 +398,8 @@ myfav .myfav {
   color: #999;
 }
 
-.content-switch{
-  width: 400rpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height:60rpx;
-  background:#fff;
-  border-radius:30rpx;
-  border:1rpx solid var(--color-a);
-  color: var(--color-a);
-  opacity: 0.3;
-  margin:40rpx auto 10rpx auto;
-}
 
-.content-switch image{
+.view-more image{
   width: 30rpx;
   height: 30rpx;
   margin-left:20rpx;
@@ -426,4 +417,9 @@ myfav .myfav {
 .qa{
   margin:10rpx 0 20rpx 0 !important;
   height: 40rpx !important;
+}
+
+
+.recom-post .post{
+   padding:20rpx 0;
 }

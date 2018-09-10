@@ -1,7 +1,7 @@
-<myslider></myslider>
 
 <view class="container main">
   <mytopbar bindcitychanged="cityHandle"></mytopbar>
+  <myslider></myslider>
   <view class="tab-icons">
           <navigator url="/pages/post/index?group={{item.id}}"  open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" wx:for="{{tabIcons}}">
           <image src="/assets/icons/tab-{{item.id}}.png"></image>
@@ -14,6 +14,6 @@
 
   <view class="posts-list">
     <block wx:for="{{posts}}" wx:for-item="postitems">
-      <mypost wx:for="{{postitems}}" item="{{item}}"></mypost>
+            <mypost border="{{false}}" shadow="{{false}}" wx:for="{{postitems}}" item="{{item}}"></mypost>
     </block>
   </view>

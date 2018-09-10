@@ -1,4 +1,4 @@
-<view class="card">
+<view class="card {{ shadow ? 'shado' : 'shadow-none'}} {{ border ? 'border' : 'border-none'}}">
   <view class="card-header">
     <view class="card-header-title">
             <view class="h2">{{title}}

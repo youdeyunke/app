@@ -6,6 +6,7 @@
     "qa": "/components/qa",
     "mypost": "/components/post",
     "mystars": "/components/stars",
+    "mybutton": "/components/button",
     "comments": "/components/comments"
   }
 }

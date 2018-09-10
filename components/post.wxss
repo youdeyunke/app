@@ -2,15 +2,18 @@
  .post{
   background: #fff;
   box-sizing: border-box;
-  padding:20rpx 0;
+  padding:20rpx 20rpx;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin:0rpx auto 10rpx auto;
+  margin:0rpx auto 1rpx auto;
   border-bottom:1px solid #f4f4f4;  
-  width: calc(100% - 20rpx);
-  border-radius: 6rpx;
+  width: 100%;
   box-shadow: 1rpx 2rpx 6rpx rgba(0,0,0, 0.05);
+}
+
+.post.mini{
+  padding:20rpx 0rpx;
 }
 
 
@@ -31,7 +34,7 @@
 
 .post .cover{
   position: relative;
-  width:266rpx;
+  width:296rpx;
   height: 184rpx;  
 }
 .post .badge{
@@ -43,10 +46,11 @@
     padding:10rpx 15rpx;
     line-height: 100%;
     box-sizing: border-box;
-    max-width: 266rpx;
+    max-width: 296rpx;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;    
+    font-size:24rpx;
 }
  .post .badge-arrow{
   width: 10rpx;
@@ -72,17 +76,16 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: calc(100% - 266rpx;)
+  width:370rpx;
 }
 .post .meta .item-title{
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   width:320rpx;
-  font-size:24rpx;
+  font-size:32rpx;
   color: #000;
   font-weight: bold;
-
 }
 
 .post .meta .area-price{
@@ -101,7 +104,7 @@
 .post .meta .area-price .price{
     color:var(--color-c);
     font-weight: bold;
-    font-size: 24rpx;
+    font-size: 32rpx;
 }
 
 @import "/components/tags.wxss";

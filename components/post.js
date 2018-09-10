@@ -4,6 +4,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    type: {
+      type: String, value: 'normal',
+    },
     border: {
       type: Boolean, value: true,
     },

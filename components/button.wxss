@@ -1,0 +1,22 @@
+/* components/button.wxss */
+.mybutton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:60rpx;
+  padding:0 40rpx;
+  background:#fff;
+  border-radius:30rpx;
+  opacity: 0.3;
+  margin:40rpx auto 10rpx auto;
+}
+
+.mybutton.primary{
+  border:1rpx solid var(--color-a);
+  color: var(--color-a);
+}
+
+.mybutton.default{
+  border:1rpx solid #333;
+  color: #333;
+}

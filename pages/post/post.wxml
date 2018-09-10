@@ -41,9 +41,10 @@
     </view>
   </view>  
 
-  <view class="content-switch" bindtap="contentHandle" wx:if="{{minicontent}}">
+
+  <mybutton class="view-more" type="primary" width="300rpx" bindtap="contentHandle" wx:if="{{minicontent}}">
     加载全文 <image class="{{ minicontent == true ? 'down' : 'up' }}" src="/assets/icons/down-arrow.png"></image>
-  </view>
+  </mybutton>
 
 </view>
 
@@ -59,8 +60,9 @@
   <view class="comments-empty" wx:if="{{post.comments_count == 0}}">暂无评论</view>
 
   <view class="comments-add">
-    <image src='/assets/icons/pen.png'></image>
-    <navigator url="/pages/comments/new?target_id={{post.id}}">我要点评</navigator>      
+    <mybutton type="primary" width="300rpx">
+        <image src='/assets/icons/pen.png'></image>
+        <navigator url="/pages/comments/new?target_id={{post.id}}">我要点评</navigator> </mybutton>
   </view>
 </mycard>
 
@@ -72,14 +74,15 @@
 
   <view class="comments-empty" wx:if="{{questions.length ==0}}">暂无提问</view>
     <view class="comments-add">
-    <image src='/assets/icons/m-qa.png'></image>
-    <navigator url="/pages/qa/new?post_id={{postId}}">我要提问</navigator>      
+    <mybutton type="primary" width="300rpx">
+        <image src='/assets/icons/m-qa.png'></image>
+        <navigator url="/pages/qa/new?post_id={{postId}}">我要提问</navigator> </mybutton>
   </view>
 </mycard>
 
 
 <mycard wx:if="{{posts}}" title="猜你喜欢">
-        <mypost wx:if="{{item}}" border="true" shadow="{{false}}" wx:for="{{posts}}" item="{{item}}"></mypost>
+        <mypost type="mini" class="recom-post" wx:if="{{item}}" border="true" shadow="{{false}}" wx:for="{{posts}}" item="{{item}}"></mypost>
 </mycard>
 
 
