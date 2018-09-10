@@ -1,9 +1,7 @@
 /* pages/myself/favposts.wxss */
 
-@import "/tpls/posts/mini_listing.wxss";
-
 page{
-   padding-top:0rpx !important;
+   padding-top:10rpx !important;
 }
 
 

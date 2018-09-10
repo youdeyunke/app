@@ -311,7 +311,6 @@ myfav .myfav {
   left:30rpx;
 }
 
-@import "/tpls/posts/mini_listing.wxss";
 
 #audio{
   width:100%;
@@ -429,10 +428,7 @@ myfav .myfav {
   -o-transform:rotate(-90deg); /* Opera */
 }
 
-
 .qa{
   margin:10rpx 0 20rpx 0 !important;
   height: 40rpx !important;
 }
-
-@import "/tpls/posts/mini_listing.wxss";

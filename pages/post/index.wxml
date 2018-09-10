@@ -1,6 +1,4 @@
 <!--pages/post/index.wxml-->
-<import src="/tpls/posts/mini_listing.wxml"/>
-
 <view class="posts-list">
   <block wx:for="{{posts}}" wx:for-item="postitems">
     <mypost wx:for="{{postitems}}" item="{{item}}"></mypost>

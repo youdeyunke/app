@@ -1,5 +1,3 @@
-<import src="/tpls/posts/mini_listing.wxml"/>
-
 <view class="container main">
   <mytopbar bindcitychanged="cityHandle"></mytopbar>
   <myslider></myslider>

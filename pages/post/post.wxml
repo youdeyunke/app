@@ -1,9 +1,7 @@
 <import src="/utils/wxParse/wxParse.wxml"/>
-<import src="/tpls/posts/mini_listing.wxml"/>
 <import src="/tpls/comment-item.wxml" />
 <import src="/tpls/posts/detail-housetype.wxml" />
 <import src="/tpls/posts/detail-meta.wxml" />
-<import src="/tpls/posts/more-url" />
 <view class="post-cover">
         <view class="image-count">{{post.full_images_list.length}} 图</view>
        <myfav wx:if="{{post.id}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>

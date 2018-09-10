@@ -1,6 +1,3 @@
-@import "/tpls/posts/mini_listing.wxss";
-
-
 page{
   padding-top:10rpx;
 }

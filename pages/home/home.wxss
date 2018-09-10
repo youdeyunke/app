@@ -1,5 +1,3 @@
-@import "/tpls/posts/mini_listing.wxss";
-
 page, page .container.main{
   padding-top:0rpx;
 }
