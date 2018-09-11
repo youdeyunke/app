@@ -6,7 +6,7 @@
   height:60rpx;
   padding:0 40rpx;
   background:#fff;
-  border-radius:30rpx;
+  border-radius:40rpx;
   opacity: 0.9;
   margin:40rpx auto 10rpx auto;
 }

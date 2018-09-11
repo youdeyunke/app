@@ -22,7 +22,6 @@ Component({
 
   ready: function () {
     // 查询状态
-    console.log('ready.....', this.data)
     var _this = this
     wx.showToast({
       title: _this.data.pid,
@@ -32,7 +31,6 @@ Component({
       url: '/api/v2/favs/',
       data: { post_id: _this.data.pid },
       success: function (resp) {
-        console.log('fuck')
         _this.setData(resp.data.data)
       },
     })
