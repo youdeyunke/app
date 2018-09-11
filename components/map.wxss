@@ -1,7 +1,7 @@
 /* components/map.wxss */
 .mymap{
   width:750rpx;
-  height:400rpx;
+  height:550rpx;
   background:#fff;
   position:relative;
   margin-bottom:30rpx;
@@ -13,6 +13,15 @@
     height:100%;
 }
 
+.mymap .mask{
+   height:90rpx;
+   width:100%;
+   background:#fff;
+   position:absolute;
+   bottom:0rpx;
+   left:0rpx;
+   right:0rpx;
+}
 
 .mymap .label{
    position:absolute;

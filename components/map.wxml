@@ -1,4 +1,5 @@
 <!--components/map.wxml-->
 <view class="mymap">
   <image src="{{url}}"></image>
+  <view class="mask"></view>
 </view>

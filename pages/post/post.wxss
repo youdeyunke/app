@@ -119,13 +119,13 @@ mycard{
 }
 
 .html-content{
-  line-height: 1.9;
+  line-height: 1.5;
   letter-spacing: 2rpx;  
   font-weight: lighter;
 }
 
 .html-content.mini, box.box.html-content.mini .raw{
-  height: 400rpx;
+  height: 480rpx;
   overflow: hidden;
   position: relative;
   padding-bottom:20rpx;
