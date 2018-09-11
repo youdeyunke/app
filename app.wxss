@@ -114,6 +114,14 @@ textarea{
   font-size:32rpx;
 }
 
+.font-normal{
+  font-size:28rpx;
+}
+
+.font-mini{
+  font-size:24rpx;
+}
+
 .weui-loadmore{
   margin:0 auto
 }

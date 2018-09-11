@@ -31,7 +31,7 @@ mycard{
   color:#fff;
   background:rgba(0,0,0, 0.1);
   position:absolute;
-  bottom:80rpx;
+  bottom:50rpx;
   left:calc(50% - 50rpx);
   width:100rpx;
   height:40rpx;
