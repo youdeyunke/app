@@ -1,9 +1,9 @@
 page{
-  font-size:28rpx;
+  font-size:var(--font-s);
 }
 
 page .h1{
-  font-size:36rpx;
+  font-size:var(--font-xl);
   color: #000;
   font-weight: 800;
   text-align: center;

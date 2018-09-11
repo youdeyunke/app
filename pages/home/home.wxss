@@ -1,5 +1,6 @@
 page, page .container.main{
-  padding:0 0 30rpx 0;
+  padding:0 0 0rpx 0;
+  background:#fff;
 }
 
 .post-list{
@@ -28,14 +29,14 @@ page, page .container.main{
   margin-bottom:10rpx;
 
   border:1rpx solid #f4f4f4;
-  padding:13rpx;
+  padding:21rpx;
   border-radius:100%;
   box-shadow: 1rpx 1rpx 1rpx rgba(0,0,0, 0.1);
   
 }
 
 .tab-icons navigator text{
-  font-size:24rpx;
+  font-size:var(--font-s);
   color: #000;
   font-weight: normal;
 }

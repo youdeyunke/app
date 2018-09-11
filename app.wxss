@@ -9,13 +9,16 @@ page{
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: #f4f4f4;
   font-size:32rpx;
   color:#333;
   font-weight:normal;
   --color-a: #00ae66;
   --color-b: #ff911b;
   --color-c: red;
+  --font-xl: 36rpx;
+  --font-l: 32rpx;
+  --font-s: 28rpx;
+  --font-xs: 24rpx;
   
 }
 
@@ -104,22 +107,22 @@ textarea{
 }
 
 .h1,.h2{ 
-    color:#000; 
+    color:#333; 
     width:100%;
 }
 .h1{
-  font-size:36rpx;
+  font-size:var(--font-xl);
 }
 .h2{
-  font-size:32rpx;
+  font-size:var(--font-l);
 }
 
 .font-normal{
-  font-size:28rpx;
+  font-size:var(--font-s);
 }
 
 .font-mini{
-  font-size:24rpx;
+  font-size:var(--font-xs);
 }
 
 .weui-loadmore{
@@ -174,7 +177,7 @@ textarea{
 }
 
 .cats .item.active{
-  border-bottom:2rpx solid var(--color-green);
+  border-bottom:2rpx solid var(--color-a);
 }
 
 
@@ -195,7 +198,7 @@ textarea{
 }
 
 .tags .item.active{
-  background: var(--color-green);
+  background: var(--color-a);
   color:#fff;
 }
 

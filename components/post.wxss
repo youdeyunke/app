@@ -2,10 +2,10 @@
  .post{
   background: #fff;
   box-sizing: border-box;
-  padding:20rpx 20rpx;
+  padding:20rpx 0rpx;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   margin:0rpx auto 1rpx auto;
   border-bottom:1px solid #f4f4f4;  
   width: 100%;
@@ -52,6 +52,14 @@
     white-space: nowrap;    
     font-size:24rpx;
 }
+
+.post.coupon-none .badge{
+        display:none;
+}
+
+.post.coupon-none .badge-arrow{
+        display:none;
+}
  .post .badge-arrow{
   width: 10rpx;
   height: 10rpx;
@@ -76,7 +84,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width:370rpx;
+  width:360rpx;
 }
 .post .meta .item-title{
   overflow: hidden;

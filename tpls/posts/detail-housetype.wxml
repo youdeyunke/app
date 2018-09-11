@@ -1,7 +1,7 @@
 <template name="housetype">
 <view class="container">
     <view class="container-head">
-      <view class="h2">户型信息</view>
+      <view class="h1">户型信息</view>
     </view>
     
     <view class="container-body housetype" wx:for="{{post.types}}">

@@ -5,7 +5,7 @@
   background:#fff;
   position:relative;
   margin-bottom:30rpx;
-  padding-bottom:30rpx;t
+  padding-bottom:30rpx;
 }
 
 .mymap image{

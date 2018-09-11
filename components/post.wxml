@@ -1,7 +1,7 @@
 
-<navigator class="post {{type}} {{ shadow ? 'shado' : 'shadow-none'}} {{ border ? 'border' : 'border-none'}}" open-type="navigate" url="/pages/post/post?id={{item.id}}" >
+<navigator class="post {{item.group == 'new' && item.coupon_enable ? '' : 'coupon-none'}} {{type}} {{ shadow ? 'shado' : 'shadow-none'}} {{ border ? 'border' : 'border-none'}}" open-type="navigate" url="/pages/post/post?id={{item.id}}" >
       <view class="cover">
-        <view class="badge" wx:if="{{item.coupon_desc}}">
+        <view class="badge" >
           {{item.coupon_desc}}
         </view>
         <image wx:if="{{item.coupon_desc}}" class="badge-arrow" src="/assets/icons/badge-arrow.png"></image>
@@ -12,15 +12,13 @@
         <text class="item-title">{{ item.group == 'new' ? item.block_name : item.title }}</text>
         <mytags mini="true" items="{{item.tags_list}}" max="3"></mytags>
 
-        <view class="location">
-          {{item.desc}}
-        </view>
-        
         <view class="area-price">
             <text class="area" wx:if="{{item.area_info.min == item.area_info.max}}">建面: {{item.area_info.min}}</text>
             <text class="area" wx:if="{{item.area_info.min < item.area_info.max}}">建面:{{item.area_info.min}} - {{ item.area_info.max}}</text>
-           <text class="price" wx:if="{{item.price_info.name != 'about_ave_price'}}">{{item.price_info.value}} {{item.price_info.suffix}}</text>
-           <text class="price" wx:if="{{item.price_info.name == 'about_ave_price'}}">售价待定</text>
         </view>
+           <text class="price" wx:if="{{item.price_info.name != 'about_ave_price'}}">{{item.price_info.value}} {{item.price_info.suffix}}</text>
+         <view class="price" wx:if="{{item.price_info.name == 'about_ave_price'}}">售价待定</view>
+
       </view>
+
 </navigator>

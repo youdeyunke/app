@@ -28,7 +28,7 @@
 
    <view bindtap='couponHandle' class="coupon" wx:if="{{post.group == 'new' && post && post.coupon_enable}}">
     <view class="name line-limit">{{post.coupon_desc}}</view>
-    <view class="action">{{ post.user_has_coupon ? '已领券' : '领取优惠券' }}</view>
+    <view class="action">{{ post.user_has_coupon ? '已领券' : '领券' }}</view>
    </view>     
 
   </view>
@@ -57,7 +57,7 @@
   <view>{{ post.more_desc }}</view>
 </mycard>
 
-<mycard wx:if="{{post.comment_enable}}" number="{{post.comments_count}}" title="用户评价" url="{{ post.comments_count > 5 ?  '/pages/comments/index?target_id=' +postId : null}}" >
+<mycard wx:if="{{post.comment_enable}}" number="{{post.comments_count}}" title="用户评价" url="{{ post.comments_count > 3 ?  '/pages/comments/index?target_id=' +postId : null}}" >
   <comments mini="true" items="{{comments}}"></comments>
 
   <view class="comments-empty" wx:if="{{post.comments_count == 0}}">暂无评论</view>
@@ -71,7 +71,7 @@
 <mycard wx:if="{{post.qa_enable}}" title="大家都在问" number="{{post.questions_count}}" url="{{ post.questions_count > 5 ? '/pages/qa/index?post_id='+postId : null }}">
   
   <view class="qa"  wx:for="{{qas}}">
-  <qa answer="{{false}}" item="{{item}}" mini></qa>
+      <qa answer="{{false}}" item="{{item}}" mini></qa>
   </view>
 
   <view class="comments-empty" wx:if="{{questions.length ==0}}">暂无提问</view>

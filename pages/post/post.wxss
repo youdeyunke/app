@@ -36,7 +36,7 @@ mycard{
   width:100rpx;
   height:40rpx;
   border-radius:40rpx;
-  font-size:24rpx;
+  font-size:var(--font-xs);
   z-index:999;
   display:flex;
   letter-spacing:1rpx;
@@ -57,7 +57,7 @@ mycard{
 .detail-meta{
   padding:20rpx 0 0 20rpx;
   border-radius:10rpx;
-  font-size:28rpx;
+  font-size:var(--font-l);
 }
 
 
@@ -278,13 +278,13 @@ mycard{
 
 .footer-btns li.staff .staff-name{
     width:150rpx;
-    font-size:24rpx;
+    font-size:var(--font-xs);
     color:#000;
 }
 
 .footer-btns li.staff .staff-desc{
     width:150rpx;
-    font-size:24rpx;
+    font-size:var(--font-xs);
     color:#666;
 }
 
@@ -341,7 +341,7 @@ myfav .myfav {
   justify-content: space-between;
   align-items: center;
   margin-bottom:20rpx;
-  font-size:28rpx;
+  font-size:var(--font-s);
 }
 
 .housetype .poster, .housetype .poster image{

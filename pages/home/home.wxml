@@ -10,10 +10,12 @@
 
   </view>
 </view>
-
-
+<view class="container" style="padding-bottom:0;">
+    <view class="h1">精选房源</view>
   <view class="posts-list">
     <block wx:for="{{posts}}" wx:for-item="postitems">
-            <mypost border="{{false}}" shadow="{{false}}" wx:for="{{postitems}}" item="{{item}}"></mypost>
+            <mypost border="{{true}}" shadow="{{false}}" wx:for="{{postitems}}" item="{{item}}"></mypost>
     </block>
   </view>
+
+</view>

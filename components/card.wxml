@@ -1,11 +1,11 @@
 <view class="card {{ shadow ? 'shado' : 'shadow-none'}} {{ border ? 'border' : 'border-none'}}">
   <view class="card-header">
     <view class="card-header-title">
-            <view class="h2">{{title}}
+            <view class="h1">{{title}}
               <text wx:if="{{number>0}}">({{number}})</text>
             </view>
     </view>
-    <view wx:if="{{url}}" class="card-header-action" bindtap='actionHandle'>
+    <view wx:if="{{url}}" class="font-mini card-header-action" bindtap='actionHandle'>
       <text class="card-header-action-name">{{action}}</text>
       <image class="card-header-action-image" src="/assets/icons/right-arrow.png"></image> 
     </view>

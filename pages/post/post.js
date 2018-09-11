@@ -61,7 +61,7 @@ Page({
     app.request({
       hideLoading: true,
       url: '/api/v1/mycomments',
-      data: { target_id: postId, target_type: 'post', limit: 5 },
+      data: { target_id: postId, target_type: 'post', limit: 3 },
       success: function (resp) {
         _this.setData({ comments: resp.data.data })
       },
@@ -73,7 +73,7 @@ Page({
     app.request({
       hideLoading: true,
       url: '/api/v1/posts/',
-      data: {pid: postId, type:'recoms'},
+      data: {pid: postId, type:'recoms', limit: 5},
       success: function(resp){
         _this.setData({posts: resp.data.data})
       },
@@ -134,11 +134,11 @@ Page({
   onLoad: function (options) {
     var postId = options.id
     var post = wx.getStorageSync('post.data.' + postId)
+    this.loadQas(postId)    
     this.setData({ postId: postId, post: post})
     this.loadPost(postId)
     this.loadRecoms(postId)
     this.loadComments(postId)
-    this.loadQas(postId)    
   },
 
   /**
