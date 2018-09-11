@@ -38,7 +38,9 @@
    <view class="box html-content {{ minicontent == true ? 'mini' : 'full' }}">
       <view class="raw">
         <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>
-    </view>
+      </view>
+      <view class="html-content-footer">
+      </view>
   </view>  
 
 
