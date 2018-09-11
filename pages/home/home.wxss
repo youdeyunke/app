@@ -1,5 +1,5 @@
 page, page .container.main{
-  padding-top:0rpx;
+  padding:0 0 30rpx 0;
 }
 
 .post-list{

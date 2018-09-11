@@ -2,9 +2,9 @@
 
  myslider swiper, myslider image{
   width:100%;
-  height: 360rpx;
+  height: 350rpx;
   margin:0 auto;
-  border-radius: 30rpx;
+  border-radius: 0rpx;
   overflow: hidden;
   display: flex;
   justify-content: center;

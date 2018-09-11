@@ -9,6 +9,7 @@
     "mypost": "/components/post",
     "mystars": "/components/stars",
     "mybutton": "/components/button",
+    "mapimage":"/components/map",
     "comments": "/components/comments"
   }
 }
