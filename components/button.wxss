@@ -7,7 +7,7 @@
   padding:0 40rpx;
   background:#fff;
   border-radius:30rpx;
-  opacity: 0.3;
+  opacity: 0.9;
   margin:40rpx auto 10rpx auto;
 }
 

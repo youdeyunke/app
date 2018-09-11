@@ -45,7 +45,7 @@
 .comments .item .meta  .nickname{
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 }
 
 
@@ -65,11 +65,8 @@
 .comments .item .meta  .score{
     display:flex;
     justify-content:flex-start;
-    align-items:center;
-    padding:15rpx 0;
-    margin-bottom:15rpx;
+    align-items:flex-start;
 }
-
 
 .comments .item .meta .score .start-text{
   margin-left:30rpx;
@@ -83,5 +80,9 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+
+
+.comments.mini .item .meta .datetime{
 }
 
