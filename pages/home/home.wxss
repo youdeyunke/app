@@ -7,6 +7,7 @@ page{
   width:100%;
   padding:0 40rpx 20rpx 40rpx;
   box-shadow: 2rpx 4rpx 10rpx rgba(0,0,0, 0.05);
+  margin-bottom:20rpx;
 }
 
 

@@ -5,7 +5,8 @@
       "myfav": "/components/fav",
       "mytags": "/components/tags",
       "myslider": "/components/slider",
-      "mypost": "/components/post"
+      "post": "/components/post",
+      "box": "/components/box"
     }
 
 }

@@ -9,9 +9,9 @@
   </view>
 </view>
 
-<view class="posts-list">
+<box padding="20">
     <block wx:for="{{posts}}" wx:for-item="postitems">
-            <mypost wx:for="{{postitems}}" item="{{item}}"></mypost>
+            <post wx:for="{{postitems}}" item="{{item}}"></post>
     </block>
-</view>
+</box>
 

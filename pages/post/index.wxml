@@ -1,9 +1,9 @@
 <!--pages/post/index.wxml-->
-<view class="posts-list">
+<box padding="20">
   <block wx:for="{{posts}}" wx:for-item="postitems">
     <mypost wx:for="{{postitems}}" item="{{item}}"></mypost>
   </block>
-</view>
+</box>
 
 
 <view class="empty" wx:if="{{posts.length == 0}}">

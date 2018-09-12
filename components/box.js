@@ -4,8 +4,11 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    radius: {
+      type: Number, value: 6,
+    },
     padding: {
-      type: Boolean, value: false
+      type: Number, value: 0,
     },
 
   },

@@ -4,7 +4,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin:0rpx auto 0rpx auto;
+  margin:0rpx auto 20rpx auto;
+  border-bottom:1rpx solid #f4f4f4;
+  padding-bottom:20rpx;
 }
 
 

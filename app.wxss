@@ -8,13 +8,13 @@ page{
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  font-size:32rpx;
+  font-size:28rpx;
   color:#333;
   font-weight:normal;
   --color-a: #00ae66;
   --color-b: #ff911b;
   --color-c: red;
-  --font-xl: 36rpx;
+  --font-xl: 32rpx;
   --font-l: 32rpx;
   --font-s: 28rpx;
   --font-xs: 24rpx;

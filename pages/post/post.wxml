@@ -18,7 +18,7 @@
         </swiper>
 </view>
 
-<box style="margin-top:-50rpx;z-index:99999;">
+<box radius="30" style="margin-top:-50rpx;z-index:99999;">
   <view class="header">
      <view class=" post-title h1">{{ post.group == 'new' ? post.block_name + ' ' + post.desc : post.title }}</view>
      <mytags wx:if="{{post.tags_list}}" cat="{{post.cat.name}}" items="{{post.tags_list}}"></mytags>
@@ -33,7 +33,7 @@
 
 </box>
 
-<box padding>
+<box padding="20">
    <view class="html-content {{ minicontent == true ? 'mini' : 'full' }}">
       <view class="raw">
         <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>
@@ -100,8 +100,9 @@
 </mycard>
 
 
-<view class="h2" style="width:710rpx;padding:20rpx;">猜你喜欢</view>
+<mycard title="猜你喜欢">
 <mypost class="recom-post" wx:if="{{item}}" border="true" shadow="{{false}}" wx:for="{{posts}}" item="{{item}}"></mypost>
+</mycard>
 
 
 <form report-submit bindsubmit='btnsHandle' class="footer-btns">
