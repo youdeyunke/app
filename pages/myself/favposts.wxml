@@ -1,6 +1,6 @@
 <!--pages/post/index.wxml-->
 
-<view class="posts-list">
+<view class="container">
   <block wx:for="{{posts}}" wx:for-item="postitems">
     <mypost wx:for="{{postitems}}" item="{{item}}"></mypost>
   </block>

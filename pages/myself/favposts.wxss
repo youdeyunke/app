@@ -3,8 +3,3 @@
 page{
    padding-top:10rpx !important;
 }
-
-
-.posts-list{
-  width:100%;
-}
