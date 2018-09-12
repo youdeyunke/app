@@ -1,6 +1,7 @@
 // pages/post/index.js
 const app = getApp()
 var WxParse = require('../../utils/wxParse/wxParse.js');
+var auth = require('../../utils/auth.js');
 
 Page({
 
@@ -189,6 +190,13 @@ Page({
   },
 
   couponHandle: function(){
+    var _this = this
+    auth.ensureMobile(function(userInfo){
+      _this._couponHandle()
+    })
+  },
+
+  _couponHandle: function(){
     var pid = this.data.postId
     var _this = this
     if(_this.data.post.user_has_coupon){
@@ -209,7 +217,14 @@ Page({
     })    
   },
 
-  bookingHandle: function () {
+  bookingHandle: function(){
+    var _this = this
+    auth.ensureMobile(function(userInfo){
+      _this.bookingHandle()
+    })
+  },
+
+  _bookingHandle: function () {
     var pid = this.data.postId
     var _this = this
     if (_this.data.post.user_has_booking) {

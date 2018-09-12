@@ -1,5 +1,5 @@
 .mini-tags .tag {
-  padding:4rpx 5rpx;
+  padding:4rpx 10rpx;
   margin-right:10rpx;
   border-radius:6rpx;
   font-size:24rpx;

@@ -55,7 +55,7 @@ mycard{
 }
 
 .detail-meta{
-  padding:20rpx 0 0 20rpx;
+  padding:20rpx 0rpx;
   border-radius:10rpx;
   font-size:var(--font-l);
 }
@@ -115,13 +115,11 @@ mycard{
 .raw .wxParse-inline {
   line-height: 1.9;
   letter-spacing: 2rpx;  
-  font-weight: lighter;
 }
 
 .html-content{
   line-height: 1.5;
   letter-spacing: 2rpx;  
-  font-weight: lighter;
 }
 
 .html-content.mini, box.box.html-content.mini .raw{
@@ -161,7 +159,6 @@ mycard{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top:30rpx;
   letter-spacing: 5rpx;
 }
 .coupon .name{

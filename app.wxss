@@ -15,8 +15,8 @@ page{
   --color-a: #00ae66;
   --color-b: #ff911b;
   --color-c: red;
-  --font-xl: 36rpx;
-  --font-l: 32rpx;
+  --font-xl: 40rpx;
+  --font-l: 36rpx;
   --font-s: 28rpx;
   --font-xs: 24rpx;
   
