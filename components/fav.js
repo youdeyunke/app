@@ -29,6 +29,7 @@ Component({
  
     app.request({
       url: '/api/v2/favs/',
+      hideLoading: true,
       data: { post_id: _this.data.pid },
       success: function (resp) {
         _this.setData(resp.data.data)
@@ -55,6 +56,7 @@ Component({
       var _this = this
       app.request({
         url: '/api/v2/favs/',
+        hideLoading: true,
         method: 'POST',
         data: { post_id: pid },
         success: function (resp) {
