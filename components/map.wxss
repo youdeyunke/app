@@ -1,6 +1,5 @@
 /* components/map.wxss */
 .mymap{
-  width:750rpx;
   height:550rpx;
   background:#fff;
   position:relative;

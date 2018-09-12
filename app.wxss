@@ -2,7 +2,6 @@
 @import "/utils/wxParse/wxParse.wxss";
 
 page{
-  padding-top:30rpx;
   height: auto;
   background: #f4f4f4;
   display: flex;
@@ -15,8 +14,8 @@ page{
   --color-a: #00ae66;
   --color-b: #ff911b;
   --color-c: red;
-  --font-xl: 40rpx;
-  --font-l: 36rpx;
+  --font-xl: 36rpx;
+  --font-l: 32rpx;
   --font-s: 28rpx;
   --font-xs: 24rpx;
   
@@ -276,3 +275,4 @@ textarea{
   letter-spacing: 4rpx;
   color: #999;
 }
+

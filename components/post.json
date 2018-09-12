@@ -1,7 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "mytags": "/components/tags"
+    "mytags": "/components/tags",
+    "box": "/components/box"
   }
 }
 

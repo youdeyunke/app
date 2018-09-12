@@ -1,4 +1,5 @@
-<view class="card {{ shadow ? 'shado' : 'shadow-none'}} {{ border ? 'border' : 'border-none'}}">
+<box>
+<view class="card {{ padding ? '' : 'padding-none'}}">
   <view class="card-header">
     <view class="card-header-title">
             <view class="h1">{{title}}
@@ -15,3 +16,4 @@
   </view>
   <view class="card-footer"></view>
 </view>
+</box>

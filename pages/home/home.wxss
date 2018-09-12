@@ -1,10 +1,17 @@
-page, page .container.main{
-  padding:0 0 0rpx 0;
-  background:#fff;
+page{
+  padding-top:0rpx;
 }
 
-.post-list{
-  margin-top:20rpx;
+.header{
+  background:#fff;
+  width:100%;
+  padding:0 40rpx 20rpx 40rpx;
+  box-shadow: 2rpx 4rpx 10rpx rgba(0,0,0, 0.05);
+}
+
+
+.posts-list{
+  padding:20rpx 0rpx;
 }
 
 .tab-icons{
@@ -27,10 +34,9 @@ page, page .container.main{
   width:45rpx;
   height: 45rpx;
   margin-bottom:10rpx;
-
+  border-radius:100%;
   border:1rpx solid #f4f4f4;
   padding:21rpx;
-  border-radius:100%;
   box-shadow: 1rpx 1rpx 1rpx rgba(0,0,0, 0.1);
   
 }
@@ -47,7 +53,3 @@ myfav{
   right:0rpx;
 }
 
-
-.posts-list{
-  width: 100%;
-}

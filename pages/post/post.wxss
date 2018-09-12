@@ -94,17 +94,14 @@ mycard{
 }
 
 .header{
-  background:#fff;
   width:100%;
   display:flex;
+  flex-direction:column;
   justify-content:center;
-  align-items:center;
+  align-items:flex-start;
+        padding:35rpx;
 }
 
-.header .container{
-  display: flex;
-  justify-content: space-between;
-}
 
 
 .raw image.wxParse-img{
@@ -122,7 +119,7 @@ mycard{
   letter-spacing: 2rpx;  
 }
 
-.html-content.mini, box.box.html-content.mini .raw{
+.html-content.mini{
   height: 480rpx;
   overflow: hidden;
   position: relative;
@@ -153,7 +150,6 @@ mycard{
 .coupon{
   background: red;
   height: 100rpx;
-  width: 100%;  
   background: url('http://oc4tj4k6j.bkt.clouddn.com/coupon-bg-2.png');
   background-size: 100% 100rpx;
   display: flex;
@@ -348,7 +344,7 @@ myfav .myfav {
 }
 
 .housetype .meta{
-  width: 400rpx;
+  width: 380rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

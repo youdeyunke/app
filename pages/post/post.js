@@ -62,7 +62,7 @@ Page({
     app.request({
       hideLoading: true,
       url: '/api/v1/mycomments',
-      data: { target_id: postId, target_type: 'post', limit: 3 },
+      data: { target_id: postId, target_type: 'post', limit: 1 },
       success: function (resp) {
         _this.setData({ comments: resp.data.data })
       },

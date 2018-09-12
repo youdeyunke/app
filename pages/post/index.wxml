@@ -10,3 +10,7 @@
    <image src="/assets/images/cover-none.png"></image>
    <view>{{ emptyText || '没有数据'}}</view>
 </view>
+
+  <view class="empty" wx:if="{{isEmpty}}">没有数据</view>
+  <view class="empty" wx:if="{{isEnd}}">END</view>
+  <view class="empty" wx:if="{{loading}}">加载中...</view>

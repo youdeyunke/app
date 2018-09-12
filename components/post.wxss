@@ -1,19 +1,10 @@
 
- .post{
-  background: #fff;
+.post{
   box-sizing: border-box;
-  padding:20rpx 0rpx;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin:0rpx auto 1rpx auto;
-  border-bottom:1px solid #f4f4f4;  
-  width: 100%;
-  box-shadow: 1rpx 2rpx 6rpx rgba(0,0,0, 0.05);
-}
-
-.post.mini{
-  padding:20rpx 0rpx;
+  margin:0rpx auto 0rpx auto;
 }
 
 
@@ -25,10 +16,9 @@
   border:none;
 }
 
-.post.mini{}
 
 .tags {
-  font-size:20rpx;
+  font-size:30rpx;
   color: 333;
 }
 
@@ -36,6 +26,8 @@
   position: relative;
   width:296rpx;
   height: 184rpx;  
+  border-radius:10rpx;
+  overflow:hidden;
 }
 .post .badge{
     position: absolute;
@@ -84,8 +76,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width:360rpx;
+  width:320rpx;
 }
+
 .post .meta .item-title{
   overflow: hidden;
   text-overflow: ellipsis;

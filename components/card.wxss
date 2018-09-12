@@ -2,19 +2,13 @@
 @import "../app.wxss";
 
 .card{
-  background:#fff;
-  width:750rpx;
+  width:100%;
   margin:0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
   position: relative;
-  box-shadow: 0 1px 2px rgba(150, 150, 150, 0.3);  
-  margin-bottom:15rpx;
   box-sizing: border-box;
-  padding:30rpx 30rpx;
-  border-radius: 0;
 }
 
 .card.shadow-none{
@@ -28,9 +22,10 @@
 .card-header{
   display: flex;
   justify-content: space-between;
-  padding:0 0 20rpx 0;
-  width: 100%;  
   letter-spacing: 2rpx;
+  border-bottom:1rpx solid #f4f4f4;
+  margin:30rpx 30rpx 0rpx 30rpx;
+  padding-bottom:30rpx;
 }
 
 .card-header-title{
@@ -63,7 +58,12 @@
 }
 
 .card-body{
-  padding-top:20rpx;
+  padding:30rpx;
+}
+
+.card.padding-none .card-body{
+  padding:0;
+  margin:0;
 }
 
 .card-footer{}

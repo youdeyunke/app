@@ -1,10 +1,8 @@
 <!--pages/post/index.wxml-->
 
-<view class="container">
   <block wx:for="{{posts}}" wx:for-item="postitems">
     <mypost wx:for="{{postitems}}" item="{{item}}"></mypost>
   </block>
-</view>
 
 <view class="empty" wx:if="{{posts.length == 0}}">
    <image src="/assets/images/cover-none.png"></image>

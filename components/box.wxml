@@ -1,0 +1,2 @@
+<!--components/box.wxml-->
+<view class="mybox {{ padding ? 'padding' : ''}}"> <slot></slot> </view>

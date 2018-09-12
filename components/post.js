@@ -11,7 +11,7 @@ Component({
       type: Boolean, value: true,
     },
     shadow: {
-      type: Boolean, value: false,
+      type: Boolean, value: true,
     },
     item: {
       type: Object, value: {},

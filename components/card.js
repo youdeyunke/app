@@ -4,13 +4,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    border: {
-      type: Boolean, value: false,
+    padding: {
+      type: Boolean, value: true,
     },
-    shadow: {
-      type: Boolean, value: false,
-    },
-    
     title: {type: String, value: 'CARD标题'},
     number: {type: Number, value: 0,},
     action: { type: String, value: '查看更多'},

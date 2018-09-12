@@ -1,0 +1,14 @@
+/* components/box.wxss */
+.mybox{
+  width:720rpx;
+  margin:0 auto 15rpx auto;
+  border:1px solid #f4f4f4;
+  box-shadow:2rpx 2rpx 3rpx rgba(0,0,0, 0.05);
+  border-radius:6rpx;
+  background:#fff;
+}
+
+.mybox.padding{
+  padding:30rpx;
+  width:calc(720rpx - 2*30rpx);
+}
