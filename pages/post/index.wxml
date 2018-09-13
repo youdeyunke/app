@@ -1,8 +1,8 @@
 <!--pages/post/index.wxml-->
 <box padding="20">
-  <block wx:for="{{posts}}" wx:for-item="postitems">
-    <mypost wx:for="{{postitems}}" item="{{item}}"></mypost>
-  </block>
+    <block wx:for="{{posts}}" wx:for-item="postitems">
+            <post wx:for="{{postitems}}" item="{{item}}"></post>
+    </block>
 </box>
 
 

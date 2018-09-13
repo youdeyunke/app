@@ -220,7 +220,7 @@ Page({
   bookingHandle: function(){
     var _this = this
     auth.ensureMobile(function(userInfo){
-      _this.bookingHandle()
+      _this._bookingHandle()
     })
   },
 
