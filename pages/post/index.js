@@ -12,7 +12,7 @@ Page({
     city_id: null,
     offset: 0,
     total: 0,
-    limit: 10,
+    limit: 5,
     hasMore: true,
   },
 
@@ -20,7 +20,6 @@ Page({
   onLoad: function (query) {
     var _this = this
     _this.setData({
-      city_id: query.city_id,
       group: query.group,
     })
     
