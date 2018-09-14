@@ -31,10 +31,9 @@ mycard{
   color:#fff;
   background:rgba(0,0,0, 0.1);
   position:absolute;
-  bottom:50rpx;
+  bottom:80rpx;
+  padding:5rpx 18rpx;
   left:calc(50% - 50rpx);
-  width:100rpx;
-  height:40rpx;
   border-radius:40rpx;
   font-size:var(--font-xs);
   z-index:999;
@@ -93,13 +92,28 @@ mycard{
 
 }
 
-.header{
+.header-box{
+  background:#fff;
   width:100%;
+  padding-bottom:30rpx;
+}
+
+
+.header{
+  width:690rpx;
+  padding:35rpx;
+  box-sizing:border-box;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:flex-start;
-        padding:35rpx;
+  background:#fff;
+  border-radius:30rpx;
+  position:relative;
+  z-index:99999;
+  margin:-70rpx auto auto auto;
+  box-shadow: 2rpx 6rpx 10rpx rgba(0,0,0, 0.1);
+  border:1rpx solid #f5f5f5;
 }
 
 
@@ -149,7 +163,7 @@ mycard{
 
 .coupon{
   background: red;
-  height: 100rpx;
+  height: 90rpx;
   background: url('http://oc4tj4k6j.bkt.clouddn.com/coupon-bg-2.png');
   background-size: 100% 100rpx;
   display: flex;
@@ -174,7 +188,6 @@ mycard{
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-weight: bold;
 }
 
 
@@ -185,40 +198,40 @@ mycard{
   position: fixed;
   bottom:0rpx;
   border-top:none;
-  height: 90rpx;
+  height: 100rpx;
   z-index:20;
   letter-spacing: 4rpx;
+  border-top:1px solid #f1f1f1;
 }
 
 .footer-btns ul{
   display: flex;
   flex-wrap: nowrap;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 100%;
+  box-sizing:border-box;
+  padding:0 40rpx;
 }
 
-.footer-btns li{
-  height:100%;
+.footer-btns li.btn{
+  padding:10rpx 20rpx;
+  border-radius:10rpx;
   display:flex;
-  justify-content:center;
+  justify-content:space-between;
   align-items:center;
   color:#fff;
-  opacity: 0.93;
+  box-shadow:2rpx 2rpx 2rpx rgba(0,0,0, 0.15);
 }
 
-.footer-btns li image{
+.footer-btns li.btn image{
   height: 40rpx;
   width: 40rpx;
-
 }
 
 .footer-btns li.call{
   background: var(--color-a);
-  color: #fff;
-  font-weight: bold;
-  width: 33%;
 }
 .footer-btns li.call image{
   margin-right:20rpx;
@@ -226,61 +239,53 @@ mycard{
 
 .footer-btns li.booking{
   background: var(--color-b);
-  width:33%;
 }
+
 
 .footer-btns li.booking image{
     margin-right:20rpx;
 }
 
-.footer-btns li.fav{
-  width: 20%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #333;
-  text-align: center;
-}
-
 .footer-btns li.staff{
    display:flex;
-   justify-content:space-around;
-   width:34%;
+   justify-content:flex-start;
+   width:260rpx;
    letter-spacing:0.5rpx;
-   padding:10rpx 10rpx;
+   padding:10rpx 0rpx;
+   box-sizing:border-box;
 }
 
-.footer-btns li.staff .staff-avatar{
+.footer-btns .staff-info{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-left:20rpx;
+}
+
+.footer-btns .staff-avatar{
         display:flex;
         justify-content:center;
         align-items:center;
 }
-.footer-btns li.staff .staff-avatar image{
+.footer-btns .staff-avatar image{
    width:35px;
    height:35px;
    border-radius:100%;
    overflow:hidden;
 }
 
-.footer-btns li.staff .staff-info{
-   display:flex;
-   flex-direction:column;
-   justify-content:space-between;
-   justify-content:flex-start;
-}
-
-.footer-btns li.staff .staff-name{
+.footer-btns .staff-name{
     width:150rpx;
     font-size:var(--font-xs);
     color:#000;
 }
 
-.footer-btns li.staff .staff-desc{
+.footer-btns .staff-desc{
     width:150rpx;
     font-size:var(--font-xs);
     color:#666;
 }
-
 
 myfav .myfav {
   display: flex;

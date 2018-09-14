@@ -18,20 +18,18 @@
         </swiper>
 </view>
 
-<box radius="30" style="margin-top:-50rpx;z-index:99999;">
+<view class="header-box">
   <view class="header">
      <view class=" post-title h1">{{ post.group == 'new' ? post.block_name + ' ' + post.desc : post.title }}</view>
      <mytags wx:if="{{post.tags_list}}" cat="{{post.cat.name}}" items="{{post.tags_list}}"></mytags>
-
      <template is="detail-meta" data="{{post: post }}" /> 
 
-   <view bindtap='couponHandle' class="coupon" wx:if="{{post.group == 'new' && post && post.coupon_enable}}">
-    <view class="name line-limit">{{post.coupon_desc}}</view>
-    <view class="action">{{ post.user_has_coupon ? '已领券' : '领券' }}</view>
+     <view bindtap='couponHandle' class="coupon" wx:if="{{post.group == 'new' && post && post.coupon_enable}}">
+     <view class="name line-limit">{{post.coupon_desc}}</view>
+     <view class="action">{{ post.user_has_coupon ? '已领券' : '领券' }}</view>
    </view>     
   </view>
-
-</box>
+</view>
 
 <box padding="20">
    <view class="html-content {{ minicontent == true ? 'mini' : 'full' }}">
@@ -114,10 +112,10 @@
                <view class="staff-desc line-limit">{{post.staff_user.desc}}</view>
        </view>
     </li>
-    <li bindtap="bookingHandle" class="booking"><image src="/assets/icons/btn-booking.png"></image>
+    <li bindtap="bookingHandle" class="booking btn"><image src="/assets/icons/btn-booking.png"></image>
       {{ post.user_has_booking ? '已预约' : '预约看房'}}
     </li>
-    <li class="call" bindtap="callMe">
+    <li class="call btn" bindtap="callMe">
       <image src="/assets/icons/btn-call.png"></image>电话
     </li>
 
