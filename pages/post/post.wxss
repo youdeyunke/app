@@ -108,7 +108,7 @@ mycard{
   justify-content:center;
   align-items:flex-start;
   background:#fff;
-  border-radius:30rpx;
+  border-radius:10rpx;
   position:relative;
   z-index:99999;
   margin:-70rpx auto auto auto;

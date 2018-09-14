@@ -47,11 +47,6 @@
 
 </box>
 
-<mycard title="地图">
-  <mapimage url="{{post.map_image_url}}"></mapimage>
-</mycard>
-
-
 <mycard title="户型信息">
     <view class="housetype" wx:for="{{post.types}}">
       <view class="poster">
@@ -66,7 +61,10 @@
         </view>
       </view>
     </view>
-    
+</mycard>
+
+<mycard title="地理位置">
+  <mapimage url="{{post.map_image_url}}"></mapimage>
 </mycard>
 
 <mycard wx:if="{{post.group == 'new' && post.more_url}}" title="{{post.more_title}}" opentype="webview" url="{{post.more_url}}">

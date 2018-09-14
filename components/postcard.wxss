@@ -46,6 +46,8 @@
 .post-card .title{
   margin-top:20rpx;
   font-size:34rpx;
+  color: #333;
+  font-weight: bold;
 }
 
 .post-card .info{
