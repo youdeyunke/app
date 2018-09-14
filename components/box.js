@@ -5,7 +5,7 @@ Component({
    */
   properties: {
     radius: {
-      type: Number, value: 6,
+      type: Number, value: 0,
     },
     padding: {
       type: Number, value: 0,

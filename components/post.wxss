@@ -78,7 +78,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width:320rpx;
+  width:360rpx;
 }
 
 .post .meta .item-title{
@@ -106,7 +106,7 @@
   color:#000;
 }
 .post .meta .area-price .price{
-    color:var(--color-c);
+    color:var(--color-b);
     font-weight: bold;
     font-size: 32rpx;
 }

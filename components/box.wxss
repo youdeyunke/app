@@ -1,11 +1,10 @@
 /* components/box.wxss */
 .mybox{
   width:750rpx;
-  margin:0 auto 15rpx auto;
+  margin:0 auto 20rpx auto;
   border-bottom:1px solid #f1f1f1;
-  box-shadow: 2rpx 2rpx 2rpx rgba(0,0,0, 0.1);
-  background:#fff;
 
+  background:#fff;
   box-sizing:border-box;
   -moz-box-sizing:border-box; /* Firefox */
   -webkit-box-sizing:border-box; /* Safari */
