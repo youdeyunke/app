@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height:80rpx;
+  height:60rpx;
   padding:0 40rpx;
   background:#fff;
   border-radius:40rpx;

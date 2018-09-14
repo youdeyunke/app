@@ -6,6 +6,8 @@
       "mytags": "/components/tags",
       "myslider": "/components/slider",
       "post": "/components/post",
+      "postcard": "/components/postcard",
+      
       "box": "/components/box"
     }
 

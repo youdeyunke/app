@@ -1,0 +1,19 @@
+<box width="710" padding="0">
+<navigator hover-class='none' open-type='navigateTo' url="/pages/post/post?id={{item.id}}" class="post-card">
+
+  <view class="cover">
+    <view class="count">共{{item.full_images_list.length}} 张</view>
+    <image src="{{item.cover}}"></image>
+  </view>
+
+  <view class="info">
+     <mytags wx:if="{{item.tags_list}}"  items="{{item.tags_list}}"></mytags>
+      <view>{{item.city.name}} {{item.district.name}} {{ item.street }}</view>
+  </view>
+
+  <view class="title">
+    {{item.title}}{{ item.group == 'new' ? item.block_name : item.area_name }}
+  </view>
+
+</navigator>
+</box>

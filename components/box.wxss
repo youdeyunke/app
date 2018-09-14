@@ -1,6 +1,5 @@
 /* components/box.wxss */
 .mybox{
-  width:750rpx;
   margin:0 auto 20rpx auto;
   border-bottom:1px solid #f1f1f1;
 

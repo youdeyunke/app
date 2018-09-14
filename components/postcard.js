@@ -1,19 +1,12 @@
-// components/box.js
+// components/postcard.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    width: {
-      type: Number, value: 750,
-    },
-    radius: {
-      type: Number, value: 0,
-    },
-    padding: {
-      type: Number, value: 0,
-    },
-
+    item: {
+      type: Object, value: {},
+    }
   },
 
   /**
@@ -27,6 +20,5 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
   }
 })
