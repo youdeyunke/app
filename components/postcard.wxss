@@ -53,7 +53,7 @@
   box-sizing: border-box;
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-end;
   font-size:var(--font-s);
 }

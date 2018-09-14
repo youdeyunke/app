@@ -1,4 +1,4 @@
-<box width="710" padding="0">
+<box radius="10" width="730" padding="0">
 <navigator hover-class='none' open-type='navigateTo' url="/pages/post/post?id={{item.id}}" class="post-card">
 
   <view class="cover">
