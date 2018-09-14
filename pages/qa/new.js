@@ -90,7 +90,7 @@ Page({
     var _this = this
     var eb = {
       key: 'redirect',
-      value: '/pages/qa/new'
+      value: '/pages/qa/new?post_id=' + q.post_id || ''
     }
     app.setLoginBack(eb)
     auth.ensureMobile(function(userInfo){
