@@ -3,6 +3,7 @@
     "usingComponents": {
       "mytopbar": "/components/topbar",
       "mytags": "/components/tags",
+      "myslider": "/components/slider",
       "card": "/components/card",
       "qa": "/components/qa",
       "myslider": "/components/slider"

@@ -1,4 +1,6 @@
 
+<myslider></myslider>
+
   <view class="cats" >
     <text data-cid="{{item.id}}" bindtap="catHandle" class="item {{  catId == item.id ? 'active' : '' }}" wx:for="{{cats}}" id="item-{{index}}">{{item.name}}</text>
   </view>

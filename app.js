@@ -175,7 +175,7 @@ App({
     
     // This must be wx.request !
     var defaultApiHost = 'https://fang.udeve.cn'
-    var defaultApiHost = 'http://localhost:3000'
+    //var defaultApiHost = 'http://localhost:3000'
     var customApiHost = wx.getStorageSync('apiHost')
     var apiHost = customApiHost ||defaultApiHost
     var url = apiHost + obj.url

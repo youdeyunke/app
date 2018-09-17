@@ -161,7 +161,6 @@ textarea{
   padding: 0 20rpx;
   background:#fff;
   width:100%;
-  position:fixed;
   top:0rpx;
   z-index:99;
 }
