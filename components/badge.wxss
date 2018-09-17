@@ -15,6 +15,10 @@
   height: 60rpx;
 }
 
+.badge-big .name{
+  padding:10rpx 20rpx;
+}
+
 .badge .name{
     position: absolute;
     color: #fff;
