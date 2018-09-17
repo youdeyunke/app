@@ -99,7 +99,7 @@ mycard{
 
 
 .header{
-  width:730rpx;
+  width:720rpx;
   padding:35rpx;
   box-sizing:border-box;
   display:flex;
@@ -107,7 +107,7 @@ mycard{
   justify-content:center;
   align-items:flex-start;
   background:#fff;
-  border-radius:10rpx;
+  border-radius:30rpx;
   position:relative;
   z-index:99999;
   margin:-70rpx auto auto auto;
