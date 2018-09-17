@@ -62,6 +62,11 @@
   align-items:center;
 }
 
+.post-card .info image.pos{
+  width:32rpx;
+  height:34rpx;
+}
+
 .post-card .info .title{
   margin-top:20rpx;
   font-size:34rpx;

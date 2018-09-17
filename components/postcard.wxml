@@ -9,6 +9,7 @@
   <view class="info">
      <view class="name">
        <mytags wx:if="{{item.tags_list}}"  items="{{item.tags_list}}"></mytags>
+       <image class="pos" src="/assets/icons/location.png"></image>
        <view>{{item.city.name}} {{item.district.name}} {{ item.street }}</view>
       </view>
     <view class="title">
