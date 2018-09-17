@@ -16,9 +16,7 @@
       </view>
     <view class="title-block">
       <view class="title line-limit">{{item.title}}{{ item.group == 'new' ? item.block_name : item.area_name }}</view>
-      <view class="view">
-              查看
-      </view>
+      <view class="view">详情</view>
     </view>
 
 

@@ -83,8 +83,8 @@
 }
 
 .post-card .info .view{
-  width:100rpx;
-  height:40rpx;
+  width:90rpx;
+  height:38rpx;
   border:1px solid var(--color-a);
   border-radius:6rpx;
   color:var(--color-a);
