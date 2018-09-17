@@ -3,7 +3,8 @@
     "mytopbar": "/components/topbar",
     "myfav": "/components/fav",
     "mytags": "/components/tags",
-    "mypost": "/components/post",
+    "post": "/components/post",
+    "box": "/components/box",
     "myslider": "/components/slider"
   }
 }

@@ -11,7 +11,7 @@ Page({
     city_id: null,
     offset: 0,
     total: 0,
-    limit: 10,
+    limit: 100000,
     hasMore: true
   },
 
