@@ -3,7 +3,6 @@
 .post-card{
   width: 100%;
   box-sizing: border-box;
-
   overflow: hidden;
   background: #fff;
   position: relative;
@@ -11,7 +10,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  padding:40rpx;
+  border:1rpx solid #f4f4f4;
 }
 
 .post-card .cover{
@@ -19,6 +18,8 @@
   height: 380rpx;
   box-sizing: border-box;
   border-radius: 10rpx;
+  border-bottom-left-radius: 0rpx;
+  border-bottom-right-radius: 0rpx;
   overflow: hidden;
 }
 
@@ -43,19 +44,27 @@
   height: 400rpx;
 }
 
-.post-card .title{
+
+.post-card .info{
+  width:100%;
+  box-sizing:border-box;
+  background:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:flex-start;
+  padding:20rpx 30rpx;
+}
+
+.post-card .info .name{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.post-card .info .title{
   margin-top:20rpx;
   font-size:34rpx;
   color: #333;
   font-weight: bold;
-}
-
-.post-card .info{
-  margin-top:20rpx;
-  box-sizing: border-box;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  font-size:var(--font-s);
 }

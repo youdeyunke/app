@@ -93,14 +93,13 @@ mycard{
 }
 
 .header-box{
-  background:#fff;
   width:100%;
   padding-bottom:30rpx;
 }
 
 
 .header{
-  width:690rpx;
+  width:730rpx;
   padding:35rpx;
   box-sizing:border-box;
   display:flex;

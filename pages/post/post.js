@@ -249,9 +249,9 @@ Page({
     var _this = this
     return {
       title: _this.data.post['title'],
-      desc: '好房评测',
+      desc: _this.data.post['desc'],
       path: 'pages/post/post?id=' + _this.data.post['id'],
-      imageUrl: _this.data.post['cover'] ? _this.data.post['cover']['url'] : null
+      imageUrl: _this.data.post['cover']
     }
   },
 
