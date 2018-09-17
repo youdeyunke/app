@@ -2,6 +2,7 @@
   "usingComponents": {
     "box": "/components/box",
     "card": "/components/card",
+    "mybutton": "/components/button",
     "rangeslider": "/components/range_slider"
   }
 }

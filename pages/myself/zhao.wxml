@@ -1,5 +1,10 @@
 <form bindsubmit='submitHandle'>
-
+        <box padding="30" wx:if="{{!userInfo.mobile}}">
+            <navigator url="/pages/myself/index" open-type='switchTab' hover-class='hover-class'>
+                  我们提供定制找房服务，为了便于联系，请先绑定手机号，点击此处， <text  class="bind">开始绑定</text>
+            </navigator>
+            
+        </box>
         <card title="基础意向(必填)">
                 <view class="basic">
                         <view class="item">
@@ -28,7 +33,7 @@
         
 
   <view class="container container-bg-none">
-    <button class="weui-btn" type="primary" form-type='submit'>帮我找房</button>
+    <button disabled="{{!userInfo.mobile}}" class="weui-btn" type="primary" form-type='submit'>帮我找房</button>
   </view>
 
 </form>

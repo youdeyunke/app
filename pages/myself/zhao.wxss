@@ -3,6 +3,11 @@ page{
 }
 
 
+.bind{
+  text-decoration: underline;
+  color: var(--color-a);
+}
+
 .basic .item{
   display:flex;
   justify-content: space-between;
