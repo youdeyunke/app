@@ -21,6 +21,21 @@
   border-bottom-left-radius: 0rpx;
   border-bottom-right-radius: 0rpx;
   overflow: hidden;
+  position:relative;
+}
+
+
+.post-card .address{
+  height:60rpx;
+  color:rgba(255,255,255, 0.5);
+  position:absolute;
+  right:10rpx;
+  bottom:0rpx;
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  box-size:border-box;
+  font-size:var(--font-xs);
 }
 
 .post-card .count{
@@ -65,6 +80,10 @@
 .post-card .info image.pos{
   width:32rpx;
   height:34rpx;
+}
+
+.post-card .info .price{
+  margin-left:30rpx;
 }
 
 

@@ -9,11 +9,9 @@
         <mytags mini="true" items="{{item.tags_list}}" max="3"></mytags>
 
         <view class="area-price">
-            <text class="area" wx:if="{{item.area_info.min == item.area_info.max}}">建面: {{item.area_info.min}}</text>
-            <text class="area" wx:if="{{item.area_info.min < item.area_info.max}}">建面:{{item.area_info.min}} - {{ item.area_info.max}}</text>
+            <text class="area" >建面: {{item.area_info.text}}</text>
         </view>
-           <text class="price" wx:if="{{item.price_info.name != 'about_ave_price'}}">{{item.price_info.value}} {{item.price_info.suffix}}</text>
-         <view class="price" wx:if="{{item.price_info.name == 'about_ave_price'}}">售价待定</view>
+           <text class="price" >{{item.price_info.text}}</text>
 
       </view>
 

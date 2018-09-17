@@ -23,7 +23,7 @@ Page({
    */
   onLoad: function (q) {
     this.setData({
-      postId: q.post_id,
+      postId: q.post_id || '',
       catId: q.cat_id || 'all',
     })
     this.loadItems()

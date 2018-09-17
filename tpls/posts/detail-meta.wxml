@@ -3,7 +3,7 @@
       <view  class="detail-meta {{post.group}}">
         <view class="meta">
           <text class="label">{{post.cat.name}}</text>
-          <text class="price">{{ post.price_info.prefix }}{{ post.price_info.value }} {{ post.price_info.suffix }}</text>
+          <text class="price">{{ post.price_info.text}}</text>
          </view>
 
 
