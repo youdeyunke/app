@@ -3,7 +3,6 @@
 .post-card{
   width: 100%;
   box-sizing: border-box;
-  overflow: hidden;
   background: #fff;
   position: relative;
   display: flex;
@@ -14,7 +13,7 @@
 }
 
 .post-card .cover{
-  width: 100%;
+  width: calc(100% - 2rpx);
   height: 380rpx;
   box-sizing: border-box;
   border-radius: 10rpx;
@@ -35,7 +34,7 @@
   letter-spacing:1rpx;
   justify-content:center;
   align-items:center;
-  top:60rpx;
+  top:50rpx;
   right:60rpx;
 }
 
@@ -72,4 +71,11 @@
   font-size:34rpx;
   color: #333;
   font-weight: bold;
+}
+
+
+.post-card  badge{
+    position:absolute;
+    top:50rpx;
+    left:-9rpx;
 }

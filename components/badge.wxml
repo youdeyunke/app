@@ -1,0 +1,7 @@
+<!--components/badge.wxml-->
+<view class="badge">
+  <image class="arrow" src="/assets/icons/badge-arrow.png"></image>
+  <view class="name">
+      <slot></slot>
+  </view>
+</view>

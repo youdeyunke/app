@@ -6,6 +6,8 @@
     <image src="{{item.cover}}"></image>
   </view>
 
+  <badge wx:if="{{item.coupon_enable}}">{{item.coupon_desc}}</badge>
+
   <view class="info">
      <view class="name">
        <mytags wx:if="{{item.tags_list}}"  items="{{item.tags_list}}"></mytags>
