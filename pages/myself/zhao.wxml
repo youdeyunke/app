@@ -1,34 +1,31 @@
 <form bindsubmit='submitHandle'>
 
-<view class="container">
-  <view class="h1">预算</view>
-  <rangeslider bind:change="rangeChange" ></rangeslider>
-</view>
+        <card title="基础意向(必填)">
+                <view class="basic">
+                        <view class="item">
+                                <view class="label">预算</view> 
+                                <input bindinput='budgetHandle'  value="{{budget}}" placeholder='如：现金50万'>   </input>
+                        </view>
+                        <view class="item">
+                                <view class="label">区域</view> 
+                                <input bindinput='positionHandle' value="{{position}}" placeholder='填写您关注位置'>   </input>
+                        </view>
 
-<view class="container">
-  <view class="purpose">
-    <view class="h1">买房目的</view>
-    <view class="container-body tags">
-      <text  bindtap="purposeHandle" data-index="{{index}}" class="item {{item.selected ? 'active' : '' }}" wx:for="{{purposeList}}">{{item.name}}</text>
-    </view>
-  </view>
-</view>
+                </view>
 
-<view class="container">
-  <view class="position">
-    <view class="h1">我关注的地区</view>
-    <textarea bindinput='positionHandle' value="{{position}}" placeholder='填写您关注的板块和地区'>   </textarea>
-  </view>
-</view>
+        </card>
 
-<view class="container">
 
-  <view class="contact">
-    <view class="h1">联系方式</view>
-    <input> bindinput='contactHandle'  value="{{contact}}" placeholder='留下您的手机号或者微信号，方便我们尽快l联系您'>   </input>
-  </view>
+        <card title="选择符合您的五个标签">
+           <view class="tags"> 
+                <text  bindtap="purposeHandle" data-index="{{index}}" class="item {{item.selected ? 'active' : '' }}" wx:for="{{purposeList}}">{{item.name}}</text>
+            </view>
+        </card>
 
-</view>
+        <card title="留言">
+          <textarea value="{{content}}" placeholder='其它您想说的'></textarea>
+        </card>
+        
 
   <view class="container container-bg-none">
     <button class="weui-btn" type="primary" form-type='submit'>帮我找房</button>

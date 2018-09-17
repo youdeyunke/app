@@ -1,29 +1,34 @@
 page{
-  padding-top:0rpx;
-}
-
-.container{
-  margin-bottom:20rpx;
-  padding:30rpx 20rpx;
+  padding-top:10rpx;
 }
 
 
-.purpose{
+.basic .item{
   display:flex;
-  flex-direction:column;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.purpose .tags{
+.basic  .item .label{
+  width: 120rpx;
+}
+
+.basic .item input{
+  width: calc(100% - 120rpx);
+}
+
+.tags{
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
 }
-
-.purpose .tags .item{
+.tags .item{
   margin:10rpx 15rpx 15rpx 10rpx;
   padding:10rpx 20rpx;
+  background: #fff;
+  color: var(--color-a);
+  border:1rpx solid var(--color-a);
 }
-
 
 .container-bg-none{
   padding:0;
@@ -31,6 +36,6 @@ page{
 
 button{
   margin-top:20rpx;
-  width:100%;
+  width:690rpx;
 }
 

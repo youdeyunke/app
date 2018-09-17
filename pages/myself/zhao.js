@@ -9,12 +9,18 @@ Page({
    */
   data: {
 
-    budget: '100万-500万',
+    budget: '',
     purpose: '',
     position: '',
     contact: '',
 
     purposeList: [
+      {name: '采光好'},
+      {name: '繁华地段'},
+      {name: '配套成熟'},
+      {name: '交通便利'},
+      {name: '南北通透'},
+      {name: '小区优质位置'},
       { name: '刚需'},
       { name: '结婚'},
       {name: '投资'},
@@ -44,32 +50,24 @@ Page({
   validate: function(cb){
     if(!this.data.purpose){
       wx.showToast({
-        title: '请选择买房目的',
+        title: '请选择标签',
         icon: 'none'
       })
       return
     }
     if(!this.data.position){
       wx.showToast({
-        title: '请填写关注的地区',
+        title: '请填写区域',
         icon: 'none'
       })
       return
     }
 
-    if(!this.data.contact){
-      wx.showToast({
-        title: '请填写联系方式',
-        icon:'none'
-      })
-      return false
-    }
 
     var data = {
       budget: this.data.budget,
       purpose: this.data.purpose,
       position: this.data.position,
-      contact: this.data.contact,
     }
     return cb(data)
   },
@@ -77,11 +75,7 @@ Page({
   submitHandle: function(e){
     var _this = this
     app.uploadFormId(e)
-    auth.ensureUser(function(userInfo){
-        if(userInfo.mobile){
-          _this.setData({contact: userInfo.mobile})
-        }
-
+    auth.ensureMobile(function(userInfo){
         _this.validate(function(data) {
           app.request({
             url: '/api/v1/needs',
@@ -113,6 +107,11 @@ Page({
     this.setData({ position:    e.detail.value})
   },
 
+  budgetHandle: function(e){
+    console.log('budget', e.detail.value)
+    this.setData({ budget: e.detail.value })    
+  },
+
   contactHandle: function(e){
     this.setData({ contact: e.detail.value })    
   },
@@ -137,10 +136,6 @@ Page({
   },
 
 
-  rangeChange: function(e){
-    this.setData({budget: e.detail.text})
-  },
-
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -153,8 +148,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    auth.ensureUser()
-  
+    wx.setNavigationBarTitle({
+      title:  "定制找房",
+    })
   },
 
   /**

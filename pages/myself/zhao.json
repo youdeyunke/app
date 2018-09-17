@@ -1,5 +1,7 @@
 {
   "usingComponents": {
+    "box": "/components/box",
+    "card": "/components/card",
     "rangeslider": "/components/range_slider"
   }
 }
