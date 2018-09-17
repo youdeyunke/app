@@ -66,13 +66,33 @@
   height:34rpx;
 }
 
-.post-card .info .title{
+
+.post-card .info .title-block{
   margin-top:20rpx;
+   display:flex;
+   justify-content: space-between;
+   align-items: center;
+   width:100%;
+}
+
+.post-card .info .title{
   font-size:34rpx;
   color: #333;
   font-weight: bold;
+  width: calc(100% - 110rpx);
 }
 
+.post-card .info .view{
+  width:100rpx;
+  height:40rpx;
+  border:1px solid var(--color-a);
+  border-radius:6rpx;
+  color:var(--color-a);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:var(--font-xs);
+}
 
 .post-card  badge{
     position:absolute;

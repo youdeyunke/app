@@ -14,8 +14,11 @@
        <image class="pos" src="/assets/icons/location.png"></image>
        <view>{{item.city.name}} {{item.district.name}} {{ item.street }}</view>
       </view>
-    <view class="title">
-    {{item.title}}{{ item.group == 'new' ? item.block_name : item.area_name }}
+    <view class="title-block">
+      <view class="title line-limit">{{item.title}}{{ item.group == 'new' ? item.block_name : item.area_name }}</view>
+      <view class="view">
+              查看
+      </view>
     </view>
 
 
