@@ -221,6 +221,8 @@ mycard{
   justify-content:space-between;
   align-items:center;
   color:#fff;
+  box-size:border-box;
+  height:50rpx;
   box-shadow:2rpx 2rpx 2rpx rgba(0,0,0, 0.15);
 }
 

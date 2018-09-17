@@ -31,13 +31,14 @@
   height: 184rpx;  
   border-radius:10rpx;
   overflow:hidden;
+  z-index:1;
 }
 
 .post badge{
   position:absolute;
   top:30rpx;
   left:-9rpx;
-  z-index:999;
+  z-index:2;
 }
 
 .post .cover .i{
