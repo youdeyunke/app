@@ -33,6 +33,7 @@ page{
   background: #fff;
   color: var(--color-a);
   border:1rpx solid var(--color-a);
+  font-size:var(--font-xs);
 }
 
 .container-bg-none{
