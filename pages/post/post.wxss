@@ -85,6 +85,10 @@ mycard{
   align-items: center;
 }
 
+.detail-meta .meta text.label::after{
+  content: ':'
+}
+
  .post-title{
   color:#000;
   margin: 20rpx auto 20rpx auto !important;
@@ -235,7 +239,7 @@ mycard{
   background: var(--color-a);
 }
 .footer-btns li.call image{
-  margin-right:20rpx;
+  margin-right:14rpx;
 }
 
 .footer-btns li.booking{
