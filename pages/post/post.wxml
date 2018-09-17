@@ -41,7 +41,7 @@
   </view>  
 
 
-  <mybutton class="view-more" type="primary" width="300rpx" bindtap="contentHandle" wx:if="{{minicontent}}">
+  <mybutton class="view-more" type="primary" width="200rpx" bindtap="contentHandle" wx:if="{{minicontent}}">
     加载全文 <image class="{{ minicontent == true ? 'down' : 'up' }}" src="/assets/icons/down-arrow.png"></image>
   </mybutton>
 
@@ -77,7 +77,7 @@
   <view class="comments-empty" wx:if="{{post.comments_count == 0}}">暂无评论</view>
 
   <view class="comments-add">
-    <mybutton type="primary" width="300rpx">
+    <mybutton type="primary" width="200rpx">
         <navigator url="/pages/comments/new?target_id={{post.id}}">我要点评</navigator> </mybutton>
   </view>
 </mycard>
@@ -90,7 +90,7 @@
 
   <view class="comments-empty" wx:if="{{questions.length ==0}}">暂无提问</view>
     <view class="comments-add">
-    <mybutton type="primary" width="300rpx">
+    <mybutton type="primary" width="200rpx">
         <navigator url="/pages/qa/new?post_id={{postId}}">我要提问</navigator> </mybutton>
   </view>
 </mycard>
