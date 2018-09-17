@@ -5,7 +5,7 @@ Component({
    */
   properties: {
     mini: {type: Boolean, value: false },
-    max: {type: Number, value: 2},
+    max: {type: Number, value: 3},
     items: { type: Array, value: [] },
     colorIndex: {type: Number, value: 0},
   },

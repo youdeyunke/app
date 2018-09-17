@@ -3,8 +3,16 @@
 .badge{
   position:relative;
   width:100%;
-  height:50rpx;
+  height:100%;
   background:yellow;
+}
+
+.badge-small{
+  height:40rpx;
+}
+
+.badge-big{
+  height: 60rpx;
 }
 
 .badge .name{
@@ -21,6 +29,11 @@
     text-overflow: ellipsis;
     white-space: nowrap;    
     font-size:24rpx;
+    height:100%;
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    
 }
 
 .badge image.arrow{
@@ -28,5 +41,5 @@
   height: 10rpx !important;
   position: absolute;
   left: 0rpx;
-  bottom: 0rpx;
+  bottom: -7rpx;
 }

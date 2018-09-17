@@ -6,7 +6,7 @@
     <image src="{{item.cover}}"></image>
   </view>
 
-  <badge wx:if="{{item.coupon_enable}}">{{item.coupon_desc}}</badge>
+  <badge size="big" wx:if="{{item.coupon_enable}}">{{item.coupon_desc}}</badge>
 
   <view class="info">
      <view class="name">
