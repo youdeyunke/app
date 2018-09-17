@@ -16,7 +16,6 @@
 }
 
 .badge-big .name{
-  padding:10rpx 20rpx;
 }
 
 .badge .name{
@@ -25,19 +24,26 @@
     background-color:var(--color-b);  
     left:0rpx;
     top:0rpx;
-    padding:10rpx 15rpx;
     line-height: 100%;
     box-sizing: border-box;
     max-width: 296rpx;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;    
-    font-size:24rpx;
     height:100%;
     display:flex;
     justify-content: flex-start;
     align-items: center;
-    
+}
+
+.badge.badge-big .name{
+   font-size:var(--font-s);
+   padding:10rpx 26rpx;
+
+}
+.badge.badge-small .name{
+   font-size:var(--font-xs);
+   padding:10rpx 15rpx;
 }
 
 .badge image.arrow{
