@@ -1,7 +1,8 @@
 <box>
 <view class="card {{ padding ? '' : 'padding-none'}}">
   <view class="card-header">
-    <view class="card-header-title">
+          <view class="card-header-title">
+                  <view wx:if="{{hat}}" class="card-hat"></view>
             <view class="h1">{{title}}
               <text wx:if="{{number>0}}">({{number}})</text>
             </view>

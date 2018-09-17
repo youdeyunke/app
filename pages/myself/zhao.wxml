@@ -5,7 +5,7 @@
             </navigator>
             
         </box>
-        <card title="基础意向(必填)">
+        <card hat title="基础意向(必填)">
                 <view class="basic">
                         <view class="item">
                                 <view class="label">预算</view> 
@@ -21,13 +21,13 @@
         </card>
 
 
-        <card title="选择符合您的五个标签">
+        <card hat title="选择符合您的五个标签">
            <view class="tags"> 
                 <text  bindtap="purposeHandle" data-index="{{index}}" class="item {{item.selected ? 'active' : '' }}" wx:for="{{purposeList}}">{{item.name}}</text>
             </view>
         </card>
 
-        <card title="留言">
+        <card hat title="留言">
           <textarea value="{{content}}" placeholder='其它您想说的'></textarea>
         </card>
         

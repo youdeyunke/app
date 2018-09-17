@@ -8,6 +8,10 @@ Component({
       type: Boolean, value: true,
     },
     title: {type: String, value: 'CARD标题'},
+    hat: {
+      type: Boolean, value: false,
+    },
+    
     number: {type: Number, value: 0,},
     action: { type: String, value: '查看更多'},
     url: { type: String, value: null},

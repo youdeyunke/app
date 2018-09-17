@@ -28,8 +28,18 @@
   padding-bottom:30rpx;
 }
 
+.card-header .card-hat{
+  height:30rpx;
+  width:10rpx;
+  background:var(--color-a);
+  margin-right:10rpx;
+}
+
 .card-header-title{
   width:60%;
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
 }
 
 .card-header-action{
