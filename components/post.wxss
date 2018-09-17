@@ -1,5 +1,6 @@
 
 .post{
+  position:relative;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -31,35 +32,12 @@
   border-radius:10rpx;
   overflow:hidden;
 }
-.post .badge{
-    position: absolute;
-    color: #fff;
-    background-color:var(--color-b);  
-    left:-10rpx;
-    bottom:20rpx;
-    padding:10rpx 15rpx;
-    line-height: 100%;
-    box-sizing: border-box;
-    max-width: 296rpx;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;    
-    font-size:24rpx;
-}
 
-.post.coupon-none .badge{
-        display:none;
-}
-
-.post.coupon-none .badge-arrow{
-        display:none;
-}
- .post .badge-arrow{
-  width: 10rpx;
-  height: 10rpx;
-  position: absolute;
-  left: -9rpx;
-  bottom: 10rpx;
+.post badge{
+  position:absolute;
+  top:30rpx;
+  left:-9rpx;
+  z-index:999;
 }
 
 .post .cover .i{
@@ -110,5 +88,7 @@
     font-weight: bold;
     font-size: 32rpx;
 }
+
+
 
 @import "/components/tags.wxss";
