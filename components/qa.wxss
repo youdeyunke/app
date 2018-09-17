@@ -18,6 +18,10 @@
   color:#fff;
 }
 
+.qa-post-name{
+  color:#333;
+}
+
 .qa-item-q .qa-item-body-content{
   font-weight: bold;
 }

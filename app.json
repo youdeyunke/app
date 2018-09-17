@@ -29,11 +29,11 @@
     "list": [
       {
         "pagePath": "pages/home/home",
-        "text": "发现"
+        "text": "首页"
       },
       {
-        "pagePath": "pages/myself/zhao",
-        "text": "找房"
+        "pagePath": "pages/qa/index",
+        "text": "咨询"
       },
       {
         "pagePath": "pages/myself/index",
