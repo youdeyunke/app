@@ -218,38 +218,6 @@ mycard{
   padding:0 40rpx;
 }
 
-.footer-btns li.btn{
-  padding:10rpx 20rpx;
-  border-radius:10rpx;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  color:#fff;
-  box-size:border-box;
-  height:50rpx;
-  box-shadow:2rpx 2rpx 2rpx rgba(0,0,0, 0.15);
-}
-
-.footer-btns li.btn image{
-  height: 40rpx;
-  width: 40rpx;
-}
-
-.footer-btns li.call{
-  background: var(--color-a);
-}
-.footer-btns li.call image{
-  margin-right:14rpx;
-}
-
-.footer-btns li.booking{
-  background: var(--color-b);
-}
-
-
-.footer-btns li.booking image{
-    margin-right:20rpx;
-}
 
 .footer-btns li.staff{
    display:flex;
@@ -420,11 +388,6 @@ myfav .myfav {
 }
 
 
-.view-more image{
-  width: 30rpx;
-  height: 30rpx;
-  margin-left:20rpx;
-}
 
 
 .content-switch .up{

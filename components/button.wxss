@@ -1,22 +1,49 @@
-/* components/button.wxss */
 .mybutton{
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height:60rpx;
-  padding:0 40rpx;
+  justify-content:center;
+  align-items:center;
+  color:#fff;
+  padding:10rpx 25rpx;
   background:#fff;
-  border-radius:40rpx;
-  opacity: 0.9;
-  margin:40rpx auto 10rpx auto;
+  border-radius:10rpx;
+  margin:0 auto;
+  height:50rpx;
+  font-size:var(--font-s);
+  text-align:center;
 }
 
-.mybutton.primary{
+
+.mybutton.round{
+  border-radius:50rpx;
+}
+
+.mybutton image{
+  width:32rpx;
+  height:32rpx;
+}
+
+.mybutton.plain.primary{
   border:1rpx solid var(--color-a);
   color: var(--color-a);
 }
 
-.mybutton.default{
+.mybutton.plain.default{
   border:1rpx solid #333;
   color: #333;
+}
+
+
+.mybutton.block{
+  color:#fff;
+  box-shadow:2rpx 2rpx 2rpx rgba(0,0,0, 0.15);
+}
+
+.mybutton.block.primary{
+  background:var(--color-a);
+  color:#fff;
+}
+
+.mybutton.block.info{
+  background:var(--color-b);
+  color:#fff;
 }

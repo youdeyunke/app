@@ -7,8 +7,17 @@ Component({
     type: {
       type: String, value: "default"
     },
+
+    round: {
+      type: Boolean, value: false,
+    },
+
+    plain: {
+      type: Boolean, value: false,
+    },
+
     width: {
-      type: String, value: "auto"
+      type: Number, value: 250
     },
 
   },

@@ -39,7 +39,7 @@
   </view>  
 
 
-  <mybutton class="view-more" type="primary" width="200rpx" bindtap="contentHandle" wx:if="{{minicontent}}">
+  <mybutton width="170" plain class="view-more" type="primary" bindtap="contentHandle" wx:if="{{minicontent}}">
     加载全文 <image class="{{ minicontent == true ? 'down' : 'up' }}" src="/assets/icons/down-arrow.png"></image>
   </mybutton>
 
@@ -75,9 +75,11 @@
   <view class="comments-empty" wx:if="{{post.comments_count == 0}}">暂无评论</view>
 
   <view class="comments-add">
-    <mybutton type="primary" width="200rpx">
-        <navigator url="/pages/comments/new?target_id={{post.id}}">我要点评</navigator> </mybutton>
+    <navigator url="/pages/comments/new?target_id={{post.id}}">
+      <mybutton plain type="primary" width="170">我要点评</mybutton>
+    </navigator> 
   </view>
+
 </mycard>
 
 <mycard wx:if="{{post.qa_enable}}" title="大家都在问" number="{{post.questions_count}}" url="{{ post.questions_count > 5 ? '/pages/qa/index?post_id='+postId : null }}">
@@ -88,7 +90,7 @@
 
   <view class="comments-empty" wx:if="{{questions.length ==0}}">暂无提问</view>
     <view class="comments-add">
-    <mybutton type="primary" width="200rpx">
+    <mybutton plain type="primary" width="170">
         <navigator url="/pages/qa/new?post_id={{postId}}">我要提问</navigator> </mybutton>
   </view>
 </mycard>
@@ -106,11 +108,16 @@
                <view class="staff-desc line-limit">{{post.staff_user.desc}}</view>
        </view>
     </li>
-    <li bindtap="bookingHandle" class="booking btn"><image src="/assets/icons/btn-booking.png"></image>
-      {{ post.user_has_booking ? '已预约' : '预约看房'}}
+    <li bindtap="bookingHandle" class="booking">
+      <mybutton type="info" width="140">       
+          <image src="/assets/icons/btn-booking.png"></image>
+          {{ post.user_has_booking ? '已预约' : '预约看房'}}
+      </mybutton>
     </li>
-    <li class="call btn" bindtap="callMe">
-      <image src="/assets/icons/btn-call.png"></image>电话
+    <li class="call" bindtap="callMe">
+        <mybutton width="115" type="primary">
+            <image src="/assets/icons/btn-call.png"></image>电话
+        </mybutton>
     </li>
 
   </ul>
