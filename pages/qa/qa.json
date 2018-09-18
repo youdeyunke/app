@@ -1,6 +1,7 @@
 {
       "usingComponents": {
         "card": "/components/card",
+        "recoms": "/components/recom-posts",
         "qa": "/components/qa"
       }
 }

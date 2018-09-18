@@ -94,9 +94,7 @@
 </mycard>
 
 
-<mycard title="猜你喜欢">
-<mypost class="recom-post" wx:if="{{item}}" border="true" shadow="{{false}}" wx:for="{{posts}}" item="{{item}}"></mypost>
-</mycard>
+<recoms pid="{{postId}}" count="3"></recoms>
 
 
 <form report-submit bindsubmit='btnsHandle' class="footer-btns">

@@ -11,6 +11,7 @@
     "mystars": "/components/stars",
     "mybutton": "/components/button",
     "mapimage":"/components/map",
+    "recoms":"/components/recom-posts",
     "comments": "/components/comments"
   }
 }
