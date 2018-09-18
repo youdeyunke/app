@@ -9,7 +9,6 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  border:1rpx solid #f4f4f4;
   border-radius: 10rpx;
 }
 
