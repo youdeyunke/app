@@ -73,7 +73,7 @@
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationStyle": "default",
-    "backgroundColor": "#f4f4f4",
+    "backgroundColor": "#fff",
     "navigationBarTitleText": "APP NAME",
     "navigationBarTextStyle": "black"
   }

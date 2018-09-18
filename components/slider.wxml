@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <swiper class="swiper home" indicator-dots="true" autoplay="{{ items.length > 0}}" interval="5000"
 duration="500" circular="true" indicator-color="rgba(255,255,255,0.7)" autoplay indicator-active-color="#00ae66" >
-<swiper-item wx:for="{{items}}" bindtap="goto" data-index="{{index}}">
+<swiper-item item-id="{{item.id}}" wx:for="{{items}}" bindtap="goto" data-index="{{index}}">
         <image src="{{item.image.url}}?imageView2/1/w/750/h/200"></image>
 </swiper-item>   
 </swiper>

@@ -54,3 +54,9 @@ myfav{
   right:0rpx;
 }
 
+
+.header myslider swiper, .header myslider image{
+  width:710rpx;
+  height:320rpx;
+  border-radius:20rpx;
+}

@@ -89,13 +89,15 @@ Page({
                 })
                 return false
               }
-              wx.showToast({
-                title: '提交成功',
+              wx.showModal({
+                title: '提交成功！',
+                content: '经济人稍后将与您取得联系，请留意',
               })
 
               wx.navigateBack({
                 delta: -1
               })
+
             }
           })
         })

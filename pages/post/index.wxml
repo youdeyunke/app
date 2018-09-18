@@ -1,9 +1,7 @@
 <!--pages/post/index.wxml-->
-<box padding="30">
     <block wx:for="{{posts}}" wx:for-item="postitems">
-            <post wx:for="{{postitems}}" item="{{item}}"></post>
+            <postcard wx:for="{{postitems}}" item="{{item}}"></postcard>
     </block>
-</box>
 
 
 <view class="empty" wx:if="{{posts.length == 0}}">
