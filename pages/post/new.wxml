@@ -1,0 +1,61 @@
+
+   <form>
+<card title="基本信息" hat>
+        <view class="input-group">
+                <view class="input-item">
+                        <view class="label">位置</view>
+                        <input></input>
+                </view>
+
+                <view class="input-item">
+                        <view class="label">街道</view>
+                        <input></input>
+                </view>
+
+                <view class="input-item">
+                        <view class="label">小区</view>
+                        <input></input>
+                </view>
+
+                <view class="input-item">
+                        <view class="label">年代</view>
+                        <input></input>
+                </view>
+
+                <view class="input-item">
+                        <view class="label">类型</view>
+                        <input></input>
+                </view>
+
+                <view class="input-item">
+                        <view class="label">装修</view>
+                        <input></input>
+                </view>
+        </view>
+</card>
+
+
+<card title="户型信息" hat>
+        <view class="input-group">
+                <view class="input-item">
+                        <view class="label">室</view>
+                </view>
+                <view class="input-item">
+                        <view class="label">厅</view>
+                </view>
+                <view class="input-item">
+                        <view class="label">卫</view>
+                </view>
+
+                <view class="input-item">
+                        <view class="label">朝向</view>
+                        <view class="form-tags">
+                                <text class="form-tag-item">东</text>
+                        </view>
+                </view>
+
+
+        </view>
+
+</card>
+</form>

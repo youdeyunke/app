@@ -1,4 +1,3 @@
-@import "/components/tags.wxss";
 @import "/utils/wxParse/wxParse.wxss";
 
 page{
@@ -219,43 +218,6 @@ textarea{
 }
 
 
-.tags{
-  display: flex;
-  flex-direction: row;
-  align-items: center;  
-  padding:0 ;
-}
-
-.tags .item{
-  color: #666;
-  border-radius: 0rpx;
-  display: inline-block;
-  padding:0rpx 16rpx;
-  background: #f4f4f4;
-  margin-right:15rpx;
-}
-
-.tags .item.active{
-  background: var(--color-a);
-  color:#fff;
-}
-
-.tags-left{
-  justify-content: flex-start;
-}
-
-.tags-right{
-  justify-content: flex-end;
-}
-
-.tags-left text{
-  margin-right:15rpx;
-}
-
-.tags-right text{
-  margin-left:15rpx;
-}
-
 
 .line-limit{
   overflow: hidden;
@@ -281,18 +243,6 @@ textarea{
   right:0rpx;
 }
 
-
-
-.mini-tags {
-  font-size:20rpx;
-  color: 333;
-}
-
-.mini-tags text{
-  border:1px solid #cecece;
-  padding:5rpx 10rpx;
-  margin-right: 20rpx;
-}
 
 .line{
   border-bottom:4rpx solid #f4f4f4;
@@ -326,8 +276,35 @@ textarea{
 }
 
 
-.input-group .item{
+.input-group .input-item{
   display:flex;
   justify-content: space-between;
   align-items: center;
 }
+
+.input-group .input-item{
+  border-bottom:1px solid #f1f1f1;
+  padding:15rpx 0;
+  margin:15rpx 0;
+}
+
+.form-tags{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.form-tag-item{
+  margin:10rpx 15rpx 15rpx 10rpx;
+  padding:10rpx 20rpx;
+  background: #fff;
+  color: var(--color-a);
+  border:1rpx solid var(--color-a);
+  font-size:var(--font-xs);
+}
+
+
+.form-tag-item-active{
+  background:var(--color-a);
+  color:#fff;
+}
+

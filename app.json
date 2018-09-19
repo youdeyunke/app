@@ -1,14 +1,12 @@
 {
   "pages": [
-    "pages/home/home",    
+    "pages/home/home",
     "pages/webview/webview",
     "pages/myself/zhao",
-    "pages/qa/index",    
-
+    "pages/qa/index",
     "pages/comments/new",
     "pages/post/index",
     "pages/qa/qa",
-
     "pages/post/post",
     "pages/myself/index",
     "pages/about/index",
@@ -17,9 +15,9 @@
     "pages/comments/index",
     "pages/myself/favposts",
     "pages/static/about",
-    "pages/myself/qa"
+    "pages/myself/qa",
+    "pages/post/new"
   ],
-
   "tabBar": {
     "selectedColor": "#333",
     "backgroundColor": "#fff",
@@ -39,14 +37,14 @@
         "pagePath": "pages/myself/index",
         "text": "我的"
       }
-    ],    
+    ],
     "list2": [
       {
         "iconPath": "/assets/icons/home.0.png",
         "selectedIconPath": "/assets/icons/home.1.png",
         "pagePath": "pages/home/home",
         "text": "发现"
-      },   
+      },
       {
         "iconPath": "/assets/icons/gaizao.0.png",
         "selectedIconPath": "/assets/icons/gaizao.1.png",
@@ -67,7 +65,6 @@
       }
     ]
   },
-
   "window": {
     "enablePullDownRefresh": false,
     "backgroundTextStyle": "dark",
@@ -77,5 +74,4 @@
     "navigationBarTitleText": "APP NAME",
     "navigationBarTextStyle": "black"
   }
-  
 }

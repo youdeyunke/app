@@ -7,11 +7,11 @@
         </box>
         <card hat title="基础意向(必填)">
                 <view class="basic input-group">
-                        <view class="item">
+                        <view class="input-item">
                                 <view class="label">预算</view> 
                                 <input bindinput='budgetHandle'  value="{{budget}}" placeholder='如：现金50万'>   </input>
                         </view>
-                        <view class="item">
+                        <view class="input-item">
                                 <view class="label">区域</view> 
                                 <input bindinput='positionHandle' value="{{position}}" placeholder='填写您关注位置'>   </input>
                         </view>
@@ -22,8 +22,8 @@
 
 
         <card hat title="选择符合您的五个标签">
-           <view class="tags"> 
-                <text  bindtap="purposeHandle" data-index="{{index}}" class="item {{item.selected ? 'active' : '' }}" wx:for="{{purposeList}}">{{item.name}}</text>
+           <view class="form-tags"> 
+                <text  bindtap="purposeHandle" data-index="{{index}}" class="form-tag-item {{item.selected ? 'form-tag-item-active' : '' }}" wx:for="{{purposeList}}">{{item.name}}</text>
             </view>
         </card>
 

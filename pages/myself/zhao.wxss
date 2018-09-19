@@ -17,20 +17,6 @@ page{
   width: calc(100% - 120rpx);
 }
 
-.tags{
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
-.tags .item{
-  margin:10rpx 15rpx 15rpx 10rpx;
-  padding:10rpx 20rpx;
-  background: #fff;
-  color: var(--color-a);
-  border:1rpx solid var(--color-a);
-  font-size:var(--font-xs);
-}
-
 .container-bg-none{
   padding:0;
 }

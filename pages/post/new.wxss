@@ -1,0 +1,6 @@
+/* pages/post/new.wxss */
+page{
+  padding-top:20rpx;
+}
+
+
