@@ -8,11 +8,6 @@ page{
   color: var(--color-a);
 }
 
-.basic .item{
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .basic  .item .label{
   width: 120rpx;

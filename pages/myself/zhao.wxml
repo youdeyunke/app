@@ -6,7 +6,7 @@
             
         </box>
         <card hat title="基础意向(必填)">
-                <view class="basic">
+                <view class="basic input-group">
                         <view class="item">
                                 <view class="label">预算</view> 
                                 <input bindinput='budgetHandle'  value="{{budget}}" placeholder='如：现金50万'>   </input>
