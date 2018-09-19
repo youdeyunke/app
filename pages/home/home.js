@@ -14,10 +14,10 @@ Page({
     hasMore: true,
     posts: [],
     tabIcons: [
-      { name: '全部', url: '/pages/post/index', opentype:"navigateTo", id: 'all'},
-      {name: '新房', url: '/pages/post/index', opentype:"navigateTo", id: 'new'},
-      { name: '二手房', url: '/pages/post/index', opentype:"navigateTo", id: 'old'},
-      { name: '定制找房', url: '/pages/myself/zhao', opentype: "navigateTo", id: 'coupon' }      
+      { name: '全部', url: '/pages/post/index', opentype:"navigateTo", id: 'all', bg: '#65b455'},
+      {name: '新房', url: '/pages/post/index', opentype:"navigateTo", id: 'new', bg: '#fdaa3d'},
+      { name: '二手房', url: '/pages/post/index', opentype:"navigateTo", id: 'old', bg: '#53d8e3'},
+      { name: '定制找房', url: '/pages/myself/zhao', opentype: "navigateTo", id: 'zhao', bg: '#f67350' }      
 
     ]
   },
