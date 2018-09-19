@@ -1,6 +1,7 @@
 // pages/qa/index.js
 const app = getApp()
 var util = require('../../utils/util.js');
+var auth = require('../../utils/auth.js');
 
 Page({
 
@@ -84,10 +85,13 @@ Page({
 
   gotoNew: function(e){
     console.log('submit', e)
-    app.uploadFormId(e)
-    wx.navigateTo({
-      url: '/pages/qa/new'
+    auth.ensureMobile(function(userInfo){
+      app.uploadFormId(e)
+      wx.navigateTo({
+        url: '/pages/qa/new'
+      })
     })
+
   },
 
   /**

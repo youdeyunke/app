@@ -193,6 +193,9 @@ mycard{
   display:none;
 }
 
+.view-more.btn{
+  width:210rpx;
+}
 
 .main{
   margin:18rpx 0 35rpx 0;
@@ -228,18 +231,6 @@ mycard{
 }
 
 
-.footer-btns{
-  background: #fff;
-  width:100%;
-  padding:0rpx 0rpx;
-  position: fixed;
-  bottom:0rpx;
-  border-top:none;
-  height: 100rpx;
-  z-index:20;
-  letter-spacing: 4rpx;
-  border-top:1px solid #f1f1f1;
-}
 
 .footer-btns ul{
   display: flex;

@@ -1,4 +1,0 @@
-<!--components/button.wxml-->
-<view style="width:{{width}}rpx;" class="mybutton {{round ? 'round' : '' }} {{ type }} {{ plain ? 'plain' : 'block' }}">
-    <slot></slot>
-</view>

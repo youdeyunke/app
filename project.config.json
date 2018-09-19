@@ -29,13 +29,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
-					"name": "qa",
+					"name": "qa-index",
 					"pathName": "pages/qa/index",
-					"query": "post_id=1"
+					"query": ""
 				},
 				{
 					"id": -1,

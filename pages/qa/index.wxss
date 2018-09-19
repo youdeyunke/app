@@ -7,3 +7,14 @@ page{padding-top:0rpx !important;
 #qa{
   width: 730rpx;
 }
+
+
+.add-new{
+  width: 100%;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0 30rpx;
+  box-sizing:border-box;
+}
+

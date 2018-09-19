@@ -60,9 +60,9 @@
   </view>  
 
 
-  <mybutton width="170" plain class="view-more" type="primary" bindtap="contentHandle" wx:if="{{minicontent}}">
+  <button class="btn plain round view-more " bindtap="contentHandle" wx:if="{{minicontent}}">
     加载全文 <image class="{{ minicontent == true ? 'down' : 'up' }}" src="/assets/icons/down-arrow.png"></image>
-  </mybutton>
+  </button>
 
 </box>
 
@@ -97,7 +97,7 @@
 
   <view class="comments-add">
     <navigator url="/pages/comments/new?target_id={{post.id}}">
-      <mybutton plain type="primary" width="170">我要点评</mybutton>
+      <button class="plain btn round mini">我要点评</button>
     </navigator> 
   </view>
 
@@ -111,8 +111,8 @@
 
   <view class="comments-empty" wx:if="{{questions.length ==0}}">暂无提问</view>
     <view class="comments-add">
-    <mybutton plain type="primary" width="170">
-        <navigator url="/pages/qa/new?post_id={{postId}}">我要提问</navigator> </mybutton>
+    <button class="btn plain round mini">
+        <navigator url="/pages/qa/new?post_id={{postId}}">我要提问</navigator> </button>
   </view>
 </mycard>
 
@@ -120,7 +120,7 @@
 <recoms pid="{{postId}}" count="3"></recoms>
 
 
-<form report-submit bindsubmit='btnsHandle' class="footer-btns">
+<form report-submit bindsubmit='btnsHandle' class="fixed-footer footer-btns">
   <ul>
     <li class="staff">
             <view class="staff-avatar"><image src="{{post.staff_user.avatar.url}}?imageView2/2/w/100"></image></view>
@@ -130,15 +130,15 @@
        </view>
     </li>
     <li bindtap="bookingHandle" class="booking">
-      <mybutton type="info" width="160">       
+      <button class="btn info" >       
           <image src="/assets/icons/btn-booking.png"></image>
           {{ post.user_has_booking ? '已预约' : '预约看房'}}
-      </mybutton>
+      </button>
     </li>
     <li class="call" bindtap="callMe">
-        <mybutton width="115" type="primary">
+        <button class="btn primary">
             <image src="/assets/icons/btn-call.png"></image>电话
-        </mybutton>
+        </button>
     </li>
 
   </ul>
