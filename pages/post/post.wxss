@@ -193,6 +193,12 @@ mycard{
   display:none;
 }
 
+.view-more-container{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
 .view-more.btn{
   width:210rpx;
 }

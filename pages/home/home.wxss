@@ -23,6 +23,7 @@ page{
   justify-content: space-around;
   box-sizing: border-box;
   margin-top:30rpx;
+  font-size:var(--font-xs);
 }
 
 .tab-icons navigator{
@@ -50,9 +51,9 @@ page{
 }
 
 .tab-icons navigator text{
-  font-size:var(--font-s);
   color: #000;
   font-weight: normal;
+  margin-top:15rpx;
 }
 
 myfav{

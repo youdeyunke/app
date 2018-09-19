@@ -58,11 +58,13 @@
       <view class="html-content-footer">
       </view>
   </view>  
+        
 
-
-  <button class="btn plain round view-more " bindtap="contentHandle" wx:if="{{minicontent}}">
+  <view class="view-more-container">
+  <button class="btn mini plain round view-more " bindtap="contentHandle" wx:if="{{minicontent}}">
     加载全文 <image class="{{ minicontent == true ? 'down' : 'up' }}" src="/assets/icons/down-arrow.png"></image>
   </button>
+  </view>
 
 </box>
 
