@@ -48,9 +48,9 @@
                   <text>{{ post.current_floor }} / {{ post.total_floor }}</text>
                 </view> 
 
-                <view class="meta">
-                  <text class="label">小区</text>
-                  <text>{{ post.area_name }}</text>
+                <view class="meta lg">
+                  <text class="label">地址</text>
+                  <text>{{ post.address }} {{post.street}} {{ post.area_name }}</text>
                 </view> 
                 
         </block>
