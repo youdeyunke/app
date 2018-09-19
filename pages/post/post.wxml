@@ -39,7 +39,7 @@
 
      <template wx:if="{{post.group == 'new'}}" is="detail-meta" data="{{post: post }}" /> 
 
-     <view bindtap='couponHandle' class="coupon" wx:if="{{post.group == 'new' && post && post.coupon_enable}}">
+     <view bindtap='couponHandle' class="coupon" wx:if="{{ post && post.coupon_enable}}">
      <view class="name line-limit">{{post.coupon_desc}}</view>
      <view class="action">{{ post.user_has_coupon ? '已领券' : '领券' }}</view>
    </view>     
@@ -130,7 +130,7 @@
        </view>
     </li>
     <li bindtap="bookingHandle" class="booking">
-      <mybutton type="info" width="140">       
+      <mybutton type="info" width="160">       
           <image src="/assets/icons/btn-booking.png"></image>
           {{ post.user_has_booking ? '已预约' : '预约看房'}}
       </mybutton>
