@@ -20,7 +20,24 @@
   <view class="header">
      <view class=" post-title h1">{{ post.group == 'new' ? post.block_name + ' ' + post.desc : post.title }}</view>
      <mytags wx:if="{{post.tags_list}}" cat="{{post.cat.name}}" items="{{post.tags_list}}"></mytags>
-     <template is="detail-meta" data="{{post: post }}" /> 
+
+     <view class="typeinfo" wx:if="{{post.group != 'new' }}">
+             <view class="item border">
+                     <view class="value">100万</view>
+                     <view class="key">总价</view>
+             </view>
+             <view class="item border">
+                     <view class="value">3室2厅1卫</view>
+                     <view class="key">户型</view>
+             </view>
+             <view class="item">
+                     <view class="value">120平</view>
+                     <view class="key">建面</view>
+             </view>
+
+     </view>
+
+     <template wx:if="{{post.group == 'new'}}" is="detail-meta" data="{{post: post }}" /> 
 
      <view bindtap='couponHandle' class="coupon" wx:if="{{post.group == 'new' && post && post.coupon_enable}}">
      <view class="name line-limit">{{post.coupon_desc}}</view>
@@ -30,6 +47,10 @@
 </view>
 
 <box padding="20">
+   <block wx:if="{{post.group != 'new' }}">
+     <view class="h1">基本信息</view>
+     <template is="detail-meta" data="{{post: post }}" /> 
+   </block>
    <view class="html-content {{ minicontent == true ? 'mini' : 'full' }}">
       <view class="raw">
         <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>

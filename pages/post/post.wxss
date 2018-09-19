@@ -56,30 +56,31 @@ mycard{
 .detail-meta{
   padding:20rpx 0rpx;
   border-radius:10rpx;
-  font-size:var(--font-l);
-}
-
-
-.detail-meta.old{
+  font-size:var(--font-s);
   display:flex;
   justify-content:flex-start;
   flex-wrap:wrap;
 }
 
-.detail-meta.old .meta{
-  width:50%;
+
+.detail-meta .meta{
 }
 
 .detail-meta .meta{
- display:flex;
- height: 50rpx;
- justify-content: flex-start;
- align-items: center;
+   display:flex;
+   height: 50rpx;
+   width:50%;
+   justify-content: flex-start;
+   align-items: center;
+}
+
+.detail-meta .meta.lg{
+  width:100%;
 }
 
 .detail-meta  .meta text.label{
   color:#666;
-  width:110rpx;
+  width:80rpx;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -120,6 +121,38 @@ mycard{
 }
 
 
+.header .typeinfo{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20rpx 0;
+  margin:30rpx 0 0 0;
+  box-sizing:border-box;
+  width:100%;
+  border-top:1px solid #f1f1f1;
+}
+
+.header .typeinfo .item{
+  width:33.333%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+
+.header .typeinfo .item .value{
+  font-size:var(--font-xl);
+  color:var(--color-b);
+}
+
+.header .typeinfo .item .key{
+  font-size:var(--font-s);
+}
+
+.header .typeinfo .item.border{
+  border-right:1px solid #f4f4f4;
+}
 
 .raw image.wxParse-img{
   margin:20rpx auto;

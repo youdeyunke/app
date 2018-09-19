@@ -2,8 +2,18 @@
   <block>
       <view  class="detail-meta {{post.group}}">
         <view class="meta">
-          <text class="label">{{post.cat.name}}</text>
+          <text class="label">类型</text>
+          <text class="price">{{ post.cat.name}}</text>
+         </view>
+
+        <view class="meta">
+          <text class="label">总价</text>
           <text class="price">{{ post.price_info.text}}</text>
+         </view>
+
+        <view class="meta">
+          <text class="label">建面</text>
+          <text class="price">{{ post.area_info.text}}</text>
          </view>
 
 
@@ -13,7 +23,7 @@
                     <text class="label">开盘</text>
                     <text> {{ post.open_at }}</text>
                 </view>
-                <view class="meta">
+                <view class="meta lg">
                   <text class="label">地址</text>
                   <text>{{ post.address }} {{post.street}}</text>
                 </view> 
