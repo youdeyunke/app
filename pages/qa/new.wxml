@@ -5,10 +5,9 @@
   </view>
 
   <view class="container container-bg-none">
-    <button  class="weui-btn" type="primary" form-type="submit" >我要提问</button>
-    <button class="weui-btn" type="default" form-type="reset" >返回</button>
+    <button  style="margin-bottom:20rpx;" class="btn primary"form-type="submit" >我要提问</button>
+    <button class="btn" type="default" form-type="reset" >返回</button>
   </view>
-
   
 </form>
 

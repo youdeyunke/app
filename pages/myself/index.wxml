@@ -6,7 +6,7 @@
     </view>  
 
     <text class="tip">登录账号，体验更多服务</text>
-    <button type="primary" class="weui-btn "  open-type='getUserInfo' bindgetuserinfo='loginHandle'>使用微信登录</button>
+    <button type="primary" class="btn"  open-type='getUserInfo' bindgetuserinfo='loginHandle'>使用微信登录</button>
 </view>
 
 <view class="weui-panel user" wx:if="{{userInfo}}">
@@ -21,7 +21,7 @@
       <view class="weui-cell weui-cell_access" wx:if="{{!userInfo.mobile}}">
           <view class="weui-cell__bd h1">绑定手机号</view>
           <view class="weui-cell__ft">
-            <button class="weui-btn btn-mini" type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain>马上绑定</button>
+            <button class="btn mini" type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain>马上绑定</button>
           </view>
       </view>
       
