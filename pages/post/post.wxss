@@ -112,7 +112,7 @@ mycard{
   justify-content:center;
   align-items:flex-start;
   background:#fff;
-  border-radius:30rpx;
+  border-radius:20rpx;
   position:relative;
   z-index:99999;
   margin:-70rpx auto auto auto;
@@ -144,6 +144,7 @@ mycard{
 .header .typeinfo .item .value{
   font-size:var(--font-xl);
   color:var(--color-b);
+  margin-bottom:10rpx;
 }
 
 .header .typeinfo .item .key{
@@ -151,7 +152,7 @@ mycard{
 }
 
 .header .typeinfo .item.border{
-  border-right:1px solid #f4f4f4;
+  border-right:1px solid #f1f1f1;
 }
 
 .raw image.wxParse-img{
