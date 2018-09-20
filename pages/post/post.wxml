@@ -98,7 +98,7 @@
   <view class="comments-empty" wx:if="{{post.comments_count == 0}}">暂无评论</view>
 
   <view class="comments-add">
-    <navigator url="/pages/comments/new?target_id={{post.id}}">
+    <navigator hover-class='none' url="/pages/comments/new?target_id={{post.id}}">
       <button class="plain btn round mini">我要点评</button>
     </navigator> 
   </view>
@@ -113,8 +113,10 @@
 
   <view class="comments-empty" wx:if="{{questions.length ==0}}">暂无提问</view>
     <view class="comments-add">
-    <button class="btn plain round mini">
-        <navigator url="/pages/qa/new?post_id={{postId}}">我要提问</navigator> </button>
+    
+      <navigator hover-class='none' url="/pages/qa/new?post_id={{postId}}">
+        <button class="btn plain round mini">我要提问</button>
+        </navigator> 
   </view>
 </mycard>
 

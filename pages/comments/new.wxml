@@ -7,8 +7,8 @@
 
 <view class="container">
     <view class="h1">您的身份</view>
-    <view class="tags">
-      <text bindtap='catHandle' data-index="{{index}}" class="item {{ comment.cat_id == item.id ? 'active' : '' }}" wx:for="{{cats}}">{{item.name}}</text>
+    <view class="form-tags">
+      <text bindtap='catHandle' data-index="{{index}}" class="form-tag-item {{ comment.cat_id == item.id ? 'form-tag-item-active' : '' }}" wx:for="{{cats}}">{{item.name}}</text>
     </view>
 </view>
 
