@@ -3,4 +3,17 @@ page{
   padding-top:20rpx;
 }
 
+.type{
+  display:flex;
+  justify-content: space-between;
+  align-items:  center;
+}
 
+.type .type-item{
+  height: 110rpx;
+  width:33.333%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}

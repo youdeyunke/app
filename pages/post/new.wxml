@@ -1,51 +1,37 @@
 
    <form>
 <card title="基本信息" hat>
-        <view class="input-group">
-                <view class="input-item">
-                        <view class="label">位置</view>
-                        <input></input>
-                </view>
+  <view class="input-group">
+    <view class="input-item">
+      <view class="label">城市</view>
+      <view>选择</view>
+    </view>
 
-                <view class="input-item">
-                        <view class="label">街道</view>
-                        <input></input>
-                </view>
-
-                <view class="input-item">
-                        <view class="label">小区</view>
-                        <input></input>
-                </view>
-
-                <view class="input-item">
-                        <view class="label">年代</view>
-                        <input></input>
-                </view>
-
-                <view class="input-item">
-                        <view class="label">类型</view>
-                        <input></input>
-                </view>
-
-                <view class="input-item">
-                        <view class="label">装修</view>
-                        <input></input>
-                </view>
-        </view>
+  </view>
 </card>
 
 
 <card title="户型信息" hat>
+        <view class="type">
+            <view class="type-item">
+                <view class="label">室</view>
+                <stepper></stepper>
+            </view>
+
+            <view class="type-item">
+                <view class="label">厅</view>
+                <stepper></stepper>
+            </view>
+
+            <view class="type-item">
+                <view class="label">卫</view>
+                <stepper></stepper>
+             </view>
+        </view>
+        <van-field label="建筑面积"></van-field>
+        <van-field label="总价"></van-field>
+
         <view class="input-group">
-                <view class="input-item">
-                        <view class="label">室</view>
-                </view>
-                <view class="input-item">
-                        <view class="label">厅</view>
-                </view>
-                <view class="input-item">
-                        <view class="label">卫</view>
-                </view>
 
                 <view class="input-item">
                         <view class="label">朝向</view>
@@ -54,8 +40,22 @@
                         </view>
                 </view>
 
+                <view class="input-item">
+                        <view class="label">建面</view>
+                        <input></input>
+                </view>
+
+                <view class="input-item">
+                        <view class="label">户型图</view>
+                        <input></input>
+                </view>
 
         </view>
-
 </card>
+
+<card title="房源照片">
+  to do
+</card>
+
+
 </form>

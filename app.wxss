@@ -284,7 +284,7 @@ textarea{
 
 .input-group .input-item{
   border-bottom:1px solid #f1f1f1;
-  padding:15rpx 0;
+  padding:10rpx 15rpx;
   margin:15rpx 0;
 }
 

@@ -21,17 +21,17 @@
      <view class=" post-title h1">{{ post.group == 'new' ? post.block_name + ' ' + post.desc : post.title }}</view>
      <mytags wx:if="{{post.tags_list}}" cat="{{post.cat.name}}" items="{{post.tags_list}}"></mytags>
 
-     <view class="typeinfo" wx:if="{{post.group != 'new' }}">
+     <view class="typeinfo" wx:if="{{post.group == 'old' }}">
              <view class="item border">
-                     <view class="value">100万</view>
+                     <view class="value">{{post.price_info.text}}</view>
                      <view class="key">总价</view>
              </view>
              <view class="item border">
-                     <view class="value">3室2厅1卫</view>
+                     <view class="value">{{post.types[0].name}}</view>
                      <view class="key">户型</view>
              </view>
              <view class="item">
-                     <view class="value">120平</view>
+                     <view class="value">{{post.area_info.text}}</view>
                      <view class="key">建面</view>
              </view>
 
