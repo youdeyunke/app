@@ -4,6 +4,7 @@
       "myfav": "/components/fav",
       "mytags": "/components/tags",
       "post": "/components/post",
+      "van-transition": "/vant/transition/index",
       "postcard": "/components/postcard",
       "box": "/components/box",
       "myslider": "/components/slider"

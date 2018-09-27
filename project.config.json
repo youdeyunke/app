@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 20,
+			"current": 21,
 			"list": [
 				{
 					"id": 0,
@@ -155,6 +155,12 @@
 					"id": -1,
 					"name": "post-new",
 					"pathName": "pages/post/new",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "ershoufang-index",
+					"pathName": "pages/ershoufang/index",
 					"query": ""
 				}
 			]

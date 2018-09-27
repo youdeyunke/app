@@ -7,14 +7,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    show: true,
     page : 1,
     per_page: 8,
     isEmpty: false,
     isEnd: false,
     loading: false,
     posts: [],
+  },
 
+  toggleHandle: function() {
+    var v = !this.data.show
+    this.setData({show: v})
   },
 
 
