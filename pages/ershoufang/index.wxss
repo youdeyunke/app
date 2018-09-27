@@ -1,1 +1,4 @@
-/* pages/ershoufang/index.wxss */
+/* pages/xinfang/index.wxss */
+page{
+   padding-top:10rpx;
+}

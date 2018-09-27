@@ -16,7 +16,7 @@ Page({
     tabIcons: [
       { name: '全部', url: '/pages/post/index?group=all', opentype:"navigateTo", id: 'all', bg: '#65b455'},
       {name: '新房', url: '/pages/xinfang/index', opentype:"navigateTo", id: 'new', bg: '#fdaa3d'},
-      { name: '二手房', url: '/pages/ershou/index', opentype:"navigateTo", id: 'old', bg: '#53d8e3'},
+      { name: '二手房', url: '/pages/ershoufang/index', opentype:"navigateTo", id: 'old', bg: '#53d8e3'},
       { name: '定制找房', url: '/pages/myself/zhao', opentype: "navigateTo", id: 'zhao', bg: '#f67350' }      
 
     ]

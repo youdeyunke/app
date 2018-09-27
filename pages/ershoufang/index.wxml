@@ -1,2 +1,14 @@
-<!--pages/ershoufang/index.wxml-->
-<text>pages/ershoufang/index.wxml</text>
+<!--pages/post/index.wxml-->
+<box padding="30">
+    <block wx:for="{{posts}}" wx:for-item="postitems">
+            <post wx:for="{{postitems}}" item="{{item}}"></post>
+    </block>
+</box>
+
+<view class="empty" wx:if="{{isEmpty}}">
+   <image src="/assets/images/cover-none.png"></image>
+   <view>{{ emptyText || '没有数据'}}</view>
+</view>
+
+<view class="empty" wx:if="{{isEnd}}">END</view>
+<view class="empty" wx:if="{{loading}}">加载中...</view>
