@@ -30,3 +30,40 @@
   border-left:10rpx solid #fff;
   border-right:10rpx solid #fff;
 }
+
+
+.sfilter-group .panel{
+  position:fixed;
+  left:0rpx;
+  top:62rpx;
+  right:0rpx;
+  background:#fff;
+  z-index:100;
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  padding:0 30rpx;
+}
+
+.sfilter-group .options.panel{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sfilter-group .option-item{
+  height: 70rpx;
+  border-bottom:1px solid #f1f1f1;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size:var(--font-l);
+}
+
+
+.sfilter-group .option-item.active{
+  color: var(--color-a);
+}
+

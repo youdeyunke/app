@@ -27,6 +27,17 @@ Page({
     this.loadData()
   },
 
+  /** 过滤器改变，重新加载数据 **/
+  filterHandle: function(){
+    this.setData({
+      posts: [],
+      isEmpty: false,
+      isEnd: false,
+      loading: true,
+      page: 1,
+    })  
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -45,7 +56,6 @@ Page({
     if (this.data.isEnd) {
       return false
     }  
-
 
     var query = {
       //city_id: _this.data.city_id || '',
@@ -109,7 +119,7 @@ Page({
   onPullDownRefresh: function () {
     var _this = this
     this.setData({
-      news: [],
+      posts: [],
       isEmpty: false,
       isEnd: false,
       page: 1,

@@ -1,28 +1,19 @@
 <!--components/filter.wxml-->
 <view class="sfilter-group">
     <view class="sfilter">
-            <view wx:for="{{keys}}" class="sfilter-item" data-target="{{item[1]}}">
+            <view hover-class='none' bindtap='filterItemHandle' wx:for="{{keys}}" class="sfilter-item" data-target="{{item[1]}}">
                     {{item[0]}}
 
             <view class="arrow"></view>
         </view>
     </view>
+            <view class="city panel options" wx:if="{{ current_panel == 'city' }}">
+                <view wx:for="{{cities}}" bindtap="cityHandle" data-index="{{index}}"  class="option-item {{ item.id == city.id ? 'active' : '' }} ">{{item.name}}</view>
+            </view>
 
-    <van-transition show="{{ current_panel == 'district' }}" custom-class="district panel">
-             hello 内容
-    </van-transition>
+            <view class="district panel options" wx:if="{{ current_panel == 'district' }}">
+                <view wx:for="{{districts}}" bindtap="districtHandle" data-index="{{index}}"  class="option-item">{{item.name}}</view>
+            </view>
 
-    <van-transition show="{{ current_panel == 'total_price' }}" custom-class="total_price panel">
-             hello 内容
-    </van-transition>
-
-    <van-transition show="{{ current_panel == 'type' }}" custom-class="type panel">
-         hello 内容
-    </van-transition>
-
-    <van-transition show="{{ current_panel == 'more' }}" custom-class="more panel">
-         hello 内容
-    </van-transition>
-        
 </view>
 
