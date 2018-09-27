@@ -1,0 +1,32 @@
+/* components/filter.wxss */
+
+.sfilter{
+  background:#fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top:0rpx;
+  left:0rpx;
+  right:0rpx;
+  z-index:99;
+  box-sizing: border-box;
+  padding:0rpx 40rpx;
+  height: 60rpx;
+}
+
+.sfilter-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sfilter-item .arrow{
+  height: 0rpx;
+  width: 0rpx;
+  margin-left:10rpx;
+  border-top:10rpx solid #333;
+  border-left:10rpx solid #fff;
+  border-right:10rpx solid #fff;
+}

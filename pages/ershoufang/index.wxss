@@ -1,4 +1,4 @@
 /* pages/xinfang/index.wxss */
 page{
-   padding-top:10rpx;
+   padding-top:70rpx;
 }

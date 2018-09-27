@@ -1,0 +1,28 @@
+<!--components/filter.wxml-->
+<view class="sfilter-group">
+    <view class="sfilter">
+            <view wx:for="{{keys}}" class="sfilter-item" data-target="{{item[1]}}">
+                    {{item[0]}}
+
+            <view class="arrow"></view>
+        </view>
+    </view>
+
+    <van-transition show="{{ current_panel == 'district' }}" custom-class="district panel">
+             hello 内容
+    </van-transition>
+
+    <van-transition show="{{ current_panel == 'total_price' }}" custom-class="total_price panel">
+             hello 内容
+    </van-transition>
+
+    <van-transition show="{{ current_panel == 'type' }}" custom-class="type panel">
+         hello 内容
+    </van-transition>
+
+    <van-transition show="{{ current_panel == 'more' }}" custom-class="more panel">
+         hello 内容
+    </van-transition>
+        
+</view>
+
