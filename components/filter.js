@@ -63,8 +63,13 @@ Component({
 
     districtHandle: function (e) {
       var i = e.currentTarget.dataset.index
-      var d = this.data.districts[i]
-      this.setData({ district: d })
+      var v = this.data.districts[i]
+      var d = {}
+      var k = 'keys[1][0]'
+      d[k] = v.name
+      d.district = v
+      d.current_panel = ''
+      this.setData(d)
     },
 
     cityHandle:function(e){
@@ -73,7 +78,12 @@ Component({
       var d = {}
       var k = 'keys[0][0]'
       d[k] = city.name
+
+      var k = 'keys[1][0]'
+      d[k] = '区县'
+
       d.city = city
+      d.district = {}
       d.current_panel = ''
       this.setData(d)
       console.log('d', d)
