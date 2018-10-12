@@ -73,7 +73,7 @@ Page({
     var _this = this
     app.request({
       hideLoading: true,
-      url: '/api/v1/posts/',
+      url: '/api/v2/posts/',
       data: {pid: postId, type:'recoms', limit: 5},
       success: function(resp){
         _this.setData({posts: resp.data.data})
@@ -113,7 +113,7 @@ Page({
 
     app.request({
       hideLoading: true,
-      url: '/api/v1/posts/' + postId,
+      url: '/api/v2/posts/' + postId,
       success: function(resp){
         _this.setData({post: resp.data.data})
         wx.setStorage({key: 'post.data.' + postId, data: resp.data.data})

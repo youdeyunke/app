@@ -5,13 +5,13 @@
         <image wx:if="{{false}}" class="play-btn" src="/assets/images/play-btn.png"></image>
       </view>
       <view class="meta">
-        <text class="item-title">{{ item.group == 'new' ? item.block_name : item.title }}</text>
+        <text class="item-title" >{{ item.title_info.text}}</text>
         <mytags mini="true" items="{{item.tags_list}}" max="3"></mytags>
 
         <view class="area-price">
-            <text class="area" >建面: {{item.area_info.text}}</text>
+                <text class="area" >{{item.area_info.label}}: {{item.area_info.text}}</text>
         </view>
-           <text class="price" >总价：{{item.price_info.text}}</text>
+        <text class="price" >{{item.price_info.label}}：{{item.price_info.text}}</text>
 
       </view>
 
