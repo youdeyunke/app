@@ -1,19 +1,29 @@
 <!--components/filter.wxml-->
 <view class="sfilter-group">
+
     <view class="sfilter">
-            <view hover-class='none' bindtap='filterItemHandle' wx:for="{{keys}}" class="sfilter-item" data-target="{{item[1]}}">
-                    {{item[0]}}
+      <picker class="sfilter-item"  bindchange="cityHandle" value="{{cityIndex}}" range="{{cities}}" range-key="name" >
+      <view class="sfilter-item-wrapper">
+        <view>{{ cityIndex > 0 ? cityName : '城市' }}</view>
+        <view class="sfilter-item-arrow"></view>
+      </view>     
+    </picker>
 
-            <view class="arrow"></view>
-        </view>
+      <picker class="sfilter-item"  bindchange="districtHandle" value="{{districtIndex}}" range="{{districts}}" range-key="name" >
+      <view class="sfilter-item-wrapper">
+        <view>{{ districtIndex > 0 ? districtName : '区县' }}</view>
+        <view class="sfilter-item-arrow"></view>
+      </view>     
+    </picker>
+
+    <picker class="sfilter-item" mode="multiSelector" bindchange="priceHandle" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{priceRange}}">
+      <view class="sfilter-item-wrapper">
+        <view>价格</view>
+        <view class="sfilter-item-arrow"></view>
+      </view>       
+    </picker>
+
+
     </view>
-            <view class="city panel options" wx:if="{{ current_panel == 'city' }}">
-                <view wx:for="{{cities}}" bindtap="cityHandle" data-index="{{index}}"  class="option-item {{ item.id == city.id ? 'active' : '' }} ">{{item.name}}</view>
-            </view>
-
-            <view class="district panel options" wx:if="{{ current_panel == 'district' }}">
-                <view wx:for="{{districts}}" bindtap="districtHandle" data-index="{{index}}"  class="option-item">{{item.name}}</view>
-            </view>
-
 </view>
 

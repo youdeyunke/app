@@ -308,3 +308,9 @@ textarea{
   color:#fff;
 }
 
+hpage::after{
+  padding-top:20rpx;
+  font-size:24rpx;
+  color:#cecece;
+  content:'技术支持:wefang.net';
+}

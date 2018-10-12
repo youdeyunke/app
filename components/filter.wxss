@@ -16,13 +16,13 @@
   height: 60rpx;
 }
 
-.sfilter-item{
+.sfilter-item-wrapper{
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.sfilter-item .arrow{
+.sfilter-item-arrow{
   height: 0rpx;
   width: 0rpx;
   margin-left:10rpx;

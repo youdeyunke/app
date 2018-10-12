@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 21,
+			"current": 23,
 			"list": [
 				{
 					"id": 0,
@@ -158,10 +158,28 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 21,
 					"name": "ershoufang-index",
-					"pathName": "pages/ershoufang/index",
-					"query": ""
+					"pathName": "pages/post/index",
+					"query": "?group=old"
+				},
+				{
+					"id": -1,
+					"name": "xinfang-index",
+					"pathName": "pages/post/index",
+					"query": "?group=new"
+				},
+				{
+					"id": 23,
+					"name": "整租-index",
+					"pathName": "pages/post/index",
+					"query": "group=zufang&rent_type=1"
+				},
+				{
+					"id": -1,
+					"name": "合租-index",
+					"pathName": "pages/post/index",
+					"query": "group=rent_room"
 				}
 			]
 		}

@@ -14,16 +14,21 @@ Component({
    * 组件的初始数据
    */
   data: {
-    current_panel: '',
-    districts: [],
-    cities: [],
-    keys: [
-      ['城市', 'city'],
-      ['区县', 'district'],
-      ['总价', 'total_price'],
-      ['户型', 'type'],
+    priceRange: [
+        [
+          '不限', 0, 50, 100,150, 200,250, 300,350, 400, 450,500,550,  600, 650, 700,750, 800,850, 900,950, 1000, 1500, 2000,3000, 4000, 5000
+        ],
+        [
+          '不限', 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1500, 2000, 3000, 4000, 5000
+        ]
     ],
 
+    districts: [],
+    cities: [],    
+    districtIndex: null,
+    districtName: null,
+    cityIndex: null,
+    cityName: null,
   },
 
   ready: function(){
@@ -42,7 +47,9 @@ Component({
         data: {},
         hideLoading: true,
         success: function(resp){
-          _this.setData({cities: resp.data.data})
+          var data = [{id: null, name: '不限'}].concat(resp.data.data)
+
+          _this.setData({cities: data})
           _this.loadDistricts(resp.data.data[0].id)
         }
       })
@@ -55,45 +62,42 @@ Component({
         hideLoading: true,
         data: {city_id: cityId},
         success: function(resp){
-          _this.setData({districts: resp.data.data})
+          var data = [{ id: null, name: '不限' }].concat(resp.data.data)          
+          _this.setData({districts: data})
         }
       })
     },
 
-
-    districtHandle: function (e) {
-      var i = e.currentTarget.dataset.index
-      var v = this.data.districts[i]
-      var d = {}
-      var k = 'keys[1][0]'
-      d[k] = v.name
-      d.district = v
-      d.current_panel = ''
-      this.setData(d)
-    },
-
     cityHandle:function(e){
-      var i = e.currentTarget.dataset.index  
-      var city = this.data.cities[i]
-      var d = {}
-      var k = 'keys[0][0]'
-      d[k] = city.name
+      console.log('e', e)   
+      var i = e.detail.value
+      var v = this.data.cities[i]
+      if(i == 0){
+        this.setData({
+          cityIndex: 0,
+          cityName: '',
+          districts: [],
+        })
+        return false
+      }
+      
+      this.setData({
+        cityIndex: i,
+        cityName: v.name,
+        districts: [],
+      }) 
 
-      var k = 'keys[1][0]'
-      d[k] = '区县'
-
-      d.city = city
-      d.district = {}
-      d.current_panel = ''
-      this.setData(d)
-      console.log('d', d)
-      this.loadDistricts(city.id)
-    
+      this.loadDistricts(v.id)
     },
 
-    filterItemHandle: function(e){
-      var p = e.currentTarget.dataset.target 
-      this.setData({current_panel: p})
+    districtHandle: function(e){
+      var i = e.detail.value
+      var v = this.data.districts[i]
+      console.log('i', i, 'v', v)
+      this.setData({
+        districtIndex: i,
+        districtName: v.name,
+      })       
     },
 
   }

@@ -1,0 +1,11 @@
+<template name="zufang">
+    <block>
+        <myfilter></myfilter>
+
+        <box padding="30">
+            <block wx:for="{{posts}}" wx:for-item="postitems">
+                <post wx:for="{{postitems}}" item="{{item}}"></post>
+            </block>
+        </box>
+    </block>
+</template>
