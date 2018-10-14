@@ -16,9 +16,9 @@
   <view class="nickname">{{userInfo.nickname}}</view>
 </view>
 
-<view class="weui-panel" wx:if="{{userInfo}}">
+<view class="weui-panel" >
   <view class="actions">
-      <view class="weui-cell weui-cell_access" wx:if="{{!userInfo.mobile}}">
+      <view class="weui-cell weui-cell_access" wx:if="{{userInfo && !userInfo.mobile}}">
           <view class="weui-cell__bd h1">绑定手机号</view>
           <view class="weui-cell__ft">
             <button class="btn mini" type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain>马上绑定</button>
