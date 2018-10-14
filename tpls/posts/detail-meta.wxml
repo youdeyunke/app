@@ -26,6 +26,11 @@
                  </view>
 
                 <view class="meta">
+                  <text class="label">朝向</text>
+                  <text class="price">{{ post.position }}</text>
+                 </view>
+
+                <view class="meta">
                   <text class="label">装修</text>
                   <text>{{ post.fitment.name }}</text>
                 </view> 
@@ -50,6 +55,11 @@
                 <view class="meta">
                   <text class="label">类型</text>
                   <text class="price">{{ post.cat.name}}</text>
+                 </view>
+
+                <view class="meta">
+                  <text class="label">朝向</text>
+                  <text class="price">{{ post.position }}</text>
                  </view>
 
                 <view class="meta">

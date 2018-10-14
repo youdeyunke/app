@@ -39,8 +39,8 @@
 
      <view class="typeinfo" wx:if="{{post.group == 'rental' }}">
              <view class="item border">
-                     <view class="value">租金</view>
-                     <view class="key">{{post.payment_cycle}}</view>
+                     <view class="value">{{post.rent_price}}</view>
+                     <view class="key">租金</view>
              </view>
              <view class="item border">
                      <view class="value">{{post.type_info.text}}</view>
@@ -50,7 +50,6 @@
                      <view class="value">{{post.area_info.text}}</view>
                      <view class="key">{{post.area_info.label}}</view>
              </view>
-
      </view>
 
      <view bindtap='couponHandle' class="coupon" wx:if="{{ post && post.coupon_enable}}">
@@ -59,15 +58,15 @@
    </view>     
   </view>
 </view>
-
-<mycard title="核心卖点" hat></mycard>
-<mycard title="业主心态"></mycard>
-<mycard title="{{ post.group == 'new' ? '周边' : '小区' }}配套"></mycard>
-<mycard title="服务介绍"></mycard>
-
-<mycard title="基本信息">
+<mycard title="基本信息" hat>
   <template is="detail-meta" data="{{post: post }}" /> 
 </mycard>
+
+<mycard title="房源介绍"> {{ post.desc }} </mycard>
+<mycard title="核心卖点" hat></mycard>
+<mycard title="业主心态" hat></mycard>
+<mycard title="{{ post.group == 'new' ? '周边' : '小区' }}配套" hat></mycard>
+<mycard title="服务介绍" hat></mycard>
 
 <mycard title="好房评测" wx:if="{{post.group == 'new' }}">
    <view class="html-content {{ minicontent == true ? 'mini' : 'full' }}">
@@ -77,14 +76,11 @@
       <view class="html-content-footer">
       </view>
   </view>  
-        
-
   <view class="view-more-container">
   <button class="btn mini plain round view-more " bindtap="contentHandle" wx:if="{{minicontent}}">
     加载全文 <image class="{{ minicontent == true ? 'down' : 'up' }}" src="/assets/icons/down-arrow.png"></image>
   </button>
   </view>
-
 </mycard>
 
 <mycard title="户型信息" wx:if="{{post.group == 'new' }}">
@@ -103,11 +99,7 @@
     </view>
 </mycard>
 
-<mycard title="房源介绍">
-  {{ post.desc }}
-</mycard>
-
-<mycard title="地理位置">
+<mycard title="地理位置" hat>
   <mapimage url="{{post.map_image_url}}"></mapimage>
 </mycard>
 
