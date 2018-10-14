@@ -270,7 +270,6 @@ textarea{
   border-top:none;
   height: 100rpx;
   z-index:20;
-  letter-spacing: 4rpx;
   border-top:1px solid #f1f1f1;
 
 }
