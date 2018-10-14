@@ -52,7 +52,7 @@
              </view>
      </view>
 
-     <view bindtap='couponHandle' class="coupon" wx:if="{{ post && post.coupon_enable}}">
+     <view bindtap='couponHandle' class="coupon" wx:if="{{ post.group == 'new' && post.coupon_enable}}">
      <view class="name line-limit">{{post.coupon_desc}}</view>
      <view class="action">{{ post.user_has_coupon ? '已领券' : '领券' }}</view>
    </view>     
@@ -62,7 +62,7 @@
   <template is="detail-meta" data="{{post: post }}" /> 
 </mycard>
 
-<mycard title="房源介绍"> {{ post.desc }} </mycard>
+<mycard title="房源介绍" hat> {{ post.desc }} </mycard>
 <mycard title="核心卖点" hat></mycard>
 <mycard title="业主心态" hat></mycard>
 <mycard title="{{ post.group == 'new' ? '周边' : '小区' }}配套" hat></mycard>
@@ -136,7 +136,7 @@
 </mycard>
 
 
-<recoms pid="{{postId}}" count="3"></recoms>
+<recoms group="{{post.group}}" count="3"></recoms>
 
 
 <form report-submit bindsubmit='btnsHandle' class="fixed-footer footer-btns">

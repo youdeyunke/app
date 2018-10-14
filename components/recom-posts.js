@@ -10,8 +10,8 @@ Component({
     count: {
       type: Number, value: 5,
     },
-    pid: {
-      type: Number, value: null,
+    group: {
+      type: String, value: 'new',
     },
   },
 
@@ -33,10 +33,17 @@ Component({
   methods: {
   loadRecoms: function(){
     var _this = this
+    var d = {
+      'old': 'xinfang',
+      'new': 'ershoufang',
+      'rental': 'zufang',
+    
+    }
+    var group = d[_this.data.group]
     app.request({
       hideLoading: true,
-      url: '/api/v1/posts/',
-      data: {pid: _this.data.pid || '', type:'recoms', limit: _this.data.count },
+      url: '/api/v2/posts/',
+      data: {group: group, per_page: _this.data.count },
       success: function(resp){
         _this.setData({posts: resp.data.data})
       },
