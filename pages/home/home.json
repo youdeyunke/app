@@ -4,10 +4,10 @@
       "mytopbar": "/components/topbar",
       "myfav": "/components/fav",
       "mytags": "/components/tags",
+      "mycard": "/components/card",
       "myslider": "/components/slider",
       "post": "/components/post",
       "postcard": "/components/postcard",
-      
       "box": "/components/box"
     }
 

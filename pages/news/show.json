@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "mytags": "/components/tags",
+    "myfav": "/components/fav",
+    "myaudio": "/components/audio",
+    "mystars": "/components/stars"
+  }
+}

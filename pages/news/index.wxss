@@ -1,0 +1,47 @@
+page{
+    background: #f1f1f1;
+}
+
+.cats{
+  box-sizing: border-box;
+  width: 100%;
+  padding:30rpx 46rpx 33rpx 46rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+}
+
+.cats .cat{
+  width: 300rpx;
+  height: 300rpx;
+  background: #ffd900;
+  border-radius: 30rpx;
+}
+
+.cats .cat.active{
+
+}
+
+.cats .cat.disable {
+  opacity: 0.4;
+}
+
+.cats .cat image{
+  width: 100%;
+  height: 100%;
+}
+
+.news{
+  box-sizing: border-box;
+  width: 100%;
+  padding:28rpx 41rpx 30rpx 41rpx;
+}
+
+.news .empty{
+  font-size:20rpx;
+  color: #999;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 4rpx;
+}

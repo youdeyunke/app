@@ -7,6 +7,8 @@
     "pages/comments/new",
     "pages/post/index",
     "pages/qa/qa",
+    "pages/news/index",
+    "pages/news/show",
     "pages/post/post",
     "pages/myself/index",
     "pages/about/index",

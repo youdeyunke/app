@@ -5,7 +5,7 @@ Component({
    */
   properties: {
     width: {
-      type: Number, value: 730,
+      type: Number, value: 750,
     },
     radius: {
       type: Number, value: 0,

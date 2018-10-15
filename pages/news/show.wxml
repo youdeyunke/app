@@ -1,0 +1,27 @@
+<import src="/utils/wxParse/wxParse.wxml"/>
+<navigator wx:if="{{homebtn}}" class="home-btn" open-type="switchTab" url="/pages/home/home">
+  <image src="/assets/icons/home-btn.png"></image>
+  <text>首页</text>
+</navigator>
+
+<view class="header-block">
+  <view class="header">
+    <view class="h1">{{item.title}}</view>
+    <view class="author">
+      {{item.author}}  <text wx:if="{{item.source}}">[来源：{{item.source}}]</text>
+    </view>
+    <view class="date">
+      {{item.created_at_pretty}}
+    </view>
+  </view>
+</view>
+
+<view class="raw">
+      <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>
+</view>
+
+<view class="favs">
+  <myfav icon="like" obj="news" oid="{{item.id}}" count="{{item.favs_count}}"></myfav>
+</view>
+
+

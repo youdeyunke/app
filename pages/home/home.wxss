@@ -1,5 +1,6 @@
 page{
   padding-top:0rpx;
+  background: #fff !important;
 }
 
 .header{
@@ -12,9 +13,6 @@ page{
 }
 
 
-.posts-list{
-  padding:20rpx 0rpx;
-}
 
 .tab-icons{
   display: flex;
@@ -67,4 +65,10 @@ myfav{
   width:710rpx;
   height:320rpx;
   border-radius:20rpx;
+}
+
+
+.section{
+ width:720rpx;
+ padding:15rpx 15rpx;
 }

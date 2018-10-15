@@ -11,6 +11,9 @@
   </view>
 </view>
 
+<mycard title="新房推荐">helo</mycard>
+<mycard title="二手房推荐">helo</mycard>
+<mycard title="租房推荐">helo</mycard>
 
 <box padding="30">
     <block wx:for="{{posts}}" wx:for-item="postitems">

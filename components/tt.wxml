@@ -1,0 +1,14 @@
+<view bindtap='newsClick' class="item">
+  <image wx:if="{{badgeImg}}" class="badge" src="{{badgeImg}}"></image>
+
+  <view class="item-title-block">
+    <view class="title">{{item.title}}</view>
+    <view class="meta">
+      <view class="author">{{item.author }} 
+        <text wx:if="{{item.view_nums}}"> / 阅读 {{ item.view_nums }}</text>
+      </view>
+      <view class="date">{{time_ago}}</view>
+    </view>
+  </view>
+  <image class="cover" src="{{item.cover.url}}?imageView2/2/w/250"></image>
+</view>

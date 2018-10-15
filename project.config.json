@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 23,
+			"current": 25,
 			"list": [
 				{
 					"id": 0,
@@ -180,6 +180,12 @@
 					"name": "合租-index",
 					"pathName": "pages/post/index",
 					"query": "group=rent_room"
+				},
+				{
+					"id": -1,
+					"name": "news-index",
+					"pathName": "pages/news/index",
+					"query": ""
 				}
 			]
 		}

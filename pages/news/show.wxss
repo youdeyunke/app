@@ -1,0 +1,74 @@
+page{
+  background: #f1f1f1;
+  font-size:24rpx;
+}
+
+.header{
+  background: #fff;
+  box-sizing: border-box;
+  padding:32rpx 28rpx;
+  border-radius: 20rpx;
+  margin:38rpx 32rpx 45rpx 32rpx;
+  z-index:100;
+  width: calc(100% - 32rpx*2);
+
+}
+
+.header .h1{
+  font-size: 32rpx;
+  font-weight: bold;
+  line-height: 36rpx;
+  letter-spacing: 2rpx;
+  margin-bottom:18rpx;
+}
+
+.header .author{
+  font-size:24rpx;
+  color: #666;
+  margin-bottom:13rpx;
+}
+
+.header .date{
+  font-size:22rpx;
+  color: #666;
+}
+
+.raw{
+  padding:0 40rpx 0 40rpx;
+}
+
+.raw .wxParse-inline{
+  color: #666;
+  font-size:26rpx;
+  line-height: 40rpx;
+  letter-spacing: 3rpx;  
+}
+
+.raw .wxParse-p{
+  margin-bottom:20rpx;
+  overflow: hidden;
+
+}
+
+.raw .wxParse-img{
+  width:100% !important;
+}
+
+myfav  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:0 40rpx;
+  width: 60rpx;  
+  height: 50rpx;
+  border: 1rpx solid #cecece;
+  margin:40rpx auto 30rpx auto;
+  border-radius: 50rpx;
+  color: #666;
+
+}
+myfav  image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right:20rpx;
+}

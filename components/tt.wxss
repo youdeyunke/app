@@ -1,0 +1,80 @@
+.item{
+   letter-spacing: 4rpx;
+  width: 100%;
+  height: 177rpx;
+  background: #fff;
+  border-radius: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding:35rpx 20rpx;
+  margin-bottom:30rpx;
+  position: relative;
+  box-shadow: 0 2rpx 4rpx rgba(0,0,0, 0.1);
+}
+
+.item .badge{
+  width: 120rpx;
+  height: 110rpx;
+  position: absolute;
+  top:-30rpx;
+  left:-24rpx;
+  z-index: 10;
+}
+
+
+
+.item .cover{
+  width: 197rpx;
+  height: 122rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.item .title{
+  font-size:26rpx;
+  color: #000;
+  line-height: 36rpx;
+  letter-spacing: 5rpx;
+  font-weight: bold;
+
+  display: -webkit-box ;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;  
+ 
+}
+
+.item .item-title-block{
+  height: 100%;
+  display: flex;
+  width: calc(100% - 210rpx);
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item .meta{
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  color: #666;
+  font-size:20rpx;
+  width: 100%;
+}
+
+.item .date{
+  background: #f4f4f4;
+  border-radius: 10rpx;
+  padding:4rpx 20rpx;
+  font-size:22rpx;
+  color: #333;
+}
+
+.item .author{
+  font-size:20rpx;
+  color: #666;
+  letter-spacing: 1rpx;
+}
