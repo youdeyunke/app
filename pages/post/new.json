@@ -3,6 +3,8 @@
     "card": "/components/card",
     "stepper": "/vant/stepper/index",
     "van-field": "/vant/field/index",
+    "van-cell": "/vant/cell/index",
+    "van-cell-group": "/vant/cell-group/index",
     "box": "/components/box"
   }
 }

@@ -1,11 +1,10 @@
-import { create } from '../common/create';
+import { VantComponent } from '../common/component';
 import { transition } from '../mixins/transition';
-
-create({
+VantComponent({
   mixins: [transition(false)],
-
   props: {
     transition: String,
+    customStyle: String,
     overlayStyle: String,
     zIndex: {
       type: Number,
@@ -24,9 +23,8 @@ create({
       value: 'center'
     }
   },
-
   methods: {
-    onClickOverlay() {
+    onClickOverlay: function onClickOverlay() {
       this.$emit('click-overlay');
 
       if (this.data.closeOnClickOverlay) {

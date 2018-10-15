@@ -1,9 +1,10 @@
-<view class="van-tabs van-tabs--{{ type }}">
-  <view class="van-tabs__wrap {{ scrollable ? 'van-tabs__wrap--scrollable' : '' }} {{ type === 'line' ? 'van-hairline--top-bottom' : '' }}">
+<view class="custom-class van-tabs van-tabs--{{ type }}">
+  <view style="z-index: {{ zIndex }}" class="van-tabs__wrap {{ scrollable ? 'van-tabs__wrap--scrollable' : '' }} {{ type === 'line' && border ? 'van-hairline--top-bottom' : '' }}">
     <scroll-view
       scroll-x="{{ scrollable }}"
       scroll-with-animation
       scroll-left="{{ scrollLeft }}"
+      class="van-tabs__scroll--{{ type }}"
     >
       <view class="van-tabs__nav van-tabs__nav--{{ type }}" style="{{ color ? 'border-color: ' + color : '' }}">
         <view wx:if="{{ type === 'line' }}" class="van-tabs__line" style="{{ lineStyle }}" />

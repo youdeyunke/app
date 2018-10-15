@@ -3,20 +3,27 @@ export function observeProps(props) {
     return;
   }
 
-  Object.keys(props).forEach(key => {
-    let prop = props[key];
-    if (prop === null || !prop.type) {
-      prop = { type: prop };
+  Object.keys(props).forEach(function (key) {
+    var prop = props[key];
+
+    if (prop === null || !('type' in prop)) {
+      prop = {
+        type: prop
+      };
     }
 
-    let { observer } = prop;
-    prop.observer = function() {
+    var _prop = prop,
+        observer = _prop.observer;
+
+    prop.observer = function () {
       if (observer) {
         if (typeof observer === 'string') {
           observer = this[observer];
         }
+
         observer.apply(this, arguments);
       }
+
       this.setData();
     };
 

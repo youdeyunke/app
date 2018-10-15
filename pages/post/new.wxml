@@ -1,56 +1,17 @@
 
    <form>
 <card title="基本信息" hat>
-  <view class="input-group">
-    <view class="input-item">
-      <view class="label">城市</view>
-      <view>选择</view>
-    </view>
-
-  </view>
+  <van-cell title="单元格" value="内容"  is-link >
+          <picker mode="time"></picker>
+  </van-cell>
 </card>
 
 
 <card title="户型信息" hat>
-        <view class="type">
-            <view class="type-item">
-                <view class="label">室</view>
-                <stepper></stepper>
-            </view>
+        <van-field label="面积"></van-field>
+        <van-field label="租金"></van-field>
+        <van-field label="售价"></van-field>
 
-            <view class="type-item">
-                <view class="label">厅</view>
-                <stepper></stepper>
-            </view>
-
-            <view class="type-item">
-                <view class="label">卫</view>
-                <stepper></stepper>
-             </view>
-        </view>
-        <van-field label="建筑面积"></van-field>
-        <van-field label="总价"></van-field>
-
-        <view class="input-group">
-
-                <view class="input-item">
-                        <view class="label">朝向</view>
-                        <view class="form-tags">
-                                <text class="form-tag-item">东</text>
-                        </view>
-                </view>
-
-                <view class="input-item">
-                        <view class="label">建面</view>
-                        <input></input>
-                </view>
-
-                <view class="input-item">
-                        <view class="label">户型图</view>
-                        <input></input>
-                </view>
-
-        </view>
 </card>
 
 <card title="房源照片">
