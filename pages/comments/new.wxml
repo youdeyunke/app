@@ -1,6 +1,6 @@
 <view class="container">
   <view class="comment-header ">
-    <view class="h1">楼盘评价</view>
+    <view class="h1">我的评分</view>
     <mystars bind:scoreChange="scoreHandle" big value="{{comment.score}}"></mystars>
   </view>
 </view>

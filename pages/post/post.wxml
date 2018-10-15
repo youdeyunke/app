@@ -58,15 +58,23 @@
    </view>     
   </view>
 </view>
+
 <mycard title="基本信息" hat>
   <template is="detail-meta" data="{{post: post }}" /> 
 </mycard>
 
-<mycard title="房源介绍" hat> {{ post.desc }} </mycard>
-<mycard title="核心卖点" hat></mycard>
-<mycard title="业主心态" hat></mycard>
-<mycard title="{{ post.group == 'new' ? '周边' : '小区' }}配套" hat></mycard>
-<mycard title="服务介绍" hat></mycard>
+<block wx:if="{{post.group == 'old' }}">
+  <mycard title="房源介绍" hat> {{ post.desc }} </mycard>
+  <mycard title="核心卖点" hat>{{post.selling_points}}</mycard>
+  <mycard title="业主心态" hat>{{post.owner_mindset}}</mycard>
+  <mycard title="小区配套" hat>{{post.surrounding}}</mycard>
+  <mycard title="{{ post.group == 'new' ? '周边' : '小区' }}配套" hat></mycard>
+  <mycard title="服务介绍" hat>{{post.service}}</mycard>
+</block>
+
+<block wx:if="{{post.group == 'rental' }}">
+  <mycard title="房源介绍" hat> {{ post.desc }} </mycard>
+</block>
 
 <mycard title="好房评测" wx:if="{{post.group == 'new' }}">
    <view class="html-content {{ minicontent == true ? 'mini' : 'full' }}">
