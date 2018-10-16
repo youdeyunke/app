@@ -56,14 +56,15 @@
   <van-field bindtap="showTypePicker" is-link label="户型" value="{{post.w}}室-{{post.t}}厅-{{post.w}}卫 {{ post.position}}"  arrow-direction="down" disabled  />
   <van-field bindtap="showFloorPicker" is-link label="楼层" value="第{{post.current_floor || '几'}}层-共{{post.total_floor || '几'}}层"  arrow-direction="down" disabled  />
   <van-field bindtap="showPayment" is-link label="付款类型" value="{{post.payment_cycle}}"  arrow-direction="down" disabled  />
-</card>
-</view>
-
-<view hidden="{{step != 2}}">
 <card title="房源照片">
         <images-uploader bindchange="imagesChanged" max="5" min="3" cover="{{post.cover_index || 0}}" images="{{post.images}}"></images-uploader>
 </card>
 
+
+</card>
+</view>
+
+<view hidden="{{step != 2}}">
 <card title="房源简介" hat>
         <textarea name="desc"></textarea>
 </card>
