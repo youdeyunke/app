@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    step: 1,
     cities: [],
     districts: [],
     post: {
@@ -45,6 +46,14 @@ Page({
 
   submit:function(e){
     console.log('submit e', e)
+  },
+
+  nextStep: function(e){
+    this.setData({step: 2})
+  },
+
+  previousStep: function(e){
+    this.setData({step: 1})
   },
   
   inputChanged: function(e){

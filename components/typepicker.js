@@ -4,7 +4,7 @@ const ting = []
 const wei = []
 const positions = ['东', '南', '西', '北', '其它']
 
-for(let i=1;i<=10;i++){
+for(let i=0;i<=10;i++){
   shi.push(i)
   ting.push(i)
   wei.push(i)

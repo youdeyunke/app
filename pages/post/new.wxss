@@ -24,11 +24,14 @@ page{
   text-align: right;
   width: 100%;
   margin-top:40rpx;
-  
 }
 
 .buttons{
   width:calc(750rpx - 20rpx);
   padding:0 10rpx;
-  margin-top:20rpx;
+  margin:20rpx 0;
+}
+
+.buttons button{
+  margin:10rpx 0;
 }
