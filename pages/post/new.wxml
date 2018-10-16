@@ -50,7 +50,7 @@
 </card>
 
 <card title="房源照片">
-        <images-uploader bindchange="imagesChanged" max="5" min="3" images="{{post.images}}"></images-uploader>
+        <images-uploader bindchange="imagesChanged" max="5" min="3" cover="{{post.cover_index || 0}}" images="{{post.images}}"></images-uploader>
 </card>
 
 <view class="buttons">

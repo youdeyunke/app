@@ -76,12 +76,8 @@ Page({
   },
 
   floorChanged: function(e){
-    console.log('333333',e)
-    var post = this.data.post
-    post.current_floor = e.detail.current_floor
-    post.total_floor = e.detail.total_floor
-    console.log('changed', e, post)
-    this.setData({post : post })
+    this.updatePostField('current_floor', e.detail.current_floor)
+    this.updatePostField('total_floor', e.detail.total_floor)
   },
 
   showFloorPicker: function(){
@@ -101,7 +97,13 @@ Page({
 
   imagesChanged: function(e){
     console.log('images change', e)
-    this.updatePostField('images', e.detail.images)
+    var keys = Object.keys(e.detail)
+    if(keys.includes('images')){
+      this.updatePostField('images', e.detail.images)
+    }
+    if(keys.includes('cover_index')){
+      this.updatePostField('cover_index', e.detail.cover_index)
+    }
   },
 
 

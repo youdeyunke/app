@@ -1,7 +1,15 @@
 <!--components/images-uploader.wxml-->
+<view>
 <view class="uploader">
-        <view wx:for="{{images}}" class="item image">
+        <view bindtap="onTouch" data-index="{{index}}" wx:for="{{images}}" class="item image {{index == cover ? 'main' : ''}}"> 
+            <view class="title"></view>
             <image src="{{item}}"></image>
         </view>
-        <view bindtap="chooseImages" class="item add"></view>
+        <view wx:if="{{max - images.length > 0}}"  bindtap="chooseImages" class="item add"></view>
+
+
+</view>
+
+<van-action-sheet show="{{showSheet}}" actions="{{sheetActions}}" bind:close="onSheetClose" bind:select="onSheetSelect" />
+
 </view>
