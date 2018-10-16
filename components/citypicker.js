@@ -16,7 +16,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    show: false,
+    value: [0, 0],
   },
 
   ready: function(){
@@ -30,26 +31,31 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    onShow: function(){
+      this.setData({show: true})
+    },
+
+    onClose: function(){
+      this.setData({show: false})
+    },
+
+    onConfirm: function(){
+      this.setData({show: false})
+      var val = this.data.value
+      var city = this.data.cities[val[0]]
+      var district = this.data.districts[val[1]]
+      this.triggerEvent('confirm', {city: city, district:district})
+    },
 
   changeHandle: function(e){
     var val = e.detail.value
     var cityIndex = val[0]
     var districtIndex= val[1]
-    console.log('va', val)
-
-    if(cityIndex == 0){
-      this.setData({districts: []})
-      return [null, null]
-    }
-
     var cid = this.data.cities[cityIndex].id
-    this.loadDistrictList(cid)
-    if(districtIndex == 0){
-      return [cid, null]
-    }
 
-    var did = this.data.districts[districtIndex].id
-    return [cid, did]
+    this.setData({value: val})
+    this.loadDistrictList(cid)
+
 
   },
 

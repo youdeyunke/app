@@ -10,6 +10,8 @@ Page({
     cities: [],
     districts: [],
     post: {
+      city: {},
+      district: {},
     },
 
   },
@@ -42,39 +44,15 @@ Page({
 
   },
 
-  cityChange: function(e){
-    var val = e.detail.value
-    var cityIndex = val[0]
-    var districtIndex= val[1]
-
+  showCityPicker: function(){
+    this.selectComponent('#citypicker').onShow()
   },
 
-
-  loadDistrictList: function(){
-    var _this = this
-    app.request({
-      url: '/api/v1/districts/',
-      data: {},
-      hideLoading: true,
-      success: function(resp){
-        _this.setData({districts: resp.data.data})
-      }
-    })
-  },
-
-
-  loadCityList: function(){
-    var _this = this
-    app.request({
-      url: "/api/v1/cities/",
-      data: {},
-      hideLoading: true,
-      success: function(resp){
-          _this.setData({cities: resp.data.data})
-          _this.loadDistrictList(resp.data.data[0].id)
-      },
-    })
-
+  cityChanged: function(e){
+    var post = this.data.post
+    post.city = e.detail.city
+    post.district = e.detail.district
+    this.setData({post : post })
   },
 
   /**
