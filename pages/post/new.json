@@ -2,6 +2,9 @@
   "usingComponents": {
     "card": "/components/card",
     "citypicker": "/components/citypicker",
+    "typepicker": "/components/typepicker",
+    "floorpicker": "/components/floorpicker",
+    "payment": "/components/payment",
     "stepper": "/vant/stepper/index",
     "van-field": "/vant/field/index",
     "van-cell": "/vant/cell/index",

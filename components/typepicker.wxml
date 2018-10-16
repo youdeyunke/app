@@ -1,0 +1,29 @@
+<!--components/citypicker.wxml-->
+
+<van-popup custom-class="popup"  position="bottom" show="{{ show }}" bind:close="onClose">
+
+
+    <view class="actions">
+      <view bindtap="onClose" class="cancle">取消</view>
+      <view bindtap="onConfirm" class="confirm">确定</view>
+    </view>
+
+<picker-view  style="width: 100%; height: 400rpx;" bindchange="changeHandle" value="{{value}}">
+  <picker-view-column>
+        <view wx:for="{{shi}}">{{item}}室</view>
+  </picker-view-column>
+
+  <picker-view-column>
+        <view wx:for="{{ting}}">{{item}}厅</view>
+  </picker-view-column>
+
+  <picker-view-column>
+        <view wx:for="{{wei}}">{{item}}卫</view>
+  </picker-view-column>
+  <picker-view-column>
+        <view wx:for="{{positions}}">{{item == '其它' ? item : '朝' + item}}</view>
+  </picker-view-column>
+
+</picker-view>
+
+</van-popup>

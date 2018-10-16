@@ -42,6 +42,7 @@ Component({
     onConfirm: function(){
       this.setData({show: false})
       var val = this.data.value
+      console.log('val', val)
       var city = this.data.cities[val[0]]
       var district = this.data.districts[val[1]]
       this.triggerEvent('confirm', {city: city, district:district})
