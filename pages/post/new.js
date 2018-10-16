@@ -1,10 +1,16 @@
 // pages/post/new.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    cities: [],
+    districts: [],
+    post: {
+    },
 
   },
 
@@ -12,7 +18,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.loadCityList()
   },
 
   /**
@@ -33,6 +39,41 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
+
+  },
+
+  cityChange: function(e){
+    var val = e.detail.value
+    var cityIndex = val[0]
+    var districtIndex= val[1]
+
+  },
+
+
+  loadDistrictList: function(){
+    var _this = this
+    app.request({
+      url: '/api/v1/districts/',
+      data: {},
+      hideLoading: true,
+      success: function(resp){
+        _this.setData({districts: resp.data.data})
+      }
+    })
+  },
+
+
+  loadCityList: function(){
+    var _this = this
+    app.request({
+      url: "/api/v1/cities/",
+      data: {},
+      hideLoading: true,
+      success: function(resp){
+          _this.setData({cities: resp.data.data})
+          _this.loadDistrictList(resp.data.data[0].id)
+      },
+    })
 
   },
 

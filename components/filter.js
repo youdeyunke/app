@@ -46,6 +46,7 @@ Component({
         url: '/api/v1/cities/',
         data: {},
         hideLoading: true,
+t
         success: function(resp){
           var data = [{id: null, name: '不限'}].concat(resp.data.data)
 

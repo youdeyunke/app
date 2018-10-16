@@ -1,9 +1,8 @@
 
    <form>
+
 <card title="基本信息" hat>
-  <van-cell title="单元格" value="内容"  is-link >
-          <picker mode="time"></picker>
-  </van-cell>
+  <citypicker></citypicker>
 </card>
 
 

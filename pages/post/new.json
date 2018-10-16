@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "card": "/components/card",
+    "citypicker": "/components/citypicker",
     "stepper": "/vant/stepper/index",
     "van-field": "/vant/field/index",
     "van-cell": "/vant/cell/index",

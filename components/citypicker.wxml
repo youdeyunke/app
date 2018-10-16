@@ -1,0 +1,10 @@
+<!--components/citypicker.wxml-->
+
+<picker-view  style="width: 100%; height: 400rpx;" bindchange="changeHandle" value="{{[10,10]}}">
+  <picker-view-column>
+        <view wx:for="{{cities}}">{{item.name}}</view>
+  </picker-view-column>
+  <picker-view-column>
+        <view wx:for="{{districts}}">{{item.name}}</view>
+  </picker-view-column>
+</picker-view>
