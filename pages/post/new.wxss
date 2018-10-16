@@ -26,3 +26,9 @@ page{
   margin-top:40rpx;
   
 }
+
+.buttons{
+  width:calc(750rpx - 20rpx);
+  padding:0 10rpx;
+  margin-top:20rpx;
+}

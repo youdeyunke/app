@@ -66,6 +66,7 @@ Page({
   },
 
   typeChanged: function(e){
+    console.log('aaa')
     var post = this.data.post
     post.s = e.detail.s
     post.t = e.detail.t
@@ -97,6 +98,20 @@ Page({
     post.district = e.detail.district
     this.setData({post : post })
   },
+
+  imagesChanged: function(e){
+    console.log('images change', e)
+    this.updatePostField('images', e.detail.images)
+  },
+
+
+  updatePostField: function(key, value){
+    var post = this.data.post
+    post[key] = value
+    this.setData({post : post })
+  },
+
+
 
   /**
    * 生命周期函数--监听页面卸载

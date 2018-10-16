@@ -5,6 +5,7 @@ var auth = require('utils/auth.js');
 App({
 
   globalData: {
+    apiHost: 'http://dockerhost:9001',
     userInfo: null,
     token: null,
     loadingStatus: 0,
@@ -174,15 +175,7 @@ App({
     
     
     // This must be wx.request !
-    var defaultApiHost = 'https://fang.udeve.cn'
-    var defaultApiHost = 'http://dockerhost:9001'
-    var customApiHost = wx.getStorageSync('apiHost')
-    var apiHost = customApiHost ||defaultApiHost
-    var url = apiHost + obj.url
-    console.log('default api host, ', defaultApiHost)
-    console.log('custom api host, ', customApiHost)
-    console.log('api host, ', apiHost)
-    console.log('app.request, url:', url)
+    var url = this.globalData.apiHost + obj.url
 
     wx.request({
       url: url,

@@ -50,14 +50,17 @@
 </card>
 
 <card title="房源照片">
-  to do
+        <images-uploader bindchange="imagesChanged" max="5" min="3" images="{{post.images}}"></images-uploader>
 </card>
 
-<button form-type="submit" class="btn">提交保存</button>
+<view class="buttons">
+  <button type="primary" style="" form-type="submit" class="btn ">提交保存</button>
+</view>
+
 
 </form>
 
 <citypicker id="citypicker" bindconfirm="cityChanged" />
-<typepicker id="typepicker" bindconfrm="typeChanged" />
+<typepicker id="typepicker" bindconfirm="typeChanged" />
 <payment id="payment" bindconfirm="paymentChanged" />
 <floorpicker id="floorpicker" bindconfirm="floorChanged" />

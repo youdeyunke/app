@@ -4,6 +4,7 @@
     "citypicker": "/components/citypicker",
     "typepicker": "/components/typepicker",
     "floorpicker": "/components/floorpicker",
+    "images-uploader": "/components/images-uploader",
     "payment": "/components/payment",
     "stepper": "/vant/stepper/index",
     "van-field": "/vant/field/index",

@@ -1,0 +1,7 @@
+<!--components/images-uploader.wxml-->
+<view class="uploader">
+        <view wx:for="{{images}}" class="item image">
+            <image src="{{item}}"></image>
+        </view>
+        <view bindtap="chooseImages" class="item add"></view>
+</view>
