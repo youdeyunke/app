@@ -68,10 +68,17 @@ Page({
     this.selectComponent('#payment').onShow()
   },
 
+  showFitmentPicker: function(){
+    this.selectComponent('#fitmentpicker').onShow()
+  },
+
   paymentChanged: function(e){
-    var post = this.data.post
-    post.payment_cycle = e.detail.payment_cycle
-    this.setData({post : post })
+    this.updatePostField('payment_cycle', e.detail.payment_cycle)
+  },
+
+  fitmentChanged: function(e){
+    this.updatePostField('fitment', e.detail.fitment)
+    this.updatePostField('fitment_id', e.detail.fitment.id)
   },
 
   typeChanged: function(e){

@@ -6,6 +6,7 @@
     "floorpicker": "/components/floorpicker",
     "images-uploader": "/components/images-uploader",
     "payment": "/components/payment",
+    "fitment-picker": "/components/fitment-picker",
     "stepper": "/vant/stepper/index",
     "van-field": "/vant/field/index",
     "van-cell": "/vant/cell/index",
