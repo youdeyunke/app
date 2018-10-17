@@ -1,5 +1,6 @@
 // pages/post/new.js
 const app = getApp()
+var auth = require('../../utils/auth.js');
 
 Page({
 
@@ -23,9 +24,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
-    this.updatePostField('group', q.group || 'rental' )
-    this.updatePostField('rent_type', q.rent_type || 0 )
-    
+    var _this = this
+    auth.ensureUser(function(userInfo){
+      _this.updatePostField('group', q.group || 'rental' )
+      _this.updatePostField('rent_type', q.rent_type || 0 )
+    })
   },
 
   /**
@@ -46,9 +49,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
   },
-
 
   submit:function(e){
     var fdata = e.detail.value
@@ -66,13 +67,14 @@ Page({
     var name = e.detail.target.dataset.name
     switch(name){
       case 'step1':
-        _this.validateStep1(function(){
+        _this.validateStep1(function(post){
+          _this.setData({post: post})
           _this.nextStep()
         })
         break
       case 'step2':
-        _this.validateStep2(function(){
-          _this.doSubmit()
+        _this.validateStep2(function(post){
+          _this.doSubmit(post)
         })
         break
     }
@@ -176,11 +178,39 @@ Page({
     }
   },
 
-  validateStep2: function(){
+  validateStep2: function(cb){
+    var post = this.data.post
+    if(typeof cb == 'function'){
+      return cb(post)
+    }
   },
 
-  doSubmit: function(){
+  submitCallback: function(data){
+    if(data.status != 0){
+      // 失败
+      wx.showToast({title: '服务器错误，请稍后重试', icon: 'none'})
+    }else{
+      wx.showToast({title: '保存成功'})
+      var pid = data.data.id
+      console.log('success data', data)
+      wx.redirectTo({
+        url: '/pages/post/post?id=' + pid
+      })
+    }
+  },
+
+  doSubmit: function(post){
     // update or create post 
+    var _this = this
+    app.request({
+      url: '/api/v1/posts/',
+      method: 'POST',
+      data: {post: post},
+      success: function(resp){
+        return _this.submitCallback(resp.data)
+      },
+    })
+
   },
 
   nextStep: function(e){

@@ -69,17 +69,6 @@ Page({
     })    
   },
 
-  loadRecoms: function(postId){
-    var _this = this
-    app.request({
-      hideLoading: true,
-      url: '/api/v2/posts/',
-      data: {pid: postId, type:'recoms', limit: 5},
-      success: function(resp){
-        _this.setData({posts: resp.data.data})
-      },
-    })
-  },
 
   viewImage: function(e){
     var urls = this.data.post.full_images_list
@@ -122,6 +111,8 @@ Page({
       url: '/api/v2/posts/' + postId,
       success: function(resp){
         _this.setData({post: resp.data.data})
+        _this.loadComments(postId)
+
         wx.setStorage({key: 'post.data.' + postId, data: resp.data.data})
         _this.parseHtml()
         wx.setStorageSync('last_view_post', resp.data.data)
@@ -144,8 +135,6 @@ Page({
     this.loadQas(postId)    
     this.setData({ postId: postId, post: post})
     this.loadPost(postId)
-    this.loadRecoms(postId)
-    this.loadComments(postId)
   },
 
   /**

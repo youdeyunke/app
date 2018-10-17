@@ -29,7 +29,7 @@ Component({
     wei: wei,
     positions: positions,
     show: false,
-    value: [0,0,0,0],
+    value: [3,2,1,1],
   },
 
   /**

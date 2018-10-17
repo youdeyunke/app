@@ -134,7 +134,7 @@
 <card hat title="房东信息" subtitle="加密信息，仅向经纪人可见">
     <van-field label="房东姓名" name="owner_name" />
     <van-field label="房东电话" name="owner_mobile" />
-    <van-field border="{{false}}" label="房源备注" type="textarea" autosize name="remark" />
+    <van-field border="{{false}}" label="房源备注" type="textarea" autosize name="staff_remark" />
 </card>
 
 </view>
@@ -149,7 +149,7 @@
 </card>
 
 <card title="出租要求" hat subtitle="选填">
-        <textarea name="surrounding"></textarea>
+        <textarea name="rent_limits"></textarea>
 </card>
 
 

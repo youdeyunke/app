@@ -17,6 +17,7 @@ Component({
    */
   data: {
     items: [],
+    value: [0],
   },
 
   /**
