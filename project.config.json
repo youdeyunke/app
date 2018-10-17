@@ -153,9 +153,9 @@
 				},
 				{
 					"id": 20,
-					"name": "post-new",
+					"name": "发布整租",
 					"pathName": "pages/post/form",
-					"query": ""
+					"query": "group=rental&rent_type=1"
 				},
 				{
 					"id": 21,
@@ -186,6 +186,12 @@
 					"name": "news-index",
 					"pathName": "pages/news/index",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "发布卖房",
+					"pathName": "pages/post/form",
+					"query": "group=old"
 				}
 			]
 		}

@@ -1,64 +1,129 @@
 
 <form bindsubmit="submit">
   <box>
-      <van-field name="title" label="房源标题" value="{{post.type.area_name}}" clearable placeholder="如：房东急租小2房" />
+          <van-field name="title" label="房源标题" value=""  clearable placeholder="如：房东急租小2房" />
   </box>
 
 <view hidden="{{step != 1}}">
 <card  title="地址" subtitle="门牌号保密，仅向经纪人可见" hat >
-  <van-field placeholder="请选择" disabled bindtap="showCityPicker" is-link label="城市" value="{{post.city.name || '请选择'}} {{post.district.name}}"  arrow-direction="down" />
+  <van-field 
+    placeholder="请选择" 
+    error="{{error.district_id}}"
+    disabled bindtap="showCityPicker" is-link label="城市" value="{{post.city.name || '请选择'}} {{post.district.name}}"  arrow-direction="down" />
   <van-field
     value="{{ value }}"
     name="area_name"
+    error="{{error.area_name}}"
     label="小区"
     placeholder="请输入小区名称"
-    bind:change="onChange"
+    bind:change="inputChange"
   />
   <van-field
     value="{{ value }}"
     type="number"
+    error="{{error.area_year}}"
     name="area_year"
     label="年代"
     placeholder="如：1999"
-    bind:change="onChange"
+    bind:change="inputChange"
   />
   <van-field
     name="street"
     value="{{ value }}"
+    error="{{error.street}}"
     label="街道"
     placeholder="如：巨峰路1028弄55号"
-    bind:change="onChange"
+    bind:change="inputChange"
   />
   <van-field
     name="house_number"
     value="{{ value }}"
     label="门牌号"
     placeholder="如：55号楼 1002室"
-    bind:change="onChange"
+    bind:change="inputChange"
   />
 </card>
 
 
 <card title="户型信息" hat>
+  <block wx:if="{{post.group == 'rental' }}">
   <van-field
     value="{{ value }}"
     label="面积"
+    error="{{error.area}}"
     type="number"
     placeholder="平米"
-    bind:change="inputChanged"
+    name="area"
+    bind:change="inputChang"
   />
+
   <van-field
     name="rent_price"
+    error="{{error.rent_price}}"
     value="{{ value }}"
     label="租金"
     type="number"
     placeholder="元"
     bind:change="inputChange"
   />
-  <van-field bindtap="showTypePicker" is-link label="户型" value="{{post.w}}室-{{post.t}}厅-{{post.w}}卫 {{ post.position}}"  arrow-direction="down" disabled  />
-  <van-field bindtap="showFitmentPicker" is-link label="装修" value="{{post.fitment.name || '请选择'}}"  arrow-direction="down" disabled  />
-  <van-field bindtap="showFloorPicker" is-link label="楼层" value="第{{post.current_floor || '几'}}层-共{{post.total_floor || '几'}}层"  arrow-direction="down" disabled  />
-  <van-field bindtap="showPayment" is-link label="付款类型" value="{{post.payment_cycle || '请选择'}}"  arrow-direction="down" disabled  />
+  </block>
+
+  <block wx:if="{{post.group == 'old'}}">
+  <van-field
+    value="{{ post.construction_area }}"
+    error="{{error.construction_area}}"
+    label="建筑面积"
+    type="number"
+    placeholder="平米"
+    name="construction_area"
+    bind:change="inputChang"
+  />
+  <van-field
+    name="total_price"
+    error="{{error.total_price}}"
+    value="{{ post.total_price }}"
+    label="售价"
+    type="number"
+    placeholder="万元"
+    bind:change="inputChange"
+  />
+  </block>
+
+  <van-field 
+          bindtap="showTypePicker" 
+          is-link 
+          error="{{error.type}}"
+          label="户型" 
+          value="{{post.w}}室-{{post.t}}厅-{{post.w}}卫 {{ post.position}}"  
+          arrow-direction="down" 
+          disabled  
+  />
+  <van-field 
+          bindtap="showFitmentPicker" 
+          error="{{error.fitment_id}}"
+          is-link 
+          label="装修" 
+          value="{{post.fitment.name || '请选择'}}"  
+          arrow-direction="down" 
+          disabled  
+   />
+  <van-field 
+          bindtap="showFloorPicker" 
+          is-link 
+          error="{{error.floor}}"
+          label="楼层" 
+          value="第{{post.current_floor || '几'}}层-共{{post.total_floor || '几'}}层"  
+          arrow-direction="down" 
+          disabled  />
+  <van-field 
+          wx:if="{{post.group == 'rental'}}" 
+          bindtap="showPayment" 
+          error="{{error.payment_cycle}}"
+          is-link 
+          label="付款类型" 
+          value="{{post.payment_cycle || '请选择'}}"  
+          arrow-direction="down" 
+          disabled  />
 
 </card>
     <card title="房源照片" subtitle="请上传3~10张真实房源照片" hat>
@@ -75,15 +140,15 @@
 </view>
 
 <view hidden="{{step != 2}}">
-<card title="房源简介" hat>
+<card title="房源简介" hat subtitle="选填">
     <textarea name="desc"></textarea>
 </card>
 
-<card title="周边配套" hat>
+<card title="周边配套" hat subtitle="选填">
         <textarea name="surrounding"></textarea>
 </card>
 
-<card title="出租要求" hat>
+<card title="出租要求" hat subtitle="选填">
         <textarea name="surrounding"></textarea>
 </card>
 
@@ -92,11 +157,11 @@
 
 <view class="buttons">
   <block wx:if="{{step == 1}}">
-    <button bindtap="nextStep" type="primary"  class="btn ">下一步 1/2</button>
+    <button data-name="step1" form-type="submit" type="primary"  class="btn ">下一步 1/2</button>
   </block>
 
   <block wx:if="{{step == 2}}">
-    <button type="primary" form-type="submit" class="btn ">提交保存</button>
+    <button data-name="step2" type="primary" form-type="submit" class="btn ">提交保存</button>
     <button bindtap="previousStep" type="default"  class="btn ">返回修改</button>
   </block>
 
