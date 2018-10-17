@@ -18,13 +18,6 @@ page{
   align-items: center;
 }
 
-.address-tips{
-  font-size:var(--font-xs);
-  color:#999;
-  text-align: right;
-  width: 100%;
-  margin-top:40rpx;
-}
 
 .buttons{
   width:calc(750rpx - 20rpx);

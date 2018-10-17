@@ -1,20 +1,27 @@
 <box>
 <view class="card {{ padding ? '' : 'padding-none'}}">
-  <view class="card-header">
+    <view class="card-header">
           <view class="card-header-title">
-                  <view wx:if="{{hat}}" class="card-hat"></view>
+            <view wx:if="{{hat}}" class="card-hat"></view>
             <view class="h1">{{title}}
               <text wx:if="{{number>0}}">({{number}})</text>
             </view>
     </view>
+
     <view wx:if="{{url}}" class="font-mini card-header-action" bindtap='actionHandle'>
       <text class="card-header-action-name">{{action}}</text>
-      <image class="card-header-action-image" src="/assets/icons/right-arrow.png"></image> 
+      <image wx:if="{{arrow}}" class="card-header-action-image" src="/assets/icons/right-arrow.png"></image> 
     </view>
+
+    <view wx:if="{{subtitle}}" class="font-mini card-header-action">
+            <text class="card-header-action-name">{{subtitle}}</text>
+    </view>
+
   </view>
   <view class="card-body">
     <slot></slot>
   </view>
-  <view class="card-footer"></view>
+  <view class="card-footer">
+  </view>
 </view>
 </box>
