@@ -18,7 +18,7 @@
     "pages/myself/favposts",
     "pages/static/about",
     "pages/myself/qa",
-    "pages/post/new"
+    "pages/post/form"
   ],
   "tabBar": {
     "selectedColor": "#333",
