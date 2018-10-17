@@ -28,6 +28,21 @@ Page({
     auth.ensureUser(function(userInfo){
       _this.updatePostField('group', q.group || 'rental' )
       _this.updatePostField('rent_type', q.rent_type || 0 )
+      _this.loadMyselfInfo()
+    })
+  },
+
+
+  loadMyselfInfo: function(){
+    var _this = this
+    app.request({
+      url: '/api/v1/users/myself',
+      data: {},
+      method: 'GET',
+      success: function(resp){
+        _this.setData({myself: resp.data.data})
+        console.log('myself', _this.data.myself)
+      },
     })
   },
 

@@ -140,16 +140,27 @@
 </view>
 
 <view hidden="{{step != 2}}">
-<card title="房源简介" hat subtitle="选填">
+
+<block wx:if="{{post.group=='old' && myself.staff.id}}">
+<card title="业主心态" hat >
+    <textarea name="owner_mindset"></textarea>
+</card>
+
+<card title="核心卖点" hat >
+    <textarea name="selling_points"></textarea>
+</card>
+</block>
+
+<card title="房源简介" hat >
     <textarea name="desc"></textarea>
 </card>
 
 <card title="周边配套" hat subtitle="选填">
-        <textarea name="surrounding"></textarea>
+    <textarea name="surrounding"></textarea>
 </card>
 
-<card title="出租要求" hat subtitle="选填">
-        <textarea name="rent_limits"></textarea>
+<card wx:if="{{post.group == 'rental' }}" title="出租要求" hat subtitle="选填">
+    <textarea name="rent_limit"></textarea>
 </card>
 
 

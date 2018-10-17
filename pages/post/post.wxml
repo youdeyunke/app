@@ -112,8 +112,6 @@
     </view>
 </mycard>
 
-<mycard title="地理位置" hat>
-</mycard>
 
 <mycard wx:if="{{post.group == 'new' && post.more_url}}" title="{{post.more_title}}" opentype="webview" url="{{post.more_url}}">
   <view>{{ post.more_desc }}</view>
