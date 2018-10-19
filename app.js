@@ -5,7 +5,8 @@ var auth = require('utils/auth.js');
 App({
 
   globalData: {
-    apiHost: 'http://dockerhost:9001',
+    //apiHost: 'http://dockerhost:9001',
+    apiHost: 'https://fang.udeve.cn',
     userInfo: null,
     token: null,
     loadingStatus: 0,

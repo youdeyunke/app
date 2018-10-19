@@ -227,6 +227,7 @@ mycard{
   justify-content: space-between;
   align-items: center;
   letter-spacing: 5rpx;
+  margin-top:20rpx;
 }
 .coupon .name{
   height: 80rpx;
