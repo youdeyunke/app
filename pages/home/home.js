@@ -24,8 +24,8 @@ Page({
       {name: '新房', url: '/pages/post/index?group=xinfang', opentype:"navigateTo", id: 'new', bg: '#fdaa3d'},
       { name: '二手房', url: '/pages/post/index?group=ershoufang', opentype:"navigateTo", id: 'old', bg: '#53d8e3'},
 
-      { name: '整租', url: '/pages/post/index?group=zufang&rent_type=1', opentype:"navigateTo", id: 'rent_house', bg: '#65b455'},
-      { name: '合租', url: '/pages/post/index?group=zufang&rent_type=0', opentype:"navigateTo", id: 'rent_room', bg: '#d578e3'},
+      { name: '整租', url: '/pages/post/index?group=zufang&rent_type=zhengzu', opentype:"navigateTo", id: 'rent_house', bg: '#65b455'},
+      { name: '合租', url: '/pages/post/index?group=zufang&rent_type=hezu', opentype:"navigateTo", id: 'rent_room', bg: '#d578e3'},
 
       { name: '定制找房', url: '/pages/myself/zhao', opentype: "navigateTo", id: 'zhao', bg: '#f67350' }      
 
