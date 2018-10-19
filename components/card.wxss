@@ -69,6 +69,7 @@
   padding:30rpx;
 }
 
+
 .card.padding-none .card-body{
   padding:0;
   margin:0;

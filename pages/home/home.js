@@ -7,6 +7,13 @@ Page({
    */
   
   data: {
+    publishSheetShow: false,
+    publishActions: [
+      {name: '发布整租房源', group: 'rental', rent_type: 1},
+      {name: '发布合租房源', group: 'rental', rent_type: 0 },
+      {name: '发布二手房房源', group: 'old'  },
+
+    ],
     city_id: null,
     offset: 0,
     total: 0,
@@ -32,6 +39,25 @@ Page({
     })
   },
 
+  publishClose: function(e){
+    this.setData({
+      publishSheetShow: false
+    })
+  },
+
+  publishClick: function(e){
+    console.log('e', e)    
+    wx.navigateTo({
+      url: '/pages/post/form?group=' + e.detail.group + '&rent_type=' + e.detail.rent_type,
+    })
+  },
+
+  publishHandle: function(e){
+    // 点击发布按钮，弹出选择框
+    this.setData({
+      publishSheetShow: true,
+    })
+  },
 
   cityHandle: function(e){
     console.log('city change handle', e.detail.city)
@@ -95,7 +121,9 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+    this.setData({
+      publishSheetShow: false,
+    })
   },
 
   /**

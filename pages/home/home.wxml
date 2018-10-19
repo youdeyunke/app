@@ -2,22 +2,33 @@
   <mytopbar bindcitychanged="cityHandle"></mytopbar>
   <myslider></myslider>
   <view class="tab-icons">
-          <navigator url="{{item.url}}"  open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" wx:for="{{tabIcons}}">
+    <navigator url="{{item.url}}"  open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" wx:for="{{tabIcons}}">
            <view style="background:{{item.bg}}" class="icon-cover">
               <image src="/assets/icons/tab-{{item.id}}.png"></image>
            </view>
       <text>{{ item.name }}</text>
     </navigator>
+
+    <navigator hover-class="none" bindtap='publishHandle'>
+      <view style="background:green" class="icon-cover">
+          <image src="/assets/icons/tab-publish.png"></image>
+      </view>
+      <text>发布房源</text>
+    </navigator>
+    
   </view>
 </view>
 
-<mycard title="新房推荐">helo</mycard>
-<mycard title="二手房推荐">helo</mycard>
-<mycard title="租房推荐">helo</mycard>
-
 <box padding="30">
+        <view class="h1">为您推荐</view>
     <block wx:for="{{posts}}" wx:for-item="postitems">
             <post wx:for="{{postitems}}" item="{{item}}"></post>
     </block>
 </box>
 
+<van-action-sheet
+  show="{{ publishSheetShow }}"
+  actions="{{ publishActions }}"
+  bind:close="publishClose"
+  bind:select="publishClick"
+/>

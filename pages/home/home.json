@@ -8,6 +8,7 @@
       "myslider": "/components/slider",
       "post": "/components/post",
       "postcard": "/components/postcard",
+      "van-action-sheet": "/vant/action-sheet/index",
       "box": "/components/box"
     }
 

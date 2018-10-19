@@ -8,6 +8,17 @@ mycard{
   width: 750rpx;
 }
 
+
+ .info_title{
+  margin:0 0 15rpx 0;
+  font-weight:bolder;
+  color:#000;
+}
+
+.info_text{
+  margin-bottom:20rpx;
+}
+
 .post-cover{
   width:750rpx;
   height: 480rpx;
