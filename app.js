@@ -6,12 +6,12 @@ App({
 
   globalData: {
     //apiHost: 'http://dockerhost:9001',
-    apiHost: 'https://fang.udeve.cn',
+    apiHost: 'https://sszm.udeve.cn',
     userInfo: null,
     token: null,
     loadingStatus: 0,
     cities: [],
-    serverMobile: '400111222'
+    serverMobile: '15150416776'
   },
 
   loadPosts: function(that){

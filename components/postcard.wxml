@@ -2,7 +2,7 @@
 <navigator hover-class='none' open-type='navigateTo' url="/pages/post/post?id={{item.id}}" class="post-card">
 
   <view class="cover">
-    <view class="address">浦东 耀华路1234弄 24号</view>
+          <view class="address">{{item.district.name}} {{item.street}} {{item.area_name}}</view>
     <view class="count" wx:if="{{item.images_count > 1}}">共{{item.images_count }} 张</view>
     <image src="{{item.cover}}?imageView2/1/w/750/h/400"></image>
   </view>
@@ -14,7 +14,7 @@
        <mytags wx:if="{{item.tags_list}}"  items="{{item.tags_list}}"></mytags>
        <image class="pos" src="/assets/icons/location.png"></image>
        <view>{{item.district.name}}</view>
-       <view class="price"> {{item.price_info.min}}万起</view>
+       <text class="price" >{{item.price_info.text}}</text>
       </view>
     <view class="title-block">
       <view class="title line-limit">{{item.title}}{{ item.group == 'new' ? item.block_name : item.area_name }}</view>

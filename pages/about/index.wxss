@@ -1,6 +1,6 @@
 /* pages/about/index.wxss */
 page{
-  background: #ffd900;
+  background: #f4f4f4;
   height: 100%;
 }
 

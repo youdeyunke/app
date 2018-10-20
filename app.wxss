@@ -307,9 +307,9 @@ textarea{
   color:#fff;
 }
 
-hpage::after{
+page::after{
   padding-top:20rpx;
-  font-size:24rpx;
+  font-size:20rpx;
   color:#cecece;
-  content:'技术支持:wefang.net';
+  content:'由www.wefang.net提供技术支持';
 }

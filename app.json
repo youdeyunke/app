@@ -37,7 +37,7 @@
         "pagePath": "pages/qa/index",
         "iconPath": "/assets/icons/qa.0.png",
         "selectedIconPath": "/assets/icons/qa.1.png",
-        "text": "咨询"
+        "text": "问答"
       },
       {
         "pagePath": "pages/myself/index",

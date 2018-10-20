@@ -9,11 +9,11 @@
                 <view class="basic input-group">
                         <view class="input-item">
                                 <view class="label">预算</view> 
-                                <input bindinput='budgetHandle'  value="{{budget}}" placeholder='如：现金50万'>   </input>
+                                <input bindinput='budgetHandle'  value="{{budget}}" placeholder='如：1500~2000'>   </input>
                         </view>
                         <view class="input-item">
                                 <view class="label">区域</view> 
-                                <input bindinput='positionHandle' value="{{position}}" placeholder='填写您关注位置'>   </input>
+                                <input bindinput='positionHandle' value="{{position}}" placeholder='您想住在哪里'>   </input>
                         </view>
 
                 </view>
@@ -21,7 +21,7 @@
         </card>
 
 
-        <card hat title="选择符合您的五个标签">
+        <card hat title="选择符合您的3个标签">
            <view class="form-tags"> 
                 <text  bindtap="purposeHandle" data-index="{{index}}" class="form-tag-item {{item.selected ? 'form-tag-item-active' : '' }}" wx:for="{{purposeList}}">{{item.name}}</text>
             </view>
