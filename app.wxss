@@ -311,5 +311,7 @@ page::after{
   padding-top:20rpx;
   font-size:20rpx;
   color:#cecece;
-  content:'由www.wefang.net提供技术支持';
+  text-align:center;
+  content:"由微房提供技术支持 \A www.wefang.net";
+  white-space: pre;
 }
