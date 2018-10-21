@@ -85,6 +85,8 @@ Page({
       hasMore: true,
     })
     app.loadPosts(_this)
+    this.selectComponent('#slider').loadData()
+
     wx.hideNavigationBarLoading()
     wx.stopPullDownRefresh() //停止下拉刷新    
 
