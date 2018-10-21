@@ -24,6 +24,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
+
     goto: function(e){
       var i = e.currentTarget.dataset.index
       var item = this.data.items[i]
