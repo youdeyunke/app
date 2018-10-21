@@ -61,7 +61,7 @@
           <view class="weui-cell__hd">
             <image src="/assets/icons/m-about.png"></image>
           </view>          
-          <view class="weui-cell__bd h1">关于我们</view>
+          <view class="weui-cell__bd h1">关于毫米社</view>
           <view class="weui-cell__ft weui-cell__ft_in-access"></view>
       </navigator>      
 

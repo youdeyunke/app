@@ -14,6 +14,6 @@
 </view>
 
 <view class="fixed-footer add-new">
-        <view>在这里，问关于房子的一切问题</view>
+        <view>在这里，问关于租房的一切问题</view>
         <button bindtap="gotoNew" class="btn primary mini">去提问</button>
 </view>
