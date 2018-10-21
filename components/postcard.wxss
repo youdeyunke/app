@@ -99,6 +99,10 @@
   color: #333;
   font-weight: bold;
   width: calc(100% - 110rpx);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;  
 }
 
 .post-card .info .view{
