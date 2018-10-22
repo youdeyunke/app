@@ -13,9 +13,7 @@ Component({
     var showAnswer = false
     if(this.data.answer == true){
       if(this.data.item.answer){
-        if(this.data.item.answer.length > 10){
           showAnswer = true
-        }
       }
     }
     this.setData({showAnswer: showAnswer})
