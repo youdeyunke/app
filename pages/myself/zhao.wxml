@@ -27,6 +27,10 @@
             </view>
         </card>
 
+        <card hat title="联系方式">
+                <input bindinput='contactHandle'  value="{{contact}}" placeholder='留下您的手机号或者微信号，方便我们尽快联系您'>   </input>
+        </card>
+
         <card hat title="留言">
           <textarea value="{{content}}" placeholder='其它您想说的'></textarea>
         </card>

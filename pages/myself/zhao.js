@@ -38,6 +38,12 @@ Page({
         value: '/pages/myself/zhao',
     }
     app.setLoginBack()
+
+    var _this  = this
+    auth.ensureUser(function(userInfo){
+      _this.setData({contact: userInfo.mobile || ''})
+    })
+
   },
 
   getFormData: function(){
@@ -65,6 +71,7 @@ Page({
       budget: this.data.budget,
       purpose: this.data.purpose,
       position: this.data.position,
+      contact: this.data.contact,
     }
     return cb(data)
   },

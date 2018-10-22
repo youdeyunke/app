@@ -114,6 +114,10 @@ Page({
     var post = this.data.post
     var _this = this
     var isok= true
+
+    if(!post.title){
+      _this.showError('title', '请填写标题') 
+    }
     
     if(!post.district_id  || !post.city_id){
       _this.showError('district_id', '城市、行政区不能为空')
@@ -219,10 +223,12 @@ Page({
   doSubmit: function(post){
     // update or create post 
     var _this = this
+    var data = this.data.post
+    data['images'] = data['images'].join(',')
     app.request({
       url: '/api/v1/posts/',
       method: 'POST',
-      data: {post: post},
+      data: {post: data},
       success: function(resp){
         return _this.submitCallback(resp.data)
       },

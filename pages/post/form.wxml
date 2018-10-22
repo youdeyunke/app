@@ -1,7 +1,7 @@
 
 <form bindsubmit="submit">
   <box>
-          <van-field name="title" label="房源标题" value=""  clearable placeholder="如：房东急租小2房" />
+          <van-field error="{{error.title}}" name="title" label="房源标题" value=""  clearable placeholder="如：房东急租小2房" />
   </box>
 
 <view hidden="{{step != 1}}">

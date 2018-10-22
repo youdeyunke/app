@@ -9,8 +9,8 @@ Page({
   data: {
     publishSheetShow: false,
     publishActions: [
-      {name: '发布整租房源', group: 'rental', rent_type: 1},
-      {name: '发布合租房源', group: 'rental', rent_type: 0 },
+      {name: '发布整租房源', group: 'rental', rent_type: 'zhengzu'},
+      {name: '发布合租房源', group: 'rental', rent_type: 'hezu' },
       //{name: '发布二手房房源', group: 'old'  },
 
     ],
