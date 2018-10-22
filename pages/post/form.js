@@ -182,8 +182,8 @@ Page({
     }
 
 
-    if(post.images.length < 3 || post.images.length > 10){
-      _this.showError('images', '请上传3~10张房源照片', true)
+    if(post.images.length < 3 || post.images.length > 15){
+      _this.showError('images', '请上传3~15张房源照片', true)
       isok = false
     }
 

@@ -1,8 +1,8 @@
 <qa wx:if="{{item}}" mini="{{false}}" answer="{{true}}" class="container qa" item="{{item}}"></qa>
 
-<view class="empty" wx:if="{{empty}}">
+<view class="empty" wx:if="{{showAnswer}}">
   该问题还未收到回复，请耐心等待
 </view>
 
 
-<recoms count="5"></recoms>
+<recoms count="5" group="rental"></recoms>
