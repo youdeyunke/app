@@ -7,7 +7,7 @@ Component({
    */
   properties: {
     images:{type: Array, value: []},
-    max: {type: Number, value: 10},
+    max: {type: Number, value: 15},
     min: {type: Number, value: 3},
     cover: {type: Number, value: 0},
   },
@@ -125,6 +125,7 @@ Component({
 
     chooseImages: function(e){
       var that = this
+      console.log('images count',that.data.max - that.data.images.length )
       wx.chooseImage({
         count: that.data.max - that.data.images.length,
         sizeType: ['original', 'compressed'],

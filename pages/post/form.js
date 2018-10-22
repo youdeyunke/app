@@ -16,6 +16,8 @@ Page({
       city: {},
       district: {},
       images: [],
+      imagesMin: 3,
+      imagesMax: 15,
     },
 
   },
@@ -182,8 +184,8 @@ Page({
     }
 
 
-    if(post.images.length < 3 || post.images.length > 15){
-      _this.showError('images', '请上传3~15张房源照片', true)
+    if(post.images.length < _this.data.imagesMin || post.images.length > _this.data.imagesMax){
+      _this.showError('images', '请上传' + _this.data.imagesMin + '~' + _this.data.imagesMax  + '张房源照片', true)
       isok = false
     }
 
