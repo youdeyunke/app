@@ -8,15 +8,54 @@ Page({
    */
   data: {
     posts: [],
-    city_id: null,
-    offset: 0,
-    total: 0,
     limit: 100000,
-    hasMore: true
+    hasMore: true,
+    page: 1,
+    per_page: 5,
   },
 
   loadData: function(){
-    app.loadPosts(this)
+    var _this = this
+    this.setData({
+      isEmpty: false, loading: true
+    })
+    
+    if (this.data.isEnd) {
+      return false
+    }  
+
+    var query = {
+      page: _this.data.page || 1,
+      per_page: _this.data.per_page || 10,
+      rent_type: _this.data.rent_type, 
+    }
+
+    app.request({
+      url: '/api/v2/posts/myfavs',
+      data: query,
+      hideLoading: true,
+      success: function(resp){
+        var d = {loading: false}
+        if(resp.data.data.length == 0 ){
+          d.hasMore = false
+        }else{
+          var i = _this.data.page - 1
+          var k = "posts[" + i + "]"
+          d[k] = resp.data.data
+        }
+        if(resp.data.data.length == 0){
+          d['isEnd'] = true
+          if(_this.data.page == 1){
+            d['isEmpty'] = true
+            d['isEnd'] = false
+          }
+        }
+        console.log('d is ', d)
+        _this.setData(d)
+
+      }
+    })
+
   },
 
   /**
@@ -69,7 +108,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    var _this = this
+    this.setData({
+      page: _this.data.page + 1
+    })
+    this.loadData()
   },
 
   /**
