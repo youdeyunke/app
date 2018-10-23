@@ -1,6 +1,6 @@
 <qa wx:if="{{item}}" mini="{{false}}" answer="{{true}}" class="container qa" item="{{item}}"></qa>
 <box padding="30">
-<view class="waiting empty" wx:if="{{empty}}" style="margin-bottom:20rpx;">
+<view class="waiting empty" wx:if="{{!item.answer}}" style="margin-bottom:20rpx;">
    <image src="/assets/images/waiting.png" style="margin-bottom:20rpx;" ></image>
   该问题还未收到回复，请耐心等待
 </view>
