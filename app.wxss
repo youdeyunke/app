@@ -261,6 +261,11 @@ textarea{
   color: #999;
 }
 
+.waiting image{
+ width:256rpx;
+ height:140rpx;
+}
+
 .fixed-footer{
   background: #fff;
   width:100%;
