@@ -16,10 +16,11 @@ Page({
     contact: '',
 
     purposeList: [
-      { name: '合租' },
-      { name: '整租' },
-      { name: '有电梯'},
+      {name: '合租' },
+      {name: '整租' },
+      {name: '有电梯'},
       {name: '可做饭'},
+      {name: '可养宠物'},
       {name: '繁华地段'},
       {name: '配套成熟'},
       {name: '交通便利'},
