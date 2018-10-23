@@ -26,7 +26,7 @@ page{
 .user-login .avatar{
   margin-bottom:40rpx;
   margin-top:50rpx;
-  border:1px solid #cecece;
+  border:2rpx solid #cecece;
 }
 
 .user-login .tip{
@@ -45,9 +45,11 @@ page{
   overflow: hidden;
   margin-bottom:10rpx;
 }
-.weui-cell__hd image{
+
+
+
+.van-cell image{
   width: 40rpx;
   height: 40rpx;
-margin-right: 15rpx;vertical-align: middle;
+  margin-right:20rpx;
 }
-@import '../../weui.wxss'

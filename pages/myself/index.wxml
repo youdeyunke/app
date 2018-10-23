@@ -1,6 +1,7 @@
 
 
-<view class="weui-panel  user-login" wx:if="{{!userInfo}}">
+<box>
+<view class="user-login" wx:if="{{!userInfo}}">
     <view class="avatar">
       <image src="/assets/images/default-avatar.png"></image>
     </view>  
@@ -8,62 +9,26 @@
     <text class="tip">登录账号，体验更多服务</text>
     <button type="primary" class="btn"  open-type='getUserInfo' bindgetuserinfo='loginHandle'>使用微信登录</button>
 </view>
+</box>
 
-<view class="weui-panel user" wx:if="{{userInfo}}">
+<box  wx:if="{{userInfo}}">
+<view class="user">
   <view class="avatar">
     <image src="{{userInfo.avatar}}"></image>
   </view>
   <view class="nickname">{{userInfo.nickname}}</view>
 </view>
+</box>
 
-<view class="weui-panel" >
-  <view class="actions">
-      <view class="weui-cell weui-cell_access" wx:if="{{userInfo && !userInfo.mobile}}">
-          <view class="weui-cell__bd h1">绑定手机号</view>
-          <view class="weui-cell__ft">
-            <button class="btn mini" type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain>马上绑定</button>
-          </view>
-      </view>
-      
-      <navigator url="/pages/myself/qa" hover-class="none" class="weui-cell weui-cell_access">
-          <view class="weui-cell__hd">
-            <image src="/assets/icons/m-qa.png"></image>
-          </view>
-          <view class="weui-cell__bd h1">我的提问</view>
-          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-      </navigator>
+<box>
+  <van-cell-group>
+    <van-cell hover-class="none" title="绑定手机号"   center wx:if="{{userInfo && !userInfo.mobile}}">
+         <button slot="right-icon" class="btn mini" type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain>马上绑定</button>
+    </van-cell>
 
-      <navigator url="/pages/comments/index?myself=true&limit=10000" hover-class="none" class="weui-cell weui-cell_access">
-          <view class="weui-cell__hd">
-            <image src="/assets/icons/m-comment.png"></image>
-          </view>      
-          <view class="weui-cell__bd h1">我的评论</view>
-          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-      </navigator>
+    <van-cell hover-class="none" value="{{item.value || ''}}" wx:for="{{cells}}" title="{{item.name}}"  url="{{item.url}}"   is-link center>
+        <image slot="icon" src="/assets/icons/{{item.icon}}"></image>
+    </van-cell>
 
-      <navigator url="/pages/myself/favposts" hover-class="none" class="weui-cell weui-cell_access">
-          <view class="weui-cell__hd">
-            <image src="/assets/icons/m-fav.png"></image>
-          </view>          
-          <view class="weui-cell__bd h1">我的关注</view>
-          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-      </navigator>
-
-      <navigator hover-class="none"  class="weui-cell weui-cell_access">
-                    <view class="weui-cell__hd">
-            <image src="/assets/icons/m-call.png"></image>
-          </view>    
-          <view class="weui-cell__bd h1">联系客服</view>
-          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-      </navigator>     
-
-      <navigator hover-class="none"  class="weui-cell weui-cell_access">
-          <view class="weui-cell__hd">
-            <image src="/assets/icons/m-about.png"></image>
-          </view>          
-          <view class="weui-cell__bd h1">关于小程序</view>
-          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-      </navigator>      
-
-    </view>
-</view>
+  </van-cell-group>
+</box>

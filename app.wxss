@@ -312,9 +312,12 @@ textarea{
   color:#fff;
 }
 
-hpage::after{
+
+page::after{
   padding-top:20rpx;
-  font-size:24rpx;
+  font-size:20rpx;
   color:#cecece;
-  content:'技术支持:wefang.net';
+  text-align:center;
+  content:"由微房提供技术支持 \A www.wefang.net";
+  white-space: pre;
 }

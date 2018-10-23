@@ -1,7 +1,7 @@
 <view class="container">
     <view class="logo">
       <image src="/assets/images/logo.jpeg"></image>
-      <view class="desc">不做楼市专家，不做地产老炮，做你筑家途中的引路。</view>
+      <view class="desc">这里是介绍。</view>
     </view>
     <view class="meta">
         <view class="item">
@@ -25,7 +25,7 @@
               <view class="item contact">
                 <view class="label">技术支持</view>
                 <view class="value">
-                  <text selectable="{{true}}">wxhxgs</text>
+                  <text selectable="{{true}}">www.wefang.net</text>
                   <image src="/assets/icons/wechat.jpg"></image>
                 </view>
               </view>   
