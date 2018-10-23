@@ -68,7 +68,7 @@
   <mycard title="核心卖点" hat>{{post.selling_points}}</mycard>
   <mycard title="业主心态" hat>{{post.owner_mindset}}</mycard>
   <mycard title="小区配套" hat>
-        <mapimage url="{{post.map_image_url}}"></mapimage>
+          <mapimage name="{{post.area_name}}" url="{{post.map_image_url}}"></mapimage>
         {{post.surrounding}}
   </mycard>
   <mycard title="服务介绍" hat>{{post.service}}</mycard>
@@ -84,7 +84,7 @@
 
         <view class="info_title">周边配套</view>
         <view class="info_text"> {{post.surrounding}} 
-                <mapimage url="{{post.map_image_url}}"></mapimage>
+                <mapimage name="{{post.area_name}}" url="{{post.map_image_url}}"></mapimage>
         </view>
 
   </mycard>

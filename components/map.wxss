@@ -10,25 +10,87 @@
     height:100%;
 }
 
-.mymap .mask{
-   height:90rpx;
-   width:100%;
-   background:#fff;
-   position:absolute;
-   bottom:0rpx;
-   left:0rpx;
-   right:0rpx;
+.mymap .map-layer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    text-align: center;
 }
 
-.mymap .label{
-   position:absolute;
-   left:calc(50% - 150rpx);
-   bottom:calc(50% + 20rpx);
-   width:300rpx;
-   padding:30rpx;
-   background:#fff;
-   border:1px solid #f4f4f4;
-   box-shadow: 1rpx 2rpx 2rpx rgba(0,0,0, 0.125);
-   border-radius:2rpx;
-   font-size:24rpx;
+
+.mymap .map-layer-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    max-width: 80%;
+    z-index: 10;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.mymap .map-layer .content {
+    position: relative;
+    z-index: 20;
+    padding: 8px 12px;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.25);
+    -moz-box-shadow: 0 1px 1px 0 rgba(0,0,0,.25);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.25);
+    -webkit-border-radius: 11px;
+    -moz-border-radius: 11px;
+    border-radius: 11px;
+    text-align: left;
+}
+
+.mymap .map-layer .circle {
+    position: relative;
+    display: block;
+    z-index: 10;
+    width: 70px;
+    height: 70px;
+    background: rgba(102,138,233,.08);
+
+    border: 1px solid rgba(102,138,233,.32);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    margin: -21px 0 0 14px;
+}
+
+.mymap .map-layer .content:after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 43px;
+    z-index: 12;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    border-style: solid;
+    border-width: 5px 6px 0;
+    border-color: #fff transparent transparent;
+}
+
+.mymap .map-layer .circle:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -10px 0 0 -10px;
+    width: 16px;
+    height: 16px;
+    background: #668ae9;
+    border: 4px solid #fff;
+    -webkit-box-shadow: 0 2px 6px 0 #9fa7b3;
+    -moz-box-shadow: 0 2px 6px 0 #9fa7b3;
+    box-shadow: 0 2px 6px 0 #9fa7b3;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
 }
