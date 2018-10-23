@@ -13,8 +13,10 @@
      <view class="name">
        <mytags wx:if="{{item.tags_list}}"  items="{{item.tags_list}}"></mytags>
        <block wx:if="{{item.group != 'new' }}">
-         <image class="pos" src="/assets/icons/location.png"></image>
-         <view>{{item.district.name}}</view>
+         <view>
+           <image class="pos" src="/assets/icons/location.png"></image>
+           <view>{{item.district.name}}</view>
+         </view>
        </block>
        <text class="price" >{{item.price_info.text}}</text>
       </view>
