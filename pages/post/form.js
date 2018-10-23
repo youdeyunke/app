@@ -227,9 +227,8 @@ Page({
     // update or create post 
     var _this = this
     var data = this.data.post
-    data['images'] = data['images'].join(',')
     app.request({
-      url: '/api/v1/posts/',
+      url: '/api/v2/posts/',
       method: 'POST',
       data: {post: data},
       success: function(resp){
