@@ -37,11 +37,13 @@ Page({
     this.loadCats()
   },
 
-  catHandle: function(e){
-    var cid = e.currentTarget.dataset.id
+  tabHandle: function(e){
+    var i = e.detail.index
+    var cid = this.data.cats[i].id
     if(cid == this.data.cat_id){
       return false
     }
+
     this.setData({
       news: [],
       cat_id: cid,

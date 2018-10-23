@@ -40,21 +40,7 @@ Component({
       var _this = this
       var url = this.data.item.url
       var path = '/pages/news/show?id='  + this.data.item.id
-      var showContent = this.data.item.news_cat_id == 2 ? true : false
-      // TODO 临时做法，根据cat id打开不同界面
-      // news_cat_id == 3 时，打开webview
-      // news_cat_id == 2 时，显示正文
-      
-      if(showContent){
-        wx.navigateTo({
-          url: path,
-        })
-      }else{
-        wx.setStorageSync('webview', url)
-        wx.navigateTo({
-          url: '/pages/webview/webview',
-        })
-      }
+      wx.navigateTo({ url: path, })
 
     }, 
 

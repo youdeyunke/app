@@ -1,15 +1,13 @@
-<view class="cats">
-  <view data-id="{{cat.id}}" bindtap='catHandle' class="cat {{ cat_id == cat.id ? 'active' : 'disable' }}" wx:for="{{cats}}" wx:for-item="cat">
-    <image src="{{cat.icon.url}}"></image>
-  </view>
+<view class="tabs-wrapper">
+  <van-tabs type="card" bind:click="tabHandle">
+      <van-tab wx:for="{{cats}}" wx:for-item="tab" title="{{tab.name}}"></van-tab>
+  </van-tabs>
 </view>
 
-<view class="news">
   <block wx:for="{{news}}" wx:for-index="page" wx:for-item="items">
-    <tt data-id="{{item.id}}"  v-if="{{item}}" wx:for="{{items}}"  wx:if="{{item.id}}" item="{{item}}"></tt>
+      <box padding="20"  v-if="{{item}}" wx:for="{{items}}"  wx:if="{{item.id}}" ><tt data-id="{{item.id}}"  item="{{item}}"></tt></box>
   </block>
 
   <view class="empty" wx:if="{{isEmpty}}">没有数据</view>
   <view class="empty" wx:if="{{isEnd}}">END</view>
   <view class="empty" wx:if="{{loading}}">加载中...</view>
-</view>

@@ -1,8 +1,10 @@
 {
+  "navigationBarBackgroundColor": "#00ae66",
+  "navigationBarTextStyle": "light",
   "usingComponents": {
     "mytags": "/components/tags",
     "myfav": "/components/fav",
-    "myaudio": "/components/audio",
+    "box": "/components/box",
     "mystars": "/components/stars"
   }
 }

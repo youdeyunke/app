@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 28,
 			"list": [
 				{
 					"id": 0,
@@ -192,6 +192,18 @@
 					"name": "发布卖房",
 					"pathName": "pages/post/form",
 					"query": "group=old"
+				},
+				{
+					"id": -1,
+					"name": "news",
+					"pathName": "pages/news/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "new-show",
+					"pathName": "pages/news/show",
+					"query": "id=1"
 				}
 			]
 		}
