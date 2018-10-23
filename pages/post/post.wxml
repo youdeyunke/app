@@ -76,15 +76,22 @@
 
 <block wx:if="{{post.group == 'rental' }}">
   <mycard title="房源介绍" hat> 
-        <view class="info_title">房源概况</view>
-        <view class="info_text"> {{ post.desc }} </view>
+        <block wx:if="{{post.desc}}">
+          <view class="info_title">房源概况</view>
+          <view class="info_text"> {{ post.desc }} </view>
+        </block>
 
-        <view class="info_title">出租要求</view>
-        <view class="info_text"> {{ post.rent_limit }} </view>
+        <block wx:if="{{post.rent_limit}}">
+          <view class="info_title">出租要求</view>
+          <view class="info_text"> {{ post.rent_limit }} </view>
+        </block>
 
-        <view class="info_title">周边配套</view>
-        <view class="info_text"> {{post.surrounding}} 
-                <mapimage name="{{post.area_name}}" url="{{post.map_image_url}}"></mapimage>
+        <block wx:if="{{post.surrounding}}">
+          <view class="info_title">周边配套</view>
+          <view class="info_text"> {{post.surrounding}} </view>
+        </block>
+        <view class="info_text">
+            <mapimage name="{{post.area_name}}" url="{{post.map_image_url}}"></mapimage>
         </view>
 
   </mycard>
