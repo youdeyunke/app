@@ -42,7 +42,7 @@
 
                 <view class="meta">
                   <text class="label">楼层</text>
-                  <text>{{ post.current_floor }} / {{ post.total_floor }}</text>
+                  <text>第{{ post.current_floor }}层/ 共{{ post.total_floor }}层</text>
                 </view> 
 
                 <view class="meta lg">
@@ -64,7 +64,7 @@
 
                 <view class="meta">
                   <text class="label">楼层</text>
-                  <text>{{ post.current_floor }} / {{ post.total_floor }}</text>
+                  <text>第{{ post.current_floor }}层/ 共{{ post.total_floor }}层</text>
                 </view> 
 
                 <view class="meta">
