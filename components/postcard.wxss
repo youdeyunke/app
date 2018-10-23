@@ -67,7 +67,7 @@
   flex-direction:column;
   justify-content:space-between;
   align-items:flex-start;
-  padding:20rpx 30rpx;
+  padding:20rpx 20rpx;
 }
 
 .post-card .info .name{
@@ -83,6 +83,7 @@
 
 .post-card .info .price{
   margin-left:30rpx;
+  color:var(--color-b);
 }
 
 
