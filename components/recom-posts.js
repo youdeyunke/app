@@ -34,8 +34,8 @@ Component({
   loadRecoms: function(){
     var _this = this
     var d = {
-      'old': 'xinfang',
-      'new': 'ershoufang',
+      'new': 'xinfang',
+      'old': 'ershoufang',
       'rental': 'zufang',
     
     }

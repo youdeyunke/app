@@ -34,7 +34,7 @@ Page({
     var dict = {
       'xinfang': '新房',
       'ershoufang': '二手房',
-      'zufang': '整租',
+      'zufang': '租房',
     }
     var data = {title: dict[group]}
     wx.setNavigationBarTitle(data)

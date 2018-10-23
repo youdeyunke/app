@@ -3,7 +3,7 @@
   <view class="qa-item-body qa-item-q">
     <view class="qa-item-body-icon">问</view>
     <view class="qa-item-body-content">
-       <text class="qa-post-name"> #{{item.post_name}}# </text> {{item.content}}</view>
+            <text class="qa-post-name" wx:if="{{item.post_name}}"> #{{item.post_name}}# </text> {{item.content}}</view>
   </view>
   <view wx:if="{{mini == false }}" class="qa-item-author">
       {{ item.user.nickname}} 在 {{item.created_at_pretty}} 咨询
