@@ -12,6 +12,9 @@ Page({
     step: 1,
     cities: [],
     districts: [],
+    imagesMin: 3,
+    imagesMax: 15,
+
     post: {
       city: {},
       district: {},
@@ -29,7 +32,7 @@ Page({
     var _this = this
     auth.ensureUser(function(userInfo){
       _this.updatePostField('group', q.group || 'rental' )
-      _this.updatePostField('rent_type', q.rent_type || 0 )
+      _this.updatePostField('rent_type', q.rent_type || 'zhengzu' )
       _this.loadMyselfInfo()
     })
   },
@@ -108,7 +111,6 @@ Page({
   },
 
 
-
   validateStep1: function(cb){
     this.setData({error: {}})
     var post = this.data.post
@@ -117,6 +119,7 @@ Page({
 
     if(!post.title){
       _this.showError('title', '请填写标题') 
+      isok = false
     }
     
     if(!post.district_id  || !post.city_id){

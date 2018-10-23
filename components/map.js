@@ -6,7 +6,6 @@ Component({
   properties: {
     url: {type: String, value: null},
     name: {type: String, value: null},
-    street: {type: String, value: null},
   },
 
   /**

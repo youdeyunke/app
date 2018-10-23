@@ -28,6 +28,10 @@ Component({
 
   },
 
+  ready: function(){
+    console.log('data', this.data)
+  },
+
   /**
    * 组件的方法列表
    */

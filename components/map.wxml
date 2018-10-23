@@ -1,4 +1,10 @@
 <!--components/map.wxml-->
 <view class="mymap">
   <image src="{{url}}"></image>
+  <view class="map-layer">
+    <view class="map-layer-inner">
+      <view class="content"><text class="name">{{name || '未知地点'}}</text></view>
+      <view class="circle"></view>
+    </view>
+  </view>  
 </view>

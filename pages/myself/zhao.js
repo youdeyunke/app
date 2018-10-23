@@ -39,12 +39,9 @@ Page({
         value: '/pages/myself/zhao',
     }
     app.setLoginBack()
-
-    var _this  = this
     auth.ensureUser(function(userInfo){
       _this.setData({contact: userInfo.mobile || ''})
     })
-
   },
 
   getFormData: function(){
@@ -59,6 +56,7 @@ Page({
       })
       return
     }
+
     if(!this.data.position){
       wx.showToast({
         title: '请填写区域',
@@ -67,6 +65,13 @@ Page({
       return
     }
 
+    if(!this.data.contact){
+      wx.showToast({
+        title: '请填写联系信息',
+        icon: 'none'
+      })
+      return
+    }
 
     var data = {
       budget: this.data.budget,
