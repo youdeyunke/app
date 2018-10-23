@@ -77,7 +77,11 @@
   width:100%;
 }
 
-.post-card .info image.pos{
+.post-card .info .pos{
+  display:flex;
+}
+
+.post-card .info .pos image{
   width:32rpx;
   height:34rpx;
 }
