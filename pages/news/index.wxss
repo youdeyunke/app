@@ -1,5 +1,5 @@
 page{
-        padding-top:40px;
+  padding-top:0px;
 }
 
 .van-tabs--card{

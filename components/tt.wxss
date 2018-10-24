@@ -1,7 +1,7 @@
 .item{
   letter-spacing: 4rpx;
   width: 100%;
-  height: 177rpx;
+  height: 160rpx;
   background: #fff;
   display: flex;
   justify-content: space-between;
@@ -21,8 +21,8 @@
 
 
 .item .cover{
-  width: 197rpx;
-  height: 177rpx;
+  width: 240rpx;
+  height: 160rpx;
   border-radius: 20rpx;
   overflow: hidden;
 }
@@ -46,7 +46,7 @@
 .item .item-title-block{
   height: 100%;
   display: flex;
-  width: calc(100% - 210rpx);
+  width: 450rpx;
   flex-direction: column;
   justify-content: space-between;
 }
