@@ -1,7 +1,6 @@
 // components/box.js
 Component({
   options: {
-    externalClasses: ['my-class'],
   },
   /**
    * 组件的属性列表
