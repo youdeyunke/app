@@ -3,6 +3,7 @@
   "navigationBarTextStyle": "light",
   "usingComponents": {
     "mytags": "/components/tags",
+    "broker": "/components/broker",
     "myfav": "/components/fav",
     "mycard": "/components/card",
     "qa": "/components/qa",

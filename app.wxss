@@ -276,6 +276,8 @@ textarea{
   height: 100rpx;
   z-index:20;
   border-top:1px solid #f1f1f1;
+  left:0rpx;
+  right:0rpx;
 
 }
 

@@ -164,27 +164,4 @@
 
 <recoms wx:if="{{post.group}}" group="{{post.group}}" count="3"></recoms>
 
-
-<form report-submit bindsubmit='btnsHandle' class="fixed-footer footer-btns">
-  <ul>
-    <li class="staff">
-            <view class="staff-avatar"><image src="{{post.staff_user.avatar.url}}?imageView2/2/w/100"></image></view>
-       <view class="staff-info">
-               <view class="staff-name line-limit">{{post.staff_user.name}}</view>
-               <view class="staff-desc line-limit">{{post.staff_user.desc}}</view>
-       </view>
-    </li>
-    <li bindtap="bookingHandle" class="booking">
-      <button class="btn info" >       
-          <image src="/assets/icons/btn-booking.png"></image>
-          {{ post.user_has_booking ? '已预约' : '预约看房'}}
-      </button>
-    </li>
-    <li class="call" bindtap="callMe">
-        <button class="btn primary">
-            <image src="/assets/icons/btn-call.png"></image>电话
-        </button>
-    </li>
-
-  </ul>
-</form>
+<broker broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>
