@@ -3,9 +3,6 @@ const app = getApp()
 var auth = require('../utils/auth.js');
 
 Component({
-  options: {
-    addGlobalClass: true,
-  },
 
   /**
    * 组件的属性列表
@@ -27,6 +24,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    callMe: function(){
+      wx.makePhoneCall({
+          phoneNumber: this.data.broker.mobile //仅为示例，并非真实的电话号码
+      })
+    },
+
     bookingHandle: function () {
       var _this = this
       auth.ensureMobile(function (userInfo) {

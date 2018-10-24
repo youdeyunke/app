@@ -14,3 +14,7 @@ page{
   right:0rpx;
   z-index:999999 !important;
 }
+
+.fixed-box .mybox{
+  margin:5rpx 0 5rpx 0 !important;
+}

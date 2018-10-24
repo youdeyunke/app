@@ -2,6 +2,11 @@
 const app = getApp()
 
 Component({
+  options: {
+    addGlobalClass: false,
+    externalClasses: ['my-class'],
+  },
+
   /**
    * 组件的属性列表
    */

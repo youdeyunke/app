@@ -1,5 +1,8 @@
 // components/box.js
 Component({
+  options: {
+    externalClasses: ['my-class'],
+  },
   /**
    * 组件的属性列表
    */
@@ -12,6 +15,9 @@ Component({
     },
     padding: {
       type: Number, value: 0,
+    },
+    margin: {
+      type: Number, value: 20,
     },
 
   },

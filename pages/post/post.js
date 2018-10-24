@@ -77,12 +77,6 @@ Page({
     })
   },
 
-  callMe: function(){
-    var m = app.globalData.serverMobile
-    wx.makePhoneCall({
-        phoneNumber: m //仅为示例，并非真实的电话号码
-    })
-  },
 
 
   parseHtml: function(){
