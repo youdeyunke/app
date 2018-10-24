@@ -5,7 +5,7 @@
 
 
   <block wx:for="{{news}}" wx:for-index="page" wx:for-item="items">
-          <box padding="20" margin="0" class="fixed-box"  v-if="{{item}}" wx:for="{{items}}"  wx:if="{{item.id}}" >
+          <box padding="20" margin-bottom="0" class="fixed-box"  v-if="{{item}}" wx:for="{{items}}"  wx:if="{{item.id}}" >
                   <tt data-id="{{item.id}}"  item="{{item}}"> </tt>
           </box>
   </block>

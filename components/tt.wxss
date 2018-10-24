@@ -69,7 +69,7 @@
 }
 
 .item .author{
-  font-size:20rpx;
+  font-size:22rpx;
   color: #666;
   letter-spacing: 1rpx;
 }

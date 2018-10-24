@@ -12,11 +12,25 @@ Component({
     radius: {
       type: Number, value: 0,
     },
+
     padding: {
       type: Number, value: 0,
     },
-    margin: {
+
+    marginBottom: {
       type: Number, value: 20,
+    },
+
+    marginLeft: {
+      type: Number, value: 0,
+    },
+
+    marginRight: {
+      type: Number, value: 0,
+    },
+
+    marginTop: {
+      type: Number, value: 0,
     },
 
   },
