@@ -93,7 +93,7 @@ Component({
     },
 
     doUpload: function(paths){
-      wx.showLoading({title: "正在上传"})
+      wx.showLoading({title: "正在上传", mask: true})
       var _this = this
       var host = app.globalData.apiHost
       var path = paths.pop()

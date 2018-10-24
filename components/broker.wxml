@@ -5,7 +5,7 @@
             <view class="staff-avatar"><image wx:if="{{broker.avatar}}" src="{{broker.avatar}}?imageView2/2/w/100"></image></view>
        <view class="staff-info">
                <view class="staff-name line-limit">{{broker.name}}</view>
-               <view class="staff-desc line-limit">{{broker.wechat}}</view>
+               <view class="staff-desc line-limit" wx:if="{{broker.wechat}}">微信：{{broker.wechat}}</view>
        </view>
     </li>
     <li bindtap="bookingHandle" class="booking">

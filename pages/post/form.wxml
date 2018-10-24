@@ -131,38 +131,33 @@
 
 </card>
 
-<card hat title="房东信息" subtitle="加密信息，仅向经纪人可见">
-    <van-field label="房东姓名" name="owner_name" />
-    <van-field label="房东电话" name="owner_mobile" />
-    <van-field border="{{false}}" label="房源备注" type="textarea" autosize name="staff_remark" />
-</card>
 
 </view>
 
 <view hidden="{{step != 2}}">
 
-<block wx:if="{{post.group=='old' && myself.staff.id}}">
-<card title="业主心态" hat >
-    <textarea name="owner_mindset"></textarea>
+<card title="房源详情" hat  wx:if="{{post.group == 'old' }}">
+    <van-field label="房源介绍" name="desc" autosize />
+    <block wx:if="{{user.is_broker}}">
+      <van-field label="核心卖点" placeholder="选填"  name="selling_points" autosize />
+      <van-field label="业主心态" placeholder="选填"  name="owner_mindset" autosize />
+      <van-field label="周边配套" placeholder="选填"  name="surrounding" autosize />
+    </block>
 </card>
 
-<card title="核心卖点" hat >
-    <textarea name="selling_points"></textarea>
-</card>
-</block>
 
-<card title="房源简介" hat >
-    <textarea name="desc"></textarea>
+<card title="房源详情" hat  wx:if="{{post.group == 'rental' }}">
+    <van-field label="房源介绍" value="{{post.desc}}" placeholder="选填" name="desc" autosize />
+    <van-field label="出租要求" value="{{post.rent_limit}}" placeholder="选填"  name="rent_limit" autosize />
+    <van-field label="周边配套" value="{{post.surrounding}}" placeholder="选填"  name="surrounding" autosize />
 </card>
 
-<card title="周边配套" hat subtitle="选填">
-    <textarea name="surrounding"></textarea>
-</card>
 
-<card wx:if="{{post.group == 'rental' }}" title="出租要求" hat subtitle="选填">
-    <textarea name="rent_limit"></textarea>
+<card hat title="联系人信息" subtitle="必填">
+    <van-field label="姓名" value="{{ post.broker_name || user.name }}" placeholder="请输入" name="broker_name" error="{{error.broker_name}}"/>
+    <van-field label="电话" value="{{ post.broker_mobile || user.mobile}}" placeholder="请输入" name="broker_mobile" error="{{error.broker_mobile}}"  />
+    <van-field label="微信" value="{{post.broker_wechat || user.wechat }}" placeholder="选填" name="broker_wechat" border="{{false}}"  />
 </card>
-
 
 </view>
 

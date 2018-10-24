@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 20,
 			"list": [
 				{
 					"id": 0,
@@ -155,7 +155,7 @@
 					"id": 20,
 					"name": "发布整租",
 					"pathName": "pages/post/form",
-					"query": "group=rental&rent_type=1"
+					"query": "group=rental&rent_type=zhengzu"
 				},
 				{
 					"id": 21,
