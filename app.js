@@ -5,8 +5,8 @@ var auth = require('utils/auth.js');
 App({
 
   globalData: {
-    apiHost: 'http://dockerhost:9001',
-    //apiHost: 'https://fang.udeve.cn',
+    //apiHost: 'http://dockerhost:9001',
+    apiHost: 'https://fang.udeve.cn',
     userInfo: null,
     token: null,
     loadingStatus: 0,
@@ -207,6 +207,8 @@ App({
       },
       complete: function() {
         wx.hideLoading()
+        wx.hideNavigationBarLoading()
+        wx.stopPullDownRefresh()
         typeof obj.complete == "function" && obj.complete()
       }
     })

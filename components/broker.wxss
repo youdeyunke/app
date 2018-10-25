@@ -29,8 +29,8 @@
 .broker-bar .staff-info{
     display:flex;
     flex-direction:column;
-    justify-content:space-between;
-    align-items:flex-start;
+    justify-content:space-around;
+    align-items:center;
     margin-left:20rpx;
 }
 

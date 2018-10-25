@@ -3,6 +3,9 @@ const app = getApp()
 var auth = require('../utils/auth.js');
 
 Component({
+  options: {
+    addGlobalClass: true
+  },
 
   /**
    * 组件的属性列表

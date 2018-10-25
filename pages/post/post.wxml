@@ -1,10 +1,16 @@
 <import src="/utils/wxParse/wxParse.wxml"/>
 <import src="/tpls/posts/detail-meta.wxml" />
 <view class="post-cover">
-        <view class="image-count">共{{post.full_images_list.length}} 张</view>
+       <view class="image-count">共 {{post.full_images_list.length}} 张</view>
        <myfav wx:if="{{post.id}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
-       <swiper class="swiper" indicator-dots="true" autoplay="{{post.images_list.length > 1}}" interval="5000"
-        duration="500" circular="true" indicator-color="rgba(255,255,255,0.7)" autoplay indicator-active-color="#fff" >
+       <swiper class="swiper" 
+               indicator-dots="true" 
+               autoplay="{{post.images_list.length > 1}}" 
+               interval="5000"
+               duration="500" 
+               circular="true" 
+               indicator-color="rgba(255,255,255,0.7)" 
+               indicator-active-color="#fff" >
          
             <swiper-item bindtap="viewImage">
                     <image src="{{post.cover}}?imageView2/2/w/750"></image>
