@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "card": "/components/card",
+    "text-message": "/components/message/text",
+    "image-message": "/components/message/image",
+    "message-input": "/components/message/input",
+    "post-input": "/components/message/post",
+    "box": "/components/box"
+  }
+}

@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 20,
+			"current": 29,
 			"list": [
 				{
 					"id": 0,
@@ -204,6 +204,12 @@
 					"name": "new-show",
 					"pathName": "pages/news/show",
 					"query": "id=1"
+				},
+				{
+					"id": 29,
+					"name": "messages-show",
+					"pathName": "pages/messages/show",
+					"query": "target_user_id=3"
 				}
 			]
 		}
