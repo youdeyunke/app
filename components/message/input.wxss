@@ -1,0 +1,27 @@
+.input-wrapper{
+  height: 94rpx;
+  background: #fff;
+  width: 750rpx;
+  box-sizing: border-box;
+  padding:0 18rpx;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  z-index:50;
+}
+
+.input-wrapper input{
+  border-bottom:1rpx solid #f4f4f4;
+  width: calc(100% - 62rpx);
+}
+
+.input-wrapper .icon{
+  height: 52rpx;
+  width: 52rpx;
+  background: red;
+  display: none;
+}
