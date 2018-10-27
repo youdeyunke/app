@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 29,
+			"current": 24,
 			"list": [
 				{
 					"id": 0,
@@ -176,10 +176,10 @@
 					"query": "group=zufang&rent_type=1"
 				},
 				{
-					"id": -1,
+					"id": 24,
 					"name": "合租-index",
 					"pathName": "pages/post/index",
-					"query": "group=rent_room"
+					"query": "group=zufang&rent_type=zhengzu"
 				},
 				{
 					"id": -1,
