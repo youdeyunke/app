@@ -16,3 +16,4 @@
 .popup .actions .confirm{
   color: var(--color-a);
 }
+
