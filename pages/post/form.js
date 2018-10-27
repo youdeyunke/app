@@ -303,15 +303,22 @@ Page({
   },
 
   showCityPicker: function(){
-    this.selectComponent('#citypicker').onShow()
+    this.setData({
+      cityPickerShow: true
+    })
   },
 
   cityChanged: function(e){
+    console.log('ccccccccc')
     this.clearError()
     this.updatePostField('city', e.detail.city)
     this.updatePostField('city_id', e.detail.city.id)
     this.updatePostField('district_id', e.detail.district.id)
     this.updatePostField('district', e.detail.district)
+    this.setData({
+      cityPickerShow: false
+    })    
+    console.log('hhhhhh')
   },
 
   imagesChanged: function(e){

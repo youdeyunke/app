@@ -1,7 +1,7 @@
 {
   "usingComponents": {
     "card": "/components/card",
-    "citypicker": "/components/citypicker",
+    "city-picker": "/components/city-picker",
     "typepicker": "/components/typepicker",
     "floorpicker": "/components/floorpicker",
     "images-uploader": "/components/images-uploader",

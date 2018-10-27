@@ -8,7 +8,9 @@ Component({
   properties: {
     show: {
       type: Boolean, value: false
-    }
+    },
+    
+
   },
 
   /**
@@ -21,13 +23,15 @@ Component({
   },
 
   ready: function(){
-    this.loadCities()
+    console.log('global cities', app.globalData.cities)
+    this.setData({cities: app.globalData.cities})
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+
 
     onReset: function () {
       this.setData({
@@ -41,7 +45,7 @@ Component({
       var c = this.data.cities[cityIndex]
       var city = {id: c.id, name: c.text}
       var district = this.data.district
-      console.log('city', city, 'district', district, 'ccc', c)
+
       this.triggerEvent("change", {
         city: city,
         district: district,
@@ -64,17 +68,6 @@ Component({
       this.setData({
         district: d
       })
-    },
-
-    loadCities: function () {
-      // TODO 启动应用时候载入地址数据到全局变量
-      var _this = this
-      app.request({
-        url: '/api/v2/cities',
-        success: function (resp) {
-          _this.setData({ cities: resp.data.data, cityIndex: 0, cityName: resp.data.data[0].text })
-        }
-      })
-    },    
+    } 
   }
 })

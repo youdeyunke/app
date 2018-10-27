@@ -1,0 +1,32 @@
+.mypopup{
+  display: flex;
+  flex-direction: column;
+}
+
+.mypopup-bottom{
+  flex-direction: column-reverse;
+}
+
+.mypopup  .actions{
+  height:100rpx;
+  padding:0 40rpx;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size:var(--font-xl);
+}
+
+.mypopup-bottom .actions{
+    border-bottom: 2rpx solid #f4f4f4;
+}
+.mypopup-top .actions{
+  border-top: 2rpx solid #f4f4f4;
+}
+
+.mypopup .actions .cancle{
+  color: #999;
+}
+
+.mypopup .actions .confirm{
+  color: var(--color-a);
+}

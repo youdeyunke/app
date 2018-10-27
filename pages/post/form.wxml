@@ -176,7 +176,7 @@
 
 </form>
 
-<citypicker id="citypicker" bindconfirm="cityChanged" />
+<city-picker id="citypicker" bindchange="cityChanged" show="{{cityPickerShow}}" />
 <typepicker id="typepicker" bindconfirm="typeChanged" />
 <payment id="payment" bindconfirm="paymentChanged" />
 <floorpicker id="floorpicker" bindconfirm="floorChanged" />
