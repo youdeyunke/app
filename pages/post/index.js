@@ -14,6 +14,7 @@ Page({
     isEnd: false,
     loading: false,
     posts: [],
+    filter: {},
   },
 
   toggleHandle: function() {
@@ -27,6 +28,16 @@ Page({
     var group = query.group || 'xinfang'
     this.setData({ group: group, rent_type: query.rent_type || 1 })
     this.setPageTitle(group)
+    this.loadData()
+  },
+
+  filterChange: function(e){
+    // 过滤器改变，从第1也开始加载
+    console.log('index page , change ', e.detail)
+    this.setData({
+      filter: e.detail.filter,
+      page: 1,
+    })
     this.loadData()
   },
 
@@ -60,6 +71,7 @@ Page({
   },
 
   loadData: function(){
+    console.log('load data start')
     var _this = this
 
     this.setData({
@@ -71,12 +83,15 @@ Page({
     }  
 
     var query = {
-      //city_id: _this.data.city_id || '',
       page: _this.data.page || 1,
       per_page: _this.data.per_page || 10,
       group: _this.data.group,
       rent_type: _this.data.rent_type, 
     }
+    var filter = this.data.filter
+    // merge query and filter
+    Object.assign(query, filter)
+    console.log('query', query, 'filter',filter)
 
     var _this = this
     app.request({

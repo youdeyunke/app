@@ -1,0 +1,15 @@
+  <van-popup show="{{show}}"   position="top">
+    <view class="tree-select">
+        <van-tree-select
+          items="{{ cities }}"
+          main-active-index="{{ cityIndex }}"
+          active-id="{{ district.id }}"        
+          bind:click-nav="cityClick"
+          bind:click-item="districtClick"
+        /> 
+        <view class="actions" wx:if="{{cities}}">
+          <view bindtap="onReset" class="cancle">重置</view>
+          <view bindtap="onConfirm" class="confirm">确定</view>
+        </view>
+    </view>
+  </van-popup>

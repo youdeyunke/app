@@ -2,19 +2,13 @@
 <view class="sfilter-group">
 
     <view class="sfilter">
-      <picker class="sfilter-item"  bindchange="cityHandle" value="{{cityIndex}}" range="{{cities}}" range-key="name" >
-      <view class="sfilter-item-wrapper">
-        <view>{{ cityIndex > 0 ? cityName : '城市' }}</view>
-        <view class="sfilter-item-arrow"></view>
-      </view>     
-    </picker>
+      <view class="sfilter-item"  bindtap="cityFilterClick" >
+        <view class="sfilter-item-wrapper">
+          <view>{{ cityDistrictName ? cityDistrictName : '区域' }}</view>
+          <view class="sfilter-item-arrow"></view>
+        </view>     
+      </view>
 
-      <picker class="sfilter-item"  bindchange="districtHandle" value="{{districtIndex}}" range="{{districts}}" range-key="name" >
-      <view class="sfilter-item-wrapper">
-        <view>{{ districtIndex > 0 ? districtName : '区县' }}</view>
-        <view class="sfilter-item-arrow"></view>
-      </view>     
-    </picker>
 
     <picker class="sfilter-item" mode="multiSelector" bindchange="priceHandle" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{priceRange}}">
       <view class="sfilter-item-wrapper">
@@ -22,8 +16,9 @@
         <view class="sfilter-item-arrow"></view>
       </view>       
     </picker>
-
-
     </view>
+
+  <city-picker bind:change="cityChange" show="{{showCitySelect}}" />
+
 </view>
 

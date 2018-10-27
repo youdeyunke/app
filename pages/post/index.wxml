@@ -1,4 +1,6 @@
 <!--pages/post/index.wxml-->
+<filter bind:change="filterChange" />
+
 <import src="/tpls/posts/ershoufang.wxml" />
 <import src="/tpls/posts/xinfang.wxml" />
 <import src="/tpls/posts/zufang.wxml" />
