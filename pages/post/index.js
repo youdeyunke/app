@@ -99,24 +99,17 @@ Page({
       data: query,
       hideLoading: true,
       success: function(resp){
-        var d = {loading: false}
-        if(resp.data.data.length == 0 ){
-          d.hasMore = false
+        var items = resp.data.data
+        var meta = resp.data.meta
+        var d = {}
+        var i = _this.data.page - 1
+        if(i == 0){
+          d = {posts: [items]}
         }else{
-          var i = _this.data.page - 1
           var k = "posts[" + i + "]"
-          d[k] = resp.data.data
+          d[k] = items
         }
-        if(resp.data.data.length == 0){
-          d['isEnd'] = true
-          if(_this.data.page == 1){
-            d['isEmpty'] = true
-            d['isEnd'] = false
-          }
-        }
-        console.log('d is ', d)
         _this.setData(d)
-
       }
     })
   },
