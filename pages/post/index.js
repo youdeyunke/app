@@ -26,7 +26,7 @@ Page({
   onLoad: function (query) {
     var _this = this
     var group = query.group || 'xinfang'
-    this.setData({ group: group, rent_type: query.rent_type || 1 })
+    this.setData({ group: group, rent_type: query.rent_type || '' })
     this.setPageTitle(group)
     this.loadData()
   },
