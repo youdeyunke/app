@@ -9,16 +9,17 @@
         </view>     
       </view>
 
+      <view class="sfilter-item"  bindtap="priceFilterClick" >
+        <view class="sfilter-item-wrapper">
+          <view>{{ priceRange ? priceRange.name : '价格' }}</view>
+          <view class="sfilter-item-arrow"></view>
+        </view>     
+      </view>
 
-    <picker class="sfilter-item" mode="multiSelector" bindchange="priceHandle" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{priceRange}}">
-      <view class="sfilter-item-wrapper">
-        <view>价格</view>
-        <view class="sfilter-item-arrow"></view>
-      </view>       
-    </picker>
     </view>
 
-  <city-picker bind:change="cityChange" show="{{showCitySelect}}" />
+    <city-picker wx:if="{{cities}}" position="top" bind:change="cityChange" show="{{showCitySelect}}" />
+    <price-filter bindchange="priceChange" show="{{showPriceFilter}}" />
 
 </view>
 

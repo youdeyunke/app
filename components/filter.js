@@ -15,21 +15,16 @@ Component({
    */
   data: {
     city: {},
+    showPriceFilter: false,
+    priceRange: null,
     district:{},
     showCitySelect: false,
-    priceRange: [
-        [
-          '不限', 0, 50, 100,150, 200,250, 300,350, 400, 450,500,550,  600, 650, 700,750, 800,850, 900,950, 1000, 1500, 2000,3000, 4000, 5000
-        ],
-        [
-          '不限', 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1500, 2000, 3000, 4000, 5000
-        ]
-    ],
-
-
   },
 
   ready: function(){
+    this.setData({
+      cities: app.globalData.cities
+    })
   
   },
 
@@ -49,9 +44,22 @@ Component({
       if(d && d.id){
         filter['district_id'] = d.id
       }
-
+      if (this.data.priceRange){
+        console.log('this.data.priceRange.value', this.data.priceRange.value)
+        filter['rent_price'] = this.data.priceRange.value.join(',')
+      }
+      console.log('filter.onchange ', filter)
       this.triggerEvent('change', {filter: filter}, {})
       
+    },
+
+    priceChange: function(e){
+      console.log('e', e)
+      this.setData({
+        showPriceFilter:false,
+        priceRange: e.detail.rent_price
+      })
+      this.onChange()
     },
 
     cityChange: function(e){
@@ -75,6 +83,13 @@ Component({
       })
 
       this.onChange()
+    },
+
+    priceFilterClick: function(e){
+      var v = this.data.showPriceFilter
+      this.setData({
+        showPriceFilter: !v
+      })
     },
 
     cityFilterClick: function(e){

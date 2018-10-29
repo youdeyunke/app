@@ -1,0 +1,14 @@
+.price-range{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;  
+}
+
+.price-range-item{
+  height: 60rpx;
+}
+
+.price-range-item.active{
+  color: var(--color-a);
+}

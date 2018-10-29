@@ -14,13 +14,18 @@ App({
     serverMobile: '400111222'
   },
 
-  loadCities: function () {
-    // TODO 启动应用时候载入地址数据到全局变量
+  loadCities: function (cb) {
+    if(this.globalData.cities && this.globalData.cities.length > 0){
+      console.log('global data c', this.globalData.cities)
+      return cb(this.globalData.cities)
+    }
+
     var _this = this
     this.request({
       url: '/api/v2/cities',
       success: function (resp) {
         _this.globalData.cities = resp.data.data
+        return cb(resp.data.data)
       }
     })
   },      
@@ -68,7 +73,9 @@ App({
     var _this = this
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
-    this.loadCities()
+    this.loadCities(function(cities){
+      _this.globalData.cities = cities
+    })
   },
 
 

@@ -9,6 +9,9 @@ Component({
     show: {
       type: Boolean, value: false
     },
+    position: {
+      type: String, value: "bottom"
+    },
     
 
   },
@@ -21,10 +24,15 @@ Component({
     cityIndex: 0,
     district: {name: '不限', id:0}
   },
+  attached: function(){
+    console.log('attached')
+  },
 
   ready: function(){
-    console.log('global cities', app.globalData.cities)
-    this.setData({cities: app.globalData.cities})
+    var _this = this
+    app.loadCities(function(cities) {
+      _this.setData({cities: cities})
+    })
   },
 
   /**

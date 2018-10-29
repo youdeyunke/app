@@ -2,8 +2,9 @@
   "component": true,
   "usingComponents": {
     "van-popup": "/vant/popup/index",
-    "van-tree-select": "/vant/tree-select/index",
     "city-picker": "/components/city-picker",
+    "type-filter": "/components/type-filter",
+    "price-filter": "/components/price-filter",
     "vtransition": "/vant/transition/index"
   }
 }
