@@ -9,7 +9,7 @@
         </view>     
       </view>
 
-      <view class="sfilter-item"  bindtap="priceFilterClick" >
+      <view wx:if="{{group == 'zufang'}}" class="sfilter-item"  bindtap="priceFilterClick" >
         <view class="sfilter-item-wrapper">
           <view>{{ priceRange ? priceRange.name : '价格' }}</view>
           <view class="sfilter-item-arrow"></view>

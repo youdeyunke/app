@@ -1,5 +1,5 @@
 <!--pages/post/index.wxml-->
-<filter bind:change="filterChange" />
+<filter group="{{group}}" bind:change="filterChange" />
 
 <import src="/tpls/posts/ershoufang.wxml" />
 <import src="/tpls/posts/xinfang.wxml" />
