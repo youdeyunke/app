@@ -8,7 +8,7 @@ Page({
    */
   data: {
     page : 1,
-    cat_id: null,
+    catId: null,
     per_page: 8,
     isEmpty: false,
     isEnd: false,
@@ -24,8 +24,8 @@ Page({
     var _this = this
     this.ensureCats(function (cats) {
       var data = { cats: cats }
-      if (!_this.cat_id) {
-        data['cat_id'] = cats[0].id
+      if (!_this.catId) {
+        data['catId'] = cats[0].id
       }
       console.log('set data on load', data)
       _this.setData(data)
@@ -38,13 +38,14 @@ Page({
   },
 
   catHandle: function(e){
-    var cid = e.currentTarget.dataset.id
-    if(cid == this.data.cat_id){
+    var cid = e.target.dataset['cid']
+    if(cid == this.data.catId){
       return false
     }
+
     this.setData({
       news: [],
-      cat_id: cid,
+      catId: cid,
       isEmpty: false,
       isEnd: false,
       page: 1,
@@ -96,7 +97,7 @@ Page({
       loading: true
     })
     var query = {
-      cat_id: _this.data.cat_id,
+      cat_id: _this.data.catId,
       page: _this.data.page, 
       per_page : _this.data.per_page}
     app.request({

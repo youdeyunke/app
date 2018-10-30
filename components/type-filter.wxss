@@ -1,0 +1,19 @@
+.types{
+  display: flex;
+  justify-content: flex-start;
+  align-items:  center;
+  padding:0 30rpx;
+  flex-wrap: wrap;
+}
+
+.type-item{
+  background: #f4f4f4;
+  color: #333;
+  padding:10rpx 30rpx;
+  margin:10rpx;
+}
+
+.type-item.active{
+  background: var(--color-a);
+  color: #fff;
+}

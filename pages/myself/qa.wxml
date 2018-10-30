@@ -1,6 +1,6 @@
-<view class="container">
-  <qa wx:for="{{items}}" item="{{item}}"></qa>
-</view>
+<box padding="30" margin-bottom="0" wx:for="{{items}}" >
+  <qa wx:if="{{item}}"  item="{{item}}"></qa>
+</box>
 
 <view class="empty" wx:if="{{items.length == 0}}">
    <image src="/assets/images/cover-none.png"></image>

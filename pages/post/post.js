@@ -212,33 +212,7 @@ Page({
     })    
   },
 
-  bookingHandle: function(){
-    var _this = this
-    auth.ensureMobile(function(userInfo){
-      _this._bookingHandle()
-    })
-  },
 
-  _bookingHandle: function () {
-    var pid = this.data.postId
-    var _this = this
-    if (_this.data.post.user_has_booking) {
-      return false
-    }
-    app.request({
-      url: '/api/v1/users/mark_book',
-      method: 'POST',
-      data: { post_id: pid },
-      success: function (resp) {
-        console.log('resp', resp)
-        wx.showModal({
-          title: '预约成功！',
-          content: '经济人稍后会来电与您确认具体看房时间，请留意',
-        })
-        _this.loadPost(pid)
-      }
-    })
-  },  
   
   onShareAppMessage: function () {
     var _this = this

@@ -1,0 +1,11 @@
+<popup show="{{show}}"   position="{{position}}" bind:cancle="onReset" bind:confirm="onConfirm"  label="请选择">
+    <view class="tree-select">
+        <van-tree-select
+          items="{{ cities }}"
+          main-active-index="{{ cityIndex }}"
+          active-id="{{ district.id }}"        
+          bind:click-nav="cityClick"
+          bind:click-item="districtClick"
+        /> 
+    </view>
+  </popup>

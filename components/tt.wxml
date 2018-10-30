@@ -4,7 +4,7 @@
   <view class="item-title-block">
     <view class="title">{{item.title}}</view>
     <view class="meta">
-      <view class="author">{{item.author }} 
+            <view class="author">{{item.author }}  {{ item.source }}
         <text wx:if="{{item.view_nums}}"> / 阅读 {{ item.view_nums }}</text>
       </view>
       <view class="date">{{time_ago}}</view>

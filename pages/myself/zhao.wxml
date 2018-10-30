@@ -32,7 +32,7 @@
         </card>
 
         <card hat title="留言">
-          <textarea value="{{content}}" placeholder='其它您想说的'></textarea>
+          <input value="{{content}}" placeholder='其它您想说的'></input>
         </card>
         
 

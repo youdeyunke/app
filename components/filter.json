@@ -1,6 +1,11 @@
 {
   "component": true,
   "usingComponents": {
-      "vtransition": "/vant/transition/index"
+    "van-popup": "/vant/popup/index",
+    "city-picker": "/components/city-picker",
+    "type-filter": "/components/type-filter",
+    "price-filter": "/components/price-filter",
+    "order": "/components/order",
+    "vtransition": "/vant/transition/index"
   }
 }

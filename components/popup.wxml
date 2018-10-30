@@ -1,0 +1,10 @@
+  <van-popup show="{{show}}"   position="{{position}}">
+    <view class="mypopup mypopup-{{position}}">
+        <slot></slot>
+        <view class="actions">
+          <view bindtap="onCancle" class="cancle">{{cancleBtnText}}</view>
+          <view class="label">{{label}}</view>
+          <view bindtap="onConfirm" class="confirm">{{confirmBtnText}}</view>
+        </view>
+    </view>
+  </van-popup>

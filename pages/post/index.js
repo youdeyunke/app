@@ -13,7 +13,9 @@ Page({
     isEmpty: false,
     isEnd: false,
     loading: false,
+    order: 'id,desc',
     posts: [],
+    filter: {},
   },
 
   toggleHandle: function() {
@@ -25,8 +27,19 @@ Page({
   onLoad: function (query) {
     var _this = this
     var group = query.group || 'xinfang'
-    this.setData({ group: group, rent_type: query.rent_type || 1 })
+    this.setData({ group: group, rent_type: query.rent_type || '' })
     this.setPageTitle(group)
+    this.loadData()
+  },
+
+  filterChange: function(e){
+    // 过滤器改变，从第1也开始加载
+    console.log('index page , change ', e.detail)
+    this.setData({
+      filter: e.detail.filter,
+      order: e.detail.order,
+      page: 1,
+    })
     this.loadData()
   },
 
@@ -60,6 +73,7 @@ Page({
   },
 
   loadData: function(){
+    console.log('load data start')
     var _this = this
 
     this.setData({
@@ -71,12 +85,16 @@ Page({
     }  
 
     var query = {
-      //city_id: _this.data.city_id || '',
       page: _this.data.page || 1,
       per_page: _this.data.per_page || 10,
       group: _this.data.group,
       rent_type: _this.data.rent_type, 
+      order: _this.data.order,
     }
+    var filter = this.data.filter
+    // merge query and filter
+    Object.assign(query, filter)
+    console.log('query', query, 'filter',filter)
 
     var _this = this
     app.request({
@@ -84,24 +102,17 @@ Page({
       data: query,
       hideLoading: true,
       success: function(resp){
-        var d = {loading: false}
-        if(resp.data.data.length == 0 ){
-          d.hasMore = false
+        var items = resp.data.data
+        var meta = resp.data.meta
+        var d = {}
+        var i = _this.data.page - 1
+        if(i == 0){
+          d = {posts: [items]}
         }else{
-          var i = _this.data.page - 1
           var k = "posts[" + i + "]"
-          d[k] = resp.data.data
+          d[k] = items
         }
-        if(resp.data.data.length == 0){
-          d['isEnd'] = true
-          if(_this.data.page == 1){
-            d['isEmpty'] = true
-            d['isEnd'] = false
-          }
-        }
-        console.log('d is ', d)
         _this.setData(d)
-
       }
     })
   },

@@ -1,0 +1,24 @@
+
+<form report-submit bindsubmit='btnsHandle' class="fixed-footer broker-bar">
+  <ul>
+    <li class="staff">
+            <view class="staff-avatar"><image wx:if="{{broker.avatar}}" src="{{broker.avatar}}?imageView2/2/w/100"></image></view>
+       <view class="staff-info">
+               <view class="staff-name line-limit">{{broker.name}}</view>
+               <view class="staff-desc line-limit" wx:if="{{broker.wechat}}">微信：{{broker.wechat}}</view>
+       </view>
+    </li>
+    <li bindtap="bookingHandle" class="booking">
+      <button class="btn info" >       
+          <image src="/assets/icons/btn-booking.png"></image>
+          {{ booking ? '已预约' : '预约看房'}}
+      </button>
+    </li>
+    <li class="call" bindtap="callMe">
+        <button class="btn primary">
+            <image src="/assets/icons/btn-call.png"></image>电话
+        </button>
+    </li>
+
+  </ul>
+</form>

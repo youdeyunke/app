@@ -1,5 +1,6 @@
 {
   "usingComponents":{
+    "box": "/components/box",
     "qa": "/components/qa"
   }
 }

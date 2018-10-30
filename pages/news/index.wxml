@@ -1,15 +1,15 @@
-<view class="cats">
-  <view data-id="{{cat.id}}" bindtap='catHandle' class="cat {{ cat_id == cat.id ? 'active' : 'disable' }}" wx:for="{{cats}}" wx:for-item="cat">
-    <image src="{{cat.icon.url}}"></image>
-  </view>
-</view>
 
-<view class="news">
+  <view class="cats" >
+    <text data-cid="{{item.id}}" bindtap="catHandle" class="item {{  catId == item.id ? 'active' : '' }}" wx:for="{{cats}}" id="item-{{index}}">{{item.name}}</text>
+  </view>
+
+
   <block wx:for="{{news}}" wx:for-index="page" wx:for-item="items">
-    <tt data-id="{{item.id}}"  v-if="{{item}}" wx:for="{{items}}"  wx:if="{{item.id}}" item="{{item}}"></tt>
+          <box padding="20" margin-bottom="0" class="fixed-box"  v-if="{{item}}" wx:for="{{items}}"  wx:if="{{item.id}}" >
+                  <tt data-id="{{item.id}}"  item="{{item}}"> </tt>
+          </box>
   </block>
 
   <view class="empty" wx:if="{{isEmpty}}">没有数据</view>
   <view class="empty" wx:if="{{isEnd}}">END</view>
   <view class="empty" wx:if="{{loading}}">加载中...</view>
-</view>

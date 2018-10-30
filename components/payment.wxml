@@ -1,14 +1,8 @@
 <!--components/citypicker.wxml-->
 
-<van-popup custom-class="popup"  position="bottom" show="{{ show }}" bind:close="onClose">
+<popup custom-class="popup"  position="bottom" show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm">
 
-
-    <view class="actions">
-      <view bindtap="onClose" class="cancle">取消</view>
-      <view bindtap="onConfirm" class="confirm">确定</view>
-    </view>
-
-<picker-view  style="width: 100%; height: 400rpx;" bindchange="changeHandle" value="{{value}}">
+<picker-view class="picker"  bindchange="changeHandle" value="{{value}}">
   <picker-view-column>
         <view wx:for="{{ya}}">押{{item}}</view>
   </picker-view-column>
@@ -19,4 +13,4 @@
 
 </picker-view>
 
-</van-popup>
+</popup>

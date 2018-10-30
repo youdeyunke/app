@@ -21,6 +21,9 @@ Page({
       images: [],
       imagesMin: 3,
       imagesMax: 15,
+      broker_name: wx.getStorageSync('broker_name'),
+      broker_mobile: wx.getStorageSync('broker_mobile'),
+      broker_wechat: wx.getStorageSync('broker_wechat'),
     },
 
   },
@@ -30,10 +33,10 @@ Page({
    */
   onLoad: function (q) {
     var _this = this
-    auth.ensureUser(function(userInfo){
-      _this.updatePostField('group', q.group || 'rental' )
-      _this.updatePostField('rent_type', q.rent_type || 'zhengzu' )
-      _this.loadMyselfInfo()
+    _this.updatePostField('group', q.group || 'rental' )
+    _this.updatePostField('rent_type', q.rent_type || 'zhengzu' )
+    auth.ensureUser(function(user){
+      _this.setData({user: user})
     })
   },
 
@@ -100,14 +103,12 @@ Page({
     }
   },
 
-  showError: function(key, msg, alert){
+  showError: function(key, msg){
     console.log('show error ', key, msg)
     var error = this.data.error
     error[key] = true
     this.setData({error: error})
-    if(alert){
-      wx.showToast({title: msg, icon: 'none'})
-    }
+    wx.showToast({title: msg, icon: 'none'})
   },
 
 
@@ -124,86 +125,98 @@ Page({
     
     if(!post.district_id  || !post.city_id){
       _this.showError('district_id', '城市、行政区不能为空')
-      isok = false
+      return
     }
 
     if(!post.area_name){
       _this.showError('area_name', '请填写小区名称')
-      isok = false
+      return
     }
 
     if(!post.area_year){
       _this.showError('area_year', '请填写小区年代')
-      isok = false
+      return
     }
 
     if(!post.street){
       _this.showError('street', '请填写详细街道信息')
-      isok = false
+      return
     }
 
     if(post.group == 'rental' && !post.area){
       _this.showError('area', '请填写房间面积')
-      isok = false
+      return
     }
 
     if(post.group == 'old' && !post.construction_area){
       _this.showError('construction_area', '请填写建筑面积')
-      isok = false
+      return
     }
 
 
     if(post.group == 'rental' && !post.rent_price){
       _this.showError('rent_price', '请填写租金')
-      isok = false
+      return
     }
 
     if(post.group == 'old' && !post.total_price){
       _this.showError('total_price', '请填写详售价')
-      isok = false
+      return
     }
 
     if(!post.s && !post.t && !post.w){
       _this.showError('type', '请填写户型信息')
-      isok = false
+      return
     }
 
     if(!post.position){
       _this.showError('type', '请完善户型信息')
-      isok = false
+      return
     }
 
 
     if(!post.fitment_id){
       _this.showError('fitment_id', '请填写装修信息')
-      isok = false
+      return
     }
 
     if(!post.current_floor || !post.total_floor){
       _this.showError('floor', '请填写楼层信息')
-      isok = false
+      return
     }
 
 
     if(post.group == 'rental' && !post.payment_cycle){
       _this.showError('payment_cycle', '请填写租金支付方式')
-      isok = false
+      return
     }
 
 
     if(post.images.length < _this.data.imagesMin || post.images.length > _this.data.imagesMax){
-      _this.showError('images', '请上传' + _this.data.imagesMin + '~' + _this.data.imagesMax  + '张房源照片', true)
-      isok = false
+      _this.showError('images', '请上传' + _this.data.imagesMin + '~' + _this.data.imagesMax + '张房源照片')
+      return
     }
 
     console.log('数据验证成功：', post)
-    if(isok && typeof cb == 'function'){
+    if(typeof cb == 'function'){
       return cb(post)
     }
   },
 
   validateStep2: function(cb){
+    var _this = this
     var post = this.data.post
+    if(!post.broker_name || post.broker_name.length <= 1 || post.broker_name.length > 5){
+      _this.showError('broker_name', '姓名长度错误(2~5个字符)')
+      return 
+    }
+
+    if(!post.broker_mobile || post.broker_mobile.length != 11){
+      console.log('post', post)
+      _this.showError('broker_mobile', '手机号长度错误')
+      return
+    }
+
     if(typeof cb == 'function'){
       return cb(post)
     }
@@ -299,15 +312,22 @@ Page({
   },
 
   showCityPicker: function(){
-    this.selectComponent('#citypicker').onShow()
+    this.setData({
+      cityPickerShow: true
+    })
   },
 
   cityChanged: function(e){
+    console.log('ccccccccc')
     this.clearError()
     this.updatePostField('city', e.detail.city)
     this.updatePostField('city_id', e.detail.city.id)
     this.updatePostField('district_id', e.detail.district.id)
     this.updatePostField('district', e.detail.district)
+    this.setData({
+      cityPickerShow: false
+    })    
+    console.log('hhhhhh')
   },
 
   imagesChanged: function(e){

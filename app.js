@@ -5,14 +5,30 @@ var auth = require('utils/auth.js');
 App({
 
   globalData: {
-    apiHost: 'https://sszm.udeve.cn',
-    //apiHost: 'http://dockerhost:9001',
+    //apiHost: 'https://sszm.udeve.cn',
+    apiHost: 'http://dockerhost:9001',
     userInfo: null,
     token: null,
     loadingStatus: 0,
     cities: [],
     serverMobile: '15150416776'
   },
+
+  loadCities: function (cb) {
+    if(this.globalData.cities && this.globalData.cities.length > 0){
+      console.log('global data c', this.globalData.cities)
+      return cb(this.globalData.cities)
+    }
+
+    var _this = this
+    this.request({
+      url: '/api/v2/cities',
+      success: function (resp) {
+        _this.globalData.cities = resp.data.data
+        return cb(resp.data.data)
+      }
+    })
+  },      
 
   loadPosts: function(that){
     if(!that.data.hasMore){
@@ -52,21 +68,14 @@ App({
     })
   },
 
-  loadCities: function(cb){
-    var _this = this
-    this.request({
-      url :'/api/v1/cities',
-      success: function(resp){
-        typeof cb == 'function' && cb(resp.data.data)
-      }
-    })
-  },
-
 
   onLaunch: function () {
     var _this = this
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
+    this.loadCities(function(cities){
+      _this.globalData.cities = cities
+    })
   },
 
 
@@ -207,6 +216,8 @@ App({
       },
       complete: function() {
         wx.hideLoading()
+        wx.hideNavigationBarLoading()
+        wx.stopPullDownRefresh()
         typeof obj.complete == "function" && obj.complete()
       }
     })

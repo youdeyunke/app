@@ -1,11 +1,5 @@
 // components/typepicker.js
-const ya = []
-const fu = []
-
-for(let i=1;i<=12;i++){
-  ya.push(i)
-  fu.push(i)
-}
+const nums = ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二', '二十四']
 
 Component({
   /**
@@ -21,9 +15,9 @@ Component({
    * 组件的初始数据
    */
   data: {
-    ya: ya,
-    fu: fu,
-    value: [0,0],
+    ya: nums,
+    fu: nums,
+    value: [0, 2],
   },
 
   /**

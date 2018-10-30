@@ -40,7 +40,8 @@
 .qa-item-author{
   text-align: right;
   color: #999;
-  margin:10rpx 20rpx 20rpx 0;
+  margin:20rpx 20rpx 20rpx 0;
+  font-size:22rpx;
 }
 
 .qa-item-a{

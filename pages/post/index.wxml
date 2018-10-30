@@ -1,4 +1,6 @@
 <!--pages/post/index.wxml-->
+<filter group="{{group}}" bind:change="filterChange" />
+
 <import src="/tpls/posts/ershoufang.wxml" />
 <import src="/tpls/posts/xinfang.wxml" />
 <import src="/tpls/posts/zufang.wxml" />
@@ -8,5 +10,3 @@
    <image src="/assets/images/cover-none.png"></image>
    <view>{{ emptyText || '没有数据'}}</view>
 </view>
-<view class="empty" wx:if="{{isEnd}}">END</view>
-<view class="empty" wx:if="{{loading}}">加载中...</view>

@@ -250,59 +250,6 @@ mycard{
 
 
 
-.footer-btns ul{
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  box-sizing:border-box;
-  padding:0 40rpx;
-}
-
-
-.footer-btns li.staff{
-   display:flex;
-   justify-content:flex-start;
-   width:260rpx;
-   letter-spacing:0.5rpx;
-   padding:10rpx 0rpx;
-   box-sizing:border-box;
-}
-
-.footer-btns .staff-info{
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    align-items:flex-start;
-    margin-left:20rpx;
-}
-
-.footer-btns .staff-avatar{
-        display:flex;
-        justify-content:center;
-        align-items:center;
-}
-.footer-btns .staff-avatar image{
-   width:35px;
-   height:35px;
-   border-radius:100%;
-   overflow:hidden;
-}
-
-.footer-btns .staff-name{
-    width:150rpx;
-    font-size:var(--font-xs);
-    color:#000;
-}
-
-.footer-btns .staff-desc{
-    width:150rpx;
-    font-size:var(--font-xs);
-    color:#666;
-}
-
 myfav .myfav {
   display: flex;
   justify-content: center;

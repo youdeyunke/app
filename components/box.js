@@ -1,5 +1,7 @@
 // components/box.js
 Component({
+  options: {
+  },
   /**
    * 组件的属性列表
    */
@@ -10,7 +12,24 @@ Component({
     radius: {
       type: Number, value: 0,
     },
+
     padding: {
+      type: Number, value: 0,
+    },
+
+    marginBottom: {
+      type: Number, value: 20,
+    },
+
+    marginLeft: {
+      type: Number, value: 0,
+    },
+
+    marginRight: {
+      type: Number, value: 0,
+    },
+
+    marginTop: {
       type: Number, value: 0,
     },
 

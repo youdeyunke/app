@@ -7,32 +7,25 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    group: {type: String, value: ''}
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    priceRange: [
-        [
-          '不限', 0, 50, 100,150, 200,250, 300,350, 400, 450,500,550,  600, 650, 700,750, 800,850, 900,950, 1000, 1500, 2000,3000, 4000, 5000
-        ],
-        [
-          '不限', 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000, 1500, 2000, 3000, 4000, 5000
-        ]
-    ],
-
-    districts: [],
-    cities: [],    
-    districtIndex: null,
-    districtName: null,
-    cityIndex: null,
-    cityName: null,
+    city: {},
+    showPriceFilter: false,
+    priceRange: null,
+    district:{},
+    showCitySelect: false,
   },
 
   ready: function(){
-    this.loadCities()
+    this.setData({
+      cities: app.globalData.cities
+    })
+  
   },
 
   /**
@@ -40,64 +33,86 @@ Component({
    */
   methods: {
 
-    loadCities: function(){
-      var _this = this
-      app.request({
-        url: '/api/v1/cities/',
-        data: {},
-        hideLoading: true,
-        success: function(resp){
-          var data = [{id: null, name: '不限'}].concat(resp.data.data)
-
-          _this.setData({cities: data})
-          _this.loadDistricts(resp.data.data[0].id)
-        }
+    orderClick: function(e){
+      this.setData({
+        showOrder: true
       })
     },
 
-    loadDistricts: function(cityId){
-      var _this = this
-      app.request({
-        url: '/api/v1/districts/',
-        hideLoading: true,
-        data: {city_id: cityId},
-        success: function(resp){
-          var data = [{ id: null, name: '不限' }].concat(resp.data.data)          
-          _this.setData({districts: data})
-        }
+    orderChange: function(e){
+      console.log('e.detail', e)
+      this.setData({
+        order: e.detail.order.value.join(','),
+        showOrder: false,
       })
+      this.onChange()
     },
 
-    cityHandle:function(e){
-      console.log('e', e)   
-      var i = e.detail.value
-      var v = this.data.cities[i]
-      if(i == 0){
-        this.setData({
-          cityIndex: 0,
-          cityName: '',
-          districts: [],
-        })
-        return false
+    onChange: function(){
+      // 过滤器选项改变
+      var c = this.data.city
+      var d = this.data.district
+      var filter = {}
+      if(c && c.id){
+        filter['city_id'] = c.id
       }
+      if(d && d.id){
+        filter['district_id'] = d.id
+      }
+      if (this.data.priceRange){
+        console.log('this.data.priceRange.value', this.data.priceRange.value)
+        filter['rent_price'] = this.data.priceRange.value.join(',')
+      }
+      console.log('filter.onchange ', filter)
+      var order = this.data.order
+      this.triggerEvent('change', {filter: filter, order: order}, {})
       
-      this.setData({
-        cityIndex: i,
-        cityName: v.name,
-        districts: [],
-      }) 
-
-      this.loadDistricts(v.id)
     },
 
-    districtHandle: function(e){
-      var i = e.detail.value
-      var v = this.data.districts[i]
-      console.log('i', i, 'v', v)
+    priceChange: function(e){
+      console.log('e', e)
       this.setData({
-        districtIndex: i,
-        districtName: v.name,
-      })       
+        showPriceFilter:false,
+        priceRange: e.detail.rent_price
+      })
+      this.onChange()
+    },
+
+    cityChange: function(e){
+      console.log('city chage', e)
+      var c = e.detail.city
+      var d = e.detail.district
+      var cityDistrictName = ''
+      if(c.id){
+        cityDistrictName += c.name
+      }
+      if(d.id){
+        cityDistrictName += ' '
+        cityDistrictName += d.name
+      }
+     
+      this.setData({
+        city: e.detail.city,
+        district: e.detail.district,
+        showCitySelect: false,
+        cityDistrictName: cityDistrictName,
+      })
+
+      this.onChange()
+    },
+
+    priceFilterClick: function(e){
+      var v = this.data.showPriceFilter
+      this.setData({
+        showPriceFilter: !v
+      })
+    },
+
+    cityFilterClick: function(e){
+      var v = this.data.showCitySelect
+      this.setData({
+        showCitySelect: !v
+      })
     },
 
   }

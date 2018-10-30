@@ -1,17 +1,13 @@
 .item{
-   letter-spacing: 4rpx;
+  letter-spacing: 4rpx;
   width: 100%;
-  height: 177rpx;
+  height: 160rpx;
   background: #fff;
-  border-radius: 20rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  padding:35rpx 20rpx;
-  margin-bottom:30rpx;
   position: relative;
-  box-shadow: 0 2rpx 4rpx rgba(0,0,0, 0.1);
 }
 
 .item .badge{
@@ -24,10 +20,9 @@
 }
 
 
-
 .item .cover{
-  width: 197rpx;
-  height: 122rpx;
+  width: 240rpx;
+  height: 160rpx;
   border-radius: 20rpx;
   overflow: hidden;
 }
@@ -51,7 +46,7 @@
 .item .item-title-block{
   height: 100%;
   display: flex;
-  width: calc(100% - 210rpx);
+  width: 450rpx;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -74,7 +69,7 @@
 }
 
 .item .author{
-  font-size:20rpx;
+  font-size:22rpx;
   color: #666;
   letter-spacing: 1rpx;
 }

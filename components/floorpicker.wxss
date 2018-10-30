@@ -1,18 +1,9 @@
 /* components/typepicker.wxss */
-.popup picker-view-column view{
+.picker{
+  height:400rpx;
+}
+
+.picker picker-view-column view{
         text-align:center;
 }
 
-.popup .actions{
-  height:100rpx;
-  padding:0 40rpx;
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2rpx solid #f4f4f4;
-  font-size:var(--font-xl);
-}
-
-.popup .actions .confirm{
-  color: var(--color-a);
-}
