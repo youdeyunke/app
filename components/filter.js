@@ -33,6 +33,21 @@ Component({
    */
   methods: {
 
+    orderClick: function(e){
+      this.setData({
+        showOrder: true
+      })
+    },
+
+    orderChange: function(e){
+      console.log('e.detail', e)
+      this.setData({
+        order: e.detail.order.value.join(','),
+        showOrder: false,
+      })
+      this.onChange()
+    },
+
     onChange: function(){
       // 过滤器选项改变
       var c = this.data.city
@@ -49,7 +64,8 @@ Component({
         filter['rent_price'] = this.data.priceRange.value.join(',')
       }
       console.log('filter.onchange ', filter)
-      this.triggerEvent('change', {filter: filter}, {})
+      var order = this.data.order
+      this.triggerEvent('change', {filter: filter, order: order}, {})
       
     },
 

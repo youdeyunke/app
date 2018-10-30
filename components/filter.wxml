@@ -16,10 +16,18 @@
         </view>     
       </view>
 
+
+      <view class="sfilter-item"  bindtap="orderClick" >
+        <view class="sfilter-item-wrapper">
+          <view>排序</view>
+          <view class="sfilter-item-arrow"></view>
+        </view>     
+      </view>      
+
     </view>
 
     <city-picker wx:if="{{cities}}" position="top" bind:change="cityChange" show="{{showCitySelect}}" />
     <price-filter bindchange="priceChange" show="{{showPriceFilter}}" />
-
+    <order show="{{showOrder}}" bind:change="orderChange" />
 </view>
 

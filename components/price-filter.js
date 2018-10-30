@@ -22,6 +22,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    key: {
+      type: String, value: 'rent_price'
+    },
     show: {
       type: Boolean, value: true,
     }

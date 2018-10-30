@@ -13,6 +13,7 @@ Page({
     isEmpty: false,
     isEnd: false,
     loading: false,
+    order: 'id,desc',
     posts: [],
     filter: {},
   },
@@ -36,6 +37,7 @@ Page({
     console.log('index page , change ', e.detail)
     this.setData({
       filter: e.detail.filter,
+      order: e.detail.order,
       page: 1,
     })
     this.loadData()
@@ -87,6 +89,7 @@ Page({
       per_page: _this.data.per_page || 10,
       group: _this.data.group,
       rent_type: _this.data.rent_type, 
+      order: _this.data.order,
     }
     var filter = this.data.filter
     // merge query and filter
