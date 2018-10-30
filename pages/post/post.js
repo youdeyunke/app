@@ -78,7 +78,7 @@ Page({
   },
 
   callMe: function(){
-    var m = app.globalData.serverMobile
+    var m = this.data.post.staff_user.mobile
     wx.makePhoneCall({
         phoneNumber: m //仅为示例，并非真实的电话号码
     })
