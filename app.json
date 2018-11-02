@@ -7,8 +7,6 @@
     "pages/comments/new",
     "pages/post/index",
     "pages/qa/qa",
-    "pages/news/index",
-    "pages/news/show",
     "pages/post/post",
     "pages/myself/index",
     "pages/about/index",
@@ -38,12 +36,6 @@
         "iconPath": "/assets/icons/qa.0.png",
         "selectedIconPath": "/assets/icons/qa.1.png",
         "text": "问答"
-      },
-      {
-        "pagePath": "pages/news/index",
-        "iconPath": "/assets/icons/news.0.png",
-        "selectedIconPath": "/assets/icons/news.1.png",
-        "text": "资讯"
       },
       {
         "pagePath": "pages/myself/index",

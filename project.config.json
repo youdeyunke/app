@@ -36,13 +36,19 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "post",
 					"pathName": "pages/post/post",
-					"query": "id=15"
+					"query": "id=3"
+				},
+				{
+					"id": -1,
+					"name": "发布租房",
+					"pathName": "pages/post/form",
+					"query": "group=rental&rent_type=zhengzu"
 				}
 			]
 		}

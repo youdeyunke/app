@@ -9,6 +9,14 @@
         </view>     
       </view>
 
+
+      <view wx:if="{{group == 'zufang'}}" class="sfilter-item"  bindtap="typeFilterClick" >
+        <view class="sfilter-item-wrapper">
+          <view>{{  s ? s.name : '户型' }}</view>
+          <view class="sfilter-item-arrow"></view>
+        </view>     
+      </view>
+
       <view wx:if="{{group == 'zufang'}}" class="sfilter-item"  bindtap="priceFilterClick" >
         <view class="sfilter-item-wrapper">
           <view>{{ priceRange ? priceRange.name : '价格' }}</view>
@@ -29,5 +37,6 @@
     <city-picker wx:if="{{cities}}" position="top" bind:change="cityChange" show="{{showCitySelect}}" />
     <price-filter bindchange="priceChange" show="{{showPriceFilter}}" />
     <order show="{{showOrder}}" bind:change="orderChange" />
+    <type-filter show="{{showTypeFilter}}" bind:change="typeChange" />
 </view>
 
