@@ -1,6 +1,10 @@
 // pages/post/new.js
 const app = getApp()
 var auth = require('../../utils/auth.js');
+var minRentMonthItems = []
+for(var i=0;i<=12;i++){
+  minRentMonthItems.push({label: i+'个月', value: i})
+}
 
 Page({
 
@@ -14,6 +18,7 @@ Page({
     districts: [],
     imagesMin: 3,
     imagesMax: 15,
+    minRentMonthItems: minRentMonthItems,
 
     post: {
       city: {},
@@ -174,7 +179,6 @@ Page({
       return
     }
 
-
     if(!post.fitment_id){
       _this.showError('fitment_id', '请填写装修信息')
       return
@@ -262,9 +266,18 @@ Page({
   clearError: function(){
     this.setData({error: {}})
   },
+
+  minRentMonthChange: function(e){
+    console.log('e', e)
+    this.updatePostField('min_rent_month', e.detail.item.value)
+  },
   
   inputChange: function(e){
     this.clearError()
+  },    
+
+  showMinRentMonthPicker: function(){
+    this.selectComponent('#min-rent-month').onShow()
   },
 
   showTypePicker: function(){

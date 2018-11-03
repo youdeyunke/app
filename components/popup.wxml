@@ -2,9 +2,9 @@
     <view class="mypopup mypopup-{{position}}">
         <view class="main"><slot></slot></view>
         <view class="actions">
-          <view bindtap="onCancle" class="cancle">{{cancleBtnText}}</view>
+          <view catchtap="onCancle" class="cancle">{{cancleBtnText}}</view>
           <view class="label">{{label}}</view>
-          <view bindtap="onConfirm" class="confirm">{{confirmBtnText}}</view>
+          <view catchtap="onConfirm" class="confirm">{{confirmBtnText}}</view>
         </view>
     </view>
   </van-popup>

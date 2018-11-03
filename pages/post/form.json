@@ -7,6 +7,7 @@
     "images-uploader": "/components/images-uploader",
     "payment": "/components/payment",
     "fitment-picker": "/components/fitment-picker",
+    "mypicker": "/components/picker",
     "stepper": "/vant/stepper/index",
     "van-field": "/vant/field/index",
     "van-stepper": "/vant/stepper/index",

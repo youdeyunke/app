@@ -66,6 +66,17 @@
     placeholder="元"
     bind:change="inputChange"
   />
+
+  <van-field 
+          bindtap="showMinRentMonthPicker" 
+          is-link 
+          error="{{error.min_rent_month}}"
+          label="起租" 
+          value="{{post.min_rent_month > 0 ? post.min_rent_month +'个月' : '请选择' }}"  
+          arrow-direction="down" 
+          disabled  
+  />
+
   </block>
 
   <block wx:if="{{post.group == 'old'}}">
@@ -125,15 +136,6 @@
           arrow-direction="down" 
           disabled  />
 
-  <view class="min_rent_month">
-      <van-cell title="起租时间" />
-      <van-stepper 
-              border="{{false}}"
-              name="min_rent_month" 
-              value="{{ post.min_rent_month }}" 
-              bind:change="onChange" 
-      />
-  </view>
 
 
 </card>
@@ -186,7 +188,7 @@
 
 
 </form>
-
+<mypicker bindtap="showMinRentMonthPicker" id="min-rent-month"  items="{{minRentMonthItems}}" bindchange="minRentMonthChange" />
 <city-picker id="citypicker" bindchange="cityChanged" show="{{cityPickerShow}}" />
 <typepicker id="typepicker" bindconfirm="typeChanged" />
 <payment id="payment" bindconfirm="paymentChanged" />
