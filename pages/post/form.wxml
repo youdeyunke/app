@@ -67,15 +67,10 @@
     bind:change="inputChange"
   />
 
-  <van-field 
-          bindtap="showMinRentMonthPicker" 
-          is-link 
-          error="{{error.min_rent_month}}"
-          label="起租" 
-          value="{{post.min_rent_month > 0 ? post.min_rent_month +'个月' : '请选择' }}"  
-          arrow-direction="down" 
-          disabled  
-  />
+  <picker bindchange="minRentMonthChange" range-key="label" range="{{minRentMonthItems}}" value="0">
+        <van-cell title="起租" is-link value="{{post.min_rent_month >0 ? post.min_rent_month + '个月' : '' }}">
+        </van-cell>
+  </picker>
 
   </block>
 
@@ -104,6 +99,7 @@
           bindtap="showTypePicker" 
           is-link 
           error="{{error.type}}"
+          input-align="right"
           label="户型" 
           value="{{post.w}}室-{{post.t}}厅-{{post.w}}卫 {{ post.position}}"  
           arrow-direction="down" 
@@ -135,6 +131,18 @@
           value="{{post.payment_cycle || '请选择'}}"  
           arrow-direction="down" 
           disabled  />
+  <van-switch-cell
+    title="服务费"
+    name="service_charge_enable"
+    checked="{{post.service_charge_enable}}"
+    bindchange="serviceChargeEnableChange"
+  />
+  <van-field wx:if="{{post.service_charge_enable}}"
+    name="service_charge"
+    value="{{ post.service_charge }}"
+    label="收费标准"
+    placeholder="请输入"
+  />
 
 
 

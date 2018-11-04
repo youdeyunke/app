@@ -215,11 +215,21 @@ Page({
       return 
     }
 
-    if(!post.broker_mobile || post.broker_mobile.length != 11){
-      console.log('post', post)
+    if(!post.broker_wechat && !post.broker_mobile){
+      _this.showError('broker_mobile', '微信号和手机号必须填写一个')
+      return
+    }
+
+    if(post.broker_mobile && post.broker_mobile.length != 11){
       _this.showError('broker_mobile', '手机号长度错误')
       return
     }
+
+    if(post.broker_wechat && post.broker_wechat.length <= 3){
+      _this.showError('broker_mobile', '微信号长度错误')
+      return
+    }
+
 
     if(typeof cb == 'function'){
       return cb(post)
@@ -267,18 +277,19 @@ Page({
     this.setData({error: {}})
   },
 
+  serviceChargeEnableChange: function(e){
+    this.updatePostField('service_charge_enable', e.detail)
+  },
+
   minRentMonthChange: function(e){
-    console.log('e', e)
-    this.updatePostField('min_rent_month', e.detail.item.value)
+    var v = e.detail.value
+    this.updatePostField('min_rent_month', v)
   },
   
   inputChange: function(e){
     this.clearError()
   },    
 
-  showMinRentMonthPicker: function(){
-    this.selectComponent('#min-rent-month').onShow()
-  },
 
   showTypePicker: function(){
     this.selectComponent('#typepicker').onShow()
