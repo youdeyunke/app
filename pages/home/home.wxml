@@ -10,7 +10,7 @@
     </navigator>
 
     <navigator hover-class="none" bindtap='publishHandle'>
-      <view style="background:green" class="icon-cover">
+      <view style="background:#fdaa3d" class="icon-cover">
           <image src="/assets/icons/tab-publish.png"></image>
       </view>
       <text>发布房源</text>
@@ -19,10 +19,10 @@
   </view>
 </view>
 
-<view class="h1" style="width:730rpx; padding:0 0 20rpx 20rpx;">精选好房</view>
-<block wx:for="{{posts}}" wx:for-item="postitems">
-        <postcard wx:for="{{postitems}}" item="{{item}}"></postcard>
-</block>
+    <view class="h1" style="margin:0 0 20rpx 40rpx;">精选好房</view>
+    <block wx:for="{{posts}}" wx:for-item="postitems">
+            <postcard wx:for="{{postitems}}" item="{{item}}"></postcard>
+    </block>
 
 <van-action-sheet
   show="{{ publishSheetShow }}"

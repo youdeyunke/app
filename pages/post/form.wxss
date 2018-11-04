@@ -18,7 +18,6 @@ page{
   align-items: center;
 }
 
-
 .buttons{
   width:calc(750rpx - 20rpx);
   padding:0 10rpx;
@@ -27,4 +26,24 @@ page{
 
 .buttons button{
   margin:10rpx 0;
+}
+
+.min_rent_month{
+  position:relative;
+  width:100%;
+  height:88rpx;
+}
+
+.min_rent_month .van-cell{
+  position:absolute;
+  left:0rpx;
+  top:10rpx;
+  bottom:0rpx;
+}
+
+.min_rent_month .van-stepper{
+  position:absolute;
+  right:0rpx;
+  top:20rpx;
+  bottom:0rpx;
 }

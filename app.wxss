@@ -315,7 +315,6 @@ textarea{
   color:#fff;
 }
 
-
 page::after{
   padding-top:20rpx;
   font-size:20rpx;

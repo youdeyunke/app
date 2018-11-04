@@ -18,7 +18,6 @@ Page({
   },
 
   getPhoneNumber: function (e) {
-    wx.showToast({title: '演示项目无法绑定'})
 
     if(!e.detail.iv){
         this.setData({mobile: ' '}) 

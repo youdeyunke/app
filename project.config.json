@@ -1,16 +1,28 @@
 {
-	"description": "项目配置文件。",
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
 	"setting": {
 		"urlCheck": false,
 		"es6": true,
-		"postcss": true,
+		"postcss": false,
 		"minified": true,
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.3.0",
-	"appid": "wx22f2238c72f84e69",
-	"projectname": "Fang",
+	"libVersion": "2.3.2",
+	"appid": "wxbd3a0b6a63fbe59d",
+	"projectname": "%E6%AF%AB%E7%B1%B3%E7%A4%BE%E7%A7%9F%E6%88%BF",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"scripts": {
+		"beforeCompile": "",
+		"beforePreview": "",
+		"beforeUpload": ""
+	},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -25,32 +37,14 @@
 			"list": []
 		},
 		"game": {
-			"current": -1,
+			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
 			"current": 24,
 			"list": [
 				{
-					"id": 0,
-					"name": "qa-index",
-					"pathName": "pages/qa/index",
-					"query": ""
-				},
-				{
 					"id": -1,
-					"name": "webview",
-					"pathName": "pages/webview/webview",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "nwe-comment",
-					"pathName": "pages/comments/new",
-					"query": "target_id=1&target_type=post"
-				},
-				{
-					"id": 3,
 					"name": "post",
 					"pathName": "pages/post/post",
 					"query": "id=54"

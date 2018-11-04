@@ -10,9 +10,9 @@ Page({
   data: {
     user_id: null,
     cats: [
-      {name: '考虑看房', id: 1},
-      {name: '看过该房', id: 2},
-      {name: '我是业主', id: 3},
+      {name: '看过该房', id: 1},
+      {name: '我是租客', id: 2},
+      {name: '其他', id: 3},
     ],
 
     posts: [{}],

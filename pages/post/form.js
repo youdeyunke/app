@@ -1,6 +1,10 @@
 // pages/post/new.js
 const app = getApp()
 var auth = require('../../utils/auth.js');
+var minRentMonthItems = []
+for(var i=0;i<=12;i++){
+  minRentMonthItems.push({label: i+'个月', value: i})
+}
 
 Page({
 
@@ -14,14 +18,14 @@ Page({
     districts: [],
     imagesMin: 3,
     imagesMax: 15,
+    minRentMonthItems: minRentMonthItems,
 
     post: {
       city: {},
       district: {},
       images: [],
-      broker_name: wx.getStorageSync('broker_name'),
-      broker_mobile: wx.getStorageSync('broker_mobile'),
-      broker_wechat: wx.getStorageSync('broker_wechat'),
+      imagesMin: 3,
+      imagesMax: 15,
     },
 
   },
@@ -30,6 +34,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
+    this.setData({
+      broker_name: wx.getStorageSync('broker_name') || '',
+      broker_wechat: wx.getStorageSync('broker_wechat') || '',
+      broker_mobile: wx.getStorageSync('broker_mobile') || '',
+    })
+
     var _this = this
     _this.updatePostField('group', q.group || 'rental' )
     _this.updatePostField('rent_type', q.rent_type || 'zhengzu' )
@@ -114,6 +124,12 @@ Page({
     this.setData({error: {}})
     var post = this.data.post
     var _this = this
+    var isok= true
+
+    if(!post.title){
+      _this.showError('title', '请填写标题') 
+      isok = false
+    }
     
     if(!post.district_id  || !post.city_id){
       _this.showError('district_id', '城市、行政区不能为空')
@@ -166,7 +182,6 @@ Page({
       return
     }
 
-
     if(!post.fitment_id){
       _this.showError('fitment_id', '请填写装修信息')
       return
@@ -203,11 +218,21 @@ Page({
       return 
     }
 
-    if(!post.broker_mobile || post.broker_mobile.length != 11){
-      console.log('post', post)
+    if(!post.broker_wechat && !post.broker_mobile){
+      _this.showError('broker_mobile', '微信号和手机号必须填写一个')
+      return
+    }
+
+    if(post.broker_mobile && post.broker_mobile.length != 11){
       _this.showError('broker_mobile', '手机号长度错误')
       return
     }
+
+    if(post.broker_wechat && post.broker_wechat.length <= 3){
+      _this.showError('broker_wechat', '微信号长度错误')
+      return
+    }
+
 
     if(typeof cb == 'function'){
       return cb(post)
@@ -231,11 +256,16 @@ Page({
   doSubmit: function(post){
     // update or create post 
     var _this = this
+    var data = this.data.post
     app.request({
       url: '/api/v2/posts/',
       method: 'POST',
-      data: {post: post},
+      data: {post: data},
       success: function(resp){
+        // set 
+        wx.setStorage({key: 'broker_name', data: data.broker_name})
+        wx.setStorage({key: 'broker_mobile', data: data.broker_mobile})
+        wx.setStorage({key: 'broker_wechat', data: data.broker_wechat})
         return _this.submitCallback(resp.data)
       },
     })
@@ -253,10 +283,20 @@ Page({
   clearError: function(){
     this.setData({error: {}})
   },
+
+  serviceChargeEnableChange: function(e){
+    this.updatePostField('service_charge_enable', e.detail)
+  },
+
+  minRentMonthChange: function(e){
+    var v = e.detail.value
+    this.updatePostField('min_rent_month', v)
+  },
   
   inputChange: function(e){
     this.clearError()
-  },
+  },    
+
 
   showTypePicker: function(){
     this.selectComponent('#typepicker').onShow()

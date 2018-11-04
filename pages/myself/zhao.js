@@ -16,18 +16,16 @@ Page({
     contact: '',
 
     purposeList: [
-      {name: '采光好'},
+      {name: '合租' },
+      {name: '整租' },
+      {name: '有电梯'},
+      {name: '可做饭'},
+      {name: '可养宠物'},
       {name: '繁华地段'},
       {name: '配套成熟'},
       {name: '交通便利'},
-      {name: '南北通透'},
-      {name: '小区优质位置'},
-      { name: '刚需'},
-      { name: '结婚'},
-      {name: '投资'},
-      {name: '给父母住'},
-      {name: '孩子上学'},
-      {name: '改善条件'},
+      {name: '品牌公寓'},
+
     ]
   },
 

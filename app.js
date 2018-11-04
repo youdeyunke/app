@@ -5,13 +5,13 @@ var auth = require('utils/auth.js');
 App({
 
   globalData: {
+    //apiHost: 'https://sszm.udeve.cn',
     apiHost: 'http://dockerhost:9001',
-    //apiHost: 'https://fang.udeve.cn',
     userInfo: null,
     token: null,
     loadingStatus: 0,
     cities: [],
-    serverMobile: '400111222'
+    serverMobile: '15150416776'
   },
 
   loadCities: function (cb) {

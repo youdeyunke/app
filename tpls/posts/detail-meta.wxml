@@ -69,7 +69,7 @@
 
                 <view class="meta">
                   <text class="label">小区</text>
-                  <text>{{ post.area }} ({{post.area_year}})</text>
+                  <text>{{ post.area_name }} ({{post.area_year}})</text>
                 </view> 
 
 
