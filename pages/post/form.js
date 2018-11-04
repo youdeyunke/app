@@ -26,9 +26,6 @@ Page({
       images: [],
       imagesMin: 3,
       imagesMax: 15,
-      broker_name: wx.getStorageSync('broker_name'),
-      broker_mobile: wx.getStorageSync('broker_mobile'),
-      broker_wechat: wx.getStorageSync('broker_wechat'),
     },
 
   },
@@ -37,6 +34,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
+    this.setData({
+      broker_name: wx.getStorageSync('broker_name') || '',
+      broker_wechat: wx.getStorageSync('broker_wechat') || '',
+      broker_mobile: wx.getStorageSync('broker_mobile') || '',
+    })
+
     var _this = this
     _this.updatePostField('group', q.group || 'rental' )
     _this.updatePostField('rent_type', q.rent_type || 'zhengzu' )
@@ -226,7 +229,7 @@ Page({
     }
 
     if(post.broker_wechat && post.broker_wechat.length <= 3){
-      _this.showError('broker_mobile', '微信号长度错误')
+      _this.showError('broker_wechat', '微信号长度错误')
       return
     }
 
@@ -259,6 +262,10 @@ Page({
       method: 'POST',
       data: {post: data},
       success: function(resp){
+        // set 
+        wx.setStorage({key: 'broker_name', data: data.broker_name})
+        wx.setStorage({key: 'broker_mobile', data: data.broker_mobile})
+        wx.setStorage({key: 'broker_wechat', data: data.broker_wechat})
         return _this.submitCallback(resp.data)
       },
     })

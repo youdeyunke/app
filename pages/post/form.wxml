@@ -175,9 +175,9 @@
 
 
 <card hat title="联系人信息" subtitle="必填">
-    <van-field label="姓名" value="{{ post.broker_name || user.name }}" placeholder="请输入" name="broker_name" error="{{error.broker_name}}"/>
-    <van-field label="电话" value="{{ post.broker_mobile || user.mobile}}" placeholder="请输入" name="broker_mobile" error="{{error.broker_mobile}}"  />
-    <van-field label="微信" value="{{post.broker_wechat || user.wechat }}" placeholder="选填" name="broker_wechat" border="{{false}}"  />
+    <van-field label="姓名" value="{{ post.broker_name || broker_name}}" placeholder="请输入" name="broker_name" error="{{error.broker_name}}"/>
+    <van-field label="电话" value="{{ post.broker_mobile || broker_mobile }}" placeholder="请输入" name="broker_mobile" error="{{error.broker_mobile}}"  />
+    <van-field label="微信" value="{{post.broker_wechat || broker_wechat }}" placeholder="选填" name="broker_wechat" border="{{false}}"  />
 </card>
 
 </view>
