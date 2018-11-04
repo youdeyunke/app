@@ -1,0 +1,9 @@
+/* components/typepicker.wxss */
+
+.picker {
+  height:400rpx;
+}
+.picker picker-view-column view{
+        text-align:center;
+}
+

@@ -44,7 +44,7 @@
 			"current": 24,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "post",
 					"pathName": "pages/post/post",
 					"query": "id=54"
@@ -123,31 +123,7 @@
 				},
 				{
 					"id": -1,
-					"name": "myself-fav",
-					"pathName": "pages/myself/favposts",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "post-index",
-					"pathName": "pages/post/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "comments-index-target",
-					"pathName": "pages/comments/index",
-					"query": "target_id=1"
-				},
-				{
-					"id": -1,
-					"name": "zhaofang",
-					"pathName": "pages/myself/zhao",
-					"query": ""
-				},
-				{
-					"id": 20,
-					"name": "发布整租",
+					"name": "发布租房",
 					"pathName": "pages/post/form",
 					"query": "group=rental&rent_type=zhengzu"
 				},

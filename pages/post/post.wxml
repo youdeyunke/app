@@ -92,6 +92,11 @@
           <view class="info_text"> {{ post.rent_limit }} </view>
         </block>
 
+        <block wx:if="{{post.service_charge_enable}}">
+          <view class="info_title">服务费</view>
+          <view class="info_text"> {{post.service_charge}} </view>
+        </block>
+
         <block wx:if="{{post.surrounding}}">
           <view class="info_title">周边配套</view>
           <view class="info_text"> {{post.surrounding}} </view>

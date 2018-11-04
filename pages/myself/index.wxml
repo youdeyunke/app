@@ -1,5 +1,3 @@
-
-
 <box>
 <view class="user-login" wx:if="{{!userInfo}}">
     <view class="avatar">

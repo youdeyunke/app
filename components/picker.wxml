@@ -1,0 +1,10 @@
+<!--components/citypicker.wxml-->
+
+<popup  position="bottom" show="{{ show }}" bind:cancle="onCancle" bind:confirm="onConfirm" label="请选择" cancle-btn-text="取消">
+
+<picker-view class="picker"  bindchange="changeHandle" value="{{value}}">
+  <picker-view-column >
+      <view wx:for="{{items}}">{{item.label}}</view>
+  </picker-view-column>
+</picker-view>
+</popup>

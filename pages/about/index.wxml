@@ -18,7 +18,7 @@
         
         <view class="item">
           <view class="label">最近更新</view>
-          <view class="value">新增“发布房源”功能</view>
+          <view class="value">优化房源卡片展示效果</view>
         </view>     
          
         <view class="meta">
@@ -26,7 +26,6 @@
                 <view class="label">技术支持</view>
                 <view class="value">
                   <text selectable="{{true}}">www.wefang.net</text>
-                  <image src="/assets/icons/wechat.jpg"></image>
                 </view>
               </view>   
         </view>        
