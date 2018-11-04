@@ -17,8 +17,10 @@ Component({
     city: {},
     showPriceFilter: false,
     priceRange: null,
+    s:  null,
     district:{},
     showCitySelect: false,
+    showTypeFilter: false,
   },
 
   ready: function(){
@@ -32,10 +34,23 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    typeChange: function(e){
+      this.setData({
+        showTypeFilter: false,
+        s: e.detail.s,
+      })
+      this.onChange()
+    },
 
     orderClick: function(e){
       this.setData({
         showOrder: true
+      })
+    },
+
+    typeFilterClick: function(e){
+      this.setData({
+        showTypeFilter: true
       })
     },
 
@@ -52,7 +67,11 @@ Component({
       // 过滤器选项改变
       var c = this.data.city
       var d = this.data.district
+      var s = this.data.s
       var filter = {}
+      if(s && s.s){
+        filter['s'] = s.s
+      }
       if(c && c.id){
         filter['city_id'] = c.id
       }
