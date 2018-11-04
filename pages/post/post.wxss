@@ -115,7 +115,6 @@ mycard{
 
 
 .header{
-  width:720rpx;
   padding:35rpx;
   box-sizing:border-box;
   display:flex;
@@ -123,12 +122,6 @@ mycard{
   justify-content:center;
   align-items:flex-start;
   background:#fff;
-  border-radius:20rpx;
-  position:relative;
-  z-index:99999;
-  margin:-70rpx auto auto auto;
-  box-shadow: 2rpx 6rpx 10rpx rgba(0,0,0, 0.1);
-  border:1rpx solid #f5f5f5;
 }
 
 

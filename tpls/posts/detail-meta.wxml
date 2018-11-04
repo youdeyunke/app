@@ -69,17 +69,14 @@
 
                 <view class="meta">
                   <text class="label">小区</text>
-                  <text>{{ post.area_name }} ({{post.area_year}})</text>
+                  <text>{{ post.area_name }}</text>
                 </view> 
 
-
-                <view class="meta lg">
-                  <text class="label">地址</text>
-                  <text>{{ post.address }} {{post.street}}</text>
-               </view> 
-
+                <view class="meta" wx:if="{{post.min_rent_month > 0}}">
+                  <text class="label">起租</text>
+                  <text>{{ post.min_rent_month }}个月起租</text>
+                </view> 
         </block>
-
 
       </view>
   </block>
