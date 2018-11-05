@@ -53,6 +53,12 @@ Component({
         actionsShow: true
       })
     },
+
+    actionsClose: function(e){
+      this.setData({
+        actionsShow: false
+      })
+    },
     
     actionClick: function(e){
       var action = e.detail.action
