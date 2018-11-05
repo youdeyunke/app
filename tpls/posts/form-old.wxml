@@ -41,11 +41,9 @@
 
 <card title="房源详情" hat  wx:if="{{step==2}}">
     <van-field label="房源介绍" name="desc" autosize />
-    <block wx:if="{{user.is_broker}}">
-      <van-field label="核心卖点" placeholder="选填"  name="selling_points" autosize />
-      <van-field label="业主心态" placeholder="选填"  name="owner_mindset" autosize />
-      <van-field label="周边配套" placeholder="选填"  name="surrounding" autosize />
-    </block>
+    <van-field label="核心卖点" placeholder="选填"  name="selling_points" autosize />
+    <van-field label="周边配套" placeholder="选填"  name="surrounding" autosize />
+    <van-field wx:if="{{user.is_broker}}" label="业主心态" placeholder="选填"  name="owner_mindset" autosize />
 </card>
 
 </block>

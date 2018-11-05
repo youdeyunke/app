@@ -25,7 +25,7 @@
         </swiper>
 </view>
 
-<template wx:if="{{post}}" is="{{post.group}}-detail" data="{{post: post}}"/>
+<template wx:if="{{post}}" is="{{post.group}}-detail" data="{{post: post, htmlContent: htmlContent, minicontent:minicontent}}"/>
 
 <mycard 
         wx:if="{{post.comment_enable}}" 
