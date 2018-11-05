@@ -19,15 +19,6 @@
     bind:change="inputChange"
   />
   <van-field
-    value="{{ value }}"
-    type="number"
-    error="{{error.area_year}}"
-    name="area_year"
-    label="年代"
-    placeholder="如：1999"
-    bind:change="inputChange"
-  />
-  <van-field
     name="street"
     value="{{ value }}"
     error="{{error.street}}"
@@ -119,7 +110,7 @@
           is-link 
           error="{{error.floor}}"
           label="楼层" 
-          value="第{{post.current_floor || '几'}}层-共{{post.total_floor || '几'}}层"  
+          value="第{{post.current_floor || '几'}}层-共{{post.total_floor || '几'}}层 {{post.has_lift == true ? '有' : '无'}}电梯"  
           arrow-direction="down" 
           disabled  />
   <van-field 

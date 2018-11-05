@@ -141,11 +141,6 @@ Page({
       return
     }
 
-    if(!post.area_year){
-      _this.showError('area_year', '请填写小区年代')
-      return
-    }
-
     if(!post.street){
       _this.showError('street', '请填写详细街道信息')
       return
@@ -336,6 +331,7 @@ Page({
     this.clearError()
     this.updatePostField('current_floor', e.detail.current_floor)
     this.updatePostField('total_floor', e.detail.total_floor)
+    this.updatePostField('has_lift', e.detail.has_lift)
   },
 
   showFloorPicker: function(){

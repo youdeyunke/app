@@ -11,6 +11,11 @@
         <view wx:for="{{nums}}">共{{item}}层</view>
   </picker-view-column>
 
+  <picker-view-column>
+          <view>无电梯</view>
+          <view>有电梯</view>
+  </picker-view-column>
+
 </picker-view>
 
 </popup>

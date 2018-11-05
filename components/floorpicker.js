@@ -20,7 +20,7 @@ Component({
    */
   data: {
     nums: nums,
-    value: [0,9],
+    value: [0,9, 1],
   },
 
   /**
@@ -45,15 +45,12 @@ Component({
       var v = this.data.value
       var current =  this.data.nums[v[0]]
       var total = this.data.nums[v[1]]
-      console.log('111')
+      var has_lift = v[2] == 1 ? true : false
       this.triggerEvent('confirm', {
         current_floor: current, 
-        total_floor: total}, {})
-
-      console.log('222')
+        total_floor: total,
+        has_lift: has_lift,
+      }, {})
     },
-
-
-
   }
 })
