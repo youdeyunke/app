@@ -2,9 +2,9 @@
 <form report-submit bindsubmit='btnsHandle' class="fixed-footer broker-bar">
   <ul>
     <li class="staff">
-            <view class="staff-avatar"><image wx:if="{{broker.avatar}}" src="{{broker.avatar}}?imageView2/2/w/100"></image></view>
+            <view class="staff-avatar"><image src="{{broker.avatar || '/assets/images/default-avatar.png' }}?imageView2/2/w/100"></image></view>
        <view class="staff-info">
-               <view class="staff-name line-limit">{{broker.name}}</view>
+               <view class="staff-name line-limit">{{broker.name || '未填写'}}</view>
        </view>
     </li>
     <li bindtap="bookingHandle" class="booking">
@@ -15,7 +15,7 @@
     </li>
     <li class="call" bindtap="connectHandle">
         <button class="btn primary">
-            <image src="/assets/icons/btn-call.png"></image>联系Ta
+            <image src="/assets/icons/btn-call.png"></image>联系
         </button>
     </li>
 

@@ -6,3 +6,5 @@ project.config.json
 *.bac
 *.log
 *.pyc
+app.json
+project.config.json
