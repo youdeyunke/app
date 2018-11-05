@@ -67,6 +67,11 @@
                   <text>第{{ post.current_floor }}层/ 共{{ post.total_floor }}层</text>
                 </view> 
 
+                <view class="meta" wx:if="{{post.has_lift != null }}">
+                  <text class="label">电梯</text>
+                  <text>{{ post.has_lift == true ? '有' : '无' }}</text>
+                </view> 
+
                 <view class="meta">
                   <text class="label">小区</text>
                   <text>{{ post.area_name }}</text>

@@ -19,7 +19,6 @@ Component({
   },
 
   ready: function(){
-    console.log('border,', this.data.border, 'shado', this.data.shadow, 'item', this.data.item)
   },
 
   /**

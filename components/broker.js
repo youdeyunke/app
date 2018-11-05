@@ -20,6 +20,27 @@ Component({
    * 组件的初始数据
    */
   data: {
+    actions: [],
+    actionsShow: false,
+
+  },
+
+  ready: function(){
+    var _this = this
+    var item_1 = {
+      name: '拨打电话', 
+      action: 'mobile', 
+      disabled : !_this.data.broker.mobile  ? true : false
+    }
+
+    var item_2 = {
+      name: '复制微信', 
+      action: 'wechat', 
+      disabled : !_this.data.broker.wechat ? true : false
+    }
+    this.setData({
+      actions: [item_1, item_2]
+    })
 
   },
 
@@ -27,9 +48,52 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    connectHandle: function(e){
+      this.setData({
+        actionsShow: true
+      })
+    },
+    
+    actionClick: function(e){
+      var action = e.detail.action
+      var _this = this
+
+      switch(action){
+        case 'mobile':
+          _this.callMe()
+          break
+        case 'wechat':
+          _this.copyWechat()
+          break
+      }
+    },
+
+    copyWechat: function(){
+      var wechat = this.data.broker.wechat
+      if(!wechat){
+        return false
+      }
+
+      wx.setClipboardData({
+        data:  wechat,
+        success: function(res){
+          wx.showTosta({
+            title: '微信号已复制',
+            icon: 'none',
+          })
+        }
+      })
+
+    },
+
     callMe: function(){
+      var mobile = this.data.broker.mobile
+      if(!mobile){
+        return false
+      }
+
       wx.makePhoneCall({
-          phoneNumber: this.data.broker.mobile //仅为示例，并非真实的电话号码
+          phoneNumber: mobile 
       })
     },
 
