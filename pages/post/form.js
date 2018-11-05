@@ -130,6 +130,11 @@ Page({
       _this.showError('title', '请填写标题') 
       isok = false
     }
+
+    if(post.images.length < _this.data.imagesMin || post.images.length > _this.data.imagesMax){
+      _this.showError('images', '请上传' + _this.data.imagesMin + '~' + _this.data.imagesMax + '张房源照片')
+      return
+    }
     
     if(!post.district_id  || !post.city_id){
       _this.showError('district_id', '城市、行政区不能为空')
@@ -193,11 +198,6 @@ Page({
       return
     }
 
-
-    if(post.images.length < _this.data.imagesMin || post.images.length > _this.data.imagesMax){
-      _this.showError('images', '请上传' + _this.data.imagesMin + '~' + _this.data.imagesMax + '张房源照片')
-      return
-    }
 
     console.log('数据验证成功：', post)
     if(typeof cb == 'function'){

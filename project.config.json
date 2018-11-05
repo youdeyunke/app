@@ -41,13 +41,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 24,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "post",
 					"pathName": "pages/post/post",
-					"query": "id=54"
+					"query": "id=34"
 				},
 				{
 					"id": -1,

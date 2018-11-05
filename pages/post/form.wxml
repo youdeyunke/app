@@ -1,193 +1,39 @@
+<import src="/tpls/posts/form-rental.wxml" />
+<import src="/tpls/posts/form-old.wxml" />
 
 <form bindsubmit="submit">
   <box>
-          <van-field error="{{error.title}}" name="title" label="房源标题" value=""  clearable placeholder="如：房东急租小2房" />
+    <van-field error="{{error.title}}" input-align="right" name="title" label="房源标题" value="" clearable placeholder="如：房东急租小2房" />
   </box>
 
-<view hidden="{{step != 1}}">
-<card  title="地址" subtitle="门牌号保密，仅向经纪人可见" hat >
-  <van-field 
-    placeholder="请选择" 
-    error="{{error.district_id}}"
-    disabled bindtap="showCityPicker" is-link label="城市" value="{{post.city.name || '请选择'}} {{post.district.name}}"  arrow-direction="down" />
-  <van-field
-    value="{{ value }}"
-    name="area_name"
-    error="{{error.area_name}}"
-    label="小区"
-    placeholder="请输入小区名称"
-    bind:change="inputChange"
-  />
-  <van-field
-    name="street"
-    value="{{ value }}"
-    error="{{error.street}}"
-    label="街道"
-    placeholder="如：巨峰路1028弄55号"
-    bind:change="inputChange"
-  />
-  <van-field
-    name="house_number"
-    value="{{ value }}"
-    label="门牌号"
-    placeholder="如：55号楼 1002室"
-    bind:change="inputChange"
-  />
-</card>
+  <card wx:if="{{step == 1}}" title="房源照片" subtitle="请上传{{imagesMin}}~{{imagesMax}}张真实房源照片" hat>
+    <images-uploader bindchange="imagesChanged" max="{{imagesMax}}" min="{{imagesMin}}" cover="{{post.cover_index || 0}}" images="{{post.images}}"></images-uploader>
+  </card>
+
+  <template is="form-{{post.group}}" data="{{error: error, post: post, step: step , minRentMonthItems: minRentMonthItems}}" />
+
+  <card wx:if="{{step == 2}}" hat title="联系人信息" subtitle="必填">
+    <van-field label="姓名" value="{{ post.broker_name || broker_name}}" placeholder="请输入" name="broker_name" error="{{error.broker_name}}" />
+    <van-field label="电话" value="{{ post.broker_mobile || broker_mobile }}" placeholder="请输入" name="broker_mobile" error="{{error.broker_mobile}}" />
+    <van-field label="微信" value="{{post.broker_wechat || broker_wechat }}" placeholder="选填" name="broker_wechat" border="{{false}}" />
+  </card>
 
 
-<card title="户型信息" hat>
-  <block wx:if="{{post.group == 'rental' }}">
-  <van-field
-    value="{{ value }}"
-    label="面积"
-    error="{{error.area}}"
-    type="number"
-    placeholder="平米"
-    name="area"
-    bind:change="inputChang"
-  />
-
-  <van-field
-    name="rent_price"
-    error="{{error.rent_price}}"
-    value="{{ value }}"
-    label="租金"
-    type="number"
-    placeholder="元"
-    bind:change="inputChange"
-  />
-
-  <picker bindchange="minRentMonthChange" range-key="label" range="{{minRentMonthItems}}" value="0">
-        <van-cell title="起租" is-link value="{{post.min_rent_month >0 ? post.min_rent_month + '个月' : '' }}">
-        </van-cell>
-  </picker>
-
-  </block>
-
-  <block wx:if="{{post.group == 'old'}}">
-  <van-field
-    value="{{ post.construction_area }}"
-    error="{{error.construction_area}}"
-    label="建筑面积"
-    type="number"
-    placeholder="平米"
-    name="construction_area"
-    bind:change="inputChang"
-  />
-  <van-field
-    name="total_price"
-    error="{{error.total_price}}"
-    value="{{ post.total_price }}"
-    label="售价"
-    type="number"
-    placeholder="万元"
-    bind:change="inputChange"
-  />
-  </block>
-
-  <van-field 
-          bindtap="showTypePicker" 
-          is-link 
-          error="{{error.type}}"
-          input-align="right"
-          label="户型" 
-          value="{{post.w}}室-{{post.t}}厅-{{post.w}}卫 {{ post.position}}"  
-          arrow-direction="down" 
-          disabled  
-  />
-  <van-field 
-          bindtap="showFitmentPicker" 
-          error="{{error.fitment_id}}"
-          is-link 
-          label="装修" 
-          value="{{post.fitment.name || '请选择'}}"  
-          arrow-direction="down" 
-          disabled  
-   />
-  <van-field 
-          bindtap="showFloorPicker" 
-          is-link 
-          error="{{error.floor}}"
-          label="楼层" 
-          value="第{{post.current_floor || '几'}}层-共{{post.total_floor || '几'}}层 {{post.has_lift == true ? '有' : '无'}}电梯"  
-          arrow-direction="down" 
-          disabled  />
-  <van-field 
-          wx:if="{{post.group == 'rental'}}" 
-          bindtap="showPayment" 
-          error="{{error.payment_cycle}}"
-          is-link 
-          label="付款类型" 
-          value="{{post.payment_cycle || '请选择'}}"  
-          arrow-direction="down" 
-          disabled  />
-  <van-switch-cell
-    title="服务费"
-    name="service_charge_enable"
-    checked="{{post.service_charge_enable}}"
-    bindchange="serviceChargeEnableChange"
-  />
-  <van-field wx:if="{{post.service_charge_enable}}"
-    name="service_charge"
-    value="{{ post.service_charge }}"
-    label="收费标准"
-    placeholder="请输入"
-  />
-
-
-
-</card>
-        <card title="房源照片" subtitle="请上传{{imagesMin}}~{{imagesMax}}张真实房源照片" hat>
-           <images-uploader bindchange="imagesChanged" max="{{imagesMax}}" min="{{imagesMin}}"  cover="{{post.cover_index || 0}}" images="{{post.images}}"></images-uploader>
-
-</card>
-
-
-</view>
-
-<view hidden="{{step != 2}}">
-
-<card title="房源详情" hat  wx:if="{{post.group == 'old' }}">
-    <van-field label="房源介绍" name="desc" autosize />
-    <block wx:if="{{user.is_broker}}">
-      <van-field label="核心卖点" placeholder="选填"  name="selling_points" autosize />
-      <van-field label="业主心态" placeholder="选填"  name="owner_mindset" autosize />
-      <van-field label="周边配套" placeholder="选填"  name="surrounding" autosize />
+  <view class="buttons">
+    <block wx:if="{{step == 1}}">
+      <button data-name="step1" form-type="submit" type="primary" class="btn ">下一步 1/2</button>
     </block>
-</card>
 
+    <block wx:if="{{step == 2}}">
+      <button data-name="step2" type="primary" form-type="submit" class="btn ">提交保存</button>
+      <button bindtap="previousStep" type="default" class="btn ">返回修改</button>
+    </block>
 
-<card title="房源详情" hat  wx:if="{{post.group == 'rental' }}">
-    <van-field label="房源介绍" value="{{post.desc}}" placeholder="选填" name="desc" autosize />
-    <van-field label="出租要求" value="{{post.rent_limit}}" placeholder="选填"  name="rent_limit" autosize />
-    <van-field label="周边配套" value="{{post.surrounding}}" placeholder="选填"  name="surrounding" autosize />
-</card>
-
-
-<card hat title="联系人信息" subtitle="必填">
-    <van-field label="姓名" value="{{ post.broker_name || broker_name}}" placeholder="请输入" name="broker_name" error="{{error.broker_name}}"/>
-    <van-field label="电话" value="{{ post.broker_mobile || broker_mobile }}" placeholder="请输入" name="broker_mobile" error="{{error.broker_mobile}}"  />
-    <van-field label="微信" value="{{post.broker_wechat || broker_wechat }}" placeholder="选填" name="broker_wechat" border="{{false}}"  />
-</card>
-
-</view>
-
-<view class="buttons">
-  <block wx:if="{{step == 1}}">
-    <button data-name="step1" form-type="submit" type="primary"  class="btn ">下一步 1/2</button>
-  </block>
-
-  <block wx:if="{{step == 2}}">
-    <button data-name="step2" type="primary" form-type="submit" class="btn ">提交保存</button>
-    <button bindtap="previousStep" type="default"  class="btn ">返回修改</button>
-  </block>
-
-</view>
+  </view>
 
 
 </form>
-<mypicker bindtap="showMinRentMonthPicker" id="min-rent-month"  items="{{minRentMonthItems}}" bindchange="minRentMonthChange" />
+<mypicker bindtap="showMinRentMonthPicker" id="min-rent-month" items="{{minRentMonthItems}}" bindchange="minRentMonthChange" />
 <city-picker id="citypicker" bindchange="cityChanged" show="{{cityPickerShow}}" />
 <typepicker id="typepicker" bindconfirm="typeChanged" />
 <payment id="payment" bindconfirm="paymentChanged" />

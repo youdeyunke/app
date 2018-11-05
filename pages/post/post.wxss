@@ -66,7 +66,6 @@ mycard{
 
 .detail-meta{
   padding:20rpx 0rpx;
-  border-radius:10rpx;
   font-size:var(--font-s);
   display:flex;
   justify-content:flex-start;
@@ -110,7 +109,7 @@ mycard{
 
 .header-box{
   width:100%;
-  padding-bottom:30rpx;
+  padding-bottom:20rpx;
 }
 
 
