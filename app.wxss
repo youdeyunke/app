@@ -148,6 +148,7 @@ textarea{
 .h1,.h2{ 
     color:#333; 
     width:100%;
+    box-sizing: border-box;
 }
 .h1{
   font-size:var(--font-xl);
