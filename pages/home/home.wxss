@@ -3,7 +3,7 @@ page{
 }
 
 .header{
-  background:#fff;
+  background:linear-gradient(to bottom, var(--color-a), white 50%);
   width:100%;
   padding:0 0rpx 20rpx 0rpx;
   box-shadow: 2rpx 4rpx 10rpx rgba(0,0,0, 0.05);
