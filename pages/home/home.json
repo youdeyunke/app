@@ -1,5 +1,4 @@
 {
-    "navigationBarBackgroundColor": "#00ae66",
     "enablePullDownRefresh": true,
     "usingComponents": {
       "mytopbar": "/components/topbar",
