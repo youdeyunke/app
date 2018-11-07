@@ -1,0 +1,17 @@
+/* pages/need/show.wxss */
+
+.contact{
+  height: 100rpx;
+  width: 750rpx;
+  background: var(--color-a);
+  font-size:var(--font-l);
+  color: #fff;
+  position: fixed;
+  bottom:0rpx;
+  left:0rpx;
+  right: 0rpx;
+  z-index:100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

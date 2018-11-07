@@ -7,7 +7,7 @@
                <view class="staff-name line-limit">{{broker.name || '未填写'}}</view>
        </view>
     </li>
-    <li bindtap="bookingHandle" class="booking">
+    <li wx:if="{{bookingEnable}}" bindtap="bookingHandle" class="booking">
       <button class="btn info" >       
           <image src="/assets/icons/btn-booking.png"></image>
           {{ booking ? '已预约' : '预约看房'}}

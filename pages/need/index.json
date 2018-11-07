@@ -1,8 +1,6 @@
 {
   "usingComponents": {
-    "box": "/components/box",
-    "mytags": "/components/tags",
-    "howlong": "/components/howlong",
-    "card": "/components/card"
+    "need-house": "/components/need-house",
+    "box": "/components/box"
   }
 }

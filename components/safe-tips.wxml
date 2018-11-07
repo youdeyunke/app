@@ -1,0 +1,4 @@
+<view class="safe-tips">
+  <view class="title">温馨提示</view>
+  <view class="content" >当前信息由发布者自行发布，仅代表个人，与本平台无关。本平台仅提供信息展示，不保证发布者发布信息的真实、合法、有效。</view>
+</view>

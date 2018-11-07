@@ -7,6 +7,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    title: {
+      type: String, value: '猜你喜欢', 
+    },
     count: {
       type: Number, value: 5,
     },

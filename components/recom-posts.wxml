@@ -1,6 +1,6 @@
 <!--components/recom-posts.wxml-->
 <view>
-  <card title="猜你喜欢">
+    <card title="{{title}}">
     <post class="recom-post" wx:if="{{item}}" wx:for="{{posts}}" item="{{item}}"></post>
   </card>
 </view>

@@ -1,0 +1,9 @@
+<!--pages/need/show.wxml-->
+<block wx:if="{{need}}">
+
+<need-house item="{{need}}" />
+<recoms title="推荐房源" group="rental" count="10"></recoms>
+<broker booking-enable="{{false}}" broker="{{need.contact_info}}" />
+<safe-tips />
+
+</block>
