@@ -1,25 +1,29 @@
 <form bindsubmit='submitHandle'>
         <box padding="30" wx:if="{{!userInfo.mobile}}">
             <navigator url="/pages/myself/index" open-type='switchTab' hover-class='hover-class'>
-                  我们提供定制找房服务，为了便于联系，请先绑定手机号，点击此处， <text  class="bind">开始绑定</text>
+                  为了便于联系，请先绑定手机号，点击此处， <text  class="bind">开始绑定</text>
             </navigator>
             
         </box>
-        <card hat title="基础意向(必填)">
-                <view class="basic input-group">
-                        <view class="input-item">
-                                <view class="label">预算</view> 
-                                <input bindinput='budgetHandle'  value="{{budget}}" placeholder='如：1500~2000'>   </input>
-                        </view>
-                        <view class="input-item">
-                                <view class="label">区域</view> 
-                                <input bindinput='positionHandle' value="{{position}}" placeholder='您想住在哪里'>   </input>
-                        </view>
+        <card hat title="基础意向">
+                <van-field 
+                        label="预算" 
+                        bind:change="inputChange"
+                        value="{{budget}}" 
+                        data-name="budget" />
+                <van-field 
+                        label="区域" 
+                        bind:change="inputChange"
+                        value="{{position}}" 
+                        data-name="position" />
 
-                </view>
-
+                <van-field 
+                        label="要求" 
+                        bind:change="inputChange"
+                        autosize
+                        value="{{content}}" 
+                        data-name="content" />
         </card>
-
 
         <card hat title="选择符合您的3个标签">
            <view class="form-tags"> 
@@ -27,14 +31,31 @@
             </view>
         </card>
 
+
         <card hat title="联系方式">
-            <input bindinput='contactHandle'  value="{{contact}}" placeholder='留下您的手机号或者微信号，方便我们尽快联系您'>   </input>
+                <van-field 
+                        bindchange="inputChange" 
+                        label="称呼" 
+                        value="{{ contact_name }}" 
+                        placeholder="请输入" 
+                        data-name="contact_name"  />
+
+                <van-field 
+                        bindchange="inputChange" 
+                        label="手机号" 
+                        value="{{ contact_mobile }}" 
+                        placeholder="请输入" 
+                        data-name="contact_mobile"  />
+
+                <van-field 
+                        bindchange="inputChange" 
+                        label="微信" 
+                        value="{{ contact_wechat }}" 
+                        placeholder="请输入" 
+                        data-name="contact_wechat"  />
+
         </card>
 
-        <card hat title="留言">
-          <input value="{{content}}" placeholder='其它您想说的'></input>
-        </card>
-        
 
   <view class="container container-bg-none">
     <button disabled="{{!userInfo.mobile}}" class="weui-btn" type="primary" form-type='submit'>帮我找房</button>

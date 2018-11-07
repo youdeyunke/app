@@ -1,0 +1,53 @@
+/* pages/need/index.wxss */
+.need{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.need .header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100rpx;
+}
+
+.need .header .time{
+  font-size:var(--font-xs);
+}
+
+.need .header .user{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.need .tags{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin:10rpx 0;
+}
+
+.need .tags .item{
+  border:2rpx solid var(--color-b);
+  color:var(--color-b);
+  border-radius: 10rpx;
+  padding:2rpx 6rpx;
+  margin-right:10rpx;
+}
+
+.need .user .avatar{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 60rpx;
+  overflow: hidden;
+}
+
+.need .time{
+
+}
+
+

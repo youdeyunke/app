@@ -9,7 +9,10 @@ Page({
    */
   data: {
     userInfo: wx.getStorageSync('userInfo'),
-
+    
+    contact_name: '',
+    contact_mobile: '',
+    contact_wechat: '',
     budget: '',
     purpose: '',
     position: '',
@@ -49,6 +52,14 @@ Page({
   },
 
   validate: function(cb){
+    if(!this.data.budget){
+      wx.showToast({
+        title: '请填写预算',
+        icon: 'none'
+      })
+      return
+    }
+
     if(!this.data.purpose){
       wx.showToast({
         title: '请选择标签',
@@ -65,7 +76,7 @@ Page({
       return
     }
 
-    if(!this.data.contact){
+    if(!this.data.contact_name){
       wx.showToast({
         title: '请填写联系信息',
         icon: 'none'
@@ -73,11 +84,22 @@ Page({
       return
     }
 
+    if(!this.data.contact_mobile || !this.data.contact_wechat){
+      wx.showToast({
+        title: '手机号和微信号至少填写一项',
+        icon: 'none'
+      })
+      return
+    }
+
     var data = {
       budget: this.data.budget,
-      purpose: this.data.purpose,
       position: this.data.position,
-      contact: this.data.contact,
+      content: this.data.content,
+      purpose: this.data.purpose,
+      contact_name: this.data.contact_name,
+      contact_mobile: this.data.contact_mobile,
+      contact_wechat: this.data.contact_wechat,
     }
     return cb(data)
   },
@@ -101,7 +123,7 @@ Page({
               }
               wx.showModal({
                 title: '提交成功！',
-                content: '经济人稍后将与您取得联系，请留意',
+                content: '请等待管理员审核',
               })
 
               wx.navigateBack({
@@ -112,21 +134,16 @@ Page({
           })
         })
       })
-
   },
 
-  positionHandle: function(e){
-    this.setData({ position:    e.detail.value})
+  inputChange: function(e){
+    var key = e.target.dataset.name
+    var value = e.detail
+    var d = {}
+    d[key] = value
+    this.setData(d)
   },
 
-  budgetHandle: function(e){
-    console.log('budget', e.detail.value)
-    this.setData({ budget: e.detail.value })    
-  },
-
-  contactHandle: function(e){
-    this.setData({ contact: e.detail.value })    
-  },
 
   purposeHandle: function(e){
     var i = e.currentTarget.dataset.index

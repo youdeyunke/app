@@ -1,0 +1,22 @@
+<block wx:for="{{needs}}" wx:for-item="needItems">
+    <box padding="30"  wx:for="{{needItems}}">
+        <view class="need">
+          <view class="header">
+                <view class="user">
+                        <view class="avatar">
+                            <image src="{{item.user_info.avatar}}" />
+                        </view>
+                        <view class="nickname">{{item.user_info.nickname}}</view>
+                </view>
+                <view class="time">{{item.updated_at}}</view>
+          </view>
+                <view class="body">
+                  <view class="tags">
+                        <view class="item" wx:for="{{item.purpose_list}}" wx:for-item="tag">{{tag}}</view>
+                  </view>
+                  <view class="content">{{ item.content }}</view>
+
+                </view>
+        </view>
+    </box>
+</block>
