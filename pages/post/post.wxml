@@ -4,7 +4,7 @@
 <import src="/tpls/posts/old-detail.wxml" />
 <import src="/tpls/posts/rental-detail.wxml" />
 <view class="post-cover">
-       <view class="image-count">共 {{post.full_images_list.length}} 张</view>
+       <!-- navigator open-type="navigateTo" url="/pages/webview/webview?action=vr" class="vr-btn">VR看房</navigator -->
        <myfav wx:if="{{post.id}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
        <swiper class="swiper" 
                indicator-dots="true" 
@@ -58,4 +58,4 @@
 </mycard>
 
 <recoms wx:if="{{post.group}}" group="{{post.group}}" count="10"></recoms>
-<broker broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>
+<broker wx:if="{{post.broker_info}}" broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>

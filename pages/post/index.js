@@ -28,7 +28,7 @@ Page({
     var _this = this
     var group = query.group || 'xinfang'
     this.setData({ group: group, rent_type: query.rent_type || '' })
-    this.setPageTitle(group)
+    this.setPageTitle(group, query.rent_type)
     this.loadData()
   },
 
@@ -43,14 +43,23 @@ Page({
     this.loadData()
   },
 
-  setPageTitle: function(group){
-    var dict = {
-      'xinfang': '新房',
-      'ershoufang': '二手房',
-      'zufang': '租房',
+  setPageTitle: function(group, rent_type){
+    var title = '房源'
+    switch(group){
+      case  'xinfang':
+        title = '新房'
+        break
+      case 'ershoufang':
+        title = '二手房'
+        break
+      case 'zufang':
+        title = '合租'
+        if(rent_type == 'zhengzu'){
+          title = '整租'
+        }
     }
-    var data = {title: dict[group]}
-    wx.setNavigationBarTitle(data)
+
+    wx.setNavigationBarTitle({ title: title })
   },
 
   /** 过滤器改变，重新加载数据 **/

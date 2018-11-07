@@ -3,19 +3,19 @@
 
 <form bindsubmit="submit">
   <box>
-    <van-field error="{{error.title}}" input-align="right" name="title" label="房源标题" value="" clearable placeholder="如：房东急租小2房" />
+      <van-field bindchange="inputChange" error="{{error.title}}" input-align="right" data-name="title" label="房源标题" value="{{post.title}}" clearable placeholder="如：房东急租小2房" />
   </box>
 
   <card wx:if="{{step == 1}}" title="房源照片" subtitle="请上传{{imagesMin}}~{{imagesMax}}张真实房源照片" hat>
     <images-uploader bindchange="imagesChanged" max="{{imagesMax}}" min="{{imagesMin}}" cover="{{post.cover_index || 0}}" images="{{post.images}}"></images-uploader>
   </card>
 
-  <template is="form-{{post.group}}" data="{{error: error, post: post, step: step , minRentMonthItems: minRentMonthItems}}" />
+  <template is="form-{{post.group}}" data="{{user:user, is_sublet: is_sublet, error: error, post: post, step: step , minRentMonthItems: minRentMonthItems}}" />
 
   <card wx:if="{{step == 2}}" hat title="联系人信息" subtitle="必填">
-    <van-field label="姓名" value="{{ post.broker_name || broker_name}}" placeholder="请输入" name="broker_name" error="{{error.broker_name}}" />
-    <van-field label="电话" value="{{ post.broker_mobile || broker_mobile }}" placeholder="请输入" name="broker_mobile" error="{{error.broker_mobile}}" />
-    <van-field label="微信" value="{{post.broker_wechat || broker_wechat }}" placeholder="选填" name="broker_wechat" border="{{false}}" />
+    <van-field bindchange="inputChange" label="姓名" value="{{ post.broker_name || broker_name}}" placeholder="请输入" data-name="broker_name" error="{{error.broker_name}}" />
+    <van-field bindchange="inputChange"  label="电话" value="{{ post.broker_mobile || broker_mobile }}" placeholder="请输入" data-name="broker_mobile" error="{{error.broker_mobile}}" />
+    <van-field bindchange="inputChange"  label="微信" value="{{post.broker_wechat || broker_wechat }}" placeholder="选填" data-name="broker_wechat" border="{{false}}" />
   </card>
 
 
@@ -28,7 +28,6 @@
       <button data-name="step2" type="primary" form-type="submit" class="btn ">提交保存</button>
       <button bindtap="previousStep" type="default" class="btn ">返回修改</button>
     </block>
-
   </view>
 
 

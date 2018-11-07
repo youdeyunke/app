@@ -38,6 +38,22 @@ mycard{
   z-index:999;
 }
 
+.post-cover .vr-btn{
+  color:#fff;
+  background:var(--color-a);
+  position:absolute;
+  right:20rpx;
+  bottom:20rpx;
+  padding:6rpx 18rpx;
+  border-radius:30rpx;
+  font-size:var(--font-xs);
+  z-index:999;
+  display:flex;
+  letter-spacing:1rpx;
+  justify-content:center;
+  align-items:center;
+}
+
 .post-cover .image-count{
   color:#fff;
   background:rgba(0,0,0, 0.1);
@@ -220,6 +236,7 @@ mycard{
   align-items: center;
   letter-spacing: 5rpx;
   margin-top:20rpx;
+  width:100%;
 }
 .coupon .name{
   height: 80rpx;

@@ -2,10 +2,10 @@
   <block>
     <card title="地址" wx:if="{{step==1}}" subtitle="门牌号保密，仅管理员可见" hat wx:if="{{step==1}}">
       <van-field placeholder="请选择" error="{{error.district_id}}" input-align="right" disabled bindtap="showCityPicker" is-link label="城市" value="{{post.city.name || '请选择'}} {{post.district.name}}" arrow-direction="down" />
-      <van-field value="{{ post.area_name}}" name="area_name" error="{{error.area_name}}" label="小区" input-align="right" placeholder="请输入小区名称" bind:change="inputChange" />
-      <van-field value="{{ post.area_year }}" name="area_year" error="{{error.area_year}}" label="年代" input-align="right" placeholder="请输入小区年代" bind:change="inputChange" />
-      <van-field name="street" value="{{ value }}" input-align="right" error="{{error.street}}" label="街道" placeholder="如：巨峰路1028弄55号" bind:change="inputChange" />
-      <van-field name="house_number" value="{{ value }}" input-align="right" label="门牌号" placeholder="如：55号楼 1002室" bind:change="inputChange" />
+      <van-field value="{{ post.area_name}}" data-name="area_name" error="{{error.area_name}}" label="小区" input-align="right" placeholder="请输入小区名称" bind:change="inputChange" />
+      <van-field value="{{ post.area_year }}" data-name="area_year" error="{{error.area_year}}" label="年代" input-align="right" placeholder="请输入小区年代" bind:change="inputChange" />
+      <van-field data-name="street" value="{{ post.street }}" input-align="right" error="{{error.street}}" label="街道" placeholder="如：巨峰路1028弄55号" bind:change="inputChange" />
+      <van-field data-name="house_number" value="{{ post.house_number }}" input-align="right" label="门牌号" placeholder="如：55号楼 1002室" bind:change="inputChange" />
     </card>
 
     <card title="户型信息" hat wx:if="{{step==1}}">
@@ -15,12 +15,12 @@
             label="建筑面积"
             type="number"
             placeholder="平米"
-            name="construction_area"
+            data-name="construction_area"
             input-align="right"
-            bind:change="inputChang"
+            bind:change="inputChange"
           />
           <van-field
-            name="total_price"
+            data-name="total_price"
             error="{{error.total_price}}"
             value="{{ post.total_price }}"
             label="售价"
@@ -34,16 +34,24 @@
       <van-field bindtap="showFitmentPicker" error="{{error.fitment_id}}" is-link input-align="right" label="装修" value="{{post.fitment.name || '请选择'}}" arrow-direction="down" disabled />
 
       <van-field bindtap="showFloorPicker" is-link input-align="right" error="{{error.floor}}" label="楼层" value="第{{post.current_floor || '几'}}层-共{{post.total_floor || '几'}}层 {{post.has_lift == true ? '有' : '无'}}电梯" arrow-direction="down" disabled />
-      <van-switch-cell title="服务费" name="service_charge_enable" checked="{{post.service_charge_enable}}" bindchange="serviceChargeEnableChange" />
-      <van-field wx:if="{{post.service_charge_enable}}" name="service_charge" value="{{ post.service_charge }}" input-align="right" label="收费标准" placeholder="请输入" />
+      <van-switch-cell title="服务费" data-name="service_charge_enable" checked="{{post.service_charge_enable}}" bindchange="serviceChargeEnableChange" />
+      <van-field 
+              wx:if="{{post.service_charge_enable}}" 
+              error="{{error.service_charge}}"
+              data-name="service_charge" 
+              value="{{ post.service_charge }}" 
+              input-align="right" 
+              label="收费标准" 
+              placeholder="请输入" 
+              bind:change="inputChange" />
     </card>
 
 
 <card title="房源详情" hat  wx:if="{{step==2}}">
-    <van-field label="房源介绍" name="desc" autosize />
-    <van-field label="核心卖点" placeholder="选填"  name="selling_points" autosize />
-    <van-field label="周边配套" placeholder="选填"  name="surrounding" autosize />
-    <van-field wx:if="{{user.is_broker}}" label="业主心态" placeholder="选填"  name="owner_mindset" autosize />
+    <van-field label="房源介绍" placeholder="选填" bind:change="inputChange"  data-name="desc" autosize />
+    <van-field label="核心卖点" placeholder="选填" bind:change="inputChange"  data-name="selling_points" autosize />
+    <van-field label="周边配套" placeholder="选填" bind:change="inputChange"  data-name="surrounding" autosize />
+    <van-field wx:if="{{user.is_broker}}" label="业主心态" placeholder="选填" bind:change="inputChange"  data-name="owner_mindset" autosize />
 </card>
 
 </block>

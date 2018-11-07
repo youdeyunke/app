@@ -9,6 +9,7 @@ Page({
   data: {
     publishSheetShow: false,
     publishActions: [
+      {name: '发布转租', group: 'rental', is_sublet: true},
       {name: '发布整租房源', group: 'rental', rent_type: 'zhengzu'},
       {name: '发布合租房源', group: 'rental', rent_type: 'hezu' },
       {name: '发布二手房房源', group: 'old'  },
@@ -46,9 +47,14 @@ Page({
   },
 
   publishClick: function(e){
-    console.log('e', e)    
+    var url =  '/pages/post/form?group=' 
+    url += e.detail.group 
+    url +=  '&rent_type=' 
+    url += e.detail.rent_type || 'zhengzu'
+    url += '&is_sublet='
+    url += e.detail.is_sublet || 'false'
     wx.navigateTo({
-      url: '/pages/post/form?group=' + e.detail.group + '&rent_type=' + e.detail.rent_type,
+      url: url,
     })
   },
 

@@ -34,20 +34,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
-    this.setData({
-      broker_name: wx.getStorageSync('broker_name') || '',
-      broker_wechat: wx.getStorageSync('broker_wechat') || '',
-      broker_mobile: wx.getStorageSync('broker_mobile') || '',
-    })
-
     var _this = this
+    _this.initBrokerInfo()
     _this.updatePostField('group', q.group || 'rental' )
     _this.updatePostField('rent_type', q.rent_type || 'zhengzu' )
+    _this.updatePostField('is_sublet', q.is_sublet || false )
     auth.ensureUser(function(user){
       _this.setData({user: user})
     })
   },
 
+  initBrokerInfo: function(){
+    var _this = this
+    var keys = ['name', 'wechat', 'mobile']
+    var value = ''
+    keys.forEach(function(key, i) {
+      key = 'broker_' + key
+      value = wx.getStorageSync(key) || ''
+      _this.updatePostField(key, value)
+    })
+  },
 
   loadMyselfInfo: function(){
     var _this = this
@@ -84,16 +90,8 @@ Page({
 
   submit:function(e){
     var fdata = e.detail.value
-    var keys = Object.keys(fdata)
     var post = this.data.post
     var _this = this
-    // 将form中的字段合并到post
-    keys.forEach(function(key, i){
-      post[key] = fdata[key]
-      if(i == keys.length - 1){
-        _this.setData({post: post})
-      }
-    })
 
     var name = e.detail.target.dataset.name
     switch(name){
@@ -164,6 +162,12 @@ Page({
 
     if(post.group == 'rental' && !post.rent_price){
       _this.showError('rent_price', '请填写租金')
+      return
+    }
+
+
+    if(post.service_charge_enable == true && !post.service_charge){
+      _this.showError('service_charge', '服务费不能为空')
       return
     }
 
@@ -279,6 +283,10 @@ Page({
     this.setData({error: {}})
   },
 
+  rentTypeChange: function(e){
+    this.updatePostField('rent_type', e.detail)
+  },
+
   serviceChargeEnableChange: function(e){
     this.updatePostField('service_charge_enable', e.detail)
   },
@@ -289,9 +297,11 @@ Page({
   },
   
   inputChange: function(e){
+    var key = e.target.dataset.name
+    var value = e.detail
+    this.updatePostField(key, value)
     this.clearError()
   },    
-
 
   showTypePicker: function(){
     this.selectComponent('#typepicker').onShow()
@@ -371,9 +381,10 @@ Page({
 
 
   updatePostField: function(key, value){
-    var post = this.data.post
-    post[key] = value
-    this.setData({post : post })
+    var d = {}
+    var key = 'post.' + key
+    d[key] = value
+    this.setData(d)
   },
 
 

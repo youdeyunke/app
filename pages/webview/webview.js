@@ -7,8 +7,10 @@ Page({
   },
 
   onLoad: function (q) {
-    var url = q.url 
-    console.log('url', url)
+    var url = q.url
+    if(q.action == 'vr'){
+      url = 'https://www.udeve.cn/vr/3d.html'
+    }
     this.setData({ url: url, })
   },
 
