@@ -8,7 +8,9 @@
                         </view>
                         <view class="nickname">{{item.user_info.nickname}}</view>
                 </view>
-                <view class="time">{{item.updated_at}}</view>
+                <view class="time">
+                        <howlong date="{{item.updated_at}}"/>
+                </view>
           </view>
                 <view class="body">
                   <view class="tags">
