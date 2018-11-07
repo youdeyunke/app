@@ -1,5 +1,16 @@
 <template name="form-rental">
   <block>
+      <card title="转租类型" hat wx:if="{{step==1 && post.is_sublet}}">
+      <van-radio-group value="{{post.rent_type}}" bind:change="rentTypeChange">
+      <van-cell title="转租整套" clickable data-name="zhengzu"  >
+        <van-radio name="zhengzu" />
+      </van-cell>
+      <van-cell title="转租单间" clickable data-name="hezu"  >
+        <van-radio name="hezu" />
+      </van-cell>   
+      </van-radio-group>   
+    </card>
+
     <card title="地址" wx:if="{{step==1}}" subtitle="门牌号保密，仅管理员可见" hat>
       <van-field placeholder="请选择" error="{{error.district_id}}" input-align="right" disabled bindtap="showCityPicker" is-link label="城市" value="{{post.city.name || '请选择'}} {{post.district.name}}" arrow-direction="down" />
       <van-field value="{{ value }}" name="area_name" error="{{error.area_name}}" label="小区" input-align="right" placeholder="请输入小区名称" bind:change="inputChange" />
