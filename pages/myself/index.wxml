@@ -1,5 +1,5 @@
-<box>
-<view class="user-login" wx:if="{{!userInfo}}">
+<box padding="30" wx:if="{{!userInfo}}">
+<view class="user-login" >
     <view class="avatar">
       <image src="/assets/images/default-avatar.png"></image>
     </view>  
@@ -9,12 +9,15 @@
 </view>
 </box>
 
-<box  wx:if="{{userInfo}}">
+<box padding="30" wx:if="{{userInfo}}">
 <view class="user">
-  <view class="avatar">
-    <image src="{{userInfo.avatar}}"></image>
+  <view class="uinfo">
+    <view class="avatar">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class="nickname">{{userInfo.nickname}}</view>
   </view>
-  <view class="nickname">{{userInfo.nickname}}</view>
+  <avatar-sync />
 </view>
 </box>
 

@@ -2,6 +2,7 @@
   "usingComponents": {
     "card": "/components/card",
     "box": "/components/box",
+    "avatar-sync": "/components/avatar-sync",
     "van-cell": "/vant/cell/index",
     "van-cell-group": "/vant/cell-group/index"
   }

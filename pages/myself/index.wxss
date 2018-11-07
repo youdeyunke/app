@@ -7,11 +7,20 @@ page{
 
 .user{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  height: 333rpx;
+  height: 160rpx;
   width:100%;
+}
+
+.user .uinfo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user .uinfo .avatar{
+  margin-right:20rpx;
 }
 
 .user-login{
@@ -39,9 +48,9 @@ page{
 }
 
 .avatar, .avatar image{
-  width: 180rpx;
-  height: 180rpx;
-  border-radius: 100%;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 15rpx;
   overflow: hidden;
   margin-bottom:10rpx;
 }

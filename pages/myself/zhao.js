@@ -13,7 +13,8 @@ Page({
     contact_name: '',
     contact_mobile: '',
     contact_wechat: '',
-    budget: '',
+    budget_min: 0,
+    budget_max: 10000,
     purpose: '',
     position: '',
     contact: '',
@@ -51,15 +52,12 @@ Page({
     var data = {}
   },
 
-  validate: function(cb){
-    if(!this.data.budget){
-      wx.showToast({
-        title: '请填写预算',
-        icon: 'none'
-      })
-      return
-    }
+  budgetChange: function(e){
+    r = e.detail.range
+    this.setData({budget_min: r[0], budget_max: r[1]})
+  },
 
+  validate: function(cb){
     if(!this.data.purpose){
       wx.showToast({
         title: '请选择标签',
@@ -84,7 +82,7 @@ Page({
       return
     }
 
-    if(!this.data.contact_mobile || !this.data.contact_wechat){
+    if(!this.data.contact_mobile && !this.data.contact_wechat){
       wx.showToast({
         title: '手机号和微信号至少填写一项',
         icon: 'none'
@@ -97,6 +95,8 @@ Page({
       position: this.data.position,
       content: this.data.content,
       purpose: this.data.purpose,
+      budget_min: this.data.budget_min,
+      budget_max: this.data.budget_max,
       contact_name: this.data.contact_name,
       contact_mobile: this.data.contact_mobile,
       contact_wechat: this.data.contact_wechat,

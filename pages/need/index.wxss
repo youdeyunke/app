@@ -40,11 +40,12 @@
   margin-right:10rpx;
 }
 
-.need .user .avatar{
+.need .user .avatar image{
   width: 60rpx;
   height: 60rpx;
   border-radius: 60rpx;
   overflow: hidden;
+  margin-right:20rpx;
 }
 
 .need .time{

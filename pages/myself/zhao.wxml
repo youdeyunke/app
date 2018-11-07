@@ -5,12 +5,12 @@
             </navigator>
             
         </box>
+
+        <card hat title="预算范围">
+                <rangeslider min="100" max="10000" bind:change="budgetChange" />
+        </card>
+
         <card hat title="基础意向">
-                <van-field 
-                        label="预算" 
-                        bind:change="inputChange"
-                        value="{{budget}}" 
-                        data-name="budget" />
                 <van-field 
                         label="区域" 
                         bind:change="inputChange"

@@ -1,0 +1,3 @@
+<view  class="avatar-sync">
+<button lang="zh_CN"  plain open-type="getUserInfo" bindgetuserinfo="syncAvatar">同步头像</button>
+</view>

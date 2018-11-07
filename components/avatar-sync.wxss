@@ -1,0 +1,10 @@
+.avatar-sync button{
+  font-size:var(--font-xs);
+  color: #cecece;
+  border-color: #cecece;
+  border-radius: 50rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
