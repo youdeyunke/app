@@ -1,0 +1,26 @@
+<box padding="30">
+  <view class="mate">
+      <view class="header">
+            <view class="user">
+              <view class="avatar"><image src="{{item.user_info.avatar}}" /></view>
+              <view class="nickname">这里是昵称</view>
+          </view>
+          <view class="time">  <howlong date="{{item.updated_at}}"/> </view>
+      </view>
+  
+      <view class="body">
+        <view class="content line-limit">要求：{{item.content}}</view>
+        <view class="images">
+          <image  wx:for="{{[1,2,3]}}" src="https://upload-images.jianshu.io/upload_images/1055524-56bca8175e33a11a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/304"></image>
+        </view>
+        <view class="meta">
+          <view>
+            预算{{item.budget_min}}~{{item.budget_max}}
+          </view>
+          <view>
+            {{ item.position }}
+          </view>
+        </view>
+      </view>
+  </view>
+</box>

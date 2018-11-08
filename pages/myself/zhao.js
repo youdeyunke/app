@@ -53,7 +53,8 @@ Page({
   },
 
   budgetChange: function(e){
-    r = e.detail.range
+    var r = e.detail.range
+    console.log('budget', r)
     this.setData({budget_min: r[0], budget_max: r[1]})
   },
 
@@ -107,7 +108,7 @@ Page({
   submitHandle: function(e){
     var _this = this
     app.uploadFormId(e)
-    auth.ensureMobile(function(userInfo){
+    auth.ensureUser(function(userInfo){
         _this.validate(function(data) {
           app.request({
             url: '/api/v1/needs',

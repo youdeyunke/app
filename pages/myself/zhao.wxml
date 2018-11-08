@@ -58,7 +58,7 @@
 
 
   <view class="container container-bg-none">
-    <button disabled="{{!userInfo.mobile}}" class="weui-btn" type="primary" form-type='submit'>帮我找房</button>
+    <button class="weui-btn" type="primary" form-type='submit'>帮我找房</button>
   </view>
 
 </form>

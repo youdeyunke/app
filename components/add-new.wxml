@@ -1,0 +1,2 @@
+<!--components/add-new.wxml-->
+<navigator hover-class='none' open-type='navigate' url="{{url}}" class="add-new">+</navigator>

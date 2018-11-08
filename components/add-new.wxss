@@ -1,0 +1,17 @@
+.add-new{
+  background: var(--color-a);
+  color: #fff;
+  height: 80rpx;
+  width: 80rpx;
+  position: fixed;
+  bottom:20rpx;
+  left:calc(750rpx*0.5 - 40rpx);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 80rpx;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.25);
+  font-size: 48rpx;
+  text-align: center;
+  vertical-align: middle;
+}

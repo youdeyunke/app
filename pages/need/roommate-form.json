@@ -1,0 +1,15 @@
+{
+  "usingComponents": {
+    "box": "/components/box",
+    "card": "/components/card",
+    "van-field": "/vant/field/index",
+    "van-radio-group": "/vant/radio-group/index",
+    "van-radio": "/vant/radio/index",
+    "van-switch-cell": "/vant/switch-cell/index",
+    "van-stepper": "/vant/stepper/index",
+    "images-uploader": "/components/images-uploader",
+    "van-cell": "/vant/cell/index",
+    "van-popup": "/vant/popup/index",
+    "rangeslider": "/components/range_slider"
+  }
+}

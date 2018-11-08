@@ -1,4 +1,4 @@
-.need{
+.mate{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -7,33 +7,48 @@
   width: 100%;
 }
 
-.need .header{
+.mate .header{
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
 
-.need .header .avatar image{
+.mate .header .avatar image{
   width: 50rpx;
   height: 50rpx;
   margin-right:15rpx;
   border-radius: 50rpx;
 }
 
-.need .header .user{
+.mate .header .user{
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.need .header  .time{
+.mate .header  .time{
   font-size:var(--font-sm);
   margin-left:20rpx;
   color: #cecece;
 }
 
-.need .body{
+
+.mate .images {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top:20rpx;
+}
+
+.mate .images image{
+  width: 200rpx;
+  height: 150rpx;
+  margin:0 10rpx 0 5rpx;
+}
+
+
+.mate .body{
   width: calc(750rpx - 120rpx - 20rpx);
   display: flex;
   flex-direction: column;
@@ -41,7 +56,7 @@
   align-items: flex-start;
 }
 
-.need .meta{
+.mate .meta{
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -49,11 +64,11 @@
   margin-top:20rpx;
 }
 
-.need .content{
+.mate .content{
   margin-top:20rpx;
 }
 
-.need .meta view{
+.mate .meta view{
   border:2rpx solid var(--color-a);
   color:var(--color-a);
   border-radius: 10rpx;
@@ -62,16 +77,5 @@
 }
 
 .need .meta .budget{
-  margin-right:15rpx;
-}
-
-.need .position {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-.need .position image{
-  width: 32rpx;
-  height: 30rpx;
   margin-right:15rpx;
 }

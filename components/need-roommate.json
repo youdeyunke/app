@@ -1,8 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "van-radio-group": "/vant/radio-group/index",
-    "van-radio": "/vant/radio/index",
     "box": "/components/box",
     "howlong": "/components/howlong"
   }
