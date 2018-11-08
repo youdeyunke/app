@@ -3,6 +3,7 @@
   <card hat title="基本信息">
       <van-field bindchange="inputChange" error="{{error.title}}" input-align="right" data-name="title" label="标题" value="{{need.title}}" clearable placeholder="必填" />
       <van-field bindchange="inputChange" error="{{error.content}}" input-align="right" data-name="content" label="描述" value="{{need.content}}" clearable placeholder="必填" autosize />
+      <van-field placeholder="请选择" error="{{error.district_id}}" input-align="right" disabled bindtap="showCityPicker" is-link label="区域" value="{{need.city.name || '请选择'}} {{post.district.name}}" arrow-direction="down" />
       <van-field bindchange="inputChange" error="{{error.rent_price}}" input-align="right" data-name="rent_price" label="租金" value="{{need.rent_price}}" placeholder="必填"/>
       <van-field bindchange="inputChange" error="{{error.area}}" input-align="right" data-name="area" label="面积" value="{{need.area }}" placeholder="必填"/>
 
@@ -49,3 +50,5 @@
   </view>
 
 </form>
+
+<city-picker id="citypicker" bindchange="cityChanged" show="{{cityPickerShow}}" />

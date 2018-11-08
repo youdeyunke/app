@@ -93,6 +93,20 @@ Page({
 
   },
 
+  showCityPicker: function(){
+    this.setData({
+      cityPickerShow: true
+    })
+  },
+
+  cityChanged: function(e){
+     this.updateNeedField('city', e.detail.city)
+     this.updateNeedField('city_id', e.detail.city.id)
+     this.updateNeedField('district_id', e.detail.district.id)
+     this.updateNeedField('district', e.detail.district)
+     this.setData({ cityPickerShow: false })    
+  },
+
   submitHandle: function(e){
     var _this = this
     this.validate(function(data){

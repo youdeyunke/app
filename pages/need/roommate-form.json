@@ -10,6 +10,7 @@
     "images-uploader": "/components/images-uploader",
     "van-cell": "/vant/cell/index",
     "van-popup": "/vant/popup/index",
+    "city-picker": "/components/city-picker",
     "rangeslider": "/components/range_slider"
   }
 }
