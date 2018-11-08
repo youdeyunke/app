@@ -33,7 +33,7 @@ Page({
 
       { name: '找室友', url: '/pages/need/roommate', opentype: "navigateTo", id: 'shiyou', bg: '#4c9ef0' },
 
-      { name: '找房', url: '/pages/need/index', opentype: "navigateTo", id: 'zhao', bg: '#f67350' }      
+      { name: '找房', url: '/pages/need/room', opentype: "navigateTo", id: 'zhao', bg: '#f67350' }      
 
     ]
   },
