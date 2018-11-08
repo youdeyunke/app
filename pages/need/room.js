@@ -104,7 +104,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    var _this = this
+    this.setData({
+      page: _this.data.page + 1
+    })
+    this.loadData()
   },
 
   /**
