@@ -77,7 +77,10 @@ Page({
       this.showError('title', '标题长度为5~20个字')
       return
     }
-
+    if(!need.district_id){
+      this.showError('district_id', '请选择所在区域')
+      return
+    }
     
     if(!need.contact_name){
       this.showError('contact_name', '联系人不能为空')
@@ -111,8 +114,8 @@ Page({
     var _this = this
     this.validate(function(data){
       app.request({
-        url: '/api/v1/roommates/',
-        data: data,
+        url: '/api/v2/roommates/',
+        data: {data: data},
         method: 'POST',
         success: function(res){
         }

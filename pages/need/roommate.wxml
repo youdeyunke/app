@@ -1,5 +1,5 @@
-<block>
-        <need-roommate wx:for="{{[1,2,3,4]}}" />
+<block wx:for="{{items}}" wx:for-item="pageItems">
+    <need-roommate mode="index" wx:for="{{pageItems}}" item="{{item}}" />
 </block>
 
 <add-new url="/pages/need/roommate-form" />

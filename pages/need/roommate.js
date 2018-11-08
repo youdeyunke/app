@@ -1,18 +1,65 @@
-// pages/need/roommate.js
+// pages/need/index.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    items: [],
+    page: 1,
+    per_page: 10
   },
+
+  loadData: function(){
+    var _this = this
+
+    this.setData({
+      isEmpty: false, loading: true
+    })
+    
+    if (this.data.isEnd) {
+      return false
+    }  
+
+    var query = {
+      page: _this.data.page || 1,
+      per_page: _this.data.per_page || 10,
+      order: _this.data.order,
+    }
+    var filter = this.data.filter
+    // merge query and filter
+    Object.assign(query, filter)
+
+    var _this = this
+    app.request({
+      url: '/api/v2/roommates/',
+      data: query,
+      hideLoading: true,
+      success: function(resp){
+        var data = resp.data.data
+        var meta = resp.data.meta
+        var d = {}
+        var i = _this.data.page - 1
+        if(i == 0){
+          d = {items: [data]}
+        }else{
+          var k = "items[" + i + "]"
+          d[k] = data
+        }
+        _this.setData(d)
+      }
+    })
+  },
+
+
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function (q) {
+    this.loadData()
   },
 
   /**

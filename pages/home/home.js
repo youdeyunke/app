@@ -9,7 +9,10 @@ Page({
   data: {
     publishSheetShow: false,
     publishActions: [
-      {name: '发布转租', group: 'rental', is_sublet: true},
+      {name: '我要找房', group: 'need-room'},
+      {name: '我要找室友', group: 'need-roommate'},
+      {name: '我要转租', group: 'rental', is_sublet: true},
+
       {name: '发布整租房源', group: 'rental', rent_type: 'zhengzu'},
       {name: '发布合租房源', group: 'rental', rent_type: 'hezu' },
       {name: '发布二手房房源', group: 'old'  },
@@ -23,12 +26,14 @@ Page({
     posts: [],
     tabIcons: [
       {name: '新房', url: '/pages/post/index?group=xinfang', opentype:"navigateTo", id: 'new', bg: '#fdaa3d'},
-      { name: '二手房', url: '/pages/post/index?group=ershoufang', opentype:"navigateTo", id: 'old', bg: '#53d8e3'},
+      { name: '二手', url: '/pages/post/index?group=ershoufang', opentype:"navigateTo", id: 'old', bg: '#53d8e3'},
 
       { name: '整租', url: '/pages/post/index?group=zufang&rent_type=zhengzu', opentype:"navigateTo", id: 'rent_house', bg: '#65b455'},
       { name: '合租', url: '/pages/post/index?group=zufang&rent_type=hezu', opentype:"navigateTo", id: 'rent_room', bg: '#d578e3'},
 
-      { name: '帮我找房', url: '/pages/need/index', opentype: "navigateTo", id: 'zhao', bg: '#f67350' }      
+      { name: '找室友', url: '/pages/need/roommate', opentype: "navigateTo", id: 'shiyou', bg: '#f67350' },
+
+      { name: '找房', url: '/pages/need/index', opentype: "navigateTo", id: 'zhao', bg: '#f67350' }      
 
     ]
   },
@@ -47,6 +52,16 @@ Page({
   },
 
   publishClick: function(e){
+    var group = e.detail.group
+    switch(group){
+      case 'need-room':
+        wx.navigateTo({url: '/pages/need/room-form'})
+        return
+      case 'need-roommate':
+        wx.navigateTo({url: '/pages/need/roommate-form'})
+        return
+    }
+
     var url =  '/pages/post/form?group=' 
     url += e.detail.group 
     url +=  '&rent_type=' 

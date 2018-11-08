@@ -1,0 +1,4 @@
+<!--pages/need/roommate-show.wxml-->
+<need-roommate item="{{item}}" mode="show" />
+<safe-tips/>
+<broker booking-enable="{{false}}" broker="{{item.contact_info}}" />

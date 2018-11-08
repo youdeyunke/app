@@ -21,7 +21,7 @@ Component({
   methods: {
     itemClick: function(e){
       if(this.data.redirect){
-        var url = '/pages/need/show?id=' + this.data.item.id
+        var url = '/pages/need/room-show?id=' + this.data.item.id
         wx.navigateTo({
           url: url
         })
