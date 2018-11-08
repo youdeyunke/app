@@ -62,10 +62,8 @@ Page({
   },
 
   showError: function(key, msg){
-    wx.showTosta({
-      title: msg
-    })
-    error = {key: msg}
+    wx.showToast({title: msg, icon: 'none'})
+    var error = {key: msg}
     this.setData({error: error})
   },
 
@@ -91,6 +89,7 @@ Page({
       return
     }
 
+    return cb(need)
 
   },
 
