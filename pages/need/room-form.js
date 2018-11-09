@@ -125,12 +125,10 @@ Page({
               wx.showModal({
                 title: '提交成功！',
                 content: '请等待管理员审核',
+                success: function(res) {
+                    wx.navigateBack({ delta: -1 })
+                }
               })
-
-              wx.navigateBack({
-                delta: -1
-              })
-
             }
           })
         })

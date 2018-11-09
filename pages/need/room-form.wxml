@@ -19,8 +19,9 @@
 
                 <van-field 
                         label="要求" 
-                        bind:change="inputChange"
                         autosize
+                        bind:change="inputChange"
+                        type="textarea"
                         value="{{content}}" 
                         data-name="content" />
         </card>
@@ -56,9 +57,8 @@
 
         </card>
 
-
-  <view class="container container-bg-none">
-    <button class="weui-btn" type="primary" form-type='submit'>帮我找房</button>
+  <view style="width:90%;margin:auto;">
+    <button class="btn" type="primary" form-type='submit'>提交保存</button>
   </view>
 
 </form>

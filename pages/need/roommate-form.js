@@ -118,6 +118,13 @@ Page({
         data: {data: data},
         method: 'POST',
         success: function(res){
+              wx.showModal({
+                title: '提交成功！',
+                content: '请等待管理员审核',
+                success: function(res) {
+                    wx.navigateBack({ delta: -1 })
+                }
+              })
         }
       })
     })
