@@ -283,8 +283,9 @@ Page({
     this.setData({error: {}})
   },
 
-  rentTypeChange: function(e){
-    this.updatePostField('rent_type', e.detail)
+  rentTypeClick: function(e){
+    var v = e.currentTarget.dataset.name
+    this.updatePostField('rent_type', v)
   },
 
   serviceChargeEnableChange: function(e){
