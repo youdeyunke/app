@@ -22,6 +22,17 @@ Page({
     })
   },
 
+  gotoVr: function(){
+    var vr = this.data.post.proxy_vr_url
+    if(!vr){
+      return false
+    }
+    wx.setStorageSync('webview', vr)
+    wx.navigateTo({
+      url: '/pages/webview/webview',
+    })
+  },
+
   openWebview: function(e){
     var url = this.data.post.more_url
     if(!url){

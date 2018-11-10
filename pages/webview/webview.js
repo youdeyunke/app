@@ -6,12 +6,12 @@ Page({
   data: {
   },
 
+  onShow: function(){
+    var url = wx.getStorageSync('webview')
+    this.setData({url: url})
+  },
+
   onLoad: function (q) {
-    var url = q.url
-    if(q.action == 'vr'){
-      url = 'https://www.udeve.cn/vr/3d.html'
-    }
-    this.setData({ url: url, })
   },
 
 })

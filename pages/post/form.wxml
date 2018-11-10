@@ -30,6 +30,8 @@
     </block>
   </view>
 
+<flow-tips />
+
 
 </form>
 <mypicker bindtap="showMinRentMonthPicker" id="min-rent-month" items="{{minRentMonthItems}}" bindchange="minRentMonthChange" />
@@ -38,3 +40,4 @@
 <payment id="payment" bindconfirm="paymentChanged" />
 <floorpicker id="floorpicker" bindconfirm="floorChanged" />
 <fitment-picker id="fitmentpicker" bindconfirm="fitmentChanged" />
+

@@ -1,0 +1,8 @@
+<view class="flow-tips">
+  <view class="title-block">
+    <view class="line"></view>
+    <view class="title">信息发布流程</view>
+    <view class="line"></view>
+  </view>
+
+</view>

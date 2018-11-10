@@ -1,0 +1,17 @@
+.flow-tips{}
+
+.flow-tips .title-block{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.flow-tips .title-block view{
+  width: 200rpx;
+  text-align: center;
+}
+
+.flow-tips .title-block .line{
+  border-bottom: 2rpx solid #cecece;
+}

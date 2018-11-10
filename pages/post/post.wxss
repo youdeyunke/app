@@ -40,18 +40,25 @@ mycard{
 
 .post-cover .vr-btn{
   color:#fff;
-  background:var(--color-a);
+  background: rgba(0,0,0, 0.15);
   position:absolute;
-  right:20rpx;
-  bottom:20rpx;
-  padding:6rpx 18rpx;
-  border-radius:30rpx;
+  left:calc(750rpx * 0.5 - 70rpx);
+  bottom:calc(50% - 70rpx);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 140rpx;
+  width: 140rpx;
+  border-radius: 100%;
+  border:0rpx solid #fff;
   font-size:var(--font-xs);
   z-index:999;
-  display:flex;
-  letter-spacing:1rpx;
-  justify-content:center;
-  align-items:center;
+}
+.post-cover .vr-btn image{
+  width: 80rpx;
+  height: 80rpx;
 }
 
 .post-cover .image-count{

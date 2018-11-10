@@ -4,7 +4,9 @@
 <import src="/tpls/posts/old-detail.wxml" />
 <import src="/tpls/posts/rental-detail.wxml" />
 <view class="post-cover">
-       <!-- navigator open-type="navigateTo" url="/pages/webview/webview?action=vr" class="vr-btn">VR看房</navigator -->
+       <view wx:if="{{post && post.vr_url}}" open-type="navigateTo" bindtap='gotoVr' class="vr-btn">
+        <image src="/assets/icons/qjkf.png"></image>
+       </view>
        <myfav wx:if="{{post.id}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
        <swiper class="swiper" 
                indicator-dots="true" 
