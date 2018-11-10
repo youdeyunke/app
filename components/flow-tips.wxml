@@ -4,5 +4,21 @@
     <view class="title">信息发布流程</view>
     <view class="line"></view>
   </view>
+  <view class="flow-block">
+    <view class="item">
+      <view class="icon"><image src="/assets/icons/flow-tips-1.png"></image></view>
+      <view>手机发布</view>
+    </view>
+    <view class="line"></view>
+    <view class="item">
+      <view class="icon"><image src="/assets/icons/flow-tips-2.png"></image></view>
+      <view>后台审核</view>
+    </view>
+    <view class="line"></view>
+    <view class="item">
+      <view class="icon"><image src="/assets/icons/flow-tips-3.png"></image></view>
+      <view>发布上架</view>
+    </view>
+  </view>
 
 </view>
