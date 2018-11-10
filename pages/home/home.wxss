@@ -16,7 +16,7 @@ page{
 .tab-icons{
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-around;
   box-sizing: border-box;
   margin-top:30rpx;
@@ -24,7 +24,7 @@ page{
 }
 
 .tab-icons navigator{
-  width:25%;
+  width:20%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,7 +50,8 @@ page{
 .tab-icons navigator text{
   color: #000;
   font-weight: normal;
-  margin-top:15rpx;
+  margin-top:8rpx;
+  margin-bottom:8rpx;
 }
 
 myfav{
@@ -60,14 +61,32 @@ myfav{
 }
 
 
-.header myslider swiper, .header myslider image{
-  width:710rpx;
-  height:320rpx;
-  border-radius:20rpx;
-}
-
-
 .section{
  width:720rpx;
  padding:15rpx 15rpx;
+}
+
+.home-title{
+  display:flex;
+  justify-content:space-between;
+  width:100%;
+  box-sizing:border-box;
+  padding:20rpx 30rpx;
+}
+
+.home-title .h1{
+  width:50%;
+}
+
+.home-title .home-actions{
+        width:50%;
+        display:flex;
+        justify-content:flex-end;
+}
+.home-title .home-actions view{
+  margin-left:15rpx;
+}
+
+.home-title .home-actions view.active{
+  color:var(--color-a);
 }
