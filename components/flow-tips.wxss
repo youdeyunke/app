@@ -1,7 +1,7 @@
 .flow-tips{
   color: #cecece;
   font-size: var(--font-xs);
-  margin:30rpx auto 30rpx auto;
+  margin: 40rpx auto 40rpx auto;
 }
 
 .flow-tips .title-block{
