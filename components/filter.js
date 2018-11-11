@@ -7,7 +7,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    group: {type: String, value: ''}
+    group: {type: String, value: ''},
+    text: {type: String, value: ''}
   },
 
   /**

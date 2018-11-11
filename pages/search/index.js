@@ -8,6 +8,18 @@ Page({
 
   },
 
+  searchHandle: function(e){
+    // 提交搜索
+    var text = e.detail.text
+    var group = e.detail.group
+    wx.navigateTo({
+      url: '/pages/post/index?group=' + group + '&text=' + text
+    })
+
+  },
+
+  clearHandle: function(){},
+
   /**
    * 生命周期函数--监听页面加载
    */
