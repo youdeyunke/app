@@ -104,7 +104,9 @@ Component({
     },
 
     clear: function(e){
-      if(this.data.fake){
+      console.log('e', e)
+      if(!this.data.text && !this.data.value){
+        console.log('aaaaaaaaa')
         return false
       }
       this.setData({text: '', mode: 1, initmode: null})

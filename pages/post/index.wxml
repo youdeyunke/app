@@ -1,5 +1,5 @@
 <!--pages/post/index.wxml-->
-<filter wx:if="{{group!='xinfang'}}" text="{{text}}" group="{{group}}" bind:change="filterChange" />
+<filter bind:clear="clearHandle" wx:if="{{group!='xinfang'}}" text="{{text}}" group="{{group}}" bind:change="filterChange" />
 
 <import src="/tpls/posts/ershoufang.wxml" />
 <import src="/tpls/posts/xinfang.wxml" />

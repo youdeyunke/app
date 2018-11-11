@@ -1,12 +1,12 @@
 <block>
-  <view bindtap="searchTap" class="search-bar mode-{{initmode || mode}}">
+  <view class="search-bar mode-{{initmode || mode}}">
     <view class="search-input">
       <view class="search-icon">
         <image src="/assets/icons/search-icon.png"></image>
       </view>
-      <input placeholder='{{placeholder}}' confirm-type='search' bindconfirm='confirm' disabled='{{fake}}' value="{{value}}" bindinput='bindTextInput'></input>
+      <input bindtap="searchTap" placeholder='{{placeholder}}' confirm-type='search' bindconfirm='confirm' disabled='{{fake}}' value="{{value}}" bindinput='bindTextInput'></input>
       <view class="search-clear" bindtap='clear'>
-        <image wx:if="{{!fake}}" src="/assets/icons/search-clear.png"></image>
+        <image wx:if="{{value}}" src="/assets/icons/search-clear.png"></image>
       </view>
     </view>
     <view  class="search-btn" bindtap='submit' >搜索</view>

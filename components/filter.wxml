@@ -1,7 +1,7 @@
 <!--components/filter.wxml-->
 <view class="sfilter-group">
     <view class="search">
-            <mysearch value="{{text}}" initmode="2" fake="1" />
+            <mysearch bindclear="clearHandle" value="{{text}}" initmode="2" fake="1" />
     </view>
     <view class="sfilter">
       <view class="sfilter-item"  bindtap="cityFilterClick" >

@@ -43,6 +43,10 @@ Component({
       this.onChange()
     },
 
+    clearHandle: function(e){
+      this.triggerEvent('clear', {}, {})
+    },
+
     orderClick: function(e){
       this.setData({
         showOrder: true

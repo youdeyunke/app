@@ -77,6 +77,14 @@ Page({
     })  
   },
 
+  clearHandle: function(e){
+    this.setData({
+      text: '',
+      page: 1,
+    })
+    this.loadData()
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
