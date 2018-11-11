@@ -71,7 +71,6 @@
 }
 
 .post .meta .area-price{
-  font-size:32rpx;
   display: flex;
   justify-content: space-between; 
   align-items: flex-end;

@@ -9,7 +9,14 @@ let rentPriceRanges = [
 
 let totalPriceRanges = [
   {label: '不限', value: []},
-  {label: '0-50万', value:[0,50]}
+  {label: '30万以内', value:[0,30]},
+  {label: '30-50万', value:[30,50]},
+  {label: '50-100万', value:[50,100]},
+  {label: '100-150万', value:[100,150]},
+  {label: '150-200万', value:[150,200]},
+  {label: '200万-250万', value:[200,250]},
+  {label: '250万-300万', value:[250,300]},
+  {label: '300万以上', value:[300,999999]},
 ]
 
 for(var i=1000;i<=3500;i+=500){
