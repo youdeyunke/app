@@ -1,0 +1,40 @@
+.join{}
+.join .poster{
+  height: 320rpx;
+}
+.join .poster image{
+  height: 320rpx;
+  width: 750rpx;
+}
+
+.join .jd{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jd-left{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 60%;
+}
+
+.jd-left .title{
+  font-size:var(--font-l);
+  color: #000;
+}
+
+.jd-left view{
+  margin:5rpx 0 5rpx 0;
+}
+
+.jd-right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  color: var(--color-b);
+  font-size: var(--font-l);
+}
