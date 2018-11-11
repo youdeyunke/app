@@ -28,7 +28,7 @@
   padding:0rpx 40rpx;
   box-sizing: border-box;
   width:100%;
-  background:#f2f2f2;
+  background:#fff;
 }
 
 .sfilter-item-wrapper{
