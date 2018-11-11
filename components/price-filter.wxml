@@ -1,7 +1,0 @@
-<popup show="{{show}}" bindcancle="onCancle" bindconfirm="onConfirm" >
-  <view class="price-range">
-    <view bindtap='onSelect' data-index="{{index}}" wx:for="{{ranges}}" wx:for-item="range" class="price-range-item {{currentIndex == index ? 'active' : '' }}">
-      <text>{{range.name}}</text>
-    </view>
-  </view>
-</popup>

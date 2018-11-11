@@ -2,12 +2,43 @@
 
 const app = getApp()
 
+let rentPriceRanges = [
+  {label: '不限', value: []},
+  {label: '1000元一下', value:[0,1000]}
+]
+
+let totalPriceRanges = [
+  {label: '不限', value: []},
+  {label: '30万以内', value:[0,30]},
+  {label: '30-50万', value:[30,50]},
+  {label: '50-100万', value:[50,100]},
+  {label: '100-150万', value:[100,150]},
+  {label: '150-200万', value:[150,200]},
+  {label: '200万-250万', value:[200,250]},
+  {label: '250万-300万', value:[250,300]},
+  {label: '300万以上', value:[300,999999]},
+]
+
+for(var i=1000;i<=3500;i+=500){
+  var j = i+ 500
+  rentPriceRanges.push({
+    label: i+'元 - ' + j + '元',
+    value: [i, j], 
+  })
+}
+rentPriceRanges.push({
+  label: '4000元以上',
+  value: [4000, 9999999],  
+})
+
+
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    group: {type: String, value: ''}
+    group: {type: String, value: ''},
+    text: {type: String, value: ''}
   },
 
   /**
@@ -15,18 +46,39 @@ Component({
    */
   data: {
     city: {},
-    showPriceFilter: false,
     priceRange: null,
     s:  null,
     district:{},
     showCitySelect: false,
-    showTypeFilter: false,
+    priceItems: [],
+    orderItems: [
+      {label: '最新发布', value: ['id', 'desc']},
+      {label: '价格(从低到高)', value: ['rent_price', 'asc'] },
+      {label: '价格(从高到低)', value: ['rent_price', 'desc']},
+      {label: '面积(从大到小)', value: ['area', 'desc']},
+      {label: '面积(从小到大)', value: ['area', 'asc'] },      
+    ],
+
+    typeItems: [
+      {label: '不限', value: ''},
+      {label: '一室', value: 1},
+      {label: '两室', value: 2 },
+      {label: '三室', value: 3 },
+      {label: '四室', value: 4 },
+      {label: '五室及以上', value: 5 },    
+    ]
   },
 
   ready: function(){
     this.setData({
       cities: app.globalData.cities
     })
+    if(this.data.group == 'zufang'){
+      this.setData({priceItems: rentPriceRanges})
+    }
+    if(this.data.group == 'ershoufang'){
+      this.setData({priceItems: totalPriceRanges})
+    }
   
   },
 
@@ -36,29 +88,26 @@ Component({
   methods: {
     typeChange: function(e){
       this.setData({
-        showTypeFilter: false,
-        s: e.detail.s,
+        s: e.detail.item,
       })
       this.onChange()
     },
 
+    clearHandle: function(e){
+      this.triggerEvent('clear', {}, {})
+    },
+
     orderClick: function(e){
-      this.setData({
-        showOrder: true
-      })
+      this.selectComponent('#order').onShow()
     },
 
     typeFilterClick: function(e){
-      this.setData({
-        showTypeFilter: true
-      })
+      this.selectComponent('#type-filter').onShow()
     },
 
     orderChange: function(e){
-      console.log('e.detail', e)
       this.setData({
-        order: e.detail.order.value.join(','),
-        showOrder: false,
+        order: e.detail.item.value.join(','),
       })
       this.onChange()
     },
@@ -69,8 +118,8 @@ Component({
       var d = this.data.district
       var s = this.data.s
       var filter = {}
-      if(s && s.s){
-        filter['s'] = s.s
+      if(s && s.value){
+        filter['s'] = s.value
       }
       if(c && c.id){
         filter['city_id'] = c.id
@@ -79,26 +128,23 @@ Component({
         filter['district_id'] = d.id
       }
       if (this.data.priceRange){
-        console.log('this.data.priceRange.value', this.data.priceRange.value)
-        filter['rent_price'] = this.data.priceRange.value.join(',')
+        var v = this.data.priceRange.value.join(',')
+        var k = this.data.group == 'zufang' ?  'rent_price'  : 'total_price'
+        filter[k] = v
       }
-      console.log('filter.onchange ', filter)
       var order = this.data.order
       this.triggerEvent('change', {filter: filter, order: order}, {})
       
     },
 
     priceChange: function(e){
-      console.log('e', e)
       this.setData({
-        showPriceFilter:false,
-        priceRange: e.detail.rent_price
+        priceRange: e.detail.item
       })
       this.onChange()
     },
 
     cityChange: function(e){
-      console.log('city chage', e)
       var c = e.detail.city
       var d = e.detail.district
       var cityDistrictName = ''
@@ -121,10 +167,7 @@ Component({
     },
 
     priceFilterClick: function(e){
-      var v = this.data.showPriceFilter
-      this.setData({
-        showPriceFilter: !v
-      })
+      this.selectComponent('#price-filter').onShow()
     },
 
     cityFilterClick: function(e){

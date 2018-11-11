@@ -1,7 +1,0 @@
-<popup show="{{show}}" bindconfirm="onConfirm" bindcancle="onCancle">
-  <view class="order-items">
-    <view bindtap="onSelect" class="order-item {{currentIndex==index ? 'active' : '' }}" wx:for="{{orderItems}}" data-index="{{index}}" >
-      {{item.name}}
-    </view>
-  </view>
-</popup>

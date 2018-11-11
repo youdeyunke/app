@@ -102,7 +102,7 @@ App({
       url: '/api/v1/formid/',
       data: { formids: ids },
       method: 'POST',
-      success: function (resp) {
+      success: function (resp){
         // 清空缓存
         wx.setStorageSync('formids', [])
       }

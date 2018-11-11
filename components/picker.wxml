@@ -1,6 +1,6 @@
 <!--components/citypicker.wxml-->
 
-<popup  position="bottom" show="{{ show }}" bind:cancle="onCancle" bind:confirm="onConfirm" label="请选择" cancle-btn-text="取消">
+<popup  position="bottom" show="{{ show }}" bind:cancle="onClose" bind:confirm="onConfirm" label="请选择" cancle-btn-text="取消">
 
 <picker-view class="picker"  bindchange="changeHandle" value="{{value}}">
   <picker-view-column >

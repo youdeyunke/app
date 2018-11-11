@@ -27,7 +27,11 @@ Page({
   onLoad: function (query) {
     var _this = this
     var group = query.group || 'xinfang'
-    this.setData({ group: group, rent_type: query.rent_type || '' })
+    this.setData({ 
+      group: group, 
+      rent_type: query.rent_type || '',
+      text: query.text || ''
+    })
     this.setPageTitle(group, query.rent_type)
     this.loadData()
   },
@@ -73,6 +77,14 @@ Page({
     })  
   },
 
+  clearHandle: function(e){
+    this.setData({
+      text: '',
+      page: 1,
+    })
+    this.loadData()
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -97,6 +109,7 @@ Page({
       page: _this.data.page || 1,
       per_page: _this.data.per_page || 10,
       group: _this.data.group,
+      text: _this.data.text || '',
       rent_type: _this.data.rent_type, 
       order: _this.data.order,
     }

@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-radio-group": "/vant/radio-group/index",
+    "van-cell": "/vant/cell/index",
+    "van-radio": "/vant/radio/index"
+  }
+}

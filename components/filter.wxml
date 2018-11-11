@@ -1,6 +1,8 @@
 <!--components/filter.wxml-->
 <view class="sfilter-group">
-
+    <view class="search">
+            <mysearch bindclear="clearHandle" value="{{text}}" initmode="2" fake="1" />
+    </view>
     <view class="sfilter">
       <view class="sfilter-item"  bindtap="cityFilterClick" >
         <view class="sfilter-item-wrapper">
@@ -10,16 +12,16 @@
       </view>
 
 
-      <view wx:if="{{group == 'zufang'}}" class="sfilter-item"  bindtap="typeFilterClick" >
+      <view  class="sfilter-item"  bindtap="typeFilterClick" >
         <view class="sfilter-item-wrapper">
-          <view>{{  s ? s.name : '户型' }}</view>
+          <view>{{  s ? s.label: '户型' }}</view>
           <view class="sfilter-item-arrow"></view>
         </view>     
       </view>
 
-      <view wx:if="{{group == 'zufang'}}" class="sfilter-item"  bindtap="priceFilterClick" >
+      <view class="sfilter-item"  bindtap="priceFilterClick" >
         <view class="sfilter-item-wrapper">
-          <view>{{ priceRange ? priceRange.name : '价格' }}</view>
+          <view>{{ priceRange ? priceRange.label : '价格' }}</view>
           <view class="sfilter-item-arrow"></view>
         </view>     
       </view>
@@ -35,8 +37,8 @@
     </view>
 
     <city-picker wx:if="{{cities}}" position="top" bind:change="cityChange" show="{{showCitySelect}}" />
-    <price-filter bindchange="priceChange" show="{{showPriceFilter}}" />
-    <order show="{{showOrder}}" bind:change="orderChange" />
-    <type-filter show="{{showTypeFilter}}" bind:change="typeChange" />
+    <mypicker id="type-filter" items="{{typeItems}}" bind:change="typeChange"/>
+    <mypicker id="price-filter" items="{{priceItems}}" bind:change="priceChange"/>
+    <mypicker id="order" items="{{orderItems}}" bind:change="orderChange"/>
 </view>
 
