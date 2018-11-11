@@ -57,12 +57,14 @@ Page({
         title = '二手房'
         break
       case 'zufang':
-        title = '合租'
+        title = '租房'
         if(rent_type == 'zhengzu'){
           title = '整租'
         }
+        if(rent_type == 'hezu'){
+          title = '合租'
+        }
     }
-
     wx.setNavigationBarTitle({ title: title })
   },
 

@@ -7,5 +7,5 @@ duration="500" circular="true" indicator-color="rgba(255,255,255,0.7)" autoplay 
 </swiper-item>   
 </swiper>
 
-<view bindtap="comming" class="search-box">你想住在哪？</view>
+<view bindtap="gotoSearch" class="search-box">你想住在哪？</view>
 </view>

@@ -24,10 +24,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    comming: function(e){
-      wx.showModal({
-        title: '温馨提示',
-        content: '功能正在开发中，即将上线，敬请期待!',
+    gotoSearch: function(e){
+      wx.navigateTo({
+        url: '/pages/search/index'
       })
     },
 
