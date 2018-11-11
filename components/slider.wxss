@@ -1,6 +1,6 @@
 /* components/slider.wxss */
 
- .myswiper swiper, .myswiper image{
+ .myswiper swiper, .myswiper swiper-item image{
   width:750rpx;
   height: 320rpx;
   margin:0 auto;
@@ -29,4 +29,15 @@
   margin:0 auto;
   top:30rpx;
   left:25rpx;
+  opacity: 0.95;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.myswiper .search-box image{
+  width: 34rpx;
+  height: 32rpx;
+  margin-right:20rpx;
 }

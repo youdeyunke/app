@@ -1,0 +1,17 @@
+<view class="join">
+  <view class="poster">
+    <image src="http://qiniucdn.udeve.cn/join.jpeg"></image>
+  </view>
+  <box padding="30" wx:for="{{jobs}}">
+    <view class="jd" >
+      <view class="js-left">
+        <view class="title">{{item.title}}</view>
+        <view class="limit">{{item.limit}}</view>
+        <view class="fuli">{{item.fuli}}</view>
+      </view>
+      <view class="jd-right">
+        {{item.price}}
+      </view>
+    </view>
+  </box>
+</view>
