@@ -12,6 +12,15 @@
     <view  class="search-btn" bindtap='submit' >搜索</view>
   </view>
 
+<view class="searc-cats" wx:if="{{!fake && text}}">
+      <van-radio-group value="{{currentCatIndex}}">
+      <van-cell wx:for="{{cats}}" title="{{item.label}}" bind:click="catClick" clickable data-index="{{index}}"  >
+      <van-radio name="{{index}}" />
+      </van-cell>
+
+      </van-radio-group>   
+</view>
+
 <view class="search-history" wx:if="{{!text && mode == 1 && !fake }}">
   <view class="search-history-cell search-history-title">{{historyTitle}}</view>
   <view bindtap='keywordClick' data-text="{{item}}" class="search-history-cell" wx:for="{{history}}" wx:if="{{item.length>0}}">{{item}}</view>

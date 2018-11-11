@@ -101,3 +101,6 @@
   justify-content: flex-start;
   align-items: center;
 }
+
+.search-cats{
+}

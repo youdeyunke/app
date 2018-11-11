@@ -1,0 +1,8 @@
+{
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+      "mysearch": "/components/search",
+      "box": "/components/box"
+    }
+
+}

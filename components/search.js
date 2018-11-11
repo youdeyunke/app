@@ -27,6 +27,11 @@ Component({
     placeholder: '你想住在哪？',
     text: '',
     mode: 1, // 1: 输入模式， 2： 搜索结果模式
+    currentCatIndex: 0,
+    cats: [
+      {label: '二手房', value: 'ershoufang'},
+      {label: '租房', value: 'zufang'},
+    ],
   },
 
 
@@ -44,6 +49,11 @@ Component({
       }
     },
 
+    catClick: function(e){
+      var i = e.currentTarget.dataset.index
+      this.setData({currentCatIndex: i})
+    },
+
     submit: function(){
       if(this.data.fake){
         return false
@@ -52,8 +62,12 @@ Component({
       if(text.length == 0){
         return false
       }
-      this.triggerEvent('submit', {text: text}, {})
+      var i = this.data.currentCatIndex
+      var cat = this.data.cats[i]
+      var data = {text: text, cat: cat, group:cat.value}
+      this.triggerEvent('submit', data, {})
       this.logHistory(text) 
+      console.log('submit', data)
     },
 
     keywordClick: function(e){
