@@ -24,6 +24,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    gotoSearch: function(e){
+      wx.navigateTo({
+        url: '/pages/search/index'
+      })
+    },
 
     goto: function(e){
       var i = e.currentTarget.dataset.index

@@ -1,7 +1,7 @@
 /* components/slider.wxss */
 
- myslider swiper, myslider image{
-  width:710rpx;
+ .myswiper swiper, .myswiper swiper-item image{
+  width:750rpx;
   height: 320rpx;
   margin:0 auto;
   border-radius: 0rpx;
@@ -9,4 +9,35 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.myswiper {
+  position:relative;
+}
+
+
+.myswiper .search-box{
+  position:absolute;
+  background:#fff;
+  height:80rpx;
+  line-height:80rpx;
+  border-radius:4rpx;
+  color:#cecece;
+  padding-left:20rpx;
+  box-sizing:border-box;
+  width:700rpx;
+  margin:0 auto;
+  top:30rpx;
+  left:25rpx;
+  opacity: 0.95;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.myswiper .search-box image{
+  width: 34rpx;
+  height: 32rpx;
+  margin-right:20rpx;
 }

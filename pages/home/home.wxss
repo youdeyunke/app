@@ -60,13 +60,6 @@ myfav{
 }
 
 
-.header myslider swiper, .header myslider image{
-  width:710rpx;
-  height:320rpx;
-  border-radius:20rpx;
-}
-
-
 .section{
  width:720rpx;
  padding:15rpx 15rpx;

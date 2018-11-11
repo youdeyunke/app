@@ -1,6 +1,7 @@
+<myslider id="slider"></myslider>
+
 <view class="header">
   <mytopbar bindcitychanged="cityHandle"></mytopbar>
-  <myslider id="slider"></myslider>
   <view class="tab-icons">
     <navigator url="{{item.url}}"  open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" wx:for="{{tabIcons}}">
            <view style="background:{{item.bg}}" class="icon-cover">
