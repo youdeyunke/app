@@ -6,7 +6,6 @@
     "mysearch": "/components/search",
     "mypicker": "/components/picker",
     "city-picker": "/components/city-picker",
-    "order": "/components/order",
     "vtransition": "/vant/transition/index"
   }
 }

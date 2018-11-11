@@ -37,8 +37,8 @@
     </view>
 
     <city-picker wx:if="{{cities}}" position="top" bind:change="cityChange" show="{{showCitySelect}}" />
-    <order show="{{showOrder}}" bind:change="orderChange" />
     <mypicker id="type-filter" items="{{typeItems}}" bind:change="typeChange"/>
     <mypicker id="price-filter" items="{{priceItems}}" bind:change="priceChange"/>
+    <mypicker id="order" items="{{orderItems}}" bind:change="orderChange"/>
 </view>
 

@@ -44,7 +44,16 @@ Component({
     district:{},
     showCitySelect: false,
     priceItems: [],
+    orderItems: [
+      {label: '最新发布', value: ['id', 'desc']},
+      {label: '价格(从低到高)', value: ['rent_price', 'asc'] },
+      {label: '价格(从高到低)', value: ['rent_price', 'desc']},
+      {label: '面积(从大到小)', value: ['area', 'desc']},
+      {label: '面积(从小到大)', value: ['area', 'asc'] },      
+    ],
+
     typeItems: [
+      {label: '不限', value: ''},
       {label: '一室', value: 1},
       {label: '两室', value: 2 },
       {label: '三室', value: 3 },
@@ -82,9 +91,7 @@ Component({
     },
 
     orderClick: function(e){
-      this.setData({
-        showOrder: true
-      })
+      this.selectComponent('#order').onShow()
     },
 
     typeFilterClick: function(e){
@@ -93,8 +100,7 @@ Component({
 
     orderChange: function(e){
       this.setData({
-        order: e.detail.order.value.join(','),
-        showOrder: false,
+        order: e.detail.item.value.join(','),
       })
       this.onChange()
     },
