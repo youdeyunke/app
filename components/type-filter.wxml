@@ -1,5 +1,0 @@
-<popup bindcancle="onCancle" bindconfirm="onConfirm" show="{{show}}">
-  <view class="type-items">
-          <view class="type-item {{currentIndex == index ? 'active' : '' }}" wx:for="{{items}}" bindtap='onSelect' data-index="{{index}}">{{item.name}}</view>
-  </view>
-</popup>

@@ -4,9 +4,8 @@
     "van-popup": "/vant/popup/index",
     "van-search": "/vant/search/index",
     "mysearch": "/components/search",
+    "mypicker": "/components/picker",
     "city-picker": "/components/city-picker",
-    "type-filter": "/components/type-filter",
-    "price-filter": "/components/price-filter",
     "order": "/components/order",
     "vtransition": "/vant/transition/index"
   }
