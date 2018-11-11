@@ -19,6 +19,8 @@
   </card>
 
 
+  <flow-tips />
+
   <view class="buttons">
     <block wx:if="{{step == 1}}">
       <button data-name="step1" form-type="submit" type="primary" class="btn ">下一步 1/2</button>
@@ -30,7 +32,6 @@
     </block>
   </view>
 
-<flow-tips />
 
 
 </form>

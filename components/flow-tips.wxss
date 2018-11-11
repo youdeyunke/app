@@ -1,17 +1,68 @@
-.flow-tips{}
+.flow-tips{
+  color: #cecece;
+  font-size: var(--font-xs);
+  margin: 40rpx auto 40rpx auto;
+}
 
 .flow-tips .title-block{
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  width: 600rpx;
+  margin:0 auto 20rpx auto;
 }
 
 .flow-tips .title-block view{
-  width: 200rpx;
   text-align: center;
+  width: 200rpx;
 }
 
-.flow-tips .title-block .line{
+.title-block .line{
+  width: 80rpx;
+}
+
+.title-block .line{
   border-bottom: 2rpx solid #cecece;
+}
+
+.flow-block{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 500rpx;
+  margin:0 auto 0 auto;
+}
+
+.flow-block .item{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: #cecece;
+  font-size: var(--font-xs);
+}
+
+.flow-block .item .icon{
+  border:2rpx solid #cecece;
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:10rpx;
+}
+
+.flow-block .line{
+  width: 100rpx;
+  height: 40rpx;
+  border-top: 2rpx solid #cecece;
+}
+
+
+.flow-block .icon  image{
+  width: 30rpx;
+  height: 30rpx;
 }

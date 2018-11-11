@@ -1,4 +1,7 @@
 {
-  "component": true,
-  "usingComponents": {}
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+      "box": "/components/box"
+    }
+
 }
