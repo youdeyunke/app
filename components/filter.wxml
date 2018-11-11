@@ -1,6 +1,8 @@
 <!--components/filter.wxml-->
 <view class="sfilter-group">
-
+    <view class="search">
+            <van-search value="{{ value }}" placeholder="请输入搜索关键词" />
+    </view>
     <view class="sfilter">
       <view class="sfilter-item"  bindtap="cityFilterClick" >
         <view class="sfilter-item-wrapper">
