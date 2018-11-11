@@ -10,12 +10,12 @@
 
      <view class="typeinfo" wx:if="{{post.group == 'rental' }}">
              <view class="item border">
-                     <view class="value">{{post.rent_price}}</view>
-                     <view class="key">租金</view>
+                     <view class="value">{{post.price_info.text }}</view>
+                     <view class="key">{{post.price_info.label}}</view>
              </view>
              <view class="item border">
                      <view class="value">{{post.type_info.text}}</view>
-                     <view class="key">户型</view>
+                     <view class="key">{{post.type_info.text}}</view>
              </view>
              <view class="item">
                      <view class="value">{{post.area_info.text}}</view>

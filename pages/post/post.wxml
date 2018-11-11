@@ -28,6 +28,11 @@
 </view>
 
 <template wx:if="{{post}}" is="{{post.group}}-detail" data="{{post: post, htmlContent: htmlContent, minicontent:minicontent}}"/>
+<box wx:if="{{posterConfig}}">
+        <poster id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
+                    <button>点击生成海报</button>
+            </poster>
+</box>
 
 <mycard 
         wx:if="{{post.comment_enable}}" 
@@ -58,6 +63,5 @@
         </navigator> 
   </view>
 </mycard>
-
 <recoms wx:if="{{post.group}}" group="{{post.group}}" count="10"></recoms>
 <broker wx:if="{{post.broker_info}}" broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>

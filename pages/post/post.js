@@ -10,9 +10,11 @@ Page({
    */
   data: {
     post: null,
+    debug: false,
     posts: null,
     htmlContent: null,
     minicontent: true,
+    posterConfig: {},
   },
 
   
@@ -123,7 +125,7 @@ Page({
       success: function(resp){
         _this.setData({post: resp.data.data})
         _this.loadComments(postId)
-
+        _this.genPosterConfig()
         wx.setStorage({key: 'post.data.' + postId, data: resp.data.data})
         _this.parseHtml()
         wx.setStorageSync('last_view_post', resp.data.data)
@@ -137,6 +139,14 @@ Page({
 
   },
 
+  onPosterSuccess(e) {
+    const { detail } = e;
+    wx.previewImage({
+          current: detail,
+          urls: [detail]
+      })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -146,6 +156,132 @@ Page({
     this.loadQas(postId)    
     this.setData({ postId: postId, post: post})
     this.loadPost(postId)
+  },
+
+  genPosterConfig: function(){
+    var post = this.data.post
+    var config = {
+      debug: true,
+        backgroundColor: '#fff',
+          width: 750,
+            height: 1300,
+              images: [
+                {
+                  width: 750,
+                  height: 480,
+                  x: 0,
+                  y: 0,
+                  borderRadius: 20,
+                  url: post.cover,
+                },
+              ],
+                texts: [
+                  {
+                    x: 30,
+                    y: 554,
+                    baseLine: 'middle',
+                    text: post.title,
+                    fontSize: 38,
+                    color: '#000',
+                  },  
+                  {
+                    x: 30,
+                    y: 627,
+                    baseLine: 'middle',
+                    text:post.address + ' ' +  post.tags_list.join(' '),
+                    fontSize: 24,
+                    color: '#000',
+                  },                    
+
+                  {
+                    x: 106,
+                    y: 735,
+                    baseLine: 'middle',
+                    text: post.price_info.text,
+                    fontSize: 38,
+                    color: '#ff911b',
+                  },                  
+                  {
+                    x: 106,
+                    y: 788,
+                    baseLine: 'middle',
+                    text: post.price_info.label,
+                    fontSize: 24,
+                    color: '#8d8d8d',
+                  },
+
+                  {
+                    x: 292,
+                    y: 735,
+                    baseLine: 'middle',
+                    text: post.type_info.text,
+                    fontSize: 38,
+                    color: '#ff911b',
+                  },
+                  {
+                    x: 345,
+                    y: 788,
+                    baseLine: 'middle',
+                    text: '户型',
+                    fontSize: 24,
+                    color: '#8d8d8d',
+                  },   
+
+
+                  {
+                    x: 560,
+                    y: 735,
+                    baseLine: 'middle',
+                    text: post.area_info.text,
+                    fontSize: 38,
+                    color: '#ff911b',
+                  },
+                  {
+                    x: 560,
+                    y: 788,
+                    baseLine: 'middle',
+                    text:post.area_info.label,
+                    fontSize: 24,
+                    color: '#8d8d8d',
+                  },                        
+                ],
+
+      lines: [
+        {
+          startY: 683,
+          startX: 30,
+          endX: 720,
+          endY: 683,
+          width: 2,
+          color: '#cecece',
+        },
+        {
+          startY: 826,
+          startX: 30,
+          endX: 720,
+          endY: 826,
+          width: 2,
+          color: '#cecece',
+        },        
+        {
+          startY: 705,
+          startX: 260,
+          endX: 260,
+          endY: 805,
+          width: 2,
+          color: '#cecece',
+        },  
+        {
+          startY: 705,
+          startX: 491,
+          endX: 491,
+          endY: 805,
+          width: 2,
+          color: '#cecece',
+        },                
+      ]                
+    }
+    this.setData({posterConfig: config})
   },
 
   /**
