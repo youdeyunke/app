@@ -1,29 +1,5 @@
 <template name="old-detail">
 <block>
-<view class="header-box">
-  <view class="header">
-     <view class=" post-title h1">{{ post.title_info.text }}</view>
-     <mytags wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
-     <view class="typeinfo">
-         <view class="item border">
-                 <view class="value">{{post.price_info.text}}</view>
-                 <view class="key">总价</view>
-         </view>
-         <view class="item border">
-                 <view class="value">{{post.type_info.text}}</view>
-                 <view class="key">户型</view>
-         </view>
-         <view class="item">
-                 <view class="value">{{post.area_info.text}}</view>
-                 <view class="key">建面</view>
-         </view>
-     </view>
-     <view bindtap='couponHandle' class="coupon" wx:if="{{ post.coupon_desc && post.coupon_enable}}">
-     <view class="name line-limit">{{post.coupon_desc}}</view>
-     <view class="action">{{ post.user_has_coupon ? '已领券' : '领券' }}</view>
-   </view>     
-  </view>
-</view>
 
 <mycard title="基本信息" hat>
       <view  class="detail-meta {{post.group}}">

@@ -2,6 +2,7 @@
 const app = getApp()
 var WxParse = require('../../utils/wxParse/wxParse.js');
 var auth = require('../../utils/auth.js');
+import Poster from '../../wxa-plugin-canvas/poster/poster';
 
 Page({
 
@@ -15,6 +16,7 @@ Page({
     htmlContent: null,
     minicontent: true,
     posterConfig: {},
+    showShareBox: false,
   },
 
   
@@ -143,8 +145,31 @@ Page({
     const { detail } = e;
     this.setData({
       showPoster: true,
+      showShareBox: false,
       posterUrl: detail,
     })
+  },
+
+  closePoster: function(e){
+    this.setData({
+      showPoster: false,
+    })
+  },
+
+  showShareBoxHandle: function(e){
+    this.setData({
+      showShareBox: true,
+    })
+  },
+
+  closeShareBox: function(e){
+    this.setData({
+      showShareBox: false
+    })
+  },
+
+  onCreatePoster: function(){
+    Poster.create()
   },
 
   onSavePoster: function(e){
@@ -154,7 +179,7 @@ Page({
       filePath: path,
       success(res) { 
         _this.setData({
-          showPoster: true,
+          showPoster: false,
         })
         wx.showToast({
           title: '已保存，请前往手机相册查看',
@@ -179,10 +204,10 @@ Page({
     var post = this.data.post
   
     var config = {
-      debug: true,
+      debug: false,
         backgroundColor: '#fff',
           width: 750,
-            height: 1300,
+            height: 1200,
               images: [
                 {
                   width: 750,
@@ -194,10 +219,10 @@ Page({
                 },
 
                 {
-                  width: 300,
-                  height: 300,
+                  width: 280,
+                  height: 280,
                   x: 225,
-                  y: 925,
+                  y: 905,
                   borderRadius: 0,
                   url: post.qr,
                 },

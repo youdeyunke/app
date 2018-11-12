@@ -125,14 +125,15 @@ mycard{
 
  .post-title{
   color:#000;
-  margin: 20rpx auto 20rpx auto !important;
+  margin: 20rpx 0 20rpx 0 ;
   font-weight:bold;
-
+  width:550rpx;
 }
 
 .header-box{
   width:100%;
   padding-bottom:20rpx;
+  position: relative;
 }
 
 
@@ -416,11 +417,11 @@ myfav .myfav {
 
 
 .poster-preview{
-  height: 1060rpx;
+  height: 1100rpx;
   width: 600rpx;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -429,13 +430,86 @@ myfav .myfav {
   height: 960rpx;
 }
 
-.poster-save-btn{
-  width: 100%;
+
+.poster-actions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100rpx;
+  width: 100%;
+}
+
+.poster-actions-btn{
   color: #fff;
-  background: var(--color-a);
   font-size:var(--font-l);
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100rpx;
+}
+
+.poster-cancle-btn{
+  width: 40%;
+  background:var(--color-b);
+}
+
+.poster-save-btn{
+  background: var(--color-a);
+  width: 60%;
+}
+
+.share-btn{
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  right:30rpx;
+  top:65rpx;
+}
+
+.share-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding:30rpx  auto;
+  width: 100%;
+  height: 300rpx;
+  font-size:var(--font-s);
+}
+
+.share-box button{
+  border:none;
+  padding:0;
+  margin: 0;
+  background: none;
+  font-size:var(--font-s);
+}
+
+.share-box-title{
+}
+
+.share-box-items{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 260rpx;
+}
+
+.share-box .share-box-items .share-box-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top:0rpx;
+  height: 100rpx;
+  line-height: 1.5;
+}
+
+.share-box-item-icon{
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.share-box-item-name{
+  margin-top:10rpx;
 }
