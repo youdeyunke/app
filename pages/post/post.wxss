@@ -413,3 +413,29 @@ myfav .myfav {
 .recom-post .post{
    padding:20rpx 0;
 }
+
+
+.poster-preview{
+  height: 1060rpx;
+  width: 600rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.poster-preview image{
+  width: 600rpx;
+  height: 960rpx;
+}
+
+.poster-save-btn{
+  width: 100%;
+  height: 100rpx;
+  color: #fff;
+  background: var(--color-a);
+  font-size:var(--font-l);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

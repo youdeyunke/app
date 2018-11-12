@@ -141,11 +141,28 @@ Page({
 
   onPosterSuccess(e) {
     const { detail } = e;
-    wx.previewImage({
-          current: detail,
-          urls: [detail]
-      })
+    this.setData({
+      showPoster: true,
+      posterUrl: detail,
+    })
   },
+
+  onSavePoster: function(e){
+    var _this = this
+    var path = this.data.posterUrl
+    wx.saveImageToPhotosAlbum({
+      filePath: path,
+      success(res) { 
+        _this.setData({
+          showPoster: true,
+        })
+        wx.showToast({
+          title: '已保存，请前往手机相册查看',
+        })
+      }
+    })    
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -160,6 +177,7 @@ Page({
 
   genPosterConfig: function(){
     var post = this.data.post
+  
     var config = {
       debug: true,
         backgroundColor: '#fff',
@@ -174,6 +192,16 @@ Page({
                   borderRadius: 20,
                   url: post.cover,
                 },
+
+                {
+                  width: 300,
+                  height: 300,
+                  x: 225,
+                  y: 925,
+                  borderRadius: 0,
+                  url: post.qr,
+                },
+
               ],
                 texts: [
                   {
@@ -237,13 +265,22 @@ Page({
                     color: '#ff911b',
                   },
                   {
-                    x: 560,
+                    x: 580,
                     y: 788,
                     baseLine: 'middle',
                     text:post.area_info.label,
                     fontSize: 24,
                     color: '#8d8d8d',
-                  },                        
+                  },    
+
+                  {
+                    x: 317,
+                    y: 880,
+                    baseLine: 'middle',
+                    text: "长按识别",
+                    fontSize: 24,
+                    color: '#cecece',
+                  },                                        
                 ],
 
       lines: [

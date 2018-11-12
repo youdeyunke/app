@@ -11,6 +11,7 @@
     "mypost": "/components/post",
     "mystars": "/components/stars",
     "mapimage":"/components/map",
+    "van-popup": "/vant/popup/index",
     "poster":"/wxa-plugin-canvas/poster/index",
     "recoms":"/components/recom-posts",
     "comments": "/components/comments"

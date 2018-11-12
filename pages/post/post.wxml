@@ -65,3 +65,11 @@
 </mycard>
 <recoms wx:if="{{post.group}}" group="{{post.group}}" count="10"></recoms>
 <broker wx:if="{{post.broker_info}}" broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>
+
+
+<van-popup show="{{showPoster}}" close-on-click-overlay> 
+  <view class="poster-preview">
+    <image src="{{posterUrl}}"></image>
+    <view class="poster-save-btn"  bindtap="onSavePoster">保存到相册</view>
+  </view>
+</van-popup>
