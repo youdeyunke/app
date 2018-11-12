@@ -449,13 +449,13 @@ myfav .myfav {
 }
 
 .poster-cancle-btn{
-  width: 40%;
+  width: 50%;
   background:var(--color-b);
 }
 
 .poster-save-btn{
   background: var(--color-a);
-  width: 60%;
+  width: 50%;
 }
 
 .share-btn{
