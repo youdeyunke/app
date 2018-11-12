@@ -490,7 +490,7 @@ myfav .myfav {
 
 .share-box-items{
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 260rpx;
 }
@@ -512,4 +512,30 @@ myfav .myfav {
 
 .share-box-item-name{
   margin-top:10rpx;
+}
+
+.float-btn{
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 88rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right:30rpx;
+  box-shadow: 0 4rpx 10rpx rgba(0,0,0, 0.2); 
+  font-size:var(--font-xs);
+  color: #fff;
+  opacity: 0.9;
+}
+
+.float-btn.gen-poster{
+  bottom:200rpx;
+  background: rgba(0,0,0, 0.2);
+}
+
+.float-btn.gen-poster image{
+  width: 32rpx;
+  height: 32rpx;
 }

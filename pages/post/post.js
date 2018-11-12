@@ -182,6 +182,7 @@ Page({
           showPoster: false,
         })
         wx.showToast({
+          icon: 'none',
           title: '已保存，请前往手机相册查看',
         })
       }
@@ -247,7 +248,7 @@ Page({
                   },                    
 
                   {
-                    x: 106,
+                    x: 86,
                     y: 735,
                     baseLine: 'middle',
                     text: post.price_info.text,

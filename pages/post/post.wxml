@@ -109,7 +109,7 @@
         <view class="share-box-item-name">微信</view>
       </button>
 
-      <view bindtap="onCreatePoster" class="share-box-item">
+      <view bindtap="onCreatePoster" class="share-box-item" wx:if="{{post.qr}}">
         <image class="share-box-item-icon" src="/assets/icons/pengyouquan.png"></image>
         <view class="share-box-item-name">朋友圈</view>
       </view>      
@@ -119,3 +119,8 @@
 
         
 <poster wx:if="{{posterConfig}}" id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster> 
+
+<view class="float-btn gen-poster" bindtap="onCreatePoster">
+  <image src="/assets/icons/gen-poster-icon.png"></image>
+  <text>海报</text>
+</view>
