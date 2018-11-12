@@ -30,7 +30,7 @@
 <view class="header-box">
   <view class="header"> 
      <image bindtap="showShareBoxHandle" src="/assets/icons/share.png" class="share-btn"></image>
-     <view class=" post-title h1 line-limit">这里是标题如果太长了会显示点点点{{ post.title_info.text }}</view>
+     <view class=" post-title h1 line-limit">{{ post.title_info.text }}</view>
      <mytags wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
      <view class="typeinfo">
          <view class="item border">
@@ -104,7 +104,7 @@
   <view class="share-box">
     <view class="share-box-title">分享房源</view>
     <view class="share-box-items">
-      <button plain  open-type='share' class="share-box-item">
+      <button plain bindtap="closeShareBox"  open-type='share' class="share-box-item">
         <image class="share-box-item-icon" src="/assets/icons/weixin.png"></image>
         <view class="share-box-item-name">微信</view>
       </button>
