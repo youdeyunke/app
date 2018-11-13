@@ -126,7 +126,7 @@ Page({
       success: function(resp){
         if(query.text){
           var c = resp.data.meta.total_entries
-          var msg =  c > 0 ? '搜索到' + c + '条结果' : '没有搜索到结果，换个词试试？'
+          var msg =  c > 0 ? '搜索到' + c + '条结果' : '什么都没搜到，换个词试试？'
           wx.showToast({
             icon: 'none',
             title: msg,
