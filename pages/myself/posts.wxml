@@ -1,0 +1,5 @@
+<block wx:if="{{userInfo && posts }}">
+    <box padding="30"  wx:for="{{posts}}" >
+      <post item="{{item}}"/>    
+    </box>
+</block>

@@ -1,0 +1,22 @@
+<block wx:if="{{userInfo}}">
+  <view class="header">
+    <image class="avatar" src="{{userInfo.avatar}}"></image>
+    <view class="nickname">{{userInfo.nickname}}</view>
+  </view>
+
+  <view class="body">
+    <van-tabs type="card" color="#00ae66" bind:click="tabClick">
+      <van-tab title="二手房 {{ershoufangItems.length}}"> </van-tab>    
+      <!-- van-tab title="新房 {{xinfangItems.length}}">{{xinfangItems}}</van-tab -->
+      <van-tab title="租房 {{zufangItems.length}}"></van-tab>
+    </van-tabs>  
+
+    <box padding="30">
+    <view class="list">
+        <post wx:for="{{ershoufangItems}}" item="{{item}}"></post>
+        <post wx:for="{{zufangItems}}" item="{{item}}"></post>
+    </view>
+    </box>
+
+  </view>
+</block>

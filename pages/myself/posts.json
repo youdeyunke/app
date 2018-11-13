@@ -1,0 +1,7 @@
+{
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "post": "/components/post-panel",
+    "box": "/components/box"
+  }
+}

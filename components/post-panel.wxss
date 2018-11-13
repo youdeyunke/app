@@ -1,0 +1,20 @@
+.myfooter{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.myfooter van-button{
+  margin:0 0 0 10rpx;
+}
+
+.mypost .images{
+  white-space: nowrap;
+  margin:10rpx 0;
+}
+
+.mypost .images image{
+  height: 180rpx;
+  width: 250rpx;
+  display: inline-block;
+  margin: 0 15rpx 0 5rpx;
+}

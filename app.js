@@ -5,8 +5,8 @@ var auth = require('utils/auth.js');
 App({
 
   globalData: {
-    apiHost: 'https://fang.udeve.cn',
-    //apiHost: 'http://dockerhost:9001',
+    //apiHost: 'https://fang.udeve.cn',
+    apiHost: 'http://dockerhost:9001',
     userInfo: null,
     token: null,
     loadingStatus: 0,
@@ -207,6 +207,12 @@ App({
           wx.setStorageSync('token', null)               
           auth.gotoAccount('需要登录', '请先登录账号')
           return false
+        }
+        if(res.data.status == 1 && res.data.error){
+          wx.showModal({
+              title: '出错啦',
+              content: res.data.error,
+          })
         }
 
         typeof obj.success == "function" && obj.success(res)
