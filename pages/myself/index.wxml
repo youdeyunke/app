@@ -28,7 +28,6 @@
     </van-cell>
 
     <van-cell hover-class="none" value="{{item.value || ''}}" wx:for="{{cells}}" title="{{item.name}}"  url="{{item.url}}"   is-link center>
-        <image slot="icon" src="/assets/icons/{{item.icon}}"></image>
     </van-cell>
 
   </van-cell-group>
