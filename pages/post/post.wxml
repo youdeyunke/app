@@ -3,6 +3,8 @@
 <import src="/tpls/posts/new-detail.wxml" />
 <import src="/tpls/posts/old-detail.wxml" />
 <import src="/tpls/posts/rental-detail.wxml" />
+
+<block wx:if="{{post}}">
 <view class="post-cover">
        <view wx:if="{{post && post.vr_url}}" open-type="navigateTo" bindtap='gotoVr' class="vr-btn">
         <image src="/assets/icons/qjkf.png"></image>
@@ -124,3 +126,5 @@
   <image src="/assets/icons/gen-poster-icon.png"></image>
   <text>海报</text>
 </view>
+
+</block>

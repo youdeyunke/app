@@ -222,7 +222,7 @@ Page({
                   height: 480,
                   x: 0,
                   y: 0,
-                  borderRadius: 20,
+                  borderRadius: 0,
                   url: post.cover,
                 },
 
