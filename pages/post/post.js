@@ -227,10 +227,10 @@ Page({
                 },
 
                 {
-                  width: 280,
-                  height: 280,
-                  x: 225,
-                  y: 905,
+                  width: 260,
+                  height: 260,
+                  x: 245,
+                  y: 925,
                   borderRadius: 0,
                   url: post.qr,
                 },
@@ -255,7 +255,7 @@ Page({
                   },                    
 
                   {
-                    x: 86,
+                    x: 80 - 10*post.price_info.text.length*0.5,
                     y: 735,
                     baseLine: 'middle',
                     text: post.price_info.text,
@@ -272,7 +272,7 @@ Page({
                   },
 
                   {
-                    x: 292,
+                    x: 325 - 12 * post.type_info.text.length * 0.5,
                     y: 735,
                     baseLine: 'middle',
                     text: post.type_info.text,
@@ -290,7 +290,7 @@ Page({
 
 
                   {
-                    x: 560,
+                    x: 560 - 11 * post.area_info.text.length * 0.5,
                     y: 735,
                     baseLine: 'middle',
                     text: post.area_info.text,
@@ -307,10 +307,10 @@ Page({
                   },    
 
                   {
-                    x: 317,
+                    x: 290,
                     y: 880,
                     baseLine: 'middle',
-                    text: "长按识别",
+                    text: "长按识别二维码",
                     fontSize: 24,
                     color: '#cecece',
                   },                                        
