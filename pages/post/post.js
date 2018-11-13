@@ -84,6 +84,13 @@ Page({
     })    
   },
 
+ viewTypeImage: function(e){
+   console.log('e', e)
+   var i = e.currentTarget.dataset.index
+   var url = this.data.post.types[i].image.url
+   wx.previewImage({urls: [url] })
+ },
+
 
   viewImage: function(e){
     var urls = this.data.post.full_images_list

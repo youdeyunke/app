@@ -56,7 +56,7 @@
 <mycard title="户型信息" >
     <view class="housetype" wx:for="{{post.types}}">
       <view class="poster">
-          <image bindtap="imageView" data-target="a" src="{{item.image.url}}?imageView2/2/w/300"></image>
+              <image bindtap="viewTypeImage" data-index="{{index}}" src="{{item.image.url}}?imageView2/2/w/300"></image>
       </view>
       <view class="meta">
         <view class="name h1">{{item.name}}</view>
