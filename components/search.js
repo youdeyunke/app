@@ -29,6 +29,7 @@ Component({
     mode: 1, // 1: 输入模式， 2： 搜索结果模式
     currentCatIndex: 0,
     cats: [
+      {label: '新房', value: 'xinfang'},
       {label: '二手房', value: 'ershoufang'},
       {label: '租房', value: 'zufang'},
     ],
