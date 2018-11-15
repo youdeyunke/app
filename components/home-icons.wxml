@@ -1,0 +1,20 @@
+<!--components/home-icons.wxml-->
+<block>
+  <view class="icons">
+    <navigator bindtap="{{item.tapHandle}}" url="{{item.url}}"  open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" wx:for="{{icons}}">
+           <view style="background:#{{colors[index]}}" class="icon-cover">
+              <image src="/assets/icons/tab-{{item.id}}.png"></image>
+           </view>
+      <text>{{ item.name }}</text>
+    </navigator>
+    
+  </view>
+
+<van-action-sheet
+  show="{{ publishSheetShow }}"
+  actions="{{ publishActions }}"
+  bind:close="publishClose"
+  bind:select="publishClick"
+/>
+
+ </block>
