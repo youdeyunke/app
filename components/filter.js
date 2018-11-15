@@ -76,7 +76,7 @@ Component({
     if(this.data.group == 'zufang'){
       this.setData({priceItems: rentPriceRanges})
     }
-    if(this.data.group == 'ershoufang'){
+    if(this.data.group == 'ershoufang' || this.data.group == 'xinfang'){
       this.setData({priceItems: totalPriceRanges})
     }
   

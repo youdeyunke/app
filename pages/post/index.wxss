@@ -1,4 +1,3 @@
-.blank{
-        height:140rpx;
-        background:none;
+page{
+  padding-top:160rpx;
 }

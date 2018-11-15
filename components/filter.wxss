@@ -13,6 +13,7 @@
   z-index:99;
   box-sizing: border-box;
   background:#fff;
+  box-shadow: 0 1rpx 1rpx rgba(0,0,0, 0.2);  
 }
 
 .sfilter-group .search{

@@ -1,7 +1,6 @@
 <template name="zufang">
     <block>
         <box padding="30">
-        <view class="blank"></view>
             <block wx:for="{{posts}}" wx:for-item="postitems">
                 <post wx:for="{{postitems}}" item="{{item}}"></post>
             </block>
