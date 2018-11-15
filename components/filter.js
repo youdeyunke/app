@@ -31,6 +31,22 @@ rentPriceRanges.push({
   value: [4000, 9999999],  
 })
 
+var orderItems1 =  [
+      {label: '默认排序', value: ['refresh_at', 'desc']},
+      {label: '价格(从低到高)', value: ['rent_price', 'asc'] },
+      {label: '价格(从高到低)', value: ['rent_price', 'desc']},
+      {label: '面积(从大到小)', value: ['area', 'desc']},
+      {label: '面积(从小到大)', value: ['area', 'asc'] },      
+    ]
+
+var orderItems2 =  [
+      {label: '默认排序', value: ['refresh_at', 'desc']},
+      {label: '均价(从低到高)', value: ['average_price', 'asc'] },
+      {label: '均价(从高到低)', value: ['average_price', 'desc']},
+      {label: '面积(从大到小)', value: ['area', 'desc']},
+      {label: '面积(从小到大)', value: ['area', 'asc'] },      
+    ]
+
 
 Component({
   /**
@@ -74,10 +90,10 @@ Component({
       cities: app.globalData.cities
     })
     if(this.data.group == 'zufang'){
-      this.setData({priceItems: rentPriceRanges})
+      this.setData({priceItems: rentPriceRanges, orderItems: orderItems1})
     }
     if(this.data.group == 'ershoufang' || this.data.group == 'xinfang'){
-      this.setData({priceItems: totalPriceRanges})
+      this.setData({priceItems: totalPriceRanges, orderItems: orderItems2})
     }
   
   },
