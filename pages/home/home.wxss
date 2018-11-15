@@ -8,6 +8,7 @@ page{
   width:100%;
   padding:0 0rpx 20rpx 0rpx;
   margin-bottom:20rpx;
+  margin-top:40rpx;
   box-size:border-box;
 }
 
