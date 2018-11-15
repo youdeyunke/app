@@ -34,7 +34,7 @@ Page({
     var _this = this
     app.request({
       url: '/api/v2/posts/',
-      data: {'user_id': userId, per_page : 999, order: 'id,desc'},
+      data: {'user_id': userId, per_page : 999},
       success: function(resp){
         if(!resp.data.status == 0){
             wx.showModal({

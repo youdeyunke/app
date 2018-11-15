@@ -52,7 +52,7 @@ Component({
     showCitySelect: false,
     priceItems: [],
     orderItems: [
-      {label: '最新发布', value: ['id', 'desc']},
+      {label: '默认排序', value: ['refresh_at', 'desc']},
       {label: '价格(从低到高)', value: ['rent_price', 'asc'] },
       {label: '价格(从高到低)', value: ['rent_price', 'desc']},
       {label: '面积(从大到小)', value: ['area', 'desc']},

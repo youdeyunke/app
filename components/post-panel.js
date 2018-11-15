@@ -31,6 +31,26 @@ Component({
       this.publicUpdate(false)
     },
 
+    doRefresh: function(e){
+      var _this = this
+      var item = this.data.item
+      var data = {id: item.id}
+      app.request({
+        url: '/api/v2/posts/refresh',
+        method: 'GET',
+        data: data,
+        success: function(resp){
+          if(resp.data.status == 1){
+            return
+          }
+          wx.showToast({
+            icon: 'none',
+            title: '刷新成功，房源将优先显示',
+          })
+        }
+      })
+    },
+
     publicUpdate: function(isPublic){
       var id = this.data.item.id
       var data = {id: id, is_public: isPublic ? 'true' : 'false'}

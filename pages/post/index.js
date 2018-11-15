@@ -13,7 +13,7 @@ Page({
     isEmpty: false,
     isEnd: false,
     loading: false,
-    order: 'id,desc',
+    order: '',
     posts: [],
     filter: {},
   },

@@ -210,7 +210,7 @@ App({
         }
         if(res.data.status == 1 && res.data.error){
           wx.showModal({
-              title: '出错啦',
+              title: '温馨提示',
               content: res.data.error,
           })
         }
