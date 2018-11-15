@@ -9,6 +9,7 @@
     "qa": "/components/qa",
     "box": "/components/box",
     "mypost": "/components/post",
+    "safe-tips": "/components/safe-tips",
     "mystars": "/components/stars",
     "mapimage":"/components/map",
     "van-popup": "/vant/popup/index",

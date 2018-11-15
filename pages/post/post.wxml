@@ -49,7 +49,7 @@
          </view>
      </view>
      <view bindtap='couponHandle' class="coupon" wx:if="{{ post.coupon_desc && post.coupon_enable}}">
-     <view class="name line-limit">{{post.coupon_desc}}</view>
+       <view class="name line-limit">{{post.coupon_desc}}</view>
      <view class="action">{{ post.user_has_coupon ? '已领券' : '领券' }}</view>
    </view>     
   </view>
@@ -87,6 +87,9 @@
         </navigator> 
   </view>
 </mycard>
+
+<safe-tips/>
+
 <recoms wx:if="{{post.group}}" group="{{post.group}}" count="10"></recoms>
 <broker wx:if="{{post.broker_info}}" broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>
 
