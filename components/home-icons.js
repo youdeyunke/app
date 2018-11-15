@@ -38,19 +38,18 @@ Component({
 
     icons: [
       {name: '新房', url: '/pages/post/index?group=xinfang', opentype:"navigateTo", id: 'new', bg: '#fdaa3d'},
-      { name: '二手', url: '/pages/post/index?group=ershoufang', opentype:"navigateTo", id: 'old', bg: '#53d8e3'},
+      { name: '二手房', url: '/pages/post/index?group=ershoufang', opentype:"navigateTo", id: 'old', bg: '#53d8e3'},
 
       { name: '整租', url: '/pages/post/index?group=zufang&rent_type=zhengzu', opentype:"navigateTo", id: 'rent_house', bg: '#65b455'},
       { name: '合租', url: '/pages/post/index?group=zufang&rent_type=hezu', opentype:"navigateTo", id: 'rent_room', bg: '#d578e3'},
 
       { name: '找室友', url: '/pages/need/roommate', opentype: "navigateTo", id: 'shiyou', bg: '#4c9ef0' },
 
-      { name: '找房', url: '/pages/need/room', opentype: "navigateTo", id: 'zhao', bg: '#f67350' }      ,
-
-      { name: '求购', url: '/pages/need/room-form?cat=buy', opentype: "navigateTo", id: 'qiugou'  },
-      { name: '求租', url: '/pages/need/room-form?cat=rent', opentype: "navigateTo", id: 'qiugou'  },
-
-      { name: '发布', url: '', opentype: "", id: 'publish', tapHandle: 'publishHandle'},
+      { name: '求购登记', url: '/pages/need/room-form?cat=buy', opentype: "navigateTo", id: 'publish'  },
+      { name: '求租登记', url: '/pages/need/room-form?cat=rent', opentype: "navigateTo", id: 'publish'  },
+      { name: '我要卖房', url: '/pages/post/form?group=old', opentype: "navigateTo", id: 'sale'  },
+      { name: '我要出租', url: '/pages/post/form?group=rental&rent_type=zhengzu', opentype: "navigateTo", id: 'rent'  },
+      { name: '关于我们', url: '/pages/about/index', opentype: "navigateTo", id: 'about'  },
 
     ]
 

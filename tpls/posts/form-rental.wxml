@@ -1,11 +1,11 @@
 <template name="form-rental">
   <block>
-    <card title="转租类型" hat wx:if="{{step==1 && post.is_sublet == 'true'}}">
+    <card title="出租类型" hat wx:if="{{step==1 }}">
       <van-radio-group value="{{post.rent_type}}">
-      <van-cell title="转租整套" bind:click="rentTypeClick" clickable data-name="zhengzu"  >
+      <van-cell title="整租" bind:click="rentTypeClick" clickable data-name="zhengzu"  >
         <van-radio name="zhengzu" />
       </van-cell>
-      <van-cell title="转租单间" bind:click="rentTypeClick" clickable data-name="hezu"  >
+      <van-cell title="合租" bind:click="rentTypeClick" clickable data-name="hezu"  >
         <van-radio name="hezu" />
       </van-cell>   
       </van-radio-group>   
