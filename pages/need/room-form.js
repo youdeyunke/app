@@ -2,6 +2,29 @@
 const app = getApp()
 var auth = require('../../utils/auth.js');
 
+var purposeList1 = [
+      {name: '合租' },
+      {name: '整租' },
+      {name: '有电梯'},
+      {name: '可做饭'},
+      {name: '可养宠物'},
+      {name: '繁华地段'},
+      {name: '配套成熟'},
+      {name: '交通便利'},
+      {name: '品牌公寓'},
+]
+
+var purposeList2 = [
+      {name: '学区房' },
+      {name: '投资'},
+      {name: '刚需'},
+      {name: '自住'},
+      {name: '父母住'},
+      {name: '繁华地段'},
+      {name: '配套成熟'},
+      {name: '交通便利'},
+]
+
 Page({
 
   /**
@@ -37,6 +60,35 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
+    var title = ''
+    if(q.cat == 'rent'){
+      title = '求租登记'
+      this.setData({
+        purposeList: purposeList1,
+        budget_min: 500,
+        budget_max: 10000,
+        budget_min_value: 1000,
+        budget_max_value: 1500,
+        step: 100,
+        priceUnit: '元',
+        cat: 'rent',
+      })
+    }
+    if(q.cat == 'buy'){
+      title = '求购登记'
+      this.setData({
+        purposeList: purposeList2,
+        budget_min: 10,
+        budget_max: 1000,
+        budget_min_value: 100,
+        budget_max_value: 150,
+        priceUnit: '万元',
+        step: 5,
+        cat: 'buy',
+      })
+    }
+    wx.setNavigationBarTitle({ title: title })
+
     var _this  = this
     var eb = {
         key: 'switch',
@@ -55,7 +107,7 @@ Page({
   budgetChange: function(e){
     var r = e.detail.range
     console.log('budget', r)
-    this.setData({budget_min: r[0], budget_max: r[1]})
+    this.setData({budget_min_value: r[0], budget_max_value: r[1]})
   },
 
   validate: function(cb){
@@ -92,12 +144,13 @@ Page({
     }
 
     var data = {
+      cat: this.data.cat,
       budget: this.data.budget,
       position: this.data.position,
       content: this.data.content,
       purpose: this.data.purpose,
-      budget_min: this.data.budget_min,
-      budget_max: this.data.budget_max,
+      budget_min: this.data.budget_min_value,
+      budget_max: this.data.budget_max_value,
       contact_name: this.data.contact_name,
       contact_mobile: this.data.contact_mobile,
       contact_wechat: this.data.contact_wechat,
@@ -176,9 +229,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.setNavigationBarTitle({
-      title:  "定制找房",
-    })
   },
 
   /**
