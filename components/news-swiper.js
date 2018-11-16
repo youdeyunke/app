@@ -6,7 +6,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    limit: {type: Number, value: 3},
   },
 
   ready: function(){
@@ -17,7 +17,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    items: [],
+    items: [
+    ],
   },
 
   /**
@@ -29,9 +30,16 @@ Component({
       var _this = this
       app.request({
         url: '/api/v1/news',
-        data:{ limit:10 },
+        data:{ limit: _this.data.limit || 5 },
         success: function(resp){
-          _this.setData({items: resp.data.data})
+          if(resp.data.data.length > 0){
+            _this.setData({items: resp.data.data})
+          }else{
+            _this.setData({items: [
+              {title: '请先在管理后台添加头条文章'}
+            ]
+            })
+          }
         },
       })
     },

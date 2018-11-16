@@ -11,10 +11,6 @@
   <text class="weui-loadmore__tips">正在加载</text>
 </view>
 
-<view  class="weui-loadmore weui-loadmore_line" wx:if="{{!hasMore}}">
-    	<text class="weui-loadmore__tips weui-loadmore__tips_in-line">END</text>
-</view>
-
 <view class="fixed-footer add-new">
   <view>在这里，问关于房子的一切问题</view>
   <button bindtap="gotoNew" class="btn primary mini">去提问</button>
