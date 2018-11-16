@@ -12,3 +12,8 @@ page{
   box-size:border-box;
 }
 
+.my-news-swiper{
+  margin-top:10rpx;
+  margin-bottom:40rpx;
+}
+

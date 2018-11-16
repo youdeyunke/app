@@ -1,0 +1,17 @@
+<view class="news-swiper">
+  <view class="logo-block">
+    <image src="/assets/icons/toutiao.png"></image>
+  </view>
+
+  <view class="swiper-block">
+  <swiper autoplay="true" interval="3000" vertical="true">
+    <swiper-item item-id="{{index}}"  wx:for="{{items}}">
+      <navigator hover-class='none' url="/pages/news/show?id={{item.id}}" class="title-block">
+        <view class="line-limit">{{item.title}}</view>
+        <view>来源：{{item.source}} | 作者：{{item.author}}</view>  
+      </navigator>
+    </swiper-item>  
+  </swiper>
+  </view>
+
+</view>
