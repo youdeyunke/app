@@ -23,7 +23,7 @@
 .item .cover{
   width: 240rpx;
   height: 160rpx;
-  border-radius: 20rpx;
+  border-radius: 0rpx;
   overflow: hidden;
 }
 
@@ -61,8 +61,6 @@
 }
 
 .item .date{
-  background: #f4f4f4;
-  border-radius: 10rpx;
   padding:4rpx 20rpx;
   font-size:22rpx;
   color: #333;

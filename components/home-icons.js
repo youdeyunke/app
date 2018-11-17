@@ -49,7 +49,7 @@ Component({
       { name: '求租登记', url: '/pages/need/room-form?cat=rent', opentype: "navigateTo", id: 'publish'  },
       { name: '我要卖房', url: '/pages/post/form?group=old', opentype: "navigateTo", id: 'sale'  },
       { name: '我要出租', url: '/pages/post/form?group=rental&rent_type=zhengzu', opentype: "navigateTo", id: 'rent'  },
-      { name: '关于我们', url: '/pages/about/index', opentype: "navigateTo", id: 'about'  },
+      { name: '问答', url: '/pages/qa/index', opentype: "navigateTo", id: 'about'  },
 
     ]
 

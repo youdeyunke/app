@@ -1,5 +1,4 @@
 page{
-  background: #cecece !important;
   font-size:24rpx;
 }
 

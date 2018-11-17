@@ -16,8 +16,8 @@
 }
 
 .logo-block image{
-  width: 70rpx;
-  height: 70rpx;
+  width: 60rpx;
+  height: 60rpx;
 }
 
 .swiper-block{

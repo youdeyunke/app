@@ -18,9 +18,6 @@
   <view class="raw">
       <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>
   </view>
-  <view class="favs">
-   <myfav icon="like" obj="news" oid="{{item.id}}" count="{{item.favs_count}}"></myfav>
-  </view>
 
 </box>
 
