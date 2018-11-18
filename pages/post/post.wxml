@@ -1,5 +1,4 @@
 <import src="/utils/wxParse/wxParse.wxml"/>
-<import src="/tpls/posts/detail-meta.wxml" />
 <import src="/tpls/posts/new-detail.wxml" />
 <import src="/tpls/posts/old-detail.wxml" />
 <import src="/tpls/posts/rental-detail.wxml" />
@@ -55,14 +54,23 @@
   </view>
 </view>
 
+<view class="tabs">
+ <view data-tab="detail" bindtap="tabHandle" class="tab-item {{currentTab == 'detail' ? 'active': ''}}">详细</view>
+ <view class="tab-blank"></view>
+ <view data-tab="comment" bindtap="tabHandle" class="tab-item {{currentTab == 'comment' ? 'active': ''}}">评论</view>
+ <view class="tab-blank"></view>
+ <view data-tab="qa" bindtap="tabHandle" class="tab-item {{currentTab == 'qa' ? 'active': ''}}">问答</view>
+</view>
 
+<view hidden="{{currentTab!='detail'}}">
+  <template wx:if="{{post}}" is="{{post.group}}-detail" data="{{post: post, htmlContent: htmlContent, minicontent:minicontent}}"/>
+</view>
 
-<template wx:if="{{post}}" is="{{post.group}}-detail" data="{{post: post, htmlContent: htmlContent, minicontent:minicontent}}"/>
-<mycard 
-        wx:if="{{post.comment_enable}}" 
-        number="{{post.comments_count}}" 
-        title="用户评价" 
-        url="{{ post.comments_count > 1 ?  '/pages/comments/index?target_id=' +postId : null}}" >
+<view hidden="{{currentTab!='comment'}}">
+<box padding="30"
+     number="{{post.comments_count}}" 
+     title="用户评价" 
+     url="{{ post.comments_count > 1 ?  '/pages/comments/index?target_id=' +postId : null}}" >
   <comments mini="true" items="{{comments}}"></comments>
 
   <view class="comments-empty" wx:if="{{post.comments_count == 0}}">暂无评论</view>
@@ -71,27 +79,29 @@
       <button class="plain btn round mini">我要点评</button>
     </navigator> 
   </view>
+</box>
+</view>
 
-</mycard>
-
-<mycard wx:if="{{post.qa_enable}}" title="大家都在问" number="{{post.questions_count}}" url="{{ post.questions_count > 5 ? '/pages/qa/index?post_id='+postId : null }}">
+<view hidden="{{currentTab!='qa'}}">
+<box  padding="30" number="{{post.questions_count}}" url="{{ post.questions_count > 5 ? '/pages/qa/index?post_id='+postId : null }}">
   
   <view class="qa"  wx:for="{{qas}}">
       <qa answer="{{false}}" item="{{item}}" mini></qa>
   </view>
 
-  <view class="comments-empty" wx:if="{{questions.length ==0}}">暂无提问</view>
+  <view class="comments-empty" wx:if="{{qas.length ==0}}">暂无提问</view>
     <view class="comments-add">
       <navigator hover-class='none' url="/pages/qa/new?post_id={{postId}}">
         <button class="btn plain round mini">我要提问</button>
         </navigator> 
   </view>
-</mycard>
-
-<safe-tips/>
+</box>
+</view>
 
 <recoms wx:if="{{post.group}}" group="{{post.group}}" count="10"></recoms>
 <broker wx:if="{{post.broker_info}}" broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>
+
+<safe-tips/>
 
 
 <van-popup show="{{showPoster}}" bind:close="closePoster" > 
@@ -104,6 +114,8 @@
 
   </view>
 </van-popup>
+
+
 
 <van-popup show="{{showShareBox }}" bind:close="closeShareBox" position="bottom">
   <view class="share-box">

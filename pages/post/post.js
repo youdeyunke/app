@@ -17,6 +17,7 @@ Page({
     minicontent: true,
     posterConfig: {},
     showShareBox: false,
+    currentTab: 'detail',
   },
 
   
@@ -34,6 +35,12 @@ Page({
     wx.setStorageSync('webview', vr)
     wx.navigateTo({
       url: '/pages/webview/webview',
+    })
+  },
+
+  tabHandle: function(e){
+    this.setData({
+      currentTab: e.currentTarget.dataset.tab
     })
   },
 

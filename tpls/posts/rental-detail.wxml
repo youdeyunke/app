@@ -1,7 +1,7 @@
 <template name="rental-detail">
 <block>
 
-<mycard title="基本信息" hat>
+<box margin-bottom="0" padding="30" title="基本信息" hat>
   <view  class="detail-meta {{post.group}}">
                 <view class="meta">
                   <text class="label">类型</text>
@@ -33,13 +33,13 @@
                   <text>{{ post.min_rent_month }}个月起租</text>
                 </view> 
   </view>
-</mycard>
+</box>
 
-<mycard title="位置及周边" hat>
+<box margin-bottom="0" padding="30"  title="位置及周边" hat>
     <mapimage name="{{post.area_name}}" url="{{post.map_image_url}}"></mapimage>
-</mycard>
+</box>
 
-  <mycard title="房源介绍" hat> 
+  <box padding="30"  title="房源介绍" hat> 
         <block wx:if="{{post.desc}}">
           <view class="info_title">房源概况</view>
           <view class="info_text"> {{ post.desc }} </view>
@@ -59,6 +59,6 @@
           <view class="info_title">周边配套</view>
           <view class="info_text"> {{post.surrounding}} </view>
         </block>
-  </mycard>
+  </box>
 </block>
 </template>

@@ -88,7 +88,6 @@ mycard{
 }
 
 .detail-meta{
-  padding:20rpx 0rpx;
   font-size:var(--font-s);
   display:flex;
   justify-content:flex-start;
@@ -539,3 +538,33 @@ myfav .myfav {
   width: 32rpx;
   height: 32rpx;
 }
+
+.tabs {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  height:100rpx;
+  font-size:var(--font-l);
+  width:100%;
+  background:#fff;
+  border-bottom:2rpx solid #f4f4f4;
+}
+
+.tabs .tab-item{
+  display:flex;
+  height:100%;
+  justify-content:center;
+  align-items:center;
+  width:30%;
+}
+
+.tabs .tab-item.active{
+  color:var(--color-a);
+}
+
+.tabs .tab-blank{
+ width:2rpx;
+ height:70%;
+ background:#f4f4f4;
+}
+
