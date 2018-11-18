@@ -1,5 +1,5 @@
 <view  class="avatar-sync">
         <button lang="zh_CN"  plain open-type="getUserInfo" bindgetuserinfo="syncAvatar">
-                <van-icon name="exchange-record" />
+                <van-icon  name="exchange-record" />
         </button>
 </view>

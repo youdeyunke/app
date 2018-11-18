@@ -4,7 +4,7 @@
   <text>首页</text>
 </navigator>
 
-<box>
+<box padding="30" margin-bottom="2">
   <view class="header">
     <view class="h1">{{item.title}}</view>
     <view class="author">
@@ -14,7 +14,9 @@
       {{item.created_at_pretty}}
     </view>
   </view>
+</box>
 
+<box padding="40">
   <view class="raw">
       <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>
   </view>
