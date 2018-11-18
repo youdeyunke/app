@@ -39,9 +39,26 @@ Page({
   },
 
   tabHandle: function(e){
+    var _this = this
+    var _currentTab = _this.data.currentTab
+    var currentTab = e.currentTarget.dataset.tab
+    if(currentTab == _currentTab){
+      return false
+    }
+
+    switch(currentTab){
+      case 'comment':
+        _this.loadComments()
+        break;
+      case 'qa':
+        _this.loadQas()
+        break;
+    }
+
     this.setData({
       currentTab: e.currentTarget.dataset.tab
     })
+
   },
 
   openWebview: function(e){
@@ -64,8 +81,9 @@ Page({
     this.setData({ readmore: false })
   },  
 
-  loadQas: function(postId){
+  loadQas: function(){
     var _this = this
+    var postId = this.data.postId
     console.log('load qas')
     app.request({
       url: '/api/v1/questions/',
@@ -79,8 +97,9 @@ Page({
     })
   },
 
-  loadComments: function(postId){
+  loadComments: function(){
     var _this = this
+    var postId = this.data.postId
     app.request({
       hideLoading: true,
       url: '/api/v1/mycomments',
@@ -140,7 +159,6 @@ Page({
       url: '/api/v2/posts/' + postId,
       success: function(resp){
         _this.setData({post: resp.data.data})
-        _this.loadComments(postId)
         _this.genPosterConfig()
         wx.setStorage({key: 'post.data.' + postId, data: resp.data.data})
         _this.parseHtml()
@@ -210,9 +228,10 @@ Page({
   onLoad: function (options) {
     var postId = options.id
     var post = wx.getStorageSync('post.data.' + postId)
-    this.loadQas(postId)    
-    this.setData({ postId: postId, post: post})
-    this.loadPost(postId)
+    var _this = this
+    this.setData({ postId: postId, post: post}, () => {
+      _this.loadPost(postId)
+    })
   },
 
   genPosterConfig: function(){

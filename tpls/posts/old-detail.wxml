@@ -1,7 +1,7 @@
 <template name="old-detail">
 <block>
 
-<mycard title="基本信息" hat>
+<box padding="30" margin-bottom="0" title="基本信息" hat>
       <view  class="detail-meta {{post.group}}">
                 <view class="meta">
                   <text class="label">类型</text>
@@ -33,13 +33,13 @@
                   <text>{{ post.address }}</text>
                </view> 
      </view>
-</mycard>
+</box>
   
-<mycard title="位置及周边" hat>
+<box padding="30" margin-bottom="0" title="位置及周边" hat>
     <mapimage name="{{post.area_name}}" url="{{post.map_image_url}}"></mapimage>
-</mycard>
+</box>
 
-  <mycard title="房源介绍" hat> 
+  <box padding="30" title="房源介绍" hat> 
 
         <block wx:if="{{post.desc}}">
           <view class="info_title">房源概况</view>
@@ -74,7 +74,7 @@
         <view class="info_text">
         </view>
 
-  </mycard>
+  </box>
 
 
 </block>

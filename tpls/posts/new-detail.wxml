@@ -3,7 +3,7 @@
 <block>
 <import src="/utils/wxParse/wxParse.wxml"/>
 
-<mycard title="基本信息" hat>
+<box padding="30" margin-bottom="0" title="基本信息" hat>
   <view  class="detail-meta {{post.group}}">
                 <view class="meta">
                   <text class="label">类型</text>
@@ -36,7 +36,7 @@
                 </view> 
   </view>
 
-</mycard>
+</box>
 
 <mycard title="好房评测">
    <view class="html-content {{ minicontent == true ? 'mini' : 'full' }}">
