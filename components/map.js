@@ -24,6 +24,7 @@ Component({
   methods: {
 
     clickHandle: function(e){
+      return false
       var _this = this
       wx.getLocation({
         type: 'wgs84', //返回可以用于wx.openLocation的经纬度
