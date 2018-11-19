@@ -1,45 +1,7 @@
 <template name="old-detail">
 <block>
 
-<box padding="30" margin-bottom="0" title="基本信息" hat>
-      <view  class="detail-meta {{post.group}}">
-                <view class="meta">
-                  <text class="label">类型</text>
-                  <text class="price">{{ post.cat.name}}</text>
-                 </view>
-
-                <view class="meta">
-                  <text class="label">朝向</text>
-                  <text class="price">{{ post.position }}</text>
-                 </view>
-
-                <view class="meta">
-                  <text class="label">装修</text>
-                  <text>{{ post.fitment.name }}</text>
-                </view> 
-
-                <view class="meta">
-                  <text class="label">小区</text>
-                  <text>{{ post.area_name }} ({{post.area_year}}年)</text>
-                </view> 
-
-                <view class="meta">
-                  <text class="label">楼层</text>
-                  <text>第{{ post.current_floor }}层/ 共{{ post.total_floor }}层</text>
-                </view> 
-
-                <view class="meta">
-                  <text class="label">地址</text>
-                  <text>{{ post.address }}</text>
-               </view> 
-     </view>
-</box>
-  
-<box padding="30" margin-bottom="0" title="位置及周边" hat>
-    <mapimage name="{{post.area_name}}" url="{{post.map_image_url}}"></mapimage>
-</box>
-
-  <box padding="30" title="房源介绍" hat> 
+  <box padding="30"  title="房源介绍" hat> 
 
         <block wx:if="{{post.desc}}">
           <view class="info_title">房源概况</view>

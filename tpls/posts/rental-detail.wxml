@@ -1,44 +1,5 @@
 <template name="rental-detail">
 <block>
-
-<box margin-bottom="0" padding="30" title="基本信息" hat>
-  <view  class="detail-meta {{post.group}}">
-                <view class="meta">
-                  <text class="label">类型</text>
-                  <text class="price">{{ post.cat.name}}</text>
-                 </view>
-
-                <view class="meta">
-                  <text class="label">朝向</text>
-                  <text class="price">{{ post.position }}</text>
-                 </view>
-
-                <view class="meta">
-                  <text class="label">楼层</text>
-                  <text>第{{ post.current_floor }}层/ 共{{ post.total_floor }}层</text>
-                </view> 
-
-                <view class="meta" wx:if="{{post.has_lift != null }}">
-                  <text class="label">电梯</text>
-                  <text>{{ post.has_lift == true ? '有' : '无' }}</text>
-                </view> 
-
-                <view class="meta">
-                  <text class="label">小区</text>
-                  <text>{{ post.area_name }}</text>
-                </view> 
-
-                <view class="meta" wx:if="{{post.min_rent_month > 0}}">
-                  <text class="label">起租</text>
-                  <text>{{ post.min_rent_month }}个月起租</text>
-                </view> 
-  </view>
-</box>
-
-<box margin-bottom="0" padding="30"  title="位置及周边" hat>
-    <mapimage name="{{post.area_name}}" url="{{post.map_image_url}}"></mapimage>
-</box>
-
   <box padding="30"  title="房源介绍" hat> 
         <block wx:if="{{post.desc}}">
           <view class="info_title">房源概况</view>

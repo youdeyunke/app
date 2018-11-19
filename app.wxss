@@ -317,7 +317,7 @@ textarea{
 }
 
 page::after{
-  padding-top:100rpx;
+  padding-top:40rpx;
   font-size:20rpx;
   color:#cecece;
   text-align:center;

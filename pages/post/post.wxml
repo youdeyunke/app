@@ -63,7 +63,21 @@
 </view>
 
 <view hidden="{{currentTab!='detail'}}">
+    <box padding="30" margin-bottom="0">
+      <view  class="detail-meta">
+              <view class="meta" wx:if="{{meta.value}}" wx:for="{{post.meta_list}}" wx:for-item="meta">
+            <text class="label">{{meta.label}}</text>
+            <text class="price">{{ meta.value}}</text>
+         </view>
+      </view>
+    </box>
+
+    <box padding="30" margin-bottom="0">
+      <mapimage latitude="{{post.latitude}}"  longitude="{{post.longitude}}" name="{{post.area_name}}" url="{{post.map_image_url}}"></mapimage>
+    </box>
+
   <template wx:if="{{post}}" is="{{post.group}}-detail" data="{{post: post, htmlContent: htmlContent, minicontent:minicontent}}"/>
+
 </view>
 
 <view hidden="{{currentTab!='comment'}}">
@@ -97,6 +111,26 @@
   </view>
 </box>
 </view>
+
+<mycard title="户型信息"  wx:if="{{post.group == 'new'}}">
+    <view class="housetype" wx:for="{{post.types}}">
+      <view class="poster">
+              <image bindtap="viewTypeImage" data-index="{{index}}" src="{{item.image.url}}?imageView2/2/w/300"></image>
+      </view>
+      <view class="meta">
+        <view class="name h1">{{item.name}}</view>
+        <view class="kv"><text decode="{{true}}">朝向&nbsp; &nbsp;&nbsp;{{item.position}}</text></view>
+        <view class="kvs">
+           <view class="kv"><text decode="{{true}}">建面&nbsp; &nbsp;&nbsp;{{item.area}} ㎡</text></view>
+          <view class="kv">总价<text decode="{{true}}" class="i">&nbsp; &nbsp;&nbsp;{{item.total_price}} 万</text></view>
+        </view>
+      </view>
+    </view>
+</mycard>
+
+<mycard wx:if="{{post.group == 'new' && post.more_url}}" title="{{post.more_title}}" opentype="webview" url="{{post.more_url}}" hat>
+  <view>{{ post.more_desc }}</view>
+</mycard>
 
 <recoms wx:if="{{post.group}}" group="{{post.group}}" count="10"></recoms>
 <broker wx:if="{{post.broker_info}}" broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>

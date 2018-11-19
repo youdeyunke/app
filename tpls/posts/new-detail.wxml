@@ -3,42 +3,7 @@
 <block>
 <import src="/utils/wxParse/wxParse.wxml"/>
 
-<box padding="30" margin-bottom="0" title="基本信息" hat>
-  <view  class="detail-meta {{post.group}}">
-                <view class="meta">
-                  <text class="label">类型</text>
-                  <text class="price">{{ post.cat.name}}</text>
-                 </view>
-
-                <view class="meta">
-                  <text class="label">装修</text>
-                  <text class="price">{{ post.fitment.name}}</text>
-                 </view>
-
-                <view class="meta">
-                  <text class="label">{{post.area_info.label}}</text>
-                  <text class="price">{{ post.area_info.text}}</text>
-                </view>
-
-                <view class="meta">
-                  <text class="label">{{post.price_info.label}}</text>
-                  <text class="price">{{ post.price_info.text}}</text>
-                </view>
-
-                <view class="meta" wx:if="{{post.open_at_unknow == false }}">
-                    <text class="label">开盘</text>
-                    <text> {{ post.open_at }}</text>
-                </view>
-
-                <view class="meta ">
-                  <text class="label">地址</text>
-                  <text>{{ post.address }}</text>
-                </view> 
-  </view>
-
-</box>
-
-<mycard title="好房评测">
+<mycard title="好房评测" hat>
    <view class="html-content {{ minicontent == true ? 'mini' : 'full' }}">
       <view class="raw">
         <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>
@@ -53,26 +18,6 @@
   </view>
 </mycard>
 
-<mycard title="户型信息" >
-    <view class="housetype" wx:for="{{post.types}}">
-      <view class="poster">
-              <image bindtap="viewTypeImage" data-index="{{index}}" src="{{item.image.url}}?imageView2/2/w/300"></image>
-      </view>
-      <view class="meta">
-        <view class="name h1">{{item.name}}</view>
-        <view class="kv"><text decode="{{true}}">朝向&nbsp; &nbsp;&nbsp;{{item.position}}</text></view>
-        <view class="kvs">
-           <view class="kv"><text decode="{{true}}">建面&nbsp; &nbsp;&nbsp;{{item.area}} ㎡</text></view>
-          <view class="kv">总价<text decode="{{true}}" class="i">&nbsp; &nbsp;&nbsp;{{item.total_price}} 万</text></view>
-        </view>
-      </view>
-    </view>
-</mycard>
-
-
-<mycard wx:if="{{ post.more_url}}" title="{{post.more_title}}" opentype="webview" url="{{post.more_url}}">
-  <view>{{ post.more_desc }}</view>
-</mycard>
 
 </block>
 </template>

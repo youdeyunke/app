@@ -236,7 +236,7 @@ mycard{
 .coupon{
   background: red;
   height: 90rpx;
-  background: url('http://oc4tj4k6j.bkt.clouddn.com/coupon-bg-2.png');
+  background: url('http://qiniucdn.udeve.cn/coupon-bg-2.png');
   background-size: 100% 100rpx;
   display: flex;
   justify-content: space-between;
