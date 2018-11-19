@@ -43,10 +43,6 @@ Page({
             })
           return false
         }
-        wx.showToast({
-          icon: 'none',
-          title: '找到' + resp.data.meta.total_entries + '个房源',
-        })
         _this.setData({
           posts: resp.data.data,
         })

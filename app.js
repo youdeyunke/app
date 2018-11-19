@@ -194,9 +194,6 @@ App({
       method: obj.method || 'GET',
       header: header,
       success: function(res) {
-        wx.hideLoading()
-        console.log(res.data)
-
         if(typeof res != "object"){
           console.log('server error')
         }
@@ -218,8 +215,8 @@ App({
 
         typeof obj.success == "function" && obj.success(res)
       },
-      fail: function() {
-        wx.hideLoading()
+      fail: function(res) {
+        console.log('request fail', res)
       },
       complete: function() {
         wx.hideLoading()

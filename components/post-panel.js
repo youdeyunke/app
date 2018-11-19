@@ -86,6 +86,13 @@ Component({
       })
     },
 
+    editHandle: function(e){
+      var id = this.data.item.id
+      wx.navigateTo({
+        url: '/pages/post/form?id=' + id
+      })
+    },
+
     viewImage: function (e) {
       var urls = this.data.item.images_list
       wx.previewImage({

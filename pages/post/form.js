@@ -21,6 +21,7 @@ Page({
     minRentMonthItems: minRentMonthItems,
 
     post: {
+      id: null,
       city: {},
       district: {},
       images: [],
@@ -35,12 +36,33 @@ Page({
    */
   onLoad: function (q) {
     var _this = this
-    _this.initBrokerInfo()
-    _this.updatePostField('group', q.group || 'rental' )
-    _this.updatePostField('rent_type', q.rent_type || 'zhengzu' )
-    _this.updatePostField('is_sublet', q.is_sublet || false )
     auth.ensureUser(function(user){
       _this.setData({user: user})
+      if(q.id){
+        _this.loadPost(q.id)
+      }else{
+        _this.initBrokerInfo()
+        _this.updatePostField('group', q.group || 'rental' )
+        _this.updatePostField('rent_type', q.rent_type || 'zhengzu' )
+        _this.updatePostField('is_sublet', q.is_sublet || false )
+      }
+    })
+  },
+
+  loadPost: function(pid){
+    var _this = this
+    app.request({
+      url: '/api/v2/posts/' + pid,
+      success: function(resp){
+        var post = resp.data.data
+        if(post.user_id != _this.data.user.id){
+          console.log('error')
+        }else{
+          // 将有些字段进行装换
+          post.images = post.images.split(',')
+          _this.setData({post: post})
+        }
+      }
     })
   },
 
@@ -243,11 +265,24 @@ Page({
       // 失败
       wx.showToast({title: '服务器错误，请稍后重试', icon: 'none'})
     }else{
-      wx.showToast({title: '保存成功'})
-      var pid = data.data.id
-      console.log('success data', data)
-      wx.redirectTo({
-        url: '/pages/post/post?id=' + pid
+      var isNew = !this.data.post.id
+      wx.showModal({
+        title: '操作成功',
+        content: '数据保存成功',
+        confirmText: '预览',
+        cancelText: '管理房源',
+        success(res) {
+          if (res.confirm) {
+            var pid = data.data.id
+            wx.redirectTo({
+              url: '/pages/post/post?id=' + pid
+            })            
+          } else if (res.cancel) {
+            wx.redirectTo({
+              url: '/pages/myself/posts',
+            })
+          }
+        }
       })
     }
   },
@@ -256,9 +291,17 @@ Page({
     // update or create post 
     var _this = this
     var data = this.data.post
+    var url = '/api/v2/posts/'
+    var method = 'POST'
+    if(_this.data.post.id){
+      url = url + _this.data.post.id
+      method = 'PUT'
+    }
+    console.log('url', url)
+
     app.request({
-      url: '/api/v2/posts/',
-      method: 'POST',
+      url: url,
+      method: method,
       data: {post: data},
       success: function(resp){
         // set 

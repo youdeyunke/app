@@ -12,7 +12,7 @@
     </card>
 
     <card title="地址" wx:if="{{step==1}}" subtitle="门牌号保密，仅管理员可见" hat>
-      <van-field placeholder="请选择" error="{{error.district_id}}" input-align="right" disabled bindtap="showCityPicker" is-link label="城市" value="{{post.city.name || '请选择'}} {{post.district.name}}" arrow-direction="down" />
+      <van-field  error="{{error.district_id}}" input-align="right" disabled bindtap="showCityPicker" is-link label="城市" value="{{post.city.name || '请选择'}} {{post.district.name}}" arrow-direction="down" />
       <van-field value="{{ post.area_name }}" data-name="area_name" error="{{error.area_name}}" label="小区" input-align="right" placeholder="请输入小区名称" bind:change="inputChange" />
       <van-field data-name="street" value="{{ post.street }}" input-align="right" error="{{error.street}}" label="街道" placeholder="如：巨峰路1028弄55号" bind:change="inputChange" />
       <van-field data-name="house_number" value="{{ post.house_number }}" input-align="right" label="门牌号" placeholder="如：55号楼 1002室" bind:change="inputChange" />
