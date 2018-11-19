@@ -28,7 +28,17 @@ Component({
     },
 
     unpublicHandle: function(e){
-      this.publicUpdate(false)
+      var _this = this
+      wx.showModal({
+        title: '操作提示',
+        content: '确定要执行下架操作吗',
+        success(res) {
+          if (res.confirm) {
+            _this.publicUpdate(false)
+          }
+        }
+      })
+
     },
 
     doRefresh: function(e){

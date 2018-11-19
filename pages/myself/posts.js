@@ -19,7 +19,6 @@ Page({
     var _this = this
     auth.ensureUser((userInfo) => {
       _this.setData({userInfo: userInfo}, () => {
-        console.log('user info', userInfo)
         _this.loadPosts()
       })
     })
@@ -84,7 +83,10 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.loadPosts()
+    var _this = this
+    this.setData({post: []}, () => {
+      _this.loadPosts()
+    })
   },
 
   /**

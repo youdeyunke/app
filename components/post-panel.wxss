@@ -1,10 +1,16 @@
 .myfooter{
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+  box-sizing:border-box;
+  width: 100%;
 }
 .myfooter van-button{
   margin:0 0 0 10rpx;
+}
+
+.myfooter .rtime{
+  font-size:var(--font-xs);
 }
 
 .mypost .images{

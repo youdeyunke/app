@@ -2,11 +2,15 @@
         <scroll-view wx:if="{{item.images_list.length >0 }}" scroll-with-animation='true' class="images" scroll-x  style="width:100%;">
             <image bindtap="viewImage"  wx:for="{{item.images_list}}" src="{{item}}?imageView2/2/w/300"></image>
         </scroll-view>
-  <view slot="footer">
-          <van-button wx:if="{{item.group != 'new'}}" bindtap="editHandle" size="small" type="default">修改</van-button>
-    <van-button bindtap="unpublicHandle" size="small" type="danger" wx:if="{{item.public}}">下架</van-button>
-    <van-button bindtap="publicHandle" size="small" type="primary" wx:if="{{!item.public}}">上架</van-button>
-    <van-button bindtap="doRefresh" size="small" type="default" >刷新</van-button>
-    <van-button bindtap="gotoPost" size="small" type="default" >预览</van-button>
+  <view slot="footer" class="myfooter">
+    <view class="rtime"><howlong date="{{item.refresh_at}}" />刷新</view>
+    <view class="btns">
+    <van-button wx:if="{{item.group != 'new'}}" bindtap="editHandle" size="mini" type="default">修改</van-button>
+    <van-button bindtap="unpublicHandle" size="mini" type="danger" wx:if="{{item.public}}">下架</van-button>
+    <van-button bindtap="publicHandle" size="mini" type="primary" wx:if="{{!item.public}}">上架</van-button>
+    <van-button bindtap="doRefresh" size="mini" type="default" >刷新</van-button>
+    <van-button bindtap="gotoPost" size="mini" type="default" >预览</van-button>
+    </view>
+
   </view>
 </van-panel>
