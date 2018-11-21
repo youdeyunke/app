@@ -19,15 +19,8 @@ Page({
     imagesMin: 3,
     imagesMax: 15,
     minRentMonthItems: minRentMonthItems,
-
-    post: {
-      id: null,
-      city: {},
-      district: {},
-      images: [],
-      imagesMin: 3,
-      imagesMax: 15,
-    },
+    post: null,
+    draftCacheKey: 'post.form.draft'
 
   },
 
@@ -108,6 +101,17 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
+    var key = this.data.draftCacheKey
+    wx.setStorageSync(key, _this.data.post)
+  },
+
+  onShow: function(){
+    if(this.data.post == null){
+      console.log('取出上次编辑的post信息')
+      var key = this.data.draftCacheKey
+      var post = wx.getStorageSync(key) || {id:null, title: ''}
+      this.setData({post: post})
+    }
   },
 
   submit:function(e){
@@ -265,6 +269,8 @@ Page({
       // 失败
       wx.showToast({title: '服务器错误，请稍后重试', icon: 'none'})
     }else{
+      // 清理草稿箱
+      this.setStorageSync(this.data.draftCacheKey, null)
       var isNew = !this.data.post.id
       wx.showModal({
         title: '操作成功',
@@ -399,7 +405,7 @@ Page({
   },
 
   cityChanged: function(e){
-    console.log('ccccccccc')
+  
     this.clearError()
     this.updatePostField('city', e.detail.city)
     this.updatePostField('city_id', e.detail.city.id)

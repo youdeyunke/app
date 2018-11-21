@@ -8,6 +8,7 @@
     <news-swiper />
 </view>
 
+<broker-join wx:if="{{ !user.is_broker }}" />
 
     <view class="h1" style="padding:0 0 20rpx 40rpx;">精选好房</view>
     <box padding="30">

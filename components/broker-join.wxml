@@ -1,0 +1,7 @@
+<box padding="30">
+  <navigator hover-class='none' url="/pages/myself/broker" class="join">
+    <view class="title">经纪人入驻</view>
+    <view class="title">轻松获取海量客户</view>
+    <view class="go">立即申请</view>
+  </navigator>
+</box>

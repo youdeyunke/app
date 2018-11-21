@@ -62,3 +62,7 @@ page{
   height: 40rpx;
   margin-right:20rpx;
 }
+
+.van-cell{
+  font-size: var(--font-l);
+}

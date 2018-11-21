@@ -31,4 +31,6 @@
     </van-cell>
 
   </van-cell-group>
+
+  <broker-join />
 </box>

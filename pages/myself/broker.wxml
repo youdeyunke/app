@@ -1,0 +1,24 @@
+<view class="header-block">
+  <view class="title">入驻平台，轻松招租</view>
+  <view class="desc">轻松获得海量客源</view>
+</view>
+
+<view class="window">
+  <form bindsubmit="submitHandle" wx:if="{{!broker_apply_id}}">
+    <van-field  required label="姓名" value="{{fdata.name}}" name="name" placeholder="你的真实姓名" />
+    <van-field  required label="电话" value="{{fdata.name}}" name="mobile" placeholder="真实联系电话" />
+    <van-field   label="微信" value="{{fdata.name}}" name="wechat" placeholder="微信账号" />
+    <van-field   label="公司" value="{{fdata.name}}" name="company" placeholder="你所在的公司" />
+    <van-field border="{{false}}"   label="介绍" value="{{fdata.name}}" name="desc" placeholder="简短的个人介绍" />
+
+    <button class="btn btn-primary submit-btn" type="primary" formType="submit" size="small" >提交审核</button>
+  </form>
+  <view class="pending" wx:if="{{broker_apply_id}}">
+    <text>你的入驻申请正在审核中，请耐心等待...</text>
+    <image src="http://qiniucdn.udeve.cn/shenhezhong.png"></image>
+  </view>
+</view>
+
+<view class="steps">
+  <flow-tips title="经纪人入驻流程" steps="{{steps}}" />
+</view>
