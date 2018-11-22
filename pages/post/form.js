@@ -19,9 +19,28 @@ Page({
     imagesMin: 3,
     imagesMax: 15,
     minRentMonthItems: minRentMonthItems,
-    post: null,
-    draftCacheKey: 'post.form.draft'
+    post: {
+      id: null,
+      title: '',
+    },
+    draftCacheKey: null,
 
+  },
+
+  clearDraft: function(){
+    // 这里将post设置为null，是为了在unload的时候，自动清理草稿箱
+    this.setData({post: null})
+  },
+
+  genDraftCacheKey: function(q){
+    var qStr = "post.draft." 
+    qStr += q.group
+    qStr += '.'
+    qStr += q.rent_type
+    qStr += '.is_sublet.'
+    qStr += q.is_sublet
+    this.setData({draftCacheKey: qStr})
+    return qStr
   },
 
   /**
@@ -29,12 +48,19 @@ Page({
    */
   onLoad: function (q) {
     var _this = this
+    var draftCacheKey = this.genDraftCacheKey(q)
+    console.log('on load get cache', draftCacheKey)
+    var post = wx.getStorageSync(draftCacheKey) || {id: null, title: ''}
+    
     auth.ensureUser(function(user){
       _this.setData({user: user})
       if(q.id){
+        // 如果是编辑房源，不需要取出草稿
         _this.loadPost(q.id)
       }else{
+        // 如果是新建房源，需要取出草稿中
         _this.initBrokerInfo()
+        _this.setData({post: post})
         _this.updatePostField('group', q.group || 'rental' )
         _this.updatePostField('rent_type', q.rent_type || 'zhengzu' )
         _this.updatePostField('is_sublet', q.is_sublet || false )
@@ -93,26 +119,17 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
-  },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onUnload: function () {
+    var _this = this
     var key = this.data.draftCacheKey
     wx.setStorageSync(key, _this.data.post)
+    console.log('on hide, set cache, key', key)
   },
 
-  onShow: function(){
-    if(this.data.post == null){
-      console.log('取出上次编辑的post信息')
-      var key = this.data.draftCacheKey
-      var post = wx.getStorageSync(key) || {id:null, title: ''}
-      this.setData({post: post})
-    }
-  },
 
   submit:function(e){
     var fdata = e.detail.value
@@ -265,12 +282,12 @@ Page({
   },
 
   submitCallback: function(data){
+    var _this = this
     if(data.status != 0){
       // 失败
       wx.showToast({title: '服务器错误，请稍后重试', icon: 'none'})
     }else{
-      // 清理草稿箱
-      this.setStorageSync(this.data.draftCacheKey, null)
+      // 这里讲post设置成null,是为了unload的时候，清理草稿箱
       var isNew = !this.data.post.id
       wx.showModal({
         title: '操作成功',
@@ -278,6 +295,7 @@ Page({
         confirmText: '预览',
         cancelText: '管理房源',
         success(res) {
+          _this.clearDraft()
           if (res.confirm) {
             var pid = data.data.id
             wx.redirectTo({
@@ -442,9 +460,6 @@ Page({
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-
-  },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作

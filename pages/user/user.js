@@ -9,11 +9,17 @@ Page({
   data: {
     userInfo: null,
     userId: null,
+    currentTabIndex: 0,
     tabs: [
-      {label: '新房', group: 'xinfang' },
+      //{label: '新房', group: 'xinfang' },
       {label: '二手房', group: 'ershoufang'},
       {label: '租房', group: 'zufang'},
     ],
+  },
+
+  tabClick: function(e){
+    console.log('e', e)
+    this.setData({currentTabIndex: e.detail.index})
   },
 
   /**
