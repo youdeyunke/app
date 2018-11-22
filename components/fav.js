@@ -23,9 +23,6 @@ Component({
   ready: function () {
     // 查询状态
     var _this = this
-    wx.showToast({
-      title: _this.data.pid,
-    })
  
     app.request({
       url: '/api/v2/favs/',
