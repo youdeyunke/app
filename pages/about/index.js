@@ -8,7 +8,21 @@ Page({
    */
   data: {
     debugClickCounter: 0,
-    serverMobile: app.globalData.serverMobile
+    serverMobile: app.globalData.serverMobile,
+    wechat: 'udeve_cn',
+  },
+
+  copyWechat: function(){
+    var _this = this
+    wx.setClipboardData({
+      data: _this.data.wechat,
+      success: function(){
+        wx.showToast({
+          title: '已复制',
+        })        
+      }
+    })
+
   },
 
   debugHandle :function(e){

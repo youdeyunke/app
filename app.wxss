@@ -321,6 +321,6 @@ page::after{
   font-size:20rpx;
   color:#cecece;
   text-align:center;
-  content:"由微房提供技术支持 \A www.wefang.net";
+  content:"技术支持:udeve_cn (微信)";
   white-space: pre;
 }

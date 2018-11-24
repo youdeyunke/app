@@ -24,10 +24,14 @@
         <view class="meta">
               <view class="item contact">
                 <view class="label">技术支持</view>
-                <view class="value">
-                  <text selectable="{{true}}">www.wefang.net</text>
+                <view class="value" bindtap='copyWechat'>
+                  <text selectable="{{true}}">{{wechat}}</text>
+                  <image src="/assets/icons/weixin.png"></image>
                 </view>
+
               </view>   
+
+
         </view>        
      
     </view>

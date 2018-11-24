@@ -13,8 +13,8 @@ Component({
   data: {
     publishSheetShow: false,
     publishActions: [
-      {name: '我要找房', group: 'need-room'},
-      {name: '我要找室友', group: 'need-roommate'},
+      //{name: '我要找房', group: 'need-room'},
+      //{name: '我要找室友', group: 'need-roommate'},
       {name: '我要转租', group: 'rental', is_sublet: true},
 
       {name: '发布整租房源', group: 'rental', rent_type: 'zhengzu'},
