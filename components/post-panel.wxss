@@ -18,7 +18,7 @@
   margin:10rpx 0;
 }
 
-.mypost .images image{
+.mypost .images image, .mypost .images video{
   height: 180rpx;
   width: 250rpx;
   display: inline-block;

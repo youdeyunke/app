@@ -5,11 +5,11 @@
             <view class="title"></view>
             <image src="{{item}}"></image>
         </view>
+        <view wx:if="{{video}}" bind:longpress="videoClick" class="item video">
+          <video src="{{video}}"></video>
+        </view>        
         <view wx:if="{{max - images.length > 0}}"  bindtap="chooseImages" class="item add-image"></view>
         <view bindtap="chooseVideo" wx:if="{{!video}}" class="item add-video">上传视频(60秒内)</view>
-        <view wx:if="{{video}}" bindtap="videoClick" class="item video">
-          <video src="{{video}}"></video>
-        </view>
 
 </view>
 

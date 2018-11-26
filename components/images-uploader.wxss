@@ -45,8 +45,8 @@
 
 
 .uploader .item.video video{
-  max-width: 200rpx;
-  max-height: 200rpx;
+  max-width: 180rpx;
+  max-height: 180rpx;
 
 }
 

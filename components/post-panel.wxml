@@ -2,6 +2,7 @@
         <scroll-view wx:if="{{item.images_list.length >0 }}" scroll-with-animation='true' class="images" scroll-x  style="width:100%;">
             <image bindtap="viewImage"  wx:for="{{item.images_list}}" src="{{item}}?imageView2/2/w/300"></image>
         </scroll-view>
+
   <view slot="footer" class="myfooter">
     <view class="rtime"><howlong date="{{item.refresh_at}}" />刷新</view>
     <view class="btns">

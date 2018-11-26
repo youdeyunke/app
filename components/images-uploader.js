@@ -148,6 +148,20 @@ Component({
 
     },
 
+    videoClick: function(e){
+      var _this = this
+      wx.showModal({
+        title: '操作提示',
+        content: '要删除视频吗？',
+        success: function(res){
+          if(res.confirm){
+            _this.setData({video: ''})
+            _this.triggerEvent('change', {video: ''})
+          }
+        },
+      })
+    },
+
     chooseImages: function(e){
       var that = this
       console.log('images count',that.data.max - that.data.images.length )
