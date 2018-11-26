@@ -82,7 +82,35 @@ mycard{
   height:100%;
 }
 
-.post-cover image{
+.post-cover .first{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; 
+  height: 100%;
+  width: 100%;
+}
+
+.post-cover .first image.play{
+  width: 100rpx;
+  height: 100rpx;
+  left:calc(50% - 50rpx);
+  top: calc(50% - 50rpx);
+  position: absolute;
+}
+
+.post-cover .first image.item{
+  left:0rpx;
+  right:0rpx;
+  top:0rpx; 
+}
+
+.post-cover .first video{
+  width: 100%;
+  height: 100%;
+}
+
+.post-cover image.item{
   width:100%;
   height:100%;
 }

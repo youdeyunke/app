@@ -38,6 +38,12 @@ Page({
     })
   },
 
+  playVideo: function(e){
+    this.setData({
+      showVideo: true
+    })
+  },
+
   tabHandle: function(e){
     var _this = this
     var _currentTab = _this.data.currentTab

@@ -5,9 +5,6 @@
 
 <block wx:if="{{post}}">
 <view class="post-cover">
-       <view wx:if="{{post && post.vr_url}}" open-type="navigateTo" bindtap='gotoVr' class="vr-btn">
-        <image src="/assets/icons/qjkf.png"></image>
-       </view>
        <myfav wx:if="{{post.id}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
        <swiper class="swiper" 
                indicator-dots="true" 
@@ -18,11 +15,17 @@
                indicator-color="rgba(255,255,255,0.7)" 
                indicator-active-color="#fff" >
          
-            <swiper-item bindtap="viewImage">
-                    <image src="{{post.cover}}?imageView2/2/w/750"></image>
+            <swiper-item>
+              <view class="first">
+                <image wx:if="{{!showVideo && post.video }}" catchtap='playVideo' class="play" src="/assets/icons/bofang.png"></image>
+                <image  bindtap="viewImage" hidden="{{showVideo}}" class="item" src="{{post.cover}}?imageView2/2/w/750"></image>
+                <video catchtap='' autoplay='{{true}}' hidden="{{!showVideo}}" src="{{post.video}}"></video>
+              </view>    
+
             </swiper-item>   
+
             <swiper-item bindtap="viewImage" wx:for="{{post.full_images_list}}">
-                    <image src="{{item}}?imageView2/2/w/750"></image>
+                    <image class="item" src="{{item}}?imageView2/2/w/750"></image>
             </swiper-item>   
             
         </swiper>
