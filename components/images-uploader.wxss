@@ -43,9 +43,24 @@
   height: 160rpx;
 }
 
-.uploader .item.add::after{
+
+.uploader .item.video video{
+  max-width: 200rpx;
+  max-height: 200rpx;
+
+}
+
+.uploader .item.add-image::after{
   content: "+";
   font-size:80rpx;
   color: #f4f4f4;
 
+}
+
+.uploader .item.add-video{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:24rpx;
+  text-align: center;
 }

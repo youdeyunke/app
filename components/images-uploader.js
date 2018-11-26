@@ -7,6 +7,7 @@ Component({
    */
   properties: {
     images:{type: Array, value: []},
+    video: {type:String, value: ''},
     max: {type: Number, value: 15},
     min: {type: Number, value: 3},
     cover: {type: Number, value: 0},
@@ -92,7 +93,7 @@ Component({
       this.triggerEvent('change', {images: imgs, cover_index: c})
     },
 
-    doUpload: function(paths){
+    doUpload: function(ftype, paths){
       wx.showLoading({title: "正在上传", mask: true})
       var _this = this
       var host = app.globalData.apiHost
@@ -112,9 +113,13 @@ Component({
           }, 
           success (res){
             const url = res.data
-            var urls = _this.data.images
-            urls.push(url)
-            _this.triggerEvent('change', {images: urls, cover_index: _this.data.cover})
+            if(ftype == 'images'){
+              var urls = _this.data.images
+              urls.push(url)
+              _this.triggerEvent('change', { images: urls, cover_index: _this.data.cover })
+            }else{
+              _this.triggerEvent('change', {video: url })
+            }
           },
           complete: function(res){
             wx.hideLoading()
@@ -127,6 +132,22 @@ Component({
       })
   },
 
+    chooseVideo: function(e){
+      var _this = this
+      wx.chooseVideo({
+        sourceType: ['album', 'camera'],
+        compressed: true,
+        maxDuration: 60,
+        camera: 'back',
+        success(res) {
+          console.log(res.tempFilePath)
+          const paths = [res.tempFilePath]
+          _this.doUpload('video', paths)
+        }
+      })
+
+    },
+
     chooseImages: function(e){
       var that = this
       console.log('images count',that.data.max - that.data.images.length )
@@ -136,7 +157,7 @@ Component({
 
         success (res) {
           const paths = res.tempFilePaths
-          that.doUpload(paths)
+          that.doUpload('images', paths)
         }
     })
   },

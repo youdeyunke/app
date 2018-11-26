@@ -445,6 +445,9 @@ Page({
     if(keys.includes('cover_index')){
       this.updatePostField('cover_index', e.detail.cover_index)
     }
+    if(keys.includes('video')){
+      this.updatePostField('video', e.detail.video)
+    }
   },
 
 
