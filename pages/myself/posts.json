@@ -2,6 +2,7 @@
   "enablePullDownRefresh": true,
   "usingComponents": {
     "post": "/components/post-panel",
+    "van-search": "/vant/search/index",
     "box": "/components/box"
   }
 }

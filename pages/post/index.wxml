@@ -10,3 +10,5 @@
    <image src="/assets/images/cover-none.png"></image>
    <view>{{ emptyText || '没有数据'}}</view>
 </view>
+
+<van-loading wx:if="{{loading && !isEnd}}" />

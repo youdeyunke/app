@@ -143,6 +143,9 @@ Page({
           var k = "posts[" + i + "]"
           d[k] = items
         }
+        if(meta.current_page >= meta.total_pages){
+          d['isEnd'] = true
+        }
         _this.setData(d)
       }
     })

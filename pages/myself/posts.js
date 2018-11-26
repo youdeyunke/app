@@ -9,7 +9,7 @@ Page({
    */
   data: {
     userInfo: null,
-
+    searchText: '',
   },
 
   /**
@@ -25,15 +25,25 @@ Page({
 
   },
 
+
+  searchTextInput: function(e){
+    this.setData({searchText: e.detail})
+  },
+
+  clearSearch: function(e){
+    this.setData({searchText: ''})
+    this.loadPosts()
+  },
+
   loadPosts: function(){
     /* 拉取我的房源 */
+    var _this = this
     var userId = this.data.userInfo.id
     console.log('user info,', this.data.userInfo, 'user id', userId)
 
-    var _this = this
     app.request({
       url: '/api/v2/posts/',
-      data: {'user_id': userId, per_page : 999},
+      data: {'user_id': userId, per_page : 999, text: _this.data.searchText},
       success: function(resp){
         if(!resp.data.status == 0){
             wx.showModal({

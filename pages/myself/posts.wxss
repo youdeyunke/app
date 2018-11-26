@@ -1,1 +1,5 @@
 /* pages/myself/posts.wxss */
+
+van-search{
+  width: 100%;
+}
