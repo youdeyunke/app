@@ -134,7 +134,7 @@
 <mycard wx:if="{{post.group == 'new' && post.more_url}}" title="{{post.more_title}}" opentype="webview" url="{{post.more_url}}" hat>
   <view>{{ post.more_desc }}</view>
 </mycard>
-
+<broker-link wx:if="{{post.user.is_broker}}" broker="{{post.broker_info}}" />
 <recoms wx:if="{{post.group}}" group="{{post.group}}" count="10"></recoms>
 <broker wx:if="{{post.broker_info}}" broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>
 <safe-tips/>

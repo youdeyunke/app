@@ -4,6 +4,7 @@
   "usingComponents": {
     "mytags": "/components/tags",
     "broker": "/components/broker",
+    "broker-link": "/components/broker-link",
     "myfav": "/components/fav",
     "mycard": "/components/card",
     "qa": "/components/qa",

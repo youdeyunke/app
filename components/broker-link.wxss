@@ -1,0 +1,39 @@
+.info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.info .text{
+  width: 350rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.info .text .name{
+  font-size:var(--font-l);
+  color: #000;
+  margin-bottom:10rpx;
+}
+
+.info .text .name text{
+  margin-right:30rpx;
+}
+
+.info .text .desc{
+  font-size:var(--font-xs);
+  color: #999;
+}
+
+.info .avatar{
+  height: 100rpx;
+  width: 100rpx;
+  border-radius: 100rpx;
+  overflow: hidden;
+}

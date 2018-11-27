@@ -1,0 +1,11 @@
+<!--components/broker-link.wxml-->
+<box padding="30" bindtap="gotoUser">
+  <view class="info">
+    <image class="avatar" src="{{broker.avatar}}"></image>
+    <view class="text">
+      <view class="name"><text>{{broker.name}}</text> <van-tag color="#ff911b" plain>已认证</van-tag> </view>
+      <view class="desc">当前经纪人已开通店铺，进入查看TA的更多房源</view>
+    </view>
+    <button class="btn primary plain mini">进入店铺</button>
+  </view>
+</box>
