@@ -20,6 +20,9 @@
   font-size:var(--font-l);
   color: #000;
   margin-bottom:10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .info .text .name text{

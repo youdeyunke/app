@@ -281,7 +281,7 @@ Page({
                     x: 30,
                     y: 627,
                     baseLine: 'middle',
-                    text:post.address + ' ' +  post.tags_list.join(' '),
+                    text:post.address + ' ' +  post.tags_list.join(' ')  + ' | ' + '联系人：' + post.broker_info.name + ' ' + post.broker_info.mobile, 
                     fontSize: 24,
                     color: '#000',
                   },                    
