@@ -98,11 +98,13 @@ Component({
       var _this = this
       var host = app.globalData.apiHost
       var path = paths.pop()
+      //var uri = ftype == 'images' ? '/api/v1/uploader/' : '/api/v2/videostore/'
+      var uri = '/api/v1/uploader/'
 
       console.log('start upload image', path)
 
       wx.uploadFile({
-          url: host + '/api/v1/uploader/', //仅为示例，非真实的接口地址
+          url: host + uri, //仅为示例，非真实的接口地址
           filePath: path,
           name: 'file',
           formData: {
@@ -112,6 +114,11 @@ Component({
           fail: function(e){
           }, 
           success (res){
+            if(res.statusCode != 200){
+              wx.showToast({title: '上传失败', icon: 'fail'})
+              return false
+            }
+
             const url = res.data
             if(ftype == 'images'){
               var urls = _this.data.images
@@ -136,7 +143,7 @@ Component({
       var _this = this
       wx.chooseVideo({
         sourceType: ['album', 'camera'],
-        compressed: true,
+        //compressed: true,
         maxDuration: 60,
         camera: 'back',
         success(res) {
@@ -153,6 +160,8 @@ Component({
       wx.showModal({
         title: '操作提示',
         content: '要删除视频吗？',
+        confirmText: '删除',
+        confirmColor: '#ff0000',
         success: function(res){
           if(res.confirm){
             _this.setData({video: ''})
