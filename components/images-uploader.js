@@ -11,6 +11,7 @@ Component({
     max: {type: Number, value: 15},
     min: {type: Number, value: 3},
     cover: {type: Number, value: 0},
+    enableVideo: {type: Boolean, value: false},
   },
 
   /**

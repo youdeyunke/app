@@ -7,7 +7,7 @@
   </box>
 
   <card wx:if="{{step == 1}}" title="房源照片" subtitle="请上传{{imagesMin}}~{{imagesMax}}张真实房源照片" hat>
-          <images-uploader bindchange="imagesChanged" max="{{imagesMax}}" min="{{imagesMin}}" video="{{post.video}}" cover="{{post.cover_index || 0}}" images="{{post.images}}"></images-uploader>
+          <images-uploader bindchange="imagesChanged" max="{{imagesMax}}" min="{{imagesMin}}" enable-video="{{true}}" video="{{post.video}}" cover="{{post.cover_index || 0}}" images="{{post.images}}"></images-uploader>
   </card>
 
   <template is="form-{{post.group}}" data="{{user:user, is_sublet: is_sublet, error: error, post: post, step: step , minRentMonthItems: minRentMonthItems}}" />

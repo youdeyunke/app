@@ -1,6 +1,7 @@
 <!--components/images-uploader.wxml-->
 <view>
 <view class="uploader">
+  <block wx:if="{{enableVideo}}">
         <view wx:if="{{video}}" bind:longpress="videoClick" class="item video image">
           <video src="{{video}}"></video>
         </view>  
@@ -8,6 +9,8 @@
                 <view>上传视频</view>
                 <view>(60秒内)</view>
         </view>
+    </block>
+
         <view bindtap="onTouch" data-index="{{index}}" wx:for="{{images}}" class="item image {{index == cover ? 'main' : ''}}"> 
             <view class="title"></view>
             <image src="{{item}}"></image>
