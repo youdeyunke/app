@@ -321,6 +321,6 @@ page::after{
   font-size:20rpx;
   color:#cecece;
   text-align:center;
-  content:"技术支持:udeve_cn (微信)";
+  content:"技术支持:www.wefang.net";
   white-space: pre;
 }
