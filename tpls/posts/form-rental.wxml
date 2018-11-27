@@ -24,8 +24,8 @@
       <van-field data-name="rent_price" error="{{error.rent_price}}" value="{{ post.rent_price}}" input-align="left" label="租金" type="number" placeholder="元" bind:change="inputChange" />
 
       <picker bindchange="minRentMonthChange" range-key="label" range="{{minRentMonthItems}}" value="{{post.min_rent_month || 0 }}">
-        <van-cell title="起租" is-link value="{{post.min_rent_month >0 ? post.min_rent_month + '个月' : '' }}" input-align="left">
-        </van-cell>
+        <van-field label="起租" is-link value="{{post.min_rent_month >0 ? post.min_rent_month + '个月' : '' }}" input-align="left" arrow-direction="down">
+        </van-field>
       </picker>
 
       <van-field bindtap="showTypePicker" is-link error="{{error.type}}" input-align="left" label="户型" value="{{post.w}}室-{{post.t}}厅-{{post.w}}卫 {{ post.position}}" arrow-direction="down" disabled />

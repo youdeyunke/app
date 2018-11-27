@@ -2,9 +2,10 @@
 const app = getApp()
 var auth = require('../../utils/auth.js');
 var minRentMonthItems = []
-for(var i=0;i<=12;i++){
+for(var i=1;i<=12;i++){
   minRentMonthItems.push({label: i+'个月', value: i})
 }
+minRentMonthItems.push({label: 24+'个月', value: 24})
 
 Page({
 

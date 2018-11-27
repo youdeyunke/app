@@ -118,7 +118,6 @@ Component({
               wx.showToast({title: '上传失败', icon: 'fail'})
               return false
             }
-
             const url = res.data
             if(ftype == 'images'){
               var urls = _this.data.images
@@ -128,12 +127,11 @@ Component({
               _this.triggerEvent('change', {video: url })
             }
           },
+          
           complete: function(res){
             wx.hideLoading()
             if(paths.length > 0){
               _this.doUpload(paths)
-            }else{
-              wx.showToast({title: '上传完成',icon: 'success'})
             }
           },
       })
