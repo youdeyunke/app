@@ -15,7 +15,7 @@ Component({
     var historyTitle = '搜索记录'
     if (history.length == 0) {
       historyTitle = '大家都在搜'
-      history = ['世纪公园', '三林']
+      history = ['江景房', '不限购']
     }
     this.setData({history: history, historyTitle: historyTitle })
   },

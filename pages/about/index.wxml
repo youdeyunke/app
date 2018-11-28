@@ -1,7 +1,7 @@
 <view class="container">
     <view class="logo">
-      <image src="/assets/images/avatar-none.png"></image>
-      <view class="desc">这里是文字介绍</view>
+      <image src="/assets/images/gzzgf.jpeg"></image>
+      <view class="desc">赣州“找个房”：主要提供新房、二手房和租房房源信息和房源发布及衍生产品， 采用全景看房的新概念让客户身临其境，体验十足。</view>
     </view>
     <view class="meta">
         <view class="item">

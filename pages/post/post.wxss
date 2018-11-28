@@ -38,28 +38,6 @@ mycard{
   z-index:999;
 }
 
-.post-cover .vr-btn{
-  color:#fff;
-  background: rgba(0,0,0, 0.15);
-  position:absolute;
-  left:calc(750rpx * 0.5 - 70rpx);
-  bottom:calc(50% - 70rpx);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 140rpx;
-  width: 140rpx;
-  border-radius: 100%;
-  border:0rpx solid #fff;
-  font-size:var(--font-xs);
-  z-index:999;
-}
-.post-cover .vr-btn image{
-  width: 80rpx;
-  height: 80rpx;
-}
 
 .post-cover .image-count{
   color:#fff;
@@ -97,6 +75,15 @@ mycard{
   left:calc(50% - 50rpx);
   top: calc(50% - 50rpx);
   position: absolute;
+}
+
+.post-cover .first image.play.vr{
+  background: rgba(0,0,0, 0.2);
+  border:4rpx solid #fff;
+  border-radius: 60rpx;
+  width: 60rpx;
+  height: 60rpx;
+  padding:20rpx;
 }
 
 .post-cover .first image.item{
