@@ -52,10 +52,10 @@
         "text": "头条"
       },
       {
-        "pagePath": "pages/messages/index",
-        "iconPath": "/assets/icons/news.0.png",
-        "selectedIconPath": "/assets/icons/news.1.png",
-        "text": "消息"
+        "pagePath": "pages/qa/index",
+        "iconPath": "/assets/icons/qa.0.png",
+        "selectedIconPath": "/assets/icons/qa.1.png",
+        "text": "问答"
       },
       {
         "pagePath": "pages/myself/index",
