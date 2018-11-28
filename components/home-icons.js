@@ -46,7 +46,7 @@ Component({
 
       { name: '我要出租', url: '/pages/post/form?group=rental&rent_type=zhengzu', opentype: "navigateTo", id: 'rent'  },
 
-      { name: '全景看房', url: '/pages/post/index', opentype: "navigateTo", id: 'qjkf'  },
+      { name: '全景看房', url: '/pages/post/index?is_vr=true', opentype: "navigateTo", id: 'qjkf'  },
 
       { name: '定制找房', url: '/pages/need/room-form?cat=buy', opentype: "navigateTo", id: 'zhao'  },
       { name: '楼市资讯', url: '/pages/need/room-form?cat=buy', opentype: "switchTab", id: 'news'  },

@@ -26,11 +26,12 @@ Page({
 
   onLoad: function (query) {
     var _this = this
-    var group = query.group || 'xinfang'
+    var group = query.group || 'ershoufang'
     this.setData({ 
       group: group, 
       rent_type: query.rent_type || '',
-      text: query.text || ''
+      text: query.text || '',
+      is_vr: query.is_vr,
     })
     this.setPageTitle(group, query.rent_type)
     this.loadData()
@@ -113,6 +114,7 @@ Page({
       group: _this.data.group,
       text: _this.data.text || '',
       rent_type: _this.data.rent_type, 
+      is_vr: _this.data.is_vr,
       order: _this.data.order,
     }
     var filter = this.data.filter
