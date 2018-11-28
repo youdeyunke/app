@@ -132,7 +132,7 @@ Component({
           complete: function(res){
             wx.hideLoading()
             if(paths.length > 0){
-              _this.doUpload(paths)
+              _this.doUpload('images', paths)
             }
           },
       })
