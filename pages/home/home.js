@@ -97,7 +97,7 @@ Page({
 
   action1Click: function(){
     this.setData({
-      group: 'old',
+      group: 'ershoufang',
       currentAction: 1,
       offset: 0,
       hasMore: true,
@@ -106,7 +106,7 @@ Page({
   },
   action2Click: function(){
     this.setData({
-      group: 'rental',
+      group: 'zufang',
       currentAction: 2,
       offset: 0,
       hasMore: true,

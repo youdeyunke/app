@@ -1,5 +1,6 @@
 page{
   padding-top:0rpx;
+  background: #fff !important;
 }
 
 .header{
@@ -17,9 +18,11 @@ page{
 .home-title{
   display:flex;
   justify-content:space-between;
+  align-items: center;
   width:100%;
   box-sizing:border-box;
-  padding:20rpx 30rpx;
+  padding:0rpx 30rpx;
+  background: #fff;
 }
 
 .home-title .h1{

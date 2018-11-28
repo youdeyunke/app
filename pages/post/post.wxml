@@ -19,7 +19,7 @@
               <view class="first">
                 <image wx:if="{{ post.vr_url}}" catchtap='gotoVr' class="play vr" src="/assets/icons/vr.png"></image>
                 <image  bindtap="viewImage" hidden="{{showVideo}}" class="item" src="{{post.cover}}?imageView2/2/w/750"></image>
-                <video catchtap='' autoplay='{{true}}' hidden="{{!showVideo}}" src="{{post.video_cdn_url}}"></video>
+               
               </view>    
 
             </swiper-item>   

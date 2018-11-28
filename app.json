@@ -71,7 +71,7 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationStyle": "default",
     "backgroundColor": "#fff",
-    "navigationBarTitleText": "微房演示项目",
+    "navigationBarTitleText": "找个房",
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {

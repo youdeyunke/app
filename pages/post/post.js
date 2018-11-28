@@ -29,6 +29,7 @@ Page({
 
   gotoVr: function(){
     var vr = this.data.post.proxy_vr_url
+    //var vr = 'https://csimum.udeve.cn/vr.html'
     if(!vr){
       return false
     }
