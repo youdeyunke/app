@@ -1,0 +1,11 @@
+<view class="input-wrapper">
+  <input 
+    value="{{content}}"
+    bindconfirm="confirmHandle"
+    confirm-type="send"  
+    placeholder='请输入' 
+    bindinput='inputHandle' 
+    auto-focus='{{true}}'>
+  </input>
+  <view class="icon icon-image"></view>
+</view>

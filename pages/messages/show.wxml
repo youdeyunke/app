@@ -1,0 +1,8 @@
+
+<block wx:for="{{messages}}" wx:for-item="items" wx:for-index="key">
+  <block wx:for="{{items}}" wx:for-item="msg">
+    <text-message wx:if="{{msg.content_type == 'text'}}" current-user-id="{{user.id}}" message="{{msg}}"></text-message>
+  </block>
+</block>
+
+<message-input receiverId="{{ targetUserId }}" bind:success="refresh"></message-input>

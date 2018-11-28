@@ -1,0 +1,10 @@
+<view class="msg msg-{{ currentUserId == message.sender_id ? 'right' : 'left' }}">
+  <view class="avatar">
+    <image src="{{message.sender_info.avatar}}"></image>
+  </view>
+  <view class="text-wrapper">
+    <view class="text">
+      {{message.content}}
+    </view>
+  </view>
+</view>

@@ -41,8 +41,15 @@ Component({
       action: 'wechat', 
       disabled : !_this.data.broker.wechat ? true : false
     }
+
+    var item_3 = {
+      name: '在线聊天', 
+      action: 'chat', 
+      disabled : !_this.data.broker.id ? true : false
+    }
+
     this.setData({
-      actions: [item_1, item_2]
+      actions: [item_1, item_2, item_3]
     })
 
   },
@@ -73,6 +80,11 @@ Component({
           break
         case 'wechat':
           _this.copyWechat()
+          break
+        case 'chat':
+          wx.navigateTo({
+            url: '/pages/messages/show?target_user_id=' + _this.data.broker.id,
+          })
           break
       }
     },

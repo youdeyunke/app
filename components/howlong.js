@@ -16,7 +16,7 @@ Component({
   },
 
   ready: function(){
-    var dateStr = this.data.date
+    var dateStr = this.data.date.split('T')[0]
     var value = this.getDateDiff(dateStr)
     this.setData({value: value})
   },

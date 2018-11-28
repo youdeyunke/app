@@ -1,0 +1,13 @@
+<box padding="30">
+<navigator hover-class='none' open-type='navigate' url="/pages/messages/show?target_user_id={{item.sender_id}}" wx:for="{{items}}" class="item">
+  <view class="tip" wx:if="{{item.unread == true}}"> </view>
+  <image class="avatar" src="{{item.sender.avatar}}"></image>
+  <view class="info">
+    <view class="name">
+      <text class="nickname">{{item.sender.nickname}}</text>
+      <howlong wx:if="{{item}}" date="{{item.updated_at}}" />
+    </view>
+    <view class="text line-limit">{{item.last_content}}</view>
+  </view>
+</navigator>
+</box>
