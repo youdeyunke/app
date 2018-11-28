@@ -1,17 +1,11 @@
 page{
-  background: #cecece !important;
   font-size:24rpx;
 }
 
 .header{
   background: #fff;
   box-sizing: border-box;
-  padding:32rpx 28rpx;
   border-radius: 20rpx;
-  margin:0rpx 32rpx 0rpx 32rpx;
-  z-index:100;
-  width: calc(100% - 32rpx*2);
-
 }
 
 .header .h1{
@@ -34,7 +28,6 @@ page{
 }
 
 .raw{
-  padding:0 40rpx 0 40rpx;
 }
 
 .raw .wxParse-inline{

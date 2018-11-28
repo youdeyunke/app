@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "howlong":"/components/howlong",
+    "van-button": "/vant/button/index",
+    "van-panel": "/vant/panel/index"
+  }
+}

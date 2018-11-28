@@ -1,0 +1,32 @@
+.join{
+  background: url('http://qiniucdn.udeve.cn/broker-join-image.png');
+  background-repeat: no-repeat;
+  background-size: 300rpx 150rpx;
+  background-position-y: 40rpx;
+  height: 180rpx;
+  width: 100%;
+  background-color:#FCD09E;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  box-sizing: border-box;
+  padding-right:40rpx;
+  color: #fff;
+  border-radius: 10rpx;
+}
+
+.join .title{
+  font-size:28rpx;
+}
+
+.join .go{
+  border:4rpx solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:5rpx 14rpx;
+  margin-top:10rpx;
+  border-radius: 10rpx;
+  font-size:24rpx;
+}

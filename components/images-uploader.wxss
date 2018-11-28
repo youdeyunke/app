@@ -11,7 +11,7 @@
   height: 200rpx;
   padding:20rpx;
   box-sizing: border-box;
-  border:2rpx solid #f4f4f4;
+  border:2rpx dashed #cecece;
   margin:10rpx 10rpx 10rpx 10rpx;
   display: flex;
   justify-content: center;
@@ -43,9 +43,25 @@
   height: 160rpx;
 }
 
-.uploader .item.add::after{
+
+.uploader .item.video video{
+  max-width: 180rpx;
+  max-height: 180rpx;
+
+}
+
+.uploader .item.add-image::after{
   content: "+";
-  font-size:40rpx;
+  font-size:80rpx;
   color: #f4f4f4;
 
+}
+
+.uploader .item.add-video{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:24rpx;
+  flex-direction: column;
+  text-align: center;
 }

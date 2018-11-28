@@ -1,7 +1,7 @@
 <view class="container">
     <view class="logo">
-      <image src="/assets/images/logo.jpg"></image>
-      <view class="desc">一家有“人味”的租住生活品牌。为你提供苏州租住指南，黑中介维权法律知识，主要提供苏州园区长租公寓，白领公寓，整租业主房源；我们希望你能租个好房子，逗逗猫种种草，安全有保障的租住。</view>
+      <image src="/assets/images/avatar-none.png"></image>
+      <view class="desc">这里是文字介绍</view>
     </view>
     <view class="meta">
         <view class="item">
@@ -24,10 +24,14 @@
         <view class="meta">
               <view class="item contact">
                 <view class="label">技术支持</view>
-                <view class="value">
-                  <text selectable="{{true}}">www.wefang.net</text>
+                <view class="value" bindtap='copyWechat'>
+                  <text selectable="{{true}}">{{wechat}}</text>
+                  <image src="/assets/icons/weixin.png"></image>
                 </view>
+
               </view>   
+
+
         </view>        
      
     </view>

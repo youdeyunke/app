@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor": "#00ae66",
+  "navigationBarTextStyle": "light",
+  "usingComponents": {
+    "van-tab": "/vant/tab/index",
+    "van-tabs": "/vant/tabs/index",
+    "post":"/components/post",
+    "box":"/components/box"
+  }
+}

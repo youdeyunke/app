@@ -1,0 +1,24 @@
+<block wx:if="{{userInfo}}">
+  <view class="header">
+    <image class="avatar" src="{{userInfo.avatar}}"></image>
+    <view class="nickname">{{userInfo.name || userInfo.nickname}}</view>
+  </view>
+
+  <view class="body">
+    <van-tabs type="card" color="#00ae66" bind:click="tabClick">
+      <van-tab wx:for="{{tabs}}" wx:for-item="tab" title="{{tab.label}}"> </van-tab>
+    </van-tabs>  
+
+    <box padding="30">
+    <view class="list" hidden="{{currentTabIndex != 0 }}">
+        <post  wx:for="{{ershoufangItems}}" item="{{item}}"></post>
+        <view class="empty" wx:if="{{ershoufangItems.length == 0}}">没有数据</view>
+    </view>
+    <view class="list"  hidden="{{currentTabIndex != 1 }}">
+        <post wx:for="{{zufangItems}}" item="{{item}}"></post>
+        <view class="empty" wx:if="{{zufangItems.length == 0}}">没有数据</view>
+    </view>
+    </box>
+
+  </view>
+</block>

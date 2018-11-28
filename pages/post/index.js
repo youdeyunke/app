@@ -13,7 +13,7 @@ Page({
     isEmpty: false,
     isEnd: false,
     loading: false,
-    order: 'id,desc',
+    order: '',
     posts: [],
     filter: {},
   },
@@ -126,6 +126,15 @@ Page({
       data: query,
       hideLoading: true,
       success: function(resp){
+        if(query.page == 1){
+          var c = resp.data.meta.total_entries
+          var msg =  c > 0 ? '搜索到' + c + '条结果' : '什么都没搜到，换个词试试？'
+          wx.showToast({
+            icon: 'none',
+            title: msg,
+          })
+        }
+
         var items = resp.data.data
         var meta = resp.data.meta
         var d = {}
@@ -135,6 +144,9 @@ Page({
         }else{
           var k = "posts[" + i + "]"
           d[k] = items
+        }
+        if(meta.current_page >= meta.total_pages){
+          d['isEnd'] = true
         }
         _this.setData(d)
       }

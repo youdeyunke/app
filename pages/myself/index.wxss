@@ -50,7 +50,7 @@ page{
 .avatar, .avatar image{
   width: 120rpx;
   height: 120rpx;
-  border-radius: 15rpx;
+  border-radius: 100%;
   overflow: hidden;
   margin-bottom:10rpx;
 }
@@ -61,4 +61,8 @@ page{
   width: 40rpx;
   height: 40rpx;
   margin-right:20rpx;
+}
+
+.van-cell{
+  font-size: var(--font-l);
 }

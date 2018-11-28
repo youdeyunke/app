@@ -7,17 +7,6 @@ Page({
    */
   
   data: {
-    publishSheetShow: false,
-    publishActions: [
-      {name: '我要找房', group: 'need-room'},
-      {name: '我要找室友', group: 'need-roommate'},
-      {name: '我要转租', group: 'rental', is_sublet: true},
-
-      {name: '发布整租房源', group: 'rental', rent_type: 'zhengzu'},
-      {name: '发布合租房源', group: 'rental', rent_type: 'hezu' },
-      {name: '发布二手房房源', group: 'old'  },
-
-    ],
     city_id: null,
     offset: 0,
     total: 0,
@@ -60,40 +49,7 @@ Page({
     })
   },
 
-  publishClose: function(e){
-    this.setData({
-      publishSheetShow: false
-    })
-  },
 
-  publishClick: function(e){
-    var group = e.detail.group
-    switch(group){
-      case 'need-room':
-        wx.navigateTo({url: '/pages/need/room-form'})
-        return
-      case 'need-roommate':
-        wx.navigateTo({url: '/pages/need/roommate-form'})
-        return
-    }
-
-    var url =  '/pages/post/form?group=' 
-    url += e.detail.group 
-    url +=  '&rent_type=' 
-    url += e.detail.rent_type || 'zhengzu'
-    url += '&is_sublet='
-    url += e.detail.is_sublet || 'false'
-    wx.navigateTo({
-      url: url,
-    })
-  },
-
-  publishHandle: function(e){
-    // 点击发布按钮，弹出选择框
-    this.setData({
-      publishSheetShow: true,
-    })
-  },
 
   cityHandle: function(e){
     console.log('city change handle', e.detail.city)
@@ -178,9 +134,6 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    this.setData({
-      publishSheetShow: false,
-    })
   },
 
   /**

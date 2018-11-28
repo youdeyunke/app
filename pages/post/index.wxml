@@ -1,5 +1,5 @@
 <!--pages/post/index.wxml-->
-<filter bind:clear="clearHandle" wx:if="{{group!='xinfang'}}" text="{{text}}" group="{{group}}" bind:change="filterChange" />
+<filter bind:clear="clearHandle" text="{{text}}" group="{{group}}" bind:change="filterChange" />
 
 <import src="/tpls/posts/ershoufang.wxml" />
 <import src="/tpls/posts/xinfang.wxml" />
@@ -10,3 +10,5 @@
    <image src="/assets/images/cover-none.png"></image>
    <view>{{ emptyText || '没有数据'}}</view>
 </view>
+
+<van-loading wx:if="{{loading && !isEnd}}" />

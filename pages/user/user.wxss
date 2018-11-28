@@ -1,0 +1,33 @@
+page{
+  background:#fff;
+}
+
+.header{
+  height: 260rpx;
+  background: var(--color-a);
+  width: 750rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: #fff;
+
+}
+
+.header .avatar{
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 120rpx;
+  border:4rpx solid #fff;
+  box-sizing: border-box;
+  margin-top:0;
+}
+
+.header .nickname{
+  margin-top:40rpx;
+}
+
+.body{
+  width: 100%;
+  padding-top:30rpx;
+}

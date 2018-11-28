@@ -47,10 +47,11 @@
 }
 .post .play-btn{
   position: absolute;
-  width:36rpx;
-  height: 36rpx;
-  left:calc(266rpx * 0.5 - 36rpx * 0.5);
-  top:calc(184rpx * 0.5 - 36rpx * 0.5);
+  width:80rpx;
+  height: 80rpx;
+  left:calc(296rpx * 0.5 - 80rpx * 0.5);
+  top:calc(184rpx * 0.5 - 80rpx * 0.5);
+  background: rgba(0,0,0, 0.2);
 
 }
  .post .meta{

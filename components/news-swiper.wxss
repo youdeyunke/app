@@ -1,0 +1,38 @@
+.news-swiper{
+  width: 750rpx;
+  height: 80rpx;
+  display: flex;
+  box-sizing: border-box;
+  padding:0 30rpx;
+  justify-content: space-between;
+}
+
+.logo-block{
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo-block image{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.swiper-block{
+  height:80rpx;
+  width: 580rpx;
+  overflow:hidden;
+}
+
+.swiper-block swiper-item .title-block{
+  height: 80rpx;
+  line-height: 40rpx;
+}
+
+.line-limit{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;  
+}

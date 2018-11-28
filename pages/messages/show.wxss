@@ -1,0 +1,8 @@
+page{
+  background: #ebebeb !important;
+  padding-bottom:100rpx;
+}
+
+page::after{
+  content: "" !important;
+}

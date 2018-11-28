@@ -11,6 +11,7 @@ App({
     token: null,
     loadingStatus: 0,
     cities: [],
+    qqMapAppKey: 'OH2BZ-7QJK6-L44SI-MEJFO-PJNH2-IABHQ',
     serverMobile: '15150416776'
   },
 
@@ -193,9 +194,6 @@ App({
       method: obj.method || 'GET',
       header: header,
       success: function(res) {
-        wx.hideLoading()
-        console.log(res.data)
-
         if(typeof res != "object"){
           console.log('server error')
         }
@@ -208,11 +206,17 @@ App({
           auth.gotoAccount('需要登录', '请先登录账号')
           return false
         }
+        if(res.data.status == 1 && res.data.error){
+          wx.showModal({
+              title: '温馨提示',
+              content: res.data.error,
+          })
+        }
 
         typeof obj.success == "function" && obj.success(res)
       },
-      fail: function() {
-        wx.hideLoading()
+      fail: function(res) {
+        console.log('request fail', res)
       },
       complete: function() {
         wx.hideLoading()

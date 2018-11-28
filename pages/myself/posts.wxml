@@ -1,0 +1,17 @@
+<block wx:if="{{userInfo && posts }}">
+<van-search
+  value="{{ value }}"
+  background="#f3f5f7"
+  placeholder="请输入搜索关键词"
+  use-action-slot
+  bind:clear="clearSearch"
+  bind:search="loadPosts"
+  bind:change="searchTextInput"
+>
+  <view slot="action" bind:tap="loadPosts">搜索</view>
+</van-search>
+    
+    <box padding="30"  wx:for="{{posts}}" >
+      <post item="{{item}}"/>    
+    </box>
+</block>

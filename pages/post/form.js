@@ -2,9 +2,10 @@
 const app = getApp()
 var auth = require('../../utils/auth.js');
 var minRentMonthItems = []
-for(var i=0;i<=12;i++){
+for(var i=1;i<=12;i++){
   minRentMonthItems.push({label: i+'个月', value: i})
 }
+minRentMonthItems.push({label: 24+'个月', value: 24})
 
 Page({
 
@@ -19,15 +20,28 @@ Page({
     imagesMin: 3,
     imagesMax: 15,
     minRentMonthItems: minRentMonthItems,
-
     post: {
-      city: {},
-      district: {},
-      images: [],
-      imagesMin: 3,
-      imagesMax: 15,
+      id: null,
+      title: '',
     },
+    draftCacheKey: null,
 
+  },
+
+  clearDraft: function(){
+    // 这里将post设置为null，是为了在unload的时候，自动清理草稿箱
+    this.setData({post: null})
+  },
+
+  genDraftCacheKey: function(q){
+    var qStr = "post.draft." 
+    qStr += q.group
+    qStr += '.'
+    qStr += q.rent_type
+    qStr += '.is_sublet.'
+    qStr += q.is_sublet
+    this.setData({draftCacheKey: qStr})
+    return qStr
   },
 
   /**
@@ -35,12 +49,40 @@ Page({
    */
   onLoad: function (q) {
     var _this = this
-    _this.initBrokerInfo()
-    _this.updatePostField('group', q.group || 'rental' )
-    _this.updatePostField('rent_type', q.rent_type || 'zhengzu' )
-    _this.updatePostField('is_sublet', q.is_sublet || false )
+    var draftCacheKey = this.genDraftCacheKey(q)
+    console.log('on load get cache', draftCacheKey)
+    var post = wx.getStorageSync(draftCacheKey) || {id: null, title: ''}
+    
     auth.ensureUser(function(user){
       _this.setData({user: user})
+      if(q.id){
+        // 如果是编辑房源，不需要取出草稿
+        _this.loadPost(q.id)
+      }else{
+        // 如果是新建房源，需要取出草稿中
+        _this.initBrokerInfo()
+        _this.setData({post: post})
+        _this.updatePostField('group', q.group || 'rental' )
+        _this.updatePostField('rent_type', q.rent_type || 'zhengzu' )
+        _this.updatePostField('is_sublet', q.is_sublet || false )
+      }
+    })
+  },
+
+  loadPost: function(pid){
+    var _this = this
+    app.request({
+      url: '/api/v2/posts/' + pid,
+      success: function(resp){
+        var post = resp.data.data
+        if(post.user_id != _this.data.user.id){
+          console.log('error')
+        }else{
+          // 将有些字段进行装换
+          post.images = post.images.split(',')
+          _this.setData({post: post})
+        }
+      }
     })
   },
 
@@ -78,15 +120,17 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
-  },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onUnload: function () {
+    var _this = this
+    var key = this.data.draftCacheKey
+    wx.setStorageSync(key, _this.data.post)
+    console.log('on hide, set cache, key', key)
   },
+
 
   submit:function(e){
     var fdata = e.detail.value
@@ -239,15 +283,31 @@ Page({
   },
 
   submitCallback: function(data){
+    var _this = this
     if(data.status != 0){
       // 失败
       wx.showToast({title: '服务器错误，请稍后重试', icon: 'none'})
     }else{
-      wx.showToast({title: '保存成功'})
-      var pid = data.data.id
-      console.log('success data', data)
-      wx.redirectTo({
-        url: '/pages/post/post?id=' + pid
+      // 这里讲post设置成null,是为了unload的时候，清理草稿箱
+      var isNew = !this.data.post.id
+      wx.showModal({
+        title: '操作成功',
+        content: '数据保存成功',
+        confirmText: '预览',
+        cancelText: '管理房源',
+        success(res) {
+          _this.clearDraft()
+          if (res.confirm) {
+            var pid = data.data.id
+            wx.redirectTo({
+              url: '/pages/post/post?id=' + pid
+            })            
+          } else if (res.cancel) {
+            wx.redirectTo({
+              url: '/pages/myself/posts',
+            })
+          }
+        }
       })
     }
   },
@@ -256,9 +316,17 @@ Page({
     // update or create post 
     var _this = this
     var data = this.data.post
+    var url = '/api/v2/posts/'
+    var method = 'POST'
+    if(_this.data.post.id){
+      url = url + _this.data.post.id
+      method = 'PUT'
+    }
+    console.log('url', url)
+
     app.request({
-      url: '/api/v2/posts/',
-      method: 'POST',
+      url: url,
+      method: method,
       data: {post: data},
       success: function(resp){
         // set 
@@ -356,7 +424,7 @@ Page({
   },
 
   cityChanged: function(e){
-    console.log('ccccccccc')
+  
     this.clearError()
     this.updatePostField('city', e.detail.city)
     this.updatePostField('city_id', e.detail.city.id)
@@ -378,6 +446,9 @@ Page({
     if(keys.includes('cover_index')){
       this.updatePostField('cover_index', e.detail.cover_index)
     }
+    if(keys.includes('video')){
+      this.updatePostField('video', e.detail.video)
+    }
   },
 
 
@@ -393,9 +464,6 @@ Page({
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-
-  },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作

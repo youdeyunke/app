@@ -1,69 +1,7 @@
 <template name="old-detail">
 <block>
-<view class="header-box">
-  <view class="header">
-     <view class=" post-title h1">{{ post.title_info.text }}</view>
-     <mytags wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
-     <view class="typeinfo">
-         <view class="item border">
-                 <view class="value">{{post.price_info.text}}</view>
-                 <view class="key">总价</view>
-         </view>
-         <view class="item border">
-                 <view class="value">{{post.type_info.text}}</view>
-                 <view class="key">户型</view>
-         </view>
-         <view class="item">
-                 <view class="value">{{post.area_info.text}}</view>
-                 <view class="key">建面</view>
-         </view>
-     </view>
-     <view bindtap='couponHandle' class="coupon" wx:if="{{ post.coupon_desc && post.coupon_enable}}">
-     <view class="name line-limit">{{post.coupon_desc}}</view>
-     <view class="action">{{ post.user_has_coupon ? '已领券' : '领券' }}</view>
-   </view>     
-  </view>
-</view>
 
-<mycard title="基本信息" hat>
-      <view  class="detail-meta {{post.group}}">
-                <view class="meta">
-                  <text class="label">类型</text>
-                  <text class="price">{{ post.cat.name}}</text>
-                 </view>
-
-                <view class="meta">
-                  <text class="label">朝向</text>
-                  <text class="price">{{ post.position }}</text>
-                 </view>
-
-                <view class="meta">
-                  <text class="label">装修</text>
-                  <text>{{ post.fitment.name }}</text>
-                </view> 
-
-                <view class="meta">
-                  <text class="label">小区</text>
-                  <text>{{ post.area_name }} ({{post.area_year}}年)</text>
-                </view> 
-
-                <view class="meta">
-                  <text class="label">楼层</text>
-                  <text>第{{ post.current_floor }}层/ 共{{ post.total_floor }}层</text>
-                </view> 
-
-                <view class="meta">
-                  <text class="label">地址</text>
-                  <text>{{ post.address }}</text>
-               </view> 
-     </view>
-</mycard>
-  
-<mycard title="位置及周边" hat>
-    <mapimage name="{{post.area_name}}" url="{{post.map_image_url}}"></mapimage>
-</mycard>
-
-  <mycard title="房源介绍" hat> 
+  <box padding="30"  title="房源介绍" hat> 
 
         <block wx:if="{{post.desc}}">
           <view class="info_title">房源概况</view>
@@ -98,7 +36,7 @@
         <view class="info_text">
         </view>
 
-  </mycard>
+  </box>
 
 
 </block>

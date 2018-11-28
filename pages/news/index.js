@@ -68,7 +68,9 @@ Page({
   loadCats: function(cb){
     var _this = this
     app.request({
+      hideLoading: true,
       url: '/api/v1/news_cats/',
+      hideLoading: true,
       success: function(resp){
         _this.setData({
           cats: resp.data.data,

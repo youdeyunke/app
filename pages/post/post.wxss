@@ -82,13 +82,40 @@ mycard{
   height:100%;
 }
 
-.post-cover image{
+.post-cover .first{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; 
+  height: 100%;
+  width: 100%;
+}
+
+.post-cover .first image.play{
+  width: 100rpx;
+  height: 100rpx;
+  left:calc(50% - 50rpx);
+  top: calc(50% - 50rpx);
+  position: absolute;
+}
+
+.post-cover .first image.item{
+  left:0rpx;
+  right:0rpx;
+  top:0rpx; 
+}
+
+.post-cover .first video{
+  width: 100%;
+  height: 100%;
+}
+
+.post-cover image.item{
   width:100%;
   height:100%;
 }
 
 .detail-meta{
-  padding:20rpx 0rpx;
   font-size:var(--font-s);
   display:flex;
   justify-content:flex-start;
@@ -125,14 +152,15 @@ mycard{
 
  .post-title{
   color:#000;
-  margin: 20rpx auto 20rpx auto !important;
+  margin: 20rpx 0 20rpx 0 ;
   font-weight:bold;
-
+  width:550rpx;
 }
 
 .header-box{
   width:100%;
   padding-bottom:20rpx;
+  position: relative;
 }
 
 
@@ -236,7 +264,7 @@ mycard{
 .coupon{
   background: red;
   height: 90rpx;
-  background: url('http://oc4tj4k6j.bkt.clouddn.com/coupon-bg-2.png');
+  background: url('http://qiniucdn.udeve.cn/coupon-bg-2.png');
   background-size: 100% 100rpx;
   display: flex;
   justify-content: space-between;
@@ -413,3 +441,158 @@ myfav .myfav {
 .recom-post .post{
    padding:20rpx 0;
 }
+
+
+.poster-preview{
+  height: 1100rpx;
+  width: 600rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.poster-preview image{
+  width: 600rpx;
+  height: 960rpx;
+}
+
+
+.poster-actions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100rpx;
+  width: 100%;
+}
+
+.poster-actions-btn{
+  color: #fff;
+  font-size:var(--font-l);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100rpx;
+}
+
+.poster-cancle-btn{
+  width: 50%;
+  background:var(--color-b);
+}
+
+.poster-save-btn{
+  background: var(--color-a);
+  width: 50%;
+}
+
+.share-btn{
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  right:30rpx;
+  top:65rpx;
+}
+
+.share-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding:30rpx  auto;
+  width: 100%;
+  height: 300rpx;
+  font-size:var(--font-s);
+}
+
+.share-box button{
+  border:none;
+  padding:0;
+  margin: 0;
+  background: none;
+  font-size:var(--font-s);
+}
+
+.share-box-title{
+}
+
+.share-box-items{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 260rpx;
+}
+
+.share-box .share-box-items .share-box-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top:0rpx;
+  height: 100rpx;
+  line-height: 1.5;
+}
+
+.share-box-item-icon{
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.share-box-item-name{
+  margin-top:10rpx;
+}
+
+.float-btn{
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 88rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right:30rpx;
+  box-shadow: 0 4rpx 10rpx rgba(0,0,0, 0.2); 
+  font-size:var(--font-xs);
+  color: #fff;
+  opacity: 0.9;
+}
+
+.float-btn.gen-poster{
+  bottom:200rpx;
+  background: rgba(0,0,0, 0.2);
+}
+
+.float-btn.gen-poster image{
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.tabs {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  height:100rpx;
+  font-size:var(--font-l);
+  width:100%;
+  background:#fff;
+  border-bottom:2rpx solid #f4f4f4;
+}
+
+.tabs .tab-item{
+  display:flex;
+  height:100%;
+  justify-content:center;
+  align-items:center;
+  width:30%;
+}
+
+.tabs .tab-item.active{
+  color:var(--color-a);
+}
+
+.tabs .tab-blank{
+ width:2rpx;
+ height:70%;
+ background:#f4f4f4;
+}
+

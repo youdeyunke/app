@@ -1,7 +1,6 @@
 /* components/box.wxss */
 .mybox{
   margin:0 auto 20rpx auto;
-  border-bottom:1px solid #f4f4f4;
   background:#fff;
   box-sizing:border-box;
   -moz-box-sizing:border-box; /* Firefox */

@@ -7,9 +7,11 @@ Component({
    */
   properties: {
     images:{type: Array, value: []},
+    video: {type:String, value: ''},
     max: {type: Number, value: 15},
     min: {type: Number, value: 3},
     cover: {type: Number, value: 0},
+    enableVideo: {type: Boolean, value: false},
   },
 
   /**
@@ -92,16 +94,18 @@ Component({
       this.triggerEvent('change', {images: imgs, cover_index: c})
     },
 
-    doUpload: function(paths){
+    doUpload: function(ftype, paths){
       wx.showLoading({title: "正在上传", mask: true})
       var _this = this
       var host = app.globalData.apiHost
       var path = paths.pop()
+      //var uri = ftype == 'images' ? '/api/v1/uploader/' : '/api/v2/videostore/'
+      var uri = '/api/v1/uploader/'
 
       console.log('start upload image', path)
 
       wx.uploadFile({
-          url: host + '/api/v1/uploader/', //仅为示例，非真实的接口地址
+          url: host + uri, //仅为示例，非真实的接口地址
           filePath: path,
           name: 'file',
           formData: {
@@ -111,21 +115,60 @@ Component({
           fail: function(e){
           }, 
           success (res){
+            if(res.statusCode != 200){
+              wx.showToast({title: '上传失败', icon: 'fail'})
+              return false
+            }
             const url = res.data
-            var urls = _this.data.images
-            urls.push(url)
-            _this.triggerEvent('change', {images: urls, cover_index: _this.data.cover})
+            if(ftype == 'images'){
+              var urls = _this.data.images
+              urls.push(url)
+              _this.triggerEvent('change', { images: urls, cover_index: _this.data.cover })
+            }else{
+              _this.triggerEvent('change', {video: url })
+            }
           },
+          
           complete: function(res){
             wx.hideLoading()
             if(paths.length > 0){
               _this.doUpload(paths)
-            }else{
-              wx.showToast({title: '上传完成',icon: 'success'})
             }
           },
       })
   },
+
+    chooseVideo: function(e){
+      var _this = this
+      wx.chooseVideo({
+        sourceType: ['album', 'camera'],
+        //compressed: true,
+        maxDuration: 60,
+        camera: 'back',
+        success(res) {
+          console.log(res.tempFilePath)
+          const paths = [res.tempFilePath]
+          _this.doUpload('video', paths)
+        }
+      })
+
+    },
+
+    videoClick: function(e){
+      var _this = this
+      wx.showModal({
+        title: '操作提示',
+        content: '要删除视频吗？',
+        confirmText: '删除',
+        confirmColor: '#ff0000',
+        success: function(res){
+          if(res.confirm){
+            _this.setData({video: ''})
+            _this.triggerEvent('change', {video: ''})
+          }
+        },
+      })
+    },
 
     chooseImages: function(e){
       var that = this
@@ -136,7 +179,7 @@ Component({
 
         success (res) {
           const paths = res.tempFilePaths
-          that.doUpload(paths)
+          that.doUpload('images', paths)
         }
     })
   },

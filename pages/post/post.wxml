@@ -1,12 +1,10 @@
 <import src="/utils/wxParse/wxParse.wxml"/>
-<import src="/tpls/posts/detail-meta.wxml" />
 <import src="/tpls/posts/new-detail.wxml" />
 <import src="/tpls/posts/old-detail.wxml" />
 <import src="/tpls/posts/rental-detail.wxml" />
+
+<block wx:if="{{post}}">
 <view class="post-cover">
-       <view wx:if="{{post && post.vr_url}}" open-type="navigateTo" bindtap='gotoVr' class="vr-btn">
-        <image src="/assets/icons/qjkf.png"></image>
-       </view>
        <myfav wx:if="{{post.id}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
        <swiper class="swiper" 
                indicator-dots="true" 
@@ -17,23 +15,79 @@
                indicator-color="rgba(255,255,255,0.7)" 
                indicator-active-color="#fff" >
          
-            <swiper-item bindtap="viewImage">
-                    <image src="{{post.cover}}?imageView2/2/w/750"></image>
+            <swiper-item>
+              <view class="first">
+                <image wx:if="{{!showVideo && post.video }}" catchtap='playVideo' class="play" src="/assets/icons/bofang.png"></image>
+                <image  bindtap="viewImage" hidden="{{showVideo}}" class="item" src="{{post.cover}}?imageView2/2/w/750"></image>
+                <video catchtap='' autoplay='{{true}}' hidden="{{!showVideo}}" src="{{post.video_cdn_url}}"></video>
+              </view>    
+
             </swiper-item>   
+
             <swiper-item bindtap="viewImage" wx:for="{{post.full_images_list}}">
-                    <image src="{{item}}?imageView2/2/w/750"></image>
+                    <image class="item" src="{{item}}?imageView2/2/w/750"></image>
             </swiper-item>   
             
         </swiper>
 </view>
 
-<template wx:if="{{post}}" is="{{post.group}}-detail" data="{{post: post, htmlContent: htmlContent, minicontent:minicontent}}"/>
+<view class="header-box">
+  <view class="header"> 
+     <image bindtap="showShareBoxHandle" src="/assets/icons/share.png" class="share-btn"></image>
+     <view class=" post-title h1 line-limit">{{ post.title_info.text }}</view>
+     <mytags wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
+     <view class="typeinfo">
+         <view class="item border">
+                 <view class="value">{{post.price_info.text}}</view>
+                 <view class="key">{{post.price_info.label}}</view>
+         </view>
+         <view class="item border">
+                 <view class="value">{{post.type_info.text}}</view>
+                 <view class="key">户型</view>
+         </view>
+         <view class="item">
+                 <view class="value">{{post.area_info.text}}</view>
+                 <view class="key">{{post.area_info.label}}</view>
+         </view>
+     </view>
+     <view bindtap='couponHandle' class="coupon" wx:if="{{ post.coupon_desc && post.coupon_enable}}">
+       <view class="name line-limit">{{post.coupon_desc}}</view>
+     <view class="action">{{ post.user_has_coupon ? '已领券' : '领券' }}</view>
+   </view>     
+  </view>
+</view>
 
-<mycard 
-        wx:if="{{post.comment_enable}}" 
-        number="{{post.comments_count}}" 
-        title="用户评价" 
-        url="{{ post.comments_count > 1 ?  '/pages/comments/index?target_id=' +postId : null}}" >
+<view class="tabs">
+ <view data-tab="detail" bindtap="tabHandle" class="tab-item {{currentTab == 'detail' ? 'active': ''}}">详细</view>
+ <view class="tab-blank"></view>
+ <view data-tab="comment" bindtap="tabHandle" class="tab-item {{currentTab == 'comment' ? 'active': ''}}">评论</view>
+ <view class="tab-blank"></view>
+ <view data-tab="qa" bindtap="tabHandle" class="tab-item {{currentTab == 'qa' ? 'active': ''}}">问答</view>
+</view>
+
+<view hidden="{{currentTab!='detail'}}">
+    <box padding="30" margin-bottom="0">
+      <view  class="detail-meta">
+              <view class="meta" wx:if="{{meta.value}}" wx:for="{{post.meta_list}}" wx:for-item="meta">
+            <text class="label">{{meta.label}}</text>
+            <text class="price">{{ meta.value}}</text>
+         </view>
+      </view>
+    </box>
+
+    <box padding="30" margin-bottom="0">
+      <mapimage latitude="{{post.latitude}}"  longitude="{{post.longitude}}" name="{{post.area_name}}" url="{{post.map_image_url}}"></mapimage>
+    </box>
+
+  <template wx:if="{{post}}" is="{{post.group}}-detail" data="{{post: post, htmlContent: htmlContent, minicontent:minicontent}}"/>
+
+</view>
+
+<view hidden="{{currentTab!='comment'}}">
+<box padding="30"
+     number="{{post.comments_count}}" 
+     title="用户评价" 
+     url="{{ post.comments_count > 1 ?  '/pages/comments/index?target_id=' +postId : null}}" >
   <comments mini="true" items="{{comments}}"></comments>
 
   <view class="comments-empty" wx:if="{{post.comments_count == 0}}">暂无评论</view>
@@ -42,22 +96,86 @@
       <button class="plain btn round mini">我要点评</button>
     </navigator> 
   </view>
+</box>
+</view>
 
-</mycard>
-
-<mycard wx:if="{{post.qa_enable}}" title="大家都在问" number="{{post.questions_count}}" url="{{ post.questions_count > 5 ? '/pages/qa/index?post_id='+postId : null }}">
+<view hidden="{{currentTab!='qa'}}">
+<box  padding="30" number="{{post.questions_count}}" url="{{ post.questions_count > 5 ? '/pages/qa/index?post_id='+postId : null }}">
   
   <view class="qa"  wx:for="{{qas}}">
       <qa answer="{{false}}" item="{{item}}" mini></qa>
   </view>
 
-  <view class="comments-empty" wx:if="{{questions.length ==0}}">暂无提问</view>
+  <view class="comments-empty" wx:if="{{qas.length ==0}}">暂无提问</view>
     <view class="comments-add">
       <navigator hover-class='none' url="/pages/qa/new?post_id={{postId}}">
         <button class="btn plain round mini">我要提问</button>
         </navigator> 
   </view>
+</box>
+</view>
+
+<mycard title="户型信息"  wx:if="{{post.group == 'new'}}">
+    <view class="housetype" wx:for="{{post.types}}">
+      <view class="poster">
+              <image bindtap="viewTypeImage" data-index="{{index}}" src="{{item.image.url}}?imageView2/2/w/300"></image>
+      </view>
+      <view class="meta">
+        <view class="name h1">{{item.name}}</view>
+        <view class="kv"><text decode="{{true}}">朝向&nbsp; &nbsp;&nbsp;{{item.position}}</text></view>
+        <view class="kvs">
+           <view class="kv"><text decode="{{true}}">建面&nbsp; &nbsp;&nbsp;{{item.area}} ㎡</text></view>
+          <view class="kv">总价<text decode="{{true}}" class="i">&nbsp; &nbsp;&nbsp;{{item.total_price}} 万</text></view>
+        </view>
+      </view>
+    </view>
 </mycard>
 
+<mycard wx:if="{{post.group == 'new' && post.more_url}}" title="{{post.more_title}}" opentype="webview" url="{{post.more_url}}" hat>
+  <view>{{ post.more_desc }}</view>
+</mycard>
+<broker-link wx:if="{{post.user.is_broker}}" broker="{{post.broker_info}}" />
 <recoms wx:if="{{post.group}}" group="{{post.group}}" count="10"></recoms>
 <broker wx:if="{{post.broker_info}}" broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>
+<safe-tips/>
+
+
+<van-popup show="{{showPoster}}" bind:close="closePoster" > 
+  <view class="poster-preview">
+    <image src="{{posterUrl}}"></image>
+    <view class="poster-actions">
+      <view class="poster-actions-btn poster-cancle-btn" bind:tap="closePoster" >取消</view>
+      <view class="poster-actions-btn poster-save-btn"  bindtap="onSavePoster">保存到相册</view>
+    </view>
+
+  </view>
+</van-popup>
+
+
+
+<van-popup show="{{showShareBox }}" bind:close="closeShareBox" position="bottom">
+  <view class="share-box">
+    <view class="share-box-title">分享房源</view>
+    <view class="share-box-items">
+      <button plain bindtap="closeShareBox"  open-type='share' class="share-box-item">
+        <image class="share-box-item-icon" src="/assets/icons/weixin.png"></image>
+        <view class="share-box-item-name">微信</view>
+      </button>
+
+      <view bindtap="onCreatePoster" class="share-box-item" wx:if="{{post.qr}}">
+        <image class="share-box-item-icon" src="/assets/icons/pengyouquan.png"></image>
+        <view class="share-box-item-name">朋友圈</view>
+      </view>      
+    </view>
+  </view>
+</van-popup>
+
+        
+<poster wx:if="{{posterConfig}}" id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster> 
+
+<view class="float-btn gen-poster" bindtap="onCreatePoster">
+  <image src="/assets/icons/gen-poster-icon.png"></image>
+  <text>海报</text>
+</view>
+
+</block>

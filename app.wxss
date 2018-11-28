@@ -317,10 +317,10 @@ textarea{
 }
 
 page::after{
-  padding-top:20rpx;
+  padding-top:40rpx;
   font-size:20rpx;
   color:#cecece;
   text-align:center;
-  content:"由微房提供技术支持 \A www.wefang.net";
+  content:"技术支持:www.wefang.net";
   white-space: pre;
 }

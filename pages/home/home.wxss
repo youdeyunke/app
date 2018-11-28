@@ -13,58 +13,6 @@ page{
 
 
 
-.tab-icons{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  box-sizing: border-box;
-  margin-top:30rpx;
-  font-size:var(--font-xs);
-}
-
-.tab-icons navigator{
-  width:20%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
-.tab-icons .icon-cover{
-  width:84rpx;
-  height:84rpx;
-  margin-bottom:8rpx;
-  border-radius:100%;
-  box-shadow: 1px 1px 2px rgba(0,0,0, 0.1);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.tab-icons navigator image{
-  width:47rpx;
-  height: 47rpx;
-}
-
-.tab-icons navigator text{
-  color: #000;
-  font-weight: normal;
-  margin-top:8rpx;
-  margin-bottom:8rpx;
-}
-
-myfav{
-  position: absolute;
-  top:30rpx;
-  right:0rpx;
-}
-
-
-.section{
- width:720rpx;
- padding:15rpx 15rpx;
-}
 
 .home-title{
   display:flex;

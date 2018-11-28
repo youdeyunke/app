@@ -8,16 +8,16 @@ Component({
     max: {type: Number, value: 10000},
     step: {type: Number, value: 100},
     unit: {type: String, value: '元'},
+
+    value1: {type: Number, value: 10},
+    value2: {type: Number, value: 1000},
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    value1: 1000,
-    value2: 2000,
     currentValueText: '',
- 
   },
 
   /**
