@@ -1,10 +1,18 @@
-<qa wx:if="{{item}}" mini="{{false}}" answer="{{true}}" class="container qa" item="{{item}}"></qa>
-<box padding="30">
-<view class="waiting empty" wx:if="{{!item.answer}}" style="margin-bottom:20rpx;">
-   <image src="/assets/images/waiting.png" style="margin-bottom:20rpx;" ></image>
-  该问题还未收到回复，请耐心等待
-</view>
+<qa bind:longpress="addHandle" wx:if="{{item}}" mini="{{false}}" answer="{{true}}" class="container qa" item="{{item}}"></qa>
+<box padding="30"  wx:if="{{!item.answer && !answerPeermission}}" >
+  <view class="waiting empty" style="margin-bottom:20rpx;">
+    <image src="/assets/images/waiting.png" style="margin-bottom:20rpx;" ></image>
+    该问题还未收到回复
+    <button bindtap="addHandle" style="margin-top:20rpx;" class="btn primary plain">我来回答</button>
+  </view>
 </box>
+
+<mycard hat wx:if="{{ answerPeermission }}" title="编辑回答">
+    <textarea  class="answer-input" placeholder='输入你的答案' value="{{item.answer}}" bindinput="answerInput"></textarea>
+    <button class="answer-submit" bindtap="submitHandle"  class="btn primary">提交回答</button>
+
+</mycard>
+
 
 
 <recoms count="5" group="rental"></recoms>

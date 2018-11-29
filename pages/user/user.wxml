@@ -1,7 +1,17 @@
 <block wx:if="{{userInfo}}">
   <view class="header">
-    <image class="avatar" src="{{userInfo.avatar}}"></image>
-    <view class="nickname">{{userInfo.name || userInfo.nickname}}</view>
+    <view class="info">
+      <image class="avatar" src="{{userInfo.avatar}}"></image>
+      <view class="name">
+        <view class="nickname">{{userInfo.name || userInfo.nickname}}</view>
+        <view class="company" wx:if="{{userInfo.company}}">{{userInfo.company}}</view>
+      </view>
+    </view>
+
+        <view class="actions">
+          <image wx:if="{{userInfo[item.id]}}" hover-class="none" bindtap="{{item.bindtap}}" wx:for="{{icons}}" class="icon icon-{{item.id}}" src="/assets/icons/user-page-{{item.id}}.png"></image>
+        </view>
+
   </view>
 
   <view class="body">

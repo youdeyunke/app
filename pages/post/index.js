@@ -151,9 +151,11 @@ Page({
           d['isEnd'] = true
         }
         _this.setData(d)
+        app.cachePosts(items)
       }
     })
   },
+
 
   /**
    * 生命周期函数--监听页面显示
