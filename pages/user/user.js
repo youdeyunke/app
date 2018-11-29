@@ -10,11 +10,43 @@ Page({
     userInfo: null,
     userId: null,
     currentTabIndex: 0,
+    icons: [
+      {id: 'mobile', bindtap:"callMe"},
+      {id: 'wechat', bindtap: 'copyWechat'},
+    ],
     tabs: [
       //{label: '新房', group: 'xinfang' },
       {label: '二手房', group: 'ershoufang'},
       {label: '租房', group: 'zufang'},
     ],
+  },
+
+  callMe: function(e){
+    var mobile = this.data.userInfo.mobile
+    if (!mobile) {
+      return false
+    }
+
+    wx.makePhoneCall({
+      phoneNumber: mobile
+    })    
+  },
+
+  copyWechat: function(e){
+    var wechat = this.data.userInfo.wechat
+    if (!wechat) {
+      return false
+    }
+
+    wx.setClipboardData({
+      data: wechat,
+      success: function (res) {
+        wx.showTosta({
+          title: '微信号已复制',
+          icon: 'none',
+        })
+      }
+    })
   },
 
   tabClick: function(e){

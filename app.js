@@ -31,6 +31,29 @@ App({
     })
   },      
 
+  cachePosts: function(posts){
+    // 在列表页面中，缓存房源详情信息
+    var _this = this
+    posts.forEach(function(post, i){
+      var pid = post.id
+      var key = 'post.data.' + pid
+      var _post = wx.getStorageSync(key)
+      if(!_post){
+        _this.request({
+          url: '/api/v2/posts/' + pid,
+          hideLoading: true,
+          success: function(resp){
+            var post = resp.data.data
+            wx.setStorage({key: key, data: post})
+            console.log('cached post.id', pid)
+          }
+        })
+      }
+    })
+  },
+
+
+
   loadPosts: function(that){
     if(!that.data.hasMore){
       return false
@@ -53,6 +76,7 @@ App({
         }else{
           var k = "posts[" + that.data.offset + "]"
           d[k] = resp.data.data
+          _this.cachePosts(resp.data.data)
         }
         d.offset = resp.data.paginate.offset
         that.setData(d)

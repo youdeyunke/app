@@ -48,7 +48,9 @@ Component({
       url: '/api/v2/posts/',
       data: {group: group, per_page: _this.data.count },
       success: function(resp){
-        _this.setData({posts: resp.data.data})
+        var posts = resp.data.data
+        _this.setData({posts: posts})
+        app.cachePosts(posts)
       },
     })
   },
