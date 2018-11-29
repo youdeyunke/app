@@ -140,12 +140,21 @@ Component({
 
     chooseVideo: function(e){
       var _this = this
+      console.log('click', e)
       wx.chooseVideo({
         sourceType: ['album', 'camera'],
-        //compressed: true,
+        compressed: true,
         maxDuration: 60,
         camera: 'back',
-        success(res) {
+        fail: function(res){
+          console.log('fail', res)
+        },
+
+        complete: function(res){
+          console.log('complete', res)
+        },
+        
+        success: function(res) {
           console.log(res.tempFilePath)
           const paths = [res.tempFilePath]
           _this.doUpload('video', paths)

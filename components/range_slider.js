@@ -11,6 +11,7 @@ Component({
 
     value1: {type: Number, value: 10},
     value2: {type: Number, value: 1000},
+
   },
 
   /**
@@ -18,6 +19,7 @@ Component({
    */
   data: {
     currentValueText: '',
+    currentSlider: 'slider1',    
   },
 
   /**
@@ -59,6 +61,13 @@ Component({
       )
     
       this.triggerEvent('change', {range:res, text: _this.data.currentValueText }, {})
+    },
+
+    sliderTap: function(e){
+      console.log(e)
+      this.setData({
+        currentSlider: e.currentTarget.dataset.name
+      })
     },
 
     sliderChangeing: function(e){

@@ -20,6 +20,10 @@ Page({
     currentTab: 'detail',
   },
 
+  swiperChange: function(e){
+    console.log('e',e)
+    this.myVideo.pause()
+  },
   
   contentHandle: function(e){
     this.setData({
@@ -233,6 +237,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.myVideo = wx.createVideoContext('myvideo')
+
+
     var postId = options.id
     var post = wx.getStorageSync('post.data.' + postId)
     var _this = this

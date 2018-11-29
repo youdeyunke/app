@@ -78,5 +78,10 @@
     "van-icon": "/vant/icon/index",
     "van-loading": "/vant/loading/index",
     "box": "/components/box"
+  },
+  "networkTimeout": {
+    "request": 20000,
+    "uploadFile": 180000,
+    "downloadFile": 180000
   }
 }

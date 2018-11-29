@@ -60,6 +60,13 @@ mycard{
   height:100%;
 }
 
+.post-cover swiper-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
 .post-cover .first{
   display: flex;
   justify-content: center;
@@ -98,8 +105,10 @@ mycard{
 }
 
 .post-cover image.item{
-  width:100%;
+
   height:100%;
+  width: 100%;
+  margin:0 auto;
 }
 
 .detail-meta{

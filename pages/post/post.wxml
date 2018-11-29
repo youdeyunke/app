@@ -11,6 +11,7 @@
                autoplay="{{post.images_list.length > 1}}" 
                interval="5000"
                duration="500" 
+               bindchange="swiperChange"
                circular="true" 
                indicator-color="rgba(255,255,255,0.7)" 
                indicator-active-color="#fff" >
@@ -18,16 +19,21 @@
             <swiper-item>
               <view class="first">
                 <image wx:if="{{ post.vr_url}}" catchtap='gotoVr' class="play vr" src="/assets/icons/vr.png"></image>
-                <image  bindtap="viewImage" hidden="{{showVideo}}" class="item" src="{{post.cover}}?imageView2/2/w/750"></image>
+                <image  bindtap="viewImage"  class="item" src="{{post.cover}}?imageView2/2/w/750"></image>
                
               </view>    
-
             </swiper-item>   
+
+            <swiper-item bindtap="playVideo" wx:if="{{post.video}}">
+              <view class="first">
+                <video enable-progress-gesture="{{false}}" id="myvideo" catchtap='' poster="{{post.cover}}?imageView2/2/w750" autoplay='{{false}}' src="{{post.video}}"></video>
+              </view>
+            </swiper-item>
+
 
             <swiper-item bindtap="viewImage" wx:for="{{post.full_images_list}}">
-                    <image class="item" src="{{item}}?imageView2/2/w/750"></image>
-            </swiper-item>   
-            
+                    <image class="item" src="{{item}}?imageView2/2/h/480"></image>
+            </swiper-item>               
         </swiper>
 </view>
 

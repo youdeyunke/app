@@ -97,18 +97,20 @@ Page({
 
   action1Click: function(){
     this.setData({
-      group: 'ershoufang',
+      group: 'old',
       currentAction: 1,
       offset: 0,
+      posts: [],
       hasMore: true,
     })
     app.loadPosts(this)
   },
   action2Click: function(){
     this.setData({
-      group: 'zufang',
+      group: 'rental',
       currentAction: 2,
       offset: 0,
+      posts: [],
       hasMore: true,
     })
     app.loadPosts(this)

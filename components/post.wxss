@@ -49,6 +49,8 @@
   position: absolute;
   width:80rpx;
   height: 80rpx;
+  border-radius: 80rpx;
+  overflow: hidden;
   left:calc(296rpx * 0.5 - 80rpx * 0.5);
   top:calc(184rpx * 0.5 - 80rpx * 0.5);
   background: rgba(0,0,0, 0.2);
