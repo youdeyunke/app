@@ -7,7 +7,22 @@
         </box>
 
         <card hat title="预算范围">
-                <rangeslider value1="{{budget_min_value}}" value2="{{budget_max_value}}" step="{{step}}" unit="{{priceUnit}}" min="{{budget_min}}" max="{{budget_max}}" bind:change="budgetChange" />
+            <van-field 
+                        label="最低" 
+                        bind:change="inputChange"
+                        placeholder="单位：{{priceUnit}}"
+                        value="{{budget_min}}" 
+                        data-name="budget_min" />
+
+                <van-field 
+                        label="最高" 
+                        autosize
+                        bind:change="inputChange"
+                        placeholder="单位：{{priceUnit}}"
+                        type="textarea"
+                        value="{{budget_max}}" 
+                        data-name="budget_max" />
+
         </card>
 
         <card hat title="基础意向">
