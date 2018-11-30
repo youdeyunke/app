@@ -1,5 +1,6 @@
 {
   "navigationBarBackgroundColor": "#00ae66",
+  "enablePullDownRefresh": false,
   "navigationBarTextStyle": "light",
   "usingComponents": {
     "van-tab": "/vant/tab/index",

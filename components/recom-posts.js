@@ -10,6 +10,9 @@ Component({
     title: {
       type: String, value: '猜你喜欢', 
     },
+    excludeId: {
+      type: Number, value: 0,
+    },
     count: {
       type: Number, value: 5,
     },

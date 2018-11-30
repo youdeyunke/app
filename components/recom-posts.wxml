@@ -1,6 +1,6 @@
 <!--components/recom-posts.wxml-->
 <view>
     <card title="{{title}}">
-    <post class="recom-post" wx:if="{{item}}" wx:for="{{posts}}" item="{{item}}"></post>
+    <post class="recom-post" wx:if="{{item && item.id != excludeId }}" wx:for="{{posts}}" item="{{item}}"></post>
   </card>
 </view>
