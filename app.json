@@ -30,7 +30,8 @@
     "pages/myself/posts",
     "pages/myself/broker",
     "pages/messages/show",
-    "pages/messages/index"
+    "pages/messages/index",
+    "pages/444/index"
   ],
   "tabBar": {
     "selectedColor": "#333",
