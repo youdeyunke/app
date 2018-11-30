@@ -222,6 +222,14 @@ App({
           console.log('server error')
         }
 
+        if(res.data.status == 444){
+          var error = res.data.error 
+          wx.redirectTo({
+            url: '/pages/444/index?error=' + error,
+          })
+          return false
+        }
+
         if([2000, 2001].includes(res.data.status)){
           console.log('login required')
           // token 过期

@@ -1,0 +1,10 @@
+page{
+  background: red !important;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top:200rpx;
+  color: #fff !important;
+  font-size:80rpx;
+}
