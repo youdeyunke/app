@@ -76,21 +76,17 @@ mycard{
   width: 100%;
 }
 
-.post-cover .first image.play{
-  width: 100rpx;
-  height: 100rpx;
-  left:calc(50% - 50rpx);
-  top: calc(50% - 50rpx);
-  position: absolute;
-}
 
-.post-cover .first image.play.vr{
+.post-cover .first image.play{
   background: rgba(0,0,0, 0.2);
-  border:4rpx solid #fff;
+
   border-radius: 60rpx;
   width: 60rpx;
   height: 60rpx;
   padding:20rpx;
+  left:calc(50% - 50rpx);
+  top: calc(50% - 50rpx);
+  position: absolute;  
 }
 
 .post-cover .first image.item{

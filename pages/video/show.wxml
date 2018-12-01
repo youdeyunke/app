@@ -1,0 +1,2 @@
+<video show-center-play-btn="{{true}}" enable-progress-gesture="{{false}}" page-gesture="{{false}}" id="myvideo" catchtap='' autoplay='{{false}}' src="{{post.video}}" autoplay="{{true}}" src="{{url}}"></video>
+

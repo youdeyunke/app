@@ -31,7 +31,8 @@
     "pages/myself/broker",
     "pages/messages/show",
     "pages/messages/index",
-    "pages/444/index"
+    "pages/444/index",
+    "pages/video/show"
   ],
   "tabBar": {
     "selectedColor": "#333",

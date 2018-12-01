@@ -31,6 +31,13 @@ Page({
     })
   },
 
+  gotoVideo: function(){
+    wx.setStorageSync('video-url', this.data.post.video)
+    wx.navigateTo({
+      url: '/pages/video/show',
+    })
+  },
+
   gotoVr: function(){
     var vr = this.data.post.proxy_vr_url
     //var vr = 'https://csimum.udeve.cn/vr.html'
@@ -40,12 +47,6 @@ Page({
     wx.setStorageSync('webview', vr)
     wx.navigateTo({
       url: '/pages/webview/webview',
-    })
-  },
-
-  playVideo: function(e){
-    this.setData({
-      showVideo: true
     })
   },
 
@@ -238,7 +239,10 @@ Page({
    */
   onLoad: function (options) {
     this.myVideo = wx.createVideoContext('myvideo')
-
+    wx.showModal({
+      title: '调试',
+      content: '当前代码版本号：1518',
+    })
 
     var postId = options.id
     var post = wx.getStorageSync('post.data.' + postId)
