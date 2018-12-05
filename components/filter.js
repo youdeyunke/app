@@ -43,8 +43,8 @@ var orderItems2 =  [
       {label: '默认排序', value: ['refresh_at', 'desc']},
       {label: '均价(从低到高)', value: ['average_price', 'asc'] },
       {label: '均价(从高到低)', value: ['average_price', 'desc']},
-      {label: '面积(从大到小)', value: ['area', 'desc']},
-      {label: '面积(从小到大)', value: ['area', 'asc'] },      
+      {label: '面积(从大到小)', value: ['construction_area', 'desc']},
+      {label: '面积(从小到大)', value: ['construction_area', 'asc'] },      
     ]
 
 

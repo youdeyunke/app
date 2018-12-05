@@ -42,6 +42,7 @@ Page({
     this.setData({
       filter: e.detail.filter,
       order: e.detail.order,
+      isEnd: false,
       page: 1,
     })
     this.loadData()
