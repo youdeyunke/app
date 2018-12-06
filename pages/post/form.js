@@ -290,9 +290,10 @@ Page({
     }else{
       // 这里讲post设置成null,是为了unload的时候，清理草稿箱
       var isNew = !this.data.post.id
+      var msg = data.data.message || '保存成功'
       wx.showModal({
         title: '操作成功',
-        content: '数据保存成功',
+        content: msg,
         confirmText: '预览',
         cancelText: '管理房源',
         success(res) {

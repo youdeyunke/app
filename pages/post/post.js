@@ -12,12 +12,12 @@ Page({
   data: {
     post: null,
     debug: false,
+    user: {},
     posts: null,
     htmlContent: null,
     minicontent: true,
     posterConfig: {},
     showShareBox: false,
-    user : wx.getStorageSync('userInfo'),
     currentTab: 'detail',
   },
 
@@ -105,7 +105,7 @@ Page({
     app.request({
       url: '/api/v1/questions/',
       hideLoading: true,
-      data: {post_id: postId, limit: 5},
+      data: {post_id: postId, limit: 999},
       success: function(resp){
         _this.setData({
           qas: resp.data.data
@@ -120,7 +120,7 @@ Page({
     app.request({
       hideLoading: true,
       url: '/api/v1/mycomments',
-      data: { target_id: postId, target_type: 'post', limit: 1 },
+      data: { target_id: postId, target_type: 'post', limit: 999 },
       success: function (resp) {
         _this.setData({ comments: resp.data.data })
       },
@@ -249,8 +249,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.myVideo = wx.createVideoContext('myvideo')
+    this.setData({ user : wx.getStorageSync('userInfo') || {} })
 
+    this.myVideo = wx.createVideoContext('myvideo')
     var postId = options.id
     var post = wx.getStorageSync('post.data.' + postId)
     var _this = this
@@ -420,8 +421,6 @@ Page({
     if(!eb){
       return
     }
-
-  
   },
 
   /**
