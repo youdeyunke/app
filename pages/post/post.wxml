@@ -139,6 +139,24 @@
 <broker wx:if="{{post.broker_info}}" broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>
 <safe-tips/>
 
+<!--box padding="30">
+  <view bind:longpress="flowEdit" data-index="{{index}}" class="flow-item" wx:for="{{flows}}" wx:for-item="flow">
+    <image src="{{flow.user_info.avatar}}"></image>
+    <view class="flow-content">
+      <view class="user-name">{{flow.user_info.name}}</view>
+      <view class="text">{{flow.content}}</view>
+      <view class="time">{{flow.updated_at_pretty }}</view>
+    </view>
+  </view>
+</box -->
+
+<van-popup show="{{showFlowForm}}" bind:click-overlay="closeFlowForm" >
+  <view class="flow-form">
+        <textarea value="{{flowContent}}" bindinput="flowInput"></textarea>
+        <button class="plain btn round mini" catchtap="flowSubmit">保存跟进</button>
+</view>
+
+</van-popup>
 
 <van-popup show="{{showPoster}}" bind:close="closePoster" > 
   <view class="poster-preview">

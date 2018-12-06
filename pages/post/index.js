@@ -127,7 +127,7 @@ Page({
       success: function(resp){
         if(query.page == 1){
           var c = resp.data.meta.total_entries
-          var msg =  c > 0 ? '搜索到' + c + '条结果' : '什么都没搜到，换个词试试？'
+          var msg =  c > 0 ? '搜索到' + c + '条结果' : '没有满足条件的房源'
           wx.showToast({
             icon: 'none',
             title: msg,

@@ -13,6 +13,9 @@ Page({
     post: null,
     debug: false,
     posts: null,
+    flowContent: '',
+    flowId: '',
+    showFlowForm: false,
     htmlContent: null,
     minicontent: true,
     posterConfig: {},
@@ -194,6 +197,69 @@ Page({
     })
   },
 
+  closeFlowForm: function(e){
+    this.setData({showFlowForm: false, flowId: '', flowContent: ''})
+  },
+
+  flowEdit: function(e){
+    console.log('e', e)
+    var i = e.currentTarget.dataset.index
+    var flow = this.data.flows[i]
+    if(flow.user_id != this.data.user.id){
+      return false
+    }
+
+    this.setData({
+      showFlowForm : true,
+      flowId: flow.id,
+      flowContent: flow.content,  
+    })
+
+  },
+
+  loadFlows: function(){
+    var _this = this
+    app.request({
+      url: '/api/v2/flows/?post_id=' + _this.data.post.id,
+      method: 'GET',
+      success: function(resp){
+        if(resp.data.status == 0){
+          _this.setData({
+            flows: resp.data.data
+          })
+        }
+      }
+    })
+  },
+
+  flowInput: function(e){
+    this.setData({flowContent: e.detail.value})
+  },
+
+  flowSubmit: function(e){
+    var isNew = !this.data.flowId
+    var  url = '/api/v2/flows/'
+    var method = 'POST'
+    var _this = this
+
+    if(!isNew){
+      url = url + this.data.flowId
+      method = 'PUT'
+    }
+    
+    app.request({
+      url: url,
+      method: method,
+      data: {content: _this.data.flowContent, post_id: _this.data.post.id },
+      success: function(resp){
+        if(resp.data.status == 0){
+          _this.closeFlowForm()
+          _this.loadFlows()
+        }
+      },
+    })
+  },
+
   showShareBoxHandle: function(e){
     this.setData({
       showShareBox: true,
@@ -237,6 +303,7 @@ Page({
     var _this = this
     this.setData({ postId: postId, post: post}, () => {
       _this.loadPost(postId)
+      _this.loadFlows()
     })
   },
 
