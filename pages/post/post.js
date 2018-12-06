@@ -17,6 +17,7 @@ Page({
     minicontent: true,
     posterConfig: {},
     showShareBox: false,
+    user : wx.getStorageSync('userInfo'),
     currentTab: 'detail',
   },
 
@@ -133,6 +134,12 @@ Page({
    wx.previewImage({urls: [url] })
  },
 
+  viewOverlook: function(e){
+    var url = this.data.post.overlook_image
+    if(url){
+      wx.previewImage({urls: [url] })
+    }
+  },
 
   viewImage: function(e){
     var urls = this.data.post.full_images_list

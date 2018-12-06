@@ -11,6 +11,7 @@
     "box": "/components/box",
     "mypost": "/components/post",
     "safe-tips": "/components/safe-tips",
+    "van-cell": "/vant/cell/index",
     "mystars": "/components/stars",
     "mapimage":"/components/map",
     "van-popup": "/vant/popup/index",

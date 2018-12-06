@@ -433,7 +433,6 @@ Page({
     this.setData({
       cityPickerShow: false
     })    
-    console.log('hhhhhh')
   },
 
   imagesChanged: function(e){

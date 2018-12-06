@@ -68,7 +68,13 @@
  <view data-tab="comment" bindtap="tabHandle" class="tab-item {{currentTab == 'comment' ? 'active': ''}}">评论</view>
  <view class="tab-blank"></view>
  <view data-tab="qa" bindtap="tabHandle" class="tab-item {{currentTab == 'qa' ? 'active': ''}}">问答</view>
+ <view wx:if="{{user.is_broker }}" data-tab="more" bindtap="tabHandle" class="tab-item {{currentTab == 'more' ? 'active': ''}}">更多</view>
 </view>
+
+<box padding="30" wx:if="{{currentTab == 'more' && user.is_broker }}">
+    <van-cell wx:for="{{post.protected_meta_list}}" wx:for-item="pm" title="{{pm.label}}" value="{{pm.value}}" />
+    <van-cell title="俯瞰图" value="{{ post.overlook_image ? '点击查看' : '无' }}" bindtap="viewOverlook"/>
+</box>
 
 <view hidden="{{currentTab!='detail'}}">
     <box padding="30" margin-bottom="0">
