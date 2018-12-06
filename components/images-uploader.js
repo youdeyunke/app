@@ -11,6 +11,7 @@ Component({
     max: {type: Number, value: 15},
     min: {type: Number, value: 3},
     cover: {type: Number, value: 0},
+    overlookImage: {type:String, value: ''},
     enableVideo: {type: Boolean, value: false},
   },
 
@@ -124,8 +125,13 @@ Component({
               var urls = _this.data.images
               urls.push(url)
               _this.triggerEvent('change', { images: urls, cover_index: _this.data.cover })
-            }else{
+            }
+            if(ftype == 'video'){
               _this.triggerEvent('change', {video: url })
+            }
+
+            if(ftype == 'overlook_image'){
+              _this.triggerEvent('change', {overlook_image: url })
             }
           },
           
@@ -162,6 +168,22 @@ Component({
       })
 
     },
+    overlookImageClick: function(e){
+      var _this = this
+      wx.showModal({
+        title: '操作提示',
+        content: '要删除吗？',
+        confirmText: '删除',
+        confirmColor: '#ff0000',
+        success: function(res){
+          if(res.confirm){
+            _this.setData({overlookImage: ''})
+            _this.triggerEvent('change', {overlook_image: ''})
+          }
+        },
+      })
+    },
+
 
     videoClick: function(e){
       var _this = this
@@ -177,6 +199,20 @@ Component({
           }
         },
       })
+    },
+
+
+    chooseOverlook: function(e){
+      var that = this
+      wx.chooseImage({
+        count: 1,
+        sizeType: ['original', 'compressed'],
+
+        success (res) {
+          const paths = res.tempFilePaths
+          that.doUpload('overlook_image', paths)
+        }
+    })
     },
 
     chooseImages: function(e){

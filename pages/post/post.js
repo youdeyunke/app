@@ -41,6 +41,10 @@ Page({
   gotoVr: function(){
     var vr = this.data.post.proxy_vr_url
     //var vr = 'https://csimum.udeve.cn/vr.html'
+    //var vr = 'https://csimum.udeve.cn/vr2.html?id=21963'
+    //var vrid = vr.split('?')[1].split('=')[1]
+    //var vr = 'https://csimum.udeve.cn/vr2.html?id=' + vrid  + '&iframe=true'
+
     if(!vr){
       return false
     }
@@ -239,10 +243,6 @@ Page({
    */
   onLoad: function (options) {
     this.myVideo = wx.createVideoContext('myvideo')
-    wx.showModal({
-      title: '调试',
-      content: '当前代码版本号：1518',
-    })
 
     var postId = options.id
     var post = wx.getStorageSync('post.data.' + postId)

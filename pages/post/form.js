@@ -449,6 +449,11 @@ Page({
     if(keys.includes('video')){
       this.updatePostField('video', e.detail.video)
     }
+    if(keys.includes('overlook_image')){
+      console.log('set overlook image')
+      this.updatePostField('overlook_image', e.detail.overlook_image)
+    }
+
   },
 
 

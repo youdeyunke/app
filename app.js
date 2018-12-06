@@ -5,14 +5,14 @@ var auth = require('utils/auth.js');
 App({
 
   globalData: {
-    apiHost: 'https://gzzgf.udeve.cn',
-    //apiHost: 'http://dockerhost:9001',
+    //apiHost: 'https://gzzgf.udeve.cn',
+    apiHost: 'http://dockerhost:9001',
     userInfo: null,
     token: null,
     loadingStatus: 0,
     cities: [],
     qqMapAppKey: 'OH2BZ-7QJK6-L44SI-MEJFO-PJNH2-IABHQ',
-    serverMobile: '15150416776'
+    serverMobile: '13397079595'
   },
 
   loadCities: function (cb) {

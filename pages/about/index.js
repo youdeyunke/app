@@ -9,7 +9,7 @@ Page({
   data: {
     debugClickCounter: 0,
     serverMobile: app.globalData.serverMobile,
-    wechat: 'udeve_cn',
+    wechat: 'sxm2588',
   },
 
   copyWechat: function(){

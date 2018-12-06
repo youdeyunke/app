@@ -38,7 +38,7 @@
 
 <view class="header-box">
   <view class="header"> 
-     <image bindtap="showShareBoxHandle" src="/assets/icons/share.png" class="share-btn"></image>
+     <!-- image bindtap="showShareBoxHandle" src="/assets/icons/share.png" class="share-btn"></image -->
      <view class=" post-title h1 line-limit">{{ post.title_info.text }}</view>
      <mytags wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
      <view class="typeinfo">
