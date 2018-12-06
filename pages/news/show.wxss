@@ -2,6 +2,11 @@ page{
   font-size:24rpx;
 }
 
+.cover{
+  width:750rpx;
+  height:400rpx;
+}
+
 .header{
   background: #fff;
   box-sizing: border-box;

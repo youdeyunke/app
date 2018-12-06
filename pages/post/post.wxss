@@ -593,3 +593,26 @@ image.overlook{
   width:150rpx;
   height:150rpx;
 }
+
+.flow-item{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.flow-item image{
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.flow-item .flow-content{
+  padding-left:30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.flow-item .flow-content .user-name{
+  color: #000;
+}
