@@ -218,11 +218,19 @@ Page({
     this.setData({showFlowForm: false, flowId: '', flowContent: ''})
   },
 
+  openFlowForm: function(e){
+    this.setData({showFlowForm: true, flowId: '', flowContent: ''})
+  },
+
   flowEdit: function(e){
     console.log('e', e)
     var i = e.currentTarget.dataset.index
     var flow = this.data.flows[i]
     if(flow.user_id != this.data.user.id){
+      wx.showToast({
+        title: '没有修改权限',
+        icon: 'none'
+      })
       return false
     }
 
@@ -239,6 +247,7 @@ Page({
     app.request({
       url: '/api/v2/flows/?post_id=' + _this.data.post.id,
       method: 'GET',
+      hideLoading: true,
       success: function(resp){
         if(resp.data.status == 0){
           _this.setData({
@@ -252,6 +261,7 @@ Page({
   flowInput: function(e){
     this.setData({flowContent: e.detail.value})
   },
+
 
   flowSubmit: function(e){
     var isNew = !this.data.flowId
