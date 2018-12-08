@@ -14,6 +14,7 @@ Page({
       { name: '我的提问', icon: 'm-qa.png', url: '/pages/myself/qa',  },
       { name: '我的评论', icon: 'm-comment.png', url:'/pages/comments/index?myself=true&limit=10000"',},
       { name: '我的关注', icon: 'm-fav.png', url: '/pages/myself/favposts'},
+      { name: '退出登录', icon: 'm-fav.png', bindtap:"logoutHandle", loginRequired: true},
       {name: '关于小程序', icon: 'm-about.png', url: '/pages/about/index'},
     ],
   },
@@ -53,7 +54,11 @@ Page({
       }
     })
   },
-
+  
+  logoutHandle: function(e){
+    wx.setStorageSync('userInfo', null) 
+    this.setData({userInfo: null})
+  },
 
   loginHandle: function(e){
     auth.loginHandle(this, e)

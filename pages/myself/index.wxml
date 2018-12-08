@@ -21,13 +21,13 @@
 </view>
 </box>
 
-<box>
+<box    >
   <van-cell-group>
     <van-cell hover-class="none" title="绑定手机号"   center wx:if="{{userInfo && !userInfo.mobile}}">
          <button slot="right-icon" class="btn mini" type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain>马上绑定</button>
     </van-cell>
 
-    <van-cell hover-class="none" value="{{item.value || ''}}" wx:for="{{cells}}" title="{{item.name}}"  url="{{item.url}}"   is-link center>
+    <van-cell wx:if="{{!item.loginRequired || ( item.loginRequired && userInfo)}}" hover-class="none" value="{{item.value || ''}}" wx:for="{{cells}}" title="{{item.name}}" bindtap="{{item.bindtap}}"  url="{{item.url}}"   is-link center>
     </van-cell>
 
   </van-cell-group>
