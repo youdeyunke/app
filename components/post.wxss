@@ -91,3 +91,7 @@
     font-weight: bold;
     font-size: 32rpx;
 }
+
+.post .red{
+  color: var(--color-b);
+}

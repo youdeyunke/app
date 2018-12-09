@@ -151,6 +151,14 @@ Page({
     })
   },
 
+  call: function(e){
+    var mobile = e.currentTarget.dataset.value
+    wx.makePhoneCall({
+        phoneNumber: mobile //仅为示例，并非真实的电话号码
+    })
+
+  },
+
   callMe: function(){
     var m = this.data.post.staff_user.mobile
     wx.makePhoneCall({

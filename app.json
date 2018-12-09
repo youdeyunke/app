@@ -83,8 +83,10 @@
     "box": "/components/box"
   },
   "networkTimeout": {
-    "request": 20000,
-    "uploadFile": 180000,
-    "downloadFile": 180000
-  }
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 99000,
+    "downloadFile": 20000
+  },
+  "debug": true
 }

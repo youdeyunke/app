@@ -75,7 +75,7 @@
 </view>
 
 <box padding="30" wx:if="{{currentTab == 'more' && user.is_broker }}">
-    <van-cell wx:for="{{post.protected_meta_list}}" wx:for-item="pm" title="{{pm.label}}" value="{{pm.value}}" />
+        <van-cell bindtap="{{pm.bindtap}}" data-value="{{pm.value}}" wx:for="{{post.protected_meta_list}}" wx:for-item="pm" title="{{pm.label}}" value="{{pm.value}}" />
     <van-cell title="俯瞰图" value="{{ post.overlook_image ? '点击查看' : '无' }}" bindtap="viewOverlook"/>
 </box>
 

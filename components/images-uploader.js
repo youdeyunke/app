@@ -96,7 +96,10 @@ Component({
     },
 
     doUpload: function(ftype, paths){
-      wx.showLoading({title: "正在上传", mask: true})
+      wx.setKeepScreenOn({
+        keepScreenOn: true
+      })          
+      wx.showLoading({title: "上传中,请勿关闭", mask: true})
       var _this = this
       var host = app.globalData.apiHost
       var path = paths.pop()
@@ -114,6 +117,7 @@ Component({
           },
 
           fail: function(e){
+            console.log('上传文件失败', e)
           }, 
           success (res){
             if(res.statusCode != 200){
@@ -147,6 +151,10 @@ Component({
     chooseVideo: function(e){
       var _this = this
       console.log('click', e)
+      //wx.showToast({
+      //  title: '测试：开启屏幕常亮',
+      //  icon: 'none',
+      //})      
       wx.chooseVideo({
         sourceType: ['album', 'camera'],
         compressed: true,
@@ -154,6 +162,10 @@ Component({
         camera: 'back',
         fail: function(res){
           console.log('fail', res)
+          wx.showToast({
+            title: res,
+            icon: 'none',
+          })
         },
 
         complete: function(res){

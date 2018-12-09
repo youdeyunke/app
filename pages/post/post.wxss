@@ -80,12 +80,12 @@ mycard{
 .post-cover .first image.play{
   background: rgba(0,0,0, 0.2);
 
-  border-radius: 60rpx;
-  width: 60rpx;
-  height: 60rpx;
-  padding:20rpx;
-  left:calc(50% - 50rpx);
-  top: calc(50% - 50rpx);
+  border-radius: 100rpx;
+  width: 100rpx;
+  height: 100rpx;
+  padding: 30rpx;
+  left:calc(50% - 80rpx);
+  top: calc(50% - 80rpx);
   position: absolute;  
 }
 
@@ -599,8 +599,8 @@ image.overlook{
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-bottom:20rpx;
-  padding-bottom:20rpx;
+  margin-bottom:10rpx;
+  padding-bottom:10rpx;
   border-bottom:2rpx solid #f4f4f4;
 }
 
@@ -627,7 +627,7 @@ image.overlook{
 .flow-item .text:after{
   content: "";
   position: absolute;
-  top:32rpx;
+  top:34rpx;
   left:40rpx;
   z-index:2;
   width: 0;
@@ -648,7 +648,7 @@ image.overlook{
 
 .flow-item .time{
   font-size: var(--font-xs);
-  color: #f4f4f4;
+  color: #666;
 }
 
 

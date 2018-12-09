@@ -11,7 +11,7 @@
         <view class="area-price">
                 <text class="area" >{{item.area_info.label}}: {{item.area_info.text}}</text>
         </view>
-        <text class="price" >{{item.price_info.label}}：{{item.price_info.text}}</text>
+        <text class="price" >{{item.price_info.label}}：<text class="red">{{item.price_info.text}}</text></text>
 
       </view>
 

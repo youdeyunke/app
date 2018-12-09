@@ -13,7 +13,6 @@
     <card title="业主信息" hat="true" wx:if="{{step==1 && user.is_broker }}">
       <van-field data-name="owner_name" value="{{ post.owner_name }}" input-align="left" error="{{error.owner_name}}" label="姓名" placeholder="" bind:change="inputChange" />
       <van-field data-name="owner_mobile" value="{{ post.owner_mobile }}" input-align="left" error="{{error.owner_mobile}}" label="电话" placeholder="" bind:change="inputChange" />
-      <van-field data-name="owner_wechat" value="{{ post.owner_wechat }}" input-align="left" error="{{error.owner_wechat}}" label="微信" placeholder="" bind:change="inputChange" />
     </card>
 
     <card title="户型信息" hat wx:if="{{step==1}}">
