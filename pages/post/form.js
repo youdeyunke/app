@@ -361,8 +361,9 @@ Page({
   },
 
   minRentMonthChange: function(e){
-    var v = e.detail.value
-    this.updatePostField('min_rent_month', v)
+    var i = e.detail.value
+    var item = this.data.minRentMonthItems[i]
+    this.updatePostField('min_rent_month', item.value)
   },
   
   inputChange: function(e){
