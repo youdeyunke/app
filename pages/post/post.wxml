@@ -11,24 +11,20 @@
                autoplay="{{post.images_list.length > 1}}" 
                interval="5000"
                duration="500" 
+               bindchange="swiperChange"
                circular="true" 
                indicator-color="rgba(255,255,255,0.7)" 
                indicator-active-color="#fff" >
-         
-            <swiper-item>
+                    
+            <swiper-item bindtap="viewImage" data-index="{{index}}" wx:for="{{post.full_images_list}}">
               <view class="first">
-                <image wx:if="{{!showVideo && post.video }}" catchtap='playVideo' class="play" src="/assets/icons/bofang.png"></image>
-                <image  bindtap="viewImage" hidden="{{showVideo}}" class="item" src="{{post.cover}}?imageView2/2/w/750"></image>
-                <video catchtap='' autoplay='{{true}}' hidden="{{!showVideo}}" src="{{post.video_cdn_url}}"></video>
-              </view>    
-
-            </swiper-item>   
-
-            <swiper-item bindtap="viewImage" wx:for="{{post.full_images_list}}">
-                    <image class="item" src="{{item}}?imageView2/2/w/750"></image>
-            </swiper-item>   
-            
+                <image wx:if="{{ index ==0 && post.vr_url}}" catchtap='gotoVr' class="play vr" src="/assets/icons/vr.png"></image>              
+                <image wx:if="{{ index == 1 && post.video}}" catchtap='gotoVideo' class="play video" src="/assets/icons/bofang.png"></image>
+                <image class="item" src="{{item}}?imageView2/2/h/480"></image>
+              </view>
+            </swiper-item>               
         </swiper>
+
 </view>
 
 <view class="header-box">
