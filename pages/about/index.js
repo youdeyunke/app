@@ -41,6 +41,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var user = wx.getStorageSync('userInfo')
+    if(!user || !user.is_broker){
+      this.setData({wechat: 'udeve_cn'})
+      console.log('!user', !user)
+    }
+
     var _this = this
     var today = new Date();  //开始时间
     var lastDay = new Date('2018/04/01');    //结束时间
