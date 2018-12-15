@@ -117,7 +117,10 @@ Component({
           },
 
           fail: function(e){
-            console.log('上传文件失败', e)
+            //wx.showModal({
+            //  title: '调试',
+            //  content: e.errMsg,
+            //})
           }, 
           success (res){
             if(res.statusCode != 200){
@@ -170,6 +173,11 @@ Component({
 
         complete: function(res){
           console.log('complete', res)
+          var size = res.size / (1024*1024)
+          //wx.showModal({
+          //  title: '文件',
+          //  content: size + 'Mb',
+          //})
         },
         
         success: function(res) {

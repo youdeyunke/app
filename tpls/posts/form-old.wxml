@@ -32,12 +32,12 @@
             value="{{ post.total_price }}"
             label="售价(万)"
             input-align="left"
-            type="number"
+            type="digit"
             placeholder="万元"
             bind:change="inputChange"
           />
 
-      <van-field bindtap="showTypePicker" is-link error="{{error.type}}" input-align="left" label="户型" value="{{post.w}}室-{{post.t}}厅-{{post.w}}卫 {{ post.position}}" arrow-direction="down" disabled />
+      <van-field bindtap="showTypePicker" is-link error="{{error.type}}" input-align="left" label="户型" value="{{post.s}}室-{{post.t}}厅-{{post.w}}卫 {{ post.position}}" arrow-direction="down" disabled />
       <van-field bindtap="showFitmentPicker" error="{{error.fitment_id}}" is-link input-align="left" label="装修" value="{{post.fitment.name || '请选择'}}" arrow-direction="down" disabled />
 
       <van-field bindtap="showFloorPicker" is-link input-align="left" error="{{error.floor}}" label="楼层" value="第{{post.current_floor || '几'}}层-共{{post.total_floor || '几'}}层 {{post.has_lift == true ? '有' : '无'}}电梯" arrow-direction="down" disabled />

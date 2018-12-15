@@ -362,8 +362,10 @@ Page({
   },
 
   minRentMonthChange: function(e){
-    var v = e.detail.value
-    this.updatePostField('min_rent_month', v)
+    var i = e.detail.value
+    var item = this.data.minRentMonthItems[i]
+    console.log('min rent month change ', e, item)
+    this.updatePostField('min_rent_month', item.value)
   },
   
   inputChange: function(e){
@@ -398,13 +400,14 @@ Page({
 
   typeChanged: function(e){
     this.clearError()
-    console.log('aaa')
+    console.log('type changed', e)
     var post = this.data.post
     post.s = e.detail.s
     post.t = e.detail.t
     post.w = e.detail.w
     post.position = e.detail.position
     this.setData({post : post })
+
   },
 
   floorChanged: function(e){

@@ -116,7 +116,7 @@ Page({
       text: _this.data.text || '',
       rent_type: _this.data.rent_type, 
       is_vr: _this.data.is_vr,
-      order: _this.data.order,
+      order: _this.data.order || 'id,desc',
     }
     var filter = this.data.filter
     // merge query and filter

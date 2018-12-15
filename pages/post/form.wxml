@@ -11,8 +11,8 @@
 
   </card>
 
-  <card wx:if="{{step == 1}}" title="全景外链" subtitle="选填(仅支持白犀牛外链)" hat>
-    <van-field bindchange="inputChange" label="链接" value="{{ post.vr_url }}" input-align="left" placeholder="仅支持白犀牛" data-name="vr_url" error="{{error.vr_url}}" />
+  <card wx:if="{{step == 1}}" title="全景外链" subtitle="选填" hat>
+    <van-field bindchange="inputChange" label="链接" value="{{ post.vr_url }}" input-align="left" placeholder="请输入" data-name="vr_url" error="{{error.vr_url}}" />
   </card>
 
   <template is="form-{{post.group}}" data="{{user:user, is_sublet: is_sublet, error: error, post: post, step: step , minRentMonthItems: minRentMonthItems}}" />

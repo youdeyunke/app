@@ -53,12 +53,7 @@
         "selectedIconPath": "/assets/icons/news.1.png",
         "text": "头条"
       },
-      {
-        "pagePath": "pages/qa/index",
-        "iconPath": "/assets/icons/qa.0.png",
-        "selectedIconPath": "/assets/icons/qa.1.png",
-        "text": "咨询"
-      },
+
       {
         "pagePath": "pages/myself/index",
         "iconPath": "/assets/icons/myself.0.png",
@@ -83,10 +78,10 @@
     "box": "/components/box"
   },
   "networkTimeout": {
-    "request": 10000,
+    "request": 100000,
     "connectSocket": 10000,
-    "uploadFile": 99000,
-    "downloadFile": 20000
+    "uploadFile": 100000,
+    "downloadFile": 100000
   },
   "debug": true
 }

@@ -146,7 +146,6 @@ mycard{
   color:#000;
   margin: 20rpx 0 20rpx 0 ;
   font-weight:bold;
-  width:550rpx;
 }
 
 .header-box{
