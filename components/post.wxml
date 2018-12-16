@@ -2,7 +2,7 @@
         <badge wx:if="{{item.coupon_enable}}">{{item.coupon_desc}}</badge>
       <view class="cover">
         <image class="i" src="{{ item.cover || '/assets/images/cover-none.png' }}?imageView2/2/w/250"></image>
-        <image wx:if="{{item.video}}" class="play-btn" src="/assets/icons/bofang.png"></image>
+        <image wx:if="{{item.vr_url}}" class="play-btn" src="/assets/icons/vr.png"></image>
       </view>
       <view class="meta">
         <text class="item-title" >{{ item.title }}</text>
@@ -11,7 +11,7 @@
         <view class="area-price">
                 <text class="area" >{{item.area_info.label}}: {{item.area_info.text}}</text>
         </view>
-        <text class="price" >{{item.price_info.label}}：{{item.price_info.text}}</text>
+        <text class="price" >{{item.price_info.label}}：<text class="red">{{item.price_info.text}}</text></text>
 
       </view>
 

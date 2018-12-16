@@ -1,19 +1,43 @@
 page{
   padding-top:0rpx;
-  background:#fff !important;
+  background: #fff !important;
 }
 
 .header{
   background:white;
   width:100%;
   padding:0 0rpx 20rpx 0rpx;
+  box-shadow: 2rpx 4rpx 10rpx rgba(0,0,0, 0.05);
   margin-bottom:20rpx;
-  margin-top:40rpx;
   box-size:border-box;
 }
 
-.my-news-swiper{
-  margin-top:10rpx;
-  margin-bottom:40rpx;
+
+
+
+.home-title{
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+  width:100%;
+  box-sizing:border-box;
+  padding:0rpx 30rpx;
+  background: #fff;
 }
 
+.home-title .h1{
+  width:50%;
+}
+
+.home-title .home-actions{
+        width:50%;
+        display:flex;
+        justify-content:flex-end;
+}
+.home-title .home-actions view{
+  margin-left:15rpx;
+}
+
+.home-title .home-actions view.active{
+  color:var(--color-a);
+}

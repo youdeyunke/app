@@ -12,6 +12,7 @@ Page({
   data: {
     post: null,
     debug: false,
+    user: {},
     posts: null,
     flowContent: '',
     flowId: '',
@@ -23,6 +24,10 @@ Page({
     currentTab: 'detail',
   },
 
+  swiperChange: function(e){
+    console.log('e',e)
+    this.myVideo.pause()
+  },
   
   contentHandle: function(e){
     this.setData({
@@ -30,20 +35,26 @@ Page({
     })
   },
 
+  gotoVideo: function(){
+    wx.setStorageSync('video-url', this.data.post.video)
+    wx.navigateTo({
+      url: '/pages/video/show',
+    })
+  },
+
   gotoVr: function(){
     var vr = this.data.post.proxy_vr_url
+    //var vr = 'https://csimum.udeve.cn/vr.html'
+    //var vr = 'https://csimum.udeve.cn/vr2.html?id=21963'
+    //var vrid = vr.split('?')[1].split('=')[1]
+    //var vr = 'https://csimum.udeve.cn/vr2.html?id=' + vrid  + '&iframe=true'
+
     if(!vr){
       return false
     }
     wx.setStorageSync('webview', vr)
     wx.navigateTo({
       url: '/pages/webview/webview',
-    })
-  },
-
-  playVideo: function(e){
-    this.setData({
-      showVideo: true
     })
   },
 
@@ -97,7 +108,7 @@ Page({
     app.request({
       url: '/api/v1/questions/',
       hideLoading: true,
-      data: {post_id: postId, limit: 5},
+      data: {post_id: postId, limit: 999},
       success: function(resp){
         _this.setData({
           qas: resp.data.data
@@ -112,7 +123,7 @@ Page({
     app.request({
       hideLoading: true,
       url: '/api/v1/mycomments',
-      data: { target_id: postId, target_type: 'post', limit: 1 },
+      data: { target_id: postId, target_type: 'post', limit: 999 },
       success: function (resp) {
         _this.setData({ comments: resp.data.data })
       },
@@ -126,12 +137,29 @@ Page({
    wx.previewImage({urls: [url] })
  },
 
+  viewOverlook: function(e){
+    var url = this.data.post.overlook_image
+    if(url){
+      wx.previewImage({urls: [url] })
+    }
+  },
 
   viewImage: function(e){
     var urls = this.data.post.full_images_list
+    var index = e.currentTarget.dataset.index
+    var url = urls[index]
     wx.previewImage({
+      current: url,
       urls: urls,
     })
+  },
+
+  call: function(e){
+    var mobile = e.currentTarget.dataset.value
+    wx.makePhoneCall({
+        phoneNumber: mobile //仅为示例，并非真实的电话号码
+    })
+
   },
 
   callMe: function(){
@@ -201,11 +229,19 @@ Page({
     this.setData({showFlowForm: false, flowId: '', flowContent: ''})
   },
 
+  openFlowForm: function(e){
+    this.setData({showFlowForm: true, flowId: '', flowContent: ''})
+  },
+
   flowEdit: function(e){
     console.log('e', e)
     var i = e.currentTarget.dataset.index
     var flow = this.data.flows[i]
     if(flow.user_id != this.data.user.id){
+      wx.showToast({
+        title: '没有修改权限',
+        icon: 'none'
+      })
       return false
     }
 
@@ -222,6 +258,7 @@ Page({
     app.request({
       url: '/api/v2/flows/?post_id=' + _this.data.post.id,
       method: 'GET',
+      hideLoading: true,
       success: function(resp){
         if(resp.data.status == 0){
           _this.setData({
@@ -235,6 +272,7 @@ Page({
   flowInput: function(e){
     this.setData({flowContent: e.detail.value})
   },
+
 
   flowSubmit: function(e){
     var isNew = !this.data.flowId
@@ -298,6 +336,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({ user : wx.getStorageSync('userInfo') || {} })
+
+    this.myVideo = wx.createVideoContext('myvideo')
     var postId = options.id
     var post = wx.getStorageSync('post.data.' + postId)
     var _this = this
@@ -468,8 +509,6 @@ Page({
     if(!eb){
       return
     }
-
-  
   },
 
   /**

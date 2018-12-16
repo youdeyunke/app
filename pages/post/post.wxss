@@ -38,28 +38,6 @@ mycard{
   z-index:999;
 }
 
-.post-cover .vr-btn{
-  color:#fff;
-  background: rgba(0,0,0, 0.15);
-  position:absolute;
-  left:calc(750rpx * 0.5 - 70rpx);
-  bottom:calc(50% - 70rpx);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 140rpx;
-  width: 140rpx;
-  border-radius: 100%;
-  border:0rpx solid #fff;
-  font-size:var(--font-xs);
-  z-index:999;
-}
-.post-cover .vr-btn image{
-  width: 80rpx;
-  height: 80rpx;
-}
 
 .post-cover .image-count{
   color:#fff;
@@ -82,6 +60,13 @@ mycard{
   height:100%;
 }
 
+.post-cover swiper-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
 .post-cover .first{
   display: flex;
   justify-content: center;
@@ -91,12 +76,17 @@ mycard{
   width: 100%;
 }
 
+
 .post-cover .first image.play{
+  background: rgba(0,0,0, 0.2);
+
+  border-radius: 100rpx;
   width: 100rpx;
   height: 100rpx;
-  left:calc(50% - 50rpx);
-  top: calc(50% - 50rpx);
-  position: absolute;
+  padding: 30rpx;
+  left:calc(50% - 80rpx);
+  top: calc(50% - 80rpx);
+  position: absolute;  
 }
 
 .post-cover .first image.item{
@@ -111,8 +101,10 @@ mycard{
 }
 
 .post-cover image.item{
-  width:100%;
+
   height:100%;
+  width: 100%;
+  margin:0 auto;
 }
 
 .detail-meta{
@@ -154,7 +146,6 @@ mycard{
   color:#000;
   margin: 20rpx 0 20rpx 0 ;
   font-weight:bold;
-  width:550rpx;
 }
 
 .header-box{
@@ -581,9 +572,10 @@ myfav .myfav {
 .tabs .tab-item{
   display:flex;
   height:100%;
-  justify-content:center;
+  justify-content:space-around;
   align-items:center;
-  width:30%;
+  max-width: 30%;
+  min-width: 20%;
 }
 
 .tabs .tab-item.active{
@@ -596,15 +588,26 @@ myfav .myfav {
  background:#f4f4f4;
 }
 
+
+image.overlook{
+  width:150rpx;
+  height:150rpx;
+}
+
 .flow-item{
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  margin-bottom:10rpx;
+  padding-bottom:10rpx;
+  border-bottom:2rpx solid #f4f4f4;
 }
 
 .flow-item image{
-  width: 100rpx;
-  height: 100rpx;
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 100rpx;
+  border:4rpx solid #f4f4f4;
 }
 
 .flow-item .flow-content{
@@ -613,8 +616,66 @@ myfav .myfav {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  position: relative;
 }
 
 .flow-item .flow-content .user-name{
   color: #000;
+}
+
+.flow-item .text:after{
+  content: "";
+  position: absolute;
+  top:34rpx;
+  left:40rpx;
+  z-index:2;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border-style: solid;
+  border-width: 10rpx 20rpx;
+  border-color: transparent transparent #95CD5E;
+}
+
+.flow-item .text{
+  margin:10rpx 0;
+  padding:20rpx 16rpx;
+  background: #95CD5E;
+  border-radius: 10rpx;
+  color: #000;
+}
+
+.flow-item .time{
+  font-size: var(--font-xs);
+  color: #666;
+}
+
+
+.flow-form{
+  padding:30rpx;
+}
+
+.flow-form textarea{
+  width: 500rpx;
+  border:2rpx solid #f4f4f4;
+  padding:20rpx;
+  margin-bottom:20rpx;
+}
+
+.flow-form .fbutton{
+
+  margin-top:10rpx;
+}
+
+.new-flow-action{
+  margin-top:10rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new-flow-action .desc{
+  width: 550rpx;
+  font-size:var(font-xs);
+  color: #cecece;
 }

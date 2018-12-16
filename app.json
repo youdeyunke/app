@@ -31,7 +31,8 @@
     "pages/myself/broker",
     "pages/messages/show",
     "pages/messages/index",
-    "pages/444/index"
+    "pages/444/index",
+    "pages/video/show"
   ],
   "tabBar": {
     "selectedColor": "#333",
@@ -52,12 +53,7 @@
         "selectedIconPath": "/assets/icons/news.1.png",
         "text": "头条"
       },
-      {
-        "pagePath": "pages/messages/index",
-        "iconPath": "/assets/icons/news.0.png",
-        "selectedIconPath": "/assets/icons/news.1.png",
-        "text": "消息"
-      },
+
       {
         "pagePath": "pages/myself/index",
         "iconPath": "/assets/icons/myself.0.png",
@@ -72,7 +68,7 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationStyle": "default",
     "backgroundColor": "#fff",
-    "navigationBarTitleText": "微房演示项目",
+    "navigationBarTitleText": "找个房",
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {
@@ -80,5 +76,12 @@
     "van-loading": "/vant/loading/index",
     "mycard": "/components/card",
     "box": "/components/box"
-  }
+  },
+  "networkTimeout": {
+    "request": 100000,
+    "connectSocket": 10000,
+    "uploadFile": 100000,
+    "downloadFile": 100000
+  },
+  "debug": true
 }

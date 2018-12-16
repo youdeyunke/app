@@ -1,5 +1,4 @@
 <myslider id="slider"></myslider>
-
 <view class="header">
   <icons />
 </view>
@@ -9,11 +8,17 @@
 </view>
 
 <broker-join wx:if="{{ !user.is_broker }}" />
+    <view class="home-title">
+        <view class="h1">猜你喜欢</view>
+        <view class="home-actions">
+                <view bindtap="action1Click" class="item {{ currentAction == 1 ? 'active' : ''}}">二手房</view>
+                <view bindtap="action2Click" class="item {{ currentAction == 2 ? 'active' : ''}}">租房</view>
+        </view>
+    </view>
 
-    <view class="h1" style="padding:0 0 20rpx 40rpx;">精选好房</view>
     <box padding="30">
     <block wx:for="{{posts}}" wx:for-item="postitems">
-            <post wx:for="{{postitems}}" item="{{item}}" />
+       <post wx:for="{{postitems}}" item="{{item}}"></post>
     </block>
     </box>
 

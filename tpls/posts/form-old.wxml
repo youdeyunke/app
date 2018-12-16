@@ -5,7 +5,14 @@
       <van-field value="{{ post.area_name}}" data-name="area_name" error="{{error.area_name}}" label="小区" input-align="left" placeholder="请输入小区名称" bind:change="inputChange" />
       <van-field value="{{ post.area_year }}" type="number" data-name="area_year" error="{{error.area_year}}" label="年代" input-align="left" placeholder="请输入小区年代" bind:change="inputChange" />
       <van-field data-name="street" value="{{ post.street }}" input-align="left" error="{{error.street}}" label="街道" placeholder="如：巨峰路1028弄55号" bind:change="inputChange" />
-      <van-field data-name="house_number" value="{{ post.house_number }}" input-align="left" label="门牌号" placeholder="如：55号楼 1002室" bind:change="inputChange" />
+      <van-field data-name="building_number" value="{{ post.building_number }}" input-align="left" label="栋座/位置" placeholder="如：A栋" bind:change="inputChange" />
+      <van-field data-name="house_number" value="{{ post.house_number }}" input-align="left" label="房号" placeholder="如：0302" bind:change="inputChange" />
+      <van-field data-name="how_to_see" value="{{ post.how_to_see }}" input-align="left" label="如何看房" placeholder="" bind:change="inputChange" />
+    </card>
+
+    <card title="业主信息" hat="true" wx:if="{{step==1 && user.is_broker }}">
+      <van-field data-name="owner_name" value="{{ post.owner_name }}" input-align="left" error="{{error.owner_name}}" label="姓名" placeholder="" bind:change="inputChange" />
+      <van-field data-name="owner_mobile" value="{{ post.owner_mobile }}" input-align="left" error="{{error.owner_mobile}}" label="电话" placeholder="" bind:change="inputChange" />
     </card>
 
     <card title="户型信息" hat wx:if="{{step==1}}">
@@ -52,6 +59,7 @@
         <van-field value="{{post.selling_points}}" label="核心卖点" placeholder="选填" bind:change="inputChange"  data-name="selling_points" autosize />
         <van-field value="{{post.surrounding}}" label="周边配套" placeholder="选填" bind:change="inputChange"  data-name="surrounding" autosize />
         <van-field value="{{post.owner_mindset}}" wx:if="{{user.is_broker}}" label="业主心态" placeholder="选填" bind:change="inputChange"  data-name="owner_mindset" autosize />
+        <van-field value="{{post.remark }}" label="备注" placeholder="选填" bind:change="inputChange"  data-name="remark" autosize />
 </card>
 
 </block>

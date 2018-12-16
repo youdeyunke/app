@@ -1,0 +1,12 @@
+page{
+  background: #000 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#myvideo{
+  width: 750rpx;
+  height: 750rpx;
+}

@@ -1,8 +1,8 @@
 <view class="range-slider">
-
+  current slider : {{currentSlider}}
   <view class="range-slider-body">
-          <slider block-size="18" class="slider1" step="{{step}}" data-name="slider1" value="{{value1}}" bindchange="sliderChange" bindchanging="sliderChangeing" min="{{min}}" max="{{max}}" activeColor="#e9e9e9" />
-          <slider block-size="18" class="slider2" step="{{step}}" data-name="slider2"  bindchange="sliderChange" bindchanging="sliderChangeing" value="{{value2}}" min="{{min}}" max="{{max}}"  activeColor="#e9e9e9" />
+          <slider block-size="28" bindtap="sliderTap" class="slider1 {{ currentSlider == 'slider1' ? 'active': 'inactive'}}" step="{{step}}" data-name="slider1" value="{{value1}}" bindchange="sliderChange" bindchanging="sliderChangeing" min="{{min}}" max="{{max}}" activeColor="#e9e9e9" />
+          <slider block-size="28" bindtap="sliderTap" class="slider2 {{ currentSlider == 'slider2' ? 'active': 'inactive'}}" step="{{step}}" data-name="slider2"  bindchange="sliderChange" bindchanging="sliderChangeing" value="{{value2}}" min="{{min}}" max="{{max}}"  activeColor="#e9e9e9" />
     
   </view>
 

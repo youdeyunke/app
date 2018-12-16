@@ -14,12 +14,29 @@
   margin:0 auto;
 }
 
+slider.active{
+  z-index:10;
+}
+
+slider.inactive{
+  z-index: 0;
+}
+
 .range-slider-body slider{
   position: absolute;
-  top:20rpx;
+
   left: 0rpx;
   width: 100%;
   margin:0 auto;
+}
+
+.range-slider-body .slider1{
+  top:20rpx;
+
+}
+
+.range-slider-body .slider2{
+  top:80rpx;
 }
 
 .range-slider-footer{

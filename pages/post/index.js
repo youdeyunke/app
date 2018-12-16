@@ -26,11 +26,12 @@ Page({
 
   onLoad: function (query) {
     var _this = this
-    var group = query.group || 'xinfang'
+    var group = query.group || 'ershoufang'
     this.setData({ 
       group: group, 
       rent_type: query.rent_type || '',
-      text: query.text || ''
+      text: query.text || '',
+      is_vr: query.is_vr,
     })
     this.setPageTitle(group, query.rent_type)
     this.loadData()
@@ -58,12 +59,14 @@ Page({
         title = '二手房'
         break
       case 'zufang':
-        title = '合租'
+        title = '租房'
         if(rent_type == 'zhengzu'){
           title = '整租'
         }
+        if(rent_type == 'hezu'){
+          title = '合租'
+        }
     }
-
     wx.setNavigationBarTitle({ title: title })
   },
 
@@ -112,7 +115,8 @@ Page({
       group: _this.data.group,
       text: _this.data.text || '',
       rent_type: _this.data.rent_type, 
-      order: _this.data.order,
+      is_vr: _this.data.is_vr,
+      order: _this.data.order || 'id,desc',
     }
     var filter = this.data.filter
     // merge query and filter

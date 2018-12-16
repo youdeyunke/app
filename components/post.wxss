@@ -47,10 +47,12 @@
 }
 .post .play-btn{
   position: absolute;
-  width:80rpx;
-  height: 80rpx;
-  left:calc(296rpx * 0.5 - 80rpx * 0.5);
-  top:calc(184rpx * 0.5 - 80rpx * 0.5);
+  width:60rpx;
+  height: 60rpx;
+  border-radius: 60rpx;
+  overflow: hidden;
+  left:calc(296rpx * 0.5 - 60rpx * 0.5);
+  top:calc(184rpx * 0.5 - 60rpx * 0.5);
   background: rgba(0,0,0, 0.2);
 
 }
@@ -65,7 +67,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  width:320rpx;
+  width:360rpx;
   font-size:32rpx;
   color: #000;
   font-weight: bold;
@@ -88,4 +90,8 @@
     color:var(--color-b);
     font-weight: bold;
     font-size: 32rpx;
+}
+
+.post .red{
+  color: var(--color-b);
 }

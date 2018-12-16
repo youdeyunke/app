@@ -49,7 +49,7 @@ Component({
     }
 
     this.setData({
-      actions: [item_1, item_2, item_3]
+      actions: [item_1, item_2]
     })
 
   },

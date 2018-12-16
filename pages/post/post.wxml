@@ -29,8 +29,8 @@
 
 <view class="header-box">
   <view class="header"> 
-     <image bindtap="showShareBoxHandle" src="/assets/icons/share.png" class="share-btn"></image>
-     <view class=" post-title h1 line-limit">{{ post.title_info.text }}</view>
+     <!-- image bindtap="showShareBoxHandle" src="/assets/icons/share.png" class="share-btn"></image -->
+     <view class=" post-title h1 ">{{ post.title_info.text }}</view>
      <mytags wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
      <view class="typeinfo">
          <view class="item border">
@@ -59,8 +59,39 @@
  <view data-tab="comment" bindtap="tabHandle" class="tab-item {{currentTab == 'comment' ? 'active': ''}}">评论</view>
  <view class="tab-blank"></view>
  <view data-tab="qa" bindtap="tabHandle" class="tab-item {{currentTab == 'qa' ? 'active': ''}}">问答</view>
+ <block wx:if="{{user && user.is_broker}}" >
+ <view data-tab="more" bindtap="tabHandle" class="tab-item {{currentTab == 'more' ? 'active': ''}}">更多</view>
+ <view  data-tab="flows" bindtap="tabHandle" class="tab-item {{currentTab == 'flows' ? 'active': ''}}">跟进</view>
+ </block>
 </view>
 
+<box padding="30" wx:if="{{currentTab == 'more' && user.is_broker }}">
+        <van-cell bindtap="{{pm.bindtap}}" data-value="{{pm.value}}" wx:for="{{post.protected_meta_list}}" wx:for-item="pm" title="{{pm.label}}" value="{{pm.value}}" />
+    <van-cell title="俯瞰图" value="{{ post.overlook_image ? '点击查看' : '无' }}" bindtap="viewOverlook"/>
+</box>
+
+
+<box padding="30" wx:if="{{currentTab == 'flows' && user.is_broker }}">
+  <view bind:longpress="flowEdit" data-index="{{index}}" class="flow-item" wx:for="{{flows}}" wx:for-item="flow">
+    <image src="{{flow.user_info.avatar}}"></image>
+    <view class="flow-content">
+      <view class="user-name">{{flow.user_info.name}}</view>
+      <view class="arrow"></view>
+      <view class="text">{{flow.content}}</view>
+      <view class="time">{{flow.updated_at_pretty }}</view>
+    </view>
+  </view>
+  <view class="new-flow-action">
+    <view class="desc">
+      <view wx:if="{{flows.length == 0}}">暂无跟进信息</view>
+      <view>写入的跟进记录只对平台入驻的经纪人可见</view>
+    </view>
+    <van-button disabled='{{showFlowForm}}' size="small" type="primary"  plain bindclick="openFlowForm">写跟进</van-button>
+  </view>
+</box>
+  
+
+  
 <view hidden="{{currentTab!='detail'}}">
     <box padding="30" margin-bottom="0">
       <view  class="detail-meta">
@@ -89,7 +120,7 @@
   <view class="comments-empty" wx:if="{{post.comments_count == 0}}">暂无评论</view>
   <view class="comments-add">
     <navigator hover-class='none' url="/pages/comments/new?target_id={{post.id}}">
-      <button class="plain btn round mini">我要点评</button>
+      <button class="plain btn mini">我要点评</button>
     </navigator> 
   </view>
 </box>
@@ -135,21 +166,11 @@
 <broker wx:if="{{post.broker_info}}" broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>
 <safe-tips/>
 
-<!--box padding="30">
-  <view bind:longpress="flowEdit" data-index="{{index}}" class="flow-item" wx:for="{{flows}}" wx:for-item="flow">
-    <image src="{{flow.user_info.avatar}}"></image>
-    <view class="flow-content">
-      <view class="user-name">{{flow.user_info.name}}</view>
-      <view class="text">{{flow.content}}</view>
-      <view class="time">{{flow.updated_at_pretty }}</view>
-    </view>
-  </view>
-</box -->
-
-<van-popup show="{{showFlowForm}}" bind:click-overlay="closeFlowForm" >
+<van-popup show="{{showFlowForm }}" bind:click-overlay="closeFlowForm" >
   <view class="flow-form">
-        <textarea value="{{flowContent}}" bindinput="flowInput"></textarea>
-        <button class="plain btn round mini" catchtap="flowSubmit">保存跟进</button>
+        <textarea placeholder='请输入跟进内容' value="{{flowContent}}" bindinput="flowInput"></textarea>
+        <van-button disabled='{{flowContent.length <= 3}}' type="primary" custom-class="fbutton" size="large" bindclick='flowSubmit'>保存内容</van-button>
+        <van-button type="default" custom-class="fbutton" size="large" bindclick='closeFlowForm'>取消</van-button>
 </view>
 
 </van-popup>

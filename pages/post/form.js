@@ -290,9 +290,10 @@ Page({
     }else{
       // 这里讲post设置成null,是为了unload的时候，清理草稿箱
       var isNew = !this.data.post.id
+      var msg = data.data.message || '保存成功'
       wx.showModal({
         title: '操作成功',
-        content: '数据保存成功',
+        content: msg,
         confirmText: '预览',
         cancelText: '管理房源',
         success(res) {
@@ -398,13 +399,14 @@ Page({
 
   typeChanged: function(e){
     this.clearError()
-    console.log('aaa')
+    console.log('type changed', e)
     var post = this.data.post
     post.s = e.detail.s
     post.t = e.detail.t
     post.w = e.detail.w
     post.position = e.detail.position
     this.setData({post : post })
+
   },
 
   floorChanged: function(e){
@@ -434,7 +436,6 @@ Page({
     this.setData({
       cityPickerShow: false
     })    
-    console.log('hhhhhh')
   },
 
   imagesChanged: function(e){
@@ -450,6 +451,11 @@ Page({
     if(keys.includes('video')){
       this.updatePostField('video', e.detail.video)
     }
+    if(keys.includes('overlook_image')){
+      console.log('set overlook image')
+      this.updatePostField('overlook_image', e.detail.overlook_image)
+    }
+
   },
 
 

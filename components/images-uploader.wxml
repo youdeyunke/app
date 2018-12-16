@@ -17,6 +17,11 @@
         </view>      
         <view wx:if="{{max - images.length > 0}}"  bindtap="chooseImages" class="item add-image"></view>
 
+        <view wx:if="{{overlookImage}}" bind:longpress="overlookImageClick" class="item image"> 
+            <image src="{{overlookImage}}"></image>
+        </view>      
+        <view wx:if="{{!overlookImage}}"  bindtap="chooseOverlook" class="item add-video">添加俯瞰图</view>
+
 </view>
 
 <van-action-sheet show="{{showSheet}}" actions="{{sheetActions}}" bind:close="onSheetClose" bind:select="onSheetSelect" />

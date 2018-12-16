@@ -11,7 +11,6 @@
                         label="最低" 
                         bind:change="inputChange"
                         placeholder="单位：{{priceUnit}}"
-                        value="{{budget_min}}" 
                         data-name="budget_min" />
 
                 <van-field 
@@ -20,7 +19,6 @@
                         bind:change="inputChange"
                         placeholder="单位：{{priceUnit}}"
                         type="textarea"
-                        value="{{budget_max}}" 
                         data-name="budget_max" />
 
         </card>
