@@ -3,6 +3,7 @@
   "navigationBarTextStyle": "light",
   "usingComponents": {
     "mytags": "/components/tags",
+    "gimage": "/components/gyroscope-image",
     "broker": "/components/broker",
     "broker-link": "/components/broker-link",
     "myfav": "/components/fav",

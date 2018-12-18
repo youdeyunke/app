@@ -338,6 +338,7 @@ Page({
   onLoad: function (options) {
     this.setData({ user : wx.getStorageSync('userInfo') || {} })
 
+
     this.myVideo = wx.createVideoContext('myvideo')
     var postId = options.id
     var post = wx.getStorageSync('post.data.' + postId)
@@ -522,7 +523,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    wx.stopGyroscope({})
   },
 
   /**

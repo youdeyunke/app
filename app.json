@@ -83,5 +83,5 @@
     "uploadFile": 100000,
     "downloadFile": 100000
   },
-  "debug": true
+  "debug": false
 }
