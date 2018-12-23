@@ -1,7 +1,7 @@
 <navigator hover-class="none" class="post {{item.group == 'new' && item.coupon_enable ? '' : 'coupon-none'}} {{type}} {{ shadow ? 'shado' : 'shadow-none'}} {{ border ? 'border' : 'border-none'}}" open-type="navigate" url="/pages/post/post?id={{item.id}}" >
         <badge wx:if="{{item.coupon_enable}}">{{item.coupon_desc}}</badge>
       <view class="cover">
-        <image class="i" src="{{ item.cover || '/assets/images/cover-none.png' }}?imageView2/2/w/250"></image>
+        <image class="i" src="{{ item.cover || '/assets/images/cover-none.png' }}?imageView2/2/w/750"></image>
         <image wx:if="{{item.vr_url}}" class="play-btn" src="/assets/icons/vr.png"></image>
       </view>
       <view class="meta">
@@ -10,8 +10,9 @@
 
         <view class="area-price">
                 <text class="area" >{{item.area_info.label}}: {{item.area_info.text}}</text>
+              <text class="price" >{{item.price_info.label}}：<text class="red">{{item.price_info.text}}</text></text>            
         </view>
-        <text class="price" >{{item.price_info.label}}：<text class="red">{{item.price_info.text}}</text></text>
+    
 
       </view>
 

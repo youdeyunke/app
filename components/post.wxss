@@ -61,12 +61,18 @@
   flex-direction: column;
   justify-content: space-between;
   width:360rpx;
+  font-size:24rpx;
 }
 
 .post .meta .item-title{
+  display: -webkit-box ;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+
+
   width:360rpx;
   font-size:32rpx;
   color: #000;
@@ -75,7 +81,7 @@
 
 .post .meta .area-price{
   display: flex;
-  justify-content: space-between; 
+  justify-content: flex-start; 
   align-items: flex-end;
 }
 
@@ -85,11 +91,12 @@
 
 .post .meta .area-price .area{
   color:#000;
+  margin-right:40rpx;
 }
 .post .meta .area-price .price{
     color:var(--color-b);
     font-weight: bold;
-    font-size: 32rpx;
+    font-size: 24rpx;
 }
 
 .post .red{
