@@ -1,7 +1,7 @@
 page{
-  background: url('http://qiniucdn.udeve.cn/04860.jpg');
-  background-size: 750rpx 466rpx;
-  background-repeat: no-repeat;
+  background: url('http://qiniucdn.udeve.cn/04860.jpg') !important;
+  background-size: 750rpx 466rpx !important;
+  background-repeat: no-repeat !important;
   padding-top:400rpx;
 }
 

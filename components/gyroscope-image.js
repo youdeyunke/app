@@ -20,7 +20,8 @@ Component({
    */
   data: {
     delta: 200,
-    paddingValue: '0 0 0 0',
+    x: null,
+    y: null,
   },
 
 
@@ -31,13 +32,17 @@ Component({
 
     methods: {
 
-      logIt: function(x){
-        return x * 0.95 - 100;
+      formatX: function(x){
+        // 放大10倍，取整数
+        x =  x * 100;
+        x = Math.floor(x)
+        return x
+        //return this.safeX(x)
       },
 
       safeX: function(x){
-        var min = -100
-        var max = 100
+        var min = -200
+        var max = 200
         x = x < min ? min : x
         x = x > max ? max : x
         return x
@@ -47,29 +52,31 @@ Component({
     ready: function(){
       console.log('gimage ready')
       var _this = this
-      wx.onGyroscopeChange(function (res) {
-        console.log('监听陀螺仪变化1')
-
-        var x = _this.logIt(res.x)
-        var y = _this.logIt(res.y)
+      wx.onAccelerometerChange(function (res) {
+        var x = _this.formatX(res.x)
+        var y = _this.formatX(res.y)
         console.log('x', x)
         console.log('y', y)
+        if(x == _this.data.x && y == _this.data.y){
+          return
+        }
 
-        x = _this.safeX(x)
-        y = _this.safeX(y)
+        var leftValue = (x-100)/2 + 'rpx'
+        var bottomValue = (y-100)/2 + 'rpx'
         _this.setData({
-          leftValue: y + 'rpx',
-          topValue: x + 'rpx',
+          x: x, y: y, leftValue: leftValue, bottomValue: bottomValue
         })
-
       })
 
-      wx.startGyroscope({
-        interval: 'game',
-        success: function (res) {
-          console.log('开始监听陀螺仪', res)
-        }
-      })      
+      wx.stopAccelerometer({
+        complete: function(){
+          wx.startAccelerometer({
+            interval: 'ui',
+            success: function (res) {
+              console.log('开始监听陀螺仪', res)
+            }
+          })   
+        },
+      })   
     },
-
 })

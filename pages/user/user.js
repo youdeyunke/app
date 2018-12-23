@@ -88,7 +88,7 @@ Page({
     
     app.request({
       url: '/api/v2/posts',
-      data: {'user_id': uid},
+      data: {'user_id': uid, per_page: 9999},
       success: function(resp){
         _this.updatePosts(resp.data.data)
       }

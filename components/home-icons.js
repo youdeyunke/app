@@ -46,12 +46,12 @@ Component({
 
       { name: '我要出租', url: '/pages/post/form?group=rental&rent_type=zhengzu', opentype: "navigateTo", id: 'rent'  },
 
-      { name: '全景看房', url: '/pages/post/index?is_vr=true', opentype: "navigateTo", id: 'qjkf'  },
+      //{ name: '全景看房', url: '/pages/post/index?is_vr=true', opentype: "navigateTo", id: 'qjkf'  },
 
-      { name: '定制找房', url: '/pages/need/room-form?cat=buy', opentype: "navigateTo", id: 'zhao'  },
-      { name: '楼市资讯', url: '/pages/news/index', opentype: "switchTab", id: 'news'  },
-      { name: '加入我们', url: '/pages/about/join', opentype: "navigateTo", id: 'join'  },
-      { name: '公司介绍', url: '/pages/about/index', opentype: "navigateTo", id: 'about'  },
+      //{ name: '定制找房', url: '/pages/need/room-form?cat=buy', opentype: "navigateTo", id: 'zhao'  },
+      //{ name: '楼市资讯', url: '/pages/news/index', opentype: "switchTab", id: 'news'  },
+      //{ name: '加入我们', url: '/pages/about/join', opentype: "navigateTo", id: 'join'  },
+      //{ name: '公司介绍', url: '/pages/about/index', opentype: "navigateTo", id: 'about'  },
 
     ]
 

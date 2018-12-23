@@ -1,3 +1,3 @@
 <view class="gimage" style="width:{{width}}rpx;height:{{height}}rpx;">
-  <image style="width: {{width + delta}}rpx;height:{{height+delta}}rpx;left:{{leftValue}};top:{{topValue}}" src="{{src}}"></image>
+  <image style="width: {{width + delta}}rpx;height:{{height+delta}}rpx;left:{{leftValue}};bottom:{{bottomValue}}" src="{{src}}"></image>
 </view>
