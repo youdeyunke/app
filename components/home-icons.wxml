@@ -1,9 +1,9 @@
 <!--components/home-icons.wxml-->
 <block>
   <view class="icons">
-    <navigator bindtap="{{item.tapHandle}}" url="{{item.url}}"  open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" wx:for="{{icons}}">
-           <view style="background:#{{colors[index]}}" class="icon-cover">
-              <image src="/assets/icons/tab-{{item.id}}.png"></image>
+    <navigator bindtap="{{item.bindtap}}" url="{{item.path}}"  open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" wx:for="{{icons}}">
+           <view style="background:{{ item.bg_color || colors[index]}}" class="icon-cover">
+                   <image style="width:{{item.width || '47'}}rpx;height: {{ item.height || '47' }}rpx;" src="/assets/icons/tab-{{item.icon_name}}.png"></image>
            </view>
       <text>{{ item.name }}</text>
     </navigator>

@@ -1,4 +1,6 @@
 // components/home-icons.js
+const app = getApp()
+
 Component({
   /**
    * 组件的属性列表
@@ -24,30 +26,28 @@ Component({
     ],
 
     colors: [
-      '4BC587',
-      'F7B264',
-      'F5D04F',
-      'F17276',
-      '67B1FD',
-      'F7B263',
-      '62D182',
-      '5AC0E5',
-      '5DD2B9',
-      '9291DF',
+      '#4BC587',
+      '#F7B264',
+      '#F5D04F',
+      '#F17276',
+      '#67B1FD',
+      '#F7B263',
+      '#62D182',
+      '#5AC0E5',
+      '#5DD2B9',
+      '#9291DF',
     ],
 
-    icons: [
-      { name: '二手房', url: '/pages/post/index?group=ershoufang', opentype:"navigateTo", id: 'old', bg: '#53d8e3'},
-      { name: '租房', url: '/pages/post/index?group=zufang', opentype:"navigateTo", id: 'rent_house', bg: '#65b455'},
+    icons: wx.getStorageSync('home_icons'),
 
-      {name: '新房', url: '/pages/post/index?group=xinfang', opentype:"navigateTo", id: 'new', bg: '#fdaa3d'},
-
-      { name: '我要卖房', url: '/pages/post/form?group=old', opentype: "navigateTo", id: 'sale'  },
-
-      { name: '我要出租', url: '/pages/post/form?group=rental&rent_type=zhengzu', opentype: "navigateTo", id: 'rent'  },
+    defaulticons: [
+      //{ name: '二手房', url: '/pages/post/index?group=ershoufang', opentype:"navigateTo", id: 'old', bg: '#53d8e3'},
+      //{ name: '租房', url: '/pages/post/index?group=zufang', opentype:"navigateTo", id: 'rent_house', bg: '#65b455'},
+      //{name: '新房', url: '/pages/post/index?group=xinfang', opentype:"navigateTo", id: 'new', bg: '#fdaa3d'},
+      //{ name: '我要卖房', url: '/pages/post/form?group=old', opentype: "navigateTo", id: 'sale'  },
+      //{ name: '我要出租', url: '/pages/post/form?group=rental&rent_type=zhengzu', opentype: "navigateTo", id: 'rent'  },
 
       //{ name: '全景看房', url: '/pages/post/index?is_vr=true', opentype: "navigateTo", id: 'qjkf'  },
-
       //{ name: '定制找房', url: '/pages/need/room-form?cat=buy', opentype: "navigateTo", id: 'zhao'  },
       //{ name: '楼市资讯', url: '/pages/news/index', opentype: "switchTab", id: 'news'  },
       //{ name: '加入我们', url: '/pages/about/join', opentype: "navigateTo", id: 'join'  },
@@ -57,10 +57,28 @@ Component({
 
   },
 
+  ready: function(){
+    var _this = this
+    _this.loadData((icons) => {
+      _this.setData({icons: icons})
+    })
+  },
+
   /**
    * 组件的方法列表
    */
   methods: {
+    loadData: function(cb){
+      app.request({
+        url: '/api/v2/home_icons',
+        success: function(resp){
+          var icons = resp.data.data
+          wx.setStorage({key: 'home_icons', data: icons})
+          return cb(icons)
+        }
+      })
+    },
+
     publishClose: function(e){
       this.setData({
         publishSheetShow: false
