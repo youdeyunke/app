@@ -91,12 +91,13 @@
 
 .post .meta .area-price .area{
   color:#000;
-  margin-right:40rpx;
+  width:50%;
 }
 .post .meta .area-price .price{
-    color:var(--color-b);
-    font-weight: bold;
-    font-size: 24rpx;
+  color:var(--color-b);
+  font-weight: bold;
+  font-size: 24rpx;
+  width:50%;
 }
 
 .post .red{

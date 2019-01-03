@@ -316,3 +316,29 @@ textarea{
   color:#fff;
 }
 
+
+
+.home-btn{
+  position: fixed;
+  right:37rpx;
+  bottom:152rpx;
+  padding:0rpx;
+  z-index:9999;
+  width:84rpx;
+  height: 84rpx;
+  background: #f4f4f4;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4rpx 10rpx rgba(0,0,0, 0.2);  
+  font-size:18rpx;
+  color:#333;
+  flex-direction: column;
+
+}
+
+.home-btn image{
+   width:37rpx;
+   height:37rpx;
+}

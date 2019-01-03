@@ -1,6 +1,6 @@
 <import src="/utils/wxParse/wxParse.wxml"/>
 <navigator wx:if="{{homebtn}}" class="home-btn" open-type="switchTab" url="/pages/home/home">
-  <image src="/assets/icons/home-btn.png"></image>
+  <image src="/assets/icons/home.1.png"></image>
   <text>首页</text>
 </navigator>
 <image class="cover" src="{{item.cover.url}}?imageView2/2/w/750"></image>

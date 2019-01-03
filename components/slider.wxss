@@ -19,9 +19,9 @@
 .myswiper .search-box{
   position:absolute;
   background:#fff;
-  height:80rpx;
-  line-height:80rpx;
-  border-radius:4rpx;
+  height:60rpx;
+  line-height:60rpx;
+  border-radius:60rpx;
   color:#cecece;
   padding-left:20rpx;
   box-sizing:border-box;

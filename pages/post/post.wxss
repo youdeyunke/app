@@ -79,7 +79,7 @@ mycard{
 
 .post-cover .first image.play{
   background: rgba(0,0,0, 0.2);
-
+  z-index:10;
   border-radius: 100rpx;
   width: 100rpx;
   height: 100rpx;
@@ -349,7 +349,7 @@ myfav .myfav {
 }
 
 .housetype .meta{
-  width: 380rpx;
+  width: 390rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
