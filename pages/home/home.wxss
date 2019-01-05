@@ -12,9 +12,6 @@ page{
   box-size:border-box;
 }
 
-
-
-
 .home-title{
   display:flex;
   justify-content:space-between;
@@ -22,7 +19,9 @@ page{
   width:100%;
   box-sizing:border-box;
   padding:0rpx 30rpx;
+  margin-top:30rpx;
   background: #fff;
+  margin-top:20rpx;
 }
 
 .home-title .h1{

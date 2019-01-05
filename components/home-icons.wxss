@@ -31,6 +31,8 @@
 }
 
 .icons navigator image{
+  width:84rpx;
+  height:84rpx;
 }
 
 .icons navigator text{
