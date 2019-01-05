@@ -342,3 +342,13 @@ textarea{
    width:37rpx;
    height:37rpx;
 }
+
+
+page::after{
+  padding-top:40rpx;
+  font-size:20rpx;
+  color:#cecece;
+  text-align:center;
+  content:"技术支持\A www.wefang.net";
+  white-space: pre;
+}
