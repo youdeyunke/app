@@ -14,6 +14,43 @@ App({
     serverMobile: '13397079595'
   },
 
+  getLocation: function(cb){
+    // 先获取经纬度
+    var _this = this
+    wx.getLocation({
+      success: function (res) {
+        console.log(res)
+        //保存到data里面的location里面
+        _this.globalData.location = {
+            longitude: res.longitude,
+            latitude: res.latitude
+        }
+        _this._getBaiduLocation(cb)
+      }
+    })
+  },
+
+  _getBaiduLocation: function(cb){
+    // 将QQ的经纬度解析为地址字符串
+    var _this = this
+    var lng= _this.globalData.location.longitude
+    var lat = _this.globalData.location.latitude
+    this.request({
+      url: '/api/v2/location/qq2baidu',
+      data: {location: lat + ',' + lng },
+      success: function(resp){
+        if(resp.data.status == 0){
+          var location = resp.data.data
+          console.log('baidu location:',location)
+          // 存入数据库备用
+          wx.setStorageSync('baidu_location', location['lat'] + ',' + location['lng'])
+          typeof cb == 'function' && cb(location)
+        }
+      }
+    })
+
+  },
+
   loadCities: function (cb) {
     if(this.globalData.cities && this.globalData.cities.length > 0){
       console.log('global data c', this.globalData.cities)
@@ -99,6 +136,7 @@ App({
     logs.unshift(Date.now())
     this.loadCities(function(cities){
       _this.globalData.cities = cities
+      _this.getLocation()
     })
   },
 

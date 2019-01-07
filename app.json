@@ -83,5 +83,11 @@
     "uploadFile": 100000,
     "downloadFile": 100000
   },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "位置信息用于房源查询"
+    }
+
+  },
   "debug": false
 }
