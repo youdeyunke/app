@@ -31,7 +31,7 @@ Page({
       group: group, 
       rent_type: query.rent_type || '',
       text: query.text || '',
-      is_vr: query.is_vr,
+      is_vr: query.is_vr || '',
     })
     this.setPageTitle(group, query.rent_type)
     this.loadData()
@@ -108,7 +108,8 @@ Page({
     if (this.data.isEnd) {
       return false
     }  
-
+    
+    var location = wx.getStorageSync('location')
     var query = {
       page: _this.data.page || 1,
       per_page: _this.data.per_page || 10,
@@ -116,6 +117,7 @@ Page({
       text: _this.data.text || '',
       rent_type: _this.data.rent_type, 
       is_vr: _this.data.is_vr,
+      location: location,
       order: _this.data.order || 'id,desc',
     }
     var filter = this.data.filter

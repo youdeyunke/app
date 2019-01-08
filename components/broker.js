@@ -121,19 +121,20 @@ Component({
     bookingHandle: function () {
       var _this = this
       auth.ensureMobile(function (userInfo) {
-        _this._bookingHandle()
+        app.ensureLocation(function(){
+          _this._bookingHandle()
+        })
       })
     },
 
     _bookingHandle: function () {
       var pid = this.data.pid
       var _this = this
-      var location = wx.getStorageSync('baidu_location')
-      console.log('baidu location ', location)
-
+      var location = wx.getStorageSync('location')
       if (_this.data.booking == 1) {
         return false
       }
+
       app.request({
         url: '/api/v1/users/mark_book',
         method: 'POST',

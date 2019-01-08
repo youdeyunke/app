@@ -8,6 +8,7 @@ Component({
     latitude: {type: Number},
     width: {type: Number, value: 750},
     height: {type: Number, value: 320},
+    image: {type: String, value: ''},
     name: {type: String, value: null},
   },
 
@@ -24,7 +25,6 @@ Component({
   methods: {
 
     clickHandle: function(e){
-      return false
       var _this = this
       wx.getLocation({
         type: 'wgs84', //返回可以用于wx.openLocation的经纬度

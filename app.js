@@ -14,42 +14,49 @@ App({
     serverMobile: '13397079595'
   },
 
-  getLocation: function(cb){
+  ensureLocation: function(cb){
+    // 确保能获取用户位置信息
+    var _this = this
+    var location = wx.getStorageSync('location')
+
+    if(!location){
+      // 打开获取位置信息界面
+      wx.openSetting({success: function(setting) {
+        var value = setting.authSetting['scope.userLocation']
+        if(value){  _this.getLocation() }
+      }})
+
+      wx.showToast({
+        title: '请允许获取位置信息',
+        icon: 'none',
+        duration: 2000,
+        success: function(){
+        }
+      })
+
+    }
+
+    if(location){
+      return cb(location)
+    }
+  },
+
+  getLocation: function(){
     // 先获取经纬度
     var _this = this
     wx.getLocation({
       success: function (res) {
-        console.log(res)
         //保存到data里面的location里面
-        _this.globalData.location = {
-            longitude: res.longitude,
-            latitude: res.latitude
-        }
-        _this._getBaiduLocation(cb)
-      }
+        var lng = res.longitude
+        var lat = res.latitude
+        var locationStr = lat + ',' + lng
+        wx.setStorageSync('location', locationStr)
+      },
+      complete: function(){
+      },
     })
   },
 
-  _getBaiduLocation: function(cb){
-    // 将QQ的经纬度解析为地址字符串
-    var _this = this
-    var lng= _this.globalData.location.longitude
-    var lat = _this.globalData.location.latitude
-    this.request({
-      url: '/api/v2/location/qq2baidu',
-      data: {location: lat + ',' + lng },
-      success: function(resp){
-        if(resp.data.status == 0){
-          var location = resp.data.data
-          console.log('baidu location:',location)
-          // 存入数据库备用
-          wx.setStorageSync('baidu_location', location['lat'] + ',' + location['lng'])
-          typeof cb == 'function' && cb(location)
-        }
-      }
-    })
-
-  },
 
   loadCities: function (cb) {
     if(this.globalData.cities && this.globalData.cities.length > 0){

@@ -20,7 +20,8 @@
               <view class="first">
                 <image wx:if="{{ index ==0 && post.vr_url}}" catchtap='gotoVr' class="play vr" src="/assets/icons/vr.png"></image>              
                 <image wx:if="{{ index == 1 && post.video}}" catchtap='gotoVideo' class="play video" src="/assets/icons/bofang.png"></image>
-                <gimage width="750" height="480" wx:if="{{index == 0 }}" class="item" src="{{item}}?imageView2/2/h/480"></gimage>
+                <gimage width="750" height="480" wx:if="{{index == 0 && post.vr_url }}" class="item" src="{{item}}?imageView2/2/h/480"></gimage>
+                <image  wx:if="{{index == 0 && !post.vr_url }}" class="item" src="{{item}}?imageView2/2/h/480"></image>
                 <image  wx:if="{{index > 0 }}" class="item" src="{{item}}?imageView2/2/h/480"></image>
               </view>
             </swiper-item>               
@@ -104,7 +105,7 @@
     </box>
 
     <box padding="30" margin-bottom="0">
-      <mapimage latitude="{{post.latitude}}"  longitude="{{post.longitude}}" name="{{post.area_name}}" url="{{post.map_image_url}}"></mapimage>
+      <mapimage image="{{post.map_image_url}}" latitude="{{post.latitude}}"  longitude="{{post.longitude}}" name="{{post.area_name}}" url="{{post.map_image_url}}"></mapimage>
     </box>
 
   <template wx:if="{{post}}" is="{{post.group}}-detail" data="{{post: post, htmlContent: htmlContent, minicontent:minicontent}}"/>

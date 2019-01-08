@@ -101,7 +101,7 @@ Component({
       wx.showLoading({title: "上传中,请勿关闭", mask: true})
       var _this = this
       var host = app.globalData.apiHost
-      var path = paths.pop()
+      var path = paths.shift()
       //var uri = ftype == 'images' ? '/api/v1/uploader/' : '/api/v2/videostore/'
       var uri = '/api/v1/uploader/'
 

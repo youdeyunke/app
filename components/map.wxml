@@ -1,6 +1,6 @@
 <!--components/map.wxml-->
 <view class="mymap">
-  <image src="http://api.map.baidu.com/staticimage/v2?ak={{ak}}&width={{width}}&height={{height}}&center={{longitude}},{{latitude}}&zoom=16"></image>
+  <image src="{{image}}"></image>
   <view class="map-layer" bindtap="clickHandle">
     <view class="map-layer-inner">
       <view class="content"><text class="name">{{name || '未知地点'}}</text></view>
