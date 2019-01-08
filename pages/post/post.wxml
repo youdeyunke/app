@@ -210,7 +210,7 @@
         
 <poster wx:if="{{posterConfig}}" id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster> 
 
-<view class="float-btn gen-poster" bindtap="onCreatePoster">
+<view class="float-btn gen-poster" catchtap="onCreatePoster">
   <image src="/assets/icons/gen-poster-icon.png"></image>
   <text>海报</text>
 </view>
