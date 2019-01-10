@@ -26,6 +26,12 @@ Component({
 
     clickHandle: function(e){
       var _this = this
+      wx.showToast({
+        title: '真正打开地图',
+        icon: 'none',
+        duration: 2000
+      })
+
       wx.getLocation({
         type: 'wgs84', //返回可以用于wx.openLocation的经纬度
         success(res) {
