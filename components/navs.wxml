@@ -1,0 +1,13 @@
+<!--components/home-navs.wxml-->
+<block>
+  <view class="navs">
+    <navigator  url="/{{item.path}}"  open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" wx:for="{{navs}}">
+           <view class="icon-cover">
+                   <image  src="{{item.icon.url}}"></image>
+           </view>
+      <text>{{ item.name }}</text>
+    </navigator>
+    
+  </view>
+
+ </block>

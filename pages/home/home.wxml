@@ -1,6 +1,6 @@
 <myslider id="slider"></myslider>
 <view class="header">
-  <icons />
+  <navs />
 </view>
 
 <view class="my-news-swiper">

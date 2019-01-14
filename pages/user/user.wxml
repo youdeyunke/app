@@ -3,7 +3,7 @@
     <view class="info">
       <image class="avatar" src="{{userInfo.avatar}}"></image>
       <view class="name">
-        <view class="nickname">{{userInfo.name || userInfo.nickname}}</view>
+        <view class="nickname">{{userInfo.name || userInfo.nickname}} </view>
         <view class="company" wx:if="{{userInfo.company}}">{{userInfo.company}}</view>
       </view>
     </view>

@@ -1,7 +1,6 @@
 {
     "component": true,
     "usingComponents": {
-      "van-action-sheet": "/vant/action-sheet/index"
     }
 
 }

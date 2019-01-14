@@ -23,13 +23,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    ready: function(){
+        wx.hideLoading()
+    },
 
     clickHandle: function(e){
       var _this = this
-      wx.showToast({
-        title: '真正打开地图',
-        icon: 'none',
-        duration: 2000
+      wx.showLoading({
+        title: '正在打开地图',
+        mask: true
       })
 
       wx.getLocation({
@@ -42,6 +44,7 @@ Component({
             longitude,
             scale: 18
           })
+          wx.hideLoading()
         }
       })      
     },
