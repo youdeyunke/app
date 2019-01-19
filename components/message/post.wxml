@@ -1,2 +1,5 @@
 <!--components/message/post.wxml-->
-<text>components/message/post.wxml</text>
+<view class="post-wrapper">
+<text>正在查看</text>
+<post-item mini="true" item="{{post}}" />
+</view>

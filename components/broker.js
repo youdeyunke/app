@@ -49,7 +49,7 @@ Component({
     }
 
     this.setData({
-      actions: [item_1, item_2]
+      actions: [item_1, item_3]
     })
 
   },
@@ -82,9 +82,23 @@ Component({
           _this.copyWechat()
           break
         case 'chat':
-          wx.navigateTo({
-            url: '/pages/messages/show?target_user_id=' + _this.data.broker.id,
+          wx.showLoading({title: '正在打开', icon: 'none', mask: true})
+          // 先调用打招呼接口
+          app.request({
+            url: '/api/v2/posts/hello?id=' + _this.data.pid,
+            success: function(resp){
+              if(resp.data.status == 0 ){
+                // 跳转到消息列表
+                wx.redirectTo({
+                  url: '/pages/messages/show?target_user_id=' + _this.data.broker.id ,
+                })
+              }
+            },
+            complete: function(){
+              wx.hideLoading()
+            },
           })
+
           break
       }
     },

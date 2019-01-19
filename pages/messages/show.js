@@ -11,6 +11,7 @@ Page({
     senderId: null,
     messages: [],
     lastId: null,
+    iidKey: 'messages.show.interval.id',
     firstId: null,
     newMessageId: 0,
     user: {},
@@ -26,28 +27,47 @@ Page({
     this.setData({
       targetUserId: q.target_user_id
     })
+
     auth.ensureUser(function(user){
       if(user.id.toString() == q.target_user_id.toString()){
         wx.switchTab({url: '/pages/home/home'})
+      }else{
+        _this.setData({user: user})
+        _this.stopInterval()
+        _this.startInterval()
       }
-      _this.setData({user: user})
-      _this.startInterval()
+    })
+  },
+
+  scrollToBottom: function(){
+    // 滚动到页面底部
+    wx.getSystemInfo({
+      success(res) {
+        wx.pageScrollTo({
+          scrollTop: res.windowHeight,
+        })
+      }
     })
   },
 
   startInterval: function(){
     // 开启定时器，并防止重复
     var _this = this
-    var key = 'message.show.interval.id'
+    var key = this.data.iidKey
     var t =  5000
-    var iid = wx.getStorageSync(key)
-    if(iid){
-      clearInterval(iid)
-    }
-
     var iid = setInterval(_this.loadData, t)
     wx.setStorageSync(key, iid)
     console.log('开启定时器，刷新聊天内容', t)
+  },
+
+  stopInterval: function(){
+    // 退出后要关闭定时器
+    var iid = wx.getStorageSync(this.data.iidKey)
+    if(iid){
+      clearInterval(iid)
+      wx.setStorageSync(this.data.iidKey, null)
+      console.log('已停止定时器')
+    }
   },
 
   markMessageId: function(i){
@@ -134,6 +154,7 @@ Page({
         d[k] = items.reverse()
         d['sleepTime'] = resp.data.sleep
         _this.setData(d)
+        _this.scrollToBottom()
       }
     })
   },
@@ -157,14 +178,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    this.setData({ polling: false })
+    this.stopInterval()
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    this.setData({ polling: false })
+    this.stopInterval()
   },
 
   /**

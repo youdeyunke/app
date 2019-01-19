@@ -6,6 +6,9 @@ Component({
   properties: {
     item: {
       type: Object, value: {},
+    },
+    mini: {
+      type: Boolean, value: false
     }
   },
 

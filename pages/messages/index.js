@@ -9,6 +9,7 @@ Page({
   data: {
     items: null,
     sleepTime: 1000,
+    iidKey:  'message.index.interval.id',
   },
 
   /**
@@ -16,21 +17,24 @@ Page({
    */
   onLoad: function (options) {
     this.loadData()
-    this.startInterval()
+  },
+
+  stopInterval: function(){
+    // 退出后要关闭定时器
+    var iid = wx.getStorageSync(this.data.iidKey)
+    if(iid){
+      clearInterval(iid)
+      wx.setStorageSync(this.data.iidKey, null)
+      console.log('已停止定时器')
+    }
   },
 
   startInterval: function(){
     // 开启定时器，并防止重复
     var _this = this
-    var key = 'message.index.interval.id'
     var t =  15000
-    var iid = wx.getStorageSync(key)
-    if(iid){
-      clearInterval(iid)
-    }
-
     var iid = setInterval(_this.loadData, t)
-    wx.setStorageSync(key, iid)
+    wx.setStorageSync(this.data.iidKey, iid)
     console.log('开启定时器，刷新聊天列表', t)
   },
 
@@ -61,21 +65,25 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    // 从对话界面退出
     this.loadData()
+    this.stopInterval()
+    this.startInterval()
+    wx.hideTabBarRedDot({index: 1})
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    this.setData({ polling: false })
+    this.stopInterval()
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    this.setData({polling: false})
+    this.stopInterval()
   },
 
   /**

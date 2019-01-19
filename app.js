@@ -137,10 +137,42 @@ App({
   },
 
 
+  startReddotInterval: function(){
+    var _this = this
+    var key = 'reddot.inteval'
+    var iid = wx.getStorageSync(key)
+    if(iid){
+      clearInterval(iid)
+    }
+    console.log('开始检查红点')
+    iid = setInterval(_this.getReddot, 15000)
+    wx.setStorageSync(key, iid)
+  },
+
+  getReddot: function(){
+    var _this = this
+    this.request({
+      url: '/api/v1/chat_lists/reddot',
+      hideLoading: true,
+      success: function(resp){
+        if(resp.data.data == 1){
+          console.log('显示红点')
+          wx.showTabBarRedDot({
+            index: 1
+          })
+        }
+      },
+    })
+    
+  },
+
+
   onLaunch: function () {
     var _this = this
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
+    this.getReddot()
+    this.startReddotInterval()
     this.loadCities(function(cities){
       _this.globalData.cities = cities
       _this.getLocation()

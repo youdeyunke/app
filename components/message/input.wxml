@@ -3,10 +3,10 @@
     value="{{content}}"
     bindconfirm="confirmHandle"
     confirm-type="done"  
-    confirm-hold="true"
+    confirm-hold="{{true}}"
     placeholder='请输入' 
     bindinput='inputHandle' 
-    auto-focus='{{true}}'>
+    auto-focus='{{false}}'>
   </input>
   <view class="btn-sent {{ pending ? 'pending' : 'default'}}" catch:tap="sentHandle">{{ pending ? '发送中' : '发送'}}</view>
 </view>

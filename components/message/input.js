@@ -34,7 +34,7 @@ Component({
     sentHandle: function( e){
       console.log('confirm ', e)
       var _this = this
-      if(_this.data.pending){
+      if(_this.data.pending || _this.data.content.length == 0){
         return false
       }
 

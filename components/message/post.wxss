@@ -1,1 +1,14 @@
 /* components/message/post.wxss */
+.post-wrapper{
+ width:100%;
+ display:flex;
+ flex-direction: column;
+ justify-items: center;
+ align-items: center;
+}
+
+.post-wrapper text{
+  font-size:22rpx;
+  margin-bottom:10rpx;
+  margin-top:20rpx;
+}
