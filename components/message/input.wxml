@@ -3,6 +3,7 @@
     value="{{content}}"
     bindconfirm="confirmHandle"
     confirm-type="done"  
+    confirm-hold="true"
     placeholder='请输入' 
     bindinput='inputHandle' 
     auto-focus='{{true}}'>

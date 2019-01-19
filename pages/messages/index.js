@@ -8,7 +8,6 @@ Page({
    */
   data: {
     items: null,
-    polling: false,
     sleepTime: 1000,
   },
 
@@ -16,6 +15,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.loadData()
+    this.startInterval()
+  },
+
+  startInterval: function(){
+    // 开启定时器，并防止重复
+    var _this = this
+    var key = 'message.index.interval.id'
+    var t =  15000
+    var iid = wx.getStorageSync(key)
+    if(iid){
+      clearInterval(iid)
+    }
+
+    var iid = setInterval(_this.loadData, t)
+    wx.setStorageSync(key, iid)
+    console.log('开启定时器，刷新聊天列表', t)
   },
 
   loadData: function(){
@@ -30,10 +46,6 @@ Page({
         }
       },
       complete: function(res){
-        console.log('settimeout ', _this.data.sleepTime)
-        if(_this.data.polling){
-          setTimeout(_this.loadData, _this.data.sleepTime)
-        }
       },
     })    
   },
@@ -49,7 +61,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({polling: true})
     this.loadData()
   },
 
