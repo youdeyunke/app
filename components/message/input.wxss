@@ -16,8 +16,32 @@
 
 .input-wrapper input{
   border-bottom:1rpx solid #f4f4f4;
-  width: calc(100% - 62rpx);
+  width: calc(100% - 120rpx);
+  height:100%;
 }
+
+.input-wrapper .btn-sent{
+  font-size:24rpx;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:0 20rpx;
+  height:60rpx;
+  width:100rpx;
+  border-radius:12rpx;
+}
+
+.input-wrapper .btn-sent.default{
+  background:green;
+  color:#fff;
+}
+
+.input-wrapper .btn-sent.pending{
+  background:#fff;
+  color:#cecece;
+  border:1rpx solid #cecece;
+}
+
 
 .input-wrapper .icon{
   height: 52rpx;

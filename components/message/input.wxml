@@ -2,10 +2,10 @@
   <input 
     value="{{content}}"
     bindconfirm="confirmHandle"
-    confirm-type="send"  
+    confirm-type="done"  
     placeholder='请输入' 
     bindinput='inputHandle' 
     auto-focus='{{true}}'>
   </input>
-  <view class="icon icon-image"></view>
+  <view class="btn-sent {{ pending ? 'pending' : 'default'}}" catch:tap="sentHandle">{{ pending ? '发送中' : '发送'}}</view>
 </view>

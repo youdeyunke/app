@@ -17,6 +17,7 @@ Component({
    */
   data: {
     content: '',
+    pending: false,
   },
 
   /**
@@ -30,11 +31,15 @@ Component({
       })
     },
 
-    confirmHandle: function( e){
+    sentHandle: function( e){
       console.log('confirm ', e)
-      var content = e.detail.value
       var _this = this
-      _this.setData({ content: '', lastContent: content })
+      if(_this.data.pending){
+        return false
+      }
+
+      var content = this.data.content
+      _this.setData({ content: '', lastContent: content, pending: true })
       app.request({
         url: '/api/v1/messages',
         hideLoading: true,
@@ -42,12 +47,15 @@ Component({
         data: {content: content, content_type: 'text', receiver_id: _this.data.receiverId},
         success: function(resp){
           if(resp.data.status == 0){
-            
             _this.triggerEvent('success', resp.data.data)
           }else{
             console.error('error')
           }
-        }
+        },
+        complete: function(){
+          _this.setData({pending: false})
+        },
+
       })
       
     },

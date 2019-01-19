@@ -9,7 +9,10 @@ Page({
    */
   data: {
     senderId: null,
-    messageIds: [],
+    messages: [],
+    lastId: null,
+    firstId: null,
+    newMessageId: 0,
     user: {},
     polling: false,
     sleepTime: 60 * 1000,
@@ -28,6 +31,77 @@ Page({
         wx.switchTab({url: '/pages/home/home'})
       }
       _this.setData({user: user})
+      _this.startInterval()
+    })
+  },
+
+  startInterval: function(){
+    // 开启定时器，并防止重复
+    var _this = this
+    var key = 'message.show.interval.id'
+    var t =  5000
+    var iid = wx.getStorageSync(key)
+    if(iid){
+      clearInterval(iid)
+    }
+
+    var iid = setInterval(_this.loadData, t)
+    wx.setStorageSync(key, iid)
+    console.log('开启定时器，刷新聊天内容', t)
+  },
+
+  markMessageId: function(i){
+    // 处理消息ID的标记
+    var lastId = this.data.lastId || 0
+    var firstId = this.data.firstId || null
+    if(i > lastId ){
+      this.setData({lastId: i})
+      console.log('last id is ', this.data.lastId)
+    }
+    if(!firstId || i < firstId){
+      this.setData({firstId: i})
+      console.log('first id is ', this.data.firstId)
+    }
+  },
+
+  saveMessage: function(message){
+    // 将每一条消息内容都缓存起来，只需维护一个消息内容的id列表即可
+    wx.setStorageSync('message.' + message.id, message)
+  },
+
+  sendHandle: function(value){
+    //  记录最新消息ID
+    this.setData({newMessageId: value.detail.id})
+    // 发送成功处理
+    this.saveMessage(value.detail)
+    // 刷新消息列表
+    this.loadData()
+  },
+
+  loadOld: function(){
+    // 加载旧的聊天列表
+    var _this = this
+    app.request({
+      url: '/api/v1/messages',
+      method: 'GET',
+      data: {
+        target_id: _this.data.targetUserId,
+        first_id: _this.data.firstId,
+        ranking: 'older',
+      },
+      success: function(resp){
+        if(resp.data.status != 0){
+          return false
+        }
+        var messages = resp.data.data
+        if(messages.length == 0){
+          return 
+        }
+
+        var items = _this.data.messages
+        items.unshift(messages)
+        _this.setData({messages: items})
+      },
     })
   },
 
@@ -39,26 +113,27 @@ Page({
       method: 'GET',
       hideLoading: true,
       data: {
-        last_id: 0,
-        target_id: _this.data.targetUserId
+        last_id: _this.data.lastId,
+        target_id: _this.data.targetUserId,
+        ranking: 'newer',
       },
       success: function(resp){
-        if(resp.data.status == 0){
-          var ids = _this.data.messageIds
-          resp.data.data.forEach(function(message, i){
-            // 将每一条消息内容都缓存起来，只需维护一个消息内容的id列表即可
-            wx.setStorageSync('message.' + message.id, message)
-            ids.push(message.id)
-          })
-          d['sleepTime'] = resp.data.sleep
-          _this.setData(d)
+        if(resp.data.status != 0){
+          console.log('return false')
+          return false
         }
-      },
-      complete: function(res){
-        if(_this.data.polling){
-          console.log('polling ... ')
-          setTimeout(_this.loadData, _this.data.sleepTime)
-        }
+
+        var d = {}
+        var items = resp.data.data
+        items.forEach(function(message, i){
+          _this.saveMessage(message)
+          _this.markMessageId(message.id)
+        })
+        var len = _this.data.messages.length
+        var k = 'messages[' + len + ']'
+        d[k] = items.reverse()
+        d['sleepTime'] = resp.data.sleep
+        _this.setData(d)
       }
     })
   },
@@ -96,7 +171,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.loadOld()
   },
 
   /**

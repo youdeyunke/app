@@ -1,0 +1,2 @@
+<!--components/message/item.wxml-->
+<text-message wx:if="{{message.content_type == 'text'}}" current-user-id="{{currentUserId}}"  message="{{message}}"  />
