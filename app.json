@@ -68,7 +68,7 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationStyle": "default",
     "backgroundColor": "#fff",
-    "navigationBarTitleText": "找个房",
+    "navigationBarTitleText": "内部测试版",
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {
