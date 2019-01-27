@@ -1,11 +1,38 @@
 <!--pages/school-region/index.wxml-->
 <view class="header">
+  <view class="notice">
+    <van-notice-bar
+    mode="closeable"
+    left-icon="https://qiniucdn.udeve.cn/vant-notice-notice.png"
+    text="{{noticeText}}"
+    />
+  </view>
+
   <view class="app-name">查苏州学区</view>
   <view class="tabs">
     <view data-index="{{index}}" bindtap="tabHandle" wx:for="{{tabs}}" wx:for-item="tab" class="tab {{ activeTabIndex == index ? 'tab-active' : 'tab-unactive'}}">{{tab.name}}</view>
   </view>
   <view class="search">
-    <van-search name="kw" value="{{kw}}" placeholder-style="font-size:24rpx;color:#cecece;" value="" placeholder="{{tabs[activeTabIndex].plh}}" background="none" focus="{{true}}" />
+    <van-search name="kw" value="{{kw}}" placeholder-style="font-size:24rpx;color:#cecece;" value="" placeholder="{{tabs[activeTabIndex].plh}}" background="none" focus="{{false}}" />
   </view>
 
+</view>
+
+<view class="page-title">热门学区</view>
+
+<view class="district-list">
+
+  <view class="district">
+    <view class="left">
+      <view class="name">
+        <image src="/assets/icons/district-name.3x.png"></image>
+      上南一村</view>
+      <view class="address"> 
+        <image src="/assets/icons/location.3x.png"></image>
+      上海市 浦东新区 耀华路 1999弄</view>
+    </view>
+    <view class="right">
+      <view class="number">199</view>所学校
+    </view>
+  </view>
 </view>

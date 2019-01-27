@@ -1,6 +1,9 @@
 {
   "enablePullDownRefresh": false,
+  "backgroundColor": "#F6F7FB",
   "navigationBarBackgroundColor": "#6BA6EC",
   "navigationBarTextStyle": "light",
-  "usingComponents": {}
+  "usingComponents": {
+    "van-notice-bar": "/vant/notice-bar/index"
+  }
 }
