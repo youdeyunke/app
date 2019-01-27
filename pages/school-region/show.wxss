@@ -7,11 +7,14 @@
 .header image.bg{
   width: 740rpx;
   height: 400rpx;
-  filter:blur(4rpx);
+  filter:blur(6rpx);
   position: absolute;
   left:0rpx;
   right:0rpx;
   top:0rpx;
+  opacity: 0.8;
+  background: #000;
+  border-bottom: 2rpx solid #f4f4f4;
 }
 
 .header .info{
