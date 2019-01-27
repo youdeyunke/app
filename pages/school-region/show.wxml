@@ -1,2 +1,4 @@
-<!--pages/school-region/show.wxml-->
-<text>pages/school-region/show.wxml</text>
+<view class="header">
+  <image class="bg" src="/assets/images/school-header-bg.jpg"></image>
+400
+</view>

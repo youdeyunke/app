@@ -21,11 +21,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .school .logo image{
-  width:80rpx;
-  height: 80rpx;
+  width:120rpx;
+  height: 120rpx;
+  border-radius: 120rpx;
+  overflow: hidden;
 }
 
 .school .info{

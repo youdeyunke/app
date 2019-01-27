@@ -1,6 +1,6 @@
-<view class="school">
+<navigator open-type='navigateTo' url="/pages/school-region/show?id=1" class="school">
   <view class="logo">
-    <image></image>
+    <image src="/assets/icons/school-logo-default.png"></image>
   </view>
   <view class="info">
     <view class="info-name">xx</view>
@@ -10,7 +10,7 @@
   </view>
 
   <view class="hot">
-   热度： 999
+   热度：999
   </view>
 
-</view>
+</navigator>
