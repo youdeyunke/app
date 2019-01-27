@@ -1,4 +1,33 @@
 <view class="header">
+
   <image class="bg" src="/assets/images/school-header-bg.jpg"></image>
-400
+
+  <view class="info">
+    <view class="logo">
+      <image src="/assets/icons"></image>
+    </view>  
+
+
+    <view class="right">
+      <view class="name">xxx</view>
+      <view class="meta">
+        <view class="hot">hot</view>
+        <view class="time">2019</view>
+      </view>
+    </view>  
+
+
+  </view>
+
+</view>
+
+<view class="cells">
+  <view class="cell">
+    <view class="icon">icon</view>
+    <view class="body">
+      <view class="title">title</view>
+      <view class="desc">desc</view>
+    </view>
+    <view class="footer">more</view>
+  </view>
 </view>
