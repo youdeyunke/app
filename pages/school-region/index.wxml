@@ -1,0 +1,11 @@
+<!--pages/school-region/index.wxml-->
+<view class="header">
+  <view class="app-name">查苏州学区</view>
+  <view class="tabs">
+    <view data-index="{{index}}" bindtap="tabHandle" wx:for="{{tabs}}" wx:for-item="tab" class="tab {{ activeTabIndex == index ? 'tab-active' : 'tab-unactive'}}">{{tab.name}}</view>
+  </view>
+  <view class="search">
+    <van-search name="kw" value="{{kw}}" placeholder-style="font-size:24rpx;color:#cecece;" value="" placeholder="{{tabs[activeTabIndex].plh}}" background="none" focus="{{true}}" />
+  </view>
+
+</view>

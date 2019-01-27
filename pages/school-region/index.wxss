@@ -1,0 +1,49 @@
+/* pages/school-region/index.wxss */
+.header{
+  height:500rpx;
+  width:750rpx;
+  padding:0;
+  margin:0;
+  background-image: url('http://qiniucdn.udeve.cn/fsz-header-bg-2.3x.png');
+
+  background-size: 750rpx 500rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header .app-name{
+  font-size:28rpx;
+  letter-spacing: 0.25;
+  color: #fff;
+  font-weight: bolder;
+  margin-top:70rpx;
+  margin-bottom:76rpx;
+}
+
+.header .tabs{
+  width: 245rpx;
+  height: 43rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom:60rpx;
+}
+
+.header .tab{
+  color: #fff; 
+  font-size:22rpx;
+  height: 100%;
+}
+
+.header .tab.tab-active{
+  font-size: 28rpx;
+  border-bottom:4rpx solid #fff;
+  padding-bottom:4rpx;
+
+}
+
+.header .search{
+  width: 100%;
+}

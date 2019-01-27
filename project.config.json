@@ -1,0 +1,201 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"uglifyFileName": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.5.1",
+	"appid": "wx22f2238c72f84e69",
+	"projectname": "%E6%9F%A5%E8%8B%8F%E5%B7%9E%E5%AD%A6%E5%8C%BA",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 3,
+			"list": [
+				{
+					"id": 0,
+					"name": "qa-index",
+					"pathName": "pages/qa/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "webview",
+					"pathName": "pages/webview/webview",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "nwe-comment",
+					"pathName": "pages/comments/new",
+					"query": "target_id=1&target_type=post"
+				},
+				{
+					"id": 3,
+					"name": "post",
+					"pathName": "pages/post/post",
+					"query": "id=34"
+				},
+				{
+					"id": -1,
+					"name": "my-comments",
+					"pathName": "pages/comments/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "myself",
+					"pathName": "pages/myself/myself",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "zhishi",
+					"pathName": "pages/zhishi/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "booking",
+					"pathName": "pages/post/booking",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "qa-new",
+					"pathName": "pages/qa/new",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "webview",
+					"pathName": "pages/static/about",
+					"query": ""
+				},
+				{
+					"id": 10,
+					"name": "about",
+					"pathName": "pages/about/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "about",
+					"pathName": "pages/about/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "myself-zhaofang",
+					"pathName": "pages/myself/zhao",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "myself-qa",
+					"pathName": "pages/myself/qa",
+					"query": ""
+				},
+				{
+					"id": 14,
+					"name": "qa-detail",
+					"pathName": "pages/qa/qa",
+					"query": "id=35"
+				},
+				{
+					"id": -1,
+					"name": "tiao",
+					"pathName": "pages/tiao/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "myself-fav",
+					"pathName": "pages/myself/favposts",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "post-index",
+					"pathName": "pages/post/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "comments-index-target",
+					"pathName": "pages/comments/index",
+					"query": "target_id=1"
+				},
+				{
+					"id": -1,
+					"name": "zhaofang",
+					"pathName": "pages/myself/zhao",
+					"query": ""
+				},
+				{
+					"id": 20,
+					"name": "发布整租",
+					"pathName": "pages/post/form",
+					"query": "group=rental&rent_type=1"
+				},
+				{
+					"id": 21,
+					"name": "ershoufang-index",
+					"pathName": "pages/post/index",
+					"query": "?group=old"
+				},
+				{
+					"id": -1,
+					"name": "xinfang-index",
+					"pathName": "pages/post/index",
+					"query": "?group=new"
+				},
+				{
+					"id": 23,
+					"name": "整租-index",
+					"pathName": "pages/post/index",
+					"query": "group=zufang&rent_type=1"
+				},
+				{
+					"id": -1,
+					"name": "合租-index",
+					"pathName": "pages/post/index",
+					"query": "group=rent_room"
+				},
+				{
+					"id": -1,
+					"name": "news-index",
+					"pathName": "pages/news/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "发布卖房",
+					"pathName": "pages/post/form",
+					"query": "group=old"
+				}
+			]
+		}
+	}
+}
