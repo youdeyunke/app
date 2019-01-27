@@ -6,8 +6,8 @@ Page({
    */
   data: {
     tabs: [
-      {name: '查学区', plh: '输入小区关键词'},
-      {name: '查学校', plh: '输入学校关键词'},
+      {name: '查学区', plh: '输入小区关键词', id: 'district'},
+      {name: '查学校', plh: '输入学校关键词', id: 'school'},
     ],
 
     hideNotice: wx.getStorageSync('hide_school_region_notice'),

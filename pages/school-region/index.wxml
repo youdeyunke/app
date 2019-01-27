@@ -20,8 +20,7 @@
 
 <view class="page-title">热门学区</view>
 
-<view class="district-list">
-
+<view class="district-list" wx:if="{{tabs[activeTabIndex].id == 'district' }}">
   <view class="district">
     <view class="left">
       <view class="name">
