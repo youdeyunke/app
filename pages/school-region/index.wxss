@@ -71,75 +71,11 @@
   font-size:28rpx;
 }
 
-.district-list{
+.result-list{
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   width: 710rpx;
   margin:20rpx 20rpx  20rpx 20rpx;
-}
-
-.district{
-  width: 710rpx;
-  box-sizing: border-box;
-  height:170rpx;
-  background: #fff;
-  border-radius: 10rpx;
-  box-shadow:#cecece  2rpx 4rpx 6rpx 0.1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding:0 56rpx;
-}
-
- .district .left{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
- .district .name{
-  color: #333;
-  font-size: 24rpx;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;  
-}
-
- .district .name image{
-  width: 26rpx;
-  height: 24rpx;
-  margin-right:10rpx;
-}
-
- .district .address{
-  color: #999;
-  font-size:20rpx;
-  margin-top:22rpx;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.district .address image{
-  width: 18rpx;
-  height: 26rpx;
-  margin-right: 20rpx;
-}
-
-.district .right{
-  color: 999;
-  font-size:20rpx;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 40rpx;
-}
-
-.district .right .number{
-  color: #F5A623;
-  font-size:40rpx;
-  margin-right: 20rpx;
 }

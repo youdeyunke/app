@@ -1,2 +1,14 @@
-<!--components/school-region/district.wxml-->
-<text>components/school-region/district.wxml</text>
+  
+  <view class="district">
+    <view class="left">
+      <view class="name">
+        <image src="/assets/icons/district-name.3x.png"></image>
+      上南一村</view>
+      <view class="address"> 
+        <image src="/assets/icons/location.3x.png"></image>
+      上海市 浦东新区 耀华路 1999弄</view>
+    </view>
+    <view class="right">
+      <view class="number">199</view>所学校
+    </view>
+  </view>

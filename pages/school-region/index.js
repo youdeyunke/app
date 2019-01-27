@@ -13,7 +13,7 @@ Page({
     hideNotice: wx.getStorageSync('hide_school_region_notice'),
     noticeText: '1. 2018~2019年苏州中小学施教范围已开始陆续更新; 2. 信息来源于教育部以及学校网网站; 3. 信息仅供参考，具体报名请咨询学校或教育部门',
     kw: '',
-    activeTabIndex: 0,
+    activeTabIndex: 1,
   },
 
   /**

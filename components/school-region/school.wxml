@@ -1,2 +1,16 @@
-<!--components/school-region/school.wxml-->
-<text>components/school-region/school.wxml</text>
+<view class="school">
+  <view class="logo">
+    <image></image>
+  </view>
+  <view class="info">
+    <view class="info-name">xx</view>
+    <view class="info-address">
+      <image src="/assets/icons/location.3x.png"></image>
+    yy</view>
+  </view>
+
+  <view class="hot">
+   热度： 999
+  </view>
+
+</view>
