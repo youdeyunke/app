@@ -49,12 +49,12 @@
   width: 100%;
 }
 
-.header .notice{
+.notice{
   width: 750rpx;
-  position: absolute;
+  position: fixed;
   left:0rpx;
-  top:0rpx;
   right: 0rpx;
+  bottom: 0rpx;
 }
 
 .page-title{

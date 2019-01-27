@@ -1,6 +1,5 @@
 <!--pages/school-region/index.wxml-->
-<view class="header">
-  <view class="notice">
+  <view wx:if='{{!hideNotice}}' class="notice" catchtap='showNotice'>
     <van-notice-bar
     mode="closeable"
     left-icon="https://qiniucdn.udeve.cn/vant-notice-notice.png"
@@ -8,6 +7,7 @@
     />
   </view>
 
+<view class="header">
   <view class="app-name">查苏州学区</view>
   <view class="tabs">
     <view data-index="{{index}}" bindtap="tabHandle" wx:for="{{tabs}}" wx:for-item="tab" class="tab {{ activeTabIndex == index ? 'tab-active' : 'tab-unactive'}}">{{tab.name}}</view>

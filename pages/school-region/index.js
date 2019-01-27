@@ -9,6 +9,8 @@ Page({
       {name: '查学区', plh: '输入小区关键词'},
       {name: '查学校', plh: '输入学校关键词'},
     ],
+
+    hideNotice: wx.getStorageSync('hide_school_region_notice'),
     noticeText: '1. 2018~2019年苏州中小学施教范围已开始陆续更新; 2. 信息来源于教育部以及学校网网站; 3. 信息仅供参考，具体报名请咨询学校或教育部门',
     kw: '',
     activeTabIndex: 0,
@@ -26,6 +28,16 @@ Page({
    */
   onReady: function () {
 
+  },
+
+  showNotice: function(e){
+    wx.setStorageSync('hide_school_region_notice', true)
+    var _this = this
+    _this.setData({ hideNotice: true})
+    wx.showModal({
+      title: '温馨提示',
+      content: _this.data.noticeText,
+    })
   },
 
   tabHandle: function(e){
