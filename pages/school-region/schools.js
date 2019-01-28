@@ -6,6 +6,7 @@ Page({
    */
   data: {
     showFilter: false,
+    showCityPicker: false,
     query: {kw: ''},
     filterSections: [
       {
@@ -42,6 +43,40 @@ Page({
       query['kw'] = q.kw
       this.setData({query: query})
     }
+  },
+
+  cityChange: function(e){
+      var c = e.detail.city
+      var d = e.detail.district
+      var cityDistrictName = ''
+      var query = this.data.query
+      query['city_id'] = ''
+      query['district_id'] = ''
+    
+      if(c.id){
+        cityDistrictName += c.name
+        query['city_id'] = c.id
+      }
+      if(d.id){
+        cityDistrictName += ' '
+        cityDistrictName += d.name
+        query['district_id'] = d.id
+      }
+     
+      this.setData({
+        query: query,
+        city: e.detail.city,
+        district: e.detail.district,
+        showCitySelect: false,
+        cityDistrictName: cityDistrictName,
+        showCityPicker: false,
+      })
+
+      this.loadData()
+    },
+
+  showCity: function(){
+    this.setData({showCityPicker: true})
   },
 
   /**

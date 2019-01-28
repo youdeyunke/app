@@ -13,7 +13,7 @@
     focus="{{false}}" 
   />
   <view class="filter-items">
-    <view class="filter-item">区域：不限
+    <view class="filter-item" catchtap="showCity">区域: {{ city.name }} {{ district.name }}
       <van-icon name="arrow-down" />
     </view>
     <view class="filter-item" catchtap='showFilter'>智能筛选
@@ -45,7 +45,9 @@
   </view> 
   
   </van-popup>
-
-
 </view>
+
+<city-picker  position="top" bind:change="cityChange" show="{{showCityPicker}}" />
+
 <school />
+

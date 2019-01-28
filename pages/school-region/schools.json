@@ -2,6 +2,7 @@
   "enablePullDownRefresh": false,
   "backgroundColor": "#F6F7FB",
   "usingComponents": {
+    "city-picker": "/components/city-picker",
     "school": "/components/school-region/school"
   }
 }
