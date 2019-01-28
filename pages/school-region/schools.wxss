@@ -89,13 +89,17 @@ page{
 }
 
 .filter-panel-section-option{
-  padding:10rpx 20rpx;
+  padding:15rpx 20rpx;
   margin-right:20rpx;
   color: #333;
   background:#fff;
   border:2rpx solid #f4f4f4;
   font-size:24rpx;
   margin-bottom:10rpx;
+  width:200rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .filter-panel-section-option.active{

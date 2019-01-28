@@ -6,7 +6,7 @@ Page({
    */
   data: {
     showFilter: false,
-    query: {},
+    query: {kw: ''},
     filterSections: [
       {
         name: 'is_public', 
@@ -138,7 +138,12 @@ Page({
     console.log('s', sectionIndex, i)
     var sections = this.data.filterSections
     sections[sectionIndex].currentOptionIndex = sections[sectionIndex].currentOptionIndex == i ? null : i
-    this.setData({filterSections: sections})
+
+    var data = {}
+    var k = "filterSections[" + sectionIndex + "]"
+    data[k] = sections[sectionIndex]
+
+    this.setData(data)
     console.log('sections', sections)
 
   },

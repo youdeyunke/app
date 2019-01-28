@@ -13,11 +13,11 @@
     focus="{{false}}" 
   />
   <view class="filter-items">
-    <view class="filter-item">区域：不限 kw:{{kw}}
+    <view class="filter-item">区域：不限
       <van-icon name="arrow-down" />
     </view>
     <view class="filter-item" catchtap='showFilter'>智能筛选
-      <van-icon name="arrow-down" />
+      <van-icon name="filter-o" />
     </view>
   </view>
 

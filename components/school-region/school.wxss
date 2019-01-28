@@ -58,11 +58,6 @@
   align-items: center;
 }
 
-.school .info-address image{
-  width:20rpx;
-  height: 30rpx;  
-  margin-right:20rpx;
-}
 
 .school .hot{
   color: #999;

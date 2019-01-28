@@ -1,5 +1,7 @@
 import { VantComponent } from '../common/component';
+import { iphonex } from '../mixins/iphonex';
 VantComponent({
+  mixins: [iphonex],
   classes: ['bar-class', 'price-class', 'button-class'],
   props: {
     tip: null,

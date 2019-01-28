@@ -5,7 +5,7 @@
   <view class="info">
     <view class="info-name">xx</view>
     <view class="info-address">
-      <image src="/assets/icons/location.3x.png"></image>
+      <van-icon name="location-o" />
     yy</view>
   </view>
 

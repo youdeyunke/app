@@ -1,3 +1,10 @@
+function setAsync(context, data) {
+  return new Promise(function (resolve) {
+    context.setData(data, resolve);
+  });
+}
+
+;
 export var behavior = Behavior({
   created: function created() {
     var _this = this;
@@ -7,14 +14,13 @@ export var behavior = Behavior({
     }
 
     var cache = {};
-    var setData = this.setData;
 
     var _this$$options = this.$options(),
         computed = _this$$options.computed;
 
     var keys = Object.keys(computed);
 
-    var calcComputed = function calcComputed() {
+    this.calcComputed = function () {
       var needUpdate = {};
       keys.forEach(function (key) {
         var value = computed[key].call(_this);
@@ -25,17 +31,32 @@ export var behavior = Behavior({
       });
       return needUpdate;
     };
-
-    Object.defineProperty(this, 'setData', {
-      writable: true
-    });
-
-    this.setData = function (data, callback) {
-      data && setData.call(_this, data, callback);
-      setData.call(_this, calcComputed());
-    };
   },
   attached: function attached() {
-    this.setData();
+    this.set();
+  },
+  methods: {
+    // set data and set computed data
+    set: function set(data, callback) {
+      var _this2 = this;
+
+      var stack = [];
+
+      if (data) {
+        stack.push(setAsync(this, data));
+      }
+
+      if (this.calcComputed) {
+        stack.push(setAsync(this, this.calcComputed()));
+      }
+
+      return Promise.all(stack).then(function (res) {
+        if (callback && typeof callback === 'function') {
+          callback.call(_this2);
+        }
+
+        return res;
+      });
+    }
   }
 });
