@@ -31,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 27,
+			"current": 28,
 			"list": [
 				{
 					"id": 0,
@@ -198,7 +198,13 @@
 				{
 					"id": -1,
 					"name": "学校详情",
-					"pathName": "pages/school-region/show"
+					"pathName": "pages/school-region/show",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "学校列表",
+					"pathName": "pages/school-region/schools"
 				}
 			]
 		}

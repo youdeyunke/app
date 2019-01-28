@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#F6F7FB",
+  "usingComponents": {
+    "school": "/components/school-region/school"
+  }
 }

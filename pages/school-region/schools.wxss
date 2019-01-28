@@ -1,1 +1,129 @@
-/* pages/school-region/schools.wxss */
+page{
+  padding-top:200rpx;
+}
+
+.filter{
+  width: 750rpx;
+  height: 180rpx;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+  box-sizing:  border-box;
+  padding:20rpx 30rpx;
+  background: #fff;
+  border-bottom: 2rpx solid #f4f4f4;
+  margin-bottom:20rpx;
+  position: fixed;
+  top:0rpx;
+  left:0rpx;
+  right:0rpx;
+  z-index:100;
+}
+
+.search-box{
+  width: 740rpx;
+}
+
+.search-box .van-cell  {
+  background:#F6F7FB ;
+  border-radius: 40rpx;
+}
+
+.filter-items{
+  margin-top:10rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+
+
+.filter-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.filter-panel-pop{
+  height:100%;
+  width:600rpx;
+}
+
+.filter-panel{
+  box-sizing: border-box;
+  background: #F6F7FB;
+  padding:30rpx 0rpx 0 0rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width:100%;
+  height: 100%;
+}
+
+.filter-panel-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding:0 40rpx;
+}
+
+.filter-panel-section{
+  margin-bottom:40rpx;
+}
+
+.filter-panel-section-title{
+  font-size:30rpx;
+  margin-bottom:20rpx;
+  font-weight: bolder;
+}
+
+.filter-panel-section-options{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filter-panel-section-option{
+  padding:10rpx 20rpx;
+  margin-right:20rpx;
+  color: #333;
+  background:#fff;
+  border:2rpx solid #f4f4f4;
+  font-size:24rpx;
+  margin-bottom:10rpx;
+}
+
+.filter-panel-section-option.active{
+  background: #6BA6EC;
+  color: #fff;
+}
+
+.filter-panel-footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+}
+.filter-panel-footer .action{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:28rpx;
+  font-weight: bolder;
+  height: 100%;
+}
+
+.filter-panel-footer .action-reset{
+  background: #fff;
+  color: #333;
+}
+.filter-panel-footer .action-confirm{
+  background: #6BA6EC;
+  color:#fff;
+}

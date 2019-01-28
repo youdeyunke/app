@@ -51,12 +51,6 @@
         "selectedIconPath": "/assets/icons/home.1.png",
         "text": "首页"
       },
-      {
-        "pagePath": "pages/school-region/schools",
-        "iconPath": "/assets/icons/schools.0.png",
-        "selectedIconPath": "/assets/icons/schools.1.png",
-        "text": "学校"
-      },
 
       {
         "pagePath": "pages/news/index",
@@ -77,6 +71,7 @@
   },
   "usingComponents": {
     "van-icon": "/vant/icon/index",
+    "van-popup": "/vant/popup/index",
     "van-search": "/vant/search/index",
     "van-loading": "/vant/loading/index",
     "mycard": "/components/card",
