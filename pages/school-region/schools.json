@@ -3,6 +3,6 @@
   "backgroundColor": "#F6F7FB",
   "usingComponents": {
     "city-picker": "/components/city-picker",
-    "school": "/components/school-region/school"
+    "schools": "/components/school-region/school-list"
   }
 }

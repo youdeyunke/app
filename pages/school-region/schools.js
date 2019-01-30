@@ -1,4 +1,6 @@
 // pages/school-region/schools.js
+const app = getApp()
+
 Page({
 
   /**
@@ -41,8 +43,23 @@ Page({
     var query = {}
     if(q.kw){
       query['kw'] = q.kw
-      this.setData({query: query})
     }
+    if(q.sub_district_id){
+      query['sub_district_id'] = q.sub_district_id
+      this.markSubDistrictViews(q.sub_district_id)
+    }
+    this.setData({ query: query })    
+  },
+
+  markSubDistrictViews: function(sdid){
+    // 更新小区热度值
+    app.request({
+      url: '/api/v1/sub_districts/' + sdid,
+      data: {},
+      success: function(resp){
+
+      }
+    })
   },
 
   cityChange: function(e){
@@ -148,18 +165,23 @@ Page({
   },
   filterConfirm: function(e){
     var query = this.data.query
+    query.page = 1
+
     // 处理过滤器
     var sections = this.data.filterSections
     for (var i = 0; i <= sections.length - 1; i++) {
       var section = sections[i]
       var currentIndex = section.currentOptionIndex
-      if (currentIndex != null) {
-        var field = section.name
+      var field = section.name
+      if(currentIndex == null){
+        query[field] =  ''
+      }
+      else {
         var option = section.options[currentIndex]
         query[field] = option.value
       }
     }
-
+    console.log('set query', query)
     this.setData({query: query})
     this.closeFilter()
     this.loadData()
@@ -208,7 +230,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    var query = this.data.query
+    var page = this.data.query.page || 1
+    query.page = page + 1
+    this.setData({query: query})
   },
 
   /**

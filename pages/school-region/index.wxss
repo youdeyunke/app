@@ -79,3 +79,15 @@
   width: 710rpx;
   margin:20rpx 20rpx  20rpx 20rpx;
 }
+
+.more-schools{
+  width: 100% !important;
+  padding:18rpx 0;
+  background:#fff;
+  color:#333;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:22rpx;
+}

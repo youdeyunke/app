@@ -1,16 +1,16 @@
-<navigator open-type='navigateTo' url="/pages/school-region/show?id=1" class="school">
+<navigator open-type='navigateTo' url="/pages/school-region/show?id={{item.id}}" class="school">
   <view class="logo">
-    <image src="/assets/icons/school-logo-default.png"></image>
+    <image src="{{item.logo || '/assets/icons/school-logo-default.png' }}"></image>
   </view>
   <view class="info">
-    <view class="info-name">xx</view>
-    <view class="info-address">
+    <view class="info-name">{{item.name}}</view>
+    <view class="info-address van-ellipsis">
       <van-icon name="location-o" />
-    yy</view>
+    {{item.full_address }}</view>
   </view>
 
   <view class="hot">
-   热度：999
+   热度：{{item.view_nums || 0}}
   </view>
 
 </navigator>

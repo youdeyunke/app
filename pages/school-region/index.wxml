@@ -13,21 +13,36 @@
     <view data-index="{{index}}" bindtap="tabHandle" wx:for="{{tabs}}" wx:for-item="tab" class="tab {{ activeTabIndex == index ? 'tab-active' : 'tab-unactive'}}">{{tab.name}}</view>
   </view>
   <view class="search">
-    <van-search name="kw" value="{{kw}}" placeholder-style="font-size:24rpx;color:#cecece;" value="" placeholder="{{tabs[activeTabIndex].plh}}" background="none" focus="{{false}}" />
+    <van-search 
+    bind:search="onSearch"
+    bind:clear="onSearchClear"
+    name="kw" 
+    value="{{kw}}" 
+    placeholder-style="font-size:24rpx;color:#cecece;" 
+    placeholder="{{tabs[activeTabIndex].plh}}"    
+    background="none" 
+    focus="{{false}}"
+     />
   </view>
 
 </view>
 
-<view class="page-title">热门学区</view>
+
+<view  wx:if="{{tabs[activeTabIndex].id == 'district' }}" class="page-title">{{ kw ? '搜索结果' : '热门小区' }}</view>
+
+<view  wx:if="{{tabs[activeTabIndex].id == 'school' }}" class="page-title">热门学校</view>
 
 <view class="result-list" wx:if="{{tabs[activeTabIndex].id == 'district' }}">
-  <district />
+  <districts page="{{page}}" kw="{{kw}}"  />
 </view>
-
-
 
 
 <view class="result-list" wx:if="{{tabs[activeTabIndex].id == 'school' }}">
-  <school />
+  <schools query="{{schoolQuery}}" />
+  <navigator hover-class="none" class="more-schools" url="/pages/school-region/schools">
+    查看学校列表
+  </navigator>
+
 </view>
+
 

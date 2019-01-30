@@ -1,0 +1,4 @@
+<block wx:for="{{items}}" wx:for-item="districts">
+  <district wx:for="{{districts}}" wx:for-item="item" item="{{item}}" />
+</block>
+

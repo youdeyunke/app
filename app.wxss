@@ -1,4 +1,5 @@
 @import "/utils/wxParse/wxParse.wxss";
+@import "/vant/common/index.wxss";
 
 page{
   height: auto;

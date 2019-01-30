@@ -1,4 +1,6 @@
 // pages/school-region/show.js
+const app = getApp()
+
 Page({
 
   /**
@@ -11,8 +13,9 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function (q) {
+    this.setData({sid: q.id})
+    this.loadData()
   },
 
   /**
@@ -34,6 +37,42 @@ Page({
    */
   onHide: function () {
 
+  },
+
+  cellHandle: function(e){
+    console.log('e', e)
+    var i = e.currentTarget.dataset.index
+    var section = this.data.item.sections[i]
+
+    if(!section.content){
+      return false;
+    }
+
+    this.setData({
+      currentSectionIndex: i,
+      currentSection: section,
+    })    
+    this.showPop()
+  },
+
+
+  showPop: function(){
+    this.setData({showDetail: true})
+  },
+
+  closePop: function () {
+    this.setData({ showDetail: false })
+  },
+
+  loadData: function(){
+    var _this = this
+    app.request({
+      url: '/api/v1/schools/' + _this.data.sid,
+      data: {},
+      success: function(resp){
+        _this.setData({item: resp.data.data})
+      }
+    })
   },
 
   /**

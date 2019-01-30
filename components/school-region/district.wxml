@@ -1,14 +1,14 @@
   
-  <view class="district">
+  <navigator open-type='navigateTo' url="/pages/school-region/schools?sub_district_id={{item.id}}"class="district">
     <view class="left">
       <view class="name">
         <image src="/assets/icons/district-name.3x.png"></image>
-      上南一村</view>
+      {{item.name}}</view>
       <view class="address"> 
         <image src="/assets/icons/location.3x.png"></image>
-      上海市 浦东新区 耀华路 1999弄</view>
+      {{item.full_address}}</view>
     </view>
     <view class="right">
-      <view class="number">199</view>所学校
+      <view class="number">{{item.school_nums}}</view>所学校
     </view>
-  </view>
+  </navigator>

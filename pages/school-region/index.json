@@ -4,8 +4,8 @@
   "navigationBarBackgroundColor": "#6BA6EC",
   "navigationBarTextStyle": "light",
   "usingComponents": {
-    "district": "/components/school-region/district",
-    "school": "/components/school-region/school",
+    "districts": "/components/school-region/district-list",
+    "schools": "/components/school-region/school-list",
     "van-notice-bar": "/vant/notice-bar/index"
   }
 }

@@ -1,5 +1,6 @@
 <!--pages/school-region/schools.wxml-->
-<view class="filter">
+<view class="blank" wx:if="{{!query.sub_district_id}}"> </view>
+<view class="filter" wx:if="{{!query.sub_district_id}}">
   <van-search 
     name="kw" 
     value="{{query.kw}}" 
@@ -49,5 +50,5 @@
 
 <city-picker  position="top" bind:change="cityChange" show="{{showCityPicker}}" />
 
-<school />
+<schools query="{{query}}" />
 

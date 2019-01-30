@@ -1,10 +1,14 @@
 // pages/school-region/index.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    schoolQuery: {order: 'view_nums, desc', per_page: 5},
+    page: 1,
     tabs: [
       {name: '查学区', plh: '输入小区关键词', id: 'district'},
       {name: '查学校', plh: '输入学校关键词', id: 'school'},
@@ -13,7 +17,7 @@ Page({
     hideNotice: wx.getStorageSync('hide_school_region_notice'),
     noticeText: '1. 2018~2019年苏州中小学施教范围已开始陆续更新; 2. 信息来源于教育部以及学校网网站; 3. 信息仅供参考，具体报名请咨询学校或教育部门',
     kw: '',
-    activeTabIndex: 1,
+    activeTabIndex: 0,
   },
 
   /**
@@ -28,6 +32,26 @@ Page({
    */
   onReady: function () {
 
+  },
+
+  onSearchClear: function(e){
+    this.setData({kw: '', page: 1})
+  },
+
+  onSearch: function(e){
+    var kw = e.detail
+    if (kw.length <= 0) {
+      return false
+    }    
+    this.setData({kw: kw})
+
+    // 如果是搜学校的话，就跳转到学校列表页面
+    var t = this.data.tabs[this.data.activeTabIndex]
+    if(t.id == 'school'){
+      wx.navigateTo({
+        url: '/pages/school-region/schools?kw=' + kw,
+      })
+    }
   },
 
   showNotice: function(e){
@@ -45,7 +69,7 @@ Page({
     if(i == this.data.activeTabIndex){
       return false
     }
-    this.setData({activeTabIndex: i})
+    this.setData({activeTabIndex: i, kw: '', page: 1})
   },
 
   /**

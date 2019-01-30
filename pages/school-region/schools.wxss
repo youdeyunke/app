@@ -1,5 +1,9 @@
 page{
-  padding-top:200rpx;
+  padding-top:20rpx;
+}
+
+.blank{
+  height: 180rpx;
 }
 
 .filter{
