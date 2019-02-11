@@ -4,14 +4,14 @@ var auth = require('utils/auth.js');
 App({
 
   globalData: {
-    apiHost: 'http://121.43.165.55:3001',
+    apiHost: 'https://fang.udeve.cn',
     //apiHost: 'http://dockerhost:9001',
     userInfo: null,
     token: null,
     loadingStatus: 0,
     cities: [],
     qqMapAppKey: 'OH2BZ-7QJK6-L44SI-MEJFO-PJNH2-IABHQ',
-    serverMobile: '13397079595'
+    serverMobile: '15102993376'
   },
 
   ensureLocation: function(cb){
