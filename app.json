@@ -49,6 +49,13 @@
         "text": "首页"
       },
       {
+        "pagePath": "pages/messages/index",
+        "iconPath": "/assets/icons/message.0.png",
+        "selectedIconPath": "/assets/icons/message.1.png",
+        "text": "聊天"
+      },
+
+      {
         "pagePath": "pages/news/index",
         "iconPath": "/assets/icons/news.0.png",
         "selectedIconPath": "/assets/icons/news.1.png",
