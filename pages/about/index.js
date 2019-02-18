@@ -8,8 +8,7 @@ Page({
    */
   data: {
     debugClickCounter: 0,
-    serverMobile: app.globalData.serverMobile,
-    wechat: 'udeve_cn',
+    info: {},
   },
 
   copyWechat: function(){
@@ -40,8 +39,14 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    
+  onLoad: function (q) {
+    var _this = this
+    app.request({
+      url: '/api/v1/myconfigs',
+      success: function(resp){
+        _this.setData({info: resp.data.data})
+      }
+    })
   
   },
 

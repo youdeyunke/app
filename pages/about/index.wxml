@@ -1,40 +1,23 @@
 <view class="container">
-    <view class="logo">
-      <image src="/assets/images/"></image>
-      <view class="desc"></view>
-    </view>
+    <view class="desc">{{info.company_desc}}</view>
     <view class="meta">
         <view class="item">
           <view class="label">咨询电话</view>
           <view class="value">
-            <text selectable="{{true}}">{{serverMobile}}</text>
+            <text selectable="{{true}}">{{info.service_mobile}}</text>
             </view>
         </view>           
-
-        <view class="item">
-          <view class="label">当前版本</view>
-          <view class="value" bindtap="debugHandle">1.0.1</view>
-        </view>
-        
-        <view class="item">
-          <view class="label">最近更新</view>
-          <view class="value">优化房源卡片展示效果</view>
-        </view>     
          
         <view class="meta">
               <view class="item contact">
-                <view class="label">技术支持</view>
+                <view class="label">客服微信</view>
                 <view class="value" bindtap='copyWechat'>
-                  <text selectable="{{true}}">{{wechat}}</text>
+                  <text selectable="{{true}}">{{info.service_wechat}}</text>
                   <image src="/assets/icons/weixin.png"></image>
                 </view>
 
               </view>   
-
-
-        </view>        
-     
+        </view>                                
     </view>
-
 
 </view>

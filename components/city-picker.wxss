@@ -1,7 +1,8 @@
 .tree-select{
   width: 750rpx;
+  height:600rpx;
   background: #fff;
-  padding:10rpx 20rpx;
+  padding:10rpx 20rpx 40px 10px;
   box-sizing: border-box;
 }
 
