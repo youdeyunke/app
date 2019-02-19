@@ -31,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 30,
+			"current": 21,
 			"list": [
 				{
 					"id": 0,
@@ -163,7 +163,8 @@
 					"id": 21,
 					"name": "ershoufang-index",
 					"pathName": "pages/post/index",
-					"query": "?group=old"
+					"query": "group=ershoufang",
+					"scene": null
 				},
 				{
 					"id": -1,

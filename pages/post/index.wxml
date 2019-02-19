@@ -1,14 +1,55 @@
-<!--pages/post/index.wxml-->
-<filter bind:clear="clearHandle" text="{{text}}" group="{{group}}" bind:change="filterChange" />
+<!--pages/school-region/schools.wxml-->
+<view class="blank" wx:if="{{!query.sub_district_id}}"> </view>
+<view class="filter" wx:if="{{!query.sub_district_id}}">
+  <van-search 
+    name="kw" 
+    value="{{query.kw}}" 
+    placeholder-style="font-size:24rpx;color:#cecece;" 
+    placeholder="搜索小区、街道关键词" 
+    background="none" 
+    field-class="search-box-field"
+    custom-class="search-box"
+    bind:search="onSearch"
+    bind:clear="onSearchClear"
+    focus="{{false}}" 
+  />
+  <view class="filter-items">
+    <view class="filter-item" catchtap="showCity">区域: {{ city.name }} {{ district.name }}
+      <van-icon name="arrow-down" />
+    </view>
+    <view class="filter-item" catchtap='showFilter'>智能筛选
+      <van-icon name="filter-o" />
+    </view>
+  </view>
 
-<import src="/tpls/posts/ershoufang.wxml" />
-<import src="/tpls/posts/xinfang.wxml" />
-<import src="/tpls/posts/zufang.wxml" />
-<template is="{{group}}" data="{{posts:posts}}"></template>
+  <van-popup 
+  custom-class="filter-panel-pop" 
+  show="{{ showFilter }}" 
+  position="right" 
+  bind:close="closeFilter">
+ 
+  <view class="filter-panel">
+    <view class="filter-panel-body">
+      <view class="filter-panel-section" wx:for="{{filterSections}}" wx:for-item="section" wx:for-index="sectionIndex">
+        <view class="filter-panel-section-title">{{section.title}}</view>
+        <view class="filter-panel-section-options">
+          <view catchtap='optionHandle' data-index="{{index}}" data-section-index="{{sectionIndex}}"  wx:for="{{section.options}}" wx:for-item="option" class="filter-panel-section-option {{section.currentOptionIndex == index ? 'active' : ''}}">{{option.label}}</view>
+  
+        </view>
+      </view>
 
-<view class="empty" wx:if="{{isEmpty}}">
-   <image src="/assets/images/cover-none.png"></image>
-   <view>{{ emptyText || '没有数据'}}</view>
+    </view>
+    <view class="filter-panel-footer">
+      <view catchtap='filterReset' class="action action-reset">重置</view>
+      <view catchtap='filterConfirm' class="action action-confirm">确认</view>
+    </view>
+  </view> 
+  
+  </van-popup>
 </view>
 
-<van-loading wx:if="{{loading && !isEnd}}" />
+<city-picker  position="top" bind:change="cityChange" show="{{showCityPicker}}" />
+
+<posts query="{{query}}" />
+
+<mypicker id="order" items="{{orderItems}}" bind:change="orderChange"/>

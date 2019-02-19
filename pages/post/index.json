@@ -1,13 +1,8 @@
 {
-    "usingComponents": {
-      "mytopbar": "/components/topbar",
-      "myfav": "/components/fav",
-      "filter": "/components/filter",
-      "mytags": "/components/tags",
-      "post": "/components/post",
-      "postcard": "/components/postcard",
-      "box": "/components/box",
-      "myslider": "/components/slider"
-    }
-
+  "enablePullDownRefresh": false,
+  "backgroundColor": "#F6F7FB",
+  "usingComponents": {
+    "city-picker": "/components/city-picker",
+    "posts": "/components/post/post-list"
+  }
 }
