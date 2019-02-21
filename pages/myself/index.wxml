@@ -32,5 +32,5 @@
 
   </van-cell-group>
 
-  <broker-join />
+  <broker-join wx:if="{{!userInfo.is_broker}}" />
 </box>
