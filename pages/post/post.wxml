@@ -4,6 +4,11 @@
 <import src="/tpls/posts/rental-detail.wxml" />
 
 <block wx:if="{{post}}">
+<navigator wx:if="{{from_share}}" class="home-btn" open-type="switchTab" url="/pages/home/home">
+  <image src="/assets/icons/home.1.png"></image>
+  <text>首页</text>
+</navigator>
+
 <view class="post-cover">
        <myfav wx:if="{{post.id}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
        <swiper class="swiper" 
@@ -216,3 +221,4 @@
 </view>
 
 </block>
+

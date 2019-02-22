@@ -336,8 +336,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({ user : wx.getStorageSync('userInfo') || {} })
-
+    this.setData({ 
+      user : wx.getStorageSync('userInfo') || {} ,
+      //from_share: options.from_share == '1',
+      from_share: true,
+    })
 
     this.myVideo = wx.createVideoContext('myvideo')
     var postId = options.id
@@ -575,7 +578,7 @@ Page({
     return {
       title: _this.data.post['title'],
       desc: _this.data.post['desc'],
-      path: 'pages/post/post?id=' + _this.data.post['id'],
+      path: 'pages/post/post?from_share=1&id=' + _this.data.post['id'],
       imageUrl: _this.data.post['cover']
     }
   },

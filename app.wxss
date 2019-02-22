@@ -242,7 +242,7 @@ textarea{
   border-top-left-radius: 30rpx;
   border-bottom-left-radius: 30rpx;
   position: fixed;
-  top:40rpx;
+  top:60rpx;
   right:0rpx;
 }
 

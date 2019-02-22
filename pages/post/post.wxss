@@ -549,7 +549,7 @@ myfav .myfav {
 }
 
 .float-btn.gen-poster{
-  bottom:200rpx;
+  bottom:250rpx;
   background: rgba(0,0,0, 0.2);
 }
 
