@@ -4,6 +4,7 @@
 <import src="/tpls/posts/ershoufang.wxml" />
 <import src="/tpls/posts/xinfang.wxml" />
 <import src="/tpls/posts/zufang.wxml" />
+<import src="/tpls/posts/daizufang.wxml" />
 <template is="{{group}}" data="{{posts:posts}}"></template>
 
 <view class="empty" wx:if="{{isEmpty}}">

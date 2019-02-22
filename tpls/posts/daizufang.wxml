@@ -1,0 +1,5 @@
+<template name="daizufang">
+            <block wx:for="{{posts}}" wx:for-item="postitems">
+              <daizu wx:if="{{item.id}}" wx:for="{{postitems}}" item="{{item}}"></daizu>
+            </block>
+</template>
