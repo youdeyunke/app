@@ -1,5 +1,6 @@
 // pages/myself/broker.js
 const app = getApp()
+var auth = require('../../utils/auth.js');
 
 Page({
 
@@ -19,7 +20,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var _this = this
+    auth.ensureUser(function(userInfo){
+      app.request({
+        url: '/api/v1/users/' + userInfo.id,
+        success: function(resp){
+          if(resp.data.status == 0){
+            _this.setData({
+              userInfo: resp.data.data
+            })
+          }
+        },
+      })
+    })
   },
 
   validate: function(data, cb){

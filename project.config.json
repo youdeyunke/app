@@ -31,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 5,
 			"list": [
 				{
 					"id": 0,
@@ -65,10 +65,11 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "myself",
-					"pathName": "pages/myself/myself",
-					"query": ""
+					"id": 5,
+					"name": "broker-apply",
+					"pathName": "pages/myself/broker",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
