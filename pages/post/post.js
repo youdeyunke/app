@@ -338,8 +338,7 @@ Page({
   onLoad: function (options) {
     this.setData({ 
       user : wx.getStorageSync('userInfo') || {} ,
-      //from_share: options.from_share == '1',
-      from_share: true,
+      from_share: options.from_share == '1',
     })
 
     this.myVideo = wx.createVideoContext('myvideo')
