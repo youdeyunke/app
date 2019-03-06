@@ -108,11 +108,12 @@ Component({
       if(!wechat){
         return false
       }
+      this.setData({actionsShow: false})
 
       wx.setClipboardData({
         data:  wechat,
         success: function(res){
-          wx.showTosta({
+          wx.showToast({
             title: '微信号已复制',
             icon: 'none',
           })
