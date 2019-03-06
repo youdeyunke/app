@@ -10,7 +10,7 @@
 </navigator>
 
 <view class="post-cover">
-       <myfav wx:if="{{post.id}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
+
        <swiper class="swiper" 
                indicator-dots="true" 
                autoplay="{{post.images_list.length > 1}}" 
@@ -36,9 +36,13 @@
 
 <view class="header-box">
   <view class="header"> 
-     <!-- image bindtap="showShareBoxHandle" src="/assets/icons/share.png" class="share-btn"></image -->
+ 
      <view class=" post-title h1 ">{{ post.title_info.text }}</view>
-     <mytags wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
+     <view class="sub-title">
+        <mytags wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
+        <myfav wx:if="{{post.id}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
+     </view>
+    
      <view class="typeinfo">
          <view class="item border">
                  <view class="value">{{post.price_info.text}}</view>
@@ -112,7 +116,7 @@
     <box padding="30" margin-bottom="0">
       <mapimage image="{{post.map_image_url}}" latitude="{{post.latitude}}"  longitude="{{post.longitude}}" name="{{post.area_name}}" url="{{post.map_image_url}}"></mapimage>
     </box>
-
+  
   <template wx:if="{{post}}" is="{{post.group}}-detail" data="{{post: post, htmlContent: htmlContent, minicontent:minicontent}}"/>
 
 </view>
@@ -124,7 +128,6 @@
      url="{{ post.comments_count > 1 ?  '/pages/comments/index?target_id=' +postId : null}}" >
   <comments targetId="{{post.id}}" targetType="post" ></comments>
 
-  <view class="comments-empty" wx:if="{{post.comments_count == 0}}">暂无评论</view>
   <view class="comments-add">
     <navigator hover-class='none' url="/pages/comments/new?target_id={{post.id}}">
       <button class="plain btn mini">我要点评</button>
@@ -168,6 +171,7 @@
 <mycard wx:if="{{post.group == 'new' && post.more_url}}" title="{{post.more_title}}" opentype="webview" url="{{post.more_url}}" hat>
   <view>{{ post.more_desc }}</view>
 </mycard>
+
 <broker-link wx:if="{{post.user.is_broker}}" broker="{{post.broker_info}}" />
 <recoms exclude-id="{{post.id}}" wx:if="{{post.group}}" group="{{post.group}}" count="10"></recoms>
 <broker wx:if="{{post.broker_info}}" broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>

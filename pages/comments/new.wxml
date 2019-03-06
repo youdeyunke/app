@@ -6,13 +6,6 @@
 </view>
 
 <view class="container">
-    <view class="h1">您的身份</view>
-    <view class="form-tags">
-      <text bindtap='catHandle' data-index="{{index}}" class="form-tag-item {{ comment.cat_id == item.id ? 'form-tag-item-active' : '' }}" wx:for="{{cats}}">{{item.name}}</text>
-    </view>
-</view>
-
-<view class="container">
   <view class="comment-form ">
     <textarea value="{{comment.content}}" bindinput='contentHandle' placeholder='其他人都各抒己见，让大家也听听您的意见吧'></textarea>
   </view>
