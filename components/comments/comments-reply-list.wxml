@@ -1,0 +1,3 @@
+<view class="items" wx:if="{{items.length > 0}}">
+  <view class="item" wx:for="{{items}}"><text class="author">{{item.user.nickname}}在{{ item.created_at_pertty_mini}}回复：</text> {{item.content}} </view>
+</view>

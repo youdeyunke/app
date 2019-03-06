@@ -122,7 +122,7 @@
      number="{{post.comments_count}}" 
      title="用户评价" 
      url="{{ post.comments_count > 1 ?  '/pages/comments/index?target_id=' +postId : null}}" >
-  <comments mini="true" items="{{comments}}"></comments>
+  <comments targetId="{{post.id}}" targetType="post" ></comments>
 
   <view class="comments-empty" wx:if="{{post.comments_count == 0}}">暂无评论</view>
   <view class="comments-add">

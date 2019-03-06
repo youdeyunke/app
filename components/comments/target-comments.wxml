@@ -1,0 +1,46 @@
+<block>
+<view class="comments">  
+  <view class="item box" wx:if="{{items.length > 0}}" wx:for="{{items}}" wx:for-item="comment">
+      <image class="user" src="{{comment.user.avatar}}"></image>
+      <view class="meta">
+        <view class="nickname">
+          <view class="main">
+            <view class="uname">{{comment.user.nickname}}</view>
+          </view>
+          <view class="score">
+            <mystars value="{{comment.score}}"></mystars>
+          </view>
+        </view>
+
+        <view class="content">{{comment.content}}</view>
+
+        <view class="footer">
+          <text class="time">{{comment.created_at_pertty}}</text>
+          <view class="actions">
+            <view class="like" bindtap='commentlikeHandle' data-index="{{index}}" >有用 ({{comment.like_nums || 0}}）</view>
+            <view class="reply" bindtap="replyHandle" data-target-type="{{comment.target_type}}" data-target-id="{{comment.target_id}}" data-mycomment-id="{{comment.id}}">回复</view>
+          </view>
+        </view>        
+
+
+        <view class="reply-comments">
+          <view class="reply-comments">
+            <reply-list mycomment-id="{{comment.id}}" />
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+
+  <van-popup show="{{showReply}}"  custom-class="reply-popup" bind:click-overlay="closeReplyForm" >
+    <view class="reply-form">
+          <textarea placeholder='回复内容不少于5个字' value="{{replyContent}}" bindinput="replyInput"></textarea>
+          <view class="actions">
+            <van-button type="default" custom-class="fbutton" size="large" bindclick='closeReplyForm'>取消</van-button>   
+            <van-button disabled='{{replyContent.length <= 3}}' type="primary" custom-class="fbutton" size="large" bindclick='replySubmit'>提交</van-button>                 
+          </view>
+    </view>
+  </van-popup>
+
+  </block>

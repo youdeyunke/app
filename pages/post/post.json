@@ -19,6 +19,6 @@
     "van-button": "/vant/button/index",
     "poster":"/wxa-plugin-canvas/poster/index",
     "recoms":"/components/recom-posts",
-    "comments": "/components/comments"
+    "comments": "/components/comments/target-comments"
   }
 }

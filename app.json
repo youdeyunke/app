@@ -1,6 +1,5 @@
 {
   "pages": [
-
     "pages/home/home",
     "pages/news/index",
     "pages/news/show",
@@ -33,7 +32,8 @@
     "pages/messages/show",
     "pages/messages/index",
     "pages/444/index",
-    "pages/video/show"
+    "pages/video/show",
+    "pages/myself/comments"
   ],
   "tabBar": {
     "selectedColor": "#333",
@@ -54,14 +54,12 @@
         "selectedIconPath": "/assets/icons/message.1.png",
         "text": "聊天"
       },
-
       {
         "pagePath": "pages/news/index",
         "iconPath": "/assets/icons/news.0.png",
         "selectedIconPath": "/assets/icons/news.1.png",
         "text": "头条"
       },
-
       {
         "pagePath": "pages/myself/index",
         "iconPath": "/assets/icons/myself.0.png",
@@ -98,7 +96,6 @@
     "scope.userLocation": {
       "desc": "位置信息用于房源查询"
     }
-
   },
   "debug": false
 }

@@ -1,0 +1,7 @@
+.items{
+  margin-top:20rpx;
+  background: #f4f4f4;
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  padding:20rpx;
+}

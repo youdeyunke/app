@@ -1,0 +1,6 @@
+<view style="width:710rpx;">
+
+<block wx:for="{{pageItems}}" wx:for-item="comments" >
+<comments items="{{comments}}"></comments>
+</block>
+</view>
