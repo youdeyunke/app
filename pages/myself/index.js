@@ -12,7 +12,7 @@ Page({
     cells: [
       { name: '我发布的', icon: 'm-house.png', url: '/pages/myself/posts', },
       { name: '我的提问', icon: 'm-qa.png', url: '/pages/myself/qa',  },
-      { name: '我的评论', icon: 'm-comment.png', url:'/pages/comments/index?myself=true&limit=10000"',},
+      { name: '我的评论', icon: 'm-comment.png', url:'/pages/myself/comments',},
       { name: '我的关注', icon: 'm-fav.png', url: '/pages/myself/favposts'},
       { name: '退出登录', icon: 'm-fav.png', bindtap:"logoutHandle", loginRequired: true},
       {name: '关于小程序', icon: 'm-about.png', url: '/pages/about/index'},
