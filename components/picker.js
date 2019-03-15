@@ -6,6 +6,11 @@ Component({
    */
   properties: {
     items: {type: Array, value: [] }, 
+    show: {type: Boolean, value: false},
+    key: { type: String, value: 'default'},
+    position: {
+      type: String, value: 'top'
+    }
   },
 
   ready: function(){
@@ -15,7 +20,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-    show: false,
     currentIndex: 0,
   },
 
@@ -39,7 +43,7 @@ Component({
     onConfirm: function(e){
       var index = this.data.currentIndex
       var item = this.data.items[index]
-      this.triggerEvent('change', {item: item, index: index})
+      this.triggerEvent('change', {item: item, index: index, key: this.data.key})
       this.onClose()
     },
   }

@@ -1,0 +1,19 @@
+.sfilter{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sfilter .item{
+  font-size:24rpx;
+  color: #333;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.sfilter .label{
+  font-size:20rpx;
+  color: #666;
+}

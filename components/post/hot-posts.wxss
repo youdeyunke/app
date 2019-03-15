@@ -1,0 +1,25 @@
+swiper.hot{
+  width: 700rpx;
+  margin:0 auto;
+  height: 350rpx !important;
+  background: yelow;
+}
+
+.item{
+  position: relative;
+}
+
+.item, .item .cover{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+
+.item .play{
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  left:calc(50% - 50rpx);
+  top:calc(50% - 50rpx);
+  z-index:2;
+}

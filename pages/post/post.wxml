@@ -34,31 +34,41 @@
 
 </view>
 
-<view class="header-box">
+<box padding="30">
   <view class="header"> 
-     <!-- image bindtap="showShareBoxHandle" src="/assets/icons/share.png" class="share-btn"></image -->
      <view class=" post-title h1 ">{{ post.title_info.text }}</view>
-     <mytags wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
+
      <view class="typeinfo">
          <view class="item border">
-                 <view class="value">{{post.price_info.text}}</view>
-                 <view class="key">{{post.price_info.label}}</view>
+                 <view class="key">{{post.price_info.label}}</view>         
+                 <view class="value">{{post.price_info.text}}
+                 <text class="px">{{post.price_info.px}}</text>
+                 </view>
          </view>
          <view class="item border">
-                 <view class="value">{{post.type_info.text}}</view>
-                 <view class="key">户型</view>
+                <view class="key">{{post.type_info.label}}</view>         
+                <view class="value">{{post.type_info.text}} </view>
          </view>
          <view class="item">
-                 <view class="value">{{post.area_info.text}}</view>
-                 <view class="key">{{post.area_info.label}}</view>
+                 <view class="key">{{post.area_info.label}}</view>         
+                 <view class="value">{{post.area_info.text}}
+                 <text class="px">{{post.area_info.px}} </text>
+                 </view>
          </view>
      </view>
+
+     <view class="tagsinfo">
+        <mytags wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
+        <myfav wx:if="{{post.id}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
+     </view>
+    
+    
      <view bindtap='couponHandle' class="coupon" wx:if="{{ post.coupon_desc && post.coupon_enable}}">
        <view class="name line-limit">{{post.coupon_desc}}</view>
      <view class="action">{{ post.user_has_coupon ? '已领券' : '领券' }}</view>
    </view>     
   </view>
-</view>
+</box>
 
 <view class="tabs">
  <view data-tab="detail" bindtap="tabHandle" class="tab-item {{currentTab == 'detail' ? 'active': ''}}">详细</view>

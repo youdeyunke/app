@@ -1,0 +1,113 @@
+
+.post{
+  position:relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin:0rpx auto 20rpx auto;
+  border-bottom:1rpx solid #f4f4f4;
+  padding-bottom:20rpx;
+}
+
+
+.post.shadow-none{
+  box-shadow:none;
+}
+
+.post.border-none{
+  border:none;
+}
+
+
+.tags {
+  font-size:30rpx;
+  color: 333;
+}
+
+.post .cover{
+  position: relative;
+  width:246rpx;
+  height: 174rpx;  
+  border-radius:10rpx;
+  overflow:hidden;
+  z-index:1;
+}
+
+.post badge{
+  position:absolute;
+  top:30rpx;
+  left:-9rpx;
+  z-index:2;
+}
+
+.post .cover .i{
+  width:100%;
+  height: 100%;
+}
+.post .icons{
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  width:120rpx;
+  height:60rpx;
+  position: absolute;
+  left:calc(296rpx * 0.5 - 120rpx * 0.5);
+  top:calc(184rpx * 0.5 - 60rpx * 0.5);
+}
+
+.post .icons image{
+  width:60rpx;
+  height: 60rpx;
+  border-radius: 60rpx;
+  overflow: hidden;
+  background: rgba(0,0,0, 0.2);
+}
+
+ .post .meta{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width:410rpx;
+  font-size:24rpx;
+}
+
+.post .meta .item-title{
+  display: -webkit-box ;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+
+
+  width:360rpx;
+  font-size:32rpx;
+  color: #000;
+  font-weight: bold;
+}
+
+.post .meta .area-price{
+  display: flex;
+  justify-content: flex-start; 
+  align-items: flex-end;
+}
+
+.post .meta .location{
+  font-size:24rpx;
+}
+
+.post .meta .area-price .area{
+  color:#000;
+  width:50%;
+}
+.post .meta .area-price .price{
+  color:var(--color-b);
+  font-weight: bold;
+  font-size: 24rpx;
+  width:50%;
+}
+
+.post .red{
+  color: var(--color-b);
+}

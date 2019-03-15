@@ -1,0 +1,146 @@
+@import '../common/style/var.less';
+
+@tabs-line-height: 44px;
+@tabs-card-height: 30px;
+
+.van-tabs {
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+
+  &__wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    background-color: @white;
+
+    &--page-top {
+      position: fixed;
+    }
+
+    &--content-bottom {
+      top: auto;
+      bottom: 0;
+    }
+
+    &--scrollable {
+      .van-tab {
+        flex: 0 0 22%;
+      }
+    }
+  }
+
+  &__scroll--card {
+    border: 1px solid @red;
+    border-radius: 2px;
+  }
+
+  &__nav {
+    position: relative;
+    display: flex;
+    user-select: none;
+
+    &--line {
+      height: 100%;
+    }
+
+    &--card {
+      height: @tabs-card-height;
+
+      .van-tab {
+        line-height: @tabs-card-height;
+        color: @red;
+        border-right: 1px solid @red;
+
+        &:last-child {
+          border-right: none;
+        }
+
+        &.van-tab--active {
+          color: @white;
+          background-color: @red;
+        }
+      }
+    }
+  }
+
+  &__line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    height: 3px;
+    background-color: @red;
+    border-radius: 3px;
+  }
+
+  &--line {
+    padding-top: @tabs-line-height;
+
+    .van-tabs__wrap {
+      height: @tabs-line-height;
+    }
+  }
+
+  &--card {
+    padding-top: @tabs-card-height;
+    margin: 0 15px;
+
+    .van-tabs__wrap {
+      height: @tabs-card-height;
+    }
+  }
+
+  &__content {
+    overflow: hidden;
+  }
+
+  &__track {
+    position: relative;
+  }
+}
+
+.van-tab {
+  position: relative;
+  min-width: 0; /* hack for flex ellipsis */
+  padding: 0 5px;
+  font-size: 14px;
+  line-height: @tabs-line-height;
+  color: @gray-darker;
+  text-align: center;
+  cursor: pointer;
+  background-color: @white;
+  box-sizing: border-box;
+  flex: 1;
+
+  &--active {
+    font-weight: 500;
+    color: @text-color;
+  }
+
+  &--disabled {
+    color: @gray;
+  }
+
+  &__title {
+    &--dot {
+      &::after {
+        display: inline-block;
+        width: 8px;
+        height: 8px;
+        vertical-align: middle;
+        background-color: @red;
+        border-radius: 100%;
+        content: '';
+      }
+    }
+
+    &__info {
+      position: relative !important;
+      top: -1px !important;
+      display: inline-block;
+      transform: translateX(0) !important;
+    }
+  }
+}

@@ -1,11 +1,20 @@
-<popup show="{{show}}"   position="{{position}}" bind:cancle="onReset" bind:confirm="onConfirm"  label="请选择">
+<popup show="{{show}}"    position="{{position}}" bind:cancle="onReset" bind:confirm="onConfirm"  label="请选择">
+
+<van-tabs active="{{ activeTabIndex }}" bind:change="onReset">
+  <van-tab title="{{config.label}}" wx:for="{{configs}}" wx:for-item="config">
     <view class="tree-select">
         <van-tree-select
-          items="{{ cities }}"
-          main-active-index="{{ cityIndex }}"
-          active-id="{{ district.id }}"        
-          bind:click-nav="cityClick"
-          bind:click-item="districtClick"
+          data-index="{{index}}"
+          items="{{ config.items }}"
+          main-active-index="{{ config.mainActiveIndex }}"
+          active-id="{{ config.activeId }}"        
+          bind:click-nav="navClick"
+          bind:click-item="itemClick"
+          content-active-class="content-active"
+          main-active-class="main-content-active"          
         /> 
-    </view>
+    </view>  
+  </van-tab>
+</van-tabs>
+
   </popup>

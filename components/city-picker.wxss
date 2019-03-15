@@ -20,3 +20,14 @@
 .tree-select .actions .confirm{
   color: var(--color-a);
 }
+
+
+.content-active{
+  color: var(--color-a);
+}
+
+
+.main-content-active{
+  color: var(--color-a);
+  border-left-color: var(--color-a);
+}

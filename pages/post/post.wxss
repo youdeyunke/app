@@ -131,32 +131,29 @@ mycard{
 }
 
 .detail-meta  .meta text.label{
-  color:#666;
+  color:#999;
   width:80rpx;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
 
-.detail-meta .meta text.label::after{
-  content: ':'
-}
 
  .post-title{
   color:#000;
-  margin: 20rpx 0 20rpx 0 ;
-  font-weight:bold;
+  margin: 0rpx 0 20rpx 0 ;
 }
 
-.header-box{
-  width:100%;
-  padding-bottom:20rpx;
-  position: relative;
+.tagsinfo{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top:20rpx;
 }
 
 
 .header{
-  padding:35rpx;
   box-sizing:border-box;
   display:flex;
   flex-direction:column;
@@ -165,40 +162,6 @@ mycard{
   background:#fff;
 }
 
-
-.header .typeinfo{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20rpx 0;
-  margin:30rpx 0 0 0;
-  box-sizing:border-box;
-  width:100%;
-  border-top:1px solid #f1f1f1;
-}
-
-.header .typeinfo .item{
-  width:33.333%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-}
-
-
-.header .typeinfo .item .value{
-  font-size:var(--font-xl);
-  color:var(--color-b);
-  margin-bottom:10rpx;
-}
-
-.header .typeinfo .item .key{
-  font-size:var(--font-s);
-}
-
-.header .typeinfo .item.border{
-  border-right:1px solid #f1f1f1;
-}
 
 .raw image.wxParse-img{
   margin:20rpx auto;

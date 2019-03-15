@@ -1,14 +1,6 @@
 {
-    "usingComponents": {
-      "mytopbar": "/components/topbar",
-      "myfav": "/components/fav",
-      "filter": "/components/filter",
-      "mytags": "/components/tags",
-      "post": "/components/post",
-      "daizu": "/components/daizu",
-      "postcard": "/components/postcard",
-      "box": "/components/box",
-      "myslider": "/components/slider"
-    }
-
+  "usingComponents": {
+    "items": "/components/post/items",
+    "base-filter": "/components/base-filter"
+  }
 }

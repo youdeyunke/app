@@ -13,25 +13,48 @@ Component({
       type: String, value: "bottom"
     },
     
-
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    cities: [],
-    cityIndex: 0,
-    district: {name: '不限', id:0}
+    activeTabIndex: 0,
+
+    configs: [
+      {
+        label: '区域',
+        id: 'city',
+        url: '/api/v2/cities',
+        keys: ['city_id', 'district_id'],
+      },
+      {
+        label: '地铁',
+        id: 'subway',
+        url: '/api/v1/subway',
+        keys: ['subway_id', 'station_id'],
+      },      
+    ],
+
   },
+
   attached: function(){
     console.log('attached')
   },
+  
 
   ready: function(){
     var _this = this
-    app.loadCities(function(cities) {
-      _this.setData({cities: cities})
+    this.data.configs.forEach(function(config,i){
+      app.request({
+        url: config.url,
+        success: function(resp){
+          if(resp.data.status == 0){
+            config.items = resp.data.data
+            _this.updateConfig(i, config)
+          }
+        }
+      })
     })
   },
 
@@ -40,42 +63,80 @@ Component({
    */
   methods: {
 
+    
+    onShow: function () {
+      this.setData({ show: true })
+    },
+
+    onClose: function () {
+      this.setData({ show: false })
+    },
+
 
     onReset: function () {
-      this.setData({
-        cityIndex: 0,
-        district: {id:0, name: '不限'},
+      var _this = this
+      this.data.configs.forEach(function(config, index){
+        config.mainActiveIndex = null
+        config.activeId = null
+        _this.updateConfig(index, config)
       })
+      this.onClose()
     },
 
     onConfirm: function (e) {
-      var cityIndex = this.data.cityIndex
-      var c = this.data.cities[cityIndex]
-      var city = {id: c.id, name: c.text}
-      var district = this.data.district
-
-      this.triggerEvent("change", {
-        city: city,
-        district: district,
-      }, {})
-    },
-
-    cityClick: function (e) {
-      var i = e.detail.index
-      this.setData({
-        cityIndex: i,
-        district: {name: '不限', id: 0},
-      })
-    },
-
-    districtClick: function (e) {
-      var d = {
-        id: e.detail.id,
-        name: e.detail.text,
+      var _this = this
+      var data = {
+        
       }
-      this.setData({
-        district: d
+      this.data.configs.forEach(function(config, index){
+        var mainIndex = config.mainActiveIndex
+        // 处理第一级
+        if(mainIndex != null){
+          var main = config.items[mainIndex]
+          var mainId = main.id
+          var key = config.keys[0]
+          data[key] = mainId
+        }
+
+        // 处理第二级
+        var activeId = config.activeId
+        if(activeId != null ){
+          var key = config.keys[1]
+          data[key] = activeId
+        }
       })
-    } 
+
+      console.log('trigger change data ', data)
+      this.triggerEvent('change', data, {})
+      this.onClose()
+    },
+
+
+    navClick: function(e){
+      var mainActiveIndex = e.detail.index
+      var i = e.target.dataset.index
+      var config = this.data.configs[i]
+      config.mainActiveIndex = mainActiveIndex
+      config.activeId = null
+      this.updateConfig(i, config)
+
+    },
+
+    itemClick: function(e){
+      console.log('e',e)
+      var item = e.detail
+      var i = e.target.dataset.index
+      var config = this.data.configs[i]
+      config.activeId = item.id
+      this.updateConfig(i, config)   
+    },   
+
+    updateConfig: function(index, config){
+      var data = {}
+      var key = 'configs[' + index + ']'
+      data[key] = config  
+      this.setData(data)         
+    }
+
   }
 })

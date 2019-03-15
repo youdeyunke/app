@@ -125,7 +125,7 @@ Component({
 
     orderChange: function(e){
       this.setData({
-        order: e.detail.item.value.join(','),
+        order: e.detail.item.value.join(' '),
       })
       this.onChange()
     },

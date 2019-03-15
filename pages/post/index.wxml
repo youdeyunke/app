@@ -1,15 +1,24 @@
-<!--pages/post/index.wxml-->
-<filter bind:clear="clearHandle" text="{{text}}" group="{{group}}" bind:change="filterChange" />
+<view class="header">
 
-<import src="/tpls/posts/ershoufang.wxml" />
-<import src="/tpls/posts/xinfang.wxml" />
-<import src="/tpls/posts/zufang.wxml" />
-<import src="/tpls/posts/daizufang.wxml" />
-<template is="{{group}}" data="{{posts:posts}}"></template>
-
-<view class="empty" wx:if="{{isEmpty}}">
-   <image src="/assets/images/cover-none.png"></image>
-   <view>{{ emptyText || '没有数据'}}</view>
+  <van-search 
+    name="kw" 
+    value="{{query.kw}}" 
+    placeholder-style="font-size:24rpx;color:#cecece;" 
+    placeholder="搜索关键词" 
+    background="#none" 
+    field-class="search-box-field"
+    custom-class="search-box"
+    bind:search="onSearch"
+    bind:clear="onSearchClear"
+    focus="{{false}}" 
+  />
+  <view class="f">
+    <base-filter initValue="{{filter}}"  bind:change="filterChange" />
+  </view>
 </view>
 
-<van-loading wx:if="{{loading && !isEnd}}" />
+<view class="res">
+<box padding="20">
+  <items kw="{{kw}}" page="{{page}}" filter="{{filter}}" />
+</box>
+</view>

@@ -4,14 +4,54 @@ var auth = require('utils/auth.js');
 App({
 
   globalData: {
-    apiHost: 'https://fang.udeve.cn',
-    //apiHost: 'http://dockerhost:9001',
+    //apiHost: 'https://fang.udeve.cn',
+    apiHost: 'http://localhost:9000',
     userInfo: null,
     token: null,
     loadingStatus: 0,
     cities: [],
     qqMapAppKey: 'OH2BZ-7QJK6-L44SI-MEJFO-PJNH2-IABHQ',
-    serverMobile: '15102993376'
+    serverMobile: '',
+    filterAreaItem: {
+      type: 'picker',
+      name: '面积',
+      key: 'area',
+      options: [
+        { label: '不限', value: '' },
+        { label: '0~50㎡', value: '0,50' },
+        { label: '50~100㎡', value: '50,100' },
+        { label: '100~150㎡', value: '100,150' },
+        { label: '150~200㎡', value: '150,200' },
+        { label: '200㎡以上', value: '200,99999' },
+      ]
+    },
+    filterRentPriceItem: {
+      type: 'picker',
+      name: '价格',
+      key: 'rent_price',
+      options: [
+        { label: '不限', value: '' },
+        { label: '0~3元 / ㎡天', value: '0,3' },
+        { label: '3~4元 / ㎡天', value: '3,4' },
+        { label: '4~5元 / ㎡天', value: '4,5' },
+        { label: '5~7元 / ㎡天', value: '5,7' },
+        { label: '7~9元 / ㎡天', value: '7,9' },
+        { label: '9~12元 / ㎡天', value: '9,12' },
+        { label: '12元以上 / ㎡天', value: '12,999' },
+      ]
+    },
+    filterOrderItem: {
+      type: 'picker',
+      name: '排序',
+      key: 'order',
+      options: [
+        { label: '默认', value: 'id desc' },
+        { label: '面积（从大到小)', value: 'area desc' },
+        { label: '面积（从小到大)', value: 'area asc' },
+        { label: '租金（从小到大)', value: 'rent_price  asc' },
+        { label: '租金（从大到小)', value: 'rent_price desc' },
+      ]
+    }    
   },
 
   ensureLocation: function(cb){
@@ -138,6 +178,7 @@ App({
 
 
   startReddotInterval: function(){
+    return
     var _this = this
     var key = 'reddot.inteval'
     var iid = wx.getStorageSync(key)
