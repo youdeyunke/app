@@ -1,0 +1,22 @@
+<view class="header">
+
+  <van-search 
+    name="kw" 
+    value="{{query.kw}}" 
+    placeholder-style="font-size:24rpx;color:#cecece;" 
+    placeholder="搜索楼盘关键词" 
+    background="#none" 
+    field-class="search-box-field"
+    custom-class="search-box"
+    bind:search="onSearch"
+    bind:clear="onSearchClear"
+    focus="{{false}}" 
+  />
+  <view class="f">
+    <base-filter  bind:change="filterChange" />
+  </view>
+</view>
+
+<view class="res">
+  <sub-districts  kw="{{kw}}" page="{{page}}" filter="{{filter}}" />
+</view>

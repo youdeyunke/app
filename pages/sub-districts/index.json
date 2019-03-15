@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "sub-districts": "/components/sub-district/items",
+    "base-filter": "/components/base-filter"
+  }
+}

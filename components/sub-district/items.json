@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "sub-district": "/components/sub-district/item"
+  }
+}

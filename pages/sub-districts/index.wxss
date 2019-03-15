@@ -1,0 +1,35 @@
+.header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  width: 100%;
+  padding:10rpx 30rpx;
+  box-sizing: border-box;
+  position: fixed;
+  left:0rpx;
+  right:0rpx;
+  top:0rpx;
+  z-index:99;
+}
+
+
+.header .f{
+  width: 100%;
+  margin: 10rpx 0;
+}
+
+.search-box{
+  width: 740rpx;
+}
+
+.search-box .van-cell  {
+  background:#F6F7FB ;
+  border-radius: 40rpx;
+}
+
+
+.res{
+  padding-top:180rpx;
+}

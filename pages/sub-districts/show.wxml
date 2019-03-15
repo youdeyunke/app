@@ -1,0 +1,62 @@
+<import src="/utils/wxParse/wxParse.wxml"/>
+
+<view class="post-cover">
+    
+       <swiper class="swiper" 
+               indicator-dots="true" 
+               autoplay="{{sub.images.length > 1}}" 
+               interval="5000"
+               duration="500" 
+               bindchange="swiperChange"
+               circular="true" 
+               indicator-color="rgba(255,255,255,0.7)" 
+               indicator-active-color="#fff" >
+                    
+            <swiper-item bindtap="viewImage" data-index="{{index}}" wx:for="{{sub.images}}">
+
+                <image  class="item" src="{{item}}?imageView2/2/h/430"></image>
+   
+            </swiper-item>               
+        </swiper>
+</view>
+
+
+
+<box padding="30">
+    <view class="name">楼盘详情：{{sub.name}}</view>
+    <view class="address">地址：{{sub.full_address }}</view>
+     <view class="typeinfo">
+         <view class="item border">
+                 <view class="value">{{sub.price_range}}
+                 <text class="px">元/㎡天</text>
+                 </view>
+                 <view class="key">单价</view>
+         </view>
+         <view class="item border">
+                <view class="value">{{sub.area_range}}
+                <text class="px">㎡</text> 
+                </view>
+                 <view class="key">面积</view>
+         </view>
+         <view class="item">
+                 <view class="value">{{sub.post_nums}} 
+                 <text class="px">套</text>
+                 </view>
+                 <view class="key">在租</view>                 
+         </view>
+     </view> 
+
+</box>
+
+<mycard title="简介" >
+
+  <view class="raw" style="margin-bottom:20rpx;" wx:if="{{htmlContent}}">
+    <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>
+  </view>
+  <mapimage image="{{sub.map_image_url}}" latitude="{{sub.latitude}}"  longitude="{{sub.longitude}}" name="{{sub.name}}" url="{{sub.map_image_url}}"></mapimage>
+
+</mycard>
+
+<mycard title="在租房源" url="/pages/post/index?sub_district_id={{sub.id}}">
+  <posts page="1" filter="{{postQuery}}" />
+</mycard>

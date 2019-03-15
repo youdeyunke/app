@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-cell": "/vant/cell/index",
+    "mapimage": "/components/map",
+    "broker": "/components/broker",
+    "posts": "/components/post/items",
+    "van-cell-group": "/vant/cell-group/index"    
+  }
+}
