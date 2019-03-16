@@ -23,23 +23,23 @@
 
 
 <box padding="30">
-    <view class="name">楼盘详情：{{sub.name}}</view>
+    <view class="name">{{sub.name}}</view>
     <view class="address">地址：{{sub.full_address }}</view>
      <view class="typeinfo">
          <view class="item border">
-                 <view class="value">{{sub.price_range}}
-                 <text class="px">元/㎡天</text>
+                 <view class="value">{{sub.average_price || '未知'}}
+                 <text class="px">/㎡</text>
                  </view>
-                 <view class="key">单价</view>
+                 <view class="key">均价</view>
          </view>
          <view class="item border">
-                <view class="value">{{sub.area_range}}
+                <view class="value">{{sub.old_nums}}
                 <text class="px">㎡</text> 
                 </view>
-                 <view class="key">面积</view>
+                 <view class="key">在售</view>
          </view>
          <view class="item">
-                 <view class="value">{{sub.post_nums}} 
+                 <view class="value">{{sub.rental_nums}} 
                  <text class="px">套</text>
                  </view>
                  <view class="key">在租</view>                 
@@ -48,13 +48,14 @@
 
 </box>
 
-<mycard title="简介" >
-
+<mycard title="小区介绍" >
   <view class="raw" style="margin-bottom:20rpx;" wx:if="{{htmlContent}}">
     <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>
   </view>
-  <mapimage image="{{sub.map_image_url}}" latitude="{{sub.latitude}}"  longitude="{{sub.longitude}}" name="{{sub.name}}" url="{{sub.map_image_url}}"></mapimage>
+</mycard>
 
+<mycard title="周边概况" >
+  <mapimage image="{{sub.map_image_url}}" latitude="{{sub.latitude}}"  longitude="{{sub.longitude}}" name="{{sub.name}}" url="{{sub.map_image_url}}"></mapimage>
 </mycard>
 
 <mycard title="在租房源" url="/pages/post/index?sub_district_id={{sub.id}}">

@@ -97,34 +97,37 @@
   </view>
 </box>
 
-<box margin-bottom="0">
-  <mapimage image="{{post.map_image_url}}" latitude="{{post.latitude}}"  longitude="{{post.longitude}}" name="{{post.area_name}}" ></mapimage>
+<box>
+  <mapimage image="{{sub.map_image_url}}" latitude="{{sub.latitude}}"  longitude="{{sub.longitude}}" name="{{sub.name}}" ></mapimage>
 </box>
 
-<mycard title="房源介绍">  
-        <block wx:if="{{post.desc}}">
-          <view class="info_title">房源概况</view>
-          <view class="info_text"> {{ post.desc }} </view>
-        </block>
 
-        <block wx:if="{{post.selling_points}}">
-          <view class="info_title">核心卖点</view>
-          <view class="info_text"> {{ post.selling_points}} </view>
-        </block>
+<box padding="30">  
+  <broker-link wx:if="{{post.user.is_broker}}" broker="{{post.broker_info}}" />
+  <block wx:if="{{post.desc}}">
+    <view class="info_title">房源概况</view>
+    <view class="info_text"> {{ post.desc }} </view>
+  </block>
 
-        <block wx:if="{{post.owner_mindset}}">
-          <view class="info_title">业主心态</view>
-          <view class="info_text"> {{ post.owner_mindset}} </view>
-        </block>
+  <block wx:if="{{post.selling_points}}">
+    <view class="info_title">核心卖点</view>
+    <view class="info_text"> {{ post.selling_points}} </view>
+  </block>
 
-        <block wx:if="{{post.service }}">
-          <view class="info_title">服务介绍</view>
-          <view class="info_text"> {{ post.service}} </view>
-        </block>
-</mycard>
+  <block wx:if="{{post.owner_mindset}}">
+    <view class="info_title">业主心态</view>
+    <view class="info_text"> {{ post.owner_mindset}} </view>
+  </block>
 
-<broker-link wx:if="{{post.user.is_broker}}" broker="{{post.broker_info}}" />
+  <block wx:if="{{post.service }}">
+    <view class="info_title">服务介绍</view>
+    <view class="info_text"> {{ post.service}} </view>
+  </block>
+</box>
 
+<box padding="30">
+  <sub-item item="{{sub}}" />
+</box>
 
 <mycard title="户型信息"  wx:if="{{post.group == 'new'}}">
     <view class="housetype" wx:for="{{post.types}}">

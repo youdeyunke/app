@@ -6,6 +6,7 @@
   flex-direction: row;
   justify-content: space-between;
   border-bottom:1rpx solid #f4f4f4;
+  height: 174rpx; 
 }
 
 
@@ -26,8 +27,7 @@
 .post .cover{
   position: relative;
   width:246rpx;
-  height: 174rpx;  
-  border-radius:10rpx;
+  height: 100%;
   overflow:hidden;
   z-index:1;
 }
@@ -66,8 +66,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width:410rpx;
-  font-size:24rpx;
+  width:340rpx;
+  font-size:var(--font-s);
 }
 
 .post .meta .item-title{
@@ -78,16 +78,15 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp:2;
 
-
   width:360rpx;
-  font-size:32rpx;
+  font-size:var(--font-xl);
   color: #000;
   font-weight: bold;
 }
 
 .post .meta .area-price{
   display: flex;
-  justify-content: flex-start; 
+  justify-content: space-between; 
   align-items: flex-end;
 }
 
@@ -108,4 +107,14 @@
 
 .post .red{
   color: var(--color-b);
+}
+
+
+.post .footer{
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  font-size: 40rpx;
+  color: #999;
 }

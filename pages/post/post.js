@@ -195,13 +195,15 @@ Page({
       hideLoading: true,
       url: '/api/v2/posts/' + postId,
       success: function(resp){
-        _this.setData({post: resp.data.data})
+        var pData = resp.data.data
+        _this.setData({post: pData})
+        _this.loadSub()
         _this.genPosterConfig()
-        wx.setStorage({key: 'post.data.' + postId, data: resp.data.data})
+        wx.setStorage({ key: 'post.data.' + postId, data: pData})
         _this.parseHtml()
-        wx.setStorageSync('last_view_post', resp.data.data)
+        wx.setStorageSync('last_view_post', pData)
         wx.setNavigationBarTitle({
-          title: resp.data.data['title']
+          title: pData['title']
         })        
 
       },
@@ -514,6 +516,23 @@ Page({
    */
   onReady: function () {
   
+  },
+
+  loadSub: function(){
+    var sid = this.data.post.sub_district_id
+    if(!sid){
+      return false;
+    }
+    var _this = this
+    app.request({
+      url: '/api/v1/sub_districts/' + sid,
+      success: function(resp){
+        if(resp.data.status != 0){
+          return false
+        }
+        _this.setData({sub: resp.data.data})
+      }
+    })
   },
 
   /**

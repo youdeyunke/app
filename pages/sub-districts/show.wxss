@@ -31,11 +31,10 @@
 
 .name{
   font-size:var(--font-l);
-  padding:0 20rpx;
+
   color: #333;
 }
 .address{
-  padding:0 20rpx;
   margin-top:20rpx;
   color: #333;
   font-size: var(--font-s)

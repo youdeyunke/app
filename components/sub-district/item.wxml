@@ -1,18 +1,22 @@
-<box width="710" padding="20">
+
 <navigator hover-class="none" class="post {{ shadow ? 'shado' : 'shadow-none'}} {{ border ? 'border' : 'border-none'}}" open-type="navigate" url="/pages/sub-districts/show?id={{item.id}}" >
       
       <view class="cover skeleton-rect">
-        <image class="i" src="{{ item.cover || '/assets/images/cover-none.png' }}?imageView2/2/w/750"></image>
+        <image mode="widthFix" class="i" src="{{ item.cover || '/assets/images/cover-none.png' }}?imageView2/2/w/750"></image>
       </view>
+
       <view class="meta">
         <text class="item-title skeleton-rect" > {{ item.name }}</text>
         <mytags mini="true" items="{{item.tags_list}}" max="3"></mytags>
         <view class="address">{{item.full_address}}</view>
         <view class="area-price">
-              <text class="area skeleton-rect" >面积: {{item.area_range}}</text>
-              <text class="price skeleton-rect" >价格：<text class="red">{{item.price_range}}</text></text>            
+              <text class=" skeleton-rect" >在售: {{item.old_nums}}</text>
+              <text class=" skeleton-rect" >在租：<text class="red">{{item.rental_nums}}</text></text>            
         </view>
       </view>
 
+      <view class="footer">
+        <van-icon name="arrow" />
+      </view>
+
 </navigator>
-</box>

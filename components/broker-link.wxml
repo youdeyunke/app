@@ -1,5 +1,5 @@
 <!--components/broker-link.wxml-->
-<box padding="30" bindtap="gotoUser">
+<block bindtap="gotoUser">
   <view class="info">
     <image class="avatar" src="{{broker.avatar}}"></image>
     <view class="text">
@@ -8,4 +8,4 @@
     </view>
     <button class="btn primary plain mini">进入店铺</button>
   </view>
-</box>
+</block>
