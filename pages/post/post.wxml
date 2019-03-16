@@ -56,7 +56,7 @@
 
 </view>
 
-<box padding="30">
+<box padding="30" margin-bottom="0">
   <view class="header"> 
      <view class=" post-title h1 ">{{ post.title_info.text }}</view>
 
@@ -97,11 +97,11 @@
   </view>
 </box>
 
-<box>
+<box margin-bottom="0">
   <mapimage image="{{post.map_image_url}}" latitude="{{post.latitude}}"  longitude="{{post.longitude}}" name="{{post.area_name}}" ></mapimage>
 </box>
-<mycard title="房源介绍">  
 
+<mycard title="房源介绍">  
         <block wx:if="{{post.desc}}">
           <view class="info_title">房源概况</view>
           <view class="info_text"> {{ post.desc }} </view>
@@ -121,7 +121,6 @@
           <view class="info_title">服务介绍</view>
           <view class="info_text"> {{ post.service}} </view>
         </block>
-        
 </mycard>
 
 <broker-link wx:if="{{post.user.is_broker}}" broker="{{post.broker_info}}" />
