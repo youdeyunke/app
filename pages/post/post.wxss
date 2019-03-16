@@ -21,7 +21,7 @@ mycard{
 
 .post-cover{
   width:750rpx;
-  height: 480rpx;
+  height: 420rpx;
   border-radius: 0rpx;
   overflow: hidden;
   margin:0 0 0rpx 0;
@@ -103,6 +103,7 @@ mycard{
   justify-content:flex-start;
   flex-wrap:wrap;
   margin-bottom:0rpx;
+  width: 100%;
 }
 
 .detail-meta .meta{
@@ -119,7 +120,7 @@ mycard{
 
 .detail-meta  .meta text.label{
   color:#999;
-  width:80rpx;
+  width:90rpx;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -139,10 +140,10 @@ mycard{
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  margin-bottom:10rpx;
+  margin-bottom:20rpx;
   margin-top:10rpx;
-  border-top:2rpx solid #f4f4f4;
-  padding-top:20rpx;
+  border-bottom:2rpx solid #f4f4f4;
+  padding-bottom:20rpx;
 }
 
 

@@ -361,8 +361,6 @@ page::after{
   align-items:center;
   box-sizing:border-box;
   width:100%;
-  padding:0 20rpx;
-
 }
 
  .typeinfo .item{
@@ -386,6 +384,7 @@ page::after{
   
  .typeinfo .item .key{
   font-size:var(--font-s);
+  color: #999;
 }
 
  .typeinfo .item.border{

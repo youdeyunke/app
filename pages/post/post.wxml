@@ -1,37 +1,4 @@
 <import src="/utils/wxParse/wxParse.wxml"/>
-<import src="/tpls/posts/new-detail.wxml" />
-<import src="/tpls/posts/old-detail.wxml" />
-<import src="/tpls/posts/rental-detail.wxml" />
-
-<template name="meta-tab">
-  <block>
-    <mapimage image="{{post.map_image_url}}" latitude="{{post.latitude}}"  longitude="{{post.longitude}}" name="{{post.area_name}}" ></mapimage>
-  </block>
-</template>
-
-<template name="comments-tab">
-  <block>
-    <comments style="width:100%;" targetId="{{post.id}}" targetType="post" ></comments>
-    <view class="comments-empty" wx:if="{{post.comments_count == 0}}">暂无评论</view>
-    <view class="comments-add">
-      <navigator hover-class='none' url="/pages/comments/new?target_id={{post.id}}">
-        <button class="plain btn mini">我要点评</button>
-      </navigator> 
-    </view>
-  </block>
-</template>
-
-<template name="qas-tab">
-  <view class="qa"  wx:for="{{qas}}">
-      <qa answer="{{false}}" item="{{item}}" mini></qa>
-  </view>
-  <view class="comments-empty" wx:if="{{qas.length ==0}}">暂无提问</view>
-    <view class="comments-add">
-      <navigator hover-class='none' url="/pages/qa/new?post_id={{post.id}}">
-        <button class="btn plain round mini">我要提问</button>
-        </navigator> 
-  </view>
-</template>
 
 <template name="more-tab">
   <block>
@@ -80,9 +47,9 @@
               <view class="first">
                 <image wx:if="{{ index ==0 && post.vr_url}}" catchtap='gotoVr' class="play vr" src="/assets/icons/vr.png"></image>              
                 <image wx:if="{{ index == 1 && post.video}}" catchtap='gotoVideo' class="play video" src="/assets/icons/bofang.png"></image>
-                <gimage width="750" height="480" wx:if="{{index == 0 && post.vr_url }}" class="item" src="{{item}}?imageView2/2/h/480"></gimage>
-                <image  wx:if="{{index == 0 && !post.vr_url }}" class="item" src="{{item}}?imageView2/2/h/480"></image>
-                <image  wx:if="{{index > 0 }}" class="item" src="{{item}}?imageView2/2/h/480"></image>
+                <gimage width="750" height="420" wx:if="{{index == 0 && post.vr_url }}" class="item" src="{{item}}?imageView2/2/h/420"></gimage>
+                <image  wx:if="{{index == 0 && !post.vr_url }}" class="item" src="{{item}}?imageView2/2/h/420"></image>
+                <image  wx:if="{{index > 0 }}" class="item" src="{{item}}?imageView2/2/h/420"></image>
               </view>
             </swiper-item>               
         </swiper>
@@ -117,33 +84,47 @@
      </view>
 
     <view  class="detail-meta">
-          <view  class="meta {{ meta.url ? 'link lg' : '' }}" wx:if="{{meta.value}}" wx:for="{{post.meta_list}}" wx:for-item="meta">
+          <view  class="meta {{ meta.url ? 'link lg' : '' }}" wx:if="{{meta}}" wx:for="{{post.meta_list}}" wx:for-item="meta">
             <text class="label">{{meta.label}}</text>
-            <text bindtap="gotoSub" class="value"> {{ meta.value}} </text>
+            <text bindtap="gotoSub" data-url="{{meta.url}}" class="value"> {{ meta.value || '-' }} </text>
         </view>
     </view>    
 
     <view  bindtap='couponHandle' class="coupon" wx:if="{{ post.coupon_desc && post.coupon_enable}}">
       <view class="name line-limit">{{post.coupon_desc}}</view>
       <view class="action">{{ post.user_has_coupon ? '已领券' : '领券' }}</view>
-    </view>        
+    </view>    
   </view>
 </box>
 
-
-
-<box padding="0">
-  <van-tabs swipeable="{{true}}"  bind:change="tabChange" animated="{{true}}" color="#00ae66">
-      <van-tab custom-class="mytab" title="详细">
-        <template is="meta-tab" data="{{post: post}}" />
-        <template wx:if="{{post}}" is="{{post.group}}-detail" data="{{post: post, htmlContent: htmlContent, minicontent:minicontent}}"/>
-      </van-tab>
-      <van-tab custom-class="mytab"  title="评论"><template is="comments-tab" data="{{post: post}}" /></van-tab>
-      <van-tab custom-class="mytab"  title="问答"><template is="qas-tab" data="{{post: post, qas:qas, postId:postId}}" /></van-tab>
-      <van-tab custom-class="mytab"  title="更多" wx:if="{{user && user.is_broker}}"><template is="more-tab" data="{{post: post, pm:pm}}" /></van-tab>
-      <van-tab custom-class="mytab"  title="跟进" wx:if="{{user && user.is_broker}}"><template is="flows-tab" data="{{post: post, flows:flows}}" /></van-tab>    
-  </van-tabs>
+<box>
+  <mapimage image="{{post.map_image_url}}" latitude="{{post.latitude}}"  longitude="{{post.longitude}}" name="{{post.area_name}}" ></mapimage>
 </box>
+<mycard title="房源介绍">  
+
+        <block wx:if="{{post.desc}}">
+          <view class="info_title">房源概况</view>
+          <view class="info_text"> {{ post.desc }} </view>
+        </block>
+
+        <block wx:if="{{post.selling_points}}">
+          <view class="info_title">核心卖点</view>
+          <view class="info_text"> {{ post.selling_points}} </view>
+        </block>
+
+        <block wx:if="{{post.owner_mindset}}">
+          <view class="info_title">业主心态</view>
+          <view class="info_text"> {{ post.owner_mindset}} </view>
+        </block>
+
+        <block wx:if="{{post.service }}">
+          <view class="info_title">服务介绍</view>
+          <view class="info_text"> {{ post.service}} </view>
+        </block>
+        
+</mycard>
+
+<broker-link wx:if="{{post.user.is_broker}}" broker="{{post.broker_info}}" />
 
 
 <mycard title="户型信息"  wx:if="{{post.group == 'new'}}">
@@ -166,7 +147,6 @@
   <view>{{ post.more_desc }}</view>
 </mycard>
 
-<broker-link wx:if="{{post.user.is_broker}}" broker="{{post.broker_info}}" />
 <recoms exclude-id="{{post.id}}" wx:if="{{post.group}}" group="{{post.group}}" count="10"></recoms>
 <broker wx:if="{{post.broker_info}}" broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>
 <safe-tips/>

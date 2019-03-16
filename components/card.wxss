@@ -15,7 +15,7 @@
   box-shadow:none;
 }
 
-.card.border-none{
+.card .card-header.border-none{
   border:none;
 }
 
