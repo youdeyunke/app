@@ -8,6 +8,7 @@
     "pages/comments/new",
     "pages/post/index",
     "pages/sub-districts/index",
+    "pages/sub-districts/show",    
     "pages/qa/qa",
     "pages/post/post",
     "pages/myself/index",

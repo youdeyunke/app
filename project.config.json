@@ -166,7 +166,8 @@
 					"id": 21,
 					"name": "ershoufang-index",
 					"pathName": "pages/post/index",
-					"query": "?group=old"
+					"query": "group=ershoufang",
+					"scene": null
 				},
 				{
 					"id": -1,

@@ -1,0 +1,9 @@
+<block>
+<box padding="30">
+  <block wx:for-key="{{index}}" wx:for="{{items}}" wx:for-item="posts">
+    <post wx:for="{{posts}}" item="{{item}}" wx:for-key="{{item.id}}" />
+  </block>
+</box>
+
+<view class="empty" wx:if="{{meta.total_entries == 0}}" class="empty">未查询到结果，试试其他条件吧</view>
+</block>

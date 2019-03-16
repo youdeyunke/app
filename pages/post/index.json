@@ -1,4 +1,5 @@
 {
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "items": "/components/post/items",
     "base-filter": "/components/base-filter"

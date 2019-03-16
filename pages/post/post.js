@@ -233,6 +233,13 @@ Page({
     this.setData({showFlowForm: true, flowId: '', flowContent: ''})
   },
 
+  gotoSub: function(e){
+    var _this = this
+    wx.navigateTo({
+      url: '/pages/sub-districts/show?id=' + _this.data.post.sub_district_id,
+    })
+  },
+
   flowEdit: function(e){
     console.log('e', e)
     var i = e.currentTarget.dataset.index

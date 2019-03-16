@@ -117,12 +117,12 @@
      </view>
 
     <view  class="detail-meta">
-            <view class="meta" wx:if="{{meta.value}}" wx:for="{{post.meta_list}}" wx:for-item="meta">
-          <text class="label">{{meta.label}}</text>
-          <text class="price">{{ meta.value}}</text>
+          <view  class="meta {{ meta.url ? 'link lg' : '' }}" wx:if="{{meta.value}}" wx:for="{{post.meta_list}}" wx:for-item="meta">
+            <text class="label">{{meta.label}}</text>
+            <text bindtap="gotoSub" class="value"> {{ meta.value}} </text>
         </view>
     </view>    
-     
+
     <view  bindtap='couponHandle' class="coupon" wx:if="{{ post.coupon_desc && post.coupon_enable}}">
       <view class="name line-limit">{{post.coupon_desc}}</view>
       <view class="action">{{ post.user_has_coupon ? '已领券' : '领券' }}</view>
