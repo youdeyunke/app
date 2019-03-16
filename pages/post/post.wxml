@@ -3,6 +3,68 @@
 <import src="/tpls/posts/old-detail.wxml" />
 <import src="/tpls/posts/rental-detail.wxml" />
 
+<template name="meta-tab">
+  <block>
+    <view  class="detail-meta">
+            <view class="meta" wx:if="{{meta.value}}" wx:for="{{post.meta_list}}" wx:for-item="meta">
+          <text class="label">{{meta.label}}</text>
+          <text class="price">{{ meta.value}}</text>
+        </view>
+    </view>
+    <mapimage image="{{post.map_image_url}}" latitude="{{post.latitude}}"  longitude="{{post.longitude}}" name="{{post.area_name}}" ></mapimage>
+  </block>
+</template>
+
+<template name="comments-tab">
+  <block>
+    <comments style="width:100%;" targetId="{{post.id}}" targetType="post" ></comments>
+    <view class="comments-empty" wx:if="{{post.comments_count == 0}}">暂无评论</view>
+    <view class="comments-add">
+      <navigator hover-class='none' url="/pages/comments/new?target_id={{post.id}}">
+        <button class="plain btn mini">我要点评</button>
+      </navigator> 
+    </view>
+  </block>
+</template>
+
+<template name="qas-tab">
+  <view class="qa"  wx:for="{{qas}}">
+      <qa answer="{{false}}" item="{{item}}" mini></qa>
+  </view>
+  <view class="comments-empty" wx:if="{{qas.length ==0}}">暂无提问</view>
+    <view class="comments-add">
+      <navigator hover-class='none' url="/pages/qa/new?post_id={{post.id}}">
+        <button class="btn plain round mini">我要提问</button>
+        </navigator> 
+  </view>
+</template>
+
+<template name="more-tab">
+  <block>
+    <van-cell bindtap="{{pm.bindtap}}" data-value="{{pm.value}}" wx:for="{{post.protected_meta_list}}" wx:for-item="pm" title="{{pm.label}}" value="{{pm.value}}" />
+    <van-cell title="俯瞰图" value="{{ post.overlook_image ? '点击查看' : '无' }}" bindtap="viewOverlook"/>
+  </block>
+</template>
+
+<template name="flows-tab">
+  <view bind:longpress="flowEdit" data-index="{{index}}" class="flow-item" wx:for="{{flows}}" wx:for-item="flow">
+    <image src="{{flow.user_info.avatar}}"></image>
+    <view class="flow-content">
+      <view class="user-name">{{flow.user_info.name}}</view>
+      <view class="arrow"></view>
+      <view class="text">{{flow.content}}</view>
+      <view class="time">{{flow.updated_at_pretty }}</view>
+    </view>
+  </view>
+  <view class="new-flow-action">
+    <view class="desc">
+      <view wx:if="{{flows.length == 0}}">暂无跟进信息</view>
+      <view>写入的跟进记录只对平台入驻的经纪人可见</view>
+    </view>
+    <van-button disabled='{{showFlowForm}}' size="small" type="primary"  plain bindclick="openFlowForm">写跟进</van-button>
+  </view>
+</template>
+
 <block wx:if="{{post}}">
 <navigator wx:if="{{from_share}}" class="home-btn" open-type="switchTab" url="/pages/home/home">
   <image src="/assets/icons/home.1.png"></image>
@@ -10,7 +72,6 @@
 </navigator>
 
 <view class="post-cover">
-       <myfav wx:if="{{post.id}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
        <swiper class="swiper" 
                indicator-dots="true" 
                autoplay="{{post.images_list.length > 1}}" 
@@ -58,10 +119,9 @@
      </view>
 
      <view class="tagsinfo">
-        <mytags wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
+        <mytags mini="{{true}}" wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
         <myfav wx:if="{{post.id}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
      </view>
-    
     
      <view bindtap='couponHandle' class="coupon" wx:if="{{ post.coupon_desc && post.coupon_enable}}">
        <view class="name line-limit">{{post.coupon_desc}}</view>
@@ -70,94 +130,22 @@
   </view>
 </box>
 
-<view class="tabs">
- <view data-tab="detail" bindtap="tabHandle" class="tab-item {{currentTab == 'detail' ? 'active': ''}}">详细</view>
- <view class="tab-blank"></view>
- <view data-tab="comment" bindtap="tabHandle" class="tab-item {{currentTab == 'comment' ? 'active': ''}}">评论</view>
- <view class="tab-blank"></view>
- <view data-tab="qa" bindtap="tabHandle" class="tab-item {{currentTab == 'qa' ? 'active': ''}}">问答</view>
- <block wx:if="{{user && user.is_broker}}" >
- <view data-tab="more" bindtap="tabHandle" class="tab-item {{currentTab == 'more' ? 'active': ''}}">更多</view>
- <view  data-tab="flows" bindtap="tabHandle" class="tab-item {{currentTab == 'flows' ? 'active': ''}}">跟进</view>
- </block>
-</view>
-
-<box padding="30" wx:if="{{currentTab == 'more' && user.is_broker }}">
-        <van-cell bindtap="{{pm.bindtap}}" data-value="{{pm.value}}" wx:for="{{post.protected_meta_list}}" wx:for-item="pm" title="{{pm.label}}" value="{{pm.value}}" />
-    <van-cell title="俯瞰图" value="{{ post.overlook_image ? '点击查看' : '无' }}" bindtap="viewOverlook"/>
+<box padding="0">
+  <van-tabs swipeable="{{true}}"  bind:change="tabChange" animated="{{true}}" color="#00ae66">
+      <van-tab custom-class="mytab" title="详细">
+        <template is="meta-tab" data="{{post: post}}" />
+        <template wx:if="{{post}}" is="{{post.group}}-detail" data="{{post: post, htmlContent: htmlContent, minicontent:minicontent}}"/>
+      </van-tab>
+      <van-tab custom-class="mytab"  title="评论"><template is="comments-tab" data="{{post: post}}" /></van-tab>
+      <van-tab custom-class="mytab"  title="问答"><template is="qas-tab" data="{{post: post, qas:qas, postId:postId}}" /></van-tab>
+      <van-tab custom-class="mytab"  title="更多" wx:if="{{user && user.is_broker}}"><template is="more-tab" data="{{post: post, pm:pm}}" /></van-tab>
+      <van-tab custom-class="mytab"  title="跟进" wx:if="{{user && user.is_broker}}"><template is="flows-tab" data="{{post: post, flows:flows}}" /></van-tab>    
+  </van-tabs>
 </box>
 
 
-<box padding="30" wx:if="{{currentTab == 'flows' && user.is_broker }}">
-  <view bind:longpress="flowEdit" data-index="{{index}}" class="flow-item" wx:for="{{flows}}" wx:for-item="flow">
-    <image src="{{flow.user_info.avatar}}"></image>
-    <view class="flow-content">
-      <view class="user-name">{{flow.user_info.name}}</view>
-      <view class="arrow"></view>
-      <view class="text">{{flow.content}}</view>
-      <view class="time">{{flow.updated_at_pretty }}</view>
-    </view>
-  </view>
-  <view class="new-flow-action">
-    <view class="desc">
-      <view wx:if="{{flows.length == 0}}">暂无跟进信息</view>
-      <view>写入的跟进记录只对平台入驻的经纪人可见</view>
-    </view>
-    <van-button disabled='{{showFlowForm}}' size="small" type="primary"  plain bindclick="openFlowForm">写跟进</van-button>
-  </view>
-</box>
-  
 
-  
-<view hidden="{{currentTab!='detail'}}">
-    <box padding="30" margin-bottom="0">
-      <view  class="detail-meta">
-              <view class="meta" wx:if="{{meta.value}}" wx:for="{{post.meta_list}}" wx:for-item="meta">
-            <text class="label">{{meta.label}}</text>
-            <text class="price">{{ meta.value}}</text>
-         </view>
-      </view>
-    </box>
 
-    <box padding="30" margin-bottom="0">
-      <mapimage image="{{post.map_image_url}}" latitude="{{post.latitude}}"  longitude="{{post.longitude}}" name="{{post.area_name}}" url="{{post.map_image_url}}"></mapimage>
-    </box>
-
-  <template wx:if="{{post}}" is="{{post.group}}-detail" data="{{post: post, htmlContent: htmlContent, minicontent:minicontent}}"/>
-
-</view>
-
-<view hidden="{{currentTab!='comment'}}">
-<box padding="30"
-     number="{{post.comments_count}}" 
-     title="用户评价" 
-     url="{{ post.comments_count > 1 ?  '/pages/comments/index?target_id=' +postId : null}}" >
-  <comments targetId="{{post.id}}" targetType="post" ></comments>
-
-  <view class="comments-empty" wx:if="{{post.comments_count == 0}}">暂无评论</view>
-  <view class="comments-add">
-    <navigator hover-class='none' url="/pages/comments/new?target_id={{post.id}}">
-      <button class="plain btn mini">我要点评</button>
-    </navigator> 
-  </view>
-</box>
-</view>
-
-<view hidden="{{currentTab!='qa'}}">
-<box  padding="30" number="{{post.questions_count}}" url="{{ post.questions_count > 5 ? '/pages/qa/index?post_id='+postId : null }}">
-  
-  <view class="qa"  wx:for="{{qas}}">
-      <qa answer="{{false}}" item="{{item}}" mini></qa>
-  </view>
-
-  <view class="comments-empty" wx:if="{{qas.length ==0}}">暂无提问</view>
-    <view class="comments-add">
-      <navigator hover-class='none' url="/pages/qa/new?post_id={{postId}}">
-        <button class="btn plain round mini">我要提问</button>
-        </navigator> 
-  </view>
-</box>
-</view>
 
 <mycard title="户型信息"  wx:if="{{post.group == 'new'}}">
     <view class="housetype" wx:for="{{post.types}}">

@@ -1,5 +1,5 @@
 .myfav image{
   vertical-align: middle;
-  width:60rpx;
-  height:60rpx;
+  width:40rpx;
+  height:40rpx;
 }

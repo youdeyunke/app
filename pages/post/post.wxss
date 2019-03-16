@@ -29,16 +29,6 @@ mycard{
   position:relative;
 }
 
-
-.post-cover myfav{
-  color:#fff;
-  position:absolute;
-  right:50rpx;
-  top:50rpx;
-  z-index:999;
-}
-
-
 .post-cover .image-count{
   color:#fff;
   background:rgba(0,0,0, 0.1);
@@ -112,10 +102,7 @@ mycard{
   display:flex;
   justify-content:flex-start;
   flex-wrap:wrap;
-}
-
-
-.detail-meta .meta{
+  margin-bottom:30rpx;
 }
 
 .detail-meta .meta{
@@ -364,20 +351,6 @@ myfav .myfav {
 }
 
 
-
-.block-title{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.block-title .desc{
-  color: #999;
-}
-
-
-
-
 .content-switch .up{
   transform:rotate(-90deg);
   -ms-transform:rotate(-90deg); /* Internet Explorer */
@@ -466,9 +439,6 @@ myfav .myfav {
   font-size:var(--font-s);
 }
 
-.share-box-title{
-}
-
 .share-box-items{
   display: flex;
   justify-content: space-around;
@@ -519,36 +489,6 @@ myfav .myfav {
 .float-btn.gen-poster image{
   width: 32rpx;
   height: 32rpx;
-}
-
-.tabs {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  height:100rpx;
-  font-size:var(--font-l);
-  width:100%;
-  background:#fff;
-  border-bottom:2rpx solid #f4f4f4;
-}
-
-.tabs .tab-item{
-  display:flex;
-  height:100%;
-  justify-content:space-around;
-  align-items:center;
-  max-width: 30%;
-  min-width: 20%;
-}
-
-.tabs .tab-item.active{
-  color:var(--color-a);
-}
-
-.tabs .tab-blank{
- width:2rpx;
- height:70%;
- background:#f4f4f4;
 }
 
 
@@ -641,4 +581,10 @@ image.overlook{
   width: 550rpx;
   font-size:var(font-xs);
   color: #cecece;
+}
+
+.mytab{
+  padding:30rpx;
+  box-sizing: border-box;
+  width: 100%;
 }
