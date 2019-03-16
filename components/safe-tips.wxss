@@ -1,4 +1,6 @@
-
+.safe-tips{
+  padding:30rpx;
+}
 .safe-tips .title{
   font-size: var(--font-s);
 }

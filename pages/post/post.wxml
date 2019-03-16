@@ -5,12 +5,6 @@
 
 <template name="meta-tab">
   <block>
-    <view  class="detail-meta">
-            <view class="meta" wx:if="{{meta.value}}" wx:for="{{post.meta_list}}" wx:for-item="meta">
-          <text class="label">{{meta.label}}</text>
-          <text class="price">{{ meta.value}}</text>
-        </view>
-    </view>
     <mapimage image="{{post.map_image_url}}" latitude="{{post.latitude}}"  longitude="{{post.longitude}}" name="{{post.area_name}}" ></mapimage>
   </block>
 </template>
@@ -120,15 +114,23 @@
 
      <view class="tagsinfo">
         <mytags mini="{{true}}" wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
-        <myfav wx:if="{{post.id}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
      </view>
-    
-     <view bindtap='couponHandle' class="coupon" wx:if="{{ post.coupon_desc && post.coupon_enable}}">
-       <view class="name line-limit">{{post.coupon_desc}}</view>
-     <view class="action">{{ post.user_has_coupon ? '已领券' : '领券' }}</view>
-   </view>     
+
+    <view  class="detail-meta">
+            <view class="meta" wx:if="{{meta.value}}" wx:for="{{post.meta_list}}" wx:for-item="meta">
+          <text class="label">{{meta.label}}</text>
+          <text class="price">{{ meta.value}}</text>
+        </view>
+    </view>    
+     
+    <view  bindtap='couponHandle' class="coupon" wx:if="{{ post.coupon_desc && post.coupon_enable}}">
+      <view class="name line-limit">{{post.coupon_desc}}</view>
+      <view class="action">{{ post.user_has_coupon ? '已领券' : '领券' }}</view>
+    </view>        
   </view>
 </box>
+
+
 
 <box padding="0">
   <van-tabs swipeable="{{true}}"  bind:change="tabChange" animated="{{true}}" color="#00ae66">
@@ -142,9 +144,6 @@
       <van-tab custom-class="mytab"  title="跟进" wx:if="{{user && user.is_broker}}"><template is="flows-tab" data="{{post: post, flows:flows}}" /></van-tab>    
   </van-tabs>
 </box>
-
-
-
 
 
 <mycard title="户型信息"  wx:if="{{post.group == 'new'}}">
@@ -166,6 +165,7 @@
 <mycard wx:if="{{post.group == 'new' && post.more_url}}" title="{{post.more_title}}" opentype="webview" url="{{post.more_url}}" hat>
   <view>{{ post.more_desc }}</view>
 </mycard>
+
 <broker-link wx:if="{{post.user.is_broker}}" broker="{{post.broker_info}}" />
 <recoms exclude-id="{{post.id}}" wx:if="{{post.group}}" group="{{post.group}}" count="10"></recoms>
 <broker wx:if="{{post.broker_info}}" broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>
@@ -182,10 +182,10 @@
 
 <van-popup show="{{showPoster}}" bind:close="closePoster" > 
   <view class="poster-preview">
-    <image src="{{posterUrl}}"></image>
+    <image src="{{posterUrl}}" mode="widthFix"></image>
     <view class="poster-actions">
-      <view class="poster-actions-btn poster-cancle-btn" bind:tap="closePoster" >取消</view>
-      <view class="poster-actions-btn poster-save-btn"  bindtap="onSavePoster">保存到相册</view>
+      <view class="poster-actions-btn poster-cancle-btn" bind:tap="closePoster" >关闭</view>
+      <view class="poster-actions-btn poster-save-btn"  bindtap="onSavePoster">保存图片</view>
     </view>
 
   </view>

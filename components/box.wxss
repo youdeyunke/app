@@ -6,3 +6,8 @@
   -moz-box-sizing:border-box; /* Firefox */
   -webkit-box-sizing:border-box; /* Safari */
 }
+
+.mybox.shadow{
+  box-shadow:#cecece  2rpx 4rpx 6rpx 0.1;
+}
+

@@ -9,8 +9,13 @@ Component({
     width: {
       type: Number, value: 750,
     },
+
     radius: {
-      type: Number, value: 0,
+      type: Number, value: 2,
+    },
+
+    shadow: {
+      type: Boolean, value: false,
     },
 
     padding: {

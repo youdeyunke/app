@@ -1,6 +1,6 @@
 {
-  "navigationBarBackgroundColor": "#00ae66",
-  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#f3f5f7",
+  "navigationBarTextStyle": "black",
   "usingComponents": {
     "mytags": "/components/tags",
     "gimage": "/components/gyroscope-image",

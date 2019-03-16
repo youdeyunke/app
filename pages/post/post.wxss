@@ -102,7 +102,7 @@ mycard{
   display:flex;
   justify-content:flex-start;
   flex-wrap:wrap;
-  margin-bottom:30rpx;
+  margin-bottom:0rpx;
 }
 
 .detail-meta .meta{
@@ -136,7 +136,10 @@ mycard{
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  margin-top:20rpx;
+  margin-bottom:20rpx;
+  margin-top:10rpx;
+  border-top:2rpx solid #f4f4f4;
+  padding-top:20rpx;
 }
 
 
@@ -204,18 +207,18 @@ mycard{
 
 .coupon{
   background: red;
-  height: 90rpx;
+  height: 80rpx;
   background: url('http://qiniucdn.udeve.cn/coupon-bg-2.png');
-  background-size: 100% 100rpx;
+  background-size: 100% 80rpx;
   display: flex;
   justify-content: space-between;
   align-items: center;
   letter-spacing: 5rpx;
-  margin-top:20rpx;
+  margin-top:30rpx;
   width:100%;
 }
 .coupon .name{
-  height: 80rpx;
+  height: 100%;
   width: 350rpx;
   display: flex;
   justify-content: flex-start;
@@ -232,7 +235,6 @@ mycard{
   align-items: center;
   color: #fff;
 }
-
 
 
 myfav .myfav {
@@ -371,7 +373,7 @@ myfav .myfav {
 
 
 .poster-preview{
-  height: 1100rpx;
+  height: 820rpx;
   width: 600rpx;
   display: flex;
   flex-direction: column;
@@ -381,7 +383,6 @@ myfav .myfav {
 
 .poster-preview image{
   width: 600rpx;
-  height: 960rpx;
 }
 
 
@@ -587,4 +588,5 @@ image.overlook{
   padding:30rpx;
   box-sizing: border-box;
   width: 100%;
+  display: inline-block;
 }

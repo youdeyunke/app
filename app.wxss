@@ -14,10 +14,10 @@ page{
   --color-a: #00ae66;
   --color-b: #ff911b;
   --color-c: red;
-  --font-xl: 38rpx;
+  --font-xl: 32rpx;
   --font-l: 32rpx;
   --font-s: 28rpx;
-  --font-xs: 24rpx;
+  --font-xs: 22rpx;
   
 }
 

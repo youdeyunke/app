@@ -9,12 +9,6 @@ Page({
    */
   data: {
     user_id: null,
-    cats: [
-      {name: '看过该房', id: 1},
-      {name: '我是租客', id: 2},
-      {name: '其他', id: 3},
-    ],
-
     posts: [{}],
     comment: {},
   },
@@ -24,22 +18,8 @@ Page({
     this.data.comment.content = e.detail.value
     this.setData({ comment: this.data.comment })
   },
-  catHandle: function(e){
-    var _this = this
-    auth.ensureMobile(function(userInfo){
-      _this._catHandle(e)
-    })
-  },
 
-  _catHandle: function(e){
-    console.log('e', e)
-    var i =  e.currentTarget.dataset.index
-    var cat = this.data.cats[i]
-    
-    this.data.comment.cat_id = cat.id
-    this.data.comment.cat_name = cat.name
-    this.setData({comment: this.data.comment})
-  },
+
 
   scoreHandle: function(e){
     console.log('e', e)
@@ -77,12 +57,6 @@ Page({
       return false
     }
 
-    if(!comment.cat_id){
-      wx.showToast({
-        title: '请选身份',
-      })
-      return false
-    }
 
     if(!comment.content){
       wx.showToast({
@@ -144,7 +118,6 @@ Page({
       )
       this.setData({comment: {
         score: 1,
-        cat_id: 0,
         content: '',
         target_type: this.data.target_type,
         target_id: this.data.target_id,

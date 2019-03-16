@@ -358,7 +358,19 @@ Page({
       debug: false,
         backgroundColor: '#fff',
           width: 750,
-            height: 1200,
+            height: 750,
+              blocks: [
+                {
+                  width: 220,
+                  height: 220,
+                  x: 510,
+                  y: 370,
+                  backgroundColor:'#ffffff',
+                  borderColor:'#f4f4f4',
+                  borderWidth:4,
+                  borderRadius: 220,
+                },                
+              ],
               images: [
                 {
                   width: 750,
@@ -370,10 +382,10 @@ Page({
                 },
 
                 {
-                  width: 260,
-                  height: 260,
-                  x: 245,
-                  y: 925,
+                  width: 200,
+                  height: 200,
+                  x: 520,
+                  y: 380,
                   borderRadius: 0,
                   url: post.qr,
                 },
@@ -382,31 +394,39 @@ Page({
                 texts: [
                   {
                     x: 30,
-                    y: 554,
+                    y: 524,
                     baseLine: 'middle',
-                    text: post.title,
+                    text: post.title_info.text ,
                     fontSize: 38,
                     color: '#000',
                   },  
                   {
                     x: 30,
-                    y: 627,
+                    y: 577,
                     baseLine: 'middle',
-                    text:post.address + ' ' +  post.tags_list.join(' ')  + ' | ' + '联系人：' + post.broker_info.name + ' ' + post.broker_info.mobile, 
+                    text:post.tags_list.join(' '),
                     fontSize: 24,
                     color: '#000',
                   },                    
-
+           
                   {
-                    x: 80 - 10*post.price_info.text.length*0.5,
-                    y: 735,
+                    x: 30,
+                    y: 617,
                     baseLine: 'middle',
-                    text: post.price_info.text,
+                    text: '联系人：' + post.broker_info.name + ' ' + post.broker_info.mobile,
+                    fontSize: 24,
+                    color: '#000',
+                  },   
+                  {
+                    x: 40,
+                    y: 695,
+                    baseLine: 'middle',
+                    text: post.price_info.text + post.price_info.px,
                     fontSize: 38,
                     color: '#ff911b',
                   },                  
                   {
-                    x: 106,
+                    x: 40,
                     y: 788,
                     baseLine: 'middle',
                     text: post.price_info.label,
@@ -415,15 +435,15 @@ Page({
                   },
 
                   {
-                    x: 325 - 12 * post.type_info.text.length * 0.5,
-                    y: 735,
+                    x: 300,
+                    y: 695,
                     baseLine: 'middle',
-                    text: post.type_info.text,
+                    text: post.type_info.text + post.type_info.px,
                     fontSize: 38,
                     color: '#ff911b',
                   },
                   {
-                    x: 345,
+                    x: 300,
                     y: 788,
                     baseLine: 'middle',
                     text: '户型',
@@ -433,65 +453,50 @@ Page({
 
 
                   {
-                    x: 560 - 11 * post.area_info.text.length * 0.5,
-                    y: 735,
+                    x: 530,
+                    y: 695,
                     baseLine: 'middle',
-                    text: post.area_info.text,
+                    text: post.area_info.text + post.area_info.px,
                     fontSize: 38,
                     color: '#ff911b',
                   },
                   {
-                    x: 580,
+                    x: 530,
                     y: 788,
                     baseLine: 'middle',
                     text:post.area_info.label,
                     fontSize: 24,
                     color: '#8d8d8d',
-                  },    
-
-                  {
-                    x: 290,
-                    y: 880,
-                    baseLine: 'middle',
-                    text: "长按识别二维码",
-                    fontSize: 24,
-                    color: '#cecece',
-                  },                                        
+                  },                                   
                 ],
 
       lines: [
         {
-          startY: 683,
+          startY: 653,
           startX: 30,
           endX: 720,
-          endY: 683,
+          endY: 653,
           width: 2,
-          color: '#cecece',
+          color: '#f4f4f4',
         },
+       
         {
-          startY: 826,
-          startX: 30,
-          endX: 720,
-          endY: 826,
-          width: 2,
-          color: '#cecece',
-        },        
-        {
-          startY: 705,
+          startY: 675,
           startX: 260,
           endX: 260,
-          endY: 805,
+          endY: 695,
           width: 2,
-          color: '#cecece',
+          color: '#f4f4f4',
         },  
         {
-          startY: 705,
+          startY: 675,
           startX: 491,
           endX: 491,
-          endY: 805,
+          endY: 695,
           width: 2,
-          color: '#cecece',
-        },                
+          color: '#f4f4f4',
+        },              
+            
       ]                
     }
     this.setData({posterConfig: config})
