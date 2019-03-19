@@ -133,6 +133,9 @@ mycard{
  .post-title{
   color:#000;
   margin: 0rpx 0 20rpx 0 ;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .tagsinfo{
@@ -377,8 +380,8 @@ myfav .myfav {
 
 
 .poster-preview{
-  height: 820rpx;
-  width: 600rpx;
+  height: 710rpx;
+  width: 710rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -386,7 +389,7 @@ myfav .myfav {
 }
 
 .poster-preview image{
-  width: 600rpx;
+  width: 100%;
 }
 
 

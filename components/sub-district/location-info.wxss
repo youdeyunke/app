@@ -10,6 +10,10 @@
   padding:10rpx 0;
 }
 
+.subinfo .sub-address{
+  margin-bottom: 10rpx;
+}
+
 .subinfo .sub-address van-icon{
   color: #999999;
   margin-right:15rpx;

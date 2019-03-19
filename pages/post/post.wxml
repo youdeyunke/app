@@ -58,7 +58,9 @@
 
 <box padding="30" >
   <view class="header"> 
-     <view class=" post-title h1 ">{{ post.title_info.text }}</view>
+     <view class=" post-title">
+      <view class="h1">{{ post.title_info.text }}</view>
+    </view>
 
      <view class="typeinfo">
          <view class="item border">
@@ -101,7 +103,7 @@
 <mycard title="房源介绍" >  
   <broker-link wx:if="{{post.user.is_broker}}" broker="{{post.broker_info}}" />
   <block wx:if="{{post.desc}}">
-    <view class="info_title">房源概况</view>
+    <view class="info_title" style="margin-top:30rpx;">房源概况</view>
     <view class="info_text"> {{ post.desc }} </view>
   </block>
 
@@ -161,12 +163,7 @@
 
 <van-popup show="{{showPoster}}" bind:close="closePoster" > 
   <view class="poster-preview">
-    <image src="{{posterUrl}}" mode="widthFix"></image>
-    <view class="poster-actions">
-      <view class="poster-actions-btn poster-cancle-btn" bind:tap="closePoster" >关闭</view>
-      <view class="poster-actions-btn poster-save-btn"  bindtap="onSavePoster">保存图片</view>
-    </view>
-
+    <image catchtap='onSavePoster' src="{{posterUrl}}" mode="widthFix"></image>
   </view>
 </van-popup>
 
