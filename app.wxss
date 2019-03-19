@@ -247,14 +247,6 @@ textarea{
 }
 
 
-.line{
-  border-bottom:4rpx solid #f4f4f4;
-}
-
-.line{
-  border-bottom:4rpx solid #f4f4f4;
-}
-
 .empty{
   display: flex;
   flex-direction: column;
@@ -389,5 +381,5 @@ page::after{
 
  .typeinfo .item.border{
   border-right:1px solid #f1f1f1;
-  margin-right:20rpx;
+  margin-right:60rpx;
 } 

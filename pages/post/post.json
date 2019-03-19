@@ -12,6 +12,7 @@
     "box": "/components/box",
     "mypost": "/components/post",
     "sub-item": "/components/sub-district/item",
+    "sub-location-info": "/components/sub-district/location-info",    
     "safe-tips": "/components/safe-tips",
     "van-cell": "/vant/cell/index",
     "mystars": "/components/stars",

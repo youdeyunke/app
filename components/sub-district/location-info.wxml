@@ -1,0 +1,10 @@
+<block>
+  <mapimage image="{{item.map_image_url}}" latitude="{{sub.latitude}}"  longitude="{{item.longitude}}" name="{{item.name}}" ></mapimage>
+  <view class="subinfo">
+    <view class="sub-address"><van-icon name="location"></van-icon>{{item.full_address}}</view>
+    <view class="station-item" wx:for="{{item.stations}}" wx:for-item="station" >
+      <view class="station"><image src="/assets/icons/subway.png"></image>{{station.name}}</view>
+      <view class="line">{{ station.subway.name}}</view>
+    </view>
+  </view>
+</block>

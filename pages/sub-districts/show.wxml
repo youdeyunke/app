@@ -54,8 +54,8 @@
   </view>
 </mycard>
 
-<mycard title="周边概况" >
-  <mapimage image="{{sub.map_image_url}}" latitude="{{sub.latitude}}"  longitude="{{sub.longitude}}" name="{{sub.name}}" url="{{sub.map_image_url}}"></mapimage>
+<mycard title="地理位置" >
+  <sub-location-info item="{{sub}}" />
 </mycard>
 
 <mycard title="在租房源" url="/pages/post/index?sub_district_id={{sub.id}}">

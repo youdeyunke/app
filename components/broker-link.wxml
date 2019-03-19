@@ -4,7 +4,9 @@
     <image class="avatar" src="{{broker.avatar}}"></image>
     <view class="text">
       <view class="name"><text>{{broker.name}}</text> <van-tag color="#ff911b" plain>已认证</van-tag> </view>
-      <view class="desc">当前经纪人已开通店铺，进入查看TA的更多房源</view>
+      <view class="desc">
+        <text wx:if="{{broker.mobile}}">联系电话：{{broker.mobile}}</text>
+      </view>
     </view>
     <button class="btn primary plain mini">进入店铺</button>
   </view>

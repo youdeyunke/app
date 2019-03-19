@@ -56,7 +56,7 @@
 
 </view>
 
-<box padding="30" margin-bottom="0">
+<box padding="30" >
   <view class="header"> 
      <view class=" post-title h1 ">{{ post.title_info.text }}</view>
 
@@ -97,12 +97,8 @@
   </view>
 </box>
 
-<box>
-  <mapimage image="{{sub.map_image_url}}" latitude="{{sub.latitude}}"  longitude="{{sub.longitude}}" name="{{sub.name}}" ></mapimage>
-</box>
 
-
-<box padding="30">  
+<mycard title="房源介绍" >  
   <broker-link wx:if="{{post.user.is_broker}}" broker="{{post.broker_info}}" />
   <block wx:if="{{post.desc}}">
     <view class="info_title">房源概况</view>
@@ -123,11 +119,12 @@
     <view class="info_title">服务介绍</view>
     <view class="info_text"> {{ post.service}} </view>
   </block>
-</box>
+</mycard>
 
-<box padding="30">
-  <sub-item item="{{sub}}" />
-</box>
+<mycard title="地理位置">
+  <sub-location-info item="{{sub}}" />
+</mycard>
+
 
 <mycard title="户型信息"  wx:if="{{post.group == 'new'}}">
     <view class="housetype" wx:for="{{post.types}}">
@@ -149,7 +146,7 @@
   <view>{{ post.more_desc }}</view>
 </mycard>
 
-<recoms exclude-id="{{post.id}}" wx:if="{{post.group}}" group="{{post.group}}" count="10"></recoms>
+<recoms exclude-id="{{post.id}}" wx:if="{{post.group}}" group="{{post.group}}" count="4"></recoms>
 <broker wx:if="{{post.broker_info}}" broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>
 <safe-tips/>
 
