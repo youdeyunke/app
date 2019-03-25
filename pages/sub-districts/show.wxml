@@ -32,13 +32,13 @@
                  </view>
                  <view class="key">均价</view>
          </view>
-         <view class="item border">
+         <view class="item border" bindtap='gotoOldPost'>
                 <view class="value">{{sub.old_nums}}
-                <text class="px">㎡</text> 
+                <text class="px">套</text> 
                 </view>
                  <view class="key">在售</view>
          </view>
-         <view class="item">
+         <view class="item" bindtap='gotoRentalPost'>
                  <view class="value">{{sub.rental_nums}} 
                  <text class="px">套</text>
                  </view>
@@ -58,6 +58,6 @@
   <sub-location-info item="{{sub}}" />
 </mycard>
 
-<mycard title="在租房源" url="/pages/post/index?sub_district_id={{sub.id}}">
+<mycard title="在租房源" url="/pages/post/index?sub_district_id={{sub.id}}&group=rental">
   <posts page="1" filter="{{postQuery}}" />
 </mycard>

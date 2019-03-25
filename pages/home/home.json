@@ -9,7 +9,7 @@
       "news-swiper": "/components/news-swiper",
       "navs": "/components/navs",
       "myslider": "/components/slider",
-      "post": "/components/post",
+      "post": "/components/post/item",
       "postcard": "/components/postcard",
       "van-action-sheet": "/vant/action-sheet/index",
       "box": "/components/box"

@@ -1,20 +1,23 @@
 <block>
 <navigator hover-class="none" class="post {{item.group == 'new' && item.coupon_enable ? '' : 'coupon-none'}} {{type}} {{ shadow ? 'shado' : 'shadow-none'}} {{ border ? 'border' : 'border-none'}}" open-type="navigate" url="/pages/post/post?id={{item.id}}" >
-      <badge wx:if="{{item.is_hot}}">精选</badge>
+      <badge wx:if="{{item.coupon_enable}}">{{item.coupon_desc}}</badge>
       <view class="cover skeleton-rect">
-        <image class="i" src="{{ item.cover || '/assets/images/cover-none.png' }}?imageView2/2/w/750"></image>
+        <image mode="widthFix" class="i" src="{{ item.cover || '/assets/images/cover-none.png' }}?imageView2/2/w/750"></image>
         <view class="icons">
           <image wx:if="{{item.vr_url}}" class="vr-btn" src="/assets/icons/vr.png"></image>
           <image wx:if="{{item.video}}" class="video-btn" src="/assets/icons/bofang.png"></image>
         </view>
       </view>
       <view class="meta">
-        <text class="item-title skeleton-rect" > {{ item.title }}</text>
+        <text class="item-title van-ellipsis "  >{{ item.title }}</text>
+        <view class="type-info">
+          {{item.area_info.text}}{{item.area_info.px}}/{{ item.type_info.text}}/{{item.sub_district.name }}
+        </view>
         <mytags mini="true" items="{{item.tags_list}}" max="3"></mytags>
 
-        <view class="area-price">
-              <text class="area skeleton-rect" >{{item.area_info.label}}: {{item.area_info.text}}</text>
-              <text class="price skeleton-rect" >{{item.price_info.label}}：<text class="red">{{item.price_info.text}}</text></text>            
+        <view class="price-info">
+          <text class="total">{{item.price_info.text}}{{item.price_info.px}}</text> 
+          <text class="average" wx:if="{{item.average_price}}">{{item.average_price}}元/平</text>     
         </view>
     
 

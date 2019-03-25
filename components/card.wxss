@@ -30,9 +30,9 @@
 
 .card-header .card-hat{
   height:30rpx;
-  width:10rpx;
+  width:12rpx;
   background:var(--color-a);
-  margin-right:10rpx;
+  margin-right:15rpx;
 }
 
 .card-header-title{

@@ -1,4 +1,4 @@
-<block>
+<block wx:if="{{filter}}">
 
   <view class="empty" wx:if="{{meta.total_entries == 0 }}" style="text-align:center;color:#cecece;">没有结果</view>
   <block wx:for="{{items}}" wx:for-item="posts">

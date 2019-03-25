@@ -9,7 +9,7 @@ Component({
     },
     title: {type: String, value: '标题'},
     subtitle: {type: String, value: ''},
-    hat: { type: Boolean, value: false, },
+    hat: { type: Boolean, value: true, },
     arrow: { type: Boolean, value: true },
      
     number: {type: Number, value: 0,},

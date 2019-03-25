@@ -19,6 +19,6 @@
 
 <view class="res">
 <box padding="20">
-  <items kw="{{kw}}" page="{{page}}" filter="{{filter}}" />
+  <items kw="{{kw}}" wx:if="{{filter}}" page="{{page}}" filter="{{filter}}" />
 </box>
 </view>

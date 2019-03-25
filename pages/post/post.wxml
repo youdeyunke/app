@@ -83,6 +83,7 @@
 
      <view class="tagsinfo">
         <mytags mini="{{true}}" wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
+        <view class="num">ID:{{post.id}}</view>
      </view>
 
     <view  class="detail-meta">
@@ -99,29 +100,30 @@
   </view>
 </box>
 
+<box padding="0" >
+  <view class="info-block">
+    <view class="info-item">
+      <view class="info_title" style="margin-top:30rpx;">房源概况</view>
+      <view class="info_text"> {{ post.desc || '未填写' }} </view>
+    </view>
+    <view class="info-item">
+      <view class="info_title">核心卖点</view>
+      <view class="info_text"> {{ post.selling_points || ''}} </view>
+    </view>  
+    <view class="info-item">
+      <view class="info_title">业主心态</view>
+      <view class="info_text"> {{ post.owner_mindset  || ''}} </view>
+    </view>
+    <view class="info-item">
+      <view class="info_title">服务介绍</view>
+      <view class="info_text"> {{ post.service || ''}} </view>
+    </view>  
+  </view>
+</box>
 
-<mycard title="房源介绍" >  
+<box padding="30">  
   <broker-link wx:if="{{post.user.is_broker}}" broker="{{post.broker_info}}" />
-  <block wx:if="{{post.desc}}">
-    <view class="info_title" style="margin-top:30rpx;">房源概况</view>
-    <view class="info_text"> {{ post.desc }} </view>
-  </block>
-
-  <block wx:if="{{post.selling_points}}">
-    <view class="info_title">核心卖点</view>
-    <view class="info_text"> {{ post.selling_points}} </view>
-  </block>
-
-  <block wx:if="{{post.owner_mindset}}">
-    <view class="info_title">业主心态</view>
-    <view class="info_text"> {{ post.owner_mindset}} </view>
-  </block>
-
-  <block wx:if="{{post.service }}">
-    <view class="info_title">服务介绍</view>
-    <view class="info_text"> {{ post.service}} </view>
-  </block>
-</mycard>
+</box>
 
 <mycard title="地理位置">
   <sub-location-info item="{{sub}}" />

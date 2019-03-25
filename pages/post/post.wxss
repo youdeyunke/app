@@ -9,14 +9,21 @@ mycard{
 }
 
 
+.info-block{
+  padding:30rpx 0;
+}
+
  .info_title{
   margin:0 0 15rpx 0;
+  padding:0 30rpx;
   font-weight:bolder;
   color:#000;
 }
 
 .info_text{
-  margin-bottom:20rpx;
+  margin:30rpx 0;
+  padding:0 30rpx;
+
 }
 
 .post-cover{
@@ -133,6 +140,7 @@ mycard{
  .post-title{
   color:#000;
   margin: 0rpx 0 20rpx 0 ;
+  font-weight: bold;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -147,6 +155,11 @@ mycard{
   margin-top:10rpx;
   border-bottom:2rpx solid #f4f4f4;
   padding-bottom:20rpx;
+}
+
+.tagsinfo .num{
+  font-size:20rpx;
+  color: #999;
 }
 
 

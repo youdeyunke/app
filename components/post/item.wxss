@@ -1,6 +1,7 @@
 
 .post{
   position:relative;
+  height: 190rpx;  
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -21,18 +22,25 @@
 
 
 .tags {
-  font-size:30rpx;
+  font-size:22rpx;
   color: 333;
 }
 
 .post .cover{
   position: relative;
-  width:246rpx;
-  height: 174rpx;  
-  border-radius:10rpx;
+  width:206rpx;
+  height: 150rpx;
   overflow:hidden;
   z-index:1;
 }
+
+.post .cover .i{
+  width:100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius:0rpx;  
+}
+
 
 .post badge{
   position:absolute;
@@ -41,10 +49,6 @@
   z-index:2;
 }
 
-.post .cover .i{
-  width:100%;
-  height: 100%;
-}
 .post .icons{
   display:flex;
   justify-content:space-around;
@@ -52,8 +56,8 @@
   width:120rpx;
   height:60rpx;
   position: absolute;
-  left:calc(296rpx * 0.5 - 120rpx * 0.5);
-  top:calc(184rpx * 0.5 - 60rpx * 0.5);
+  left:calc(206rpx * 0.5 - 120rpx * 0.5);
+  top:calc(150rpx * 0.5 - 60rpx * 0.5);
 }
 
 .post .icons image{
@@ -68,44 +72,36 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width:410rpx;
+  width:450rpx;
   font-size:24rpx;
 }
 
 .post .meta .item-title{
-  display: -webkit-box ;
+  width:360rpx;
+  font-size:28rpx;
+  color: #333;
+  font-weight: bold;
   overflow: hidden;
   text-overflow: ellipsis;
-  word-break: break-all;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp:2;
-
-
-  width:360rpx;
-  font-size:32rpx;
-  color: #000;
-  font-weight: bold;
+  white-space: nowrap;  
 }
 
-.post .meta .area-price{
+.post .meta{
+  font-size:var(--font-xs);
+}
+
+.post .meta .price-info{
   display: flex;
   justify-content: flex-start; 
   align-items: flex-end;
 }
-
-.post .meta .location{
-  font-size:24rpx;
+.post .meta .price-info .total{
+  color: red;
+  font-size:28rpx;
 }
-
-.post .meta .area-price .area{
-  color:#000;
-  width:50%;
-}
-.post .meta .area-price .price{
-  color:var(--color-b);
-  font-weight: bold;
-  font-size: 24rpx;
-  width:50%;
+.post .meta .price-info .average{
+  color: #999;
+  margin-left:20rpx;
 }
 
 .post .red{

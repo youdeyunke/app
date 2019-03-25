@@ -2,7 +2,7 @@
   "component": true,
   "usingComponents": {
     "card": "/components/card",
-    "post": "/components/post"
+    "post": "/components/post/item"
   
   }
 }

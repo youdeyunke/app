@@ -27,6 +27,21 @@ Page({
     this.loadData()
   },
 
+  gotoPostIndex: function(group){
+    var _this = this
+    wx.navigateTo({
+      url: '/pages/post/index?sub_district_id=' +_this.data.id + '&group=' + group || 'old',
+    })
+  },
+
+  gotoOldPost: function(){
+    this.gotoPostIndex('ershoufang')
+  },
+
+  gotoRentalPost: function () {
+    this.gotoPostIndex('rental')
+  },  
+
 
   loadData: function(){
     var _this = this

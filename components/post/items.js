@@ -51,6 +51,10 @@ Component({
     filterChange: function(){
       console.log('filter change')
       var query = this.data.filter || {}
+      if(Object.keys(query).length == 0){
+        return false;
+      }
+
       query.page = 1
       query.kw = this.data.kw
       this.setData({query: query})

@@ -5,7 +5,7 @@
   "usingComponents": {
     "van-tab": "/vant/tab/index",
     "van-tabs": "/vant/tabs/index",
-    "post":"/components/post",
+    "post":"/components/post/item",
     "box":"/components/box"
   }
 }
