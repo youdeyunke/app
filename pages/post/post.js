@@ -336,13 +336,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({ 
-      user : wx.getStorageSync('userInfo') || {} ,
-      from_share: options.from_share == '1',
-    })
+    console.log('on load', options.qr_query)
+    var postId = null
+    var fromShare = false
 
+    if (options.qr_query) {
+      var qrData = JSON.parse(decodeURIComponent(options.qr_query))
+      postId = qrData['id']
+      fromShare = true
+      console.log('qrdata', qrData, postId, fromShare)
+    } else {
+      fromShare = options.from_share == '1'
+      postId = options.id
+    }
+
+    this.setData({
+      user: wx.getStorageSync('userInfo') || {},
+      from_share: fromShare
+    })
     this.myVideo = wx.createVideoContext('myvideo')
-    var postId = options.id
     var post = wx.getStorageSync('post.data.' + postId)
     var _this = this
     this.setData({ postId: postId, post: post}, () => {
