@@ -41,7 +41,6 @@
 
 </form>
 <mypicker bindtap="showMinRentMonthPicker" id="min-rent-month" items="{{minRentMonthItems}}" bindchange="minRentMonthChange" />
-<city-picker id="citypicker" bindchange="cityChanged" show="{{cityPickerShow}}" />
 <typepicker id="typepicker" bindconfirm="typeChanged" />
 <payment id="payment" bindconfirm="paymentChanged" />
 <floorpicker id="floorpicker" bindconfirm="floorChanged" />

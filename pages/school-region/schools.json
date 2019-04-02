@@ -1,8 +1,0 @@
-{
-  "enablePullDownRefresh": false,
-  "backgroundColor": "#F6F7FB",
-  "usingComponents": {
-    "city-picker": "/components/city-picker",
-    "schools": "/components/school-region/school-list"
-  }
-}
