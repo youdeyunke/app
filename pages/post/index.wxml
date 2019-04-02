@@ -19,7 +19,13 @@
 
 
 <view class="res">
-<box padding="20" width="730">
-  <items kw="{{kw}}" wx:if="{{filter}}" page="{{page}}" filter="{{filter}}" />
-</box>
+
+  <box wx:if="{{filter.sub_district_id}}" padding="20">
+    <sub-district sid="{{filter.sub_district_id}}" />
+  </box>
+  
+  <box padding="20" width="730">
+    <items kw="{{kw}}" wx:if="{{filter}}" page="{{page}}" filter="{{filter}}" />
+  </box>
+
 </view>

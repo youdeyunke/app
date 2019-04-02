@@ -2,6 +2,7 @@
   "enablePullDownRefresh": true,
   "usingComponents": {
     "items": "/components/post/items",
+    "sub-district": "/components/sub-district/mini-item",
     "base-filter": "/components/base-filter"
   }
 }

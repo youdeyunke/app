@@ -31,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 34,
+			"current": 23,
 			"list": [
 				{
 					"id": 0,
@@ -179,7 +179,8 @@
 					"id": 23,
 					"name": "整租-index",
 					"pathName": "pages/post/index",
-					"query": "group=zufang&rent_type=1"
+					"query": "group=zufang&sub_district_id=1",
+					"scene": null
 				},
 				{
 					"id": -1,

@@ -1,0 +1,7 @@
+<view class="sinfo">
+ <van-cell
+    title="{{item.name}}"
+    value="{{item.street}}"
+    border="{{ false }}"
+  />
+</view>
