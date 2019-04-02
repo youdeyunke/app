@@ -1,6 +1,7 @@
 // pages/post/new.js
 const app = getApp()
 var auth = require('../../utils/auth.js');
+var onfire = require('../../utils/onfire.min.js');
 var minRentMonthItems = []
 for(var i=1;i<=12;i++){
   minRentMonthItems.push({label: i+'个月', value: i})
@@ -49,6 +50,11 @@ Page({
    */
   onLoad: function (q) {
     var _this = this
+    // 监听选择小区事件
+    let sdEvent = onfire.on('selectSubDistrict', (s) => {
+      _this.updateSubDistrict(s)
+    })
+    this.setData({sdEvent: sdEvent})
     var draftCacheKey = this.genDraftCacheKey(q)
     console.log('on load get cache', draftCacheKey)
     var post = wx.getStorageSync(draftCacheKey) || {id: null, title: ''}
@@ -67,6 +73,25 @@ Page({
         _this.updatePostField('is_sublet', q.is_sublet || false )
       }
     })
+  },
+
+  gotoSelectSubDistrict: function(e){
+    wx.navigateTo({
+      url: '/pages/sub-districts/select',
+    })
+  },
+  
+  unbindEvent: function(){
+    onfire.un('selectSubDistrict')
+    onfire.un(this.data.sdEvent)
+  },
+
+  updateSubDistrict: function(s){
+    // 更新小区信息
+    console.log('小区信息改变了', s)
+    this.updatePostField('sub_district_name', s.name)
+    this.updatePostField('sub_district_id', s.id)
+    this.updatePostField('street', s.street)    
   },
 
   loadPost: function(pid){
@@ -128,6 +153,7 @@ Page({
     var _this = this
     var key = this.data.draftCacheKey
     wx.setStorageSync(key, _this.data.post)
+    this.unbindEvent()
     console.log('on hide, set cache, key', key)
   },
 

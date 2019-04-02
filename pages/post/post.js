@@ -9,7 +9,7 @@ Page({
   /**
    * 页面的初始 数据
    */
-  data: {
+  data: {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
     post: null,
     debug: false,
     user: {},

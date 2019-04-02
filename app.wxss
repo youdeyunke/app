@@ -3,7 +3,7 @@
 
 page{
   height: auto;
-  background: #f3f5f7;
+
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -11,6 +11,7 @@ page{
   font-size:28rpx;
   color:#333;
   font-weight:normal;
+  --color-bg-dark: #f3f5f7;
   --color-a: #00ae66;
   --color-b: #ff911b;
   --color-c: red;
@@ -18,6 +19,7 @@ page{
   --font-l: 32rpx;
   --font-s: 28rpx;
   --font-xs: 22rpx;
+  background: var(--color-bg-dark);
   
 }
 

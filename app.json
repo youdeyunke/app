@@ -8,7 +8,7 @@
     "pages/comments/new",
     "pages/post/index",
     "pages/sub-districts/index",
-    "pages/sub-districts/show",    
+    "pages/sub-districts/show",
     "pages/qa/qa",
     "pages/post/post",
     "pages/myself/index",
@@ -35,7 +35,8 @@
     "pages/messages/index",
     "pages/444/index",
     "pages/video/show",
-    "pages/myself/comments"
+    "pages/myself/comments",
+    "pages/sub-districts/select"
   ],
   "tabBar": {
     "selectedColor": "#333",
@@ -85,7 +86,7 @@
     "van-search": "/vant/search/index",
     "van-loading": "/vant/loading/index",
     "van-tabs": "/vant/tabs/index",
-    "van-tab": "/vant/tab/index",        
+    "van-tab": "/vant/tab/index",
     "van-button": "/vant/button/index",
     "mycard": "/components/card",
     "box": "/components/box"

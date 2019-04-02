@@ -31,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 31,
+			"current": 32,
 			"list": [
 				{
 					"id": 0,
@@ -229,6 +229,12 @@
 					"name": "search",
 					"pathName": "pages/search/index",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选择小区名称",
+					"pathName": "pages/sub-districts/select",
 					"scene": null
 				}
 			]
