@@ -44,17 +44,25 @@ Page({
     var i = e.currentTarget.dataset.index
     var item = this.data.items[i]
     onfire.fire('selectSubDistrict', item )
-    wx.navigateBack({
-      delta: -1
-    })
+
+  },
+
+  onConfirm: function(e){
+    if(this.data.kw.length >= 1){
+      var item = {id: 0, name: this.data.kw}
+      onfire.fire('selectSubDistrict', item)
+    }
   },
 
   inputChange: function(e){
     var kw = e.detail
     if(kw.length >= 1){
+      this.setData({kw: kw})
       this.doSearch(kw)
     }
   },
+
+
 
   /**
    * 生命周期函数--监听页面显示

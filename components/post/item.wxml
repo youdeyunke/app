@@ -11,7 +11,7 @@
       <view class="meta">
         <text class="item-title van-ellipsis "  >{{ item.title }}</text>
         <view class="type-info">
-          {{item.area_info.text}}{{item.area_info.px}}/{{ item.type_info.text}}/{{item.sub_district.name }}
+          {{item.area_info.text}}{{item.area_info.px}}/{{ item.type_info.text}}/{{item.sub_district_name }}
         </view>
         <mytags mini="true" items="{{item.tags_list}}" max="3"></mytags>
 
@@ -19,9 +19,6 @@
           <text class="total">{{item.price_info.text}}{{item.price_info.px}}</text> 
           <text class="average" wx:if="{{item.average_price}}">{{item.average_price}}元/平</text>     
         </view>
-    
-
       </view>
-
 </navigator>
 </block>

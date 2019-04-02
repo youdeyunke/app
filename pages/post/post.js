@@ -236,6 +236,9 @@ Page({
   },
 
   gotoSub: function(e){
+    if(!this.data.post.sub_district_id){
+      return false
+    }
     var _this = this
     wx.navigateTo({
       url: '/pages/sub-districts/show?id=' + _this.data.post.sub_district_id,

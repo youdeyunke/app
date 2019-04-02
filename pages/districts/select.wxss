@@ -1,0 +1,13 @@
+page{
+
+}
+
+.res{
+  height: 100%;
+  width:100%;
+}
+
+.res .cname{
+  margin:30rpx 0 10rpx 0;
+  padding-left:20rpx;
+}

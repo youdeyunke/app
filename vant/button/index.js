@@ -2,8 +2,8 @@ import { VantComponent } from '../common/component';
 import { button } from '../mixins/button';
 import { openType } from '../mixins/open-type';
 VantComponent({
-  classes: ['loading-class'],
   mixins: [button, openType],
+  classes: ['hover-class', 'loading-class'],
   props: {
     plain: Boolean,
     block: Boolean,
@@ -11,6 +11,7 @@ VantComponent({
     square: Boolean,
     loading: Boolean,
     disabled: Boolean,
+    loadingText: String,
     type: {
       type: String,
       value: 'default'
@@ -18,6 +19,10 @@ VantComponent({
     size: {
       type: String,
       value: 'normal'
+    },
+    loadingSize: {
+      type: String,
+      value: '20px'
     }
   },
   methods: {

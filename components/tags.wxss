@@ -1,9 +1,9 @@
 .mini-tags .tag {
-padding:2rpx 6rpx;
-margin-right:5rpx;
-border-radius:6rp4;
-font-size:20rpx;
-background:#f5f5f5;
+  padding:2rpx 6rpx;
+  margin-right:4rpx;
+  border-radius:6rp4;
+  font-size:var(--font-xs);
+  background:#f5f5f5;
 
  }
 

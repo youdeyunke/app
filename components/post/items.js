@@ -22,7 +22,7 @@ Component({
    */
   data: {
     query: {},
-    loading: false,
+    loading: true,
   },
 
   ready: function(){
@@ -78,18 +78,20 @@ Component({
       if (!query) {
         return false
       }
-      _this.setData({ loading: true })
+
+      _this.setData({loading: true})
       var query = this.data.query
       app.request({
         url: '/api/v2/posts/',
         data: query,
         complete: function (r) {
+          _this.setData({loading: false})
         },
         success: function (resp) {
           var meta = resp.data.meta
           var p = _this.data.query.page || 1
           var i = p - 1
-          var data = { meta: meta, loading: false }
+          var data = { meta: meta}
           if (p > 1) {
             var key = 'items[' + i + ']'
             data[key] = resp.data.data

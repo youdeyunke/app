@@ -5,6 +5,8 @@ VantComponent({
     title: String,
     value: String,
     loading: Boolean,
+    cancelButtonText: String,
+    confirmButtonText: String,
     itemHeight: {
       type: Number,
       value: 44
@@ -149,15 +151,15 @@ VantComponent({
       }
 
       var stack = [];
-      stack.push(picker.setColumnValues(0, province));
-      stack.push(picker.setColumnValues(1, city));
+      stack.push(picker.setColumnValues(0, province, false));
+      stack.push(picker.setColumnValues(1, city, false));
 
       if (city.length && code.slice(2, 4) === '00') {
         ;
         code = city[0].code;
       }
 
-      stack.push(picker.setColumnValues(2, this.getList('county', code.slice(0, 4))));
+      stack.push(picker.setColumnValues(2, this.getList('county', code.slice(0, 4)), false));
       return Promise.all(stack).then(function () {
         return picker.setIndexes([_this2.getIndex('province', code), _this2.getIndex('city', code), _this2.getIndex('county', code)]);
       }).catch(function () {});

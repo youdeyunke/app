@@ -36,7 +36,13 @@
     "pages/444/index",
     "pages/video/show",
     "pages/myself/comments",
-    "pages/sub-districts/select"
+    "pages/sub-districts/select",
+    "pages/cities/select",
+    "pages/districts/select",
+    "pages/rental",
+    "pages/zufang/index",
+    "pages/xinfang/index",
+    "pages/ershoufang/index"
   ],
   "tabBar": {
     "selectedColor": "#333",

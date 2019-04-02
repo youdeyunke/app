@@ -54,9 +54,12 @@ Page({
     let sdEvent = onfire.on('selectSubDistrict', (s) => {
       _this.updateSubDistrict(s)
     })
-    this.setData({sdEvent: sdEvent})
+    // 监听行政区选择事件
+    let dEvent = onfire.on('selectDistrict', (c, d) => {
+      _this.updateDistrict(c, d)
+    })
+    this.setData({sdEvent: sdEvent, dEvent: dEvent})
     var draftCacheKey = this.genDraftCacheKey(q)
-    console.log('on load get cache', draftCacheKey)
     var post = wx.getStorageSync(draftCacheKey) || {id: null, title: ''}
     
     auth.ensureUser(function(user){
@@ -80,18 +83,44 @@ Page({
       url: '/pages/sub-districts/select',
     })
   },
-  
+
+  gotoSelectDistrict: function (e) {
+    wx.navigateTo({
+      url: '/pages/districts/select',
+    })
+  },
+
   unbindEvent: function(){
     onfire.un('selectSubDistrict')
     onfire.un(this.data.sdEvent)
+    onfire.un('selectDistrict')
+    onfire.un(this.data.dEvent)    
   },
 
   updateSubDistrict: function(s){
     // 更新小区信息
     console.log('小区信息改变了', s)
     this.updatePostField('sub_district_name', s.name)
-    this.updatePostField('sub_district_id', s.id)
-    this.updatePostField('street', s.street)    
+    this.updatePostField('sub_district_id', s.id || '')
+    this.updatePostField('street', s.street || '')    
+    if(s.district){
+      this.updatePostField('city', s.city)
+      this.updatePostField('city_id', s.city.id)      
+      this.updatePostField('district', s.district)
+      this.updatePostField('district_id', s.district.id)      
+    }
+           
+    wx.navigateBack({ delta: -1 })
+  },
+
+  updateDistrict: function (c, d) {
+    // 更新行政区信息
+    console.log('行政区信息改变了', d)
+    this.updatePostField('city', c)
+    this.updatePostField('district', d)
+    this.updatePostField('city_id', c.id)
+    this.updatePostField('district_id', d.id)    
+    wx.navigateBack({delta: -1})
   },
 
   loadPost: function(pid){
@@ -199,6 +228,10 @@ Page({
       isok = false
     }
 
+    if(!post.images){
+      _this.showError('images', '请上传房源图片')
+    }
+
     if(post.images.length < _this.data.imagesMin || post.images.length > _this.data.imagesMax){
       _this.showError('images', '请上传' + _this.data.imagesMin + '~' + _this.data.imagesMax + '张房源照片')
       return
@@ -209,8 +242,8 @@ Page({
       return
     }
 
-    if(!post.area_name){
-      _this.showError('area_name', '请填写小区名称')
+    if(!post.sub_district_name){
+      _this.showError('sub_district_name', '请填写小区名称')
       return
     }
 
@@ -343,7 +376,7 @@ Page({
     // update or create post 
     var _this = this
     var data = this.data.post
-    var url = '/api/v2/posts/'
+    var url = '/api/v3/posts/'
     var method = 'POST'
     if(_this.data.post.id){
       url = url + _this.data.post.id
@@ -444,24 +477,6 @@ Page({
 
   showFloorPicker: function(){
     this.selectComponent('#floorpicker').onShow()
-  },
-
-  showCityPicker: function(){
-    this.setData({
-      cityPickerShow: true
-    })
-  },
-
-  cityChanged: function(e){
-  
-    this.clearError()
-    this.updatePostField('city', e.detail.city)
-    this.updatePostField('city_id', e.detail.city.id)
-    this.updatePostField('district_id', e.detail.district.id)
-    this.updatePostField('district', e.detail.district)
-    this.setData({
-      cityPickerShow: false
-    })    
   },
 
   imagesChanged: function(e){

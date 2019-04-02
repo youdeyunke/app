@@ -77,7 +77,6 @@
 }
 
 .post .meta .item-title{
-  width:360rpx;
   font-size:28rpx;
   color: #333;
   font-weight: bold;

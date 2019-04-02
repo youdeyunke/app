@@ -7,10 +7,13 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    subDistrictId:{
+      type: Number, value: 0,
+    },
     title: {
       type: String, value: '猜你喜欢', 
     },
-    excludeId: {
+    idNe: {
       type: Number, value: 0,
     },
     count: {
@@ -49,7 +52,13 @@ Component({
     app.request({
       hideLoading: true,
       url: '/api/v2/posts/',
-      data: {group: group, per_page: _this.data.count },
+      data: {
+        group: group, 
+        per_page: _this.data.count, 
+        sub_district_id: _this.data.subDistrictId || '',
+        order: 'id desc',
+        id_ne: _this.data.idNe || 0,
+      },
       success: function(resp){
         var posts = resp.data.data
         _this.setData({posts: posts})

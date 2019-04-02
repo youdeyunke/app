@@ -14,25 +14,29 @@ Page({
 
   /**
    * 生命周期函数--监听页面加载
-   */
+   */                                                                                                 
   onLoad: function (q) {
     var data = {}
     var filter = q || {}
     data['filter'] = filter
-    if(q.kw){
-      data['kw'] = q.kw
+    if(q.kw || q.text){
+      data['kw'] = q.kw || q.text
     }
     this.setData(data)
   },
 
-  onSearch: function(e){
-
+  inputChange: function (e) {
     var kw = e.detail
-    if (kw.length <= 0) {
-      return false
+    if (kw.length >= 1) {
+      console.log('input', kw)
+      this.setData({ kw: kw })
     }
-    this.setData({kw: kw})
+  },  
+
+  inputClear: function(e){
+    this.setData({kw: ''})
   },
+
 
   filterChange: function(e){
     this.setData({filter: e.detail})

@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "item": "/components/post/item"
+    "item": "/components/post/item",
+    "vant-loading": "/vant/loading/index"
   }
 }

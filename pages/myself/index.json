@@ -4,7 +4,7 @@
     "avatar-sync": "/components/avatar-sync",
     "van-tab": "/vant/tab/index",
     "van-tabs": "/vant/tabs/index",
-    "post":"/components/post",
+    "post":"/components/post/item",
     "broker-join": "/components/broker-join",
     "box":"/components/box",
     "van-cell": "/vant/cell/index",

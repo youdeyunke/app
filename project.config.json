@@ -31,7 +31,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 32,
+			"current": 34,
 			"list": [
 				{
 					"id": 0,
@@ -55,7 +55,7 @@
 					"id": 3,
 					"name": "post",
 					"pathName": "pages/post/post",
-					"query": "id=36",
+					"query": "id=42",
 					"scene": null
 				},
 				{
@@ -235,6 +235,21 @@
 					"id": -1,
 					"name": "选择小区名称",
 					"pathName": "pages/sub-districts/select",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选择区域",
+					"pathName": "pages/districts/select",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "租房首页",
+					"pathName": "pages/zufang/index",
+					"query": "",
 					"scene": null
 				}
 			]
