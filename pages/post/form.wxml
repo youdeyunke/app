@@ -15,7 +15,7 @@
     <van-field bindchange="inputChange" label="链接" value="{{ post.vr_url }}" input-align="left" placeholder="请输入" data-name="vr_url" error="{{error.vr_url}}" />
   </card>
 
-  <template is="form-{{post.group}}" data="{{user:user, is_sublet: is_sublet, error: error, post: post, step: step , minRentMonthItems: minRentMonthItems}}" />
+  <template is="form-{{post.group}}" data="{{user:user, is_sublet: is_sublet, error: error, post: post, step, minRentMonthItems: minRentMonthItems, allTags, selectedTags}}" />
 
   <card wx:if="{{step == 2}}" hat title="联系人信息" subtitle="必填">
     <van-field bindchange="inputChange" label="姓名" value="{{ post.broker_name || broker_name}}" input-align="left" placeholder="请输入" data-name="broker_name" error="{{error.broker_name}}" />

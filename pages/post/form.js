@@ -74,6 +74,7 @@ Page({
         _this.updatePostField('group', q.group || 'rental' )
         _this.updatePostField('rent_type', q.rent_type || 'zhengzu' )
         _this.updatePostField('is_sublet', q.is_sublet || false )
+        _this.loadTags(q.group)
       }
     })
   },
@@ -89,6 +90,60 @@ Page({
       url: '/pages/districts/select',
     })
   },
+
+  loadTags: function(group){
+    var _this = this
+    var tagsString = ''
+    app.request({
+      url: '/api/v1/myconfigs',
+      success: function(resp){
+        var key = group + '_tags'
+        tagsString = resp.data.data[key]
+        var tagsList = tagsString.split(' ')
+        var allTags = []
+        for (var i = 0; i <= tagsList.length - 1; i++) {
+          allTags.push({ name: tagsList[i] })
+        }       
+
+        // 初始化已选中的标签
+        if (_this.data.post.tags_list) {
+          for (var i = 0; i <= _this.data.post.tags_list.length - 1; i++) {
+            for (var j = 0; j <= allTags.length - 1; j++) {
+              var posttag = _this.data.post.tags_list[i]
+              var tagObj = allTags[j]
+              if (tagObj.name == posttag) {
+                tagObj.selected = true
+                allTags[j] = tagObj
+              }
+            }
+          }
+        }
+        _this.setData({ allTags: allTags })
+
+      },
+    })
+  },
+
+  tagHandle: function(e){
+    console.log('e', e)
+    var allTags = this.data.allTags
+    var i = e.currentTarget.dataset.index
+    var tag = this.data.allTags[i]
+    tag.selected = !tag.selected
+    var data = {}
+    var key = 'allTags[' + i + ']'
+    data[key] = tag
+    this.setData(data)
+    var selectedTags = []
+    this.data.allTags.forEach(function(item, i){
+      if(item.selected){
+        selectedTags.push(item.name)
+      }
+    })
+    this.setData({ selectedTags:selectedTags})
+    this.updatePostField('tags', selectedTags.join(','))
+  },
+
 
   unbindEvent: function(){
     onfire.un('selectSubDistrict')
@@ -135,6 +190,7 @@ Page({
           // 将有些字段进行装换
           post.images = post.images.split(',')
           _this.setData({post: post})
+          _this.loadTags(post.group)
         }
       }
     })

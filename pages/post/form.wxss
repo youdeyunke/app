@@ -47,3 +47,28 @@ page{
   top:20rpx;
   bottom:0rpx;
 }
+
+.post-tags{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  flex-wrap:wrap
+}
+
+.post-tag-item.active{
+  background:var(--color-a);
+  color: #fff;
+}
+
+.post-tag-item{
+  width:30%;
+  color: #666;
+  border-radius: 0rpx;
+  display: flex;
+  justify-content:center;
+  align-items :center;
+  padding:8rpx 16rpx;
+  box-sizing:border-box;
+  background: #f4f4f4;
+  margin-bottom:15rpx;
+}

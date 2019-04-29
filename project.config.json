@@ -13,6 +13,8 @@
 	"libVersion": "2.6.4",
 	"appid": "wx22f2238c72f84e69",
 	"projectname": "%E6%9F%A5%E8%8B%8F%E5%B7%9E%E5%AD%A6%E5%8C%BA",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -31,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 23,
+			"current": 35,
 			"list": [
 				{
 					"id": 0,
@@ -139,10 +141,11 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 17,
 					"name": "post-index",
 					"pathName": "pages/post/index",
-					"query": ""
+					"query": "group=old",
+					"scene": null
 				},
 				{
 					"id": -1,
@@ -165,8 +168,8 @@
 				{
 					"id": 21,
 					"name": "ershoufang-index",
-					"pathName": "pages/post/index",
-					"query": "group=ershoufang",
+					"pathName": "pages/ershoufang/index",
+					"query": "",
 					"scene": null
 				},
 				{
@@ -251,6 +254,13 @@
 					"name": "租房首页",
 					"pathName": "pages/zufang/index",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "编辑二手房",
+					"pathName": "pages/post/form",
+					"query": "id=30",
 					"scene": null
 				}
 			]

@@ -55,12 +55,19 @@
     </card>
 
 
+
 <card title="房源详情" hat  wx:if="{{step==2}}">
         <van-field value="{{post.desc}}" label="房源介绍" placeholder="选填" bind:change="inputChange"  data-name="desc" autosize />
         <van-field value="{{post.selling_points}}" label="核心卖点" placeholder="选填" bind:change="inputChange"  data-name="selling_points" autosize />
-        <van-field value="{{post.surrounding}}" label="周边配套" placeholder="选填" bind:change="inputChange"  data-name="surrounding" autosize />
         <van-field value="{{post.owner_mindset}}" wx:if="{{user.is_broker}}" label="业主心态" placeholder="选填" bind:change="inputChange"  data-name="owner_mindset" autosize />
         <van-field value="{{post.remark }}" label="备注" placeholder="选填" bind:change="inputChange"  data-name="remark" autosize />
+</card>
+
+<card title="标签" hat wx:if="{{step==1}}" subtitle="请选择标签" wx:if="{{step==2}}">
+  <view class="post-tags">
+    <view bindtap="tagHandle" data-index="{{index}}" class="post-tag-item {{ tag.selected ? 'active' : '' }}" wx:for="{{allTags}}" wx:for-item="tag">{{tag.name}}</view>
+  </view>
+
 </card>
 
 </block>

@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "items": "/components/post/items",    
+    "base-filter": "/components/base-filter",
+    "myslider": "/components/slider",
+    "navs": "/components/navs"    
+  }
 }

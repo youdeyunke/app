@@ -1,2 +1,27 @@
-<!--pages/ershoufang/index.wxml-->
-<text>pages/ershoufang/index.wxml</text>
+
+<view class="search">
+    <van-search 
+      name="kw" 
+      value="{{kw}}" 
+      placeholder-style="font-size:24rpx;color:#cecece;" 
+      placeholder="输入小区、街道关键词" 
+      background="none" 
+      field-class="search-box-field"
+      custom-class="search-box"
+      bind:change="inputChange"
+      bind:clear="inputClear"
+      focus="{{false}}" 
+    />  
+</view>
+
+<view class="navs">
+    <navs />
+</view>
+  
+  <view class="fbox {{filterFloatStatus == 1 ? 'float' : ''}}">
+    <base-filter initValue="{{filter}}"  bind:change="filterChange" />
+  </view>
+
+  <box padding="20" width="730">
+    <items kw="{{kw}}" wx:if="{{filter}}" page="{{page}}" filter="{{filter}}" />
+  </box>
