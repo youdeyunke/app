@@ -10,9 +10,11 @@
 		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.5.1",
-	"appid": "wx22f2238c72f84e69",
-	"projectname": "%E6%9F%A5%E8%8B%8F%E5%B7%9E%E5%AD%A6%E5%8C%BA",
+	"libVersion": "2.6.6",
+	"appid": "wxfa2e6554600b342e",
+	"projectname": "%E5%B9%B4%E9%B1%BC",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -31,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 31,
 			"list": [
 				{
 					"id": 0,
@@ -221,6 +223,12 @@
 					"name": "about",
 					"pathName": "pages/about/index",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pay-demo",
+					"pathName": "pages/wxpay/demo",
 					"scene": null
 				}
 			]

@@ -33,7 +33,8 @@
     "pages/messages/index",
     "pages/444/index",
     "pages/video/show",
-    "pages/myself/comments"
+    "pages/myself/comments",
+    "pages/wxpay/demo"
   ],
   "tabBar": {
     "selectedColor": "#333",
@@ -97,5 +98,6 @@
       "desc": "位置信息用于房源查询"
     }
   },
-  "debug": false
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
 }

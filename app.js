@@ -138,6 +138,8 @@ App({
 
 
   startReddotInterval: function(){
+    return false
+
     var _this = this
     var key = 'reddot.inteval'
     var iid = wx.getStorageSync(key)
@@ -150,6 +152,8 @@ App({
   },
 
   getReddot: function(){
+    return false
+    
     var _this = this
     this.request({
       url: '/api/v1/chat_lists/reddot',
