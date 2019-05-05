@@ -59,7 +59,7 @@
 <box padding="30" >
   <view class="header"> 
      <view class="tagsinfo">
-        <mytags mini="{{true}}" wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
+        <mytags mini="{{false}}" wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
         <view class="num">房源ID:{{post.id}} <text wx:if="{{user.id == post.user_id}}"> 房号：{{post.house_number }}</text> </view>
      </view>
 
@@ -135,8 +135,8 @@
   </view>
 </box>
 
-<box padding="30">  
-  <broker-link wx:if="{{post.user.is_broker}}" broker="{{post.broker_info}}" />
+<box padding="30" wx:if="{{post.user.is_broker}}">  
+  <broker-link  broker="{{post.broker_info}}" />
 </box>
 
 <mycard title="地理位置">
