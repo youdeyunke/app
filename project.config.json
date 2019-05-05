@@ -10,9 +10,9 @@
 		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.4",
-	"appid": "wx22f2238c72f84e69",
-	"projectname": "%E6%9F%A5%E8%8B%8F%E5%B7%9E%E5%AD%A6%E5%8C%BA",
+	"libVersion": "2.6.6",
+	"appid": "wxfa2e6554600b342e",
+	"projectname": "%E5%B9%B4%E9%B1%BC",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 35,
+			"current": 31,
 			"list": [
 				{
 					"id": 0,
@@ -230,37 +230,8 @@
 				},
 				{
 					"id": -1,
-					"name": "search",
-					"pathName": "pages/search/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "选择小区名称",
-					"pathName": "pages/sub-districts/select",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "选择区域",
-					"pathName": "pages/districts/select",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "租房首页",
-					"pathName": "pages/zufang/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "编辑二手房",
-					"pathName": "pages/post/form",
-					"query": "id=30",
+					"name": "pay-demo",
+					"pathName": "pages/wxpay/demo",
 					"scene": null
 				}
 			]

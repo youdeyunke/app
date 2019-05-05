@@ -42,7 +42,8 @@
     "pages/rental",
     "pages/zufang/index",
     "pages/xinfang/index",
-    "pages/ershoufang/index"
+    "pages/ershoufang/index",
+    "pages/wxpay/demo"
   ],
   "tabBar": {
     "selectedColor": "#333",
