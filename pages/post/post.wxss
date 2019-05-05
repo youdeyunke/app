@@ -115,7 +115,7 @@ mycard{
 
 .detail-meta .meta{
    display:flex;
-   height: 50rpx;
+   height: 45rpx;
    width:50%;
    justify-content: flex-start;
    align-items: center;
@@ -139,11 +139,12 @@ mycard{
 
  .post-title{
   color:#000;
-  margin: 0rpx 0 20rpx 0 ;
+  margin: 10rpx 0 20rpx 0 ;
   font-weight: bold;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  font-size:40rpx;
 }
 
 .tagsinfo{

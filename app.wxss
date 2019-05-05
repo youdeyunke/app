@@ -356,9 +356,10 @@ textarea{
 
 
  .typeinfo .item .value{
-  font-size:var(--font-s);
+  font-size:32rpx;
   color:var(--color-b);
   margin-bottom:10rpx;
+  margin-top:10rpx;
 } 
 .typeinfo .item .value .px{
   font-size:20rpx;
@@ -366,7 +367,7 @@ textarea{
 }
   
  .typeinfo .item .key{
-  font-size:var(--font-s);
+  font-size:var(--font-xs);
   color: #999;
 }
 
