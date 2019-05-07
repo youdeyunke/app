@@ -10,12 +10,12 @@ Page({
   data: {
     userInfo: {},
     cells: [
-      { name: '我发布的', icon: 'm-house.png', url: '/pages/myself/posts', },
-      { name: '我的提问', icon: 'm-qa.png', url: '/pages/myself/qa',  },
-      { name: '我的评论', icon: 'm-comment.png', url:'/pages/myself/comments',},
-      { name: '我的关注', icon: 'm-fav.png', url: '/pages/myself/favposts'},
-      { name: '退出登录', icon: 'm-fav.png', bindtap:"logoutHandle", loginRequired: true},
-      {name: '关于小程序', icon: 'm-about.png', url: '/pages/about/index'},
+      { icon:"fabu", name: '我发布的', url: '/pages/myself/posts', },
+      { icon:"tiwen", name: '我的提问',  url: '/pages/myself/qa',  },
+      { icon:"pinglun", name: '我的评论',  url:'/pages/comments/index?myself=true&limit=10000"',},
+      { icon:"guanzhu", name: '我的关注',  url: '/pages/myself/favposts'},
+      { icon:"tuichu",  name: '退出登录',  bindtap:"logoutHandle", loginRequired: true},
+      { icon:"guanyu", name: '联系客服',  url: '/pages/about/index'},
     ],
   },
 
