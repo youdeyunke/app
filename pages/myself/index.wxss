@@ -66,3 +66,9 @@ page{
 .van-cell{
   font-size: var(--font-l);
 }
+
+.cell-icon-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
