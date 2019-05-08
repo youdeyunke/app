@@ -10,12 +10,12 @@ Page({
   data: {
     userInfo: {},
     cells: [
-      { icon:"fabu", name: '我发布的', url: '/pages/myself/posts', },
-      { icon:"tiwen", name: '我的提问',  url: '/pages/myself/qa',  },
-      { icon:"pinglun", name: '我的评论',  url:'/pages/comments/index?myself=true&limit=10000"',},
-      { icon:"guanzhu", name: '我的关注',  url: '/pages/myself/favposts'},
-      { icon:"tuichu",  name: '退出登录',  bindtap:"logoutHandle", loginRequired: true},
-      { icon:"guanyu", name: '联系客服',  url: '/pages/about/index'},
+      { icon:"newspaper-o", name: '我的房源', url: '/pages/myself/posts', },
+      { icon:"chat-o", name: '我的提问',  url: '/pages/myself/qa',  },
+      { icon:"comment-o", name: '我的评论',  url:'/pages/comments/index?myself=true&limit=10000"',},
+      { icon:"eye-o", name: '我的关注',  url: '/pages/myself/favposts'},
+      //{ icon:"pause-circle-o",  name: '退出登录',  bindtap:"logoutHandle", loginRequired: true},
+      //{ icon:"service-o", name: '联系客服',  url: '/pages/about/index'},
     ],
   },
 

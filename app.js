@@ -1,4 +1,4 @@
-a//app.js
+//app.js
 var auth = require('utils/auth.js');
 
 App({
@@ -340,6 +340,42 @@ App({
       success: function(res) {
         if(typeof res != "object"){
           console.log('server error')
+        }
+
+        if(res.data.status == 888){
+          // 调起支付
+          wx.requestPayment({
+            timeStamp: res.data.data.timeStamp,
+            nonceStr: res.data.data.nonceStr,
+            package: res.data.data.package,
+            signType: res.data.data.signType,
+            paySign: res.data.data.paySign,
+            success: function(wxpay_res){
+              wx.showToast({
+                title: '支付成功',
+                icon: 'success'
+              })
+              typeof obj.success == "function" && obj.success(res)
+              return true
+            },
+            fail: function(wxpay_res){
+              wx.showModal({
+                  title: '支付失败',
+                  content: '支付失败，请重试',
+              })
+              typeof obj.fail == "function" && obj.success(res)
+              return false
+            }
+          })
+        }
+
+        if(res.data.status == 889){
+          var error = res.data.error
+          wx.showModal({
+              title: '支付失败',
+              content: error,
+          })
+          return false
         }
 
         if(res.data.status == 444){

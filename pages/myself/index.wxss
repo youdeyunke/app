@@ -56,19 +56,38 @@ page{
 }
 
 
-
-.van-cell image{
-  width: 40rpx;
-  height: 40rpx;
-  margin-right:20rpx;
+.cell-title{
+  font-size: var(--font-xl);
 }
 
-.van-cell{
-  font-size: var(--font-l);
+.section{
+  width:100%;
+  padding:0 20rpx;
+  margin-bottom:20rpx;
 }
 
-.cell-icon-box{
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.section-title{
+  padding:10rpx 20rpx;
+}
+
+.menu{
+  display:flex;
+  justify-content: flex-start;
+  flex-wrap:wrap;
+  width:100%;
+}
+
+.menu-item{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  width:25%;
+  flex-wrap:wrap;
+  margin:0 0 0 10rpx 0;
+}
+
+.menu-item-name{
+  margin-top:8rpx;
+  font-size:var(--font-s);
 }

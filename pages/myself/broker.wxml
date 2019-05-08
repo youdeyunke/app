@@ -6,13 +6,13 @@
 <view class="window">
   <block wx:if="{{!userInfo.is_broker}}">
     <form bindsubmit="submitHandle" wx:if="{{!broker_apply_id}}">
-      <van-field  required label="姓名" value="{{fdata.name}}" name="name" placeholder="你的真实姓名" />
-      <van-field  required label="电话" value="{{fdata.name}}" name="mobile" placeholder="真实联系电话" />
-      <van-field   label="微信" value="{{fdata.name}}" name="wechat" placeholder="微信账号" />
-      <van-field   label="公司" value="{{fdata.name}}" name="company" placeholder="你所在的公司" />
-      <van-field border="{{false}}"   label="介绍" value="{{fdata.name}}" name="desc" placeholder="简短的个人介绍" />
+      <van-field  required label="姓名" value="{{apply.name}}" name="name" placeholder="你的真实姓名" />
+      <van-field  required label="电话" value="{{apply.mobile}}" name="mobile" placeholder="真实联系电话" />
+      <van-field   label="微信" value="{{apply.wechat}}" name="wechat" placeholder="微信账号" />
+      <van-field   label="公司" value="{{apply.company}}" name="company" placeholder="你所在的公司" />
+      <van-field border="{{false}}"   label="介绍" value="{{apply.desc}}" name="desc" placeholder="简短的个人介绍" />
 
-      <button class="btn btn-primary submit-btn" type="primary" formType="submit" size="small" >提交审核</button>
+      <button class="btn btn-primary submit-btn" type="primary" formType="submit" size="small" >下一步</button>
     </form>
 
     <view class="pending" wx:if="{{broker_apply_id}}">
@@ -22,7 +22,7 @@
   </block>
 
   <block wx:if="{{userInfo.is_broker}}">
-    <view>经纪人入驻申请已通过！发布房源自动上架</view>
+    <view>经纪人入驻申请已审核通过！现在可以发布房源上架了。</view>
   </block>
 
 </view>

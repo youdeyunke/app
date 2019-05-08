@@ -8,10 +8,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    broker_apply_id: wx.getStorageSync('broker_apply_id'),
+    apply: {},
     steps: [
       '提交资料',
-      '后台审核',
+      '开通会员',
       '发布房源',
     ],
   },
@@ -22,6 +22,7 @@ Page({
   onLoad: function (options) {
     var _this = this
     auth.ensureUser(function(userInfo){
+      _this.loadUserApply()
       app.request({
         url: '/api/v1/users/' + userInfo.id,
         success: function(resp){
@@ -35,9 +36,26 @@ Page({
     })
   },
 
+  loadUserApply: function(){
+    // 加载历史提交的资料
+    var _this = this
+    app.request({
+      url: "/api/v2/broker_applies/myself",
+      success: function(resp){
+        if(resp.data.status == 0){
+          _this.setData({
+            apply: resp.data.data
+          })
+        }
+      }
+    })
+  },
+
+
   validate: function(data, cb){
     if(!data.name){
       wx.showToast({
+        icon: 'none',
         title: '姓名不能为空',
       })
       return false
@@ -61,9 +79,13 @@ Page({
       method: "post",
       success: function(resp){
         if(resp.data.status  == 0){
-          var aid = resp.data.data
-          wx.setStorageSync('broker_apply_id', aid)
-          _this.setData({'broker_apply_id': aid})
+          var apply = resp.data.data
+          /* 资料提交成功，
+          如果没有选择套餐，进入套餐选择界
+          */
+          wx.navigateTo({
+            url: '/pages/broker/membership',
+          })
         }
       },
     })

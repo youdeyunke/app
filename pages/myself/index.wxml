@@ -9,7 +9,9 @@
 </view>
 </box>
 
+
 <box padding="30" wx:if="{{userInfo}}">
+
 <view class="user">
   <view class="uinfo">
     <view class="avatar">
@@ -21,19 +23,27 @@
 </view>
 </box>
 
-<box    >
-  <van-cell-group>
-    <van-cell size="large" hover-class="none" title="绑定手机号"   center wx:if="{{userInfo && !userInfo.mobile}}">
-         <button slot="right-icon" class="btn mini" type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain>马上绑定</button>
-    </van-cell>
 
-    <van-cell size="large" wx:if="{{!item.loginRequired || ( item.loginRequired && userInfo)}}" hover-class="none" value="{{item.value || ''}}" wx:for="{{cells}}" title="{{item.name}}" bindtap="{{item.bindtap}}"  url="{{item.url}}"   is-link center>
-      <view slot="icon" class="cell-icon-box">
-        <image src="/assets/icons/myself/{{item.icon}}.png"></image>
-      </view>
-    </van-cell>
+<block wx:if="{{userInfo}}">
+  <box padding="20">
+        <view class="menu">
+          <navigator hover-class="none" url="{{item.url}}"  class="menu-item" wx:for="{{cells}}">
+                <van-icon color="#66" size="52rpx" name="{{item.icon}}" />
+                <view class="menu-item-name">{{item.name}}</view>
+            </navigator>
+        </view>
+  </box>
 
-  </van-cell-group>
 
-  <broker-join wx:if="{{!userInfo.is_broker}}" />
-</box>
+    <view class="section">
+        <van-cell size="large" hover-class="none" title="绑定手机号"   center wx:if="{{userInfo && !userInfo.mobile}}">
+            <button slot="right-icon" class="btn mini" type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain>马上绑定</button>
+        </van-cell>
+        <van-cell wx:if="{{!userInfo.is_broker}}" size="large"  hover-class="none" value="马上开通" title="经纪人身份" url="/pages/myself/broker"   is-link center />
+        <van-cell wx:if="{{userInfo.is_broker}}" size="large"  hover-class="none" value="已开通" title="经纪人身份" center />
+        <van-cell bindtap="logoutHandle" size="large"  hover-class="none"  title="退出登录" url="/pages/myself/broker"   is-link center />
+        <van-cell size="large"  hover-class="none"  title="联系客服" url="/pages/about/index"   is-link center />
+    </view>
+
+
+</block>

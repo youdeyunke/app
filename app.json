@@ -43,7 +43,9 @@
     "pages/zufang/index",
     "pages/xinfang/index",
     "pages/ershoufang/index",
-    "pages/wxpay/demo"
+    "pages/wxpay/demo",
+    "pages/broker/profile",
+    "pages/broker/membership"
   ],
   "tabBar": {
     "selectedColor": "#333",
