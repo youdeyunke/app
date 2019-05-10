@@ -57,12 +57,14 @@ Page({
     this.setData({loading: true})
 
     app.request({
-      url: '/api/v2/broker_applies/pay',
+      url: '/api/v1/broker_membership_orders',
       method:'POST',
       data: {pid: pid},
       success: function(resp){
         // 支付成功了，刷新状态
         _this.setData({loading: false})
+        var data = resp.data.data
+        
       },
       fail: function(resp){
         _this.setData({loading: false})

@@ -25,13 +25,16 @@ page{
 }
 
 .window{
-  width: 600rpx;
+  padding:30rpx;
+  margin:0 40rpx;
+  box-sizing: border-box;
   box-shadow: 2rpx 4rpx 15rpx rgba(0,0,0, 0.2);
   border-radius:20rpx;
   background: #fff;
   padding:30rpx;
   box-sizing: border-box;
   display: flex;
+  flex-wrap:wrap;
   justify-content: center;
   align-items: center;
 }
@@ -40,12 +43,28 @@ page{
   width: 100%;
 }
 
-
 .window .pending{
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+}
+
+.success{}
+
+.success-title, .success-image{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-image{
+  width: 300rpx;
+}
+
+.plan{
+  width: 100%;
+  margin-top:20rpx;
 }
 
 .window .pending image{

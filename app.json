@@ -45,7 +45,8 @@
     "pages/ershoufang/index",
     "pages/wxpay/demo",
     "pages/broker/profile",
-    "pages/broker/membership"
+    "pages/broker/membership",
+    "pages/static/terms"
   ],
   "tabBar": {
     "selectedColor": "#333",

@@ -1,4 +1,4 @@
-// pages/myself/myself.js
+                                            // pages/myself/myself.js
 const app = getApp()
 var auth = require('../../utils/auth.js');
 
@@ -54,6 +54,12 @@ Page({
       }
     })
   },
+
+  gotoTerms: function(e){
+    wx.navigateTo({
+      url: '/pages/static/terms'
+    })
+  },
   
   logoutHandle: function(e){
     wx.setStorageSync('userInfo', null) 
@@ -64,13 +70,20 @@ Page({
     auth.loginHandle(this, e)
   },
 
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '我的',
+    var _this = this
+    wx.setNavigationBarTitle({ title: '我的' })
+    this.getRemoteUserInfo()
+  },
+
+  getRemoteUserInfo: function(){
+    var _this = this
+    auth.getRemoteUserInfo(function(user){
+      _this.setData({userInfo: user})
+      wx.setStorage({key: 'userInfo', data: user})
     })
   },
 

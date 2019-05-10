@@ -8,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    apply: {},
+    userInfo: {},
+    state: '',
     steps: [
       '提交资料',
       '开通会员',
@@ -22,35 +23,49 @@ Page({
   onLoad: function (options) {
     var _this = this
     auth.ensureUser(function(userInfo){
-      _this.loadUserApply()
-      app.request({
-        url: '/api/v1/users/' + userInfo.id,
-        success: function(resp){
-          if(resp.data.status == 0){
-            _this.setData({
-              userInfo: resp.data.data
-            })
-          }
-        },
+      auth.getRemoteUserInfo(function(user){
+        app.loadConfigs(function(conf){
+          _this.setData({
+            userInfo: user,
+            joinType: conf['broker_join_type'],
+            broker: user.broker_profile
+          })
+          _this.updateState(user)
+        })
       })
     })
   },
 
-  loadUserApply: function(){
-    // 加载历史提交的资料
-    var _this = this
-    app.request({
-      url: "/api/v2/broker_applies/myself",
-      success: function(resp){
-        if(resp.data.status == 0){
-          _this.setData({
-            apply: resp.data.data
-          })
-        }
-      }
+  gotoEdit: function(e){
+    this.setData({state: 'new'})
+  },
+
+  gotoBuy: function(e){
+    wx.redirectTo({
+      url: '/pages/broker/membership'
     })
   },
 
+  updateState: function(user){
+    /* 根据身份信息改变页面状态 */
+    var broker = user.broker_profile
+    if(!broker.enable){
+      // 没有填写个人信息
+      if(!broker.mobile && !broker.company && !broker.name){
+        this.setData({state: 'new'})
+      }else{
+        this.setData({state: 'pending'})
+      }
+      return 
+    }
+    if(broker.remain_days > 7){
+      // 老用户，还未到期 
+      this.setData({state: 'normal'})
+      return
+    }
+    this.setData({state: 'soon'})
+    
+  },
 
   validate: function(data, cb){
     if(!data.name){
@@ -68,24 +83,31 @@ Page({
     }
 
     return cb(data)
-
   },
 
   doPost: function(data){
     var _this = this
+    var joinType = this.data.joinType
+
     app.request({
-      url: '/api/v2/broker_applies',
-      data: {broker: data},
-      method: "post",
+      url: '/api/v2/users/myself',
+      data: {broker_profile: data},
+      method: "PUT",
       success: function(resp){
         if(resp.data.status  == 0){
-          var apply = resp.data.data
+          var info = resp.data.data
           /* 资料提交成功，
-          如果没有选择套餐，进入套餐选择界
+          如果是付费入驻，进入套餐选择界
           */
-          wx.navigateTo({
-            url: '/pages/broker/membership',
-          })
+         if(joinType == 'free'){
+           wx.showToast({
+             icon: 'success',
+             title: '资料提交成功，请等待管理审核'
+           })
+           _this.setData({state: 'pending'})
+           return false
+         }
+          wx.navigateTo({ url: '/pages/broker/membership' })
         }
       },
     })
@@ -94,24 +116,20 @@ Page({
   submitHandle: function(e){
     var _this = this
     var data = e.detail.value
-    this.validate(data, (vdata) => {
-      _this.doPost(vdata)
-    })
+        _this.validate(data, (vdata) => {
+          _this.doPost(vdata)
+      })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-
-  },
+  onReady: function () { },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
-  },
+  onShow: function () { },
 
   /**
    * 生命周期函数--监听页面隐藏

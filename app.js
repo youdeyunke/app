@@ -81,6 +81,19 @@ App({
     }
   },
 
+  loadConfigs: function(cb){
+    /* 从服务器加载系统配置嘻嘻 */
+    var _this = this
+    this.request({
+      url: '/api/v1/myconfigs',
+      success: function(resp){
+        var conf = resp.data.data
+        wx.setStorage({key: 'myconfigs', data: conf})
+        typeof cb == "function" && cb(conf)
+      }
+    })
+  },
+
   getLocation: function(){
     // 先获取经纬度
     var _this = this

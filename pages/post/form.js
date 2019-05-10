@@ -93,36 +93,40 @@ Page({
 
   loadTags: function(group){
     var _this = this
-    var tagsString = ''
-    app.request({
-      url: '/api/v1/myconfigs',
-      success: function(resp){
-        var key = group + '_tags'
-        tagsString = resp.data.data[key]
-        var tagsList = tagsString.split(' ')
-        var allTags = []
-        for (var i = 0; i <= tagsList.length - 1; i++) {
-          allTags.push({ name: tagsList[i] })
-        }       
+    app.loadConfigs(function(config){
+      var key = group + '_tags'
+      var tags = config[key]
+      console.log('init config data', config)
+      console.log('init key is', key)
+      console.log('init tags is', tags)
+      _this._initTags(tags)
+    })
+  }, 
 
-        // 初始化已选中的标签
-        if (_this.data.post.tags_list) {
-          for (var i = 0; i <= _this.data.post.tags_list.length - 1; i++) {
-            for (var j = 0; j <= allTags.length - 1; j++) {
-              var posttag = _this.data.post.tags_list[i]
-              var tagObj = allTags[j]
-              if (tagObj.name == posttag) {
-                tagObj.selected = true
-                allTags[j] = tagObj
-              }
+  _initTags: function(tags){
+      var _this = this
+      var tagsList = tags.split(' ')
+      var allTags = []
+      for (var i = 0; i <= tagsList.length - 1; i++) {
+        allTags.push({ name: tagsList[i] })
+      }       
+
+      // 初始化已选中的标签
+      if (_this.data.post.tags_list) {
+        for (var i = 0; i <= _this.data.post.tags_list.length - 1; i++) {
+          for (var j = 0; j <= allTags.length - 1; j++) {
+            var posttag = _this.data.post.tags_list[i]
+            var tagObj = allTags[j]
+            if (tagObj.name == posttag) {
+              tagObj.selected = true
+              allTags[j] = tagObj
             }
           }
         }
-        _this.setData({ allTags: allTags })
-
-      },
-    })
+      }
+      _this.setData({ allTags: allTags })
   },
+
 
   tagHandle: function(e){
     console.log('e', e)

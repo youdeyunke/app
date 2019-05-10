@@ -1,17 +1,18 @@
-<box padding="30" wx:if="{{!userInfo}}">
-<view class="user-login" >
-    <view class="avatar">
-      <image src="/assets/images/default-avatar.png"></image>
-    </view>  
-
-    <text class="tip">登录账号，体验更多服务</text>
+<view class="user-auth" wx:if="{{!userInfo}}">
+  <view class="top">
+    <image src="/assets/images/myself-login.png" mode="widthFix"></image>
     <button type="primary" class="btn"  open-type='getUserInfo' bindgetuserinfo='loginHandle'>使用微信登录</button>
+    <view class="tips">登录体验更多服务</view>
+  </view>
+
+  <view class="footer" bindtap="gotoTerms" hover-class="none">
+    <view class="terms">《用户协议》</view>
+  </view>
 </view>
-</box>
+
 
 
 <box padding="30" wx:if="{{userInfo}}">
-
 <view class="user">
   <view class="uinfo">
     <view class="avatar">
@@ -39,8 +40,11 @@
         <van-cell size="large" hover-class="none" title="绑定手机号"   center wx:if="{{userInfo && !userInfo.mobile}}">
             <button slot="right-icon" class="btn mini" type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain>马上绑定</button>
         </van-cell>
-        <van-cell wx:if="{{!userInfo.is_broker}}" size="large"  hover-class="none" value="马上开通" title="经纪人身份" url="/pages/myself/broker"   is-link center />
-        <van-cell wx:if="{{userInfo.is_broker}}" size="large"  hover-class="none" value="已开通" title="经纪人身份" center />
+
+        <van-cell wx:if="{{!userInfo.broker_profile.enable}}" size="large"  hover-class="none" value="马上开通" title="经纪人身份" url="/pages/myself/broker"   is-link center />
+        <van-cell wx:if="{{userInfo.broker_profile.enable && userInfo.broker_profile.remain_days > 3}}" size="large" url="/pages/myself/broker"  hover-class="none" value="已开通" title="经纪人身份" center />
+        <van-cell wx:if="{{userInfo.broker_profile.enable && userInfo.broker_profile.remain_days <= 3}}" size="large" url="/pages/myself/broker"  hover-class="none" value="剩余{{userInfo.broker_profile.remain_days}}到期" title="经纪人身份" center />
+
         <van-cell bindtap="logoutHandle" size="large"  hover-class="none"  title="退出登录" url="/pages/myself/broker"   is-link center />
         <van-cell size="large"  hover-class="none"  title="联系客服" url="/pages/about/index"   is-link center />
     </view>

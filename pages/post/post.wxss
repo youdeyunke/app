@@ -127,7 +127,7 @@ mycard{
 
 .detail-meta  .meta text.label{
   color:#999;
-  width:90rpx;
+  width:100rpx;
   display: flex;
   justify-content: flex-start;
   align-items: center;

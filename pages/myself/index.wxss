@@ -1,7 +1,7 @@
 
 page{
-  height:auto;
-  min-height:100%;
+  height:100% !important;
+  background: #fff !important;
   padding-top:0;
 }
 
@@ -23,28 +23,56 @@ page{
   margin-right:20rpx;
 }
 
-.user-login{
+.user-auth{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding:40rpx 0 50rpx 0;
-  width:100%;
+  padding:30rpx 40rpx;
+  box-sizing: border-box;
+  margin-top:80rpx;
+  height: 100%;
 }
 
-.user-login .avatar{
-  margin-bottom:40rpx;
-  margin-top:50rpx;
-  border:2rpx solid #cecece;
+.user-auth .top{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
 }
 
-.user-login .tip{
-  font-size:24rpx;
+.user-auth button{
+  width: 100%;
+  height: 80rpx;
+  margin-top:60rpx;
+  margin-bottom:3rpx;
+  font-size: var(--font-xl);
+}
+.user-auth .footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.user-auth  .tips{
+  font-size:var(--font-s);
   color:#999;
   height:80rpx;
   display:flex;
   justify-content:center;
   align-items:center;
+}
+
+.user-auth .footer{
+  width: 100%;
+}
+
+.user-auth .footer .terms{
+  font-size:var(--font-s);
+  color:#3879D9;
+  font-weight: 200;
 }
 
 .avatar, .avatar image{

@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 34,
+			"current": 36,
 			"list": [
 				{
 					"id": 0,
@@ -254,6 +254,19 @@
 					"name": "选择经纪人套餐",
 					"pathName": "pages/broker/membership",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "经纪人身份信息",
+					"pathName": "pages/myself/broker",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "用户协议",
+					"pathName": "pages/static/terms",
 					"scene": null
 				}
 			]

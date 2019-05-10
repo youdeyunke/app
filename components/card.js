@@ -4,9 +4,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    padding: {
-      type: Boolean, value: true,
-    },
+    padding: { type: Boolean, value: true, },
+
+    width: { type: Number, value: 750, },
     title: {type: String, value: '标题'},
     subtitle: {type: String, value: ''},
     hat: { type: Boolean, value: true, },

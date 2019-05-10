@@ -76,6 +76,20 @@ module.exports = {
     })
   },
 
+  getRemoteUserInfo: function(cb){
+    /* 从服务器获取用户信息 */
+    const that = getApp()
+    that.request({
+      url: '/api/v1/users/myself',
+      success: function(resp){
+        if(resp.data.status == 0){
+          var user = resp.data.data
+          typeof cb == "function" && cb(user)
+        }
+      },
+    })
+  },
+
 
   getSessionToken: function (code, encryptedData, iv, cb) {
     // 重新获取token，并刷新 user info

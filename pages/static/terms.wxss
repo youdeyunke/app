@@ -1,0 +1,20 @@
+/* pages/static/terms.wxss */
+page{
+    background: #fff !important;
+}
+.terms{
+    line-height: 1.5;
+    padding:20rpx;
+}
+
+.p{
+    margin:20rpx 0;
+}
+
+.h{
+    color:#000;
+    font-size:var(--font-lg);
+}
+view{
+    margin:4rpx 0;
+}
