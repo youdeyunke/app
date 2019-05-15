@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 36,
+			"current": 37,
 			"list": [
 				{
 					"id": 0,
@@ -267,6 +267,14 @@
 					"id": -1,
 					"name": "用户协议",
 					"pathName": "pages/static/terms",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 37,
+					"name": "发布二手",
+					"pathName": "pages/goods/form",
+					"query": "",
 					"scene": null
 				}
 			]

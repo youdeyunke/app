@@ -1,7 +1,7 @@
 <template name="form-old">
   <block>
     <card title="地址" wx:if="{{step==1}}" subtitle="门牌号保密，仅管理员可见" hat>
-      <van-field error="{{error.district_id}}" input-align="left" disabled bindtap="gotoSelectSubDistrict" is-link label="小区" value="{{post.sub_district_name}}" arrow-direction="down" />
+      <van-field error="{{error.district_id}}" input-align="left" disabled bindtap="chooseLocation" is-link label="小区" value="{{post.sub_district_name}}" arrow-direction="down" />
       <block wx:if="{{!post.sub_district_id && post.sub_district_name}}">
         <van-field  error="{{error.city_id}}" input-align="left" disabled bindtap="gotoSelectDistrict" is-link label="区域" value="{{post.city.name || '请选择'}} {{post.district.name}}" arrow-direction="down" />
         <van-field data-name="street" value="{{ post.street }}" input-align="left" error="{{error.street}}" label="街道" placeholder="如：巨峰路1028弄55号" bind:change="inputChange" />

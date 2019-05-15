@@ -24,7 +24,7 @@
 
 <box padding="30">
     <view class="name">{{sub.name}}</view>
-    <view class="address">地址：{{sub.full_address }}</view>
+    <view class="address">地址：{{sub.address }}</view>
      <view class="typeinfo">
          <view class="item border">
                  <view class="value">{{sub.average_price || '未知'}}

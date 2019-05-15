@@ -1,0 +1,29 @@
+
+<form bindsubmit="submitHandle">
+
+<mycard title="详细介绍">
+    <van-field name="content" label="内容" value="" />
+    <van-field name="price" label="价格" value="" />
+</mycard>
+
+
+<mycard title="图片">
+    <images-uploader  
+    bindchange="imagesChanged" 
+    max="5" 
+    min="1" 
+    enable-video="{{false}}"  
+    cover="0" 
+    images="{{topic.meta_images || []}}"></images-uploader>
+</mycard>
+
+<mycard title="联系信息">
+    <van-field name="connect_name" label="联系人" value="" />
+    <van-field name="connect_mobile" label="联系电话" value="" />
+    <van-field name="connect_wechat" label="联系微信" value="" />
+    <van-field readonly="{{true}}" is-link="{{true}}" bindtap="chooseLocation" name="address" label="详细地址" value="{{topic.address}}" />
+</mycard>
+
+<button type="primary" form-type="submit">确认提交</button>
+
+</form>

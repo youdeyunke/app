@@ -156,20 +156,21 @@ Page({
     onfire.un(this.data.dEvent)    
   },
 
-  updateSubDistrict: function(s){
+  updateSubDistrict: function(s, back=true){
     // 更新小区信息
     console.log('小区信息改变了', s)
     this.updatePostField('sub_district_name', s.name)
     this.updatePostField('sub_district_id', s.id || '')
-    this.updatePostField('street', s.street || '')    
+    this.updatePostField('address', s.address || '')    
     if(s.district){
       this.updatePostField('city', s.city)
       this.updatePostField('city_id', s.city.id)      
       this.updatePostField('district', s.district)
       this.updatePostField('district_id', s.district.id)      
     }
-           
-    wx.navigateBack({ delta: -1 })
+    if(back){
+        wx.navigateBack({ delta: -1 })
+    }
   },
 
   updateDistrict: function (c, d) {
@@ -297,18 +298,9 @@ Page({
       return
     }
     
-    if(!post.district_id  || !post.city_id){
-      _this.showError('district_id', '城市、行政区不能为空')
-      return
-    }
 
-    if(!post.sub_district_name){
-      _this.showError('sub_district_name', '请填写小区名称')
-      return
-    }
-
-    if(!post.street){
-      _this.showError('street', '请填写详细街道信息')
+    if(!post.sub_district_id){
+      _this.showError('sub_district_id', '请在地图中选择你所在的小区')
       return
     }
 
@@ -559,6 +551,12 @@ Page({
 
   },
 
+  chooseLocation: function (e) { 
+    var _this = this   
+    app.chooseLocation(function (sub) { 
+        _this.updateSubDistrict(sub, false)
+     })
+   },
 
   updatePostField: function(key, value){
     var d = {}
@@ -566,8 +564,6 @@ Page({
     d[key] = value
     this.setData(d)
   },
-
-
 
   /**
    * 生命周期函数--监听页面卸载

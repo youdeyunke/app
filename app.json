@@ -1,4 +1,4 @@
-{
+ {
   "pages": [
     "pages/home/home",
     "pages/news/index",
@@ -46,7 +46,12 @@
     "pages/wxpay/demo",
     "pages/broker/profile",
     "pages/broker/membership",
-    "pages/static/terms"
+    "pages/static/terms",
+    "pages/goods/index",
+    "pages/goods/show",
+    "pages/goods/new",
+    "pages/goods/edit",
+    "pages/goods/form"
   ],
   "tabBar": {
     "selectedColor": "#333",
@@ -98,6 +103,12 @@
     "van-tabs": "/vant/tabs/index",
     "van-tab": "/vant/tab/index",
     "van-button": "/vant/button/index",
+    "van-field": "/vant/field/index",
+    "van-radio-group": "/vant/radio-group/index",
+    "van-radio": "/vant/radio/index",
+    "van-switch-cell": "/vant/switch-cell/index",
+    "van-cell": "/vant/cell/index",
+    "van-cell-group": "/vant/cell-group/index",
     "mycard": "/components/card",
     "box": "/components/box"
   },

@@ -3,8 +3,8 @@ var auth = require("utils/auth.js");
 
 App({
   globalData: {
-    apiHost: "https://nianyu.udeve.cn",
-    //apiHost: 'http://localhost:9000',
+    //apiHost: "https://nianyu.udeve.cn",
+    apiHost: 'http://localhost:9000',
     userInfo: null,
     token: null,
     loadingStatus: 0,
@@ -109,6 +109,28 @@ App({
       ]
     }
   },
+
+
+  chooseLocation: function (cb) { 
+    var _this = this
+    wx.chooseLocation({
+          success: function (res) { 
+              console.log('res', res)
+              _this.request({
+                  url: '/api/v1/sub_districts',
+                  method: 'POST',
+                  data: res,
+                  success: function (resp) { 
+                      if(resp.data.status == 0){
+                        var data = resp.data.data
+                        console.log('get sub_district ', data)
+                        typeof cb == 'function' && cb(data)
+                      }
+                   }
+              })
+           }
+      })
+   },
 
   ensureLocation: function(cb) {
     // 确保能获取用户位置信息
