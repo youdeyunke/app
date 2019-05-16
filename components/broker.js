@@ -149,6 +149,7 @@ Component({
       if (_this.data.booking == 1) {
         return false
       }
+      // 模拟需要付费的方式
 
       app.request({
         url: '/api/v1/users/mark_book',
