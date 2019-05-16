@@ -22,21 +22,6 @@ Component({
       type: Number, value: 0,
     },
 
-    marginBottom: {
-      type: Number, value: 20,
-    },
-
-    marginLeft: {
-      type: Number, value: 0,
-    },
-
-    marginRight: {
-      type: Number, value: 0,
-    },
-
-    marginTop: {
-      type: Number, value: 0,
-    },
 
   },
 

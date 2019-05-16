@@ -76,6 +76,10 @@ module.exports = {
     })
   },
 
+  loadUserInfo: function (cb) {
+      return this.getRemoteUserInfo(cb)
+    },
+
   getRemoteUserInfo: function(cb){
     /* 从服务器获取用户信息 */
     const that = getApp()

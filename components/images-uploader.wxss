@@ -9,13 +9,14 @@
 .uploader .item{
   width: 200rpx;
   height: 200rpx;
-  padding:20rpx;
+  padding:15rpx;
   box-sizing: border-box;
   border:2rpx dashed #cecece;
-  margin:10rpx 10rpx 10rpx 10rpx;
+  margin:10rpx 5rpx 10rpx 5rpx;
   display: flex;
   justify-content: center;
   align-items: center;   
+  overflow: hidden;
 }
 
 .uploader .item.image.main{
@@ -39,8 +40,8 @@
 }
 
 .uploader .item image{
-  width: 160rpx;
-  height: 160rpx;
+  max-width: 160rpx;
+  max-height: 160rpx;
 }
 
 

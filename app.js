@@ -4,7 +4,7 @@ var auth = require("utils/auth.js");
 App({
   globalData: {
     //apiHost: "https://nianyu.udeve.cn",
-    apiHost: 'http://localhost:9000',
+    apiHost: 'http://localhost:9019',
     userInfo: null,
     token: null,
     loadingStatus: 0,

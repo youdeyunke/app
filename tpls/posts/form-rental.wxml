@@ -1,65 +1,65 @@
 <template name="form-rental">
-  <block>
-    <card title="出租类型" hat wx:if="{{step==1 }}">
-      <van-radio-group value="{{post.rent_type}}">
-      <van-cell title="整租" bind:click="rentTypeClick" clickable data-name="zhengzu"  >
-        <van-radio name="zhengzu" />
-      </van-cell>
-      <van-cell title="合租" bind:click="rentTypeClick" clickable data-name="hezu"  >
-        <van-radio name="hezu" />
-      </van-cell>   
-      </van-radio-group>   
-    </card>
+    <block>
+        <card title="出租类型" hat wx:if="{{step==1 }}">
+            <van-radio-group value="{{post.rent_type}}">
+                <van-cell title="整租" bind:click="rentTypeClick" clickable data-name="zhengzu">
+                    <van-radio name="zhengzu" />
+                </van-cell>
+                <van-cell title="合租" bind:click="rentTypeClick" clickable data-name="hezu">
+                    <van-radio name="hezu" />
+                </van-cell>
+            </van-radio-group>
+        </card>
 
-    <card title="地址" wx:if="{{step==1}}" subtitle="门牌号保密，仅管理员可见" hat>
-      <van-field error="{{error.district_id}}" input-align="left" disabled bindtap="gotoSelectSubDistrict" is-link label="小区" value="{{post.sub_district_name}}" arrow-direction="down" />
-      <block wx:if="{{!post.sub_district_id && post.sub_district_name}}">
-        <van-field  error="{{error.city_id}}" input-align="left" disabled bindtap="gotoSelectDistrict" is-link label="区域" value="{{post.city.name || '请选择'}} {{post.district.name}}" arrow-direction="down" />
-        <van-field data-name="street" value="{{ post.street }}" input-align="left" error="{{error.street}}" label="街道" placeholder="如：巨峰路1028弄55号" bind:change="inputChange" />
-      </block>
-      <van-field data-name="building_number" value="{{ post.building_number }}" input-align="left" label="栋座/位置" placeholder="如：A栋" bind:change="inputChange" />
-      <van-field data-name="house_number" value="{{ post.house_number }}" input-align="left" label="房号" placeholder="如：55号楼 1002室" bind:change="inputChange" />
-      <van-field data-name="how_to_see" value="{{ post.how_to_see }}" input-align="left" label="如何看房" placeholder="" bind:change="inputChange" />
-    </card>
+        <card title="业主信息" hat="true" wx:if="{{step==1 && user.is_broker }}">
+            <van-field data-name="owner_name" value="{{ post.owner_name }}" input-align="left"
+                error="{{error.owner_name}}" label="姓名" placeholder="" bind:change="inputChange" />
+            <van-field data-name="owner_mobile" value="{{ post.owner_mobile }}" input-align="left"
+                error="{{error.owner_mobile}}" label="电话" placeholder="" bind:change="inputChange" />
+        </card>
 
-    <card title="业主信息" hat="true" wx:if="{{step==1 && user.is_broker }}">
-      <van-field data-name="owner_name" value="{{ post.owner_name }}" input-align="left" error="{{error.owner_name}}" label="姓名" placeholder="" bind:change="inputChange" />
-      <van-field data-name="owner_mobile" value="{{ post.owner_mobile }}" input-align="left" error="{{error.owner_mobile}}" label="电话" placeholder="" bind:change="inputChange" />
-    </card>
+        <card title="户型信息" hat wx:if="{{step==1}}">
+            <van-field value="{{ post.area }}" label="面积" input-align="left" error="{{error.area}}" type="number"
+                placeholder="平米" data-name="area" bind:change="inputChange" />
 
-    <card title="户型信息" hat wx:if="{{step==1}}">
-      <van-field value="{{ post.area }}" label="面积" input-align="left" error="{{error.area}}" type="number" placeholder="平米" data-name="area" bind:change="inputChange" />
+            <van-field data-name="rent_price" error="{{error.rent_price}}" value="{{ post.rent_price}}"
+                input-align="left" label="租金" type="number" placeholder="元" bind:change="inputChange" />
 
-      <van-field data-name="rent_price" error="{{error.rent_price}}" value="{{ post.rent_price}}" input-align="left" label="租金" type="number" placeholder="元" bind:change="inputChange" />
+            <picker bindchange="minRentMonthChange" range-key="label" range="{{minRentMonthItems}}"
+                value="{{post.min_rent_month || 0 }}">
+                <van-field is-link label="起租" is-link
+                    value="{{post.min_rent_month >0 ? post.min_rent_month + '个月' : '' }}" input-align="left"
+                    arrow-direction="down">
+                </van-field>
+            </picker>
 
-      <picker bindchange="minRentMonthChange" range-key="label" range="{{minRentMonthItems}}" value="{{post.min_rent_month || 0 }}">
-        <van-field is-link label="起租" is-link value="{{post.min_rent_month >0 ? post.min_rent_month + '个月' : '' }}" input-align="left" arrow-direction="down">
-        </van-field>
-      </picker>
+            <van-field bindtap="showTypePicker" is-link error="{{error.type}}" input-align="left" label="户型"
+                value="{{post.s}}室-{{post.t}}厅-{{post.w}}卫 {{ post.position}}" arrow-direction="down" disabled />
+            <van-field bindtap="showFitmentPicker" error="{{error.fitment_id}}" is-link input-align="left" label="装修"
+                value="{{post.fitment.name || '请选择'}}" arrow-direction="down" disabled />
 
-      <van-field bindtap="showTypePicker" is-link error="{{error.type}}" input-align="left" label="户型" value="{{post.s}}室-{{post.t}}厅-{{post.w}}卫 {{ post.position}}" arrow-direction="down" disabled />
-      <van-field bindtap="showFitmentPicker" error="{{error.fitment_id}}" is-link input-align="left" label="装修" value="{{post.fitment.name || '请选择'}}" arrow-direction="down" disabled />
+            <van-field bindtap="showFloorPicker" is-link input-align="left" error="{{error.floor}}" label="楼层"
+                value="第{{post.current_floor || '几'}}层-共{{post.total_floor || '几'}}层 {{post.has_lift == true ? '有' : '无'}}电梯"
+                arrow-direction="down" disabled />
+            <van-field bindtap="showPayment" error="{{error.payment_cycle}}" is-link input-align="left" label="付款类型"
+                value="{{post.payment_cycle || '请选择'}}" arrow-direction="down" disabled />
+            <van-switch-cell title="服务费" data-name="service_charge_enable" checked="{{post.service_charge_enable}}"
+                bindchange="serviceChargeEnableChange" />
+            <van-field wx:if="{{post.service_charge_enable}}" error="{{error.service_charge}}"
+                data-name="service_charge" value="{{ post.service_charge }}" input-align="left" label="收费标准"
+                placeholder="请输入" bind:change="inputChange" />
+        </card>
 
-      <van-field bindtap="showFloorPicker" is-link input-align="left" error="{{error.floor}}" label="楼层" value="第{{post.current_floor || '几'}}层-共{{post.total_floor || '几'}}层 {{post.has_lift == true ? '有' : '无'}}电梯" arrow-direction="down" disabled />
-      <van-field bindtap="showPayment" error="{{error.payment_cycle}}" is-link input-align="left" label="付款类型" value="{{post.payment_cycle || '请选择'}}" arrow-direction="down" disabled />
-      <van-switch-cell title="服务费" data-name="service_charge_enable" checked="{{post.service_charge_enable}}" bindchange="serviceChargeEnableChange" />
-      <van-field 
-              wx:if="{{post.service_charge_enable}}" 
-              error="{{error.service_charge}}"
-              data-name="service_charge" 
-              value="{{ post.service_charge }}" 
-              input-align="left" 
-              label="收费标准" 
-              placeholder="请输入" 
-              bind:change="inputChange" />
-    </card>
+        <card title="房源详情" hat wx:if="{{step == 2}}">
+            <van-field label="房源介绍" bind:change="inputChange" value="{{post.desc}}" placeholder="选填" data-name="desc"
+                autosize />
+            <van-field label="出租要求" bind:change="inputChange" value="{{post.rent_limit}}" placeholder="选填"
+                data-name="rent_limit" autosize />
+            <van-field label="周边配套" bind:change="inputChange" value="{{post.surrounding}}" placeholder="选填"
+                data-name="surrounding" autosize />
+            <van-field value="{{post.remark }}" label="备注" placeholder="选填" bind:change="inputChange" data-name="remark"
+                autosize />
+        </card>
 
-    <card title="房源详情" hat wx:if="{{step == 2}}">
-      <van-field label="房源介绍" bind:change="inputChange" value="{{post.desc}}" placeholder="选填" data-name="desc" autosize />
-      <van-field label="出租要求" bind:change="inputChange" value="{{post.rent_limit}}" placeholder="选填" data-name="rent_limit" autosize />
-      <van-field label="周边配套" bind:change="inputChange" value="{{post.surrounding}}" placeholder="选填" data-name="surrounding" autosize />
-      <van-field value="{{post.remark }}" label="备注" placeholder="选填" bind:change="inputChange"  data-name="remark" autosize />
-    </card>
-
-  </block>
+    </block>
 </template>
