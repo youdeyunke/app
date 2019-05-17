@@ -51,8 +51,9 @@ Page({
         _this.setData({
           sub: resp.data.data
         })
-        WxParse.wxParse('htmlContent', 'html', resp.data.data.desc, _this, 5);
-        console.log('html', _this.data.htmlContent)
+        if(resp.data.data.desc){
+          WxParse.wxParse('htmlContent', 'html', resp.data.data.desc, _this, 5);
+        }
       },
     })
   },
