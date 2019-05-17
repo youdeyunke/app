@@ -141,7 +141,7 @@
 
 <mycard width="730" title="地理位置">
   <sub-location-info item="{{sub}}" wx:if="{{post.sub_district_id}}" />
-  <mapimage wx:if="{{!post.sub_district_id}}" image="{{post.map_image_url}}"  latitude="{{post.latitude}}"  longitude="{{post.longitude}}" name="{{post.sub_district_name}}" />
+  <mapimage wx:if="{{!post.sub_district_id}}" image="{{post.map_image_url}}"  latitude="{{post.sub_district.latitude}}"  longitude="{{post.sub_district.longitude}}" name="{{post.sub_district_name}}" />
 </mycard>
 
 

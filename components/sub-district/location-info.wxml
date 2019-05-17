@@ -1,5 +1,5 @@
 <block>
-  <mapimage image="{{item.map_image_url}}" latitude="{{sub.latitude}}"  longitude="{{item.longitude}}" name="{{item.name}}" ></mapimage>
+  <mapimage image="{{item.map_image_url}}" latitude="{{item.latitude}}"  longitude="{{item.longitude}}" name="{{item.name}}" ></mapimage>
   <view class="subinfo">
     <view class="sub-address"><van-icon name="location"></van-icon>{{item.address}}</view>
     <view class="station-item" wx:for="{{item.stations}}" wx:for-item="station" >
