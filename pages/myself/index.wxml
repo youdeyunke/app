@@ -36,7 +36,7 @@
   </box>
 
 
-    <view class="section">
+    <box width="710" padding="10" >
         <van-cell size="large" hover-class="none" title="绑定手机号"   center wx:if="{{userInfo && !userInfo.mobile}}">
             <button slot="right-icon" class="btn mini" type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain>马上绑定</button>
         </van-cell>
@@ -48,8 +48,8 @@
         <van-cell wx:if="{{userInfo.broker_profile.enable && userInfo.broker_profile.remain_days <= 3}}" size="large" url="/pages/myself/broker"  hover-class="none" value="剩余{{userInfo.broker_profile.remain_days}}到期" title="经纪人身份" center />
 
         <van-cell size="large"  hover-class="none"  title="联系客服" url="/pages/about/index"   is-link center />
-        <van-cell bindtap="logoutHandle" size="large"  hover-class="none"  title="退出登录"  is-link center />
-    </view>
+        <van-cell border="{{false}}" bindtap="logoutHandle" size="large"  hover-class="none"  title="退出登录"  is-link center />
+    </box>
 
 
 </block>
