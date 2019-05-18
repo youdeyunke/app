@@ -1,6 +1,6 @@
 
 module.exports = {
-  loginHandle: function(that, e){
+  loginHandle: function(that, e, cb=null){
     const app = getApp()
     var _this = this
     console.log('uinfo', e)
@@ -22,6 +22,7 @@ module.exports = {
             that.setData({userInfo: userInfo})
             // login back
             app.loginBack()
+            typeof cb == 'function' && cb(userInfo)
           })
         }
       },

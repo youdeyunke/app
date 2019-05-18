@@ -1,7 +1,6 @@
 
 page{
   height:100% !important;
-  background: #fff !important;
   padding-top:0;
 }
 
@@ -89,7 +88,7 @@ page{
 }
 
 .section{
-  width:100%;
+  width:710rpx;
   padding:0 20rpx;
   margin-bottom:20rpx;
 }
@@ -103,6 +102,7 @@ page{
   justify-content: flex-start;
   flex-wrap:wrap;
   width:100%;
+  margin:20rpx 0;
 }
 
 .menu-item{

@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 37,
+			"current": 39,
 			"list": [
 				{
 					"id": 0,
@@ -275,6 +275,20 @@
 					"name": "发布二手",
 					"pathName": "pages/goods/form",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "二手物品列表",
+					"pathName": "pages/goods/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "二手详情",
+					"pathName": "pages/goods/show",
+					"query": "id=28",
 					"scene": null
 				}
 			]

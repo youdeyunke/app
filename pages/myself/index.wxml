@@ -26,7 +26,7 @@
 
 
 <block wx:if="{{userInfo}}">
-  <box padding="20">
+  <box width="710" padding="20">
         <view class="menu">
           <navigator hover-class="none" url="{{item.url}}"  class="menu-item" wx:for="{{cells}}">
                 <van-icon color="#66" size="52rpx" name="{{item.icon}}" />
@@ -36,18 +36,20 @@
   </box>
 
 
-    <view class="section">
+    <box width="710" padding="10" >
         <van-cell size="large" hover-class="none" title="绑定手机号"   center wx:if="{{userInfo && !userInfo.mobile}}">
             <button slot="right-icon" class="btn mini" type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain>马上绑定</button>
         </van-cell>
 
-        <van-cell wx:if="{{!userInfo.broker_profile.enable}}" size="large"  hover-class="none" value="马上开通" title="经纪人身份" url="/pages/myself/broker"   is-link center />
+        <van-cell wx:if="{{!userInfo.broker_profile.enable}}" size="large"  hover-class="none" title="经纪人身份"   center>
+            <van-button slot="right-icon" size="mini" plain bindtap="gotoMembership" type="primary">立即开通</van-button>
+        </van-cell>
         <van-cell wx:if="{{userInfo.broker_profile.enable && userInfo.broker_profile.remain_days > 3}}" size="large" url="/pages/myself/broker"  hover-class="none" value="已开通" title="经纪人身份" center />
         <van-cell wx:if="{{userInfo.broker_profile.enable && userInfo.broker_profile.remain_days <= 3}}" size="large" url="/pages/myself/broker"  hover-class="none" value="剩余{{userInfo.broker_profile.remain_days}}到期" title="经纪人身份" center />
 
-        <van-cell bindtap="logoutHandle" size="large"  hover-class="none"  title="退出登录" url="/pages/myself/broker"   is-link center />
         <van-cell size="large"  hover-class="none"  title="联系客服" url="/pages/about/index"   is-link center />
-    </view>
+        <van-cell border="{{false}}" bindtap="logoutHandle" size="large"  hover-class="none"  title="退出登录"  is-link center />
+    </box>
 
 
 </block>

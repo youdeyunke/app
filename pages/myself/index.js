@@ -89,15 +89,29 @@ Page({
         })
     },
 
+    gotoMembership: function(e){
+        // 开通经纪人身份
+        var url = '/pages/myself/broker'
+        var b = this.data.userInfo.broker_profile
+        if(b.name && b.mobile && b.company ){
+            url = '/pages/broker/membership'
+        }
+        wx.navigateTo({url: url})
+    },
+
     logoutHandle: function (e) {
         wx.setStorageSync('userInfo', null)
-        this.setData({
-            userInfo: null
-        })
+        wx.setStorageSync('token', null)
+        this.setData({userInfo: null })
+        this.setData({userInfo: null })
+        this.setNavColor(false)
     },
 
     loginHandle: function (e) {
-        auth.loginHandle(this, e)
+        var _this  = this
+        auth.loginHandle(this, e, function(u){
+            _this.setNavColor(u)
+        })
     },
 
     /**
@@ -105,10 +119,11 @@ Page({
      */
     onLoad: function (options) {
         var _this = this
-        wx.setNavigationBarTitle({
-            title: '我的'
-        })
-        this.getRemoteUserInfo()
+        // 未登录时候标题栏为灰色，登录后为白色
+        wx.setNavigationBarTitle({title: '我的'})
+        if(this.data.userInfo.id){
+            this.getRemoteUserInfo()
+        }
     },
 
     getRemoteUserInfo: function () {
@@ -131,14 +146,33 @@ Page({
 
     },
 
+    setNavColor: function(isUser){
+        // dark
+        var frontColor = '#000000'
+        var bgColor = '#f3f5f7'
+        var duration =  0
+        if(isUser){
+            bgColor = '#ffffff'
+            duration = 500
+        }
+
+        wx.setNavigationBarColor({
+          frontColor: frontColor,
+          backgroundColor: bgColor,
+          animation: {
+            duration: duration,
+            timingFunc: 'easeIn'
+          }
+        })        
+    },
+
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        this.setData({
-            userInfo: wx.getStorageSync('userInfo')
-        })
-        console.log(this.data.userInfo)
+        var u = wx.getStorageSync('userInfo')
+        this.setData({userInfo: u })
+        this.setNavColor(u)
 
     },
 

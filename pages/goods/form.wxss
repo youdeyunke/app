@@ -1,1 +1,11 @@
 /* pages/goods/form.wxss */
+page{
+    padding-top:20rpx;
+    padding-bottom:20rpx;
+}
+
+.content{
+    border:2rpx solid  #f4f4f4;
+    padding:20rpx;
+    box-sizing: border-box;
+}

@@ -1,2 +1,4 @@
-<!--pages/goods/index.wxml-->
-<text>pages/goods/index.wxml</text>
+
+<block  wx:for="{{items}}" wx:for-item="goods">
+    <box width="710" padding="20"><gooditem wx:for="{{goods}}" item="{{item}}" /></box>
+</block>
