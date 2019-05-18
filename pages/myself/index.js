@@ -93,7 +93,7 @@ Page({
         // 开通经纪人身份
         var url = '/pages/myself/broker'
         var b = this.data.userInfo.broker_profile
-        if(b.name && b.mobile && b.company ){
+        if(b.mobile && b.company ){
             url = '/pages/broker/membership'
         }
         wx.navigateTo({url: url})

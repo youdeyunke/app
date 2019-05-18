@@ -52,23 +52,21 @@ Page({
         /* 根据身份信息改变页面状态 */
         var broker = user.broker_profile
         if (!broker.enable) {
+
             // 没有填写个人信息
-            if (!broker.mobile && !broker.company && !broker.name) {
-                this.setData({
-                    state: 'new'
-                })
-            } else {
-                /* 如果是免费入驻，就显示资料审核中 */
-                this.setData({
-                    state: 'pending'
-                })
-                /* 如果是付费入驻，就跳转到选择套餐 */
-                wx.redirectTo({
-                    url: '/pages/broker/membership'
-                })
-                return false
-            }
-            return
+            if (!broker.mobile && !broker.company) {
+                this.setData({ state: 'new' })
+                return false;
+            } 
+
+            /* 如果是免费入驻，就显示资料审核中 */
+            this.setData({ state: 'pending' })
+
+            /* 如果是付费入驻，就跳转到选择套餐 */
+            if(this.data.joinType != 'free'){
+              wx.redirectTo({ url: '/pages/broker/membership' })
+            } 
+            return false
         }
         if (broker.remain_days > 7) {
             // 老用户，还未到期 

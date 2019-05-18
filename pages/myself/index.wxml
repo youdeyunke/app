@@ -38,7 +38,7 @@
 
     <box width="710" padding="10" >
         <van-cell size="large" hover-class="none" title="绑定手机号"   center wx:if="{{userInfo && !userInfo.mobile}}">
-            <button slot="right-icon" class="btn mini" type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain>马上绑定</button>
+            <van-button slot="right-icon" size="mini" plain type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">马上绑定</van-button>
         </van-cell>
 
         <van-cell wx:if="{{!userInfo.broker_profile.enable}}" size="large"  hover-class="none" title="经纪人身份"   center>
