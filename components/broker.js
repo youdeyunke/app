@@ -13,10 +13,7 @@ Component({
   properties: {
     broker: {type: Object, value:null},
     pid: {type: Number, value: null},
-    booking: {type: Number, value: 0},
-    bookingEnable: {
-      type: Boolean, value: true,
-    },
+    booking: {type: Boolean, value: false},
   },
 
   /**
@@ -146,7 +143,7 @@ Component({
       var pid = this.data.pid
       var _this = this
       var location = wx.getStorageSync('location')
-      if (_this.data.booking == 1) {
+      if (_this.data.booking) {
         return false
       }
       // 模拟需要付费的方式
@@ -162,7 +159,7 @@ Component({
               title: '预约成功！',
               content: '经济人稍后会来电与您确认具体看房时间，请留意',
             })
-            _this.setData({booking: 1})
+            _this.setData({booking: true})
           }
         }
       })
