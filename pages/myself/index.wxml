@@ -26,7 +26,7 @@
 
 
 <block wx:if="{{userInfo}}">
-  <box padding="20">
+  <box width="710" padding="20">
         <view class="menu">
           <navigator hover-class="none" url="{{item.url}}"  class="menu-item" wx:for="{{cells}}">
                 <van-icon color="#66" size="52rpx" name="{{item.icon}}" />
