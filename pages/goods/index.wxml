@@ -2,3 +2,5 @@
 <block  wx:for="{{items}}" wx:for-item="goods">
     <box width="710" padding="20"><gooditem wx:for="{{goods}}" item="{{item}}" /></box>
 </block>
+
+<add-new url="/pages/goods/form" />

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+      "add-new": "/components/add-new",
       "gooditem": "/components/goods/item"
   }
 }

@@ -1,2 +1,4 @@
 <!--components/add-new.wxml-->
-<navigator hover-class='none' open-type='navigate' url="{{url}}" class="add-new">+</navigator>
+<navigator hover-class='none' open-type='navigate' url="{{url}}" class="add-new">
+  <van-icon name="plus" />
+</navigator>
