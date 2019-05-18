@@ -1,13 +1,24 @@
 
 <form bindsubmit="submitHandle">
 
-<mycard title="详细介绍">
-    <van-field name="content" label="内容" value="" />
-    <van-field name="price" label="价格" value="" />
+<mycard width="710" title="详细介绍">
+    <van-field value="{{topic.content}}" required type="textarea" name="content" placeholder="请输入物品描述" autosize label="描述" />
+    <van-field  type="digit"  required name="meta_price" label="价格" value="{{topic.meta_price}}" />
+
 </mycard>
 
+<mycard width="710" title="交易方式">
+    <van-radio-group  value="{{ topic.meta_means }}" bind:change="onChange">
+        <van-cell-group border="{{false}}">
+            <van-cell size="large" border="{{index < items.length-1}}" wx:key="{{item.id}}" wx:for="{{meansList}}" label="{{item.desc}}" bind:click="meansClick" title="{{item.name}}" clickable data-name="{{item.name}}">
+                <van-radio checked-color="#07c160" name="{{item.name}}" />
+            </van-cell>
+        </van-cell-group>
+    </van-radio-group>
 
-<mycard title="图片">
+</mycard>
+
+<mycard width="710" title="图片">
     <images-uploader  
     bindchange="imagesChanged" 
     max="5" 
@@ -17,11 +28,11 @@
     images="{{topic.meta_images || []}}"></images-uploader>
 </mycard>
 
-<mycard title="联系信息">
-    <van-field name="connect_name" label="联系人" value="" />
-    <van-field name="connect_mobile" label="联系电话" value="" />
-    <van-field name="connect_wechat" label="联系微信" value="" />
-    <van-field readonly="{{true}}" is-link="{{true}}" bindtap="chooseLocation" name="address" label="详细地址" value="{{topic.address}}" />
+<mycard width="710" title="联系信息">
+    <van-field  required name="contact_name" label="联系人" value="{{topic.contact_name}}" />
+    <van-field required  name="contact_mobile" label="联系电话" value="{{topic.contact_mobile}}" />
+    <van-field border="{{false}}" name="contact_wechat" label="联系微信" value="{{topic.contact_wechat}}" />
+    <van-field  required  border="{{false}}" readonly="{{true}}" is-link="{{true}}" bindtap="chooseLocation" name="address" label="地址" value="{{topic.sub_district.address}}" />
 </mycard>
 
 <button type="primary" form-type="submit">确认提交</button>
