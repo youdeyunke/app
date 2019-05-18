@@ -4,8 +4,8 @@ page{
 }
 
 .header{
-  background:white;
-  width:100%;
+  background:#fff;
+  width:710rpx;
   padding:0 0rpx 20rpx 0rpx;
   box-shadow: 2rpx 4rpx 10rpx rgba(0,0,0, 0.05);
   margin-bottom:20rpx;
@@ -22,6 +22,10 @@ page{
   margin-top:30rpx;
   background: #fff;
   margin-top:20rpx;
+}
+
+.my-news-swiper{
+  margin:20rpx 0;
 }
 
 .home-title .h1{

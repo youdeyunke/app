@@ -11,22 +11,22 @@ Page({
         userInfo: {},
         cells: [{
                 icon: "newspaper-o",
-                name: '我的房源',
+                name: '房源',
                 url: '/pages/myself/posts',
             },
             {
                 icon: "chat-o",
-                name: '我的提问',
+                name: '提问',
                 url: '/pages/myself/qa',
             },
             {
                 icon: "comment-o",
-                name: '我的评论',
+                name: '评论',
                 url: '/pages/comments/index?myself=true&limit=10000"',
             },
             {
                 icon: "eye-o",
-                name: '我的关注',
+                name: '关注',
                 url: '/pages/myself/favposts'
             },
             //{ icon:"pause-circle-o",  name: '退出登录',  bindtap:"logoutHandle", loginRequired: true},

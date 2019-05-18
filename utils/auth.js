@@ -21,7 +21,7 @@ module.exports = {
             // success
             that.setData({userInfo: userInfo})
             // login back
-            app.loginBack()
+            //app.loginBack()
             typeof cb == 'function' && cb(userInfo)
           })
         }

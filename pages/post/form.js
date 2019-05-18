@@ -79,51 +79,51 @@ Page({
         }
 
         auth.loadUserInfo(function (user) {
-            _this.setData({
-                user: user
-            })
-            var canPub = true
-            var canPubError = ''
-            // 判断发布房源数量限制情况
-            var binfo = user.broker_profile
-            console.log('totao limit')
-            // 判断总数
-            if (binfo.total_limit <= binfo.total_posts) {
-                canPub = false
-                canPubError =  '你总共可以发布' + binfo.total_limit + '套房源，已发布' + binfo.total_posts + '套'
-                console.log(canPubError)
-            }
-            // 判断总数
-            if (binfo.per_day_limit <= binfo.today_posts) {
-                canPub = false
-                canPubError =  '你今天可以发布' + binfo.per_day_limit + '套房源，已发布' + binfo.total_posts + '套'
-            }
-            if(!canPub){
-                wx.showModal({
-                    title: '禁止发布',
-                    content: canPubError,
-                    success: function (res) {
-                        wx.switchTab({
-                            url: '/pages/home/home',
-                        });
-                    }
-                })
-            }
-            if (q.id) {
-                // 如果是编辑房源，不需要取出草稿
+            _this.setData({ user: user })
+
+            if (q.id) { // 如果是编辑房源，不需要取出草稿
                 _this.loadPost(q.id)
             } else {
                 // 如果是新建房源，需要取出草稿中
+                _this.checkLimit(user)
                 _this.initBrokerInfo()
-                _this.setData({
-                    post: post
-                })
+                _this.setData({ post: post })
                 _this.updatePostField('group', q.group || 'rental')
                 _this.updatePostField('rent_type', q.rent_type || 'zhengzu')
                 _this.updatePostField('is_sublet', q.is_sublet || false)
                 _this.loadTags(q.group)
             }
         })
+    },
+
+    checkLimit: function(user){
+        // 判断发布房源数量限制情况
+        var canPub = true
+        var canPubError = ''
+        var binfo = user.broker_profile
+        console.log('totao limit')
+        // 判断总数
+        if (binfo.total_limit <= binfo.total_posts) {
+            canPub = false
+            canPubError =  '你总共可以发布' + binfo.total_limit + '套房源，已发布' + binfo.total_posts + '套'
+            console.log(canPubError)
+        }
+        // 判断总数
+        if (binfo.per_day_limit <= binfo.today_posts) {
+            canPub = false
+            canPubError =  '你今天可以发布' + binfo.per_day_limit + '套房源，已发布' + binfo.total_posts + '套'
+        }
+        if(!canPub){
+            wx.showModal({
+                title: '禁止发布',
+                content: canPubError,
+                success: function (res) {
+                    wx.switchTab({
+                        url: '/pages/home/home',
+                    });
+                }
+            })
+        }
     },
 
     gotoSelectSubDistrict: function (e) {

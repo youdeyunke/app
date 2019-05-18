@@ -26,14 +26,14 @@
 
 
 <block wx:if="{{userInfo}}">
-  <box width="710" padding="20">
+  <mycard title="我的" head-border="{{true}}" width="710" padding="20">
         <view class="menu">
           <navigator hover-class="none" url="{{item.url}}"  class="menu-item" wx:for="{{cells}}">
                 <van-icon color="#66" size="52rpx" name="{{item.icon}}" />
                 <view class="menu-item-name">{{item.name}}</view>
             </navigator>
         </view>
-  </box>
+  </mycard>
 
 
     <box width="710" padding="10" >

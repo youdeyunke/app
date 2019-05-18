@@ -48,7 +48,7 @@
 
 </box>
 
-<mycard title="小区介绍" >
+<mycard title="小区介绍" wx:if="{{sub.desc_safe}}">
   <view class="raw" style="margin-bottom:20rpx;" wx:if="{{htmlContent}}">
     <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>
   </view>

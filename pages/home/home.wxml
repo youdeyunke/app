@@ -1,6 +1,6 @@
 <myslider id="slider"></myslider>
-<view class="header">
 
+<view class="header">
   <navs />
 </view>
 
@@ -16,9 +16,9 @@
     </view>
 </view>
 
-<box padding="30">
-<block wx:for="{{posts}}" wx:for-item="postitems">
-   <post wx:for="{{postitems}}" item="{{item}}"></post>
-</block>
+<box width="710" padding="20">
+  <block wx:for="{{posts}}" wx:for-item="postitems">
+     <post wx:for="{{postitems}}" item="{{item}}"></post>
+  </block>
 </box>
 
