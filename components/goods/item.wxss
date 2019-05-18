@@ -1,0 +1,70 @@
+/* components/goods/item.wxss */
+.good{
+    width:100%;
+    box-sizing: border-box;
+    padding:20rpx;
+    letter-spacing: 1.8rpx;
+}
+
+.good-header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:40rpx;
+}
+
+.good-header-left{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.good-header-right{
+
+}
+
+.good-price{
+    color: red;
+    font-size: 42rpx;
+}
+
+.good-avatar{
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 60rpx;
+    overflow: hidden;
+    margin-right:20rpx;
+}
+.good-nickname{
+    font-size:24rpx;
+}
+
+.good-body{
+    height: 137rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+}
+
+.good-content{
+    font-size:28rpx;
+    color: #333;
+}
+
+.good-address{
+    color: var(--color-a);
+    font-size:24rpx;
+}
+
+.good-body-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.good-image{
+    width: 222rpx;
+    height: 137rpx;
+    overflow: hidden;
+}

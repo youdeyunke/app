@@ -1,1 +1,94 @@
-/* pages/goods/show.wxss */
+.good-header{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.good-header .header1{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60rpx;
+    margin-bottom:20rpx;
+}
+
+
+.good-header .avatar-block{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+.good-header .nickname{
+    font-size:24rpx;
+    color: #333;
+}
+.good-header .time{
+    font-size:24rpx;
+    color: #999;
+}
+.good-header .avatar{
+    height: 60rpx;
+    width: 60rpx;
+    border-radius: 60rpx;
+    overflow: hidden;
+    margin-right:20rpx;
+}
+
+.header2{
+    width: 100%;
+    display: flex;
+    justify-items: flex-start;
+    align-items: flex-end;
+    height: 42rpx;
+    margin-bottom:20rpx;
+}
+
+.header2 .price{
+    color: red;
+    font-size:42rpx;
+    margin-right:20rpx;
+    vertical-align: baseline;
+}
+.header2 .means{
+   color: #999;
+    font-size:24rpx;
+    vertical-align: baseline;
+}
+
+.header3{
+    height: 90rpx;
+    box-sizing: border-box;
+    padding:20rpx;
+    width: 100%;
+    background-image: url('https://qiniucdn.udeve.cn/fang-location-bg-image.png');
+    background-size: 100% 100%;
+    font-size:24rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header3 .address{
+    color: #333;
+}
+
+.header3 .goto{
+    color: #666;
+}
+
+.item-image{
+    width: 100%;
+}
+
+.item-content{
+    line-height: 1.8;
+    letter-spacing: 1.8rpx;
+    color: #333;
+    font-size:28rpx;
+    margin-bottom:20rpx;
+}

@@ -11,6 +11,7 @@ Component({
     subtitle: {type: String, value: ''},
     hat: { type: Boolean, value: true, },
     arrow: { type: Boolean, value: true },
+    headBorder: {type: Boolean, value: false},
      
     number: {type: Number, value: 0,},
     action: { type: String, value: '查看更多'},

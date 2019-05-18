@@ -1,18 +1,20 @@
 // pages/goods/show.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    item: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function (params) {
+    this.loadItem(params.id)
   },
 
   /**
@@ -20,6 +22,41 @@ Page({
    */
   onReady: function () {
 
+  },
+
+  goto: function(){
+      var _this = this
+      wx.showLoading({
+        title: '正在打开地图',
+        mask: true
+      })
+
+      wx.getLocation({
+        type: 'wgs84', //返回可以用于wx.openLocation的经纬度
+        success(res) {
+          const latitude = parseFloat(_this.data.item.sub_district.latitude)
+          const longitude = parseFloat(_this.data.item.sub_district.longitude)
+          wx.openLocation({
+            latitude,
+            longitude,
+            scale: 18
+          })
+          wx.hideLoading()
+        }
+      })
+  },
+
+  loadItem: function(tid){
+      var _this = this
+      app.request({
+          url: '/api/v1/topics/' + tid,
+          success: function(resp){
+              if(resp.data.status != 0){
+                  return false;
+              }
+              _this.setData({item: resp.data.data})
+          }
+      })
   },
 
   /**

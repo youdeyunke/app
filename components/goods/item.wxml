@@ -1,0 +1,24 @@
+<navigator class="good" target="" url="/pages/goods/show?id={{item.id}}" hover-class="none" open-type="navigate">
+    
+  
+    <view class="good-header" >
+        <view class="good-header-left">
+            <image class="good-avatar avatar" src="{{item.user.avatar}}" />
+            <view class="good-nickname">{{item.user.nickname}}</view>
+        </view>
+        <view class="good-header-right good-price">¥ {{item.meta_price}}</view>
+    </view>
+    <view class="good-body">
+        <view class="good-body-left" hover-class="none" hover-stop-propagation="false">
+            <view class="good-content  van-multi-ellipsis--l2" >{{item.content}}</view>
+            <view class="good-address" >
+                <van-icon name="location-o" />
+                {{item.sub_district.address}}</view>
+        </view>
+
+        <view class="good-body-right">
+            <image mode='heightFix' class="good-image" src="{{item.meta_images[0]}}" />
+        </view>
+          
+    </view>
+</navigator>
