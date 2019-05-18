@@ -25,11 +25,11 @@
 
 
 .good-header .nickname{
-    font-size:24rpx;
+    font-size:28rpx;
     color: #333;
 }
 .good-header .time{
-    font-size:24rpx;
+    font-size:28rpx;
     color: #999;
 }
 .good-header .avatar{
@@ -68,13 +68,14 @@
     width: 100%;
     background-image: url('https://qiniucdn.udeve.cn/fang-location-bg-image.png');
     background-size: 100% 100%;
-    font-size:24rpx;
+    font-size:28rpx;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 .header3 .address{
     color: #333;
+    width:470rpx;
 }
 
 .header3 .goto{

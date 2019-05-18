@@ -10,10 +10,10 @@
     </view>
     <view class="good-body">
         <view class="good-body-left" hover-class="none" hover-stop-propagation="false">
-            <view class="good-content  van-multi-ellipsis--l2" >{{item.content}}</view>
-            <view class="good-address" >
+            <view class="good-content" >{{item.content}}</view>
+            <view class="good-address van-ellipsis" >
                 <van-icon name="location-o" />
-                {{item.sub_district.address}}</view>
+                {{item.sub_district.name}}</view>
         </view>
 
         <view class="good-body-right">

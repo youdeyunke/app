@@ -36,7 +36,7 @@
     margin-right:20rpx;
 }
 .good-nickname{
-    font-size:24rpx;
+    font-size:28rpx;
 }
 
 .good-body{
@@ -49,6 +49,15 @@
 .good-content{
     font-size:28rpx;
     color: #333;
+    padding-right:10rpx;
+    line-height:1.3;
+    height:70rpx;
+  display: -webkit-box ;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
 }
 
 .good-address{

@@ -12,7 +12,7 @@
             <text class="means">{{item.meta_means}}</text>
         </view>
         <view class="header3" bindtap="goto" >
-            <view class="address">{{item.sub_district.address}}</view>
+          <view class="address">{{item.sub_district.name}} {{item.sub_district.address}}</view>
             <view class="goto">
                查看位置 <van-icon name="arroy" />
             </view>
