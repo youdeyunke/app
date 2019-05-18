@@ -14,6 +14,7 @@ Component({
     broker: {type: Object, value:null},
     pid: {type: Number, value: null},
     booking: {type: Boolean, value: false},
+    bookingEnable: {type: Boolean, value: true},
   },
 
   /**
