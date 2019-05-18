@@ -47,8 +47,8 @@
         <van-cell wx:if="{{userInfo.broker_profile.enable && userInfo.broker_profile.remain_days > 3}}" size="large" url="/pages/myself/broker"  hover-class="none" value="已开通" title="经纪人身份" center />
         <van-cell wx:if="{{userInfo.broker_profile.enable && userInfo.broker_profile.remain_days <= 3}}" size="large" url="/pages/myself/broker"  hover-class="none" value="剩余{{userInfo.broker_profile.remain_days}}到期" title="经纪人身份" center />
 
-        <van-cell bindtap="logoutHandle" size="large"  hover-class="none"  title="退出登录" url="/pages/myself/broker"   is-link center />
         <van-cell size="large"  hover-class="none"  title="联系客服" url="/pages/about/index"   is-link center />
+        <van-cell bindtap="logoutHandle" size="large"  hover-class="none"  title="退出登录"  is-link center />
     </view>
 
 

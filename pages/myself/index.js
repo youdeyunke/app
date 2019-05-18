@@ -104,10 +104,14 @@ Page({
         wx.setStorageSync('token', null)
         this.setData({userInfo: null })
         this.setData({userInfo: null })
+        this.setNavColor(false)
     },
 
     loginHandle: function (e) {
-        auth.loginHandle(this, e)
+        var _this  = this
+        auth.loginHandle(this, e, function(u){
+            _this.setNavColor(u)
+        })
     },
 
     /**
@@ -115,8 +119,11 @@ Page({
      */
     onLoad: function (options) {
         var _this = this
+        // 未登录时候标题栏为灰色，登录后为白色
         wx.setNavigationBarTitle({title: '我的'})
-        this.getRemoteUserInfo()
+        if(this.data.userInfo.id){
+            this.getRemoteUserInfo()
+        }
     },
 
     getRemoteUserInfo: function () {
@@ -139,14 +146,33 @@ Page({
 
     },
 
+    setNavColor: function(isUser){
+        // dark
+        var frontColor = '#000000'
+        var bgColor = '#f3f5f7'
+        var duration =  0
+        if(isUser){
+            bgColor = '#ffffff'
+            duration = 500
+        }
+
+        wx.setNavigationBarColor({
+          frontColor: frontColor,
+          backgroundColor: bgColor,
+          animation: {
+            duration: duration,
+            timingFunc: 'easeIn'
+          }
+        })        
+    },
+
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        this.setData({
-            userInfo: wx.getStorageSync('userInfo')
-        })
-        console.log(this.data.userInfo)
+        var u = wx.getStorageSync('userInfo')
+        this.setData({userInfo: u })
+        this.setNavColor(u)
 
     },
 
