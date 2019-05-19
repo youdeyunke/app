@@ -46,20 +46,29 @@
     justify-items: flex-start;
     align-items: flex-end;
     height: 42rpx;
-    margin-bottom:20rpx;
+    padding-bottom:20rpx;
+
+    vertical-align: baseline;
+    display:table-cell;
+
+}
+
+.header2 view{
+    display:table-cell;
+    vertical-align: baseline;
 }
 
 .header2 .price{
     color: red;
     font-size:42rpx;
-    margin-right:20rpx;
-    vertical-align: baseline;
+    padding-right:20rpx;
 }
+
 .header2 .means{
-   color: #999;
+    color: #999;
     font-size:24rpx;
-    vertical-align: baseline;
 }
+
 
 .header3{
     height: 90rpx;

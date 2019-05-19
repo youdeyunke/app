@@ -5,11 +5,11 @@
                 <image class="avatar" src="{{item.user.avatar}}" mode="widthFix" lazy-load="true" />
                 <view class="nickname" >{{item.user.nickname}}</view> 
             </view>
-            <view class="time">7天前</view>
+            <view class="time">{{ item.created_at_days == 0 ? '今天' : item.created_at_days + '天前' }}</view>
         </view>
         <view class="header2" >
-            <text class="price" >¥{{item.meta_price}}</text>
-            <text class="means">{{item.meta_means}}</text>
+          <view class="price">¥{{item.meta_price}} </view>
+          <view class="means" >{{item.meta_means}}</view>
         </view>
         <view class="header3" bindtap="goto" >
           <view class="address">{{item.sub_district.name}} {{item.sub_district.address}}</view>
@@ -22,6 +22,8 @@
 
 <mycard head-border="{{true}}" width="710" padding="20" title="商品详情">
     <view class="item-content"> {{item.content}} </view>
-    <image src="{{img}}" wx:for-item="img" mode="widthFix" class="item-image" wx:for="{{item.meta_images}}" />
+    <image bindtap="viewImages" data-index="{{index}}" src="{{img}}" wx:for-item="img" mode="widthFix" class="item-image" wx:for="{{item.meta_images}}" />
 
 </mycard>
+
+<user chat-enable="{{false}}" wx:if="{{buser.id}}" broker="{{buser}}" booking-enable="{{false}}" />

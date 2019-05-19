@@ -286,10 +286,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 39,
 					"name": "二手详情",
 					"pathName": "pages/goods/show",
-					"query": "id=28",
+					"query": "id=1",
 					"scene": null
 				}
 			]

@@ -15,6 +15,9 @@ Component({
     pid: {type: Number, value: null},
     booking: {type: Boolean, value: false},
     bookingEnable: {type: Boolean, value: true},
+    chatEnable: {type: Boolean, value: true},
+    wechatEnable: {type: Boolean, value: true},
+    mobileEnable: {type: Boolean, value: true},
   },
 
   /**
@@ -28,6 +31,7 @@ Component({
 
   ready: function(){
     var _this = this
+    console.log("this broker info", _this.data.broker)
     var item_1 = {
       name: '拨打电话', 
       action: 'mobile', 
@@ -45,10 +49,19 @@ Component({
       action: 'chat', 
       disabled : !_this.data.broker.id ? true : false
     }
+    
+    var actions = []
+    if(this.data.mobileEnable){
+      actions.push(item_1)
+    }
+    if(this.data.wechatEnable){
+      actions.push(item_2)
+    }
+    if(this.data.chatEnable){
+      actions.push(item_3)
+    }
 
-    this.setData({
-      actions: [item_1, item_3]
-    })
+    this.setData({ actions: actions })
 
   },
 
@@ -71,6 +84,7 @@ Component({
     actionClick: function(e){
       var action = e.detail.action
       var _this = this
+      _this.setData({actionsShow: false})
 
       switch(action){
         case 'mobile':

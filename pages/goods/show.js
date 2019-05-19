@@ -8,6 +8,7 @@ Page({
    */
   data: {
     item: {},
+    buser: {},
   },
 
   /**
@@ -54,7 +55,15 @@ Page({
               if(resp.data.status != 0){
                   return false;
               }
-              _this.setData({item: resp.data.data})
+              var data = resp.data.data
+              var buser = {
+                id: data.user.id,
+                avatar: data.user.avatar,
+                mobile: data.contact_mobile,
+                wechat: data.contact_wechat,
+                name: data.contact_name,
+              }
+              _this.setData({item: data, buser:buser})
           }
       })
   },
@@ -65,6 +74,14 @@ Page({
   onShow: function () {
 
   },
+
+  viewImages: function(e){
+    var i = e.currentTarget.dataset.index
+    var urls = this.data.item.meta_images
+    var url = urls[i]
+    wx.previewImage({urls: urls, current: url })
+  },
+
 
   /**
    * 生命周期函数--监听页面隐藏
