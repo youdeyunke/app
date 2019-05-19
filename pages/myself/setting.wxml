@@ -1,0 +1,20 @@
+
+<box width="710" padding="30">
+
+    <van-cell size="large" hover-class="none" title="当前版本" value="4.2.0" > </van-cell>
+
+    <van-cell size="large"  hover-class="none"  title="客服电话" value="{{configs.service_mobile}}" />
+
+    <van-cell border="{{false}}" size="large"  hover-class="none"  title="客服微信" value="{{configs.service_wechat }}" />
+
+
+</box>
+
+
+<box width="710" padding="30">
+    <van-cell bindtap="clearCache" size="large" hover-class="none" title="清除缓存" is-link value="{{cache.currentSize || 0}} Kb" > </van-cell>
+
+    <van-cell bindtap="openAuthSetting" size="large" hover-class="none" title="权限设置" is-link  > </van-cell>
+
+    <van-cell border="{{false}}" bindtap="logoutHandle" border="{{false}}" bindtap="logoutHandle" size="large"  hover-class="none"  title="退出登录" is-link="{{true}}" />
+</box>

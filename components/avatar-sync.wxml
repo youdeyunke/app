@@ -1,5 +1,1 @@
-<view  class="avatar-sync">
-        <button lang="zh_CN"  plain open-type="getUserInfo" bindgetuserinfo="syncAvatar">
-                <van-icon  name="exchange-record" />
-        </button>
-</view>
+<van-button hover-class="none" size="mini" lang="zh_CN" type="default" round  plain open-type="getUserInfo" bindgetuserinfo="syncAvatar"> <van-icon name="exchange" /> </van-button>

@@ -29,7 +29,7 @@ Component({
         success: function(resp){
           if(resp.data.status == 0){
             wx.showToast({
-              title: '同步成功',
+              title: '微信头像同步成功',
             })
           }
         }
@@ -37,6 +37,25 @@ Component({
     },
 
     syncAvatar: function(e){
+      var _this = this
+			wx.showModal({
+				title: '提示',
+        cancelText: "取消",
+        confirmText: "同步",
+				content: '确认要同步微信头像吗？',
+				success(res) {
+					if (res.confirm) {
+						console.log('用户点击确定')
+						_this._syncAvatar(e)
+
+					} else if (res.cancel) {
+						console.log('用户点击取消')
+					}
+				}
+			})
+    },
+
+    _syncAvatar: function(e){
       var _this = this
       wx.getSetting({
         success(res) {

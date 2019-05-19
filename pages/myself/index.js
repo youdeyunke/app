@@ -9,11 +9,7 @@ Page({
      */
     data: {
         userInfo: {},
-        cells: [{
-                icon: "newspaper-o",
-                name: '房源',
-                url: '/pages/myself/posts',
-            },
+        cells: [
             {
                 icon: "chat-o",
                 name: '提问',
@@ -83,6 +79,10 @@ Page({
         })
     },
 
+    gotoSetting: function(e){
+      wx.navigateTo({url: '/pages/myself/setting'})
+    },
+
     gotoTerms: function (e) {
         wx.navigateTo({
             url: '/pages/static/terms'
@@ -99,13 +99,6 @@ Page({
         wx.navigateTo({url: url})
     },
 
-    logoutHandle: function (e) {
-        wx.setStorageSync('userInfo', null)
-        wx.setStorageSync('token', null)
-        this.setData({userInfo: null })
-        this.setData({userInfo: null })
-        this.setNavColor(false)
-    },
 
     loginHandle: function (e) {
         var _this  = this

@@ -168,10 +168,7 @@ App({
       url: "/api/v1/myconfigs",
       success: function(resp) {
         var conf = resp.data.data;
-        wx.setStorage({
-          key: "myconfigs",
-          data: conf
-        });
+        wx.setStorage({ key: "myconfigs", data: conf });
         typeof cb == "function" && cb(conf);
       }
     });
@@ -308,6 +305,7 @@ App({
     logs.unshift(Date.now());
     this.getReddot();
     this.startReddotInterval();
+    this.loadConfigs()
     this.loadCities(function(cities) {
       _this.globalData.cities = cities;
       _this.getLocation();

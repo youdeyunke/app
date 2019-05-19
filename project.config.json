@@ -34,7 +34,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 40,
+			"current": 41,
 			"list": [
 				{
 					"id": 0,
@@ -297,6 +297,13 @@
 					"name": "小区下的房源列表",
 					"pathName": "pages/post/index",
 					"query": "sub_district_id=6&group=ershoufang",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人设置",
+					"pathName": "pages/myself/setting",
+					"query": "",
 					"scene": null
 				}
 			]

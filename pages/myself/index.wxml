@@ -12,7 +12,7 @@
 
 
 
-<box padding="30" wx:if="{{userInfo}}">
+<box padding="40" wx:if="{{userInfo}}">
 <view class="user">
   <view class="uinfo">
     <view class="avatar">
@@ -20,36 +20,74 @@
     </view>
     <view class="nickname">{{userInfo.nickname}}</view>
   </view>
-  <avatar-sync />
+
+  <view class="user-actions">
+    <avatar-sync />
+    <van-button hover-class="none" bindtap="gotoSetting" size="mini" type="default" plain round> <van-icon name="setting-o"  /> </van-button>
+  </view>
+
+
 </view>
 </box>
 
 
 <block wx:if="{{userInfo}}">
-  <mycard title="我的" head-border="{{true}}" width="710" padding="20">
-        <view class="menu">
-          <navigator wx:key="{{index}}" hover-class="none" url="{{item.url}}"  class="menu-item" wx:for="{{cells}}">
-                <van-icon color="#66" size="52rpx" name="{{item.icon}}" />
-                <view class="menu-item-name">{{item.name}}</view>
+    <box width="750" padding="20" >
+      <van-cell border="{{false}}" size="large" hover-class="none" title="绑定手机号"   center wx:if="{{userInfo && !userInfo.mobile}}">
+            <van-button slot="right-icon" size="mini" plain type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">马上绑定</van-button>
+        </van-cell>
+
+    </box>
+
+  <mycard title="我的服务" head-border="{{true}}" width="710" padding="20">
+
+        <view class="menu menu-col-3">
+          <navigator hover-class="none" url="/pages/post/form?group=old"  class="menu-item">
+            <van-icon color="#66" size="52rpx" name="balance-o" />
+                <view class="menu-item-name">我要卖房</view>
             </navigator>
+
+            <navigator hover-class="none" url="/pages/post/form?group=rent"  class="menu-item" >
+            <van-icon color="#66" size="52rpx" name="calender-o" />
+                <view class="menu-item-name">我要出租</view>
+            </navigator>
+
+            <navigator hover-class="none" url="/pages/myself/posts"  class="menu-item" >
+                <van-icon color="#66" size="52rpx" name="apps-o" />
+                <view class="menu-item-name">房源管理</view>
+          </navigator>
+
+
+          <navigator hover-class="none" url="/pages/myself/qa"  class="menu-item">
+                <van-icon color="#66" size="52rpx" name="chat-o" />
+                <view class="menu-item-name">我的提问</view>
+            </navigator>
+
+            <navigator hover-class="none" url="/pages/myself/comments"  class="menu-item" >
+            <van-icon color="#66" size="52rpx" name="comment-o" />
+                <view class="menu-item-name">我的评价</view>
+            </navigator>
+
+            <navigator hover-class="none" url="/pages/myself/favposts"  class="menu-item" >
+                <van-icon color="#66" size="52rpx" name="like-o" />
+                <view class="menu-item-name">我的收藏</view>
+          </navigator>
+
         </view>
   </mycard>
 
 
-    <box width="710" padding="10" >
-        <van-cell size="large" hover-class="none" title="绑定手机号"   center wx:if="{{userInfo && !userInfo.mobile}}">
-            <van-button slot="right-icon" size="mini" plain type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">马上绑定</van-button>
-        </van-cell>
-
-        <van-cell wx:if="{{!userInfo.broker_profile.enable}}" size="large"  hover-class="none" title="经纪人身份"   center>
+  <mycard head-border="{{true}}" title="我是经纪人" width="710" padding="20">
+    <van-cell wx:if="{{!userInfo.broker_profile.enable}}" size="large"  hover-class="none" title="经纪人身份"   center>
             <van-button slot="right-icon" size="mini" plain bindtap="gotoMembership" type="primary">立即开通</van-button>
         </van-cell>
         <van-cell wx:if="{{userInfo.broker_profile.enable && userInfo.broker_profile.remain_days > 3}}" size="large" url="/pages/myself/broker"  hover-class="none" value="已开通" title="经纪人身份" center />
         <van-cell wx:if="{{userInfo.broker_profile.enable && userInfo.broker_profile.remain_days <= 3}}" size="large" url="/pages/myself/broker"  hover-class="none" value="剩余{{userInfo.broker_profile.remain_days}}到期" title="经纪人身份" center />
+        <van-cell border="{{false}}" size="large" is-link url="/pages/user/user?id={{userInfo.id}}"  hover-class="none" title="我的主页" />
 
-        <van-cell size="large"  hover-class="none"  title="联系客服" url="/pages/about/index"   is-link center />
-        <van-cell border="{{false}}" bindtap="logoutHandle" size="large"  hover-class="none"  title="退出登录"  is-link center />
-    </box>
+  </mycard>
+
+
 
 
 </block>

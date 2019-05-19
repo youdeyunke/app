@@ -1,4 +1,4 @@
- {
+{
   "pages": [
     "pages/home/home",
     "pages/news/index",
@@ -51,7 +51,8 @@
     "pages/goods/show",
     "pages/goods/new",
     "pages/goods/edit",
-    "pages/goods/form"
+    "pages/goods/form",
+    "pages/myself/setting"
   ],
   "tabBar": {
     "selectedColor": "#333",
