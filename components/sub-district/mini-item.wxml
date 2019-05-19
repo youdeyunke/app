@@ -1,7 +1,7 @@
 <view class="sinfo">
  <van-cell
     title="{{item.name}}"
-    value="{{item.street}}"
+    label="{{item.address}}"
     border="{{ false }}"
   />
 </view>

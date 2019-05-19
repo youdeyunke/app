@@ -11,7 +11,7 @@
         </view>
     </block>
 
-        <view bindtap="onTouch" data-index="{{index}}" wx:for="{{images}}" class="item image {{index == cover ? 'main' : ''}}"> 
+    <view wx:key="{{index}}" bindtap="onTouch" data-index="{{index}}" wx:for="{{images}}" class="item image {{index == cover ? 'main' : ''}}"> 
             <view class="title"></view>
             <image  mode="widthFix"  src="{{item}}"></image>
         </view>      

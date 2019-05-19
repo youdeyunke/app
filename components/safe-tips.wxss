@@ -7,4 +7,5 @@
 
 .safe-tips .content{
   font-size:var(--font-xs);
+  line-height:1.8;
 }

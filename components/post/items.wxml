@@ -1,8 +1,8 @@
 <block wx:if="{{filter}}">
 
   <view class="empty" wx:if="{{meta.total_entries == 0 }}" style="text-align:center;color:#cecece;">没有结果</view>
-  <block wx:for="{{items}}" wx:for-item="posts">
-    <item wx:for="{{posts}}" wx:for-item="post" item="{{post}}" />
+  <block wx:key="{{index}}" wx:for="{{items}}" wx:for-item="posts">
+    <item wx:key="{{post.id}}" wx:for="{{posts}}" wx:for-item="post" item="{{post}}" />
       
   </block>
   <view class="loading">

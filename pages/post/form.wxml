@@ -28,7 +28,7 @@
             data-name="vr_url" error="{{error.vr_url}}" />
     </mycard>
 
-    <template is="form-{{post.group}}"
+    <template wx:if="{{post.group}}" is="form-{{post.group}}"
         data="{{user:user, is_sublet: is_sublet, error: error, post: post, step, minRentMonthItems: minRentMonthItems, allTags, selectedTags}}" />
 
     <mycard wx:if="{{step == 2}}" hat title="联系人信息" subtitle="必填">

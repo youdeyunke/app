@@ -126,7 +126,10 @@ Page({
             method: 'POST',
             data: data,
             success: function (resp) {
-                console.log('resp', resp.data.data)
+              if(resp.data.status == 1){
+                return false;
+              }
+              wx.navigateTo({url: '/pages/goods/show?id=' + resp.data.data.id})
             }
         })
 

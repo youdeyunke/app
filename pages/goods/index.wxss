@@ -1,1 +1,4 @@
 /* pages/goods/index.wxss */
+page{
+  padding-top:20rpx !important;
+}

@@ -4,11 +4,11 @@
 
 <picker-view class="picker"  bindchange="changeHandle" value="{{value}}">
   <picker-view-column>
-        <view wx:for="{{ya}}">押{{item}}</view>
+    <view wx:key="{{item}}" wx:for="{{ya}}">押{{item}}</view>
   </picker-view-column>
 
   <picker-view-column>
-        <view wx:for="{{fu}}">付{{item}}</view>
+    <view wx:key="{{item}}" wx:for="{{fu}}">付{{item}}</view>
   </picker-view-column>
 
 </picker-view>

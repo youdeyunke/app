@@ -4,7 +4,7 @@
 
 <picker-view class="picker"  bindchange="changeHandle" value="{{value}}">
   <picker-view-column>
-        <view wx:for="{{items}}">{{item.name}}</view>
+    <view wx:key="{{item.id}}" wx:for="{{items}}">{{item.name}}</view>
   </picker-view-column>
 </picker-view>
 

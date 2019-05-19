@@ -19,10 +19,10 @@ Page({
       id: q.id,
       from_share: q.from_share || 0,
       sub: wx.getStorageSync('subdistrict.' + q.id),
-      postQuery: {
-        sub_district_id: q.id,
-        
-      }
+      postQuery: { sub_district_id: q.id, },
+      oldPostQuery: { sub_district_id: q.id, group: 'ershoufang', per_page: 3,},
+      rentPostQuery: { sub_district_id: q.id, group: 'zufang', per_page: 3},
+
     })
     this.loadData()
   },

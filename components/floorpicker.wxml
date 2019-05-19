@@ -4,11 +4,11 @@
 
 <picker-view  class="picker" bindchange="changeHandle" value="{{value}}">
   <picker-view-column>
-        <view wx:for="{{nums}}">第{{item}}层</view>
+    <view wx:key="{{item}}" wx:for="{{nums}}">第{{item}}层</view>
   </picker-view-column>
 
   <picker-view-column>
-        <view wx:for="{{nums}}">共{{item}}层</view>
+    <view wx:key="{{item}}" wx:for="{{nums}}">共{{item}}层</view>
   </picker-view-column>
 
   <picker-view-column>

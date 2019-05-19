@@ -17,8 +17,8 @@
 </view>
 
 <box width="710" padding="20">
-  <block wx:for="{{posts}}" wx:for-item="postitems">
-     <post wx:for="{{postitems}}" item="{{item}}"></post>
+  <block wx:key="{{index}}" wx:for="{{posts}}" wx:for-item="postitems">
+    <post wx:key="{{item.id}}" wx:for="{{postitems}}" item="{{item}}"></post>
   </block>
 </box>
 

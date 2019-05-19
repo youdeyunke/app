@@ -502,7 +502,8 @@ myfav .myfav {
 
 .float-btn.gen-poster{
   bottom:250rpx;
-  background: rgba(0,0,0, 0.2);
+  background:var(--color-b);
+  box-shadow: 2rpx 2rpx 10rpx rgba(0,0,0, 0.2);
 }
 
 .float-btn.gen-poster image{

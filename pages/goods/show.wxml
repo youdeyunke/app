@@ -22,7 +22,7 @@
 
 <mycard head-border="{{true}}" width="710" padding="20" title="商品详情">
     <view class="item-content"> {{item.content}} </view>
-    <image bindtap="viewImages" data-index="{{index}}" src="{{img}}" wx:for-item="img" mode="widthFix" class="item-image" wx:for="{{item.meta_images}}" />
+    <image wx:key="{{index}}" bindtap="viewImages" data-index="{{index}}" src="{{img}}" wx:for-item="img" mode="widthFix" class="item-image" wx:for="{{item.meta_images}}" />
 
 </mycard>
 

@@ -11,7 +11,7 @@ page{
   font-size:28rpx;
   color:#333;
   font-weight:normal;
-  --color-bg-dark: #f3f5f7;
+  --color-bg-dark: #f4f4f4;
   --color-a: #00ae66;
   --color-b: #ff911b;
   --color-c: red;

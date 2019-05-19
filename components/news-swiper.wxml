@@ -5,7 +5,7 @@
 
   <view class="swiper-block">
   <swiper autoplay="true" circular="true" interval="3000" vertical="true">
-    <swiper-item item-id="{{index}}"  wx:for="{{items}}">
+    <swiper-item item-id="{{index}}" wx:key="{{item.id}}" wx:for="{{items}}">
       <navigator hover-class='none' url="/pages/news/show?id={{item.id}}" class="title-block">
         <view class="line-limit">{{item.title}}</view>
         <view>来源：{{item.source}} | 作者：{{item.author}}</view>  

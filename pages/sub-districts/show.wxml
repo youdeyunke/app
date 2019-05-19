@@ -12,7 +12,7 @@
                indicator-color="rgba(255,255,255,0.7)" 
                indicator-active-color="#fff" >
                     
-            <swiper-item bindtap="viewImage" data-index="{{index}}" wx:for="{{sub.images}}">
+               <swiper-item wx:key="{{index}}" bindtap="viewImage" data-index="{{index}}" wx:for="{{sub.images}}">
 
                 <image  class="item" src="{{item}}?imageView2/2/h/430"></image>
    
@@ -58,6 +58,11 @@
   <sub-location-info item="{{sub}}" />
 </mycard>
 
-<mycard title="在租房源" url="/pages/post/index?sub_district_id={{sub.id}}&group=rental">
-  <posts page="1" filter="{{postQuery}}" />
+<mycard wx:if="{{sub.old_nums > 0}}" title="在售房源" url="/pages/post/index?sub_district_id={{sub.id}}&group=ershoufang">
+  <posts page="1" filter="{{oldPostQuery}}" />
 </mycard>
+
+<mycard wx:if="{{sub.rental_nums > 0 }}" title="在租房源" url="/pages/post/index?sub_district_id={{sub.id}}&group=zufang">
+  <posts page="1" filter="{{rentPostQuery}}" />
+</mycard>
+

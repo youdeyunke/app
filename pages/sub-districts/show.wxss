@@ -31,13 +31,13 @@
 
 .name{
   font-size:var(--font-l);
-
   color: #333;
 }
+
 .address{
   margin-top:20rpx;
   color: #333;
-  font-size: var(--font-s)
+  font-size: var(--font-l)
 }
 
  .typeinfo{

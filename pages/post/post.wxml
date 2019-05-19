@@ -48,7 +48,7 @@
                indicator-color="rgba(255,255,255,0.7)" 
                indicator-active-color="#fff" >
                     
-            <swiper-item bindtap="viewImage" data-index="{{index}}" wx:for="{{post.full_images_list}}">
+               <swiper-item bindtap="viewImage" data-index="{{index}}" wx:key="{{index}}" wx:for="{{post.full_images_list}}">
               <view class="first">
                 <image wx:if="{{ index ==0 && post.vr_url}}" catchtap='gotoVr' class="play vr" src="/assets/icons/vr.png"></image>              
                 <image wx:if="{{ index == 1 && post.video}}" catchtap='gotoVideo' class="play video" src="/assets/icons/bofang.png"></image>
@@ -91,7 +91,7 @@
          </view>
      </view>
     <view  class="detail-meta">
-          <view  class="meta {{ meta.url ? 'link lg' : '' }}" wx:if="{{meta}}" wx:for="{{post.meta_list}}" wx:for-item="meta">
+      <view  class="meta {{ meta.url ? 'link lg' : '' }}" wx:key="{{meta.label}}" wx:if="{{meta}}" wx:for="{{post.meta_list}}" wx:for-item="meta">
             <text class="label">{{meta.label}}</text>
             <text bindtap="gotoSub" data-url="{{meta.url}}" class="value van-ellipsis"> {{ meta.value || '-' }} </text>
         </view>
@@ -185,7 +185,7 @@
 
 <van-popup show="{{showPoster}}" bind:close="closePoster" > 
   <view class="poster-preview">
-    <image catchtap='onSavePoster' src="{{posterUrl}}" mode="widthFix"></image>
+    <image bindtap='onSavePoster' src="{{posterUrl}}" mode="widthFix"></image>
   </view>
 </van-popup>
 

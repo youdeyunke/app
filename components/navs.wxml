@@ -1,7 +1,7 @@
 <!--components/home-navs.wxml-->
 <block>
   <view class="navs">
-    <navigator  url="/{{item.path}}"  open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" wx:for="{{navs}}">
+    <navigator wx:key="{{item.id}}" url="/{{item.path}}"  open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" wx:for="{{navs}}">
            <view class="icon-cover">
                    <image  src="{{item.icon.url}}"></image>
            </view>

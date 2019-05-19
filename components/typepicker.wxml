@@ -4,18 +4,18 @@
 
 <picker-view class="picker"  bindchange="changeHandle" value="{{value}}">
   <picker-view-column>
-        <view wx:for="{{shi}}">{{item}}室</view>
+    <view wx:key="{{item}}" wx:for="{{shi}}">{{item}}室</view>
   </picker-view-column>
 
   <picker-view-column>
-        <view wx:for="{{ting}}">{{item}}厅</view>
+    <view wx:key="{{item}}" wx:for="{{ting}}">{{item}}厅</view>
   </picker-view-column>
 
   <picker-view-column>
-        <view wx:for="{{wei}}">{{item}}卫</view>
+    <view wx:key="{{item}}" wx:for="{{wei}}">{{item}}卫</view>
   </picker-view-column>
   <picker-view-column>
-        <view wx:for="{{positions}}">{{item == '其它' ? item : '朝' + item}}</view>
+    <view wx:key="{{item}}" wx:for="{{positions}}">{{item == '其它' ? item : '朝' + item}}</view>
   </picker-view-column>
 
 </picker-view>
