@@ -62,17 +62,14 @@ module.exports = {
 
 
   gotoAccount: function(title, content){
-    wx.showModal({
-      title: title,
-      content: content,
-      success: function(res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-          wx.switchTab({ url: '/pages/myself/index' })
-
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
+    wx.switchTab({ 
+      url: '/pages/myself/index' ,
+      success: function(){
+        wx.showToast({
+          title: content || title,
+          icon: 'none',
+          duration: 3000,
+        })
       }
     })
   },

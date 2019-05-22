@@ -331,7 +331,24 @@ Page({
     var path = this.data.posterUrl
     wx.saveImageToPhotosAlbum({
       filePath: path,
-      success(res) { 
+      complete: function(res){
+        console.log('save image complete', res)
+        if(res.errMsg == 'saveImageToPhotosAlbum:fail auth deny'){
+            wx.navigateTo({
+              url: '/pages/myself/setting',
+              success: function(){
+                wx.showToast({
+                  title: '请先在“权限设置”中打开相册权限',
+                  icon: 'none',
+                  duration: 3000,
+                  success: function(){
+                  },
+                })
+              },
+            })
+        }
+      },
+      success: function(res) { 
         _this.setData({
           showPoster: false,
         })

@@ -4,6 +4,7 @@
     box-sizing: border-box;
     padding:20rpx;
     letter-spacing: 1.8rpx;
+    margin-bottom:20rpx;
 }
 
 .good-header{

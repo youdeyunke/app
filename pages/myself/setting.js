@@ -16,7 +16,12 @@ Page({
     var _this = this
     var configs = wx.getStorageSync('myconfigs')
     this.setData({configs: configs})
+    this.loadCacheInfo()
 
+  },
+
+  loadCacheInfo: function(){
+    var _this = this
 		wx.getStorageInfo({
 			success(res) {
 				console.log(res.keys)
@@ -25,7 +30,6 @@ Page({
         _this.setData({cache: res})
 			}
 		})
-
   },
 
   openAuthSetting: function(e){
@@ -55,6 +59,7 @@ Page({
   },
 
   _clearCache: function(e){
+    var _this = this
     var _keys = ['userInfo', 'token', 'myconfigs', 'location']
     var keys = this.data.cache.keys
     var cache = this.data.cache
@@ -73,7 +78,10 @@ Page({
 		wx.showToast({
 			title: '缓存已清除',
 			icon: 'none',
-			duration: 2000
+			duration: 2000,
+      success: function(){
+        _this.loadCacheInfo()
+      },
 		})
 			
 

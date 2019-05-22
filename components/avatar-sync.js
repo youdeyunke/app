@@ -29,7 +29,9 @@ Component({
         success: function(resp){
           if(resp.data.status == 0){
             wx.showToast({
+              icon: 'none',
               title: '微信头像同步成功',
+              duration: 2000,
             })
           }
         }
@@ -48,9 +50,7 @@ Component({
 						console.log('用户点击确定')
 						_this._syncAvatar(e)
 
-					} else if (res.cancel) {
-						console.log('用户点击取消')
-					}
+					} 
 				}
 			})
     },
@@ -68,9 +68,14 @@ Component({
               }
             })
           }else{
-            wx.showModal({
-              title: '同步失败',
-              content: '请先授权',
+            wx.showToast({
+              title: '请先允许授权',
+              duration: 2000,
+              icon: 'none',
+              mask: true,
+              success: function(){
+                wx.openSetting()
+              },
             })
           }
         }
