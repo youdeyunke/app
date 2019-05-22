@@ -30,6 +30,15 @@ Page({
     })
   },
 
+    chooseLocation: function (e) {
+        var _this = this
+        app.chooseLocation(function (sub) {
+            _this.updateNeedField('sub_district', sub)
+            _this.updateNeedField('sub_district_id', sub.id)
+        })
+    },
+
+
   sexLimitChange: function(e){
     var value = e.currentTarget.dataset.name
     this.updateNeedField('sex_limit', value)
@@ -77,8 +86,8 @@ Page({
       this.showError('title', '标题长度为5~20个字')
       return
     }
-    if(!need.district_id){
-      this.showError('district_id', '请选择所在区域')
+    if(!need.sub_district.id){
+      this.showError('sub_district_id', '请选择位置')
       return
     }
     
@@ -102,13 +111,6 @@ Page({
     })
   },
 
-  cityChanged: function(e){
-     this.updateNeedField('city', e.detail.city)
-     this.updateNeedField('city_id', e.detail.city.id)
-     this.updateNeedField('district_id', e.detail.district.id)
-     this.updateNeedField('district', e.detail.district)
-     this.setData({ cityPickerShow: false })    
-  },
 
   submitHandle: function(e){
     var _this = this
