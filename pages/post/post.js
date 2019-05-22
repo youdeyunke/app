@@ -365,17 +365,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var postId = null
     var fromShare = false
-
-    if (options.qr_query) {
-      var qrData = JSON.parse(decodeURIComponent(options.qr_query))
-      postId = qrData['id']
+    var postId = options.id
+    var scene =  wx.getLaunchOptionsSync().scene
+    if(scene >= 1047 && scene <= 1059){
       fromShare = true
-      console.log('qrdata', qrData, postId, fromShare)
-    } else {
-      fromShare = options.from_share == '1'
-      postId = options.id
     }
 
     this.setData({

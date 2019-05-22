@@ -34,7 +34,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 43,
+			"current": 44,
 			"list": [
 				{
 					"id": 0,
@@ -317,6 +317,13 @@
 					"id": -1,
 					"name": "zhaoshiyou",
 					"pathName": "pages/need/roommate",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "111",
+					"pathName": "pages/need/room",
 					"scene": null
 				}
 			]
