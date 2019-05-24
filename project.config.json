@@ -1,7 +1,7 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -34,7 +34,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 44,
+			"current": 3,
 			"list": [
 				{
 					"id": 0,
@@ -58,7 +58,7 @@
 					"id": 3,
 					"name": "post",
 					"pathName": "pages/post/post",
-					"query": "id=42",
+					"query": "id=44",
 					"scene": null
 				},
 				{
@@ -324,6 +324,14 @@
 					"id": -1,
 					"name": "111",
 					"pathName": "pages/need/room",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/shop/form",
+					"pathName": "pages/shop/form",
+					"query": "",
 					"scene": null
 				}
 			]

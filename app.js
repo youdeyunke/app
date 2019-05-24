@@ -3,8 +3,8 @@ var auth = require("utils/auth.js");
 
 App({
   globalData: {
-    apiHost: "https://fang.udeve.cn",
-    //apiHost: 'http://localhost:9019',
+    //apiHost: "https://fang.udeve.cn",
+    apiHost: 'http://localhost:9000',
     userInfo: null,
     token: null,
     loadingStatus: 0,
@@ -29,7 +29,7 @@ App({
           value: "50,100"
         },
         {
-          label: "100~150㎡",
+          label: "100~150㎡", 
           value: "100,150"
         },
         {

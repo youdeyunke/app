@@ -1,0 +1,113 @@
+
+
+<form bindsubmit="submit">
+    <box>
+        <van-field bindchange="inputChange" error="{{error.title}}" input-align="left" data-name="title" label="房源标题"
+            value="{{post.title}}" clearable placeholder="如：房东急租小2房" />
+    </box>
+
+    <mycard title="地址" wx:if="{{step==1}}" subtitle="门牌号保密，仅管理员可见" hat>
+        <van-field error="{{error.district_id}}" input-align="left" disabled bindtap="chooseLocation" is-link label="地点"
+            value="{{post.sub_district.name}}" arrow-direction="down" />
+        <van-field data-name="building_number" value="{{ post.building_number }}" input-align="left" label="栋座/位置"
+            placeholder="如：A栋" bind:change="inputChange" />
+        <van-field data-name="house_number" value="{{ post.house_number }}" input-align="left" label="房号"
+            placeholder="如：55号楼 1002室" bind:change="inputChange" />
+    </mycard>
+
+    <mycard wx:if="{{step == 1}}" title="房源照片" subtitle="请上传{{imagesMin}}~{{imagesMax}}张真实房源照片" hat>
+        <images-uploader overlook-image="{{post.overlook_image}}" bindchange="imagesChanged" max="{{imagesMax}}"
+            min="{{imagesMin}}" enable-video="{{true}}" video="{{post.video}}" cover="{{post.cover_index || 0}}"
+            images="{{post.images || []}}"></images-uploader>
+    </mycard>
+
+        <card title="户型信息" hat wx:if="{{step==1}}">
+            <van-field value="{{ post.area }}" label="面积" input-align="left" error="{{error.area}}" type="number"
+                placeholder="平米" data-name="area" bind:change="inputChange" />
+
+            <van-field value="{{ post.meta_miankuan }}" label="面宽" input-align="left" error="{{error.meta_miankuan}}" 
+                placeholder="米" data-name="meta_miankuan" bind:change="inputChange" type="number" />                
+
+            <van-field value="{{ post.meta_jinshen }}" label="进深" input-align="left" error="{{error.meta_jinshen}}" 
+                placeholder="米" data-name="meta_jinshen" bind:change="inputChange" type="number" />                
+
+            <van-field value="{{ post.meta_cenggao }}" label="层高" input-align="left" error="{{error.meta_cenggai}}" 
+                placeholder="米" data-name="meta_cenggao" bind:change="inputChange" type="number" />                
+
+            <van-field data-name="price" error="{{error.price}}" value="{{ post.price}}"
+                input-align="left" label="租金" type="number" placeholder="元/月" bind:change="inputChange" />
+
+            <van-field data-name="meta_keliu" error="{{error.meta_keliu}}" value="{{ post.meta_keliu}}"
+                input-align="left" label="客流" type="meta_keliu" placeholder="如：学生、办公、居民等" bind:change="inputChange" />                
+
+
+            <picker bindchange="shopstatusChange" range-key="label" range="{{shopstatusItems}}"
+                value="{{post.meta_status }}">
+                <van-field is-link label="状态" is-link
+                    value="{{post.meta_status || ''  }}" input-align="left"
+                    arrow-direction="down">
+                </van-field>
+            </picker>
+
+            <picker bindchange="minRentMonthChange" range-key="label" range="{{minRentMonthItems}}"
+                value="{{post.meta_min_rent_month || 0 }}">
+                <van-field is-link label="剩余租期" is-link
+                    value="{{post.meta_min_rent_month   + '个月' }}" input-align="left"
+                    arrow-direction="down">
+                </van-field>
+            </picker>
+
+            <van-field bindtap="showFitmentPicker" error="{{error.fitment_id}}" is-link input-align="left" label="装修"
+                value="{{post.fitment.name || '请选择'}}" arrow-direction="down" disabled />
+
+            <van-field bindtap="showFloorPicker" is-link input-align="left" error="{{error.floor}}" label="楼层"
+                value="第{{post.current_floor || '几'}}层-共{{post.total_floor || '几'}}层 {{post.has_lift == true ? '有' : '无'}}电梯"
+                arrow-direction="down" disabled />
+            <van-field bindtap="showPayment" error="{{error.meta_payment_cycle}}" is-link input-align="left" label="付款类型"
+                value="{{post.meta_payment_cycle || '请选择'}}" arrow-direction="down" disabled />
+            <van-switch-cell title="服务费" data-name="service_charge_enable" checked="{{post.service_charge_enable}}"
+                bindchange="serviceChargeEnableChange" />
+            <van-field wx:if="{{post.service_charge_enable}}" error="{{error.service_charge}}"
+                data-name="service_charge" value="{{ post.service_charge }}" input-align="left" label="收费标准"
+                placeholder="请输入" bind:change="inputChange" />
+        </card>
+
+        <card title="房源详情" hat wx:if="{{step == 2}}">
+            <van-field label="房源介绍" bind:change="inputChange" value="{{post.desc}}" placeholder="选填" data-name="desc"
+                autosize />
+            <van-field label="出租要求" bind:change="inputChange" value="{{post.meta_rent_limit}}" placeholder="选填"
+                data-name="meta_rent_limit" autosize />
+        </card>
+
+  
+    <mycard wx:if="{{step == 2}}" hat title="联系人信息" subtitle="必填">
+        <van-field bindchange="inputChange" label="姓名" value="{{ post.broker_name || broker_name}}" input-align="left"
+            placeholder="请输入" data-name="broker_name" error="{{error.broker_name}}" />
+        <van-field bindchange="inputChange" label="电话" value="{{ post.broker_mobile || broker_mobile }}"
+            placeholder="请输入" input-align="left" data-name="broker_mobile" error="{{error.broker_mobile}}" />
+        <van-field bindchange="inputChange" label="微信" value="{{post.broker_wechat || broker_wechat }}" placeholder="选填"
+            input-align="left" data-name="broker_wechat" border="{{false}}" />
+    </mycard>
+
+
+    <flow-tips />
+
+    <view class="buttons">
+        <block wx:if="{{step == 1}}">
+            <button data-name="step1" form-type="submit" type="primary" class="btn ">下一步 1/2</button>
+        </block>
+
+        <block wx:if="{{step == 2}}">
+            <button data-name="step2" type="primary" form-type="submit" class="btn ">提交保存</button>
+            <button bindtap="previousStep" type="default" class="btn ">返回修改</button>
+        </block>
+    </view>
+
+
+
+</form>
+
+<typepicker id="typepicker" bindconfirm="typeChanged" />
+<payment id="payment" bindconfirm="paymentChanged" />
+<floorpicker id="floorpicker" bindconfirm="floorChanged" />
+<fitment-picker id="fitmentpicker" bindconfirm="fitmentChanged" />

@@ -22,8 +22,8 @@
   </view>
 
   <view class="user-actions">
-    <avatar-sync />
-    <van-button hover-class="none" bindtap="gotoSetting" size="mini" type="default" plain round> <van-icon name="setting-o"  /> </van-button>
+    <button class="mybutton" hover-class="none"  open-type="getUserInfo" bindgetuserinfo="syncAvatar"> <van-icon name="exchange" /> </button>
+    <button class="mybutton" hover-class="none" bindtap="gotoSetting" > <van-icon  size="40rpx" name="setting-o"  /> </button>
   </view>
 
 
@@ -31,15 +31,15 @@
 </box>
 
 
-<block wx:if="{{userInfo}}">
+<block wx:if="{{userInfo && !userInfo.mobile}}}">
     <box width="750" padding="20" >
-      <van-cell border="{{false}}" size="large" hover-class="none" title="绑定手机号"   center wx:if="{{userInfo && !userInfo.mobile}}">
+      <van-cell border="{{false}}" size="large" hover-class="none" title="绑定手机号"   center>
             <van-button slot="right-icon" size="mini" plain type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">马上绑定</van-button>
         </van-cell>
 
     </box>
 
-  <mycard title="我的服务" head-border="{{true}}" width="710" padding="20">
+  <mycard hat="{{false}}"  title="我的服务" head-border="{{true}}" width="710" padding="20">
 
         <view class="menu menu-col-3">
           <navigator hover-class="none" url="/pages/post/form?group=old"  class="menu-item">
@@ -77,7 +77,7 @@
   </mycard>
 
 
-  <mycard head-border="{{true}}" title="我是经纪人" width="710" padding="20">
+  <mycard hat="{{false}}" head-border="{{true}}" title="我是经纪人" width="710" padding="20">
     <van-cell wx:if="{{!userInfo.broker_profile.enable}}" size="large"  hover-class="none" title="经纪人身份"   center>
             <van-button slot="right-icon" size="mini" plain bindtap="gotoMembership" type="primary">立即开通</van-button>
         </van-cell>

@@ -91,7 +91,7 @@
          </view>
      </view>
     <view  class="detail-meta">
-      <view  class="meta {{ meta.url ? 'link lg' : '' }}" wx:key="{{meta.label}}" wx:if="{{meta}}" wx:for="{{post.meta_list}}" wx:for-item="meta">
+      <view  class="meta {{ meta.url ? 'link lg' : '' }} {{ meta.large ? 'lg' : '' }}" wx:key="{{meta.label}}" wx:if="{{meta}}" wx:for="{{post.meta_list}}" wx:for-item="meta">
             <text class="label">{{meta.label}}</text>
             <text bindtap="gotoSub" data-url="{{meta.url}}" class="value van-ellipsis"> {{ meta.value || '-' }} </text>
         </view>
@@ -104,7 +104,7 @@
   </view>
 </box>
 
-<box width="730" padding="0" >
+<box width="750" padding="0" >
   <view class="info-block">
     <view class="info-item">
       <view class="info_title" style="margin-top:30rpx;">房源概况</view>
@@ -140,17 +140,17 @@
   </view>
 </box>
 
-<box width="730" padding="30" wx:if="{{post.user.is_broker}}">  
+<box width="750" padding="30" wx:if="{{post.user.is_broker}}">  
   <broker-link  broker="{{post.broker_info}}" />
 </box>
 
-<mycard width="730" title="地理位置">
+<mycard width="750" title="地理位置">
   <sub-location-info item="{{sub}}" wx:if="{{post.sub_district_id}}" />
   <mapimage wx:if="{{!post.sub_district_id}}" image="{{post.map_image_url}}"  latitude="{{post.sub_district.latitude}}"  longitude="{{post.sub_district.longitude}}" name="{{post.sub_district_name}}" />
 </mycard>
 
 
-<mycard width="730" title="户型信息"  wx:if="{{post.group == 'new'}}">
+<mycard width="750" title="户型信息"  wx:if="{{post.group == 'new'}}">
     <view class="housetype" wx:for="{{post.types}}">
       <view class="poster">
               <image bindtap="viewTypeImage" data-index="{{index}}" src="{{item.image.url}}?imageView2/2/w/300"></image>

@@ -1,0 +1,74 @@
+/* pages/post/new.wxss */
+page{
+  padding-top:20rpx;
+}
+
+.type{
+  display:flex;
+  justify-content: space-between;
+  align-items:  center;
+}
+
+.type .type-item{
+  height: 110rpx;
+  width:33.333%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons{
+  width:calc(750rpx - 20rpx);
+  padding:0 10rpx;
+  margin:20rpx 0;
+}
+
+.buttons button{
+  margin:10rpx 0;
+}
+
+.min_rent_month{
+  position:relative;
+  width:100%;
+  height:88rpx;
+}
+
+.min_rent_month .van-cell{
+  position:absolute;
+  left:0rpx;
+  top:10rpx;
+  bottom:0rpx;
+}
+
+.min_rent_month .van-stepper{
+  position:absolute;
+  right:0rpx;
+  top:20rpx;
+  bottom:0rpx;
+}
+
+.post-tags{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  flex-wrap:wrap
+}
+
+.post-tag-item.active{
+  background:var(--color-a);
+  color: #fff;
+}
+
+.post-tag-item{
+  width:30%;
+  color: #666;
+  border-radius: 0rpx;
+  display: flex;
+  justify-content:center;
+  align-items :center;
+  padding:8rpx 16rpx;
+  box-sizing:border-box;
+  background: #f4f4f4;
+  margin-bottom:15rpx;
+}

@@ -1,0 +1,23 @@
+{
+  "usingComponents": {
+    "card": "/components/card",
+    "city-picker": "/components/city-picker",
+    "typepicker": "/components/typepicker",
+    "floorpicker": "/components/floorpicker",
+    "images-uploader": "/components/images-uploader",
+    "payment": "/components/payment",
+    "fitment-picker": "/components/fitment-picker",
+    "mypicker": "/components/picker",
+    "stepper": "/vant/stepper/index",
+    "van-field": "/vant/field/index",
+    "van-radio-group": "/vant/radio-group/index",
+    "van-radio": "/vant/radio/index",
+    "van-switch-cell": "/vant/switch-cell/index",
+    "van-stepper": "/vant/stepper/index",
+    "van-cell": "/vant/cell/index",
+    "van-popup": "/vant/popup/index",
+    "van-cell-group": "/vant/cell-group/index",
+    "flow-tips": "/components/flow-tips",
+    "box": "/components/box"
+  }
+}

@@ -27,6 +27,9 @@ Page({
         imagesMin: 3,
         imagesMax: 15,
         minRentMonthItems: minRentMonthItems,
+        shopstatusItems: [
+          {label: '营业中', value: '营业中'},{label: '已停业', value: '已停业'}
+        ],
         post: {
             id: null,
             title: '',
@@ -243,15 +246,10 @@ Page({
     loadPost: function (pid) {
         var _this = this
         app.request({
-            url: '/api/v2/posts/' + pid,
+            url: '/api/v4/posts/' + pid,
             success: function (resp) {
                 var post = resp.data.data
-                if(post.group == 'shop'){
-                  wx.redirectTo({
-                    url: '/pages/shop/form?id=' + post.id,
-                  })
-                  return false;
-                }
+                console.log('load post', post)
                 if (post.user_id != _this.data.user.id) {
                     console.log('error')
                 } else {
@@ -375,14 +373,19 @@ Page({
             return
         }
 
+
         if (!post.sub_district_id) {
             _this.showError('sub_district_id', '请在地图中选择你所在的小区')
             return
         }
 
+        if (!post.area) {
+            _this.showError('area', '请填写房间面积')
+            return
+        }
 
-        if (!post.rent_price) {
-            _this.showError('rent_price', '请填写租金')
+        if (!post.price) {
+            _this.showError('price', '请填写租金')
             return
         }
 
@@ -391,7 +394,6 @@ Page({
             _this.showError('service_charge', '服务费不能为空')
             return
         }
-
 
 
         if (!post.fitment_id) {
@@ -405,8 +407,8 @@ Page({
         }
 
 
-        if (post.group == 'rental' && !post.payment_cycle) {
-            _this.showError('payment_cycle', '请填写租金支付方式')
+        if (!post.meta_payment_cycle) {
+            _this.showError('meta_payment_cycle', '请填写租金支付方式')
             return
         }
 
@@ -484,7 +486,8 @@ Page({
         // update or create post 
         var _this = this
         var data = this.data.post
-        var url = '/api/v3/posts/'
+        data['group'] = 'shop'
+        var url = '/api/v4/posts/'
         var method = 'POST'
         if (_this.data.post.id) {
             url = url + _this.data.post.id
@@ -536,10 +539,6 @@ Page({
         })
     },
 
-    rentTypeClick: function (e) {
-        var v = e.currentTarget.dataset.name
-        this.updatePostField('rent_type', v)
-    },
 
     serviceChargeEnableChange: function (e) {
         this.updatePostField('service_charge_enable', e.detail)
@@ -548,14 +547,21 @@ Page({
     minRentMonthChange: function (e) {
         var i = e.detail.value
         var item = this.data.minRentMonthItems[i]
-        this.updatePostField('min_rent_month', item.value)
+        this.updatePostField('meta_min_rent_month', item.value)
     },
+
+    shopstatusChange: function (e) {
+      var i = e.detail.value
+      var item = this.data.shopstatusItems[i]
+      this.updatePostField('meta_status', item.value)
+    },    
 
     inputChange: function (e) {
         var key = e.target.dataset.name
         var value = e.detail
         this.updatePostField(key, value)
         this.clearError()
+        console.log('key', key, 'value', value)
     },
 
     showTypePicker: function () {
@@ -566,13 +572,18 @@ Page({
         this.selectComponent('#payment').onShow()
     },
 
+    showStatus: function () {
+      this.selectComponent('#shopstatus').onShow()
+    },
+
+
     showFitmentPicker: function () {
         this.selectComponent('#fitmentpicker').onShow()
     },
 
     paymentChanged: function (e) {
         this.clearError()
-        this.updatePostField('payment_cycle', e.detail.payment_cycle)
+        this.updatePostField('meta_payment_cycle', e.detail.payment_cycle)
     },
 
     fitmentChanged: function (e) {

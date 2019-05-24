@@ -24,6 +24,21 @@ page{
   width:190rpx;
 }
 
+.mybutton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border-radius: 60rpx;
+  height: 60rpx;
+  width: 60rpx;
+  padding:10rpx;
+  border:2rpx solid #999;
+}
+.mybutton van-icon{
+  color: #999;
+}
+
 .user .uinfo .avatar{
   margin-right:20rpx;
 }

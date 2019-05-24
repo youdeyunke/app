@@ -52,7 +52,8 @@
     "pages/goods/new",
     "pages/goods/edit",
     "pages/goods/form",
-    "pages/myself/setting"
+    "pages/myself/setting",
+    "pages/shop/form"
   ],
   "tabBar": {
     "selectedColor": "#333",

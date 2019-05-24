@@ -104,7 +104,7 @@ mycard{
 }
 
 .detail-meta{
-  font-size:var(--font-s);
+  font-size:var(--font-l);
   display:flex;
   justify-content:flex-start;
   flex-wrap:wrap;
@@ -115,7 +115,7 @@ mycard{
 
 .detail-meta .meta{
    display:flex;
-   height: 45rpx;
+   height: 55rpx;
    width:50%;
    justify-content: flex-start;
    align-items: center;
@@ -127,7 +127,7 @@ mycard{
 
 .detail-meta  .meta text.label{
   color:#999;
-  width:100rpx;
+  width:150rpx;
   display: flex;
   justify-content: flex-start;
   align-items: center;
