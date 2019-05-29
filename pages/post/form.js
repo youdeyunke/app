@@ -241,7 +241,7 @@ Page({
     },
 
     loadPost: function (pid) {
-        var _this = thi
+        var _this = this
         app.request({
             url: '/api/v4/posts/' + pid,
             success: function (resp) {
