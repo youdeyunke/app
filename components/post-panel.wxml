@@ -1,4 +1,4 @@
-<van-panel custom-class="mypost" footer-class="myfooter" title="{{item.area_name || item.block_name}}{{item.title}}" desc="{{item.tags_list}}" status="{{item.price_info.label}} {{item.price_info.text}}" use-footer-slot>
+<van-panel custom-class="mypost" footer-class="myfooter" title="{{item.sub_district.name  || item.block_name}}{{item.title}}" desc="{{item.tags_list}}" status="{{item.price_info.label}} {{item.price_info.text}}" use-footer-slot>
         <scroll-view wx:if="{{item.images_list.length >0 }}" scroll-with-animation='true' class="images" scroll-x  style="width:100%;">
             <image bindtap="viewImage"  wx:for="{{item.images_list}}" src="{{item}}?imageView2/2/w/300"></image>
         </scroll-view>
