@@ -12,8 +12,8 @@
     bind:clear="inputClear"
     focus="{{false}}" 
   />
-  <view class="f">
-    <base-filter initValue="{{filter}}"  bind:change="filterChange" />
+<view class="f" wx:if="{{filterConfigs}}">
+    <base-filter configs="{{filterConfigs}}" initValue="{{filter}}"  bind:change="filterChange" />
   </view>
 </view>
 
@@ -24,7 +24,7 @@
     <sub-district sid="{{filter.sub_district_id}}" />
   </box>
   
-  <box padding="20" width="750">
+  <box padding="20" width="710">
     <items kw="{{kw}}" wx:if="{{filter}}" page="{{page}}" filter="{{filter}}" />
   </box>
 
