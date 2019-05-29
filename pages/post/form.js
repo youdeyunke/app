@@ -381,7 +381,7 @@ Page({
         }
 
 
-        if (!post.rent_price) {
+        if (post.group == 'rental' && !post.rent_price) {
             _this.showError('rent_price', '请填写租金')
             return
         }
