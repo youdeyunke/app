@@ -13,10 +13,7 @@ Component({
     configs: {
       type: Array, 
       value: [
-        {
-          name: '位置',
-          type: 'citypicker',
-        }, 
+        { name: '位置', type: 'citypicker', }, 
         app.globalData.filterAreaItem,
         app.globalData.filterRentPriceItem,
         app.globalData.filterOrderItem,
@@ -44,7 +41,7 @@ Component({
     },
 
     filterChange: function(){
-      var data = {}
+      var data = this.data.initValue
       var _this  = this
       var keys = ['city_id', 'district_id', 'subway_id', 'station_id']
       keys.forEach(function(key, i){
@@ -57,7 +54,7 @@ Component({
       var _this = this
       for(var i=0;i<=this.data.configs.length-1;i++){
         var c = _this.data.configs[i]
-        if(c.type == 'picker'){
+        if(c && c.type == 'picker'){
           var item = _this.data[c.key]
           if(item && item.value){
             data[c.key] = item.value
@@ -65,7 +62,7 @@ Component({
           
         }
       }
-
+      console.log('data is', data)
       this.setData({initValue: data})
       this.triggerEvent('change', data, {})
     },

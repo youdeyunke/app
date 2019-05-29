@@ -1,4 +1,6 @@
 // pages/sub-districts/index.js
+const app = getApp()
+
 Page({
 
   /**
@@ -18,11 +20,36 @@ Page({
   onLoad: function (q) {
     var data = {}
     var filter = q || {}
+    this.configFilter(q)
     data['filter'] = filter
     if(q.kw || q.text){
       data['kw'] = q.kw || q.text
     }
     this.setData(data)
+  },
+
+  configFilter: function(q){
+    var items = [{ name: '位置', type: 'citypicker', }, 
+        app.globalData.filterAreaItem,
+        app.globalData.filterRentPriceItem,
+        app.globalData.filterOrderItem,
+    ]
+
+
+    if(q.group == 'shop'){
+      items[2] = app.globalData.filterShopPriceItem
+    }
+
+    if(q.group == 'ershoufang'){
+      items[2] = app.globalData.filterTotalPriceItem
+    }
+
+    if(q.group == 'xinfang'){
+      items[2] = app.globalData.filterTotalPriceItem
+    }
+    this.setData({filterConfigs: items})
+
+
   },
 
   inputChange: function (e) {

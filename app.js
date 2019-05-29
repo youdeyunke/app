@@ -3,8 +3,9 @@ var auth = require("utils/auth.js");
 
 App({
   globalData: {
-    apiHost: "https://fang.udeve.cn",
-    //apiHost: 'http://localhost:9000',
+    assetsList: [ '客梯','货梯', '扶梯', '中央空调', '停车位', '天然气', '网络', '暖气', '上水', '下水', '排烟', '排污', '可明火', '380V', '外摆区' ],
+    //apiHost: "https://kanfang.nianyuapp.net",
+    apiHost: 'http://localhost:9000',
     userInfo: null,
     token: null,
     loadingStatus: 0,
@@ -42,6 +43,55 @@ App({
         }
       ]
     },
+    filterTotalPriceItem: {
+      type: "picker",
+      name: "总价",
+      key: "total_price",
+      options: [
+        {
+          label: "不限",
+          value: ""
+        },
+        {
+          label: "50万以内",
+          value: "0,50"
+        },
+        {
+          label: "50万～80万",
+          value: "50,80"
+        },
+        {
+          label: "80万~100万",
+          value: "80,100"
+        },
+        {
+          label: "100万~120万",
+          value: "100,120"
+        },
+        {
+          label: "120万~150万",
+          value: "120,150"
+        },
+        {
+          label: "150万~200万",
+          value: "150,200"
+        },
+        {
+          label: "200万~300万",
+          value: "200,300"
+        },
+        {
+          label: "300万~400万",
+          value: "300,400"
+        },
+        {
+          label: "400万以上",
+          value: "400,99999"
+        },
+      ]
+    },
+
+
     filterRentPriceItem: {
       type: "picker",
       name: "价格",
@@ -52,35 +102,84 @@ App({
           value: ""
         },
         {
-          label: "0~3元 / ㎡天",
-          value: "0,3"
+          label: "1000以内",
+          value: "0,1000"
         },
         {
-          label: "3~4元 / ㎡天",
-          value: "3,4"
+          label: "1000~1200",
+          value: "1000,1200"
         },
         {
-          label: "4~5元 / ㎡天",
-          value: "4,5"
+          label: "1200~1500",
+          value: "1200,1500"
         },
         {
-          label: "5~7元 / ㎡天",
-          value: "5,7"
+          label: "1500,2000",
+          value: "1500,2000"
         },
         {
-          label: "7~9元 / ㎡天",
-          value: "7,9"
+          label: "2000~2500",
+          value: "2000,2500"
         },
         {
-          label: "9~12元 / ㎡天",
-          value: "9,12"
+          label: "2500~3000",
+          value: "2500,3000"
         },
         {
-          label: "12元以上 / ㎡天",
-          value: "12,999"
+          label: "3000~4000",
+          value: "3000,4000"
+        },
+        {
+          label: "4000~5000",
+          value: "4000,5000"
+        },
+        {
+          label: "5000以上",
+          value: "5000,99999"
         }
       ]
     },
+
+    filterShopPriceItem: {
+      type: "picker",
+      name: "价格",
+      key: "price",
+      options: [
+        {
+          label: "不限",
+          value: ""
+        },
+        {
+          label: "5000以内",
+          value: "0,5000"
+        },
+        {
+          label: "5000~1万",
+          value: "5000,10000"
+        },
+        {
+          label: "1.5万~1.8万",
+          value: "15000,18000"
+        },
+        {
+          label: "1.8万~2.0万",
+          value: "18000,20000"
+        },
+        {
+          label: "2万~2.5万",
+          value: "20000,25000"
+        },
+        {
+          label: "2.5万~3万",
+          value: "20000,30000"
+        },
+        {
+          label: "3万以上",
+          value: "30000,999999"
+        }
+      ]
+    },
+
     filterOrderItem: {
       type: "picker",
       name: "排序",
