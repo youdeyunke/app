@@ -12,6 +12,8 @@
 
 .subinfo .sub-address{
   margin-bottom: 10rpx;
+  display:flex;
+
 }
 
 .subinfo .sub-address van-icon{
