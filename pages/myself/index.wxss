@@ -33,7 +33,7 @@ page{
   height: 60rpx;
   width: 60rpx;
   padding:10rpx;
-  border:2rpx solid #999;
+
 }
 .mybutton van-icon{
   color: #999;

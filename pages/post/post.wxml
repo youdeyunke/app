@@ -17,12 +17,7 @@
       <view class="time">{{flow.updated_at_pretty }}</view>
     </view>
   </view>
-  <view class="new-flow-action"jointyp
-  o
-  
-  
-
-  add>
+  <view class="new-flow-action">
     <view class="desc">
       <view wx:if="{{flows.length == 0}}">暂无跟进信息</view>
       <view>写入的跟进记录只对平台入驻的经纪人可见</view>

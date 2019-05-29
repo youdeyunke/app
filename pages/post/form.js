@@ -241,9 +241,9 @@ Page({
     },
 
     loadPost: function (pid) {
-        var _this = this
+        var _this = thi
         app.request({
-            url: '/api/v2/posts/' + pid,
+            url: '/api/v4/posts/' + pid,
             success: function (resp) {
                 var post = resp.data.data
                 if(post.group == 'shop'){
