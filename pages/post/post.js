@@ -381,7 +381,7 @@ Page({
     var fromShare = false
     var postId = options.id
     var scene =  wx.getLaunchOptionsSync().scene
-    if(this.isFromShare(scene){
+    if(this.isFromShare(scene)){
       fromShare = true
     }
 
