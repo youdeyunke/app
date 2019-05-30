@@ -360,6 +360,19 @@ Page({
     })    
   },
 
+  isFromShare: function(scene){
+    var res = false;
+    s = parseInt(scene)
+    // 需要显示回到首页按钮的场景列表
+    sList = [1007,1008,1011,1012,1013,1014,1047, 1048,1049,1058,1067,1069,1073,1074,1081,1084,1091,1096]
+    for(var i=0;i++;i<=sList.length-1){
+      if(s == sList[i]){
+        res = true;
+      }
+    }
+    return res;
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -368,7 +381,7 @@ Page({
     var fromShare = false
     var postId = options.id
     var scene =  wx.getLaunchOptionsSync().scene
-    if(scene >= 1047 && scene <= 1059){
+    if(this.isFromShare(scene){
       fromShare = true
     }
 
