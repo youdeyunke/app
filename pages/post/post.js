@@ -362,7 +362,7 @@ Page({
 
   isFromShare: function(scene){
     var res = false;
-    s = parseInt(scene)
+    var s = parseInt(scene)
     // 需要显示回到首页按钮的场景列表
     sList = [1007,1008,1011,1012,1013,1014,1047, 1048,1049,1058,1067,1069,1073,1074,1081,1084,1091,1096]
     for(var i=0;i++;i<=sList.length-1){
