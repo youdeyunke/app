@@ -1,6 +1,6 @@
 <!--components/broker-link.wxml-->
-<block bindtap="gotoUser">
-  <view class="info">
+<block>
+  <view class="info" bindtap="gotoUser" >
     <image class="avatar" src="{{broker.avatar}}"></image>
     <view class="text">
       <view class="name"><text>{{broker.name}}</text> <van-tag color="#ff911b" plain>已认证</van-tag> </view>
