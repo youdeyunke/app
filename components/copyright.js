@@ -9,6 +9,10 @@ Component({
   },
 
   ready: function(){
+    var user = wx.getStorageSync('userInfo')
+    if(user.id >= 0){
+      this.setData({mode: 1})
+    }
 
   },
 
@@ -17,7 +21,7 @@ Component({
    */
   data: {
     mode: 0,
-    values: ['技术支持：房苏州', '由 udeve.cn 提供技术支持'],
+    values: ['', '技术支持:udeve.cn'],
   },
 
   /**
@@ -29,7 +33,7 @@ Component({
       if(this.data.mode == 1){
         wx.showModal({
           title: '小程序开发',
-          content: '需要解小程序开发相关信息可添加微信：udeve_cn',
+          content: '咨询微信：udeve_cn',
           confirmText: '复制微信',
           success(res) {
             if (res.confirm) {
