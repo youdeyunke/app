@@ -98,6 +98,7 @@
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {
+    "cr": "/components/copyright",
     "van-icon": "/vant/icon/index",
     "van-popup": "/vant/popup/index",
     "van-search": "/vant/search/index",
