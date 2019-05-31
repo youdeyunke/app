@@ -1,5 +1,10 @@
 <!--index.wxml-->
 <view class="myswiper">
+  <view bindtap="gotoSearch" class="search-box">
+    <image src="/assets/icons/search-icon.png"></image>
+    <view>你想住在哪？</view>
+  </view>
+
   <swiper indicator-dots="{{items.length > 1}}" autoplay="{{ items.length > 1}}" interval="5000"
             duration="500" circular="{{items.length > 1}}" indicator-color="rgba(255,255,255,0.7)" autoplay indicator-active-color="#00ae66" >
             <swiper-item item-id="{{item.id}}" wx:key="{{item.id}}" wx:for="{{items}}" bindtap="goto" data-index="{{index}}">
@@ -7,8 +12,5 @@
 </swiper-item>   
 </swiper>
 
-<view bindtap="gotoSearch" class="search-box">
-  <image src="/assets/icons/search-icon.png"></image>
-  <view>你想住在哪？</view>
-</view>
+
 </view>

@@ -11,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
   background: #f2f2f2;
-  border-radius: 100rpx;
+  border-radius: 10rpx;
   height: 56rpx;
 }
 

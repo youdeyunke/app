@@ -12,23 +12,19 @@
 }
 
 .myswiper {
-  position:relative;
 }
 
 
 .myswiper .search-box{
-  position:absolute;
   background:#f4f4f4;
-  height:60rpx;
-  line-height:60rpx;
-  border-radius:60rpx;
+  height:80rpx;
+  line-height:80rpx;
+  border-radius:10rpx;
   color:#cecece;
   padding-left:20rpx;
   box-sizing:border-box;
   width:700rpx;
   margin:0 auto;
-  top:30rpx;
-  left:25rpx;
   opacity: 0.95;
 
   display: flex;
