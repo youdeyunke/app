@@ -7,7 +7,7 @@ page{
 background:#fff;
 width:710rpx;
 padding:0 0rpx 20rpx 0rpx;
-box-shadow:6rpx 8rpx 20rpx rgba(0,0,0, 0.2);
+box-shadow:6rpx 8rpx 10rpx rgba(0,0,0, 0.2);
 margin-bottom:20rpx;
 box-size:border-box;
 border:2rpx solid #f4f4f4;
