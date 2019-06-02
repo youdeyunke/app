@@ -121,6 +121,7 @@
     "uploadFile": 100000,
     "downloadFile": 100000
   },
+  "serviceProviderTicket":"",
   "permission": {
     "scope.userLocation": {
       "desc": "位置信息用于房源查询"
