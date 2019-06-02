@@ -1,14 +1,17 @@
 /* components/slider.wxss */
 
  .myswiper swiper, .myswiper swiper-item image{
-  width:750rpx;
+  width:710rpx;
   height: 300rpx;
-  margin:0 auto;
-  border-radius: 0rpx;
+  border-radius: 15rpx;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.myswiper swiper{
+  margin:20rpx auto;
 }
 
 .myswiper {
