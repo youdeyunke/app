@@ -1,11 +1,5 @@
 <import src="/utils/wxParse/wxParse.wxml"/>
 
-<template name="more-tab">
-  <block>
-    <van-cell bindtap="{{pm.bindtap}}" data-value="{{pm.value}}" wx:for="{{post.protected_meta_list}}" wx:for-item="pm" title="{{pm.label}}" value="{{pm.value}}" />
-    <van-cell title="俯瞰图" value="{{ post.overlook_image ? '点击查看' : '无' }}" bindtap="viewOverlook"/>
-  </block>
-</template>
 
 <template name="flows-tab">
   <view bind:longpress="flowEdit" data-index="{{index}}" class="flow-item" wx:for="{{flows}}" wx:for-item="flow">
@@ -85,6 +79,7 @@
                  </view>
          </view>
      </view>
+
     <view  class="detail-meta">
       <view  class="meta {{ meta.url ? 'link lg' : '' }} {{ meta.large ? 'lg' : '' }}" wx:key="{{meta.label}}" wx:if="{{meta}}" wx:for="{{post.meta_list}}" wx:for-item="meta">
             <text class="label">{{meta.label}}</text>
@@ -98,6 +93,10 @@
     </view>    
   </view>
 </box>
+
+<mycard hat="{{false}}" title="加密信息" subtitle="仅房源发布者可见" width="750" padding="30">
+  <van-cell bindtap="{{pm.bindtap}}" data-value="{{pm.value}}" border="{{ index == post.protected_meta_list.length -1 ? false : true }}" wx:for="{{post.protected_meta_list}}" wx:for-item="pm" title="{{pm.label}}" value="{{pm.value}}" />    
+</mycard>
 
 <box width="750" padding="0" >
   <view class="info-block">
