@@ -4,8 +4,7 @@
     <li class="staff">
             <view class="staff-avatar"><image src="{{broker.avatar || '/assets/images/default-avatar.png' }}?imageView2/2/w/100"></image></view>
        <view class="staff-info">
-               <view class="staff-name line-limit">{{broker.name || '未填写'}}
-               </view>
+               <view class="staff-name line-limit">{{broker.name || '未填写'}}</view>
        </view>
     </li>
     <li wx:if="{{bookingEnable}}" bindtap="bookingHandle" class="booking">

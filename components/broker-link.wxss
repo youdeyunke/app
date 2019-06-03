@@ -17,9 +17,10 @@
 }
 
 .info .text .name{
-  font-size:var(--font-l);
+  font-size:30rpx;
   color: #000;
   margin-bottom:10rpx;
+  font-weight: bolder;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,7 +31,7 @@
 }
 
 .info .text .desc{
-  font-size:var(--font-xs);
+  font-size:24rpx;
   color: #999;
 }
 

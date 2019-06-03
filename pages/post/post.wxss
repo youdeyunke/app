@@ -9,23 +9,6 @@ mycard{
 }
 
 
-.info-block{
-  padding:30rpx 0;
-}
-
- .info_title{
-  margin:0 0 15rpx 0;
-  padding:0 30rpx;
-  font-weight:bolder;
-  color:#000;
-}
-
-.info_text{
-  margin:30rpx 0;
-  padding:0 30rpx;
-  line-height:1.4;
-
-}
 
 .post-cover{
   width:730rpx;
@@ -105,7 +88,7 @@ mycard{
 }
 
 .detail-meta{
-  font-size:var(--font-l);
+  font-size:28rpx;
   display:flex;
   justify-content:flex-start;
   flex-wrap:wrap;
@@ -140,12 +123,13 @@ mycard{
 
  .post-title{
   color:#000;
-  margin: 10rpx 0 20rpx 0 ;
   font-weight: bold;
+  margin: 10rpx 0 20rpx 0 ;
+
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  font-size:40rpx;
+  font-size:42rpx;
 }
 
 .tagsinfo{
@@ -513,100 +497,63 @@ myfav .myfav {
 }
 
 
-image.overlook{
-  width:150rpx;
-  height:150rpx;
+.mapinfo{
+    background: #fff;
+    padding:50rpx 50rpx 0 50rpx ;
+    font-size:28rpx;
+    width:750rpx;
+    margin-bottom:0rpx;
+    letter-spacing: 0.5;
 }
 
-.flow-item{
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin-bottom:10rpx;
-  padding-bottom:10rpx;
-  border-bottom:2rpx solid #f4f4f4;
+.mapinfo .name{
+    color: #000;
+    padding:0 50rpx;
+    font-size:34rpx;
+    font-weight: bold;
 }
 
-.flow-item image{
-  width: 40rpx;
-  height: 40rpx;
-  border-radius: 100rpx;
-  border:4rpx solid #f4f4f4;
+.mapinfo .location .label{
+    color: #999;
 }
 
-.flow-item .flow-content{
-  padding-left:30rpx;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  position: relative;
+.mapinfo .location .value{
+    color: #000;
 }
 
-.flow-item .flow-content .user-name{
-  color: #000;
-}
-
-.flow-item .text:after{
-  content: "";
-  position: absolute;
-  top:34rpx;
-  left:40rpx;
-  z-index:2;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  border-style: solid;
-  border-width: 10rpx 20rpx;
-  border-color: transparent transparent #95CD5E;
-}
-
-.flow-item .text{
-  margin:10rpx 0;
-  padding:20rpx 16rpx;
-  background: #95CD5E;
-  border-radius: 10rpx;
-  color: #000;
-}
-
-.flow-item .time{
-  font-size: var(--font-xs);
-  color: #666;
+.mapinfo .location{
+    padding:0 50rpx;
+    margin:20rpx 0;
 }
 
 
-.flow-form{
-  padding:30rpx;
+.mapimage{
+    width: 750rpx;
 }
 
-.flow-form textarea{
-  width: 500rpx;
-  border:2rpx solid #f4f4f4;
-  padding:20rpx;
-  margin-bottom:20rpx;
+.textinfo{
+    width: 750rpx;
+    padding:50rpx 50rpx;
+    background: #fff;
+    margin-bottom:20rpx;
+    box-sizing: border-box;
+    font-size: 28rpx;
 }
 
-.flow-form .fbutton{
-
-  margin-top:10rpx;
+.textinfo .name{
+    color: #000;
+    font-size:34rpx;
+    font-weight: bold;
 }
 
-.new-flow-action{
-  margin-top:10rpx;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+ .info_title{
+  margin:0 0 15rpx 0;
+  font-weight:bolder;
+  color:#000;
 }
 
-.new-flow-action .desc{
-  width: 550rpx;
-  font-size:var(font-xs);
-  color: #cecece;
-}
+.info_text{
+  margin:30rpx 0;
+  line-height:1.4;
 
-.mytab{
-  padding:30rpx;
-  box-sizing: border-box;
-  width: 100%;
-  display: inline-block;
 }

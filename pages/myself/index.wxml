@@ -39,7 +39,7 @@
 
     </box>
 
-  <mycard hat="{{false}}"  title="我的服务" head-border="{{true}}" width="710" padding="20">
+  <mycard width="750" hat="{{false}}"  title="我的服务" head-border="{{true}}" padding="20">
 
         <view class="menu menu-col-3">
           <navigator hover-class="none" url="/pages/post/form?group=old"  class="menu-item">
@@ -77,7 +77,7 @@
   </mycard>
 
 
-  <mycard hat="{{false}}" head-border="{{true}}" title="我是经纪人" width="710" padding="20">
+  <mycard width="750" hat="{{false}}" head-border="{{true}}" title="我是经纪人"  padding="20">
     <van-cell wx:if="{{!userInfo.broker_profile.enable}}" size="large"  hover-class="none" title="经纪人身份"   center>
             <van-button slot="right-icon" size="mini" plain bindtap="gotoMembership" type="primary">立即开通</van-button>
         </van-cell>
