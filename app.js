@@ -1,11 +1,11 @@
 //app.js
 var auth = require("utils/auth.js");
+const EXT = wx.getExtConfigSync()
 
 App({
   globalData: {
     assetsList: [ '客梯','货梯', '扶梯', '中央空调', '停车位', '天然气', '网络', '暖气', '上水', '下水', '排烟', '排污', '可明火', '380V', '外摆区' ],
-    //apiHost: "https://kanfang.nianyuapp.net",
-    apiHost: 'http://localhost:9000',
+    apiHost: EXT['apihost'],
     userInfo: null,
     token: null,
     loadingStatus: 0,

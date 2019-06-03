@@ -1,6 +1,5 @@
 <template name="form-old">
     <block>
-
         <card title="业主信息" hat="true" wx:if="{{step==1 && user.is_broker }}">
             <van-field data-name="owner_name" value="{{ post.owner_name }}" input-align="left"
                 error="{{error.owner_name}}" label="姓名" placeholder="" bind:change="inputChange" />
