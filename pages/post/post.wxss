@@ -15,7 +15,7 @@ mycard{
   height: 420rpx;
   border-radius: 0rpx;
   overflow: hidden;
-  margin:0 0 10rpx 0;
+  margin:0 0 0rpx 0;
   padding:0rpx;
   position:relative;
 }
