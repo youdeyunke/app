@@ -7,10 +7,10 @@ page{
 background:#fff;
 width:710rpx;
 padding:0 0rpx 20rpx 0rpx;
-box-shadow:6rpx 8rpx 10rpx rgba(0,0,0, 0.2);
+box-shadow:2rpx 6rpx 6rpx rgba(0,0,0, 0.08);
 margin-bottom:20rpx;
-box-size:border-box;
 border:2rpx solid #f4f4f4;
+box-sizing: border-box;
 border-radius:15rpx;
 
 }
@@ -28,7 +28,12 @@ border-radius:15rpx;
 }
 
 .my-news-swiper{
-  margin:20rpx 0;
+  margin:20rpx 20rpx;
+  width:670rpx;
+  background:#f9f9f9;
+  border-radius: 10rpx;
+  padding:20rpx;
+
 }
 
 .home-title .h1{
