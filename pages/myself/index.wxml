@@ -32,7 +32,7 @@
 
 
 <block wx:if="{{userInfo}}">
-  <box width="750" padding="20"  wx:if="{{userInfo && !userInfo.mobile}}}">
+  <box width="750" padding="20"  wx:if="{{userInfo && !userInfo.mobile}}">
       <van-cell border="{{false}}" size="large" hover-class="none" title="绑定手机号"   center>
             <van-button slot="right-icon" size="mini" plain type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">马上绑定</van-button>
         </van-cell>
