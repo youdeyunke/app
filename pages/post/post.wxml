@@ -50,7 +50,7 @@
 
 </view>
 
-<box width="730" padding="30" >
+<box width="750" padding="30" >
   <view class="header"> 
      <view class="tagsinfo">
         <mytags mini="{{false}}" wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
@@ -61,19 +61,19 @@
 
      <view class="typeinfo">
          <view class="item border">
-                 <view class="key">{{post.price_info.label}}</view>         
                  <view class="value">{{post.price_info.text}}
                  <text class="px">{{post.price_info.px}}</text>
+                 <view class="key">{{post.price_info.label}}</view>         
                  </view>
          </view>
          <view class="item border">
-                <view class="key">{{post.type_info.label}}</view>         
                 <view class="value">{{post.type_info.text}} </view>
+                <view class="key">{{post.type_info.label}}</view>         
          </view>
          <view class="item">
-                 <view class="key">{{post.area_info.label}}</view>         
                  <view class="value">{{post.area_info.text}}
                  <text class="px">{{post.area_info.px}} </text>
+                 <view class="key">{{post.area_info.label}}</view>         
                  </view>
          </view>
      </view>
@@ -85,6 +85,8 @@
         </view>
     </view>    
 
+    <view bindtap="gotoMeta" hover-class="none" class="more-meta">更多房源信息</view>
+
     <view  bindtap='couponHandle' class="coupon" wx:if="{{ post.coupon_desc && post.coupon_enable}}">
       <view class="name line-limit">{{post.coupon_desc}}</view>
       <view class="action">{{ post.user_has_coupon ? '已领券' : '领券' }}</view>
@@ -92,9 +94,6 @@
   </view>
 </box>
 
-<mycard hat="{{false}}" title="加密信息" subtitle="仅房源发布者可见" width="750" padding="30">
-  <van-cell bindtap="{{pm.bindtap}}" data-value="{{pm.value}}" border="{{ index == post.protected_meta_list.length -1 ? false : true }}" wx:for="{{post.protected_meta_list}}" wx:for-item="pm" title="{{pm.label}}" value="{{pm.value}}" />    
-</mycard>
 
 <box width="750" padding="30" wx:if="{{post.user.is_broker}}">  
   <broker-link  broker="{{post.broker_info}}" />

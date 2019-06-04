@@ -1,0 +1,9 @@
+page{
+    padding:0 !important;
+    background: #fff;
+}
+
+.section{
+    width: 750rpx;
+    background: #fff;
+}

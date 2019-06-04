@@ -11,7 +11,7 @@ mycard{
 
 
 .post-cover{
-  width:730rpx;
+  width:750rpx;
   height: 420rpx;
   border-radius: 0rpx;
   overflow: hidden;
@@ -119,6 +119,23 @@ mycard{
 
 .detail-meta .meta.link .value{
   color: rgb(121, 121, 172);
+}
+
+.more-meta{
+    width: 660rpx;
+    height: 100rpx;
+    font-size:30rpx;
+    text-align: center;
+    margin:20rpx auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    background: #F8F8F8;
+    color: #000;
+    letter-spacing: 1.6rpx;
+    font-weight: bolder;
+    border-radius: 6rpx;
 }
 
  .post-title{
@@ -285,6 +302,11 @@ myfav .myfav {
 #audio{
   width:100%;
   margin-bottom:20rpx;
+}
+
+
+.typeinfo .item .value{
+    font-weight: bolder;
 }
 
 .housetype{
@@ -499,16 +521,16 @@ myfav .myfav {
 
 .mapinfo{
     background: #fff;
-    padding:50rpx 50rpx 0 50rpx ;
+    padding:40rpx 40rpx 0 40rpx ;
     font-size:28rpx;
     width:750rpx;
+    box-sizing: border-box;
     margin-bottom:0rpx;
     letter-spacing: 0.5;
 }
 
 .mapinfo .name{
     color: #000;
-    padding:0 50rpx;
     font-size:34rpx;
     font-weight: bold;
 }
@@ -522,7 +544,6 @@ myfav .myfav {
 }
 
 .mapinfo .location{
-    padding:0 50rpx;
     margin:20rpx 0;
 }
 
