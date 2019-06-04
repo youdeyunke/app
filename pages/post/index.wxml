@@ -20,11 +20,11 @@
 
 <view class="res">
 
-  <box wx:if="{{filter.sub_district_id}}" padding="20">
+  <view class="subinfo"  wx:if="{{filter.sub_district_id}}">
     <sub-district sid="{{filter.sub_district_id}}" />
-  </box>
+  </view>
   
-  <box padding="20" width="710">
+  <box padding="20" width="750">
     <items kw="{{kw}}" wx:if="{{filter}}" page="{{page}}" filter="{{filter}}" />
   </box>
 
