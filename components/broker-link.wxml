@@ -8,6 +8,6 @@
         <text wx:if="{{broker.mobile}}">联系电话：{{broker.mobile}}</text>
       </view>
     </view>
-    <button class="btn primary plain mini">进入店铺</button>
+    <button class="btn primary plain mini">查看名片</button>
   </view>
 </block>

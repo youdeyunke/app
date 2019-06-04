@@ -1,7 +1,7 @@
 /* pages/home/home.wxss */
 
 page{
-  padding:0 0 120rpx 0 !important;
+  padding:0 0 180rpx 0 !important;
 }
 
 mycard{
@@ -132,16 +132,24 @@ mycard{
     align-items: center;
     vertical-align: middle;
     background: #F8F8F8;
-    color: #000;
+    color: #333;
     letter-spacing: 1.6rpx;
     font-weight: bolder;
     border-radius: 6rpx;
 }
 
+.title-block{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+   margin: 20rpx 0 20rpx 0 ;
+   width:100%;
+}
+
  .post-title{
   color:#000;
   font-weight: bold;
-  margin: 20rpx 0 20rpx 0 ;
+  width:650rpx;
 
   display: flex;
   justify-content: space-between;
@@ -575,11 +583,11 @@ myfav .myfav {
  .info_title{
   margin:0 0 15rpx 0;
   font-weight:bolder;
-  color:#000;
+  color:#cecece;
 }
 
 .info_text{
   margin:30rpx 0;
-  line-height:1.4;
+  line-height:1.8;
 
 }

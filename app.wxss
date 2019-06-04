@@ -352,6 +352,7 @@ textarea{
   align-items:center;
   box-sizing:border-box;
   width:100%;
+  padding-left:30rpx;
 }
 
  .typeinfo .item{
@@ -381,5 +382,5 @@ textarea{
 
  .typeinfo .item.border{
   border-right:1px solid #f1f1f1;
-  margin-right:60rpx;
+  margin-right:30rpx;
 } 

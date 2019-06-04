@@ -1,3 +1,3 @@
 <van-button size="mini" plain type="{{status == 1 ? 'default' : 'primary' }}" catchtap='clickHandle'>
-   {{status == 0 ? '关注' : '已关注'}} 
+   {{status == 0 ? '收藏' : '已收藏'}} 
 </van-button>

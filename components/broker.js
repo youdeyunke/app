@@ -69,6 +69,20 @@ Component({
    * 组件的方法列表
    */
   methods: {
+  
+    gotoUserPage: function(e){
+        var _this = this
+        wx.navigateTo({
+            url: '/pages/user/user?id=' + _this.data.broker.id,
+            success: (result) => {
+                
+            },
+            fail: () => {},
+            complete: () => {}
+        });
+          
+    },
+
     connectHandle: function(e){
       this.setData({
         actionsShow: true

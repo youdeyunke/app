@@ -1,6 +1,7 @@
 <!--components/recom-posts.wxml-->
 <view>
-    <card width="730" title="{{title}}">
+    <card width="750" title="{{title}}" hat="{{false}}">
       <post wx:key="{{item.id}}" class="recom-post" wx:if="{{item && item.id != excludeId }}" wx:for="{{posts}}" item="{{item}}"></post>
+      <view wx:if="{{posts.length == 0}}" >没有数据</view>
   </card>
 </view>

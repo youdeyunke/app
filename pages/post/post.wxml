@@ -57,7 +57,10 @@
         <view class="num">房源ID:{{post.id}} <text wx:if="{{user.id == post.user_id}}"> 房号：{{post.house_number }}</text> </view>
      </view>
 
-     <view class=" post-title">{{ post.title_info.text }} </view>
+     <view class="title-block">
+       <view class=" post-title">{{ post.title_info.text }} </view>
+       <myfav wx:if="{{post.id}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
+     </view>
 
      <view class="typeinfo">
          <view class="item border">
@@ -112,7 +115,7 @@
 
 <view class="textinfo">
   <view class="info-block">
-    <view class="info-item">
+    <view class="info-item" wx:if="{{post.desc}}">
       <view class="info_title" style="margin-top:30rpx;">房源概况</view>
       <view class="info_text"> {{ post.desc || '未填写' }} </view>
     </view>
@@ -129,16 +132,16 @@
     </block>
 
     <block wx:if="{{post.group == 'old' }}">
-      <view class="info-item">
+      <view class="info-item" wx:if="{{post.selling_points}}">
         <view class="info_title">核心卖点</view>
         <view class="info_text"> {{ post.selling_points || ''}} </view>
       </view>  
       <view class="info-item">
-        <view class="info_title">业主心态</view>
+        <view class="info_title" wx:if="{{post.owner_mindset}}">业主心态</view>
         <view class="info_text"> {{ post.owner_mindset  || ''}} </view>
       </view>
       <view class="info-item">
-        <view class="info_title">服务介绍</view>
+        <view class="info_title" wx:if="{{post.service}}">服务介绍</view>
         <view class="info_text"> {{ post.service || ''}} </view>
       </view>  
     </block>

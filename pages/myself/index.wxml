@@ -2,7 +2,7 @@
   <view class="top">
     <image src="/assets/images/myself-login.png" mode="widthFix"></image>
     <button type="primary" class="btn"  open-type='getUserInfo' bindgetuserinfo='loginHandle'>使用微信登录</button>
-    <view class="tips">登录体验更多服务</view>
+    <view class="tips">登录后可体验更多服务</view>
   </view>
 
   <view class="footer" bindtap="gotoTerms" hover-class="none">
@@ -86,8 +86,5 @@
         <van-cell border="{{false}}" size="large" is-link url="/pages/user/user?id={{userInfo.id}}"  hover-class="none" title="我的主页" />
 
   </mycard>
-
-
-
 
 </block>

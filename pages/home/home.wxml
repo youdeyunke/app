@@ -9,14 +9,14 @@
 </view>
 
 <view class="home-title">
-  <view class="h1">猜你喜欢</view>
+  <view class="name">猜你喜欢</view>
   <view class="home-actions">
       <view bindtap="action1Click" class="item {{ currentAction == 1 ? 'active' : ''}}">二手房</view>
       <view bindtap="action2Click" class="item {{ currentAction == 2 ? 'active' : ''}}">租房</view>
     </view>
 </view>
 
-<box width="710" padding="20">
+<box width="750" padding="30">
   <block wx:key="{{index}}" wx:for="{{posts}}" wx:for-item="postitems">
     <post wx:key="{{item.id}}" wx:for="{{postitems}}" item="{{item}}"></post>
   </block>
