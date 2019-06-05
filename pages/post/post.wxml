@@ -41,8 +41,8 @@
               <view class="first">
                 <image wx:if="{{ index ==0 && post.vr_url}}" catchtap='gotoVr' class="play vr" src="/assets/icons/vr.png"></image>              
                 <image wx:if="{{ index == 1 && post.video}}" catchtap='gotoVideo' class="play video" src="/assets/icons/bofang.png"></image>
-                <gimage width="750" height="420" wx:if="{{index == 0 && post.vr_url }}" class="item" src="{{item}}?imageView2/2/h/420"></gimage>
-                <image  mode="widthFix"  wx:if="{{index == 0 && !post.vr_url }}" class="item" src="{{item}}?imageView2/2/h/420"></image>
+                <gimage width="750" height="420" wx:if="{{index == 0 && post.vr_url }}" class="item" src="{{item}}?imageView2/2/h/840"></gimage>
+                <image  mode="widthFix"  wx:if="{{index == 0 && !post.vr_url }}" class="item" src="{{item}}?imageView2/2/h/840"></image>
                 <image   mode="widthFix" wx:if="{{index > 0 }}" class="item" src="{{item}}?imageView2/2/h/420"></image>
               </view>
             </swiper-item>               
@@ -140,16 +140,28 @@
         <view class="info_title" wx:if="{{post.owner_mindset}}">业主心态</view>
         <view class="info_text"> {{ post.owner_mindset  || ''}} </view>
       </view>
-      <view class="info-item">
-        <view class="info_title" wx:if="{{post.service}}">服务介绍</view>
-        <view class="info_text"> {{ post.service || ''}} </view>
-      </view>  
+
     </block>
   </view>
 </view>
 
+<mycard title="楼盘介绍" hat="{{false}}" wx:if="{{post.group == 'new'}}">
+   <view class="html-content {{ minicontent == true ? 'mini' : 'full' }}">
+      <view class="raw">
+        <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>
+      </view>
+      <view class="html-content-footer">
+      </view>
+  </view>  
+  <view class="view-more-container">
+  <button class="btn mini plain round view-more " bindtap="contentHandle" wx:if="{{minicontent}}">
+    加载全文 <image class="{{ minicontent == true ? 'down' : 'up' }}" src="/assets/icons/down-arrow.png"></image>
+  </button>
+  </view>
+</mycard>
 
-<mycard width="750" title="户型信息"  wx:if="{{post.group == 'new'}}">
+
+<mycard width="750" title="户型信息"  wx:if="{{post.group == 'new'}}" hat="{{false}}">
     <view class="housetype" wx:for="{{post.types}}">
       <view class="poster">
               <image bindtap="viewTypeImage" data-index="{{index}}" src="{{item.image.url}}?imageView2/2/w/300"></image>
@@ -165,9 +177,6 @@
     </view>
 </mycard>
 
-<mycard wx:if="{{post.group == 'new' && post.more_url}}" title="{{post.more_title}}" opentype="webview" url="{{post.more_url}}" hat>
-  <view>{{ post.more_desc }}</view>
-</mycard>
 
 <recoms id-ne="{{post.id}}" wx:if="{{post.group}}" sub-district-id="{{post.sub_district_id}}" group="{{post.group}}" count="4"></recoms>
 
