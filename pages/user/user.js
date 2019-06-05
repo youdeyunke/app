@@ -125,6 +125,20 @@ Page({
 
   },
 
+  showAvatar: function(){
+      var _this =this
+      wx.previewImage({
+          current: _this.data.userInfo.avatar,
+          urls: [_this.data.userInfo.avatar],
+          success: (result) => {
+              
+          },
+          fail: () => {},
+          complete: () => {}
+      });
+        
+  },
+
   setPageTitle: function(){
     var _this = this
     wx.setNavigationBarTitle({

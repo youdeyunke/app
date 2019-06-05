@@ -9,10 +9,7 @@ Component({
   },
 
   ready: function(){
-    var user = wx.getStorageSync('userInfo')
-    if(user.id >= 0){
       this.setData({mode: 1})
-    }
 
   },
 

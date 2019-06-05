@@ -1,11 +1,5 @@
 <import src="/utils/wxParse/wxParse.wxml"/>
 
-<template name="more-tab">
-  <block>
-    <van-cell bindtap="{{pm.bindtap}}" data-value="{{pm.value}}" wx:for="{{post.protected_meta_list}}" wx:for-item="pm" title="{{pm.label}}" value="{{pm.value}}" />
-    <van-cell title="俯瞰图" value="{{ post.overlook_image ? '点击查看' : '无' }}" bindtap="viewOverlook"/>
-  </block>
-</template>
 
 <template name="flows-tab">
   <view bind:longpress="flowEdit" data-index="{{index}}" class="flow-item" wx:for="{{flows}}" wx:for-item="flow">
@@ -56,41 +50,45 @@
 
 </view>
 
-<box width="730" padding="30" >
+<box width="750" padding="30" >
   <view class="header"> 
      <view class="tagsinfo">
         <mytags mini="{{false}}" wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
         <view class="num">房源ID:{{post.id}} <text wx:if="{{user.id == post.user_id}}"> 房号：{{post.house_number }}</text> </view>
      </view>
 
-     <view class=" post-title">
-      <view class="h1">{{ post.title_info.text }}</view>
-    </view>
+     <view class="title-block">
+       <view class=" post-title">{{ post.title_info.text }} </view>
+       <myfav wx:if="{{post.id}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
+     </view>
 
      <view class="typeinfo">
          <view class="item border">
-                 <view class="key">{{post.price_info.label}}</view>         
                  <view class="value">{{post.price_info.text}}
                  <text class="px">{{post.price_info.px}}</text>
+                 <view class="key">{{post.price_info.label}}</view>         
                  </view>
          </view>
          <view class="item border">
-                <view class="key">{{post.type_info.label}}</view>         
                 <view class="value">{{post.type_info.text}} </view>
+                <view class="key">{{post.type_info.label}}</view>         
          </view>
          <view class="item">
-                 <view class="key">{{post.area_info.label}}</view>         
                  <view class="value">{{post.area_info.text}}
                  <text class="px">{{post.area_info.px}} </text>
+                 <view class="key">{{post.area_info.label}}</view>         
                  </view>
          </view>
      </view>
+
     <view  class="detail-meta">
       <view  class="meta {{ meta.url ? 'link lg' : '' }} {{ meta.large ? 'lg' : '' }}" wx:key="{{meta.label}}" wx:if="{{meta}}" wx:for="{{post.meta_list}}" wx:for-item="meta">
             <text class="label">{{meta.label}}</text>
             <text bindtap="gotoSub" data-url="{{meta.url}}" class="value van-ellipsis"> {{ meta.value || '-' }} </text>
         </view>
     </view>    
+
+    <view bindtap="gotoMeta" hover-class="none" class="more-meta">更多房源信息</view>
 
     <view  bindtap='couponHandle' class="coupon" wx:if="{{ post.coupon_desc && post.coupon_enable}}">
       <view class="name line-limit">{{post.coupon_desc}}</view>
@@ -99,9 +97,25 @@
   </view>
 </box>
 
-<box width="750" padding="0" >
+
+<box width="750" padding="30" wx:if="{{post.user.is_broker}}">  
+  <broker-link  broker="{{post.broker_info}}" />
+</box>
+
+<view class="mapinfo">
+  <view class="name">周边及配套</view>
+  <view class="location">
+      <text class="label">位置：</text>
+      <text class="value">{{post.sub_district.address}}</text>
+  </view>
+</view>
+<view class="mapimage">
+    <mapimage image="{{sub.map_image_url}}" latitude="{{sub.latitude}}"  longitude="{{sub.longitude}}" name="{{sub.name}}" ></mapimage>
+</view>
+
+<view class="textinfo">
   <view class="info-block">
-    <view class="info-item">
+    <view class="info-item" wx:if="{{post.desc}}">
       <view class="info_title" style="margin-top:30rpx;">房源概况</view>
       <view class="info_text"> {{ post.desc || '未填写' }} </view>
     </view>
@@ -118,31 +132,21 @@
     </block>
 
     <block wx:if="{{post.group == 'old' }}">
-      <view class="info-item">
+      <view class="info-item" wx:if="{{post.selling_points}}">
         <view class="info_title">核心卖点</view>
         <view class="info_text"> {{ post.selling_points || ''}} </view>
       </view>  
       <view class="info-item">
-        <view class="info_title">业主心态</view>
+        <view class="info_title" wx:if="{{post.owner_mindset}}">业主心态</view>
         <view class="info_text"> {{ post.owner_mindset  || ''}} </view>
       </view>
       <view class="info-item">
-        <view class="info_title">服务介绍</view>
+        <view class="info_title" wx:if="{{post.service}}">服务介绍</view>
         <view class="info_text"> {{ post.service || ''}} </view>
       </view>  
     </block>
-
   </view>
-</box>
-
-<box width="750" padding="30" wx:if="{{post.user.is_broker}}">  
-  <broker-link  broker="{{post.broker_info}}" />
-</box>
-
-<mycard width="750" title="地理位置">
-  <sub-location-info item="{{sub}}" wx:if="{{post.sub_district_id}}" />
-  <mapimage wx:if="{{!post.sub_district_id}}" image="{{post.map_image_url}}"  latitude="{{post.sub_district.latitude}}"  longitude="{{post.sub_district.longitude}}" name="{{post.sub_district_name}}" />
-</mycard>
+</view>
 
 
 <mycard width="750" title="户型信息"  wx:if="{{post.group == 'new'}}">
@@ -166,7 +170,9 @@
 </mycard>
 
 <recoms id-ne="{{post.id}}" wx:if="{{post.group}}" sub-district-id="{{post.sub_district_id}}" group="{{post.group}}" count="4"></recoms>
-<broker wx:if="{{post.broker_info}}" broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>
+
+<broker wx:if="{{post.broker_info.id !=  user.id }}" broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>
+
 <safe-tips/>
 
 <van-popup show="{{showFlowForm }}" bind:click-overlay="closeFlowForm" >

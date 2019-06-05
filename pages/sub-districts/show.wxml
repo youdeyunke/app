@@ -12,7 +12,7 @@
                indicator-color="rgba(255,255,255,0.7)" 
                indicator-active-color="#fff" >
                     
-               <swiper-item wx:key="{{index}}" bindtap="viewImage" data-index="{{index}}" wx:for="{{sub.images}}">
+               <swiper-item wx:key="{{index}}" bindtap="viewImage" data-index="{{index}}" wx:for="{{sub.images.length > 0 ? sub.images : defaultImgs}}">
 
                 <image  class="item" src="{{item}}?imageView2/2/h/430"></image>
    

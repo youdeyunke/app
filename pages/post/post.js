@@ -611,6 +611,16 @@ Page({
 
   },
 
+  gotoMeta: function () {
+      var _this = this
+      auth.ensureUser(function(user){
+          wx.navigateTo({
+              url: '/pages/post/meta?id=' + _this.data.post.id,
+          })
+
+      })
+  },
+
   couponHandle: function(){
     var _this = this
     auth.ensureMobile(function(userInfo){

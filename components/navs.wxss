@@ -7,7 +7,7 @@
   justify-content: flex-start;
   box-sizing: border-box;
   margin-top:30rpx;
-  font-size:var(--font-xs);
+
 }
 
 .navs navigator{
@@ -37,6 +37,7 @@
 
 .navs navigator text{
   color: #000;
-  font-weight: normal;
-  margin-top:5rpx;
+  margin-top:10rpx;
+  font-size:24rpx;
+  font-weight: bolder;
 }

@@ -34,7 +34,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 47,
 			"list": [
 				{
 					"id": 0,
@@ -332,6 +332,20 @@
 					"name": "pages/shop/form",
 					"pathName": "pages/shop/form",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "post show",
+					"pathName": "pages/post/post",
+					"query": "id=30",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "page-meta",
+					"pathName": "pages/post/meta",
+					"query": "id=30",
 					"scene": null
 				}
 			]

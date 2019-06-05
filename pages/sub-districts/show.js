@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    defaultImgs: ['/assets/images/cover-none.png'],
     htmlContent: '',
   },
 

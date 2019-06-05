@@ -39,6 +39,9 @@
   display:flex;
   justify-content:flex-start;
   align-items:center;
+    color: #000;
+    font-size:38rpx;
+    font-weight: bold;
 }
 
 .card-header-action{

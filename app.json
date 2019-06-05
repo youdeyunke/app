@@ -53,7 +53,8 @@
     "pages/goods/edit",
     "pages/goods/form",
     "pages/myself/setting",
-    "pages/shop/form"
+    "pages/shop/form",
+    "pages/post/meta"
   ],
   "tabBar": {
     "selectedColor": "#333",
@@ -113,7 +114,6 @@
     "van-cell": "/vant/cell/index",
     "van-cell-group": "/vant/cell-group/index",
     "mycard": "/components/card",
-    "cr": "/components/copyright",
     "box": "/components/box"
   },
   "networkTimeout": {
@@ -122,7 +122,7 @@
     "uploadFile": 100000,
     "downloadFile": 100000
   },
-  "serviceProviderTicket":"",
+  "serviceProviderTicket": "",
   "permission": {
     "scope.userLocation": {
       "desc": "位置信息用于房源查询"

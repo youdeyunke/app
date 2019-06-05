@@ -3,8 +3,7 @@
   height: 80rpx;
   display: flex;
   box-sizing: border-box;
-  padding:0 30rpx;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .logo-block{

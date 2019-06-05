@@ -12,6 +12,7 @@
   right:0rpx;
   top:0rpx;
   z-index:99;
+  border-bottom:2rpx solid #f4f4f4;
 }
 
 
@@ -26,14 +27,19 @@
 
 .search-box .van-cell  {
   background:#F6F7FB ;
-  border-radius: 40rpx;
 }
 
 
 .res{
-  padding-top:160rpx;
+  padding-top:180rpx;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+}
+
+
+.subinfo{
+    width:100%;
+    border-bottom:2rpx solid #f4f4f4;
 }

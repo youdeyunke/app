@@ -352,6 +352,7 @@ textarea{
   align-items:center;
   box-sizing:border-box;
   width:100%;
+  padding-left:30rpx;
 }
 
  .typeinfo .item{
@@ -364,9 +365,9 @@ textarea{
 
 
  .typeinfo .item .value{
-  font-size:32rpx;
-  color:var(--color-b);
-  margin-bottom:10rpx;
+  font-size:38rpx;
+  color:red;
+  margin-bottom:6rpx;
   margin-top:10rpx;
 } 
 .typeinfo .item .value .px{
@@ -381,5 +382,5 @@ textarea{
 
  .typeinfo .item.border{
   border-right:1px solid #f1f1f1;
-  margin-right:60rpx;
+  margin-right:30rpx;
 } 

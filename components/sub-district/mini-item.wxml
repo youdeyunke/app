@@ -1,5 +1,6 @@
 <view class="sinfo">
  <van-cell
+    icon="location-o"
     title="{{item.name}}"
     label="{{item.address}}"
     border="{{ false }}"

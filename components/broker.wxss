@@ -1,4 +1,7 @@
 
+.broker-bar{
+    height: 160rpx;
+}
 
 .broker-bar ul{
   display: flex;
@@ -26,11 +29,17 @@
   height: 34rpx;
 }
 
+.broker-bar li button{
+    font-size:32rpx;
+    font-weight: bold;
+    height:90rpx;
+}
+
 .broker-bar .staff-info{
     display:flex;
     flex-direction:column;
     justify-content:space-around;
-    align-items:center;
+    align-items:flex-start;
     margin-left:20rpx;
 }
 
@@ -44,12 +53,14 @@
    height:35px;
    border-radius:100%;
    overflow:hidden;
+   border:2rpx solid #f4f4f4;
 }
 
 .broker-bar .staff-name{
     width:150rpx;
-    font-size:var(--font-xs);
+    font-size:30rpx;
     color:#000;
+    font-weight: bolder;
 }
 
 .broker-bar .staff-desc{
