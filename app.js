@@ -402,6 +402,7 @@ App({
     var _this = this;
     var logs = wx.getStorageSync("logs") || [];
     logs.unshift(Date.now());
+    console.log('EXT is ', EXT)
     this.getReddot();
     this.startReddotInterval();
     this.loadConfigs()
