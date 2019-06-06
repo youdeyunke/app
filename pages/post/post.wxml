@@ -180,7 +180,7 @@
 
 <recoms id-ne="{{post.id}}" wx:if="{{post.group}}" sub-district-id="{{post.sub_district_id}}" group="{{post.group}}" count="4"></recoms>
 
-<broker wx:if="{{post.broker_info.id !=  user.id }}" broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>
+<broker broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>
 
 <safe-tips/>
 
