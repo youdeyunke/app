@@ -13,7 +13,7 @@
     focus="{{false}}" 
   />
   <view class="f">
-    <base-filter  bind:change="filterChange" />
+    <base-filter configs="{{filterConfigs}}"  bind:change="filterChange" />
   </view>
 </view>
 

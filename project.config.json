@@ -34,7 +34,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 47,
+			"current": 48,
 			"list": [
 				{
 					"id": 0,
@@ -346,6 +346,12 @@
 					"name": "page-meta",
 					"pathName": "pages/post/meta",
 					"query": "id=30",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "小区列表",
+					"pathName": "pages/sub-districts/index",
 					"scene": null
 				}
 			]

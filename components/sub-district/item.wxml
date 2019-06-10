@@ -8,7 +8,7 @@
       <view class="meta">
         <text class="item-title skeleton-rect" > {{ item.name }}</text>
         <mytags mini="true" items="{{item.tags_list}}" max="3"></mytags>
-        <view class="address">{{item.full_address}}</view>
+        <view class="address">{{item.address}}</view>
         <view class="area-price">
               <text class=" skeleton-rect" >在售: {{item.old_nums}}</text>
               <text class=" skeleton-rect" >在租：<text class="red">{{item.rental_nums}}</text></text>            

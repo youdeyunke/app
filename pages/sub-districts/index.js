@@ -1,4 +1,25 @@
 // pages/sub-districts/index.js
+
+const orderItem = {
+  type: "picker",
+  name: "排序",
+  key: "order",
+  options: [
+    {
+      label: "默认",
+      value: "id desc"
+    },
+    {
+      label: "均价（从大到小)",
+      value: "average_price desc"
+    },
+    {
+      label: "均价（从小到大)",
+      value: "average_price asc"
+    }
+  ]
+} 
+
 Page({
 
   /**
@@ -9,6 +30,8 @@ Page({
     filter: {},
     page: 1,
     filterConfigs: [
+      { name: '位置', type: 'citypicker', },
+      orderItem,
     ],
   },
 

@@ -3,8 +3,10 @@
   "extAppid": "wx22f2238c72f84e69",
   "directCommit": false,
   "ext": {
-    "name": "内部开发版本",
+    "name": "内部开发版本1",
     "apihost": "https://fang.udeve.cn",
+    "version": "xx.xx.xx",
+    "desc": "版本介绍",
     "test":"hello"
   },
   "extPages": {

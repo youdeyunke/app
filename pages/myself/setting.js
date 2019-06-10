@@ -1,4 +1,6 @@
 // pages/myself/setting.js
+const EXT = wx.getExtConfigSync()
+
 Page({
 
   /**
@@ -15,7 +17,7 @@ Page({
   onLoad: function (options) {
     var _this = this
     var configs = wx.getStorageSync('myconfigs')
-    this.setData({configs: configs})
+    this.setData({configs: configs, version: EXT["version"], desc: EXT['desc']})
     this.loadCacheInfo()
 
   },
