@@ -26,10 +26,14 @@
 
 .search-box .van-cell  {
   background:#F6F7FB ;
-  border-radius: 40rpx;
+  border-radius: 15rpx;
+  display: flex;
+  justify-content: center;
+  align-items:  center;
+  height: 80rpx;
 }
 
 
 .res{
-  padding-top:180rpx;
+  padding-top:200rpx;
 }

@@ -12,15 +12,13 @@
         <van-icon style="font-size:20rpx;margin-left:10rpx;"  name="arrow-down" />
       
     </view>
-    
+  </block>    
+</view>
+
+<block wx:for="{{configs}}" wx:for-item="config">
     <city wx:if="{{config.type == 'citypicker' }}"  show="{{config.show}}" bind:change="cityChange" position="top" bind:change="cityChange" position="top" />
     <picker position="top" wx:if="{{config.type == 'picker'}}"  show="{{config.show }}" id="filter-id-{{config.key}}"   key="{{config.key}}"  items="{{config.options}}"  bind:change="pickerChange" />
-
-  </block>    
-
-
-
-</view>
+</block>
 
 </block>
 

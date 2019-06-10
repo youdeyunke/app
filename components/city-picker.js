@@ -80,7 +80,7 @@ Component({
         config.activeId = null
         _this.updateConfig(index, config)
       })
-      this.onClose()
+      this.onConfirm()
     },
 
     onConfirm: function (e) {

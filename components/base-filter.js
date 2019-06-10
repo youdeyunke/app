@@ -46,9 +46,7 @@ Component({
       var keys = ['city_id', 'district_id', 'subway_id', 'station_id']
       keys.forEach(function(key, i){
         var v = _this.data[key] || ''
-        if(v){
-          data[key] = v
-        }
+        data[key] = v
       })
 
       var _this = this
@@ -56,33 +54,40 @@ Component({
         var c = _this.data.configs[i]
         if(c && c.type == 'picker'){
           var item = _this.data[c.key]
-          if(item && item.value){
-            data[c.key] = item.value
+          if(item){
+            data[c.key] = item.value || ''
+            console.log('set c.key', c.key, 'value ', item.value)
+          }else{
+            console.log('do not set data, key is', c.key, 'item is ', item)
           }
-          
         }
+          
       }
-      console.log('data is', data)
+
       this.setData({initValue: data})
       this.triggerEvent('change', data, {})
     },
 
     cityChange: function(e){
+      console.log('city change receive ', e.detail)
       var data = {}
       var keys = ['city_id', 'district_id', 'subway_id', 'station_id']
       keys.forEach(function (key, i) {
         var v = e.detail[key]
         data[key] = v || ''
       })
+      
       this.setData(data)
       this.filterChange()
     },
 
     pickerChange: function(e){
+      console.log('picker change receive', e.detail)
       var key = e.detail.key
       var data  = {}
       data[key] = e.detail.item
       this.setData(data)
+      console.log('set data resut is ', this.data)
       this.filterChange()
     },
 

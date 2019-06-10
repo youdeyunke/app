@@ -43,6 +43,7 @@ Component({
     onConfirm: function(e){
       var index = this.data.currentIndex
       var item = this.data.items[index]
+      console.log('picker change ', item, 'index', index, 'key', this.data.key)
       this.triggerEvent('change', {item: item, index: index, key: this.data.key})
       this.onClose()
     },

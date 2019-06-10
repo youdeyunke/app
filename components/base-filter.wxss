@@ -6,8 +6,9 @@
 }
 
 .sfilter .item{
-  font-size:24rpx;
+  font-size:28rpx;
   color: #333;
+  font-weight: bolder;
   display: flex;
   justify-content: flex-start;
   align-items: center;
