@@ -17,7 +17,8 @@
   <view class="body">
     <van-tabs type="card" color="#00ae66" bind:change="tabChange">
       <van-tab wx:for="{{tabs}}" wx:for-item="tab" title="{{tab.label}}">
-        <box padding="30">
+        <view style="height:30rpx;" class="blank"></view>
+        <box padding="0" width="700">
           <items kw="" wx:if="{{filter}}" page="{{page}}" filter="{{filter}}" />
         </box>
       </van-tab>
@@ -26,3 +27,9 @@
 
   </view>
 </block>
+
+
+<view class="fixed-footer btns">
+  <button bindtap="callMe" class="btn btn-call" open-type="">电话咨询</button>
+  <button open-type="share" class="btn btn-share" >分享名片</button>
+</view>

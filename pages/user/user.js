@@ -205,6 +205,13 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    var _this = this
+    return {
+      title: "经纪人：" + _this.data.userInfo.name + '的名片',
+      desc: '帮你找好房',
+      path: 'pages/user/user?id=' + _this.data.userId,
+      imageUrl: _this.data.userInfo.avatar,
+    }
+  },
 
-  }
 })

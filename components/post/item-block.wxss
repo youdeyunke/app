@@ -16,6 +16,7 @@
     color: #333;
     width:100%;
     margin:10rpx 0;
+    font-weight:bolder;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

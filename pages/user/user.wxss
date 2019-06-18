@@ -1,5 +1,6 @@
 page{
   background:#fff !important;
+  padding-bottom:140rpx !important;
 }
 
 .header{
@@ -65,4 +66,30 @@ page{
 .body{
   width: 100%;
   padding-top:30rpx;
+}
+
+
+.btns.fixed-footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width:100%;
+  box-sizing:border-box;
+  padding:0 30rpx;
+  height:120rpx;
+}
+
+.btns .btn{
+    font-size:32rpx;
+    width:335rpx;
+    font-weight: bold;
+    height:90rpx;
+}
+
+.btns .btn-call{
+  background:var(--color-a);
+}
+.btns .btn-share{
+  background:var(--color-b);
+
 }
