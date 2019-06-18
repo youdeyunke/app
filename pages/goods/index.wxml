@@ -1,6 +1,0 @@
-
-<block wx:key="{{index}}" wx:for="{{items}}" wx:for-item="goods">
-  <box width="710" padding="20"><gooditem  wx:key="{{itemm.id}}" wx:for="{{goods}}" item="{{item}}" /></box>
-</block>
-
-<add-new url="/pages/goods/form" />

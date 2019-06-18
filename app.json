@@ -47,11 +47,6 @@
     "pages/broker/profile",
     "pages/broker/membership",
     "pages/static/terms",
-    "pages/goods/index",
-    "pages/goods/show",
-    "pages/goods/new",
-    "pages/goods/edit",
-    "pages/goods/form",
     "pages/myself/setting",
     "pages/shop/form",
     "pages/post/meta"
@@ -73,7 +68,7 @@
         "pagePath": "pages/messages/index",
         "iconPath": "/assets/icons/message.0.png",
         "selectedIconPath": "/assets/icons/message.1.png",
-        "text": "聊天"
+        "text": "消息"
       },
 
       {

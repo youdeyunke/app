@@ -9,5 +9,8 @@
     </view>
     <view class="text line-limit">{{item.last_content}}</view>
   </view>
-</navigator>
+  </navigator>
+
 </box>
+
+<view wx:if="{{items.length == 0}}" class="empty">没有收到任何消息</view>
