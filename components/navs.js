@@ -28,11 +28,14 @@ Component({
    */
   methods: {
     loadData: function(cb){
+        var _this = this
       app.request({
         url: '/api/v2/navs',
         success: function(resp){
           var navs = resp.data.data
           wx.setStorage({key: 'navs', data: navs})
+          _this.setData({navs: navs})
+
           return cb(navs)
         }
       })

@@ -31,8 +31,12 @@ page{
   margin-top:0;
 }
 
-.info .nickname{
-  font-weight: var(--font-lg);
+.info .nickname, .info .company{
+  font-weight: bolder;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
 }
 
 .info .name{

@@ -65,10 +65,17 @@ page{
 .user-auth button{
   width: 100%;
   height: 80rpx;
+  padding:0;
   margin-top:60rpx;
   margin-bottom:3rpx;
   font-size: var(--font-xl);
 }
+
+.user-auth button image{
+  width: 100%;
+  height: 100%;
+}
+
 .user-auth .footer{
   display: flex;
   flex-direction: column;

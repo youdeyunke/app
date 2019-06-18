@@ -5,6 +5,7 @@ page{
 .cover{
   width:750rpx;
   height:400rpx;
+  background:#fff;
 }
 
 .header{

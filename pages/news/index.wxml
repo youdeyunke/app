@@ -1,12 +1,13 @@
-  <view class="cats" >
-    <text data-cid="{{item.id}}" bindtap="catHandle" class="item {{  catId == item.id ? 'active' : '' }}" wx:for="{{cats}}" wx:key="{{item.id}}" id="item-{{index}}">{{item.name}}</text>
-  </view>
-
-  <block wx:key="{{page}}" wx:for="{{news}}" wx:for-index="page" wx:for-item="items">
-    <box padding="20" margin-bottom="2" class="fixed-box"  v-if="{{item}}" wx:key="{{item.id}}" wx:for="{{items}}"  wx:if="{{item.id}}" >
-                  <tt data-id="{{item.id}}"  item="{{item}}"> </tt>
-          </box>
-  </block>
-
-  <view class="empty" wx:if="{{isEmpty}}">没有数据</view>
-  <van-loading wx:if="{{loading}}" />
+<view class="res">
+    <van-tabs active="{{active}}" type="line" color="#00ae66" bind:change="catChange">
+      <van-tab wx:key="{{cat.id}}" wx:for="{{cats}}" wx:for-item="cat" title="{{cat.name}}"> 
+       <block wx:for="{{news}}" wx:for-item="newsItems">
+            <box padding="20" margin-bottom="2" class="fixed-box"  v-if="{{item}}" wx:for="{{newsItems}}"  wx:if="{{item.id}}" >
+                <tt data-id="{{item.id}}"  item="{{item}}"> </tt>
+            </box>
+        </block>
+        <view class="empty" wx:if="{{isEmpty}}">没有数据</view>
+        <view class="empty" wx:if="{{loading}}"> <van-loading /> </view>
+      </van-tab>
+    </van-tabs>  
+</view>

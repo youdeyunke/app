@@ -2,7 +2,7 @@
 <navigator hover-class="none" class="post {{item.group == 'new' && item.coupon_enable ? '' : 'coupon-none'}} {{type}} {{ shadow ? 'shado' : 'shadow-none'}} {{ border ? 'border' : 'border-none'}}" open-type="navigate" url="/pages/post/post?id={{item.id}}" >
       <badge wx:if="{{item.coupon_enable}}">{{item.coupon_desc}}</badge>
       <view class="cover skeleton-rect">
-        <image lazy-load="{{true}}"  mode="widthFix" class="i" src="{{ item.cover || '/assets/images/cover-none.png' }}?imageView2/2/w/750"></image>
+        <image lazy-load="{{true}}"  mode="aspectFill" class="i" src="{{ item.cover || '/assets/images/cover-none.png' }}?imageView2/2/w/750"></image>
         <view class="icons">
           <image wx:if="{{item.vr_url}}" class="vr-btn" src="/assets/icons/vr.png"></image>
           <image wx:if="{{item.video}}" class="video-btn" src="/assets/icons/bofang.png"></image>
@@ -17,7 +17,7 @@
 
         <view class="price-info">
           <text class="total">{{item.price_info.text}}{{item.price_info.px}}</text> 
-          <text class="average" wx:if="{{item.average_price}}">{{item.average_price}}万/平</text>     
+          <text class="average" wx:if="{{item.average_price}}"> {{item.average_price}}万/平</text>     
         </view>
       </view>
 </navigator>

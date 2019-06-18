@@ -1,0 +1,46 @@
+
+.block{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;   
+    width:380rpx;
+    margin-left:30rpx;
+}
+
+.block .cover{
+    width: 388rpx;
+    height: 290rpx;
+}
+.block .type-info{
+    color: #333;
+    width:100%;
+    margin:10rpx 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.block .sub-name{
+    font-size:24rpx;
+    color: #999;
+}
+
+.block .price-info{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin:10rpx 0;
+}
+
+
+.block .price-info .total{
+    color: red;
+    font-size: 28rpx;
+}
+
+.block .price-info .average{
+    font-size:24rpx;
+    color: #999;
+    margin-left:20rpx;
+}

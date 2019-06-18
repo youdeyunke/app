@@ -1,5 +1,6 @@
 // pages/home/home.js
 const app = getApp()
+const EXT = wx.getExtConfigSync()
 
 Page({
   /**
@@ -8,38 +9,23 @@ Page({
   
   data: {
     city_id: null,
-    offset: 0,
-    total: 0,
-    limit: 5,
-    hasMore: true,
     posts: [],
-    currentAction: 1,
-    group: 'old',
-    tabColors: [
-      '4BC587',
-      'F7B264',
-      'F5D04F',
-      'F17276',
-      '67B1FD',
-      'F7B263',
-      '62D182',
-      '5AC0E5',
-      '5DD2B9',
-      '9291DF',
-    ],
-    tabIcons: [
-      { name: '二手房', url: '/pages/post/index?group=ershoufang', opentype:"navigateTo", id: 'old', },
-      { name: '租房', url: '/pages/post/index?group=zufang&rent_type=zhengzu', opentype:"navigateTo", id: 'rent_house', },
-      { name: '新房', url: '/pages/post/index?group=xinfang', opentype:"navigateTo", id: 'new', },
-      { name: '我要卖房', url: '/pages/post/form?group=old', opentype:"navigateTo", id: 'sale', },
-      { name: '我要出租', url: '/pages/post/form?group=rental&rent_type=zhengzu', opentype:"navigateTo", id: 'rent', },
-      { name: '全景看房', url: '/pages/post/index?is_vr=true', opentype:"navigateTo", id: 'qjkf', },
-      { name: '定制找房', url: '/pages/need/room', opentype: "navigateTo", id: 'zhao',  },
-      { name: '楼市资讯', url: '/pages/need/room', opentype: "navigateTo", id: 'zhao',  },
-      { name: '加入我们', url: '/pages/about/join', opentype:"navigateTo", id: 'join', },
-      { name: '公司介绍', url: '/pages/about/index', opentype:"navigateTo", id: 'about', },
+    newFilter: {
+      group: 'xinfang',
+      per_page: 5,
+      order:'id desc',
+    },
+    oldFilter: {
+      group: 'ershoufang',
+      per_page: 5,
+      order: 'id desc',
+    },
+    rentFilter: {
+      group: 'zufang',
+      per_page: 5,
+      order: 'id desc',
+    },    
 
-    ]
   },
 
   comming: function(e){
@@ -48,7 +34,6 @@ Page({
       icon: 'none',
     })
   },
-
 
 
   cityHandle: function(e){
@@ -71,16 +56,25 @@ Page({
    * 
   */
   onPullDownRefresh: function () {
+    var _this = this
     wx.stopPullDownRefresh()
     wx.showNavigationBarLoading() //在标题栏中显示加载
-    var _this = this
-    _this.setData({
-      posts: [],
-      offset: 0,
-      hasMore: true,
+    app.loadConfigs(function(configs){
+      _this.setData({configs: configs})
     })
-    app.loadPosts(_this)
-    this.selectComponent('#slider').loadData()
+    var navs = this.selectComponent('#navs')
+    var slider = this.selectComponent('#slider')
+    var oldPosts = this.selectComponent('#old-posts')
+    var newPosts = this.selectComponent('#new-posts')
+    var rentPosts = this.selectComponent('#rent-posts')
+
+    navs && navs.loadData()
+    slider && slider.loadData()
+    newPosts && newPosts.loadData()
+    oldPosts && oldPosts.loadData()
+    rentPosts && rentPosts.loadData()
+    console.log('rent posts', rentPosts)
+
 
     wx.hideNavigationBarLoading()
     wx.stopPullDownRefresh() //停止下拉刷新    
@@ -91,29 +85,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var name = EXT['name'] || '首页'
+    wx.setNavigationBarTitle({title: name})
     var _this = this   
-    app.loadPosts(_this)
-  },
+    var configs = wx.getStorageSync('myconfigs') || {}
+    this.setData({configs: configs})
 
-  action1Click: function(){
-    this.setData({
-      group: 'old',
-      currentAction: 1,
-      offset: 0,
-      posts: [],
-      hasMore: true,
-    })
-    app.loadPosts(this)
-  },
-  action2Click: function(){
-    this.setData({
-      group: 'rental',
-      currentAction: 2,
-      offset: 0,
-      posts: [],
-      hasMore: true,
-    })
-    app.loadPosts(this)
   },
 
   loadPosts: function(){},

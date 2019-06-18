@@ -22,7 +22,6 @@ border-radius:15rpx;
   width:100%;
   box-sizing:border-box;
   padding:0rpx 30rpx;
-  margin-top:30rpx;
   background: #fff;
   margin-top:20rpx;
 }

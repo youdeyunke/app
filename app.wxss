@@ -367,7 +367,6 @@ textarea{
  .typeinfo .item .value{
   font-size:38rpx;
   color:red;
-  margin-bottom:6rpx;
   margin-top:10rpx;
 } 
 .typeinfo .item .value .px{
@@ -384,3 +383,21 @@ textarea{
   border-right:1px solid #f1f1f1;
   margin-right:30rpx;
 } 
+
+
+.more-btn{
+    width: 660rpx;
+    height: 100rpx;
+    font-size:30rpx;
+    text-align: center;
+    margin:20rpx auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    background: #F8F8F8;
+    color: #333;
+    letter-spacing: 1.6rpx;
+    font-weight: bolder;
+    border-radius: 6rpx;
+}

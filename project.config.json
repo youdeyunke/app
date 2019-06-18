@@ -1,17 +1,25 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
+		"enhance": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
 		"autoAudits": false,
 		"uglifyFileName": true,
-		"checkInvalidKey": true
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.0",
+	"libVersion": "2.7.1",
 	"appid": "wx22f2238c72f84e69",
 	"projectname": "%E5%B9%B4%E9%B1%BC",
 	"simulatorType": "wechat",
@@ -34,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 48,
+			"current": 49,
 			"list": [
 				{
 					"id": 0,
@@ -58,7 +66,7 @@
 					"id": 3,
 					"name": "post",
 					"pathName": "pages/post/post",
-					"query": "id=44",
+					"query": "id=30",
 					"scene": null
 				},
 				{
@@ -352,6 +360,14 @@
 					"id": -1,
 					"name": "小区列表",
 					"pathName": "pages/sub-districts/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "头条",
+					"pathName": "pages/news/index",
+					"query": "",
 					"scene": null
 				}
 			]

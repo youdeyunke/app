@@ -121,22 +121,6 @@ mycard{
   color: rgb(121, 121, 172);
 }
 
-.more-meta{
-    width: 660rpx;
-    height: 100rpx;
-    font-size:30rpx;
-    text-align: center;
-    margin:20rpx auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    vertical-align: middle;
-    background: #F8F8F8;
-    color: #333;
-    letter-spacing: 1.6rpx;
-    font-weight: bolder;
-    border-radius: 6rpx;
-}
 
 .title-block{
     display: flex;
@@ -225,9 +209,6 @@ mycard{
   align-items:center;
 }
 
-.view-more.btn{
-  width:210rpx;
-}
 
 .main{
   margin:18rpx 0 35rpx 0;
@@ -319,7 +300,10 @@ myfav .myfav {
 
 .typeinfo .item .value{
     font-weight: bolder;
-    margin-bottom:10rpx;
+}
+
+.typeinfo .item .key{
+  margin-top:10rpx;
 }
 
 .housetype{
@@ -361,13 +345,6 @@ myfav .myfav {
   justify-content: space-between;
   align-items: center;
   width: 90%;
-}
-
-
-.moreurl .container-body .h2{
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap
 }
 
 
@@ -554,6 +531,7 @@ myfav .myfav {
 
 .mapinfo .location .value{
     color: #000;
+    line-height: 1.5;
 }
 
 .mapinfo .location{
@@ -590,4 +568,24 @@ myfav .myfav {
   margin:30rpx 0;
   line-height:1.8;
 
+}
+
+.recoms{
+    width:100%;
+    background: #fff;
+    margin-bottom:20rpx;
+    padding: 40rpx 0 20rpx 0;
+}
+
+.recoms .title{
+    font-size:34rpx;
+    color: #000;
+    font-weight: bolder;
+    padding:0 40rpx;
+    margin-bottom:40rpx;
+}
+
+.recoms .items{
+    display: flex;
+    justify-content: flex-start;
 }

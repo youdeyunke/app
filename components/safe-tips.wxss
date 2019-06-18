@@ -1,11 +1,29 @@
 .safe-tips{
   padding:30rpx;
+  display: flex;
+  flex-direction: column;
 }
+
+.safe-tips .title text{
+    margin-left:10rpx;
+}
+
 .safe-tips .title{
-  font-size: var(--font-s);
+    font-size:28rpx;
+    color: #333;
+    margin-bottom:10rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items:center;
+}
+
+.safe-tips .title image{
+  width:28rpx;
 }
 
 .safe-tips .content{
-  font-size:var(--font-xs);
-  line-height:1.8;
+  line-height:1.4;
+  font-size:24rpx;
+  margin-left:10rpx;
+  color: #999;
 }

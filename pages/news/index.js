@@ -8,8 +8,9 @@ Page({
    */
   data: {
     page : 1,
-    catId: null,
+    catId: '',
     per_page: 8,
+    active: 0,
     isEmpty: false,
     isEnd: false,
     loading: false,
@@ -22,12 +23,9 @@ Page({
    */
   onLoad: function (options) {
     var _this = this
+    wx.setNavigationBarTitle({title: '头条'})
     this.ensureCats(function (cats) {
       var data = { cats: cats }
-      if (!_this.catId) {
-        data['catId'] = cats[0].id
-      }
-      console.log('set data on load', data)
       _this.setData(data)
       _this.loadNews()
     })    
@@ -37,21 +35,17 @@ Page({
     this.loadCats()
   },
 
-  catHandle: function(e){
-    var cid = e.target.dataset['cid']
-    if(cid == this.data.catId){
-      return false
-    }
-
-    this.setData({
-      news: [],
-      catId: cid,
-      isEmpty: false,
-      isEnd: false,
-      page: 1,
-    })
-    this.loadNews()
+  catChange: function(e){
+     var i = e.detail.index
+     var cat = this.data.cats[i]
+     this.setData({
+         catId: cat.id,
+         page: 1,
+         news: [],
+     })
+     this.loadNews()
   },
+
 
   ensureCats: function(cb){
     var key = this.data.cats_key

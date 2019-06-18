@@ -54,7 +54,7 @@
   <view class="header"> 
      <view class="tagsinfo">
         <mytags mini="{{false}}" wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
-        <view class="num">房源ID:{{post.id}} <text wx:if="{{user.id == post.user_id}}"> 房号：{{post.house_number }}</text> </view>
+        <view class="num">房源ID:{{post.id}}</view>
      </view>
 
      <view class="title-block">
@@ -88,7 +88,7 @@
         </view>
     </view>    
 
-    <view bindtap="gotoMeta" hover-class="none" class="more-meta">更多房源信息</view>
+    <view bindtap="gotoMeta" hover-class="none" class="more-btn more-meta">更多房源信息</view>
 
     <view  bindtap='couponHandle' class="coupon" wx:if="{{ post.coupon_desc && post.coupon_enable}}">
       <view class="name line-limit">{{post.coupon_desc}}</view>
@@ -154,9 +154,9 @@
       </view>
   </view>  
   <view class="view-more-container">
-  <button class="btn mini plain round view-more " bindtap="contentHandle" wx:if="{{minicontent}}">
-    加载全文 <image class="{{ minicontent == true ? 'down' : 'up' }}" src="/assets/icons/down-arrow.png"></image>
-  </button>
+
+  <view class="more-btn view-more " bindtap="contentHandle" wx:if="{{minicontent}}"> 加载全文 </view>
+
   </view>
 </mycard>
 
@@ -178,7 +178,14 @@
 </mycard>
 
 
-<recoms id-ne="{{post.id}}" wx:if="{{post.group}}" sub-district-id="{{post.sub_district_id}}" group="{{post.group}}" count="4"></recoms>
+<view class="recoms" wx:if="{{post.recoms.length >= 2}}">
+    <view class="title">推荐房源({{post.recoms.length}})</view>
+       <scroll-view  scroll-with-animation="{{true}}" scroll-x style="width:100%">
+            <view class="items">
+                    <item-block item="{{item}}" wx:key="{{item.id}}" wx:for="{{post.recoms}}" />
+            </view>
+        </scroll-view>
+</view>
 
 <broker broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>
 

@@ -5,7 +5,7 @@ const EXT = wx.getExtConfigSync()
 App({
   globalData: {
     assetsList: [ '客梯','货梯', '扶梯', '中央空调', '停车位', '天然气', '网络', '暖气', '上水', '下水', '排烟', '排污', '可明火', '380V', '外摆区' ],
-    apiHost: EXT['apihost'],
+    apiHost: EXT['apihost'] || 'https://fang.udeve.cn',
     userInfo: null,
     token: null,
     loadingStatus: 0,

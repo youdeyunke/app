@@ -1,0 +1,9 @@
+<mycard title="基础信息" hat="{{false}}">
+  <van-cell  size="large" wx:for="{{post.meta_list}}" title="{{item.label}}" value="{{item.value}}" />
+</mycard>
+
+<mycard wx:if="{{user.id == post.user_id}}" title="加密信息" hat="{{false}}" subtitle="仅发布者可见">
+  <van-cell  size="large" wx:for="{{post.protected_meta_list}}" title="{{item.label}}" value="{{item.value}}" />
+</mycard>
+
+

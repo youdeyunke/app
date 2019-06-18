@@ -1,25 +1,45 @@
-<myslider id="slider"></myslider>
+<myslider wx:if="{{configs.plugin_home_slider != false }}"  id="slider"></myslider>
 
 <view class="header">
-  <navs />
+  <navs id="navs" />
 </view>
 
-<view class="my-news-swiper">
+<view wx:if="{{configs.plugin_home_toutiao != false}}" class="my-news-swiper">
     <news-swiper />
 </view>
 
-<view class="home-title">
-  <view class="name">猜你喜欢</view>
-  <view class="home-actions">
-      <view bindtap="action1Click" class="item {{ currentAction == 1 ? 'active' : ''}}">二手房</view>
-      <view bindtap="action2Click" class="item {{ currentAction == 2 ? 'active' : ''}}">租房</view>
-    </view>
-</view>
 
+<block wx:if="{{configs.plugin_home_xinfang != false }}">
+<view class="home-title">
+  <view class="name">猜你喜欢的新房</view>
+</view>
 <box width="750" padding="30">
-  <block wx:key="{{index}}" wx:for="{{posts}}" wx:for-item="postitems">
-    <post wx:key="{{item.id}}" wx:for="{{postitems}}" item="{{item}}"></post>
-  </block>
+  <items id="new-posts" kw="" page="1" filter="{{newFilter}}" />
+  <navigator url="/pages/post/index?group=xinfang" hover-class="none" class="more-btn">查看更多新房</navigator>
 </box>
+</block>
+
+
+<block wx:if="{{ configs.plugin_home_ershoufang != false }}">
+<view class="home-title">
+  <view class="name">猜你喜欢的二手房</view>
+</view>
+<box width="750" padding="30">
+  <items id="old-posts" kw="" page="1" filter="{{oldFilter}}" />
+  <navigator url="/pages/post/index?group=ershoufang" hover-class="none" class="more-btn">查看更多二手房</navigator>  
+</box>
+</block>
+
+
+<block wx:if="{{ configs.plugin_home_zufang != false }}">
+<view class="home-title">
+  <view class="name">猜你喜欢的租房</view>
+</view>
+<box width="750" padding="30">
+  <items id="rent-posts" kw="" page="1" filter="{{rentFilter}}" />
+ <navigator url="/pages/post/index?group=zufang" hover-class="none" class="more-btn">查看更多租房</navigator>  
+</box>
+</block>
+
 
 <cr />

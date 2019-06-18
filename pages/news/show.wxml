@@ -3,15 +3,13 @@
   <image src="/assets/icons/home.1.png"></image>
   <text>首页</text>
 </navigator>
-<image class="cover" src="{{item.cover.url}}?imageView2/2/w/750"></image>
-<box padding="30" margin-bottom="2">
+<image mode="aspectFill" wx:if="{{item.cover.url}}" class="cover" src="{{item.cover.url}}?imageView2/2/w/750"></image>
+
+<box padding="30" margin-bottom="2"  wx:if="{{!item.slug}}">
   <view class="header">
     <view class="h1">{{item.title}}</view>
-    <view class="author">
-      {{item.author}}  <text wx:if="{{item.source}}">[来源：{{item.source}}]</text>
-    </view>
     <view class="date">
-      {{item.created_at_pretty}}
+      发布于：{{item.created_at_pretty}} / 浏览量：{{ item.view_nums}}
     </view>
   </view>
 </box>

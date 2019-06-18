@@ -1,16 +1,8 @@
-page{
-  padding-top:0px;
+.res{
+    width: 100%;
 }
 
-.van-tabs--card{
-   margin:0 !important;
-}
 
-.tabs-wrapper{
-  width:100%;
-  position:fixed;
-  top:0rpx;
-  left:0rpx;
-  right:0rpx;
-  z-index:999999 !important;
+.res .empty{
+    padding:30rpx 0;
 }
