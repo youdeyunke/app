@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 49,
+			"current": 50,
 			"list": [
 				{
 					"id": 0,
@@ -368,6 +368,13 @@
 					"name": "头条",
 					"pathName": "pages/news/index",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "经纪人主页",
+					"pathName": "pages/user/user",
+					"query": "id=5",
 					"scene": null
 				}
 			]

@@ -8,16 +8,18 @@ Page({
    */
   data: {
     userInfo: null,
+    filter: {user_id: '', order: 'id desc', group: 'ershoufang', per_page: 8},
     userId: null,
     currentTabIndex: 0,
+    page: 1,
     icons: [
       {id: 'mobile', bindtap:"callMe"},
       {id: 'wechat', bindtap: 'copyWechat'},
     ],
     tabs: [
       //{label: '新房', group: 'xinfang' },
-      {label: '二手房', group: 'ershoufang'},
-      {label: '租房', group: 'zufang'},
+      {label: '在售房源', group: 'ershoufang'},
+      {label: '在租房源', group: 'zufang'},
     ],
   },
 
@@ -49,9 +51,15 @@ Page({
     })
   },
 
-  tabClick: function(e){
-    console.log('e', e)
-    this.setData({currentTabIndex: e.detail.index})
+  tabChange: function(e){
+     var i = e.detail.index
+     var tab = this.data.tabs[i]
+     var filter = this.data.filter
+     filter['group'] = tab.group
+     this.setData({
+         page: 1,
+         filter:  filter
+     })
   },
 
   /**
@@ -59,10 +67,12 @@ Page({
    */
   onLoad: function (q) {
     var _this = this
+    var filter = this.data.filter
+    filter['user_id'] = q.id
     this.setData({
-      userId: q.id
+      userId: q.id,
+      filter: filter,
     }, function(){
-      console.log('fuck')
       _this.loadUserInfo()
     })
 
@@ -185,7 +195,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    var _this = this
+    this.setData({
+      page: _this.data.page + 1
+    })
   },
 
   /**

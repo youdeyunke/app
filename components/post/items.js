@@ -98,6 +98,7 @@ Component({
           } else {
             data['items'] = [resp.data.data]
           }
+          console.log('set data is', data)
           _this.setData(data)
 
           for (var i = 0; i <= resp.data.data.length - 1; i++) {
