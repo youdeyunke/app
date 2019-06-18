@@ -6,6 +6,7 @@
   use-action-slot
   bind:clear="clearSearch"
   bind:search="loadPosts"
+  custom-class="search-box"
   bind:change="searchTextInput"
 >
   <view slot="action" bind:tap="loadPosts">搜索</view>

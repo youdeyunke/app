@@ -58,7 +58,7 @@
      </view>
 
      <view class="title-block">
-       <view class=" post-title">{{ post.title_info.text }} </view>
+       <view class=" post-title">{{ post.title}} </view>
        <myfav wx:if="{{post.id}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
      </view>
 
@@ -203,6 +203,10 @@
 <van-popup show="{{showPoster}}" bind:close="closePoster" > 
   <view class="poster-preview">
     <image bindtap='onSavePoster' src="{{posterUrl}}" mode="widthFix"></image>
+    <view class="poster-actions">
+      <view class="poster-actions-btn poster-cancle-btn" bind:tap="closePoster" >取消</view>
+      <view class="poster-actions-btn poster-save-btn"  bindtap="onSavePoster">保存到相册</view>
+    </view>
   </view>
 </van-popup>
 

@@ -25,17 +25,6 @@
   width: 740rpx;
 }
 
-.search-box .van-cell  {
-
-  background:#F6F7FB ;
-  border-radius: 15rpx;
-  display: flex;
-  justify-content: center;
-  align-items:  center;
-  height: 80rpx;
-
-}
-
 
 .res{
   padding-top:200rpx;

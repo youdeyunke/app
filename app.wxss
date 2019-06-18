@@ -401,3 +401,13 @@ textarea{
     font-weight: bolder;
     border-radius: 6rpx;
 }
+
+.search-box .van-cell  {
+  background:#F6F7FB ;
+  border-radius: 15rpx;
+  display: flex;
+  justify-content: center;
+  align-items:  center;
+  height: 80rpx;
+
+}

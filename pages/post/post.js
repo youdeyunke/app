@@ -470,7 +470,7 @@ Page({
                     baseLine: 'middle',
                     text: post.price_info.text + post.price_info.px,
                     fontSize: 38,
-                    color: '#ff911b',
+                    color: '#ff0000',
                   },                  
                   {
                     x: 40,
@@ -487,7 +487,7 @@ Page({
                     baseLine: 'middle',
                     text: post.type_info.text + post.type_info.px,
                     fontSize: 38,
-                    color: '#ff911b',
+                    color: '#ff0000',
                   },
                   {
                     x: 300,
@@ -505,7 +505,7 @@ Page({
                     baseLine: 'middle',
                     text: post.area_info.text + post.area_info.px,
                     fontSize: 38,
-                    color: '#ff911b',
+                    color: '#ff0000',
                   },
                   {
                     x: 530,
