@@ -1,7 +1,7 @@
 <import src="/utils/wxParse/wxParse.wxml"/>
 
 <view class="post-cover">
-    
+  <text class="none" wx:if="{{sub.images.length == 0}}"></text> 
        <swiper class="swiper" 
                indicator-dots="true" 
                autoplay="{{sub.images.length > 1}}" 
