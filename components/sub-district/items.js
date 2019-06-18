@@ -7,13 +7,13 @@ Component({
    */
   properties: {
     filter: {
-      type: Object, value: {}, observer: "filterChange"
+      type: Object, value: {}, observer: "loadData"
     },
     page: {
-      type: Number, value: 1, observer: "pageChange"
+      type: Number, value: 1, observer: "loadData"
     },
     kw: {
-      type: String, value: '', observer: "kwChange"
+      type: String, value: '', observer: "loadData"
     }
   },
 
@@ -34,44 +34,13 @@ Component({
    */
   methods: {
 
-    pageChange: function(){
-      console.log('page change')
-      var query = this.data.filter
-      query.kw = this.data.kw
-      query.page = this.data.page
-      this.setData({query: query})
-      this.loadData()
-    },
-
-    filterChange: function(){
-      console.log('filter change')
-      var query = this.data.filter || {}
-      query.page = 1
-      query.kw = this.data.kw
-      this.setData({query: query})
-      this.loadData()
-
-    },
-
-    kwChange: function(){
-      console.log('kw change')
-      var query = {}
-      query.page = 1
-      query.kw = this.data.kw
-      this.setData({query: query})
-      this.loadData()
-    },
-
     loadData: function () {
       var _this = this
-      var query = this.data.query
-      console.log('load data with query', query)
+      var query = this.data.filter
+      query['kw'] = this.data.kw
+      query['page'] = this.data.page
 
-      if (!query) {
-        return false
-      }
       _this.setData({ loading: true })
-      var query = this.data.query
       app.request({
         url: '/api/v1/sub_districts/',
         data: query,
@@ -79,7 +48,7 @@ Component({
         },
         success: function (resp) {
           var meta = resp.data.meta
-          var p = _this.data.query.page || 1
+          var p = query['page']
           var i = p - 1
           var data = { meta: meta, loading: false }
           if (p > 1) {
@@ -89,9 +58,7 @@ Component({
             data['items'] = [resp.data.data]
           }
 
-
           _this.setData(data)
-
           for(var i=0;i<=resp.data.data.length-1;i++){
             var post = resp.data.data[i]
             wx.setStorage({

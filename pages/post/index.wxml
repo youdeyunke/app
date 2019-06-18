@@ -8,10 +8,13 @@
     background="#none" 
     field-class="search-box-field"
     custom-class="search-box"
-    bind:change="inputChange"
-    bind:clear="inputClear"
+    bind:change="kwChange"
+    bind:clear="kwClear"
+    use-action-slot
     focus="{{false}}" 
-  />
+  >
+    <view slot="action" bind:tap="onSearch">搜索</view>
+  </van-search>
 <view class="f" wx:if="{{filterConfigs}}">
     <base-filter configs="{{filterConfigs}}" initValue="{{filter}}"  bind:change="filterChange" />
   </view>

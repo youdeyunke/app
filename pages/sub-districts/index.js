@@ -27,7 +27,11 @@ Page({
    */
   data: {
     kw: '',
-    filter: {},
+    kwInput: '',
+    filter: {
+        order: 'id desc',
+        per_page: 10,
+    },
     page: 1,
     filterConfigs: [
       { name: '位置', type: 'citypicker', },
@@ -41,15 +45,39 @@ Page({
   onLoad: function (options) {
 
   },
+
+  onSearchClear: function(e){
+      this.setData({
+          page:1,
+          kw: '',
+      })
+  },
+
+  kwChange: function(e){
+      this.setData({kwInput: e.detail})
+  },
   
 
   onSearch: function(e){
+      var kwInput = this.data.kwInput
+      if(kwInput && kwInput.length >= 2){
+          this.setData({kw: kwInput, page: 1})
+      }else{
+          wx.showToast({
+              title: '关键词不能少于2个字符',
+              icon: 'none',
+              image: '',
+              duration: 1500,
+              mask: false,
+              success: (result) => {
+                  
+              },
+              fail: () => {},
+              complete: () => {}
+          });
+            
+      }
 
-    var kw = e.detail
-    if (kw.length <= 0) {
-      return false
-    }
-    this.setData({kw: kw})
   },
 
   filterChange: function(e){
@@ -95,6 +123,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+      console.log('on reach bottom')
+      var page = this.data.page
+      this.setData({
+          page : page + 1
+      })
 
   },
 

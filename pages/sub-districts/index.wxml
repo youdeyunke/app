@@ -2,16 +2,19 @@
 
   <van-search 
     name="kw" 
-    value="{{query.kw}}" 
+    value="{{kw}}" 
     placeholder-style="font-size:24rpx;color:#cecece;" 
-    placeholder="搜索楼盘关键词" 
+    placeholder="输入小区名称或地址" 
     background="#none" 
     field-class="search-box-field"
     custom-class="search-box"
-    bind:search="onSearch"
+    use-action-slot
     bind:clear="onSearchClear"
+    bind:change="kwChange"
     focus="{{false}}" 
-  />
+  >
+    <view slot="action" bind:tap="onSearch">搜索</view>
+  </van-search>
   <view class="f">
     <base-filter configs="{{filterConfigs}}"  bind:change="filterChange" />
   </view>

@@ -8,6 +8,7 @@ Page({
    */
   data: {
     kw: '',
+    kwInput: '',
     filter: {},
     page: 1,
     filterConfigs: [
@@ -52,16 +53,24 @@ Page({
 
   },
 
-  inputChange: function (e) {
-    var kw = e.detail
-    if (kw.length >= 1) {
-      console.log('input', kw)
-      this.setData({ kw: kw })
-    }
+  kwChange: function (e) {
+    this.setData({ kwInput: e.detail })
   },  
 
-  inputClear: function(e){
-    this.setData({kw: ''})
+  onSearch: function(e){
+      var kwInput = this.data.kwInput
+      if(kwInput && kwInput.length >= 2){
+          this.setData({kw: kwInput, page: 1})
+      }else{
+          wx.showToast({
+              title: '关键词不能少于2个字符',
+              icon: 'none',
+          });
+      }
+  },
+
+  kwClear: function(e){
+    this.setData({kw: '', page: 1})
   },
 
 

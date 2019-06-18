@@ -323,7 +323,7 @@ textarea{
 
 .home-btn{
   position: fixed;
-  right:37rpx;
+  right:30rpx;
   bottom:152rpx;
   padding:0rpx;
   z-index:9999;
