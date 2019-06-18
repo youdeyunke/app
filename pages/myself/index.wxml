@@ -40,8 +40,7 @@
     </box>
 
   <mycard width="750" hat="{{false}}"  title="我的服务" head-border="{{true}}" padding="20">
-
-        <view class="menu menu-col-3">
+        <view class="menu menu-col-4">
           <navigator hover-class="none" url="/pages/post/form?group=old"  class="menu-item">
             <van-icon color="#66" size="52rpx" name="balance-o" />
                 <view class="menu-item-name">我要卖房</view>
@@ -58,7 +57,7 @@
           </navigator>
 
 
-          <navigator hover-class="none" url="/pages/myself/qa"  class="menu-item">
+          <!-- navigator hover-class="none" url="/pages/myself/qa"  class="menu-item">
                 <van-icon color="#66" size="52rpx" name="chat-o" />
                 <view class="menu-item-name">我的提问</view>
             </navigator>
@@ -66,7 +65,7 @@
             <navigator hover-class="none" url="/pages/myself/comments"  class="menu-item" >
             <van-icon color="#66" size="52rpx" name="comment-o" />
                 <view class="menu-item-name">我的评价</view>
-            </navigator>
+            </navigator -->
 
             <navigator hover-class="none" url="/pages/myself/favposts"  class="menu-item" >
                 <van-icon color="#66" size="52rpx" name="like-o" />

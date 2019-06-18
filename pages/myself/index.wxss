@@ -131,7 +131,7 @@ page{
   align-items:space-between;
   flex-wrap:wrap;
   width:100%;
-  height:300rpx;
+  height:150rpx;
   margin:0rpx 0;
 }
 
@@ -147,6 +147,10 @@ page{
 
 .menu-col-3 .menu-item{
   width:33.333%;
+}
+
+.menu-col-4 .menu-item{
+  width:25%;
 }
 
 .menu-item-name{
