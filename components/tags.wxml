@@ -1,3 +1,5 @@
 <view class="tags">
-  <van-tag wx:key="{{tagItem}}" color="#EDF2EF" text-color="#8C99A8" wx:for-item="tagItem" wx:for="{{safeItems}}">{{ tagItem }}</van-tag>
+  <view class="tag"  wx:for-item="tagItem" wx:for="{{safeItems}}" wx:key="{{tagItem}}" >
+    <van-tag color="#EDF2EF" text-color="#8C99A8">{{ tagItem }}</van-tag> 
+  </view>
 </view>
