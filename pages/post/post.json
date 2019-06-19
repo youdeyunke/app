@@ -5,8 +5,8 @@
   "usingComponents": {
     "mytags": "/components/tags",
     "gimage": "/components/gyroscope-image",
-    "broker": "/components/broker",
-    "broker-link": "/components/broker-link",
+    "broker": "/components/broker/btns",
+    "broker-link": "/components/broker/link",
     "myfav": "/components/fav",
     "mycard": "/components/card",
     "qa": "/components/qa",

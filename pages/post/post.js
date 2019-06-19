@@ -25,7 +25,6 @@ Page({
 
   swiperChange: function(e){
     console.log('e',e)
-    this.myVideo.pause()
   },
   
   contentHandle: function(e){
