@@ -14,7 +14,9 @@
   width: 540rpx;
   height: 100%;
   display: flex;
-  padding:20rpx 0;
+  padding:12rpx 0;
+  box-sizing:border-box;
+  
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;

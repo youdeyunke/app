@@ -63,7 +63,7 @@
 
 .card .body .mobile{
   display:flex;
-  margin-top:10rpx;
+  margin-top:20rpx;
 }
 
 .card .body .mobile text{
@@ -75,5 +75,7 @@
   padding:0 50rpx;
   height:120rpx;
   line-height:120rpx;
+  color:#999;
+  letter-spacing:1.5rpx;
 }
 

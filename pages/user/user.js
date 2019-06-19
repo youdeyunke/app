@@ -8,7 +8,7 @@ Page({
    */
   data: {
     userInfo: null,
-    filter: {user_id: '', order: 'id desc', group: 'ershoufang', per_page: 8},
+    filter: {user_id: '', order: 'id desc', group: 'ershoufang', per_page: 5},
     userId: null,
     currentTabIndex: 0,
     page: 1,
