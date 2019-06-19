@@ -39,7 +39,7 @@
 
     </box>
 
-  <mycard width="750" hat="{{false}}"  title="我的服务" head-border="{{true}}" padding="20">
+  <box width="750" hat="{{false}}"  title="我的服务" head-border="{{true}}" padding="20">
         <view class="menu menu-col-4">
           <navigator hover-class="none" url="/pages/post/form?group=old"  class="menu-item">
             <van-icon color="#66" size="52rpx" name="balance-o" />
@@ -73,7 +73,7 @@
           </navigator>
 
         </view>
-  </mycard>
+  </box>
 
 
   <mycard width="750" hat="{{false}}" head-border="{{true}}" title="我是经纪人"  padding="20">

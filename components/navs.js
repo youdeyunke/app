@@ -31,42 +31,15 @@ Component({
         var _this = this
       app.request({
         url: '/api/v2/navs',
+        hideLoading: true,
         success: function(resp){
           var navs = resp.data.data
           wx.setStorage({key: 'navs', data: navs})
           _this.setData({navs: navs})
 
-          return cb(navs)
+          typeof cb == 'function' && cb(navs)
         }
       })
-    },
-
-    publishClose: function(e){
-      this.setData({
-        publishSheetShow: false
-      })
-    },
-
-    publishClick: function(e){
-      this.publishClose()
-      var group = e.detail.group
-      var url =  '/pages/post/form?group=' 
-      url += e.detail.group 
-      url +=  '&rent_type=' 
-      url += e.detail.rent_type || 'zhengzu'
-      url += '&is_sublet='
-      url += e.detail.is_sublet || 'false'
-      wx.navigateTo({
-        url: url,
-      })
-    },
-
-    publishHandle: function(e){
-      // 点击发布按钮，弹出选择框
-      this.setData({
-        publishSheetShow: true,
-      })
-    },
-
+    }
   }
 })

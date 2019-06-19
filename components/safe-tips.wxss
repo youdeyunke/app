@@ -4,20 +4,40 @@
   flex-direction: column;
 }
 
+
+.safe-tips .title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 1.1rpx;
+    margin-bottom:10rpx;  
+}
+
 .safe-tips .title text{
     margin-left:10rpx;
 }
 
-.safe-tips .title{
+.safe-tips .title .right button{
+  border:none;
+  background: none;
+  color: #5D77AB;
+  font-size:28rpx;
+  line-height: 28rpx;
+  font-weight: bolder;
+  opacity: 0.8;
+}
+
+.safe-tips .title .left{
     font-size:28rpx;
-    color: #333;
-    margin-bottom:10rpx;
+    color: #000;
+
     display: flex;
+    font-weight: bolder;
     justify-content: flex-start;
     align-items:center;
 }
 
-.safe-tips .title image{
+.safe-tips .title .left image{
   width:28rpx;
 }
 

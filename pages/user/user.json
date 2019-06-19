@@ -1,10 +1,10 @@
 {
-  "navigationBarBackgroundColor": "#00ae66",
   "enablePullDownRefresh": false,
   "navigationBarTextStyle": "white",
   "usingComponents": {
     "van-tab": "/vant/tab/index",
     "van-tabs": "/vant/tabs/index",
+    "namecard": "/components/broker/namecard",
     "items": "/components/post/items",
     "box":"/components/box"
   }

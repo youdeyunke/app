@@ -46,6 +46,7 @@ Component({
       var _this = this
       app.request({
         url: '/api/v1/banners',
+        hideLoading: true,
         success: function(resp){
           wx.setStorage({
             key: 'banners',

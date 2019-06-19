@@ -49,11 +49,11 @@
         align-items:center;
 }
 .broker-bar .staff-avatar image{
-   width:35px;
-   height:35px;
+   width:100rpx;
+   height:100rpx;
    border-radius:100%;
    overflow:hidden;
-   border:2rpx solid #f4f4f4;
+   border:2rpx solid #cecece;
 }
 
 .broker-bar .staff-name{

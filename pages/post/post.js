@@ -9,8 +9,7 @@ Page({
   /**
    * 页面的初始 数据
    */
-  data: {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
-    post: null,
+  data: {                                                                                  post: null,
     debug: false,
     user: {},
     posts: null,
@@ -58,29 +57,6 @@ Page({
     })
   },
 
-  tabHandle: function(e){
-    var _this = this
-    var _currentTab = _this.data.currentTab
-    var currentTab = e.currentTarget.dataset.tab
-    if(currentTab == _currentTab){
-      return false
-    }
-
-    switch(currentTab){
-      case 'comment':
-        _this.loadComments()
-        break;
-      case 'qa':
-        _this.loadQas()
-        break;
-    }
-
-    this.setData({
-      currentTab: e.currentTarget.dataset.tab
-    })
-
-  },
-
   openWebview: function(e){
     var url = this.data.post.more_url
     if(!url){
@@ -123,6 +99,7 @@ Page({
     app.request({
       hideLoading: true,
       url: '/api/v1/mycomments',
+      hideLoading: true,
       data: { target_id: postId, target_type: 'post', limit: 999 },
       success: function (resp) {
         _this.setData({ comments: resp.data.data })
@@ -136,14 +113,6 @@ Page({
    var url = this.data.post.types[i].image.url
    wx.previewImage({urls: [url] })
  },
-
-  viewOverlook: function(e){
-    var url = this.data.post.overlook_image
-    if(url){
-      wx.previewImage({urls: [url] })
-    }
-  },
-
   viewImage: function(e){
     var urls = this.data.post.full_images_list
     var index = e.currentTarget.dataset.index
@@ -227,13 +196,6 @@ Page({
     })
   },
 
-  closeFlowForm: function(e){
-    this.setData({showFlowForm: false, flowId: '', flowContent: ''})
-  },
-
-  openFlowForm: function(e){
-    this.setData({showFlowForm: true, flowId: '', flowContent: ''})
-  },
 
   gotoSub: function(e){
     if(!this.data.post.sub_district_id){
@@ -245,45 +207,7 @@ Page({
     })
   },
 
-  flowEdit: function(e){
-    console.log('e', e)
-    var i = e.currentTarget.dataset.index
-    var flow = this.data.flows[i]
-    if(flow.user_id != this.data.user.id){
-      wx.showToast({
-        title: '没有修改权限',
-        icon: 'none'
-      })
-      return false
-    }
 
-    this.setData({
-      showFlowForm : true,
-      flowId: flow.id,
-      flowContent: flow.content,  
-    })
-
-  },
-
-  loadFlows: function(){
-    var _this = this
-    app.request({
-      url: '/api/v2/flows/?post_id=' + _this.data.post.id,
-      method: 'GET',
-      hideLoading: true,
-      success: function(resp){
-        if(resp.data.status == 0){
-          _this.setData({
-            flows: resp.data.data
-          })
-        }
-      }
-    })
-  },
-
-  flowInput: function(e){
-    this.setData({flowContent: e.detail.value})
-  },
 
 
   flowSubmit: function(e){
@@ -374,33 +298,50 @@ Page({
   },
 
 
+  markVisitor: function(pid){
+      var _this = this
+      app.request({
+          url: '/api/v1/visitors',
+          hideLoading: true,
+          method: 'POST',
+          data: {
+              target_id: pid,
+              target_type: 'post'
+          },
+          success: function(resp){
+              // pass
+          }
+      })
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var fromShare = false
+
     var postId = options.id
+    var post = wx.getStorageSync('post.data.' + postId)
+    var _this = this
+    this.setData({ postId: postId, post: post })
+    _this.loadPost(postId)
+
+    var fromShare = false
     var scene =  wx.getLaunchOptionsSync().scene
     if(this.isFromShare(scene)){
       fromShare = true
     }
-
     this.setData({
       user: wx.getStorageSync('userInfo') || {},
       from_share: fromShare
     })
-    this.myVideo = wx.createVideoContext('myvideo')
-    var post = wx.getStorageSync('post.data.' + postId)
-    var _this = this
-    this.setData({ postId: postId, post: post}, () => {
-      _this.loadPost(postId)
-      _this.loadFlows()
-    })
+    _this.markVisitor(postId)
+   
   },
 
   genPosterConfig: function(){
     var post = this.data.post
-  
+
     var config = {
       debug: false,
         backgroundColor: '#fff',
@@ -556,6 +497,7 @@ Page({
   
   },
 
+
   loadSub: function(){
     var sid = this.data.post.sub_district_id
     if(!sid){
@@ -564,6 +506,7 @@ Page({
     var _this = this
     app.request({
       url: '/api/v1/sub_districts/' + sid,
+      hideLoading: true,
       success: function(resp){
         if(resp.data.status != 0){
           return false
@@ -601,7 +544,8 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    var pid = this.data.postId
+    this.loadPost(pid)
   },
 
   /**

@@ -2,15 +2,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  height:160rpx;
   box-sizing: border-box;
-  width: 100%;
+  width: 750rpx;
+  background:#fff;
+  padding:30rpx 30rpx;
+  margin-bottom:20rpx;
 }
 
 .info .text{
-  width: 350rpx;
+  width: 540rpx;
   height: 100%;
   display: flex;
+  padding:20rpx 0;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
@@ -31,13 +35,21 @@
 }
 
 .info .text .desc{
-  font-size:24rpx;
-  color: #999;
+  font-size:28rpx;
+  color: #333;
 }
 
 .info .avatar{
   height: 100rpx;
   width: 100rpx;
   border-radius: 100rpx;
+  border:2rpx solid #cecece;
+  padding:2rpx;
   overflow: hidden;
+  margin-right:20rpx;
+}
+
+button.detail{
+  border:none;
+  background:none;
 }

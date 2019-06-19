@@ -1,7 +1,16 @@
 
 <view class="safe-tips">
   <view class="title"> 
-    <image mode="widthFix" src="/assets/icons/safe-tips-icon.png" />  <text>温馨提示</text> </view>
-   <view class="content" >当前信息由发布者自行发布，仅代表个人，与本平台无关。本平台仅提供信息展示，不保证发布者发布信息的真实、合法、有效。</view>
+    <view class="left">
+      <image mode="widthFix" src="/assets/icons/safe-tips-icon.png" />  <text>本平台承诺真实房源假一赔百元!</text> 
+    
+    </view>
+
+    <view class="right">
+      <button plain open-type="contact" bindcontact="handleContact">举报该房源</button>
+    </view>
+
+  </view>
+   <view class="content" >房源所示“户型图、房屋用途、交易权属、建成年代、产权年限”仅供参考，购房时请以房本为准</view>
 </view>
 

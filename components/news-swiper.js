@@ -30,6 +30,7 @@ Component({
       var _this = this
       app.request({
         url: '/api/v1/news',
+        hideLoading: true,
         data:{ limit: _this.data.limit || 5 },
         success: function(resp){
           if(resp.data.data.length > 0){

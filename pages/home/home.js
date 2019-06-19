@@ -37,10 +37,7 @@ Page({
 
 
   cityHandle: function(e){
-    console.log('city change handle', e.detail.city)
-    var _this = this
     _this.setData({city_id: e.detail.city.id, posts: [], offset: 0})
-    app.loadPosts(_this)  
   },
 
   onShareAppMessage: function () {
@@ -93,7 +90,6 @@ Page({
 
   },
 
-  loadPosts: function(){},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -106,7 +102,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    app.loadPosts(this)
   },
 
   /**
@@ -129,11 +124,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    var _this = this
-    _this.setData({
-      offset: _this.data.offset + _this.data.limit,
-    })
-    app.loadPosts(_this)
   },
 
   /**

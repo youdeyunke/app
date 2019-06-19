@@ -1,21 +1,15 @@
 <block wx:if="{{userInfo}}">
-  <view class="header">
-    <view class="info">
-      <image bindtap="showAvatar" class="avatar" src="{{userInfo.avatar}}"></image>
-      <view class="name">
-        <view class="nickname"><van-icon name="manager" /> {{userInfo.name || userInfo.nickname}} </view>
-        <view class="company" wx:if="{{userInfo.company}}"> ({{userInfo.company}})</view>
-      </view>
-    </view>
 
-        <view class="actions">
-          <image wx:if="{{userInfo[item.id]}}" hover-class="none" bindtap="{{item.bindtap}}" wx:for="{{icons}}" class="icon icon-{{item.id}}" src="/assets/icons/user-page-{{item.id}}.png"></image>
-        </view>
+  <view class="card-wrapper">
+    <image src="{{userInfo.avatar}}" class="card-wrapper-bg" />
+    <view class="card"><namecard user-info="{{userInfo}}" /> </view>
 
   </view>
 
+
+
   <view class="body">
-    <van-tabs type="card" color="#00ae66" bind:change="tabChange">
+    <van-tabs animated swipeable  type="line" color="#00ae66" bind:change="tabChange">
       <van-tab wx:for="{{tabs}}" wx:for-item="tab" title="{{tab.label}}">
         <view style="height:30rpx;" class="blank"></view>
         <box padding="0" width="700">

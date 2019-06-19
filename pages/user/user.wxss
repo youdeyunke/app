@@ -3,69 +3,35 @@ page{
   padding-bottom:140rpx !important;
 }
 
-.header{
-  background: var(--color-a);
-  width: 750rpx;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  color: #fff;
-  padding:0 0 30rpx 0;
-  box-sizing: border-box;
+
+.card-wrapper{
+  width:750rpx;
+  height:480rpx;
+  position:relative;
+  overflow:hidden;
 }
 
-.header .info{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+.card-wrapper-bg{
+  width:1500rpx;
+  height:1500rpx;
+  position:absolute;
+  top:-500rpx;
+  left:-400rpx;
+  z-index:1;
+  filter:blur(20px);
 }
 
-.info .avatar{
-  height: 120rpx;
-  width: 120rpx;
-  border-radius: 120rpx;
-  border:6rpx solid #fff;
-  box-sizing: border-box;
-  margin-top:0;
+.card-wrapper .card{
+  z-index:999;
+  position:absolute;
+  top:40rpx;
+  left:45rpx;
 }
 
-.info .nickname, .info .company{
-  font-weight: bolder;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-}
-
-.info .name{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin:30rpx 0;
-}
-
-
-.actions{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.actions .icon{
-  border-radius: 40rpx;
-  width: 40rpx;
-  height: 40rpx;
-  padding:6rpx 30rpx;
-  border:4rpx solid #fff;
-  margin:0 10rpx;
-}
 
 .body{
   width: 100%;
-  padding-top:30rpx;
+  padding-top:0rpx;
 }
 
 
@@ -76,14 +42,14 @@ page{
   width:100%;
   box-sizing:border-box;
   padding:0 30rpx;
-  height:120rpx;
+  height:160rpx;
 }
 
 .btns .btn{
     font-size:32rpx;
     width:335rpx;
     font-weight: bold;
-    height:90rpx;
+    height:100rpx;
 }
 
 .btns .btn-call{

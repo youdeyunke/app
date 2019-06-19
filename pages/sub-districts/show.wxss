@@ -49,14 +49,18 @@
 
 
 .name{
-  font-size:var(--font-l);
+  font-size:32rpx;
   color: #333;
+  font-weight: bolder;
+  line-height: 1.4;
 }
 
 .address{
   margin-top:20rpx;
   color: #333;
-  font-size: var(--font-l)
+  font-size: 28rpx;
+  line-height: 1.4;
+
 }
 
  .typeinfo{

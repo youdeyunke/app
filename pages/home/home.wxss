@@ -29,14 +29,14 @@ border-radius:15rpx;
 .my-news-swiper{
   margin:20rpx 20rpx;
   width:670rpx;
-  background:#f9f9f9;
   border-radius: 10rpx;
   padding:20rpx;
+  border :2rpx solid #f4f4f4;
 
 }
 
 .home-title .name{
-  font-size:38rpx;
+  font-size:40rpx;
   color:#000;
   font-weight: bolder;
   width:50%;

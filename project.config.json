@@ -7,7 +7,7 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false,
+		"autoAudits": true,
 		"uglifyFileName": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
@@ -371,7 +371,7 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 50,
 					"name": "经纪人主页",
 					"pathName": "pages/user/user",
 					"query": "id=5",

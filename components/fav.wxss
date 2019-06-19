@@ -1,5 +1,13 @@
-.myfav image{
-  vertical-align: middle;
-  width:40rpx;
-  height:40rpx;
+.myfav{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 80rpx;
+}
+
+.myfav text{
+  font-size:24rpx;
+  color: #666;
+  margin-top:8rpx;
 }

@@ -98,9 +98,7 @@
 </box>
 
 
-<box width="750" padding="30" wx:if="{{post.user.is_broker}}">  
-  <broker-link  broker="{{post.broker_info}}" />
-</box>
+<broker-link  wx:if="{{post.user.is_broker}}" broker="{{post.broker_info}}" />
 
 <view class="mapinfo">
   <view class="name">周边及配套</view>
@@ -167,7 +165,7 @@
               <image bindtap="viewTypeImage" data-index="{{index}}" src="{{item.image.url}}?imageView2/2/w/300"></image>
       </view>
       <view class="meta">
-        <view class="name h1">{{item.name}}</view>
+        <view class="name">{{item.name}}</view>
         <view class="kv"><text decode="{{true}}">朝向&nbsp; &nbsp;&nbsp;{{item.position}}</text></view>
         <view class="kvs">
            <view class="kv"><text decode="{{true}}">建面&nbsp; &nbsp;&nbsp;{{item.area}} ㎡</text></view>

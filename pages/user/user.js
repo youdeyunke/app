@@ -17,8 +17,8 @@ Page({
       {id: 'wechat', bindtap: 'copyWechat'},
     ],
     tabs: [
-      //{label: '新房', group: 'xinfang' },
-      {label: '在售房源', group: 'ershoufang'},
+      {label: '二手房源', group: 'ershoufang'},
+      {label: '新房房源', group: 'xinfang' },
       {label: '在租房源', group: 'zufang'},
     ],
   },
@@ -85,55 +85,10 @@ Page({
       url: '/api/v1/users/' + uid,
       success: function(resp){
         _this.setData({userInfo: resp.data.data})
-        _this.setPageTitle()
-        _this.loadPosts()
       }
     })
   },
 
-  loadPosts: function(){
-    /* 加载指定用户发布的房源列表 */
-    var _this = this
-    var uid = this.data.userId
-    
-    app.request({
-      url: '/api/v2/posts',
-      data: {'user_id': uid, per_page: 9999},
-      success: function(resp){
-        _this.updatePosts(resp.data.data)
-      }
-    })
-  },
-
-  updatePosts: function(posts){
-    /* 将posts归类到不同的tab 下 */
-    var _this = this
-    var xinfangItems = []
-    var ershoufangItems = []
-    var zufangItems = []
-    posts.forEach(function(post, i){
-      switch(post.group){
-        case 'new':
-          xinfangItems.push(post)
-          break;
-        case 'old':
-          ershoufangItems.push(post)
-          break;
-        case 'rental':
-          zufangItems.push(post)
-          break;
-      }
-      if(i == posts.length - 1){
-        _this.setData({
-          xinfangItems: xinfangItems,
-          ershoufangItems: ershoufangItems,
-          zufangItems: zufangItems,
-        })
-      }
-    })
-    
-
-  },
 
   showAvatar: function(){
       var _this =this

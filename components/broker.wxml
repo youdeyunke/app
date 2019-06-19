@@ -5,7 +5,7 @@
       <view  wx:if="{{broker.id}}" class="staff-avatar"><image bindtap="gotoUserPage" src="{{broker.avatar || '/assets/images/default-avatar.png' }}?imageView2/2/w/100"></image></view>
       <view  class="staff-info">
                <view class="staff-name line-limit">{{broker.name || '未填写'}}</view>
-               <van-tag wx:if="{{broker.id}}" color="#ff911b" plain>已认证</van-tag>
+               <van-tag text-color="#F7EED4" color="#222222"  wx:if="{{broker.id}}">已认证</van-tag>
        </view>
     </li>
     <li wx:if="{{bookingEnable}}" bindtap="bookingHandle" class="booking">

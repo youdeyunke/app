@@ -3,11 +3,12 @@
   <view class="info" bindtap="gotoUser" >
     <image class="avatar" src="{{broker.avatar}}"></image>
     <view class="text">
-      <view class="name"><text>{{broker.name}}</text> <van-tag color="#ff911b" plain>已认证</van-tag> </view>
+      <view class="name"><text>{{broker.name}}</text> <van-tag text-color="#F7EED4" color="#222222">已认证</van-tag> </view>
       <view class="desc">
         <text wx:if="{{broker.mobile}}">联系电话：{{broker.mobile}}</text>
       </view>
     </view>
-    <button class="btn primary plain mini">查看名片</button>
+    <van-icon name="arrow" />
+
   </view>
 </block>

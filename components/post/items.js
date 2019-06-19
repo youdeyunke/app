@@ -83,6 +83,7 @@ Component({
       var query = this.data.query
       app.request({
         url: '/api/v2/posts/',
+        hideLoading: true,
         data: query,
         complete: function (r) {
           _this.setData({loading: false})

@@ -1,3 +1,4 @@
-<van-button size="mini" plain type="{{status == 1 ? 'default' : 'primary' }}" catchtap='clickHandle'>
-   {{status == 0 ? '收藏' : '已收藏'}} 
-</van-button>
+<view class="myfav" catchtap="clickHandle">
+  <van-icon size="38rpx;" color="{{ status == 1 ? 'orange' : ''  }}"  name="{{ status == 1 ? 'star' : 'star-o'  }}"  />
+  <text>{{ status == 1 ? '已收藏' : '收藏' }}</text>
+</view>

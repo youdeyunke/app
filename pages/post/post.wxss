@@ -1,7 +1,7 @@
 /* pages/home/home.wxss */
 
 page{
-  padding:0 0 180rpx 0 !important;
+  padding:0 0 220rpx 0 !important;
 }
 
 mycard{
@@ -123,22 +123,22 @@ mycard{
 
 
 .title-block{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-   margin: 20rpx 0 20rpx 0 ;
-   width:100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 10rpx 0 20rpx 0 ;
+  width:100%;
 }
 
  .post-title{
   color:#000;
   font-weight: bold;
   width:650rpx;
-
+  line-height:1.5;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  font-size:42rpx;
+  font-size:44rpx;
 }
 
 .tagsinfo{
@@ -335,6 +335,9 @@ myfav .myfav {
   padding:10rpx 0;
   height:50rpx;
   margin-bottom:15rpx;
+  font-size:32rpx;
+  font-weight: bolder;
+  color: #333;
 }
 .housetype .kvs text{
   color: 000;
@@ -345,6 +348,10 @@ myfav .myfav {
   justify-content: space-between;
   align-items: center;
   width: 90%;
+  margin-top:10rpx;
+}
+.housetype .kv{
+  font-size:28rpx;
 }
 
 

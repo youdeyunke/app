@@ -5,7 +5,7 @@ const EXT = wx.getExtConfigSync()
 App({
   globalData: {
     assetsList: [ '客梯','货梯', '扶梯', '中央空调', '停车位', '天然气', '网络', '暖气', '上水', '下水', '排烟', '排污', '可明火', '380V', '外摆区' ],
-    apiHost: EXT['apihost'] || 'https://fang.udeve.cn',
+    apiHost: EXT['apihost'] || 'https://weapp.udeve.cn/9000',
     userInfo: null,
     token: null,
     loadingStatus: 0,
@@ -265,6 +265,7 @@ App({
     var _this = this;
     this.request({
       url: "/api/v1/myconfigs",
+      hideLoading: true,
       success: function(resp) {
         var conf = resp.data.data;
         wx.setStorage({ key: "myconfigs", data: conf });
@@ -297,6 +298,7 @@ App({
     var _this = this;
     this.request({
       url: "/api/v2/cities",
+      hideLoading: true,
       success: function(resp) {
         _this.globalData.cities = resp.data.data;
         return cb(resp.data.data);
