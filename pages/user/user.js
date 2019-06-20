@@ -84,7 +84,12 @@ Page({
     app.request({
       url: '/api/v1/users/' + uid,
       success: function(resp){
-        _this.setData({userInfo: resp.data.data})
+        var u = resp.data.data
+        _this.setData({userInfo: u})
+        var title =  u.name +  "的名片"
+        wx.setNavigationBarTitle({
+          title: title
+        })        
       }
     })
   },
@@ -148,7 +153,7 @@ Page({
   onShareAppMessage: function () {
     var _this = this
     return {
-      title: "经纪人：" + _this.data.userInfo.name + '的名片',
+      title:  _this.data.userInfo.name + '的名片',
       desc: '帮你找好房',
       path: 'pages/user/user?id=' + _this.data.userId,
       imageUrl: _this.data.userInfo.avatar,

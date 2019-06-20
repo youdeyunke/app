@@ -17,7 +17,7 @@
 
         <view class="price-info">
           <text class="total">{{item.price_info.text}}{{item.price_info.px}}</text> 
-          <text class="average" wx:if="{{item.average_price && item.group != 'new' }}"> {{item.average_price}}万/平</text>     
+          <text class="average"> {{item.average_price}}万/平</text>     
         </view>
       </view>
 </navigator>

@@ -1,6 +1,5 @@
 {
   "enablePullDownRefresh": false,
-  "navigationBarTextStyle": "white",
   "usingComponents": {
     "van-tab": "/vant/tab/index",
     "van-tabs": "/vant/tabs/index",
