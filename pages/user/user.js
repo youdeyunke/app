@@ -23,6 +23,11 @@ Page({
     ],
   },
 
+
+  submit: function(e){
+    app.uploadFormId(e)
+  },
+
   callMe: function(e){
     var mobile = this.data.userInfo.mobile
     if (!mobile) {

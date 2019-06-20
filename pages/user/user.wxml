@@ -23,7 +23,9 @@
 </block>
 
 
-<view class="fixed-footer btns">
-  <button bindtap="callMe" class="btn btn-call" open-type="">电话咨询</button>
-  <button open-type="share" class="btn btn-share" >分享名片</button>
-</view>
+<form report-submit bindsubmit="submit">
+  <view class="fixed-footer btns">
+  <button hover-class="none" form-type="submit" data-action="callme" bindtap="callMe" class="fake btn btn-call" open-type="">电话咨询</button>
+  <button hover-class="none" form-type="submit" data-action="share" open-type="share" class="fake btn btn-share" >分享名片</button>
+  </view>
+</form>
