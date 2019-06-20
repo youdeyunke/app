@@ -1,25 +1,5 @@
 <import src="/utils/wxParse/wxParse.wxml"/>
 
-
-<template name="flows-tab">
-  <view bind:longpress="flowEdit" data-index="{{index}}" class="flow-item" wx:for="{{flows}}" wx:for-item="flow">
-    <image src="{{flow.user_info.avatar}}"></image>
-    <view class="flow-content">
-      <view class="user-name">{{flow.user_info.name}}</view>
-      <view class="arrow"></view>
-      <view class="text">{{flow.content}}</view>
-      <view class="time">{{flow.updated_at_pretty }}</view>
-    </view>
-  </view>
-  <view class="new-flow-action">
-    <view class="desc">
-      <view wx:if="{{flows.length == 0}}">暂无跟进信息</view>
-      <view>写入的跟进记录只对平台入驻的经纪人可见</view>
-    </view>
-    <van-button disabled='{{showFlowForm}}' size="small" type="primary"  plain bindclick="openFlowForm">写跟进</van-button>
-  </view>
-</template>
-
 <block wx:if="{{post}}">
 <navigator wx:if="{{from_share}}" class="home-btn" open-type="switchTab" url="/pages/home/home">
   <image src="/assets/icons/home.1.png"></image>
@@ -87,8 +67,10 @@
             <text bindtap="gotoSub" data-url="{{meta.url}}" class="value van-ellipsis"> {{ meta.value || '-' }} </text>
         </view>
     </view>    
-
-    <view bindtap="gotoMeta" hover-class="none" class="more-btn more-meta">更多房源信息</view>
+    
+    <form style="width:100%;" report-submit class="myfav-wrapper"  bindsubmit="gotoMeta">
+      <button form-type="submit" class="fake more-btn more-meta"  hover-class="none">多房源信息</button>
+    </form>
 
     <view  bindtap='couponHandle' class="coupon" wx:if="{{ post.coupon_desc && post.coupon_enable}}">
       <view class="name line-limit">{{post.coupon_desc}}</view>
@@ -222,7 +204,8 @@
       <view bindtap="onCreatePoster" class="share-box-item" wx:if="{{post.qr}}">
         <image class="share-box-item-icon" src="/assets/icons/pengyouquan.png"></image>
         <view class="share-box-item-name">朋友圈</view>
-      </view>      
+      </view>
+            
     </view>
   </view>
 </van-popup>

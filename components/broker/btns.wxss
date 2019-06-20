@@ -3,6 +3,18 @@
     height: 160rpx;
 }
 
+button.fake-btn{
+  border:none;
+  background: none;
+  padding:0;
+  margin:0;
+
+}
+
+button.fake-btn::after{
+  border:none;
+}
+
 .broker-bar ul{
   display: flex;
   flex-wrap: nowrap;
@@ -24,12 +36,12 @@
    box-sizing:border-box;
 }
 
-.broker-bar li button image{
+.broker-bar li button.real image{
   width: 34rpx;
   height: 34rpx;
 }
 
-.broker-bar li button{
+.broker-bar li  button.real {
     font-size:32rpx;
     font-weight: bold;
     height:90rpx;
@@ -44,16 +56,20 @@
 }
 
 .broker-bar .staff-avatar{
-        display:flex;
-        justify-content:center;
-        align-items:center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+   width:90rpx;
+   height:90rpx;
+   border-radius:100rpx;
+
 }
 .broker-bar .staff-avatar image{
-   width:100rpx;
-   height:100rpx;
-   border-radius:100%;
-   overflow:hidden;
-   border:2rpx solid #cecece;
+   width:90rpx;
+   height:90rpx;
+   border-radius:90rpx;
+
+
 }
 
 .broker-bar .staff-name{

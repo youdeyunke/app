@@ -69,6 +69,32 @@ Component({
    * 组件的方法列表
    */
   methods: {
+
+    gotoProfile: function(){
+      var url = '/pages/user/user?id=' + this.data.broker.id
+      wx.navigateTo({
+        url: url,
+      })
+    },
+
+    btnsHandle: function(e){
+      app.uploadFormId(e)
+      var _this = this
+      var action = e.detail.target.dataset.action
+      switch(action){
+        case 'booking':
+          _this.bookingHandle();
+          break;
+
+        case 'contact':
+          _this.connectHandle();
+          break;
+
+        case 'profile':
+          _this.gotoProfile();
+          break;
+      }
+    },
   
     gotoUserPage: function(e){
         var _this = this
@@ -83,7 +109,7 @@ Component({
           
     },
 
-    connectHandle: function(e){
+    connectHandle: function(){
       this.setData({
         actionsShow: true
       })

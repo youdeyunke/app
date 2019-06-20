@@ -414,36 +414,54 @@ App({
     });
   },
 
+  markVisitor: function(oid, otype){
+      var _this = this
+      this.request({
+          url: '/api/v1/visitors',
+          hideLoading: true,
+          method: 'POST',
+          data: {
+              target_id: oid,
+              target_type: otype
+          },
+          success: function(resp){
+              // pass
+          }
+      })
+  },
+
+
   uploadFormId: function(e) {
     // 保存formid
-
-    var _this = this;
-    var token = wx.getStorageSync("token");
-    var ids = wx.getStorageSync("formids") || [];
-
-    if (e) {
-      var formId = e.detail.formId;
-      ids.push(formId);
+    if(!e || !e.detail){
+      return false; 
     }
 
+    var _this = this;
+    var formId = e.detail.formId
+    var token = wx.getStorageSync("token");
+
     if (!token) {
-      // 如果没有登录，就保存到本地
-      wx.setStorageSync("formids", ids);
+      console.log('token empty pass')
       return false;
     }
 
-    _this.request({
-      hideLoading: true,
-      url: "/api/v1/formid/",
-      data: {
-        formids: ids
-      },
-      method: "POST",
-      success: function(resp) {
-        // 清空缓存
-        wx.setStorageSync("formids", []);
+    if (formId == 'the formId is a mock one'){
+      console.log('formid pass, ', formId)
+      return false;
+    }
+
+    wx.checkSession({
+      success: function(){
+        _this.request({
+          hideLoading: true,
+          url: "/api/v1/formid/",
+          data: {formid: e.detail.formId},
+          hideLoading: true,
+          method: "POST",
+        });
       }
-    });
+    })
   },
 
   setLoginBack: function(eb) {

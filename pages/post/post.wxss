@@ -596,3 +596,7 @@ myfav .myfav {
     display: flex;
     justify-content: flex-start;
 }
+
+.more-meta, .more-meta::after{
+  border:none;
+}

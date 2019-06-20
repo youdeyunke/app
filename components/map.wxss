@@ -94,3 +94,12 @@
     -moz-border-radius: 50%;
     border-radius: 50%;
 }
+
+
+button.fake, button.fake::after{
+  border:none;
+  background: none;
+  font-size:28rpx;
+  padding:0;
+  margin:0;
+}

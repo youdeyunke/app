@@ -297,22 +297,6 @@ Page({
   },
 
 
-  markVisitor: function(pid){
-      var _this = this
-      app.request({
-          url: '/api/v1/visitors',
-          hideLoading: true,
-          method: 'POST',
-          data: {
-              target_id: pid,
-              target_type: 'post'
-          },
-          success: function(resp){
-              // pass
-          }
-      })
-  },
-
 
   /**
    * 生命周期函数--监听页面加载
@@ -334,7 +318,7 @@ Page({
       user: wx.getStorageSync('userInfo') || {},
       from_share: fromShare
     })
-    _this.markVisitor(postId)
+    app.markVisitor(postId, 'post')
    
   },
 
@@ -554,7 +538,8 @@ Page({
 
   },
 
-  gotoMeta: function () {
+  gotoMeta: function (e) {
+      app.uploadFormId(e)
       var _this = this
       auth.ensureUser(function(user){
           wx.navigateTo({

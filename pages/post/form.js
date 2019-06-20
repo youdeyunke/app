@@ -316,6 +316,7 @@ Page({
 
 
     submit: function (e) {
+        app.uploadFormId(e)
         var fdata = e.detail.value
         var post = this.data.post
         var _this = this

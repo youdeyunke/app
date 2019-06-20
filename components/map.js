@@ -1,4 +1,7 @@
 // components/map.js
+const app = getApp()
+
+
 Component({
   /**
    * 组件的属性列表
@@ -28,6 +31,8 @@ Component({
     },
 
     clickHandle: function(e){
+      app.uploadFormId(e)
+      
       var _this = this
       wx.showLoading({
         title: '正在打开地图',

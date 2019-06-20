@@ -26,7 +26,7 @@ Component({
  
     app.request({
       url: '/api/v2/favs/',
-      hideLoading: true,
+      hideLoading: false,
       data: { post_id: _this.data.pid },
       success: function (resp) {
         _this.setData(resp.data.data)
@@ -42,6 +42,8 @@ Component({
   methods: {
 
     clickHandle: function(e){
+      app.uploadFormId(e)
+      
       var pid = this.data.pid
       var _this = this
       auth.ensureUser(function(userInfo){
@@ -53,7 +55,7 @@ Component({
       var _this = this
       app.request({
         url: '/api/v2/favs/',
-        hideLoading: true,
+        hideLoading: false,
         method: 'POST',
         data: { post_id: pid },
         success: function (resp) {
