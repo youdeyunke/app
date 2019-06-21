@@ -54,7 +54,7 @@
             <navigator hover-class="none" url="/pages/myself/posts"  class="menu-item" >
                 <van-icon color="#66" size="52rpx" name="apps-o" />
                 <view class="menu-item-name">房源管理</view>
-          </navigator>
+            </navigator>
 
 
           <!-- navigator hover-class="none" url="/pages/myself/qa"  class="menu-item">

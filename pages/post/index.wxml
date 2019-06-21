@@ -28,7 +28,7 @@
   </view>
   
   <box padding="20" width="750">
-    <items kw="{{kw}}" wx:if="{{filter}}" page="{{page}}" filter="{{filter}}" />
+    <items show-total-count="{{true}}" kw="{{kw}}" wx:if="{{filter}}" page="{{page}}" filter="{{filter}}" />
   </box>
 
 </view>

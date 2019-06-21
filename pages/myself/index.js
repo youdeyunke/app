@@ -153,12 +153,16 @@ Page({
 
     gotoMembership: function(e){
         // 开通经纪人身份
-        var url = '/pages/myself/broker'
-        var b = this.data.userInfo.broker_profile
-        if(b.mobile && b.company ){
-            url = '/pages/broker/membership'
-        }
-        wx.navigateTo({url: url})
+        // 如果是免费入驻，就去个人资料页面
+        // 如果是付费入驻，就去套餐页面
+        app.loadConfigs(function(conf){
+          if(conf['broker_join_type'] == 'free'){
+            var url =  '/pages/myself/broker'
+          }else{
+            var url = '/pages/broker/membership'
+          }
+          wx.navigateTo({url: url})
+        })
     },
 
 

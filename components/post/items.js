@@ -6,6 +6,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    showTotalCount: {type: Boolean, value: false},
     filter: {
       type: Object, value: {}, observer: "filterChange"
     },
@@ -99,8 +100,11 @@ Component({
           } else {
             data['items'] = [resp.data.data]
           }
-          console.log('set data is', data)
           _this.setData(data)
+
+          if(_this.data.showTotalCount > 0 && _this.data.query.page == 1  && meta.total_entries > 0 ){
+            wx.showToast({title: '找到' + meta.total_entries + '套房源' , icon: 'none'})
+          }
 
           for (var i = 0; i <= resp.data.data.length - 1; i++) {
             var post = resp.data.data[i]

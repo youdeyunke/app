@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 41,
 			"list": [
 				{
 					"id": 0,
@@ -308,9 +308,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "个人设置",
-					"pathName": "pages/myself/setting",
+					"id": 41,
+					"name": "个人",
+					"pathName": "pages/myself/index",
 					"query": "",
 					"scene": null
 				},
