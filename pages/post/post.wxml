@@ -33,8 +33,8 @@
 <box width="750" padding="30" >
   <view class="header"> 
      <view class="tagsinfo">
-        <mytags wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
-        <van-tag  color="#f4f4f4" text-color="#666">房源ID:{{post.id}}</van-tag>
+        <mytags size="large" wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
+        <van-tag size="large"  color="#f4f4f4" text-color="#666">房源ID:{{post.id}}</van-tag>
      </view>
 
      <view class="title-block">

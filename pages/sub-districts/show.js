@@ -40,7 +40,7 @@ Page({
   },
 
   gotoRentalPost: function () {
-    this.gotoPostIndex('rental')
+    this.gotoPostIndex('zufang')
   },  
 
 
