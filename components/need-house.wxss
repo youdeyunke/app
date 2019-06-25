@@ -25,14 +25,14 @@
 
 .need .body view.name{
   display:flex;
-  margin-bottom:10rpx;
+  margin-bottom:20rpx;
 
 }
 
 .need .body text.name{
   font-weight:bolder;
   color:#000000;
-  font-weight:30rpx;
+  font-size:40rpx;
 }
 
 .need .body .blank{
@@ -47,6 +47,9 @@
 
 }
 
+.need .body .price{
+  margin-bottom:10rpx;
+}
 
 .need .body .price text{
  color:red;
@@ -55,7 +58,10 @@
  font-weight:bolder;
 }
 
-
+.need .tags{
+ margin-bottom:10rpx;
+ display:flex;
+}
 
 .need .footer{
   display:flex;

@@ -6,13 +6,14 @@
   <view class="body">
     <view class="name">
       <text class="name">{{item.contact_name }}</text>
-      <view class="blank"></view>
-      <van-tag color="#F5CB6E" text-color="#fff">{{ item.cat == 'buy' ? '买' : '租'}}</van-tag>
-      <view class="blank"></view>
-      <van-tag wx:if="{{!item.broker_id}}" type="success">可抢单</van-tag>
     </view>
     <view class="position">区域 {{item.position}} {{ item.content || '' }}</view>
     <view class="price">预算 <text>{{item.budget_min}}~{{item.budget_max}} {{ item.cat == 'buy' ? '万' : '元' }}</text></view>
+    <view class="tags">
+      <van-tag color="#F5CB6E" text-color="#fff">{{ item.cat == 'buy' ? '买' : '租'}}</van-tag>
+      <view class="blank"></view>
+      <van-tag wx:if="{{!item.broker_id}}" type="default" plain>可抢单</van-tag>
+    </view>
   </view>
   <view class="footer"> 
     {{ !item.broker_id ? '去抢单' : '已被抢'}}
