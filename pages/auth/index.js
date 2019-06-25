@@ -25,20 +25,9 @@ Page({
     var encryptedData = e.detail.encryptedData
     var iv = e.detail.iv
   
-    wx.login({
-      success: function(res){
-          // 换取服务器的token
-          _this.getSessionToken(code, encryptedData, iv, function(userInfo){
-            // success
-            wx.navigateBack({delta: 1})
-          })
-      },
-      complete: function (res) {
-        // 用户拒绝,跳转到设置界面
-        if (res.errMsg == 'getUserInfo:fail auth deny') {
-          wx.openSetting({})
-        }
-      }
+    // 换取服务器的token
+    this.getSessionToken(code, encryptedData, iv, function(userInfo){
+       wx.navigateBack({delta: 1})
     })
   },
 
@@ -95,7 +84,14 @@ Page({
       var _this = this
       wx.login({
         success: function(res){
+          console.log('login code', res.code)
           _this.setData({code: res.code})
+        },
+        complete: function (res) {
+            // 用户拒绝,跳转到设置界面
+            if (res.errMsg == 'getUserInfo:fail auth deny') {
+              wx.openSetting({})
+            }
         }
       })
     },

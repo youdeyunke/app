@@ -54,3 +54,40 @@ border-radius:15rpx;
 .home-title .home-actions view.active{
   color:var(--color-a);
 }
+
+.zhao{
+  width:100%;
+}
+
+.zhao button{
+  background: #FFFFFF;
+  box-shadow: 2rpx 2rpx 6rpx 0 #CECECE;
+  border-radius: 10rpx;
+  padding:30rpx;
+  width:690rpx;
+  margin:20rpx auto;
+}
+
+
+.zhao .desc{
+  color:#666;
+  width:430rpx;
+}
+
+.zhao .link{
+  margin-top:20rpx;
+  color:#000000;
+  font-weight:bolder;
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+}
+
+
+.zhao button.fake-btn, .zhao button.fake-btn::after{
+  background:none;
+  font-size:28rpx;
+  font-weight:normal;
+  text-align:left;
+  line-height:1.4;
+}

@@ -94,7 +94,7 @@ Page({
     wx.setStorageSync('token', null)
     this.setData({userInfo: null })
     this.setData({userInfo: null })
-    wx.switchTab({url:'/pages/myself/index'})
+    wx.switchTab({url:'/pages/home/home'})
   },
 
   /**

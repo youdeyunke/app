@@ -36,6 +36,14 @@ Page({
   },
 
 
+  formidHandle: function(e){
+    app.uploadFormId(e)
+  },
+
+  gotoZhaofang: function(e){
+     wx.navigateTo({url: '/pages/need/room-form'})
+  },
+
   cityHandle: function(e){
     _this.setData({city_id: e.detail.city.id, posts: [], offset: 0})
   },

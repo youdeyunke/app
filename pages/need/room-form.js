@@ -33,6 +33,10 @@ Page({
   data: {
     userInfo: wx.getStorageSync('userInfo'),
     
+    cats: [
+      {label: '我要买房', value: 'buy'},
+      {label: '我要租房', value: 'rent'},
+    ],
     contact_name: '',
     contact_mobile: '',
     contact_wechat: '',
@@ -60,10 +64,27 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
-    var title = ''
-    if(q.cat == 'rent'){
+    var _this = this
+    auth.ensureUser(function(user){
+      _this.setData({userInfo: user})
+    })
+    _this.updateForm('buy')
+  },
+
+
+  catClick: function(e){
+    const { name } = e.currentTarget.dataset;
+    console.log('cat lick ', name)
+    this.updateForm(name)
+  },
+
+  updateForm: function(cat){
+    var title = '' 
+    var data = {}
+
+    if(cat == 'rent'){
       title = '求租登记'
-      this.setData({
+      data = {
         purposeList: purposeList1,
         budget_min: 500,
         budget_max: 10000,
@@ -71,12 +92,11 @@ Page({
         budget_max_value: 1500,
         step: 100,
         priceUnit: '元',
-        cat: 'rent',
-      })
+      }
     }
-    if(q.cat == 'buy'){
+    if(cat == 'buy'){
       title = '求购登记'
-      this.setData({
+      data = {
         purposeList: purposeList2,
         budget_min: 10,
         budget_max: 1000,
@@ -84,20 +104,12 @@ Page({
         budget_max_value: 150,
         priceUnit: '万元',
         step: 5,
-        cat: 'buy',
-      })
+      }
     }
+    
+    data['cat'] = cat
+    this.setData(data)
     wx.setNavigationBarTitle({ title: title })
-
-    var _this  = this
-    var eb = {
-        key: 'switch',
-        value: '/pages/myself/zhao',
-    }
-    app.setLoginBack()
-    auth.ensureUser(function(userInfo){
-      _this.setData({contact: userInfo.mobile || ''})
-    })
   },
 
   getFormData: function(){

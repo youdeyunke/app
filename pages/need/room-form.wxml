@@ -6,6 +6,22 @@
             
         </box>
 
+        <card hat title="定制类型">
+					<van-radio-group value="{{ cat }}" >
+						<van-cell-group>
+							<van-cell
+						    wx:for="{{cats}}"
+								title="{{item.label}}"
+								clickable
+								data-name="{{item.value}}"
+								bind:click="catClick"
+							>
+              <van-radio name="{{item.value}}" />
+							</van-cell>
+						</van-cell-group>
+				  </van-radio-group> 
+					
+        </card>
         <card hat title="预算范围">
             <van-field 
                         label="最低" 

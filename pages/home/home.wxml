@@ -9,6 +9,20 @@
 </view>
 
 
+<block wx:if="{{configs.plugin_home_dingzhi != false }}">
+<view class="home-title">
+  <view class="name">定制找房</view>
+</view>
+
+<form report-submit bindsubmit='formidHandle' class="zhao">
+  <button class="fake-btn" form-type="submit" bindtap="gotoZhaofang">
+    <view class="desc">只需要填写简单要求，平台经纪人即可为您找到理想居所</view>
+    <view class="link">开始找房<van-icon name="arrow" color="#000000" /></view>
+  </button>
+</form>
+</block>
+
+
 <block wx:if="{{configs.plugin_home_xinfang != false }}">
 <view class="home-title">
   <view class="name">猜你喜欢的新房</view>
