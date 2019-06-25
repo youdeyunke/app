@@ -538,8 +538,11 @@ Page({
 
   },
 
-  gotoMeta: function (e) {
+  formidHandle: function(e){
       app.uploadFormId(e)
+  },
+
+  gotoMeta: function (e) {
       var _this = this
       auth.ensureUser(function(user){
           wx.navigateTo({
@@ -551,9 +554,7 @@ Page({
 
   couponHandle: function(){
     var _this = this
-    auth.ensureMobile(function(userInfo){
-      _this._couponHandle()
-    })
+    _this._couponHandle()
   },
 
   _couponHandle: function(){

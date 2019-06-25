@@ -597,6 +597,6 @@ myfav .myfav {
     justify-content: flex-start;
 }
 
-.more-meta, .more-meta::after{
+.more-btn, .more-btn::after{
   border:none;
 }

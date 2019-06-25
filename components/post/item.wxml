@@ -1,5 +1,3 @@
-<form report-submit class="fake-form"  bindsubmit="formHandle">
-  <button class="fake-button" form-type="submit">
   <navigator hover-class="none" class="post {{item.group == 'new' && item.coupon_enable ? '' : 'coupon-none'}} {{type}} {{ shadow ? 'shado' : 'shadow-none'}} {{ border ? 'border' : 'border-none'}}" open-type="navigate" url="/pages/post/post?id={{item.id}}" >
         <badge wx:if="{{item.coupon_enable}}">{{item.coupon_desc}}</badge>
         <view class="cover skeleton-rect">
@@ -22,5 +20,3 @@
           </view>
         </view>
   </navigator>
-  </button>
-</form>

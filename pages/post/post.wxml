@@ -68,8 +68,8 @@
         </view>
     </view>    
     
-    <form style="width:100%;" report-submit class="myfav-wrapper"  bindsubmit="gotoMeta">
-      <button form-type="submit" class="fake more-btn more-meta"  hover-class="none">多房源信息</button>
+    <form style="width:100%;" report-submit class="myfav-wrapper"  bindsubmit="formidHandle">
+      <button form-type="submit" class="fake more-btn more-meta" bindtap="gotoMeta"  hover-class="none">多房源信息</button>
     </form>
 
     <view  bindtap='couponHandle' class="coupon" wx:if="{{ post.coupon_desc && post.coupon_enable}}">
@@ -135,7 +135,9 @@
   </view>  
   <view class="view-more-container">
 
-  <view class="more-btn view-more " bindtap="contentHandle" wx:if="{{minicontent}}"> 加载全文 </view>
+    <form style="width:100%;" report-submit class="myfav-wrapper"  bindsubmit="formidHandle">
+      <button form-type="submit"  class="fake more-btn view-more"   bindtap="contentHandle" wx:if="{{minicontent}}"  hover-class="none">多房源信息</button>
+    </form>
 
   </view>
 </mycard>

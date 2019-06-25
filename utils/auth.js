@@ -1,19 +1,8 @@
 
 module.exports = {
 
-  ensureMobile: function(cb){
-    // 确保用户已经填写手机号
-    var _this = this
-    this.ensureUser(function(userInfo){
-        if(userInfo.mobile){
-          return cb(userInfo)
-        }
-        // 去绑定手机号
-        _this.gotoAccount('请先绑定手机号', '请先绑定您的手机号，以便我们能联系您')
-    })
-  },
-
   ensureUser: function (cb) {
+    var _this = this
     var token = wx.getStorageSync('token')
     var userInfo = wx.getStorageSync('userInfo')
     wx.checkSession({
@@ -21,11 +10,11 @@ module.exports = {
         if(userInfo && token){
           typeof cb == 'function' && cb(userInfo)
         }else{
-          this.gotoAuth('请先登录', '请先登录')
+          _this.gotoAuth('请先登录', '请先登录')
         }
       },
       fail: function(){
-        this.gotoAuth('请先登录', '请先登录')
+        _this.gotoAuth('请先登录', '请先登录')
       },
     })
   },

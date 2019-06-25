@@ -163,7 +163,7 @@ Component({
         auth.ensureUser(function(user){
             // 去绑定用户手机号
             if(!user.mobile){
-                app.bindPhoneNumber(function(mobile){
+                app.bindPhoneNumber(e, function(mobile){
                     _this._bookingHandle()
                 })
             }else{

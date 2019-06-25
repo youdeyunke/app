@@ -9,9 +9,12 @@
        </view>
     </li>
     <li wx:if="{{bookingEnable}}" class="booking">
-      <button bindgetphonenumber="bookingHandle" form-type="submit"  open-type="getPhoneNumber" data-action="booking"  class="real btn info" >       
-          <image src="/assets/icons/btn-booking.png"></image>
-          {{ booking ? '已预约' : '预约看房'}}
+      <button hidden="{{booking}}"  bindgetphonenumber="bookingHandle" form-type="submit"  open-type="getPhoneNumber" class="real btn info" >       
+          <image src="/assets/icons/btn-booking.png"></image> 预约带看
+      </button>
+
+      <button hidden="{{!booking}}" form-type="submit"  class="real btn info" >       
+          <image src="/assets/icons/btn-booking.png"></image> 已预约
       </button>
     </li>
     <li class="call" bindtap="connectHandle">
