@@ -77,38 +77,11 @@ Component({
       })
     },
 
-    btnsHandle: function(e){
+
+    formHandle: function(e){
       app.uploadFormId(e)
-      var _this = this
-      var action = e.detail.target.dataset.action
-      switch(action){
-        case 'booking':
-          _this.bookingHandle();
-          break;
-
-        case 'contact':
-          _this.connectHandle();
-          break;
-
-        case 'profile':
-          _this.gotoProfile();
-          break;
-      }
     },
   
-    gotoUserPage: function(e){
-        var _this = this
-        wx.navigateTo({
-            url: '/pages/user/user?id=' + _this.data.broker.id,
-            success: (result) => {
-                
-            },
-            fail: () => {},
-            complete: () => {}
-        });
-          
-    },
-
     connectHandle: function(){
       this.setData({
         actionsShow: true
@@ -185,13 +158,18 @@ Component({
       })
     },
 
-    bookingHandle: function () {
-      var _this = this
-      auth.ensureMobile(function (userInfo) {
-        app.ensureLocation(function(){
-          _this._bookingHandle()
+    bookingHandle: function (e) {
+        var _this = this
+        auth.ensureUser(function(user){
+            // 去绑定用户手机号
+            if(!user.mobile){
+                app.bindPhoneNumber(function(mobile){
+                    _this._bookingHandle()
+                })
+            }else{
+                _this._bookingHandle()
+            }
         })
-      })
     },
 
     _bookingHandle: function () {
@@ -201,14 +179,12 @@ Component({
       if (_this.data.booking) {
         return false
       }
-      // 模拟需要付费的方式
 
       app.request({
         url: '/api/v1/users/mark_book',
         method: 'POST',
         data: { post_id: pid , location: location},
         success: function (resp) {
-          console.log('resp', resp)
           if(resp.data.status == 0){
             wx.showModal({
               title: '预约成功！',

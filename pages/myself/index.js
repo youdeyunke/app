@@ -169,7 +169,6 @@ Page({
     loginHandle: function (e) {
         var _this  = this
         auth.loginHandle(this, e, function(u){
-            _this.setNavColor(u)
         })
     },
 
@@ -230,9 +229,12 @@ Page({
      */
     onShow: function () {
         var u = wx.getStorageSync('userInfo')
+        if(!u){
+          wx.navigateTo({url:'/pages/auth/index'})
+          return
+        }
         this.setData({userInfo: u })
         this.setNavColor(u)
-
     },
 
     /**

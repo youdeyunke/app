@@ -1,24 +1,26 @@
-<block>
-<navigator hover-class="none" class="post {{item.group == 'new' && item.coupon_enable ? '' : 'coupon-none'}} {{type}} {{ shadow ? 'shado' : 'shadow-none'}} {{ border ? 'border' : 'border-none'}}" open-type="navigate" url="/pages/post/post?id={{item.id}}" >
-      <badge wx:if="{{item.coupon_enable}}">{{item.coupon_desc}}</badge>
-      <view class="cover skeleton-rect">
-        <image lazy-load="{{true}}"  mode="aspectFill" class="i" src="{{ item.cover || '/assets/images/cover-none.png' }}?imageView2/2/w/750"></image>
-        <view class="icons">
-          <image wx:if="{{item.vr_url}}" class="vr-btn" src="/assets/icons/vr.png"></image>
-          <image wx:if="{{item.video}}" class="video-btn" src="/assets/icons/bofang.png"></image>
+<form report-submit class="fake-form"  bindsubmit="formHandle">
+  <button class="fake-button" form-type="submit">
+  <navigator hover-class="none" class="post {{item.group == 'new' && item.coupon_enable ? '' : 'coupon-none'}} {{type}} {{ shadow ? 'shado' : 'shadow-none'}} {{ border ? 'border' : 'border-none'}}" open-type="navigate" url="/pages/post/post?id={{item.id}}" >
+        <badge wx:if="{{item.coupon_enable}}">{{item.coupon_desc}}</badge>
+        <view class="cover skeleton-rect">
+          <image lazy-load="{{true}}"  mode="aspectFill" class="i" src="{{ item.cover || '/assets/images/cover-none.png' }}?imageView2/2/w/750"></image>
+          <view class="icons">
+            <image wx:if="{{item.vr_url}}" class="vr-btn" src="/assets/icons/vr.png"></image>
+            <image wx:if="{{item.video}}" class="video-btn" src="/assets/icons/bofang.png"></image>
+          </view>
         </view>
-      </view>
-      <view class="meta">
-        <text class="item-title van-ellipsis "  >{{ item.title }}</text>
-        <view class="type-info">
-          {{item.area_info.text}}{{item.area_info.px}}/{{ item.type_info.text}}/{{item.sub_district_name }}
-        </view>
-        <mytags mini="true" items="{{item.tags_list}}" max="3"></mytags>
+        <view class="meta">
+          <text class="item-title van-ellipsis "  >{{ item.title }}</text>
+          <view class="type-info">
+            {{item.area_info.text}}{{item.area_info.px}}/{{ item.type_info.text}}/{{item.sub_district_name }}
+          </view>
+          <mytags mini="true" items="{{item.tags_list}}" max="3"></mytags>
 
-        <view class="price-info">
-          <text class="total">{{item.price_info.text}}{{item.price_info.px}}</text> 
-          <text class="average"> {{item.average_price}}万/平</text>     
+          <view class="price-info">
+            <text class="total">{{item.price_info.text}}{{item.price_info.px}}</text> 
+            <text class="average"> {{item.average_price}}万/平</text>     
+          </view>
         </view>
-      </view>
-</navigator>
-</block>
+  </navigator>
+  </button>
+</form>

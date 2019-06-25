@@ -1,70 +1,74 @@
 import { VantComponent } from '../common/component';
+function emit(target, value) {
+    target.$emit('input', value);
+    target.$emit('change', value);
+}
 VantComponent({
-  field: true,
-  relation: {
-    name: 'checkbox-group',
-    type: 'ancestor'
-  },
-  classes: ['icon-class', 'label-class'],
-  props: {
-    value: null,
-    disabled: Boolean,
-    useIconSlot: Boolean,
-    checkedColor: String,
-    labelPosition: String,
-    labelDisabled: Boolean,
-    shape: {
-      type: String,
-      value: 'round'
+    field: true,
+    relation: {
+        name: 'checkbox-group',
+        type: 'ancestor',
+        linked(target) {
+            this.parent = target;
+        },
+        unlinked() {
+            this.parent = null;
+        }
+    },
+    classes: ['icon-class', 'label-class'],
+    props: {
+        value: Boolean,
+        disabled: Boolean,
+        useIconSlot: Boolean,
+        checkedColor: String,
+        labelPosition: String,
+        labelDisabled: Boolean,
+        shape: {
+            type: String,
+            value: 'round'
+        }
+    },
+    methods: {
+        emitChange(value) {
+            if (this.parent) {
+                this.setParentValue(this.parent, value);
+            }
+            else {
+                emit(this, value);
+            }
+        },
+        toggle() {
+            const { disabled, value } = this.data;
+            if (!disabled) {
+                this.emitChange(!value);
+            }
+        },
+        onClickLabel() {
+            const { labelDisabled, disabled, value } = this.data;
+            if (!disabled && !labelDisabled) {
+                this.emitChange(!value);
+            }
+        },
+        setParentValue(parent, value) {
+            const parentValue = parent.data.value.slice();
+            const { name } = this.data;
+            const { max } = parent.data;
+            if (value) {
+                if (max && parentValue.length >= max) {
+                    return;
+                }
+                if (parentValue.indexOf(name) === -1) {
+                    parentValue.push(name);
+                    emit(parent, parentValue);
+                }
+            }
+            else {
+                const index = parentValue.indexOf(name);
+                if (index !== -1) {
+                    parentValue.splice(index, 1);
+                    emit(parent, parentValue);
+                }
+            }
+        }
     }
-  },
-  methods: {
-    emitChange: function emitChange(value) {
-      var parent = this.getRelationNodes('../checkbox-group/index')[0];
-
-      if (parent) {
-        this.setParentValue(parent, value);
-      } else {
-        this.$emit('input', value);
-        this.$emit('change', value);
-      }
-    },
-    toggle: function toggle() {
-      if (!this.data.disabled) {
-        this.emitChange(!this.data.value);
-      }
-    },
-    onClickLabel: function onClickLabel() {
-      if (!this.data.disabled && !this.data.labelDisabled) {
-        this.emitChange(!this.data.value);
-      }
-    },
-    setParentValue: function setParentValue(parent, value) {
-      var parentValue = parent.data.value.slice();
-      var name = this.data.name;
-
-      if (value) {
-        if (parent.data.max && parentValue.length >= parent.data.max) {
-          return;
-        }
-        /* istanbul ignore else */
-
-
-        if (parentValue.indexOf(name) === -1) {
-          parentValue.push(name);
-          parent.$emit('input', parentValue);
-          parent.$emit('change', parentValue);
-        }
-      } else {
-        var index = parentValue.indexOf(name);
-        /* istanbul ignore else */
-
-        if (index !== -1) {
-          parentValue.splice(index, 1);
-          parent.$emit('input', parentValue);
-          parent.$emit('change', parentValue);
-        }
-      }
-    }
-  }
 });

@@ -1,0 +1,164 @@
+
+page{
+  height:100% !important;
+  padding-top:0;
+}
+
+.user{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width:100%;
+}
+
+.user .uinfo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width:370rpx;
+}
+
+.user .user-actions{
+  display:flex;
+  justify-content:space-between;
+  width:190rpx;
+}
+
+.mybutton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border-radius: 60rpx;
+  height: 60rpx;
+  width: 60rpx;
+  padding:10rpx;
+
+}
+.mybutton van-icon{
+  color: #999;
+}
+
+.user .uinfo .avatar{
+  margin-right:20rpx;
+}
+
+.user-auth{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding:30rpx 40rpx;
+  box-sizing: border-box;
+  margin-top:80rpx;
+  height: 100%;
+}
+
+.user-auth .top{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+}
+
+.user-auth button{
+  width: 100%;
+  height: 80rpx;
+  padding:0;
+  margin-top:60rpx;
+  margin-bottom:3rpx;
+  font-size: var(--font-xl);
+}
+
+.user-auth button image{
+  width: 100%;
+  height: 100%;
+}
+
+.user-auth .footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.user-auth  .tips{
+  font-size:var(--font-s);
+  color:#999;
+  height:80rpx;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.user-auth .footer{
+  width: 100%;
+}
+
+.user-auth .footer .terms{
+  font-size:var(--font-s);
+  color:#3879D9;
+  font-weight: 200;
+}
+
+.avatar, .avatar image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  margin-bottom:10rpx;
+}
+
+
+.cell-title{
+  font-size: var(--font-xl);
+}
+
+.section{
+  width:710rpx;
+  padding:0 20rpx;
+  margin-bottom:20rpx;
+}
+
+.section-title{
+  padding:10rpx 20rpx;
+}
+
+.menu{
+  display:flex;
+  justify-content: flex-start;
+  align-items:space-between;
+  flex-wrap:wrap;
+  width:100%;
+  height:150rpx;
+  margin:0rpx 0;
+}
+
+.menu-item{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  width:25%;
+  flex-wrap:wrap;
+  margin:0 0 0 10rpx 0;
+}
+
+.menu-col-3 .menu-item{
+  width:33.333%;
+}
+
+.menu-col-4 .menu-item{
+  width:25%;
+}
+
+.menu-item-name{
+  margin-top:8rpx;
+  font-size:var(--font-s);
+}
+
+.gotosetting{
+  font-size:32rpx;
+  color:#666;
+}

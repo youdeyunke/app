@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 41,
+			"current": 51,
 			"list": [
 				{
 					"id": 0,
@@ -375,6 +375,13 @@
 					"name": "经纪人主页",
 					"pathName": "pages/user/user",
 					"query": "id=5",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "auth",
+					"pathName": "pages/auth/index",
+					"query": "",
 					"scene": null
 				}
 			]

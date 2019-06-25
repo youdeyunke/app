@@ -1,5 +1,7 @@
 // components/sub-district/items.js
-const app = getApp()
+const app = getApp();
+import Notify from '../../vant/notify/notify.js';
+
 
 Component({
   /**
@@ -103,7 +105,14 @@ Component({
           _this.setData(data)
 
           if(_this.data.showTotalCount > 0 && _this.data.query.page == 1  && meta.total_entries > 0 ){
-            wx.showToast({title: '找到' + meta.total_entries + '套房源' , icon: 'none'})
+            var notifyText = '找到' + meta.total_entries + '套房源'
+            Notify({
+              text: notifyText,
+              duration: 1000,
+              selector: '#van-notify',
+              backgroundColor: '#1989fa'
+            });
+            console.log(notifyText);
           }
 
           for (var i = 0; i <= resp.data.data.length - 1; i++) {

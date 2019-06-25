@@ -1,17 +1,3 @@
-<view class="user-auth" wx:if="{{!userInfo}}">
-  <view class="top">
-    <image src="/assets/images/myself-login.png" mode="widthFix"></image>
-    <button type="primary" class="btn"  open-type='getUserInfo' bindgetuserinfo='loginHandle'>使用微信登录</button>
-    <view class="tips">登录后可体验更多服务</view>
-  </view>
-
-  <view class="footer" bindtap="gotoTerms" hover-class="none">
-    <view class="terms">《用户协议》</view>
-  </view>
-</view>
-
-
-
 <box padding="40" wx:if="{{userInfo}}">
 <view class="user">
   <view class="uinfo">
@@ -25,8 +11,6 @@
     <button class="mybutton" hover-class="none"  open-type="getUserInfo" bindgetuserinfo="syncAvatar"> <van-icon name="exchange" /> </button>
     <button class="mybutton" hover-class="none" bindtap="gotoSetting" > <van-icon  size="40rpx" name="setting-o"  /> </button>
   </view>
-
-
 </view>
 </box>
 

@@ -1,4 +1,5 @@
-<block wx:if="{{filter}}">
+<block>
+  <vant-notify id="van-notify" />
 
   <view class="empty" wx:if="{{meta.total_entries == 0 }}" style="text-align:center;color:#cecece;">没有结果</view>
   <block wx:key="{{index}}" wx:for="{{items}}" wx:for-item="posts">

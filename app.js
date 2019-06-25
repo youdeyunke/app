@@ -451,8 +451,10 @@ App({
       return false;
     }
 
+    console.log('check session start')
     wx.checkSession({
       success: function(){
+        console.log('check session success, post formid ', e.detail.formId)
         _this.request({
           hideLoading: true,
           url: "/api/v1/formid/",
@@ -460,6 +462,13 @@ App({
           hideLoading: true,
           method: "POST",
         });
+      },
+      fail: function(){
+        console.log('check session error')
+        wx.login()
+      },
+      complete: function(e){
+        console.log('check session complete',e )
       }
     })
   },
@@ -502,22 +511,36 @@ App({
     });
   },
 
-  gotoAccount: function(title, content) {
-    wx.showModal({
-      title: title,
-      content: content,
-      success: function(res) {
-        if (res.confirm) {
-          console.log("用户点击确定");
-          wx.switchTab({
-            url: "/pages/myself/myself"
-          });
-        } else if (res.cancel) {
-          console.log("用户点击取消");
-        }
+    bindPhoneNumber: function(e,  cb){
+      if(!e.detail.iv || !e.detail.encryptedData){
+        console.log('获取用户手机号错误')
+        return false;
       }
-    });
-  },
+
+      this.request({
+          method: 'POST',
+          url: '/api/v1/users/bind_xcx_mobile',
+          data: {
+              'iv': e.detail.iv,
+              'encryptedData': e.detail.encryptedData
+          },
+
+          success: function (res) {
+              if (res.data.status != 0) {
+                  wx.showModal({
+                      content: '服务器出现错误，请稍后再试',
+                      showCancle: false
+                  })
+              } else {
+                  // 绑定手机号成功
+                  var user =  res.data.data
+                  console.log(that.data.mobile)
+                  typeof cb == 'function' && cb(user.mobile)
+              }
+          }
+      })
+    },
+
 
   request: function(obj) {
     var _this = this;
@@ -599,7 +622,7 @@ App({
           // token 过期
           wx.setStorageSync("userInfo", null);
           wx.setStorageSync("token", null);
-          auth.gotoAccount("需要登录", "请先登录账号");
+          auth.gotoAuth("需要登录", "请先登录账号");
           return false;
         }
         if (res.data.status == 1 && res.data.error) {
