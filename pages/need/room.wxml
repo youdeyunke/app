@@ -1,8 +1,6 @@
 <block wx:for="{{needs}}" wx:for-item="needItems">
         <block wx:for="{{needs}}" wx:for-item="needItems">
-                <need-house redirect wx:for="{{needItems}}" wx:for-item="need" item="{{need}}" />
+          <need-house user="{{userInfo}}" redirect wx:for="{{needItems}}" wx:for-item="need" item="{{need}}" />
         </block>
 
 </block>
-
-<add-new url="/pages/need/room-form" />

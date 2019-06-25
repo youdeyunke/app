@@ -4,6 +4,8 @@
     "van-radio-group": "/vant/radio-group/index",
     "van-radio": "/vant/radio/index",
     "box": "/components/box",
+    "van-panel": "/vant/panel/index",
+    "van-cell": "/vant/cell/index",
     "howlong": "/components/howlong"
   }
 }

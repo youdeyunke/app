@@ -1,77 +1,65 @@
 .need{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  box-sizing: border-box;
-  width: 100%;
+  width:710rpx;
+  padding:30rpx 30rpx;
+  box-sizing:border-box;
+  background:#fff;
+  margin-bottom:0px;
+  border-bottom:1px solid #f4f4f4;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-.need .header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.need .header .avatar image{
-  width: 50rpx;
-  height: 50rpx;
-  margin-right:15rpx;
-  border-radius: 50rpx;
-}
-
-.need .header .user{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.need .header  .time{
-  font-size:var(--font-sm);
-  margin-left:20rpx;
-  color: #cecece;
+.need .avatar, .need .avatar image{
+   width:120rpx;
+   height:120rpx;
+   border-radius:120rpx;
+   border:1px solid #f4f4f4;
 }
 
 .need .body{
-  width: calc(750rpx - 120rpx - 20rpx);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
+  width:375rpx;
+  margin-left:20rpx;
 }
 
-.need .meta{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  margin-top:20rpx;
+
+.need .body view.name{
+  display:flex;
+  margin-bottom:10rpx;
+
 }
 
-.need .content{
-  margin-top:20rpx;
+.need .body text.name{
+  font-weight:bolder;
+  color:#000000;
+  font-weight:30rpx;
 }
 
-.need .meta view{
-  border:2rpx solid var(--color-a);
-  color:var(--color-a);
-  border-radius: 10rpx;
-  padding:4rpx 8rpx;
-  font-size: var(--font-xs);
+.need .body .blank{
+  width:15rpx;
 }
 
-.need .meta .budget{
-  margin-right:15rpx;
+
+.need .body .position{
+  font-size:28rpx;
+  color:#333;
+  margin-bottom:10rpx;
+
 }
 
-.need .position {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+
+.need .body .price text{
+ color:red;
+ font-weight:bolder;
+ font-size:28rpx;
+ font-weight:bolder;
 }
-.need .position image{
-  width: 32rpx;
-  height: 30rpx;
-  margin-right:15rpx;
+
+
+
+.need .footer{
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  color:#cecece;
 }

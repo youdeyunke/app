@@ -1,4 +1,4 @@
-<form bindsubmit='submitHandle'>
+<form bindsubmit='submitHandle'  >
         <box padding="30" wx:if="{{!userInfo.mobile}}">
             <navigator url="/pages/myself/index" open-type='switchTab' hover-class='hover-class'>
                   为了便于联系，请先绑定手机号，点击此处， <text  class="bind">开始绑定</text>
@@ -25,12 +25,14 @@
         <card hat title="预算范围">
             <van-field 
                         label="最低" 
+                        required
                         bind:change="inputChange"
                         placeholder="单位：{{priceUnit}}"
                         data-name="budget_min" />
 
                 <van-field 
                         label="最高" 
+                        required
                         autosize
                         bind:change="inputChange"
                         placeholder="单位：{{priceUnit}}"
@@ -42,6 +44,7 @@
         <card hat title="基础意向">
                 <van-field 
                         label="区域" 
+                        required
                         bind:change="inputChange"
                         value="{{position}}" 
                         data-name="position" />
@@ -63,31 +66,40 @@
 
 
         <card hat title="联系方式">
+          <van-cell-group>
                 <van-field 
                         bindchange="inputChange" 
                         label="称呼" 
+                        required
                         value="{{ contact_name }}" 
-                        placeholder="请输入" 
+                        placeholder="怎么称呼您" 
                         data-name="contact_name"  />
 
                 <van-field 
                         bindchange="inputChange" 
+                        center
+                        required
                         label="手机号" 
+                        icon="question-o"
+                        bind:click-icon="mobileIconClickHandle"
                         value="{{ contact_mobile }}" 
-                        placeholder="请输入" 
-                        data-name="contact_mobile"  />
+                        readonly="{{contact_mobile_lock}}"
+                        disabled="{{contact_mobile_lock}}"
+                        placeholder="用于经纪人联系您" 
+                        data-name="contact_mobile">
+                </van-field>
 
                 <van-field 
                         bindchange="inputChange" 
                         label="微信" 
                         value="{{ contact_wechat }}" 
-                        placeholder="请输入" 
+                        placeholder="可留空" 
                         data-name="contact_wechat"  />
-
+          </van-cell-group> 
         </card>
 
   <view style="width:90%;margin:auto;">
-    <button class="btn" type="primary" form-type='submit'>提交保存</button>
+    <button type="primary" form-type='submit'>填好了，提交</button>
   </view>
 
 </form>

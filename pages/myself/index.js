@@ -228,13 +228,11 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        var u = wx.getStorageSync('userInfo')
-        if(!u){
-          wx.navigateTo({url:'/pages/auth/index'})
-          return
-        }
-        this.setData({userInfo: u })
-        this.setNavColor(u)
+      var _this = this
+      auth.ensureUser(function(user){
+        _this.setData({userInfo: user})
+      
+      })
     },
 
     /**

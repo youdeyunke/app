@@ -1,10 +1,14 @@
 // components/need-house.js
+const app = getApp()
+
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
     item: {type: Object, value: null},
+    user : {type: Object, value: {} },
+    viewMobile: {type: Boolean, value: false},
     redirect: {type: Boolean, value: false},
   },
 
@@ -15,17 +19,36 @@ Component({
 
   },
 
+  ready: function(){
+    var r = wx.getStorageSync('viewMobile.' + this.data.item.id) || ''
+    console.log('r is', r)
+    this.setData({viewMobile: r == 'yes'})
+  },
+
   /**
    * 组件的方法列表
    */
   methods: {
-    itemClick: function(e){
-      if(this.data.redirect){
-        var url = '/pages/need/room-show?id=' + this.data.item.id
-        wx.navigateTo({
-          url: url
-        })
-      }
+
+    formidHandle: function(e){
+      app.uploadFormid(e)
     },
+
+    viewMobile: function(e){
+      var _this = this
+      app.request({
+        url: '/api/v1/needs/' + _this.data.item.id,
+        method: 'PUT',
+        data: {myaction: 'hold_on' },
+        success: function(resp){
+          // success
+          if(resp.data.status == 0 ){
+            _this.setData({item: resp.data.data})
+          }
+        },
+      })
+    
+    },
+
   }
 })

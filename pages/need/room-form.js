@@ -31,7 +31,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: wx.getStorageSync('userInfo'),
     
     cats: [
       {label: '我要买房', value: 'buy'},
@@ -65,9 +64,6 @@ Page({
    */
   onLoad: function (q) {
     var _this = this
-    auth.ensureUser(function(user){
-      _this.setData({userInfo: user})
-    })
     _this.updateForm('buy')
   },
 
@@ -170,7 +166,16 @@ Page({
     return cb(data)
   },
 
+  mobileIconClickHandle: function(e){
+    wx.showModal({
+      title: '提示',
+      content: '手机号码仅用做经纪人联系您，请务必填写真实号码',
+    })
+  },
+
   submitHandle: function(e){
+    console.log('submit ', e)
+    app.uploadFormid(e)
     var _this = this
     app.uploadFormId(e)
     auth.ensureUser(function(userInfo){
@@ -241,6 +246,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var _this = this
+    auth.ensureUser(function(user){
+      _this.setData({userInfo: user})
+      if(user.mobile){
+        _this.setData({contact_mobile: user.mobile, contact_mobile_lock: true})
+      }
+    })
   },
 
   /**
