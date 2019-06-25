@@ -1,5 +1,6 @@
 // pages/need/show.js
 const app = getApp()
+var auth = require('../../utils/auth.js');
 
 Page({
 
@@ -7,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    user: {},
   },
 
   /**
@@ -18,6 +19,46 @@ Page({
     this.setData({id: q.id})
     this.loadData()
 
+  },
+
+  formidHandle: function(e){
+    app.uploadFormid(e)
+  },
+
+  _hold: function(name){
+    var _this = this 
+    app.request({
+      url: '/api/v1/needs/' + _this.data.id,
+      method: 'PUT',
+      data: {myaction: name },
+      success: function(resp){
+        // success
+        if(resp.data.status == 0 ){
+          _this.loadData()
+          wx.showToast({
+            mask: true,
+            icon: 'success',
+            duration: 3000,
+            title: '操作成功'
+          })
+        }
+      },
+    })
+  },
+
+  holdOn: function(e){
+    this._hold('hold_on')
+  },
+
+  holdOff: function(e){
+    this._hold('hold_off')
+  },
+
+  call: function(e){
+    var _this = this
+      wx.makePhoneCall({
+          phoneNumber: _this.data.need.contact_mobile
+      })
   },
 
   loadData: function(){
@@ -43,7 +84,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var _this = this
+      auth.ensureUser(function(user){
+        _this.setData({user: user})
+      
+    })
   },
 
   /**

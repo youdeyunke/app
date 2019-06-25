@@ -1,9 +1,44 @@
-<!--pages/need/show.wxml-->
-<block wx:if="{{need}}">
+<form report-submit bindsubmit="formidHandle">
 
-<need-house item="{{need}}" />
-<recoms title="推荐房源" group="rental" count="10"></recoms>
-<broker wx:if="{{need.contact_info}}" booking-enable="{{false}}" broker="{{need.contact_info}}" />
-<safe-tips />
+<box width="750" padding="30">
+  <view class="header">
+    <image class="avatar" src="{{need.user_info.avatar}}" />
+    <view class="cat">{{ need.cat == 'buy' ? '买房' : '租房'}}</view>
+  </view>
 
-</block>
+
+</box>
+
+<box width="750" padding="30">
+  <view class="body">
+    <van-cell size="large" title="客户姓名" value="{{ need.contact_name }}" />
+    <van-cell size="large"  title="客户电话" value="{{ need.broker_id == userInfo.id ?  need.contact_mobile : '***********' }}" />
+    <van-cell size="large"  title="客户微信" value="{{ need.contact_wechat || '无' }}" />
+
+    <van-cell size="large"  title="要求区域" value="{{need.position}}" />
+    <van-cell size="large"  title="要求预算" value="{{need.budget_min}}~{{need.budget_max}}" />
+    <van-cell size="large"  title="其他要求" value="{{need.content}}" />
+    <van-cell size="large"  border="{{false}}" title="发布时间" value="{{ need.created_at_pretty }}" />
+  </view>
+</box>
+
+
+<view class="btns" wx:if="[{user.id}}">
+  <button form-type="submit" wx:if="{{user.id == need.broker_id}}" bindtap="call" class="">拨打电话</button>
+  <button form-type="submit" type="warn" wx:if="{{user.id == need.broker_id}}" bindtap="holdOff" class="">取消抢单</button>
+  <button form-type="submit" type="primary" wx:if="{{user.id != need.broker_id}}" bindtap="holdOn" class="">马上抢单</button>
+</view>
+
+
+<view class="tips">
+  <view class="title"><van-icon color="#000000" name="info-o" /><text>抢单规则说明</text></view>
+  <ul>
+  <li>经纪人抢单成功后自动显示客户的联系电话</li>
+  </ul>
+  <view>每个客户只能1个经纪人抢单</view>
+  <view>抢单成功后30分钟内，其他经纪人无法查看客户的联系电话，请尽快联系客户</view>
+  <view>抢单成功后30分钟后，其他经纪人可继续抢单</view>
+</view>
+
+
+</form>

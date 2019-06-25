@@ -572,6 +572,7 @@ App({
       method: obj.method || "GET",
       header: header,
       success: function(res) {
+
         if (typeof res != "object") {
           console.log("server error");
         }
@@ -635,15 +636,20 @@ App({
           });
         }
 
-        typeof obj.success == "function" && obj.success(res);
+        wx.hideLoading({complete: function(){
+          wx.hideNavigationBarLoading();
+          wx.stopPullDownRefresh();
+          typeof obj.success == "function" && obj.success(res);
+        }});
+
       },
       fail: function(res) {
         console.log("request fail", res);
-      },
-      complete: function() {
         wx.hideLoading();
         wx.hideNavigationBarLoading();
         wx.stopPullDownRefresh();
+      },
+      complete: function() {
         typeof obj.complete == "function" && obj.complete();
       }
     });

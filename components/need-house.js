@@ -35,18 +35,6 @@ Component({
     },
 
     viewMobile: function(e){
-      var _this = this
-      app.request({
-        url: '/api/v1/needs/' + _this.data.item.id,
-        method: 'PUT',
-        data: {myaction: 'hold_on' },
-        success: function(resp){
-          // success
-          if(resp.data.status == 0 ){
-            _this.setData({item: resp.data.data})
-          }
-        },
-      })
     
     },
 

@@ -12,11 +12,11 @@
     <view class="tags">
       <van-tag color="#F5CB6E" text-color="#fff">{{ item.cat == 'buy' ? '买' : '租'}}</van-tag>
       <view class="blank"></view>
-      <van-tag wx:if="{{!item.broker_id}}" type="default" plain>可抢单</van-tag>
+      <van-tag wx:if="{{item.can_hold_on}}" type="default" plain>可抢单</van-tag>
     </view>
   </view>
   <view class="footer"> 
-    {{ !item.broker_id ? '去抢单' : '已被抢'}}
+    {{ item.can_hold_on ? '去抢单' : '已被抢'}}
     <van-icon name="arrow" /> 
   </view>
 
