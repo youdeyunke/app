@@ -3,16 +3,16 @@
 
 <form bindsubmit="submit">
     <box>
-        <van-field bindchange="inputChange" error="{{error.title}}" input-align="left" data-name="title" label="房源标题"
+      <van-field size="large" bindchange="inputChange" error="{{error.title}}" input-align="left" data-name="title" label="房源标题"
             value="{{post.title}}" clearable placeholder="如：房东急租小2房" />
     </box>
 
     <mycard title="地址" wx:if="{{step==1}}" subtitle="门牌号保密，仅管理员可见" hat>
-        <van-field error="{{error.district_id}}" input-align="left" disabled bindtap="chooseLocation" is-link label="小区"
+        <van-field size="large"  error="{{error.district_id}}" input-align="left" disabled bindtap="chooseLocation" is-link label="小区"
             value="{{post.sub_district_name}}" arrow-direction="down" />
-        <van-field data-name="building_number" value="{{ post.building_number }}" input-align="left" label="栋座/位置"
+        <van-field size="large"  data-name="building_number" value="{{ post.building_number }}" input-align="left" label="栋座/位置"
             placeholder="如：A栋" bind:change="inputChange" />
-        <van-field data-name="house_number" value="{{ post.house_number }}" input-align="left" label="房号"
+        <van-field size="large"  data-name="house_number" value="{{ post.house_number }}" input-align="left" label="房号"
             placeholder="如：55号楼 1002室" bind:change="inputChange" />
     </mycard>
 
@@ -32,11 +32,11 @@
         data="{{user:user, is_sublet: is_sublet, error: error, post: post, step, minRentMonthItems: minRentMonthItems, allTags, selectedTags}}" />
 
     <mycard wx:if="{{step == 2}}" hat title="联系人信息" subtitle="必填">
-        <van-field bindchange="inputChange" label="姓名" value="{{ post.broker_name || broker_name}}" input-align="left"
+        <van-field size="large"  bindchange="inputChange" label="姓名" value="{{ post.broker_name || broker_name}}" input-align="left"
             placeholder="请输入" data-name="broker_name" error="{{error.broker_name}}" />
-        <van-field bindchange="inputChange" label="电话" value="{{ post.broker_mobile || broker_mobile }}"
+        <van-field size="large"  bindchange="inputChange" label="电话" value="{{ post.broker_mobile || broker_mobile }}"
             placeholder="请输入" input-align="left" data-name="broker_mobile" error="{{error.broker_mobile}}" />
-        <van-field bindchange="inputChange" label="微信" value="{{post.broker_wechat || broker_wechat }}" placeholder="选填"
+        <van-field size="large"  bindchange="inputChange" label="微信" value="{{post.broker_wechat || broker_wechat }}" placeholder="选填"
             input-align="left" data-name="broker_wechat" border="{{false}}" />
     </mycard>
 

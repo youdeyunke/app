@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 53,
+			"current": 54,
 			"list": [
 				{
 					"id": 0,
@@ -396,6 +396,13 @@
 					"name": "need-show",
 					"pathName": "pages/need/room-show",
 					"query": "id=14",
+					"scene": null
+				},
+				{
+					"id": 54,
+					"name": "need-room-form",
+					"pathName": "pages/need/room-form",
+					"query": "",
 					"scene": null
 				}
 			]

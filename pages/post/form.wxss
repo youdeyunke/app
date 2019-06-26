@@ -72,3 +72,8 @@ page{
   background: #f4f4f4;
   margin-bottom:15rpx;
 }
+
+
+.radio-value-class {
+  flex: none !important;
+}

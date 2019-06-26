@@ -31,7 +31,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    isDone: false,
     cats: [
       {label: '我要买房', value: 'buy'},
       {label: '我要租房', value: 'rent'},
@@ -74,6 +74,12 @@ Page({
     this.updateForm(name)
   },
 
+  gotoHome: function(){
+    wx.switchTab({
+      url: '/pages/home/home',
+    })
+  },
+
   updateForm: function(cat){
     var title = '' 
     var data = {}
@@ -97,8 +103,8 @@ Page({
         budget_min: 10,
         budget_max: 1000,
         budget_min_value: 100,
-        budget_max_value: 150,
-        priceUnit: '万元',
+        budget_max_value: 500,
+        priceUnit: '万',
         step: 5,
       }
     }
@@ -113,9 +119,10 @@ Page({
   },
 
   budgetChange: function(e){
-    var r = e.detail.range
-    console.log('budget', r)
-    this.setData({budget_min_value: r[0], budget_max_value: r[1]})
+    
+    var min = Math.floor(e.detail.minValue)
+    var max = Math.floor(e.detail.maxValue)
+    this.setData({budget_min_value: min, budget_max_value: max })
   },
 
   validate: function(cb){
@@ -173,8 +180,12 @@ Page({
     })
   },
 
+  formidHandle: function(e){
+    app.uploadFormid(e)
+  },
+
   submitHandle: function(e){
-    console.log('submit ', e)
+
     app.uploadFormid(e)
     var _this = this
     app.uploadFormId(e)
@@ -192,13 +203,7 @@ Page({
                 })
                 return false
               }
-              wx.showModal({
-                title: '提交成功！',
-                content: '请等待管理员审核',
-                success: function(res) {
-                    wx.navigateBack({ delta: -1 })
-                }
-              })
+              _this.setData({isDone: true})
             }
           })
         })
