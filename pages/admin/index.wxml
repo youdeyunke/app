@@ -1,0 +1,63 @@
+<box padding="40" >
+<view class="user">
+  <view class="uinfo">
+    <view class="avatar">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <view class="nickname">{{userInfo.name}} {{ userInfo.company }} </view>
+  </view>
+
+  <view class="user-actions">
+    <button class="fake" hover-class="none"  open-type="getUserInfo" bindgetuserinfo="syncAvatar"> 签到 </button>
+  </view>
+</view>
+</box>
+
+
+<form report-submit> 
+
+  <box padding="30">
+    <view class="menu"  >
+      <button hover-class="none"   class="fake menu-item" >
+        <van-icon color="#0ddb0c" size="58rpx" name="add"  />
+        <view class="menu-item-name">发布二手房 </view>
+      </button>
+
+      <button hover-class="none"  class="fake menu-item" >
+        <van-icon color="#ff9501" size="58rpx" name="add-square" />
+        <view class="menu-item-name">发布租房 </view>
+      </button>  
+
+      <button hover-class="none"   class="fake menu-item" >
+        <van-icon color="#59B8EB" size="58rpx" name="column" />
+        <view class="menu-item-name">房源管理 </view>
+      </button>
+
+      <button hover-class="none"   class="fake menu-item" >
+        <van-icon color="#4184AF" size="58rpx" name="friends" />
+        <view class="menu-item-name">求购客源 </view>
+      </button>
+
+      <button hover-class="none"   class="fake menu-item" >
+        <van-icon color="#E15C32" size="58rpx" name="friends" />
+        <view class="menu-item-name">求租客源 </view>
+      </button>
+
+      <button hover-class="none"  class="fake menu-item" >
+        <van-icon color="#5857CE" size="58rpx" name="manager" />
+        <view class="menu-item-name">我的客源 </view>
+      </button>  
+
+      <button hover-class="none"  class="fake menu-item" >
+        <van-icon color="#65CF9D" size="58rpx" name="card" />
+        <view class="menu-item-name">我的名片 </view>
+      </button>     
+
+      <button hover-class="none"  class="fake menu-item" >
+        <van-icon color="#66" size="58rpx" name="bars" />
+        <view class="menu-item-name">我的档案</view>
+      </button>                      
+
+    </view>
+  </box>
+</form>

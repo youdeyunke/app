@@ -9,6 +9,7 @@ Page({
      */
     data: {
         userInfo: {},
+      configs: wx.getStorageSync('myconfigs'),
         cells: [
             {
                 icon: "chat-o",
@@ -48,6 +49,15 @@ Page({
     })
   },
 
+  logoutHandle: function (e) {
+    wx.setStorageSync('userInfo', null)
+    wx.setStorageSync('token', null)
+    this.setData({ userInfo: null })
+    this.setData({ userInfo: null })
+    wx.switchTab({ url: '/pages/home/home' })
+  },
+
+
   syncAvatar: function (e) {
     var _this = this
     wx.showModal({
@@ -62,6 +72,13 @@ Page({
 
         }
       }
+    })
+  },
+
+  callService: function(e){
+    var n = this.data.configs['service_mobile']
+    wx.makePhoneCall({
+      phoneNumber: n,
     })
   },
 

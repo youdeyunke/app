@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 54,
+			"current": 41,
 			"list": [
 				{
 					"id": 0,
@@ -309,8 +309,8 @@
 				},
 				{
 					"id": 41,
-					"name": "个人",
-					"pathName": "pages/myself/index",
+					"name": "工作台",
+					"pathName": "pages/admin/index",
 					"query": "",
 					"scene": null
 				},

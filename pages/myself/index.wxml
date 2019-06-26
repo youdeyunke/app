@@ -9,7 +9,6 @@
 
   <view class="user-actions">
     <button class="mybutton" hover-class="none"  open-type="getUserInfo" bindgetuserinfo="syncAvatar"> <van-icon name="exchange" /> </button>
-    <button class="mybutton" hover-class="none" bindtap="gotoSetting" > <van-icon  size="40rpx" name="setting-o"  /> </button>
   </view>
 </view>
 </box>
@@ -20,54 +19,17 @@
       <van-cell border="{{false}}" size="large" hover-class="none" title="绑定手机号"   center>
             <van-button slot="right-icon" size="mini" plain type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">马上绑定</van-button>
         </van-cell>
-
-    </box>
-
-  <box width="750" hat="{{false}}"  title="我的服务" head-border="{{true}}" padding="20">
-        <view class="menu menu-col-4">
-          <navigator hover-class="none" url="/pages/post/form?group=old"  class="menu-item">
-            <van-icon color="#66" size="52rpx" name="balance-o" />
-                <view class="menu-item-name">我要卖房</view>
-            </navigator>
-
-            <navigator hover-class="none" url="/pages/post/form?group=rental"  class="menu-item" >
-            <van-icon color="#66" size="52rpx" name="calender-o" />
-                <view class="menu-item-name">我要出租</view>
-            </navigator>
-
-            <navigator hover-class="none" url="/pages/myself/posts"  class="menu-item" >
-                <van-icon color="#66" size="52rpx" name="apps-o" />
-                <view class="menu-item-name">房源管理</view>
-            </navigator>
-
-
-          <!-- navigator hover-class="none" url="/pages/myself/qa"  class="menu-item">
-                <van-icon color="#66" size="52rpx" name="chat-o" />
-                <view class="menu-item-name">我的提问</view>
-            </navigator>
-
-            <navigator hover-class="none" url="/pages/myself/comments"  class="menu-item" >
-            <van-icon color="#66" size="52rpx" name="comment-o" />
-                <view class="menu-item-name">我的评价</view>
-            </navigator -->
-
-            <navigator hover-class="none" url="/pages/myself/favposts"  class="menu-item" >
-                <van-icon color="#66" size="52rpx" name="like-o" />
-                <view class="menu-item-name">我的收藏</view>
-          </navigator>
-
-        </view>
   </box>
 
+  <view class="cell-menu">
+    <van-cell icon="like-o"  size="large" is-link url="/pages/myself/favposts"  hover-class="none" title="我的收藏" />   
+    <van-cell icon="search" size="large" is-link url="/pages/need/room-form"  hover-class="none" title="帮我找房" />                            
+  </view>
 
-  <mycard width="750" hat="{{false}}" head-border="{{true}}" title="我是经纪人"  padding="20">
-    <van-cell wx:if="{{!userInfo.broker_profile.enable}}" size="large"  hover-class="none" title="经纪人身份"   center>
-            <van-button slot="right-icon" size="mini" plain bindtap="gotoMembership" type="primary">立即开通</van-button>
-        </van-cell>
-        <van-cell wx:if="{{userInfo.broker_profile.enable && userInfo.broker_profile.remain_days > 3}}" size="large" url="/pages/myself/broker"  hover-class="none" value="已开通" title="经纪人身份" center />
-        <van-cell wx:if="{{userInfo.broker_profile.enable && userInfo.broker_profile.remain_days <= 3}}" size="large" url="/pages/myself/broker"  hover-class="none" value="剩余{{userInfo.broker_profile.remain_days}}到期" title="经纪人身份" center />
-        <van-cell border="{{false}}" size="large" is-link url="/pages/user/user?id={{userInfo.id}}"  hover-class="none" title="我的主页" />
-
-  </mycard>
+  <view class="cell-menu">  
+    <van-cell icon="service-o" size="large" is-link  bindtap="callService"  hover-class="none" title="客服电话"  value="{{configs.service_mobile}}" />    
+    <van-cell icon="setting-o"  size="large" is-link url="/pages/myself/setting"  hover-class="none" title="系统设置" /> 
+    <van-cell icon="close" border="{{false}}" size="large" is-link bindtap="logoutHandle" hover-class="none" title="退出登录" />                             
+  </view>  
 
 </block>
