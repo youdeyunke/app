@@ -1,5 +1,6 @@
 <form report-submit bindsubmit="formidHandle">
 
+
 <box width="750" padding="30">
   <view class="header">
     <image class="avatar" src="{{need.user_info.avatar}}" />

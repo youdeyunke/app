@@ -1,24 +1,13 @@
 
 <form bindsubmit='submitHandle' report-submit  wx:if="{{!isDone}}">
-        <card width="710" hat title="定制类型">
-					<van-radio-group value="{{ cat }}" >
-						<van-cell-group>
-							<van-cell
-						    wx:for="{{cats}}"
-                value-class="radio-value-class"
-                center
-								title="{{item.label}}"
-								clickable
-								data-name="{{item.value}}"
-								bind:click="catClick"
-							>
-              <van-radio  name="{{item.value}}" />
-							</van-cell>
-						</van-cell-group>
-				  </van-radio-group> 
-					
-        </card>
-        <card width="710" hat="{{false}}" title="预算" subtitle="请拖动滑块选择预算范围">
+
+    <view class="mycats">
+      <van-tabs  border="{{false}}" type="line" color="#00ae66" bind:change="catChange">
+        <van-tab wx:for="{{cats}}" title="{{item.label}}"></van-tab>
+      </van-tabs>
+    </view>
+
+        <card width="710" hat="{{false}}" title="{{ cat == 'buy' ? '买房' : '租房'}}预算" subtitle="请拖动滑块选择预算范围">
             <view class="range-value">
               <text class="number">{{ budget_min_value }}</text> 
               <text class="unit">{{priceUnit}}</text> 

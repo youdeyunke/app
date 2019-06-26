@@ -1,9 +1,17 @@
 page{
-  padding-top:10rpx;
+  padding-top:0rpx;
   padding-bottom:20rpx;
 
 }
 
+
+.mycats{
+  width: 750rpx;
+  margin:0rpx 0 20rpx 0;
+  padding:0rpx 30rpx;
+  box-sizing: border-box;
+  background: #fff;
+}
 
 .range-slider-block::after{
   content: "";

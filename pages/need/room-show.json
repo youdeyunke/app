@@ -1,6 +1,8 @@
 {
   "usingComponents": {
     "need-house": "/components/need-house",
+    "van-tabs": "/vant/tabs/index",
+    "van-tab": "/vant/tab/index",
     "safe-tips": "/components/safe-tips",
     "recoms":"/components/recom-posts",
     "broker": "/components/broker/btns",

@@ -67,11 +67,10 @@ Page({
     _this.updateForm('buy')
   },
 
-
-  catClick: function(e){
-    const { name } = e.currentTarget.dataset;
-    console.log('cat lick ', name)
-    this.updateForm(name)
+  catChange: function(e){
+    var i = e.detail.index
+    var cat = this.data.cats[i]
+    this.updateForm(cat.value)
   },
 
   gotoHome: function(){
@@ -119,7 +118,6 @@ Page({
   },
 
   budgetChange: function(e){
-    
     var min = Math.floor(e.detail.minValue)
     var max = Math.floor(e.detail.maxValue)
     this.setData({budget_min_value: min, budget_max_value: max })
