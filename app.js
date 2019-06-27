@@ -549,10 +549,7 @@ App({
     var _this = this;
     var token = wx.getStorageSync("token");
     if (!obj.hideLoading) {
-      wx.showLoading({
-        title: "加载中",
-        mask: false
-      });
+      wx.showLoading({ title: "加载中", mask: true });
     }
 
     var header = obj.header || {};
@@ -636,20 +633,17 @@ App({
           });
         }
 
-        wx.hideLoading({complete: function(){
-          wx.hideNavigationBarLoading();
-          wx.stopPullDownRefresh();
-          typeof obj.success == "function" && obj.success(res);
-        }});
+        typeof obj.success == "function" && obj.success(res);
 
       },
       fail: function(res) {
-        console.log("request fail", res);
-        wx.hideLoading();
         wx.hideNavigationBarLoading();
         wx.stopPullDownRefresh();
       },
       complete: function() {
+        if(!obj.hideLoading){ wx.hideLoading(); }
+        wx.hideNavigationBarLoading();
+        wx.stopPullDownRefresh();
         typeof obj.complete == "function" && obj.complete();
       }
     });

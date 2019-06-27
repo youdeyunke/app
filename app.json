@@ -77,7 +77,8 @@
         "iconPath": "/assets/icons/admin.0.png",
         "selectedIconPath": "/assets/icons/admin.1.png",
         "text": "工作台"
-      },
+      },      
+
       {
         "pagePath": "pages/myself/index",
         "iconPath": "/assets/icons/myself.0.png",

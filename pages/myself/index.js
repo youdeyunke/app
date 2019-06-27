@@ -49,6 +49,18 @@ Page({
     })
   },
 
+  navigatetTo: function(e){
+    console.log('e', e)
+    var url = e.currentTarget.dataset.url
+    wx.navigateTo({
+      url: url,
+    })
+  },
+
+  formidHandle: function(e){
+    app.uploadFormid(e)
+  },
+
   logoutHandle: function (e) {
     wx.setStorageSync('userInfo', null)
     wx.setStorageSync('token', null)
@@ -194,11 +206,7 @@ Page({
      */
     onLoad: function (options) {
         var _this = this
-        // 未登录时候标题栏为灰色，登录后为白色
         wx.setNavigationBarTitle({title: '我的'})
-        if(this.data.userInfo.id){
-            this.getRemoteUserInfo()
-        }
     },
 
     getRemoteUserInfo: function () {
@@ -248,7 +256,7 @@ Page({
       var _this = this
       auth.ensureUser(function(user){
         _this.setData({userInfo: user})
-      
+        _this.getRemoteUserInfo()
       })
     },
 

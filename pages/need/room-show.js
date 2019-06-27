@@ -54,6 +54,14 @@ Page({
     this._hold('hold_off')
   },
 
+  tipsHandle: function(e){
+    this.setData({showTips: true})
+  },
+
+  tipsClose: function(e){
+    this.setData({showTips: false})
+  },
+
   call: function(e){
     var _this = this
       wx.makePhoneCall({

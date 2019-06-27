@@ -13,6 +13,10 @@
   border:1px solid #f4f4f4;
 }
 
+.header .name{
+  width: 480rpx;
+}
+
 .header .cat{
   font-size:30rpx;
   font-weight:bolder;
@@ -21,23 +25,16 @@
 }
 
 .tips{
+  margin-top:0rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   padding:30rpx;
-  font-size:28rpx;
-  color:#333;
-  line-height:1.4;
+  color: #999;
 }
 
-.tips .title{
-  margin-bottom:10rpx;
-  color:#000;
-  font-weight:bolder;
-  display:flex;
-  justify-content:flex-start;
-  align-items:center;
-}
-
-.tips .title text{
- margin-left:10rpx;
+.tips text{
+  margin-right:10rpx;
 }
 
 .btns{
@@ -47,4 +44,11 @@
 
 .btns button{
  margin-bottom:20rpx;
+}
+
+.tips-body{
+  padding:30rpx;
+  line-height: 1.5;
+  font-size:28rpx;
+  color: #333;
 }

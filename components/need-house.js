@@ -8,6 +8,7 @@ Component({
   properties: {
     item: {type: Object, value: null},
     user : {type: Object, value: {} },
+    hideBtn: {type: Boolean, value: false},
     viewMobile: {type: Boolean, value: false},
     redirect: {type: Boolean, value: false},
   },

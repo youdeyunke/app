@@ -66,7 +66,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // 从对话界面退出
+    
     this.loadData()
     this.stopInterval()
     this.startInterval()

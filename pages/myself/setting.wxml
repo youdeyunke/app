@@ -17,5 +17,4 @@
 
     <van-cell bindtap="openAuthSetting" size="large" hover-class="none" title="权限设置" is-link  > </van-cell>
 
-    <van-cell border="{{false}}" bindtap="logoutHandle" border="{{false}}" bindtap="logoutHandle" size="large"  hover-class="none"  title="退出登录" is-link="{{true}}" />
 </box>

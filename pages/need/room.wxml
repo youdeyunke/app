@@ -1,6 +1,14 @@
-<block wx:for="{{needs}}" wx:for-item="needItems">
-        <block wx:for="{{needs}}" wx:for-item="needItems">
-          <need-house user="{{userInfo}}" redirect wx:for="{{needItems}}" wx:for-item="need" item="{{need}}" />
-        </block>
+<view class="mycats">
+  <van-tabs  active="{{activeTabIndex}}"  border="{{false}}" type="card" color="#00ae66" bind:change="catChange">
+    <van-tab wx:for="{{cats}}" title="{{item.label}}"></van-tab>
+  </van-tabs>
+</view>
 
-</block>
+
+<box width="710" padding="20">
+  <block wx:for="{{needs}}" wx:for-item="needItems">
+          <block wx:for="{{needs}}" wx:for-item="needItems">
+            <need-house hide-btn="{{cat == 'myself' }}" user="{{userInfo}}" redirect wx:for="{{needItems}}" wx:for-item="need" item="{{need}}" />
+          </block>
+  </block>
+</box>

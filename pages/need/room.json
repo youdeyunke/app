@@ -1,4 +1,5 @@
 {
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "need-house": "/components/need-house",
     "safe-tips": "/components/safe-tips",

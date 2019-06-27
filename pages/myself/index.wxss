@@ -19,9 +19,6 @@ page{
 }
 
 .user .user-actions{
-  display:flex;
-  justify-content:space-between;
-  width:190rpx;
 }
 
 .mybutton{
@@ -29,14 +26,28 @@ page{
   justify-content: center;
   align-items: center;
   background: none;
-  border-radius: 60rpx;
-  height: 60rpx;
-  width: 60rpx;
+  border-radius: 10rpx;
+  height: 50rpx;
+  width: 100rpx;
   padding:10rpx;
-
 }
+
+.myubtton::after{
+  border:none;
+  outline: none;
+  margin:0;
+}
+
+
 .mybutton van-icon{
   color: #999;
+  display: flex;
+  justify-content: flex-end;
+  align-items:  center;
+}
+
+.mylink{
+  width: 240rpx;
 }
 
 .user .uinfo .avatar{
@@ -76,4 +87,46 @@ page{
   color: #000;
   font-weight: bolder;
   padding:0 0 20rpx 30rpx;
+}
+
+
+
+.menu{
+  display:flex;
+  justify-content: flex-start;
+  align-items:space-between;
+  flex-wrap:wrap;
+  width:100%;
+
+  margin:0rpx 0;
+}
+
+.menu-name{
+  color: #000;
+  font-size:28rpx;
+  padding:0 0 0 30rpx;
+
+  margin-bottom:10rpx;
+}
+
+.menu-item{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  width:172rpx;
+  height: 172rpx;
+}
+
+.menu-item.fake , .menu-item.fake::after{
+  background: none;
+  border:none;
+  padding:0;
+  margin:0;
+}
+
+.menu-item-name{
+  margin-top:8rpx;
+  font-size:24rpx;
 }

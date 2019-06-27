@@ -89,14 +89,6 @@ Page({
 
   },
 
-  logoutHandle: function (e) {
-    wx.setStorageSync('userInfo', null)
-    wx.setStorageSync('token', null)
-    this.setData({userInfo: null })
-    this.setData({userInfo: null })
-    wx.switchTab({url:'/pages/home/home'})
-  },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -8,16 +8,11 @@
       <text class="name">{{item.contact_name }}</text>
     </view>
     <view class="position">区域 {{item.position}} {{ item.content || '' }}</view>
-    <view class="price">预算 <text>{{item.budget_min}}~{{item.budget_max}} {{ item.cat == 'buy' ? '万' : '元' }}</text></view>
-    <view class="tags">
-      <van-tag color="#F5CB6E" text-color="#fff">{{ item.cat == 'buy' ? '买' : '租'}}</van-tag>
-      <view class="blank"></view>
-      <van-tag wx:if="{{item.can_hold_on}}" type="default" plain>可抢单</van-tag>
-    </view>
+    <view class="price"> <van-tag color="{{item.cat == 'buy' ? '#ff0000' : '#F5CB6E'}}" text-color="#fff">{{ item.cat == 'buy' ? '购' : '租'}}</van-tag> 预算 <text>{{item.budget_min}}~{{item.budget_max}} {{ item.cat == 'buy' ? '万' : '元' }}</text></view>
+
   </view>
   <view class="footer"> 
-    {{ item.can_hold_on ? '去抢单' : '已被抢'}}
-    <van-icon name="arrow" /> 
+    <van-button wx:if="{{!hideBtn}}" size="mini" type="primary" plain="{{item.can_hold_on ? false : true}}">   {{ item.can_hold_on ? '去抢单' : '已被抢'}} </van-button>
   </view>
 
 </navigator>

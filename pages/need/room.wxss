@@ -1,4 +1,8 @@
 /* pages/need/room.wxss */
-page{
-  padding-top:20rpx !important;
+.mycats{
+  width: 750rpx;
+  margin:20rpx 0 20rpx 0;
+  padding:0rpx 30rpx;
+  box-sizing: border-box;
+  background:none;
 }

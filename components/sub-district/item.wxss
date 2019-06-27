@@ -4,25 +4,14 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   border-bottom:1rpx solid #f4f4f4;
   height: 174rpx; 
+  padding:10rpx 10rpx 20rpx 10rpx;
+  margin-bottom:10rpx;
+
 }
 
-
-.post.shadow-none{
-  box-shadow:none;
-}
-
-.post.border-none{
-  border:none;
-}
-
-
-.tags {
-  font-size:30rpx;
-  color: 333;
-}
 
 .post .cover{
   position: relative;
@@ -32,42 +21,19 @@
   z-index:1;
 }
 
-.post badge{
-  position:absolute;
-  top:30rpx;
-  left:-9rpx;
-  z-index:2;
-}
-
 .post .cover .i{
   width:100%;
   height: 100%;
 }
-.post .icons{
-  display:flex;
-  justify-content:space-around;
-  align-items:center;
-  width:120rpx;
-  height:60rpx;
-  position: absolute;
-  left:calc(296rpx * 0.5 - 120rpx * 0.5);
-  top:calc(184rpx * 0.5 - 60rpx * 0.5);
-}
 
-.post .icons image{
-  width:60rpx;
-  height: 60rpx;
-  border-radius: 60rpx;
-  overflow: hidden;
-  background: rgba(0,0,0, 0.2);
-}
 
  .post .meta{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width:340rpx;
+  width:380rpx;
   font-size:var(--font-s);
+  padding-left:20rpx;
 }
 
 .post .meta .item-title{
@@ -107,14 +73,4 @@
 
 .post .red{
   color: var(--color-b);
-}
-
-
-.post .footer{
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-  font-size: 40rpx;
-  color: #999;
 }

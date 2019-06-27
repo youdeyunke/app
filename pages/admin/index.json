@@ -1,5 +1,7 @@
 {
+  "enablePullDownRefresh": true,
   "usingComponents": {
+    "van-notice-bar": "/vant/notice-bar/index",
     "icon-block": "/components/icon-block"
   }
 }

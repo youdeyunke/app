@@ -1,35 +1,65 @@
-<box padding="40" wx:if="{{userInfo}}">
-<view class="user">
-  <view class="uinfo">
-    <view class="avatar">
-      <open-data type="userAvatarUrl"></open-data>
+<box padding="40" >
+  <view class="user">
+    <view class="uinfo">
+      <view class="avatar">
+        <open-data wx:if="{{userInfo.id}}" type="userAvatarUrl"></open-data>
+        <image src="/assets/images/default-avatar.png"></image>
+      </view>
+      <view class="nickname">{{userInfo.nickname}}</view>
     </view>
-    <view class="nickname">{{userInfo.nickname}}</view>
-  </view>
 
-  <view class="user-actions">
-    <button class="mybutton" hover-class="none"  open-type="getUserInfo" bindgetuserinfo="syncAvatar"> <van-icon name="exchange" /> </button>
+    <view class="user-actions">
+      <button class="mybutton"  wx:if="{{userInfo.id}}" hover-class="none"  open-type="getUserInfo" bindgetuserinfo="syncAvatar"> <van-icon name="exchange" /> </button>
+      <navigator class="mylink" url="/pages/auth/index" wx:if="{{!userInfo.id}}">请先登录  </navigator>
+    </view>
   </view>
-</view>
 </box>
 
 
-<block wx:if="{{userInfo}}">
-  <box width="750" padding="20"  wx:if="{{userInfo && !userInfo.mobile}}">
+<form report-submit bindsubmit="formidHandle"> 
+
+  <box padding="30">
+    <view class="menu"  >
+
+      <button  bindtap="navigatetTo" data-url="/pages/need/room-form?cat=buy" form-type="submit" hover-class="none"  class="fake menu-item" >
+        <van-icon color="#ff9501" size="58rpx" name="balance-list" />
+        <view class="menu-item-name">我要买房 </view>
+      </button>  
+
+
+      <button  bindtap="navigatetTo" data-url="/pages/need/room-form?cat=rent" form-type="submit" hover-class="none"  class="fake menu-item" >
+        <van-icon color="#5857CE" size="58rpx" name="balance-list" />
+        <view class="menu-item-name">我要租房 </view>
+      </button>    
+
+      <button bindtap="navigatetTo" data-url="/pages/myself/favposts" form-type="submit" hover-class="none"   class="fake menu-item" >
+        <van-icon color="#65CF9D" size="58rpx" name="star"  />
+        <view class="menu-item-name">我的收藏 </view>
+      </button>          
+
+      <button  bindtap="navigatetTo" data-url="/pages/myself/broker" form-type="submit" hover-class="none"  class="fake menu-item" >
+        <van-icon color="#E15C32" size="58rpx" name="add" />
+        <view class="menu-item-name">经纪人入驻 </view>
+      </button>  
+                                          
+    </view>
+  </box>
+</form>
+
+
+<block>
+  <box width="750" padding="20"  wx:if="{{userInfo.id && !userInfo.mobile}}">
       <van-cell border="{{false}}" size="large" hover-class="none" title="绑定手机号"   center>
             <van-button slot="right-icon" size="mini" plain type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">马上绑定</van-button>
         </van-cell>
   </box>
 
-  <view class="cell-menu">
-    <van-cell icon="like-o"  size="large" is-link url="/pages/myself/favposts"  hover-class="none" title="我的收藏" />   
-    <van-cell icon="search" size="large" is-link url="/pages/need/room-form"  hover-class="none" title="帮我找房" />                            
-  </view>
-
   <view class="cell-menu">  
     <van-cell icon="service-o" size="large" is-link  bindtap="callService"  hover-class="none" title="客服电话"  value="{{configs.service_mobile}}" />    
-    <van-cell icon="setting-o"  size="large" is-link url="/pages/myself/setting"  hover-class="none" title="系统设置" /> 
-    <van-cell icon="close" border="{{false}}" size="large" is-link bindtap="logoutHandle" hover-class="none" title="退出登录" />                             
+    <van-cell  icon="setting-o"  size="large" is-link url="/pages/myself/setting"  hover-class="none" title="系统设置" /> 
+    <van-cell wx:if="{{userInfo.id}}" icon="close" border="{{false}}" size="large" is-link bindtap="logoutHandle" hover-class="none" title="退出登录" />                             
   </view>  
 
 </block>
+
+<cr />

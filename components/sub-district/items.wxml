@@ -1,6 +1,8 @@
 
+<box width="750" padding="20">
   <block wx:for="{{items}}" wx:for-item="subdistricts">
-    <box width="710" wx:key="{{d.id}}"  padding="20" wx:for="{{subdistricts}}" wx:for-item="d" >
+    <block wx:key="{{d.id}}"  wx:for="{{subdistricts}}" wx:for-item="d" >
       <sub-district item="{{d}}" />
-    </box>
+    </block>
   </block>
+</box>

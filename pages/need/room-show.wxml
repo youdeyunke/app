@@ -4,16 +4,18 @@
 <box width="750" padding="30">
   <view class="header">
     <image class="avatar" src="{{need.user_info.avatar}}" />
+    <view class="name">{{ need.contact_name }}</view>
     <view class="cat">{{ need.cat == 'buy' ? '买房' : '租房'}}</view>
   </view>
 
 
 </box>
 
-<box width="750" padding="30">
+<box width="710" padding="0">
+
   <view class="body">
     <van-cell size="large" title="客户姓名" value="{{ need.contact_name }}" />
-    <van-cell size="large"  title="客户电话" value="{{ need.broker_id == userInfo.id ?  need.contact_mobile : '***********' }}" />
+    <van-cell size="large"  title="客户电话" value="{{ need.broker_id == user.id ?  need.contact_mobile : '抢单后可见' }}" />
     <van-cell size="large"  title="客户微信" value="{{ need.contact_wechat || '无' }}" />
 
     <van-cell size="large"  title="要求区域" value="{{need.position}}" />
@@ -23,23 +25,18 @@
   </view>
 </box>
 
-
 <view class="btns" wx:if="[{user.id}}">
   <button form-type="submit" wx:if="{{user.id == need.broker_id}}" bindtap="call" class="">拨打电话</button>
   <button form-type="submit" type="warn" wx:if="{{user.id == need.broker_id}}" bindtap="holdOff" class="">取消抢单</button>
   <button form-type="submit" type="primary" wx:if="{{user.id != need.broker_id}}" bindtap="holdOn" class="">马上抢单</button>
 </view>
 
-
-<view class="tips">
-  <view class="title"><van-icon color="#000000" name="info-o" /><text>抢单规则说明</text></view>
-  <ul>
-  <li>经纪人抢单成功后自动显示客户的联系电话</li>
-  </ul>
-  <view>每个客户只能1个经纪人抢单</view>
-  <view>抢单成功后30分钟内，其他经纪人无法查看客户的联系电话，请尽快联系客户</view>
-  <view>抢单成功后30分钟后，其他经纪人可继续抢单</view>
-</view>
-
+<view bindtap="tipsHandle" class="tips"> <text>抢单规则</text> <van-icon color="#000000" name="info-o" /></view>
 
 </form>
+
+<van-action-sheet show="{{ showTips }}" title="抢单规则说明" bindclose="tipsClose">
+  <view class="tips-body">
+    对于同一个客源，只允许一个经纪人抢单，只有在抢单成功后，经纪人才可以查看客户联系方式
+  </view>
+</van-action-sheet>

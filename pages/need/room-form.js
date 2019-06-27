@@ -64,7 +64,8 @@ Page({
    */
   onLoad: function (q) {
     var _this = this
-    _this.updateForm('buy')
+    var cat = q.cat || 'buy'
+    _this.updateForm(cat)
   },
 
   catChange: function(e){
@@ -80,6 +81,12 @@ Page({
   },
 
   updateForm: function(cat){
+    var _this  = this
+    for(var i=0;i<=this.data.cats.length-1;i++){
+      if(cat == _this.data.cats[i]['value'] ){
+        _this.setData({activeTabIndex: i})
+      }
+    }
     var title = '' 
     var data = {}
 
@@ -183,7 +190,6 @@ Page({
   },
 
   submitHandle: function(e){
-
     app.uploadFormid(e)
     var _this = this
     app.uploadFormId(e)
@@ -251,10 +257,7 @@ Page({
   onShow: function () {
     var _this = this
     auth.ensureUser(function(user){
-      _this.setData({userInfo: user})
-      if(user.mobile){
-        _this.setData({contact_mobile: user.mobile, contact_mobile_lock: true})
-      }
+      _this.setData({ contact_mobile: user.mobile, contact_mobile_lock: true })
     })
   },
 

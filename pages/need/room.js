@@ -9,8 +9,36 @@ Page({
    */
   data: {
     needs: [],
+    activeTabIndex: 0,
+    hideBtn: false,
+    cats: [
+      { label: '求购客源', value: 'buy'  },
+      { label: '求租客源', value: 'rent' },
+      { label: '我的客源', value: 'myself'},
+    ],    
     page: 1,
     per_page: 10
+  },
+
+  catChange: function (e) {
+    var _this = this
+    var i = e.detail.index
+    var cat = this.data.cats[i]
+    this.updateCat(cat.value)
+  },  
+
+  updateCat: function(cat){
+    var _this = this
+    this.setData({cat: cat, needs: [], page: 1})
+    for (var i = 0; i <= this.data.cats.length - 1; i++) {
+      if (_this.data.cat == _this.data.cats[i]['value']) {
+        _this.setData({ activeTabIndex: i })
+        wx.setNavigationBarTitle({
+          title: _this.data.cats[i]['label'],
+        })
+      }
+    }     
+    this.loadData()  
   },
 
   loadData: function(){
@@ -27,13 +55,10 @@ Page({
     var query = {
       page: _this.data.page || 1,
       per_page: _this.data.per_page || 10,
-      group: _this.data.group,
-      rent_type: _this.data.rent_type, 
-      order: _this.data.order,
+      cat: _this.data.cat,
+      broker_id: _this.data.broker_id || '',
+      order: 'id desc',
     }
-    var filter = this.data.filter
-    // merge query and filter
-    Object.assign(query, filter)
 
     var _this = this
     app.request({
@@ -57,20 +82,17 @@ Page({
     })
   },
 
-
-
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this.loadData()
+  onLoad: function (q) {
+    this.updateCat(q.cat  || 'buy')
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**
@@ -101,7 +123,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({
+      page:1,
+      needs: []
+    })
+    this.loadData()
   },
 
   /**
@@ -109,9 +135,7 @@ Page({
    */
   onReachBottom: function () {
     var _this = this
-    this.setData({
-      page: _this.data.page + 1
-    })
+    this.setData({page: _this.data.page + 1})
     this.loadData()
   },
 

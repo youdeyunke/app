@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "mytopbar": "/components/topbar",
     "myfav": "/components/fav",
     "mytags": "/components/tags",
     "post": "/components/post/item",

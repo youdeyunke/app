@@ -2,7 +2,7 @@
 <form bindsubmit='submitHandle' report-submit  wx:if="{{!isDone}}">
 
     <view class="mycats">
-      <van-tabs  border="{{false}}" type="line" color="#00ae66" bind:change="catChange">
+      <van-tabs  active="{{activeTabIndex}}"  border="{{false}}" type="line" color="#00ae66" bind:change="catChange">
         <van-tab wx:for="{{cats}}" title="{{item.label}}"></van-tab>
       </van-tabs>
     </view>
