@@ -77,5 +77,29 @@
   line-height:120rpx;
   color:#999;
   letter-spacing:1.5rpx;
+  display: flex;
+  justify-content: space-between;
+  width:100%;
+  box-sizing: border-box;
+}
+
+.card .footer .avatars{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.card .footer .avatars image{
+    width: 44rpx;
+    height: 44rpx;
+    border-radius: 44rpx;
+    margin-right:-15rpx;
+    border:2px solid #f4f4f4;
+}
+
+.card .footer .count{
+    font-size:24rpx;
+    color: #666;
+    text-align: right;
 }
 

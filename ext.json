@@ -4,7 +4,7 @@
   "directCommit": false,
   "ext": {
     "name": "内部开发版本",
-    "apihost": "https://weapp.udeve.cn/9000",
+    "apihost": "https://weapp.udeve.cn/39027",
     "version": "xx.xx.xx",
     "desc": "版本介绍",
     "test": "hello"

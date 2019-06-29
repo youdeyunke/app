@@ -11,5 +11,10 @@
         </view>
       
       </view>
-      <view class="footer">找房看房咨询请联系{{userInfo.name}}</view>
+      <view class="footer">
+        <view class="avatars">
+            <image wx:for="{{visitors}}" src="{{item.user.avatar}}" />
+        </view>
+        <view class="count">{{visitorsMeta.total_visitors || 0 }}人看过</view>
+      </view>
     </view>

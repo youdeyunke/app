@@ -27,11 +27,5 @@
 
 .swiper-block swiper-item .title-block{
   height: 80rpx;
-  line-height: 40rpx;
-}
-
-.line-limit{
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;  
+  line-height: 80rpx;
 }

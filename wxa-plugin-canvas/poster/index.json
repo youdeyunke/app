@@ -1,4 +1,5 @@
 {
+    "navigationBarBackgroundColor": "#f4f4f4",
     "component": true,
     "usingComponents": {
         "we-canvas": "../index/index"

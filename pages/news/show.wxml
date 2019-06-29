@@ -3,9 +3,9 @@
   <image src="/assets/icons/home.1.png"></image>
   <text>首页</text>
 </navigator>
-<image mode="aspectFill" wx:if="{{item.cover.url}}" class="cover" src="{{item.cover.url}}?imageView2/2/w/750"></image>
+<image wx:if="{{item.show_cover && item.cover.url}}" mode="aspectFill"  class="cover" src="{{item.cover.url}}?imageView2/2/w/750"></image>
 
-<box padding="30" margin-bottom="2"  wx:if="{{!item.slug}}">
+<box padding="30" margin-bottom="2"  wx:if="{{item.show_cover}}">
   <view class="header">
     <view class="h1">{{item.title}}</view>
     <view class="date">

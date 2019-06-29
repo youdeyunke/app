@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 41,
+			"current": 50,
 			"list": [
 				{
 					"id": 0,
@@ -374,7 +374,7 @@
 					"id": 50,
 					"name": "经纪人主页",
 					"pathName": "pages/user/user",
-					"query": "id=5",
+					"query": "id= 27871",
 					"scene": null
 				},
 				{
