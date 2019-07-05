@@ -1,6 +1,6 @@
 <view class="notice">
 <van-notice-bar
-  wx:if="{{userInfo.broker_profile.remain_days <= 10}}"
+  wx:if="{{ userInfo.broker_profile.remain_days <= 10 && userInfo.broker_profile.remain_days >= 0 }}"
   mode="closeable"
   scrollable
   left-icon="volume"

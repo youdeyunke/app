@@ -5,7 +5,6 @@
       <button form-type="submit" wx:if="{{broker.id}}" class="fake-btn staff-avatar"><image bindtap="gotoUserPage" src="{{broker.avatar || '/assets/images/default-avatar.png' }}?imageView2/2/w/100"></image></button>
       <view  class="staff-info">
                <view class="staff-name line-limit">{{broker.name || '未填写'}}</view>
-               <van-tag text-color="#F7EED4" color="#222222"  wx:if="{{broker.id}}">已认证</van-tag>
        </view>
     </li>
     <li wx:if="{{bookingEnable}}" class="booking">

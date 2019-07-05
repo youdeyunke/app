@@ -174,11 +174,6 @@ Page({
       wx.navigateTo({url: '/pages/myself/setting'})
     },
 
-    gotoTerms: function (e) {
-        wx.navigateTo({
-            url: '/pages/static/terms'
-        })
-    },
 
     gotoMembership: function(e){
         // 开通经纪人身份
@@ -229,25 +224,7 @@ Page({
 
     },
 
-    setNavColor: function(isUser){
-        // dark
-        var frontColor = '#000000'
-        var bgColor = '#f3f5f7'
-        var duration =  0
-        if(isUser){
-            bgColor = '#ffffff'
-            duration = 500
-        }
 
-        wx.setNavigationBarColor({
-          frontColor: frontColor,
-          backgroundColor: bgColor,
-          animation: {
-            duration: duration,
-            timingFunc: 'easeIn'
-          }
-        })        
-    },
 
     /**
      * 生命周期函数--监听页面显示
