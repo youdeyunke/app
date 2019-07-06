@@ -55,12 +55,25 @@ Page({
     app.uploadFormid(e)
   },
 
+  checkFormids: function(e){
+    var _this = this
+    app.request({url: '/api/v1/formid', success: function(resp){
+        if(resp.data.status == 1){
+          return false;
+        }
+        var c = resp.data.data.count || 0
+        console.log('enable form ids count', c)
+    }})
+
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
     var _this = this
     auth.ensureUser(function(user){
+      _this.checkFormids()
       _this.setData({ userInfo: user })
       if(!user.broker_profile.enable){
         wx.showModal({

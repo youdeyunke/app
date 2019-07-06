@@ -15,37 +15,15 @@ Component({
    * 组件的初始数据
    */
   data: {
-    visitors: [],
-    visitorsMeta: {total: 0},
   },
 
   ready: function () { 
-      this.loadVisitors()
    },
 
   /**
    * 组件的方法列表
    */
   methods: {
-
-    loadVisitors: function () {
-        var _this = this
-        app.request({
-            url: '/api/v1/visitors/',
-            data: {
-                target_id: _this.data.userInfo.id,
-                target_type: 'user',
-                per_page: 5,
-            },
-            success: function (resp) { 
-
-                _this.setData({
-                    visitors: resp.data.data,
-                    visitorsMeta: resp.data.meta
-                })
-            }
-        })
-    },
 
 
     gotoUser: function(){

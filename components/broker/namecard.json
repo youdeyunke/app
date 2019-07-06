@@ -1,4 +1,7 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "visitors": "/components/visitors/index"
+
+  }
 }

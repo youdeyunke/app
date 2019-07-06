@@ -1,0 +1,20 @@
+.visitors{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width:100%;
+}
+
+.avatars{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.avatars image{
+    width: 44rpx;
+    height: 44rpx;
+    border-radius: 44rpx;
+    margin-right:-15rpx;
+    border:2px solid #f4f4f4;
+}
