@@ -1,9 +1,11 @@
 //app.js
-var auth = require("utils/auth.js");
-const EXT = wx.getExtConfigSync()
+const ald   = require('utils/ald-stat.js')
+const auth  = require("utils/auth.js");
+const EXT   = wx.getExtConfigSync()
 
 App({
   globalData: {
+    EXT: EXT,
     assetsList: [ '客梯','货梯', '扶梯', '中央空调', '停车位', '天然气', '网络', '暖气', '上水', '下水', '排烟', '排污', '可明火', '380V', '外摆区' ],
     apiHost: EXT['apihost'] || 'https://weapp.udeve.cn/9000',
     userInfo: null,

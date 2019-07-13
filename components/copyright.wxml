@@ -1,1 +1,1 @@
-<text catchtap="sayHello" class="copyright">{{values[mode]}}</text>
+<text wx:if="{{text}}" catchtap="sayHello" class="copyright">{{text}}</text>

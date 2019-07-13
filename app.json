@@ -47,11 +47,11 @@
     "pages/broker/profile",
     "pages/broker/membership",
     "pages/static/terms",
-    "pages/myself/setting",
     "pages/shop/form",
     "pages/post/meta",
     "pages/auth/index",
-    "pages/admin/index"
+    "pages/admin/index",
+    "pages/udeve/index"
   ],
   "tabBar": {
     "selectedColor": "#333",
