@@ -9,6 +9,7 @@ Page({
      */
     data: {
       code: null,
+      loading:false,
     },
 
 
@@ -26,6 +27,7 @@ Page({
     var iv = e.detail.iv
   
     // 换取服务器的token
+    this.setData({loading:true})
     this.getSessionToken(code, encryptedData, iv, function(userInfo){
        wx.navigateBack({delta: 1})
     })
@@ -46,6 +48,7 @@ Page({
 
       method: 'POST',
       url: '/api/v1/sessions',
+      hideLoading: true,
       success: function (resp) {
         var data = resp.data
         if (data.status == 0) {
@@ -82,6 +85,7 @@ Page({
      */
     onShow: function () {
       var _this = this
+      this.setData({ loading: false })
       wx.login({
         success: function(res){
           console.log('login code', res.code)

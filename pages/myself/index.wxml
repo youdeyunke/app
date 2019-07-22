@@ -60,6 +60,7 @@
     <van-cell wx:if="{{userInfo.id}}" icon="close" border="{{false}}" size="large" is-link bindtap="logoutHandle" hover-class="none" title="退出登录" />                             
   </view>  
 
+
 </block>
 
 <cr />

@@ -78,7 +78,7 @@ page{
 }
 
 .cell-menu{
-  width:750rpx;
+  width:100%;
   margin-bottom:20rpx;
 }
 

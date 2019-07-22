@@ -96,6 +96,22 @@ Page({
     var configs = wx.getStorageSync('myconfigs') || {}
     this.setData({configs: configs})
 
+    // 从推送通知点击，直接进入下一集菜单时，会没有返回按钮，这里做一次跳转
+    if(options.r){
+      var rds = options.r.split('-')
+      var page = rds[0]
+      var value = rds[1]
+      switch(page){
+        case 'needroom':
+          wx.navigateTo({
+            url: '/pages/need/room-show?id=',
+          })
+          break;
+      }
+    }
+
+
+
   },
 
 
