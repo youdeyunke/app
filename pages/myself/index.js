@@ -49,6 +49,72 @@ Page({
     })
   },
 
+  clearCache: function(e){
+    var _this = this
+		wx.showModal({
+			title: '操作提示',
+			content: '确定要清除缓存吗',
+			success(res) {
+				if (res.confirm) {
+					_this._clearCache(e)
+				} else if (res.cancel) {
+				}
+			}
+		})
+  },
+
+  _clearCache: function(e){
+    var _this = this
+    var _keys = ['userInfo', 'token', 'myconfigs', 'location']
+    var keys = this.data.cache.keys
+    var cache = this.data.cache
+    keys.forEach(function(key, i){
+      var remove = true
+      _keys.forEach(function(_key, j){
+        if(_key == key){
+          remove = false
+        }
+      })
+      if(remove){
+          wx.removeStorage({key: key})
+          console.log('remove', key, remove)
+      }
+    })
+		wx.showToast({
+			title: '缓存已清除',
+			icon: 'none',
+			duration: 2000,
+      success: function(){
+        _this.loadCacheInfo()
+      },
+		})
+  },
+
+
+  loadCacheInfo: function(){
+    var _this = this
+		wx.getStorageInfo({
+			success(res) {
+				console.log(res.keys)
+				console.log(res.currentSize)
+				console.log(res.limitSize)
+        _this.setData({cache: res})
+			}
+		})
+  },
+
+  openAuthSetting: function(e){
+		wx.openSetting({
+			success(res) {
+				console.log(res.authSetting)
+				// res.authSetting = {
+				//   "scope.userInfo": true,
+				//   "scope.userLocation": true
+				// }
+			}
+		})
+  },
+
   navigatetTo: function(e){
     console.log('e', e)
     var url = e.currentTarget.dataset.url
@@ -231,9 +297,15 @@ Page({
      */
     onShow: function () {
       var _this = this
-      auth.ensureUser(function(user){
-        _this.setData({userInfo: user})
-        _this.getRemoteUserInfo()
+      _this.loadCacheInfo()
+      wx.checkSession({
+        success: function(){
+          var userInfo = wx.getStorageSync('userInfo')
+          if(userInfo && userInfo.id){
+            _this.setData({userInfo: userInfo})
+            _this.getRemoteUserInfo()
+          }
+        },
       })
     },
 
@@ -254,9 +326,6 @@ Page({
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function () {
-        this.getRemoteUserInfo()
-    },
 
     /**
      * 页面上拉触底事件的处理函数

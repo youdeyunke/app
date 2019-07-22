@@ -1,24 +1,25 @@
-<box padding="40" >
+
   <view class="user">
     <view class="uinfo">
       <view class="avatar">
         <open-data wx:if="{{userInfo.id}}" type="userAvatarUrl"></open-data>
         <image src="/assets/images/default-avatar.png"></image>
       </view>
-      <view class="nickname">{{userInfo.nickname}}</view>
+      <view class="nickname">{{userInfo.nickname}}
+      <navigator hover-class='none' class="mylink" url="/pages/auth/index" wx:if="{{!userInfo.id}}">请先登录  </navigator>      
+      </view>
     </view>
 
     <view class="user-actions">
       <button class="mybutton"  wx:if="{{userInfo.id}}" hover-class="none"  open-type="getUserInfo" bindgetuserinfo="syncAvatar"> <van-icon name="exchange" /> </button>
-      <navigator class="mylink" url="/pages/auth/index" wx:if="{{!userInfo.id}}">请先登录  </navigator>
     </view>
   </view>
-</box>
+
 
 
 <form report-submit bindsubmit="formidHandle"> 
 
-  <box padding="30">
+  <view class="mybox" style="padding:0 20rpx;">
     <view class="menu"  >
 
       <button  bindtap="navigatetTo" data-url="/pages/need/room-form?cat=buy" form-type="submit" hover-class="none"  class="fake menu-item" >
@@ -43,7 +44,7 @@
       </button>  
                                           
     </view>
-  </box>
+  </view>
 </form>
 
 
@@ -54,12 +55,24 @@
         </van-cell>
   </box>
 
-  <view class="cell-menu">  
-    <van-cell icon="service-o" size="large" is-link  bindtap="callService"  hover-class="none" title="客服电话"  value="{{configs.service_mobile}}" />    
-    <van-cell  icon="setting-o"  size="large" is-link url="/pages/myself/setting"  hover-class="none" title="系统设置" /> 
-    <van-cell wx:if="{{userInfo.id}}" icon="close" border="{{false}}" size="large" is-link bindtap="logoutHandle" hover-class="none" title="退出登录" />                             
+  <view class="mybox">  
+    <van-cell icon="service-o" size="large" is-link  bindtap="callService"  hover-class="none" title="客服电话"  value="{{configs.service_mobile}}" />
+
+    <van-cell icon="info-o" size="large" hover-class="none" title="当前版本" value="{{version}}"  > </van-cell>    
+
+    <van-cell icon="brush-o"  bindtap="clearCache" size="large" hover-class="none" title="清除缓存" is-link value="{{cache.currentSize || 0}} Kb" > </van-cell>
+
+    <van-cell icon="certificate" bindtap="openAuthSetting" size="large" hover-class="none" title="权限设置" is-link  > </van-cell>
+
+    <van-cell  wx:if="{{userInfo.id}}" icon="close" border="{{false}}" size="large" is-link bindtap="logoutHandle" hover-class="none" title="退出登录" />                             
   </view>  
 
+
+  <view class="mybox" style="padding:0rpx 20rpx;">
+    <van-cell border="{{false}}" url="/pages/udeve/index" size="large" hover-class="none" title="做个一样的小程序"> 
+	<van-icon size="30" name="http://qiniucdn.udeve.cn/xiaochengxu.png" slot="right-icon" />	
+    </van-cell>
+ </view>
 
 </block>
 

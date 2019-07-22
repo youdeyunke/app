@@ -1,5 +1,6 @@
 {
-    "enablePullDownRefresh": true,
+    "navigationBarBackgroundColor": "#f4f4f4",
+    "enablePullDownRefresh": false,
     "usingComponents": {
         "card": "/components/card",
         "avatar-sync": "/components/avatar-sync",

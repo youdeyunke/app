@@ -4,11 +4,22 @@ page{
   padding-top:0;
 }
 
+.mybox{
+  width:710rpx;
+  padding:20rpx;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 15rpx;
+  margin-bottom:30rpx;
+}
+
 .user{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width:100%;
+  width:710rpx;
+  margin:0 auto 20rpx auto;
+  padding:0 10rpx;
 }
 
 .user .uinfo{
@@ -57,7 +68,7 @@ page{
 .avatar, .avatar image{
   width: 80rpx;
   height: 80rpx;
-  border-radius: 10rpx;
+  border-radius: 80rpx;
   overflow: hidden;
   margin-bottom:10rpx;
 }
@@ -90,7 +101,6 @@ page{
 }
 
 
-
 .menu{
   display:flex;
   justify-content: flex-start;
@@ -115,8 +125,8 @@ page{
   justify-content:center;
   align-items:center;
   flex-wrap:wrap;
-  width:172rpx;
-  height: 172rpx;
+  width:165rpx;
+  height: 165rpx;
 }
 
 .menu-item.fake , .menu-item.fake::after{

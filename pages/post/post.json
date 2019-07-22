@@ -11,6 +11,7 @@
     "mycard": "/components/card",
     "qa": "/components/qa",
     "box": "/components/box",
+    "visitors": "/components/visitors/index",
 
     "sub-item": "/components/sub-district/item",
     "sub-location-info": "/components/sub-district/location-info",    

@@ -67,6 +67,7 @@
             <text class="label">{{meta.label}}</text>
             <text bindtap="gotoSub" data-url="{{meta.url}}" class="value van-ellipsis"> {{ meta.value || '-' }} </text>
         </view>
+
     </view>    
     
     <form style="width:100%;" report-submit class="myfav-wrapper"  bindsubmit="formidHandle">
@@ -79,7 +80,6 @@
     </view>    
   </view>
 </box>
-
 
 <broker-link  wx:if="{{post.user.is_broker}}" broker="{{post.broker_info}}" />
 

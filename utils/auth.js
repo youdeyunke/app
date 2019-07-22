@@ -23,7 +23,8 @@ module.exports = {
     wx.showModal({
       title: title,
       content: content,
-      confirmText: '去登录',
+      confirmText: '马上登录',
+      confirmColor: '#00ae66',
       success(res) {
         if (res.confirm) {
           wx.navigateTo({ url: '/pages/auth/index' })

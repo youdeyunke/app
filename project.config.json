@@ -1,15 +1,15 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
-		"enhance": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
 		"autoAudits": false,
 		"uglifyFileName": true,
 		"checkInvalidKey": true,
+		"enhance": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
 		"babelSetting": {
@@ -19,7 +19,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.2",
+	"libVersion": "2.7.3",
 	"appid": "wx22f2238c72f84e69",
 	"projectname": "%E5%B9%B4%E9%B1%BC",
 	"simulatorType": "wechat",
@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 50,
+			"current": 55,
 			"list": [
 				{
 					"id": 0,
@@ -402,6 +402,13 @@
 					"id": 54,
 					"name": "need-room-form",
 					"pathName": "pages/need/room-form",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 55,
+					"name": "udeve",
+					"pathName": "pages/udeve/index",
 					"query": "",
 					"scene": null
 				}

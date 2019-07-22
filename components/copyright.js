@@ -1,5 +1,7 @@
 // components/copyright.js
 
+const app = getApp()
+
 Component({
   /**
    * 组件的属性列表
@@ -9,7 +11,7 @@ Component({
   },
 
   ready: function(){
-      this.setData({mode: 1})
+      this.setData({mode: 1, text: app.globalData.EXT['cr'] || 'UDEVE.CN'  })
 
   },
 
@@ -17,8 +19,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-    mode: 0,
-    values: ['', '技术支持:udeve.cn'],
   },
 
   /**
@@ -27,7 +27,7 @@ Component({
   methods: {
 
     sayHello: function(){
-      if(this.data.mode == 1){
+      if(this.data.text ){
         wx.showModal({
           title: '小程序开发',
           content: '咨询微信：udeve_cn',
@@ -37,7 +37,6 @@ Component({
               wx.setClipboardData({
                 data: 'udeve_cn',
               })
-
             } 
           }          
         })    
