@@ -16,7 +16,11 @@ Component({
   },
 
   ready: function(){
-    var dateStr = this.data.date.split('T')[0]
+    var ds = this.data.date.split('T')
+
+    var dateStr = ds[0]
+    dateStr += ' '
+    dateStr += ds[1].split('.')[0]
     var value = this.getDateDiff(dateStr)
     this.setData({value: value})
   },
@@ -26,6 +30,7 @@ Component({
    */
   methods: {
      getDateDiff: function(dateStr){
+         console.log('date str', dateStr)
          var result = ''
          var dateTimeStamp = Date.parse(dateStr)
           var minute = 1000 * 60;
