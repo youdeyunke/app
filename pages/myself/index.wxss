@@ -6,7 +6,7 @@ page{
 
 .mybox{
   width:710rpx;
-  padding:20rpx;
+  padding:20rpx 0 20rpx  20rpx;
   box-sizing: border-box;
   background: #fff;
   border-radius: 15rpx;
@@ -126,7 +126,7 @@ page{
   align-items:center;
   flex-wrap:wrap;
   width:165rpx;
-  height: 165rpx;
+  height: 125rpx;
 }
 
 .menu-item.fake , .menu-item.fake::after{
@@ -137,6 +137,6 @@ page{
 }
 
 .menu-item-name{
-  margin-top:8rpx;
+  margin-top:0rpx;
   font-size:24rpx;
 }

@@ -5,6 +5,7 @@
   "ext": {
     "name": "内部开发版本",
     "cr": "UDEVE.CN",
+    "udeve_link": true,
     "apihost": "https://weapp.udeve.cn/9000",
     "version": "xx.xx.xx",
     "desc": "版本介绍",

@@ -19,6 +19,14 @@ Component({
   ready: function(){
     var _this = this
     _this.loadData((navs) => {
+      for(var i=0;i<=navs.length -1;i++){
+        var nav = navs[i]
+
+        if (!nav.path.startsWith('/')) {
+          nav.path = '/' + nav.path
+        }
+        navs[i] = nav
+      }
       _this.setData({navs: navs})
     })
   },
