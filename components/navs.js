@@ -33,6 +33,13 @@ Component({
         url: '/api/v2/navs',
         success: function(resp){
           var navs = resp.data.data
+          for(var i=0;i<=navs.length -1;i++){
+            var nav = navs[i]
+            if (!nav.path.startsWith('/')) {
+              nav.path = '/' + nav.path
+            }
+            navs[i] = nav
+          }
           wx.setStorage({key: 'navs', data: navs})
           _this.setData({navs: navs})
 

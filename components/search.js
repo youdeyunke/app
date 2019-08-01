@@ -27,7 +27,7 @@ Component({
     placeholder: '你想住在哪？',
     text: '',
     mode: 1, // 1: 输入模式， 2： 搜索结果模式
-    currentCatIndex: 0,
+    currentCatIndex: '0',
     cats: [
       {label: '新房', value: 'xinfang'},
       {label: '二手房', value: 'ershoufang'},
@@ -51,8 +51,8 @@ Component({
     },
 
     catClick: function(e){
-      var i = e.currentTarget.dataset.index
-      this.setData({currentCatIndex: i})
+      var i = e.currentTarget.dataset.name
+      this.setData({currentCatIndex: String(i)})
     },
 
     submit: function(){
