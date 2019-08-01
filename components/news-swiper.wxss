@@ -1,5 +1,4 @@
 .news-swiper{
-  width: 750rpx;
   height: 80rpx;
   display: flex;
   box-sizing: border-box;
