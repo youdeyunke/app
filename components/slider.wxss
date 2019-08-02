@@ -3,7 +3,7 @@
  .myswiper swiper, .myswiper swiper-item image{
   width:710rpx;
   height: 300rpx;
-  border-radius: 15rpx;
+  border-radius: 10rpx;
   overflow: hidden;
   display: flex;
   justify-content: center;
