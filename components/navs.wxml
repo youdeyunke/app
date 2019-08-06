@@ -1,9 +1,9 @@
 <!--components/home-navs.wxml-->
 <block>
   <view class="navs">
-    <navigator wx:key="{{item.id}}" url="/{{item.path}}"  open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" wx:for="{{navs}}">
+    <navigator wx:key="{{item.id}}" url="{{item.path}}"  open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" wx:for="{{navs}}">
            <view class="icon-cover">
-                   <image  src="{{item.icon.url}}"></image>
+                   <image  src="{{item.icon_v2 || item.icon.url}}?imageView2/1/w/200/h/200"></image>
            </view>
       <text>{{ item.name }}</text>
     </navigator>

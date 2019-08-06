@@ -7,9 +7,7 @@ page{
 background:#fff;
 width:710rpx;
 padding:0 0rpx 20rpx 0rpx;
-box-shadow:2rpx 6rpx 6rpx rgba(0,0,0, 0.08);
-margin-bottom:20rpx;
-border:2rpx solid #f4f4f4;
+
 box-sizing: border-box;
 border-radius:15rpx;
 

@@ -33,6 +33,8 @@
 .navs navigator image{
   width:84rpx;
   height:84rpx;
+  border-radius: 84rpx;
+  overflow: hidden;
 }
 
 .navs navigator text{

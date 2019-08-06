@@ -8,7 +8,7 @@
   <swiper indicator-dots="{{items.length > 1}}" autoplay="{{ items.length > 1}}" interval="5000"
             duration="500" circular="{{items.length > 1}}" indicator-color="rgba(255,255,255,0.7)" autoplay indicator-active-color="#00ae66" >
             <swiper-item item-id="{{item.id}}" wx:key="{{item.id}}" wx:for="{{items}}" bindtap="goto" data-index="{{index}}">
-        <image src="{{item.image.url}}?imageView2/1/w/710/h/320"></image>
+        <image src="{{item.image_v2 || item.image.url}}?imageView2/1/w/710/h/320"></image>
 </swiper-item>   
 </swiper>
 

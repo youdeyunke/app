@@ -6,7 +6,7 @@ page{
 
 .mybox{
   width:710rpx;
-  padding:20rpx;
+  padding:20rpx 0 20rpx  20rpx;
   box-sizing: border-box;
   background: #fff;
   border-radius: 15rpx;
@@ -78,6 +78,28 @@ page{
   font-size: var(--font-xl);
 }
 
+.section{
+  width:710rpx;
+  padding:0 20rpx;
+  margin-bottom:20rpx;
+}
+
+.section-title{
+  padding:10rpx 20rpx;
+}
+
+.cell-menu{
+  width:100%;
+  margin-bottom:20rpx;
+}
+
+.cell-menu .title{
+  font-size:30rpx;
+  color: #000;
+  font-weight: bolder;
+  padding:0 0 20rpx 30rpx;
+}
+
 
 .menu{
   display:flex;
@@ -104,7 +126,7 @@ page{
   align-items:center;
   flex-wrap:wrap;
   width:165rpx;
-  height: 165rpx;
+  height: 125rpx;
 }
 
 .menu-item.fake , .menu-item.fake::after{
@@ -115,6 +137,6 @@ page{
 }
 
 .menu-item-name{
-  margin-top:8rpx;
+  margin-top:0rpx;
   font-size:24rpx;
 }

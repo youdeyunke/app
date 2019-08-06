@@ -19,7 +19,7 @@
 
 <form report-submit bindsubmit="formidHandle"> 
 
-  <view class="mybox" style="padding:0 20rpx;">
+  <view class="mybox" style="padding:20rpx 20rpx 0rpx 20rpx;">
     <view class="menu"  >
 
       <button  bindtap="navigatetTo" data-url="/pages/need/room-form?cat=buy" form-type="submit" hover-class="none"  class="fake menu-item" >
@@ -42,7 +42,12 @@
         <van-icon color="#E15C32" size="58rpx" name="add" />
         <view class="menu-item-name">经纪人入驻 </view>
       </button>  
-                                          
+
+      <button  bindtap="navigatetTo" data-url="/pages/admin/index" form-type="submit" hover-class="none"  class="fake menu-item" >
+        <van-icon color="#E15C32" size="58rpx" name="add" />
+        <view class="menu-item-name">工作台 </view>
+      </button>  
+
     </view>
   </view>
 </form>
@@ -68,7 +73,7 @@
   </view>  
 
 
-  <view class="mybox" style="padding:0rpx 20rpx;">
+  <view class="mybox" style="padding:0rpx 20rpx;" wx:if="{{ext.udeve_link}}">
     <van-cell border="{{false}}" url="/pages/udeve/index" size="large" hover-class="none" title="做个一样的小程序"> 
 	<van-icon size="30" name="http://qiniucdn.udeve.cn/xiaochengxu.png" slot="right-icon" />	
     </van-cell>

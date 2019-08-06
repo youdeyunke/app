@@ -9,7 +9,8 @@ Page({
      */
     data: {
         userInfo: {},
-      configs: wx.getStorageSync('myconfigs'),
+        configs: wx.getStorageSync('myconfigs'),
+        ext: wx.getExtConfigSync(),
         cells: [
             {
                 icon: "chat-o",

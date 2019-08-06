@@ -7,6 +7,7 @@
     "theme_color_bg": "#ffffff",
     "theme_color_front": "#000000",
     "cr": "UDEVE.CN",
+    "udeve_link": true,
     "apihost": "https://weapp.udeve.cn/9000",
     "version": "xx.xx.xx",
     "desc": "版本介绍",
