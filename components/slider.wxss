@@ -15,6 +15,7 @@
 }
 
 .myswiper {
+ margin-top:20rpx;
 }
 
 

@@ -4,6 +4,8 @@
   "directCommit": false,
   "ext": {
     "name": "内部开发版本",
+    "theme_color_bg": "#ffffff",
+    "theme_color_front": "#000000",
     "cr": "UDEVE.CN",
     "apihost": "https://weapp.udeve.cn/9000",
     "version": "xx.xx.xx",

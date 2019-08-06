@@ -503,10 +503,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var eb = wx.getStorageSync('eventBus')
-    if(!eb){
-      return
-    }
+      var ext = app.globalData.EXT
+      wx.setNavigationBarColor({
+          frontColor:  ext['theme_color_front'] || '#000000',
+          backgroundColor: ext['theme_color_bg'],
+      })
   },
 
   /**

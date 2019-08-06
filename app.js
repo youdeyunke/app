@@ -403,6 +403,7 @@ App({
   },
 
   onLaunch: function() {
+
     var _this = this;
     var logs = wx.getStorageSync("logs") || [];
     logs.unshift(Date.now());
