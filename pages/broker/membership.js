@@ -25,12 +25,13 @@ Page({
     },
 
     onClick: function (e) {
-        var index = e.target.dataset.index
-        var item = this.data.items[index]
-        this.setData({
-            radio: item.id,
-            currentItem: item,
-        })
+      var index = e.currentTarget.dataset.name
+      var item = this.data.items[index]
+
+      this.setData({
+          radio: String(index),
+          currentItem: item,
+      })
     },
 
     loadItems: function () {

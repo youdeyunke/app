@@ -1,12 +1,12 @@
 <mycard width="710" title="请选择套餐" hat="{{false}}" padding="20">
     <van-radio-group value="{{ radio }}" bind:change="onChange">
-        <van-cell-group border="{{false}}">
-            <van-cell size="large" border="{{index < items.length-1}}" wx:key="{{item.id}}" wx:for="{{items}}" label="{{item.desc}}" bind:click="onClick" title="{{item.name}}" clickable data-index="{{index}}">
-                <van-radio checked-color="#07c160" name="{{item.id}}" />
+            <van-cell value-class="radio-value-class" size="large" hover-class="none" wx:key="{{item.id}}" wx:for="{{items}}" label="{{item.desc}}" bind:click="onClick" title="{{item.name}}" clickable data-name="{{index}}">
+                <van-radio   name="{{index}}" />
             </van-cell>
-        </van-cell-group>
     </van-radio-group>
+
 </mycard>
+
 <mycard width="710" wx:if="{{currentItem.id}}" title="{{currentItem.name}}" hat="{{false}}" padding="20">
     <van-cell icon="gold-coin-o" title="价格" value="{{currentItem.price}}" />
     <van-cell icon="clock-o" title="有效期" value="{{currentItem.months}} 个月" />

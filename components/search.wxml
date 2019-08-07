@@ -14,8 +14,8 @@
 
 <view class="searc-cats" wx:if="{{!fake && text}}">
       <van-radio-group value="{{currentCatIndex}}">
-      <van-cell value-class="radio-value-class" hover-class="none" wx:for="{{cats}}" title="{{item.label}}" bind:click="catClick" clickable data-name="{{index}}"  >
-      <van-radio name="{{index}}" />
+        <van-cell value-class="radio-value-class" hover-class="none" wx:for="{{cats}}" title="{{item.label}}" bind:click="catClick" clickable data-name="{{index}}"  >
+          <van-radio name="{{index}}" />
       </van-cell>
 
       </van-radio-group>   
