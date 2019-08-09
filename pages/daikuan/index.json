@@ -1,1 +1,6 @@
-{}
+{
+  "usingComponents":{
+    "van-slider": "/vant/slider/index"
+  }
+ 
+}

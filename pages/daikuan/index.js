@@ -13,7 +13,7 @@ Page({
     loanType: '1',
     startDate: undefined,
 
-    actionsBottom: 50,
+    actionsBottom: 20,
     businessTotalLoanStr: '',
     gjjTotalLoanStr: '',
     showGJJ: false,
@@ -52,6 +52,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    wx.setNavigationBarTitle({ title: '房贷计算器' })
+
     var currentDate = new Date();
     var paymentYearArr = [];
     for (let i = 1; i <= 30; i++) {
@@ -72,6 +74,8 @@ Page({
   },
   // 公共方法
   resetData: function (loanType) {
+    console.log('longtype is',loanType)
+    var loanType = String(loanType)
     let paymentYear = 30;
     var currentDate = new Date();
     this.setData({
@@ -118,7 +122,8 @@ Page({
     return;
   },
   businessTotalLoanInput: function (e) {
-    let value = e.detail.value || 0;
+    let value = e.detail || 0;
+    console.log('e' ,e, 'value', value)
     if (value === 0) {
       this.setData({
         businessTotalLoan: 0,
@@ -136,7 +141,7 @@ Page({
     }
   },
   gjjTotalLoanInput: function (e) {
-    let value = e.detail.value || 0.0;
+    let value = e.detail || 0.0;
     if (value === 0) {
       this.setData({
         gjjTotalLoan: 0,
@@ -154,8 +159,9 @@ Page({
     }
   },
   loanTypeChange: function (e) {
-    var loanType = e.detail.value;
-    this.resetData(loanType);
+    var i = e.detail.index
+    var t = this.data.loanTypeArr[i]
+    this.resetData(t.id);
   },
   paymentMethodchange: function (e) {
     var index = e.detail.value;

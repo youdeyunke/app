@@ -26,11 +26,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     let mortgage = app.globalData.mortgageData;
     let loanTypeName = '等额本息(每月等额还款)';
     if (mortgage.paymentMethod === 2) {
       loanTypeName = '等额本金(每月递减还款)';
     }
+    wx.setNavigationBarTitle({ title: loanTypeName })
+
     var mortgageDetail = mortgageHelper.calculatePaymentDetail(mortgage);
 
     mortgageDetail.monthlyPayment = util.truncate(mortgageDetail.monthlyPayment);
