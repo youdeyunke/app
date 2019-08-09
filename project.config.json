@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 55,
+			"current": 56,
 			"list": [
 				{
 					"id": 0,
@@ -409,6 +409,13 @@
 					"id": 55,
 					"name": "udeve",
 					"pathName": "pages/udeve/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "daikuan",
+					"pathName": "pages/daikuan/index",
 					"query": "",
 					"scene": null
 				}

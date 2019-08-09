@@ -196,13 +196,15 @@ Page({
   },
 
 
-  gotoSub: function(e){
-    if(!this.data.post.sub_district_id){
+  gotoMetaUrl: function(e){
+    var url = e.currentTarget.dataset.url
+    if(!url){
       return false
     }
+
     var _this = this
     wx.navigateTo({
-      url: '/pages/sub-districts/show?id=' + _this.data.post.sub_district_id,
+      url: url,
     })
   },
 

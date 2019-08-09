@@ -1,0 +1,186 @@
+/* pages/detail/detail.wxss */
+
+/**app.wxss**/
+
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 30rpx;
+  justify-content: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+  box-sizing: border-box;
+  font-size: 30rpx;
+}
+
+.arraw,
+.dropdown {
+  width: 8px;
+  height: 8px;
+  border-style: solid;
+  border-width: 1px 1px 0 0;
+  transform: rotate(135deg);
+  margin-bottom: 5rpx;
+  margin-left: 20rpx;
+}
+
+.raise.arraw,
+.raise {
+  width: 8px;
+  height: 8px;
+  border-style: solid;
+  border-width: 1px 1px 0 0;
+  transform: rotate(315deg);
+  margin-bottom: 5rpx;
+  margin-left: 20rpx;
+}
+
+.card {
+  width: 100%;
+  padding: 50rpx 0;
+  border-radius: 10rpx;
+  border: 5rpx solid #eee;
+  margin: 0 auto;
+}
+
+.cardItem {
+  width: 100%;
+  text-align: center;
+}
+
+.monthlyPayment {
+  padding: 10rpx 0;
+  color: #FF5500;
+  font-size: 120rpx;
+}
+
+.bigNum1 {
+  font-size: 100rpx;
+}
+
+.bigNum2 {
+  font-size: 80rpx;
+}
+
+.bigNum3 {
+  font-size: 60rpx;
+}
+
+.monthlyPayment .unit {
+  font-size: 50rpx;
+}
+
+.line {
+  border-top: 1px dotted #aaa;
+  height: 0;
+  margin: 50rpx 0;
+}
+
+.total {
+  display: flex;
+  padding: 0 5%;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 40rpx;
+}
+
+.monthDetails {
+  margin-top: 30rpx;
+}
+
+.year {
+  width: 100%;
+}
+
+.showDetail {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 30rpx;
+}
+
+.showDetail .arraw {
+  margin-top: 5rpx;
+}
+
+.showDetail .arraw.raise {
+  margin-top: 15rpx;
+}
+
+.subTitle {
+  padding-bottom: 5rpx;
+}
+
+.yearName {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+}
+
+.yearName .arraw {
+  margin-top: 10rpx;
+}
+
+.yearName .arraw.raise {
+  margin-top: 20rpx;
+}
+
+.yearDetail {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 30rpx;
+  padding: 0 5%;
+}
+
+.yearItem {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+}
+
+.yearDetail .yearItem:first-child {
+  width: 55%;
+}
+
+.yearPaid {
+  font-size: 50rpx;
+}
+
+.months {
+  margin-bottom: 30rpx;
+}
+
+.table {
+  border: 0px solid #fff;
+}
+
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.th,
+.td {
+  width: 22.5%;
+  justify-content: center;
+  text-align: center;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 12rpx 0;
+}
+
+.tr .th:first-child,
+.tr .td:first-child {
+  width: 10%;
+  border-left: 0px solid #ccc;
+}

@@ -1,0 +1,73 @@
+<!-- pages/detail/detail.wxml -->
+<wxs module="format" src="./truncate.wxs"></wxs>
+<view class="container">
+  <view class="card">
+    <view class="cardItem">
+      <label>每月需还款</label>
+    </view>
+    <view class="cardItem monthlyPayment">
+      <label class="{{monthlyPaymentClass}}">{{monthlyPaymentStr}}</label>
+      <label class="unit">元</label>
+    </view>
+    <view class="cardItem" wx:if="{{balanceStr}}">
+      <label>每月递减 {{balanceStr}} 元</label>
+    </view>
+    <view class="line"></view>
+    <view class="total">
+      <label>还款总额</label>
+      <label>{{TotalPaidStr}} 万</label>
+    </view>
+    <view class="total">
+      <label>支付利息</label>
+      <label>{{totalInterestStr}} 万</label>
+    </view>
+    <view class="total">
+      <label>贷款金额</label>
+      <label>{{totalLoanStr}} 万</label>
+    </view>
+    <view class="total">
+      <label>还款方式</label>
+      <label>{{loanTypeName}}</label>
+    </view>
+    <view class="monthDetails">
+      <view class="showDetail" bindtap="showYearsDetailToggle">
+        <label class="subTitle">{{paymentYear}}年还款明细</label>
+        <icon class="arraw {{showDetail?'raise':''}}"></icon>
+      </view>
+      <view wx:if="{{showDetail}}">
+        <view class="year" wx:for="{{payDetails}}" wx:for-item="yearItem" wx:key="year" data-index="{{index}}" bindtap="showMonthDetailToggle">
+          <view class="yearName">
+            <label>{{yearItem.year}}年</label>
+            <icon class="arraw {{yearItem.showMonths?'raise':''}}" />
+          </view>
+          <view class="yearDetail">
+            <view class="yearItem">
+              <label class="yearPaid">{{format.truncate(yearItem.yearPaid)}}</label>
+              <label>本年还款</label>
+            </view>
+            <view class="yearItem">
+              <label class="yearPaid">{{format.truncate(yearItem.yearInterest)}}</label>
+              <label>本年利息</label>
+            </view>
+          </view>
+          <view class="months table" wx:if="{{yearItem.showMonths}}">
+            <view class="tr">
+              <text class="th">月份</text>
+              <text class="th">本期还款</text>
+              <text class="th">本期本金</text>
+              <text class="th">本期利息</text>
+              <text class="th">剩余本金</text>
+            </view>
+            <view class="tr" wx:for="{{yearItem.months}}" wx:for-item="monthItem" wx:key="month">
+              <text class="td">{{monthItem.month}}月</text>
+              <text class="td">{{format.truncate(monthItem.monthlyPayment)}}</text>
+              <text class="td">{{format.truncate(monthItem.principal)}}</text>
+              <text class="td">{{format.truncate(monthItem.interest)}}</text>
+              <text class="td">{{format.truncate(monthItem.surplus)}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
