@@ -305,6 +305,7 @@ Page({
           if(userInfo && userInfo.id){
             _this.setData({userInfo: userInfo})
             _this.getRemoteUserInfo()
+            console.log('uesr info', userInfo)
           }
         },
       })
