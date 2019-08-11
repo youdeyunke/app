@@ -1,7 +1,11 @@
 
 
 <view class="map-view" style="width: 100%; height:{{mapViewHeight}};">
-  <map id="map" longitude="{{center.longitude}}" bindpoitap="poiHandle" latitude="{{center.latitude}}" scale="14"   markers="{{markers}}" bindcallouttap="markertap"  bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height:100%;">
+  <map id="map" enable-zoom longitude="{{center.longitude}}" bindpoitap="poiHandle" latitude="{{center.latitude}}" scale="14"   markers="{{markers}}" bindcallouttap="markertap"  bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height:100%;">
+
+    <cover-view class="groups shadow">
+      <cover-view bindtap="groupClick" class="group-item {{currentGroupIndex == index ? 'active' : '' }}" wx:for="{{groupItems}}" wx:key="item.id"  data-index="{{index}}">{{item.name}}</cover-view>
+    </cover-view>
 
     <cover-image  bindtap="getLocation" class="dingwei shadow" src="/assets/icons/dingwei.png"></cover-image>
     <cover-view wx:if="{{loading}}" class="loading shadow" >正在加载...</cover-view>
@@ -17,6 +21,7 @@
   bind:close="popClose"
 >
   <view class="result-view">
+    <view class="header">找到套{{total_posts}}房源</view>
     <view class="body">
        <scroll-view  scroll-with-animation="{{true}}" scroll-x style="width:100%">
             <view class="items">

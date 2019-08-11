@@ -19,6 +19,36 @@
 }
 
 
+.groups{
+  height:80rpx;
+  display:flex;
+  justify-content:space-between;
+  background:#fff;
+  border-radius:80rpx;
+  width:360rpx;
+  box-sizing:border-box;
+  padding:10rpx;
+  position:fixed;
+  top:50rpx;
+  left:calc(50% - 180rpx);
+}
+
+.group-item{
+  width:33.33%;
+  height:100%;
+  color:#333;
+  border-radius:80rpx;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.group-item.active{
+  background:#00ae66;
+  color: #fff;
+}
+
+
 .dingwei{
   width: 80rpx;
   height: 80rpx;

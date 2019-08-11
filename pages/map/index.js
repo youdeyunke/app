@@ -9,6 +9,12 @@ Page({
    */
   data: {
     markers: [],
+    currentGroupIndex: 0,
+    groupItems: [
+        {name: '二手房', value: 'old'},
+        {name: '租房', value: 'rental'},
+        {name: '新房', value: 'new'},
+    ],
     posts: [],
     center: {},
     loading: false,
@@ -22,6 +28,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.setNavigationBarTitle({title: '地图找房'})
+
     var sys = app.globalData.system
     var h = sys.windowHeight * sys.pixelRatio
     this.setData({mapViewHeight: h + 'rpx'})
@@ -61,7 +69,7 @@ Page({
     var _this = this
     // 标记点时候，将中心点也标记上
 
-    var markers = []
+    var markers =  []
     app.request({
       url: '/api/v1/sub_districts/',
       
@@ -129,16 +137,19 @@ Page({
 
   loadPosts: function(sid){
     // 根据小区id查询下面的房源数据
+    var pGroup = this.data.groupItems[this.data.currentGroupIndex]
     var query = {
       sub_district_id: sid,
-      group_v2: this.data.postGroup,
+      group_v2: pGroup.value,
+      order: 'id desc',
+      per_page: 999,
     }
     var _this = this
     app.request({
       url: '/api/v2/posts',
       data: query,
       success(res){
-        _this.setData({posts: res.data.data})
+        _this.setData({posts: res.data.data, total_posts: res.data.meta.total_entries})
       }
     })
   },
@@ -167,7 +178,17 @@ Page({
       }
     })    
     this.setData({loading: false})
+    this.popClose()
 
+  },
+
+
+  groupClick: function(e){
+      console.log('e', e)
+      var i = e.currentTarget.dataset.index
+      this.setData({currentGroupIndex: i})
+      this.popClose()
+      this.loadPosts()
   },
   
   poiHandle: function(e){
