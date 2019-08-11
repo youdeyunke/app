@@ -51,7 +51,10 @@
     "pages/post/meta",
     "pages/auth/index",
     "pages/admin/index",
-    "pages/udeve/index"
+    "pages/daikuan/index",
+    "pages/daikuan/detail",
+    "pages/udeve/index",
+    "pages/map/index"
   ],
   "tabBar": {
     "selectedColor": "#333",
@@ -72,7 +75,6 @@
         "selectedIconPath": "/assets/icons/message.1.png",
         "text": "消息"
       },
-
       {
         "pagePath": "pages/myself/index",
         "iconPath": "/assets/icons/myself.0.png",

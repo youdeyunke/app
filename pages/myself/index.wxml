@@ -38,13 +38,12 @@
         <view class="menu-item-name">我的收藏 </view>
       </button>          
 
-      <button  bindtap="navigatetTo" data-url="/pages/myself/broker" form-type="submit" hover-class="none"  class="fake menu-item" >
+      <button wx:if="{{!userInfo.broker_profile.enable }}"  bindtap="navigatetTo" data-url="/pages/myself/broker" form-type="submit" hover-class="none"  class="fake menu-item" >
         <van-icon color="#E15C32" size="58rpx" name="add" />
         <view class="menu-item-name">经纪人入驻 </view>
       </button>  
-
-      <button  bindtap="navigatetTo" data-url="/pages/admin/index" form-type="submit" hover-class="none"  class="fake menu-item" >
-        <van-icon color="#E15C32" size="58rpx" name="add" />
+      <button wx:else  bindtap="navigatetTo" data-url="/pages/admin/index" form-type="submit" hover-class="none"  class="fake menu-item" >
+        <van-icon color="#E15C32" size="58rpx" name="printer" />
         <view class="menu-item-name">工作台 </view>
       </button>  
 

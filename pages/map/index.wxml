@@ -1,0 +1,29 @@
+
+
+<view class="map-view" style="width: 100%; height:{{mapViewHeight}};">
+  <map id="map" longitude="{{center.longitude}}" bindpoitap="poiHandle" latitude="{{center.latitude}}" scale="14"   markers="{{markers}}" bindcallouttap="markertap"  bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height:100%;">
+
+    <cover-image  bindtap="getLocation" class="dingwei shadow" src="/assets/icons/dingwei.png"></cover-image>
+    <cover-view wx:if="{{loading}}" class="loading shadow" >正在加载...</cover-view>
+    <cover-image  class="center-point" src="/assets/icons/center-point.png"></cover-image>
+  </map>
+</view>
+
+
+<van-popup
+  show="{{ popState == 1 }}"
+  position="bottom"
+  overlay="{{ false }}"
+  bind:close="popClose"
+>
+  <view class="result-view">
+    <view class="body">
+       <scroll-view  scroll-with-animation="{{true}}" scroll-x style="width:100%">
+            <view class="items">
+                    <item-block item="{{item}}" wx:key="{{item.id}}" wx:for="{{ posts }}" />
+            </view>
+        </scroll-view>
+    </view>
+  </view>
+
+</van-popup>

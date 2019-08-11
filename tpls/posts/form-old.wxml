@@ -9,8 +9,8 @@
         </card>
 
         <card title="户型信息" hat wx:if="{{step==1}}">
-            <van-field size="large"  value="{{ post.construction_area }}" error="{{error.construction_area}}" label="建筑面积"
-                type="number" placeholder="平米" data-name="construction_area" input-align="left"
+            <van-field size="large"  value="{{ post.area }}" error="{{error.area}}" label="建筑面积"
+                type="number" placeholder="平米" data-name="area" input-align="left"
                 bind:change="inputChange" />
             <van-field size="large"  data-name="total_price" error="{{error.total_price}}" value="{{ post.total_price }}"
                 label="售价(万)" input-align="left" type="digit" placeholder="万元" bind:change="inputChange" />

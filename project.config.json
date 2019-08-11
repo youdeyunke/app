@@ -19,7 +19,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.7.5",
+	"libVersion": "2.8.0",
 	"appid": "wx22f2238c72f84e69",
 	"projectname": "%E5%B9%B4%E9%B1%BC",
 	"simulatorType": "wechat",
@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 55,
+			"current": 57,
 			"list": [
 				{
 					"id": 0,
@@ -409,6 +409,20 @@
 					"id": 55,
 					"name": "udeve",
 					"pathName": "pages/udeve/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "daikuan",
+					"pathName": "pages/daikuan/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 57,
+					"name": "地图找房",
+					"pathName": "pages/map/index",
 					"query": "",
 					"scene": null
 				}

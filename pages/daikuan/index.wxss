@@ -1,0 +1,11 @@
+
+
+.actions {
+  position: absolute;
+  width: 100%;
+  left:0;
+  right:0;
+  bottom:0px;
+  padding:20px;
+  box-sizing: border-box;
+}

@@ -65,7 +65,7 @@
     <view  class="detail-meta">
       <view  class="meta {{ meta.url ? 'link lg' : '' }} {{ meta.large ? 'lg' : '' }}" wx:key="{{meta.label}}" wx:if="{{meta}}" wx:for="{{post.meta_list}}" wx:for-item="meta">
             <text class="label">{{meta.label}}</text>
-            <text bindtap="gotoSub" data-url="{{meta.url}}" class="value van-ellipsis"> {{ meta.value || '-' }} </text>
+            <text bindtap="gotoMetaUrl" data-url="{{meta.url}}" class="value van-ellipsis"> {{ meta.value || '-' }} </text>
         </view>
 
     </view>    
