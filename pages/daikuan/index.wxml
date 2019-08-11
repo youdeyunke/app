@@ -1,7 +1,7 @@
 <!-- index.wxml -->
 
 <box>
-<van-tabs active="{{ active }}" bind:change="loanTypeChange">
+<van-tabs  color="#00ae66" active="{{ active }}" bind:change="loanTypeChange">
   <van-tab  wx:for="{{loanTypeArr}}" wx:key="id" title="{{item.text}}"></van-tab>
 </van-tabs>
 </box>

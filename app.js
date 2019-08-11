@@ -6,6 +6,7 @@ const EXT   = wx.getExtConfigSync()
 App({
   globalData: {
     EXT: EXT,
+    system: {},
     assetsList: [ '客梯','货梯', '扶梯', '中央空调', '停车位', '天然气', '网络', '暖气', '上水', '下水', '排烟', '排污', '可明火', '380V', '外摆区' ],
     apiHost: EXT['apihost'] || 'https://weapp.udeve.cn/9000',
     userInfo: null,
@@ -407,6 +408,7 @@ App({
     var logs = wx.getStorageSync("logs") || [];
     logs.unshift(Date.now());
     console.log('EXT is ', EXT)
+    this.getSystemInfo()
     this.getReddot();
     this.startReddotInterval();
     this.loadConfigs()
@@ -414,6 +416,17 @@ App({
       _this.globalData.cities = cities;
       _this.getLocation();
     });
+  },
+
+  getSystemInfo: function(){
+
+    try {
+      var res = wx.getSystemInfoSync();
+      this.globalData.system  = res
+      console.log('systeminfo', res)
+    } catch (e) {
+      console.error('getSystemInfoSync failed!');
+    }    
   },
 
   markVisitor: function(oid, otype){

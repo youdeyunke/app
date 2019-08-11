@@ -18,7 +18,7 @@
   </view>
 
   <view class="user-actions">
-    <button class="fake" hover-class="none"  open-type="getUserInfo" bindgetuserinfo="syncAvatar"> 签到 </button>
+    <button class="fake" hover-class="none"  open-type="getUserInfo" bindgetuserinfo="syncAvatar">  </button>
   </view>
 </view>
 </box>

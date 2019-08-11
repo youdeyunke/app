@@ -1,6 +1,7 @@
 // pages/detail/detail.js
 const util = require('./util.js')
 const mortgageHelper = require('./mortgageHelper.js')
+const wxCharts = require('../../utils/wxcharts-min.js');
 //获取应用实例
 const app = getApp()
 
@@ -26,6 +27,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '计算中',
+      mask: true,
+    })
 
     let mortgage = app.globalData.mortgageData;
     let loanTypeName = '等额本息(每月等额还款)';
@@ -66,7 +71,56 @@ Page({
       paymentYear: mortgage.paymentYear,
       payDetails: mortgageDetail.payDetails
     });
+
+    this.initChart()
+
+
+    wx.hideLoading()
   },
+
+  initChart: function(){
+    var windowWidth = 320;
+    try {
+      var res = wx.getSystemInfoSync();
+      windowWidth = res.windowWidth;
+    } catch (e) {
+      console.error('getSystemInfoSync failed!');
+    }
+    this.setData({ windowWidth: windowWidth})
+
+    var v1 = parseFloat(this.data.totalInterestStr) // 总利息
+    var v2 = parseFloat(this.data.totalLoanStr) // 贷款额
+    var v3 = v2 + v1
+
+    var r1 = Math.floor(100*v1/v3)
+    var r2 = Math.floor(100*v2/v3)
+
+    new wxCharts({
+      canvasId: 'mychart',
+      animation: true,
+      type: 'pie',      
+      width: windowWidth,
+      height: windowWidth,
+      dataLabel: true,
+      series:[
+        {
+          name: '支付利息',
+          data:v1,
+          format: (rate) => {
+            return '支付利息' + v1 + '万';
+          },          
+        },{
+          name: '贷款金额',
+          data: v2,
+          format: (rate) => {
+            return '贷款金额' + v2 + '万';
+          },          
+        }
+      ],
+    })
+  },
+
+
   showYearsDetailToggle: function () {
     this.setData({
       showDetail: !this.data.showDetail
