@@ -22,7 +22,7 @@
   bind:close="popClose"
 >
   <view class="result-view">
-    <view class="header">找到套{{total_posts}}房源</view>
+    <view class="header">找到套{{total_posts}}套房源</view>
     <view class="body">
        <scroll-view  scroll-with-animation="{{true}}" scroll-x style="width:100%">
             <view class="items">
