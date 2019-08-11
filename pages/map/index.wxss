@@ -35,11 +35,13 @@
 
 .group-item{
   width:33.33%;
-  height:100%;
+  height:60rpx;
   color:#333;
-  border-radius:80rpx;
+  border-radius:60rpx;
   display:flex;
   justify-content:center;
+  line-height:60rpx;
+  text-align:center;
   align-items:center;
 }
 

@@ -64,6 +64,7 @@ Page({
 
   _loadSubs: function (latitude, longitude){ 
     console.log('load subs')
+    var R = app.globalData.system.pixelRatio / 2.0
     
     // 加载小区数据
     var _this = this
@@ -95,13 +96,13 @@ Page({
               callout: {
                 content: sub.name,
                 display: 'ALWAYS',
-                borderRadius: 10,
+                borderRadius: 10 * R,
                 borderColor: '#00ae66',
                 bgColor: '#00ae66',
-                borderWidth: 1,
-                fontSize: 12,
+                borderWidth: 1 * R ,
+                fontSize: 14 * R,
                 color: '#ffffff',
-                padding: 2,
+                padding: 6 * R ,
                 textAlign: 'center',
               }
             })            
@@ -188,7 +189,7 @@ Page({
       var i = e.currentTarget.dataset.index
       this.setData({currentGroupIndex: i})
       this.popClose()
-      this.loadPosts()
+      this.loadSubs()
   },
   
   poiHandle: function(e){
