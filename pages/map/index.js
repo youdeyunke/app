@@ -1,6 +1,9 @@
 // pages/map/index.js
 const app = getApp()
 const debug = true
+var map = null
+const greenColor = '#00ae66'
+const whiteColor = '#ffffff'
 
 Page({
 
@@ -17,10 +20,10 @@ Page({
     ],
     posts: [],
     center: {},
+    sid: null,
+    mapViewHeight: app.globalData.system.windowHeight,
     loading: false,
-    mapViewHeight: '',
     postGroup: 'old',
-    resultViewHeight: '0rpx;',
     resultViewState: 0,
   },
 
@@ -29,10 +32,7 @@ Page({
    */
   onLoad: function (options) {
     wx.setNavigationBarTitle({title: '地图找房'})
-
-    var sys = app.globalData.system
-    var h = sys.windowHeight * sys.pixelRatio
-    this.setData({mapViewHeight: h + 'rpx'})
+    map = wx.createMapContext('map', this)
     this.getLocation()
   },
 
@@ -48,7 +48,6 @@ Page({
   },
 
   loadSubs: function(){
-    var map = wx.createMapContext('map', this)
     // 获取屏幕范围内的经纬度，用于查询数据接口参数
     var _this = this
     map.getRegion({
@@ -86,7 +85,7 @@ Page({
           if (sub.old_nums || sub.rental_nums){
             markers.push({
               iconPath: '/assets/icons/map-xiaoqu.png',
-              id: i + 1,
+              id: sub.id,
               alpha: '0.6',
               latitude: sub.latitude,
               longitude: sub.longitude,
@@ -97,11 +96,11 @@ Page({
                 content: sub.name,
                 display: 'ALWAYS',
                 borderRadius: 10 * R,
-                borderColor: '#00ae66',
-                bgColor: '#00ae66',
+                borderColor: greenColor,
+                bgColor: greenColor,
+                color: whiteColor,
                 borderWidth: 1 * R ,
                 fontSize: 14 * R,
-                color: '#ffffff',
                 padding: 6 * R ,
                 textAlign: 'center',
               }
@@ -131,7 +130,27 @@ Page({
 
   markertap: function(e){
     var sid = e.markerId
-    console.log('markertap',  sid)
+    if(sid == this.data.sid){
+        return false;
+    }
+
+    console.log('markertap',  sid, e)
+    // 改变marker的背景颜色
+    var markers = this.data.markers
+    markers.forEach((marker,i) => {
+        var _borderColor = greenColor
+        var _bgColor = greenColor
+        var _color = whiteColor
+        if(marker.id == sid){
+            _bgColor = '#ff911b'
+            _borderColor = '#ff911b'
+        }
+        marker['callout']['borderColor'] = _borderColor
+        marker['callout']['bgColor'] = _bgColor
+        marker['callout']['color'] = _color
+    })
+
+    this.setData({markers: markers, sid: sid}) 
     this.loadPosts(sid)
     this.popShow()
   },
@@ -157,29 +176,19 @@ Page({
 
 
   regionchange: function(e){
+    // 视野变化，重新加载sub数据
+    this.popClose()
+
     console.log('region change', e)
-    if (e.detail.type != 'end' || e.causedBy != 'drag'){
+    if (e.detail.type != 'end' ){
       return false
     }
-    this.setData({loading: true})
 
-    // 获取中心点的位置坐标
-    var map = wx.createMapContext('map', this)
-    var _this = this
-    map.getCenterLocation({
-      success: function (res) {
-        console.log('res', res)
-        _this.updateCenter(res.latitude, res.longitude)
-      },
-      fail: function(err){
-        console.log('err', error)
-      },
-      complete: function(res){
-        console.log('get center location', res)
-      }
-    })    
-    this.setData({loading: false})
-    this.popClose()
+    if(e.causedBy == 'update'){
+        return false
+    }
+
+    this.loadSubs()
 
   },
 
@@ -195,30 +204,24 @@ Page({
   poiHandle: function(e){
     // 点击位置点，更新中心点
     console.log('poi click', e)
+
     var p = e.detail
-    this.updateCenter(e.latitude, e.longitude)
+    // 将位置移动到中心
+    this.moveTo(p.latitude, p.longitude)
   },
 
-  updateCenter: function (latitude, longitude){
-    // 更新地图的中心点信息
-    var center = {
-      longitude: longitude,
-        latitude: latitude,        
-    }
-    this.setData({
-      center: center,
+  moveTo: function(latitude, longitude){
+    map.moveToLocation({
+        longitude: longitude,
+        latitude: latitude,
+        success(){ 
+            // TODO 
+        },
     })
-    // 重新加载小区数据
-    this.loadSubs()
-  },
-
-  updateMarkers: function(subs){
-
   },
 
   getLocation: function(){
     // 定位到当前位置
-
 
     var _this = this
     // 检查是否有位置权限
@@ -244,10 +247,10 @@ Page({
         const longitude = res.longitude
         console.log('res', res)
         if (debug) {
-          _this.updateCenter(31.19143, 121.31641)
+          _this.moveTo(31.19143, 121.31641)
           return false;
         }
-        _this.updateCenter(res.latitude, res.longitude)
+        _this.moveTo(res.latitude, res.longitude)
       }
     })        
   },
@@ -280,7 +283,7 @@ Page({
     wx.chooseLocation({
       success: function(res) {
         console.log('res', res)
-        _this.updateCenter(res.latitude, res.longitude)
+        _this.moveTo(res.latitude, res.longitude)
       },
     })
   },
