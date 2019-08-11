@@ -43,7 +43,9 @@ Page({
   },
   popClose: function(){
     this.setData({
-      popState:0
+      sid: null,
+      popState:0,
+      posts: [],
     })
   },
 
@@ -64,6 +66,7 @@ Page({
   _loadSubs: function (latitude, longitude){ 
     console.log('load subs')
     var R = app.globalData.system.pixelRatio / 2.0
+    var group = this.data.groupItems[this.data.currentGroupIndex].value || 'old'
     
     // 加载小区数据
     var _this = this
@@ -71,10 +74,8 @@ Page({
 
     var markers =  []
     app.request({
-      url: '/api/v1/sub_districts/',
-      
+      url: '/api/v1/map_subs/',
       data: {
-        per_page: 100,
         region_latitude: latitude,
         region_longitude: longitude,
       },
@@ -82,8 +83,7 @@ Page({
       success: function(resp){
         resp.data.data.forEach((sub,i) =>{
           console.log('sub', sub)
-          if (sub.old_nums || sub.rental_nums){
-            markers.push({
+          var marker = {
               iconPath: '/assets/icons/map-xiaoqu.png',
               id: sub.id,
               alpha: '0.6',
@@ -104,8 +104,25 @@ Page({
                 padding: 6 * R ,
                 textAlign: 'center',
               }
-            })            
+          } 
+          switch(group){
+              case 'old':
+                  if(sub.old_nums > 0){
+                      markers.push(marker)
+                  }
+                  break;
+              case 'rental':
+                  if(sub.rental_nums > 0){
+                      markers.push(marker)
+                  }
+                  break;
+              case 'new':
+                  if(sub.new_nums > 0){
+                      markers.push(marker)
+                  }
+                  break;
           }
+
         })
         _this.setData({
           markers: markers
