@@ -235,12 +235,14 @@ App({
    },
 
   ensureLocation: function(cb) {
+    
     // 确保能获取用户位置信息
     var _this = this;
     var location = wx.getStorageSync("location");
 
     if (!location) {
       // 打开获取位置信息界面
+      // 只能通过点击方式打开
       wx.openSetting({
         success: function(setting) {
           var value = setting.authSetting["scope.userLocation"];
