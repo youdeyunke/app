@@ -14,15 +14,11 @@ Page({
   },
 
   contentHandle: function(e){
-    console.log('e', e)
     this.data.comment.content = e.detail.value
     this.setData({ comment: this.data.comment })
   },
 
-
-
   scoreHandle: function(e){
-    console.log('e', e)
     this.data.comment.score = e.detail.score
     this.setData({comment: this.data.comment})
   },
@@ -31,7 +27,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
-
     this.setData({
       target_id: q.target_id, 
       target_type: q.target_type || 'post'
@@ -56,7 +51,6 @@ Page({
       })
       return false
     }
-
 
     if(!comment.content){
       wx.showToast({
@@ -86,7 +80,6 @@ Page({
         // 页面卸载的收，会将this.data.comment写入globalData.newComment
         // 发布成功后，就清空
         _this.setData({comment: null})
-
         wx.setStorageSync('eventBus', {key: 'reloadComments', value: comment.target_id})
         
         wx.showToast({title: '提交评论成功', })
@@ -101,9 +94,7 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-  
-  },
+  onReady: function () {},
 
   /**
    * 生命周期函数--监听页面显示
@@ -128,9 +119,7 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-
-  },
+  onHide: function () {},
 
   /**
    * 生命周期函数--监听页面卸载
@@ -142,21 +131,15 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-  
-  },
+  onPullDownRefresh: function () {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-  
-  },
+  onReachBottom: function () {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
-  }
+  onShareAppMessage: function () {}
 })
