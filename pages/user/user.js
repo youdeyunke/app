@@ -8,7 +8,7 @@ Page({
    */
   data: {
     userInfo: null,
-    filter: {user_id: '', order: 'id desc', group: 'ershoufang', per_page: 5},
+    filter: {user_id: '', order: 'id desc', group_v2: 'old', per_page: 5},
     userId: null,
     currentTabIndex: 0,
     page: 1,
@@ -17,9 +17,9 @@ Page({
       {id: 'wechat', bindtap: 'copyWechat'},
     ],
     tabs: [
-      {label: '二手房源', group: 'ershoufang'},
-      {label: '新房房源', group: 'xinfang' },
-      {label: '在租房源', group: 'zufang'},
+      {label: '二手房源', group_v2: 'old'},
+      {label: '新房房源', group_v2: 'new' },
+      {label: '在租房源', group_v2: 'rental'},
     ],
   },
 
@@ -60,7 +60,7 @@ Page({
      var i = e.detail.index
      var tab = this.data.tabs[i]
      var filter = this.data.filter
-     filter['group'] = tab.group
+     filter['group_v2'] = tab.group_v2
      this.setData({
          page: 1,
          filter:  filter
