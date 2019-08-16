@@ -83,13 +83,9 @@ Page({
         map.includePoints({
           points: points,
           success: function(){
-            _this.loadSubs()
+            _this.setData({currentGroupIndex: i})
           },
         })
-
-        _this.setData({currentGroupIndex: i})
-
-        console.log('include points', points)
       },
     })
   
