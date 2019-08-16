@@ -1,6 +1,6 @@
 // pages/map/index.js
 const app = getApp()
-const debug = true
+const debug = false
 var map = null
 const greenColor = '#00ae66'
 const whiteColor = '#ffffff'
