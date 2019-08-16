@@ -257,7 +257,13 @@ Page({
   onShow: function () {
     var _this = this
     auth.ensureUser(function(user){
-      _this.setData({ contact_mobile: user.mobile, contact_mobile_lock: true })
+      // 判断是否绑定手机号
+      var contact_mobile_lock = false
+
+      if(user.mobile && user.mobile.length == 11){
+        contact_mobile_lock = true
+      }
+      _this.setData({ contact_mobile: user.mobile, contact_mobile_lock: contact_mobile_lock })
     })
   },
 
