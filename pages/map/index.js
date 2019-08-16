@@ -31,9 +31,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({title: '地图找房'})
     map = wx.createMapContext('map', this)
-    this.getLocation()
+    wx.setNavigationBarTitle({title: '地图找房'})
+    //this.getLocation()
+    this.initMap()
   },
 
   popShow: function(){
@@ -41,12 +42,57 @@ Page({
       popState: 1
     })
   },
+
   popClose: function(){
     this.setData({
       sid: null,
       popState:0,
       posts: [],
     })
+  },
+
+  initMap: function(){
+    // 初始化，第一次进入地图时候
+    var pointsDict = {'old': [], 'new': [], 'rental': []}
+    var points = []
+
+    var _this = this
+    app.request({
+      url: '/api/v2/posts',
+      success: function(resp){
+        resp.data.data.forEach((post,i) =>{
+          var sub = post.sub_district
+          var point = {longitude: sub.longitude, latitude: sub.latitude}
+          pointsDict[post.group].push(point)
+
+        })
+
+        var i = 0
+
+        if(pointsDict['old'].length > 0){
+          i = 0
+          points = pointsDict['old']
+        }else if(pointsDict['rental'].length > 0){
+          i = 1
+          points = pointsDict['rental']
+        }else if(new_points.length > 0){
+          id = 2
+          points = pointsDict['new']
+        }
+
+        map.includePoints({
+          points: points,
+          success: function(){
+            _this.loadSubs()
+          },
+        })
+
+        _this.setData({currentGroupIndex: i})
+
+        console.log('include points', points)
+      },
+    })
+  
   },
 
   loadSubs: function(){
