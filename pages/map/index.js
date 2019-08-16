@@ -150,16 +150,20 @@ Page({
           switch(group){
               case 'old':
                   if(sub.old_nums > 0){
+                      var t = ' | ' + sub.old_nums + '套'
+                      marker.callout.content += t
                       markers.push(marker)
                   }
                   break;
               case 'rental':
                   if(sub.rental_nums > 0){
+                      var t = ' | ' + sub.rental_nums + '套'
                       markers.push(marker)
                   }
                   break;
               case 'new':
                   if(sub.new_nums > 0){
+                      var t = ' | ' + sub.new_nums + '套'
                       markers.push(marker)
                   }
                   break;
