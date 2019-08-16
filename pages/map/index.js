@@ -30,11 +30,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function (q) {
     map = wx.createMapContext('map', this)
     wx.setNavigationBarTitle({title: '地图找房'})
     //this.getLocation()
-    this.initMap()
+    this.initMap(q.group)
   },
 
   popShow: function(){
@@ -51,14 +51,19 @@ Page({
     })
   },
 
-  initMap: function(){
+  initMap: function(group){
     // 初始化，第一次进入地图时候
     var pointsDict = {'old': [], 'new': [], 'rental': []}
     var points = []
+    var query = {}
+    if(group){
+      query['group_v2'] = group
+    }
 
     var _this = this
     app.request({
       url: '/api/v2/posts',
+      data: query,
       success: function(resp){
         resp.data.data.forEach((post,i) =>{
           var sub = post.sub_district

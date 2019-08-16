@@ -39,3 +39,31 @@
     width:100%;
     border-bottom:2rpx solid #f4f4f4;
 }
+
+.float-btn{
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 88rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right:30rpx;
+  box-shadow: 0 4rpx 10rpx rgba(0,0,0, 0.2); 
+  font-size:var(--font-xs);
+  color: #fff;
+  opacity: 0.9;
+}
+
+.float-btn.ditu{
+  bottom:150rpx;
+  background:var(--color-b);
+  box-shadow: 2rpx 2rpx 10rpx rgba(0,0,0, 0.2);
+}
+
+.float-btn.ditu image{
+  width: 88rpx;
+  height: 88rpx;
+}
+
