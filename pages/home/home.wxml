@@ -29,7 +29,7 @@
 </view>
 <box width="750" padding="30">
   <items id="new-posts" kw="" page="1" filter="{{newFilter}}" />
-  <navigator url="/pages/post/index?group=xinfang" hover-class="none" class="more-btn">查看更多新房</navigator>
+  <navigator url="/pages/post/index?group_v2=new" hover-class="none" class="more-btn">查看更多新房</navigator>
 </box>
 </block>
 
@@ -40,7 +40,7 @@
 </view>
 <box width="750" padding="30">
   <items id="old-posts" kw="" page="1" filter="{{oldFilter}}" />
-  <navigator url="/pages/post/index?group=ershoufang" hover-class="none" class="more-btn">查看更多二手房</navigator>  
+  <navigator url="/pages/post/index?group_v2=old" hover-class="none" class="more-btn">查看更多二手房</navigator>  
 </box>
 </block>
 
@@ -51,9 +51,8 @@
 </view>
 <box width="750" padding="30">
   <items id="rent-posts" kw="" page="1" filter="{{rentFilter}}" />
- <navigator url="/pages/post/index?group=zufang" hover-class="none" class="more-btn">查看更多租房</navigator>  
+ <navigator url="/pages/post/index?group_v2=rental" hover-class="none" class="more-btn">查看更多租房</navigator>  
 </box>
 </block>
-
 
 <cr />

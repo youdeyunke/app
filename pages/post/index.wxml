@@ -33,6 +33,6 @@
 
 </view>
 
-<navigator class="float-btn ditu" open-type="navigateTo" url="/pages/map/index?group={{filter.group}}">
+<navigator wx:if="{{filter.group_v2}}" class="float-btn ditu" open-type="navigateTo" url="/pages/map/index?group={{filter.group_v2}}">
   <image src="/assets/icons/ditu-icon.png"></image>
 </navigator>
