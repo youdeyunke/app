@@ -126,14 +126,14 @@ Page({
         resp.data.data.forEach((sub,i) =>{
           console.log('sub', sub)
           var marker = {
-              iconPath: '/assets/icons/map-xiaoqu.png',
+              iconPath: '/assets/images/none.png',
               id: sub.id,
               alpha: '0.6',
               latitude: sub.latitude,
               longitude: sub.longitude,
-              width: 30,
+              width: 1,
               zIndex: 10,
-              height: 30,
+              height: 1,
               callout: {
                 content: sub.name,
                 display: 'ALWAYS',
