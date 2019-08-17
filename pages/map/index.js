@@ -33,7 +33,6 @@ Page({
   onLoad: function (q) {
     map = wx.createMapContext('map', this)
     wx.setNavigationBarTitle({title: '地图找房'})
-    //this.getLocation()
     this.initMap(q.group)
   },
 
@@ -86,10 +85,14 @@ Page({
         }
 
         map.includePoints({
-          points: points,
+          points: points.slice(0, 5),
+          padding: 10,
           success: function(){
             _this.setData({currentGroupIndex: i})
-            _this.loadSubs()
+            // 注意，这里需要延时执行，否则在真机上加载不到标记点
+            // 因为获取屏幕范围时地图视野还未更新，
+            // 获取到的视野还是初始状态下的数据
+            setTimeout(_this.loadSubs, 500)
           },
         })
       },
@@ -103,7 +106,6 @@ Page({
     map.getRegion({
       success(res) {
         // northeast : 东北，  southwest: 西南
-        console.log('get region res', res)
         var latitude = res.southwest.latitude + ',' + res.northeast.latitude
         var longitude = res.southwest.longitude + ',' + res.northeast.longitude
         _this._loadSubs(latitude, longitude)
@@ -112,76 +114,77 @@ Page({
   },
 
   _loadSubs: function (latitude, longitude){ 
-    console.log('load subs')
-    var R = app.globalData.system.pixelRatio / 2.0
     var group = this.data.groupItems[this.data.currentGroupIndex].value || 'old'
     
     // 加载小区数据
     var _this = this
     // 标记点时候，将中心点也标记上
-
+    var query = {
+        region_latitude: latitude,
+        region_longitude: longitude,
+    }
     var markers =  []
     app.request({
       url: '/api/v1/map_subs/',
-      data: {
-        region_latitude: latitude,
-        region_longitude: longitude,
-      },
-
+      data: query,
       success: function(resp){
-        resp.data.data.forEach((sub,i) =>{
-          console.log('sub', sub)
-          var marker = {
-              iconPath: '/assets/images/none.png',
-              id: sub.id,
-              alpha: '0.6',
-              latitude: sub.latitude,
-              longitude: sub.longitude,
-              width: 1,
-              zIndex: 10,
-              height: 1,
-              callout: {
-                content: sub.name,
-                display: 'ALWAYS',
-                borderRadius: 10 * R,
-                borderColor: greenColor,
-                bgColor: greenColor,
-                color: whiteColor,
-                borderWidth: 1 * R ,
-                fontSize: 14 * R,
-                padding: 6 * R ,
-                textAlign: 'center',
-              }
-          } 
-          switch(group){
-              case 'old':
-                  if(sub.old_nums > 0){
-                      var t = ' | ' + sub.old_nums + '套'
-                      marker.callout.content += t
-                      markers.push(marker)
-                  }
-                  break;
-              case 'rental':
-                  if(sub.rental_nums > 0){
-                      var t = ' | ' + sub.rental_nums + '套'
-                      markers.push(marker)
-                  }
-                  break;
-              case 'new':
-                  if(sub.new_nums > 0){
-                      var t = ' | ' + sub.new_nums + '套'
-                      markers.push(marker)
-                  }
-                  break;
-          }
-
-        })
-        _this.setData({
-          markers: markers
-        })
+        _this.setMarkers(resp.data.data, group)
       }
     })
 
+  },
+
+  setMarkers: function(subs, group){
+      var R = app.globalData.system.pixelRatio / 2.0
+      var markers = []
+      subs.forEach((sub,i) =>{
+        var marker = {
+            iconPath: '/assets/images/none.png',
+            id: sub.id,
+            alpha: '0.6',
+            latitude: sub.latitude,
+            longitude: sub.longitude,
+            width: 1,
+            zIndex: 10,
+            height: 1,
+            callout: {
+              content: sub.name,
+              display: 'ALWAYS',
+              borderRadius: 10 * R,
+              borderColor: greenColor,
+              bgColor: greenColor,
+              color: whiteColor,
+              borderWidth: 1 * R ,
+              fontSize: 14 * R,
+              padding: 6 * R ,
+              textAlign: 'center',
+            }
+        } 
+        switch(group){
+            case 'old':
+                if(sub.old_nums > 0){
+                    var t = ' | ' + sub.old_nums + '套'
+                    marker.callout.content += t
+                    markers.push(marker)
+                }
+                break;
+            case 'rental':
+                if(sub.rental_nums > 0){
+                    var t = ' | ' + sub.rental_nums + '套'
+                    marker.callout.content += t
+                    markers.push(marker)
+                }
+                break;
+            case 'new':
+                if(sub.new_nums > 0){
+                    var t = ' | ' + sub.new_nums + '套'
+                    marker.callout.content += t
+                    markers.push(marker)
+                }
+                break;
+        }
+      })
+      this.setData({ markers: markers })
   },
 
   /**
@@ -203,7 +206,6 @@ Page({
         return false;
     }
 
-    console.log('markertap',  sid, e)
     // 改变marker的背景颜色
     var markers = this.data.markers
     markers.forEach((marker,i) => {
@@ -246,9 +248,16 @@ Page({
 
   regionchange: function(e){
     // 视野变化，重新加载sub数据
+    // 由于数据的变化会导致地图视野频繁更新，这里记录下最后更新的时间，用于判断短时间内不重复更新
+    var tNew =  e.timeStamp
+    var tOld = this.data.regionChangeTime || 0
+    if(tNew - tOld <= 100){
+      return false
+    }
+    
+
     this.popClose()
 
-    console.log('region change', e)
     if (e.detail.type != 'end' ){
       return false
     }
@@ -256,14 +265,14 @@ Page({
     if(e.causedBy == 'update'){
         return false
     }
-
+    
+    this.setData({regionChangeTime: e.timeStamp})
     this.loadSubs()
 
   },
 
 
   groupClick: function(e){
-      console.log('e', e)
       var i = e.currentTarget.dataset.index
       this.setData({currentGroupIndex: i})
       this.popClose()
@@ -272,7 +281,6 @@ Page({
   
   poiHandle: function(e){
     // 点击位置点，更新中心点
-    console.log('poi click', e)
 
     var p = e.detail
     // 将位置移动到中心
@@ -296,7 +304,6 @@ Page({
     // 检查是否有位置权限
     wx.getSetting({
       success(res){
-        console.log('res ', res)
         if (!res.authSetting['scope.userLocation']){
           wx.openSetting({
             
@@ -314,7 +321,6 @@ Page({
       success(res) {
         const latitude = res.latitude
         const longitude = res.longitude
-        console.log('res', res)
         if (debug) {
           _this.moveTo(31.19143, 121.31641)
           return false;
@@ -351,7 +357,6 @@ Page({
     var _this = this
     wx.chooseLocation({
       success: function(res) {
-        console.log('res', res)
         _this.moveTo(res.latitude, res.longitude)
       },
     })
