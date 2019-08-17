@@ -89,6 +89,7 @@ Page({
           points: points,
           success: function(){
             _this.setData({currentGroupIndex: i})
+            _this.loadSubs()
           },
         })
       },
