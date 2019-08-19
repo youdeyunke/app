@@ -79,7 +79,7 @@ Page({
         }else if(pointsDict['rental'].length > 0){
           i = 1
           points = pointsDict['rental']
-        }else if(new_points.length > 0){
+        }else if(pointsDict['new'].length > 0){
           id = 2
           points = pointsDict['new']
         }
