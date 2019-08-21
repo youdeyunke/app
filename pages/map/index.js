@@ -80,12 +80,12 @@ Page({
           i = 1
           points = pointsDict['rental']
         }else if(pointsDict['new'].length > 0){
-          id = 2
+          i = 2
           points = pointsDict['new']
         }
-
+ 
         map.includePoints({
-          points: points.slice(0, 5),
+          points: points.slice(0, 2),
           padding: 10,
           success: function(){
             _this.setData({currentGroupIndex: i})
@@ -177,8 +177,6 @@ Page({
                 break;
             case 'new':
                 if(sub.new_nums > 0){
-                    var t = ' | ' + sub.new_nums + '套'
-                    marker.callout.content += t
                     markers.push(marker)
                 }
                 break;
