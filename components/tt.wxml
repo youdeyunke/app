@@ -1,5 +1,5 @@
 <view bindtap='newsClick' class="item">
-  <image class="cover" src="{{item.cover.url}}?imageView2/2/w/250"></image>
+  <image class="cover" src="{{item.cover_v2 }}?imageView2/2/w/250"></image>
   <view class="item-title-block">
     <view class="title">{{item.title}}</view>
     <view class="meta">
