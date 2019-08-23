@@ -54,7 +54,8 @@
     "pages/daikuan/index",
     "pages/daikuan/detail",
     "pages/udeve/index",
-    "pages/map/index"
+    "pages/map/index",
+    "pages/owner/sale"
   ],
   "tabBar": {
     "selectedColor": "#333",

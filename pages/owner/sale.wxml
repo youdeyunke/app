@@ -1,0 +1,32 @@
+
+<form bindsubmit="submit">
+
+    <mycard width="710" title="房源地址"   hat="{{false}}">
+        <van-field size="large"   input-align="left" disabled bindtap="chooseLocation" is-link label="小区"
+            value="{{sub.name}}" arrow-direction="down" />
+
+        <van-field border="{{false}}"  wx:if="{{group == 'old' }}" size="large"  name="total_price" v input-align="left" label="期望售价"
+            placeholder="单位：万" bind:change="inputChange" />
+
+        <van-field border="{{false}}" wx:else size="large"  name="rental_price" v input-align="left" label="期望月租金"
+            placeholder="单位：元" bind:change="inputChange" />            
+    </mycard>
+
+    <mycard width="710" title="联系方式"   hat="{{false}}">
+        <van-field size="large"  name="name" v input-align="left" label="称呼"
+            placeholder="如何称呼您" bind:change="inputChange" />
+
+        <van-field size="large" border="{{false}}"  name="mobile" v input-align="left" label="电话"
+            placeholder="单位：元"  disabled="{{true}}" value="{{mobile}}" >    
+              <mbutton wx:if="{{!mobile}}" bind:change="mobileBind" slot="button" size="small" type="primary" />
+        </van-field>        
+    </mycard>    
+
+
+    <view class="actions">
+      <button data-name="step1" form-type="submit" type="primary" class="btn ">发布房源</button>
+    </view>
+</form>
+
+
+<flow-tips steps="{{stepsText}}" />

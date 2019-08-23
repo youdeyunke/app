@@ -1,0 +1,1 @@
+<van-button size="{{size}}" type="{{type}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">{{btnText}}</van-button>
