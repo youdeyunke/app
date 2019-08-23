@@ -22,15 +22,15 @@
   <view class="mybox" style="padding:20rpx 20rpx 0rpx 20rpx;">
     <view class="menu"  >
 
-      <button  bindtap="navigatetTo" data-url="/pages/need/room-form?cat=buy" form-type="submit" hover-class="none"  class="fake menu-item" >
+      <button  bindtap="navigatetTo" data-url="/pages/owner/sale?group=old" form-type="submit" hover-class="none"  class="fake menu-item" >
         <van-icon color="#ff9501" size="58rpx" name="balance-list" />
-        <view class="menu-item-name">我要买房 </view>
+        <view class="menu-item-name">业主卖房 </view>
       </button>  
 
 
-      <button  bindtap="navigatetTo" data-url="/pages/need/room-form?cat=rent" form-type="submit" hover-class="none"  class="fake menu-item" >
+      <button  bindtap="navigatetTo" data-url="/pages/owner/sale?group=rental" form-type="submit" hover-class="none"  class="fake menu-item" >
         <van-icon color="#5857CE" size="58rpx" name="balance-list" />
-        <view class="menu-item-name">我要租房 </view>
+        <view class="menu-item-name">业主出租 </view>
       </button>    
 
       <button bindtap="navigatetTo" data-url="/pages/myself/favposts" form-type="submit" hover-class="none"   class="fake menu-item" >

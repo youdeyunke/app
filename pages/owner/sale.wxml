@@ -1,6 +1,10 @@
+    <box>
+      <van-tabs  active="{{groupIndex}}"    border="{{false}}" type="line" color="#00ae66" bind:change="groupChange">
+        <van-tab wx:for="{{groupItems}}" title="{{item.name}}"></van-tab>
+      </van-tabs>
+    </box>
 
 <form bindsubmit="submit">
-
     <mycard width="710" title="房源地址"   hat="{{false}}">
         <van-field size="large"   input-align="left" disabled bindtap="chooseLocation" is-link label="小区"
             value="{{sub.name}}" arrow-direction="down" />
@@ -29,4 +33,4 @@
 </form>
 
 
-<flow-tips steps="{{stepsText}}" />
+<flow-tips steps="{{setpsText}}" />

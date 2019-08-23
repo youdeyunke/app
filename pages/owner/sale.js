@@ -11,19 +11,41 @@ Page({
   data: {
     setpsText: ["填写信息", "电话核实", "房源上架"],
     group: 'old',
+    groupIndex: 0,
     mobile: '',
     sub: {name: '请选择小区'},
     groupItems: [
-      {name: '卖房', value: 'old'},
-      {name: '出租', value: 'rental'},
+      {name: '业主卖房', value: 'old'},
+      {name: '业主出租', value: 'rental'},
     ]
+  },
+
+
+  groupChange: function (e) {
+    var i = e.detail.index
+    var items = this.data.groupItems
+    this.setData({
+      group: items[i].value,
+      groupIndex: i,
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
-    this.setData({group: q.group || 'old' })
+    var _this = this
+    if(q.group){
+      console.log('q.group', q.group)
+      this.data.groupItems.forEach((g,i) => {
+        console.log('g is', g)
+        if(g.value == q.group){
+          console.log('set data', g.value, i)
+          _this.setData({group: g.value, groupIndex: i})
+        }
+      })
+
+    }
   },
 
   /**
@@ -37,6 +59,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    wx.setNavigationBarTitle({
+      title: '免费发布房源',
+    })
     var _this = this
     auth.loadUserInfo(function (user) {
       if(user.mobile && user.mobile.length == 11){
@@ -121,6 +146,8 @@ Page({
     app.uploadFormid(e)
     var fdata = e.detail.value
     fdata['sub_district_id'] = this.data.sub.id
+    fdata['price'] = fdata['total_price'] || fdata['rental_price']
+    fdata['group'] = this.data.group,
     console.log('form data', fdata)
     var isok = this.validateFormData(fdata)
     if(!isok){
@@ -128,12 +155,22 @@ Page({
     }
 
     app.request({
-      url: '/api/v1/xxx',
+      url: '/api/v1/owner_sales',
+      method: 'POST',
       data: fdata,
       success: function(resp){
         if(resp.data.status != 0){
           return false;
         }
+        wx.showModal({
+          title: '发布成功！',
+          content: '我们已经收到您发布的信息，我们的经纪人会在2个工作日内与您联系核实房源信息',
+          success: function(res){
+            wx.switchTab({
+              url: '/pages/home/home',
+            })
+          }
+        })
       }
     })
   },

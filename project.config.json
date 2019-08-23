@@ -428,7 +428,7 @@
 				},
 				{
 					"id": 58,
-					"name": "业主卖房",
+					"name": "业主出租",
 					"pathName": "pages/owner/sale",
 					"query": "group=rental",
 					"scene": null
