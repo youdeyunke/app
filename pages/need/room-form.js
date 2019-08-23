@@ -178,6 +178,19 @@ Page({
     return cb(data)
   },
 
+  mobileBind: function(e){
+    console.log('用户授权获取手机号成功', e.detail)
+    var mobile = e.detail
+    if(!mobile){
+      wx.showToast({
+        title: '手机号授权失败，请重试',
+        icon: 'error',
+      })
+      return false
+    }
+    this.setData({contact_mobile: mobile })
+  },
+
   mobileIconClickHandle: function(e){
     wx.showModal({
       title: '提示',

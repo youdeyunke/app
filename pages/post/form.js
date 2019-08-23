@@ -201,6 +201,22 @@ Page({
         this.updatePostField('tags', selectedTags.join(','))
     },
 
+  mobileBind: function(e){
+    console.log('用户授权获取手机号成功', e.detail)
+    var mobile = e.detail
+    if(!mobile){
+      wx.showToast({
+        title: '手机号授权失败，请重试',
+        icon: 'error',
+      })
+      return false
+    }
+
+    var post = this.data.post
+    post['broker_mobile'] = mobile
+    this.setData({post: post })
+  },
+
 
     unbindEvent: function () {
         onfire.un('selectSubDistrict')

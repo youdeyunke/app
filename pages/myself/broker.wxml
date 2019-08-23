@@ -10,7 +10,9 @@
     <view wx:if="{{ state == 'pending' }}" class="back" bindtap="gotoEdit">返回修改资料</view>
     <form bindsubmit="submitHandle" wx:if="{{state == 'new'  }}">
         <van-field required label="姓名" value="{{broker.name}}" name="name" placeholder="你的真实姓名" />
-        <van-field required label="电话" value="{{broker.mobile}}" name="mobile" placeholder="真实联系电话" />
+        <van-field required label="电话" disabled="{{true}}" value="{{broker.mobile}}" name="mobile" placeholder="真实联系电话" >
+              <mbutton wx:if="{{!broker.mobile}}" bind:change="mobileBind" slot="button" size="small" type="primary" />
+        </van-field>
         <van-field label="微信" value="{{broker.wechat}}" name="wechat" placeholder="微信账号" />
         <van-field label="公司" value="{{broker.company}}" name="company" placeholder="你所在的公司" />
         <van-field border="{{false}}" label="介绍" value="{{broker.desc}}" name="desc" placeholder="简短的个人介绍" />

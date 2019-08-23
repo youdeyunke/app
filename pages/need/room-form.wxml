@@ -62,12 +62,12 @@
                         required
                         label="手机号" 
                         icon="question-o"
-                        bind:click-icon="mobileIconClickHandle"
                         value="{{ contact_mobile }}" 
                         readonly="{{contact_mobile_lock}}"
-                        disabled="{{contact_mobile_lock}}"
+                        disabled="{{true}}"
                         placeholder="用于经纪人联系您" 
                         data-name="contact_mobile">
+              <mbutton wx:if="{{!contact_mobile}}" bind:change="mobileBind" slot="button" size="small" type="primary" />
                 </van-field>
 
                 <van-field 

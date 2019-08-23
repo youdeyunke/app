@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "van-field": "/vant/field/index",
+    "mbutton": "/components/bind-mobile-button",
     "van-button": "/vant/button/index",
     "van-cell": "/vant/cell/index",
     "flow-tips": "/components/flow-tips",

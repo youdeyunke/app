@@ -2,6 +2,7 @@
   "usingComponents": {
     "card": "/components/card",
     "city-picker": "/components/city-picker",
+    "mbutton": "/components/bind-mobile-button",
     "typepicker": "/components/typepicker",
     "floorpicker": "/components/floorpicker",
     "images-uploader": "/components/images-uploader",

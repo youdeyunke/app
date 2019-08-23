@@ -6,6 +6,7 @@
     "van-radio-group": "/vant/radio-group/index",
     "van-radio": "/vant/radio/index",
     "van-switch-cell": "/vant/switch-cell/index",
+    "mbutton": "/components/bind-mobile-button",
 
     "van-stepper": "/vant/stepper/index",
     "van-cell": "/vant/cell/index",
