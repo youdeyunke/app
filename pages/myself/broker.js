@@ -27,7 +27,7 @@ Page({
                 app.loadConfigs(function (conf) {
                     _this.setData({
                         userInfo: user,
-                        joinType: conf['broker_join_type'],
+                        joinType:  conf['broker_join_type'],
                         broker: user.broker_profile
                     })
                     _this.updateState(user)
@@ -89,9 +89,10 @@ Page({
             })
             return false
         }
-        if (!data.mobile && !data.wechat) {
+        if (!data.mobile && data.mobile.length != 11) {
             wx.showToast({
-                title: '手机号和微信号至少填写一个',
+                title: '请填写手机号',
+                icon: 'none',
             })
             return false
         }
@@ -101,7 +102,7 @@ Page({
 
     doPost: function (data) {
         var _this = this
-        var joinType = this.data.joinType
+        var joinType =  this.data.joinType
 
         app.request({
             url: '/api/v2/users/myself',

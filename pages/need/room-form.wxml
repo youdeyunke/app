@@ -61,7 +61,6 @@
                         center
                         required
                         label="手机号" 
-                        icon="question-o"
                         value="{{ contact_mobile }}" 
                         readonly="{{contact_mobile_lock}}"
                         disabled="{{true}}"
