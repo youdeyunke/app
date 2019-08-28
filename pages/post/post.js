@@ -201,16 +201,9 @@ Page({
       app.request({
           url: '/api/v1/book_orders',
           method: 'POST',
-          data: { post_id: _this.data.pid },
+          data: { post_id: this.data.postId },
           success: function (resp) {
-              if (resp.status == 0) {
-                  wx.showModal({
-                      title: '预约成功！',
-                      content: '经济人稍后会来电与您确认具体看房时间，请留意',
-                  })
-
-              }
-              return true
+              return typeof cb == 'function' && cb()
           }
       })
   },
@@ -572,7 +565,7 @@ Page({
 
   couponHandle: function(){
     var _this = this
-    _this._couponHandle()
+    this.createBookOrder(_this._couponHandle)
   },
 
   _couponHandle: function(){
