@@ -76,8 +76,10 @@
 
     <view  bindtap='couponHandle' class="coupon" wx:if="{{ post.coupon_desc && post.coupon_enable}}">
       <view class="name line-limit">{{post.coupon_desc}}</view>
-      <view class="action">{{ post.user_has_coupon ? '已领券' : '领券' }}</view>
+      <view class="action">{{ post.user_has_coupon ? '已支付' : '马上抢' }}</view>
     </view>    
+
+
   </view>
 </box>
 

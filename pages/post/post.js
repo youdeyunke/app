@@ -195,6 +195,26 @@ Page({
     })
   },
 
+  createBookOrder: function (cb) {
+      // 创建支付定金订单
+      var _this = this
+      app.request({
+          url: '/api/v1/book_orders',
+          method: 'POST',
+          data: { post_id: _this.data.pid },
+          success: function (resp) {
+              if (resp.status == 0) {
+                  wx.showModal({
+                      title: '预约成功！',
+                      content: '经济人稍后会来电与您确认具体看房时间，请留意',
+                  })
+
+              }
+              return true
+          }
+      })
+  },
+
 
   gotoMetaUrl: function(e){
     var url = e.currentTarget.dataset.url
