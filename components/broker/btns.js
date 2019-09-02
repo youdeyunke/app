@@ -191,6 +191,7 @@ Component({
               content: '经济人稍后会来电与您确认具体看房时间，请留意',
             })
             _this.setData({booking: true})
+            _this.triggerEvent('booked', {})
           }
         }
       })

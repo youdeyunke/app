@@ -16,6 +16,7 @@ Page({
     flowContent: '',
     flowId: '',
     showFlowForm: false,
+    showGroupQr: false,
     htmlContent: null,
     minicontent: true,
     posterConfig: {},
@@ -25,6 +26,15 @@ Page({
 
   swiperChange: function(e){
     console.log('e',e)
+  },
+
+  bookedHandle: function(e){
+    // 预约成功，弹出二维码
+    if(!this.data.post.group_qr){
+      return false
+    }
+    this.setData({showGroupQr: true})
+    
   },
   
   contentHandle: function(e){
@@ -264,13 +274,29 @@ Page({
     Poster.create()
   },
 
-  onSavePoster: function(e){
+  closeGroupQr: function(){
+    this.setData({showGroupQr: false})
+  },
+
+  onSaveGroupQr: function(e){
     var _this = this
-    var path = this.data.posterUrl
+    var url  = this.data.post.group_qr.replace('http://', 'https://')
+    var _this = this
+    wx.downloadFile({
+      url: url,
+      success: function(res) {
+        var path = res.tempFilePath
+        _this.saveImage(path, function(res){
+          _this.setData({showGroupQr: false})
+        })
+      }
+    })
+  },
+
+  saveImage: function(path, cb){
     wx.saveImageToPhotosAlbum({
       filePath: path,
       complete: function(res){
-        console.log('save image complete', res)
         if(res.errMsg == 'saveImageToPhotosAlbum:fail auth deny'){
             wx.navigateTo({
               url: '/pages/myself/setting',
@@ -279,23 +305,30 @@ Page({
                   title: '请先在“权限设置”中打开相册权限',
                   icon: 'none',
                   duration: 3000,
-                  success: function(){
-                  },
+                  success: function(){ },
                 })
               },
             })
         }
       },
       success: function(res) { 
-        _this.setData({
-          showPoster: false,
-        })
         wx.showToast({
           icon: 'none',
           title: '已保存，请前往手机相册查看',
         })
+        return typeof cb == 'function' && cb()
       }
     })    
+  },
+
+
+  onSavePoster: function(e){
+    var _this = this
+    var path = this.data.posterUrl
+    var _this = this
+    this.saveImage(path, function(res){
+      _this.setData({showPoster: false})
+    })
   },
 
   isFromShare: function(scene){
@@ -585,6 +618,9 @@ Page({
           icon: 'success',
         })
         _this.loadPost(pid)
+        setTimeout(function(){
+          _this.setData({showGroupQr: true})
+        }, 1000)
       }
     })    
   },
