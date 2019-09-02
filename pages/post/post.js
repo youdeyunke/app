@@ -598,15 +598,16 @@ Page({
 
   couponHandle: function(){
     var _this = this
+    if(_this.data.post.user_has_coupon){
+      return false
+    }
     this.createBookOrder(_this._couponHandle)
   },
 
   _couponHandle: function(){
     var pid = this.data.postId
     var _this = this
-    if(_this.data.post.user_has_coupon){
-      return false
-    }
+
     app.request({
       url: '/api/v1/users/mark_coupon',
       method: 'POST',
