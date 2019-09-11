@@ -45,6 +45,9 @@ Page({
         encryptedData: encryptedData,
         iv: iv
       },
+      
+
+      // TODO 检测是否是推荐注册的
 
       method: 'POST',
       url: '/api/v1/sessions',
@@ -88,6 +91,7 @@ Page({
       this.setData({ loading: false })
       wx.login({
         success: function(res){
+         
           console.log('login code', res.code)
           _this.setData({code: res.code})
         },

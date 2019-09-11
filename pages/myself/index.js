@@ -266,9 +266,15 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad: function (q) {
         var _this = this
         wx.setNavigationBarTitle({title: '我的'})
+        // 如果是别人邀请注册的，就记录下referrer_id，注册时携带referrer_id
+        
+        if(q.referrer_id && q.referrer_id.length >0){
+            console.log("推荐人的id 为", q.referrer_id)
+            wx.setStorageSync({key: 'referrer_id', value: q.referrer_id})
+        }
     },
 
     getRemoteUserInfo: function () {
