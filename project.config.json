@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 59,
 			"list": [
 				{
 					"id": 0,
@@ -431,6 +431,12 @@
 					"name": "业主出租",
 					"pathName": "pages/owner/sale",
 					"query": "group=rental",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "fenxiao",
+					"pathName": "pages/fenxiao/index",
 					"scene": null
 				}
 			]

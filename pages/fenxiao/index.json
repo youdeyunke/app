@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "经纪人工作台",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "van-notice-bar": "/vant/notice-bar/index",
+    "icon-block": "/components/icon-block"
+  }
+}

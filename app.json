@@ -51,6 +51,7 @@
     "pages/post/meta",
     "pages/auth/index",
     "pages/admin/index",
+    "pages/fenxiao/index",
     "pages/daikuan/index",
     "pages/daikuan/detail",
     "pages/udeve/index",
