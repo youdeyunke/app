@@ -6,8 +6,9 @@
     <view class="nickname">{{userInfo.name}} {{ userInfo.company }} </view>
   </view>
 
-  <view class="user-actions">
-    <button class="fake" hover-class="none"  open-type="getUserInfo" bindgetuserinfo="syncAvatar">  </button>
+  <view class="balance">
+    <view class="label">我的佣金</view>
+    <view class="value">￥99.99</view>
   </view>
 </view>
 

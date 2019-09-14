@@ -11,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
   width:100%;
-  padding:40rpx;
+  padding:20rpx 40rpx 40rpx 40rpx;
   box-sizing:border-box;
   background:#00bbee;
 }
@@ -23,10 +23,23 @@
   width:370rpx;
 }
 
-.user .user-actions{
+
+.user .balance{
   display:flex;
+  flex-direction:column;
+  color:#ffffff;
   justify-content:space-between;
+  align-items:flex-end;
   width:190rpx;
+}
+
+.user .balance .label{
+  font-size:28rpx;
+}
+
+.user .balance .value{
+  font-size:48rpx;
+  font-weight:bolder;
 }
 
 .user .uinfo .avatar{

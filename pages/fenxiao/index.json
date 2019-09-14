@@ -1,5 +1,6 @@
 {
   "navigationBarBackgroundColor": "#00bbee",
+  "navigationBarTextStyle": "white",
   "navigationBarTitleText": "分销中心",
   "enablePullDownRefresh": true,
   "usingComponents": {
