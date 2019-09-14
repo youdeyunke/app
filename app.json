@@ -56,7 +56,12 @@
     "pages/daikuan/detail",
     "pages/udeve/index",
     "pages/map/index",
-    "pages/owner/sale"
+    "pages/owner/sale",
+    "pages/fenxiao/report",
+    "pages/fenxiao/balance",
+    "pages/fenxiao/referrers",
+    "pages/fenxiao/customers",
+    "pages/fenxiao/withdraw"
   ],
   "tabBar": {
     "selectedColor": "#333",
