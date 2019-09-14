@@ -11,6 +11,9 @@
   justify-content: space-between;
   align-items: center;
   width:100%;
+  padding:40rpx;
+  box-sizing:border-box;
+  background:#00bbee;
 }
 
 .user .uinfo{

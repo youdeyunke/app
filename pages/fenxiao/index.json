@@ -1,5 +1,6 @@
 {
-  "navigationBarTitleText": "经纪人工作台",
+  "navigationBarBackgroundColor": "#00bbee",
+  "navigationBarTitleText": "分销中心",
   "enablePullDownRefresh": true,
   "usingComponents": {
     "van-notice-bar": "/vant/notice-bar/index",

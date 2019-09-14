@@ -1,14 +1,3 @@
-<view class="notice">
-<van-notice-bar
-  wx:if="{{ userInfo.broker_profile.remain_days <= 10 && userInfo.broker_profile.remain_days >= 0 }}"
-  mode="closeable"
-  scrollable
-  left-icon="volume"
-  text="经纪人权限将在{{userInfo.broker_profile.remain_days}}天后到期，请及时续费"
-/>
-</view>
-
-<box padding="40" >
 <view class="user">
   <view class="uinfo">
     <view class="avatar">
@@ -21,23 +10,15 @@
     <button class="fake" hover-class="none"  open-type="getUserInfo" bindgetuserinfo="syncAvatar">  </button>
   </view>
 </view>
-</box>
 
 
 <form report-submit bindsubmit="formidHandle"> 
-
   <box padding="30">
-    <view class="menu"  >
+    <view class="menu">
       <button bindtap="menuItemClickHandle" data-url="{{item.url}}" wx:for="{{menuItems}}" wx:key="{{index}}"   form-type="submit" hover-class="none"   class="fake menu-item" >
         <van-icon color="{{item.color}}" size="58rpx" name="{{item.icon}}"  />
         <view class="menu-item-name">{{item.name}} </view>
       </button>
-
-      <button bindtap="menuItemClickHandle" data-url="/pages/user/user?id={{userInfo.id}}"  form-type="submit" hover-class="none"   class="fake menu-item" >
-        <van-icon color="#65CF9D" size="58rpx" name="card"  />
-        <view class="menu-item-name">我的名片</view>
-      </button>      
-                 
     </view>
   </box>
 </form>
