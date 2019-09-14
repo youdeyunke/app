@@ -1,1 +1,4 @@
 /* pages/fenxiao/report.wxss */
+page{
+  padding-top:20rpx;
+}
