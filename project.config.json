@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 61,
+			"current": 62,
 			"list": [
 				{
 					"id": 0,
@@ -451,6 +451,13 @@
 					"id": -1,
 					"name": "balances",
 					"pathName": "pages/fenxiao/balance",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "fenxiao-customers",
+					"pathName": "pages/fenxiao/customers",
 					"scene": null
 				}
 			]

@@ -1,2 +1,8 @@
-<!--pages/fenxiao/customers.wxml-->
-<text>pages/fenxiao/customers.wxml</text>
+<box padding="20">  
+  <block wx:for="{{items}}" wx:for-item="customers">
+    <van-cell wx:for="{{customers}}"  wx:for-key="item.id" label="{{ item.user_remark  }}"   size="large" hover-class="none" title="{{item.name}}"  value="{{item.mobile}}" />
+  </block>
+  <view style="display:flex;justify-content:center;align-items:center;">
+    <van-loading wx:if="{{loading}}" />
+  </view>
+</box>
