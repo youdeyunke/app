@@ -21,7 +21,7 @@
       </button>
 
       <button open-type="share" hover-class="none"   class="fake menu-item" >
-        <van-icon color="#59B8EB" size="58rpx" name="column"  />
+        <van-icon color="#4184AF" size="58rpx" name="gift"  />
         <view class="menu-item-name">邀请好友</view>
       </button>
 

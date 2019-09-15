@@ -13,10 +13,9 @@ Page({
       menuItems: [
       { name: '报备客户', icon: 'add-square', color: '#0ddb0c', url: '/pages/fenxiao/report'},
       { name: '历史报备', icon: 'friends', color: '#4184AF', url: '/pages/fenxiao/customers' },  
-      { name: '我的下线', icon: 'add-square', color: '#ff9501', url: '/pages/fenxiao//referrers' },
-      { name: '佣金明细', icon: 'column', color: '#59B8EB', url: '/pages/fenxiao/balance' },  
-      { name: '申请提现', icon: 'column', color: '#59B8EB', url: '/pages/fenxiao/withdraw' },  
-      { name: '邀请好友', icon: 'column', color: '#59B8EB', url: '/pages/fenxiao/withdraw' },  
+      { name: '我的下线', icon: 'cluster', color: '#ff9501', url: '/pages/fenxiao//referrers' },
+      { name: '佣金明细', icon: 'balance-list', color: '#59B8EB', url: '/pages/fenxiao/balance' },  
+      { name: '申请提现', icon: 'bill', color: '#acdb0c', url: '/pages/fenxiao/withdraw' },  
     ]
   },
 
