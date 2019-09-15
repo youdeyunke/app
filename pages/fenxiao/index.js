@@ -117,6 +117,13 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    var _this = this
+    return {
+      title: '一键注册，分销赚佣金',
+      desc: '',
+      path: 'pages/myself/index?referrer_id=' + _this.data.userInfo.id,
+      imageUrl: '',
+    }
+  },
 
-  }
 })

@@ -19,6 +19,12 @@
         <van-icon color="{{item.color}}" size="58rpx" name="{{item.icon}}"  />
         <view class="menu-item-name">{{item.name}} </view>
       </button>
+
+      <button open-type="share" hover-class="none"   class="fake menu-item" >
+        <van-icon color="#59B8EB" size="58rpx" name="column"  />
+        <view class="menu-item-name">邀请好友</view>
+      </button>
+
     </view>
   </box>
 </form>
