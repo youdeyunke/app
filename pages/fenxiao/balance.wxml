@@ -1,6 +1,6 @@
-
-<box width="750" padding="20">
+<box padding="20">  
   <block wx:for="{{items}}" wx:for-item="balances">
-    <van-cell wx:for="{{balances}}"  wx:for-key="item.id"   size="large" hover-class="none" title="{{item.name}}"  value="111" />
+    <van-cell wx:for="{{balances}}"  wx:for-key="item.id" label="" label="{{ item.created_at_pretty  }}"   size="large" hover-class="none" title="{{item.name}}"  value="￥{{item.amount}}" />
   </block>
+  <van-loading wx:if="{{loading}}" />
 </box>
