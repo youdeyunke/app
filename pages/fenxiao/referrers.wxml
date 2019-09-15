@@ -1,2 +1,11 @@
-<!--pages/fenxiao/referrers.wxml-->
-<text>pages/fenxiao/referrers.wxml</text>
+<box padding="20">  
+  <block wx:for="{{items}}" wx:for-item="customers">
+    <van-cell wx:for="{{customers}}"  wx:for-key="item.id" label="{{ item.user_remark  }}"   size="large" hover-class="none" title="{{item.name}}"  value="{{item.mobile}}" />
+  </block>
+  <view style="display:flex;justify-content:center;align-items:center;">
+    <van-loading wx:if="{{loading}}" />
+  </view>
+
+  <view class="empty" wx:if="{{!loading && items[0].length == 0 }}" style="text-align:center;color:#cecece;margin-top:100rpx;">没有报备记录</view>
+
+</box>

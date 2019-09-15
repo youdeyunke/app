@@ -7,4 +7,6 @@
     <van-loading wx:if="{{loading}}" />
   </view>
 
+  <view class="empty" wx:if="{{!loading && items[0].length == 0 }}" style="text-align:center;color:#cecece;margin-top:100rpx;">没有佣金记录</view>
+
 </box>
