@@ -1,12 +1,10 @@
-<box padding="20">  
+
+<view class="empty" wx:if="{{!loading && items[0].length == 0 }}" style="text-align:center;color:#cecece;margin-top:100rpx;">没有佣金记录</view>
+<box padding="20" wx:else>   
   <block wx:for="{{items}}" wx:for-item="balances">
     <van-cell wx:for="{{balances}}"  wx:for-key="item.id"  label="{{ item.name }}"   size="large" hover-class="none" title="{{item.status_name }} {{ item.created_at_pretty }}"  value="￥{{item.amount}}" />
   </block>
-
   <view style="display:flex;justify-content:center;align-items:center;">
     <van-loading wx:if="{{loading}}" />
   </view>
-
-  <view class="empty" wx:if="{{!loading && items[0].length == 0 }}" style="text-align:center;color:#cecece;margin-top:100rpx;">没有佣金记录</view>
-
 </box>

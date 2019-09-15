@@ -1,11 +1,10 @@
-
 <form bindsubmit="submit">
-    <mycard width="710" title="提现金额"   hat="{{false}}">
-        <van-field    size="large"  name="amount" v input-align="left" label="￥" 
+    <mycard width="750" title="提现金额"   hat="{{false}}">
+        <van-field  border="{{false}}"   size="large"  name="amount" v input-align="left" label="￥" 
             placeholder="最多可体现金额：{{balanceInfo.amount }}" />
     </mycard>
 
-    <mycard width="710" title="银行卡信息"   hat="{{false}}">
+    <mycard width="750" title="银行卡信息"   hat="{{false}}">
         <van-field size="large"  name="card_info.name" v input-align="left" 
             placeholder="户主姓名" bind:change="inputChange" autosize />
 
@@ -20,7 +19,7 @@
     </mycard>    
 
     <view class="actions">
-      <button  form-type="submit" type="primary" class="btn ">申请提现</button>
+      <button disabled="{{ balanceInfo.amount < 100 }}" form-type="submit" type="primary" class="btn ">申请提现</button>
     </view>
 </form>
 

@@ -1,6 +1,7 @@
 // pages/fenxiao/withdraw.js
 const app = getApp()
 var auth = require('../../utils/auth.js');
+var AMOUNT_MIN = 100
 
 Page({
 
@@ -32,9 +33,7 @@ Page({
           success: function(resp) {
               if(resp.data.status == 0 ){
                   console.log('balance info resp', resp)
-                  _this.setData({
-                      balanceInfo: resp.data.data
-                  })
+                  _this.setData({ balanceInfo: resp.data.data })
               }
           }
       })
