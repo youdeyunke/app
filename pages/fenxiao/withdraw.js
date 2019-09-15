@@ -34,6 +34,12 @@ Page({
               if(resp.data.status == 0 ){
                   console.log('balance info resp', resp)
                   _this.setData({ balanceInfo: resp.data.data })
+                  if(resp.data.data.amount < 100 ){
+                    wx.showModal({
+                      title: '余额不足',
+                      content: '余额大于100元才可以申请提现',
+                      })
+                  }
               }
           }
       })
