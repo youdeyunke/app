@@ -1,2 +1,6 @@
-<!--pages/fenxiao/balance.wxml-->
-<text>pages/fenxiao/balance.wxml</text>
+
+<box width="750" padding="20">
+  <block wx:for="{{items}}" wx:for-item="balances">
+    <van-cell wx:for="{{balances}}"  wx:for-key="item.id"   size="large" hover-class="none" title="{{item.name}}"  value="111" />
+  </block>
+</box>
