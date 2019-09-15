@@ -23,7 +23,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
-      this.loadBalanceInfo()
   },
 
   loadBalanceInfo: function(){
@@ -79,8 +78,8 @@ Page({
     var ext = app.globalData.EXT
     var _this = this
     auth.ensureUser(function(user){
-      _this.checkFormids()
       _this.setData({ userInfo: user })
+      _this.loadBalanceInfo()
     })
   },
 

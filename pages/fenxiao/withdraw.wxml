@@ -1,2 +1,28 @@
-<!--pages/fenxiao/withdraw.wxml-->
-<text>pages/fenxiao/withdraw.wxml</text>
+
+<form bindsubmit="submit">
+    <mycard width="710" title="提现金额"   hat="{{false}}">
+        <van-field    size="large"  name="amount" v input-align="left" label="￥" 
+            placeholder="最多可体现金额：{{balanceInfo.amount }}" />
+    </mycard>
+
+    <mycard width="710" title="银行卡信息"   hat="{{false}}">
+        <van-field size="large"  name="card_info.name" v input-align="left" 
+            placeholder="户主姓名" bind:change="inputChange" autosize />
+
+        <van-field size="large"  name="card_info.bank_name"  input-align="left" 
+            placeholder="开户银行" bind:change="inputChange" autosize />
+
+        <van-field size="large"  name="card_info.sub_bank_name"  input-align="left" 
+            placeholder="开户支行" bind:change="inputChange" autosize />
+
+        <van-field size="large"  name="card_info.card_num"  input-align="left" border="{{false}}"
+            placeholder="银行卡号" bind:change="inputChange" autosize />
+    </mycard>    
+
+    <view class="actions">
+      <button  form-type="submit" type="primary" class="btn ">申请提现</button>
+    </view>
+</form>
+
+
+<flow-tips steps="{{setpsText}}" />
