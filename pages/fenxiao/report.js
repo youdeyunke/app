@@ -99,6 +99,7 @@ Page({
       method: 'POST',
       data: {customer: fdata},
       success: function(resp){
+        console.log('resp.data', resp.data)
         if(resp.data.status != 0){
           return false;
         }

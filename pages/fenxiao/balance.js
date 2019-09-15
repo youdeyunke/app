@@ -20,6 +20,7 @@ Page({
       this.loadData()
   },
 
+
   loadData: function(){
       this.setData({loading: true})
       var _this  = this

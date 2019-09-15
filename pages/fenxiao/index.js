@@ -9,12 +9,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    menuItems: [
-      { name: '报备客户', icon: 'add-square', color: '#0ddb0c', url: '/pages/post/form?group=old'},
-      { name: '历史报备', icon: 'friends', color: '#4184AF', url: '/pages/need/room?cat=buy' },  
-      { name: '我的下线', icon: 'add-square', color: '#ff9501', url: '/pages/post/form?group=rental&rent_type=zhengzu' },
-      { name: '佣金明细', icon: 'column', color: '#59B8EB', url: '/pages/myself/posts' },  
-      { name: '申请提现', icon: 'column', color: '#59B8EB', url: '/pages/myself/posts' },  
+      balanceInfo: {amount:0, tixian:0},
+      menuItems: [
+      { name: '报备客户', icon: 'add-square', color: '#0ddb0c', url: '/pages/fenxiao/report'},
+      { name: '历史报备', icon: 'friends', color: '#4184AF', url: '/pages/fenxiao/customers' },  
+      { name: '我的下线', icon: 'add-square', color: '#ff9501', url: '/pages/fenxiao//referrers' },
+      { name: '佣金明细', icon: 'column', color: '#59B8EB', url: '/pages/fenxiao/balance' },  
+      { name: '申请提现', icon: 'column', color: '#59B8EB', url: '/pages/fenxiao/withdraw' },  
+      { name: '邀请好友', icon: 'column', color: '#59B8EB', url: '/pages/fenxiao/withdraw' },  
     ]
   },
 
@@ -22,20 +24,26 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
+      this.loadBalanceInfo()
+  },
+
+  loadBalanceInfo: function(){
+      var _this = this
+      app.request({
+          url: '/api/v1/balances/info',
+          success: function(resp) {
+              if(resp.data.status == 0 ){
+                  console.log('balance info resp', resp)
+                  _this.setData({
+                      balanceInfo: resp.data.data
+                  })
+              }
+          }
+      })
   },
 
   menuItemClickHandle: function(e){
     var user = this.data.userInfo
-    if(!user.broker_profile.enable){
-        wx.showToast({
-            title: '没有权限',
-            icon: 'none',
-            image: '',
-            duration: 1500,
-            mask: true,
-        });
-        return false;
-    }
     var url = e.currentTarget.dataset.url
     wx.navigateTo({
       url: url,
@@ -74,22 +82,6 @@ Page({
     auth.ensureUser(function(user){
       _this.checkFormids()
       _this.setData({ userInfo: user })
-      if(!user.broker_profile.enable){
-        wx.showModal({
-          title: '没有权限',
-          content: '你不是经纪人，没有权限进入工作台界面',
-          confirmText: '申请入驻',
-          confirmColor: '#00ae66',
-        
-          success(res) {
-            if (res.confirm) {
-              wx.navigateTo({
-                url: '/pages/myself/broker',
-              })
-            }
-          }          
-        })
-      }
     })
   },
 
@@ -111,7 +103,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+      this.loadBalanceInfo()
   },
 
   /**
