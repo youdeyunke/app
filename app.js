@@ -601,10 +601,8 @@ App({
             signType: res.data.data.signType,
             paySign: res.data.data.paySign,
             success: function(wxpay_res) {
-              wx.showToast({
-                title: "支付成功",
-                icon: "success"
-              });
+              wx.showToast({ title: "支付成功", icon: "success" });
+              console.log('wxpay res', wxpay_res)
               typeof obj.success == "function" && obj.success(res);
               return true;
             },

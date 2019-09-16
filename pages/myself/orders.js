@@ -29,19 +29,18 @@ Page({
           per_page: _this.data.per_page,
       }
       app.request({
-          url: '/api/v1/balances/',
+          url: '/api/v1/orders/',
           data: query,
           success: function(resp){
               var i = query['page']  - 1
               var data = { loading: false }
-              if (i > 0) {
+              if ( i > 0) {
                 var key = 'items[' + i + ']'
                 data[key] = resp.data.data
               } else {
                 data['items'] = [resp.data.data]
               }
               _this.setData(data)
-              console.log('data is', data, resp.data.data)
           },
       })
   },

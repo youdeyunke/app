@@ -26,9 +26,9 @@ Page({
           url: '/api/v1/referrers/',
           data: query,
           success: function(resp){
-              var p = query['page']  - 1
+              var i = query['page']  - 1
               var data = { loading: false }
-              if (p > 1) {
+              if (i > 0) {
                 var key = 'items[' + i + ']'
                 data[key] = resp.data.data
               } else {

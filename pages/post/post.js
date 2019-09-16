@@ -205,15 +205,30 @@ Page({
     })
   },
 
-  createBookOrder: function (cb) {
+  createBookOrder: function (cb){
       // 创建支付定金订单
       var _this = this
       app.request({
           url: '/api/v1/book_orders',
           method: 'POST',
-          data: { post_id: this.data.postId },
+          data: { post_id: _this.data.postId },
           success: function (resp) {
-              return typeof cb == 'function' && cb()
+            console.log('create book order resp', resp.data)
+            wx.showLoading({ title: '处理中...' })
+            _this.loadPost(_this.data.postId)
+
+            if(resp.data.status == 0){
+              wx.showToast({
+                icon: 'none',
+                title: '已领取',
+              })
+              return true
+            }
+            
+            setTimeout(function(){
+                _this.loadPost(_this.dat.postId)
+            }, 1000)
+
           }
       })
   },
@@ -601,7 +616,7 @@ Page({
     if(_this.data.post.user_has_coupon){
       return false
     }
-    this.createBookOrder(_this._couponHandle)
+    this.createBookOrder()
   },
 
   _couponHandle: function(){

@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 63,
+			"current": 3,
 			"list": [
 				{
 					"id": 0,
@@ -66,7 +66,7 @@
 					"id": 3,
 					"name": "post",
 					"pathName": "pages/post/post",
-					"query": "id=27",
+					"query": "id=31",
 					"scene": null
 				},
 				{
@@ -465,6 +465,14 @@
 					"id": -1,
 					"name": "申请体现",
 					"pathName": "pages/fenxiao/withdraw",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "orders",
+					"pathName": "pages/myself/orders",
+					"query": "",
 					"scene": null
 				}
 			]
