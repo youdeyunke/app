@@ -222,6 +222,12 @@ Page({
                 title: '已领取',
             })
 
+            // 如果设置了群二维码，就弹出提示
+            if(_this.data.post.group_qr){
+              setTimeout(function(){
+              _this.setData({showGroupQr: true})
+              }, 1000)
+            }
             return true
           }
       })
@@ -605,38 +611,6 @@ Page({
       })
   },
 
-  couponHandle: function(){
-    var _this = this
-    if(_this.data.post.user_has_coupon){
-      return false
-    }
-    this.createBookOrder()
-  },
-
-  _couponHandle: function(){
-    var pid = this.data.postId
-    var _this = this
-
-    app.request({
-      url: '/api/v1/users/mark_coupon',
-      method: 'POST',
-      data: { post_id: pid },
-      success: function (resp) {
-        console.log('resp', resp)   
-        wx.showToast({
-          title: '领取优惠券成功',
-          icon: 'success',
-        })
-        _this.loadPost(pid)
-        setTimeout(function(){
-          _this.setData({showGroupQr: true})
-        }, 1000)
-      }
-    })    
-  },
-
-
-  
   onShareAppMessage: function () {
     var _this = this
     return {
