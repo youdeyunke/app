@@ -601,20 +601,26 @@ App({
             signType: res.data.data.signType,
             paySign: res.data.data.paySign,
             success: function(wxpay_res) {
-              wx.showToast({ title: "支付成功", icon: "success" });
-              console.log('wxpay res', wxpay_res)
-              typeof obj.success == "function" && obj.success(res);
-              return true;
+              console.log('wxpay res is', wxpay_res, 'obj.success func is', obj.success)
+              if(wxpay_res['errMsg'] ==  "requestPayment:ok"){
+                // 支付成功了
+                wx.showToast({ title: "支付成功", icon: "success" });
+                return typeof obj.success == "function" && obj.success(res);
+              }else{
+                wx.showModal({
+                  title: "支付失败",
+                  content: wxpay_res['errMsg']
+                });
+                return typeof obj.fail == "function" && obj.success(res);
+              }
+
             },
             fail: function(wxpay_res) {
-              wx.showModal({
-                title: "支付失败",
-                content: "支付失败，请重试"
-              });
-              typeof obj.fail == "function" && obj.success(res);
-              return false;
+              wx.showModal({ title: "支付失败", content: "支付失败，请重试" });
+              return typeof obj.fail == "function" && obj.success(res);
             }
           });
+          return 
         }
 
         if (res.data.status == 889) {

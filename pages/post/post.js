@@ -213,22 +213,16 @@ Page({
           method: 'POST',
           data: { post_id: _this.data.postId },
           success: function (resp) {
-            console.log('create book order resp', resp.data)
+            console.log('支付成功后处理', resp.data)
             wx.showLoading({ title: '处理中...' })
             _this.loadPost(_this.data.postId)
 
-            if(resp.data.status == 0){
-              wx.showToast({
+            wx.showToast({
                 icon: 'none',
                 title: '已领取',
-              })
-              return true
-            }
-            
-            setTimeout(function(){
-                _this.loadPost(_this.dat.postId)
-            }, 1000)
+            })
 
+            return true
           }
       })
   },
