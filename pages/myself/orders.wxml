@@ -2,7 +2,7 @@
 <view class="empty" wx:if="{{!loading && items[0].length == 0 }}" style="text-align:center;color:#cecece;margin-top:100rpx;">没有记录</view>
 <box padding="20" wx:else>   
   <block wx:for="{{items}}" wx:for-item="orders">
-    <van-cell wx:for="{{orders}}"  wx:for-key="item.id"  label="{{ item.name }}"   size="large" hover-class="none" title="{{item.name }} {{ item.created_at_pretty }}"  value="￥{{item.price}}" />
+    <van-cell wx:for="{{orders}}"  wx:for-key="item.id"  size="large" hover-class="none" title="{{item.name }} {{ item.created_at_pretty }}"  value="支付金额 ￥{{item.price}}" />
   </block>
   <view style="display:flex;justify-content:center;align-items:center;">
     <van-loading wx:if="{{loading}}" />
