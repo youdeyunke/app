@@ -207,6 +207,10 @@ Page({
 
   createBookOrder: function (cb){
       // 创建支付定金订单
+      if(this.data.post.user_has_coupon){
+        return false;
+      }
+
       var _this = this
       app.request({
           url: '/api/v1/book_orders',
