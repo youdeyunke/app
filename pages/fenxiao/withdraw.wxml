@@ -1,7 +1,7 @@
 <form bindsubmit="submit">
     <mycard width="750" title="提现金额"   hat="{{false}}">
         <van-field  border="{{false}}"   size="large"  name="amount" v input-align="left" label="￥" 
-            placeholder="最多可体现金额：{{balanceInfo.amount }}" />
+            placeholder="最多可提现金额：{{balanceInfo.amount }}" />
     </mycard>
 
     <mycard width="750" title="银行卡信息"   hat="{{false}}">
