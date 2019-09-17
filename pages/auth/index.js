@@ -8,17 +8,22 @@ Page({
      * 页面的初始数据
      */
     data: {
+      apiMethod: 'v2',
       code: null,
       loading:false,
     },
 
 
   loginHandle: function(e){
-    console.log('uinfo', e)
     var _this = this
     // 注意，code 需要在getUserInfo之前获取到，否则会导致登录失败
+    // 2中登录方式，api/v1 : 账号授权登录    api/v2： 手机号授权登录
     var code = _this.data.code
-    if (e.detail.errMsg != 'getUserInfo:ok'){
+    if (e.detail.errMsg != 'getUserInfo:ok' && e.detail.errMsg != 'getPhoneNumber:ok'){
+      wx.showModal({
+        content: '授权登录时出错：' + e.detail.errMsg,
+        showCancle: false
+      })
       console.error('授权时候出错', e)
       return
     }
@@ -37,26 +42,22 @@ Page({
   getSessionToken: function (code, encryptedData, iv, cb) {
     // 重新获取token，并刷新 user info
     var _this = this
+    var data =  { code: code, encryptedData: encryptedData, iv: iv }
+    data['referrer_id'] = wx.getStorageSync('referrer_id') || ''
+    // 如果有推荐人信息
+    if(data['referrer_id']){
+      console.log('检测到推荐人id：', data)
+    }
 
     // 发送给服务器
     app.request({
-      data: {
-        code: code,
-        encryptedData: encryptedData,
-        iv: iv
-      },
-      
-
-      // TODO 检测是否是推荐注册的
-
+      data: data,
       method: 'POST',
-      url: '/api/v1/sessions',
+      url: '/api/' + _this.data.apiMethod + '/sessions',
       hideLoading: true,
       success: function (resp) {
         var data = resp.data
         if (data.status == 0) {
-          console.log('server response ', resp)
-
           // 保存下服务器返回的token
           wx.setStorageSync('token', data.data.token)
           wx.setStorageSync('userInfo', data.data.user)
@@ -91,7 +92,6 @@ Page({
       this.setData({ loading: false })
       wx.login({
         success: function(res){
-         
           console.log('login code', res.code)
           _this.setData({code: res.code})
         },
