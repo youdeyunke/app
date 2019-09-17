@@ -365,6 +365,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    app.checkForceLogin()
 
     var postId = options.id
     var post = wx.getStorageSync('post.data.' + postId)

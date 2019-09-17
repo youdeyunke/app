@@ -90,6 +90,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    app.checkForceLogin()
     var name = EXT['name'] || '首页'
     wx.setNavigationBarTitle({title: name})
     var _this = this   
@@ -128,6 +129,7 @@ Page({
   onShow: function () {
       var ext = app.globalData.EXT
   },
+
 
   /**
    * 生命周期函数--监听页面隐藏

@@ -265,6 +265,32 @@ App({
     }
   },
 
+  checkForceLogin: function(){
+      // 检查是否强制登录
+      this.ensureConfigs(function(conf){
+        if(!conf['force_login']){
+          return false
+        }
+        auth.ensureUser(function(user){
+          // pass
+        })
+      })
+  },
+
+  ensureConfigs: function(cb){
+      var conf = this.globalData.myconfigs
+      if(conf){
+        typeof cb == "function" && cb(conf);
+      }
+
+      conf = wx.getStorageSync('myconfigs')
+      if(conf){
+        typeof cb == "function" && cb(conf);
+      }
+
+      return this.loadConfigs(cb)
+  },
+
   loadConfigs: function(cb) {
     /* 从服务器加载系统配置嘻嘻 */
     var _this = this;
@@ -273,7 +299,7 @@ App({
       hideLoading: true,
       success: function(resp) {
         var conf = resp.data.data;
-        wx.setStorage({ key: "myconfigs", data: conf });
+        wx.setStorageSync( "myconfigs", conf )
         _this.globalData.myconfigs = conf
         typeof cb == "function" && cb(conf);
       }
@@ -407,15 +433,14 @@ App({
   },
 
   onLaunch: function() {
-
     var _this = this;
+    this.loadConfigs()
     var logs = wx.getStorageSync("logs") || [];
     logs.unshift(Date.now());
     console.log('EXT is ', EXT)
     this.getSystemInfo()
     this.getReddot();
     this.startReddotInterval();
-    this.loadConfigs()
     this.loadCities(function(cities) {
       _this.globalData.cities = cities;
       _this.getLocation();

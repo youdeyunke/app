@@ -31,6 +31,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
+    app.checkForceLogin()
     map = wx.createMapContext('map', this)
     wx.setNavigationBarTitle({title: '地图找房'})
     this.initMap(q.group)
