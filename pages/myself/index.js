@@ -32,6 +32,10 @@ Page({
         ],
     },
 
+    gotoLoginPage: function(e){
+        wx.navigateTo({url: '/pages/auth/index',})
+    },
+
   doUpdate: function (userInfo) {
     var url = userInfo.avatarUrl
     app.request({

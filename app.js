@@ -274,6 +274,7 @@ App({
       success: function(resp) {
         var conf = resp.data.data;
         wx.setStorage({ key: "myconfigs", data: conf });
+        _this.globalData.myconfigs = conf
         typeof cb == "function" && cb(conf);
       }
     });

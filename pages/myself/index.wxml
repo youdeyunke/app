@@ -5,12 +5,11 @@
         <open-data wx:if="{{userInfo.id}}" type="userAvatarUrl"></open-data>
         <image src="/assets/images/default-avatar.png"></image>
       </view>
-      <view class="nickname">{{userInfo.nickname}}
-      <navigator hover-class='none' class="mylink" url="/pages/auth/index" wx:if="{{!userInfo.id}}">请先登录  </navigator>      
-      </view>
+      <view class="nickname"><text wx:if="{{userInfo.id}}">{{userInfo.nickname}}</text><text wx:else>请先登录</text></view>
     </view>
 
     <view class="user-actions">
+      <van-button size="small" hover-class='none' type="primary" bindtap="gotoLoginPage" wx:if="{{!userInfo.id}}">只需3秒，快速登录或注册</van-button> 
       <button class="mybutton"  wx:if="{{userInfo.id}}" hover-class="none"  open-type="getUserInfo" bindgetuserinfo="syncAvatar"> <van-icon name="exchange" /> </button>
     </view>
   </view>

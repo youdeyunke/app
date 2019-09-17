@@ -8,7 +8,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-      apiMethod: 'v2',
+      loginMethod:'',
       code: null,
       loading:false,
     },
@@ -53,7 +53,7 @@ Page({
     app.request({
       data: data,
       method: 'POST',
-      url: '/api/' + _this.data.apiMethod + '/sessions',
+      url: '/api/' + _this.data.loginMethod + '/sessions',
       hideLoading: true,
       success: function (resp) {
         var data = resp.data
@@ -74,6 +74,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        this.setData({
+            loginMethod: app.globalData.myconfigs['login_method'] || 'v1',
+        })
     },
 
 
@@ -89,7 +92,11 @@ Page({
      */
     onShow: function () {
       var _this = this
-      this.setData({ loading: false })
+      console.log('global data', app.globalData)
+      this.setData({ 
+          loading: false,
+      })
+
       wx.login({
         success: function(res){
           console.log('login code', res.code)
