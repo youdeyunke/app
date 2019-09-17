@@ -74,7 +74,7 @@
       <button form-type="submit" class="fake more-btn more-meta" bindtap="gotoMeta"  hover-class="none">多房源信息</button>
     </form>
 
-    <view  bindtap='couponHandle' class="coupon" wx:if="{{ post.coupon_enable }}">
+    <view  bindtap='createBookOrder' class="coupon" wx:if="{{ post.coupon_enable }}">
       <view class="name line-limit">{{post.coupon_desc}}</view>
       <view class="action">{{ post.user_has_coupon ? '已支付' : '去支付' }}</view>
     </view>    

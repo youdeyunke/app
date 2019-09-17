@@ -613,9 +613,10 @@ App({
       method: obj.method || "GET",
       header: header,
       success: function(res) {
-
-        if (typeof res != "object") {
-          console.log("server error");
+        if (typeof res.data != "object") {
+          console.log("server error", res);
+          wx.showModal({ title: "服务器错误", content: "服务器出错了，请稍后重试" });
+          return false;
         }
 
         if (res.data.status == 888) {
