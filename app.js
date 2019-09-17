@@ -681,8 +681,7 @@ App({
             content: res.data.error
           });
         }
-
-        typeof obj.success == "function" && obj.success(res);
+        return typeof obj.success == "function" && obj.success(res);
 
       },
       fail: function(res) {

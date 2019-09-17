@@ -62,18 +62,15 @@ Page({
         app.request({
             url: '/api/v1/broker_membership_orders',
             method: 'POST',
-            data: {
-                pid: pid
-            },
+            data: { pid: pid },
             success: function (resp) {
-                // 支付成功了，刷新状态
-                _this.setData({
-                    loading: false
-                })
-                wx.switchTab({
-                    url: '/pages/myself/index',
-                })
+                if(resp.data.status == 1){
+                    return false;
+                }
 
+                // 支付成功了，刷新状态
+                _this.setData({ loading: false })
+                wx.switchTab({ url: '/pages/myself/index', })
 
             },
             fail: function (resp) {

@@ -213,6 +213,10 @@ Page({
           method: 'POST',
           data: { post_id: _this.data.postId },
           success: function (resp) {
+            if(resp.data.status == 1){
+                return false;
+            }
+
             console.log('支付成功后处理', resp.data)
             wx.showLoading({ title: '处理中...' })
             _this.loadPost(_this.data.postId)
