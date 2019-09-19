@@ -25,7 +25,7 @@ module.exports = {
       content: content,
       confirmText: '马上登录',
       confirmColor: '#00ae66',
-      showCancel: false,
+      showCancel: true,
       success(res) {
         if (res.confirm) {
           wx.navigateTo({ url: '/pages/auth/index' })
