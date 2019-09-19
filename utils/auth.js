@@ -30,7 +30,7 @@ module.exports = {
         if (res.confirm) {
           wx.navigateTo({ url: '/pages/auth/index' })
         } else if (res.cancel) {
-          console.log('用户点击取消')
+          wx.switchTab({ url: '/pages/home/home'} )
         }
       }
     })
