@@ -9,7 +9,7 @@ Page({
      */
     data: {
         userInfo: {},
-        configs: wx.getStorageSync('myconfigs'),
+        configs: {},
         ext: wx.getExtConfigSync(),
         cells: [
             {
@@ -273,6 +273,10 @@ Page({
     onLoad: function (q) {
         var _this = this
         wx.setNavigationBarTitle({title: '我的'})
+        app.ensureConfigs( function(configs){
+          _this.setData({ configs: configs})
+        })
+
         // 如果是别人邀请注册的，就记录下referrer_id，注册时携带referrer_id
         
         if(q.referrer_id && q.referrer_id.length >0){
