@@ -30,7 +30,7 @@ module.exports = {
         if (res.confirm) {
           wx.navigateTo({ url: '/pages/auth/index' })
         } else if (res.cancel) {
-          wx.switchTab({ url: '/pages/home/home'} )
+          wx.navigateBack({ delta: -1 })
         }
       }
     })
