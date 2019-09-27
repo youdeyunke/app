@@ -132,14 +132,29 @@ Page({
     app.uploadFormid(e)
   },
 
-  logoutHandle: function (e) {
+  logoutHandle: function(e){
+    var _this = this
+    wx.showModal({
+      title: '退出登录',
+      content: '确定需要退出当前登录的账号吗？',
+      confirmText: '退出',
+      confirmColor: '#00ae66',
+      showCancel: true,
+      success(res) {
+        if (res.confirm) {
+            _this._logoutHandle()
+        } 
+      }
+    })
+  },
+
+  _logoutHandle: function () {
     wx.setStorageSync('userInfo', null)
     wx.setStorageSync('token', null)
     this.setData({ userInfo: null })
     this.setData({ userInfo: null })
     wx.switchTab({ url: '/pages/home/home' })
   },
-
 
   syncAvatar: function (e) {
     var _this = this
