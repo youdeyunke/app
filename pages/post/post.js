@@ -166,7 +166,7 @@ Page({
     wx.setStorageSync(key1, _this.data.htmlContent)
   },
 
-  loadPost: function(postId){
+  loadPost: function(postId, cb=null){
     var _this = this
 
     app.request({
@@ -183,6 +183,7 @@ Page({
         wx.setNavigationBarTitle({
           title: pData['title']
         })        
+        typeof cb == 'function' &&  cb(pData)
 
       },
 
@@ -375,11 +376,20 @@ Page({
   onLoad: function (options) {
     app.checkForceLogin()
 
+    var _this = this
     var postId = options.id
     var post = wx.getStorageSync('post.data.' + postId)
-    var _this = this
-    this.setData({ postId: postId, post: post })
-    _this.loadPost(postId)
+    _this.setData({ postId: postId, post: post })
+    _this.loadPost(postId, function(post){
+      var c = post.views_count || 0
+      if(c && c >= 5){
+          wx.showToast({
+            duration: 1500,
+            title: '过去一周，有' + post.views_count + '人看过此房源',
+            icon: 'none'
+          })
+      }
+    })
 
     var fromShare = false
     var scene =  wx.getLaunchOptionsSync().scene
