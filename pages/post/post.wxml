@@ -85,8 +85,17 @@
 
 <broker-link  wx:if="{{post.user.is_broker}}" broker="{{post.broker_info}}" />
 
+<mycard width="750" title="配套设施"  wx:if="{{post.group == 'rental' && post.facilities }}" hat="{{false}}">
+  <view class="fac-items">
+    <view class="fac-item" wx:for="{{post.facilities}}" wx:for-item="fac" wx:for-key="{{fac.id}}">
+      <image class="fac-item-icon" src="{{fac.icon}}" mode="widthFix" />
+      <view class="fac-item-name">{{ fac.name }}</view>
+    </view>
+  </view>
+</mycard>
+
 <view class="mapinfo">
-  <view class="name">周边及配套</view>
+  <view class="name">周边及概况</view>
   <view class="location">
       <text class="label">位置：</text>
       <text class="value">{{post.sub_district.address}}</text>
@@ -104,10 +113,6 @@
     </view>
 
     <block wx:if="{{post.group == 'rental' }}">
-      <view class="info-item">
-        <view class="info_title">要求</view>
-        <view class="info_text"> {{ post.rent_limit || ''}} </view>
-      </view>  
       <view class="info-item">
         <view class="info_title">如何看房</view>
         <view class="info_text"> {{ post.how_to_look || '在线预约'}} </view>
