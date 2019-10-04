@@ -85,7 +85,7 @@
 
 <broker-link  wx:if="{{post.user.is_broker}}" broker="{{post.broker_info}}" />
 
-<mycard width="750" title="配套设施"  wx:if="{{post.group == 'rental' && post.facilities }}" hat="{{false}}">
+<mycard width="750" title="配套设施"  wx:if="{{post.group == 'rental' && post.facilities && post.facilities.length > 0 }}" hat="{{false}}">
   <view class="fac-items">
     <view class="fac-item" wx:for="{{post.facilities}}" wx:for-item="fac" wx:for-key="{{fac.id}}">
       <image class="fac-item-icon" src="{{fac.icon}}" mode="widthFix" />
