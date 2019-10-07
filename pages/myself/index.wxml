@@ -73,7 +73,7 @@
   </view>  
 
 
-  <view class="mybox" style="padding:0rpx 20rpx;" wx:if="{{ext.udeve_link}}">
+  <view class="mybox" style="padding:0rpx 20rpx;" wx:if="{{configs.adv_link}}">
     <van-cell border="{{false}}" url="/pages/udeve/index" size="large" hover-class="none" title="做个一样的小程序"> 
 	<van-icon size="30" name="http://qiniucdn.udeve.cn/xiaochengxu.png" slot="right-icon" />	
     </van-cell>
