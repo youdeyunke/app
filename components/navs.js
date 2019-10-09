@@ -13,7 +13,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    navs: wx.getStorageSync('navs'),
+      navPages: wx.getStorageSync('navPages'),
   },
 
   ready: function(){
@@ -42,15 +42,35 @@ Component({
         hideLoading: true,
         success: function(resp){
           var navs = resp.data.data
+          var navPages = []
+          var index = 0
+          var pageSize = 10
           for(var i=0;i<=navs.length -1;i++){
             var nav = navs[i]
             if (!nav.path.startsWith('/')) {
               nav.path = '/' + nav.path
             }
-            navs[i] = nav
+
+            if(navPages[index] && navPages[index].length == pageSize){
+                // 满了
+                index += 1
+            }
+
+            // 将navs 转换成可翻页的格式
+            if(typeof navPages[index] == 'undefined'){
+                navPages[index] = [nav]
+            }else{
+              navPages[index].push(nav)
+            }
+            
           }
-          wx.setStorage({key: 'navs', data: navs})
-          _this.setData({navs: navs})
+
+          console.log('navpages ', navPages)
+
+
+
+          wx.setStorage({key: 'navPages', data: navPages})
+          _this.setData({navPages: navPages})
 
           typeof cb == 'function' && cb(navs)
         }
