@@ -103,7 +103,7 @@ page{
 
 .menu{
   display:flex;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items:space-between;
   flex-wrap:wrap;
   width:100%;

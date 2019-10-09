@@ -27,7 +27,7 @@
       </button>  
 
 
-      <button  bindtap="navigatetTo" data-url="/pages/fenxiao/index" form-type="submit" hover-class="none"  class="fake menu-item" >
+      <button wx:if="{{ext.fenxiao_enable}}"  bindtap="navigatetTo" data-url="/pages/fenxiao/index" form-type="submit" hover-class="none"  class="fake menu-item" >
         <van-icon color="#5857CE" size="58rpx" name="cluster" />
         <view class="menu-item-name">分销中心 </view>
       </button>    
