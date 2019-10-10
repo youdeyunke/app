@@ -395,7 +395,7 @@ myfav .myfav {
 
 
 .poster-preview{
-  height: 842rpx;
+  height: 942rpx;
   width: 595rpx;
   display: flex;
   flex-direction: column;

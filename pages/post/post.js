@@ -503,7 +503,7 @@ Page({
 
                   {
                     x: 403,
-                    y: 516,
+                    y: 520,
                     baseLine: 'middle',
                     text: "扫码看更多",
                     fontSize: 16,
