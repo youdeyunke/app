@@ -7,6 +7,7 @@
   justify-content: flex-start;
   box-sizing: border-box;
   margin-top:30rpx;
+  padding-bottom:30rpx;
 }
 
 .navs navigator{
