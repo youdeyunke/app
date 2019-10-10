@@ -110,8 +110,6 @@ Page({
       }
     }
 
-    app.checkForceLogin()
-
   },
 
 
