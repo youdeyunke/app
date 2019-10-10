@@ -197,7 +197,7 @@
     <image bindtap='onSavePoster' src="{{post.group_qr}}" mode="widthFix"></image>
     <view class="poster-actions">
       <view class="poster-actions-btn poster-cancle-btn" bind:tap="closeGroupQr" >取消</view>
-      <view class="poster-actions-btn poster-save-btn"  bindtap="onSaveGroupQr">保存到相册</view>
+      <view class="poster-actions-btn poster-save-btn"  bindtap="onSavePoster">保存到相册</view>
     </view>
   </view>
 </van-popup>

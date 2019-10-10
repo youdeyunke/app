@@ -91,6 +91,8 @@ const main = {
         this.ctx.save();
         if (borderRadius > 0) {
             this._drawRadiusRect(x, y, w, h, borderRadius);
+            this.ctx.strokeStyle = 'rgba(255,255,255,0)';
+            this.ctx.stroke();
             this.ctx.clip();
             this.ctx.drawImage(imgPath, this.toPx(sx), this.toPx(sy), this.toPx(sw), this.toPx(sh), this.toPx(x), this.toPx(y), this.toPx(w), this.toPx(h));
             if (borderWidth > 0) {
@@ -118,10 +120,10 @@ const main = {
         this.ctx.closePath();
         this.ctx.restore();
     },
-    downloadResource(images = []) {
+    downloadResource({ images = [], pixelRatio = 1 }) {
         const drawList = [];
         this.drawArr = [];
-        images.forEach((image, index) => drawList.push(this._downloadImageAndInfo(image, index)));
+        images.forEach((image, index) => drawList.push(this._downloadImageAndInfo(image, index, pixelRatio)));
         return Promise.all(drawList);
     },
     initCanvas(w, h, debug) {
@@ -174,36 +176,45 @@ const handle = {
      * 渲染一段文字
      */
     _drawSingleText({ x, y, fontSize, color, baseLine, textAlign = 'left', text, opacity = 1, textDecoration = 'none',
-    width, lineNum = 1, lineHeight = 0 }) {
+      width, lineNum = 1, lineHeight = 0, fontWeight = 'normal', fontStyle = 'normal', fontFamily = "sans-serif"}) {
         this.ctx.save();
         this.ctx.beginPath();
+        this.ctx.font = fontStyle + " " + fontWeight + " " + this.toPx(fontSize, true) + "px " + fontFamily
         this.ctx.setGlobalAlpha(opacity);
-        this.ctx.setFontSize(this.toPx(fontSize));
+        // this.ctx.setFontSize(this.toPx(fontSize));
         this.ctx.setFillStyle(color);
         this.ctx.setTextBaseline(baseLine);
         this.ctx.setTextAlign(textAlign);
         let textWidth = this.toRpx(this.ctx.measureText(text).width);
         const textArr = [];
-        if (textWidth > width) {
-            // 文本宽度 大于 渲染宽度
-            const unitTextWidth = +(textWidth / text.length).toFixed(2);
-            const unitLineNum = width / unitTextWidth;  // 一行文本数量
-            for (let i = 0; i <= text.length; i += unitLineNum) {  // 将文字转为数组，一行文字一个元素
-                const resText = text.slice(i, i + unitLineNum);
-                resText !== '' && textArr.push(resText);
-                if (textArr.length === lineNum) {
-                    break;
+         if (textWidth > width) {
+          // 文本宽度 大于 渲染宽度
+          let fillText = '';
+          let line = 1;
+          for (let i = 0; i <= text.length - 1 ; i++) {  // 将文字转为数组，一行文字一个元素
+            fillText = fillText + text[i];
+            if (this.toRpx(this.ctx.measureText(fillText).width) >= width) {
+              if (line === lineNum) {
+                if (i !== text.length - 1) {
+                  fillText = fillText.substring(0, fillText.length - 1) + '...';
                 }
+              }
+              if(line <= lineNum) {
+                textArr.push(fillText);
+              }
+              fillText = '';
+              line++;
+            } else {
+              if(line <= lineNum) {
+                if(i === text.length -1){
+                   textArr.push(fillText);
+                }
+              }
             }
-            if (textArr.length * unitLineNum < text.length) {
-                const moreTextWidth = this.ctx.measureText('...').width;
-                const moreTextNum = Math.ceil(moreTextWidth / unitTextWidth);
-                const reg = new RegExp(`.{${moreTextNum}}$`);
-                textArr[textArr.length - 1] = textArr[textArr.length - 1].replace(reg, '...');
-            }
-            textWidth = width;
+          }
+          textWidth = width;
         } else {
-            textArr.push(text);
+          textArr.push(text);
         }
 
         textArr.forEach((item, index) => {
@@ -218,6 +229,24 @@ const handle = {
             if (textDecoration === 'line-through') {
                 // 目前只支持贯穿线
                 lineY = y;
+
+                // 小程序画布baseLine偏移阈值
+                let threshold = 5;
+
+                // 根据baseLine的不同对贯穿线的Y坐标做相应调整
+                switch (baseLine) {
+                  case 'top':
+                    lineY += fontSize / 2 + threshold;
+                    break;
+                  case 'middle':
+                    break;
+                  case 'bottom':
+                    lineY -= fontSize / 2 + threshold;
+                    break;
+                  default:
+                    lineY -= fontSize / 2 - threshold;
+                    break;
+                }
             }
             this.ctx.save();
             this.ctx.moveTo(this.toPx(x), this.toPx(lineY));
@@ -234,7 +263,7 @@ const helper = {
     /**
       * 下载图片并获取图片信息
       */
-    _downloadImageAndInfo(image, index) {
+    _downloadImageAndInfo(image, index, pixelRatio) {
         return new Promise((resolve, reject) => {
             const { x, y, url, zIndex } = image;
             const imageUrl = url;
@@ -249,8 +278,8 @@ const helper = {
                     const borderRadius = image.borderRadius || 0;
                     const setWidth = image.width;
                     const setHeight = image.height;
-                    const width = this.toRpx(imgInfo.width);
-                    const height = this.toRpx(imgInfo.height);
+                    const width = this.toRpx(imgInfo.width / pixelRatio);
+                    const height = this.toRpx(imgInfo.height / pixelRatio);
 
                     if (width / height <= setWidth / setHeight) {
                         sx = 0;
@@ -324,11 +353,18 @@ const helper = {
             });
         });
     },
-    toPx(rpx) {
-        return rpx * this.factor;
+    toPx(rpx, int) {
+      if (int) {
+        return parseInt(rpx * this.factor * this.pixelRatio);
+      }
+      return rpx * this.factor * this.pixelRatio;
+
     },
-    toRpx(px) {
-        return px / this.factor;
+    toRpx(px, int) {
+      if (int) {
+        return parseInt(px / this.factor);
+      }
+      return px / this.factor;
     },
     /**
      * 将http转为https
@@ -357,16 +393,69 @@ Component({
         this.factor = screenWidth / 750;
     },
     methods: Object.assign({
+        /**
+         * 计算画布的高度
+         * @param {*} config
+         */
+        getHeight(config) {
+            const getTextHeight = (text) => {
+                let fontHeight = text.lineHeight || text.fontSize;
+                let height = 0;
+                if (text.baseLine === 'top') {
+                    height = fontHeight;
+                } else if (text.baseLine === 'middle') {
+                    height = fontHeight / 2;
+                } else {
+                    height = 0;
+                }
+                return height;
+            }
+            const heightArr = [];
+            (config.blocks || []).forEach((item) => {
+                heightArr.push(item.y + item.height);
+            });
+            (config.texts  || []).forEach((item) => {
+                let height;
+                if (Object.prototype.toString.call(item.text) === '[object Array]') {
+                    item.text.forEach((i) => {
+                        height = getTextHeight({...i, baseLine: item.baseLine});
+                        heightArr.push(item.y + height);
+                    });
+                } else {
+                    height = getTextHeight(item);
+                    heightArr.push(item.y + height);
+                }
+            });
+            (config.images || []).forEach((item) => {
+                heightArr.push(item.y + item.height);
+            });
+            (config.lines || []).forEach((item) => {
+                heightArr.push(item.startY);
+                heightArr.push(item.endY);
+            });
+            const sortRes = heightArr.sort((a, b) => b - a);
+            let canvasHeight = 0;
+            if (sortRes.length > 0) {
+                canvasHeight = sortRes[0];
+            }
+            if (config.height < canvasHeight || !config.height) {
+                return canvasHeight;
+            } else {
+                return config.height;
+            }
+        },
         create(config) {
             this.ctx = wx.createCanvasContext('canvasid', this);
 
-            this.initCanvas(config.width, config.height, config.debug)
+            this.pixelRatio = config.pixelRatio || 1;
+            const height = this.getHeight(config);
+            this.initCanvas(config.width, height, config.debug)
                 .then(() => {
                     // 设置画布底色
                     if (config.backgroundColor) {
                         this.ctx.save();
                         this.ctx.setFillStyle(config.backgroundColor);
-                        this.ctx.fillRect(0, 0, this.toPx(config.width), this.toPx(config.height));
+                        this.ctx.fillRect(0, 0, this.toPx(config.width), this.toPx(height));
                         this.ctx.restore();
                     }
                     const { texts = [], images = [], blocks = [], lines = [] } = config;

@@ -277,7 +277,7 @@ Page({
   },
 
   onCreatePoster: function(){
-    wx.navigateTo({url: '/pages/poster/index?post_id=' + this.data.postId})
+    wx.navigateTo({url: '/pages/poster/index?id=' + this.data.postId})
   },
 
   closeGroupQr: function(){

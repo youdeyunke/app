@@ -1,5 +1,5 @@
 <!--pages/poster/index.wxml-->
-<image style="width:750rpx;height:1067rpx;" bindtap='onSavePoster' src="{{posterUrl}}" ></image>
+<image style="width:750rpx;height:1060rpx;" bindtap='onSavePoster' src="{{posterUrl}}" ></image>
 <poster wx:if="{{posterConfig}}" id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster> 
 
 <view class="tips" bindtap="showTips">
@@ -12,6 +12,6 @@
     <van-icon name="edit" /> 修改海报
   </view>
   <view class="right">
-    <van-button bindtap="onPosterSave" type="primary"  round>下载打印海报</van-button>
+    <van-button bindtap="onSavePoster" type="primary"  round>下载打印海报</van-button>
   </view>
 </view>
