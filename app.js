@@ -312,6 +312,34 @@ App({
     });
   },
 
+  saveImage: function(path, cb){
+    wx.saveImageToPhotosAlbum({
+      filePath: path,
+      complete: function(res){
+        if(res.errMsg == 'saveImageToPhotosAlbum:fail auth deny'){
+            wx.navigateTo({
+              url: '/pages/myself/setting',
+              success: function(){
+                wx.showToast({
+                  title: '请先在“权限设置”中打开相册权限',
+                  icon: 'none',
+                  duration: 3000,
+                  success: function(){ },
+                })
+              },
+            })
+        }
+      },
+      success: function(res) { 
+        wx.showToast({
+          icon: 'none',
+          title: '已保存，请前往手机相册查看',
+        })
+        return typeof cb == 'function' && cb()
+      }
+    })    
+  },
+
   getLocation: function() {
     // 先获取经纬度
     var _this = this;

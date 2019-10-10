@@ -20,7 +20,6 @@
     "mapimage":"/components/map",
     "van-popup": "/vant/popup/index",
     "van-button": "/vant/button/index",
-    "poster":"/wxa-plugin-canvas/poster/index",
     "item-block": "/components/post/item-block",
     "comments": "/components/comments/target-comments"
   }

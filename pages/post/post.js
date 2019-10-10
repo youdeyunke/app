@@ -2,7 +2,6 @@
 const app = getApp()
 var WxParse = require('../../utils/wxParse/wxParse.js');
 var auth = require('../../utils/auth.js');
-import Poster from '../../wxa-plugin-canvas/poster/poster';
 
 Page({
 
@@ -173,7 +172,6 @@ Page({
         var pData = resp.data.data
         _this.setData({post: pData})
         _this.loadSub()
-        _this.genPosterConfig()
         wx.setStorage({ key: 'post.data.' + postId, data: pData})
         _this.parseHtml()
         wx.setStorageSync('last_view_post', pData)
@@ -188,20 +186,7 @@ Page({
 
   },
 
-  onPosterSuccess(e) {
-    const { detail } = e;
-    this.setData({
-      showPoster: true,
-      showShareBox: false,
-      posterUrl: detail,
-    })
-  },
 
-  closePoster: function(e){
-    this.setData({
-      showPoster: false,
-    })
-  },
 
   createBookOrder: function (cb){
       // 创建支付定金订单
@@ -292,7 +277,7 @@ Page({
   },
 
   onCreatePoster: function(){
-    Poster.create()
+    wx.navigateTo({url: '/pages/poster/index?post_id=' + this.data.postId})
   },
 
   closeGroupQr: function(){
@@ -307,7 +292,7 @@ Page({
       url: url,
       success: function(res) {
         var path = res.tempFilePath
-        _this.saveImage(path, function(res){
+        app.saveImage(path, function(res){
           _this.setData({showGroupQr: false})
         })
       }
@@ -343,14 +328,6 @@ Page({
   },
 
 
-  onSavePoster: function(e){
-    var _this = this
-    var path = this.data.posterUrl
-    var _this = this
-    this.saveImage(path, function(res){
-      _this.setData({showPoster: false})
-    })
-  },
 
   isFromShare: function(scene){
     var res = false;
@@ -399,122 +376,6 @@ Page({
     })
     app.markVisitor(postId, 'post')
    
-  },
-
-  genPosterConfig: function(){
-    var post = this.data.post
-
-    var config = {
-      debug: false,
-              backgroundColor: '#FF7900',
-              width: 592,
-              height: 842,
-              blocks: [
-                {
-                  width: 190,
-                  height: 190,
-                  x: 348,
-                  y: 313,
-                  zIndex: 99,
-
-                  backgroundColor:'#ffffff',
-                  borderColor:'#f4f4f4',
-                  borderWidth:4,
-                  borderRadius: 190,
-                },                
-
-                {
-                  width: 519,
-                  height: 380,
-                  zIndex: 10,
-                  x: 38,
-                  y: 408,
-                  backgroundColor:'#ffffff',
-                },                
-              ],
-              images: [
-                {
-                  width: 519,
-                  height: 349,
-                  x: 38,
-                  y: 59,
-                  borderRadius: 0,
-                  url: post.cover,
-                  zIndex: 10,
-                },
-
-                {
-                  width: 160,
-                  height: 160,
-                  x: 363,
-                  y: 328,
-                  borderRadius: 0,
-                  zIndex: 100,
-                  url: post.qr,
-                },
-
-              ],
-                texts: [
-                  {
-                    x: 95,
-                    y: 471,
-                    baseLine: 'middle',
-                    text: "物业：" + post.sub_district_name,
-                    fontSize: 24,
-                    color: '#000',
-                    zIndex: 100,
-                  },  
-                  {
-                    x: 95,
-                    y: 527,
-                    baseLine: 'middle',
-                    text:"户型：" + post.type_info.text + post.type_info.px,
-                    fontSize: 24,
-                    color: '#000',
-                    zIndex: 100,
-                  },                    
-                  {
-                    x: 95,
-                    y: 583,
-                    baseLine: 'middle',
-                    text:"面积：" + post.area_info.text + post.area_info.px,
-                    fontSize: 24,
-                    color: '#000',
-                    zIndex: 100,
-                  },                    
-                  {
-                    x: 95,
-                    y: 639,
-                    baseLine: 'middle',
-                    text: post.price_info.label + "：" + post.price_info.text + post.price_info.px,
-                    fontSize: 24,
-                    color: '#000',
-                    zIndex: 100,
-                  },                    
-                  {
-                    x: 95,
-                    y: 695,
-                    baseLine: 'middle',
-                    text: "电话: "  + post.broker_info.mobile + '(' + post.broker_info.name  + ')',
-                    fontSize: 24,
-                    color: '#000',
-                    zIndex: 100,
-                  },                    
-
-                  {
-                    x: 403,
-                    y: 520,
-                    baseLine: 'middle',
-                    text: "扫码看更多",
-                    fontSize: 16,
-                    color: '#cecece',
-                    zIndex: 100,
-                  },                    
-           
-                ],
-
-    }
-    this.setData({posterConfig: config})
   },
 
   /**

@@ -190,16 +190,6 @@
 
 </van-popup>
 
-<van-popup show="{{showPoster}}" bind:close="closePoster" > 
-  <view class="poster-preview">
-    <image bindtap='onSavePoster' src="{{posterUrl}}" mode="widthFix"></image>
-    <view class="poster-actions">
-      <view class="poster-actions-btn poster-cancle-btn" bind:tap="closePoster" >取消</view>
-      <view class="poster-actions-btn poster-save-btn"  bindtap="onSavePoster">保存到相册</view>
-    </view>
-  </view>
-</van-popup>
-
 
 <van-popup show="{{showGroupQr}}" bind:close="closeGroupQr" > 
     <text style="padding:10rpx;">保存识别二维码，加入我们的微信群，以便了解最新房源动态哦</text>
@@ -232,7 +222,6 @@
 </van-popup>
 
         
-<poster wx:if="{{posterConfig}}" id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster> 
 
 <view class="float-btn gen-poster" catchtap="onCreatePoster">
   <image src="/assets/icons/gen-poster-icon.png"></image>
