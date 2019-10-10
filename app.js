@@ -267,25 +267,31 @@ App({
 
   checkForceLogin: function(){
       // 检查是否强制登录
+      var d = new Date()
       this.ensureConfigs(function(conf){
         if(!conf['force_login']){
           return false
         }
-        auth.ensureUser(function(user){
-          // pass
-        })
+        var token = wx.getStorageSync('token')
+        var userInfo = wx.getStorageSync('userInfo')
+        if(token && userInfo){
+          console.log('账号已经登录')
+        }else{
+          console.log('服务器已经开启强制登录验证，跳转到登录界面')
+          wx.redirectTo({ url: '/pages/auth/index' })
+        }
       })
   },
 
   ensureConfigs: function(cb){
       var conf = this.globalData.myconfigs
       if(conf){
-        typeof cb == "function" && cb(conf);
+        return typeof cb == "function" && cb(conf);
       }
 
       conf = wx.getStorageSync('myconfigs')
       if(conf){
-        typeof cb == "function" && cb(conf);
+        return  typeof cb == "function" && cb(conf);
       }
 
       return this.loadConfigs(cb)
@@ -301,7 +307,7 @@ App({
         var conf = resp.data.data;
         wx.setStorageSync( "myconfigs", conf )
         _this.globalData.myconfigs = conf
-        typeof cb == "function" && cb(conf);
+        return typeof cb == "function" && cb(conf);
       }
     });
   },
@@ -435,9 +441,6 @@ App({
   onLaunch: function() {
     var _this = this;
     this.loadConfigs()
-    var logs = wx.getStorageSync("logs") || [];
-    logs.unshift(Date.now());
-    console.log('EXT is ', EXT)
     this.getSystemInfo()
     this.getReddot();
     this.startReddotInterval();
@@ -445,6 +448,7 @@ App({
       _this.globalData.cities = cities;
       _this.getLocation();
     });
+    console.log('EXT is ', EXT)
   },
 
   getSystemInfo: function(){

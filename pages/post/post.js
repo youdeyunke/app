@@ -25,7 +25,6 @@ Page({
   },
 
   swiperChange: function(e){
-    console.log('e',e)
   },
 
   bookedHandle: function(e){
@@ -89,7 +88,6 @@ Page({
   loadQas: function(){
     var _this = this
     var postId = this.data.postId
-    console.log('load qas')
     app.request({
       url: '/api/v1/questions/',
       hideLoading: true,
@@ -117,7 +115,6 @@ Page({
   },
 
  viewTypeImage: function(e){
-   console.log('e', e)
    var i = e.currentTarget.dataset.index
    var url = this.data.post.types[i].image.url
    wx.previewImage({urls: [url] })

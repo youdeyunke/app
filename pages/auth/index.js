@@ -34,7 +34,12 @@ Page({
     // 换取服务器的token
     this.setData({loading:true})
     this.getSessionToken(code, encryptedData, iv, function(userInfo){
+      var pages = getCurrentPages()
+      if(pages.length == 1){
+        wx.switchTab({url: '/pages/myself/index'})
+      }else{
        wx.navigateBack({delta: 1})
+      }
     })
   },
 
