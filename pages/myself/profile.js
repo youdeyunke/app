@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+      loading: true,
       userInfo: { },
   },
 
@@ -16,12 +17,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
+      wx.setNavigationBarTitle({ title: '修改个人信息' })        
       this.loadUser()
   },
 
   submitHandle: function(e){
+    var _this = this
     app.uploadFormid(e)
     var data = e.detail.value
+    app.request({
+        url: '/api/v1/users/0',
+        method: 'PUT',
+        data: {user: data},
+        success: function(resp){
+            if(resp.data.status == 0){
+                _this.loadUser()
+            }
+        }
+    })
   },
 
   chooseImage: function(e){
@@ -61,9 +74,10 @@ Page({
 
 
   loadUser: function(){
+      this.setData({loading: true})
       var _this = this
       auth.getRemoteUserInfo(function(user) {
-        _this.setData({ userInfo: user })
+        _this.setData({ userInfo: user, loading: false })
        })
   },
 

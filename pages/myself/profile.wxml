@@ -32,6 +32,6 @@
   <van-cell title="手机号" value="{{ userInfo.mobile }}" border="{{false}}" />
 </box>
 
-  <button style="width:710rpx;" type="primary" form-type="submit" >修改信息</button>
+  <button disabled="{{loading}}" style="width:710rpx;" type="primary" form-type="submit" >修改信息</button>
 
 </form>
