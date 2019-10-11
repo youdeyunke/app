@@ -1,0 +1,37 @@
+<form report-submit="{{true}}" bindsubmit="submitHandle">
+<box padding="20" >
+
+  <van-cell title="头像" bindtap="chooseImage">
+    <image style="width:90rpx;height:90rpx;" slot="right-icon" src="{{userInfo.avatar}}" />
+  </van-cell>
+
+  <van-field
+    label="昵称"
+    value="{{ userInfo.nickname  }}"
+    placeholder=""
+    input-align="right"
+    name="nickname"
+  />
+
+  <van-field
+    label="姓名"
+    value="{{ userInfo.name }}"
+    placeholder=""
+    input-align="right"
+    name="name"
+  />
+
+  <van-field
+    label="微信号码"
+    value="{{ userInfo.wechat }}"
+    placeholder=""
+    input-align="right"
+    name="wechat"
+  />
+
+  <van-cell title="手机号" value="{{ userInfo.mobile }}" border="{{false}}" />
+</box>
+
+  <button style="width:710rpx;" type="primary" form-type="submit" >修改信息</button>
+
+</form>

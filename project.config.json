@@ -1,7 +1,7 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"enhance": true,
 		"postcss": true,
@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 65,
+			"current": 66,
 			"list": [
 				{
 					"id": 0,
@@ -480,6 +480,13 @@
 					"name": "poster",
 					"pathName": "pages/poster/index",
 					"query": "id=31",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "user profile edit",
+					"pathName": "pages/myself/profile",
+					"query": "",
 					"scene": null
 				}
 			]

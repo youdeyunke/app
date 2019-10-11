@@ -63,7 +63,8 @@
     "pages/fenxiao/customers",
     "pages/fenxiao/withdraw",
     "pages/myself/orders",
-    "pages/poster/index"
+    "pages/poster/index",
+    "pages/myself/profile"
   ],
   "tabBar": {
     "selectedColor": "#333",
