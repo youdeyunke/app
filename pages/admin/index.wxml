@@ -19,7 +19,7 @@
 
   <view class="user-actions">
     <form report-submit bindsubmit="formidHandle">
-      <button style="font-size:24rpx; color:#333;" type="default" plain form-type="submit">签到</button>
+      <button wx:if="{{fixFormid}}" style="font-size:24rpx; color:#333;" type="default" plain form-type="submit">修复推送</button>
     </form>
   </view>
 </view>

@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    fixFormid: false,
     menuItems: [
       { name: '发布二手房', icon: 'add-square', color: '#0ddb0c', url: '/pages/post/form?group=old'},
       { name: '发布租房', icon: 'add-square', color: '#ff9501', url: '/pages/post/form?group=rental&rent_type=zhengzu' },
@@ -27,8 +28,21 @@ Page({
   },
 
   formidHandle: function(e){
+    var _this = this
     app.uploadFormId(e, function(data){
-        console.log('可推送消息数：', data.data.can_use_count)
+        var c = data.data.can_use_count
+        wx.showToast({
+            title: '可接收推送：' + c + '条',
+            icon: 'none',
+            image: '',
+            duration: 1000,
+            mask: false,
+        });
+
+        if(c  >= 30){
+            _this.setData({fixFormid:false})
+        }
+        console.log('可推送消息数：', c)
     })
   },
 
@@ -64,6 +78,10 @@ Page({
           return false;
         }
         var c = resp.data.data.count || 0
+        if(c <= 20){
+            // 开启修复按钮
+            _this.setData({fixFormid: true})
+        }
         console.log('enable form ids count', c)
     }})
 
