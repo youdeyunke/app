@@ -22,9 +22,7 @@
               <view class="first">
                 <image wx:if="{{ index ==0 && post.vr_url}}" catchtap='gotoVr' class="play vr" src="/assets/icons/vr.png"></image>              
                 <image wx:if="{{ index == 1 && post.video}}" catchtap='gotoVideo' class="play video" src="/assets/icons/bofang.png"></image>
-                <gimage width="750" height="420" wx:if="{{index == 0 && post.vr_url }}" class="item" src="{{item}}?imageView2/2/h/840"></gimage>
-                <image  mode="widthFix"  wx:if="{{index == 0 && !post.vr_url }}" class="item" src="{{item}}?imageView2/2/h/840"></image>
-                <image   mode="widthFix" wx:if="{{index > 0 }}" class="item" src="{{item}}?imageView2/2/h/420"></image>
+                <image mode="widthFix" wx:if="{{item}}" class="item" src="{{item}}?imageView2/2/h/420"></image>
               </view>
             </swiper-item>               
         </swiper>
