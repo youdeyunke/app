@@ -1,17 +1,28 @@
 <!--pages/poster/index.wxml-->
-<image style="width:750rpx;height:1060rpx;" bindtap='onSavePoster' src="{{posterUrl}}" ></image>
+
+  <view class="loading" wx:if="{{!posterUrl}}" style="padding-top:100rpx;">
+    <van-loading  />
+    <view style="margin-top:40rpx;">正在制作海报图片，请等待...</view>
+  </view>
+
+  <block wx:else>
+    <image style="margin-top:30rpx;width:690rpx;height:976rpx;" bindtap='previewPoster' src="{{posterUrl}}" ></image>
+    <view class="tips" bindtap="showTips">
+     <van-icon name="question-o" />
+     <text>  房源海报有什么用途？</text>
+    </view>
+
+    <view class="bar">
+      <view class="left" bindtap="editHandle" style="display:flex;justify-content:flex-start;">
+        <van-icon name="edit" /> 修改海报
+      </view>
+      <view class="right">
+        <van-button icon="photo" bindtap="onSavePoster" type="primary"  round>下载打印海报</van-button>
+      </view>
+    </view>
+
+
+  </block>
+
 <poster wx:if="{{posterConfig}}" id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster> 
 
-<view class="tips" bindtap="showTips">
- <van-icon name="question-o" />
- <text>  房源海报有什么用途？</text>
-</view>
-
-<view class="bar">
-  <view class="left" bindtap="editHandle" style="display:flex;justify-content:flex-start;">
-    <van-icon name="edit" /> 修改海报
-  </view>
-  <view class="right">
-    <van-button bindtap="onSavePoster" type="primary"  round>下载打印海报</van-button>
-  </view>
-</view>

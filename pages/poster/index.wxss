@@ -3,6 +3,13 @@ page{
   padding-bottom:150rpx;
 }
 
+.loading{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
 .bar{
   height:120rpx;
   width:100%;

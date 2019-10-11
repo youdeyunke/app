@@ -37,17 +37,17 @@ Page({
         app.globalData.filterRentPriceItem,
         app.globalData.filterOrderItem,
     ]
+    var g = q.group || q.group_v2
 
-
-    if(q.group == 'shop'){
+    if(g == 'shop'){
       items[2] = app.globalData.filterShopPriceItem
     }
 
-    if(q.group == 'ershoufang'){
+    if(g == 'old'){
       items[2] = app.globalData.filterTotalPriceItem
     }
 
-    if(q.group == 'xinfang'){
+    if(g == 'new'){
       items[2] = app.globalData.filterTotalPriceItem
     }
     this.setData({filterConfigs: items})

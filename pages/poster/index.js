@@ -22,7 +22,6 @@ Page({
     var post = this.loadPost(q.id, function(post){
           _this.setData({post: post})
           _this.genPosterConfig()
-          _this.onCreatePoster()
     })
     wx.setNavigationBarTitle({ title: '制作房源海报' })        
   },
@@ -85,11 +84,12 @@ Page({
     var post = this.data.post
 
     var config = {
-      debug: false,
+              hideLoading: true,
+              debug: false,
               backgroundColor: '#FFA61C',
               width: 1240,
-              pixelRatio: 3,
-              preload: true,
+              pixelRatio: 2,
+              preload: false,
               height: 1754,
               blocks: [
                 {
@@ -196,8 +196,16 @@ Page({
                 ],
 
     }
-    this.setData({posterConfig: config})
+
+    var _this = this
+    this.setData({posterConfig: config},  () => {
+        Poster.create()
+    })
     console.log('poster config', config)
+  },
+
+  previewPoster: function(){
+      wx.previewImage({urls: [this.data.posterUrl] })
   },
 
   /**
