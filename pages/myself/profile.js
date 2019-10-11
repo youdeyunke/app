@@ -20,7 +20,8 @@ Page({
   },
 
   submitHandle: function(e){
-      var data = e.detail.value
+    app.uploadFormid(e)
+    var data = e.detail.value
   },
 
   chooseImage: function(e){

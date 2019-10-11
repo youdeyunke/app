@@ -18,7 +18,9 @@
   </view>
 
   <view class="user-actions">
-    <button class="fake" hover-class="none"  open-type="getUserInfo" bindgetuserinfo="syncAvatar">  </button>
+    <form report-submit bindsubmit="formidHandle">
+      <button style="font-size:24rpx; color:#333;" type="default" plain form-type="submit">签到</button>
+    </form>
   </view>
 </view>
 </box>

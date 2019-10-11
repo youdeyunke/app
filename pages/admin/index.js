@@ -26,6 +26,12 @@ Page({
   onLoad: function (q) {
   },
 
+  formidHandle: function(e){
+    app.uploadFormId(e, function(data){
+        console.log('可推送消息数：', data.data.can_use_count)
+    })
+  },
+
   menuItemClickHandle: function(e){
     var user = this.data.userInfo
     if(!user.broker_profile.enable){
@@ -49,10 +55,6 @@ Page({
    */
   onReady: function () {
 
-  },
-
-  formidHandle: function(e){
-    app.uploadFormid(e)
   },
 
   checkFormids: function(e){

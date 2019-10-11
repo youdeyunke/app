@@ -506,11 +506,11 @@ App({
       })
   },
   
-  uploadFormid: function(e){
-    return this.uploadFormId(e)
+  uploadFormid: function(e, cb){
+    return this.uploadFormId(e, cb)
   },
 
-  uploadFormId: function(e) {
+  uploadFormId: function(e, cb) {
     // 保存formid
     if(!e || !e.detail){
       return false; 
@@ -530,7 +530,6 @@ App({
       return false;
     }
 
-    console.log('check session start')
     wx.checkSession({
       success: function(){
         console.log('check session success, post formid ', e.detail.formId)
@@ -540,15 +539,11 @@ App({
           data: {formid: e.detail.formId},
           hideLoading: true,
           method: "POST",
+          success: function(resp){
+              return typeof cb == 'function' && cb(resp.data)
+          }
         });
       },
-      fail: function(){
-        console.log('check session error')
-        wx.login()
-      },
-      complete: function(e){
-        console.log('check session complete',e )
-      }
     })
   },
 
