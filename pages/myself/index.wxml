@@ -10,7 +10,7 @@
 
     <view class="user-actions">
       <van-button size="small" hover-class='none' type="primary" bindtap="gotoLoginPage" wx:if="{{!userInfo.id}}">只需3秒，快速登录或注册</van-button> 
-      <button class="mybutton"  wx:if="{{userInfo.id}}" hover-class="none"  open-type="getUserInfo" bindgetuserinfo="syncAvatar"> <van-icon name="exchange" /> </button>
+      <navigator hover-class="none" url="/pages/myself/profile"  wx:if="{{userInfo.id}}" hover-class="none"  bindtap="gotoProfile"> <van-icon size="30px"  name="setting-o" /> </navigator>
     </view>
   </view>
 
