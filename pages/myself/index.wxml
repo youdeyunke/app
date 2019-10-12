@@ -2,15 +2,15 @@
   <view class="user">
     <view class="uinfo">
       <view class="avatar">
-        <open-data wx:if="{{userInfo.id}}" type="userAvatarUrl"></open-data>
-        <image src="/assets/images/default-avatar.png"></image>
+        <image wx:if="{{userInfo.avatar}}" src="{{userInfo.avatar}}"></image>
+        <image ex:else src="/assets/images/default-avatar.png"></image>
       </view>
       <view class="nickname"><text wx:if="{{userInfo.id}}">{{userInfo.nickname}}</text><text wx:else>请先登录</text></view>
     </view>
 
     <view class="user-actions">
       <van-button size="small" hover-class='none' type="primary" bindtap="gotoLoginPage" wx:if="{{!userInfo.id}}">只需3秒，快速登录或注册</van-button> 
-      <navigator hover-class="none" url="/pages/myself/profile"  wx:if="{{userInfo.id}}" hover-class="none"  bindtap="gotoProfile"> <van-icon size="30px"  name="setting-o" /> </navigator>
+      <navigator hover-class="none" url="/pages/myself/profile"  wx:if="{{userInfo.id}}" hover-class="none"  bindtap="gotoProfile"> <van-icon size="28px"  name="setting-o" /> </navigator>
     </view>
   </view>
 
