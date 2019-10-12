@@ -342,6 +342,17 @@ Page({
     return res;
   },
 
+   
+  showViewsCount: function(c){
+      // 延时显示有多少人看过房源
+      if(c && c >= 5){
+          wx.showToast({
+            duration: 2000,
+            title: '过去一周，有' + c + '人看过此房源',
+            icon: 'none'
+          })
+      }
+  },
 
 
   /**
@@ -356,13 +367,7 @@ Page({
     _this.setData({ postId: postId, post: post })
     _this.loadPost(postId, function(post){
       var c = post.views_count || 0
-      if(c && c >= 5){
-          wx.showToast({
-            duration: 1500,
-            title: '过去一周，有' + post.views_count + '人看过此房源',
-            icon: 'none'
-          })
-      }
+      setTimeout(function(){ _this.showViewsCount(c) }, 3000)
     })
 
     var fromShare = false
