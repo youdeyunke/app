@@ -9,6 +9,8 @@ Page({
   
   data: {
     city_id: null,
+    ext: EXT,
+    showNewVersionWindow: false,
     posts: [],
     newFilter: {
       group: 'xinfang',
@@ -110,25 +112,18 @@ Page({
       }
     }
 
-	this.checkNewVersion()
+    setTimeout(function(){  _this.checkNewVersion() }, 5000)
   },
 
-  showNewVersion: function(){
-    // 弹出新版本提示信息
-    wx.showModal({
-      title: '新版本提示',
-      content: EXT.version_desc,
-      confirmText: '启用新版本',
-      success (res) {
-        wx.setStorage({key: 'version', data: EXT.version})
-        if (res.confirm) {
-          console.log('用户点击确定')
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
+  
+  newVersionConfirm: function(e){
+    var _this = this
+    console.log('e', e)
+    wx.setStorage({key: 'version', data: EXT.version, success: function(res){
+      _this.setData({showNewVersionWindow: false})
+    }})
   },
+
 
   checkNewVersion: function(){
       console.log('check version')
@@ -138,11 +133,11 @@ Page({
           console.log('res.data', res.data, 'ext.version', EXT.version)
           if(res.data != EXT.version){
               // 新版本，提示
-              _this.showNewVersion()
+              _this.setData({showNewVersionWindow: true})
           }
         },
         fail: function(res){
-              _this.showNewVersion()
+              _this.setData({showNewVersionWindow: true})
         },
 
       })
