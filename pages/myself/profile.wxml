@@ -2,7 +2,7 @@
 <box padding="20" >
 
   <van-cell size="large" title="头像" bindtap="chooseImage">
-    <image style="width:90rpx;height:90rpx;" slot="right-icon" src="{{userInfo.avatar}}" />
+    <image style="width:90rpx;height:90rpx;border-radius:90rpx;" slot="right-icon" src="{{userInfo.avatar}}" />
   </van-cell>
 
   <van-field
@@ -36,5 +36,6 @@
 </box>
 
   <button disabled="{{loading}}" style="width:710rpx;" type="primary" form-type="submit" >修改信息</button>
+  <button bindtap="goBack" style="width:710rpx;margin-top:20rpx;" type="default"  >返回</button>
 
 </form>

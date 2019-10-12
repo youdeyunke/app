@@ -21,6 +21,11 @@ Page({
       this.loadUser()
   },
 
+
+  goBack: function(e){
+      wx.navigateBack({ delta: -1 })
+  },
+
   submitHandle: function(e){
     var _this = this
     app.uploadFormid(e)
