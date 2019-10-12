@@ -110,6 +110,42 @@ Page({
       }
     }
 
+	this.checkNewVersion()
+  },
+
+  showNewVersion: function(){
+    // 弹出新版本提示信息
+    wx.showModal({
+      title: '新版本提示',
+      content: EXT.version_desc,
+      confirmText: '启用新版本',
+      success (res) {
+        wx.setStorage({key: 'version', data: EXT.version})
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+
+  checkNewVersion: function(){
+      console.log('check version')
+      var _this = this
+      // 检查新版本，并弹出提示
+      wx.getStorage({key: 'version', success: function(res){
+          console.log('res.data', res.data, 'ext.version', EXT.version)
+          if(res.data != EXT.version){
+              // 新版本，提示
+              _this.showNewVersion()
+          }
+        },
+        fail: function(res){
+              _this.showNewVersion()
+        },
+
+      })
   },
 
 
