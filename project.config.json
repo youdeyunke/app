@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 66,
+			"current": 68,
 			"list": [
 				{
 					"id": 0,
@@ -487,6 +487,20 @@
 					"name": "user profile edit",
 					"pathName": "pages/myself/profile",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "visitors",
+					"pathName": "pages/visitors/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 68,
+					"name": "post visitors",
+					"pathName": "pages/visitors/index",
+					"query": "targetId=31&targetType=post",
 					"scene": null
 				}
 			]
