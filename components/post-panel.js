@@ -96,6 +96,13 @@ Component({
       })
     },
 
+    gotoVisitors: function(e){
+      var id = this.data.item.id
+      wx.navigateTo({
+        url: '/pages/visitors/index?targetType=post&targetId=' + id 
+      })
+    },
+
     editHandle: function(e){
       var id = this.data.item.id
       wx.navigateTo({
