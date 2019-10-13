@@ -2,7 +2,7 @@
 <box padding="20" wx:else>   
   <block wx:for="{{items}}" wx:for-item="visitors">
 
-    <van-cell label="{{ item.updated_at }}" wx:for="{{visitors}}"  wx:for-key="item.id"  size="large" hover-class="none" title="{{item.user.mobile  }} {{  item.user.nickname }}"   >
+    <van-cell label="{{ item.updated_at }}" wx:for="{{visitors}}"  wx:for-key="item.id"  size="large" hover-class="none" title="{{item.user.mobile || '未知手机号'  }} "   >
         <image style="width:90rpx;height:90rpx;border-radius:90rpx;" slot="right-icon" src="{{item.user.avatar}}" />
     </van-cell>
 
