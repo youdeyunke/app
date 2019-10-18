@@ -36,6 +36,10 @@ page{
 .bar .left{
   font-size:28rpx;
   color:#333;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
 .tips{

@@ -27,9 +27,12 @@ Page({
      // 先加载post数据，再自动生成海报
     wx.setNavigationBarTitle({ title: '制作房源海报' })        
     var _this = this
-    var post = _this.loadPost(q.id, function(post){
-          _this.setData({post: post})
-      })
+    var post = this.loadPost(q.id, function(post){
+        _this.setData({post: post})
+        _this.genPosterConfig()
+    })
+
+
 
   },
 
@@ -287,8 +290,7 @@ Page({
   onShow: function () {
     var _this = this
     auth.ensureUser( function(user){
-      _this.setData({user: user})
-      _this.genPosterConfig()
+        _this.setData({user: user})
     })
   },
 
