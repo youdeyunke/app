@@ -9,8 +9,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    user: {},
     posterConfig: {},
     posterUrl: '',
+    showEditForm: false,
+    contactInfo: {
+        name:'',
+        mobile:'',
+    },
 
   },
 
@@ -58,14 +64,55 @@ Page({
     })
   },
 
+
+   genPostQrUrl: function(cb){
+        // 根据数据生成房源的二维码信息
+        console.log('this.data.contactInfo', this.data.contactInfo.mobile)
+        if(this.data.contactInfo.mobile){
+            var path = 'pages/post/post?contact=' + this.data.post.id + '_张三_15100000000_' + this.data.user.id
+            app.genQr(path, function(data){
+                console.log('生成专属唯一二维码', data.qr)
+                return cb(data.qr)
+
+            })
+        }else{
+            console.log('使用默认房源二维码', this.data.post.qr)
+            return cb(this.data.post.qr)
+        }
+    },
+
   editHandle: function(e){
-      var path = 'pages/post/post?contact=' + this.data.post.id + '_张三_15100000000_' + this.data.user.id
-      app.genQr(path, function(data){
-          console.log('gen qr resp data', data)
-      })
-      wx.showToast({
-          title: '功能正在调试中，即将发布，敬请期待',
-          icon: 'none',
+      this.setData({showEditForm: true})
+  },
+
+  cancleHandle: function(e){
+    this.setData({showEditForm: false})
+  },
+
+  submitHandle: function(e){
+      /* 提交修改联系人信息 */
+      var info = e.detail.value
+      if(info.name.length < 2 || info.name.includes('_')){
+            wx.showToast({
+              title: '请输入正确的联系人姓名',
+              icon: 'none',
+              duration: 2000
+            })
+          return false
+      }
+
+      if(info.mobile.length != 11 || info.mobile.includes('_') ){
+            wx.showToast({
+              title: '请输入正确的联系人手机号码',
+              icon: 'none',
+              duration: 2000
+            })
+          return false
+      }
+
+      var _this = this
+      this.setData({ contactInfo: info, loading: true, }, function(){
+        _this.genPosterConfig()
       })
   },
 
@@ -87,8 +134,22 @@ Page({
 
 
   genPosterConfig: function(){
-    var post = this.data.post
+      this.setData({ posterUrl: '', loading: true,  showEditForm: false})
+      var _this = this
+      var post = this.data.post
+      var mobileStr = post.broker_info.mobile + '(' + post.broker_info.name  + ')'
+      if(this.data.contactInfo.mobile){
+        var mobileStr = this.data.contactInfo.mobile+ '(' + this.data.contactInfo.name  + ')'
+      }
+      this.genPostQrUrl(function(qrUrl){
+          _this._genPosterConfig(mobileStr, qrUrl)
+      })
+  },
 
+
+  _genPosterConfig: function(mobileStr, qrUrl){
+    console.log('生成海报时，携带的二维码图片为', qrUrl)
+    var post = this.data.post
     var config = {
               hideLoading: true,
               debug: false,
@@ -138,7 +199,7 @@ Page({
                   y: 1480,
                   borderRadius: 0,
                   zIndex: 100,
-                  url: post.qr,
+                  url: qrUrl,
                 },
 
               ],
@@ -183,7 +244,7 @@ Page({
                     x: 248,
                     y: 1238 ,
                     baseLine: 'top',
-                    text: "电话: "  + post.broker_info.mobile + '(' + post.broker_info.name  + ')',
+                    text: "电话: "  + mobileStr,
                     fontSize: 60,
                     color: '#000000',
                     zIndex: 100,
@@ -204,10 +265,9 @@ Page({
     }
 
     var _this = this
-    this.setData({posterConfig: config},  () => {
-        Poster.create()
+    this.setData({posterConfig: config, showEditForm: false},  () => {
+        Poster.create(true)
     })
-    console.log('poster config', config)
   },
 
   previewPoster: function(){

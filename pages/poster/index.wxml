@@ -14,7 +14,7 @@
 
     <view class="bar">
       <view class="left" bindtap="editHandle" style="display:flex;justify-content:flex-start;">
-        <van-icon name="edit" /> 修改海报
+        <van-icon name="edit" /> 修改联系人信息
       </view>
       <view class="right">
         <van-button icon="photo" bindtap="onSavePoster" type="primary"  round>下载打印海报</van-button>
@@ -26,3 +26,17 @@
 
 <poster wx:if="{{posterConfig}}" id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster> 
 
+
+<van-popup show="{{ showEditForm  }}" bind:close="cancleHandle" position="bottom">
+  <form class="editor" bindsubmit="submitHandle" bindreset="cancleHandle">
+    <van-field name="name" value="{{ contactInfo.name  }}" placeholder="请输入联系人姓名" />
+    <van-field name="mobile"  value="{{ contactInfo.mobile }}" placeholder="请输入联系电话" />
+    
+    <view class="btns">
+        <button type="primary" form-type="submit">确认修改</button>
+        <button type="default" form-type="reset">取消修改</button>
+    </view>
+    
+  </form>
+
+</van-popup>

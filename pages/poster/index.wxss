@@ -47,3 +47,22 @@ page{
   font-size:28rpx;
   letter-space:1.2;
 }
+
+.editor{
+  width:100%;
+  box-sizing:border-box;
+  padding:30rpx;
+}
+
+.editor .btns{
+  width:90%;
+  display:flex;
+  flex-direction:column;
+  margin:auto;
+}
+
+.editor .btns button{
+  width:100%;
+  margin-top:10rpx;
+}
+
