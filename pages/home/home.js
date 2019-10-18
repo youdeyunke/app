@@ -112,7 +112,7 @@ Page({
       }
     }
 
-    setTimeout(function(){  _this.checkNewVersion() }, 5000)
+    setTimeout(function(){  _this.checkNewVersion() }, 1000)
   },
 
   
