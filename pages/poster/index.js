@@ -1,6 +1,7 @@
 // pages/poster/index.js
 const app = getApp()
 import Poster from '../..//utils/wxa-plugin-canvas/poster/poster';
+var auth = require('../../utils/auth.js');
 
 Page({
 
@@ -20,12 +21,9 @@ Page({
      // 先加载post数据，再自动生成海报
     wx.setNavigationBarTitle({ title: '制作房源海报' })        
     var _this = this
-    app.ensureUser( function(user){
-      var post = this.loadPost(q.id, function(post){
-          _this.setData({post: post, user: user})
-          _this.genPosterConfig()
+    var post = _this.loadPost(q.id, function(post){
+          _this.setData({post: post})
       })
-    })
 
   },
 
@@ -227,7 +225,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var _this = this
+    auth.ensureUser( function(user){
+      _this.setData({user: user})
+      _this.genPosterConfig()
+    })
   },
 
   /**
