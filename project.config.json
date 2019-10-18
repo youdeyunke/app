@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 68,
+			"current": 69,
 			"list": [
 				{
 					"id": 0,
@@ -501,6 +501,13 @@
 					"name": "post visitors",
 					"pathName": "pages/visitors/index",
 					"query": "targetId=31&targetType=post",
+					"scene": null
+				},
+				{
+					"id": 69,
+					"name": "通过专属二维码分享进入",
+					"pathName": "pages/post/post",
+					"query": "contact=31_%E5%BC%A0%E4%B8%89_15100000000_1",
 					"scene": null
 				}
 			]

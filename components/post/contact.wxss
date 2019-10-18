@@ -1,0 +1,15 @@
+
+.contact{
+  background: none;
+  width:100%;
+  padding:0rpx 0rpx;
+  position: fixed;
+  bottom:0rpx;
+  height: 100rpx;
+  z-index:20;
+  left:0rpx;
+  right:0rpx;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}

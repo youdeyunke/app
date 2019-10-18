@@ -38,7 +38,7 @@
 
      <view class="title-block">
        <view class=" post-title">{{ post.title}} </view>
-       <myfav wx:if="{{post.id}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
+       <myfav wx:if="{{post.id && mode == 1}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
      </view>
 
      <view class="typeinfo">
@@ -72,7 +72,7 @@
       <button form-type="submit" class="fake more-btn more-meta" bindtap="gotoMeta"  hover-class="none">多房源信息</button>
     </form>
 
-    <view  bindtap='createBookOrder' class="coupon" wx:if="{{ post.coupon_enable }}">
+    <view  bindtap='createBookOrder' class="coupon" wx:if="{{ post.coupon_enable && mode == 1 }}">
       <view class="name line-limit">{{post.coupon_desc}}</view>
       <view class="action">{{ post.user_has_coupon ? '已支付' : '去支付' }}</view>
     </view>    
@@ -81,7 +81,7 @@
   </view>
 </box>
 
-<broker-link  wx:if="{{post.user.is_broker}}" broker="{{post.broker_info}}" />
+<broker-link  wx:if="{{post.user.is_broker && mode == 1 }}" broker="{{post.broker_info}}" />
 
 <mycard width="750" title="配套设施"  wx:if="{{post.group == 'rental' && post.facilities && post.facilities.length > 0 }}" hat="{{false}}">
   <view class="fac-items">
@@ -175,7 +175,8 @@
         </scroll-view>
 </view>
 
-<broker bindbooked="bookedHandle" broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>
+<broker wx:if="{{mode == 1}}" bindbooked="bookedHandle" broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>
+<contact wx:if="{{mode == 2}}" info="{{contactInfo}}"  />
 
 <safe-tips/>
 
@@ -212,7 +213,7 @@
 
       <view bindtap="onCreatePoster" class="share-box-item" wx:if="{{post.qr}}">
         <image class="share-box-item-icon" src="/assets/icons/pengyouquan.png"></image>
-        <view class="share-box-item-name">朋友圈</view>
+        <view class="share-box-item-name">海报</view>
       </view>
             
     </view>
@@ -221,7 +222,7 @@
 
         
 
-<view class="float-btn gen-poster" catchtap="onCreatePoster">
+<view class="float-btn gen-poster" catchtap="onCreatePoster" wx:if="{{mode == 1}}">
   <image src="/assets/icons/gen-poster-icon.png"></image>
   <text>海报</text>
 </view>

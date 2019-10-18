@@ -9,8 +9,10 @@ Page({
    * 页面的初始 数据
    */
   data: {                                                                                  post: null,
+    mode: 1,
     debug: false,
     user: {},
+    contactInfo: {},
     posts: null,
     flowContent: '',
     flowId: '',
@@ -360,11 +362,27 @@ Page({
    */
   onLoad: function (options) {
     app.checkForceLogin()
-
     var _this = this
+    var mode = 1 // 房源信息的显示模式 1：正常显示，2，显示自定义联系人信息
+
+    // 正常进入
     var postId = options.id
+    if(options.contact){
+        // 分享进入
+        mode = 2
+        var _contacts = options.contact.split('_')
+        var postId = _contacts[0]
+        this.setData({
+            contactInfo: {
+                name: decodeURIComponent(_contacts[1]),
+                mobile: decodeURIComponent(_contacts[2]),
+                uid: decodeURIComponent(_contacts[3]),
+            }
+        })
+    }
+
     var post = wx.getStorageSync('post.data.' + postId)
-    _this.setData({ postId: postId, post: post })
+    _this.setData({ postId: postId, post: post, mode: mode })
     _this.loadPost(postId, function(post){
       var c = post.views_count || 0
       setTimeout(function(){ _this.showViewsCount(c) }, 3000)

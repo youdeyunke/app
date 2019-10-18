@@ -297,6 +297,22 @@ App({
       return this.loadConfigs(cb)
   },
 
+  
+  genQr: function(path, cb){
+      /*  统一的生成二维码图片的方法  */
+      var _this = this
+      this.request({
+          url: '/api/v1/qr/',
+          method: 'POST',
+          data: { path: path },
+          success: function(resp){
+              if(resp.data.status == 0){
+                return typeof cb == 'function' ** cb(resp.data.data)
+              }
+          },
+      })
+  },
+
   loadConfigs: function(cb) {
     /* 从服务器加载系统配置嘻嘻 */
     var _this = this;

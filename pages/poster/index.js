@@ -17,13 +17,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
-      // 先加载post数据，再自动生成海报
-    var _this = this
-    var post = this.loadPost(q.id, function(post){
-          _this.setData({post: post})
-          _this.genPosterConfig()
-    })
+     // 先加载post数据，再自动生成海报
     wx.setNavigationBarTitle({ title: '制作房源海报' })        
+    var _this = this
+    app.ensureUser( function(user){
+      var post = this.loadPost(q.id, function(post){
+          _this.setData({post: post, user: user})
+          _this.genPosterConfig()
+      })
+    })
+
   },
 
   loadPost: function(postId, cb){
@@ -58,6 +61,10 @@ Page({
   },
 
   editHandle: function(e){
+      var path = 'pages/post/post?contact=' + this.data.post.id + '_张三_15100000000_' + this.data.user.id
+      app.genQr(path, function(data){
+          console.log('gen qr resp data', data)
+      })
       wx.showToast({
           title: '功能正在调试中，即将发布，敬请期待',
           icon: 'none',
@@ -79,6 +86,7 @@ Page({
     // 根据配置生成海报图片
     Poster.create()
   },
+
 
   genPosterConfig: function(){
     var post = this.data.post
