@@ -59,7 +59,7 @@
 
 <van-popup show="{{showNewVersionWindow}}" duration="500" custom-style="background:none;"   >
   <view class="new-version-window">
-    <view class="close" bindtap="newVersionConfirm"></view>
+    <view class="close" bindtap="markNewVersion"></view>
     <image src="https://qiniucdn.udeve.cn/wefang-sass/new-version-popup.png" class="bg" /> 
     <view class="confirm" bindtap="newVersionConfirm"></view>
     <view class="title">发现新版本</view>

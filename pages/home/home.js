@@ -80,9 +80,6 @@ Page({
     newPosts && newPosts.loadData()
     oldPosts && oldPosts.loadData()
     rentPosts && rentPosts.loadData()
-    console.log('rent posts', rentPosts)
-
-
     wx.hideNavigationBarLoading()
     wx.stopPullDownRefresh() //停止下拉刷新    
 
@@ -116,9 +113,9 @@ Page({
   },
 
   
-  newVersionConfirm: function(e){
+  markNewVersion: function(e){
+    // 本地保存最新版本号，以便下次比对
     var _this = this
-    console.log('e', e)
     wx.setStorage({key: 'version', data: EXT.version, success: function(res){
       _this.setData({showNewVersionWindow: false})
     }})
@@ -126,18 +123,17 @@ Page({
 
 
   checkNewVersion: function(){
-      console.log('check version')
       var _this = this
       // 检查新版本，并弹出提示
       wx.getStorage({key: 'version', success: function(res){
-          console.log('res.data', res.data, 'ext.version', EXT.version)
           if(res.data != EXT.version){
               // 新版本，提示
               _this.setData({showNewVersionWindow: true})
           }
         },
         fail: function(res){
-              _this.setData({showNewVersionWindow: true})
+            // 没有读取到本地保存的版本号码，说明是第一次进入系统
+            _this.markNewVersion()
         },
 
       })
