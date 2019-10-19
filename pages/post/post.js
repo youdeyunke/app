@@ -385,7 +385,7 @@ Page({
     _this.setData({ postId: postId, post: post, mode: mode })
     _this.loadPost(postId, function(post){
       var c = post.views_count || 0
-      setTimeout(function(){ _this.showViewsCount(c) }, 3000)
+      setTimeout(function(){ _this.showViewsCount(c) }, 1000)
     })
 
     var fromShare = false
@@ -398,7 +398,6 @@ Page({
       from_share: fromShare
     })
     app.markVisitor(postId, 'post')
-   
   },
 
   /**

@@ -58,7 +58,7 @@ Page({
     var _this = this
 		wx.showModal({
 			title: '操作提示',
-			content: '确定要清除缓存吗',
+			content: '确定要清除缓存吗，清除缓存后，小程序将会自动重启',
 			success(res) {
 				if (res.confirm) {
 					_this._clearCache(e)
@@ -89,9 +89,9 @@ Page({
 			title: '缓存已清除',
 			icon: 'none',
 			duration: 2000,
-      success: function(){
-        _this.loadCacheInfo()
-      },
+            success: function(){
+                wx.reLaunch({ url: '/pages/home/home' })
+            },
 		})
   },
 
