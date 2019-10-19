@@ -49,8 +49,8 @@
 </box>
 
 <mycard title="小区介绍" wx:if="{{sub.desc_safe}}">
-  <view class="raw" style="margin-bottom:20rpx;" wx:if="{{htmlContent}}">
-    <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>
+  <view class="raw" style="margin-bottom:20rpx;" wx:if="{{sub.desc}}">
+    <rich-text nodes="{{sub.desc}}"/>
   </view>
 </mycard>
 

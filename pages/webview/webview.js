@@ -1,5 +1,4 @@
 const app = getApp()
-var WxParse = require('../../utils/wxParse/wxParse.js');
 
 
 Page({

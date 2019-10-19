@@ -1,6 +1,5 @@
 // pages/sub-districts/show.js
 const app = getApp()
-var WxParse = require('../../utils/wxParse/wxParse.js');
 
 Page({
 
@@ -52,9 +51,6 @@ Page({
         _this.setData({
           sub: resp.data.data
         })
-        if(resp.data.data.desc){
-          WxParse.wxParse('htmlContent', 'html', resp.data.data.desc, _this, 5);
-        }
       },
     })
   },

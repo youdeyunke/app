@@ -1,6 +1,5 @@
 // pages/news/show.js
 const app = getApp()
-var WxParse = require('../../utils/wxParse/wxParse.js');
 
 Page({
 
@@ -29,18 +28,11 @@ Page({
     app.request({
       url: '/api/v1/news/' + _this.data.nid,
       success: function(resp){
-        console.log('resp.data', resp.data.data)
-        WxParse.wxParse('htmlContent', 'html', resp.data.data.content, _this, 5);
-                
         _this.setData({
           item: resp.data.data
         })
       }
     })
-  },
-
-  wxParseImgLoad: function(e){
-    console.log('image load', e)
   },
 
   

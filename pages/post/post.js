@@ -1,6 +1,5 @@
 // pages/post/index.js
 const app = getApp()
-var WxParse = require('../../utils/wxParse/wxParse.js');
 var auth = require('../../utils/auth.js');
 
 Page({
@@ -146,23 +145,6 @@ Page({
   },
 
 
-  parseHtml: function(){
-    var _this = this
-    var key1 = "htlm_content." + _this.data.postId
-    var html1 = wx.getStorageSync(key1)
-
-    if(html1 ){
-      //_this.setData({htmlContent: html1})
-      //return
-    }
-
-    if(_this.data.post.group != 'new'){
-      return false
-    }
-
-    WxParse.wxParse('htmlContent', 'html', _this.data.post.content ,  _this, 5);
-    wx.setStorageSync(key1, _this.data.htmlContent)
-  },
 
   loadPost: function(postId, cb=null){
     var _this = this
@@ -175,7 +157,6 @@ Page({
         _this.setData({post: pData})
         _this.loadSub()
         wx.setStorage({ key: 'post.data.' + postId, data: pData})
-        _this.parseHtml()
         wx.setStorageSync('last_view_post', pData)
         wx.setNavigationBarTitle({
           title: pData['title']

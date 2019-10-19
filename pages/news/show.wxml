@@ -1,4 +1,3 @@
-<import src="/utils/wxParse/wxParse.wxml"/>
 <navigator wx:if="{{homebtn}}" class="home-btn" open-type="switchTab" url="/pages/home/home">
   <image src="/assets/icons/home.1.png"></image>
   <text>首页</text>
@@ -16,7 +15,7 @@
 
 <box padding="40">
   <view class="raw">
-      <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>
+      <rich-text  nodes="{{item.content}}" />
   </view>
 
 </box>

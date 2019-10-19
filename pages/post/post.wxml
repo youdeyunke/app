@@ -134,7 +134,7 @@
 <mycard title="楼盘介绍" hat="{{false}}" wx:if="{{post.group == 'new'}}">
    <view class="html-content {{ minicontent == true ? 'mini' : 'full' }}">
       <view class="raw">
-        <template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/>
+        <rich-text nodes="{{post.content}}"  />
       </view>
       <view class="html-content-footer">
       </view>

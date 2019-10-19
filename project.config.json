@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 69,
+			"current": 71,
 			"list": [
 				{
 					"id": 0,
@@ -508,6 +508,20 @@
 					"name": "通过专属二维码分享进入",
 					"pathName": "pages/post/post",
 					"query": "contact=31_%E5%BC%A0%E4%B8%89_15100000000_1",
+					"scene": null
+				},
+				{
+					"id": 70,
+					"name": "新房详情页",
+					"pathName": "pages/post/post",
+					"query": "id=21",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "文章详情页",
+					"pathName": "pages/news/show",
+					"query": "id=1",
 					"scene": null
 				}
 			]
