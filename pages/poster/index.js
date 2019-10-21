@@ -72,7 +72,7 @@ Page({
         // 根据数据生成房源的二维码信息
         console.log('this.data.contactInfo', this.data.contactInfo.mobile)
         if(this.data.contactInfo.mobile){
-            var path = 'pages/post/post?contact=' + this.data.post.id + '_张三_15100000000_' + this.data.user.id
+            var path = 'pages/post/post?contact=' + this.data.post.id + '_' + this.data.contactInfo.name + '_' + this.data.contactInfo.mobile  + '_' + this.data.user.id
             app.genQr(path, function(data){
                 console.log('生成专属唯一二维码', data.qr)
                 return cb(data.qr)
