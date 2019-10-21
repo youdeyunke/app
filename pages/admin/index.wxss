@@ -23,7 +23,6 @@
 .user .user-actions{
   display:flex;
   justify-content:flex-end;
-  width:190rpx;
 }
 
 .user .uinfo .avatar{

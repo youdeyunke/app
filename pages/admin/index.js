@@ -31,16 +31,21 @@ Page({
     var _this = this
     app.uploadFormId(e, function(data){
         var c = data.data.can_use_count
-        wx.showToast({
-            title: '可接收推送：' + c + '条',
-            icon: 'none',
-            image: '',
-            duration: 1000,
-            mask: false,
-        });
-
         if(c  >= 30){
-            _this.setData({fixFormid:false})
+            wx.showModal({
+              title: '激活成功',
+              content: '微信消息推送已激活，现在你可以正常接收到推送通知',
+              success (res) {
+                _this.setData({fixFormid:false})
+              }
+            })
+        }else{
+            wx.showToast({
+                title: '请继续点击按钮',
+                icon: 'none', image: '',
+                duration: 1000,
+                mask: false,
+            });
         }
         console.log('可推送消息数：', c)
     })
