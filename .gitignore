@@ -6,5 +6,6 @@ project.config.json
 *.bac
 *.log
 *.pyc
+*.DS_Store
 app.json
 project.config.json
