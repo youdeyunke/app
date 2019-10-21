@@ -27,6 +27,7 @@ Page({
   loadData: function(){
       var _this = this
       var query = { 
+          order: 'updated_at desc',
           page: this.data.page, 
           target_type: this.data.targetType, 
           target_id: this.data.targetId,
