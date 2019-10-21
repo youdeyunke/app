@@ -6,11 +6,11 @@
   <view slot="footer" class="myfooter">
     <view class="rtime"></view>
     <view class="btns">
-    <van-button wx:if="{{item.group != 'new'}}" bindtap="editHandle" size="mini" type="default">修改</van-button>
-    <van-button bindtap="unpublicHandle" size="mini" type="danger" wx:if="{{item.public}}">下架</van-button>
-    <van-button bindtap="publicHandle" size="mini" type="primary" wx:if="{{!item.public}}">上架</van-button>
-    <van-button bindtap="gotoPost" size="mini" type="default" >预览</van-button>
-    <van-button bindtap="gotoVisitors" size="mini" type="default" >访客</van-button>
+    <van-button wx:if="{{item.group != 'new'}}" bindtap="editHandle"  type="default">修改</van-button>
+    <van-button bindtap="unpublicHandle"  type="danger" wx:if="{{item.public}}">下架</van-button>
+    <van-button bindtap="publicHandle"  type="primary" wx:if="{{!item.public}}">上架</van-button>
+    <van-button bindtap="gotoPost"  type="default" >预览</van-button>
+    <van-button bindtap="gotoVisitors"  type="default" >访客</van-button>
     </view>
 
   </view>
