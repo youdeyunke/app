@@ -1,5 +1,6 @@
 // components/images-uploader.js
 const app = getApp()
+var qiniu = require('../utils/qiniu.js');
 
 Component({
   /**
@@ -95,38 +96,12 @@ Component({
     },
 
     doUpload: function(ftype, paths){
-      wx.setKeepScreenOn({
-        keepScreenOn: true
-      })          
+      wx.setKeepScreenOn({ keepScreenOn: true })          
       wx.showLoading({title: "上传中,请勿关闭", mask: true})
       var _this = this
-      var host = app.globalData.apiHost
       var path = paths.shift()
-      //var uri = ftype == 'images' ? '/api/v1/uploader/' : '/api/v2/videostore/'
-      var uri = '/api/v1/uploader/'
-
       console.log('start upload image', path)
-
-      wx.uploadFile({
-          url: host + uri, //仅为示例，非真实的接口地址
-          filePath: path,
-          name: 'file',
-          formData: {
-            'user': 'test'
-          },
-
-          fail: function(e){
-            //wx.showModal({
-            //  title: '调试',
-            //  content: e.errMsg,
-            //})
-          }, 
-          success (res){
-            if(res.statusCode != 200){
-              wx.showToast({title: '上传失败', icon: 'fail'})
-              return false
-            }
-            const url = res.data
+      qiniu.upload(path, function(url){
             if(ftype == 'images'){
               var urls = _this.data.images
               urls.push(url)
@@ -135,15 +110,14 @@ Component({
             if(ftype == 'video'){
               _this.triggerEvent('change', {video: url })
             }
-          },
-
           
-          complete: function(res){
-            wx.hideLoading()
             if(paths.length > 0){
               _this.doUpload('images', paths)
             }
-          },
+
+          // 上传成功后，延时取消Loading动画
+          // 因为图片还没完全显示在界面上
+          setTimeout(function(){  wx.hideLoading() }, 1000)
       })
   },
 
