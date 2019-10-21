@@ -50,7 +50,6 @@ Page({
         success (res) {
           const path = res.tempFilePaths[0]
           qiniu.upload(path, (url) => {
-              console.log('avatar url is', url)
               _this.updateAvatar(url)
           })
         }
