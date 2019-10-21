@@ -40,8 +40,9 @@ Page({
               }
             })
         }else{
+
             wx.showToast({
-                title: '请继续点击按钮',
+                title: '可接收：' + c  '条，请继续点击按钮',
                 icon: 'none', image: '',
                 duration: 1000,
                 mask: false,
