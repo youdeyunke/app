@@ -15,6 +15,7 @@ module.exports = {
         app.request({
             url: '/api/v1/qiniu_token/',
             method: 'POST',
+            hideLoading: true,
             success: function(resp){
                 var token = resp.data.data.token
                 var key = resp.data.data.key

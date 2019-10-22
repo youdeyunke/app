@@ -100,7 +100,6 @@ Component({
       wx.showLoading({title: "上传中,请勿关闭", mask: true})
       var _this = this
       var path = paths.shift()
-      console.log('start upload image', path)
       qiniu.upload(path, function(url){
             if(ftype == 'images'){
               var urls = _this.data.images
@@ -114,10 +113,16 @@ Component({
             if(paths.length > 0){
               _this.doUpload('images', paths)
             }
+            // 上传完
+            if(paths.length == 0){
+              setTimeout(function(){  
+                  wx.hideLoading() 
+                  wx.showToast({
+                   title: '上传完成!',
+                    icon: 'success',
+                  })      
 
-          // 上传成功后，延时取消Loading动画
-          // 因为图片还没完全显示在界面上
-          setTimeout(function(){  wx.hideLoading() }, 1000)
+              }, 1000) }
       })
   },
 
