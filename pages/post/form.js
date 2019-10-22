@@ -26,6 +26,8 @@ Page({
         districts: [],
         imagesMin: 3,
         imagesMax: 15,
+        broker_name: '',
+        broker_mobile: '',
         minRentMonthItems: minRentMonthItems,
         post: {
             id: null,
@@ -86,7 +88,7 @@ Page({
             } else {
                 // 如果是新建房源，需要取出草稿中
                 _this.checkLimit(user)
-                _this.initBrokerInfo()
+                _this.initBrokerInfo(user)
                 _this.setData({ post: post })
                 _this.updatePostField('group', q.group || 'rental')
                 _this.updatePostField('rent_type', q.rent_type || 'zhengzu')
@@ -273,16 +275,18 @@ Page({
                 } else {
                     // 将有些字段进行装换
                     post.images = post.images.split(',')
-                    _this.setData({
-                        post: post
-                    })
+                    _this.setData({ post: post })
                     _this.loadTags(post.group)
+                    _this.setData({
+                        broker_name: post.broker_info.name,
+                        broker_mobile: post.broker_info.mobile,
+                    })
                 }
             }
         })
     },
 
-    initBrokerInfo: function () {
+    initBrokerInfo: function (user) {
         var _this = this
         var keys = ['name', 'wechat', 'mobile']
         var value = ''
@@ -290,7 +294,14 @@ Page({
             key = 'broker_' + key
             value = wx.getStorageSync(key) || ''
             _this.updatePostField(key, value)
+            console.log('从草稿中取出信息',key,value)
+            _this.setData({key: value})
         })
+
+        // 如果草稿中不存在经纪人电话号码信息
+        if(!this.data.broker_mobile){
+            this.setData({'broker_mobile': this.data.user.mobile || ''})
+        }
     },
 
     loadMyselfInfo: function () {
