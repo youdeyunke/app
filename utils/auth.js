@@ -20,23 +20,7 @@ module.exports = {
   },
 
   gotoAuth: function(title, content){
-    wx.showModal({
-      title: title,
-      content: content,
-      confirmText: '马上登录',
-      confirmColor: '#00ae66',
-      showCancel: true,
-      success(res) {
-        if (res.confirm) {
-          wx.navigateTo({ url: '/pages/auth/index' })
-        } else if (res.cancel) {
-          wx.navigateBack({ delta: -1 })
-        }
-      }
-    })
-
-
-   
+    wx.navigateTo({ url: '/pages/auth/index' })
   },
 
   loadUserInfo: function (cb) {
