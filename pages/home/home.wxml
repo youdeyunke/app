@@ -25,7 +25,7 @@
 
 <block wx:if="{{configs.plugin_home_xinfang != false }}">
 <view class="home-title">
-  <view class="name">猜你喜欢的新房</view>
+  <view class="name">新房推荐</view>
 </view>
 <box width="750" padding="30">
   <items id="new-posts" kw="" page="1" filter="{{newFilter}}" />
@@ -36,7 +36,7 @@
 
 <block wx:if="{{ configs.plugin_home_ershoufang != false }}">
 <view class="home-title">
-  <view class="name">猜你喜欢的二手房</view>
+  <view class="name">二手房推荐</view>
 </view>
 <box width="750" padding="30">
   <items id="old-posts" kw="" page="1" filter="{{oldFilter}}" />
@@ -47,7 +47,7 @@
 
 <block wx:if="{{ configs.plugin_home_zufang != false }}">
 <view class="home-title">
-  <view class="name">猜你喜欢的租房</view>
+  <view class="name">租房推荐</view>
 </view>
 <box width="750" padding="30">
   <items id="rent-posts" kw="" page="1" filter="{{rentFilter}}" />
