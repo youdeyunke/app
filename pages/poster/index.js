@@ -158,7 +158,7 @@ Page({
               debug: false,
               backgroundColor: '#FFA61C',
               width: 1240,
-              pixelRatio: 2,
+              pixelRatio: 1,
               preload: false,
               height: 1754,
               blocks: [
