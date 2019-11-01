@@ -1,3 +1,4 @@
+const util = require("util.js");
 
 module.exports = {
 
@@ -10,18 +11,19 @@ module.exports = {
         if(userInfo && token){
           typeof cb == 'function' && cb(userInfo)
         }else{
-          _this.gotoAuth('请先登录', '请先登录')
+          _this.gotoAuth()
         }
       },
       fail: function(){
-        _this.gotoAuth('请先登录', '请先登录')
+        _this.gotoAuth()
       },
     })
   },
 
-  gotoAuth: function(title, content){
-    wx.navigateTo({ url: '/pages/auth/index' })
-  },
+  gotoAuth: util.throttle(function(e){
+        console.log('由截流函数执行')
+        wx.navigateTo({ url: '/pages/auth/index' })
+  }, 1000),
 
   loadUserInfo: function (cb) {
       return this.getRemoteUserInfo(cb)

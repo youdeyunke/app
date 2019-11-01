@@ -4,6 +4,25 @@ function prettyTime(str) {
     return d + ' ' + t
 }
 
+function throttle(fn, delay) {
+    // 记录上一次函数触发的时间
+    console.log('util.throttle')
+    var lastTime = 0;
+    return function() {
+        // 记录当前函数触发的时间
+        var nowTime = Date.now();
+        console.log('nowTime - lastTme = ', nowTime - lastTime)
+        console.log('delay is', delay)
+
+        if (nowTime - lastTime > delay) {
+            fn.call(this);
+            // 同步时间
+            lastTime = nowTime;
+        }
+    }
+}
+
 module.exports = {
-  prettyTime: prettyTime
+  prettyTime: prettyTime,
+  throttle: throttle
 }
