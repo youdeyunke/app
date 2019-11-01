@@ -84,7 +84,7 @@ Component({
         success: function(resp){
           if(resp.data.status == 0 ){
             // 跳转到消息列表
-            wx.redirectTo({
+            wx.navigateTo({
               url: '/pages/messages/show?target_user_id=' + _this.data.broker.id ,
             })
           }
