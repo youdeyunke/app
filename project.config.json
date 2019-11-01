@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 73,
+			"current": 74,
 			"list": [
 				{
 					"id": 0,
@@ -536,6 +536,12 @@
 					"name": "被邀请注册",
 					"pathName": "pages/myself/index",
 					"query": "referrer_id=100",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "消息标签",
+					"pathName": "pages/messages/index",
 					"scene": null
 				}
 			]

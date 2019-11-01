@@ -64,3 +64,15 @@ page{
   justify-content:center;
   align-items:center;
 }
+
+
+.unlogin .title{
+  font-size:30rpx;
+}
+.unlogin .desc{
+  font-size:28rpx;
+  margin-top:20rpx;
+  margin-bottom:40rpx;
+}
+
+

@@ -1,4 +1,5 @@
-<box padding="30">
+<block wx:if="{{userInfo.id}}">
+<box padding="30" >
   <navigator wx:key="{{item.id}}" hover-class='none' open-type='navigate' url="/pages/messages/show?target_user_id={{item.sender_id}}" wx:for="{{items}}" class="item">
   <view class="tip" wx:if="{{item.unread == true}}"> </view>
   <image class="avatar" src="{{item.sender.avatar}}"></image>
@@ -12,5 +13,14 @@
   </navigator>
 
 </box>
-
 <view wx:if="{{items.length == 0}}" class="empty">没有收到任何消息</view>
+
+</block>
+
+<block wx:else>
+  <navigator hover-class="none" url="/pages/auth/index" class="unlogin empty">
+    <text class="title">请先登录账号</text>
+    <text class="desc">消息功能仅限登录用户使用</text>
+    <van-button type="primary" size="small" >前往登录页面</van-button>
+  </navigator>
+</block>

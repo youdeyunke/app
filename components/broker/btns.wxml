@@ -7,7 +7,7 @@
     </view>
 
     <view class="icon-item"  bindtap="favHandle">
-      <van-icon size="40rpx;"  name="{{ favStatus == 1 ? 'star' : 'star-o' }}"  info="{{favCount > 0 ?   favCount : '' }}" />
+      <van-icon size="40rpx;"  name="{{ favStatus == 1 ? 'star' : 'star-o' }}"  info="{{favCount > 0 ?   favCount + '人' : '' }}" />
       <text class="icon-item-name">{{ favStatus == 1 ? '已收藏' : '收藏'}} </text>
     </view>
 

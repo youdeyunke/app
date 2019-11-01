@@ -8,6 +8,7 @@ Page({
    */
   data: {
     items: null,
+    isLogin: false,
     sleepTime: 1000,
     iidKey:  'message.index.interval.id',
   },
@@ -16,9 +17,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.checkForceLogin()
     wx.setNavigationBarTitle({title: '消息'})
-    this.loadData()
   },
 
   stopInterval: function(){
@@ -42,7 +41,6 @@ Page({
 
   loadData: function(){
     var _this = this
-    console.log('load data')
     app.request({
       url: '/api/v1/chat_lists/',
       hideLoading: true,
@@ -67,12 +65,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var ext = app.globalData.EXT
-    
-    this.loadData()
-    this.stopInterval()
-    this.startInterval()
-    wx.hideTabBarRedDot({index: 1})
+    var userInfo = wx.getStorageSync('userInfo')
+    if(userInfo){
+      var ext = app.globalData.EXT
+      this.loadData()
+      this.stopInterval()
+      this.startInterval()
+      wx.hideTabBarRedDot({index: 1})
+    }
+    this.setData({userInfo: userInfo})
   },
 
   /**
