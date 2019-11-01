@@ -1,3 +1,5 @@
+<wxs src="./index.wxs" module="getOptionText" />
+
 <view
   class="van-picker-column custom-class"
   style="height: {{ itemHeight * visibleItemCount }}px"
@@ -6,7 +8,7 @@
   bind:touchend="onTouchEnd"
   bind:touchcancel="onTouchEnd"
 >
-  <view style="{{ wrapperStyle }}">
+  <view style="transition: transform {{ duration }}ms; line-height: {{ itemHeight }}px; transform: translate3d(0, {{ offset + (itemHeight * (visibleItemCount - 1)) / 2 }}px, 0)">
     <view
       wx:for="{{ options }}"
       wx:for-item="option"
@@ -18,14 +20,3 @@
     >{{ getOptionText(option, valueKey) }}</view>
   </view>
 </view>
-
-<wxs module="getOptionText">
-function isObj(x) {
-  var type = typeof x;
-  return x !== null && (type === 'object' || type === 'function');
-}
-
-module.exports = function (option, valueKey) {
-  return isObj(option) && option[valueKey] ? option[valueKey] : option;
-}
-</wxs>

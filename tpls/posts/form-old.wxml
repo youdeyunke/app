@@ -23,8 +23,10 @@
             <van-field size="large"  bindtap="showFloorPicker" is-link input-align="left" error="{{error.floor}}" label="楼层"
                 value="第{{post.current_floor || '几'}}层-共{{post.total_floor || '几'}}层 {{post.has_lift == true ? '有' : '无'}}电梯"
                 arrow-direction="down" disabled />
-            <van-switch-cell title="服务费" data-name="service_charge_enable" checked="{{post.service_charge_enable}}"
-                bindchange="serviceChargeEnableChange" />
+            <van-cell  title="服务费" >
+                <van-switch slot="right-icon" data-name="service_charge_enable" checked="{{ post.service_charge_enable }}" bind:change="serviceChargeEnableChange" />
+            </van-cell>
+
             <van-field size="large"  wx:if="{{post.service_charge_enable}}" error="{{error.service_charge}}"
                 data-name="service_charge" value="{{ post.service_charge }}" input-align="left" label="收费标准"
                 placeholder="请输入" bind:change="inputChange" />

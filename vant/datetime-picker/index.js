@@ -33,15 +33,15 @@ function getMonthEndDay(year, month) {
 const defaultFormatter = (_, value) => value;
 VantComponent({
     classes: ['active-class', 'toolbar-class', 'column-class'],
-    props: Object.assign({}, pickerProps, { formatter: {
-            type: Function,
-            value: defaultFormatter
-        }, value: null, type: {
+    props: Object.assign(Object.assign({}, pickerProps), { value: null, filter: null, type: {
             type: String,
             value: 'datetime'
         }, showToolbar: {
             type: Boolean,
             value: true
+        }, formatter: {
+            type: null,
+            value: defaultFormatter
         }, minDate: {
             type: Number,
             value: new Date(currentYear - 10, 0, 1).getTime()
@@ -66,26 +66,33 @@ VantComponent({
         columns: []
     },
     watch: {
-        value(val) {
+        value: 'updateValue',
+        type: 'updateValue',
+        minDate: 'updateValue',
+        maxDate: 'updateValue',
+        minHour: 'updateValue',
+        maxHour: 'updateValue',
+        minMinute: 'updateValue',
+        maxMinute: 'updateValue'
+    },
+    methods: {
+        updateValue() {
             const { data } = this;
-            val = this.correctValue(val);
+            const val = this.correctValue(this.data.value);
             const isEqual = val === data.innerValue;
             if (!isEqual) {
                 this.updateColumnValue(val).then(() => {
                     this.$emit('input', val);
                 });
             }
+            else {
+                this.updateColumns();
+            }
         },
-        type: 'updateColumns',
-        minHour: 'updateColumns',
-        maxHour: 'updateColumns',
-        minMinute: 'updateColumns',
-        maxMinute: 'updateColumns'
-    },
-    methods: {
         getPicker() {
             if (this.picker == null) {
-                const picker = (this.picker = this.selectComponent('.van-datetime-picker'));
+                this.picker = this.selectComponent('.van-datetime-picker');
+                const { picker } = this;
                 const { setColumnValues } = picker;
                 picker.setColumnValues = (...args) => setColumnValues.apply(picker, [...args, false]);
             }
@@ -93,15 +100,25 @@ VantComponent({
         },
         updateColumns() {
             const { formatter = defaultFormatter } = this.data;
-            const results = this.getRanges().map(({ type, range }, index) => {
-                const values = times(range[1] - range[0] + 1, index => {
+            const results = this.getOriginColumns().map(column => ({
+                values: column.values.map(value => formatter(column.type, value))
+            }));
+            return this.set({ columns: results });
+        },
+        getOriginColumns() {
+            const { filter } = this.data;
+            const results = this.getRanges().map(({ type, range }) => {
+                let values = times(range[1] - range[0] + 1, index => {
                     let value = range[0] + index;
                     value = type === 'year' ? `${value}` : padZero(value);
-                    return formatter(type, value);
+                    return value;
                 });
-                return { values };
+                if (filter) {
+                    values = filter(type, values);
+                }
+                return { type, values };
             });
-            return this.set({ columns: results });
+            return results;
         },
         getRanges() {
             const { data } = this;

@@ -2,9 +2,12 @@ import { VantComponent } from '../common/component';
 import { pickerProps } from './shared';
 VantComponent({
     classes: ['active-class', 'toolbar-class', 'column-class'],
-    props: Object.assign({}, pickerProps, { valueKey: {
+    props: Object.assign(Object.assign({}, pickerProps), { valueKey: {
             type: String,
             value: 'text'
+        }, toolbarPosition: {
+            type: String,
+            value: 'top'
         }, defaultIndex: {
             type: Number,
             value: 0
@@ -74,7 +77,7 @@ VantComponent({
         setColumnValue(index, value) {
             const column = this.getColumn(index);
             if (column == null) {
-                return Promise.reject('setColumnValue: 对应列不存在');
+                return Promise.reject(new Error('setColumnValue: 对应列不存在'));
             }
             return column.setValue(value);
         },
@@ -86,7 +89,7 @@ VantComponent({
         setColumnIndex(columnIndex, optionIndex) {
             const column = this.getColumn(columnIndex);
             if (column == null) {
-                return Promise.reject('setColumnIndex: 对应列不存在');
+                return Promise.reject(new Error('setColumnIndex: 对应列不存在'));
             }
             return column.setIndex(optionIndex);
         },
@@ -98,7 +101,7 @@ VantComponent({
         setColumnValues(index, options, needReset = true) {
             const column = this.children[index];
             if (column == null) {
-                return Promise.reject('setColumnValues: 对应列不存在');
+                return Promise.reject(new Error('setColumnValues: 对应列不存在'));
             }
             const isSame = JSON.stringify(column.data.options) === JSON.stringify(options);
             if (isSame) {

@@ -175,7 +175,7 @@
         </scroll-view>
 </view>
 
-<broker wx:if="{{mode == 1}}" bindbooked="bookedHandle" broker="{{post.broker_info}}" pid="{{post.id}}" booking="{{post.user_has_booking}}"></broker>
+<broker wx:if="{{mode == 1}}" bindbooked="bookedHandle" broker="{{post.broker_info}}" pid="{{post.id}}" bookingStatus="{{post.user_has_booking}}"></broker>
 <contact wx:if="{{mode == 2}}" info="{{contactInfo}}"  />
 
 <safe-tips/>

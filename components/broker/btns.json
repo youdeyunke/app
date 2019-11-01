@@ -2,6 +2,9 @@
   "component": true,
   "usingComponents": {
       "van-tag": "/vant/tag/index",
-      "van-action-sheet": "/vant/action-sheet/index"
+      "van-action-sheet": "/vant/action-sheet/index",
+      "van-goods-action": "/vant/goods-action/index",
+      "van-goods-action-icon": "/vant/goods-action-icon/index",
+      "van-goods-action-button": "/vant/goods-action-button/index"
   }
 }

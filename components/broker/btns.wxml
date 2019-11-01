@@ -1,34 +1,10 @@
+<view class="fixed-footer">
+<van-goods-action size="large">
+  <van-goods-action-icon icon="photo-o" bindtap="posterHandle" text="海报" />
+  <van-goods-action-icon icon="chat-o"  bindtap="chatHandle" text="聊天" dot="{{false}}"  />
+  <van-goods-action-icon bindtap="favHandle" icon="star-o" text="{{ favStatus == 1 ? '已收藏' : '收藏'}}" info="{{favCount > 0 ?   favCount : '' }}" />
+  <van-goods-action-button   size="large" bindtap="bookingHandle" text="{{ bookingStatus ? '已预约' : '预约看房' }}" type="primary" />
+  <van-goods-action-button   size="large" bindtap="callHandle" text="拨打电话" type="info" />
+</van-goods-action>
+</view>
 
-<form report-submit bindsubmit='formHandle' class="fixed-footer broker-bar">
-  <ul>
-    <li class="staff" bindtap="gotoProfile" >
-      <button form-type="submit" wx:if="{{broker.id}}" class="fake-btn staff-avatar"><image bindtap="gotoUserPage" src="{{broker.avatar || '/assets/images/default-avatar.png' }}?imageView2/2/w/100"></image></button>
-      <view  class="staff-info">
-               <view class="staff-name line-limit">{{broker.name || '未填写'}}</view>
-       </view>
-    </li>
-    <li wx:if="{{bookingEnable}}" class="booking">
-      <button hidden="{{booking}}"  bindgetphonenumber="bookingHandle" form-type="submit"  open-type="getPhoneNumber" class="real btn info" >       
-          <image src="/assets/icons/btn-booking.png"></image> 预约带看
-      </button>
-
-      <button hidden="{{!booking}}" form-type="submit"  class="real btn info" >       
-          <image src="/assets/icons/btn-booking.png"></image> 已预约
-      </button>
-    </li>
-    <li class="call" bindtap="connectHandle">
-        <button form-type="submit" class="real btn primary">
-            <image src="/assets/icons/btn-call.png"></image>联系
-        </button>
-    </li>
-
-  </ul>
-
-<van-action-sheet
-  show="{{ actionsShow }}"
-  actions="{{ actions }}"
-  bind:close="actionsClose"
-  bind:select="actionClick"
-/>
-
-</form>

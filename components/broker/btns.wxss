@@ -1,86 +1,16 @@
-
-.broker-bar{
-    height: 160rpx;
-}
-
-button.fake-btn{
-  border:none;
-  background: none;
-  padding:0;
-  margin:0;
-
-}
-
-button.fake-btn::after{
-  border:none;
-}
-
-.broker-bar ul{
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  box-sizing:border-box;
-  padding:0 40rpx;
-}
-
-
-.broker-bar li.staff{
-   display:flex;
-   justify-content:flex-start;
-   width:260rpx;
-   letter-spacing:0.5rpx;
-   padding:10rpx 0rpx;
-   box-sizing:border-box;
-}
-
-.broker-bar li button.real image{
-  width: 34rpx;
-  height: 34rpx;
-}
-
-.broker-bar li  button.real {
-    font-size:32rpx;
-    font-weight: bold;
-    height:90rpx;
-}
-
-.broker-bar .staff-info{
-    display:flex;
-    flex-direction:column;
-    justify-content:space-around;
-    align-items:flex-start;
-    margin-left:20rpx;
-}
-
-.broker-bar .staff-avatar{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-   width:90rpx;
-   height:90rpx;
-   border-radius:100rpx;
-
-}
-.broker-bar .staff-avatar image{
-   width:90rpx;
-   height:90rpx;
-   border-radius:90rpx;
-
+.fixed-footer{
+  background: #fff;
+  width:100%;
+  padding:0rpx 0rpx;
+  position: fixed;
+  bottom:0rpx;
+  border-top:none;
+  height: 100rpx;
+  z-index:20;
+  border-top:1px solid #f1f1f1;
+  left:0rpx;
+  right:0rpx;
 
 }
 
-.broker-bar .staff-name{
-    width:150rpx;
-    font-size:30rpx;
-    color:#000;
-    font-weight: bolder;
-}
 
-.broker-bar .staff-desc{
-    width:150rpx;
-    font-size:var(--font-xs);
-    color:#666;
-}

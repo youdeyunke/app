@@ -1,6 +1,8 @@
 import { VantComponent } from '../common/component';
 import { button } from '../mixins/button';
 import { openType } from '../mixins/open-type';
+import { addUnit } from '../common/utils';
+import { GRAY, BLUE } from '../common/color';
 VantComponent({
     mixins: [button, openType],
     props: {
@@ -9,11 +11,18 @@ VantComponent({
         message: String,
         useSlot: Boolean,
         className: String,
+        customStyle: String,
         asyncClose: Boolean,
         messageAlign: String,
+        overlayStyle: String,
+        useTitleSlot: Boolean,
         showCancelButton: Boolean,
         closeOnClickOverlay: Boolean,
         confirmButtonOpenType: String,
+        width: {
+            type: null,
+            observer: 'setWidthWithUnit'
+        },
         zIndex: {
             type: Number,
             value: 2000
@@ -25,6 +34,14 @@ VantComponent({
         cancelButtonText: {
             type: String,
             value: '取消'
+        },
+        confirmButtonColor: {
+            type: String,
+            value: BLUE
+        },
+        cancelButtonColor: {
+            type: String,
+            value: GRAY
         },
         showConfirmButton: {
             type: Boolean,
@@ -62,19 +79,19 @@ VantComponent({
         },
         handleAction(action) {
             if (this.data.asyncClose) {
-                this.set({
+                this.setData({
                     [`loading.${action}`]: true
                 });
             }
             this.onClose(action);
         },
         close() {
-            this.set({
+            this.setData({
                 show: false
             });
         },
         stopLoading() {
-            this.set({
+            this.setData({
                 loading: {
                     confirm: false,
                     cancel: false
@@ -92,6 +109,11 @@ VantComponent({
             if (callback) {
                 callback(this);
             }
+        },
+        setWidthWithUnit(val) {
+            this.setData({
+                widthWithUnit: addUnit(val)
+            });
         }
     }
 });

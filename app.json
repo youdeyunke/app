@@ -115,8 +115,8 @@
     "van-field": "/vant/field/index",
     "van-radio-group": "/vant/radio-group/index",
     "van-radio": "/vant/radio/index",
-    "van-switch-cell": "/vant/switch-cell/index",
     "van-cell": "/vant/cell/index",
+    "van-switch": "/vant/switch/index",
     "van-cell-group": "/vant/cell-group/index",
     "mycard": "/components/card",
     "box": "/components/box"

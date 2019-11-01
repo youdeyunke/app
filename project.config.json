@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 71,
+			"current": 72,
 			"list": [
 				{
 					"id": 0,
@@ -522,6 +522,13 @@
 					"name": "文章详情页",
 					"pathName": "pages/news/show",
 					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "编辑二手房",
+					"pathName": "pages/post/form",
+					"query": "id=58",
 					"scene": null
 				}
 			]

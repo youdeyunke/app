@@ -1,6 +1,7 @@
 import { VantComponent } from '../common/component';
 import { touch } from '../mixins/touch';
 const THRESHOLD = 0.3;
+let ARRAY = [];
 VantComponent({
     props: {
         disabled: Boolean,
@@ -12,14 +13,22 @@ VantComponent({
             type: Number,
             value: 0
         },
-        asyncClose: Boolean
+        asyncClose: Boolean,
+        name: {
+            type: [Number, String],
+            value: ''
+        }
     },
     mixins: [touch],
     data: {
-        catchMove: true
+        catchMove: false
     },
     created() {
         this.offset = 0;
+        ARRAY.push(this);
+    },
+    destroyed() {
+        ARRAY = ARRAY.filter(item => item !== this);
     },
     methods: {
         open(position) {
@@ -35,8 +44,8 @@ VantComponent({
             const transform = `translate3d(${offset}px, 0, 0)`;
             const transition = this.draging
                 ? 'none'
-                : '.6s cubic-bezier(0.18, 0.89, 0.32, 1)';
-            this.set({
+                : 'transform .6s cubic-bezier(0.18, 0.89, 0.32, 1)';
+            this.setData({
                 wrapperStyle: `
         -webkit-transform: ${transform};
         -webkit-transition: ${transition};
@@ -57,11 +66,17 @@ VantComponent({
             else {
                 this.swipeMove(0);
             }
+            this.setData({ catchMove: false });
         },
         startDrag(event) {
             if (this.data.disabled) {
                 return;
             }
+            ARRAY.forEach(item => {
+                if (item !== this) {
+                    item.close();
+                }
+            });
             this.draging = true;
             this.startOffset = this.offset;
             this.firstDirection = '';
@@ -75,7 +90,7 @@ VantComponent({
             this.touchMove(event);
             if (!this.firstDirection) {
                 this.firstDirection = this.direction;
-                this.set({ catchMove: this.firstDirection === 'horizontal' });
+                this.setData({ catchMove: this.firstDirection === 'horizontal' });
             }
             if (this.firstDirection === 'vertical') {
                 return;
@@ -102,7 +117,7 @@ VantComponent({
                 return;
             }
             if (this.data.asyncClose) {
-                this.$emit('close', { position, instance: this });
+                this.$emit('close', { position, instance: this, name: this.data.name });
             }
             else {
                 this.swipeMove(0);
