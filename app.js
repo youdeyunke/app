@@ -711,7 +711,7 @@ App({
         }
 
         if ([2000, 2001].includes(res.data.status)) {
-          console.log("login required");
+          console.log("login required status", res.data.status);
           // token 过期
           wx.setStorageSync("userInfo", null);
           wx.setStorageSync("token", null);

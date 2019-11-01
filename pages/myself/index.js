@@ -153,7 +153,7 @@ Page({
     wx.setStorageSync('token', null)
     this.setData({ userInfo: null })
     this.setData({ userInfo: null })
-    wx.switchTab({ url: '/pages/home/home' })
+    wx.switchTab({ url: '/pages/myself/index' })
   },
 
   syncAvatar: function (e) {
