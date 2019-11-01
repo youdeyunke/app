@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 72,
+			"current": 73,
 			"list": [
 				{
 					"id": 0,
@@ -529,6 +529,13 @@
 					"name": "编辑二手房",
 					"pathName": "pages/post/form",
 					"query": "id=58",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "被邀请注册",
+					"pathName": "pages/myself/index",
+					"query": "referrer_id=100",
 					"scene": null
 				}
 			]

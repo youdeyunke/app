@@ -1,10 +1,27 @@
-<view class="fixed-footer">
-<van-goods-action size="large">
-  <van-goods-action-icon icon="photo-o" bindtap="posterHandle" text="海报" />
-  <van-goods-action-icon icon="chat-o"  bindtap="chatHandle" text="聊天" dot="{{false}}"  />
-  <van-goods-action-icon bindtap="favHandle" icon="star-o" text="{{ favStatus == 1 ? '已收藏' : '收藏'}}" info="{{favCount > 0 ?   favCount : '' }}" />
-  <van-goods-action-button   size="large" bindtap="bookingHandle" text="{{ bookingStatus ? '已预约' : '预约看房' }}" type="primary" />
-  <van-goods-action-button   size="large" bindtap="callHandle" text="拨打电话" type="info" />
-</van-goods-action>
+<view class="actions">
+
+  <view class="icons">
+    <view class="icon-item"  bindtap="posterHandle">
+      <van-icon size="40rpx;" name="photo-o"  />
+      <text class="icon-item-name">海报</text>
+    </view>
+
+    <view class="icon-item"  bindtap="favHandle">
+      <van-icon size="40rpx;"  name="star-o"  info="{{favCount > 0 ?   favCount : '' }}" />
+      <text class="icon-item-name">{{ favStatus == 1 ? '已收藏' : '收藏'}} </text>
+    </view>
+
+    <view class="icon-item"  bindtap="chatHandle">
+      <van-icon size="40rpx;" name="chat-o"  />
+      <text class="icon-item-name">聊天</text>
+    </view>
+
+  </view>
+
+  <view class="buttons">
+    <van-button round style="width:50%;" custom-style="border-top-right-radius:0;border-bottom-right-radius:0;"  size="large" bindtap="bookingHandle"  type="primary" >{{ bookingStatus ? '已预约' : '预约看房' }}</van-button>
+    <van-button round style="width:50%" custom-style="border-top-left-radius:0;border-bottom-left-radius:0;" size="large" bindtap="callHandle"     type="info"  >拨打电话</van-button>
+  </view>
+
 </view>
 
