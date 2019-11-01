@@ -1,0 +1,15 @@
+  <view class="brokers">
+      <view class="broker-item" wx:for="{{items}}">
+        <view class="left">
+          <image class="avatar" src="{{item.avatar}}" />
+          <van-tag  text-color="#F7EED4" color="#222222">已认证</van-tag>
+        </view>
+
+        <view class="right">
+          <view class="broker-name">{{ item.name }}</view>
+          <view class="broker-company">{{ item.company }}</view>
+          <view class="broker-mobile">{{ item.mobile}}</view>
+        </view>
+
+      </view>
+  </view>

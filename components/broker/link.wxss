@@ -4,7 +4,7 @@
   align-items: center;
   height:160rpx;
   box-sizing: border-box;
-  width: 750rpx;
+  width: 100%;
   background:#fff;
   padding:30rpx 30rpx;
   margin-bottom:20rpx;

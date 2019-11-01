@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+      "broker": "/components/broker/link"
+  }
+}
