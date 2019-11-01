@@ -38,7 +38,6 @@
 
      <view class="title-block">
        <view class=" post-title">{{ post.title}} </view>
-       <myfav wx:if="{{post.id && mode == 1}}" showstatus="{{false}}" showcount="{{false}}" pid="{{post.id}}"></myfav>
      </view>
 
      <view class="typeinfo">
@@ -220,12 +219,6 @@
   </view>
 </van-popup>
 
-        
-
-<view class="float-btn gen-poster" catchtap="onCreatePoster" wx:if="{{mode == 1}}">
-  <image src="/assets/icons/gen-poster-icon.png"></image>
-  <text>海报</text>
-</view>
 
 </block>
 

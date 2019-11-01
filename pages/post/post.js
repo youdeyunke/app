@@ -19,7 +19,6 @@ Page({
     showGroupQr: false,
     htmlContent: null,
     minicontent: true,
-    posterConfig: {},
     showShareBox: false,
     currentTab: 'detail',
   },
@@ -259,9 +258,6 @@ Page({
     })
   },
 
-  onCreatePoster: function(){
-    wx.navigateTo({url: '/pages/poster/index?id=' + this.data.postId})
-  },
 
   closeGroupQr: function(){
     this.setData({showGroupQr: false})

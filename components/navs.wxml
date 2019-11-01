@@ -1,7 +1,7 @@
 <!--components/home-navs.wxml-->
 <block>
 
-  <swiper style="height:{{  navPages.length <= 1 ?  350 : 400 }}rpx;" indicator-dots="{{navPages.length > 1}}"  autoplay="{{false}}" interval="5000" duration="100" indicator-color="rgba(0,0,0,0.5)" indicator-active-color="#00ae66" >
+  <swiper style="height:{{  navPages.length <= 1 && navPages[0].length <= 5  ?  170 : 320 }}rpx;" indicator-dots="{{false}}"  autoplay="{{false}}" interval="5000" duration="100" indicator-color="rgba(0,0,0,0.5)" indicator-active-color="#00ae66" >
         <swiper-item style="height:100%;"  wx:for="{{navPages}}" wx:for-item="navs" bindtap="goto" data-index="{{index}}">
           <view class="navs">
             <navigator wx:key="{{item.id}}" url="{{item.path}}"  open-type="{{item.opentype}}" hover-class="none"  wx:for-index="index" wx:for="{{navs}}">
