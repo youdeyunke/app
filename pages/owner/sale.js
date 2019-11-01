@@ -22,7 +22,7 @@ Page({
 
 
   groupChange: function (e) {
-    var i = e.detail.index
+    var i = e.detail.name
     var items = this.data.groupItems
     this.setData({
       group: items[i].value,

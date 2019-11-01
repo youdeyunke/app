@@ -37,7 +37,7 @@ Page({
   },
 
   catChange: function(e){
-     var i = e.detail.index
+     var i = e.detail.name
      var cat = this.data.cats[i]
      this.setData({
          catId: cat.id,

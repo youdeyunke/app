@@ -57,7 +57,7 @@ Page({
   },
 
   tabChange: function(e){
-     var i = e.detail.index
+     var i = e.detail.name
      var tab = this.data.tabs[i]
      var filter = this.data.filter
      filter['group_v2'] = tab.group_v2

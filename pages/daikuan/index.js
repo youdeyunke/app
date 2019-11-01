@@ -160,7 +160,7 @@ Page({
     }
   },
   loanTypeChange: function (e) {
-    var i = e.detail.index
+    var i = e.detail.name
     var t = this.data.loanTypeArr[i]
     this.resetData(t.id);
   },
