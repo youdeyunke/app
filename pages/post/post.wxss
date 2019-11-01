@@ -317,13 +317,14 @@ myfav .myfav {
 }
 
 .housetype .poster, .housetype .poster image{
-  width: 250rpx;
+  width: 200rpx;
   height: 150rpx;
   overflow: hidden;
+  background:#cecece;
 }
 
 .housetype .meta{
-  width: 390rpx;
+  width: 480rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

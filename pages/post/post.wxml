@@ -151,7 +151,7 @@
 <mycard width="750" title="户型信息"  wx:if="{{post.group == 'new'}}" hat="{{false}}">
     <view class="housetype" wx:for="{{post.types}}">
       <view class="poster">
-              <image bindtap="viewTypeImage" data-index="{{index}}" src="{{item.image.url}}?imageView2/2/w/300"></image>
+        <image bindtap="viewTypeImage" data-index="{{index}}" src="{{item.image.url ? item.image.url : 'https://qiniucdn.udeve.cn/wefang-sass/type-image-none.jpg'  }}?imageView2/2/w/300"></image>
       </view>
       <view class="meta">
         <view class="name">{{item.name}}</view>
@@ -177,7 +177,7 @@
 <broker wx:if="{{mode == 1}}" bindbooked="bookedHandle" broker="{{post.broker_info}}" pid="{{post.id}}" bookingStatus="{{post.user_has_booking}}"></broker>
 <contact wx:if="{{mode == 2}}" info="{{contactInfo}}"  />
 
-<safe-tips/>
+<safe-tips cat="{{post.group}}"/>
 
 <van-popup show="{{showFlowForm }}" bind:click-overlay="closeFlowForm" >
   <view class="flow-form">

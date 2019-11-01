@@ -11,7 +11,7 @@
     width:400rpx;
     height:168rpx;
     padding:20rpx;
-    margin-right:20rpx;
+    margin-right:30rpx;
     box-sizing:border-box;
     box-shadow: 2rpx 4rpx 10rpx 2rpx #F4F4F4;
     border-radius: 10rpx;

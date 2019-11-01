@@ -4,6 +4,7 @@
       "mytags": "/components/tags",
       "news-swiper": "/components/news-swiper",
       "navs": "/components/navs",
+      "brokers": "/components/broker/hot-brokers",
       "myslider": "/components/slider",
       "items": "/components/post/items",
       "van-action-sheet": "/vant/action-sheet/index",

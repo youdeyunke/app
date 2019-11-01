@@ -46,6 +46,14 @@ Page({
      wx.navigateTo({url: '/pages/need/room-form'})
   },
 
+  gotoSale: function(e){
+     wx.navigateTo({url: '/pages/owner/sale?group=old'})
+  },
+
+  gotoMap: function(e){
+     wx.navigateTo({url: '/pages/map/index'})
+  },
+
   cityHandle: function(e){
     _this.setData({city_id: e.detail.city.id, posts: [], offset: 0})
   },

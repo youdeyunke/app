@@ -1,5 +1,5 @@
   <view class="brokers">
-      <view class="broker-item" wx:for="{{items}}">
+      <navigator url="/pages/user/user?id={{item.id}}" hover-class="none" class="broker-item" wx:for="{{items}}" wx:for-key="{{item.id}}">
         <view class="left">
           <image class="avatar" src="{{item.avatar}}" />
           <van-tag  text-color="#F7EED4" color="#222222">已认证</van-tag>
@@ -11,5 +11,5 @@
           <view class="broker-mobile">{{ item.mobile}}</view>
         </view>
 
-      </view>
+      </navigator>
   </view>

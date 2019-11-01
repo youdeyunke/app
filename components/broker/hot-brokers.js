@@ -43,7 +43,7 @@ Component({
               success: function(resp){
                   var items = resp.data.data
                   _this.shuffle(items)
-                  _this.setData({items: items})
+                  _this.setData({items: items.slice(0, _this.data.max)})
               },
           })
       },
