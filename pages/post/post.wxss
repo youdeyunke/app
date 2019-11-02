@@ -8,7 +8,10 @@ mycard{
   width: 750rpx;
 }
 
-
+.divider{
+  height:20rpx;
+  display:block;
+}
 
 .post-cover{
   width:750rpx;

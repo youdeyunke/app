@@ -1,6 +1,7 @@
 // pages/post/index.js
 const app = getApp()
 var auth = require('../../utils/auth.js');
+var util = require('../../utils/util.js');
 
 Page({
 
@@ -11,6 +12,7 @@ Page({
     mode: 1,
     debug: false,
     user: {},
+    brokers: [],
     contactInfo: {},
     posts: null,
     flowContent: '',
@@ -153,7 +155,17 @@ Page({
       url: '/api/v2/posts/' + postId,
       success: function(resp){
         var pData = resp.data.data
-        _this.setData({post: pData})
+        // 打乱关联经纪人
+        var brokers = [pData.broker_info]
+        for(var i=0;i<=pData.brokers.length-1;i++){
+            var broker = pData.brokers[i]
+            if(broker.id != pData.user.id){
+              brokers.push(broker)
+            }
+        }
+        util.shuffle(brokers)
+        console.log('brokers', brokers)
+        _this.setData({post: pData, brokers: brokers})
         _this.loadSub()
         wx.setStorage({ key: 'post.data.' + postId, data: pData})
         wx.setStorageSync('last_view_post', pData)

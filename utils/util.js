@@ -4,6 +4,16 @@ function prettyTime(str) {
     return d + ' ' + t
 }
 
+function shuffle(arr) {
+　　var i = arr.length, t, j
+　　while (i) { 
+    　　j = Math.floor(Math.random() * i--)
+    　　t = arr[i]
+    　　arr[i] = arr[j]
+    　　arr[j] = t
+　　}
+}
+
 function throttle(fn, delay) {
     // 记录上一次函数触发的时间
     console.log('util.throttle')
@@ -28,5 +38,6 @@ function throttle(fn, delay) {
 
 module.exports = {
   prettyTime: prettyTime,
+  shuffle: shuffle,
   throttle: throttle
 }

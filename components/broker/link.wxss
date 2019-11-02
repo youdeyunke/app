@@ -7,7 +7,6 @@
   width: 100%;
   background:#fff;
   padding:30rpx 30rpx;
-  margin-bottom:20rpx;
 }
 
 .info .text{

@@ -4,7 +4,7 @@
   "usingComponents": {
     "mytags": "/components/tags",
     "gimage": "/components/gyroscope-image",
-    "broker": "/components/broker/btns",
+    "broker-btns": "/components/broker/btns",
     "contact": "/components/post/contact",
     "broker-link": "/components/broker/link",
     "myfav": "/components/fav",

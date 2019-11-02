@@ -80,7 +80,9 @@
   </view>
 </box>
 
-<broker-link  wx:if="{{post.user.is_broker && mode == 1 }}" broker="{{post.broker_info}}" />
+
+<broker-link wx:if="{{mode == 1 }}"   broker="{{broker}}" wx:for="{{brokers}}" wx:for-item="broker" />
+<view class="divider"></view>
 
 <mycard width="750" title="配套设施"  wx:if="{{post.group == 'rental' && post.facilities && post.facilities.length > 0 }}" hat="{{false}}">
   <view class="fac-items">
@@ -174,7 +176,7 @@
         </scroll-view>
 </view>
 
-<broker wx:if="{{mode == 1}}" bindbooked="bookedHandle" broker="{{post.broker_info}}" pid="{{post.id}}" bookingStatus="{{post.user_has_booking}}"></broker>
+<broker-btns wx:if="{{mode == 1}}" bindbooked="bookedHandle" broker="{{brokers[0]}}" pid="{{post.id}}" bookingStatus="{{post.user_has_booking}}" />
 <contact wx:if="{{mode == 2}}" info="{{contactInfo}}"  />
 
 <safe-tips cat="{{post.group}}"/>
