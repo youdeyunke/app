@@ -46,6 +46,10 @@ Page({
      wx.navigateTo({url: '/pages/need/room-form'})
   },
 
+  gotoSubs: function(e){
+     wx.navigateTo({url: '/pages/sub-districts/index'})
+  },
+
   gotoSale: function(e){
      wx.navigateTo({url: '/pages/owner/sale?group=old'})
   },

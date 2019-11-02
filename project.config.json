@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 75,
+			"current": 3,
 			"list": [
 				{
 					"id": 0,
@@ -66,7 +66,7 @@
 					"id": 3,
 					"name": "post",
 					"pathName": "pages/post/post",
-					"query": "id=31",
+					"query": "id=52",
 					"scene": null
 				},
 				{

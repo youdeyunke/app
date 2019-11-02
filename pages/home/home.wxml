@@ -20,9 +20,9 @@
   </view>
 
   <view class="right">
-    <view class="block-nav-item" bindtap="gotoSale">
-      <view class="block-nav-item-name">我是业主</view>
-      <view class="block-nav-item-desc">点击开始登记房源</view>
+    <view class="block-nav-item" bindtap="gotoSubs">
+      <view class="block-nav-item-name">热门小区</view>
+      <view class="block-nav-item-desc">浏览热门小区</view>
     </view>
     <view class="block-nav-item" bindtap="gotoMap">
       <view class="block-nav-item-name">地图找房</view>
