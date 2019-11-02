@@ -36,7 +36,9 @@ Page({
         data: {user: data},
         success: function(resp){
             if(resp.data.status == 0){
-                _this.loadUser()
+                wx.showToast({ icon: 'none', title: '修改成功', success: function(){
+                    wx.navigateBack({delta: -1})
+                }})
             }
         }
     })
