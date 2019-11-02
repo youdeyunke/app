@@ -15,11 +15,21 @@ Component({
    * 组件的初始数据
    */
   data: {
+      position: '',
   },
 
 
   ready: function(){
-    console.log('current user id is', this.data.currentUserId)
+    console.log('ready for message ', this.data.mid)
+      var _this = this
+      var key = 'message.' + this.data.mid
+      wx.getStorage({key: key, success: function(val){
+        var message = val.data
+        var position = _this.data.currentUserId == message.sender_id ? 'right' : 'left'
+
+        _this.setData({message: message, position: position})
+        console.log('current user id', _this.data.currentUserId, 'sender id',  message.sender_id, 'position', position, message)
+      }})
   },
 
   /**
@@ -27,10 +37,6 @@ Component({
    */
   methods: {
     _midChange: function(newVal, oldVal){
-      var _this = this
-      var key = 'message.' + newVal
-      var message = wx.getStorageSync(key)
-      _this.setData({message: message})
     },
 
   }

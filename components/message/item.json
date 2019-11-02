@@ -1,8 +1,8 @@
 {
   "component": true,
   "usingComponents": {
-    "text-message": "/components/message/text",
-    "post-message": "/components/message/post",
-    "image-message": "/components/message/image"
+    "text-content": "/components/message/text",
+    "post-content": "/components/message/post",
+    "image-content": "/components/message/image"
   }
 }

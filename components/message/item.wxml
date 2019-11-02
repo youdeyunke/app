@@ -1,3 +1,12 @@
 <!--components/message/item.wxml-->
-<text-message wx:if="{{message.content_type == 'text'}}" current-user-id="{{currentUserId}}"  message="{{message}}"  />
-<post-message wx:if="{{message.content_type == 'post'}}" current-user-id="{{currentUserId}}"  message="{{message}}"  />
+<text-message current-user-id="{{currentUserId}}"  message="{{message}}"  />
+
+<view class="msg msg-{{ position }}">
+  <view class="avatar"> <image src="{{message.sender_info.avatar}}"></image> </view>
+
+  <view class="message-content-block">
+    <text-content wx:if="{{message.content_type == 'text' }}" position="{{position}}" message="{{message}}" />
+    <post-content wx:if="{{message.content_type == 'post' }}" position="{{position}}" message="{{message}}" />
+  </view>
+
+</view>

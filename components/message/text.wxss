@@ -1,32 +1,5 @@
-.msg{
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: calc(750rpx - 18rpx*2);
-  margin-top:20rpx;
-  margin-bottom:20rpx;
-  --height: 74rpx;
-}
 
-.msg-right{
-  flex-direction: row-reverse;
-}
-
-.msg-right .avatar{
-  margin-left:22rpx;
-}
-
-.msg-left .avatar{
-  margin-right:22rpx;
-}
-
-.msg .avatar, .msg .avatar image{
-  width: var(--height);
-  height: var(--height);
-  background: #fff;
-}
-
-.msg .text-wrapper{
+.text-wrapper{
   border-radius: 8rpx;
   padding:22rpx 18rpx;
   position: relative;
@@ -68,7 +41,7 @@
   border-width: 10rpx 0rpx 10rpx 10rpx;
 }
 
-.msg .text{
+.text{
   font-size:24rpx;
   color: #000;
   line-height: 1.6;

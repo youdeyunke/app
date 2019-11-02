@@ -1,1 +1,27 @@
-/* components/message/item.wxss */
+.msg{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: calc(750rpx - 18rpx*2);
+  margin-top:20rpx;
+  margin-bottom:20rpx;
+  --height: 74rpx;
+}
+
+.msg-right{
+  flex-direction: row-reverse;
+}
+
+.msg-right .avatar{
+  margin-left:22rpx;
+}
+
+.msg-left .avatar{
+  margin-right:22rpx;
+}
+
+.msg .avatar, .msg .avatar image{
+  width: var(--height);
+  height: var(--height);
+  background: #fff;
+}

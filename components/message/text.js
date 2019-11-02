@@ -4,9 +4,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    message: {
-      type: Object, value: null,
-    },
+    position: {type: String, value: ''},
+    message: { type: Object, value: null, },
 
     currentUserId: {
       type: Number, value: null,
