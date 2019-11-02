@@ -1,1 +1,1 @@
-<text wx:if="{{text}}" class="copyright">{{text}}</text>
+<text bindtap="sayHello" wx:if="{{text}}" class="copyright">{{text}}</text>

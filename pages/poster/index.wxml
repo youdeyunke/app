@@ -17,7 +17,7 @@
         <van-icon name="edit" /> 修改联系人信息
       </view>
       <view class="right">
-        <van-button icon="photo" bindtap="onSavePoster" type="primary"  round>下载打印海报</van-button>
+        <van-button bindtap="onSavePoster" type="primary"  round>下载打印海报</van-button>
       </view>
     </view>
 

@@ -1,6 +1,7 @@
 .copyright{
-  font-size:20rpx;
+  font-size:22rpx;
   color: #cecece;
   padding:20rpx 0;
   text-align: center;
+  margin-top:10rpx;
 }
