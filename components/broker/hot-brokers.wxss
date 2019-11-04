@@ -19,7 +19,7 @@
     padding:20rpx;
     margin-right:30rpx;
     box-sizing:border-box;
-    box-shadow: 2rpx 4rpx 10rpx 2rpx #F4F4F4;
+    box-shadow: 1rpx 1rpx 2rpx 5rpx #f9f9f9;
     border-radius: 10rpx;
     font-size:28rpx;
 

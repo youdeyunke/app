@@ -1,10 +1,11 @@
 <view class="empty" wx:if="{{!loading && items[0].length == 0 }}" style="text-align:center;color:#cecece;margin-top:100rpx;">没有记录</view>
 <box padding="20" wx:else>  
   <block wx:for="{{items}}" wx:for-item="customers">
-    <van-cell wx:for="{{customers}}"  wx:for-key="item.id" label="{{ item.user_remark  }}"   size="large" hover-class="none" title="{{item.name}}"  value="{{item.mobile}}" />
+    <van-cell wx:for="{{customers}}"  wx:for-key="item.id" title="{{ item.nickname }}"   size="large" hover-class="none" label="{{item.mobile}}"  value="{{item.mobile}}" >
+        <image style="width:90rpx;height:90rpx;border-radius:90rpx;" slot="right-icon" src="{{item.avatar}}" />
+    </van-cell>
   </block>
   <view style="display:flex;justify-content:center;align-items:center;">
     <van-loading wx:if="{{loading}}" />
   </view>
 </box>
-
