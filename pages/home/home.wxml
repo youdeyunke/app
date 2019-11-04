@@ -1,3 +1,7 @@
+<van-transition show="{{showInstallTips == 1}}" duration="500" name="fade-down" custom-class="install-tips" bindtap="closeInstallTips">
+    <image src="/assets/images/install-tips.png" />
+</van-transition>
+
 <myslider wx:if="{{configs.plugin_home_slider != false }}"  id="slider"></myslider>
 
 <view class="header">

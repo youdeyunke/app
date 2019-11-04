@@ -6,8 +6,8 @@
         </view>
 
         <view class="right">
-          <view class="broker-name">{{ item.name }}</view>
-          <view class="broker-company">{{ item.company }}</view>
+          <view class="broker-name line-limit">{{ item.name }}</view>
+          <view class="broker-company line-limit">{{ item.company }}</view>
           <view class="broker-mobile">{{ item.mobile}}</view>
         </view>
 

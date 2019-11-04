@@ -10,6 +10,13 @@
   padding:30rpx 30rpx;
 }
 
+.line-limit{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;  
+
+}
+
 
 .info .left{
   display: flex;
@@ -35,6 +42,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .info .text .name text{

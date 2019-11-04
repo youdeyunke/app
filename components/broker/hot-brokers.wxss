@@ -6,6 +6,12 @@
   margin:20rpx 20rpx;
 }
 
+.line-limit{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;  
+}
+
 .broker-item{
     background: #ffffff;
     width:400rpx;
@@ -51,6 +57,7 @@
 .broker-name{
  color:#000;
  font-weight:800;
+
 }
 
 .broker-company{

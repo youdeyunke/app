@@ -3,6 +3,20 @@ page{
   background: #fff !important;
 }
 
+.install-tips {
+  position:fixed;
+  top:0rpx;
+  right:20rpx;
+  width:595rpx;
+  height:95rpx;
+  z-index:99;
+}
+
+.install-tips image{
+  width:100%;
+  height:100%;
+}
+
 .header{
 background:#fff;
 width:710rpx;

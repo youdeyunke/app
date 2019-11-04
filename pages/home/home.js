@@ -8,6 +8,7 @@ Page({
    */
   
   data: {
+    showInstallTips: 0,  // 1:正常显示，2：自动关闭，3：手动关闭
     city_id: null,
     ext: EXT,
     showNewVersionWindow: false,
@@ -101,11 +102,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var _this = this   
+    var _v= wx.getStorageSync('closeInstallTips') || false
+    // 没有手动关闭提示，就正常显示
+    if(!_v){
+       setTimeout(function(){  _this.setData({showInstallTips: 1})  }, 4000)
+        // 延时自动关闭
+       setTimeout(function(){  _this.setData({showInstallTips: 0})  }, 8000)
+    }
+
     var name = EXT['name'] || '首页'
     wx.setNavigationBarTitle({title: name})
-    var _this = this   
     var configs = wx.getStorageSync('myconfigs') || {}
     this.setData({configs: configs})
+    setTimeout(function(){  _this.checkNewVersion() }, 1000)
 
     // 从推送通知点击，直接进入下一集菜单时，会没有返回按钮，这里做一次跳转
     if(options.r){
@@ -120,10 +130,13 @@ Page({
           break;
       }
     }
-
-    setTimeout(function(){  _this.checkNewVersion() }, 1000)
   },
 
+  closeInstallTips: function(e){
+      // 点击关闭安装提示
+      this.setData({'showInstallTips': 0})
+      wx.setStorageSync( 'closeInstallTips', true)
+   },
   
   markNewVersion: function(e){
     // 本地保存最新版本号，以便下次比对

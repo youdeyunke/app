@@ -3,15 +3,15 @@
     <view class="left">
         <image class="avatar" src="{{broker.avatar}}" bindtap="gotoUser"></image>
         <view class="text">
-          <view class="name"><text>{{broker.name}}</text> <van-tag text-color="#F7EED4" color="#222222">已认证</van-tag> </view>
+          <view class="name line-limit"><text>{{broker.name}}</text> <van-tag text-color="#F7EED4" color="#222222">已认证</van-tag> </view>
           <view class="desc">
             <text wx:if="{{broker.company}}">{{broker.company}}</text>
           </view>
         </view>
     </view>
     <view class="right actions">
-      <view style="margin-right:20rpx;" bindtap="chatHandle" class="action-item"><van-icon color="#ffffff" name="chat"  /></view>
-      <view bindtap="callHandle" class="action-item"><van-icon color="#ffffff" name="phone" /></view>
+      <view style="margin-right:20rpx;" bindtap="chatHandle" class="action-item"><van-icon size="28rpx;" color="#ffffff" name="chat"  /></view>
+      <view bindtap="callHandle" class="action-item"><van-icon color="#ffffff" name="phone" size="28rpx;" /></view>
     </view>
 
   </view>
