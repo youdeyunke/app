@@ -76,12 +76,11 @@
       <view class="action">{{ post.user_has_coupon ? '已支付' : '去支付' }}</view>
     </view>    
 
-
   </view>
 </box>
 
 
-<broker-link wx:if="{{mode == 1 }}"   broker="{{broker}}" wx:for="{{brokers}}" wx:for-item="broker" />
+<broker-link post-id="{{post.id}}" wx:if="{{mode == 1 }}"   broker="{{broker}}" wx:for="{{brokers}}" wx:for-item="broker" />
 <view class="divider"></view>
 
 <mycard width="750" title="配套设施"  wx:if="{{post.group == 'rental' && post.facilities && post.facilities.length > 0 }}" hat="{{false}}">

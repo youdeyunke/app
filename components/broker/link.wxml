@@ -1,14 +1,17 @@
 <!--components/broker-link.wxml-->
-<block>
-  <view class="info" bindtap="gotoUser" >
-    <image class="avatar" src="{{broker.avatar}}"></image>
-    <view class="text">
-      <view class="name"><text>{{broker.name}}</text> <van-tag text-color="#F7EED4" color="#222222">已认证</van-tag> </view>
-      <view class="desc">
-        <text wx:if="{{broker.mobile}}">联系电话：{{broker.mobile}}</text>
-      </view>
+  <view class="info"  >
+    <view class="left">
+        <image class="avatar" src="{{broker.avatar}}" bindtap="gotoUser"></image>
+        <view class="text">
+          <view class="name"><text>{{broker.name}}</text> <van-tag text-color="#F7EED4" color="#222222">已认证</van-tag> </view>
+          <view class="desc">
+            <text wx:if="{{broker.company}}">{{broker.company}}</text>
+          </view>
+        </view>
     </view>
-    <van-icon name="arrow" />
+    <view class="right actions">
+      <view style="margin-right:20rpx;" bindtap="chatHandle" class="action-item"><van-icon color="#ffffff" name="chat"  /></view>
+      <view bindtap="callHandle" class="action-item"><van-icon color="#ffffff" name="phone" /></view>
+    </view>
 
   </view>
-</block>
