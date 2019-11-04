@@ -3,6 +3,7 @@
   "navigationBarTextStyle": "black",
   "usingComponents": {
     "mytags": "/components/tags",
+    "van-transition": "/vant/transition/index",
     "gimage": "/components/gyroscope-image",
     "broker-btns": "/components/broker/btns",
     "contact": "/components/post/contact",

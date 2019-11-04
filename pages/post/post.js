@@ -13,6 +13,7 @@ Page({
     debug: false,
     user: {},
     brokers: [],
+    showViewCount: false,
     contactInfo: {},
     posts: null,
     flowContent: '',
@@ -212,9 +213,7 @@ Page({
 
             // 如果设置了群二维码，就弹出提示
             if(_this.data.post.group_qr){
-              setTimeout(function(){
-              _this.setData({showGroupQr: true})
-              }, 1000)
+              setTimeout(function(){ _this.setData({showGroupQr: true}) }, 1000)
             }
             return true
           }
@@ -337,14 +336,15 @@ Page({
   },
 
    
-  showViewsCount: function(c){
+  checkViewsCount: function(c){
       // 延时显示有多少人看过房源
+      var _this = this
       if(c && c >= 5){
-          wx.showToast({
-            duration: 2000,
-            title: '过去一周，有' + c + '人看过此房源',
-            icon: 'none'
-          })
+          // 如果满足条件，就执行动画
+          setTimeout(function(){ 
+              _this.setData({showViewCount: true}) 
+              setTimeout(function(){ _this.setData({showViewCount: false}) }, 4000)
+          }, 1000)
       }
   },
 
@@ -377,7 +377,7 @@ Page({
     _this.setData({ postId: postId, post: post, mode: mode })
     _this.loadPost(postId, function(post){
       var c = post.views_count || 0
-      setTimeout(function(){ _this.showViewsCount(c) }, 1000)
+      _this.checkViewsCount(c)
     })
 
     var fromShare = false

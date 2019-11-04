@@ -645,3 +645,32 @@ myfav .myfav {
   line-height:0;
   padding:0;
 }
+
+
+.mypop{
+  position:fixed;
+  z-index:99;
+  padding:0 30rpx;
+  box-sizing:border-box;
+  width:690rpx;
+  height:80rpx;
+  left:30rpx;
+  right:30rpx;
+  top:10rpx;
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  background:#07c160;
+  border-radius: 10rpx;
+  letter-space:1.5;
+  font-size:28rpx;
+  opacity: 0.9;
+  color:#fff;
+}
+
+.mypop .count{
+  color:#F7B500;
+  font-weight:800;
+  font-size:40rpx;
+  margin:0 6rpx;
+}

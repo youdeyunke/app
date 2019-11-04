@@ -80,7 +80,7 @@
 
 <cr />
 
-<van-popup show="{{showNewVersionWindow}}" duration="500" custom-style="background:none;"   >
+<van-popup show="{{showNewVersionWindow}}" duration="800" custom-style="background:none;"   >
   <view class="new-version-window">
     <view class="close" bindtap="markNewVersion"></view>
     <image src="https://qiniucdn.udeve.cn/wefang-sass/new-version-popup.png" class="bg" /> 

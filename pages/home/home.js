@@ -103,15 +103,8 @@ Page({
    */
   onLoad: function (options) {
     var _this = this   
-    var _v= wx.getStorageSync('closeInstallTips') || false
-    // 没有手动关闭提示，就正常显示
-    if(!_v){
-       setTimeout(function(){  _this.setData({showInstallTips: 1})  }, 4000)
-        // 延时自动关闭
-       setTimeout(function(){  _this.setData({showInstallTips: 0})  }, 8000)
-    }
-
     var name = EXT['name'] || '首页'
+    this.checkInstallTips()
     wx.setNavigationBarTitle({title: name})
     var configs = wx.getStorageSync('myconfigs') || {}
     this.setData({configs: configs})
@@ -129,6 +122,17 @@ Page({
           })
           break;
       }
+    }
+  },
+
+  checkInstallTips: function(){
+    var _this = this
+    var _v= wx.getStorageSync('closeInstallTips') || false
+    // 没有手动关闭提示，就正常显示
+    if(!_v){
+       setTimeout(function(){  _this.setData({showInstallTips: 1})  }, 4000)
+        // 延时自动关闭
+       setTimeout(function(){  _this.setData({showInstallTips: 0})  }, 8000)
     }
   },
 
