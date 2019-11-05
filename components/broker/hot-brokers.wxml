@@ -13,4 +13,8 @@
 
       </navigator>
 
+      <navigator url="/pages/broker/index?" hover-class="none" class="broker-item more" >
+          <text>查看更多经纪人</text>
+      </navigator>
+
   </view>

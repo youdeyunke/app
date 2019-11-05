@@ -22,12 +22,15 @@
     box-shadow: 1rpx 1rpx 2rpx 5rpx #f9f9f9;
     border-radius: 10rpx;
     font-size:28rpx;
-
     display:flex;
     justify-content:flex-start;
     align-items:center;
 }
 
+.broker-item.more text{
+  width:300rpx;
+  text-align:center;
+}
 
 .broker-item .left{
   display:flex;
