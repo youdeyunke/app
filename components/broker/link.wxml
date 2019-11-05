@@ -10,8 +10,8 @@
         </view>
     </view>
     <view class="right actions">
-      <view style="margin-right:20rpx;" bindtap="chatHandle" class="action-item"><van-icon size="28rpx;" color="#ffffff" name="chat"  /></view>
-      <view bindtap="callHandle" class="action-item"><van-icon color="#ffffff" name="phone" size="28rpx;" /></view>
+      <view style="margin-right:20rpx;" bindtap="chatHandle" class="action-item"><van-icon size="40rpx;" color="#1989fa" name="chat"  /></view>
+      <view bindtap="callHandle" class="action-item"><van-icon color="#1989fa" name="phone" size="40rpx;" /></view>
     </view>
 
   </view>

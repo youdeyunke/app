@@ -74,7 +74,7 @@
   width:80rpx;
   height:80rpx;
   border-radius:80rpx;
-  background:#07c160;
+  background:#f8f8f8;
   display:flex;
   justify-content:center;
   align-items:center;

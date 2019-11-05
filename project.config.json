@@ -42,7 +42,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 76,
 			"list": [
 				{
 					"id": 0,
@@ -550,6 +550,13 @@
 					"name": "对话窗口",
 					"pathName": "pages/messages/show",
 					"query": "target_user_id=27886",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "brokers",
+					"pathName": "pages/broker/index",
+					"query": "",
 					"scene": null
 				}
 			]
