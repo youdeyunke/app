@@ -166,8 +166,10 @@ Page({
         }
         util.shuffle(brokers)
         var html = pData['content']
-        html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
-        html = html.replace(/\<p/gi, '<p class="rich-text-p" ')
+        if(html){
+          html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
+          html = html.replace(/\<p/gi, '<p class="rich-text-p" ')
+        }
         pData['content'] = html
         _this.setData({post: pData, brokers: brokers})
         _this.loadSub()
