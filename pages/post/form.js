@@ -518,8 +518,6 @@ Page({
             url = url + _this.data.post.id
             method = 'PUT'
         }
-        console.log('url', url)
-
         app.request({
             url: url,
             method: method,

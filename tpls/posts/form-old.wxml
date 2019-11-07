@@ -33,8 +33,10 @@
         </card>
 
 
-
         <card title="房源详情" hat wx:if="{{step==2}}">
+            <van-field size="large"  value="{{post.verify_code}}" label="核验码" placeholder="选填" bind:change="inputChange" data-name="verify_code"
+                />
+
             <van-field size="large"  value="{{post.desc}}" label="房源介绍" placeholder="选填" bind:change="inputChange" data-name="desc"
                 autosize />
             <van-field size="large"  value="{{post.selling_points}}" label="核心卖点" placeholder="选填" bind:change="inputChange"

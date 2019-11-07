@@ -78,6 +78,10 @@ Page({
   */
   onPullDownRefresh: function () {
     var _this = this
+    app.loadConfigs( function(configs){
+        _this.setNav(configs)
+        _this.setData({configs: configs})
+    })
     wx.stopPullDownRefresh()
     wx.showNavigationBarLoading() //在标题栏中显示加载
     app.loadConfigs(function(configs){
@@ -109,6 +113,13 @@ Page({
       var name = EXT['name'] || '首页'
       _this.checkInstallTips()
       wx.setNavigationBarTitle({title: name})
+      _this.setNav(configs)
+      setTimeout(function(){  _this.checkNewVersion() }, 1000)
+
+    })
+  },
+
+  setNav: function(configs){
       var bgColor = configs.plugin_home_topbar_color_desc 
       var frontColor = configs.plugin_home_topbar_front_color_desc
       console.log('bgcolor', bgColor, 'front color',  frontColor)
@@ -117,11 +128,6 @@ Page({
         backgroundColor: bgColor,
         animation: { duration: 400, timingFunc: 'easeIn' }
       })
-      setTimeout(function(){  _this.checkNewVersion() }, 1000)
-
-    })
-
-
   },
 
   checkInstallTips: function(){
