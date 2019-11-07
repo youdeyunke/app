@@ -1,11 +1,10 @@
 .header{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background: white;
   width: 100%;
-  padding:10rpx 30rpx;
+  padding:0rpx 30rpx;
   box-sizing: border-box;
   position: fixed;
   left:0rpx;
@@ -16,15 +15,59 @@
 }
 
 
-.header .f{
-  width: 100%;
-  margin: 10rpx 0;
+.header .ditu{
+  height:80rpx;
+  width:200rpx;
+  border-radius:80rpx;
+  background:#F6F7FB;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#333333;
 }
 
-.search-box{
-  width: 740rpx;
+.header .ditu image{
+  width: 24rpx;
+  height: 24rpx;
+  margin-right:8rpx;
 }
 
+.header .search-box{
+  width: 540rpx;
+  padding-left:10rpx;
+}
+
+.header .search-box .van-search__content{
+  border-radius: 80rpx;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.header .search-box .van-search__action{
+  border-radius: 80rpx;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background:#F4f4f4;
+  height:80rpx;
+  display:flex;
+  width:100rpx;
+  justify-content:center;
+  align-items:center;
+}
+
+
+.filter{
+    position: fixed;
+    left: 0rpx;
+    right: 0rpx;
+    top: 110rpx;
+    z-index: 9999;
+    width: 100%;
+    box-sizing:border-box;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 20rpx 30rpx 20rpx  30rpx;
+}
 
 .res{
   padding-top:200rpx;
@@ -55,15 +98,3 @@
   color: #fff;
   opacity: 0.9;
 }
-
-.float-btn.ditu{
-  bottom:150rpx;
-  background:var(--color-b);
-  box-shadow: 2rpx 2rpx 10rpx rgba(0,0,0, 0.2);
-}
-
-.float-btn.ditu image{
-  width: 88rpx;
-  height: 88rpx;
-}
-

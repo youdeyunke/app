@@ -1,7 +1,11 @@
 <view class="header">
+    <navigator class="ditu" open-type="navigateTo" url="/pages/map/index?group={{filter.group_v2 || filter.group}}">
+      <van-icon name="location" size="24rpx;" />地图
+    </navigator>
 
   <van-search 
     name="kw" 
+    shape="round"
     value="{{kw}}" 
     placeholder-style="font-size:24rpx;color:#cecece;" 
     placeholder="输入小区、街道关键词" 
@@ -13,16 +17,17 @@
     use-action-slot
     focus="{{false}}" 
   >
-    <view slot="action" bind:tap="onSearch">搜索</view>
+    <view slot="action" class="action-btn" bind:tap="onSearch">搜索</view>
   </van-search>
-<view class="f" wx:if="{{filterConfigs}}">
+
+</view>
+
+<view class="filter"  wx:if="{{filterConfigs}}">
     <base-filter configs="{{filterConfigs}}" initValue="{{filter}}"  bind:change="filterChange" />
-  </view>
 </view>
 
 
 <view class="res">
-
   <view class="subinfo"  wx:if="{{filter.sub_district_id}}">
     <sub-district sid="{{filter.sub_district_id}}" />
   </view>
@@ -32,7 +37,5 @@
   </box>
 
 </view>
+<van-divider hairline contentPosition="center" >END</van-divider>
 
-<navigator wx:if="{{filter.group_v2}}" class="float-btn ditu" open-type="navigateTo" url="/pages/map/index?group={{filter.group_v2}}">
-  <image src="/assets/icons/ditu-icon.png"></image>
-</navigator>

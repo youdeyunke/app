@@ -112,6 +112,7 @@
     "van-loading": "/vant/loading/index",
     "van-tabs": "/vant/tabs/index",
     "van-tab": "/vant/tab/index",
+    "van-divider": "/vant/divider/index",
     "van-button": "/vant/button/index",
     "van-field": "/vant/field/index",
     "van-radio-group": "/vant/radio-group/index",
