@@ -104,16 +104,6 @@ Component({
           }
           _this.setData(data)
 
-          if(_this.data.showTotalCount > 0 && _this.data.query.page == 1  && meta.total_entries > 0 ){
-            var notifyText = '找到' + meta.total_entries + '套房源'
-            Notify({
-              text: notifyText,
-              duration: 1000,
-              selector: '#van-notify',
-              backgroundColor: '#1989fa'
-            });
-            console.log(notifyText);
-          }
 
           for (var i = 0; i <= resp.data.data.length - 1; i++) {
             var post = resp.data.data[i]
