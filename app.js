@@ -288,12 +288,6 @@ App({
       if(conf){
         return typeof cb == "function" && cb(conf);
       }
-
-      conf = wx.getStorageSync('myconfigs')
-      if(conf){
-        return  typeof cb == "function" && cb(conf);
-      }
-
       return this.loadConfigs(cb)
   },
 

@@ -9,6 +9,7 @@ Page({
   
   data: {
     showInstallTips: 0,  // 1:正常显示，2：自动关闭，3：手动关闭
+    configs : app.globalData.myconfigs,
     city_id: null,
     ext: EXT,
     showNewVersionWindow: false,
@@ -103,26 +104,24 @@ Page({
    */
   onLoad: function (options) {
     var _this = this   
-    var name = EXT['name'] || '首页'
-    this.checkInstallTips()
-    wx.setNavigationBarTitle({title: name})
-    var configs = wx.getStorageSync('myconfigs') || {}
-    this.setData({configs: configs})
-    setTimeout(function(){  _this.checkNewVersion() }, 1000)
+    app.ensureConfigs(function(configs){
+      console.log('configs is', configs)
+      var name = EXT['name'] || '首页'
+      _this.checkInstallTips()
+      wx.setNavigationBarTitle({title: name})
+      var bgColor = configs.plugin_home_topbar_color_desc 
+      var frontColor = configs.plugin_home_topbar_front_color_desc
+      console.log('bgcolor', bgColor, 'front color',  frontColor)
+      wx.setNavigationBarColor({
+        frontColor: frontColor,
+        backgroundColor: bgColor,
+        animation: { duration: 400, timingFunc: 'easeIn' }
+      })
+      setTimeout(function(){  _this.checkNewVersion() }, 1000)
 
-    // 从推送通知点击，直接进入下一集菜单时，会没有返回按钮，这里做一次跳转
-    if(options.r){
-      var rds = options.r.split('-')
-      var page = rds[0]
-      var value = rds[1]
-      switch(page){
-        case 'needroom':
-          wx.navigateTo({
-            url: '/pages/need/room-show?id=',
-          })
-          break;
-      }
-    }
+    })
+
+
   },
 
   checkInstallTips: function(){
