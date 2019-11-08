@@ -409,3 +409,19 @@ textarea{
   align-items:  center;
   height: 80rpx;
 }
+
+
+.rich-text-p{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:center;
+}
+
+.rich-text-img{
+  width:100%;
+  height:auto;
+  margin:0 auto;
+  line-height:0;
+  padding:0;
+}

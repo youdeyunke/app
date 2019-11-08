@@ -168,15 +168,6 @@ mycard{
 }
 
 
-.raw image.wxParse-img{
-  margin:20rpx auto;
-  width:300rpx;
-}
-
-.raw .wxParse-inline {
-  line-height: 1.9;
-  letter-spacing: 2rpx;  
-}
 
 .html-content{
   line-height: 1.5;
@@ -629,22 +620,6 @@ myfav .myfav {
 
 }
 
-
-.rich-text-p{
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
-  align-items:center;
-  background:red;
-}
-
-.rich-text-img{
-  width:100%;
-  height:auto;
-  margin:0 auto;
-  line-height:0;
-  padding:0;
-}
 
 
 .mypop{

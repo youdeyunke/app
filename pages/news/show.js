@@ -28,8 +28,14 @@ Page({
     app.request({
       url: '/api/v1/news/' + _this.data.nid,
       success: function(resp){
+        var html = resp.data.data['content'] || ''
+        if(html){
+          html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
+          html = html.replace(/\<p/gi, '<p class="rich-text-p" ')
+        }
         _this.setData({
-          item: resp.data.data
+          item: resp.data.data,
+          html: html,
         })
       }
     })

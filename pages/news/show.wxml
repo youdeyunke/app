@@ -15,7 +15,7 @@
 
 <box padding="40">
   <view class="raw">
-      <rich-text  nodes="{{item.content}}" />
+      <rich-text  nodes="{{html}}" />
   </view>
 
 </box>
