@@ -1,4 +1,11 @@
+
+<van-tabs style="width:100%;" animated swipeable  type="line" color="#00ae66" bind:change="tabChange">
+    <van-tab wx:for="{{tabs}}" wx:for-item="tab" title="{{tab.label}}">
+    </van-tab>
+</van-tabs> 
+
 <block wx:if="{{userInfo && posts }}">
+
 <van-search
   value="{{ value }}"
   background="#f3f5f7"

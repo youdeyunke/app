@@ -8,6 +8,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    tabs: [
+      {label: '二手房源', group_v2: 'old'},
+      {label: '新房房源', group_v2: 'new' },
+      {label: '出租房源', group_v2: 'rental'},
+    ],
     userInfo: null,
     searchText: '',
   },
@@ -35,15 +40,22 @@ Page({
     this.loadPosts()
   },
 
+  tabChange: function(e){
+     var i = e.detail.name
+     var tab = this.data.tabs[i]
+     var filter = this.data.filter
+     this.setData({ page: 1, group_v2: tab.group_v2, loading: true })
+     this.loadPosts()
+  },
+
   loadPosts: function(){
     /* 拉取我的房源 */
     var _this = this
     var userId = this.data.userInfo.id
-    console.log('user info,', this.data.userInfo, 'user id', userId)
 
     app.request({
       url: '/api/v2/posts/',
-      data: {'user_id': userId, per_page : 999, text: _this.data.searchText},
+      data: {'user_id': userId, per_page : 999, text: _this.data.searchText,   group_v2: _this.data.group_v2},
       success: function(resp){
         if(!resp.data.status == 0){
             wx.showModal({
