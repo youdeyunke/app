@@ -16,8 +16,9 @@
             placeholder="请填写客户的意向房源" bind:change="inputChange" autosize />
     </mycard>    
 
-    <view class="actions">
-      <button  data-name="step1" form-type="submit" type="primary" class="btn ">提交报备</button>
+    <view class="actions" >
+      <button   form-type="submit" type="primary" >提交报备</button>
+      <button style="margin-top:20rpx;" bindtap="backHandle"  type="default" >取消返回</button>
     </view>
 </form>
 

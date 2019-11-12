@@ -1,1 +1,4 @@
 /* pages/fenxiao/report.wxss */
+.actions{
+  margin:auto 20rpx;
+}
