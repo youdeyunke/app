@@ -38,6 +38,9 @@
 
      <view class="title-block">
        <view class=" post-title">{{ post.title}} </view>
+       <navigator url="/pages/fenxiao/report?pid={{post.id}}" class="report" hover-class="none">
+         <van-button type="info" plain size="mini">报备</van-button>
+       </navigator>
      </view>
 
      <view class="typeinfo">

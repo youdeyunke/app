@@ -10,6 +10,7 @@ Page({
    */
   data: {
     post: null,
+    postValue: '',
     setpsText: ["报备客户", "客户签约", "佣金到账"],
   },
 
