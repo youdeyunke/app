@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    pid: null,
     post: null,
     postValue: '',
     setpsText: ["报备客户", "客户签约", "佣金到账"],
@@ -21,15 +22,14 @@ Page({
    */
   onLoad: function (q) {
       var _this = this
-      auth.ensureUser( (user) => {
-          // pass
-          if(q.pid){
-              _this.loadPost(q.pid)
-          }
-      })
+      this.setData({pid: q.pid})
+      this.loadPost(q.pid)
   },
 
   loadPost: function(pid){
+      if(!pid){
+          return false;
+      }
       var _this = this
       app.request({
           url: '/api/v2/posts/' + pid,
@@ -56,9 +56,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.setNavigationBarTitle({
-      title: '报备客户',
-    })
+    wx.setNavigationBarTitle({ title: '报备客户', })
   },
 
 
@@ -111,6 +109,7 @@ Page({
   submit: function(e){
     app.uploadFormid(e)
     var fdata = e.detail.value
+    console.log('e', e)
     var isok = this.validateFormData(fdata)
     if(!isok){
       return false;
