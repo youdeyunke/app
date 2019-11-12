@@ -493,6 +493,8 @@ App({
 
     try {
       var res = wx.getSystemInfoSync();
+      var s = res['system'].split(' ')[0].toLowerCase()
+      res['systemName'] = s
       this.globalData.system  = res
       console.log('systeminfo', res)
     } catch (e) {

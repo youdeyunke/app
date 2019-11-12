@@ -1,4 +1,3 @@
-<import src="/utils/wxParse/wxParse.wxml"/>
 <van-transition duration="800" show="{{showViewCount}}" name="fade-left"  custom-class="mypop"> 过去一周，有<text class="count">{{post.views_count}}人</text>查看了此房源 </van-transition>
 
 <block wx:if="{{post}}">

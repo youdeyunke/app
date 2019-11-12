@@ -8,6 +8,7 @@ Page({
    */
   
   data: {
+    system: {},
     showInstallTips: 0,  // 1:正常显示，2：自动关闭，3：手动关闭
     configs : app.globalData.myconfigs,
     city_id: null,
@@ -108,6 +109,7 @@ Page({
    */
   onLoad: function (options) {
     var _this = this   
+    _this.setData({system: app.globalData.system})
     app.ensureConfigs(function(configs){
       console.log('configs is', configs)
       var name = EXT['name'] || '首页'
