@@ -1,13 +1,13 @@
 
 <form bindsubmit="submit">
     <mycard width="750" title="客户信息"   hat="{{false}}">
-        <van-field    size="large"  name="name" v input-align="left" 
+        <van-field    size="large"  name="name"  input-align="left" 
             placeholder="客户姓名" bind:change="inputChange" />
 
-        <van-field size="large"  name="mobile" v input-align="left" 
+        <van-field size="large"  name="mobile"  input-align="left" 
             placeholder="客户手机号" bind:change="inputChange" />
 
-        <van-field border="{{false}}"   size="large"  name="mobile_confirm" v input-align="left" border="{{false}}"
+        <van-field border="{{false}}"   size="large"  name="mobile_confirm"  input-align="left" border="{{false}}"
             placeholder="再次输入手机号" bind:change="inputChange" />
     </mycard>
 

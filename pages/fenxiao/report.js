@@ -22,8 +22,12 @@ Page({
    */
   onLoad: function (q) {
       var _this = this
-      this.setData({pid: q.pid})
+      this.setData({pid: q.pid || ''})
       this.loadPost(q.pid)
+  },
+
+  inputChange: function(e){
+      console.log('input change', e)
   },
 
   loadPost: function(pid){
@@ -57,6 +61,7 @@ Page({
    */
   onShow: function () {
     wx.setNavigationBarTitle({ title: '报备客户', })
+    this.loadPost(this.data.pid)
   },
 
 
@@ -109,7 +114,7 @@ Page({
   submit: function(e){
     app.uploadFormid(e)
     var fdata = e.detail.value
-    console.log('e', e)
+    console.log('fdata', fdata)
     var isok = this.validateFormData(fdata)
     if(!isok){
       return false;

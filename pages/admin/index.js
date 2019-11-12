@@ -32,13 +32,7 @@ Page({
     app.uploadFormId(e, function(data){
         var c = data.data.can_use_count
         if(c  >= 30){
-            wx.showModal({
-              title: '激活成功',
-              content: '微信消息推送已激活，现在你可以正常接收到推送通知',
-              success (res) {
-                _this.setData({fixFormid:false})
-              }
-            })
+          _this.setData({fixFormid:false})
         }else{
 
             wx.showToast({

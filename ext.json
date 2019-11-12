@@ -3,9 +3,7 @@
   "extAppid": "wx175508800f405090",
   "directCommit": false,
   "ext": {
-    "name": "内部开发版本",
-    "theme_color_bg": "#ffffff",
-    "theme_color_front": "#000000",
+    "name": "开发版",
     "cr": "UDEVE.CN",
     "udeve_link": true,
     "apihost": "https://weapp.udeve.cn/9000",
