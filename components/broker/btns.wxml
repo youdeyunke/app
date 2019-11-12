@@ -1,6 +1,11 @@
 <view class="actions">
 
   <view class="icons">
+    <view class="icon-item"  bindtap="reportHandle">
+      <van-icon size="40rpx;" name="notes-o"  />
+      <text class="icon-item-name">报备</text>
+    </view>
+
     <view class="icon-item"  bindtap="posterHandle">
       <van-icon size="40rpx;" name="photo-o"  />
       <text class="icon-item-name">海报</text>

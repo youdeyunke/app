@@ -40,7 +40,7 @@
 }
 
 .actions .buttons{
-  width:450rpx;
+  width:390rpx;
   display:flex;
   justify-content:center;
   align-items:center;

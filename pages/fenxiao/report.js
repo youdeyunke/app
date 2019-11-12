@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    post: null,
     setpsText: ["报备客户", "客户签约", "佣金到账"],
   },
 
@@ -18,8 +19,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
+      var _this = this
       auth.ensureUser( (user) => {
           // pass
+          if(q.pid){
+              _this.loadPost(q.pid)
+          }
+      })
+  },
+
+  loadPost: function(pid){
+      var _this = this
+      app.request({
+          url: '/api/v2/posts/' + pid,
+          success: function(resp){
+              var p = resp.data.data
+              var postName= p.title + ' ' + p.sub_district.name + ' ' + p.type_info.text + ' ' + p.area_info.text
+              _this.setData({post: p, postName: postName})
+          }
       })
   },
 

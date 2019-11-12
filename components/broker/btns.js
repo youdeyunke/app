@@ -11,6 +11,7 @@ Component({
   properties: {
     broker: {type: Object, value:null},
     pid: {type: Number, value: null},
+    post : {type: Object, value:null},
     bookingStatus: {type: Boolean, value: false},
   },
 
@@ -36,6 +37,10 @@ Component({
     
     posterHandle: function(){
         wx.navigateTo({url: '/pages/poster/index?id=' + this.data.pid } )
+    },
+
+    reportHandle: function(){
+        wx.navigateTo({url: '/pages/fenxiao/report?pid=' + this.data.pid } )
     },
 
     loadFavStatus: function(){
@@ -95,16 +100,6 @@ Component({
       })
     },
 
-    callHandle: function(){
-      var mobile = this.data.broker.mobile
-      if(!mobile){
-        return false
-      }
-
-      wx.makePhoneCall({
-          phoneNumber: mobile 
-      })
-    },
 
     bookingHandle: function (e) {
         var _this = this
