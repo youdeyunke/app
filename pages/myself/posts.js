@@ -13,6 +13,7 @@ Page({
       {label: '新房房源', group_v2: 'new' },
       {label: '出租房源', group_v2: 'rental'},
     ],
+    group_v2: 'old',
     userInfo: null,
     searchText: '',
   },
