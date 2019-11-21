@@ -56,10 +56,6 @@
         <card title="房源详情" hat wx:if="{{step == 2}}">
             <van-field size="large"  label="房源介绍" bind:change="inputChange" value="{{post.desc}}" placeholder="选填" data-name="desc"
                 autosize />
-            <van-field size="large"  label="出租要求" bind:change="inputChange" value="{{post.rent_limit}}" placeholder="选填"
-                data-name="rent_limit" autosize />
-            <van-field size="large"  label="周边配套" bind:change="inputChange" value="{{post.surrounding}}" placeholder="选填"
-                data-name="surrounding" autosize />
             <van-field size="large"  value="{{post.remark }}" label="备注" placeholder="选填" bind:change="inputChange" data-name="remark"
                 autosize />
         </card>

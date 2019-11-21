@@ -39,8 +39,6 @@
 
             <van-field size="large"  value="{{post.desc}}" label="房源介绍" placeholder="选填" bind:change="inputChange" data-name="desc"
                 autosize />
-            <van-field size="large"  value="{{post.selling_points}}" label="核心卖点" placeholder="选填" bind:change="inputChange"
-                data-name="selling_points" autosize />
             <van-field size="large"  value="{{post.owner_mindset}}" wx:if="{{user.is_broker}}" label="业主心态" placeholder="选填"
                 bind:change="inputChange" data-name="owner_mindset" autosize />
             <van-field size="large"  value="{{post.remark }}" label="备注" placeholder="选填" bind:change="inputChange" data-name="remark"
