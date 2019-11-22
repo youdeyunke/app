@@ -21,7 +21,9 @@
 
   <view class="buttons">
     <van-button round style="width:50%;" custom-style="border-top-right-radius:0;border-bottom-right-radius:0;"  size="large" bindtap="bookingHandle"  type="primary" >{{ bookingStatus ? '已预约' : '预约看房' }}</van-button>
-    <van-button round style="width:50%" custom-style="border-top-left-radius:0;border-bottom-left-radius:0;" size="large" bindtap="callHandle"     type="info"  >拨打电话</van-button>
+    <van-button round style="width:50%" custom-style="border-top-left-radius:0;border-bottom-left-radius:0;" size="large" bindtap="btn2Handle"     type="info"  >
+    {{ btn2Text }}
+    </van-button>
   </view>
 
 </view>

@@ -9,6 +9,7 @@ Component({
    */
 
   properties: {
+    post: {type: Object, value: null},
     broker: {type: Object, value:null},
     pid: {type: Number, value: null},
     bookingStatus: {type: Boolean, value: false},
@@ -18,16 +19,30 @@ Component({
    * 组件的初始数据
    */
   data: {
+      ext: wx.getExtConfigSync(),
       favStatus: 0,
       favCount: 0,
+      btn2Text: '拨打电话',
+      btn2Action: 'call',
   },
 
   ready: function(){
     var _this = this
+    if(this.data.ext.fenxiao_enable && this.data.post.group == 'new'){
+        var t = '报备'
+        var a = 'report'
+    }else{
+        var t = '拨打电话'
+        var a = 'call'
+    }
+    this.setData({
+        btn2Text: t,
+        btn2Action: a,
+    })
+
     this.loadFavStatus()
   },
 
- 
 
   /**
    * 组件的方法列表
@@ -78,6 +93,27 @@ Component({
       })
     },
 
+    reportHandle: function(){
+        var pid = this.data.pid
+        wx.navigateTo({
+            url: '/pages/fenxiao/report?pid=' + pid ,
+        })
+    },
+
+    callHandle: function(){
+      var m = this.data.broker.mobile
+      wx.makePhoneCall({
+        phoneNumber: m,
+      })
+    },
+
+    btn2Handle: function(){
+        if(this.data.btn2Action == 'call'){
+            this.callHandle()
+        }else{
+            this.reportHandle()
+        }
+    },
 
     chatHandle: function(){
       // 先调用打招呼接口
