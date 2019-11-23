@@ -28,7 +28,7 @@ Component({
 
   ready: function(){
     var _this = this
-    if(this.data.ext.fenxiao_enable && this.data.post.group == 'new'){
+    if(this.data.ext.fenxiao_enable){
         var t = '报备'
         var a = 'report'
     }else{
