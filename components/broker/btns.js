@@ -28,8 +28,8 @@ Component({
 
   ready: function(){
     var _this = this
-    if(this.data.ext.fenxiao_enable){
-        var t = '报备'
+    if(this.data.ext.fenxiao_enable && this.data.post.group == 'new'){
+        var t = '报备客户'
         var a = 'report'
     }else{
         var t = '拨打电话'
