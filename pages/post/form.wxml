@@ -1,5 +1,6 @@
 <import src="/tpls/posts/form-rental.wxml" />
 <import src="/tpls/posts/form-old.wxml" />
+<import src="/tpls/posts/form-shop.wxml" />
 
 <form bindsubmit="submit">
     <box>
@@ -8,11 +9,11 @@
     </box>
 
     <mycard title="地址" wx:if="{{step==1}}" subtitle="门牌号保密，仅管理员可见" hat>
-        <van-field size="large"  error="{{error.district_id}}" input-align="left" disabled bindtap="chooseLocation" is-link label="小区"
+        <van-field size="large"  error="{{error.district_id}}" input-align="left" disabled bindtap="chooseLocation" is-link label="位置"
             value="{{post.sub_district_name}}" arrow-direction="down" />
-        <van-field size="large"  data-name="building_number" value="{{ post.building_number }}" input-align="left" label="栋座/位置"
+        <van-field size="large"  data-name="building_number" value="{{ post.building_number }}" input-align="left" label="栋座"
             placeholder="如：A栋" bind:change="inputChange" />
-        <van-field size="large"  data-name="house_number" value="{{ post.house_number }}" input-align="left" label="房号"
+        <van-field size="large"  data-name="house_number" value="{{ post.house_number }}" input-align="left" label="门牌号"
             placeholder="如：55号楼 1002室" bind:change="inputChange" />
     </mycard>
 

@@ -47,7 +47,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 17,
+			"current": 37,
 			"list": [
 				{
 					"id": 0,
@@ -286,9 +286,9 @@
 				},
 				{
 					"id": 37,
-					"name": "发布二手",
-					"pathName": "pages/goods/form",
-					"query": "",
+					"name": "发布商铺",
+					"pathName": "pages/post/form",
+					"query": "group=shop&id=68",
 					"scene": null
 				},
 				{

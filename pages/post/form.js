@@ -264,12 +264,6 @@ Page({
             url: '/api/v4/posts/' + pid,
             success: function (resp) {
                 var post = resp.data.data
-                if(post.group == 'shop'){
-                  wx.redirectTo({
-                    url: '/pages/shop/form?id=' + post.id,
-                  })
-                  return false;
-                }
                 if (post.user_id != _this.data.user.id) {
                     console.log('error')
                 } else {
@@ -427,11 +421,6 @@ Page({
             return
         }
 
-        if (!post.current_floor || !post.total_floor) {
-            _this.showError('floor', '请填写楼层信息')
-            return
-        }
-
 
         if (post.group == 'rental' && !post.payment_cycle) {
             _this.showError('payment_cycle', '请填写租金支付方式')
@@ -439,7 +428,6 @@ Page({
         }
 
 
-        console.log('数据验证成功：', post)
         if (typeof cb == 'function') {
             return cb(post)
         }
@@ -601,6 +589,11 @@ Page({
             post: post
         })
 
+    },
+
+    positionClick: function(e){
+        const { name } = e.currentTarget.dataset;
+        this.updatePostField('position', name)
     },
 
     floorChanged: function (e) {

@@ -9,9 +9,6 @@ Page({
    */
   data: {
     tabs: [
-      {label: '二手房源', group_v2: 'old'},
-      {label: '新房房源', group_v2: 'new' },
-      {label: '出租房源', group_v2: 'rental'},
     ],
     group_v2: 'old',
     userInfo: null,
@@ -23,6 +20,9 @@ Page({
    */
   onLoad: function (q) {
     var _this = this
+    this.setData({
+      tabs:  app.globalData.myconfigs['post_groups'],
+    })
     auth.ensureUser((userInfo) => {
       _this.setData({userInfo: userInfo}, () => {
         _this.loadPosts()
@@ -45,7 +45,7 @@ Page({
      var i = e.detail.name
      var tab = this.data.tabs[i]
      var filter = this.data.filter
-     this.setData({ page: 1, group_v2: tab.group_v2, loading: true })
+     this.setData({ page: 1, group_v2: tab.value, loading: true })
      this.loadPosts()
   },
 
