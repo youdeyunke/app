@@ -15,6 +15,40 @@ App({
     cities: [],
     qqMapAppKey: "OH2BZ-7QJK6-L44SI-MEJFO-PJNH2-IABHQ",
     serverMobile: "",
+
+    filterTypeItem: {
+      type: "picker",
+      name: "户型",
+      key: "type",
+      options: [
+        {
+          label: "不限",
+          value: ""
+        },
+        {
+          label: "一室",
+          value: "1"
+        },
+        {
+          label: "两室",
+          value: "2"
+        },
+        {
+          label: "三室", 
+          value: "3"
+        },
+        {
+          label: "四室",
+          value: "4"
+        },
+        {
+          label: "五室以上",
+          value: "5"
+        }
+      ]
+    },
+
+
     filterAreaItem: {
       type: "picker",
       name: "面积",

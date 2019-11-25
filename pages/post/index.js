@@ -39,6 +39,15 @@ Page({
     ]
     var g = q.group || q.group_v2
 
+    if(g == 'rental'){
+      items = [{ name: '位置', type: 'citypicker', }, 
+        app.globalData.filterTypeItem,
+        app.globalData.filterRentPriceItem,
+        app.globalData.filterAreaItem,
+        app.globalData.filterOrderItem,
+      ]
+    }
+
     if(g == 'shop'){
       items = [{ name: '位置', type: 'citypicker', }, 
         app.globalData.filterAreaItem,
@@ -47,7 +56,12 @@ Page({
     }
 
     if(g == 'old'){
-      items[2] = app.globalData.filterTotalPriceItem
+      items = [{ name: '位置', type: 'citypicker', }, 
+        app.globalData.filterTypeItem,
+        app.globalData.filterTotalPriceItem,
+        app.globalData.filterAreaItem,
+        app.globalData.filterOrderItem,
+      ]
     }
 
     if(g == 'new'){

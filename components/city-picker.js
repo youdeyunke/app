@@ -28,12 +28,13 @@ Component({
         url: '/api/v2/cities',
         keys: ['city_id', 'district_id'],
       },
-      {
+      /* {
         label: '地铁',
         id: 'subway',
         url: '/api/v1/subway',
         keys: ['subway_id', 'station_id'],
       },      
+      */
     ],
 
   },
