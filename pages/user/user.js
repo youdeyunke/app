@@ -72,7 +72,7 @@ Page({
     var filter = this.data.filter
     filter['user_id'] = q.id
     this.setData({
-      tabs: app.globalData.myconfigs.post_groups,
+      tabs:  app.globalData.myconfigs['post_groups'],
       userId: q.id,
       filter: filter,
     }, function(){
