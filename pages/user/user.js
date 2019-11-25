@@ -16,11 +16,7 @@ Page({
       {id: 'mobile', bindtap:"callMe"},
       {id: 'wechat', bindtap: 'copyWechat'},
     ],
-    tabs: [
-      {label: '二手房源', group_v2: 'old'},
-      {label: '新房房源', group_v2: 'new' },
-      {label: '在租房源', group_v2: 'rental'},
-    ],
+    tabs: [ ],
   },
 
 
@@ -60,7 +56,7 @@ Page({
      var i = e.detail.name
      var tab = this.data.tabs[i]
      var filter = this.data.filter
-     filter['group_v2'] = tab.group_v2
+     filter['group_v2'] = tab.value
      this.setData({
          page: 1,
          filter:  filter
@@ -76,6 +72,7 @@ Page({
     var filter = this.data.filter
     filter['user_id'] = q.id
     this.setData({
+      tabs: app.globalData.myconfigs.post_groups,
       userId: q.id,
       filter: filter,
     }, function(){

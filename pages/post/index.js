@@ -40,7 +40,10 @@ Page({
     var g = q.group || q.group_v2
 
     if(g == 'shop'){
-      items[2] = app.globalData.filterShopPriceItem
+      items = [{ name: '位置', type: 'citypicker', }, 
+        app.globalData.filterAreaItem,
+        app.globalData.filterRenttypeItem,
+      ]
     }
 
     if(g == 'old'){

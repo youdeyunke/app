@@ -34,6 +34,9 @@ Page({
     app.checkForceLogin()
     map = wx.createMapContext('map', this)
     wx.setNavigationBarTitle({title: '地图找房'})
+    this.setData({
+        groupItems: app.globalData.myconfigs['post_groups']
+    })
     this.initMap(q.group)
   },
 
@@ -169,6 +172,14 @@ Page({
                     markers.push(marker)
                 }
                 break;
+            case 'shop':
+                if(sub.shop_nums > 0){
+                    var t = ' | ' + sub.shop_nums + '套'
+                    marker.callout.content += t
+                    markers.push(marker)
+                }
+                break;
+
             case 'rental':
                 if(sub.rental_nums > 0){
                     var t = ' | ' + sub.rental_nums + '套'

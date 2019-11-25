@@ -209,7 +209,24 @@ App({
           value: "rent_price desc"
         }
       ]
+    },
+    filterRenttypeItem: {
+      type: "picker",
+      name: "转让类型",
+      key: "rent_type",
+      options: [
+        {
+          label: "出租",
+          value: "rent"
+        },
+        {
+          label: "出售",
+          value: "sale"
+        },
+      ]
     }
+
+
   },
 
 

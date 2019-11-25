@@ -47,7 +47,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 17,
 			"list": [
 				{
 					"id": 0,
@@ -158,7 +158,7 @@
 					"id": 17,
 					"name": "post-index",
 					"pathName": "pages/post/index",
-					"query": "group_v2=old",
+					"query": "group_v2=shop",
 					"scene": null
 				},
 				{
