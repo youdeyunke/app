@@ -15,6 +15,11 @@ Component({
     page: {
       type: Number, value: 1, observer: "pageChange"
     },
+
+    cache: {
+      type: String, value: null
+    },
+
     kw: {
       type: String, value: '', observer: "kwChange"
     }
@@ -24,12 +29,19 @@ Component({
    * 组件的初始数据
    */
   data: {
+    items: [],
     query: {},
     loading: true,
   },
 
   ready: function(){
-
+    var key = this.data.cache
+    if(key){
+        var items  = wx.getStorageSync(key) || []
+        if(items.length > 0){
+          this.setData({items: items, loading: false})
+        }
+    }
   },
 
   /**
@@ -43,7 +55,6 @@ Component({
         return false
       }      
 
-      console.log('page change')
       var query = this.data.filter
       query.kw = this.data.kw
       query.page = this.data.page
@@ -112,6 +123,9 @@ Component({
               data: post,
             })
           }          
+          var key = _this.data.cache
+          wx.setStorage({key: key, data: data['items']})
+
         }
       })
     }

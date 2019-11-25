@@ -52,7 +52,7 @@
   <view class="name">新房推荐</view>
 </view>
 <box width="750" padding="30">
-  <items id="new-posts" kw="" page="1" filter="{{newFilter}}" />
+  <items cache="home_posts_new" id="new-posts" kw="" page="1" filter="{{newFilter}}" />
   <navigator url="/pages/post/index?group_v2=new" hover-class="none" class="more-btn">查看更多新房</navigator>
 </box>
 </block>
@@ -63,7 +63,7 @@
   <view class="name">二手房推荐</view>
 </view>
 <box width="750" padding="30">
-  <items id="old-posts" kw="" page="1" filter="{{oldFilter}}" />
+  <items cache="home_posts_old" id="old-posts" kw="" page="1" filter="{{oldFilter}}" />
   <navigator url="/pages/post/index?group_v2=old" hover-class="none" class="more-btn">查看更多二手房</navigator>  
 </box>
 </block>
@@ -74,7 +74,7 @@
   <view class="name">租房推荐</view>
 </view>
 <box width="750" padding="30">
-  <items id="rent-posts" kw="" page="1" filter="{{rentFilter}}" />
+  <items cache="home_posts_rent" id="rent-posts" kw="" page="1" filter="{{rentFilter}}" />
  <navigator url="/pages/post/index?group_v2=rental" hover-class="none" class="more-btn">查看更多租房</navigator>  
 </box>
 </block>
@@ -84,7 +84,7 @@
   <view class="name">商铺推荐</view>
 </view>
 <box width="750" padding="30">
-  <items id="shop-posts" kw="" page="1" filter="{{shopFilter}}" />
+  <items cache="home_posts_shop" id="shop-posts" kw="" page="1" filter="{{shopFilter}}" />
  <navigator url="/pages/post/index?group_v2=shop" hover-class="none" class="more-btn">查看更多商铺</navigator>  
 </box>
 </block>
