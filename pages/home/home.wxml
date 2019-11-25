@@ -79,6 +79,16 @@
 </box>
 </block>
 
+<block wx:if="{{ configs.plugin_home_shop != false }}">
+<view class="home-title">
+  <view class="name">商铺推荐</view>
+</view>
+<box width="750" padding="30">
+  <items id="shop-posts" kw="" page="1" filter="{{shopFilter}}" />
+ <navigator url="/pages/post/index?group_v2=shop" hover-class="none" class="more-btn">查看更多商铺</navigator>  
+</box>
+</block>
+
 <cr />
 
 <van-popup show="{{showNewVersionWindow}}" duration="800" custom-style="background:none;"   >

@@ -16,21 +16,25 @@ Page({
     showNewVersionWindow: false,
     posts: [],
     newFilter: {
-      group: 'xinfang',
+      group_v2: 'new',
       per_page: 5,
       order:'id desc',
     },
     oldFilter: {
-      group: 'ershoufang',
+      group_v2: 'old',
       per_page: 5,
       order: 'id desc',
     },
     rentFilter: {
-      group: 'zufang',
+      group_v2: 'rental',
       per_page: 5,
       order: 'id desc',
     },    
-
+    shopFilter: {
+      group_v2: 'shop',
+      per_page: 5,
+      order: 'id desc',
+    },    
   },
 
   comming: function(e){
