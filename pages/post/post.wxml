@@ -35,12 +35,12 @@
         <van-tag size="large"  color="#f4f4f4" text-color="#666">房源ID:{{post.id}}</van-tag>
      </view>
 
-     <view class="title-block">
+     <!-- view class="title-block">
        <view class=" post-title">{{ post.title}} </view>
        <navigator url="/pages/fenxiao/report?pid={{post.id}}" class="report" hover-class="none">
          <van-button type="info" plain size="mini">报备</van-button>
        </navigator>
-     </view>
+     </view -->
 
      <view class="typeinfo">
          <view class="item border">

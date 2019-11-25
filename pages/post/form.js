@@ -496,7 +496,10 @@ Page({
         if (_this.data.post.id) {
             url = url + _this.data.post.id
             method = 'PUT'
+        }else{
+            data['meta_create_from'] = 'weapp'
         }
+
         app.request({
             url: url,
             method: method,
