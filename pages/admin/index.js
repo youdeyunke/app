@@ -13,7 +13,11 @@ Page({
     menuItems: [
       { name: '发布二手房', icon: 'add-square', color: '#0ddb0c', url: '/pages/post/form?group=old'},
       { name: '发布租房', icon: 'add-square', color: '#ff9501', url: '/pages/post/form?group=rental&rent_type=zhengzu' },
+      { name: '发布商铺', icon: 'add-square', color: '#ff9501', url: '/pages/post/form?group=shop' },
+
       { name: '房源管理', icon: 'column', color: '#59B8EB', url: '/pages/myself/posts' },  
+      { name: '访客足迹', icon: 'eye', color: '#59B8EB', url: '/pages/visitors/index' },  
+
       { name: '求购客源', icon: 'friends', color: '#4184AF', url: '/pages/need/room?cat=buy' },  
       { name: '求租客源', icon: 'friends', color: '#E15C32', url: '/pages/need/room?cat=rent' },  
       { name: '我的客源', icon: 'manager', color: '#5857CE', url: '/pages/need/room?cat=myself' },  
