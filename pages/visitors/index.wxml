@@ -2,8 +2,9 @@
 <box padding="20" wx:else>   
   <block wx:for="{{items}}" wx:for-item="visitors">
 
-    <van-cell label="{{ item.updated_at }}  第{{ item.view_count}}次访问" wx:for="{{visitors}}"  wx:for-key="item.id"  size="large" hover-class="none" title="{{item.user.mobile ||  item.user.nickname  }} "   >
-        <image style="width:90rpx;height:90rpx;border-radius:90rpx;" slot="right-icon" src="{{item.user.avatar}}" />
+    <van-cell title="{{ item.target_info.title }}" wx:for="{{visitors}}"  wx:for-key="item.id"  size="large" hover-class="none" 
+    label="{{item.user.mobile || '未知手机号' }} / {{ item.updated_at }}  / 第{{ item.view_count}}次 "   >
+        <image style="width:80rpx;height:80rpx;border-radius:80rpx;" slot="right-icon" src="{{item.user.avatar}}" />
     </van-cell>
 
 

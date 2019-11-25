@@ -47,7 +47,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 37,
+			"current": 67,
 			"list": [
 				{
 					"id": 0,
@@ -495,7 +495,7 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 67,
 					"name": "visitors",
 					"pathName": "pages/visitors/index",
 					"query": "",

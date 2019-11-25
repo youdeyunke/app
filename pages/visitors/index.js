@@ -29,8 +29,8 @@ Page({
       var query = { 
           order: 'updated_at desc',
           page: this.data.page, 
-          target_type: this.data.targetType, 
-          target_id: this.data.targetId,
+          target_type: this.data.targetType || 'post', 
+          target_id: this.data.targetId || '',
       }
       app.request({
           url: '/api/v1/visitors/',
