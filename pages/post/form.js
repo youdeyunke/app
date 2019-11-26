@@ -448,27 +448,6 @@ Page({
     validateStep2: function (cb) {
         var _this = this
         var post = this.data.post
-        if (!post.broker_name || post.broker_name.length <= 1 || post.broker_name.length > 5) {
-            _this.showError('broker_name', '姓名长度错误(2~5个字符)')
-            return
-        }
-
-        if (!post.broker_wechat && !post.broker_mobile) {
-            _this.showError('broker_mobile', '微信号和手机号必须填写一个')
-            return
-        }
-
-        if (post.broker_mobile && post.broker_mobile.length != 11) {
-            _this.showError('broker_mobile', '手机号长度错误')
-            return
-        }
-
-        if (post.broker_wechat && post.broker_wechat.length <= 3) {
-            _this.showError('broker_wechat', '微信号长度错误')
-            return
-        }
-
-
         if (typeof cb == 'function') {
             return cb(post)
         }
