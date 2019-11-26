@@ -50,7 +50,7 @@ page{
 
 .post-tags{
   display:flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items:center;
   flex-wrap:wrap
 }
@@ -67,7 +67,8 @@ page{
   display: flex;
   justify-content:center;
   align-items :center;
-  padding:8rpx 16rpx;
+  padding:8rpx 10rpx;
+  margin:0 5rpx;
   box-sizing:border-box;
   background: #f4f4f4;
   margin-bottom:15rpx;

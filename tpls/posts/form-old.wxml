@@ -45,14 +45,6 @@
                 autosize />
         </card>
 
-        <card title="标签" hat wx:if="{{step==1}}" subtitle="请选择标签" wx:if="{{step==2}}">
-            <view class="post-tags">
-                <view bindtap="tagHandle" data-index="{{index}}"
-                    class="post-tag-item {{ tag.selected ? 'active' : '' }}" wx:for="{{allTags}}" wx:for-item="tag">
-                    {{tag.name}}</view>
-            </view>
-
-        </card>
 
     </block>
 </template>

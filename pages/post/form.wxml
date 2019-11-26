@@ -32,6 +32,15 @@
     <template wx:if="{{post.group}}" is="form-{{post.group}}"
         data="{{user:user, is_sublet: is_sublet, error: error, post: post, step, minRentMonthItems: minRentMonthItems, allTags, selectedTags}}" />
 
+
+    <card title="标签" hat  subtitle="请选择标签" wx:if="{{step==2}}">
+        <view class="post-tags">
+            <view bindtap="tagHandle" data-index="{{index}}"
+                class="post-tag-item {{ tag.selected ? 'active' : '' }}" wx:for="{{allTags}}" wx:for-item="tag">
+                {{tag.name}}</view>
+        </view>
+    </card>
+
     <flow-tips />
 
     <view class="buttons">
