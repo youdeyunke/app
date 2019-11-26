@@ -10,9 +10,9 @@ Page({
   data: {
     system: {},
     showInstallTips: 0,  // 1:正常显示，2：自动关闭，3：手动关闭
-    configs : app.globalData.myconfigs,
+    configs : {},
     city_id: null,
-    ext: EXT,
+    ext: {},
     showNewVersionWindow: false,
     posts: [],
     newFilter: {
@@ -113,6 +113,7 @@ Page({
     app.ensureConfigs(function(configs){
       console.log('configs is', configs)
       var name = EXT['name'] || '首页'
+      _this.setData({configs: configs, ext: EXT})
       _this.checkInstallTips()
       wx.setNavigationBarTitle({title: name})
       _this.setNav(configs)
