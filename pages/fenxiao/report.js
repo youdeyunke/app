@@ -10,11 +10,15 @@ Page({
    */
   data: {
     pid: null,
+    sex: 1,
+    sexOptions: [
+        {label: '先生', value: 1},
+        {label: '女士', value: 0},
+    ],
     post: null,
     postValue: '',
     setpsText: ["报备客户", "客户签约", "佣金到账"],
   },
-
 
 
   /**
@@ -24,6 +28,14 @@ Page({
       var _this = this
       this.setData({pid: q.pid || ''})
       this.loadPost(q.pid)
+  },
+
+  sexChange: function(e){
+      this.setData({sex: e.detail.value })
+  },
+
+  mobileChange: function(e){
+      this.setData({sex: e.detail.value })
   },
 
   inputChange: function(e){

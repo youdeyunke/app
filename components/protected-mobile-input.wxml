@@ -1,0 +1,15 @@
+<!--components/protected-mobile-input.wxml-->
+<view class="input-group">
+
+ <input focus="2" maxlength="2"  data-index="{{index}}" bind:input="numberInput"  type='number' wx:if="{{ index <= 2}}"  value="{{ item }}"  class="input-number-item small {{ currentIndex != null ? 'border': 'noborder'  }}" wx:for="{{mobile}}" wx:key="{{index}}"  bindtap='onFocus' focus="{{currentIndex == index}}" disabled="{{ false }}" />
+
+ <view class="input-number-item" value="*"  wx:for="{{4}}" wx:key="{{index}}" >
+ *
+ </view>
+
+ <input focus="2" maxlength="2"  data-index="{{index}}" bind:input="numberInput"  type='number' wx:if="{{ index >= 7}}"  value="{{ item }}"  class="input-number-item small {{ currentIndex != null ? 'border': 'noborder'  }}" wx:for="{{mobile}}" wx:key="{{index}}"  bindtap='onFocus' focus="{{currentIndex == index}}" disabled="{{ false }}" />
+
+
+
+
+</view>

@@ -2,18 +2,24 @@
 <form bindsubmit="submit">
     <mycard width="750" title="客户信息"   hat="{{false}}">
         <van-field    size="large"  name="name"  input-align="left" 
-            placeholder="客户姓名" bind:change="inputChange" />
+            label="姓名" bind:change="inputChange">
 
-        <van-field size="large"  name="mobile"  input-align="left" 
-            placeholder="客户手机号" bind:change="inputChange" />
+            <view slot="button">
+              <cell-radio  size="large" value="{{sex}}" options="{{ sexOptions}}" bind:change="sexChange"  />
+            </view>
+        </van-field>
 
-        <van-field border="{{false}}"   size="large"  name="mobile_confirm"  input-align="left" border="{{false}}"
-            placeholder="再次输入手机号" bind:change="inputChange" />
+
+        <van-cell size="large"  name="mobile"  input-align="left" 
+            title="手机号"  >
+            <protected-mobile-input value="{{mobile}}" bind:change="mobileChange" />
+        </van-cell>
+
     </mycard>
 
     <mycard width="750" title="客户意向房源"   hat="{{false}}">
         <van-field size="large"  name="post_name"  input-align="left" border="{{false}}" value="{{ postName}} "
-            placeholder="请填写客户的意向房源" bind:change="inputChange" autosize />
+            label="意向房源" bind:change="inputChange" autosize />
     </mycard>    
 
     <view class="actions" >

@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+      "cell-radio": "/components/cell-radio",
+      "protected-mobile-input": "/components/protected-mobile-input"
+  }
 }

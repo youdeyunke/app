@@ -1,0 +1,6 @@
+<!--components/sex-input.wxml-->
+<block>
+    <van-tag wx:for="{{options}}" wx:for-key="{{index}}"  data-index="{{index}}" bindtap="itemSelect" size="{{size}}" plain="{{ value  != item.value }}" type="{{type}}">
+        {{item.label}}
+    </van-tag>
+</block>

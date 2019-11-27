@@ -9,7 +9,7 @@
     "apihost": "https://weapp.udeve.cn/9000",
     "version": "xx.xx.xx",
     "version_desc": "这里是版本介绍信息",
-    "fenxiao_enable": false,
+    "fenxiao_enable": true,
     "test": "hello"
   }
 }

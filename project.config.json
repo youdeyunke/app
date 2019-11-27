@@ -47,7 +47,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 67,
+			"current": 77,
 			"list": [
 				{
 					"id": 0,
@@ -562,6 +562,13 @@
 					"name": "brokers",
 					"pathName": "pages/broker/index",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "客户报备",
+					"pathName": "pages/fenxiao/report",
+					"query": "pid=27",
 					"scene": null
 				}
 			]

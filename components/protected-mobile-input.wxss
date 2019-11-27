@@ -1,0 +1,29 @@
+/* components/protected-mobile-input.wxss */
+.input-group{
+  display:flex;
+  display:-webkit-flex;
+  justify-content:space-between;
+}
+
+.input-number-item{
+  padding:0;
+  margin:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  margin-right:10rpx;
+}
+
+
+.input-number-item.border{
+  border:1rpx solid #1989fa;
+}
+
+.input-number-item.small{
+  width:30rpx;
+  height:30rpx;
+}
+
+.input-number-asterisk{
+}

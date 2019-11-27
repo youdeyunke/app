@@ -2,3 +2,7 @@
 .actions{
   margin:auto 20rpx;
 }
+
+.radio-value-class {
+  flex: none !important;
+}
