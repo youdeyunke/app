@@ -43,14 +43,6 @@
                 arrow-direction="down" disabled />
             <van-field size="large"  bindtap="showPayment" error="{{error.payment_cycle}}" is-link input-align="left" label="付款类型"
                 value="{{post.payment_cycle || '请选择'}}" arrow-direction="down" disabled />
-
-            <van-cell  title="服务费" >
-                <van-switch slot="right-icon" data-name="service_charge_enable" checked="{{ post.service_charge_enable }}" bind:change="serviceChargeEnableChange" />
-            </van-cell>
-
-            <van-field size="large"  wx:if="{{post.service_charge_enable}}" error="{{error.service_charge}}"
-                data-name="service_charge" value="{{ post.service_charge }}" input-align="left" label="收费标准"
-                placeholder="请输入" bind:change="inputChange" />
         </card>
 
         <card title="房源详情" hat wx:if="{{step == 2}}">
