@@ -102,6 +102,7 @@ Component({
           if(nextIndex >= 11){
             // 输入完成,置空
             nextIndex = null
+            this.onChange()
           }
         
           data['currentIndex'] = nextIndex

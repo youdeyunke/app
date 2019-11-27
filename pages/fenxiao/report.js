@@ -35,7 +35,7 @@ Page({
   },
 
   mobileChange: function(e){
-      this.setData({sex: e.detail.value })
+      this.setData({mobile: e.detail.value })
   },
 
   inputChange: function(e){
@@ -103,22 +103,6 @@ Page({
       return false;
     }
 
-    if(!fdata['mobile_confirm'] || fdata['mobile_confirm'].length != 11){
-      wx.showToast({
-        title: '请再次填写确认手机号',
-        icon: 'none'
-      })
-      return false;
-    }
-
-
-    if(fdata['mobile'] != fdata['mobile_confirm'] ){
-      wx.showToast({
-        title: '两次手机号填写不一致,请检查',
-        icon: 'none'
-      })
-      return false;
-    }
 
     return true
   },
@@ -126,6 +110,10 @@ Page({
   submit: function(e){
     app.uploadFormid(e)
     var fdata = e.detail.value
+    fdata['mobile'] = this.data.mobile
+    fdata['post_id'] =  this.data.pid
+    fdata['sex'] = this.data.sex
+
     console.log('fdata', fdata)
     var isok = this.validateFormData(fdata)
     if(!isok){

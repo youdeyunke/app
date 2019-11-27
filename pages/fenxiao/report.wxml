@@ -2,7 +2,7 @@
 <form bindsubmit="submit">
     <mycard width="750" title="客户信息"   hat="{{false}}">
         <van-field    size="large"  name="name"  input-align="left" 
-            label="姓名" bind:change="inputChange">
+            label="姓名" bind:change="inputChange" maxlength="5">
 
             <view slot="button">
               <cell-radio  size="large" value="{{sex}}" options="{{ sexOptions}}" bind:change="sexChange"  />
