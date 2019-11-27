@@ -119,6 +119,7 @@
     "van-cell": "/vant/cell/index",
     "van-switch": "/vant/switch/index",
     "van-cell-group": "/vant/cell-group/index",
+    "cell-radio": "/components/cell-radio",
     "mycard": "/components/card",
     "box": "/components/box"
   },

@@ -47,7 +47,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 77,
+			"current": 72,
 			"list": [
 				{
 					"id": 0,
@@ -530,10 +530,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 72,
 					"name": "编辑二手房",
 					"pathName": "pages/post/form",
-					"query": "id=58",
+					"query": "id=68",
 					"scene": null
 				},
 				{

@@ -30,7 +30,7 @@
     </mycard -->
 
     <template wx:if="{{post.group}}" is="form-{{post.group}}"
-        data="{{user:user, is_sublet: is_sublet, error: error, post: post, step, minRentMonthItems: minRentMonthItems, allTags, selectedTags}}" />
+        data="{{user:user, is_sublet: is_sublet, error: error, post: post, step, minRentMonthItems: minRentMonthItems, allTags, selectedTags, shopRentTypeItems, shopPositionItems}}" />
 
 
     <card title="标签" hat  subtitle="请选择标签" wx:if="{{step==2}}">

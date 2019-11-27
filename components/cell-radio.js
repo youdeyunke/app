@@ -9,7 +9,7 @@ Component({
           {label: '关闭', value: false},
         ]
       },
-      value: {type: Number, value: 1},
+      value: {type: String, value: 'ok'},
       type: {type: String, value: 'primary'},
       size: {type: String, value: 'small'},
   },

@@ -33,6 +33,15 @@ Page({
             id: null,
             title: '',
         },
+        shopRentTypeItems: [
+            {label: '出售', value: 'sale'},
+            {label: '出租', value: 'rent'},
+        ],
+        shopPositionItems: [
+            {label: '临街', value: 'linjie'},
+            {label: '不临街', value: 'bulinjie'},
+        ],
+
         draftCacheKey: null,
 
     },
@@ -535,6 +544,15 @@ Page({
     rentTypeClick: function (e) {
         var v = e.currentTarget.dataset.name
         this.updatePostField('rent_type', v)
+    },
+
+    rentTypeRadioChange: function(e){
+        console.log('e', e.detail.value)
+        this.updatePostField('rent_type', e.detail.value)
+    },
+
+    positionRadioChange: function(e){
+        this.updatePostField('position', e.detail.value)
     },
 
     serviceChargeEnableChange: function (e) {

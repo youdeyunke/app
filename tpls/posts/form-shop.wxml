@@ -1,14 +1,36 @@
 <template name="form-shop">
     <block>
-        <card title="转让类型" hat wx:if="{{step==1 }}">
-            <van-radio-group value="{{post.rent_type}}">
-                <van-cell value-class="radio-value-class" size="large"  title="出租" bind:click="rentTypeClick" clickable data-name="rent">
-                    <van-radio name="rent" />
-                </van-cell>
-                <van-cell value-class="radio-value-class" size="large"  title="出售" bind:click="rentTypeClick" clickable data-name="sale">
-                    <van-radio name="sale" />
-                </van-cell>
-            </van-radio-group>
+        <card title="价格信息" hat wx:if="{{step==1 }}">
+           <van-cell size="large"  title="转让类型" >
+            <cell-radio options="{{shopRentTypeItems}}" size="large" value="{{post.rent_type}}" bind:change="rentTypeRadioChange" />
+           </van-cell>
+
+        <block wx:if="{{ post.rent_type == 'rent' }}">
+            <van-field size="large"  data-name="rent_price" error="{{error.rent_price}}" value="{{ post.rent_price}}"
+                input-align="left" label="租金" type="number" placeholder="元" bind:change="inputChange" >
+                <text slot="button">元/月</text>
+            </van-field>
+
+            <van-field size="large"  bindtap="showPayment" error="{{error.payment_cycle}}" is-link input-align="left" label="付款类型"
+                value="{{post.payment_cycle || '请选择'}}" arrow-direction="down" disabled />
+
+            <picker bindchange="minRentMonthChange" range-key="label" range="{{minRentMonthItems}}"
+                value="{{post.min_rent_month || 0 }}">
+                <van-field is-link disabled size="large"  is-link label="起租" is-link
+                    value="{{post.min_rent_month >0 ? post.min_rent_month + '个月' : '' }}" input-align="left"
+                    arrow-direction="down">
+                </van-field>
+            </picker>
+        </block>
+
+        <block  wx:else>
+              <van-field size="large"  data-name="total_price" error="{{error.total_price}}" value="{{ post.total_price}}"
+                input-align="left" label="售价" type="number" placeholder="单位：万元" bind:change="inputChange" >
+                <text slot="button">万元</text>
+              </van-field>
+        </block>
+
+
         </card>
 
         <card title="业主信息" hat="true" wx:if="{{step==2 && user.is_broker }}">
@@ -42,59 +64,12 @@
             <van-field size="large"  bindtap="showFitmentPicker" error="{{error.fitment_id}}" is-link input-align="left" label="装修"
                 value="{{post.fitment.name || '请选择'}}" arrow-direction="down" disabled />
 
-            <van-radio-group value="{{ post.position }}" bind:change="positionChange">
-              <van-cell-group>
-                <van-cell
-                  title="临街"
-                  value-class="radio-value-class"
-                  clickable
-                  data-name="临街"
-                  bind:click="positionClick"
-                >
-                  <van-radio name="临街" />
-                </van-cell>
+           <van-cell size="large"  title="方位" >
+            <cell-radio options="{{shopPositionItems}}" size="large" value="{{post.position}}" bind:change="positionRadioChange" />
+           </van-cell>
 
-                <van-cell
-                  title="不临街"
-                  value-class="radio-value-class"
-                  clickable
-                  data-name="不临街"
-                  bind:click="positionClick"
-                >
-                  <van-radio name="不临街" />
-                </van-cell>
-              </van-cell-group>
-            </van-radio-group>
         </card>
         
-        <block wx:if="{{step==1}}">
-
-        <card title="租金信息" hat wx:if="{{ post.rent_type == 'rent' }}">
-            <van-field size="large"  data-name="rent_price" error="{{error.rent_price}}" value="{{ post.rent_price}}"
-                input-align="left" label="租金" type="number" placeholder="元" bind:change="inputChange" >
-                <text slot="button">元/月</text>
-            </van-field>
-
-            <van-field size="large"  bindtap="showPayment" error="{{error.payment_cycle}}" is-link input-align="left" label="付款类型"
-                value="{{post.payment_cycle || '请选择'}}" arrow-direction="down" disabled />
-
-            <picker bindchange="minRentMonthChange" range-key="label" range="{{minRentMonthItems}}"
-                value="{{post.min_rent_month || 0 }}">
-                <van-field is-link disabled size="large"  is-link label="起租" is-link
-                    value="{{post.min_rent_month >0 ? post.min_rent_month + '个月' : '' }}" input-align="left"
-                    arrow-direction="down">
-                </van-field>
-            </picker>
-        </card>
-
-        <card title="售价信息" hat wx:else>
-              <van-field size="large"  data-name="total_price" error="{{error.total_price}}" value="{{ post.total_price}}"
-                input-align="left" label="售价" type="number" placeholder="单位：万元" bind:change="inputChange" >
-                <text slot="button">万元</text>
-              </van-field>
-        </card>
-
-        </block>
 
         <card title="详细介绍" hat wx:if="{{step == 2}}">
             <van-field type="textarea" size="large"  label="房源介绍" bind:change="inputChange" value="{{post.desc}}" placeholder="选填" data-name="desc"
