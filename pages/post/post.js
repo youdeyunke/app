@@ -235,33 +235,6 @@ Page({
     })
   },
 
-
-
-
-  flowSubmit: function(e){
-    var isNew = !this.data.flowId
-    var  url = '/api/v2/flows/'
-    var method = 'POST'
-    var _this = this
-
-    if(!isNew){
-      url = url + this.data.flowId
-      method = 'PUT'
-    }
-    
-    app.request({
-      url: url,
-      method: method,
-      data: {content: _this.data.flowContent, post_id: _this.data.post.id },
-      success: function(resp){
-        if(resp.data.status == 0){
-          _this.closeFlowForm()
-          _this.loadFlows()
-        }
-      },
-    })
-  },
-
   showShareBoxHandle: function(e){
     this.setData({
       showShareBox: true,
@@ -473,7 +446,6 @@ Page({
     var _this = this
     return {
       title: _this.data.post['title'],
-      desc: _this.data.post['desc'],
       path: 'pages/post/post?from_share=1&id=' + _this.data.post['id'],
       imageUrl: _this.data.post['cover']
     }
