@@ -28,6 +28,13 @@ Component({
 
   },
 
+  observers:{
+      'mobile.**': function(mobile){
+          var value = mobile.join('')
+          this.triggerEvent('change', {value: value})
+      },
+  },
+
   /**
    * 组件的方法列表
    */
@@ -74,7 +81,6 @@ Component({
               return this.deleteHandle(e)
           }
 
-          console.log('e', e, 'keycode', k)
           var n = e.detail.value
           if(n.length == 0){
               return ''
@@ -101,20 +107,14 @@ Component({
 
           if(nextIndex >= 11){
             // 输入完成,置空
+            console.log('输入最后一位')
             nextIndex = null
-            this.onChange()
           }
         
           data['currentIndex'] = nextIndex
           this.setData(data)
-          console.log('data', data, 'n', n)
-          console.log('mobile', this.data.mobile)
       },
 
-      onChange: function(){
-          var value= this.data.mobile.join('')
-          this.triggerEvent('change', {value: value})
-      },
 
 
 
