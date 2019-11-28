@@ -8,7 +8,7 @@
 .dialog{
   width:600rpx;
   box-sizing:border-box;
-  padding:60rpx;
+  padding:80rpx 60rpx 60rpx 60rpx;
   background:#fff;
 }
 
@@ -24,8 +24,8 @@
 }
 
 .desc{
-  font-size:28rpx;
-  color: #666;
+  font-size:30rpx;
+  color: #000;
 }
 
 .form .title{
@@ -56,8 +56,6 @@
   width:100%;
 }
 
-.dates .mytag{
-}
 
 .times{
   display:flex;
@@ -77,7 +75,10 @@
 }
 
 .dialog .dates .mytag{
+  margin-right:10rpx;
   border-radius:0;
+  padding-left:15rpx;
+  padding-right:15rpx;
 }
 
 

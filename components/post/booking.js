@@ -15,7 +15,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-      show: true,
+      show: false,
       loading: false,
       currentDateIndex: 0,
       currentTimeIndex: 0,
@@ -80,9 +80,8 @@ Component({
                   times = otherTimes
               }
 
-
               // 如果今天时间已经超过了20点，就不显示今天
-              if(hour < 20){
+              if(i >= 1 || hour < 20){
                dates.push({
                   i: i,
                   label: label,
@@ -92,6 +91,7 @@ Component({
               }
 
           }
+          console.log('dates', dates)
           this.setData({dates: dates})
       },
 
@@ -123,7 +123,7 @@ Component({
 
       dateClick: function(e){
           var i = e.currentTarget.dataset['index']
-          this.setData({ currentDateIndex: i })
+          this.setData({ currentDateIndex: i, currentTimeIndex: null })
       },
 
       timeClick: function(e){
