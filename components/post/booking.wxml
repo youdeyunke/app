@@ -2,7 +2,7 @@
 <form  report-submit bindsubmit="formidHandle">
   <view class="dialog">
     <view class="form" wx:if="{{!booked}}">
-      <view class="title"><van-icon name="clock-o" style="margin-right:10rpx;" />  预约看房</view>
+      <view class="title"><van-icon name="clock-o" color="#000000"  style="margin-right:10rpx;" />  预约看房</view>
 
       <view class="desc">请选择日期</view>
 

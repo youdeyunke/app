@@ -14,7 +14,8 @@
 
 .title{
   font-size:40rpx;
-  color:#333;
+  color:#000;
+  font-weight: bolder;
   margin-bottom:40rpx;
 }
 
@@ -56,7 +57,6 @@
 }
 
 .dates .mytag{
-  width:120rpx;
 }
 
 .times{
@@ -87,4 +87,5 @@ button.fake, button.fake::after{
   display:inline-block;
   border:none;
   background:none;
+  overflow:visible;
 }

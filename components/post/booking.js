@@ -54,15 +54,23 @@ Component({
           var hour = today.getHours()
           var startTime  = today.getTime()
           var dates = []
-          var labelHead = [ "今天","明天", "后天" ]
+          var weeks = ['周日', '周一', '周二',  '周三', '周四', '周五', '周六']
+          var labelHead = [ "今天","明天" ]
           for(var i=0;i<=days;i++){
               var newTime  = i * 24 * 60 * 60 * 1000 + startTime
               var day = new Date(newTime)
               var y = day.getFullYear()
               var m = day.getMonth() + 1
               var d = day.getDate()
+              var w = day.getDay()
               var dateStr = y + '-' + m + '-' + d
-              var label = labelHead[i] || m + '-' + d
+              var label =  m + '.' + d
+              if(labelHead[i]){
+                  label = label + '(' + labelHead[i] + ')'
+              }else{
+                  label = label + '(' + weeks[w] + ')'
+              }
+
               var times = []
               
               if(i == 0){
