@@ -1,7 +1,7 @@
-<van-popup closeable bind:close="onClose"  show="{{show}}" duration="500" custom-style="background:none;border-radius:30rpx;"   >
+<van-popup closeable bind:close="closeHandle"  show="{{show}}" duration="500" custom-style="background:none;border-radius:30rpx;"   >
   <view class="dialog">
     <view class="form" wx:if="{{!booked}}">
-      <view class="title">预约看房</view>
+      <view class="title"><van-icon name="clock-o" style="margin-right:10rpx;" />  预约看房</view>
 
       <view class="desc">请选择日期</view>
 
@@ -20,13 +20,20 @@
       </view>
 
       <view class="actions">
-        <van-button bindtap="submitHandle" block="{{true}}" loading="{{loading}}" loading-text="加载中"  type="primary" round disabled="{{ currentDateIndex == null || currentTimeIndex == null}}">确认预约</van-button>
+        <van-button bindtap="submitHandle" block="{{true}}" loading="{{loading}}" loading-text="加载中"  type="info" round disabled="{{ currentDateIndex == null || currentTimeIndex == null}}">确认预约</van-button>
       </view>
+
     </view>
 
     <view class="success" wx:else>
       <view class="title">预约成功！</view>
       <view class="desc">经纪人已收到您的预约看房请求</view>
+      <view class="icon"> <van-icon color="#1989fa" name="passed" size="200rpx;"></van-icon> </view>
+
+      <view class="actions">
+        <van-button bindtap="closeHandle" block="{{true}}"  type="default" plain round >好的</van-button>
+      </view>
+
     </view>
 
   </view>

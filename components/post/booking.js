@@ -8,7 +8,7 @@ Component({
   properties: {
       booked: { type: Boolean, value: false},
       postId: {type: Number, value: null},
-      show: { type: Boolean, value: true},
+      show: { type: Boolean, value: false},
       currentTimeIndex: null,
   },
 
@@ -30,6 +30,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
+      closeHandle: function(){
+          this.triggerEvent('close', {})
+      },
+
       initDate: function(){
           // 计算往后n天时间
           var days = 7 -1

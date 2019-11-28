@@ -27,7 +27,21 @@
   color: #666;
 }
 
-.form .title{}
+.form .title{
+  display:flex;
+}
+
+.success .title, .success .desc{
+  text-align:center;
+}
+
+.success .title{
+  color:#1989fa;
+}
+
+.success .icon{
+  margin-top:40rpx;
+}
 
 .form .desc{
   margin:20rpx 0;
