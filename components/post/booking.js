@@ -8,7 +8,6 @@ Component({
   properties: {
       booked: { type: Boolean, value: false},
       postId: {type: Number, value: null},
-      show: { type: Boolean, value: false},
       currentTimeIndex: null,
   },
 
@@ -16,6 +15,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+      show: true,
       loading: false,
       currentDateIndex: 0,
       currentTimeIndex: 0,
@@ -30,8 +30,18 @@ Component({
    * 组件的方法列表
    */
   methods: {
+      formidHandle: function(e){
+          app.uploadFormId(e)
+      },
+
       closeHandle: function(){
+          this.setData({show: false})
           this.triggerEvent('close', {})
+      },
+
+      openHandle: function(){
+          this.setData({show: true})
+          this.triggerEvent('open', {})
       },
 
       initDate: function(){
@@ -102,12 +112,14 @@ Component({
           return times
       },
 
-      dateChange: function(e){
-        var i = e.detail.name
-        this.setData({ currentDateIndex: i, currentTimeIndex: null })
+
+      dateClick: function(e){
+          var i = e.currentTarget.dataset['index']
+          this.setData({ currentDateIndex: i })
       },
 
       timeClick: function(e){
+          console.log('e', e)
           var i = e.currentTarget.dataset['index']
           this.setData({ currentTimeIndex: i })
       },

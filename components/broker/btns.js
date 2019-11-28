@@ -19,7 +19,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-      showBookingDialog: false,
       ext: wx.getExtConfigSync(),
       favStatus: 0,
       favCount: 0,
@@ -137,13 +136,6 @@ Component({
     },
 
     
-    bookingClose: function(e){
-        this.setData({showBookingDialog: false})
-    },
-
-    bookingShow: function(e){ 
-        this.setData({showBookingDialog: true})
-    },
 
     bookingHandle: function (e) {
         var _this = this
@@ -154,7 +146,7 @@ Component({
                     _this._bookingHandle()
                 })
             }else{
-                    _this.bookingShow()
+                _this.selectComponent('#booking').openHandle()
             }
         })
     },
