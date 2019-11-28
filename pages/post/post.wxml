@@ -182,16 +182,6 @@
 
 <safe-tips cat="{{post.group}}"/>
 
-<van-popup show="{{showFlowForm }}" bind:click-overlay="closeFlowForm" >
-  <view class="flow-form">
-        <textarea placeholder='请输入跟进内容' value="{{flowContent}}" bindinput="flowInput"></textarea>
-        <van-button disabled='{{flowContent.length <= 3}}' type="primary" custom-class="fbutton" size="large" bindclick='flowSubmit'>保存内容</van-button>
-        <van-button type="default" custom-class="fbutton" size="large" bindclick='closeFlowForm'>取消</van-button>
-</view>
-
-</van-popup>
-
-
 <van-popup show="{{showGroupQr}}" bind:close="closeGroupQr" > 
     <text style="padding:10rpx;">保存识别二维码，加入我们的微信群，以便了解最新房源动态哦</text>
   <view class="poster-preview">
@@ -222,7 +212,10 @@
   </view>
 </van-popup>
 
+<booking show="{{showBookingDialog}}" post-id="{{post.id}}" />
+
 
 </block>
+
 
 <cr />

@@ -1,0 +1,33 @@
+<van-popup closeable bind:close="onClose"  show="{{show}}" duration="500" custom-style="background:none;border-radius:30rpx;"   >
+  <view class="dialog">
+    <view class="form" wx:if="{{!success}}">
+      <view class="title">预约看房</view>
+
+      <view class="desc">请选择日期</view>
+
+      <van-tabs custom-class="mytabs" ellipsis="{{false}}" animated swipeable  type="card" color="#1989fa" bind:change="dateChange" style="padding:0;margin:0;">
+         <van-tab wx:for="{{dates}}" wx:for-item="date" title="{{date.label}}">
+        </van-tab>
+      </van-tabs>
+
+      <view class="desc">请选择时间</view>
+      <view class="times">
+          <view class="time-item" wx:for="{{dates[currentDateIndex].times}}" wx:for-item="time">
+            <van-tag custom-class="mytag" size="large" wx:if="{{time.disabled}}" type="default" plain >{{ time.label }}</van-tag>
+
+            <van-tag custom-class="mytag"  size="large" wx:else bind:tap="timeClick" plain="{{ currentTimeIndex != index }}" data-index="{{index}}" type="primary" >{{time.label}}</van-tag>
+          </view>
+      </view>
+
+      <view class="actions">
+        <van-button block="{{true}}" loading="{{loading}}" loading-text="加载中"  type="primary" round disabled="{{ currentDateIndex == null || currentTimeIndex == null}}">确认预约</van-button>
+      </view>
+    </view>
+
+    <view class="success" wx:else>
+      <view class="title">预约成功！</view>
+      <view class="desc">经纪人已收到您的预约看房请求</view>
+    </view>
+
+  </view>
+</van-popup>

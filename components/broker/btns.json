@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
       "van-tag": "/vant/tag/index",
+      "booking": "/components/post/booking",
       "van-action-sheet": "/vant/action-sheet/index",
       "van-goods-action": "/vant/goods-action/index",
       "van-goods-action-icon": "/vant/goods-action-icon/index",
