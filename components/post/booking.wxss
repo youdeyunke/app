@@ -59,6 +59,9 @@
 .times .mytag{
   width:120rpx;
   text-align:center;
+  justify-content:center;
+  align-items:center;
   margin:10rpx 0rpx;
+  padding:20rpx 10rpx;
 }
 
