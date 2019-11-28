@@ -6,6 +6,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
+      booked: { type: Boolean, value: false},
       postId: {type: Number, value: null},
       show: { type: Boolean, value: true},
       currentTimeIndex: null,
@@ -16,7 +17,6 @@ Component({
    */
   data: {
       loading: false,
-      success: false,
       currentDateIndex: 0,
       currentTimeIndex: 0,
       dates: [ ],
@@ -108,25 +108,37 @@ Component({
           this.setData({ currentTimeIndex: i })
       },
 
-      submitHandle: function(){
-          var _this = this
-          var log = {post_id: this.data.postId, status:0}
-          var t = this.data.times[this.data.currentTimeIndex]
-          var d = this.data.dates[this.data.currentDateIndex]
+      validate: function(log){
+      },
 
-          log['time_str'] = t.value
-          log['date'] = d.value
-          var isok = this.validate(log)
-          if(!isok){
+      submitHandle: function(){
+          if(this.data.currentTimeIndex == null || this.data.currentDateIndex == null){
+              wx.showToast({
+                title: '请选择预约时间',
+                icon: 'none',
+              })
               return false;
           }
+
+          var _this = this
+          var log = {
+              post_id: this.data.postId, 
+              status:0,
+          }
+          var d = this.data.dates[this.data.currentDateIndex]
+          var t = d.times[this.data.currentTimeIndex]
+          log['time'] = t.value
+          log['date'] = d.value
+          this.setData({loging:true})
           app.request({
               url: '/api/v1/booking_logs/',
               method: 'POST',
               data: {booking_log: log},
               success: function(resp){
-                  var data = resp.data.data
-                  _this.setData({loging:false, success: true})
+                  _this.setData({loging:false})
+                  if(resp.data.status == 0){
+                      _this.triggerEvent('change', {value: true})
+                  }
               },
           })
       },

@@ -150,29 +150,12 @@ Component({
         })
     },
 
-    _bookingHandle: function () {
-      var pid = this.data.pid
-      var _this = this
-      var location = wx.getStorageSync('location')
-      if (_this.data.bookingStatus) {
-        return false
-      }
+     bookingChange: function(e){
+         console.log('booking change', e)
+         var post = this.data.post
+         post.user_has_booking = true
+         this.setData({post: post})
+     },
 
-      app.request({
-        url: '/api/v1/users/mark_book',
-        method: 'POST',
-        data: { post_id: pid , location: location},
-        success: function (resp) {
-          if(resp.data.status == 0){
-            wx.showModal({
-              title: '预约成功！',
-              content: '经济人稍后会来电与您确认具体看房时间，请留意',
-            })
-            _this.setData({booking: true})
-            _this.triggerEvent('booked', {})
-          }
-        }
-      })
-    },  
   }
 })

@@ -1,6 +1,6 @@
 <van-popup closeable bind:close="onClose"  show="{{show}}" duration="500" custom-style="background:none;border-radius:30rpx;"   >
   <view class="dialog">
-    <view class="form" wx:if="{{!success}}">
+    <view class="form" wx:if="{{!booked}}">
       <view class="title">预约看房</view>
 
       <view class="desc">请选择日期</view>
@@ -20,7 +20,7 @@
       </view>
 
       <view class="actions">
-        <van-button block="{{true}}" loading="{{loading}}" loading-text="加载中"  type="primary" round disabled="{{ currentDateIndex == null || currentTimeIndex == null}}">确认预约</van-button>
+        <van-button bindtap="submitHandle" block="{{true}}" loading="{{loading}}" loading-text="加载中"  type="primary" round disabled="{{ currentDateIndex == null || currentTimeIndex == null}}">确认预约</van-button>
       </view>
     </view>
 
