@@ -1,0 +1,23 @@
+<block>
+
+<van-panel title="客户：{{item.mobile}}"  status="{{ statusName[item.status]  }}" use-footer-slot  >
+  <view style="height:30rpx;"> </view>
+  <post-item style="" item="{{post}}" border="{{false}}" shadow="{{false}}" />
+
+  <view slot="footer" style="display:flex;justify-content:flex-end;">
+     <view style="margin-right:20rpx;">看房时间：{{ item.date }} {{ item.time }}</view>
+     <van-button size="small" bindtap="callHandle"  type="info" style="margin-right:20rpx;" >拨打电话</van-button>
+     <van-button size="small" bindtap="menuToggle"  type="primary" >管理</van-button>
+  </view>
+</van-panel>
+
+
+<van-action-sheet
+  cancle-text="取消"
+  show="{{ showMenu }}"
+  actions="{{ actions }}"
+  bind:close="menuToggle"
+  bind:select="onSelect"
+/>
+
+</block>

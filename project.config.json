@@ -47,7 +47,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 72,
+			"current": 79,
 			"list": [
 				{
 					"id": 0,
@@ -569,6 +569,20 @@
 					"name": "客户报备",
 					"pathName": "pages/fenxiao/report",
 					"query": "pid=27",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "admin-index",
+					"pathName": "pages/admin/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "admin-booking",
+					"pathName": "pages/admin/booking",
+					"query": "",
 					"scene": null
 				}
 			]

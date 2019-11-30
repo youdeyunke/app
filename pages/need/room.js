@@ -76,7 +76,6 @@ Page({
           var k = "needs[" + i + "]"
           d[k] = items
         }
-        console.log('d', d)
         _this.setData(d)
       }
     })

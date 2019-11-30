@@ -696,6 +696,11 @@ App({
 
     // This must be wx.request !
     var url = this.globalData.apiHost + obj.url;
+    var _method = obj.method || 'GET'
+    var _Methods = ['GET', 'POST', 'PUT', 'DELETE']
+    if(!_Methods.includes(_method)){
+        console.log(_method, "方法错误")
+    }
 
     wx.request({
       url: url,
