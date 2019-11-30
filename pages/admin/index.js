@@ -16,6 +16,7 @@ Page({
       { name: '发布商铺', icon: 'add-square', color: '#ff9501', url: '/pages/post/form?group=shop' },
 
       { name: '房源管理', icon: 'column', color: '#59B8EB', url: '/pages/myself/posts' },  
+      { name: '预约看房', icon: 'underway', color: '#59B8EB', url: '/pages/admin/booking' },  
       { name: '访客足迹', icon: 'eye', color: '#59B8EB', url: '/pages/visitors/index' },  
 
       { name: '求购客源', icon: 'friends', color: '#4184AF', url: '/pages/need/room?cat=buy' },  

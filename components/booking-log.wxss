@@ -1,1 +1,18 @@
 /* components/booking-log.wxss */
+.footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.footer.btns{
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+}
+
+.footer .time{
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+}

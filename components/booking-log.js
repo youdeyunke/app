@@ -28,7 +28,7 @@ Component({
       var _this = this
       var ac = [
         {name: '取消预约', method: 'cancle'},
-        {name: '确认带看', method: 'confirm'},
+        {name: '确认已带看', method: 'confirm'},
         {name: '删除预约', method: 'delete', color: '#ff0000'},
       ]
       var status = this.data.item.status

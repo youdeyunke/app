@@ -128,7 +128,6 @@
         <view class="info_title" wx:if="{{post.owner_mindset}}">业主心态</view>
         <view class="info_text"> {{ post.owner_mindset  || ''}} </view>
       </view>
-
     </block>
   </view>
 </view>
