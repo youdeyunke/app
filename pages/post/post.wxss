@@ -655,3 +655,12 @@ myfav .myfav {
   font-size:40rpx;
   margin:0 6rpx;
 }
+
+.more-brokers-btn{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  margin-bottom:20rpx;
+  background:#fff;
+}

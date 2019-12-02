@@ -73,7 +73,7 @@
       <button form-type="submit" class="fake more-btn more-meta" bindtap="gotoMeta"  hover-class="none">多房源信息</button>
     </form>
 
-    <view  bindtap='createBookOrder' class="coupon" wx:if="{{ post.coupon_enable && mode == 1 }}">
+    <view  bindtap='createBookOrder' class="coupon" wx:if="{{ post.group != 'new' && post.coupon_enable && mode == 1 }}">
       <view class="name line-limit">{{post.coupon_desc}}</view>
       <view class="action">{{ post.user_has_coupon ? '已支付' : '去支付' }}</view>
     </view>    
@@ -81,9 +81,12 @@
   </view>
 </box>
 
-
-<broker-link post-id="{{post.id}}" wx:if="{{mode == 1 }}"   broker="{{broker}}" wx:for="{{brokers}}" wx:for-item="broker" />
-<view class="divider"></view>
+<block wx:if="{{mode == 1 }}">
+    <broker-link post-id="{{post.id}}"   broker="{{broker}}" wx:for="{{brokers}}" wx:for-item="broker" />
+    <view class="more-brokers-btn">
+      <view wx:if="{{moreBrokersBtn}}"  bindtap="moreBrokersHandle"  hover-class="none" class="more-btn">展开全部</view>
+    </view>
+</block>
 
 <mycard width="750" title="配套设施"  wx:if="{{post.group == 'rental' && post.facilities && post.facilities.length > 0 }}" hat="{{false}}">
   <view class="fac-items">

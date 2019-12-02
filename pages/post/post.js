@@ -10,6 +10,7 @@ Page({
    */
   data: {                                                                                  post: null,
     mode: 1,
+    moreBrokersBtn: false,
     debug: false,
     user: {},
     brokers: [],
@@ -156,22 +157,30 @@ Page({
       url: '/api/v2/posts/' + postId,
       success: function(resp){
         var pData = resp.data.data
+        var moreBrokersBtn = false
+        var maxDefaultBrokers = 3
         // 打乱关联经纪人
-        var brokers = [pData.broker_info]
+        var allBrokers = [pData.broker_info]
         for(var i=0;i<=pData.brokers.length-1;i++){
             var broker = pData.brokers[i]
             if(broker.id != pData.user.id){
-              brokers.push(broker)
+              allBrokers.push(broker)
             }
         }
-        util.shuffle(brokers)
+        util.shuffle(allBrokers)
         var html = pData['content']
         if(html){
           html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
           html = html.replace(/\<p/gi, '<p class="rich-text-p" ')
         }
         pData['content'] = html
-        _this.setData({post: pData, brokers: brokers})
+        _this.setData({
+            post: pData, 
+            brokers: allBrokers.slice(0, maxDefaultBrokers),
+            allBrokers: allBrokers,
+            moreBrokersBtn: allBrokers.length > maxDefaultBrokers
+        })
+
         _this.loadSub()
         wx.setStorage({ key: 'post.data.' + postId, data: pData})
         wx.setStorageSync('last_view_post', pData)
@@ -183,10 +192,16 @@ Page({
       },
 
     })
-
   },
 
-
+    
+  moreBrokersHandle: function(){
+      // 显示更多经纪人
+      this.setData({ 
+          moreBrokersBtn: false,
+          brokers: this.data.allBrokers
+      })
+  },
 
   createBookOrder: function (cb){
       // 创建支付定金订单

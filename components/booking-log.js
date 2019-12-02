@@ -5,6 +5,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
+      userGroup:{ type:String, value: 'broker'},
       item: {type: Object, value: {}},
   },
 
@@ -23,25 +24,8 @@ Component({
   },
 
   ready: function(){
-
-      // 0:新建，1：确认带看,2:取消,3：删除
-      var _this = this
-      var ac = [
-        {name: '取消预约', method: 'cancle'},
-        {name: '确认已带看', method: 'confirm'},
-        {name: '删除预约', method: 'delete', color: '#ff0000'},
-      ]
-      var status = this.data.item.status
-      if(status == 1){
-          ac[0]['disabled'] = true
-          ac[2]['disabled'] = true
-      }
-      if(status == 2){
-          ac[0]['disabled'] = true
-          ac[1]['disabled'] = true
-      }
+      this.initActions()
       this.loadPost()
-      this.setData({actions: ac})
   },
 
 
@@ -49,6 +33,62 @@ Component({
    * 组件的方法列表
    */
   methods: {
+      initActions: function(){
+          if(this.data.userGroup == 'user'){
+              this.initUserActions()
+          }else{
+              this.initBrokerActions()
+          }
+
+      },
+
+      initUserActions: function(){
+          // 0:新建，1：确认带看,2:取消,3：删除
+          var _this = this
+          var ac = [
+            {name: '取消预约', method: 'cancle'},
+            {name: '删除预约', method: 'delete', color: '#ff0000'},
+          ]
+          var status = this.data.item.status
+          if(status == 0){
+              ac[0]['disabled'] = false
+              ac[1]['disabled'] = false
+          }
+          if(status == 1){
+              ac[0]['disabled'] = true
+              ac[1]['disabled'] = true
+          }
+          if(status == 2){
+              ac[0]['disabled'] = true
+              ac[1]['disabled'] = false
+          }
+
+          this.setData({actions: ac})
+
+
+      },
+
+      initBrokerActions: function(){
+          // 0:新建，1：确认带看,2:取消,3：删除
+          var _this = this
+          var ac = [
+            {name: '取消预约', method: 'cancle'},
+            {name: '确认已带看', method: 'confirm'},
+            {name: '删除预约', method: 'delete', color: '#ff0000'},
+          ]
+          var status = this.data.item.status
+          if(status == 1){
+              ac[0]['disabled'] = true
+              ac[2]['disabled'] = true
+          }
+          if(status == 2){
+              ac[0]['disabled'] = true
+              ac[1]['disabled'] = true
+          }
+          this.setData({actions: ac})
+      },
+      
+
       loadPost: function(){
           var pid = this.data.item.post_id
           var post = wx.getStorageSync('post.' + pid) || null
