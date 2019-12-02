@@ -52,13 +52,9 @@
 
 
 <block>
-  <box width="750" padding="20"  wx:if="{{userInfo.id && !userInfo.mobile}}">
-      <van-cell border="{{false}}" size="large" hover-class="none" title="绑定手机号"   center>
-            <van-button slot="right-icon" size="mini" plain type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">马上绑定</van-button>
-        </van-cell>
-  </box>
-
   <view class="mybox">  
+    <van-cell icon="clock-o" url="/pages/myself/booking" size="large" is-link  hover-class="none" title="我的预约"  />
+
     <van-cell icon="service-o" url="/pages/myself/orders" size="large" is-link  hover-class="none" title="我的订单"  />
 
     <van-cell icon="service-o" size="large" is-link  bindtap="callService"  hover-class="none" title="客服电话"  value="{{configs.service_mobile}}" />

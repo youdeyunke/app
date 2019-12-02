@@ -4,7 +4,7 @@
   <post-item style="" item="{{post}}" border="{{false}}" shadow="{{false}}" />
 
   <view slot="footer"  class="footer">
-     <view class="time">
+     <view wx:if=" {{userGroup == 'broker' }}" class="time">
         <van-icon color="#000" style="margin-right:10rpx;" size="28rpx"  name="clock-o" />客户：{{ item.mobile }} 
     </view>
 
