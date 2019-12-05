@@ -323,14 +323,9 @@ App({
         if(!conf['force_login']){
           return false
         }
-        var token = wx.getStorageSync('token')
-        var userInfo = wx.getStorageSync('userInfo')
-        if(token && userInfo){
-          console.log('账号已经登录')
-        }else{
-          console.log('服务器已经开启强制登录验证，跳转到登录界面')
-          wx.redirectTo({ url: '/pages/auth/index' })
-        }
+        auth.ensureUser(function(u){
+            console.log('服务端已开启强制登录，用户已登录')
+        })
       })
   },
 
@@ -529,15 +524,27 @@ App({
 
   onLaunch: function() {
     var _this = this;
-    this.loadConfigs()
-    this.getSystemInfo()
-    this.getReddot();
-    this.startReddotInterval();
-    this.loadCities(function(cities) {
-      _this.globalData.cities = cities;
-      _this.getLocation();
-    });
+    this.ensureConfigs(function(config){
+      _this.setGlobalUserInfo()
+      _this.loadConfigs()
+      _this.getSystemInfo()
+      _this.getReddot();
+      _this.startReddotInterval();
+      _this.loadCities(function(cities) {
+        _this.globalData.cities = cities;
+        _this.getLocation();
+      });
+    })
     console.log('EXT is ', EXT)
+  },
+
+  setGlobalUserInfo: function(){
+      // 从本地缓存中加载用户信息
+      var user = wx.getStorageSync('userInfo')
+      var token = wx.getStorageSync('token')
+      this.globalData.userInfo = user
+      this.globalData.token = token
+      console.log('global user info is', user)
   },
 
   getSystemInfo: function(){

@@ -28,3 +28,5 @@
   <button hover-class="none" form-type="submit" data-action="share" open-type="share" class="fake btn btn-share" >分享名片</button>
   </view>
 </form>
+
+<cr />

@@ -19,10 +19,13 @@ Component({
       loading: false,
       currentDateIndex: 0,
       currentTimeIndex: 0,
+      name: '',
       dates: [ ],
   },
 
    ready: function(){
+       var user = app.globalData.userInfo
+       this.setData({user: user})
        this.initDate()
    },
 
@@ -153,6 +156,7 @@ Component({
           var t = d.times[this.data.currentTimeIndex]
           log['time'] = t.value
           log['date'] = d.value
+          log['name'] = _this.data.name
           this.setData({loging:true})
           app.request({
               url: '/api/v1/booking_logs/',
@@ -165,6 +169,10 @@ Component({
                   }
               },
           })
+      },
+
+      nameChange: function(e){
+          this.setData({ name: e.detail})
       },
 
       loadData: function(){

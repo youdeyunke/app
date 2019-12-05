@@ -3,27 +3,33 @@ const util = require("util.js");
 module.exports = {
 
   ensureUser: function (cb) {
+    const app = getApp()
     var _this = this
-    var token = wx.getStorageSync('token')
-    var userInfo = wx.getStorageSync('userInfo')
+    var token = app.globalData.token
+    var userInfo = app.globalData.userInfo
+    // 去登录页面
+    if(!token && !userInfo){
+        this.gotoAuth()
+        return
+    }
+    
+    // 检查微信的session是否有效
     wx.checkSession({
       success: function(){
-        if(userInfo && token){
-          typeof cb == 'function' && cb(userInfo)
-        }else{
-          _this.gotoAuth()
-        }
+          return typeof cb == 'function' && cb(userInfo)
       },
       fail: function(){
         _this.gotoAuth()
+        return 
       },
     })
   },
 
   gotoAuth: util.throttle(function(e){
-        console.log('由截流函数执行')
-        wx.navigateTo({ url: '/pages/auth/index' })
+    console.log('由截流函数执行')
+    wx.navigateTo({ url: '/pages/auth/index' })
   }, 1000),
+
 
   loadUserInfo: function (cb) {
       return this.getRemoteUserInfo(cb)

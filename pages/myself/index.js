@@ -100,10 +100,7 @@ Page({
     var _this = this
 		wx.getStorageInfo({
 			success(res) {
-				console.log(res.keys)
-				console.log(res.currentSize)
-				console.log(res.limitSize)
-        _this.setData({cache: res})
+                _this.setData({cache: res})
 			}
 		})
   },
@@ -293,7 +290,6 @@ Page({
         })
 
         // 如果是别人邀请注册的，就记录下referrer_id，注册时携带referrer_id
-        
         if(q.referrer_id && q.referrer_id.length >0){
             console.log("推荐人的id 为", q.referrer_id)
             wx.setStorageSync( 'referrer_id', q.referrer_id)
@@ -326,18 +322,11 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
       var _this = this
+      this.setData({userInfo: app.globalData.userInfo})
+      console.log('get global user info is', this.data.userInfo)
+      this.getRemoteUserInfo()
       _this.loadCacheInfo()
-      wx.checkSession({
-        success: function(){
-          var userInfo = wx.getStorageSync('userInfo')
-          if(userInfo && userInfo.id){
-            _this.setData({userInfo: userInfo})
-            _this.getRemoteUserInfo()
-          }
-        },
-      })
     },
 
     /**

@@ -5,13 +5,12 @@
 
   <view slot="footer"  class="footer">
      <view wx:if="{{userGroup == 'broker' }}" class="time">
-        <van-icon color="#000" style="margin-right:10rpx;" size="28rpx"  name="clock-o" />客户：{{ item.mobile }} 
+        {{ item.name }}  {{ item.mobile }} 
     </view>
 
      <view class="btns">
         <van-button wx:if="{{userGroup == 'broker'}}" size="small" bindtap="callHandle"  type="info" style="margin-right:20rpx;" >拨打电话</van-button>
         <van-button size="small" bindtap="menuToggle"  type="primary" >管理</van-button>
-
      </view>
   </view>
 </van-panel>
