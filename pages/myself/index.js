@@ -294,6 +294,8 @@ Page({
             console.log("推荐人的id 为", q.referrer_id)
             wx.setStorageSync( 'referrer_id', q.referrer_id)
         }
+
+        this.loadCacheInfo()
     },
 
     getRemoteUserInfo: function () {
@@ -323,10 +325,12 @@ Page({
      */
     onShow: function () {
       var _this = this
+      var user = app.globalData.userInfo
+      var token = app.globalData.token
       this.setData({userInfo: app.globalData.userInfo})
-      console.log('get global user info is', this.data.userInfo)
-      this.getRemoteUserInfo()
-      _this.loadCacheInfo()
+      if(token){
+          this.getRemoteUserInfo()
+      }
     },
 
     /**

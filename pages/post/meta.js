@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+      loading: true,
 
   },
 
@@ -18,7 +19,7 @@ Page({
       var _this = this
       auth.ensureUser(function(user){
           _this.loadPost(q.id, function(post){
-              _this.setData({ user: user, post: post })
+              _this.setData({ user: user, post: post, loading:false })
           })
       })
   },
