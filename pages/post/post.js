@@ -8,7 +8,8 @@ Page({
   /**
    * 页面的初始 数据
    */
-  data: {                                                                                  post: null,
+  data: {                                                                                  
+    post: null,
     mode: 1,
     moreBrokersBtn: false,
     debug: false,

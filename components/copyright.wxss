@@ -1,5 +1,10 @@
-.copyright{
-  font-size:22rpx;
+.cr{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:center;
+
+  font-size:24rpx;
   color: #cecece;
   padding:20rpx 0;
   text-align: center;
