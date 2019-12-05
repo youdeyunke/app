@@ -1,7 +1,7 @@
 <!--components/broker-link.wxml-->
   <view class="info"  >
     <view class="left">
-        <image class="avatar" src="{{broker.avatar}}" bindtap="gotoUser"></image>
+        <image class="avatar" src="{{broker.avatar}}?imageView2/5/h/200/w/200" bindtap="gotoUser"></image>
         <view class="text">
           <view class="name line-limit"><text>{{broker.name}}</text> <van-tag text-color="#F7EED4" color="#222222">已认证</van-tag> </view>
           <view class="desc">

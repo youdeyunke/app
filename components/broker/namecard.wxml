@@ -7,7 +7,7 @@
           <view class="mobile"><van-icon color="#cecece" name="phone" /> <text>{{ userInfo.mobile }} </text></view>
         </view>
         <view class="avatar">
-          <image catchtap="showAvatar" src="{{userInfo.avatar}}" />
+          <image catchtap="showAvatar" src="{{userInfo.avatar}}?imageView2/5/h/200/w/200" />
         </view>
       
       </view>
