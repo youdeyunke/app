@@ -588,7 +588,7 @@ App({
 
     var _this = this;
     var formId = e.detail.formId
-    var token = wx.getStorageSync("token");
+    var token = this.globalData.token;
 
     if (!token) {
       console.log('token empty pass')
@@ -688,7 +688,7 @@ App({
 
   request: function(obj) {
     var _this = this;
-    var token = wx.getStorageSync("token");
+    var token = this.globalData.token;
     if (!obj.hideLoading) {
       wx.showLoading({ title: "加载中", mask: true });
     }
@@ -770,10 +770,7 @@ App({
         }
 
         if ([2000, 2001].includes(res.data.status)) {
-          console.log("login required status", res.data.status);
-          // token 过期
-          wx.setStorageSync("userInfo", null);
-          wx.setStorageSync("token", null);
+          // token 过期,清空当前登录状态
           auth.gotoAuth("需要登录", "请先登录账号");
           return false;
         }

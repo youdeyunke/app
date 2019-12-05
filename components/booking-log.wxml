@@ -4,7 +4,7 @@
   <post-item style="" item="{{post}}" border="{{false}}" shadow="{{false}}" />
 
   <view slot="footer"  class="footer">
-     <view wx:if="{{userGroup == 'broker' }}" class="time">
+     <view  class="time">
         {{ item.name }}  {{ item.mobile }} 
     </view>
 

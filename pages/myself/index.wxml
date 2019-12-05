@@ -2,7 +2,7 @@
   <view class="user">
     <view class="uinfo">
       <view class="avatar">
-        <image wx:if="{{userInfo.avatar}}" src="{{userInfo.avatar}}"></image>
+        <image wx:if="{{userInfo.avatar}}" src="{{userInfo.avatar}}?imageView2/5/h/100/w/100"></image>
         <image ex:else src="/assets/images/default-avatar.png"></image>
       </view>
       <view class="nickname"><text wx:if="{{userInfo.id}}">{{userInfo.nickname}}</text><text wx:else>游客,你好</text></view>

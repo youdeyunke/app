@@ -6,9 +6,9 @@ module.exports = {
     const app = getApp()
     var _this = this
     var token = app.globalData.token
-    var userInfo = app.globalData.userInfo
+    var user = app.globalData.userInfo
     // 去登录页面
-    if(!token && !userInfo){
+    if(!token){
         this.gotoAuth()
         return
     }
@@ -16,7 +16,7 @@ module.exports = {
     // 检查微信的session是否有效
     wx.checkSession({
       success: function(){
-          return typeof cb == 'function' && cb(userInfo)
+          return typeof cb == 'function' && cb(user)
       },
       fail: function(){
         _this.gotoAuth()

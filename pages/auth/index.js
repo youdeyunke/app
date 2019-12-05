@@ -64,11 +64,15 @@ Page({
         var data = resp.data
         if (data.status == 0) {
           // 保存下服务器返回的token
-          wx.setStorageSync('token', data.data.token)
-          wx.setStorageSync('userInfo', data.data.user)
-          app.globalData.loginFlag = 1
+          var token = data.data.token
+          var user = data.data.user
+          wx.setStorageSync('token', token)
+          wx.setStorageSync('userInfo', user)
+          // 在globalData中标记登录状态
+          app.globalData.token = token
+          app.globalData.userInfo = user
           // callback
-          typeof cb == "function" && cb(data.data.user)
+          typeof cb == "function" && cb(user)
         }
       }
     })
@@ -79,6 +83,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        // 进入登录页面，先清空当前的用户缓存
+        app.globalData.user = {}
+        app.globalData.token = ''
+        wx.setStorageSync("userInfo", null);
+        wx.setStorageSync("token", null);
         this.setData({
             loginMethod: app.globalData.myconfigs['login_method'] || 'v1',
         })
@@ -97,10 +106,7 @@ Page({
      */
     onShow: function () {
       var _this = this
-      console.log('global data', app.globalData)
-      this.setData({ 
-          loading: false,
-      })
+      this.setData({ loading: false })
 
       wx.login({
         success: function(res){
