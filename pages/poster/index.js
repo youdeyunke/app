@@ -156,7 +156,7 @@ Page({
     var config = {
               hideLoading: true,
               debug: false,
-              backgroundColor: '#FFA61C',
+              backgroundColor: '#ffffff',
               width: 1240,
               pixelRatio: 1,
               preload: false,
@@ -169,7 +169,7 @@ Page({
                   zIndex: 10,
                   x: 125,
                   y: 646,
-                  backgroundColor:'#FCE4BE',
+                  backgroundColor:'#ffffff',
                 },                
 
                 {
