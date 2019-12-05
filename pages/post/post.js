@@ -447,15 +447,6 @@ Page({
       app.uploadFormId(e)
   },
 
-  gotoMeta: function (e) {
-      var _this = this
-      auth.ensureUser(function(user){
-          wx.navigateTo({
-              url: '/pages/post/meta?id=' + _this.data.post.id,
-          })
-
-      })
-  },
 
   onShareAppMessage: function () {
     var _this = this

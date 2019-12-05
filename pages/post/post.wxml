@@ -69,9 +69,9 @@
 
     </view>    
     
-    <form style="width:100%;" report-submit class="myfav-wrapper"  bindsubmit="formidHandle">
-      <button form-type="submit" class="fake more-btn more-meta" bindtap="gotoMeta"  hover-class="none">多房源信息</button>
-    </form>
+    <view style="width:100%;" report-submit class="myfav-wrapper"  bindtap="gotoMeta">
+      <navigator url="/pages/post/meta?id={{post.id}}" class="more-btn more-meta"  hover-class="none">更多房源信息</navigator>
+    </view>
 
     <view  bindtap='createBookOrder' class="coupon" wx:if="{{ post.group != 'new' && post.coupon_enable && mode == 1 }}">
       <view class="name line-limit">{{post.coupon_desc}}</view>

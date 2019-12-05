@@ -18,10 +18,7 @@ Page({
       var _this = this
       auth.ensureUser(function(user){
           _this.loadPost(q.id, function(post){
-              _this.setData({
-                  user: user,
-                  post: post,
-              })
+              _this.setData({ user: user, post: post })
           })
       })
   },
