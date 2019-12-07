@@ -67,7 +67,10 @@ VantComponent({
         // parse output columns data
         parseOutputValues(values) {
             const { columnsPlaceholder } = this.data;
-            return values.map((value = {}, index) => {
+            return values.map((value, index) => {
+                // save undefined value
+                if (!value)
+                    return value;
                 value = JSON.parse(JSON.stringify(value));
                 if (!value.code || value.name === columnsPlaceholder[index]) {
                     value.code = '';
@@ -79,12 +82,10 @@ VantComponent({
         onChange(event) {
             const { index, picker, value } = event.detail;
             this.code = value[index].code;
-            let getValues = picker.getValues();
-            getValues = this.parseOutputValues(getValues);
             this.setValues().then(() => {
                 this.$emit('change', {
                     picker,
-                    values: getValues,
+                    values: this.parseOutputValues(picker.getValues()),
                     index
                 });
             });

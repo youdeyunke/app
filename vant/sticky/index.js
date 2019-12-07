@@ -1,5 +1,5 @@
 import { VantComponent } from '../common/component';
-import { nextTick } from '../common/utils';
+const ROOT_ELEMENT = '.van-sticky';
 VantComponent({
     props: {
         zIndex: {
@@ -8,102 +8,133 @@ VantComponent({
         },
         offsetTop: {
             type: Number,
-            value: 0
+            value: 0,
+            observer: 'observeContent'
+        },
+        disabled: {
+            type: Boolean,
+            observer(value) {
+                if (!this.mounted) {
+                    return;
+                }
+                value ? this.disconnectObserver() : this.initObserver();
+            }
+        },
+        container: {
+            type: null,
+            observer(target) {
+                if (typeof target !== 'function' || !this.data.height) {
+                    return;
+                }
+                this.observeContainer();
+            }
         }
     },
     data: {
-        position: '',
-        height: 0,
         wrapStyle: '',
         containerStyle: ''
     },
     methods: {
-        setWrapStyle() {
-            const { offsetTop, position } = this.data;
-            let wrapStyle;
-            let containerStyle;
-            switch (position) {
-                case 'top':
-                    wrapStyle = `
-            top: ${offsetTop}px;
-            position: fixed;
-          `;
-                    containerStyle = `height: ${this.itemHeight}px;`;
-                    break;
-                case 'bottom':
-                    wrapStyle = `
-            top: auto;
-            bottom: 0;
-          `;
-                    containerStyle = '';
-                    break;
-                default:
-                    wrapStyle = '';
-                    containerStyle = '';
+        setStyle() {
+            const { offsetTop, height, fixed, zIndex } = this.data;
+            if (fixed) {
+                this.setData({
+                    wrapStyle: `top: ${offsetTop}px;`,
+                    containerStyle: `height: ${height}px; z-index: ${zIndex};`
+                });
             }
-            const data = {};
-            if (wrapStyle !== this.data.wrapStyle) {
-                data.wrapStyle = wrapStyle;
-            }
-            if (containerStyle !== this.data.containerStyle) {
-                data.containerStyle = containerStyle;
-            }
-            if (JSON.stringify(data) !== '{}') {
-                this.setData(data);
-            }
-        },
-        setPosition(position) {
-            if (position !== this.data.position) {
-                this.setData({ position });
-                nextTick(() => {
-                    this.setWrapStyle();
+            else {
+                this.setData({
+                    wrapStyle: '',
+                    containerStyle: ''
                 });
             }
         },
-        observerContentScroll() {
-            const { offsetTop = 0 } = this.data;
-            const { windowHeight } = wx.getSystemInfoSync();
-            this.createIntersectionObserver({}).disconnect();
-            // @ts-ignore
-            this.createIntersectionObserver()
-                .relativeToViewport({ top: -(this.itemHeight + offsetTop) })
-                .observe('.van-sticky', (res) => {
-                const { top } = res.boundingClientRect;
-                if (top > offsetTop) {
-                    return;
-                }
-                const position = 'top';
-                this.$emit('scroll', {
-                    scrollTop: top + offsetTop,
-                    isFixed: true
+        getContainerRect() {
+            const nodesRef = this.data.container();
+            return new Promise(resolve => nodesRef.boundingClientRect(resolve).exec());
+        },
+        initObserver() {
+            this.disconnectObserver();
+            this.getRect(ROOT_ELEMENT).then((rect) => {
+                this.setData({ height: rect.height });
+                wx.nextTick(() => {
+                    this.observeContent();
+                    this.observeContainer();
                 });
-                this.setPosition(position);
             });
-            // @ts-ignore
-            this.createIntersectionObserver()
-                .relativeToViewport({ bottom: -(windowHeight - 1 - offsetTop) })
-                .observe('.van-sticky', (res) => {
-                const { top, bottom } = res.boundingClientRect;
-                if (bottom <= this.itemHeight - 1) {
+        },
+        disconnectObserver(observerName) {
+            if (observerName) {
+                const observer = this[observerName];
+                observer && observer.disconnect();
+            }
+            else {
+                this.contentObserver && this.contentObserver.disconnect();
+                this.containerObserver && this.containerObserver.disconnect();
+            }
+        },
+        observeContent() {
+            const { offsetTop } = this.data;
+            this.disconnectObserver('contentObserver');
+            const contentObserver = this.createIntersectionObserver({
+                thresholds: [0, 1]
+            });
+            this.contentObserver = contentObserver;
+            contentObserver.relativeToViewport({ top: -offsetTop });
+            contentObserver.observe(ROOT_ELEMENT, res => {
+                if (this.data.disabled) {
                     return;
                 }
-                const position = res.intersectionRatio > 0 ? 'top' : '';
-                this.$emit('scroll', {
-                    scrollTop: top + offsetTop,
-                    isFixed: position === 'top'
+                this.setFixed(res.boundingClientRect.top);
+            });
+        },
+        observeContainer() {
+            if (typeof this.data.container !== 'function') {
+                return;
+            }
+            const { height } = this.data;
+            this.getContainerRect().then((rect) => {
+                this.containerHeight = rect.height;
+                this.disconnectObserver('containerObserver');
+                const containerObserver = this.createIntersectionObserver({
+                    thresholds: [0, 1]
                 });
-                this.setPosition(position);
+                this.containerObserver = containerObserver;
+                containerObserver.relativeToViewport({
+                    top: this.containerHeight - height
+                });
+                containerObserver.observe(ROOT_ELEMENT, res => {
+                    if (this.data.disabled) {
+                        return;
+                    }
+                    this.setFixed(res.boundingClientRect.top);
+                });
+            });
+        },
+        setFixed(top) {
+            const { offsetTop, height } = this.data;
+            const { containerHeight } = this;
+            const fixed = containerHeight && height
+                ? top > height - containerHeight && top < offsetTop
+                : top < offsetTop;
+            this.$emit('scroll', {
+                scrollTop: top,
+                isFixed: fixed
+            });
+            this.setData({ fixed });
+            wx.nextTick(() => {
+                this.setStyle();
             });
         }
     },
     mounted() {
-        this.getRect('.van-sticky').then((rect) => {
-            this.itemHeight = rect.height;
-            this.itemTop = rect.top;
-            this.observerContentScroll();
-        });
+        this.mounted = true;
+        if (!this.data.disabled) {
+            this.initObserver();
+        }
     },
     destroyed() {
-        this.createIntersectionObserver({}).disconnect();
+        this.disconnectObserver();
     }
 });

@@ -48,7 +48,7 @@ VantComponent({
     data: {
         innerValue: 0,
         gutterWithUnit: undefined,
-        sizeWithUnit: '20px'
+        sizeWithUnit: null
     },
     watch: {
         value(value) {
@@ -58,14 +58,14 @@ VantComponent({
         }
     },
     methods: {
-        setSizeWithUnit(val) {
-            this.setData({
-                sizeWithUnit: addUnit(val)
-            });
-        },
         setGutterWithUnit(val) {
             this.setData({
                 gutterWithUnit: addUnit(val)
+            });
+        },
+        setSizeWithUnit(size) {
+            this.setData({
+                sizeWithUnit: addUnit(size)
             });
         },
         onSelect(event) {

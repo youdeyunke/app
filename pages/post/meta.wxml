@@ -1,3 +1,5 @@
+<van-skeleton loading="{{loading}}" title="{{true}}" row="5" style="width:100%;" >
+
 <mycard title="基础信息" hat="{{false}}">
   <van-cell  size="large" wx:for="{{post.meta_list}}" title="{{item.label}}" value="{{item.value}}" wx:key="{{index}}" />
 </mycard>
@@ -7,5 +9,7 @@
     <van-cell  size="large" wx:key="{{index}}" wx:for="{{post.protected_meta_list}}" title="{{item.label}}" value="{{item.value}}" />
   </view>
 </mycard>
+
+</van-skeleton>
 
 

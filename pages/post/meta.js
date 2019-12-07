@@ -10,6 +10,7 @@ Page({
   data: {
       loading: true,
       userInfo: null,
+
   },
 
   /**
@@ -39,6 +40,7 @@ Page({
       url: '/api/v1/post_meta/' + pid,
       success: function(resp){
         var post = resp.data.data
+        _this.setData({loading: false})
         return cb(post)
       },
 
