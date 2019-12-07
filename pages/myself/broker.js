@@ -24,13 +24,13 @@ Page({
         var _this = this
         auth.ensureUser(function (userInfo) {
             auth.getRemoteUserInfo(function (user) {
+                console.log('user', user)
                 app.loadConfigs(function (conf) {
                     _this.setData({
                         userInfo: user,
                         joinType:  conf['broker_join_type'],
                         broker: user.broker_profile
                     })
-                    _this.updateState(user)
                 })
             })
         })
@@ -42,46 +42,16 @@ Page({
         })
     },
 
-    gotoBuy: function (e) {
-        wx.redirectTo({
-            url: '/pages/broker/membership'
-        })
-    },
-
-    updateState: function (user) {
-        /* 根据身份信息改变页面状态 */
-        var broker = user.broker_profile
-        if (!broker.enable) {
-
-            // 没有填写个人信息
-            if (!broker.mobile && !broker.company) {
-                this.setData({ state: 'new' })
-                return false;
-            } 
-
-            /* 如果是免费入驻，就显示资料审核中 */
-            this.setData({ state: 'pending' })
-
-            /* 如果是付费入驻，就跳转到选择套餐 */
-            if(this.data.joinType != 'free'){
-              wx.redirectTo({ url: '/pages/broker/membership' })
-            } 
-            return false
-        }
-        if (broker.remain_days > 7) {
-            // 老用户，还未到期 
-            this.setData({
-                state: 'normal'
-            })
-            return
-        }
-        this.setData({
-            state: 'soon'
-        })
-
-    },
 
     validate: function (data, cb) {
+        if (!data.company) {
+            wx.showToast({
+                icon: 'none',
+                title: '公司名不能为空',
+            })
+            return false
+        }
+
         if (!data.name) {
             wx.showToast({
                 icon: 'none',
@@ -89,6 +59,15 @@ Page({
             })
             return false
         }
+
+        if (data.length <=1 || data.length >= 5) {
+            wx.showToast({
+                icon: 'none',
+                title: '姓名长度错误',
+            })
+            return false
+        }
+
         if (!data.mobile && data.mobile.length != 11) {
             wx.showToast({
                 title: '请填写手机号',
@@ -100,32 +79,36 @@ Page({
         return cb(data)
     },
 
+    fixHandle: function(e){
+      var user = this.data.userInfo
+      user['apply_status'] = 0
+      this.setData({userInfo: user})
+    },
+
     doPost: function (data) {
         var _this = this
         var joinType =  this.data.joinType
-
         app.request({
-            url: '/api/v2/users/myself',
-            data: {
-                broker_profile: data
-            },
-            method: "PUT",
+            url: '/api/v1/brokers/',
+            data: { profile: data },
+            method: "POST",
             success: function (resp) {
                 if (resp.data.status == 0) {
-                    var info = resp.data.data
+                    var user = resp.data.data
+                    app.globalData.userInfo = user
+                    _this.setData({userInfo: user})
+
                     /* 资料提交成功，
                     如果是付费入驻，进入套餐选择界
                     */
                     if (joinType == 'free') {
                         wx.showToast({
                             icon: 'success',
-                            title: '资料提交成功，请等待管理审核'
-                        })
-                        _this.setData({
-                            state: 'pending'
+                            title: '提交成功，请等待管理审核'
                         })
                         return false
                     }
+
                     wx.navigateTo({
                         url: '/pages/broker/membership'
                     })
@@ -166,7 +149,11 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {},
+    onShow: function () {
+        this.setData({
+            userInfo: app.globalData.userInfo
+        })
+    },
 
     /**
      * 生命周期函数--监听页面隐藏

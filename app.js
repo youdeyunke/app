@@ -501,7 +501,6 @@ App({
 
   getReddot: function() {
     return false;
-
     var _this = this;
     this.request({
       url: "/api/v1/chat_lists/reddot",
@@ -519,21 +518,18 @@ App({
 
   onLaunch: function() {
     var _this = this;
+    this.setUserInfo()
+    this.setSystemInfo()
+    console.log('EXT is ', EXT)
     this.ensureConfigs(function(config){
-      _this.setGlobalUserInfo()
-      _this.loadConfigs()
-      _this.getSystemInfo()
-      _this.getReddot();
-      _this.startReddotInterval();
       _this.loadCities(function(cities) {
         _this.globalData.cities = cities;
         _this.getLocation();
       });
     })
-    console.log('EXT is ', EXT)
   },
 
-  setGlobalUserInfo: function(){
+  setUserInfo: function(){
       // 从本地缓存中加载用户信息
       var user = wx.getStorageSync('userInfo')
       var token = wx.getStorageSync('token')
@@ -542,7 +538,7 @@ App({
       console.log('global user info is', user)
   },
 
-  getSystemInfo: function(){
+  setSystemInfo: function(){
 
     try {
       var res = wx.getSystemInfoSync();

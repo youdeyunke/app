@@ -591,6 +591,13 @@
 					"pathName": "pages/post/meta",
 					"query": "id=52",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "申请入驻",
+					"pathName": "pages/myself/broker",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

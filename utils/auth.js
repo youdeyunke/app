@@ -9,6 +9,7 @@ module.exports = {
     var user = app.globalData.userInfo
     // 去登录页面
     if(!token){
+        console.log('没有从globalData中获取到token,跳转到登录页面', app.globalData )
         this.gotoAuth()
         return
     }
@@ -19,6 +20,7 @@ module.exports = {
           return typeof cb == 'function' && cb(user)
       },
       fail: function(){
+        console.log('check session 失败,跳转到登录页面')
         _this.gotoAuth()
         return 
       },
