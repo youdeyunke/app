@@ -22,17 +22,21 @@ Page({
      */
     onLoad: function (options) {
         var _this = this
+        this.setData({loading: true})
         auth.ensureUser(function (userInfo) {
-            auth.getRemoteUserInfo(function (user) {
-                console.log('user', user)
-                app.loadConfigs(function (conf) {
-                    _this.setData({
-                        userInfo: user,
-                        joinType:  conf['broker_join_type'],
-                        broker: user.broker_profile
-                    })
-                })
+            app.loadConfigs(function (conf) {
+                _this.setData({ joinType:  conf['broker_join_type'], })
+                _this.loadUserInfo()
             })
+        })
+    },
+
+    loadUserInfo: function(){
+        // 从服务器加载最新的用户数据
+        var _this = this
+        this.setData({loading: true})
+        auth.getRemoteUserInfo(function (user) {
+            _this.setData({ userInfo: user, loading: false })
         })
     },
 
@@ -173,7 +177,7 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-
+        this.loadUserInfo()
     },
 
     /**

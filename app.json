@@ -46,7 +46,6 @@
     "pages/broker/profile",
     "pages/broker/membership",
     "pages/static/terms",
-    "pages/shop/form",
     "pages/post/meta",
     "pages/auth/index",
     "pages/admin/index",
