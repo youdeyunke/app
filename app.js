@@ -268,7 +268,6 @@ App({
     var _this = this
     wx.chooseLocation({
           success: function (res) { 
-              console.log('res', res)
               _this.request({
                   url: '/api/v1/sub_districts',
                   method: 'POST',
@@ -276,7 +275,6 @@ App({
                   success: function (resp) { 
                       if(resp.data.status == 0){
                         var data = resp.data.data
-                        console.log('get sub_district ', data)
                         typeof cb == 'function' && cb(data)
                       }
                    }
@@ -413,7 +411,6 @@ App({
 
   loadCities: function(cb) {
     if (this.globalData.cities && this.globalData.cities.length > 0) {
-      console.log("global data c", this.globalData.cities);
       return cb(this.globalData.cities);
     }
 
@@ -445,7 +442,6 @@ App({
               key: key,
               data: post
             });
-            console.log("cached post.id", pid);
           }
         });
       }
@@ -467,7 +463,6 @@ App({
       url: "/api/v1/posts",
       data: query,
       success: function(resp) {
-        console.log("app.resp", resp);
         var d = {};
         if (resp.data.data.length == 0) {
           d.hasMore = false;

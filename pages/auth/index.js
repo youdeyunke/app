@@ -84,13 +84,14 @@ Page({
      */
     onLoad: function (options) {
         // 进入登录页面，先清空当前的用户缓存
-        app.globalData.user = {}
-        app.globalData.token = ''
+        app.globalData.userInfo = null
+        app.globalData.token = null
         wx.setStorageSync("userInfo", null);
         wx.setStorageSync("token", null);
         this.setData({
             loginMethod: app.globalData.myconfigs['login_method'] || 'v1',
         })
+        console.log('app.globalData.userInfo auth/index.js', app.globalData.userInfo)
     },
 
 

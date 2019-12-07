@@ -192,6 +192,8 @@ Page({
    */
   onShow: function () {
       var ext = app.globalData.EXT
+      app.globalData.userInfo = null
+      app.globalData.token = null
   },
 
 

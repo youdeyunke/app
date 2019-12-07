@@ -33,7 +33,7 @@ Page({
           target_id: this.data.targetId || '',
       }
       app.request({
-          url: '/api/v1/visitors/',
+          url: '/api/v1/myvisitors/',
           data: query,
           success: function(resp){
               var i = query['page']  - 1
