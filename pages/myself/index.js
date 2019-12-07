@@ -329,6 +329,7 @@ Page({
       var _this = this
       var user = app.globalData.userInfo
       var token = app.globalData.token
+      console.log(' app.globalData.userInfo', app.globalData.userInfo)
       this.setData({userInfo: app.globalData.userInfo})
       if(token){
           this.getRemoteUserInfo()

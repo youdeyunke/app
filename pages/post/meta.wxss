@@ -7,3 +7,8 @@ page{
     width: 750rpx;
     background: #fff;
 }
+
+.blur{
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+}

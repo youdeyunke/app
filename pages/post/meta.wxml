@@ -1,9 +1,11 @@
 <mycard title="基础信息" hat="{{false}}">
-  <van-cell  size="large" wx:for="{{post.meta_list}}" title="{{item.label}}" value="{{item.value}}" />
+  <van-cell  size="large" wx:for="{{post.meta_list}}" title="{{item.label}}" value="{{item.value}}" wx:key="{{index}}" />
 </mycard>
 
-<mycard wx:if="{{user.id == post.user_id}}" title="加密信息" hat="{{false}}" subtitle="仅发布者可见">
-  <van-cell  size="large" wx:for="{{post.protected_meta_list}}" title="{{item.label}}" value="{{item.value}}" />
+<mycard  title="加密信息" hat="{{false}}" subtitle="仅发布者可见">
+  <view class="{{ userInfo.id == post.user_id ? '' : 'blur' }}">
+    <van-cell  size="large" wx:key="{{index}}" wx:for="{{post.protected_meta_list}}" title="{{item.label}}" value="{{item.value}}" />
+  </view>
 </mycard>
 
 

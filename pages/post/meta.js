@@ -9,7 +9,7 @@ Page({
    */
   data: {
       loading: true,
-
+      userInfo: null,
   },
 
   /**
@@ -17,11 +17,9 @@ Page({
    */
   onLoad: function (q) {
       var _this = this
-      auth.ensureUser(function(user){
-          _this.loadPost(q.id, function(post){
-              _this.setData({ user: user, post: post, loading:false })
-          })
-      })
+      this.loadPost(q.id, function(post){
+          _this.setData({ post: post, loading:false })
+       })
   },
 
   loadPost: function(pid, cb){
@@ -59,7 +57,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+      this.setData({userInfo: app.globalData.userInfo})
   },
 
   /**

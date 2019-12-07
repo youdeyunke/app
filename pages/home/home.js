@@ -191,9 +191,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-      var ext = app.globalData.EXT
-      app.globalData.userInfo = null
-      app.globalData.token = null
   },
 
 
