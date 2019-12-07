@@ -35,7 +35,7 @@ Page({
     var items = [{ name: '位置', type: 'citypicker', }, 
         app.globalData.filterAreaItem,
         app.globalData.filterRentPriceItem,
-        app.globalData.filterOrderItem,
+        app.globalData.filterOrderItem2,
     ]
     var g = q.group || q.group_v2
 
@@ -44,7 +44,7 @@ Page({
         app.globalData.filterTypeItem,
         app.globalData.filterRentPriceItem,
         app.globalData.filterAreaItem,
-        app.globalData.filterOrderItem,
+        app.globalData.filterOrderItem1,
       ]
     }
 
@@ -60,7 +60,7 @@ Page({
         app.globalData.filterTypeItem,
         app.globalData.filterTotalPriceItem,
         app.globalData.filterAreaItem,
-        app.globalData.filterOrderItem,
+        app.globalData.filterOrderItem2,
       ]
     }
 

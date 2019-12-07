@@ -11,6 +11,7 @@
     <van-button bindtap="publicHandle"  type="primary" wx:if="{{!item.public}}">上架</van-button>
     <van-button bindtap="gotoPost"  type="default" >预览</van-button>
     <van-button bindtap="gotoVisitors"  type="default" >访客</van-button>
+    <van-button bindtap="doRefresh"  type="default" >刷新</van-button>
     </view>
 
   </view>

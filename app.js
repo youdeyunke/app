@@ -217,14 +217,14 @@ App({
       ]
     },
 
-    filterOrderItem: {
+    filterOrderItem1: {
       type: "picker",
       name: "排序",
       key: "order",
       options: [
         {
           label: "默认",
-          value: "id desc"
+          value: "refresh_at desc"
         },
         {
           label: "面积（从大到小)",
@@ -244,6 +244,35 @@ App({
         }
       ]
     },
+
+    filterOrderItem2: {
+      type: "picker",
+      name: "排序",
+      key: "order",
+      options: [
+        {
+          label: "默认",
+          value: "refresh_at desc"
+        },
+        {
+          label: "面积（从大到小)",
+          value: "area desc"
+        },
+        {
+          label: "面积（从小到大)",
+          value: "area asc"
+        },
+        {
+          label: "总价（从小到大)",
+          value: "total_price  asc"
+        },
+        {
+          label: "总价（从大到小)",
+          value: "total_price desc"
+        }
+      ]
+    },
+
     filterRenttypeItem: {
       type: "picker",
       name: "转让类型",
