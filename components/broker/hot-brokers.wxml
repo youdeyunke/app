@@ -1,5 +1,5 @@
   <view class="brokers">
-      <navigator url="/pages/user/user?id={{item.id}}" hover-class="none" class="broker-item" wx:for="{{items}}" wx:for-key="{{item.id}}">
+      <navigator url="/pages/user/user?id={{item.id}}" hover-class="none" class="broker-item" wx:for="{{items}}" wx:key="{{item.id}}">
         <view class="left">
           <image class="avatar" src="{{item.avatar}}?imageView2/5/h/100/w/100" />
           <van-tag  text-color="#F7EED4" color="#222222">已认证</van-tag>

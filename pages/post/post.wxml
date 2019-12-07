@@ -78,7 +78,7 @@
 </box>
 
 <block wx:if="{{mode == 1 }}">
-    <broker-link post-id="{{post.id}}"   broker="{{broker}}" wx:for="{{brokers}}" wx:for-item="broker" />
+    <broker-link post-id="{{post.id}}"   broker="{{broker}}" wx:for="{{brokers}}" wx:for-item="broker" wx:key="{{broker.id}}" />
     <view class="more-brokers-btn">
       <view wx:if="{{moreBrokersBtn}}"  bindtap="moreBrokersHandle"  hover-class="none" class="more-btn">展开全部</view>
     </view>
@@ -86,7 +86,7 @@
 
 <mycard width="750" title="配套设施"  wx:if="{{post.group == 'rental' && post.facilities && post.facilities.length > 0 }}" hat="{{false}}">
   <view class="fac-items">
-    <view class="fac-item" wx:for="{{post.facilities}}" wx:for-item="fac" wx:for-key="{{fac.id}}">
+    <view class="fac-item" wx:for="{{post.facilities}}" wx:for-item="fac" wx:key="{{fac.id}}">
       <image class="fac-item-icon" src="{{fac.icon}}" mode="widthFix" />
       <view class="fac-item-name">{{ fac.name }}</view>
     </view>
@@ -142,7 +142,7 @@
   <view class="view-more-container">
 
     <form style="width:100%;" report-submit class="myfav-wrapper"  bindsubmit="formidHandle">
-      <button form-type="submit"  class="fake more-btn view-more"   bindtap="contentHandle" wx:if="{{minicontent}}"  hover-class="none">多房源信息</button>
+      <button form-type="submit"  class="fake more-btn view-more"   bindtap="contentHandle" wx:if="{{minicontent}}"  hover-class="none">显示全文</button>
     </form>
 
   </view>
@@ -150,7 +150,7 @@
 
 
 <mycard width="750" title="户型信息"  wx:if="{{post.group == 'new'}}" hat="{{false}}">
-    <view class="housetype" wx:for="{{post.types}}">
+    <view class="housetype" wx:for="{{post.types}}" wx:key="{{item.id}}">
       <view class="poster">
         <image bindtap="viewTypeImage" data-index="{{index}}" src="{{item.image.url ? item.image.url : 'https://qiniucdn.udeve.cn/wefang-sass/type-image-none.jpg'  }}?imageView2/2/w/300"></image>
       </view>

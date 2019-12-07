@@ -131,7 +131,7 @@ App({
 
     filterRentPriceItem: {
       type: "picker",
-      name: "价格",
+      name: "租金",
       key: "rent_price",
       options: [
         {
@@ -556,6 +556,11 @@ App({
   },
 
   markVisitor: function(oid, otype){
+      // 未登录就不发送请求
+      if(!this.globalData.token){
+          console.log('未登录，不记录访问数据')
+          return false
+      }
       var _this = this
       this.request({
           url: '/api/v1/visitors',

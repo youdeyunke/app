@@ -7,7 +7,7 @@
       <view class="desc">请选择日期</view>
 
 <scroll-view class="dates" scroll-with-animation="{{true}}" scroll-x style="width:100%;white-space:nowrap;">
-         <button plain class="fake" form-type="submit" wx:for="{{dates}}" data-index="{{index}}" wx:for-item="date" bindtap="dateClick"  >
+         <button plain class="fake" form-type="submit" wx:for="{{dates}}" data-index="{{index}}" wx:key="{{data.value}}" wx:for-item="date" bindtap="dateClick"  >
             <van-tag custom-class="mytag" size="large" type="primary" plain="{{currentDateIndex != index}}" >{{ date.label }}</van-tag>
 
         </button>
@@ -16,7 +16,7 @@
 
       <view class="desc">请选择时间</view>
       <view class="times">
-          <button bindtap="timeClick" data-index="{{index}}" form-type="submit" class="fake" wx:for="{{dates[currentDateIndex].times}}" wx:for-item="time">
+          <button bindtap="timeClick" data-index="{{index}}" form-type="submit" class="fake" wx:for="{{dates[currentDateIndex].times}}" wx:key="{{item.value}}"  wx:for-item="time">
             <van-tag custom-class="mytag" size="large" wx:if="{{time.disabled}}" type="default" plain >{{ time.label }}</van-tag>
 
             <van-tag custom-class="mytag"  size="large" wx:else  plain="{{ currentTimeIndex != index }}" data-index="{{index}}" type="primary" >{{time.label}}</van-tag>
