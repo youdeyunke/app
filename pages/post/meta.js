@@ -36,7 +36,7 @@ Page({
 
     app.request({
       hideLoading: true,
-      url: '/api/v4/posts/' + pid,
+      url: '/api/v1/post_meta/' + pid,
       success: function(resp){
         var post = resp.data.data
         return cb(post)
