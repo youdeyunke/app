@@ -59,7 +59,7 @@
   width: 100rpx;
   border-radius: 100rpx;
   border:2rpx solid #cecece;
-  padding:2rpx;
+  padding:0rpx;
   overflow: hidden;
   margin-right:20rpx;
 }

@@ -6,7 +6,6 @@
 }
 
 .dialog{
-  width:600rpx;
   box-sizing:border-box;
   padding:80rpx 60rpx 60rpx 60rpx;
   background:#fff;
@@ -21,6 +20,8 @@
 
 .actions{
   margin-top:40rpx;
+  width:100%;
+  box-sizing:border-box;
 }
 
 .desc{
@@ -30,6 +31,14 @@
 
 .form .title{
   display:flex;
+}
+
+
+.success {
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:center;
 }
 
 .success .title, .success .desc{

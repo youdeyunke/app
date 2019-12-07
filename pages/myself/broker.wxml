@@ -4,10 +4,15 @@
 </view>
 
 <view class="window" wx:if="{{ userInfo.apply_status == 0 }}">
+    <view class="uploader">
+        <van-image src="{{userInfo.avatar }}" round width="180rpx" height="180rpx" />
+        <van-button bindtap="chooseImage"  type="default" plain round >上传头像</van-button>
+    </view>
+
     <form bindsubmit="submitHandle">
         <van-field required label="姓名" value="" name="name" placeholder="你的真实姓名" />
-        <van-field required label="电话" disabled="{{true}}" value="{{broker.mobile}}" name="mobile" placeholder="真实联系电话" >
-              <mbutton wx:if="{{!broker.mobile}}" bind:change="mobileBind" slot="button" size="small" type="primary" />
+        <van-field required label="电话" disabled="{{true}}" value="{{userInfo.mobile}}" name="mobile" placeholder="真实联系电话" >
+              <mbutton wx:if="{{!userInfo.mobile}}" bind:change="mobileBind" slot="button" size="small" type="primary" />
         </van-field>
         <van-field label="微信" value="{{userInfo.wechat}}" name="wechat" placeholder="微信账号" />
         <van-field label="公司" value="" name="company" placeholder="你所在的公司" />

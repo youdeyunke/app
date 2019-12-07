@@ -1,4 +1,11 @@
-<van-popup closeable bind:close="closeHandle"  show="{{show}}" duration="500" custom-style="background:none;border-radius:30rpx;"   >
+<van-popup 
+  closeable 
+  bind:close="closeHandle"  
+  show="{{show}}" 
+  duration="500" 
+  position="bottom"
+  round
+  >
 <form  report-submit bindsubmit="formidHandle">
   <view class="dialog">
     <view class="form" wx:if="{{!booked}}">

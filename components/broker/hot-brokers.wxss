@@ -13,13 +13,12 @@
 }
 
 .broker-item{
-    background: #ffffff;
+    background: #F9F9F9;
     width:400rpx;
     height:168rpx;
     padding:20rpx;
     margin-right:30rpx;
     box-sizing:border-box;
-    box-shadow: 1rpx 1rpx 2rpx 5rpx #f9f9f9;
     border-radius: 10rpx;
     font-size:28rpx;
     display:flex;
@@ -47,13 +46,6 @@
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
-}
-
-.broker-item .avatar{
-  border: 1rpx solid #979797;
-  width:99rpx;
-  height:99rpx;
-  border-radius:99rpx;
 }
 
 

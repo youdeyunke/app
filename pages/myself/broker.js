@@ -31,6 +31,42 @@ Page({
         })
     },
 
+  chooseImage: function(e){
+      var _this = this
+      wx.chooseImage({
+        count: 1,
+        sizeType: ['original', 'compressed'],
+        success (res) {
+          const path = res.tempFilePaths[0]
+          qiniu.upload(path, (url) => {
+              _this.updateAvatar(url)
+          })
+        }
+    })
+  },
+
+  updateAvatar: function(url){
+      var _this = this
+      // 设置avatar
+      app.request({
+        url: '/api/v1/users/update_avatar', 
+        data: {avatar: url},
+        method: 'POST',
+        success: function(resp){
+          if(resp.data.status == 0){
+            _this.loadUserInfo()
+            wx.showToast({
+              icon: 'none',
+              title: '头像上传成功！',
+              duration: 2000,
+            })
+          }
+        }
+      })
+  },
+
+
+
     loadUserInfo: function(){
         // 从服务器加载最新的用户数据
         var _this = this
@@ -48,10 +84,10 @@ Page({
 
 
     validate: function (data, cb) {
-        if (!data.company) {
+        if (!this.data.userInfo.avatar) {
             wx.showToast({
                 icon: 'none',
-                title: '公司名不能为空',
+                title: '请先上传头像',
             })
             return false
         }
@@ -64,6 +100,9 @@ Page({
             return false
         }
 
+
+
+
         if (data.length <=1 || data.length >= 5) {
             wx.showToast({
                 icon: 'none',
@@ -72,9 +111,17 @@ Page({
             return false
         }
 
+        if (!data.company) {
+            wx.showToast({
+                icon: 'none',
+                title: '公司名不能为空',
+            })
+            return false
+        }
+
         if (!data.mobile && data.mobile.length != 11) {
             wx.showToast({
-                title: '请填写手机号',
+                title: '请填写正确的手机号',
                 icon: 'none',
             })
             return false
