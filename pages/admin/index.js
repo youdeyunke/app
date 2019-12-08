@@ -53,7 +53,7 @@ Page({
 
   menuItemClickHandle: function(e){
     var user = this.data.userInfo
-    if(!user.broker_profile.enable){
+    if(!user.is_broker){
         wx.showToast({
             title: '没有权限',
             icon: 'none',
@@ -101,7 +101,7 @@ Page({
     auth.ensureUser(function(user){
       _this.checkFormids()
       _this.setData({ userInfo: user })
-      if(!user.broker_profile.enable){
+      if(!user.is_broker){
         wx.showModal({
           title: '没有权限',
           content: '你不是经纪人，没有权限进入工作台界面',
