@@ -11,7 +11,9 @@ Component({
   },
 
   ready: function(){
-      this.setData({mode: 1, text: app.globalData.EXT['cr'] || 'UDEVE.CN'  })
+      this.setData({
+          text: app.globalData.EXT['cr'] || 'UDEVE.CN'  
+      })
 
   },
 

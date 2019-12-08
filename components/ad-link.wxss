@@ -1,0 +1,23 @@
+/* components/ad-link.wxss */
+
+.container{
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+}
+
+.info{
+  margin-left:20rpx;
+  display:flex;
+  flex-direction:column;
+}
+
+.info .title{
+  color:#000;
+  font-size:28rpx;
+}
+
+.info .desc {
+  color: #666;
+  font-size:24rpx;
+}

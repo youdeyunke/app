@@ -165,6 +165,7 @@
     </view>
 </mycard>
 
+<ad-link />
 
 <view class="recoms" wx:if="{{post.recoms.length >= 2}}">
     <view class="title">推荐房源({{post.recoms.length}})</view>

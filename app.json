@@ -104,6 +104,7 @@
   },
   "usingComponents": {
     "cr": "/components/copyright",
+    "ad-link": "/components/ad-link",
     "van-icon": "/vant/icon/index",
     "van-image": "/vant/image/index",
     "van-tag": "/vant/tag/index",
