@@ -1,5 +1,6 @@
 // components/broker-link.js
 const app = getApp()
+
 Component({
   options: {
     addGlobalClass: true
@@ -17,7 +18,13 @@ Component({
    * 组件的初始数据
    */
   data: {
+      chatEnable: true,
 
+  },
+
+  ready: function(){
+     var chatEnable = app.globalData.EXT['chat_enable'] != false
+     this.setData({ chatEnable: chatEnable})
   },
 
   /**

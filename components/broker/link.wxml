@@ -10,7 +10,7 @@
         </view>
     </view>
     <view class="right actions">
-      <view style="margin-right:20rpx;" bindtap="chatHandle" class="action-item"><van-icon size="40rpx;" color="#1989fa" name="chat"  /></view>
+      <view wx:if="{{chatEnable}}" style="margin-right:20rpx;" bindtap="chatHandle" class="action-item"><van-icon size="40rpx;" color="#1989fa" name="chat"  /></view>
       <view bindtap="callHandle" class="action-item"><van-icon color="#1989fa" name="phone" size="40rpx;" /></view>
     </view>
 
