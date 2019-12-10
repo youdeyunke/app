@@ -7,15 +7,14 @@ App({
   globalData: {
     EXT: EXT,
     system: {},
+    reddot: 0,
     reddotIntervalId: null,
     assetsList: [ '客梯','货梯', '扶梯', '中央空调', '停车位', '天然气', '网络', '暖气', '上水', '下水', '排烟', '排污', '可明火', '380V', '外摆区' ],
     apiHost: EXT['apihost'] || 'https://weapp.udeve.cn/9000',
     userInfo: null,
     token: null,
-    loadingStatus: 0,
     cities: [],
     qqMapAppKey: "OH2BZ-7QJK6-L44SI-MEJFO-PJNH2-IABHQ",
-    serverMobile: "",
 
     filterTypeItem: {
       type: "picker",
@@ -538,20 +537,43 @@ App({
   startReddotInterval: function() {
     // 开始小红点轮训
     this.clearReddotInterval()
+    // 如果没有开启聊天功能，那么就不用轮训
+    if(EXT['chat_enable'] == false){
+        console.log('没有开启聊天功能')
+        return false
+    }
+
     var iid = setInterval(this.reddotHandle, 15000)
     this.globalData['reddotIntervalId'] = iid
-    console.log('新的小红点轮训开始,iid', iid)
+    console.log('新的小红点轮训开始', iid)
   },
 
   clearReddotInterval: function(){
     var iid = this.globalData.reddotIntervalId
     if (iid) {
-      console.log('清空未读小红点', iid)
+      console.log('停止查询小红点')
       clearInterval(iid);
     }
   },
 
+  newMessageAudio: function(){
+    const innerAudioContext = wx.createInnerAudioContext();//新建一个createInnerAudioContext();
+    innerAudioContext.autoplay = true;//音频自动播放设置
+    innerAudioContext.src = '/audio/notice.mp3';//链接到音频的地址
+    innerAudioContext.onPlay(() => {});//播放音效
+    innerAudioContext.onError((res) => {//打印错误
+      console.log(res.errMsg);//错误信息
+      console.log(res.errCode);//错误码
+    })
+  },
+
   reddotHandle: function() {
+    // 如果已经有小红点，那几不用查询了
+    if(this.globalData.reddot == 1){
+        console.log('已有小红点了，不用重复查询')
+        return false;
+    }
+
     var _this = this;
     this.request({
       url: "/api/v1/chat_lists/reddot",
@@ -559,7 +581,13 @@ App({
       success: function(resp) {
         if (resp.data.data == 1) {
           console.log("显示红点");
-          wx.showTabBarRedDot({ index: 1 });
+          wx.showTabBarRedDot({ 
+              index: 1, 
+              fail: function(e){ console.log('显示红点失败') } ,
+              success: function(){
+                _this.globalData['reddot'] = 1
+              },
+          });
         }
       }
     });
@@ -649,30 +677,6 @@ App({
     })
   },
 
-  setLoginBack: function(eb) {
-    return wx.setStorageSync("login_back", eb);
-  },
-
-  loginBack: function() {
-    // 回到登录前页面
-    var eb = wx.getStorageSync("login_back");
-    if (eb.key && eb.value) {
-      if (eb.key == "redirect") {
-        wx.redirectTo({
-          url: eb.value
-        });
-      }
-      if (eb.key == "switch") {
-        wx.switchTab({
-          url: eb.value
-        });
-      }
-      wx.setStorage({
-        key: "login_back",
-        data: null
-      });
-    }
-  },
 
   sendSms: function(mobile, cb) {
     var _this = this;
