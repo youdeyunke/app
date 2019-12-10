@@ -9,6 +9,7 @@ Page({
    * 页面的初始 数据
    */
   data: {                                                                                  
+    ntervalId: null,
     post: null,
     mode: 1,
     moreBrokersBtn: false,
@@ -379,6 +380,7 @@ Page({
     }
     this.setData({ from_share: fromShare })
     app.markVisitor(postId, 'post')
+    //this.startInterval(2)
   },
 
   /**
@@ -386,6 +388,22 @@ Page({
    */
   onReady: function () {
   
+  },
+
+  startInterval: function(step){
+    // 开始前，将旧的清楚，否则会导致跳转页面后也在执行
+    var _this = this
+    clearInterval(_this.data.intervalId)
+    var iid = setInterval(_this.intervalHandle, 1000*step);
+    this.setData({intervalId: iid})
+    console.log('new intervalId:', iid)
+  },
+
+
+  intervalHandle: function(){
+    // 每秒钟执行
+    var _this = this
+    console.log('没秒执行')
   },
 
 
@@ -420,14 +438,16 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    console.log('离开页面 onhide ')
+    clearInterval(_this.data.intervalId)
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    console.log('离开页面 onunload ')
+    clearInterval(_this.data.intervalId)
   },
 
   /**
