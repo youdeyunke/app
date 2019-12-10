@@ -9,6 +9,7 @@ Page({
    * 页面的初始 数据
    */
   data: {                                                                                  
+    visitorLogId: null,
     ntervalId: null,
     post: null,
     mode: 1,
@@ -379,8 +380,10 @@ Page({
       fromShare = true
     }
     this.setData({ from_share: fromShare })
-    app.markVisitor(postId, 'post')
-    this.startInterval(2)
+    app.markVisitor(null, postId, 'post', function(vid){
+        _this.setData({'visitorLogId':vid})
+        _this.setInterval()
+    })
   },
 
   /**
@@ -390,26 +393,35 @@ Page({
   
   },
 
-  startInterval: function(step){
+  setInterval: function(){
+    // 如果没有登录，直接退出
+    if(!app.globalData.token){
+        console.log('未登录，不记录浏览时长')
+        return false
+    }
+
+    var step = 2
     // 开始前，将旧的清楚，否则会导致跳转页面后也在执行
     this.clearInterval()
     var _this = this
     var iid = setInterval(_this.intervalHandle, 1000*step);
     this.setData({intervalId: iid})
-    console.log('new intervalId:', iid)
+    console.log('页面停留统计初始化设置', iid)
   },
 
 
   intervalHandle: function(){
     // 每秒钟执行
     var _this = this
-    console.log('interval执行')
+    console.log('统计停留时长, visitorlogid ', this.data.visitorLogId)
+    // 更新最后在线时间戳
+    app.markVisitor(this.data.visitorLogId, this.data.postId, 'post')
   },
 
   clearInterval: function(){
       var iid = this.data.intervalId
       if(iid){
-          console.log('清空post页面的interval id', iid)
+          console.log('停止页停留时长统计, iid')
           clearInterval(iid)
       }
   },

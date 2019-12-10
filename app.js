@@ -568,6 +568,12 @@ App({
   },
 
   reddotHandle: function() {
+    // 如果没有登录，就不检查
+    if(!this.globalData.token){
+        console.log('未登录，不检查未读')
+        return false
+    }
+
     // 如果已经有小红点，那几不用查询了
     if(this.globalData.reddot == 1){
         console.log('已有小红点了，不用重复查询')
@@ -615,23 +621,31 @@ App({
     }    
   },
 
-  markVisitor: function(oid, otype){
+  markVisitor: function(logId, oid, otype, cb){
+      console.log('markvisitor: logid', logId, 'cb',cb)
       // 未登录就不发送请求
       if(!this.globalData.token){
           console.log('未登录，不记录访问数据')
           return false
       }
       var _this = this
+      var url = '/api/v1/visitors/'
+      var method = 'POST'
+      if(logId){
+          url = '/api/v1/visitors/' + logId
+          method = 'PUT'
+      }
+
       this.request({
-          url: '/api/v1/visitors',
+          url: url,
           hideLoading: true,
-          method: 'POST',
+          method: method,
           data: {
               target_id: oid,
               target_type: otype
           },
           success: function(resp){
-              // pass
+              typeof cb == 'function' && cb(resp.data.data)
           }
       })
   },

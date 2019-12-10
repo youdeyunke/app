@@ -3,7 +3,7 @@
   <block wx:for="{{items}}" wx:for-item="visitors">
 
     <van-cell title="{{ item.target_info.title }}" wx:for="{{visitors}}"  wx:for-key="item.id"  size="large" hover-class="none" 
-    label="{{item.user.mobile || '未知手机号' }} / {{ item.updated_at }}  / 第{{ item.view_count}}次 "   >
+    label="{{item.user.mobile || '未知手机号' }} / {{ item.updated_at }}  / 停留{{ item.delta_time}} "   >
         <image style="width:80rpx;height:80rpx;border-radius:80rpx;" slot="right-icon" src="{{item.user.avatar}}" />
     </van-cell>
 
