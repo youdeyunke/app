@@ -446,10 +446,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 60,
 					"name": "report",
 					"pathName": "pages/fenxiao/report",
-					"query": "",
+					"query": "pid=30",
 					"scene": null
 				},
 				{
@@ -603,6 +603,7 @@
 					"id": -1,
 					"name": "pages/fenxiao/referrers",
 					"pathName": "pages/fenxiao/referrers",
+					"query": "",
 					"scene": null
 				}
 			]

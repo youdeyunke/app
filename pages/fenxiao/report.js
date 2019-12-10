@@ -17,7 +17,14 @@ Page({
     ],
     post: null,
     postValue: '',
-    setpsText: ["报备客户", "客户签约", "佣金到账"],
+    tabs: [
+          {name: '隐号报备', value: 'protected'},
+          {name: '全号报备', value: 'full'},
+    ],
+
+    mobileType: 'protected',
+
+    setpsText: ["报备客户", "核实成交", "发放佣金"],
   },
 
 
@@ -30,6 +37,12 @@ Page({
       this.loadPost(q.pid)
   },
 
+  tabChange: function(e){
+     var i = e.detail.name
+     var tab = this.data.tabs[i]
+     this.setData({mobileType: tab.value, mobile: ''})
+  },
+
   sexChange: function(e){
       this.setData({sex: e.detail.value })
   },
@@ -40,6 +53,11 @@ Page({
 
   inputChange: function(e){
       console.log('input change', e)
+      var k = e.currentTarget.dataset['name']
+      var v = e.detail
+      var data = {}
+      data[k] = v
+      this.setData(data)
   },
 
   loadPost: function(pid){
@@ -109,12 +127,13 @@ Page({
 
   submit: function(e){
     app.uploadFormid(e)
-    var fdata = e.detail.value
-    fdata['mobile'] = this.data.mobile
-    fdata['post_id'] =  this.data.pid
-    fdata['sex'] = this.data.sex
-
-    console.log('fdata', fdata)
+    var _this = this
+    var fdata = {
+        mobile: _this.data.mobile,
+        name: _this.data.name,
+        sex: _this.data.sex,
+        post_id: _this.data.pid
+    }
     var isok = this.validateFormData(fdata)
     if(!isok){
       return false;

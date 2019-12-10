@@ -1,7 +1,12 @@
+<van-tabs style="width:100%"  animated swipeable  type="line" color="#00ae66" bind:change="tabChange">
+  <van-tab wx:for="{{tabs}}" wx:for-item="tab" title="{{tab.name}}">
+  </van-tab>
+</van-tabs> 
+
 
 <form bindsubmit="submit">
     <mycard width="750" title="客户信息"   hat="{{false}}">
-        <van-field    size="large"  name="name"  input-align="left" 
+        <van-field    size="large"  data-name="name"  input-align="left" 
             label="姓名" bind:change="inputChange" maxlength="5">
 
             <view slot="button">
@@ -9,8 +14,11 @@
             </view>
         </van-field>
 
+        <van-field wx:if="{{ mobileType == 'full'  }}"   size="large"  data-name="mobile"  input-align="right" 
+            label="手机全号" bind:change="inputChange" minlength="11" maxlength="11">
+        </van-field>
 
-        <van-cell size="large"  name="mobile"  input-align="left" 
+        <van-cell wx:else  size="large"  name="mobile"  input-align="left" 
             title="手机号"  >
             <protected-mobile-input value="{{mobile}}" bind:change="mobileChange" />
         </van-cell>
