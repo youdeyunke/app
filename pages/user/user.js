@@ -79,7 +79,7 @@ Page({
       _this.loadUserInfo()
     })
 
-    app.markVisitor(q.id, 'user')
+    app.markVisitor(null, q.id, 'user')
   },
 
   loadUserInfo: function(){
