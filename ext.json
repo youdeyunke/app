@@ -4,13 +4,15 @@
   "directCommit": false,
   "ext": {
     "name": "开发版",
-    "chat_enable": true,
-    "cr": "© 优得科技",
-    "udeve_link": true,
     "apihost": "https://weapp.udeve.cn/9000",
-    "version": "xx.xx.xx",
     "version_desc": "这里是版本介绍信息",
     "fenxiao_enable": true,
+    "show_brokers_enable": true,
+    "chat_enable": true,
+    "post_broker_enable": true,
+    "cr": "© 优得科技",
+    "udeve_link": true,
+    "version": "xx.xx.xx",
     "test": "hello"
   },
   "tabBar": {

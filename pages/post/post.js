@@ -344,6 +344,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({ EXT: app.globalData.EXT })
     app.checkForceLogin()
     var _this = this
     var mode = 1 // 房源信息的显示模式 1：正常显示，2，显示自定义联系人信息

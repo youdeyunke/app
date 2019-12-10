@@ -10,8 +10,22 @@ Page({
       page: 1,
       per_page: 50,
       items: [],
+      scope: 'level1',
+      tabs: [
+          {name: '一级团队', value: 'level1'},
+          {name: '二级团队', value: 'level2'},
+          {name: '三级团队', value: 'level3'},
+      ],
       loading: true,
 
+  },
+
+
+  tabChange: function(e){
+     var i = e.detail.name
+     var tab = this.data.tabs[i]
+     this.setData({scope: tab.value, loading: true, items: []})
+     this.loadData()
   },
 
   loadData: function(){
@@ -19,6 +33,7 @@ Page({
       var _this  = this
       var query = {
           order: 'id desc',
+          scope: _this.data.scope,
           page: _this.data.page,
           per_page: _this.data.per_page,
       }

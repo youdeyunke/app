@@ -77,7 +77,7 @@
   </view>
 </box>
 
-<block wx:if="{{mode == 1 }}">
+<block wx:if="{{mode == 1 && EXT.show_brokers_enable != false  }}">
     <broker-link post-id="{{post.id}}"   broker="{{broker}}" wx:for="{{brokers}}" wx:for-item="broker" wx:key="{{broker.id}}" />
     <view class="more-brokers-btn">
       <view wx:if="{{moreBrokersBtn}}"  bindtap="moreBrokersHandle"  hover-class="none" class="more-btn">展开全部</view>

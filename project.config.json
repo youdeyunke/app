@@ -598,6 +598,12 @@
 					"pathName": "pages/myself/broker",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/fenxiao/referrers",
+					"pathName": "pages/fenxiao/referrers",
+					"scene": null
 				}
 			]
 		}
