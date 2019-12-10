@@ -15,11 +15,11 @@
         </van-field>
 
         <van-field wx:if="{{ mobileType == 'full'  }}"   size="large"  data-name="mobile"  input-align="right" 
-            label="手机全号" bind:change="inputChange" minlength="11" maxlength="11">
+            label="手机全号" placeholder="请输入11位手机全号" bind:change="inputChange" minlength="11" maxlength="11">
         </van-field>
 
         <van-cell wx:else  size="large"  name="mobile"  input-align="left" 
-            title="手机号"  >
+            title="手机隐号"  >
             <protected-mobile-input value="{{mobile}}" bind:change="mobileChange" />
         </van-cell>
 
