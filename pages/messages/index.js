@@ -10,7 +10,7 @@ Page({
     items: null,
     isLogin: false,
     sleepTime: 1000,
-    iidKey:  'message.index.interval.id',
+    iid: null,
   },
 
   /**
@@ -22,10 +22,10 @@ Page({
 
   stopInterval: function(){
     // 退出后要关闭定时器
-    var iid = wx.getStorageSync(this.data.iidKey)
+    var iid = this.data.iid
     if(iid){
       clearInterval(iid)
-      wx.setStorageSync(this.data.iidKey, null)
+      this.setData({iid: null})
       console.log('已停止定时器')
     }
   },
@@ -33,9 +33,9 @@ Page({
   startInterval: function(){
     // 开启定时器，并防止重复
     var _this = this
-    var t =  15000
+    var t =  5 * 1000
     var iid = setInterval(_this.loadData, t)
-    wx.setStorageSync(this.data.iidKey, iid)
+    this.setData({iid: iid})
     console.log('开启定时器，刷新聊天列表', t)
   },
 

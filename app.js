@@ -7,6 +7,7 @@ App({
   globalData: {
     EXT: EXT,
     system: {},
+    reddotIntervalId: null,
     assetsList: [ '客梯','货梯', '扶梯', '中央空调', '停车位', '天然气', '网络', '暖气', '上水', '下水', '排烟', '排污', '可明火', '380V', '外摆区' ],
     apiHost: EXT['apihost'] || 'https://weapp.udeve.cn/9000',
     userInfo: null,
@@ -514,41 +515,17 @@ App({
     });
   },
 
-  startReddotInterval: function() {
-    return false;
 
-    var _this = this;
-    var key = "reddot.inteval";
-    var iid = wx.getStorageSync(key);
-    if (iid) {
-      clearInterval(iid);
-    }
-    console.log("开始检查红点");
-    iid = setInterval(_this.getReddot, 15000);
-    wx.setStorageSync(key, iid);
+  onHide: function(){
+    this.clearReddotInterval()
   },
 
-  getReddot: function() {
-    return false;
-    var _this = this;
-    this.request({
-      url: "/api/v1/chat_lists/reddot",
-      hideLoading: true,
-      success: function(resp) {
-        if (resp.data.data == 1) {
-          console.log("显示红点");
-          wx.showTabBarRedDot({
-            index: 1
-          });
-        }
-      }
-    });
-  },
 
   onLaunch: function() {
     var _this = this;
     this.setUserInfo()
     this.setSystemInfo()
+    this.startReddotInterval()
     console.log('EXT is ', EXT)
     this.ensureConfigs(function(config){
       _this.loadCities(function(cities) {
@@ -556,6 +533,36 @@ App({
         _this.getLocation();
       });
     })
+  },
+
+  startReddotInterval: function() {
+    // 开始小红点轮训
+    this.clearReddotInterval()
+    var iid = setInterval(this.reddotHandle, 15000)
+    this.globalData['reddotIntervalId'] = iid
+    console.log('新的小红点轮训开始,iid', iid)
+  },
+
+  clearReddotInterval: function(){
+    var iid = this.globalData.reddotIntervalId
+    if (iid) {
+      console.log('清空未读小红点', iid)
+      clearInterval(iid);
+    }
+  },
+
+  reddotHandle: function() {
+    var _this = this;
+    this.request({
+      url: "/api/v1/chat_lists/reddot",
+      hideLoading: true,
+      success: function(resp) {
+        if (resp.data.data == 1) {
+          console.log("显示红点");
+          wx.showTabBarRedDot({ index: 1 });
+        }
+      }
+    });
   },
 
   setUserInfo: function(){

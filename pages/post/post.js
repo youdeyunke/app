@@ -380,7 +380,7 @@ Page({
     }
     this.setData({ from_share: fromShare })
     app.markVisitor(postId, 'post')
-    //this.startInterval(2)
+    this.startInterval(2)
   },
 
   /**
@@ -392,8 +392,8 @@ Page({
 
   startInterval: function(step){
     // 开始前，将旧的清楚，否则会导致跳转页面后也在执行
+    this.clearInterval()
     var _this = this
-    clearInterval(_this.data.intervalId)
     var iid = setInterval(_this.intervalHandle, 1000*step);
     this.setData({intervalId: iid})
     console.log('new intervalId:', iid)
@@ -403,7 +403,15 @@ Page({
   intervalHandle: function(){
     // 每秒钟执行
     var _this = this
-    console.log('没秒执行')
+    console.log('interval执行')
+  },
+
+  clearInterval: function(){
+      var iid = this.data.intervalId
+      if(iid){
+          console.log('清空post页面的interval id', iid)
+          clearInterval(iid)
+      }
   },
 
 
@@ -439,7 +447,7 @@ Page({
    */
   onHide: function () {
     console.log('离开页面 onhide ')
-    clearInterval(_this.data.intervalId)
+    this.clearInterval()
   },
 
   /**
@@ -447,7 +455,7 @@ Page({
    */
   onUnload: function () {
     console.log('离开页面 onunload ')
-    clearInterval(_this.data.intervalId)
+    this.clearInterval()
   },
 
   /**
