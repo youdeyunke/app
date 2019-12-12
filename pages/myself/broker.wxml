@@ -11,11 +11,11 @@
 
     <form bindsubmit="submitHandle">
         <van-field required label="姓名" value="" name="name" placeholder="你的真实姓名" />
+        <van-field required label="公司" value="" name="company" placeholder="你所在的公司" />
         <van-field required label="电话" disabled="{{true}}" value="{{userInfo.mobile}}" name="mobile" placeholder="真实联系电话" >
               <mbutton wx:if="{{!userInfo.mobile}}" bind:change="mobileBind" slot="button" size="small" type="primary" />
         </van-field>
         <van-field label="微信" value="{{userInfo.wechat}}" name="wechat" placeholder="微信账号" />
-        <van-field label="公司" value="" name="company" placeholder="你所在的公司" />
         <van-field border="{{false}}" label="介绍" value="" name="desc" placeholder="简短的个人介绍" />
         <button class="btn btn-primary submit-btn" type="primary" formType="submit" size="small">
             确认提交
