@@ -1,7 +1,6 @@
 <van-transition duration="800" show="{{showViewCount}}" name="fade-left"  custom-class="mypop"> 过去一周，有<text class="count">{{post.views_count}}人</text>查看了此房源 </van-transition>
 
-<block wx:if="{{post}}">
-
+<block>
 <view class="post-cover">
        <swiper class="swiper" 
                indicator-dots="true" 
@@ -176,7 +175,7 @@
         </scroll-view>
 </view>
 
-<broker-btns wx:if="{{mode == 1}}" bindbooked="bookedHandle" broker="{{brokers[0]}}" pid="{{post.id}}" post="{{post}}" bookingStatus="{{post.user_has_booking}}" />
+<broker-btns wx:if="{{mode == 1}}" bindbooked="bookedHandle" broker="{{post.broker_info}}" pid="{{post.id}}" post="{{post}}" bookingStatus="{{post.user_has_booking}}" />
 <contact wx:if="{{mode == 2}}" info="{{contactInfo}}"  />
 
 <safe-tips cat="{{post.group}}"/>

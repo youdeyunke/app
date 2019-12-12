@@ -30,8 +30,7 @@
           </button>
       </view>
 
-      <view class="desc">怎么称呼您</view>
-      <van-field value="{{user.name}}" placeholder="请输入姓名" bind:change="nameChange"  />
+      <van-field required value="" placeholder="请输入联系人姓名" bind:change="nameChange"  />
 
       <view class="actions">
         <van-button bindtap="submitHandle" block="{{true}}" loading="{{loading}}" loading-text="加载中"  type="info" round disabled="{{ currentDateIndex == null || currentTimeIndex == null || !name }}">确认预约</van-button>

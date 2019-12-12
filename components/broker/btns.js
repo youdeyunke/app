@@ -140,10 +140,19 @@ Component({
     bookingHandle: function (e) {
         var _this = this
         auth.ensureUser(function(user){
+            // 经纪人本人不能预约经纪人的房源
+            if(user.is_broker){
+                wx.showToast({
+                    icon: 'none',
+                    title: '您是经纪人，不能预约看房',
+                })
+                return false;
+            }
+            
             // 去绑定用户手机号
             if(!user.mobile){
                 app.bindPhoneNumber(e, function(mobile){
-                    _this._bookingHandle()
+                    _this.selectComponent('#booking').openHandle()
                 })
             }else{
                 _this.selectComponent('#booking').openHandle()
