@@ -418,13 +418,6 @@ Page({
         }
 
 
-        if (post.service_charge_enable == true && !post.service_charge) {
-            _this.showError('service_charge', '服务费不能为空')
-            return
-        }
-
-
-
         if (!post.fitment_id) {
             _this.showError('fitment_id', '请填写装修信息')
             return
@@ -555,9 +548,6 @@ Page({
         this.updatePostField('position', e.detail.value)
     },
 
-    serviceChargeEnableChange: function (e) {
-        this.updatePostField('service_charge_enable', e.detail)
-    },
 
     minRentMonthChange: function (e) {
         var i = e.detail.value
