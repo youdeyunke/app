@@ -20,8 +20,7 @@ page{
 .header{
 background:#fff;
 width:710rpx;
-padding:0 0rpx 20rpx 0rpx;
-
+padding:0 0rpx 10rpx 0rpx;
 box-sizing: border-box;
 border-radius:15rpx;
 
@@ -199,7 +198,7 @@ border-radius:15rpx;
   display:flex;
   justify-content:space-between;
   width:710rpx;
-  margin:20rpx auto;
+  margin:20rpx auto 0 auto;
   height:280rpx;
 }
 
