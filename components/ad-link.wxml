@@ -1,3 +1,4 @@
+<block wx:if="{{ show != false }}">
   <box width="{{width}}" >
     <van-cell  border="{{false}}"  url="/pages/udeve/index" size="large" hover-class="none"  value="<广告>"> 
         <view slot="title" class="container">
@@ -9,3 +10,4 @@
         </view>
     </van-cell>
  </box>
+</block>

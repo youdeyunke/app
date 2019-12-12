@@ -388,7 +388,6 @@ App({
       hideLoading: true,
       success: function(resp) {
         var conf = resp.data.data;
-        wx.setStorageSync( "myconfigs", conf )
         _this.globalData.myconfigs = conf
         return typeof cb == "function" && cb(conf);
       }

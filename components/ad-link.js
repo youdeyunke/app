@@ -21,6 +21,7 @@ Component({
       this.setData({
           show: app.globalData.myconfigs['adv_link']
       })
+      console.log('是否显示广告链接：', app.globalData.myconfigs['adv_link'])
   },
 
   /**
