@@ -23,6 +23,13 @@ Component({
     showMenu: false,
   },
 
+  observers:{
+      'item.status': function(statue){
+          console.log('status 变化')
+          this.initUserActions()
+      },
+  },
+
   ready: function(){
       this.initActions()
       this.loadPost()
@@ -63,9 +70,12 @@ Component({
               ac[1]['disabled'] = false
           }
 
+          if(status == 3){
+              ac[0]['disabled'] = true
+              ac[1]['disabled'] = true
+          }
+
           this.setData({actions: ac})
-
-
       },
 
       initBrokerActions: function(){

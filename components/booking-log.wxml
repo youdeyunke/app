@@ -1,4 +1,4 @@
-<block>
+<block wx:if="{{item.status != 3}}">
 <van-panel title="{{statusName[item.status]}}"  status="{{ item.date  }} {{ item.time }}" use-footer-slot  >
   <view style="height:30rpx;"> </view>
   <post-item style="" item="{{post}}" border="{{false}}" shadow="{{false}}" />
