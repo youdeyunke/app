@@ -62,7 +62,7 @@ Component({
         var _this = this
         app.request({
           url: '/api/v2/favs/',
-          hideLoading: false,
+          hideLoading: true,
           data: { post_id: _this.data.pid },
           success: function (resp) {
               _this.setData({

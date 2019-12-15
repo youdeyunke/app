@@ -739,6 +739,7 @@ App({
     var _this = this;
     var token = this.globalData.token;
     if (!obj.hideLoading) {
+      console.log('loading ', obj.url)
       wx.showLoading({ title: "加载中", mask: true });
     }
 

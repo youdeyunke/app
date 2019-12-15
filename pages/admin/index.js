@@ -98,25 +98,24 @@ Page({
   onShow: function () {
     var ext = app.globalData.EXT
     var _this = this
-    auth.ensureUser(function(user){
-      _this.checkFormids()
-      _this.setData({ userInfo: user })
-      if(!user.is_broker){
-        wx.showModal({
-          title: '没有权限',
-          content: '你不是经纪人，没有权限进入工作台界面',
-          confirmText: '申请入驻',
-          confirmColor: '#00ae66',
-        
-          success(res) {
-            if (res.confirm) {
-              wx.navigateTo({
-                url: '/pages/myself/broker',
-              })
-            }
-          }          
-        })
-      }
+    auth.getRemoteUserInfo(function (user) {
+          _this.setData({ userInfo: user })
+          if(!user.is_broker){
+            wx.showModal({
+              title: '没有权限',
+              content: '你不是经纪人，没有权限进入工作台界面',
+              confirmText: '申请入驻',
+              confirmColor: '#00ae66',
+            
+              success(res) {
+                if (res.confirm) {
+                  wx.navigateTo({
+                    url: '/pages/myself/broker',
+                  })
+                }
+              }          
+            })
+          }
     })
   },
 
