@@ -1,5 +1,6 @@
 // pages/myself/broker.js
 const app = getApp()
+var qiniu = require('../../utils/qiniu.js');
 var auth = require('../../utils/auth.js');
 
 Page({
@@ -9,6 +10,8 @@ Page({
      */
     data: {
         userInfo: {},
+        uploading: false,
+        loading:false,
         state: '',
         steps: [
             '提交资料',
@@ -32,14 +35,20 @@ Page({
     },
 
   chooseImage: function(e){
+      if(this.data.uploading == true){
+          return false;
+      }
+
       var _this = this
       wx.chooseImage({
         count: 1,
         sizeType: ['original', 'compressed'],
         success (res) {
+          _this.setData({uploading: true})
           const path = res.tempFilePaths[0]
           qiniu.upload(path, (url) => {
               _this.updateAvatar(url)
+              _this.setData({uploading:false})
           })
         }
     })
@@ -84,7 +93,8 @@ Page({
 
 
     validate: function (data, cb) {
-        if (!this.data.userInfo.avatar) {
+        var noneAvatar = !this.data.userInfo.avatar || this.data.userInfo.avatar.endsWith('default-avatar.png')
+        if (noneAvatar ) {
             wx.showToast({
                 icon: 'none',
                 title: '请先上传头像',
@@ -147,7 +157,7 @@ Page({
                 if (resp.data.status == 0) {
                     var user = resp.data.data
                     app.globalData.userInfo = user
-                    _this.setData({userInfo: user})
+                    _this.setData({userInfo: user, loading:false})
 
                     /* 资料提交成功，
                     如果是付费入驻，进入套餐选择界
@@ -172,6 +182,7 @@ Page({
         var _this = this
         var data = e.detail.value
         _this.validate(data, (vdata) => {
+            _this.setData({loading: true})
             _this.doPost(vdata)
         })
     },

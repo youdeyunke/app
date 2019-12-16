@@ -152,7 +152,6 @@ Page({
     this.setData({ userInfo: null })
     app.globalData.userInfo = null
     app.globalData.token = null
-    wx.switchTab({ url: '/pages/myself/index' })
   },
 
   syncAvatar: function (e) {

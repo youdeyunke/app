@@ -146,7 +146,6 @@
     </view>
 </mycard>
 
-<ad-link />
 
 <view class="recoms" wx:if="{{post.recoms.length >= 2}}">
     <view class="title">推荐房源({{post.recoms.length}})</view>
@@ -156,6 +155,8 @@
             </view>
         </scroll-view>
 </view>
+
+<ad-link />
 
 <broker-btns wx:if="{{mode == 1}}" bindbooked="bookedHandle" broker="{{post.broker_info}}" pid="{{post.id}}" post="{{post}}" bookingStatus="{{post.user_has_booking}}" />
 <contact wx:if="{{mode == 2}}" info="{{contactInfo}}"  />

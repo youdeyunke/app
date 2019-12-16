@@ -6,7 +6,7 @@
 <view class="window" wx:if="{{ userInfo.apply_status == 0 }}">
     <view class="uploader">
         <van-image src="{{userInfo.avatar }}" round width="180rpx" height="180rpx" />
-        <van-button bindtap="chooseImage"  type="default" plain round >上传头像</van-button>
+        <van-button loading="{{uploading}}" loading-text="上传中" disabled="{{uploading}}" bindtap="chooseImage"  type="default" plain round >上传头像</van-button>
     </view>
 
     <form bindsubmit="submitHandle">
@@ -17,7 +17,7 @@
         </van-field>
         <van-field label="微信" value="{{userInfo.wechat}}" name="wechat" placeholder="微信账号" />
         <van-field border="{{false}}" label="介绍" value="" name="desc" placeholder="简短的个人介绍" />
-        <button class="btn btn-primary submit-btn" type="primary" formType="submit" size="small">
+        <button disabled="{{loading}}" class="btn btn-primary submit-btn" type="primary" formType="submit" size="small">
             确认提交
         </button>
     </form>
