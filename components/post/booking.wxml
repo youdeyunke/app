@@ -2,7 +2,7 @@
   closeable 
   bind:close="closeHandle"  
   show="{{show}}" 
-  duration="500" 
+  duration="300" 
   position="bottom"
   round
   >
