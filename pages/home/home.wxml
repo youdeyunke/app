@@ -2,17 +2,15 @@
     <image src="/assets/images/install-tips-{{system.systemName}}.png" />
 </van-transition>
 
-<myslider wx:if="{{configs.plugin_home_slider != false }}"  id="slider"></myslider>
+<myslider wx:if="{{configs.plugin_home_slider == true}}"  id="slider"></myslider>
 
-<view class="header">
-  <navs id="navs" />
-</view>
+<view class="header"> <navs id="navs" /> </view>
 
-<view wx:if="{{configs.plugin_home_toutiao != false}}" class="my-news-swiper">
+<view wx:if="{{configs.plugin_home_toutiao == true  }}" class="my-news-swiper">
     <news-swiper />
 </view>
 
-<view class="block-navs"   wx:if="{{configs.plugin_home_dingzhi != false }}">
+<view class="block-navs"   wx:if="{{configs.plugin_home_dingzhi == true  }}">
   <view class="left">
     <view class="block-nav-item" bindtap="gotoZhaofang">
       <view class="block-nav-item-name">定制找房</view>
@@ -35,7 +33,7 @@
   </view>
 </view>
 
-<block wx:if="{{configs.plugin_home_brokers != false}}">
+<block wx:if="{{configs.plugin_home_brokers == true}}">
 <view class="home-title">
   <view class="name">绩优经纪人</view>
 </view>
@@ -45,51 +43,50 @@
 </scroll-view>
 </block>
 
+<view class="loading" wx:if="{{!loading}}">
+    <block wx:if="{{configs.plugin_home_xinfang == true  }}">
+    <view class="home-title">
+      <view class="name">新房推荐</view>
+    </view>
+    <box width="750" padding="30">
+      <items cache="home_posts_new" id="new-posts" kw="" page="1" filter="{{newFilter}}" />
+      <navigator url="/pages/post/index?group_v2=new" hover-class="none" class="more-btn">查看更多新房</navigator>
+    </box>
+    </block>
 
 
-<block wx:if="{{configs.plugin_home_xinfang != false }}">
-<view class="home-title">
-  <view class="name">新房推荐</view>
+    <block wx:if="{{ configs.plugin_home_ershoufang == true }}">
+    <view class="home-title">
+      <view class="name">二手房推荐</view>
+    </view>
+    <box width="750" padding="30">
+      <items cache="home_posts_old" id="old-posts" kw="" page="1" filter="{{oldFilter}}" />
+      <navigator url="/pages/post/index?group_v2=old" hover-class="none" class="more-btn">查看更多二手房</navigator>  
+    </box>
+    </block>
+
+
+    <block wx:if="{{ configs.plugin_home_zufang == true }}">
+    <view class="home-title">
+      <view class="name">租房推荐</view>
+    </view>
+    <box width="750" padding="30">
+      <items cache="home_posts_rent" id="rent-posts" kw="" page="1" filter="{{rentFilter}}" />
+     <navigator url="/pages/post/index?group_v2=rental" hover-class="none" class="more-btn">查看更多租房</navigator>  
+    </box>
+    </block>
+
+    <block wx:if="{{ configs.plugin_home_shop == true  }}">
+    <view class="home-title">
+      <view class="name">商铺推荐</view>
+    </view>
+    <box width="750" padding="30">
+      <items cache="home_posts_shop" id="shop-posts" kw="" page="1" filter="{{shopFilter}}" />
+     <navigator url="/pages/post/index?group_v2=shop" hover-class="none" class="more-btn">查看更多商铺</navigator>  
+    </box>
+    </block>
+
 </view>
-<box width="750" padding="30">
-  <items cache="home_posts_new" id="new-posts" kw="" page="1" filter="{{newFilter}}" />
-  <navigator url="/pages/post/index?group_v2=new" hover-class="none" class="more-btn">查看更多新房</navigator>
-</box>
-</block>
-
-
-<block wx:if="{{ configs.plugin_home_ershoufang != false }}">
-<view class="home-title">
-  <view class="name">二手房推荐</view>
-</view>
-<box width="750" padding="30">
-  <items cache="home_posts_old" id="old-posts" kw="" page="1" filter="{{oldFilter}}" />
-  <navigator url="/pages/post/index?group_v2=old" hover-class="none" class="more-btn">查看更多二手房</navigator>  
-</box>
-</block>
-
-
-<block wx:if="{{ configs.plugin_home_zufang != false }}">
-<view class="home-title">
-  <view class="name">租房推荐</view>
-</view>
-<box width="750" padding="30">
-  <items cache="home_posts_rent" id="rent-posts" kw="" page="1" filter="{{rentFilter}}" />
- <navigator url="/pages/post/index?group_v2=rental" hover-class="none" class="more-btn">查看更多租房</navigator>  
-</box>
-</block>
-
-<block wx:if="{{ configs.plugin_home_shop != false }}">
-<view class="home-title">
-  <view class="name">商铺推荐</view>
-</view>
-<box width="750" padding="30">
-  <items cache="home_posts_shop" id="shop-posts" kw="" page="1" filter="{{shopFilter}}" />
- <navigator url="/pages/post/index?group_v2=shop" hover-class="none" class="more-btn">查看更多商铺</navigator>  
-</box>
-</block>
-
-<cr />
 
 <van-popup show="{{showNewVersionWindow}}" duration="800" custom-style="background:none;"   >
   <view class="new-version-window">
@@ -100,5 +97,6 @@
     <view class="sub-title">最新版本号：{{ ext.version }}</view>
     <view class="desc">{{ ext.version_desc }}</view>
   </view>
-
 </van-popup>
+
+<cr />

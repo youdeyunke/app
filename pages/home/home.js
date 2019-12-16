@@ -8,6 +8,7 @@ Page({
    */
   
   data: {
+    loading:true,
     system: {},
     showInstallTips: 0,  // 1:正常显示，2：自动关闭，3：手动关闭
     configs : {},
@@ -117,7 +118,7 @@ Page({
     app.ensureConfigs(function(configs){
       console.log('configs is', configs)
       var name = EXT['name'] || '首页'
-      _this.setData({configs: configs, ext: EXT})
+      _this.setData({configs: configs, ext: EXT, loading: false})
       _this.checkInstallTips()
       wx.setNavigationBarTitle({title: name})
       _this.setNav(configs)
