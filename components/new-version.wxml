@@ -1,0 +1,16 @@
+<van-popup show="{{true}}" duration="800" custom-style="background:none;"   >
+  <view class="new-version-window" wx:if="{{mode == 1}}">
+    <view class="close" bindtap="markNewVersion"></view>
+    <image src="https://qiniucdn.udeve.cn/wefang-sass/new-version-popup.png" class="bg" /> 
+    <view class="confirm" bindtap="markNewVersion"></view>
+    <view class="title">发现新版本</view>
+    <view class="sub-title">最新版本号：{{ ext.version }}</view>
+    <view class="desc">{{ ext.version_desc }}</view>
+  </view>
+
+  <view class="new-version-window" wx:else >
+    <view class="close-text" bindtap="closeHandle">关闭广告</view>
+    <image src="{{ ad_image }}" class="bg" /> 
+  </view>
+
+</van-popup>

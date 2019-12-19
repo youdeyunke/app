@@ -1,6 +1,7 @@
 {
     "enablePullDownRefresh": true,
     "usingComponents": {
+      "new-version": "/components/new-version",
       "mytags": "/components/tags",
       "news-swiper": "/components/news-swiper",
       "navs": "/components/navs",
