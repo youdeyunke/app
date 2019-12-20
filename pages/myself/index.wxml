@@ -55,9 +55,10 @@
   <view class="mybox">  
     <van-cell icon="clock-o" url="/pages/myself/booking" size="large" is-link  hover-class="none" title="我的预约"  />
 
-    <van-cell icon="service-o" url="/pages/myself/orders" size="large" is-link  hover-class="none" title="我的订单"  />
+    <van-cell icon="bill-o" url="/pages/myself/orders" size="large" is-link  hover-class="none" title="我的订单"  />
 
     <van-cell icon="service-o" size="large" is-link  bindtap="callService"  hover-class="none" title="客服电话"  value="{{configs.service_mobile}}" />
+    <van-cell icon="chat-o" size="large" is-link  hover-class="none" title="客服微信"  value="{{configs.service_wechat}}" />
 
     <van-cell icon="info-o" size="large" hover-class="none" title="当前版本" value="{{ext.version}}"  > </van-cell>    
 
