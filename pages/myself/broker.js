@@ -111,8 +111,6 @@ Page({
         }
 
 
-
-
         if (data.length <=1 || data.length >= 5) {
             wx.showToast({
                 icon: 'none',
