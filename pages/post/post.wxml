@@ -68,9 +68,9 @@
       <navigator url="/pages/post/meta?id={{post.id}}" class="more-btn more-meta"  hover-class="none">更多房源信息</navigator>
     </view>
 
-    <view  bindtap='createBookOrder' class="coupon" wx:if="{{ post.group != 'new' && post.coupon_enable && mode == 1 }}">
+    <view   class="coupon" wx:if="{{ false}}">
       <view class="name line-limit">{{post.coupon_desc}}</view>
-      <view class="action">{{ post.user_has_coupon ? '已支付' : '去支付' }}</view>
+      <view class="action">操作</view>
     </view>    
 
   </view>
