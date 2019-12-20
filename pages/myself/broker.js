@@ -76,12 +76,21 @@ Page({
 
 
 
-    loadUserInfo: function(){
+    loadUserInfo: function () {
         // 从服务器加载最新的用户数据
         var _this = this
-        this.setData({loading: true})
+        this.setData({ loading: true })
         auth.getRemoteUserInfo(function (user) {
-            _this.setData({ userInfo: user, loading: false })
+            _this.setData({
+                userInfo: user,
+                loading: false
+            })
+            // 如果没有开通经纪人，并且已经提交了个人资料，就进入购买有
+            if(!user.is_broker && user.apply_status == 1){
+                wx.navigateTo({
+                    url: '/pages/broker/membership'
+                })
+            }
         })
     },
 

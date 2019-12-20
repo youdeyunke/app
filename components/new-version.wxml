@@ -1,4 +1,4 @@
-<van-popup show="{{true}}" duration="800" custom-style="background:none;"   >
+<van-popup show="{{show}}" duration="800" custom-style="background:none;"   >
   <view class="new-version-window" wx:if="{{mode == 1}}">
     <view class="close" bindtap="markNewVersion"></view>
     <image src="https://qiniucdn.udeve.cn/wefang-sass/new-version-popup.png" class="bg" /> 
