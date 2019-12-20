@@ -56,7 +56,12 @@ Page({
 
     app.request({
       url: '/api/v2/posts/',
-      data: {'user_id': userId, per_page : 999, text: _this.data.searchText,   group_v2: _this.data.group_v2},
+      data: {
+        'user_id': userId, 
+        per_page : 999, 
+        text: _this.data.searchText,   
+        group_v2: _this.data.group_v2,
+      },
       success: function(resp){
         if(!resp.data.status == 0){
             wx.showModal({
