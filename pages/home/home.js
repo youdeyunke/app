@@ -122,7 +122,6 @@ Page({
       _this.checkInstallTips()
       wx.setNavigationBarTitle({title: name})
       _this.setNav(configs)
-      setTimeout(function(){  _this.checkNewVersion() }, 1000)
 
     })
   },
@@ -155,31 +154,6 @@ Page({
       wx.setStorageSync( 'closeInstallTips', true)
    },
   
-  markNewVersion: function(e){
-    // 本地保存最新版本号，以便下次比对
-    var _this = this
-    wx.setStorage({key: 'version', data: EXT.version, success: function(res){
-      _this.setData({showNewVersionWindow: false})
-    }})
-  },
-
-
-  checkNewVersion: function(){
-      var _this = this
-      // 检查新版本，并弹出提示
-      wx.getStorage({key: 'version', success: function(res){
-          if(res.data != EXT.version){
-              // 新版本，提示
-              _this.setData({showNewVersionWindow: true})
-          }
-        },
-        fail: function(res){
-            // 没有读取到本地保存的版本号码，说明是第一次进入系统
-            _this.markNewVersion()
-        },
-
-      })
-  },
 
 
 

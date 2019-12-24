@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    loading: false,
     tabs: [
     ],
     group_v2: 'old',
@@ -51,13 +52,20 @@ Page({
 
   loadPosts: function(){
     /* 拉取我的房源 */
+    this.setData({loading: true})
     var _this = this
     var userId = this.data.userInfo.id
 
     app.request({
       url: '/api/v2/posts/',
-      data: {'user_id': userId, per_page : 999, text: _this.data.searchText,   group_v2: _this.data.group_v2},
+      data: {
+        'user_id': userId, 
+        per_page : 999, 
+        text: _this.data.searchText,   
+        group_v2: _this.data.group_v2,
+      },
       success: function(resp){
+        _this.setData({loading: false})
         if(!resp.data.status == 0){
             wx.showModal({
               title: '崩溃了',
