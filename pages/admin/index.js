@@ -52,21 +52,7 @@ Page({
   },
 
   subMessageHandle: function(e){
-    console.log('e', e)
-    var ids = app.globalData.myconfigs['tpl_ids'] || []
-    if(!ids || ids.length == 0){
-      console.log('tpl  ids empty')
-      return false
-    }
-    wx.requestSubscribeMessage({
-      tmplIds: ids,
-      success (res) {
-        console.log('定义通知成功', res)
-       },
-       fail(res){
-         console.log('fail', res)
-       }
-    })    
+    wx.navigateTo({url: '/pages/myself/submessage'})
   },
 
   menuItemClickHandle: function(e){

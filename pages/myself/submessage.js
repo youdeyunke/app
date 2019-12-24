@@ -9,6 +9,7 @@ Page({
   data: {
     items: [
       {name: '房源被收藏通知', key: 'favpost_tpl_id'},
+      {name: '预约看房通知', key: 'booking_tpl_id'},
       {name: '新访客通知', key: 'visitor_tpl_id'},
       {name: '新访客通知', key: 'visitor_tpl_id'},
       {name: '邀请好友成功通知', key: 'referrers_tpl_id'},
