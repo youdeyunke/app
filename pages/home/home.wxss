@@ -107,7 +107,7 @@ border-radius:15rpx;
   display:flex;
   justify-content:space-between;
   width:710rpx;
-  margin:20rpx auto 0 auto;
+  margin:0rpx auto 0 auto;
   height:280rpx;
 }
 
