@@ -1,5 +1,7 @@
   <navigator hover-class="none" class="post {{item.group == 'new' && item.coupon_enable ? '' : 'coupon-none'}} {{type}} {{ shadow ? 'shado' : 'shadow-none'}} {{ border ? 'border' : 'border-none'}}" open-type="navigate" url="/pages/post/post?id={{item.id}}" >
 
+	<badge wx:if="{{item.badage_info.show == true}}">{{item.badage_info.text}}</badge>
+
         <view class="cover skeleton-rect">
           <image lazy-load="{{true}}"  mode="aspectFill" class="i" src="{{ item.cover || '/assets/images/cover-none.png' }}?imageView2/2/w/750"></image>
           <view class="icons">

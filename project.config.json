@@ -608,6 +608,12 @@
 					"pathName": "pages/fenxiao/referrers",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "submessage",
+					"pathName": "pages/myself/submessage",
+					"scene": null
 				}
 			]
 		}

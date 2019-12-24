@@ -65,7 +65,8 @@
     "pages/myself/profile",
     "pages/visitors/index",
     "pages/broker/index",
-    "pages/admin/booking"
+    "pages/admin/booking",
+    "pages/myself/submessage"
   ],
   "tabBar": {
     "selectedColor": "#333",
