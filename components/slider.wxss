@@ -1,5 +1,9 @@
 /* components/slider.wxss */
 
+.myswiper{
+  margin-bottom:20rpx;
+}
+
  .myswiper swiper, .myswiper swiper-item image{
   width:710rpx;
   height: 300rpx;
@@ -12,10 +16,6 @@
 
 .myswiper swiper{
   margin:20rpx auto;
-}
-
-.myswiper {
- margin-top:20rpx;
 }
 
 

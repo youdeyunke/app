@@ -1,10 +1,10 @@
 <block wx:if="{{block.items.length >= 1}}">
 
     <view class="home-title"> <view class="name">{{ block.label }}</view> </view>
-    <box width="750" padding="30">
+    <view class="list">
       <view class="empty" wx:if="{{items.length  == 0 }}" style="text-align:center;color:#cecece;">没有结果</view>
       <item border="{{ index == block.items.length - 1 ? false : true  }}" wx:key="{{post.id}}" wx:for="{{block.items}}" wx:for-item="post" item="{{post}}" />
       <navigator url="{{block.more_url}}" hover-class="none" class="more-btn">查看更多房源</navigator>
-    </box>
+    </view>
 
 </block>

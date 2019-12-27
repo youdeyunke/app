@@ -1,14 +1,19 @@
 /* pages/home/posts.wxss */
 
+.list{
+  width:710rpx;
+  margin:0 auto 20rpx auto;
+}
+
+
 .home-title{
   display:flex;
   justify-content:space-between;
   align-items: center;
   width:100%;
   box-sizing:border-box;
-  padding:0rpx 30rpx;
   background: #fff;
-  margin-top:20rpx;
+  margin:20rpx auto;
 }
 
 .home-title .name{
@@ -23,7 +28,7 @@
     height: 100rpx;
     font-size:30rpx;
     text-align: center;
-    margin:20rpx auto;
+    margin:0rpx auto;
     display: flex;
     justify-content: center;
     align-items: center;

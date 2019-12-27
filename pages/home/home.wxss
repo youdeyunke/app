@@ -1,5 +1,5 @@
 page{
-  padding-top:0rpx;
+  padding-top:20rpx;
   background: #fff !important;
 }
 
@@ -20,9 +20,10 @@ page{
 .header{
 background:#fff;
 width:710rpx;
-padding:0 0rpx 10rpx 0rpx;
+padding:0 0rpx 0rpx 0rpx;
 box-sizing: border-box;
 border-radius:15rpx;
+margin-bottom:20rpx;
 
 }
 
@@ -38,7 +39,7 @@ border-radius:15rpx;
 }
 
 .my-news-swiper{
-  margin:20rpx 20rpx;
+  margin:0rpx 20rpx 20rpx 20rpx;
   width:670rpx;
   border-radius: 10rpx;
   padding:20rpx;

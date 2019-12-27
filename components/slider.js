@@ -11,7 +11,6 @@ Component({
   },
 
   ready: function(){
-    this.loadData()
   },
 
   /**

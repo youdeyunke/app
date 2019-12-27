@@ -9,6 +9,7 @@ Page({
    * 页面的初始 数据
    */
   data: {                                                                                  
+    loading:true,
     visitorLogId: null,
     ntervalId: null,
     post: null,
@@ -154,6 +155,7 @@ Page({
 
   loadPost: function(postId, cb=null){
     var _this = this
+    this.setData({loading: true})
 
     app.request({
       hideLoading: true,
@@ -179,6 +181,7 @@ Page({
         pData['content'] = html
         _this.setData({
             post: pData, 
+            loading: false,
             brokers: allBrokers.slice(0, maxDefaultBrokers),
             allBrokers: allBrokers,
             moreBrokersBtn: allBrokers.length > maxDefaultBrokers

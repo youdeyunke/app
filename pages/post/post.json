@@ -5,6 +5,7 @@
     "mytags": "/components/tags",
     "van-transition": "/vant/transition/index",
     "gimage": "/components/gyroscope-image",
+    "page-loading": "/pages/post/page-loading",
     "broker-btns": "/components/broker/btns",
     "contact": "/components/post/contact",
     "broker-link": "/components/broker/link",

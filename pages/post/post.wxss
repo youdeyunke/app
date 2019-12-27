@@ -1,7 +1,7 @@
 /* pages/home/home.wxss */
-
-page{
-  padding:0 0 220rpx 0 !important;
+.top-margin{
+  height:20rpx;
+  display:block;
 }
 
 mycard{

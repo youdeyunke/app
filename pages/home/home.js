@@ -64,17 +64,17 @@ Page({
    * 
   */
   onPullDownRefresh: function () {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
     this.setData({loading: true})
     this.loadHomeData()
     var _this = this
     app.loadConfigs( function(configs){
         _this.setNav(configs)
         _this.setData({configs: configs})
+        wx.stopPullDownRefresh()
+        wx.hideNavigationBarLoading()
+        wx.stopPullDownRefresh() //停止下拉刷新    
     })
-    wx.stopPullDownRefresh()
-    wx.showNavigationBarLoading() //在标题栏中显示加载
-    wx.hideNavigationBarLoading()
-    wx.stopPullDownRefresh() //停止下拉刷新    
 
   },
 
@@ -100,6 +100,7 @@ Page({
       app.request({
           url: '/api/v1/home',
           method: 'GET',
+          hideLoading: true,
           success: function(resp){
               _this.setData({
                 homeData: resp.data.data,
