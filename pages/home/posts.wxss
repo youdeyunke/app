@@ -1,0 +1,36 @@
+/* pages/home/posts.wxss */
+
+.home-title{
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+  width:100%;
+  box-sizing:border-box;
+  padding:0rpx 30rpx;
+  background: #fff;
+  margin-top:20rpx;
+}
+
+.home-title .name{
+  font-size:40rpx;
+  color:#000;
+  font-weight: bolder;
+  width:50%;
+}
+
+.more-btn{
+    width: 660rpx;
+    height: 100rpx;
+    font-size:30rpx;
+    text-align: center;
+    margin:20rpx auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    background: #F8F8F8;
+    color: #333;
+    letter-spacing: 1.6rpx;
+    font-weight: bolder;
+    border-radius: 6rpx;
+}

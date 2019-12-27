@@ -3,6 +3,8 @@
     "usingComponents": {
       "new-version": "/components/new-version",
       "mytags": "/components/tags",
+      "posts-block": "/pages/home/posts",
+      "page-loading": "/pages/home/page-loading",
       "news-swiper": "/components/news-swiper",
       "navs": "/components/navs",
       "van-transition": "/vant/transition/index",

@@ -1,6 +1,7 @@
 // pages/home/home.js
 const app = getApp()
 const EXT = wx.getExtConfigSync()
+const rowWidthItem = ['60%', "100%", "30%", "40%", "100%"]
 
 Page({
   /**
@@ -9,33 +10,13 @@ Page({
   
   data: {
     loading:true,
+    rowWidth: rowWidthItem ,
+    homeData: [],
     system: {},
     showInstallTips: 0,  // 1:正常显示，2：自动关闭，3：手动关闭
     configs : {},
     city_id: null,
     ext: {},
-    showNewVersionWindow: false,
-    posts: [],
-    newFilter: {
-      group_v2: 'new',
-      per_page: 5,
-      order:'id desc',
-    },
-    oldFilter: {
-      group_v2: 'old',
-      per_page: 5,
-      order: 'id desc',
-    },
-    rentFilter: {
-      group_v2: 'rental',
-      per_page: 5,
-      order: 'id desc',
-    },    
-    shopFilter: {
-      group_v2: 'shop',
-      per_page: 5,
-      order: 'id desc',
-    },    
   },
 
   comming: function(e){
@@ -83,6 +64,8 @@ Page({
    * 
   */
   onPullDownRefresh: function () {
+    this.setData({loading: true})
+    this.loadHomeData()
     var _this = this
     app.loadConfigs( function(configs){
         _this.setNav(configs)
@@ -90,20 +73,6 @@ Page({
     })
     wx.stopPullDownRefresh()
     wx.showNavigationBarLoading() //在标题栏中显示加载
-    app.loadConfigs(function(configs){
-      _this.setData({configs: configs})
-    })
-    var navs = this.selectComponent('#navs')
-    var slider = this.selectComponent('#slider')
-    var oldPosts = this.selectComponent('#old-posts')
-    var newPosts = this.selectComponent('#new-posts')
-    var rentPosts = this.selectComponent('#rent-posts')
-
-    navs && navs.loadData()
-    slider && slider.loadData()
-    newPosts && newPosts.loadData()
-    oldPosts && oldPosts.loadData()
-    rentPosts && rentPosts.loadData()
     wx.hideNavigationBarLoading()
     wx.stopPullDownRefresh() //停止下拉刷新    
 
@@ -114,22 +83,37 @@ Page({
    */
   onLoad: function (options) {
     var _this = this   
-    _this.setData({system: app.globalData.system})
-    app.ensureConfigs(function(configs){
-      console.log('configs is', configs)
-      var name = EXT['name'] || '首页'
-      _this.setData({configs: configs, ext: EXT, loading: false})
-      _this.checkInstallTips()
-      wx.setNavigationBarTitle({title: name})
-      _this.setNav(configs)
-
+    var name = EXT['name'] || '首页'
+    app.ensureConfigs( (configs) => {
+      this.setData({ system: app.globalData.system, ext: EXT, configs: configs })
+      this.setNav(configs)
     })
+    this.checkInstallTips()
+    this.loadHomeData()
+    wx.setNavigationBarTitle({title: name})
+  },
+
+  loadHomeData: function(){
+      // 一次性加载首页所需数据
+      var _this = this
+      this.setData({loading: true})
+      app.request({
+          url: '/api/v1/home',
+          method: 'GET',
+          success: function(resp){
+              _this.setData({
+                homeData: resp.data.data,
+                loading: false,
+              })
+          },
+      })
   },
 
   setNav: function(configs){
+      console.log('setnav configs ', configs)
+      console.log('app.global configs', app.globalData.myconfigs)
       var bgColor = configs.plugin_home_topbar_color_desc 
       var frontColor = configs.plugin_home_topbar_front_color_desc
-      console.log('bgcolor', bgColor, 'front color',  frontColor)
       wx.setNavigationBarColor({
         frontColor: frontColor,
         backgroundColor: bgColor,
@@ -154,7 +138,6 @@ Page({
       wx.setStorageSync( 'closeInstallTips', true)
    },
   
-
 
 
   /**

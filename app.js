@@ -526,6 +526,7 @@ App({
     this.startReddotInterval()
     console.log('EXT is ', EXT)
     this.ensureConfigs(function(config){
+      console.log('ensure configs', config)
       _this.loadCities(function(cities) {
         _this.globalData.cities = cities;
         _this.getLocation();
