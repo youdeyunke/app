@@ -380,6 +380,17 @@ App({
       })
   },
 
+
+  setNav: function(configs){
+      var bgColor = configs.plugin_home_topbar_color_desc 
+      var frontColor = configs.plugin_home_topbar_front_color_desc
+      wx.setNavigationBarColor({
+        frontColor: frontColor,
+        backgroundColor: bgColor,
+        animation: { duration: 400, timingFunc: 'easeIn' }
+      })
+  },
+
   loadConfigs: function(cb) {
     /* 从服务器加载系统配置嘻嘻 */
     var _this = this;
@@ -389,6 +400,7 @@ App({
       hideLoading: true,
       success: function(resp) {
         var conf = resp.data.data;
+        _this.setNav(conf)
         _this.globalData.myconfigs = conf
         return typeof cb == "function" && cb(conf);
       }

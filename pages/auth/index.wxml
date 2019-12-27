@@ -1,11 +1,12 @@
 <view class="user-auth" wx:if="{{!userInfo}}">
   <view class="top">
-    <image style="width:640rpx;height:480rpx;" src="https://qiniucdn.udeve.cn/myself-login.png" mode="widthFix"></image>
+    <van-image height="480rpx" width="640rpx"  src="/assets/images/myself-login.png" />
+    <view class="tips">登录后可体验更多服务</view>
     <button wx:if="{{loginMethod == 'v2'}}" loading="{{loading}}" disabled="{{loading}}" type="primary" class="btn"  open-type='getPhoneNumber' bindgetphonenumber='loginHandle'>{{ loading == true ? '正在登录...'  : '手机号授权登录'}}</button>
 
     <button wx:else  loading="{{loading}}" disabled="{{loading}}" type="primary" class="btn"  open-type='getUserInfo' bindgetuserinfo='loginHandle'>{{ loading == true ? '正在登录...'  : '微信授权登录' }}</button>
 
-    <view class="tips">登录后可体验更多服务</view>
+    <navigator url="/pages/home/home" open-type="switchTab" class="tips">不登录，先逛逛</navigator>
   </view>
 
   <navigator class="footer" url="/pages/static/terms"  hover-class="none">

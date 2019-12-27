@@ -69,7 +69,6 @@ Page({
     this.loadHomeData()
     var _this = this
     app.loadConfigs( function(configs){
-        _this.setNav(configs)
         _this.setData({configs: configs})
         wx.stopPullDownRefresh()
         wx.hideNavigationBarLoading()
@@ -86,7 +85,6 @@ Page({
     var name = EXT['name'] || '首页'
     app.ensureConfigs( (configs) => {
       this.setData({ system: app.globalData.system, ext: EXT, configs: configs })
-      this.setNav(configs)
     })
     this.checkInstallTips()
     this.loadHomeData()
@@ -107,18 +105,6 @@ Page({
                 loading: false,
               })
           },
-      })
-  },
-
-  setNav: function(configs){
-      console.log('setnav configs ', configs)
-      console.log('app.global configs', app.globalData.myconfigs)
-      var bgColor = configs.plugin_home_topbar_color_desc 
-      var frontColor = configs.plugin_home_topbar_front_color_desc
-      wx.setNavigationBarColor({
-        frontColor: frontColor,
-        backgroundColor: bgColor,
-        animation: { duration: 400, timingFunc: 'easeIn' }
       })
   },
 
