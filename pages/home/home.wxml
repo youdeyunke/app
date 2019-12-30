@@ -11,24 +11,24 @@
       <view wx:if="{{block.name== 'news'  }}" class="my-news-swiper"> <news-swiper items="{{block.items}}" /> </view>
       <view class="block-navs"   wx:if="{{block.name == 'dingzhi' }}">
           <view class="left">
-            <view class="block-nav-item" bindtap="gotoZhaofang">
+            <navigator url="/pages/need/room-form" hover-class="none" class="block-nav-item" bindtap="gotoZhaofang">
               <view class="block-nav-item-name">定制找房</view>
               <view class="block-nav-item-desc">只需要填写简单要求，平台经纪人即可为您找到理想居所</view>
               <view class="block-nav-item-action">
                 <van-button type="info" size="small">点击开始找房</van-button>
               </view>
-            </view>
+            </navigator>
           </view>
 
           <view class="right">
-            <view class="block-nav-item" bindtap="gotoSubs">
-              <view class="block-nav-item-name">热门小区</view>
-              <view class="block-nav-item-desc">浏览热门小区</view>
-            </view>
-            <view class="block-nav-item" bindtap="gotoMap">
+            <navigator url="/pages/daikuan/index" hover-class="none" class="block-nav-item" >
+              <view class="block-nav-item-name">房贷计算</view>
+              <view class="block-nav-item-desc">点击进入房贷计算器</view>
+            </navigator>
+            <navigator url="/pages/map/index" hover-class="none" class="block-nav-item" bindtap="gotoMap">
               <view class="block-nav-item-name">地图找房</view>
               <view class="block-nav-item-desc">点击开始找房</view>
-            </view>
+            </navigator>
           </view>
       </view>
 
