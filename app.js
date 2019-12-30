@@ -6,6 +6,7 @@ const EXT   = wx.getExtConfigSync()
 App({
   globalData: {
     EXT: EXT,
+    myconfigs: null,
     system: {},
     reddot: 0,
     reddotIntervalId: null,

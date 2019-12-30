@@ -1,6 +1,5 @@
 // pages/fenxiao/customers.js
 const app = getApp()
-
 Page({
 
   /**
@@ -9,16 +8,35 @@ Page({
   data: {
       page: 1,
       per_page: 50,
+      dealStatus: [],
       items: [],
       loading: true,
+      currentTabIndex: 0,
+      tabs: [
+          {name: '有效', value:2},
+          {name: '待审核', value:1},
+          {name: '无效', value:0},
+      ],
 
+  },
+
+  tabChange: function(e){
+     var i = e.detail.name
+     this.setData({
+         page:1,
+         currentTabIndex: i,
+         items: [],
+     })
+     this.loadData()
   },
 
   loadData: function(){
       this.setData({loading: true})
       var _this  = this
+      var status = this.data.tabs[this.data.currentTabIndex].value
       var query = {
           order: 'id desc',
+          status: status,
           page: _this.data.page,
           per_page: _this.data.per_page,
       }
@@ -35,7 +53,6 @@ Page({
                 data['items'] = [resp.data.data]
               }
               _this.setData(data)
-              console.log('data is', data, resp.data.data)
           },
       })
   },
@@ -44,6 +61,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      app.ensureConfigs((configs) => {
+        this.setData({
+          dealStatus: configs['deal_status_items']
+        })
+      })
       this.loadData()
   },
 

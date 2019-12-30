@@ -52,7 +52,6 @@ Page({
   },
 
   inputChange: function(e){
-      console.log('input change', e)
       var k = e.currentTarget.dataset['name']
       var v = e.detail
       var data = {}
@@ -69,8 +68,8 @@ Page({
           url: '/api/v2/posts/' + pid,
           success: function(resp){
               var p = resp.data.data
-              var postName= p.title + ' ' + p.sub_district.name + ' ' + p.type_info.text + ' ' + p.area_info.text
-              _this.setData({post: p, postName: postName})
+              var post_name = p.title + ' ' + p.sub_district.name + ' ' + p.type_info.text + ' ' + p.area_info.text
+              _this.setData({post: p, post_name: post_name})
           }
       })
   },
@@ -131,6 +130,7 @@ Page({
     var fdata = {
         mobile: _this.data.mobile,
         name: _this.data.name,
+        post_name: _this.data.post_name,
         sex: _this.data.sex,
         post_id: _this.data.pid
     }
@@ -153,7 +153,7 @@ Page({
           content: '系统已经记录下该客户信息，一旦签约，你将获得相应的佣金',
           success: function(res){
             wx.navigateTo({
-              url: '/pages/fenxiao/index',
+              url: '/pages/fenxiao/customers',
             })
           }
         })

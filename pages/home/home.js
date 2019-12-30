@@ -100,6 +100,7 @@ Page({
           method: 'GET',
           hideLoading: true,
           success: function(resp){
+              console.log('resp.data.data', resp.data)
               _this.setData({
                 homeData: resp.data.data,
                 loading: false,
