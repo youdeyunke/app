@@ -11,12 +11,17 @@ Component({
   },
 
   ready: function(){
+      var _this = this
+      app.ensureConfigs((configs) => {
+          _this.setData({bg: configs.plugin_home_topbar_color_desc})
+      })
   },
 
   /**
    * 组件的初始数据
    */
   data: {
+      bg: '#ffffff'
   },
 
   /**

@@ -84,11 +84,17 @@ Page({
     var _this = this   
     var name = EXT['name'] || '首页'
     app.ensureConfigs( (configs) => {
-      this.setData({ system: app.globalData.system, ext: EXT, configs: configs })
+      var color =  configs.plugin_home_topbar_color_desc
+      _this.setData({ system: app.globalData.system, ext: EXT, configs: configs })
+      wx.setBackgroundColor({
+        backgroundColor: color, // 顶部窗口的背景色为白色
+      })
+
     })
     this.checkInstallTips()
     this.loadHomeData()
     wx.setNavigationBarTitle({title: name})
+
   },
 
   loadHomeData: function(){

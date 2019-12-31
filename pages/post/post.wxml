@@ -63,27 +63,13 @@
                 <text class="label">{{meta.label}}</text>
                 <text bindtap="gotoMetaUrl" data-url="{{meta.url}}" class="value van-ellipsis"> {{ meta.value || '-' }} </text>
             </view>
-
         </view>    
         
-        <view style="width:100%;" report-submit class="myfav-wrapper"  bindtap="gotoMeta">
-          <navigator url="/pages/post/meta?id={{post.id}}" class="more-btn more-meta"  hover-class="none">更多房源信息</navigator>
-        </view>
-
-        <view   class="coupon" wx:if="{{ false}}">
-          <view class="name line-limit">{{post.coupon_desc}}</view>
-          <view class="action">操作</view>
-        </view>    
+          <navigator wx:if="{{post.group != 'new' }}" url="/pages/post/meta?id={{post.id}}" class="more-btn more-meta"  hover-class="none">更多房源信息</navigator>
 
       </view>
     </box>
 
-    <block wx:if="{{mode == 1 && EXT.show_brokers_enable != false  }}">
-        <broker-link post-id="{{post.id}}"   broker="{{broker}}" wx:for="{{brokers}}" wx:for-item="broker" wx:key="{{broker.id}}" />
-        <view class="more-brokers-btn">
-          <view wx:if="{{moreBrokersBtn}}"  bindtap="moreBrokersHandle"  hover-class="none" class="more-btn">展开全部</view>
-        </view>
-    </block>
 
     <mycard width="750" title="配套设施"  wx:if="{{post.group == 'rental' && post.facilities && post.facilities.length > 0 }}" hat="{{false}}">
       <view class="fac-items">
@@ -94,25 +80,6 @@
       </view>
     </mycard>
 
-    <view class="mapinfo">
-      <view class="name">周边及概况</view>
-      <view class="location">
-          <text class="label">位置：</text>
-          <text class="value">{{post.sub_district.address}}</text>
-      </view>
-    </view>
-    <view class="mapimage">
-        <mapimage image="{{sub.map_image_url}}" latitude="{{sub.latitude}}"  longitude="{{sub.longitude}}" name="{{sub.name}}" ></mapimage>
-    </view>
-
-    <view class="textinfo">
-      <view class="info-block">
-        <view class="info-item" wx:if="{{post.desc}}">
-          <view class="info_title" style="margin-top:30rpx;">房源详情</view>
-          <view class="info_text"> {{ post.desc || '未填写' }} </view>
-        </view>
-      </view>
-    </view>
 
     <mycard title="楼盘介绍" hat="{{false}}" wx:if="{{post.group == 'new'}}">
        <view class="html-content {{ minicontent == true ? 'mini' : 'full' }}">
@@ -127,12 +94,23 @@
         <form style="width:100%;" report-submit class="myfav-wrapper"  bindsubmit="formidHandle">
           <button form-type="submit"  class="fake more-btn view-more"   bindtap="contentHandle" wx:if="{{minicontent}}"  hover-class="none">显示全文</button>
         </form>
-
       </view>
     </mycard>
 
+    <mycard title="房源详情" wx:else hat="{{false}}">
+        {{ post.desc }}
+    </mycard>
 
-    <mycard width="750" title="户型信息"  wx:if="{{post.group == 'new'}}" hat="{{false}}">
+    <mycard title="位置概况" hat="{{false}}" padding="{{false}}">
+      <view class="location">
+          <text class="label">位置：</text>
+          <text class="value">{{post.sub_district.address}}</text>
+      </view>
+      <mapimage image="{{sub.map_image_url}}" latitude="{{sub.latitude}}"  longitude="{{sub.longitude}}" name="{{sub.name}}" ></mapimage>
+    </mycard>
+
+
+    <mycard width="750" title="户型介绍"  wx:if="{{post.group == 'new'}}" hat="{{false}}">
         <view class="housetype" wx:for="{{post.types}}" wx:key="{{item.id}}">
           <view class="poster">
             <image bindtap="viewTypeImage" data-index="{{index}}" src="{{item.image.url ? item.image.url : 'https://qiniucdn.udeve.cn/wefang-sass/type-image-none.jpg'  }}?imageView2/2/w/300"></image>
@@ -140,23 +118,30 @@
           <view class="meta">
             <view class="name">{{item.name}}</view>
             <view class="kv"><text decode="{{true}}">朝向&nbsp; &nbsp;&nbsp;{{item.position}}</text></view>
-            <view class="kvs">
-               <view class="kv"><text decode="{{true}}">建面&nbsp; &nbsp;&nbsp;{{item.area}} ㎡</text></view>
-              <view class="kv">总价<text decode="{{true}}" class="i">&nbsp; &nbsp;&nbsp;{{item.total_price}} 万</text></view>
-            </view>
+            <view class="kv"><text decode="{{true}}">建面&nbsp; &nbsp;&nbsp;{{item.area}} ㎡</text></view>
+            <view class="kv">总价<text decode="{{true}}" style="font-weight:bolder;color:#ff0000;">&nbsp; &nbsp;&nbsp;{{item.total_price}} 万</text></view>
           </view>
         </view>
     </mycard>
 
+    <block wx:if="{{mode == 1 && EXT.show_brokers_enable != false  }}">
+        <mycard title="推荐经纪人" hat="{{false}}" padding="{{false}}">
+            <broker-link post-id="{{post.id}}"   broker="{{broker}}" wx:for="{{brokers}}" wx:for-item="broker" wx:key="{{broker.id}}" />
+            <view class="more-brokers-btn">
+              <view wx:if="{{moreBrokersBtn}}"  bindtap="moreBrokersHandle"  hover-class="none" class="more-btn">展开全部</view>
+            </view>
+        </mycard>
+    </block>
 
-    <view class="recoms" wx:if="{{post.recoms.length >= 2}}">
-        <view class="title">推荐房源({{post.recoms.length}})</view>
+    <mycard title="推荐房源" padding="{{false}}" hat="{{false}}" wx:if="{{post.recoms.length >= 2}}">
+      <view class="recoms">
            <scroll-view  scroll-with-animation="{{true}}" scroll-x style="width:100%">
-                <view class="items">
+                    <view class="items">
                         <item-block item="{{item}}" wx:key="{{item.id}}" wx:for="{{post.recoms}}" />
-                </view>
+                    </view>
             </scroll-view>
-    </view>
+        </view>
+    </mycard>
 
     <ad-link />
 

@@ -5,24 +5,6 @@
   margin:0 auto 20rpx auto;
 }
 
-
-.home-title{
-  display:flex;
-  justify-content:space-between;
-  align-items: center;
-  width:100%;
-  box-sizing:border-box;
-  background: #fff;
-  margin:20rpx auto;
-}
-
-.home-title .name{
-  font-size:40rpx;
-  color:#000;
-  font-weight: bolder;
-  width:50%;
-}
-
 .more-btn{
     width: 660rpx;
     height: 100rpx;

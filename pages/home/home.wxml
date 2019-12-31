@@ -5,7 +5,7 @@
 
 <page-loading loading="{{loading}}" />
 
-<block wx:for="{{homeData}}" wx:for-item="block" wx:for-key="index" hidden="{{loading}}">
+<view wx:for="{{homeData}}" wx:for-item="block" wx:for-key="index" hidden="{{loading}}">
       <myslider wx:if="{{block.name == 'banners' }}" items="{{block.items}}"></myslider>
       <view wx:if="{{block.name == 'navs' }}"  class="header"> <navs items="{{block.items}}" /> </view>
       <view wx:if="{{block.name== 'news'  }}" class="my-news-swiper"> <news-swiper items="{{block.items}}" /> </view>
@@ -33,19 +33,24 @@
       </view>
 
       <block wx:if="{{block.name == 'brokers' }}">
-            <view class="home-title" style="margin-top:20rpx;"> <view class="name">{{block.label}}</view> </view>
-            <scroll-view  scroll-with-animation="{{true}}" scroll-x style="width:100%;margin-bottom:20rpx;">
+            <view class="home-title" > 
+                <view class="name">{{block.label}}</view> 
+            </view>
+            <scroll-view  scroll-with-animation="{{true}}" scroll-x style="710rpx;margin-bottom:20rpx;">
               <brokers brokers="{{block.items}}"  max="10" />
             </scroll-view>
       </block>
 
       <block wx:if="{{block.name == 'posts' }}">
+        <view class="home-title">
+          <view class="name">{{block.label}}</view>
+        </view>
         <posts-block block="{{block}}" />
       </block>
         
       <new-version wx:if="{{block.name == 'version' }}" />
       <cr wx:if="{{ block.name == 'copyright' }}" text="{{block.text}}"  />
 
-</block>
+</view>
 
 

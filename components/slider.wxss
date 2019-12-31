@@ -4,6 +4,18 @@
   margin-bottom:20rpx;
 }
 
+.myswiper .bg{
+  width:750rpx;
+  position:absolute;
+  left:0;
+  top:0;
+  right:0;
+  z-index:-1;
+  height:300rpx;
+  border-radius: 0rpx 0rpx 30rpx 30rpx;
+
+}
+
  .myswiper swiper, .myswiper swiper-item image{
   width:710rpx;
   height: 300rpx;

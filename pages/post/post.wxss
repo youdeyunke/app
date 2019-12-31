@@ -1,4 +1,12 @@
 /* pages/home/home.wxss */
+page{
+  padding-bottom:130rpx;
+}
+
+.location{
+  padding:0 0 20rpx 30rpx;
+}
+
 .top-margin{
   height:20rpx;
   display:block;
@@ -317,14 +325,14 @@ myfav .myfav {
 }
 
 .housetype .poster, .housetype .poster image{
-  width: 200rpx;
-  height: 150rpx;
+  width: 300rpx;
+  height: 200rpx;
   overflow: hidden;
   background:#cecece;
 }
 
 .housetype .meta{
-  width: 480rpx;
+  width: 380rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -333,24 +341,11 @@ myfav .myfav {
 
 .housetype .name{
   width:100%;
-  padding:10rpx 0;
-  height:50rpx;
-  margin-bottom:15rpx;
   font-size:32rpx;
   font-weight: bolder;
   color: #333;
 }
-.housetype .kvs text{
-  color: 000;
-}
 
-.housetype .kvs{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  margin-top:10rpx;
-}
 .housetype .kv{
   font-size:28rpx;
 }
@@ -517,36 +512,6 @@ myfav .myfav {
 }
 
 
-.mapinfo{
-    background: #fff;
-    padding:40rpx 40rpx 0 40rpx ;
-    font-size:28rpx;
-    width:750rpx;
-    box-sizing: border-box;
-    margin-bottom:0rpx;
-    letter-spacing: 0.5;
-}
-
-.mapinfo .name{
-    color: #000;
-    font-size:34rpx;
-    font-weight: bold;
-}
-
-.mapinfo .location .label{
-    color: #999;
-}
-
-.mapinfo .location .value{
-    color: #000;
-    line-height: 1.5;
-}
-
-.mapinfo .location{
-    margin:20rpx 0;
-}
-
-
 .mapimage{
     width: 750rpx;
 }
@@ -582,7 +547,7 @@ myfav .myfav {
     width:100%;
     background: #fff;
     margin-bottom:20rpx;
-    padding: 40rpx 0 20rpx 0;
+    padding: 0rpx 0 20rpx 0;
 }
 
 .recoms .title{

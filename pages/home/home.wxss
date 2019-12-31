@@ -33,9 +33,8 @@ margin-bottom:20rpx;
   align-items: center;
   width:100%;
   box-sizing:border-box;
-  padding:0rpx 30rpx;
   background: #fff;
-  margin-top:20rpx;
+  margin:20rpx 0;
 }
 
 .my-news-swiper{
