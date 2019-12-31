@@ -332,7 +332,7 @@ myfav .myfav {
 }
 
 .housetype .meta{
-  width: 380rpx;
+  width: 320rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -348,6 +348,7 @@ myfav .myfav {
 
 .housetype .kv{
   font-size:28rpx;
+  margin:10rpx 0;
 }
 
 

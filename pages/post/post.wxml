@@ -70,6 +70,10 @@
       </view>
     </box>
 
+    <mycard wx:if="{{post.brokage_info.show}}" width="750" title="经纪人佣金" sub-title="仅经纪人可见">
+      {{ post.brokage_info.title }} 佣金规则：{{ post.brokage_info.desc }}
+    </mycard>
+
 
     <mycard width="750" title="配套设施"  wx:if="{{post.group == 'rental' && post.facilities && post.facilities.length > 0 }}" hat="{{false}}">
       <view class="fac-items">
