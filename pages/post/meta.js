@@ -17,42 +17,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
-      var _this = this
-      this.loadPost(q.id, function(post){
-          _this.setData({ post: post, loading:false })
-       })
+      this.loadData(q.id)
   },
 
-  loadPost: function(pid, cb){
+  loadData: function(pid){
     var _this = this
-    wx.getStorage({
-        key: 'post.data.' + pid,
-        success: (post) => {
-            return cb(post)
-        },
-        fail: () => {},
-        complete: () => {}
-    });
-      
-
     app.request({
       hideLoading: true,
       url: '/api/v1/post_meta/' + pid,
       success: function(resp){
         var post = resp.data.data
-        _this.setData({loading: false})
-        return cb(post)
+        _this.setData({loading: false, post: post})
       },
-
     })
-
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
   },
 
   /**

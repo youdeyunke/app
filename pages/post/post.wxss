@@ -344,11 +344,12 @@ myfav .myfav {
   font-size:32rpx;
   font-weight: bolder;
   color: #333;
+  margin-bottom:10rpx;
 }
 
 .housetype .kv{
   font-size:28rpx;
-  margin:10rpx 0;
+  margin:5rpx 0;
 }
 
 

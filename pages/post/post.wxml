@@ -66,14 +66,12 @@
         </view>    
         
           <navigator wx:if="{{post.group != 'new' }}" url="/pages/post/meta?id={{post.id}}" class="more-btn more-meta"  hover-class="none">更多房源信息</navigator>
-
       </view>
     </box>
 
     <mycard wx:if="{{post.brokage_info.show}}" width="750" title="经纪人佣金" sub-title="仅经纪人可见">
       {{ post.brokage_info.title }} 佣金规则：{{ post.brokage_info.desc }}
     </mycard>
-
 
     <mycard width="750" title="配套设施"  wx:if="{{post.group == 'rental' && post.facilities && post.facilities.length > 0 }}" hat="{{false}}">
       <view class="fac-items">
@@ -83,7 +81,6 @@
         </view>
       </view>
     </mycard>
-
 
     <mycard title="楼盘介绍" hat="{{false}}" wx:if="{{post.group == 'new'}}">
        <view class="html-content {{ minicontent == true ? 'mini' : 'full' }}">
@@ -117,7 +114,7 @@
     <mycard width="750" title="户型介绍"  wx:if="{{post.group == 'new'}}" hat="{{false}}">
         <view class="housetype" wx:for="{{post.types}}" wx:key="{{item.id}}">
           <view class="poster">
-            <image bindtap="viewTypeImage" data-index="{{index}}" src="{{item.image.url ? item.image.url : 'https://qiniucdn.udeve.cn/wefang-sass/type-image-none.jpg'  }}?imageView2/2/w/300"></image>
+            <image bindtap="viewTypeImage" data-index="{{index}}" src="{{item.image.url ? item.image.url + '?imageView2/2/w/300' : 'https://qiniucdn.udeve.cn/wefang-sass/type-image-none.jpg'  }}?imageView2/2/w/300"></image>
           </view>
           <view class="meta">
             <view class="name">{{item.name}}</view>
@@ -149,22 +146,9 @@
 
     <ad-link />
 
-    <broker-btns wx:if="{{mode == 1}}" bindbooked="bookedHandle" broker="{{post.broker_info}}" pid="{{post.id}}" post="{{post}}" bookingStatus="{{post.user_has_booking}}" />
+    <broker-btns wx:if="{{mode == 1}}"  broker="{{post.broker_info}}" pid="{{post.id}}" post="{{post}}" bookingStatus="{{post.user_has_booking}}" />
     <contact wx:if="{{mode == 2}}" info="{{contactInfo}}"  />
-
     <safe-tips cat="{{post.group}}"/>
-
-    <van-popup show="{{showGroupQr}}" bind:close="closeGroupQr" > 
-        <text style="padding:10rpx;">保存识别二维码，加入我们的微信群，以便了解最新房源动态哦</text>
-      <view class="poster-preview">
-        <image bindtap='onSavePoster' src="{{post.group_qr}}" mode="widthFix"></image>
-        <view class="poster-actions">
-          <view class="poster-actions-btn poster-cancle-btn" bind:tap="closeGroupQr" >取消</view>
-          <view class="poster-actions-btn poster-save-btn"  bindtap="onSavePoster">保存到相册</view>
-        </view>
-      </view>
-    </van-popup>
-
 
     <van-popup show="{{showShareBox }}" bind:close="closeShareBox" position="bottom">
       <view class="share-box">
@@ -179,11 +163,9 @@
             <image class="share-box-item-icon" src="/assets/icons/pengyouquan.png"></image>
             <view class="share-box-item-name">海报</view>
           </view>
-                
         </view>
       </view>
     </van-popup>
-
     <booking show="{{showBookingDialog}}" post-id="{{post.id}}" />
     <cr />
 

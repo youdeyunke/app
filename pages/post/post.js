@@ -24,7 +24,6 @@ Page({
     flowContent: '',
     flowId: '',
     showFlowForm: false,
-    showGroupQr: false,
     htmlContent: null,
     minicontent: true,
     showShareBox: false,
@@ -34,14 +33,6 @@ Page({
   swiperChange: function(e){
   },
 
-  bookedHandle: function(e){
-    // 预约成功，弹出二维码
-    if(!this.data.post.group_qr){
-      return false
-    }
-    this.setData({showGroupQr: true})
-    
-  },
   
   contentHandle: function(e){
     this.setData({
@@ -268,25 +259,6 @@ Page({
     })
   },
 
-
-  closeGroupQr: function(){
-    this.setData({showGroupQr: false})
-  },
-
-  onSaveGroupQr: function(e){
-    var _this = this
-    var url  = this.data.post.group_qr.replace('http://', 'https://')
-    var _this = this
-    wx.downloadFile({
-      url: url,
-      success: function(res) {
-        var path = res.tempFilePath
-        app.saveImage(path, function(res){
-          _this.setData({showGroupQr: false})
-        })
-      }
-    })
-  },
 
   saveImage: function(path, cb){
     wx.saveImageToPhotosAlbum({
