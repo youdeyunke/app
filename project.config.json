@@ -615,6 +615,13 @@
 					"pathName": "pages/myself/submessage",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": 84,
+					"name": "根据标签返回房源",
+					"pathName": "pages/post/index",
+					"query": "group_v2=new&tag_id=35",
+					"scene": null
 				}
 			]
 		}
