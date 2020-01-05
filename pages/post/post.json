@@ -2,6 +2,11 @@
   "enablePullDownRefresh": true,
   "navigationBarTextStyle": "black",
   "usingComponents": {
+      "images-block": "./images-block",
+      "meta-block": "./meta-block",
+      "content-block": "./content-block",
+      "brokers-block": "./brokers-block",
+
     "mytags": "/components/tags",
     "van-notice-bar": "/vant/notice-bar/index",
     "van-transition": "/vant/transition/index",

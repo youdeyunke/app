@@ -1,66 +1,18 @@
 <page-loading loading="{{loading}}" />
+<van-transition duration="800" show="{{showViewCount}}" name="fade-left" custom-class="mypop">
+    过去一周，有
+    <text class="count">{{post.views_count}}人</text>
+    查看了此房源
+</van-transition>
+
+<block wx:for="{{blocks}}" wx:for-item="block" wx:for-key="index">
+    <images-block  wx:if="{{block.name == 'images' }}"  value="{{ block.value }}" />
+    <meta-block  wx:if="{{block.name == 'meta' }}"  value="{{ block.value }}" />
+</block>
+
+
 <view style="width:100%;" hidden="{{loading}}">
-    <van-transition duration="800" show="{{showViewCount}}" name="fade-left" custom-class="mypop">
-        过去一周，有
-        <text class="count">{{post.views_count}}人</text>
-        查看了此房源
-    </van-transition>
-    <view class="post-cover">
-        <swiper class="swiper" indicator-dots="true" autoplay="{{post.images_list.length > 1}}" interval="5000" duration="500" bindchange="swiperChange" circular="true" easing-function="linear" indicator-color="rgba(255,255,255,0.7)" indicator-active-color="#fff">
-            <swiper-item bindtap="viewImage" data-index="{{index}}" wx:key="{{index}}" wx:for="{{post.full_images_list}}">
-                <view class="first">
-                    <image wx:if="{{ index ==0 && post.vr_url}}" catchtap='gotoVr' class="play vr" src="/assets/icons/vr.png"></image>
-                    <image wx:if="{{ index == 1 && post.video}}" catchtap='gotoVideo' class="play video" src="/assets/icons/bofang.png"></image>
-                    <image mode="widthFix" wx:if="{{item}}" class="item" src="{{item}}?imageView2/2/h/420"></image>
-                </view>
-            </swiper-item>
-        </swiper>
-    </view>
-    <box width="750" padding="30">
-        <view class="header">
-            <view class="tagsinfo">
-                <mytags size="large" wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
-                <van-tag size="large" color="#f4f4f4" text-color="#666">房源ID:{{post.id}}</van-tag>
-            </view>
-            <!-- view class="title-block">
-           <view class=" post-title">{{ post.title}} </view>
-           <navigator url="/pages/fenxiao/report?pid={{post.id}}" class="report" hover-class="none">
-             <van-button type="info" plain size="mini">报备</van-button>
-           </navigator>
-         </view -->
-            <view class="typeinfo">
-                <view class="item border">
-                    <view class="value">
-                        {{post.price_info.text}}
-                        <text class="px">{{post.price_info.px}}</text>
-                        <view class="key">{{post.price_info.label}}</view>
-                    </view>
-                </view>
-                <view class="item border">
-                    <view class="value">{{post.type_info.text}}</view>
-                    <view class="key">{{post.type_info.label}}</view>
-                </view>
-                <view class="item">
-                    <view class="value">
-                        {{post.area_info.text}}
-                        <text class="px">{{post.area_info.px}}</text>
-                        <view class="key">{{post.area_info.label}}</view>
-                    </view>
-                </view>
-            </view>
-            <view class="detail-meta">
-                <view class="meta {{ meta.url ? 'link lg' : '' }} {{ meta.large ? 'lg' : '' }}" wx:key="{{meta.label}}" wx:if="{{meta}}" wx:for="{{post.meta_list}}" wx:for-item="meta">
-                    <text class="label">{{meta.label}}</text>
-                    <text bindtap="gotoMetaUrl" data-url="{{meta.url}}" class="value van-ellipsis">
-                        {{ meta.value || '-' }}
-                    </text>
-                </view>
-            </view>
-            <navigator wx:if="{{post.group != 'new' }}" url="/pages/post/meta?id={{post.id}}" class="more-btn more-meta" hover-class="none">
-                更多房源信息
-            </navigator>
-        </view>
-    </box>
+
     <view wx:if="{{post.brokage_info.show}}" style="margin-bottom:20rpx;margin-top:-20rpx;">
         <van-notice-bar wx:if="{{post.brokage_info.show}}" left-icon="/assets/icons/yongjin.png" text="佣金：{{ post.brokage_info.title }} 详细规则：{{ post.brokage_info.desc || '无' }}" />
     </view>

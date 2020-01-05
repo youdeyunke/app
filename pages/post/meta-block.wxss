@@ -1,0 +1,124 @@
+/* pages/post/meta-block.wxss */
+
+.header {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: #fff;
+}
+
+.tagsinfo {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10rpx;
+    align-items: center;
+
+}
+
+.tagsinfo .num {
+    font-size: 20rpx;
+    color: #999;
+}
+
+.title-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10rpx 0 20rpx 0;
+    width: 100%;
+}
+
+.title-block .report {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.baseinfo {
+    margin-bottom: 20rpx;
+}
+
+.baseinfo .item .value {
+    font-weight: bolder;
+}
+
+.baseinfo .item .key {
+    margin-top: 10rpx;
+}
+
+.baseinfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: 30rpx;
+}
+
+.baseinfo .item {
+    width: 33.333%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+.baseinfo .item .value {
+    font-size: 38rpx;
+    color: red;
+    margin-top: 10rpx;
+}
+
+.baseinfo .item .value .px {
+    font-size: 20rpx;
+    color: #666;
+}
+
+.baseinfo .item .key {
+    font-size: var(--font-xs);
+    color: #999;
+}
+
+.baseinfo .item.border {
+    border-right: 1px solid #f1f1f1;
+    margin-right: 30rpx;
+}
+
+
+
+.detail-meta {
+    font-size: 30rpx;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 20rpx;
+    margin-top: 20rpx;
+    width: 100%;
+}
+
+.detail-meta .meta {
+    display: flex;
+    height: 55rpx;
+    width: 50%;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.detail-meta .meta.lg {
+    width: 100%;
+}
+
+.detail-meta .meta text.label {
+    color: #999;
+    width: 130rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.detail-meta .meta.link .value {
+    color: rgb(121, 121, 172);
+}
