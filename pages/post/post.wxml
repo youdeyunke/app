@@ -8,14 +8,20 @@
 <block wx:for="{{blocks}}" wx:for-item="block" wx:for-key="index">
     <images-block  wx:if="{{block.name == 'images' }}"  value="{{ block.value }}" />
     <meta-block  wx:if="{{block.name == 'meta' }}"  value="{{ block.value }}" />
+    <van-notice-bar wx:if="{{ block.name == 'brokage' }}" left-icon="/assets/icons/yongjin.png" text="佣金：{{ value.brokage}} 详细规则：{{ value.brokage_desc || '无' }}" />
+    <html-block wx:if="{{block.name == 'html'}}" block="{{block}}" />
+    <desc-block wx:if="{{block.name == 'desc'}}" block="{{block}}" />
+    <map-block wx:if="{{block.name == 'map'}}" block="{{block}}" />
+    <brokers-block wx:if="{{block.name == 'brokers'}}" block="{{block}}" />
+    <recoms-block wx:if="{{block.name == 'recoms'}}" block="{{block}}" />
+    <btns-block wx:if="{{block.name == 'btns'}}" block="{{block}}" />
+    <contact-block wx:if="{{block.name == 'contact'}}" block="{{block}}" />
+    <safe-block wx:if="{{block.name == 'safe'}}" block="{{block}}" />
 </block>
 
 
 <view style="width:100%;" hidden="{{loading}}">
 
-    <view wx:if="{{post.brokage_info.show}}" style="margin-bottom:20rpx;margin-top:-20rpx;">
-        <van-notice-bar wx:if="{{post.brokage_info.show}}" left-icon="/assets/icons/yongjin.png" text="佣金：{{ post.brokage_info.title }} 详细规则：{{ post.brokage_info.desc || '无' }}" />
-    </view>
     <mycard width="750" title="配套设施" wx:if="{{post.group == 'rental' && post.facilities && post.facilities.length > 0 }}" hat="{{false}}">
         <view class="fac-items">
             <view class="fac-item" wx:for="{{post.facilities}}" wx:for-item="fac" wx:key="{{fac.id}}">
@@ -23,29 +29,6 @@
                 <view class="fac-item-name">{{ fac.name }}</view>
             </view>
         </view>
-    </mycard>
-    <mycard title="楼盘介绍" hat="{{false}}" wx:if="{{post.group == 'new'}}">
-        <view class="html-content {{ minicontent == true ? 'mini' : 'full' }}">
-            <view class="raw">
-                <rich-text nodes="{{post.content}}" />
-            </view>
-            <view class="html-content-footer"></view>
-        </view>
-        <view class="view-more-container">
-            <form style="width:100%;" report-submit class="myfav-wrapper" bindsubmit="formidHandle">
-                <button form-type="submit" class="fake more-btn view-more" bindtap="contentHandle" wx:if="{{minicontent}}" hover-class="none">
-                    显示全文
-                </button>
-            </form>
-        </view>
-    </mycard>
-    <mycard title="房源详情" wx:else hat="{{false}}">{{ post.desc }}</mycard>
-    <mycard title="位置概况" hat="{{false}}" padding="{{false}}">
-        <view class="location">
-            <text class="label">位置：</text>
-            <text class="value">{{post.sub_district.address}}</text>
-        </view>
-        <mapimage image="{{sub.map_image_url}}" latitude="{{sub.latitude}}" longitude="{{sub.longitude}}" name="{{sub.name}}"></mapimage>
     </mycard>
     <mycard width="750" title="户型介绍" wx:if="{{post.group == 'new'}}" hat="{{false}}">
         <view class="housetype" wx:for="{{post.types}}" wx:key="{{item.id}}">
@@ -70,14 +53,6 @@
         </view>
     </mycard>
     <block wx:if="{{mode == 1 && EXT.show_brokers_enable != false  }}">
-        <mycard title="推荐经纪人" hat="{{false}}" padding="{{false}}">
-            <broker-link post-id="{{post.id}}" broker="{{broker}}" wx:for="{{brokers}}" wx:for-item="broker" wx:key="{{broker.id}}" />
-            <view class="more-brokers-btn">
-                <view wx:if="{{moreBrokersBtn}}" bindtap="moreBrokersHandle" hover-class="none" class="more-btn">
-                    展开全部
-                </view>
-            </view>
-        </mycard>
     </block>
     <mycard title="推荐房源" padding="{{false}}" hat="{{false}}" wx:if="{{post.recoms.length >= 2}}">
         <view class="recoms">

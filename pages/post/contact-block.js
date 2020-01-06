@@ -1,10 +1,9 @@
-// pages/post/map-block.js
+// pages/post/contact-block.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-      block: {type: Object, default: {}}
 
   },
 

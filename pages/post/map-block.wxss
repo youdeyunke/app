@@ -1,1 +1,3 @@
-/* pages/post/map-block.wxss */
+.location {
+    padding: 0 0 20rpx 30rpx;
+}

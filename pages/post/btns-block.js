@@ -1,10 +1,10 @@
-// pages/post/map-block.js
+// pages/post/btns-block.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-      block: {type: Object, default: {}}
+      block: {type: Object, default:{} }
 
   },
 

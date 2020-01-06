@@ -1,10 +1,10 @@
-// pages/post/content-block.js
+// pages/post/desc-block.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-
+      block: {type: Object, default: {}}
   },
 
   /**

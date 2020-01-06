@@ -1,2 +1,7 @@
-<!--pages/post/map-block.wxml-->
-<text>pages/post/map-block.wxml</text>
+<mycard title="{{block.label}}" hat="{{false}}" padding="{{false}}">
+    <view class="location">
+        <text class="label">位置：</text>
+        <text class="value">{{block.value.address}}</text>
+    </view>
+    <mapimage image="{{block.value.map_image_url}}" latitude="{{block.value.latitude}}" longitude="{{block.value.longitude}}" name="{{block.value.name}}"></mapimage>
+</mycard>
