@@ -1,0 +1,7 @@
+<view class="wrapper">
+    <van-notice-bar left-icon="/assets/icons/yongjin.png" text="佣金：{{ value.brokage}} 详细规则：{{ value.brokage_desc || '无' }}" >
+        <navigator slot="right-icon" url="/pages/fenxiao/report?id={{value.post_id}}" hover-class="none"> 
+            <van-button size="small" type="info" plain >录报备</van-button>
+        </navigator>
+    </van-notice-bar>
+</view>

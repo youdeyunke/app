@@ -1,2 +1,4 @@
 <!--pages/post/desc-block.wxml-->
-<mycard title="{{ value.title }}"  hat="{{false}}">{{ value.desc }}</mycard>
+<mycard title="{{ value.title }}"  hat="{{false}}">
+    <view class="content">{{ value.desc }}</view>
+</mycard>

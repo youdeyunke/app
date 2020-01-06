@@ -1,0 +1,4 @@
+/* pages/post/brokage-block.wxss */
+.wrapper{
+  margin:-20rpx auto 20rpx auto;
+}
