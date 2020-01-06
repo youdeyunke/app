@@ -94,15 +94,6 @@ Page({
         var url = this.data.post.types[i].image.url
         wx.previewImage({ urls: [url] })
     },
-    viewImage: function (e) {
-        var urls = this.data.post.full_images_list
-        var index = e.currentTarget.dataset.index
-        var url = urls[index]
-        wx.previewImage({
-            current: url,
-            urls: urls,
-        })
-    },
 
     call: function (e) {
         var mobile = e.currentTarget.dataset.value

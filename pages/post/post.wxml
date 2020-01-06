@@ -5,42 +5,25 @@
     查看了此房源
 </van-transition>
 
-<block wx:for="{{blocks}}" wx:for-item="block" wx:for-key="index">
-    <images-block  wx:if="{{block.name == 'images' }}"  value="{{ block.value }}" />
-    <meta-block  wx:if="{{block.name == 'meta' }}"  value="{{ block.value }}" />
-    <van-notice-bar wx:if="{{ block.name == 'brokage' }}" left-icon="/assets/icons/yongjin.png" text="佣金：{{ value.brokage}} 详细规则：{{ value.brokage_desc || '无' }}" />
-    <html-block wx:if="{{block.name == 'html'}}" value="{{block.value}}" />
-    <desc-block wx:if="{{block.name == 'desc'}}" value="{{block.value}}" />
-    <facilities-block wx:if="{{block.name == 'facilities'}}" value="{{block.value}}" />
-    <map-block wx:if="{{block.name == 'map'}}" value="{{block.value}}" />
-    <types-block wx:if="{{block.name == 'types'}}" value="{{block.value}}" />
-    <brokers-block wx:if="{{block.name == 'brokers'}}" value="{{block.value}}" />
-    <recoms-block wx:if="{{block.name == 'recoms'}}" value="{{block.value}}" />
-    <btns-block wx:if="{{block.name == 'btns'}}" value="{{block.value}}" />
-    <contact-block wx:if="{{block.name == 'contact'}}" value="{{block.value}}" />
-</block>
-
-<ad-link />
-<safe-tips cat="{{post.group}}" />
-<cr />
 
 <view style="width:100%;" hidden="{{loading}}">
+    <block wx:for="{{blocks}}" wx:for-item="block" wx:for-key="index">
+        <images-block  wx:if="{{block.name == 'images' }}"  value="{{ block.value }}" />
+        <meta-block  wx:if="{{block.name == 'meta' }}"  value="{{ block.value }}" />
+        <van-notice-bar wx:if="{{ block.name == 'brokage' }}" left-icon="/assets/icons/yongjin.png" text="佣金：{{ value.brokage}} 详细规则：{{ value.brokage_desc || '无' }}" />
+        <html-block wx:if="{{block.name == 'html'}}" value="{{block.value}}" />
+        <desc-block wx:if="{{block.name == 'desc'}}" value="{{block.value}}" />
+        <facilities-block wx:if="{{block.name == 'facilities'}}" value="{{block.value}}" />
+        <map-block wx:if="{{block.name == 'map'}}" value="{{block.value}}" />
+        <types-block wx:if="{{block.name == 'types'}}" value="{{block.value}}" />
+        <brokers-block wx:if="{{block.name == 'brokers'}}" value="{{block.value}}" />
+        <recoms-block wx:if="{{block.name == 'recoms'}}" value="{{block.value}}" />
+        <btns-block wx:if="{{block.name == 'btns'}}" value="{{block.value}}" />
+        <contact-block wx:if="{{block.name == 'contact'}}" value="{{block.value}}" />
+    </block>
 
+    <ad-link />
+    <safe-tips cat="{{post.group}}" />
+    <cr />
 
-    <contact wx:if="{{mode == 2}}" info="{{contactInfo}}" />
-    <van-popup show="{{showShareBox }}" bind:close="closeShareBox" position="bottom">
-        <view class="share-box">
-            <view class="share-box-title">分享房源</view>
-            <view class="share-box-items">
-                <button plain bindtap="closeShareBox" open-type='share' class="share-box-item">
-                    <image class="share-box-item-icon" src="/assets/icons/weixin.png"></image>
-                    <view class="share-box-item-name">微信</view>
-                </button>
-                <view bindtap="onCreatePoster" class="share-box-item" wx:if="{{post.qr}}">
-                    <image class="share-box-item-icon" src="/assets/icons/pengyouquan.png"></image>
-                    <view class="share-box-item-name">海报</view>
-                </view>
-            </view>
-        </view>
-    </van-popup>
 </view>

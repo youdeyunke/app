@@ -1,5 +1,12 @@
 <box width="750" padding="30">
     <view class="header">
+        <view class="title-block">
+            <view class=" post-title">{{value.title}} </view>
+            <navigator wx:if="{{ value.baobei_btn.enable }}" url="{{value.baobei_btn.url}}" class="report" hover-class="none">
+                <van-button type="info" plain size="mini">{{ value.baobei_btn.text}}</van-button>
+            </navigator>
+        </view >
+
         <view class="tagsinfo">
           <navigator 
                 style="margin-right:10rpx;"
@@ -10,12 +17,9 @@
                 text-color="{{ tag.text_color || '#8C99A8' }}">{{ tag.name }}</van-tag> 
           </navigator>
         </view>
-        <view class="title-block">
-            <view class=" post-title">{{value.title}} </view>
-            <navigator wx:if="{{ value.baobei_btn.enable }}" url="{{value.baobei_btn.url}}" class="report" hover-class="none">
-                <van-button type="info" plain size="mini">{{ value.baobei_btn.text}}</van-button>
-            </navigator>
-        </view >
+
+        <simple-images-block value="{{ value.simple_images_block.value }}"  wx:if="{{ value.simple_images_block }}"  />
+
         <view class="baseinfo">
             <view class="item border">
                 <view class="value">
@@ -39,7 +43,7 @@
         <view class="detail-meta">
             <view class="meta {{ meta.url ? 'link lg' : '' }} {{ meta.large ? 'lg' : '' }}" wx:key="{{meta.label}}" wx:if="{{meta}}" wx:for="{{value.meta_list}}" wx:for-item="meta">
                 <text class="label">{{meta.label}}</text>
-                <navigator hover-class="none" wx:if="{{meta.url}}" url="{{meta.url}}">{{meta.value}}</navigator>
+                <navigator class="value" hover-class="none" wx:if="{{meta.url}}" url="{{meta.url}}">{{meta.value}}</navigator>
                 <text wx:else  class="value">{{meta.value}}</text>
             </view>
         </view>

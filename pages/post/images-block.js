@@ -23,6 +23,16 @@ Component({
         wx.navigateTo({ url: '/pages/video/show' })
     },
 
+    viewImage: function (e) {
+        var urls = this.data.value.full_images
+        var index = e.currentTarget.dataset.index
+        var url = urls[index]
+        wx.previewImage({
+            current: url,
+            urls: urls,
+        })
+    },
+
     gotoVr: function () {
         var vr = this.data.post.proxy_vr_url
         //var vr = 'https://csimum.udeve.cn/vr.html'

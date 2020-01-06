@@ -30,6 +30,12 @@
     width: 100%;
 }
 
+.title-block .post-title{
+    font-size:32rpx;
+    font-weight:bolder;
+    color:#333;
+}
+
 .title-block .report {
     display: flex;
     justify-content: space-between;
