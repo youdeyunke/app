@@ -1,0 +1,17 @@
+<view class="wrapper" bindtap="viewImage">
+   <view class="west">
+     <van-image radius="6rpx" width="500rpx" height="404rpx" src="{{ value.images[0] }}" />
+   </view>
+
+   <view class="wrapper2">
+    <view class="north">
+     <van-image radius="6rpx" width="206rpx" height="200rpx" src="{{ value.images[1] }}" />
+    </view>
+
+    <view class="south">
+     <view class="count">共{{ value.count }}张</view>
+     <van-image radius="6rpx"  width="206rpx" height="200rpx" src="{{ value.images[2] }}" />
+    </view>
+
+   </view>
+</view>
