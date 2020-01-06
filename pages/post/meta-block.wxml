@@ -43,7 +43,7 @@
                 <text wx:else  class="value">{{meta.value}}</text>
             </view>
         </view>
-        <navigator wx:if="{{value.group != 'new' }}" url="/pages/post/meta?id={{value.id}}" class="more-btn more-meta" hover-class="none">
+        <navigator wx:if="{{value.group != 'new' }}" url="/pages/post/meta?id={{value.post_id}}" class="more-btn more-meta" hover-class="none">
             更多房源信息
         </navigator>
     </view>
