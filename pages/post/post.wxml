@@ -64,7 +64,6 @@
         </view>
     </mycard>
     <ad-link />
-    <broker-btns wx:if="{{mode == 1}}" broker="{{post.broker_info}}" pid="{{post.id}}" post="{{post}}" bookingStatus="{{post.user_has_booking}}" />
     <contact wx:if="{{mode == 2}}" info="{{contactInfo}}" />
     <safe-tips cat="{{post.group}}" />
     <van-popup show="{{showShareBox }}" bind:close="closeShareBox" position="bottom">

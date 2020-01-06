@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-      "van-tag": "/vant/tag/index",
-      "van-action-sheet": "/vant/action-sheet/index"
-  }
-}

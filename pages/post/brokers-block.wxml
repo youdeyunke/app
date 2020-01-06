@@ -1,7 +1,6 @@
 <!--pages/post/brokers-block.wxml-->
 <mycard title="{{block.label}}" hat="{{false}}" padding="{{false}}">
-broker blocks, {{block.label }}, {{ block.value }}
-    <broker-link post-id="{{post.id}}" broker="{{broker}}" wx:for="{{block.value.brokers}}" wx:for-item="broker" wx:key="{{broker.id}}" />
+    <broker-link post-id="{{post.id}}" broker="{{broker}}" wx:if="{{ index+1 <= maxLength  }}"  wx:for="{{block.value.brokers}}" wx:for-item="broker" wx:key="{{broker.id}}" />
     <view class="more-brokers-btn">
         <view wx:if="{{moreBrokersBtn && block.more_btn}}" bindtap="moreBrokersHandle" hover-class="none" class="more-btn">
             展开全部

@@ -1,2 +1,5 @@
-<!--pages/post/contact-block.wxml-->
-<text>pages/post/contact-block.wxml</text>
+<view class="contact">
+    <van-button catchtap="callMe" style="width:90%;margin:auto;" block size="large"  type="primary" icon="/assets/icons/btn-call.png" round >
+            马上联系 {{ block.value.name}}
+    </van-button>
+</view>

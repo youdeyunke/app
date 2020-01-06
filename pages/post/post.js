@@ -124,9 +124,14 @@ Page({
     loadData: function () {
         var _this = this
         this.setData({ loading: true })
+        var query = {
+            contact_name:  this.data.contactInfo.name || '',
+            contact_moile: this.data.contactInfo.mobile || '',
+        }
         app.request({
             hideLoading: true,
             url: '/api/v5/posts/' + _this.data.postId,
+            data: query,
             success: function (resp) {
                 _this.setData({
                     loading: false,
@@ -141,13 +146,6 @@ Page({
     },
 
 
-moreBrokersHandle: function () {
-    // 显示更多经纪人
-    this.setData({
-        moreBrokersBtn: false,
-        brokers: this.data.allBrokers
-    })
-},
 
 createBookOrder: function (cb) {
     // 创建支付定金订单
@@ -272,9 +270,19 @@ onLoad: function (options) {
 
     // 正常进入
     var postId = options.id
+    if(options.contact){
+        // 分享海报进入，并设置成我自己的联系方式
+        var _contacts = options.contact.split('_')
+        var postId = _contacts[0]
+        this.setData({
+            contactInfo: {
+                name: decodeURIComponent(_contacts[1]),
+                mobile: decodeURIComponent(_contacts[2]),
+                uid: decodeURIComponent(_contacts[3]),
+            }
+        })
+    }
 
-    // 分享海报，并设置成我自己的联系方式
-    var brokerId = options.broker_id
 
     _this.setData({ postId: postId })
     _this.loadData()
