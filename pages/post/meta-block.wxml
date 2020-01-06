@@ -2,9 +2,6 @@
     <view class="header">
         <view class="title-block">
             <view class=" post-title">{{value.title}} </view>
-            <navigator wx:if="{{ value.baobei_btn.enable }}" url="{{value.baobei_btn.url}}" class="report" hover-class="none">
-                <van-button type="info" plain size="mini">{{ value.baobei_btn.text}}</van-button>
-            </navigator>
         </view >
 
         <view class="tagsinfo">

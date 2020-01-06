@@ -5,6 +5,7 @@
       "images-block": "./images-block",
       "meta-block": "./meta-block",
       "desc-block": "./desc-block",
+      "brokage-block": "./brokage-block",
       "html-block": "./html-block",
       "map-block": "./map-block",
       "brokers-block": "./brokers-block",
@@ -16,7 +17,6 @@
       "facilities-block": "./facilities-block",
 
     "mytags": "/components/tags",
-    "van-notice-bar": "/vant/notice-bar/index",
     "van-transition": "/vant/transition/index",
     "gimage": "/components/gyroscope-image",
     "page-loading": "/pages/post/page-loading",

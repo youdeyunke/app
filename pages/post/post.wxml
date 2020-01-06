@@ -8,9 +8,9 @@
 
 <view style="width:100%;" hidden="{{loading}}">
     <block wx:for="{{blocks}}" wx:for-item="block" wx:for-key="index">
+        <brokage-block wx:if="{{ block.name == 'brokage' }}" value="{{ block.value}}"  />
         <images-block  wx:if="{{block.name == 'images' }}"  value="{{ block.value }}" />
         <meta-block  wx:if="{{block.name == 'meta' }}"  value="{{ block.value }}" />
-        <van-notice-bar wx:if="{{ block.name == 'brokage' }}" left-icon="/assets/icons/yongjin.png" text="佣金：{{ value.brokage}} 详细规则：{{ value.brokage_desc || '无' }}" />
         <html-block wx:if="{{block.name == 'html'}}" value="{{block.value}}" />
         <desc-block wx:if="{{block.name == 'desc'}}" value="{{block.value}}" />
         <facilities-block wx:if="{{block.name == 'facilities'}}" value="{{block.value}}" />

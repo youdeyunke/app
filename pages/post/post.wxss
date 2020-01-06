@@ -324,31 +324,6 @@ myfav .myfav {
 }
 
 
-.fac-items {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-}
-
-.fac-item {
-    width: 25%;
-    margin-bottom: 20rpx;
-    height: 100rpx;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.fac-item-name {}
-
-.fac-item-icon {
-    width: 50rpx;
-    height: 80rpx;
-
-}
-
-
 
 .mypop {
     position: fixed;

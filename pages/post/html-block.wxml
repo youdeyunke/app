@@ -5,7 +5,9 @@
         </view>
         <view class="html-content-footer"></view>
     </view>
-    <van-button size="large" plain round type="default" bindtap="contentHandle" wx:if="{{minicontent}}" >
+
+    <view class="more-btn" bindtap="contentHandle" wx:if="{{minicontent}}" >
         显示全文
-    </van-button>
+    </view>
+
 </mycard>
