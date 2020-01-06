@@ -4,7 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    block: {type: Object, value:null},
+    value: {type: Object},
   },
 
   ready: function(){
@@ -23,7 +23,7 @@ Component({
     callMe: function(){
       var _this = this
       wx.makePhoneCall({
-          phoneNumber: _this.data.block.value.mobile 
+          phoneNumber: _this.data.value.mobile 
       })
     },
   }

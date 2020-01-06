@@ -8,17 +8,17 @@ Component({
    */
 
   properties: {
-    block: {type: Object, value: null},
+    value: {type: Object, value: null},
   },
 
   observers: {
-      "block.value.fav_count": function(val){
+      "value.fav_count": function(val){
           this.setData({favCount: val})
       },
-      "block.value.fav_status": function(val){
+      "value.fav_status": function(val){
           this.setData({favStatus: val})
       },
-      "block.value.booking_status": function(val){
+      "value.booking_status": function(val){
           this.setData({bookingStatus: val})
       },
   },
@@ -43,12 +43,12 @@ Component({
   methods: {
     
     posterHandle: function(){
-        var pid = this.data.block.value.post_id
+        var pid = this.data.value.post_id
         wx.navigateTo({url: '/pages/poster/index?id=' + pid} )
     },
 
     reportHandle: function(){
-        var pid = this.data.block.value.post_id
+        var pid = this.data.value.post_id
         wx.navigateTo({
             url: '/pages/fenxiao/report?pid=' + pid
         } )
@@ -60,7 +60,7 @@ Component({
         app.request({
           url: '/api/v2/favs/',
           hideLoading: true,
-          data: { post_id: _this.data.block.value.post_id },
+          data: { post_id: _this.data.value.post_id },
           success: function (resp) {
               _this.setData({
                   favStatus: resp.data.data.status,
@@ -72,7 +72,7 @@ Component({
 
     favHandle: function(e){
       app.uploadFormId(e)
-      var pid = this.data.block.value.post_id
+      var pid = this.data.value.post_id
       var _this = this
       auth.ensureUser(function(userInfo){
           app.request({
@@ -91,14 +91,14 @@ Component({
     },
 
     reportHandle: function(){
-        var pid = this.data.block.value.post_id
+        var pid = this.data.value.post_id
         wx.navigateTo({
             url: '/pages/fenxiao/report?pid=' + pid ,
         })
     },
 
     callHandle: function(){
-      var m = this.data.block.value.mobile
+      var m = this.data.value.mobile
       wx.makePhoneCall({
         phoneNumber: m,
       })
@@ -108,8 +108,8 @@ Component({
     chatHandle: function(){
       // 先调用打招呼接口
       wx.showLoading({title: '正在打开', icon: 'none', mask: true})
-      var pid = this.data.block.value.post_id
-      var brokerId = this.data.block.value.broker_id
+      var pid = this.data.value.post_id
+      var brokerId = this.data.value.broker_id
       var _this = this
       app.request({
         url: '/api/v2/posts/hello?id=' + pid + '&receiver_id=' + brokerId,

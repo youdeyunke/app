@@ -39,9 +39,8 @@
         <view class="detail-meta">
             <view class="meta {{ meta.url ? 'link lg' : '' }} {{ meta.large ? 'lg' : '' }}" wx:key="{{meta.label}}" wx:if="{{meta}}" wx:for="{{value.meta_list}}" wx:for-item="meta">
                 <text class="label">{{meta.label}}</text>
-                <text bindtap="gotoMetaUrl" data-url="{{meta.url}}" class="value van-ellipsis">
-                    {{ meta.value || '-' }}
-                </text>
+                <navigator hover-class="none" wx:if="{{meta.url}}" url="{{meta.url}}">{{meta.value}}</navigator>
+                <text wx:else  class="value">{{meta.value}}</text>
             </view>
         </view>
         <navigator wx:if="{{value.group != 'new' }}" url="/pages/post/meta?id={{value.id}}" class="more-btn more-meta" hover-class="none">

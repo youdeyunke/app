@@ -1,2 +1,2 @@
 <!--pages/post/desc-block.wxml-->
-<mycard title="{{ block.label }}"  hat="{{false}}">{{ block.value }}</mycard>
+<mycard title="{{ value.title }}"  hat="{{false}}">{{ value.desc }}</mycard>

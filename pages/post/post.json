@@ -11,7 +11,9 @@
       "recoms-block": "./recoms-block",
       "safe-block": "./safe-block",
       "btns-block": "./btns-block",
+      "types-block": "./types-block",
       "contact-block": "./contact-block",
+      "facilities-block": "./facilities-block",
 
     "mytags": "/components/tags",
     "van-notice-bar": "/vant/notice-bar/index",

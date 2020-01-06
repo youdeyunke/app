@@ -4,7 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-      block: {type: Object, default:{} },
+      value: {type: Object, default:{} },
   },
 
   /**
@@ -24,7 +24,7 @@ Component({
         var _this = this
         this.setData({
             moreBrokersBtn: false,
-            maxLength: _this.data.block.brokers.length
+            maxLength: _this.data.value.brokers.length
         })
     },
 

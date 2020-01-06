@@ -119,7 +119,13 @@
     align-items: center;
 }
 
-.detail-meta .meta.link .value {
+.detail-meta .meta text.value {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.detail-meta .meta  navigator.value {
     color: rgb(121, 121, 172);
 }
 

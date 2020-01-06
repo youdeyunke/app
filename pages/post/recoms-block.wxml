@@ -1,2 +1,9 @@
-<!--pages/post/recoms-block.wxml-->
-<text>pages/post/recoms-block.wxml</text>
+<mycard title="{{value.title}}" padding="{{false}}" hat="{{false}}" >
+    <view class="recoms">
+        <scroll-view scroll-with-animation="{{true}}" scroll-x style="width:100%">
+            <view class="items">
+                <item-block item="{{item}}" wx:key="{{item.id}}" wx:for="{{value.recoms}}" />
+            </view>
+        </scroll-view>
+    </view>
+</mycard>

@@ -1,7 +1,7 @@
-<mycard title="{{block.label}}" hat="{{false}}" >
+<mycard title="{{value.title}}" hat="{{false}}" >
     <view class="html-content {{ minicontent == true ? 'mini' : 'full' }}">
         <view class="raw">
-            <rich-text nodes="{{block.value}}" />
+            <rich-text nodes="{{value.html}}" />
         </view>
         <view class="html-content-footer"></view>
     </view>

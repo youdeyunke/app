@@ -1,1 +1,6 @@
-/* pages/post/recoms-block.wxss */
+.recoms {
+    width: 100%;
+    background: #fff;
+    margin-bottom: 20rpx;
+    padding: 0rpx 0 20rpx 0;
+}

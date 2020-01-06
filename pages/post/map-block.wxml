@@ -1,7 +1,7 @@
-<mycard title="{{block.label}}" hat="{{false}}" padding="{{false}}">
+<mycard title="{{value.title}}" hat="{{false}}" padding="{{false}}">
     <view class="location">
         <text class="label">位置：</text>
-        <text class="value">{{block.value.address}}</text>
+        <text class="value">{{value.address}}</text>
     </view>
-    <mapimage image="{{block.value.map_image_url}}" latitude="{{block.value.latitude}}" longitude="{{block.value.longitude}}" name="{{block.value.name}}"></mapimage>
+    <mapimage image="{{value.map_image_url}}" latitude="{{value.latitude}}" longitude="{{value.longitude}}" name="{{value.name}}"></mapimage>
 </mycard>

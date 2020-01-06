@@ -1,10 +1,9 @@
 <view class="actions">
 
   <view class="icons">
-
-    <view class="icon-item"  bindtap="{{ block.value.icon_1.handle }}">
-      <van-icon size="40rpx;" name="{{block.value.icon_1.icon }}"  />
-      <text class="icon-item-name">{{block.value.icon_1.name }}</text>
+    <view class="icon-item"  bindtap="{{ value.icon_1.handle }}">
+      <van-icon size="40rpx;" name="{{value.icon_1.icon }}"  />
+      <text class="icon-item-name">{{value.icon_1.name }}</text>
     </view>
 
     <view class="icon-item"  bindtap="favHandle">
@@ -12,9 +11,9 @@
       <text class="icon-item-name">{{ favStatus == 1 ? '已收藏' : '收藏'}} </text>
     </view>
 
-    <view class="icon-item"  bindtap="{{ block.value.icon_3.handle }}">
-      <van-icon size="40rpx;" name="{{block.value.icon_3.icon }}"  />
-      <text class="icon-item-name">{{block.value.icon_3.name }}</text>
+    <view class="icon-item"  bindtap="{{ value.icon_3.handle }}">
+      <van-icon size="40rpx;" name="{{value.icon_3.icon }}"  />
+      <text class="icon-item-name">{{value.icon_3.name }}</text>
     </view>
 
   </view>
@@ -22,11 +21,11 @@
   <view class="buttons">
     <van-button round style="width:50%;" custom-style="border-top-right-radius:0;border-bottom-right-radius:0;"  size="large" bindtap="bookingHandle"  type="primary" >{{ bookingStatus == 1? '已预约' : '预约看房' }}</van-button>
     <van-button round style="width:50%" custom-style="border-top-left-radius:0;border-bottom-left-radius:0;" size="large" bindtap="callHandle"     type="info"  >
-    {{ block.value.button_2.name}}
+    {{ value.button_2.name}}
     </van-button>
   </view>
 
-  <booking bind:change="bookingChange" booked="{{bookingStatus}}" post-id="{{block.value.post_id}}"   id="booking" />
+  <booking bind:change="bookingChange" booked="{{bookingStatus}}" post-id="{{value.post_id}}"   id="booking" />
 
 </view>
 
