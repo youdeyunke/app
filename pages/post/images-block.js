@@ -19,7 +19,7 @@ Component({
    */
   methods: {
     gotoVideo: function () {
-        wx.setStorageSync('video-url', this.data.post.video)
+        wx.setStorageSync('video-url', this.data.value.video_url)
         wx.navigateTo({ url: '/pages/video/show' })
     },
 
@@ -34,7 +34,7 @@ Component({
     },
 
     gotoVr: function () {
-        var vr = this.data.post.proxy_vr_url
+        var vr = this.data.value.vr_url
         //var vr = 'https://csimum.udeve.cn/vr.html'
         //var vr = 'https://csimum.udeve.cn/vr2.html?id=21963'
         //var vrid = vr.split('?')[1].split('=')[1]

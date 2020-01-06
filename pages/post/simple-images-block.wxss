@@ -20,13 +20,39 @@
   width:500rpx;
   height:404rpx;
   margin-right:4rpx;
+  position:relative;
+}
+
+ .vr{
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border-radius: 100rpx;
+    width: 100rpx;
+    height: 100rpx;
+    padding: 30rpx;
+    left: calc(50% - 80rpx);
+    top: calc(50% - 80rpx);
+    position: absolute;
 }
 
 .north{
   background:#f4f4f4;
   width:206rpx;
   height:200rpx;
+  position:relative;
 
+}
+
+ .video{
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    border-radius: 100rpx;
+    width: 100rpx;
+    height: 100rpx;
+    padding: 30rpx;
+    left: calc(50% - 80rpx);
+    top: calc(50% - 80rpx);
+    position: absolute;
 }
 
 .south{
