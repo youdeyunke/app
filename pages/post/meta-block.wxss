@@ -30,7 +30,7 @@
 }
 
 .title-block .post-title{
-    font-size:32rpx;
+    font-size:40rpx;
     font-weight:bolder;
     color:#333;
 }

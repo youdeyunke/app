@@ -1,4 +1,4 @@
-<mycard title="{{value.title}}" hat="{{false}}" >
+<mycard title-size="40" title="{{value.title}}" hat="{{false}}" >
     <view class="html-content {{ minicontent == true ? 'mini' : 'full' }}">
         <view class="raw">
             <rich-text nodes="{{value.html}}" />

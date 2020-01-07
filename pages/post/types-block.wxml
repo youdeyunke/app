@@ -1,7 +1,7 @@
-<mycard width="750" title="户型介绍" hat="{{false}}">
+<mycard width="750" title="户型介绍" hat="{{false}}"  title-size="40">
 
     <view class="filter">
-      <van-tag text-color="{{tag.textColor}}" color="{{tag.color}}"  data-group="{{tag.group}}" bindtap="groupClick" size="large" wx:for="{{tags}}" wx:for-item="tag" >{{tag.name}} </van-tag>
+      <view class="item {{ tag.className}} "  data-group="{{tag.group}}" bindtap="groupClick"  wx:for="{{tags}}" wx:for-item="tag" >{{tag.name}} </view>
     </view>
 
     <view class="housetype {{ item.className}}" wx:for="{{items}}" wx:key="{{item.id}}">

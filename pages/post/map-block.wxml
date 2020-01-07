@@ -1,4 +1,4 @@
-<mycard title="{{value.title}}" hat="{{false}}" padding="{{false}}">
+<mycard title="{{value.title}}" hat="{{false}}" padding="{{false}}" title-size="40">
     <view class="location">
         <text class="label">位置：</text>
         <text class="value">{{value.address}}</text>

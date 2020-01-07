@@ -30,10 +30,9 @@ Component({
           // 标签发生变化
           var tags  = []
           this.data.value.groups.forEach((g, i) => {
-              var tag = {name: g + '室', group: g, textColor: '#999999', color: '#f8f8f8'}
+              var tag = {name: g + '室', group: g, className: ' '}
               if(g == val){
-                 tag.textColor = '#1989fa'
-                 tag.color = '#f1f5ff'
+                  tag.className = 'active'
               }
               tags.push(tag)
           })

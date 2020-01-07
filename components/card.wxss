@@ -43,6 +43,11 @@
   font-weight: bold;
 }
 
+.card-heard-title .name{
+  font-weight:bolder;
+  color:#333333;
+}
+
 .card-header-action{
   display: flex;
   justify-content: flex-end;

@@ -1,11 +1,29 @@
 
 .filter{
-  margin-bottom:20rpx;
+  margin-bottom:30rpx;
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
 }
 
-.filter van-tag{
+.filter .item{
   margin-right:20rpx;
+  font-size: 30rpx;
+  height: 70rpx;
+  width: 120rpx;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:4rpx;
+  color:#999999;
+  background:#f8f8f8;
 }
+
+.filter .item.active{
+  color:#1989fa;
+  background:#f1f5ff;
+}
+
 
 .housetype {
     display: flex;
