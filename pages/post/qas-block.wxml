@@ -1,5 +1,7 @@
 <mycard title="{{ value.title }}"  hat="{{false}}" title-size="40" sub-title="{{ value.more_title }}" url="{{value.more_url}}" padding="{{false}}">
   <view class="qas">
+    <view class="empty" wx:if="{{value.items.length == 0}}">还没有人提问</view>
+
     <van-cell url="/pages/qa/qa?id={{item.id}}" value="{{item.answers_count || 0}}个回答" is-link wx:for="{{value.items}}" border="{{ index == value.items.length -1 ? false : true}}">
       <van-tag slot="icon" type="warning">问</van-tag>
 
@@ -9,8 +11,8 @@
     </van-cell>
   </view>
 
-  <navigator class="more-btn"  hover-class="none" url="/pages/qa/new?target_id={{value.post_id}}&target_type=post">
-    <van-button type="info" size="small" plain round  >问一问</van-button>
+  <navigator class="add-btn"  hover-class="none" url="/pages/qa/new?target_id={{value.post_id}}&target_type=post">
+    <van-button type="info" size="large" block plain >我要提问</van-button>
   </navigator>
 
 </mycard>
