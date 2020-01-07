@@ -1,3 +1,10 @@
 .location {
-    padding: 0 0 20rpx 30rpx;
+    padding: 20rpx 0 20rpx 30rpx;
+    font-size:28rpx;
 }
+
+
+.location .label{
+  color:#999999;
+}
+

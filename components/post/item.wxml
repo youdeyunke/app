@@ -10,7 +10,7 @@
           </view>
         </view>
         <view class="meta">
-          <text class="item-title van-ellipsis "  >{{ item.title }}</text>
+          <text class="item-title van-ellipsis "  >{{ item.title_info.text }}</text>
           <view class="type-info">
             {{item.area_info.text}}{{item.area_info.px}}/{{ item.type_info.text}}/{{item.sub_district_name }}
           </view>

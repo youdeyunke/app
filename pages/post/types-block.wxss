@@ -59,7 +59,7 @@
 
 .housetype .name {
     width: 100%;
-    font-size: 40rpx;
+    font-size: 38rpx;
     font-weight: bolder;
     color: #333;
     margin-bottom: 10rpx;
