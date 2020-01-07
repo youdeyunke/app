@@ -7,7 +7,7 @@
   </view>
 </box>
 
-<mycard title="回答" hat="{{false}}">
+<mycard title="回答" hat="{{false}}" wx:if="{{item.anwsers.count > 0}}">
     <van-cell size="large"  value="{{item.user.name }}" wx:for="{{item.answers}}" border="{{ index == item.answers.length -1 ? false : true}}">
       <view slot="title" style="color:#333333;font-size:28rpx;"> {{ item.content }} </view>
     </van-cell>
@@ -18,7 +18,7 @@
   <view class="waiting empty" style="margin-bottom:20rpx;">
     <image src="/assets/images/waiting.png" style="margin-bottom:20rpx;" ></image>
     该问题还未收到回复
-    <van-button type="info" plain  bindtap="addHandle" size="medium" style="margin-top:20rpx;">我来回答</van-button>
+    <van-button type="info" plain  bindtap="addHandle" size="small" style="margin-top:20rpx;">我来回答</van-button>
   </view>
 </box>
 

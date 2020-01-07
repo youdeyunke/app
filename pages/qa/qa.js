@@ -129,7 +129,7 @@ Page({
                 title: '温馨提示',
                 content: '你不是经纪人，不能回复此问题',
             })
-            //return false
+            return false
         }
         _this.setData({showForm: true})
     })
