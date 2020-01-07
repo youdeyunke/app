@@ -59,15 +59,15 @@
 
 .housetype .name {
     width: 100%;
-    font-size: 32rpx;
+    font-size: 40rpx;
     font-weight: bolder;
     color: #333;
     margin-bottom: 10rpx;
 }
 
 .housetype .kv {
-    font-size: 28rpx;
-    margin: 5rpx 0;
+    font-size: 30rpx;
+    margin: 8rpx 0;
     display:flex;
     justify-content:flex-start;
     align-items:center;

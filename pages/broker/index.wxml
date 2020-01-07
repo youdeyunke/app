@@ -15,7 +15,7 @@
 <view class="empty" wx:if="{{!loading && items[0].length == 0 }}" style="text-align:center;color:#cecece;margin-top:100rpx;">没有记录</view>
 <block  wx:else>  
   <block wx:for="{{items}}" wx:for-item="brokers">
-    <broker-link     broker="{{broker}}" wx:for="{{brokers}}" wx:for-item="broker" />
+    <view class="broker-item"  wx:for="{{brokers}}" wx:for-item="broker" ><broker-link  broker="{{broker}}" /></view>
   </block>
 
   <view style="display:flex;justify-content:center;align-items:center;margin-top:30rpx;">

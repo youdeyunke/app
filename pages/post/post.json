@@ -16,22 +16,11 @@
       "contact-block": "./contact-block",
       "facilities-block": "./facilities-block",
 
-    "mytags": "/components/tags",
     "van-transition": "/vant/transition/index",
-    "gimage": "/components/gyroscope-image",
     "page-loading": "/pages/post/page-loading",
     "qa": "/components/qa",
     "box": "/components/box",
     "visitors": "/components/visitors/index",
-
-    "sub-item": "/components/sub-district/item",
-    "sub-location-info": "/components/sub-district/location-info",    
-    "safe-tips": "/components/safe-tips",
-    "van-cell": "/vant/cell/index",
-    "mystars": "/components/stars",
-    "van-popup": "/vant/popup/index",
-    "van-button": "/vant/button/index",
-    "item-block": "/components/post/item-block",
-    "comments": "/components/comments/target-comments"
+    "safe-tips": "/components/safe-tips"
   }
 }
