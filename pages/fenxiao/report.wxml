@@ -26,7 +26,7 @@
     </mycard>
 
     <mycard width="750" title="客户意向房源"   hat="{{false}}">
-        <van-field size="large"  name="post_name"  input-align="left" border="{{false}}" value="{{ post_name}} "
+        <van-field size="large"  data-name="post_name"  input-align="left" border="{{false}}" value="{{ post_name}} "
             label="意向房源" bind:change="inputChange" autosize />
     </mycard>    
 
