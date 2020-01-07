@@ -14,6 +14,7 @@
       "btns-block": "./btns-block",
       "types-block": "./types-block",
       "contact-block": "./contact-block",
+      "qas-block": "./qas-block",
       "facilities-block": "./facilities-block",
 
     "van-transition": "/vant/transition/index",

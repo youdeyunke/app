@@ -1,0 +1,7 @@
+/* pages/post/qas-block.wxss */
+
+.question{
+  padding-left:10rpx;
+  color:#333333;
+  font-weight:bolder;
+}

@@ -1,4 +1,5 @@
 // components/broker.js const app = getApp()
+const app = getApp()
 var auth = require('../../utils/auth.js');
 
 Component({

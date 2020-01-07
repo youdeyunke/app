@@ -1,11 +1,11 @@
 
-<navigator hover-class='none' url="/pages/qa/qa?id={{item.id}}" class="qa-item {{ mini == true ? 'mini' : ''}}">
+<navigator hover-class='none' url="/pages/qa/qa?id={{item.id}}" class="qa-item ">
   <view class="qa-item-body qa-item-q">
     <view class="qa-item-body-icon">问</view>
     <view class="qa-item-body-content">
             <text class="qa-post-name" wx:if="{{item.post_name}}"> #{{item.post_name}}# </text> {{item.content}}</view>
   </view>
-  <view wx:if="{{mini == false }}" class="qa-item-author">
+  <view class="qa-item-author">
       {{ item.user.nickname}} 在 {{item.created_at_pretty}} 咨询
   </view>
 
@@ -14,7 +14,7 @@
     <view class="qa-item-body-icon">答</view>
     <view class="qa-item-body-content">{{item.answer}}      </view>
   </view>
-  <view wx:if="{{  mini == false }}" class="qa-item-author">
+  <view  class="qa-item-author">
       客服在{{ item.updated_at_pretty}} 回复
   </view>  
   </block>
