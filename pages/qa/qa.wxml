@@ -7,9 +7,9 @@
   </view>
 </box>
 
-<mycard title="回答" hat="{{false}}" wx:if="{{item.anwsers.count > 0}}">
-    <van-cell size="large"  value="{{item.user.name }}" wx:for="{{item.answers}}" border="{{ index == item.answers.length -1 ? false : true}}">
-      <view slot="title" style="color:#333333;font-size:28rpx;"> {{ item.content }} </view>
+<mycard title="回答" hat="{{false}}" wx:if="{{item.answers_count > 0}}" padding="{{false}}" >
+    <van-cell size="large"  value="{{answer.user.name }}" wx:for-item="answer" wx:for="{{item.answers}}" border="{{ index == item.answers.length -1 ? false : true}}">
+      <view slot="title" style="color:#333333;font-size:28rpx;"> {{ answer.content }} </view>
     </van-cell>
 </mycard>
 
