@@ -57,22 +57,13 @@ Page({
   doSubmit: function () {
     var _this = this
     var content = _this.data.questionContent
-    // 保存到本地，用户跳转到登录后，文本不丢失
-    wx.setStorageSync('question_content', content)
-
     app.request({
       method: 'POST',
       url: '/api/v1/questions/',
-      data: { content: content, post_id: _this.data.post_id},
+      data: { content: content, target_id: _this.data.target_id, target_type: _this.data.target_type},
       success: function (resp) {
-        // clear cache
-        _this.setData({ questionContent: '' })
-        wx.setStorageSync('question_content', '')
         // redirect
-        wx.navigateBack({
-          delta: -1
-        })
-        
+        wx.navigateBack({ delta: -1 })
         wx.showToast({
           title: '问题提交成功，我们会尽快回复您',
           icon: 'success',
@@ -86,13 +77,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
-    this.setData({post_id: q.post_id})
+    this.setData({target_id: q.target_id, target_type: q.target_type || 'post'})
     var _this = this
-    var eb = {
-      key: 'redirect',
-      value: '/pages/qa/new?post_id=' + q.post_id || ''
-    }
-    auth.ensureMobile(function(userInfo){
+    auth.ensureUser(function(userInfo){
         _this.setData({userInfo: userInfo})
     })
   },

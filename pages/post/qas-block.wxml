@@ -6,8 +6,11 @@
       <view slot="title">
         <view class="question">{{ item.content }}</view>
       </view>
-
     </van-cell>
-
   </view>
+
+  <navigator class="more-btn"  hover-class="none" url="/pages/qa/new?target_id={{value.post_id}}&target_type=post">
+    <van-button type="info" size="medium"  >问一问</van-button>
+  </navigator>
+
 </mycard>

@@ -5,3 +5,10 @@
   color:#333333;
   font-weight:bolder;
 }
+
+.more-btn{
+  width:100%;
+  margin:20rpx  auto 0 auto;
+  display:flex;
+  justify-content:center;
+}
