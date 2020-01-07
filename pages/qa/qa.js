@@ -10,9 +10,10 @@ Page({
    */
   data: {
     item: null,
+    loading: true,
+    submiting: false,
+    showForm: false,
     qas: null,
-    answerPeermission: false,
-    empty: false,
   
   },
 
@@ -85,13 +86,6 @@ Page({
         item['updated_at_pretty'] = util.prettyTime(item['updated_at'])
         _this.setData({item: item})
         
-        var empty = true
-        if(item.answer){
-          if(item.answer.length > 1){
-            empty = false
-          }
-        }
-        _this.setData({empty: empty})
       }
     })
 
@@ -99,13 +93,6 @@ Page({
 
   submitHandle: function(e){
     console.log('submit ',e)
-    if(!this.data.answerPeermission){
-      wx.showToast({
-        title: '没有权限',
-        icon: 'none',
-      })
-      return false
-    }
     // 点击提交
     var _this = this
     if(_this.data.answer && _this.data.answer.length < 10){
@@ -115,47 +102,38 @@ Page({
       })
       return false
     }
-
+    this.setData({submiting: true})
     app.request({
-      url: '/api/v1/questions/answer',
+      url: '/api/v1/answers',
       method: 'POST',
       data: {
-        id: _this.data.item.id,
-        answer: _this.data.answer,
+        question_id: _this.data.item.id,
+        content: _this.data.answer,
       },
       success: function(resp){
+        _this.setData({submiting: false})
         if(resp.data.status == 0){
-          
-          wx.showToast({
-            title: '保存成功',
-          })
+          wx.showToast({ title: '保存成功', })
           _this.loadData()
-          _this.setData({ answerPeermission: false })
         }
       }
     })
-
   },
 
   addHandle: function(e){
     // 点击我来回答按钮
     var _this = this
     auth.ensureUser(function(userInfo){
-      _this.loadPost((post) => {
-        if(post.user_id == userInfo.id){
-          console.log('hello')
-          _this.setData({answerPeermission: true})
-        }else{
-          wx.showModal({
-            title: '温馨提示',
-            content: '你不是房源的发布者，不能回复此问题',
-          })
-          _this.setData({answerPeermission: false})
+        if(!userInfo.is_broker){
+            wx.showModal({
+                title: '温馨提示',
+                content: '你不是经纪人，不能回复此问题',
+            })
+            //return false
         }
-      })
+        _this.setData({showForm: true})
     })
   },
-
 
 
   answerInput: function(e){

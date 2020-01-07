@@ -2,3 +2,22 @@ page{
   padding-top:0rpx !important;
 }
 
+.question-title{
+  color:#333333;
+  font-weight:bolder;
+  font-size:30rpx;
+}
+
+
+.meta{
+  margin: 20rpx 0 20rpx 0;
+  color:#999999;
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+}
+
+.meta .blank{
+   padding:0 20rpx;
+}
+
