@@ -1,28 +1,39 @@
-<box padding="30">
+<view class="wrapper">
   <view class="question-title">{{ item.content }}</view>
   <view class="meta">
-    <view class="user">用户{{item.user.nickname }}</view>
-    <view class="blank">|</view>
-    <view class="time">{{item.created_at_pretty}}</view>
-  </view>
-</box>
+    <view class="left">
+        <view class="user">用户{{item.user.nickname }}</view>
+        <view class="blank">|</view>
+        <view class="time">{{item.created_at_pretty}}</view>
+    </view>
 
-<mycard title="回答" hat="{{false}}" wx:if="{{item.answers_count > 0}}" padding="{{false}}" >
-    <van-cell size="large"  value="{{answer.user.name }}" wx:for-item="answer" wx:for="{{item.answers}}" border="{{ index == item.answers.length -1 ? false : true}}">
-      <view slot="title" style="color:#333333;font-size:28rpx;"> {{ answer.content }} </view>
-    </van-cell>
-</mycard>
+    <view class="right">
+        <view class="add" bindtap="addHandle">
+          <van-icon name="records" /> 写回复
+        </view>
+    </view>
+
+  </view>
+  
+  <view class="line"></view>
+
+  <view class="answers">
+    <view class="answer"  wx:for-item="answer" wx:for="{{item.answers}}">
+      <broker-link broker="{{answer.user}}" />
+      <view class="content">{{ answer.content }}</view>
+    </view>
+  </view>
+</view>
 
 
 <box padding="30"  wx:if="{{item.answers_count == 0}}" >
   <view class="waiting empty" style="margin-bottom:20rpx;">
     <image src="/assets/images/waiting.png" style="margin-bottom:20rpx;" ></image>
     该问题还未收到回复
-    <van-button type="info" plain  bindtap="addHandle" size="small" style="margin-top:20rpx;">我来回答</van-button>
   </view>
 </box>
 
-<mycard hat wx:if="{{ showForm }}" title="编辑回答">
+<mycard hat wx:if="{{ showForm }}" title="添加回复">
     <textarea  class="answer-input" placeholder='输入你的答案' value="{{item.answer}}" bindinput="answerInput"></textarea>
     <button class="answer-submit" bindtap="submitHandle"  class="btn primary">提交回答</button>
 </mycard>

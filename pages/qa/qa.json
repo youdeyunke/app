@@ -1,5 +1,6 @@
 {
       "usingComponents": {
+        "broker-link": "/components/broker/link",
         "card": "/components/card",
         "box": "/components/box",
         "recoms": "/components/recom-posts",
