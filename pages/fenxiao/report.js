@@ -71,11 +71,13 @@ Page({
     },
 
     inputChange: function (e) {
+        console.log('input change', e)
         var k = e.currentTarget.dataset['name']
         var v = e.detail
         var data = {}
         data[k] = v
         this.setData(data)
+        console.log('set data', data)
     },
 
     loadPost: function (pid) {
@@ -130,6 +132,7 @@ Page({
 
 
     validateFormData: function (fdata) {
+        console.log('fdata', fdata)
         if (!fdata['name']) {
             wx.showToast({
                 title: '请填写客户姓名',
