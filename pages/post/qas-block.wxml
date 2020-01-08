@@ -2,12 +2,15 @@
   <view class="qas">
     <view class="empty" wx:if="{{value.items.length == 0}}">还没有人提问</view>
 
-    <van-cell url="/pages/qa/qa?id={{item.id}}" value="{{item.answers_count || 0}}个回答" is-link wx:for="{{value.items}}" border="{{ index == value.items.length -1 ? false : true}}">
+    <van-cell url="/pages/qa/qa?id={{item.id}}"  wx:for="{{value.items}}" border="{{ index == value.items.length -1 ? false : true}}">
       <van-tag slot="icon" type="warning">问</van-tag>
-
       <view slot="title">
         <view class="question">{{ item.content }}</view>
       </view>
+      <view slot="right-icon">
+        <view style="display:flex;align-items:center;"><van-icon name="chat-o"></van-icon> ({{ item.answers_count }})</view>
+      </view>
+
     </van-cell>
   </view>
 
