@@ -1,14 +1,21 @@
+<box padding="30">
 
-<form  bindsubmit="submitHandle" bindreset="resetHandle" >
-  <view class="container">
-        <textarea bindinput="inputHandle" maxlength="200" value="{{questionContent}}" name="content" placeholder='在这里输入您想要咨询的问题...'></textarea>
-  </view>
+    <textarea bindinput="inputHandle" maxlength="200" value="{{questionContent}}" name="content" placeholder='在这里输入您想要咨询的问题...'></textarea>
 
-  <view class="container container-bg-none">
-    <button  style="margin-bottom:20rpx;" class="btn primary"form-type="submit" >我要提问</button>
-    <button class="btn" type="default" form-type="reset" >返回</button>
+  <view class="actions">
+    <van-button round  disabled="{{loading || questionContent.length < minLength }}" loading="{{loading}}" bindtap="submitHandle" type="info" block  >我要提问</van-button>
+    <view style="height:20rpx;display:block;"></view>
+    <van-button  round bindtap="backHandle" type="default" block  >返回</van-button>
   </view>
-  
-</form>
+</box>
+
+<mycard title="你可以这样问" hat="{{false}}">
+  <van-cell size="large" wx:for="{{commonQs}}" wx:for-item="text">
+    <view slot="title">{{text}}</view>
+    <van-button bindtap="quickHandle" type="info" round size="small" data-index="{{index}}">去提问</van-button>
+  </van-cell>
+
+</mycard>
+
 
 

@@ -1,15 +1,16 @@
 page{
-	padding-top:20rpx;
-}
-
-.container{
-	margin-bottom:20rpx;
+	padding-top:0rpx;
 }
 
 textarea{
 	padding:20rpx;
+    font-size:28rpx;
+    box-sizing:border-box;
+    background:#f8f8f8;
+    border-radius:6rpx;
 }
 
-button{
-	width:100%;
+.actions{
+  width:100%;
+  margin:30rpx auto 0 auto;
 }

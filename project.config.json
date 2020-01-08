@@ -643,6 +643,13 @@
 					"pathName": "pages/myself/qa",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/qa/new",
+					"pathName": "pages/qa/new",
+					"query": "target_id=52&target_type=post",
+					"scene": null
 				}
 			]
 		}

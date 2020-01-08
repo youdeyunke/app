@@ -8,7 +8,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+      loading: false,
+      questionContent: '',
+      minLength: 5,
+      commonQs: [
+          "是70年产权房吗？",
+          "会不会有拆迁的可能？",
+          "附近有幼儿园吗？",
+          "步行到地铁口/公交车站多长时间？",
+      ],
   },
 
   gohome: function(e){
@@ -22,16 +30,26 @@ Page({
     this.setData({ questionContent: v })
   },
 
+  quickHandle: function(e){
+      var i = e.currentTarget.dataset.index
+      var text = this.data.commonQs[i]
+      this.setData({questionContent: text})
+  },
+
 
   resetHandle: function(){
     wx.navigateBack({ delta: -1 })
   },
 
   submitHandle: function () {
+    if(this.data.loading){
+        return false;
+    }
+      
     var _this = this
     var content = _this.data.questionContent
     var qLen = typeof content == 'undefined' ? 0 :  content.length 
-    var qMinLength = 10
+    var qMinLength = this.data.minLength 
 
     if (qLen >= 200) {
       wx.showToast({
@@ -49,9 +67,14 @@ Page({
       })
       return false
     }
+    this.setData({loading: true})
     auth.ensureUser(function(userInfo){
         _this.doSubmit()
     })
+  },
+
+  backHandle: function(){
+    wx.navigateBack({ delta: -1 })
   },
 
   doSubmit: function () {
@@ -63,6 +86,7 @@ Page({
       data: { content: content, target_id: _this.data.target_id, target_type: _this.data.target_type},
       success: function (resp) {
         // redirect
+        _this.setData({loading: false})
         wx.navigateBack({ delta: -1 })
         wx.showToast({
           title: '问题提交成功，我们会尽快回复您',
