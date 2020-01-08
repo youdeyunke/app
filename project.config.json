@@ -650,6 +650,13 @@
 					"pathName": "pages/qa/new",
 					"query": "target_id=52&target_type=post",
 					"scene": null
+				},
+				{
+					"id": 89,
+					"name": "pages/qa/index",
+					"pathName": "pages/qa/index",
+					"query": "target_id=52&target_type=post&user_id=myself",
+					"scene": null
 				}
 			]
 		}

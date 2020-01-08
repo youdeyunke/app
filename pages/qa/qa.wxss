@@ -3,6 +3,7 @@ page{
 }
 
 .wrapper{
+  width:100%;
   padding:30rpx 0;
   margin-bottom:20rpx;
   background:#fff;

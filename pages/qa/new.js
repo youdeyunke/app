@@ -9,8 +9,11 @@ Page({
    */
   data: {
       loading: false,
+      target_id: '',
+      target_type: '',
       questionContent: '',
       minLength: 5,
+      maxLength: 100,
       commonQs: [
           "是70年产权房吗？",
           "会不会有拆迁的可能？",
@@ -49,19 +52,21 @@ Page({
     var _this = this
     var content = _this.data.questionContent
     var qLen = typeof content == 'undefined' ? 0 :  content.length 
-    var qMinLength = this.data.minLength 
+    var min = this.data.minLength 
+    var max = this.data.maxLnegth
 
-    if (qLen >= 200) {
+    if (qLen > max) {
       wx.showToast({
-        title: '文本太长',
+        title: '内容太长',
         icon: 'none',
         duration: 2000
       })
       return false
     }
-    if (qLen <= qMinLength) {
+
+    if (qLen < min) {
       wx.showToast({
-        title: '请至少填写' + qMinLength + '个字符',
+        title: '请至少填写' + min+ '个字符',
         icon: 'none',
         duration: 2000
       })
@@ -80,19 +85,31 @@ Page({
   doSubmit: function () {
     var _this = this
     var content = _this.data.questionContent
+    if(!this.data.target_type || !this.data.target_id){
+        wx.showToast({
+            title: '系统异常',
+            icon: 'none',
+            duration: 2000
+        })
+        return false
+    }
+
     app.request({
       method: 'POST',
       url: '/api/v1/questions/',
       data: { content: content, target_id: _this.data.target_id, target_type: _this.data.target_type},
       success: function (resp) {
-        // redirect
         _this.setData({loading: false})
-        wx.navigateBack({ delta: -1 })
+        if(resp.data.status != 0){
+            return false;
+        }
+        // redirect
         wx.showToast({
           title: '问题提交成功，我们会尽快回复您',
           icon: 'success',
           duration: 2000
         })
+        wx.navigateBack({ delta: -1 })
       }
     })
   },  
