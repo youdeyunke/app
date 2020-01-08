@@ -274,14 +274,12 @@ onLoad: function (options) {
         })
     }
 
-
     _this.setData({ postId: postId })
     _this.loadData()
-
-    //app.markVisitor(null, postId, 'post', function (vid) {
-    //   _this.setData({ 'visitorLogId': vid })
-    //    _this.setInterval()
-    //})
+    app.markVisitor(null, postId, 'post', function (vid) {
+       _this.setData({ 'visitorLogId': vid })
+        _this.setInterval()
+    })
 },
 
 /**
