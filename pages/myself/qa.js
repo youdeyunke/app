@@ -34,7 +34,8 @@ Page({
   loadData: function(){
     var _this = this
     app.request({
-      url: '/api/v1/myself/questions',
+      url: '/api/v1/questions',
+      data: {user_id: 'myself'},
       success: function(resp){
         _this.setData({
           items: resp.data.data

@@ -1,5 +1,5 @@
 <box padding="30" margin-bottom="0" wx:for="{{items}}" >
-  <qa wx:if="{{item}}"  item="{{item}}"></qa>
+  <van-cell size="large" title="{{item.content}}" is-link url="/pages/qa/qa?id={{item.id}}" />
 </box>
 
 <view class="empty" wx:if="{{items.length == 0}}">

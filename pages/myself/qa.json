@@ -1,6 +1,5 @@
 {
+  "navigationBarTitleText": "我的提问",
   "usingComponents":{
-    "box": "/components/box",
-    "qa": "/components/qa"
   }
 }
