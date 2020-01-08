@@ -1,8 +1,0 @@
-<box padding="30" margin-bottom="0" wx:for="{{items}}" >
-  <van-cell size="large" title="{{item.content}}" is-link url="/pages/qa/qa?id={{item.id}}" />
-</box>
-
-<view class="empty" wx:if="{{items.length == 0}}">
-   <image src="/assets/images/cover-none.png"></image>
-   <view>{{ emptyText || '没有数据'}}</view>
-</view>

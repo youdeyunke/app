@@ -1,0 +1,21 @@
+.wrapper{
+  width:100%:
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:center;
+  margin-top:200rpx;
+}
+
+.wrapper image{
+  width:500rpx;
+  height:500rpx;
+  opacity: 0.3;
+}
+
+.wrapper .text{
+  font-size:28rpx;
+  color:#999999;
+  width:500rpx;
+  text-align:center;
+}

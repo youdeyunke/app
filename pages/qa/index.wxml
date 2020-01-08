@@ -11,4 +11,6 @@
     </van-cell>
 </mycard>
 
+<no-result wx:else />
+
 
