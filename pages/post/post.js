@@ -9,105 +9,15 @@ Page({
      * 页面的初始 数据
      */
     data: {
+        blocks: [],
+        points: [],
         loading: true,
         visitorLogId: null,
-        ntervalId: null,
-        post: null,
-        mode: 1,
-        moreBrokersBtn: false,
+        contactInfo: {},
         debug: false,
         user: {},
-        brokers: [],
         showViewCount: false,
-        contactInfo: {},
-        posts: null,
-        flowContent: '',
-        flowId: '',
-        showFlowForm: false,
-        htmlContent: null,
-        minicontent: true,
         showShareBox: false,
-        currentTab: 'detail',
-    },
-
-    swiperChange: function (e) {
-    },
-
-
-    contentHandle: function (e) {
-        this.setData({
-            minicontent: !this.data.minicontent
-        })
-    },
-
-    openWebview: function (e) {
-        var url = this.data.post.more_url
-        if (!url) {
-            return
-        }
-        var _this = this
-        wx.setStorageSync('webview', this.data.post.more_url)
-        wx.navigateTo({
-            url: '/pages/webview/webview?title=' + _this.data.post.title,
-        })
-    },
-
-    readMore: function () {
-        this.setData({ readmore: true })
-    },
-
-    readLess: function () {
-        this.setData({ readmore: false })
-    },
-
-    loadQas: function () {
-        var _this = this
-        var postId = this.data.postId
-        app.request({
-            url: '/api/v1/questions/',
-            hideLoading: true,
-            data: { post_id: postId, limit: 999 },
-            success: function (resp) {
-                _this.setData({
-                    qas: resp.data.data
-                })
-            }
-        })
-    },
-
-    loadComments: function () {
-        var _this = this
-        var postId = this.data.postId
-        app.request({
-            hideLoading: true,
-            url: '/api/v1/mycomments',
-            hideLoading: true,
-            data: { target_id: postId, target_type: 'post', limit: 999 },
-            success: function (resp) {
-                _this.setData({ comments: resp.data.data })
-            },
-        })
-    },
-
-    viewTypeImage: function (e) {
-        var i = e.currentTarget.dataset.index
-        var url = this.data.post.types[i].image.url
-        wx.previewImage({ urls: [url] })
-    },
-
-    call: function (e) {
-        var mobile = e.currentTarget.dataset.value
-        wx.makePhoneCall({
-            phoneNumber: mobile //仅为示例，并非真实的电话号码
-        })
-
-    },
-
-    callMe: function () {
-        var m = this.data.post.staff_user.mobile
-        wx.makePhoneCall({
-            phoneNumber: m //仅为示例，并非真实的电话号码
-        })
     },
 
 
@@ -126,116 +36,28 @@ Page({
             success: function (resp) {
                 _this.setData({
                     loading: false,
-                    blocks: resp.data.data
+                    blocks: resp.data.data.blocks,
+                    points: resp.data.data.points,
                 })
-                console.log('blocks', resp.data.data)
                 //html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
                 //html = html.replace(/\<p/gi, '<p class="rich-text-p" ')
                 wx.setNavigationBarTitle({ title: '房源详情' })
+                _this.queryElementsPosition()
             }
         })
     },
 
-
-
-createBookOrder: function (cb) {
-    // 创建支付定金订单
-    if (this.data.post.user_has_coupon) {
-        return false;
-    }
-
-    var _this = this
-    app.request({
-        url: '/api/v1/book_orders',
-        method: 'POST',
-        data: { post_id: _this.data.postId },
-        success: function (resp) {
-            if (resp.data.status == 1) {
-                return false;
-            }
-
-            console.log('支付成功后处理', resp.data)
-            wx.showLoading({ title: '处理中...' })
-            _this.loadPost(_this.data.postId)
-
-            wx.showToast({
-                icon: 'none',
-                title: '已领取',
-            })
-            return true
-        }
+queryElementsPosition(){
+    // TODO
+    const query = wx.createSelectorQuery()
+    query.select('#types').boundingClientRect()
+    query.selectViewport().scrollOffset()
+    query.exec(function(res){
+      console.log('ele', res)
+      //res[0].top       // #the-id节点的上边界坐标
+      //res[1].scrollTop // 显示区域的竖直滚动位置
     })
 },
-
-
-gotoMetaUrl: function (e) {
-    var url = e.currentTarget.dataset.url
-    if (!url) {
-        return false
-    }
-
-    var _this = this
-    wx.navigateTo({
-        url: url,
-    })
-},
-
-showShareBoxHandle: function (e) {
-    this.setData({
-        showShareBox: true,
-    })
-},
-
-closeShareBox: function (e) {
-    this.setData({
-        showShareBox: false
-    })
-},
-
-
-saveImage: function (path, cb) {
-    wx.saveImageToPhotosAlbum({
-        filePath: path,
-        complete: function (res) {
-            if (res.errMsg == 'saveImageToPhotosAlbum:fail auth deny') {
-                wx.navigateTo({
-                    url: '/pages/myself/setting',
-                    success: function () {
-                        wx.showToast({
-                            title: '请先在“权限设置”中打开相册权限',
-                            icon: 'none',
-                            duration: 3000,
-                            success: function () { },
-                        })
-                    },
-                })
-            }
-        },
-        success: function (res) {
-            wx.showToast({
-                icon: 'none',
-                title: '已保存，请前往手机相册查看',
-            })
-            return typeof cb == 'function' && cb()
-        }
-    })
-},
-
-
-
-isFromShare: function (scene) {
-    var res = false;
-    var s = parseInt(scene)
-    // 需要显示回到首页按钮的场景列表
-    var sList = [1007, 1008, 1011, 1012, 1013, 1014, 1047, 1048, 1049, 1058, 1067, 1069, 1073, 1074, 1081, 1084, 1091, 1096]
-    for (var i = 0; i <= sList.length - 1; i++) {
-        if (s == sList[i]) {
-            res = true;
-        }
-    }
-    return res;
-},
-
 
 checkViewsCount: function (c) {
     // 延时显示有多少人看过房源
@@ -254,6 +76,9 @@ checkViewsCount: function (c) {
  * 生命周期函数--监听页面加载
  */
 onLoad: function (options) {
+    var system = wx.getSystemInfoSync()
+    var h = system['windowHeight']
+    this.setData({windowHeight: h})
     this.setData({ EXT: app.globalData.EXT })
     app.checkForceLogin()
     var _this = this
@@ -286,8 +111,15 @@ onLoad: function (options) {
  * 生命周期函数--监听页面初次渲染完成
  */
 onReady: function () {
+    // 页面渲染完成后
 
 },
+
+queryTabsPosition: function(){
+  // 查询tabs距离顶部的像素值
+},
+
+
 
 setInterval: function () {
     // 如果没有登录，直接退出
@@ -322,24 +154,6 @@ clearInterval: function () {
     }
 },
 
-
-loadSub: function () {
-    var sid = this.data.post.sub_district_id
-    if (!sid) {
-        return false;
-    }
-    var _this = this
-    app.request({
-        url: '/api/v1/sub_districts/' + sid,
-        hideLoading: true,
-        success: function (resp) {
-            if (resp.data.status != 0) {
-                return false
-            }
-            _this.setData({ sub: resp.data.data })
-        }
-    })
-},
 
 /**
  * 生命周期函数--监听页面显示
