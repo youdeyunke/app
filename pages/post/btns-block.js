@@ -28,6 +28,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+      chatEnable: true,
       bookingStatus: 0,
       favStatus: 0,
       favCount: 0,
@@ -35,6 +36,8 @@ Component({
 
   ready: function(){
     var _this = this
+    var ext = wx.getExtConfigSync()
+    this.setData({ chatEnable: ext['chat_enable'] != false })
   },
 
 

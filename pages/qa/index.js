@@ -22,9 +22,9 @@ Page({
    */
   onLoad: function (q) {
     this.setData({
-      target_id: q.target_id ,
-      target_type: q.target_type,
-      user_id: q.user_id,
+      target_id: q.target_id || '',
+      target_type: q.target_type || '',
+      user_id: q.user_id || '',
     })
     this.loadItems()
     var _this = this

@@ -23,7 +23,8 @@ Component({
   },
 
   ready: function(){
-     var chatEnable = app.globalData.EXT['chat_enable'] != false
+     var ext = wx.getExtConfigSync()
+     var chatEnable = ext['chat_enable'] != false
      this.setData({ chatEnable: chatEnable})
   },
 

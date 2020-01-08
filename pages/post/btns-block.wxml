@@ -11,7 +11,7 @@
       <text class="icon-item-name">{{ favStatus == 1 ? '已收藏' : '收藏'}} </text>
     </view>
 
-    <view class="icon-item"  bindtap="{{ value.icon_3.handle }}">
+    <view class="icon-item" wx:if="{{chatEnable}}"  bindtap="{{ value.icon_3.handle }}">
       <van-icon size="40rpx;" name="{{value.icon_3.icon }}"  />
       <text class="icon-item-name">{{value.icon_3.name }}</text>
     </view>
