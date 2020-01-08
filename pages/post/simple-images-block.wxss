@@ -77,5 +77,6 @@
   color:#ffffff;
   font-weight:bolder;
   letter-space:1.2;
+  border-radius:10rpx;
 
 }
