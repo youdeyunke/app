@@ -11,7 +11,7 @@ page{
 
 .line{
   border-top:1rpx solid #f4f4f4;
-  display:block
+  display:block;
   height:10rpx;
   margin:20rpx 30rpx 30rpx 30rpx;
 }
