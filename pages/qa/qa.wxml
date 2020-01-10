@@ -22,7 +22,7 @@
 </mycard>
 <box padding="30">
     <view class="answers">
-        <view class="answer" wx:for-key="{{answer.id}}" wx:for-item="answer" wx:for="{{answers}}">
+        <view class="answer" wx:for-item="answer" wx:for="{{answers}}">
             <view class="meta">
                 <view class="left">
                     <view class="avatar">

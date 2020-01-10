@@ -26,6 +26,7 @@ page{
     height: 60rpx;
     border-radius: 60rpx;
     margin-right:10rpx;
+    border:1rpx solid #f4f4f4;
 }
 
 .question-actions{
@@ -72,6 +73,7 @@ page{
     width: 60rpx;
     height: 60rpx;
     border-radius: 60rpx;
+    border:1rpx solid #f4f4f4;
 }
 
 .answer .content{
