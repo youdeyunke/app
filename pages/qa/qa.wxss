@@ -2,63 +2,105 @@ page{
   padding-top:0rpx !important;
 }
 
-.wrapper{
-  width:100%;
-  padding:30rpx 0;
-  margin-bottom:20rpx;
-  background:#fff;
-}
-
-.line{
-  border-top:1rpx solid #f4f4f4;
-  display:block;
-  height:10rpx;
-  margin:20rpx 30rpx 30rpx 30rpx;
-}
-
-.answer .content{
-  padding:10rpx 30rpx;
-}
-
-.question-title{
-  color:#333333;
-  font-weight:bolder;
-  font-size:30rpx;
-  padding:0 30rpx;
-}
-
-
-.meta{
-  margin: 20rpx 0 20rpx 0;
-  padding:0 30rpx;
+.question-meta{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  margin-bottom:20rpx;
+  font-size:28rpx;
 }
 
-.meta .left{
+.question-meta .left{
   display:flex;
   justify-content:flex-start;
   align-items:center;
   color:#999999;
 }
 
-.meta .left .blank{
+.question-meta .left .blank{
    padding:0 20rpx;
 }
 
-.meta .right{
+.question-meta .avatar image{
+    width:60rpx;
+    height: 60rpx;
+    border-radius: 60rpx;
+    margin-right:10rpx;
+}
+
+.question-actions{
   display:flex;
   justify-content:flex-end;
 }
 
-.meta .right .add{
+.question-actions .add{
   color:#1989fa;
 }
 
+.question-content {
+    line-height:1.4;
+    letter-spacing: 2.2rpx;
+    border-radius: 8rpx;
+    margin-bottom:20rpx;
+}
+
+.answer{
+    border-bottom:2rpx solid #f4f4f4;
+    margin-bottom:30rpx;
+    padding-bottom:30rpx;
+}
+
+.answer .meta{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    margin-bottom: 20rpx;
+}
+
+.answer .avatar, .answer .name, .answer .tag{
+    margin-right:20rpx;
+}
+
+.answer .meta .left{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size:24rpx;
+}
+
+.answer .avatar image{
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 60rpx;
+}
+
 .answer .content{
+    letter-spacing: 2.2rpx;
   font-size:28rpx;
-  color:#333333;
-  font-weight:bolder;
   line-height:1.4;
+  padding:0rpx;
+  border-radius: 8rpx;
+  margin-bottom:0rpx;
+  margin-left:70rpx;
+}
+
+.answer .actions{
+  display:flex;
+  justify-content:flex-end;
+}
+
+
+.answer .action-item{
+  width:60rpx;
+  height:60rpx;
+  border-radius:60rpx;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.answer .footer{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }

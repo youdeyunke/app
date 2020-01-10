@@ -36,9 +36,9 @@ Page({
             success: function (resp) {
                 _this.setData({
                     loading: false,
-                    blocks: resp.data.data.blocks,
-                    points: resp.data.data.points,
+                    blocks: resp.data.data,
                 })
+                console.log('blocks', resp.data.data)
                 //html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
                 //html = html.replace(/\<p/gi, '<p class="rich-text-p" ')
                 wx.setNavigationBarTitle({ title: '房源详情' })
