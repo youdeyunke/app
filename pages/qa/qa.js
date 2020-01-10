@@ -108,7 +108,8 @@ Page({
             success: function (resp) {
                 _this.setData({ submiting: false })
                 if (resp.data.status == 0) {
-                    wx.showToast({ title: '保存成功', })
+                    _this.setData({showForm: false})
+                    wx.showToast({ title: '发布成功', })
                     _this.loadData()
                 }
             }

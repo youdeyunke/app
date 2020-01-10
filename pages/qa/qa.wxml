@@ -16,10 +16,13 @@
         </van-button>
     </view>
 </box>
+
 <mycard hat wx:if="{{ showForm }}" title="添加回复">
     <textarea class="answer-input" placeholder='输入你的回复' value="" bindinput="answerInput"></textarea>
-    <button class="answer-submit" bindtap="submitHandle" class="btn primary">提交回答</button>
+    <van-button bindtap="submitHandle" block type="info"  loading="{{submiting}}">提交回复</van-button>
 </mycard>
+
+
 <box padding="30">
     <view class="answers">
         <view class="answer" wx:for-item="answer" wx:for="{{answers}}">
