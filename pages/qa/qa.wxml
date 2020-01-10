@@ -1,3 +1,6 @@
+<view class="target">
+    <van-cell border="{{false}}" title="{{ item.target_name}}" is-link url="{{item.target_url}}" />
+</view>
 <box padding="30">
     <view class="question-meta">
         <view class="left">
@@ -5,8 +8,8 @@
                 <image src="{{ item.user.avatar }}" />
             </view>
             <view class="user">{{item.user.nickname }}</view>
-            <view class="blank"></view>
-            <view class="time">在{{item.created_at_pretty}}咨询：</view>
+            <view class="time">{{item.created_at_pretty}}</view>
+            <view class="counter">共有 {{item.answers_count }} 条回答</view>
         </view>
     </view>
     <view class="question-content">{{ item.content }}</view>
@@ -16,14 +19,14 @@
         </van-button>
     </view>
 </box>
-
-<mycard hat wx:if="{{ showForm }}" title="添加回复">
+<mycard hat="{{false}}" wx:if="{{ showForm }}" title="添加回复">
     <textarea class="answer-input" placeholder='输入你的回复' value="" bindinput="answerInput"></textarea>
-    <van-button bindtap="submitHandle" block type="info"  loading="{{submiting}}">提交回复</van-button>
+    <van-button style="margin-bottom:15rpx;" bindtap="submitHandle" block type="info" loading="{{submiting}}">
+        提交回复
+    </van-button>
+    <van-button bindtap="cancleHandle" block type="default" loading="{{submiting}}">取消</van-button>
 </mycard>
-
-
-<box padding="30">
+<box padding="30" wx:if="{{answers.length > 0}}">
     <view class="answers">
         <view class="answer" wx:for-item="answer" wx:for="{{answers}}">
             <view class="meta">

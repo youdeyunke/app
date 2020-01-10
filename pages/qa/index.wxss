@@ -8,6 +8,18 @@ page{padding-top:0rpx !important;
   font-size:28rpx;
   padding-left:10rpx;
   color:#333333;
-  font-weight:bolder;
+  line-height: 1.4;
+  letter-spacing: 2.2rpx;
 }
 
+
+.add{
+    padding:20rpx 30rpx;
+    box-sizing: border-box;
+    background: none;
+    width: 100%;
+    position: fixed;
+    bottom: 0rpx;
+    left: 0rpx;
+    right: 0rpx;
+}

@@ -2,12 +2,20 @@ page{
   padding-top:0rpx !important;
 }
 
+.target{
+    width:100%;
+    padding:20rpx;
+    box-sizing: border-box;
+    background: #fff;
+    margin-bottom:20rpx;
+
+}
+
 .question-meta{
   display:flex;
   justify-content:space-between;
   align-items:center;
   margin-bottom:20rpx;
-  font-size:28rpx;
 }
 
 .question-meta .left{
@@ -15,18 +23,18 @@ page{
   justify-content:flex-start;
   align-items:center;
   color:#999999;
-}
-
-.question-meta .left .blank{
-   padding:0 20rpx;
+  font-size:24rpx;
 }
 
 .question-meta .avatar image{
     width:60rpx;
     height: 60rpx;
     border-radius: 60rpx;
-    margin-right:10rpx;
     border:1rpx solid #f4f4f4;
+}
+
+.question-meta .avatar, .question-meta .user, .question-meta .time{
+    margin-right:20rpx;
 }
 
 .question-actions{

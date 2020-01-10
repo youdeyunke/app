@@ -21,7 +21,7 @@ Page({
 
     likeHandle: function (e) {
         console.log('e', e)
-        var index = e.currentTarget.dataset.index 
+        var index = e.currentTarget.dataset.index
         var answer = this.data.answers[index]
         // 检查一下是否点过赞
         var cacheKey = 'answer.' + answer.id + '.liked'
@@ -45,7 +45,7 @@ Page({
                 data[key] = answer
                 _this.setData(data)
                 wx.setStorageSync(cacheKey, 'liked');
-                  
+
             }
         })
     },
@@ -56,7 +56,7 @@ Page({
     onLoad: function (options) {
         console.log('qa onload')
         var qid = options.id
-        this.setData({id: qid})
+        this.setData({ id: qid })
         var _this = this
         this.loadData()
     },
@@ -108,7 +108,7 @@ Page({
             success: function (resp) {
                 _this.setData({ submiting: false })
                 if (resp.data.status == 0) {
-                    _this.setData({showForm: false})
+                    _this.setData({ showForm: false })
                     wx.showToast({ title: '发布成功', })
                     _this.loadData()
                 }
@@ -129,6 +129,10 @@ Page({
             }
             _this.setData({ showForm: true })
         })
+    },
+
+    cancleHandle: function (e) {
+        this.setData({ showForm: false })
     },
 
 

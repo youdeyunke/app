@@ -8,9 +8,10 @@
 
 .question{
   font-size:28rpx;
+  line-height: 1.4;
+  letter-spacing: 2.2rpx;
   padding-left:10rpx;
   color:#333333;
-  font-weight:bolder;
 }
 
 .add-btn{
