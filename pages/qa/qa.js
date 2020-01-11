@@ -14,8 +14,6 @@ Page({
         loading: true,
         submiting: false,
         showForm: false,
-        qas: null,
-
     },
 
 
