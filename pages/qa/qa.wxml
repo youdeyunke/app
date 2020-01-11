@@ -36,7 +36,7 @@
                     </view>
                     <view class="name">{{ answer.user.name}}  {{ answer.created_at_pretty }}</view>
                     <view class="tag" wx:if="{{ index == 0}}">
-                        <van-tag type="primary">最佳</van-tag>
+                        <van-tag size="mini" type="primary">最佳</van-tag>
                     </view>
                 </view>
                 <view class="right actions">

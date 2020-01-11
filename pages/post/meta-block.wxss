@@ -25,7 +25,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10rpx 0 20rpx 0;
+    margin: 0rpx 0 20rpx 0;
     width: 100%;
 }
 
@@ -59,7 +59,6 @@
     align-items: center;
     box-sizing: border-box;
     width: 100%;
-    padding-left: 30rpx;
 }
 
 .baseinfo .item {
@@ -74,7 +73,7 @@
 .baseinfo .item .value {
     font-size: 38rpx;
     color: red;
-    margin-top: 10rpx;
+    margin-top: 0rpx;
 }
 
 .baseinfo .item .value .px {
@@ -95,7 +94,7 @@
 
 
 .detail-meta {
-    font-size: 30rpx;
+    font-size: 28rpx;
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
@@ -106,7 +105,8 @@
 
 .detail-meta .meta {
     display: flex;
-    height: 55rpx;
+    height: 40rpx;
+    margin-bottom:10rpx;
     width: 50%;
     justify-content: flex-start;
     align-items: center;

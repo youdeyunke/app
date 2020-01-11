@@ -6,7 +6,7 @@
 
         <view class="tagsinfo">
           <navigator 
-                style="margin-right:10rpx;margin-bottom:10rpx;"
+                style="margin-right:10rpx;margin-bottom:0rpx;"
                 wx:for="{{value.tags}}" wx:for-item="tag" wx:for-key="{{tag.id}}" url="{{tag.url}}">
             <van-tag 
                 size="{{tag.size }}" 

@@ -1,6 +1,6 @@
 
 .filter{
-  margin-bottom:30rpx;
+  margin-bottom:20rpx;
   display:flex;
   justify-content:flex-start;
   align-items:center;
@@ -8,7 +8,7 @@
 
 .filter .item{
   margin-right:20rpx;
-  font-size: 30rpx;
+  font-size: 28rpx;
   height: 70rpx;
   width: 120rpx;
   display:flex;
@@ -59,14 +59,13 @@
 
 .housetype .name {
     width: 100%;
-    font-size: 38rpx;
     font-weight: bolder;
     color: #333;
     margin-bottom: 10rpx;
 }
 
 .housetype .kv {
-    font-size: 30rpx;
+    font-size: 28rpx;
     margin: 8rpx 0;
     display:flex;
     justify-content:flex-start;

@@ -17,7 +17,7 @@
 
 .west{
   background:#f4f4f4;
-  width:500rpx;
+  width:482rpx;
   height:404rpx;
   margin-right:4rpx;
   position:relative;
@@ -37,7 +37,7 @@
 
 .north{
   background:#f4f4f4;
-  width:206rpx;
+  width:204rpx;
   height:200rpx;
   position:relative;
 
@@ -57,13 +57,13 @@
 
 .south{
   background:#f4f4f4;
-  width:206rpx;
+  width:204rpx;
   height:200rpx;
   position:relative;
 }
 
 .south .count{
-  width:206rpx;
+  width:204rpx;
   height:200rpx;
   position:absolute;
   top:0rpx;
