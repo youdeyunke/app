@@ -1,0 +1,12 @@
+<view hover-class="none" class="like {{ liked ? 'active' : '' }}" bindtap="likeHandle">
+	<van-button
+	 hover-class="none"
+	 plain
+	 type="default"
+	 size="mini"
+	 round
+	 icon="{{ liked ? 'good-job' : 'good-job-o' }}">
+		{{ likesCount }}
+	</van-button>
+</view>
+

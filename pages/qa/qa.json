@@ -3,6 +3,7 @@
       "usingComponents": {
         "broker-link": "/components/broker/link",
         "page-loading": "./page-loading",
+        "like": "./answer-like",
         "card": "/components/card",
         "box": "/components/box",
         "recoms": "/components/recom-posts",

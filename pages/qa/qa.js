@@ -46,36 +46,6 @@ Page({
     },
 
 
-    likeHandle: function (e) {
-        console.log('e', e)
-        var index = e.currentTarget.dataset.index
-        var answer = this.data.answers[index]
-        // 检查一下是否点过赞
-        var cacheKey = 'answer.' + answer.id + '.liked'
-        var liked = wx.getStorageSync(cacheKey) == 'liked'
-        if (liked) {
-            return false;
-        }
-        // 没有点过赞
-        var _this = this
-        app.request({
-            method: 'PUT',
-            url: '/api/v1/answers/' + answer.id,
-            data: { do: 'like' },
-            success: function (resp) {
-                var likes = resp.data.data
-                // 更新likes
-                answer.liked = true
-                answer.likes = likes || 0
-                var key = 'answers[' + index + ']'
-                var data = {}
-                data[key] = answer
-                _this.setData(data)
-                wx.setStorageSync(cacheKey, 'liked');
-
-            }
-        })
-    },
 
     /**
      * 生命周期函数--监听页面加载
@@ -125,18 +95,31 @@ Page({
 
     },
 
+    closeFormHandle: function () {
+        // 关闭回答表单
+        this.setData({showForm: false, submiting: false})
+    },
+
     submitHandle: function (e) {
-        console.log('submit ', e)
         // 点击提交
         var _this = this
-        if (_this.data.answer && _this.data.answer.length < 10) {
+        if (!_this.data.answer) {
+            wx.showModal({
+                title: '温馨提示',
+                content: '请输入内容',
+            })
+            return false
+        }
+
+        if (_this.data.answer.length < 10) {
             wx.showModal({
                 title: '温馨提示',
                 content: '答案字数不能少于10个字',
             })
             return false
         }
-        this.setData({ submiting: true })
+
+        this.setData({ submiting: true, showForm: false })
         app.request({
             url: '/api/v1/answers',
             method: 'POST',

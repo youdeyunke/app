@@ -2,7 +2,56 @@ page{
   padding-top:0rpx !important;
 }
 
+.box{
+    padding:30rpx;
+    width:690rpx;
+    background: #fff;
+    margin-bottom:20rpx;
+}
+
+.answer-form{
+    width:750rpx;
+}
+
+.answer-form .header{
+    display: flex;
+    width:690rpx;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30rpx;
+    border-bottom: 2rpx solid #f4f4f4;
+    margin-bottom:30rpx;
+    font-size:28rpx;
+}
+
+.answer-form .content{
+    font-size: 28rpx;
+    width:690rpx;
+    padding:0rpx 30rpx;
+}
+
+.answer-form .header .cancle{
+    color: #999;
+}
+
+.answer-form .header .submit{
+    color: #1989FA;
+}
+
 .question{
+    margin-bottom:30rpx;
+    padding-bottom:30rpx;
+    border-bottom:2rpx solid #f4f4f4;
+}
+
+.question .tag{
+    width: 52rpx;
+    height: 52rpx;
+    background: #ff4444;
+    color: #fff;
+    font-weight: bolder;
+    font-size:24rpx;
+    margin-right: 30rpx;
 }
 
 .question .content .target{
@@ -66,8 +115,10 @@ page{
 
 .answer .content{
   letter-spacing: 2.2rpx;
+  width:690rpx;
   font-size:28rpx;
   line-height:1.4;
+  word-break: break-all;
   padding:0rpx;
   border-radius: 8rpx;
   margin-bottom:0rpx;
