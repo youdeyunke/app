@@ -2,55 +2,35 @@ page{
   padding-top:0rpx !important;
 }
 
-.target{
-    width:100%;
-    padding:20rpx;
-    box-sizing: border-box;
-    background: #fff;
-    margin-bottom:20rpx;
-
+.question{
 }
 
-.question-meta{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:20rpx;
+.question .content .target{
+    color:#1989FA;
+    margin-right:5rpx;
 }
 
-.question-meta .left{
-  display:flex;
-  justify-content:flex-start;
-  align-items:center;
-  color:#999999;
-  font-size:24rpx;
-}
-
-.question-meta .avatar image{
-    width:60rpx;
-    height: 60rpx;
-    border-radius: 60rpx;
-    border:1rpx solid #f4f4f4;
-}
-
-.question-meta .avatar, .question-meta .user, .question-meta .time{
-    margin-right:20rpx;
-}
-
-.question-actions{
-  display:flex;
-  justify-content:flex-end;
-}
-
-.question-actions .add{
-  color:#1989fa;
-}
-
-.question-content {
+.question .content {
+    font-size:28rpx;
+    color:#000000;
     line-height:1.4;
     letter-spacing: 2.2rpx;
     border-radius: 8rpx;
     margin-bottom:20rpx;
+}
+
+.question .actions{
+  display:flex;
+  justify-content:space-between;
+  font-size: 24rpx;
+}
+
+.question .count{
+  color: #999999;
+}
+
+.question .add{
+  color:#1989fa;
 }
 
 .answer{
@@ -85,13 +65,12 @@ page{
 }
 
 .answer .content{
-    letter-spacing: 2.2rpx;
+  letter-spacing: 2.2rpx;
   font-size:28rpx;
   line-height:1.4;
   padding:0rpx;
   border-radius: 8rpx;
   margin-bottom:0rpx;
-  margin-left:70rpx;
 }
 
 .answer .actions{

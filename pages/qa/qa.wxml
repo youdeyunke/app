@@ -1,67 +1,72 @@
-<view class="target">
-    <van-cell border="{{false}}" title="{{ item.target_name}}" is-link url="{{item.target_url}}" />
-</view>
-<box padding="30">
-    <view class="question-meta">
-        <view class="left">
-            <view class="avatar">
-                <image src="{{ item.user.avatar }}" />
+<page-loading loading="{{loading}}" />
+
+<view hidden="{{loading && !item.id}}">
+    <box padding="30">
+        <view class="question">
+            <view class="content">
+                <text class="target" bindtap="gotoTarget">#{{item.target_name}}#</text>
+                {{ item.content }}
             </view>
-            <view class="user">{{item.user.nickname }}</view>
-            <view class="time">{{item.created_at_pretty}}</view>
-            <view class="counter">共有 {{item.answers_count }} 条回答</view>
+            <view class="actions">
+                <view class="count">
+                    收到{{ item.answers_count}}条回复 | {{ item.created_at_pretty }}
+                </view>
+                <view class="add" hover-class="none" bindtap="addHandle">
+                    <van-icon name="edit" />
+                    写回复
+                </view>
+            </view>
         </view>
-    </view>
-    <view class="question-content">{{ item.content }}</view>
-    <view class="question-actions">
-        <van-button wx:if="{{!showForm}}" bindtap="addHandle" hover-class="none" type="info" plain round size="mini">
-            写回复
+    </box>
+    <mycard hat="{{false}}" wx:if="{{ showForm }}" title="添加回复">
+        <textarea class="answer-input" placeholder='输入你的回复' value="" bindinput="answerInput"></textarea>
+        <van-button bindtap="submitHandle" block type="info" loading="{{submiting}}">
+            提交回复
         </van-button>
-    </view>
-</box>
-<mycard hat="{{false}}" wx:if="{{ showForm }}" title="添加回复">
-    <textarea class="answer-input" placeholder='输入你的回复' value="" bindinput="answerInput"></textarea>
-    <van-button style="margin-bottom:15rpx;" bindtap="submitHandle" block type="info" loading="{{submiting}}">
-        提交回复
-    </van-button>
-    <van-button bindtap="cancleHandle" block type="default" loading="{{submiting}}">取消</van-button>
-</mycard>
-<box padding="30" wx:if="{{answers.length > 0}}">
-    <view class="answers">
-        <view class="answer" wx:for-item="answer" wx:for="{{answers}}">
-            <view class="meta">
-                <view class="left">
-                    <view class="avatar">
-                        <image src="{{answer.user.avatar}}" />
+        <view style="height:10rpx;"></view>
+        <van-button bindtap="cancleHandle" block type="default" loading="{{submiting}}">
+            取消
+        </van-button>
+    </mycard>
+    <box padding="30" wx:if="{{answers.length > 0}}">
+        <view class="answers">
+            <view class="answer" wx:for-item="answer" wx:for="{{answers}}">
+                <view class="meta">
+                    <view class="left">
+                        <view class="avatar">
+                            <image src="{{answer.user.avatar}}" />
+                        </view>
+                        <view class="name">
+                            {{ answer.user.name}}  {{ answer.created_at_pretty }}
+                        </view>
+                        <view class="tag" wx:if="{{ index == 0}}">
+                            <van-tag size="mini" type="primary">最佳</van-tag>
+                        </view>
                     </view>
-                    <view class="name">{{ answer.user.name}}  {{ answer.created_at_pretty }}</view>
-                    <view class="tag" wx:if="{{ index == 0}}">
-                        <van-tag size="mini" type="primary">最佳</van-tag>
+                    <view class="right actions">
+                        <view wx:if="{{true}}" style="margin-right:20rpx;" bindtap="chatHandle" class="action-item">
+                            <van-icon size="40rpx;" color="#1989fa" name="chat" />
+                        </view>
+                        <view bindtap="callHandle" class="action-item">
+                            <van-icon color="#1989fa" name="phone" size="40rpx;" />
+                        </view>
                     </view>
                 </view>
-                <view class="right actions">
-                    <view wx:if="{{true}}" style="margin-right:20rpx;" bindtap="chatHandle" class="action-item">
-                        <van-icon size="40rpx;" color="#1989fa" name="chat" />
+                <view class="content">{{ answer.content }}</view>
+                <view class="footer">
+                    <view class="like {{answer.liked ? 'active' : '' }}" bindtap="likeHandle" data-index="{{index}}">
+                        <van-button hover-class="none" plain type="default" size="mini" round icon="{{ answer.liked ? 'good-job' : 'good-job-o' }}">
+                            {{ answer.likes || 0}}
+                        </van-button>
                     </view>
-                    <view bindtap="callHandle" class="action-item">
-                        <van-icon color="#1989fa" name="phone" size="40rpx;" />
-                    </view>
-                </view>
-            </view>
-            <view class="content">{{ answer.content }}</view>
-            <view class="footer">
-                <view class="like {{answer.liked ? 'active' : '' }}" bindtap="likeHandle" data-index="{{index}}">
-                    <van-button hover-class="none" plain type="default" size="mini" round icon="{{ answer.liked ? 'good-job' : 'good-job-o' }}">
-                        {{ answer.likes || 0}}
-                    </van-button>
                 </view>
             </view>
         </view>
-    </view>
-</box>
-<box padding="30" wx:if="{{item.answers_count == 0}}">
-    <view class="waiting empty" style="margin-bottom:20rpx;">
-        <image src="/assets/images/waiting.png" style="margin-bottom:20rpx;"></image>
-        该问题还未收到回复
-    </view>
-</box>
+    </box>
+    <box padding="30" wx:if="{{item.answers_count == 0}}">
+        <view class="waiting empty" style="margin-bottom:20rpx;">
+            <image src="/assets/images/waiting.png" style="margin-bottom:20rpx;"></image>
+            该问题还未收到回复
+        </view>
+    </box>
+</view>

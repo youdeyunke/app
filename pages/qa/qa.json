@@ -1,6 +1,8 @@
 {
+      "enablePullDownRefresh": true,
       "usingComponents": {
         "broker-link": "/components/broker/link",
+        "page-loading": "./page-loading",
         "card": "/components/card",
         "box": "/components/box",
         "recoms": "/components/recom-posts",

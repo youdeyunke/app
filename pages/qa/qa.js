@@ -66,6 +66,10 @@ Page({
         app.request({
             url: '/api/v1/questions/' + _this.data.id,
             success: function (resp) {
+                if (resp.data.status != 0) {
+                    _this.setData({ loading: false })
+                    return false
+                }
                 var item = resp.data.data
                 var answers = []
                 item['created_at_pretty'] = util.prettyTime(item['created_at'])
@@ -79,9 +83,17 @@ Page({
                     a['liked'] = liked
                     answers.push(a)
                 })
-                _this.setData({ item: item, answers: answers })
+                _this.setData({ item: item, answers: answers, loading: false })
 
             }
+        })
+
+    },
+
+    gotoTarget: function (e) {
+        var _this = this
+        wx.navigateTo({
+            url: _this.data.item.target_url
         })
 
     },
@@ -188,7 +200,11 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-
+        this.setData({
+            loading: true,
+            item: null, answers: null, showForm: false
+        })
+        this.loadData()
     },
 
     /**
