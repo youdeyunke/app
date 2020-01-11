@@ -72,12 +72,12 @@
 
 .baseinfo .item .value {
     font-size: 38rpx;
-    color: red;
+    color: #ff4444;
     margin-top: 0rpx;
 }
 
 .baseinfo .item .value .px {
-    font-size: 20rpx;
+    font-size: 24rpx;
     color: #666;
 }
 
@@ -99,7 +99,6 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     margin-bottom: 20rpx;
-    margin-top: 20rpx;
     width: 100%;
 }
 

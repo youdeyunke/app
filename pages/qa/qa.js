@@ -16,6 +16,35 @@ Page({
         showForm: false,
     },
 
+    callHandle: function (e) {
+        var index = e.currentTarget.dataset.index
+        var answer = this.data.answers[index]
+        var mobile = answer.user.mobile
+        if (!mobile) {
+            return false
+        }
+        wx.makePhoneCall({
+            phoneNumber: mobile
+        })
+
+    },
+
+    chatHandle: function (e) {
+        var index = e.currentTarget.dataset.index
+        var answer = this.data.answers[index]
+        var bid = answer.user.id
+
+        // 先调用打招呼接口
+        wx.showLoading({ title: '正在打开', icon: 'none', mask: true })
+        var _this = this
+        wx.navigateTo({
+            url: '/pages/messages/show?target_user_id=' + bid,
+            success: function () {
+                wx.hideLoading()
+            }
+        })
+    },
+
 
     likeHandle: function (e) {
         console.log('e', e)

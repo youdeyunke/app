@@ -43,11 +43,11 @@
                             <van-tag size="mini" type="primary">最佳</van-tag>
                         </view>
                     </view>
-                    <view class="right actions">
-                        <view wx:if="{{true}}" style="margin-right:20rpx;" bindtap="chatHandle" class="action-item">
+                    <view bindtap="chatHandle" data-index="{{index}}" class="right actions">
+                        <view wx:if="{{true}}" style="margin-right:20rpx;"  class="action-item">
                             <van-icon size="40rpx;" color="#1989fa" name="chat" />
                         </view>
-                        <view bindtap="callHandle" class="action-item">
+                        <view bindtap="callHandle" data-index="{{index}}" class="action-item">
                             <van-icon color="#1989fa" name="phone" size="40rpx;" />
                         </view>
                     </view>
