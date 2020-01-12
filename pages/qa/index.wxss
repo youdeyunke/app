@@ -1,7 +1,9 @@
 /* pages/qa/qa.wxss */
 
 
-page{padding-top:0rpx !important; 
+page{
+  padding-top:0rpx !important; 
+  padding-bottom:100rpx;
 }
 
 .add{
@@ -23,9 +25,7 @@ page{padding-top:0rpx !important;
 }
 
 .items .item{
-    margin-bottom: 20rpx;
-    padding-bottom:20rpx;
-    border-bottom:1px solid #f4f4f4;
+    margin-bottom: 34rpx;
     width:100%;
 }
 
@@ -45,7 +45,7 @@ page{padding-top:0rpx !important;
     line-height: 36rpx;
     text-align: center;
     margin-top:4rpx;
-    margin-right:30rpx;
+    margin-right:10rpx;
 }
 
 .question .content .target{
@@ -62,14 +62,12 @@ page{padding-top:0rpx !important;
 }
 
 .question .content {
-    letter-spacing: 2.2rpx;
-    line-height:1.6;
-    font-size:32rpx;
+    letter-spacing: 0.3;
+    line-height:1.5;
+    font-size:30rpx;
     color:#000000;
-    line-height:1.4;
-    letter-spacing: 2.2rpx;
-    border-radius: 8rpx;
-    margin-bottom:4rpx;
+    max-height:90rpx;
+    overflow:hidden;
 }
 
 .question .count{
@@ -81,10 +79,10 @@ page{padding-top:0rpx !important;
 .answer{
   width:100%;
   box-sizing: border-box;
-  padding:20rpx;
+  padding:30rpx;
   background: #f9f9f9;
-  margin-top:20rpx;
-  margin-bottom:20rpx;
+  margin-top:30rpx;
+  margin-bottom:30rpx;
   border-radius: 8rpx;
 }
 
@@ -108,10 +106,10 @@ page{padding-top:0rpx !important;
 }
 
 .answer .content{
-  letter-spacing: 2.2rpx;
-  line-height:1.6;
+  letter-spacing: 0.3;
+  line-height:1.7;
   width:100%;
-  font-size:32rpx;
+  font-size:26rpx;
   word-break: break-all;
   padding:0rpx;
   border-radius: 8rpx;

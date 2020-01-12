@@ -8,9 +8,6 @@
             <navigator hover-class="none" url="/pages/qa/qa?id={{item.id}}"  class="content">{{item.content}}</navigator>
             <view class="footer">
                 <view class="count">{{item.answers_count}}条回答</view>
-                <navigator url="/pages/qa/reply?qid={{item.id}}" hover-class="none">
-                  <van-button wx:if="{{item.answers_count == 0}}" plain size="mini" round type="info">去回答</van-button>
-                </navigator>
             </view>
         </view>
     </view>

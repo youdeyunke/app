@@ -15,7 +15,7 @@
                 </view>
                 <view class="actions">
                     <view class="count">
-                        收到{{ item.answers_count}}条回复 | {{ item.created_at_pretty }}
+                        收到{{ item.answers_count}}条回答
                     </view>
                     <van-button type="info" round name="edit" size="mini"  wx:if="{{item.answers_count > 0}}" class="add" hover-class="none" bindtap="addHandle">
                         写回答
