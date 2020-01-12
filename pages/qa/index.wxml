@@ -1,8 +1,8 @@
 
 <mycard wx:if="{{items.length > 0}}" title="{{pageTitle}}" hat="{{false}}" >
     <view class="items">
-    <navigator class="item"  url="/pages/qa/qa?id={{item.id}}"  wx:for="{{items}}" >
-        <view class="question">
+      <view class="item"   wx:for="{{items}}" >
+        <navigator  url="/pages/qa/qa?id={{item.id}}" hover-class="none" class="question">
             <view class="icon">问</view>
             <view class="body">
                 <view class="content">
@@ -13,7 +13,7 @@
                    {{ item.answers_count}}条回答 
                 </view>
             </view>
-        </view>
+        </navigator>
             <view class="answer" wx:if="{{item.first_answer}}">
                 <view class="header">
                         <view class="avatar">
@@ -23,13 +23,12 @@
                             {{ item.first_answer.user.name}} 
                         </view>
                 </view>
-                <view class="content">{{ item.first_answer.content }}</view>
+                <navigator  url="/pages/qa/qa?id={{item.id}}" hover-class="none" class="content">{{ item.first_answer.content }}</navigator>
                 <view class="footer">
                     <like count="{{tem.first_answer.likes}}"  aid="{{item.first_answer.id}}" />
                 </view>
             </view>
-
-    </navigator>
+      </view>
 
     </view>
 </mycard>

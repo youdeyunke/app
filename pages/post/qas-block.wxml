@@ -2,18 +2,18 @@
   <view class="qas">
     <view class="empty" wx:if="{{value.items.length == 0}}">还没有人提问</view>
 
-    <navigator class="item" hover-class="none"  url="/pages/qa/qa?id={{item.id}}"   wx:for="{{value.items}}" >
+    <view class="item" hover-class="none"   wx:for="{{value.items}}" >
         <view class="icon">问</view>
         <view class="info">
-            <view class="content">{{item.content}}</view>
+            <navigator hover-class="none" url="/pages/qa/qa?id={{item.id}}"  class="content">{{item.content}}</navigator>
             <view class="footer">
-                <view class="count">共有{{item.answers_count}}条回答</view>
-                <view>
-                  <van-button wx:if="{{item.answers_count == 0}}" plain size="mini" plain type="info">去回答</van-button>
-                </view>
+                <view class="count">{{item.answers_count}}条回答</view>
+                <navigator url="/pages/qa/reply?qid={{item.id}}" hover-class="none">
+                  <van-button wx:if="{{item.answers_count == 0}}" plain size="mini" round type="info">去回答</van-button>
+                </navigator>
             </view>
         </view>
-    </navigator>
+    </view>
 
     <navigator class="add-btn"  hover-class="none" url="/pages/qa/new?target_id={{value.post_id}}&target_type=post">
       我要提问

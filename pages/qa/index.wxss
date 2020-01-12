@@ -42,6 +42,7 @@ page{padding-top:0rpx !important;
     height: 32rpx;
     line-height: 32rpx;
     text-align: center;
+    margin-top:4rpx;
     margin-right:30rpx;
 }
 
