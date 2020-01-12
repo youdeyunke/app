@@ -1,12 +1,12 @@
 <view class="wrapper" bindtap="viewImage">
    <view class="west">
-     <van-image radius="10rpx" width="500rpx" height="404rpx" src="{{ value.images[0] }}" />
+     <van-image radius="10rpx" width="480rpx" height="404rpx" src="{{ value.images[0] }}" />
      <image wx:if="{{value.vr_url}}"  catchtap='gotoVr' class="vr" src="/assets/icons/vr.png"></image>
    </view>
 
    <view class="wrapper2">
     <view class="north">
-     <van-image radius="10rpx" width="206rpx" height="200rpx" src="{{ value.images[1] }}" />
+     <van-image radius="10rpx" width="204rpx" height="200rpx" src="{{ value.images[1] }}" />
      <image wx:if="{{value.video_url}}"  catchtap='gotoVideo' class="video" src="/assets/icons/bofang.png"></image>
     </view>
 

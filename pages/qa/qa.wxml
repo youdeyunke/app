@@ -1,9 +1,23 @@
 <page-loading loading="{{loading}}" />
 
-<view hidden="{{loading && !item.id}}">
-    <box padding="30">
+<view class="box" hidden="{{loading && !item.id}}">
+
+<van-popup 
+  position="bottom"
+  show="{{ showForm }}" 
+  bind:close="onClose">
+    <view class="answer-form">
+        <view class="header">
+            <view class="cancle" bindtap="closeFormHandle" hover-class="none">取消</view>
+            <view class="submit" bindtap="submitHandle" hover-class="none">发布</view>
+        </view>
+        <textarea class="content" placeholder='输入你的回复' value="" bindinput="answerInput"></textarea>
+    </view>
+ </van-popup>
+
         <view class="question">
             <view class="content">
+                <text class="tag">问</text>
                 <text class="target" bindtap="gotoTarget">#{{item.target_name}}#</text>
                 {{ item.content }}
             </view>
@@ -17,18 +31,7 @@
                 </view>
             </view>
         </view>
-    </box>
-    <mycard hat="{{false}}" wx:if="{{ showForm }}" title="添加回复">
-        <textarea class="answer-input" placeholder='输入你的回复' value="" bindinput="answerInput"></textarea>
-        <van-button bindtap="submitHandle" block type="info" loading="{{submiting}}">
-            提交回复
-        </van-button>
-        <view style="height:10rpx;"></view>
-        <van-button bindtap="cancleHandle" block type="default" loading="{{submiting}}">
-            取消
-        </van-button>
-    </mycard>
-    <box padding="30" wx:if="{{answers.length > 0}}">
+
         <view class="answers">
             <view class="answer" wx:for-item="answer" wx:for="{{answers}}">
                 <view class="meta">
@@ -43,30 +46,25 @@
                             <van-tag size="mini" type="primary">最佳</van-tag>
                         </view>
                     </view>
-                    <view class="right actions">
-                        <view wx:if="{{true}}" style="margin-right:20rpx;" bindtap="chatHandle" class="action-item">
+                    <view bindtap="chatHandle" data-index="{{index}}" class="right actions">
+                        <view wx:if="{{true}}" style="margin-right:20rpx;"  class="action-item">
                             <van-icon size="40rpx;" color="#1989fa" name="chat" />
                         </view>
-                        <view bindtap="callHandle" class="action-item">
+                        <view bindtap="callHandle" data-index="{{index}}" class="action-item">
                             <van-icon color="#1989fa" name="phone" size="40rpx;" />
                         </view>
                     </view>
                 </view>
                 <view class="content">{{ answer.content }}</view>
                 <view class="footer">
-                    <view class="like {{answer.liked ? 'active' : '' }}" bindtap="likeHandle" data-index="{{index}}">
-                        <van-button hover-class="none" plain type="default" size="mini" round icon="{{ answer.liked ? 'good-job' : 'good-job-o' }}">
-                            {{ answer.likes || 0}}
-                        </van-button>
-                    </view>
+                    <like count="{{answer.likes}}"  aid="{{answer.id}}" />
                 </view>
             </view>
         </view>
-    </box>
-    <box padding="30" wx:if="{{item.answers_count == 0}}">
-        <view class="waiting empty" style="margin-bottom:20rpx;">
-            <image src="/assets/images/waiting.png" style="margin-bottom:20rpx;"></image>
+
+        <view wx:if="{{answers.length == 0}}" class="waiting empty" style="margin-bottom:20rpx;">
+            <image src="/assets/images/waiting.png" style="margin-bottom:20rpx;font-size:24rpx;color:#999;"></image>
             该问题还未收到回复
         </view>
-    </box>
+
 </view>
