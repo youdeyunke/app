@@ -12,8 +12,6 @@ Page({
         item: null,
         answers: [],
         loading: true,
-        submiting: false,
-        showForm: false,
     },
 
     callHandle: function (e) {
@@ -51,9 +49,10 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        console.log('qa onload')
+        var ext = wx.getExtConfigSync()
+        var chatEnable = ext['chat_enable'] != false
         var qid = options.id
-        this.setData({ id: qid })
+        this.setData({ id: qid, chatEnable: chatEnable })
         var _this = this
         this.loadData()
     },
@@ -95,73 +94,17 @@ Page({
 
     },
 
-    closeFormHandle: function () {
-        // 关闭回答表单
-        this.setData({showForm: false, submiting: false})
-    },
-
-    submitHandle: function (e) {
-        // 点击提交
-        var _this = this
-        if (!_this.data.answer) {
-            wx.showModal({
-                title: '温馨提示',
-                content: '请输入内容',
-            })
-            return false
-        }
-
-        if (_this.data.answer.length < 10) {
-            wx.showModal({
-                title: '温馨提示',
-                content: '答案字数不能少于10个字',
-            })
-            return false
-        }
-
-        this.setData({ submiting: true, showForm: false })
-        app.request({
-            url: '/api/v1/answers',
-            method: 'POST',
-            data: {
-                question_id: _this.data.item.id,
-                content: _this.data.answer,
-            },
-            success: function (resp) {
-                _this.setData({ submiting: false })
-                if (resp.data.status == 0) {
-                    _this.setData({ showForm: false })
-                    wx.showToast({ title: '发布成功', })
-                    _this.loadData()
-                }
-            }
-        })
-    },
 
     addHandle: function (e) {
         // 点击我来回答按钮
         var _this = this
         auth.ensureUser(function (userInfo) {
-            if (!userInfo.is_broker) {
-                wx.showModal({
-                    title: '温馨提示',
-                    content: '你不是经纪人，不能回复此问题',
-                })
-                return false
-            }
-            _this.setData({ showForm: true })
+		wx.navigateTo({
+			url: '/pages/qa/reply?qid=' + _this.data.item.id
+		})
         })
     },
 
-    cancleHandle: function (e) {
-        this.setData({ showForm: false })
-    },
-
-
-    answerInput: function (e) {
-        console.log(e)
-        this.setData({ answer: e.detail.value })
-    },
 
     loadPost: function (cb) {
         var pid = this.data.item.post_id
@@ -171,7 +114,6 @@ Page({
     },
 
     gotoNew: function (e) {
-        console.log('submit', e)
         app.uploadFormId(e)
         wx.navigateTo({
             url: '/pages/qa/new'
@@ -189,7 +131,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        this.loadData()
     },
 
     /**
@@ -212,7 +154,7 @@ Page({
     onPullDownRefresh: function () {
         this.setData({
             loading: true,
-            item: null, answers: null, showForm: false
+            item: null, answers: null
         })
         this.loadData()
     },

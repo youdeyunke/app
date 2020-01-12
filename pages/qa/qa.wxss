@@ -9,49 +9,40 @@ page{
     margin-bottom:20rpx;
 }
 
-.answer-form{
-    width:750rpx;
+.float-btn{
+    width: 100%;
+    padding:30rpx;
+    position: fixed;
+    left:0rpx;
+    bottom:0rpx;
+    right: 0rpx;
+    background: #fff;
+    border-top:1px solid #f4f4f4;
+    box-sizing: border-box;
+    z-index:999;
 }
 
-.answer-form .header{
-    display: flex;
-    width:690rpx;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30rpx;
-    border-bottom: 2rpx solid #f4f4f4;
-    margin-bottom:30rpx;
-    font-size:28rpx;
-}
-
-.answer-form .content{
-    font-size: 28rpx;
-    width:690rpx;
-    padding:0rpx 30rpx;
-}
-
-.answer-form .header .cancle{
-    color: #999;
-}
-
-.answer-form .header .submit{
-    color: #1989FA;
-}
 
 .question{
     margin-bottom:30rpx;
     padding-bottom:30rpx;
     border-bottom:2rpx solid #f4f4f4;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
-.question .tag{
-    width: 52rpx;
-    height: 52rpx;
+.question .icon{
+    width:36rpx;
+    height: 36rpx;
     background: #ff4444;
     color: #fff;
     font-weight: bolder;
-    font-size:24rpx;
-    margin-right: 30rpx;
+    font-size:20rpx;
+    line-height: 36rpx;
+    text-align: center;
+    margin-top:5rpx;
+    margin-right:30rpx;
 }
 
 .question .content .target{
@@ -59,19 +50,30 @@ page{
     margin-right:5rpx;
 }
 
+.question .body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
 .question .content {
-    font-size:28rpx;
+    font-size:32rpx;
     color:#000000;
     line-height:1.4;
     letter-spacing: 2.2rpx;
     border-radius: 8rpx;
     margin-bottom:20rpx;
+    line-height:1.4;
+    letter-spacing: 2.2rpx;
 }
 
 .question .actions{
+  width:100%;
   display:flex;
   justify-content:space-between;
-  font-size: 24rpx;
+  font-size: 28rpx;
 }
 
 .question .count{
@@ -116,12 +118,13 @@ page{
 .answer .content{
   letter-spacing: 2.2rpx;
   width:690rpx;
-  font-size:28rpx;
-  line-height:1.4;
+  font-size:32rpx;
   word-break: break-all;
   padding:0rpx;
   border-radius: 8rpx;
-  margin-bottom:0rpx;
+  margin-bottom:20rpx;
+  line-height:1.4;
+  letter-spacing: 2.2rpx;
 }
 
 .answer .actions{

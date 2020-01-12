@@ -2,32 +2,24 @@
 
 <view class="box" hidden="{{loading && !item.id}}">
 
-<van-popup 
-  position="bottom"
-  show="{{ showForm }}" 
-  bind:close="onClose">
-    <view class="answer-form">
-        <view class="header">
-            <view class="cancle" bindtap="closeFormHandle" hover-class="none">取消</view>
-            <view class="submit" bindtap="submitHandle" hover-class="none">发布</view>
-        </view>
-        <textarea class="content" placeholder='输入你的回复' value="" bindinput="answerInput"></textarea>
-    </view>
- </van-popup>
+ <view class="float-btn" wx:if="{{item.answers_count == 0 && !showFrom }}">
+   <van-button bindtap="addHandle" type="info" block>我要回答</van-button>
+ </view>
 
         <view class="question">
-            <view class="content">
-                <text class="tag">问</text>
-                <text class="target" bindtap="gotoTarget">#{{item.target_name}}#</text>
-                {{ item.content }}
-            </view>
-            <view class="actions">
-                <view class="count">
-                    收到{{ item.answers_count}}条回复 | {{ item.created_at_pretty }}
+            <view class="icon">问</view>
+            <view class="body">
+                <view class="content">
+                    <text class="target" bindtap="gotoTarget">#{{item.target_name}}#</text>
+                    {{ item.content }}
                 </view>
-                <view class="add" hover-class="none" bindtap="addHandle">
-                    <van-icon name="edit" />
-                    写回复
+                <view class="actions">
+                    <view class="count">
+                        收到{{ item.answers_count}}条回复 | {{ item.created_at_pretty }}
+                    </view>
+                    <van-button type="info" round name="edit" size="mini"  wx:if="{{item.answers_count > 0}}" class="add" hover-class="none" bindtap="addHandle">
+                        写回答
+                    </van-button>
                 </view>
             </view>
         </view>
@@ -46,8 +38,8 @@
                             <van-tag size="mini" type="primary">最佳</van-tag>
                         </view>
                     </view>
-                    <view bindtap="chatHandle" data-index="{{index}}" class="right actions">
-                        <view wx:if="{{true}}" style="margin-right:20rpx;"  class="action-item">
+                    <view class="right actions">
+                        <view  bindtap="chatHandle" data-index="{{index}}" wx:if="{{chatEnable}}" style="margin-right:20rpx;"  class="action-item">
                             <van-icon size="40rpx;" color="#1989fa" name="chat" />
                         </view>
                         <view bindtap="callHandle" data-index="{{index}}" class="action-item">

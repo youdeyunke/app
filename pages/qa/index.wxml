@@ -1,17 +1,39 @@
 
-<mycard wx:if="{{items.length > 0}}" title="{{pageTitle}}" hat="{{false}}" padding="{{false}}" >
-    <van-cell size="large" url="/pages/qa/qa?id={{item.id}}"  wx:for="{{items}}" border="{{ index == value.items.length -1 ? false : true}}">
-      <van-tag slot="icon" type="warning">问</van-tag>
-      <view slot="title">
-        <view class="question">{{ item.content }}</view>
+<mycard wx:if="{{items.length > 0}}" title="{{pageTitle}}" hat="{{false}}" >
+    <view class="items">
+      <view class="item"   wx:for="{{items}}" >
+        <navigator  url="/pages/qa/qa?id={{item.id}}" hover-class="none" class="question">
+            <view class="icon">问</view>
+            <view class="body">
+                <view class="content">
+                    <text class="target" bindtap="gotoTarget">#{{item.target_name}}#</text>
+                    {{ item.content }}
+                </view>
+                <view class="count" wx:if="{{item.answers_count == 0}}">
+                   {{ item.answers_count}}条回答 
+                </view>
+            </view>
+        </navigator>
+            <view class="answer" wx:if="{{item.first_answer}}">
+                <view class="header">
+                        <view class="avatar">
+                            <image src="{{item.first_answer.user.avatar}}" />
+                        </view>
+                        <view class="name">
+                            {{ item.first_answer.user.name}} 
+                        </view>
+                </view>
+                <navigator  url="/pages/qa/qa?id={{item.id}}" hover-class="none" class="content">{{ item.first_answer.content }}</navigator>
+                <view class="footer">
+                    <like count="{{tem.first_answer.likes}}"  aid="{{item.first_answer.id}}" />
+                </view>
+            </view>
       </view>
-      <view slot="right-icon">
-        <view style="display:flex;align-items:center;"><van-icon name="chat-o"></van-icon> ({{ item.answers_count }})</view>
-      </view>
-    </van-cell>
+
+    </view>
 </mycard>
 
-<no-result wx:else />
+<no-result wx:if="{{!loading && items.length == 0}}" />
 
 <navigator hover-class="none" url="/pages/qa/new?target_id{{target_id}}&target_type={{target_type}}" class="add" wx:if="{{target_id}}">
     <van-button type="info" block>我要提问</van-button>
