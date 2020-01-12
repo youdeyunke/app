@@ -61,6 +61,7 @@ Page({
         var _this = this
         app.request({
             url: '/api/v1/questions/' + _this.data.id,
+            hideLoading: true,
             success: function (resp) {
                 if (resp.data.status != 0) {
                     _this.setData({ loading: false })
@@ -94,6 +95,36 @@ Page({
 
     },
 
+
+    followHandle: function(e){
+        // 点击关注问题
+        var _this = this
+        var method = 'POST'
+        var url = '/api/v1/question_followers'
+        if(this.data.item.followed){
+            method = 'DELETE'
+            url = ''
+            url = '/api/v1/question_followers/' + this.data.item.id
+        }
+        // 先改变按钮状态，再发送请求
+        var item = this.data.item
+        item.followed = !item.followed
+        this.setData({item: item})
+
+        app.request({
+            url: url,
+            method: method,
+            hideLoading: true,
+            data: {question_id: _this.data.item.id},
+            success: function(resp){
+                if(resp.data.status != 0){
+                    return false
+                }
+                // 关注成功, 重新加载数据
+                _this.loadData()
+            }
+        })
+    },
 
     addHandle: function (e) {
         // 点击我来回答按钮

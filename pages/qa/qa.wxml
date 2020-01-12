@@ -2,7 +2,7 @@
 
 <view class="box" hidden="{{loading && !item.id}}">
 
- <view class="float-btn" wx:if="{{item.answers_count == 0 && !showFrom }}">
+ <view class="float-btn">
    <van-button bindtap="addHandle" type="info" block>我要回答</van-button>
  </view>
 
@@ -15,10 +15,10 @@
                 </view>
                 <view class="actions">
                     <view class="count">
-                        收到{{ item.answers_count}}条回复 | {{ item.created_at_pretty }}
+                        {{ item.answers_count}}条回答  {{ item.followers_count }}人关注
                     </view>
-                    <van-button type="info" round name="edit" size="mini"  wx:if="{{item.answers_count > 0}}" class="add" hover-class="none" bindtap="addHandle">
-                        写回答
+                    <van-button plain="{{item.followed}}" type="info" round name="eye" size="mini"  class="follow" hover-class="none" bindtap="followHandle">
+                        {{ item.followed ? '取消关注' : '关注' }}
                     </van-button>
                 </view>
             </view>

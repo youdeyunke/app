@@ -105,7 +105,7 @@ page{
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    font-size:24rpx;
+    font-size:28rpx;
 }
 
 .answer .avatar image{
