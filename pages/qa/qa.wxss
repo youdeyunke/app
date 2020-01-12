@@ -42,7 +42,7 @@ page{
     line-height: 36rpx;
     text-align: center;
     margin-top:5rpx;
-    margin-right:30rpx;
+    margin-right:10rpx;
 }
 
 .question .content .target{
@@ -59,7 +59,7 @@ page{
 }
 
 .question .content {
-    font-size:32rpx;
+    font-size:28rpx;
     color:#000000;
     line-height:1.4;
     letter-spacing: 2.2rpx;
@@ -78,6 +78,7 @@ page{
 
 .question .count{
   color: #999999;
+  font-size:24rpx;
 }
 
 .question .add{
@@ -118,7 +119,7 @@ page{
 .answer .content{
   letter-spacing: 2.2rpx;
   width:690rpx;
-  font-size:32rpx;
+  font-size:28rpx;
   word-break: break-all;
   padding:0rpx;
   border-radius: 8rpx;

@@ -30,7 +30,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     width:100%;
-    margin-bottom:20rpx;
+    margin-bottom:30rpx;
 }
 
 .qas .item .icon{
@@ -44,7 +44,7 @@
     font-size:20rpx;
     text-align: center;
     margin-right:10rpx;
-    margin-top:6rpx;
+    margin-top:4rpx;
 }
 
 .qas .item .info{
@@ -56,10 +56,10 @@
 }
 
 .qas .item .info .content{
-    font-size:32rpx;
+    font-size:28rpx;
     color: #333333;
     line-height: 1.4;
-    margin-bottom:8rpx;
+    margin-bottom:6rpx;
 }
 
 .qas .item .info .footer{
@@ -70,6 +70,6 @@
 }
 
 .qas .item .info .count{
-    font-size: 28rpx;
+    font-size: 24rpx;
     color: #999999;
 }
