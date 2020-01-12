@@ -7,7 +7,9 @@ page{
 }
 
 .add{
-    padding:20rpx 30rpx;
+    padding:30rpx 30rpx;
+    background:#ffffff;
+    border-top:2rpx solid #f4f4f4;
     box-sizing: border-box;
     background: none;
     width: 100%;
@@ -15,109 +17,4 @@ page{
     bottom: 0rpx;
     left: 0rpx;
     right: 0rpx;
-}
-
-.items{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.items .item{
-    margin-bottom: 34rpx;
-    width:100%;
-}
-
-.question{
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.question .icon{
-    background: #ff4444;
-    color: #fff;
-    font-weight: bolder;
-    font-size:20rpx;
-    width:36rpx;
-    height: 36rpx;
-    line-height: 36rpx;
-    text-align: center;
-    margin-top:4rpx;
-    margin-right:10rpx;
-}
-
-.question .content .target{
-    color:#1989FA;
-    margin-right:5rpx;
-}
-
-.question .body{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.question .content {
-    letter-spacing: 0.3;
-    line-height:1.5;
-    font-size:30rpx;
-    color:#000000;
-    max-height:90rpx;
-    overflow:hidden;
-}
-
-.question .count{
-    font-size:28rpx;
-    color: #999;
-    margin-top:6rpx;
-}
-
-.answer{
-  width:100%;
-  box-sizing: border-box;
-  padding:30rpx;
-  background: #f9f9f9;
-  margin-top:30rpx;
-  margin-bottom:30rpx;
-  border-radius: 8rpx;
-}
-
-.answer .header{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-size:24rpx;
-}
-
-.answer .header .avatar image{
-    width: 60rpx;
-    height: 60rpx;
-    border-radius: 60rpx;
-    border:1rpx solid #f4f4f4;
-    margin-right: 20rpx;
-}
-
-.answer .header .name{
-  font-size:28rpx;
-}
-
-.answer .content{
-  letter-spacing: 0.3;
-  line-height:1.7;
-  width:100%;
-  font-size:26rpx;
-  word-break: break-all;
-  padding:0rpx;
-  border-radius: 8rpx;
-  margin-bottom: 20rpx;
-
-}
-
-.answer .footer{
-  display:flex;
-  justify-content:flex-end;
 }

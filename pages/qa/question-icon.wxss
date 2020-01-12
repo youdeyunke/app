@@ -1,0 +1,13 @@
+.q-icon{
+    width:36rpx;
+    height: 36rpx;
+    background: #ff4444;
+    color: #fff;
+    font-weight: bolder;
+    font-size:20rpx;
+    line-height: 36rpx;
+    text-align: center;
+    margin-top:5rpx;
+    margin-right:10rpx;
+}
+

@@ -1,0 +1,6 @@
+/* pages/qa/mine.wxss */
+.tabs{
+  width:100%;
+  background:#ffffff;
+  margin-bottom:20rpx;
+}

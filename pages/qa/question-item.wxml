@@ -1,0 +1,28 @@
+      <view class="item">
+        <navigator  url="/pages/qa/qa?id={{item.id}}" hover-class="none" class="question">
+            <q-icon />
+            <view class="body">
+                <view class="content">
+                    <text class="target" bindtap="gotoTarget">#{{item.target_name}}#</text>
+                    {{ item.content }}
+                </view>
+                <view class="count" wx:if="{{item.answers_count == 0}}">
+                   {{ item.answers_count}}条回答 
+                </view>
+            </view>
+        </navigator>
+            <view class="answer" wx:if="{{item.first_answer}}">
+                <view class="header">
+                        <view class="avatar">
+                            <image src="{{item.first_answer.user.avatar}}" />
+                        </view>
+                        <view class="name">
+                            {{ item.first_answer.user.name}} 
+                        </view>
+                </view>
+                <navigator  url="/pages/qa/qa?id={{item.id}}" hover-class="none" class="content">{{ item.first_answer.content }}</navigator>
+                <view class="footer">
+                    <like count="{{tem.first_answer.likes}}"  aid="{{item.first_answer.id}}" />
+                </view>
+            </view>
+      </view>

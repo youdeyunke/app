@@ -67,7 +67,8 @@
     "pages/admin/booking",
     "pages/myself/submessage",
     "pages/post/vr",
-    "pages/qa/reply"
+    "pages/qa/reply",
+    "pages/qa/mine"
   ],
   "tabBar": {
     "selectedColor": "#333",

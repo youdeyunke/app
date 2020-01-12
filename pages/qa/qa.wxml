@@ -7,7 +7,7 @@
  </view>
 
         <view class="question">
-            <view class="icon">问</view>
+            <q-icon />
             <view class="body">
                 <view class="content">
                     <text class="target" bindtap="gotoTarget">#{{item.target_name}}#</text>
