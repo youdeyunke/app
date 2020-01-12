@@ -49,8 +49,10 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        var ext = wx.getExtConfigSync()
+        var chatEnable = ext['chat_enable'] != false
         var qid = options.id
-        this.setData({ id: qid })
+        this.setData({ id: qid, chatEnable: chatEnable })
         var _this = this
         this.loadData()
     },

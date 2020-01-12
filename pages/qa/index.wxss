@@ -23,7 +23,9 @@ page{padding-top:0rpx !important;
 }
 
 .items .item{
-    margin-bottom: 40rpx;
+    margin-bottom: 20rpx;
+    padding-bottom:20rpx;
+    border-bottom:1px solid #f4f4f4;
     width:100%;
 }
 
@@ -38,9 +40,9 @@ page{padding-top:0rpx !important;
     color: #fff;
     font-weight: bolder;
     font-size:20rpx;
-    width:32rpx;
-    height: 32rpx;
-    line-height: 32rpx;
+    width:36rpx;
+    height: 36rpx;
+    line-height: 36rpx;
     text-align: center;
     margin-top:4rpx;
     margin-right:30rpx;
@@ -60,6 +62,8 @@ page{padding-top:0rpx !important;
 }
 
 .question .content {
+    letter-spacing: 2.2rpx;
+    line-height:1.6;
     font-size:32rpx;
     color:#000000;
     line-height:1.4;
@@ -69,10 +73,10 @@ page{padding-top:0rpx !important;
 }
 
 .question .count{
-    font-size:24rpx;
+    font-size:28rpx;
     color: #999;
+    margin-top:6rpx;
 }
-
 
 .answer{
   width:100%;
@@ -99,17 +103,19 @@ page{padding-top:0rpx !important;
     margin-right: 20rpx;
 }
 
-.answer .header .name{}
+.answer .header .name{
+  font-size:28rpx;
+}
 
 .answer .content{
   letter-spacing: 2.2rpx;
+  line-height:1.6;
   width:100%;
   font-size:32rpx;
-  line-height:1.4;
   word-break: break-all;
   padding:0rpx;
   border-radius: 8rpx;
-  margin-bottom:0rpx;
+  margin-bottom: 20rpx;
 
 }
 

@@ -22,36 +22,6 @@ page{
     z-index:999;
 }
 
-.answer-form{
-    width:690rpx;
-}
-
-.answer-form .header{
-    display: flex;
-    width:100%;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30rpx;
-    box-sizing: border-box;
-    border-bottom: 2rpx solid #f4f4f4;
-    margin-bottom:30rpx;
-    font-size:28rpx;
-}
-
-.answer-form .content{
-    font-size: 28rpx;
-    width:100%;
-    padding:0rpx 30rpx;
-    box-sizing: border-box;
-}
-
-.answer-form .header .cancle{
-    color: #999;
-}
-
-.answer-form .header .submit{
-    color: #1989FA;
-}
 
 .question{
     margin-bottom:30rpx;
@@ -63,14 +33,15 @@ page{
 }
 
 .question .icon{
+    width:36rpx;
+    height: 36rpx;
     background: #ff4444;
     color: #fff;
     font-weight: bolder;
     font-size:20rpx;
-    width:32rpx;
-    height: 32rpx;
-    line-height: 32rpx;
+    line-height: 36rpx;
     text-align: center;
+    margin-top:5rpx;
     margin-right:30rpx;
 }
 
@@ -88,19 +59,21 @@ page{
 }
 
 .question .content {
-    font-size:28rpx;
+    font-size:32rpx;
     color:#000000;
     line-height:1.4;
     letter-spacing: 2.2rpx;
     border-radius: 8rpx;
     margin-bottom:20rpx;
+    line-height:1.4;
+    letter-spacing: 2.2rpx;
 }
 
 .question .actions{
   width:100%;
   display:flex;
   justify-content:space-between;
-  font-size: 24rpx;
+  font-size: 28rpx;
 }
 
 .question .count{
@@ -145,12 +118,13 @@ page{
 .answer .content{
   letter-spacing: 2.2rpx;
   width:690rpx;
-  font-size:28rpx;
-  line-height:1.4;
+  font-size:32rpx;
   word-break: break-all;
   padding:0rpx;
   border-radius: 8rpx;
   margin-bottom:20rpx;
+  line-height:1.4;
+  letter-spacing: 2.2rpx;
 }
 
 .answer .actions{

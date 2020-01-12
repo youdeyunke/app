@@ -34,13 +34,14 @@
 }
 
 .qas .item .icon{
+    width:36rpx;
+    height: 36rpx;
+    line-height: 36rpx;
+
     background: #ff4444;
     color: #fff;
     font-weight: bolder;
     font-size:20rpx;
-    width:32rpx;
-    height: 32rpx;
-    line-height: 32rpx;
     text-align: center;
     margin-right:10rpx;
     margin-top:6rpx;
@@ -55,7 +56,7 @@
 }
 
 .qas .item .info .content{
-    font-size:28rpx;
+    font-size:32rpx;
     color: #333333;
     line-height: 1.4;
     margin-bottom:8rpx;
@@ -69,6 +70,6 @@
 }
 
 .qas .item .info .count{
-    font-size: 24rpx;
+    font-size: 28rpx;
     color: #999999;
 }
