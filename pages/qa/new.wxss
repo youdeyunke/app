@@ -14,3 +14,11 @@ textarea{
   width:100%;
   margin:30rpx auto 0 auto;
 }
+
+.counter{
+    position: absolute;
+    right:10rpx;
+    bottom:10rpx;
+    font-size:24rpx;
+    color:#cecece;
+}

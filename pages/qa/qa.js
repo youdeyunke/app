@@ -131,7 +131,7 @@ Page({
                 _this.setData({ submiting: false })
                 if (resp.data.status == 0) {
                     _this.setData({ showForm: false })
-                    wx.showToast({ title: '发布成功', })
+                    wx.showToast({ title: '发布成功' })
                     _this.loadData()
                 }
             }
@@ -142,13 +142,6 @@ Page({
         // 点击我来回答按钮
         var _this = this
         auth.ensureUser(function (userInfo) {
-            if (!userInfo.is_broker) {
-                wx.showModal({
-                    title: '温馨提示',
-                    content: '你不是经纪人，不能回复此问题',
-                })
-                return false
-            }
             _this.setData({ showForm: true })
         })
     },

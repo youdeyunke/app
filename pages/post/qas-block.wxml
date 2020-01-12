@@ -1,20 +1,24 @@
-<mycard title="{{ value.title }}"  hat="{{false}}" title-size="40" sub-title="{{ value.more_title }}" url="{{value.more_url}}" padding="{{false}}">
+<mycard title="{{ value.title }}"  hat="{{false}}" title-size="40" sub-title="{{ value.more_title }}" url="{{value.more_url}}" >
   <view class="qas">
     <view class="empty" wx:if="{{value.items.length == 0}}">还没有人提问</view>
 
-    <van-cell size="large" url="/pages/qa/qa?id={{item.id}}"  wx:for="{{value.items}}" border="{{ index == value.items.length -1 ? false : true}}">
-      <van-tag slot="icon" type="warning">问</van-tag>
-      <view slot="title">
-        <view class="question">{{ item.content }}</view>
-      </view>
-      <view slot="right-icon">
-        <view style="display:flex;align-items:center;"><van-icon name="chat-o"></van-icon> ({{ item.answers_count }})</view>
-      </view>
-    </van-cell>
-  </view>
+    <navigator class="item" hover-class="none"  url="/pages/qa/qa?id={{item.id}}"   wx:for="{{value.items}}" >
+        <view class="icon">问</view>
+        <view class="info">
+            <view class="content">{{item.content}}</view>
+            <view class="footer">
+                <view class="count">共有{{item.answers_count}}条回答</view>
+                <view>
+                  <van-button wx:if="{{item.answers_count == 0}}" plain size="mini" plain type="info">去回答</van-button>
+                </view>
+            </view>
+        </view>
+    </navigator>
 
-  <navigator class="add-btn"  hover-class="none" url="/pages/qa/new?target_id={{value.post_id}}&target_type=post">
-    <van-button type="info" size="large" block plain >我要提问</van-button>
-  </navigator>
+    <navigator class="add-btn"  hover-class="none" url="/pages/qa/new?target_id={{value.post_id}}&target_type=post">
+      我要提问
+    </navigator>
+
+  </view>
 
 </mycard>

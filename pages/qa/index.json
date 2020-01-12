@@ -1,6 +1,7 @@
 {
     "enablePullDownRefresh": true,  
     "usingComponents": {
+        "like": "./answer-like"
     }
 
 }

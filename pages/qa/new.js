@@ -44,7 +44,8 @@ Page({
     wx.navigateBack({ delta: -1 })
   },
 
-  submitHandle: function () {
+  submitHandle: function (e) {
+    console.log('e', e)
     if(this.data.loading){
         return false;
     }
