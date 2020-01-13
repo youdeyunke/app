@@ -15,10 +15,10 @@
                 </view>
                 <view class="actions">
                     <view class="count">
-                        {{ item.answers_count}}条回答  {{ item.followers_count }}人关注
+                        {{ item.answers_count}}条回答
                     </view>
                     <van-button plain="{{item.followed}}" type="info" round name="eye" size="small"  class="follow" hover-class="none" bindtap="followHandle">
-                        {{ item.followed ? '已关注' : '关注' }}
+                        {{ item.followed ? '已关注' : '关注' }} ({{ item.followers_count }})
                     </van-button>
                 </view>
             </view>
