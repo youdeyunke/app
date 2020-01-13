@@ -18,7 +18,7 @@
                         {{ item.answers_count}}条回答  {{ item.followers_count }}人关注
                     </view>
                     <van-button plain="{{item.followed}}" type="info" round name="eye" size="small"  class="follow" hover-class="none" bindtap="followHandle">
-                        {{ item.followed ? '取消关注' : '关注' }}
+                        {{ item.followed ? '已关注' : '关注' }}
                     </van-button>
                 </view>
             </view>
