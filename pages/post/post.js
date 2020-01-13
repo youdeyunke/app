@@ -122,6 +122,12 @@ queryTabsPosition: function(){
 
 
 setInterval: function () {
+    // 如果是开发环境，不处理
+    if(this.data.EXT['is_dev'] == true){
+        console.log('开发环境下不记录访客在线时长')
+        return false
+    }
+
     // 如果没有登录，直接退出
     if (!app.globalData.token) {
         console.log('未登录，不记录浏览时长')

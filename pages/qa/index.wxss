@@ -11,7 +11,6 @@ page{
     background:#ffffff;
     border-top:2rpx solid #f4f4f4;
     box-sizing: border-box;
-    background: none;
     width: 100%;
     position: fixed;
     bottom: 0rpx;

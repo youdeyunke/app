@@ -6,7 +6,7 @@
 
     <view class="housetype {{ item.className}}" wx:for="{{items}}" wx:key="{{item.id}}">
         <view class="poster">
-            <image bindtap="viewTypeImage" data-index="{{index}}" src="{{item.image.url ? item.image.url  : 'https://qiniucdn.udeve.cn/wefang-sass/type-image-none.jpg'  }}?imageView2/2/w/300"></image>
+            <image width="165px" height="110px" bindtap="viewTypeImage" data-index="{{index}}" src="{{item.image.url ? item.image.url  : 'https://qiniucdn.udeve.cn/wefang-sass/type-image-none.jpg'  }}?imageView2/1/w/165/h/110"></image>
         </view>
         <view class="meta">
             <view class="name">{{item.name}}</view>

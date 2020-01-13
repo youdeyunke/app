@@ -4,6 +4,7 @@
   "directCommit": false,
   "ext": {
     "name": "开发版",
+    "is_dev": true, 
     "apihost": "https://weapp.udeve.cn/9000",
     "version_desc": "这里是版本介绍信息",
     "fenxiao_enable": true,
