@@ -351,10 +351,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 46,
 					"name": "post show",
 					"pathName": "pages/post/post",
-					"query": "id=30",
+					"query": "id=52",
 					"scene": null
 				},
 				{

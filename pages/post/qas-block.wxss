@@ -60,6 +60,7 @@
     color: #333333;
     line-height: 1.4;
     margin-bottom:6rpx;
+    width:100%;
 }
 
 .qas .item .info .footer{
