@@ -82,6 +82,9 @@ Page({
                     answers.push(a)
                 })
                 _this.setData({ item: item, answers: answers, loading: false })
+                wx.stopPullDownRefresh()
+                wx.hideNavigationBarLoading()
+                wx.stopPullDownRefresh() //停止下拉刷新    
 
             }
         })
@@ -197,6 +200,9 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
+        //wx.startPullDownRefresh()
+        //wx.showNavigationBarLoading()
+        //wx.stopPullDownRefresh() //停止下拉刷新    
         this.setData({
             loading: true,
             item: null, answers: null

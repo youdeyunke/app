@@ -34,6 +34,10 @@ Page({
             url: '/api/v5/posts/' + _this.data.postId,
             data: query,
             success: function (resp) {
+                wx.stopPullDownRefresh()
+                wx.hideNavigationBarLoading()
+                wx.stopPullDownRefresh() //停止下拉刷新    
+
                 _this.setData({
                     loading: false,
                     blocks: resp.data.data,
