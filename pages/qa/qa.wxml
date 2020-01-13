@@ -49,7 +49,8 @@
                 </view>
                 <view class="content">{{ answer.content }}</view>
                 <view class="footer">
-                    <like count="{{answer.likes}}"  aid="{{answer.id}}" />
+                    <delete wx:if="{{answer.user_id == user.id}}" bind:deleted="deletedHandle"  aid="{{answer.id}}" ></delete>
+                    <like style="margin-left:8rpx;" count="{{answer.likes}}"  aid="{{answer.id}}" />
                 </view>
             </view>
         </view>

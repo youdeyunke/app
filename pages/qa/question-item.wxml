@@ -11,7 +11,7 @@
                 </view>
             </view>
         </navigator>
-            <view class="answer" wx:if="{{item.first_answer}}">
+            <navigator  url="/pages/qa/qa?id={{item.id}}" hover-class="none"  class="answer" wx:if="{{item.first_answer}}">
                 <view class="header">
                         <view class="avatar">
                             <image src="{{item.first_answer.user.avatar}}" />
@@ -20,9 +20,9 @@
                             {{ item.first_answer.user.name}} 
                         </view>
                 </view>
-                <navigator  url="/pages/qa/qa?id={{item.id}}" hover-class="none" class="content">{{ item.first_answer.content }}</navigator>
+                <view class="content">{{ item.first_answer.content }}</view>
                 <view class="footer">
                     <like count="{{tem.first_answer.likes}}"  aid="{{item.first_answer.id}}" />
                 </view>
-            </view>
+            </navigator>
       </view>

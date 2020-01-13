@@ -106,11 +106,16 @@ Page({
         }
         // redirect
         wx.showToast({
-          title: '问题提交成功，我们会尽快回复您',
+          title: '问题提交成功',
           icon: 'success',
-          duration: 2000
+          mask: true,
+          duration: 2000,
+          success: function(){
+            setTimeout(function(){
+                wx.navigateBack({ delta: -1 })
+            }, 2000)
+          },
         })
-        wx.navigateBack({ delta: -1 })
       }
     })
   },  

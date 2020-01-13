@@ -754,7 +754,6 @@ App({
     var _this = this;
     var token = this.globalData.token;
     if (!obj.hideLoading) {
-      console.log('loading ', obj.url)
       wx.showLoading({ title: "加载中", mask: true });
     }
 
@@ -845,17 +844,22 @@ App({
             content: res.data.error
           });
         }
-        return typeof obj.success == "function" && obj.success(res);
 
+        // 加载完成后
+        if(!obj.hideLoading){ 
+            wx.hideLoading(); 
+            wx.hideNavigationBarLoading();
+            wx.stopPullDownRefresh();
+        }
+        return typeof obj.success == "function" && obj.success(res);
       },
       fail: function(res) {
         wx.hideNavigationBarLoading();
         wx.stopPullDownRefresh();
+        wx.hideLoading();
+        wx.hideToast();
       },
       complete: function() {
-        if(!obj.hideLoading){ wx.hideLoading(); }
-        wx.hideNavigationBarLoading();
-        wx.stopPullDownRefresh();
         typeof obj.complete == "function" && obj.complete();
       }
     });

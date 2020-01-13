@@ -52,7 +52,8 @@ Page({
         var ext = wx.getExtConfigSync()
         var chatEnable = ext['chat_enable'] != false
         var qid = options.id
-        this.setData({ id: qid, chatEnable: chatEnable })
+        var user = app.globalData.userInfo
+        this.setData({ id: qid, chatEnable: chatEnable, user: user })
         var _this = this
         this.loadData()
     },
@@ -122,9 +123,12 @@ Page({
                 }
                 // 关注成功, 重新加载数据
                 _this.loadData()
+                
             }
         })
     },
+
+    
 
     addHandle: function (e) {
         // 点击我来回答按钮
@@ -163,6 +167,16 @@ Page({
      */
     onShow: function () {
         this.loadData()
+    },
+
+    deletedHandle: function(e){
+        this.setData({loading: false})
+        this.loadData()
+        wx.showToast({
+            title: '已删除',
+            icon: 'none',
+            duration: 2000
+        })
     },
 
     /**

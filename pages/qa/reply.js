@@ -59,13 +59,11 @@ Page({
   },
 
   backHandle: function(){
-    wx.navigateBack({ delta: -1 })
   },
 
   doSubmit: function () {
     var _this = this
     var content = _this.data.content
-
 	app.request({
 	    url: '/api/v1/answers',
 	    method: 'POST',
@@ -76,8 +74,17 @@ Page({
 	    success: function (resp) {
 		_this.setData({ loading: false })
 		if (resp.data.status == 0) {
-		    wx.showToast({ title: '回复成功' })
-		    _this.backHandle()
+            wx.showToast({
+              title: '已回答',
+              icon: 'success',
+              mask: true,
+              duration: 1500,
+              success: function(){
+                setTimeout(function(){
+                    wx.navigateBack({ delta: -1 })
+                }, 1500)
+              },
+            })
 		}
 	    }
 	})
