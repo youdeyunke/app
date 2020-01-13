@@ -22,7 +22,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
-      this.loadData()
   },
 
 
@@ -45,6 +44,7 @@ Page({
       var itemsLen = this.data.items.length || 0
       app.request({
           url: '/api/v1/myself/questions',
+          hideLoading: true,
           data: {
             scope:scope,
             page: _this.data.page,
@@ -65,6 +65,9 @@ Page({
                   data[key] = item
               })
               _this.setData(data)
+              wx.stopPullDownRefresh()
+              wx.hideNavigationBarLoading()
+              wx.stopPullDownRefresh() //停止下拉刷新    
           }
       })
   },
@@ -81,7 +84,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+      console.log('onshow')
+      this.setData({items: [], page: 1})
+      this.loadData()
   },
 
   /**
@@ -102,7 +107,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+      wx.showLoading()
   },
 
   /**

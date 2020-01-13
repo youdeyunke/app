@@ -137,9 +137,9 @@ Page({
         // 点击我来回答按钮
         var _this = this
         auth.ensureUser(function (userInfo) {
-		wx.navigateTo({
-			url: '/pages/qa/reply?qid=' + _this.data.item.id
-		})
+		    wx.navigateTo({
+			    url: '/pages/qa/reply?qid=' + _this.data.item.id
+		    })
         })
     },
 
@@ -172,13 +172,40 @@ Page({
         this.loadData()
     },
 
-    deletedHandle: function(e){
-        this.setData({loading: false})
-        this.loadData()
-        wx.showToast({
-            title: '已删除',
-            icon: 'none',
-            duration: 2000
+    deleteHandle: function(e){
+      var _this = this
+      wx.showModal({
+        title: '操作提示',
+        content: '确定要删除这条回答吗？',
+        success(res) {
+          if (res.confirm) {
+            _this.doDelete()
+          }
+        }
+      })
+    },
+
+    doDelete: function(){
+        var _this = this
+        app.request({
+            url: '/api/v1/questions/' + _this.data.item.id,
+            method: 'DELETE',
+            success: function(resp){
+                if(resp.data.status != 0){
+                    return false
+                }
+                wx.showToast({
+                  title: '已删除',
+                  icon: 'none',
+                  mask: true,
+                  duration: 1500,
+                  success: function(){
+                    setTimeout(function(){
+                        wx.navigateBack({ delta: -1 })
+                    }, 1500)
+                  },
+                })
+            }
         })
     },
 
@@ -200,9 +227,6 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-        //wx.startPullDownRefresh()
-        //wx.showNavigationBarLoading()
-        //wx.stopPullDownRefresh() //停止下拉刷新    
         this.setData({
             loading: true,
             item: null, answers: null

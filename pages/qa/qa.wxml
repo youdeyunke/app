@@ -17,9 +17,12 @@
                     <view class="count">
                         {{ item.answers_count}}条回答
                     </view>
-                    <van-button plain="{{item.followed}}" type="info" round name="eye" size="small"  class="follow" hover-class="none" bindtap="followHandle">
-                        {{ item.followed ? '已关注' : '关注' }} ({{ item.followers_count }})
-                    </van-button>
+                    <view class="btns">
+                        <van-button style="margin-right:10rpx;" wx:if="{{user.id == item.user_id }}" plain icon="delete" type="danger" size="mini" bindtap="deleteHandle">删除</van-button>
+                        <van-button plain="{{item.followed}}" type="info" name="eye" size="mini"  class="follow" hover-class="none" bindtap="followHandle">
+                            {{ item.followed ? '已关注' : '关注' }} ({{ item.followers_count }})
+                        </van-button>
+                    </view>
                 </view>
             </view>
         </view>
