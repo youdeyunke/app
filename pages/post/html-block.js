@@ -8,11 +8,25 @@ Component({
 
   },
 
+    observers: {
+        "value.html": function (html) {
+            if (!html) {
+                console.log('html内容为空')
+                return false
+            }
+            html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
+            html = html.replace(/\<p/gi, '<p class="rich-text-p" ')
+            this.setData({prettyHtml: html})
+
+      },
+  },
+
   /**
    * 组件的初始数据
    */
   data: {
       minicontent: true,
+      prettyHtml: '',
 
   },
 
