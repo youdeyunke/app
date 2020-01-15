@@ -77,7 +77,7 @@ Component({
 
     gotoUser: function(e){
       var _this = this
-      var url = '/pkgBroker/pages/broker/broker?id=' + this.data.broker.id
+      var url = '/pkgBroker/pages/broker/profile?id=' + this.data.broker.id
       wx.navigateTo({
         url: url,
       })
