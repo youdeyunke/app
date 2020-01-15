@@ -1,7 +1,7 @@
 // pages/poster/index.js
 const app = getApp()
-import Poster from '../..//utils/wxa-plugin-canvas/poster/poster';
-var auth = require('../../utils/auth.js');
+import Poster from '../../..//utils/wxa-plugin-canvas/poster/poster';
+var auth = require('../../../utils/auth.js');
 
 Page({
 
@@ -29,11 +29,7 @@ Page({
         var _this = this
         var post = this.loadPost(q.id, function (post) {
             _this.setData({ post: post })
-            _this.genPosterConfig()
         })
-
-
-
     },
 
     loadPost: function (postId, cb) {
@@ -291,6 +287,7 @@ Page({
         var _this = this
         auth.ensureUser(function (user) {
             _this.setData({ user: user })
+            _this.genPosterConfig()
         })
     },
 

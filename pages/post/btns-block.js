@@ -48,7 +48,7 @@ Component({
     
     posterHandle: function(){
         var pid = this.data.value.post_id
-        wx.navigateTo({url: '/pages/poster/index?id=' + pid} )
+        wx.navigateTo({url: '/pkgPoster/pages/poster/index?id=' + pid} )
     },
 
     reportHandle: function(){

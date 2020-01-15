@@ -12,6 +12,7 @@
     <van-button bindtap="gotoPost"  type="default" >预览</van-button>
     <van-button bindtap="gotoVisitors"  type="default" >访客</van-button>
     <van-button bindtap="doRefresh"  type="default" >刷新</van-button>
+    <van-button bindtap="gotoPoster"  type="default" >做海报</van-button>
     </view>
 
   </view>

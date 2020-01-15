@@ -669,40 +669,7 @@ App({
   },
 
   uploadFormId: function(e, cb) {
-    // 保存formid
-    if(!e || !e.detail){
-      return false; 
-    }
-
-    var _this = this;
-    var formId = e.detail.formId
-    var token = this.globalData.token;
-
-    if (!token) {
-      console.log('token empty pass')
-      return false;
-    }
-
-    if (formId == 'the formId is a mock one'){
-      console.log('formid pass, ', formId)
-      return false;
-    }
-
-    wx.checkSession({
-      success: function(){
-        console.log('check session success, post formid ', e.detail.formId)
-        _this.request({
-          hideLoading: true,
-          url: "/api/v1/formid/",
-          data: {formid: e.detail.formId},
-          hideLoading: true,
-          method: "POST",
-          success: function(resp){
-              return typeof cb == 'function' && cb(resp.data)
-          }
-        });
-      },
-    })
+    return false
   },
 
 

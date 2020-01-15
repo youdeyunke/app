@@ -22,6 +22,13 @@
             "pages/qa/reply",
             "pages/qa/mine"
           ]
+      },
+      {
+          "root": "pkgPoster",
+          "name": "poster",
+          "pages":[
+            "pages/poster/index"
+          ]
       }
 
   ],
@@ -77,7 +84,6 @@
     "pages/map/index",
     "pages/owner/sale",
     "pages/myself/orders",
-    "pages/poster/index",
     "pages/myself/profile",
     "pages/visitors/index",
     "pages/broker/index",
