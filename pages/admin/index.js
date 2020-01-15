@@ -116,7 +116,10 @@ Page({
                   wx.navigateTo({
                     url: '/pages/myself/broker',
                   })
-                }
+                  return 
+                } 
+                console.log('cancle')
+                wx.switchTab({url: '/pages/home/home'})
               }          
             })
           }

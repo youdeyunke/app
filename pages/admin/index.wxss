@@ -44,22 +44,10 @@
 }
 
 
-.menu{
-  display:flex;
-  justify-content: flex-start;
-  align-items:space-between;
-  flex-wrap:wrap;
-  width:100%;
-
-  margin:0rpx 0;
-}
-
-.menu-name{
-  color: #000;
-  font-size:28rpx;
-  padding:0 0 0 30rpx;
-
-  margin-bottom:10rpx;
+.menu-item-name{
+  color: #333;
+  font-size:24rpx;
+  margin-top:15rpx;
 }
 
 .menu-item{
@@ -68,19 +56,4 @@
   justify-content:center;
   align-items:center;
   flex-wrap:wrap;
-  width:172rpx;
-  height: 172rpx;
 }
-
-.menu-item.fake , .menu-item.fake::after{
-  background: none;
-  border:none;
-  padding:0;
-  margin:0;
-}
-
-.menu-item-name{
-  margin-top:8rpx;
-  font-size:24rpx;
-}
-
