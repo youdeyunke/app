@@ -1,7 +1,7 @@
 // pages/myself/broker.js
 const app = getApp()
-var qiniu = require('../../utils/qiniu.js');
-var auth = require('../../utils/auth.js');
+var qiniu = require('../../../utils/qiniu.js');
+var auth = require('../../../utils/auth.js');
 
 Page({
 
@@ -11,7 +11,7 @@ Page({
     data: {
         userInfo: {},
         uploading: false,
-        loading:false,
+        loading:true,
         state: '',
         steps: [
             '提交资料',
@@ -25,6 +25,7 @@ Page({
      */
     onLoad: function (options) {
         var _this = this
+        wx.showLoading()
         this.setData({loading: true})
         auth.ensureUser(function (userInfo) {
             app.loadConfigs(function (conf) {
@@ -85,10 +86,11 @@ Page({
                 userInfo: user,
                 loading: false
             })
+            wx.hideLoading()
             // 如果没有开通经纪人，并且已经提交了个人资料，就进入购买有
             if(!user.is_broker && user.apply_status == 1){
                 wx.navigateTo({
-                    url: '/pages/broker/membership'
+                    url: '/pkgBroker/pages/broker/membership'
                 })
             }
         })
@@ -178,7 +180,7 @@ Page({
                     }
 
                     wx.navigateTo({
-                        url: '/pages/broker/membership'
+                        url: '/pkgBroker/pages/broker/membership'
                     })
                 }
             },

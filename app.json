@@ -1,176 +1,174 @@
 {
-  "subpackages":[
-      {
-          "root": "pkgFenxiao",
-          "name": "fenxiao",
-          "pages":[
-            "pages/fenxiao/index",
-            "pages/fenxiao/report",
-            "pages/fenxiao/balance",
-            "pages/fenxiao/referrers",
-            "pages/fenxiao/customers",
-            "pages/fenxiao/withdraw"
-          ]
-      },
-      {
-          "root": "pkgQa",
-          "name": "qa",
-          "pages":[
-            "pages/qa/index",
-            "pages/qa/qa",
-            "pages/qa/new",
-            "pages/qa/reply",
-            "pages/qa/mine"
-          ]
-      },
-      {
-          "root": "pkgJisuanqi",
-          "name": "jisuanqi",
-          "pages":[
-            "pages/daikuan/index",
-            "pages/daikuan/detail"
-          ]
-      },
-
-      {
-          "root": "pkgPoster",
-          "name": "poster",
-          "pages":[
-            "pages/poster/index"
-          ]
-      }
-
-  ],
-  "pages": [
-    "pages/home/home",
-    "pages/news/index",
-    "pages/news/show",
-    "pages/webview/webview",
-    "pages/comments/new",
-    "pages/post/index",
-    "pages/sub-districts/index",
-    "pages/sub-districts/show",
-    "pages/post/post",
-    "pages/myself/index",
-    "pages/about/index",
-    "pages/about/join",
-    "pages/home/debug",
-    "pages/comments/index",
-    "pages/myself/favposts",
-    "pages/static/about",
-    "pages/search/index",
-    "pages/need/roommate",
-    "pages/need/roommate-form",
-    "pages/need/roommate-show",
-    "pages/need/room",
-    "pages/need/room-show",
-    "pages/need/room-form",
-    "pages/post/form",
-    "pages/user/user",
-    "pages/myself/posts",
-    "pages/myself/broker",
-    "pages/messages/show",
-    "pages/messages/index",
-    "pages/444/index",
-    "pages/video/show",
-    "pages/myself/comments",
-    "pages/sub-districts/select",
-    "pages/cities/select",
-    "pages/districts/select",
-    "pages/rental",
-    "pages/zufang/index",
-    "pages/xinfang/index",
-    "pages/ershoufang/index",
-    "pages/broker/profile",
-    "pages/broker/membership",
-    "pages/static/terms",
-    "pages/post/meta",
-    "pages/auth/index",
-    "pages/admin/index",
-    "pages/udeve/index",
-    "pages/map/index",
-    "pages/owner/sale",
-    "pages/myself/orders",
-    "pages/myself/profile",
-    "pages/visitors/index",
-    "pages/broker/index",
-    "pages/admin/booking",
-    "pages/myself/submessage",
-    "pages/post/vr"
-  ],
-  "tabBar": {
-    "selectedColor": "#333",
-    "backgroundColor": "#fff",
-    "color": "#999",
-    "borderStyle": "black",
-    "list": [
-      {
-        "pagePath": "pages/home/home",
-        "iconPath": "/assets/icons/home.0.png",
-        "selectedIconPath": "/assets/icons/home.1.png",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/messages/index",
-        "iconPath": "/assets/icons/message.0.png",
-        "selectedIconPath": "/assets/icons/message.1.png",
-        "text": "消息"
-      },
-      {
-        "pagePath": "pages/myself/index",
-        "iconPath": "/assets/icons/myself.0.png",
-        "selectedIconPath": "/assets/icons/myself.1.png",
-        "text": "我的"
-      }
-    ]
-  },
-  "window": {
-    "enablePullDownRefresh": false,
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationStyle": "default",
-    "backgroundColor": "#fff",
-    "navigationBarTitleText": "",
-    "navigationBarTextStyle": "black"
-  },
-  "usingComponents": {
-    "cr": "/components/copyright",
-    "no-result": "/components/no-result",
-    "ad-link": "/components/ad-link",
-    "van-panel": "/vant/panel/index",
-    "van-icon": "/vant/icon/index",
-    "van-image": "/vant/image/index",
-    "van-tag": "/vant/tag/index",
-    "van-skeleton": "/vant/skeleton/index",
-    "van-popup": "/vant/popup/index",
-    "van-search": "/vant/search/index",
-    "van-loading": "/vant/loading/index",
-    "van-tabs": "/vant/tabs/index",
-    "van-tab": "/vant/tab/index",
-    "van-divider": "/vant/divider/index",
-    "van-button": "/vant/button/index",
-    "van-field": "/vant/field/index",
-    "van-radio-group": "/vant/radio-group/index",
-    "van-radio": "/vant/radio/index",
-    "van-cell": "/vant/cell/index",
-    "van-switch": "/vant/switch/index",
-    "van-cell-group": "/vant/cell-group/index",
-    "cell-radio": "/components/cell-radio",
-    "mycard": "/components/card",
-    "box": "/components/box"
-  },
-  "networkTimeout": {
-    "request": 100000,
-    "connectSocket": 10000,
-    "uploadFile": 100000,
-    "downloadFile": 100000
-  },
-  "serviceProviderTicket": "",
-  "permission": {
-    "scope.userLocation": {
-      "desc": "位置信息用于房源查询"
-    }
-  },
-  "debug": false,
-  "sitemapLocation": "sitemap.json"
+    "subpackages": [
+        {
+            "root": "pkgFenxiao",
+            "name": "fenxiao",
+            "pages": [
+                "pages/fenxiao/index",
+                "pages/fenxiao/report",
+                "pages/fenxiao/balance",
+                "pages/fenxiao/referrers",
+                "pages/fenxiao/customers",
+                "pages/fenxiao/withdraw"
+            ]
+        },
+        {
+            "root": "pkgQa",
+            "name": "qa",
+            "pages": [
+                "pages/qa/index",
+                "pages/qa/qa",
+                "pages/qa/new",
+                "pages/qa/reply",
+                "pages/qa/mine"
+            ]
+        },
+        {
+            "root": "pkgJisuanqi",
+            "name": "jisuanqi",
+            "pages": [
+                "pages/daikuan/index",
+                "pages/daikuan/detail"
+            ]
+        },
+        {
+            "root": "pkgBroker",
+            "name": "broker",
+            "pages": [
+                "pages/broker/index",
+                "pages/broker/join",
+                "pages/broker/membership",
+                "pages/broker/profile"
+            ]
+        },
+        {
+            "root": "pkgPoster",
+            "name": "poster",
+            "pages": [
+                "pages/poster/index"
+            ]
+        }
+    ],
+    "pages": [
+        "pages/home/home",
+        "pages/news/index",
+        "pages/news/show",
+        "pages/webview/webview",
+        "pages/comments/new",
+        "pages/post/index",
+        "pages/sub-districts/index",
+        "pages/sub-districts/show",
+        "pages/post/post",
+        "pages/myself/index",
+        "pages/about/index",
+        "pages/about/join",
+        "pages/home/debug",
+        "pages/comments/index",
+        "pages/myself/favposts",
+        "pages/static/about",
+        "pages/search/index",
+        "pages/need/roommate",
+        "pages/need/roommate-form",
+        "pages/need/roommate-show",
+        "pages/need/room",
+        "pages/need/room-show",
+        "pages/need/room-form",
+        "pages/post/form",
+        "pages/myself/posts",
+        "pages/messages/show",
+        "pages/messages/index",
+        "pages/444/index",
+        "pages/video/show",
+        "pages/myself/comments",
+        "pages/sub-districts/select",
+        "pages/cities/select",
+        "pages/districts/select",
+        "pages/static/terms",
+        "pages/post/meta",
+        "pages/auth/index",
+        "pages/admin/index",
+        "pages/udeve/index",
+        "pages/map/index",
+        "pages/owner/sale",
+        "pages/myself/orders",
+        "pages/myself/profile",
+        "pages/visitors/index",
+        "pages/admin/booking",
+        "pages/post/vr"
+    ],
+    "tabBar": {
+        "selectedColor": "#333",
+        "backgroundColor": "#fff",
+        "color": "#999",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "iconPath": "/assets/icons/home.0.png",
+                "selectedIconPath": "/assets/icons/home.1.png",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/messages/index",
+                "iconPath": "/assets/icons/message.0.png",
+                "selectedIconPath": "/assets/icons/message.1.png",
+                "text": "消息"
+            },
+            {
+                "pagePath": "pages/myself/index",
+                "iconPath": "/assets/icons/myself.0.png",
+                "selectedIconPath": "/assets/icons/myself.1.png",
+                "text": "我的"
+            }
+        ]
+    },
+    "window": {
+        "enablePullDownRefresh": false,
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationStyle": "default",
+        "backgroundColor": "#fff",
+        "navigationBarTitleText": "",
+        "navigationBarTextStyle": "black"
+    },
+    "usingComponents": {
+        "cr": "/components/copyright",
+        "no-result": "/components/no-result",
+        "ad-link": "/components/ad-link",
+        "van-panel": "/vant/panel/index",
+        "van-icon": "/vant/icon/index",
+        "van-image": "/vant/image/index",
+        "van-tag": "/vant/tag/index",
+        "van-skeleton": "/vant/skeleton/index",
+        "van-popup": "/vant/popup/index",
+        "van-search": "/vant/search/index",
+        "van-loading": "/vant/loading/index",
+        "van-tabs": "/vant/tabs/index",
+        "van-tab": "/vant/tab/index",
+        "van-divider": "/vant/divider/index",
+        "van-button": "/vant/button/index",
+        "van-field": "/vant/field/index",
+        "van-radio-group": "/vant/radio-group/index",
+        "van-radio": "/vant/radio/index",
+        "van-cell": "/vant/cell/index",
+        "van-switch": "/vant/switch/index",
+        "van-cell-group": "/vant/cell-group/index",
+        "cell-radio": "/components/cell-radio",
+        "mycard": "/components/card",
+        "box": "/components/box"
+    },
+    "networkTimeout": {
+        "request": 100000,
+        "connectSocket": 10000,
+        "uploadFile": 100000,
+        "downloadFile": 100000
+    },
+    "serviceProviderTicket": "",
+    "permission": {
+        "scope.userLocation": {
+            "desc": "位置信息用于房源查询"
+        }
+    },
+    "debug": false,
+    "sitemapLocation": "sitemap.json"
 }

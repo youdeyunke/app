@@ -1,8 +1,0 @@
-<box padding="20">
-
-    <van-cell wx:for="{{items}}" data-index="{{index}}" bindtap="subMessageHandle" size="large" hover-class="none" title="{{item.name}}"  > 
-       <view clot="button">
-        <van-button size="mini" type="primary" plain round>订阅</van-button>
-       </view>
-    </van-cell>
-</box>

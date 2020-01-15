@@ -22,7 +22,7 @@ Page({
       { name: '求购客源', icon: 'friends', color: '#4184AF', url: '/pages/need/room?cat=buy' },  
       { name: '求租客源', icon: 'friends', color: '#E15C32', url: '/pages/need/room?cat=rent' },  
       { name: '我的客源', icon: 'manager', color: '#5857CE', url: '/pages/need/room?cat=myself' },  
-      { name: '我的档案', icon: 'bars', color: '#', url: '/pages/myself/broker' },                                    
+      { name: '我的档案', icon: 'bars', color: '#', url: '/pkgBroker/pages/broker/join' },                                    
     ]
   },
 
