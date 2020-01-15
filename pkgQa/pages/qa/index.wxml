@@ -7,7 +7,7 @@
 
 <no-result wx:if="{{!loading && items.length == 0}}" />
 
-<navigator hover-class="none" url="/pages/qa/new?target_id={{target_id}}&target_type={{target_type}}" class="add" wx:if="{{target_id}}">
+<navigator hover-class="none" url="/pkgQa/pages/qa/new?target_id={{target_id}}&target_type={{target_type}}" class="add" wx:if="{{target_id}}">
     <van-button type="info" block>我要提问</van-button>
 </navigator>
 

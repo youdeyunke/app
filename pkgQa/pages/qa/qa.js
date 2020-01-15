@@ -1,7 +1,7 @@
 // pages/qa/qa.js
 const app = getApp()
-var util = require('../../utils/util.js');
-var auth = require('../../utils/auth.js');
+var util = require('../../../utils/util.js');
+var auth = require('../../../utils/auth.js');
 
 Page({
 
@@ -36,7 +36,7 @@ Page({
         wx.showLoading({ title: '正在打开', icon: 'none', mask: true })
         var _this = this
         wx.navigateTo({
-            url: '/pages/messages/show?target_user_id=' + bid,
+            url: '/pkgQa/pages/messages/show?target_user_id=' + bid,
             success: function () {
                 wx.hideLoading()
             }
@@ -138,7 +138,7 @@ Page({
         var _this = this
         auth.ensureUser(function (userInfo) {
 		    wx.navigateTo({
-			    url: '/pages/qa/reply?qid=' + _this.data.item.id
+			    url: '/pkgQa/pages/qa/reply?qid=' + _this.data.item.id
 		    })
         })
     },
@@ -246,7 +246,7 @@ Page({
         return {
             desc: _this.data.item['content'],
             title: '',
-            path: 'pages/qa/qa?id=' + _this.data.item['id']
+            path: 'pkgQa/pages/qa/qa?id=' + _this.data.item['id']
         }
     },
 

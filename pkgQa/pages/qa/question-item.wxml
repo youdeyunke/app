@@ -1,5 +1,5 @@
       <view class="item">
-        <navigator  url="/pages/qa/qa?id={{item.id}}" hover-class="none" class="question">
+        <navigator  url="/pkgQa/pages/qa/qa?id={{item.id}}" hover-class="none" class="question">
             <q-icon />
             <view class="body">
                 <view class="content">
@@ -11,7 +11,7 @@
                 </view>
             </view>
         </navigator>
-            <navigator  url="/pages/qa/qa?id={{item.id}}" hover-class="none"  class="answer" wx:if="{{item.first_answer}}">
+            <navigator  url="/pkgQa/pages/qa/qa?id={{item.id}}" hover-class="none"  class="answer" wx:if="{{item.first_answer}}">
                 <view class="header">
                         <view class="avatar">
                             <image src="{{item.first_answer.user.avatar}}" />

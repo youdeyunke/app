@@ -1,6 +1,6 @@
 // pages/qa/new.js
 const app = getApp()
-var auth = require('../../utils/auth.js');
+var auth = require('../../../utils/auth.js');
 
 Page({
 
@@ -9,49 +9,28 @@ Page({
    */
   data: {
       loading: false,
-      target_id: '',
-      target_type: '',
-      questionContent: '',
+      qid: '',
+      content: '',
       minLength: 5,
-      maxLength: 100,
-      commonQs: [
-          "是70年产权房吗？",
-          "会不会有拆迁的可能？",
-          "附近有幼儿园吗？",
-          "步行到地铁口/公交车站多长时间？",
-      ],
-  },
-
-  gohome: function(e){
-    wx.switchTab({
-      url: '/pages/home/home',
-    })
+      maxLength: 300,
   },
 
   inputHandle: function (e) {
     var v = e.detail.value
-    this.setData({ questionContent: v })
+    this.setData({ content: v })
   },
-
-  quickHandle: function(e){
-      var i = e.currentTarget.dataset.index
-      var text = this.data.commonQs[i]
-      this.setData({questionContent: text})
-  },
-
 
   resetHandle: function(){
     wx.navigateBack({ delta: -1 })
   },
 
   submitHandle: function (e) {
-    console.log('e', e)
     if(this.data.loading){
         return false;
     }
       
     var _this = this
-    var content = _this.data.questionContent
+    var content = _this.data.content
     var qLen = typeof content == 'undefined' ? 0 :  content.length 
     var min = this.data.minLength 
     var max = this.data.maxLnegth
@@ -80,51 +59,43 @@ Page({
   },
 
   backHandle: function(){
-    wx.navigateBack({ delta: -1 })
+      wx.navigateBack({delta: -1})
   },
 
   doSubmit: function () {
     var _this = this
-    var content = _this.data.questionContent
-    if(!this.data.target_type || !this.data.target_id){
-        wx.showToast({
-            title: '系统异常',
-            icon: 'none',
-            duration: 2000
-        })
-        return false
-    }
-
-    app.request({
-      method: 'POST',
-      url: '/api/v1/questions/',
-      data: { content: content, target_id: _this.data.target_id, target_type: _this.data.target_type},
-      success: function (resp) {
-        _this.setData({loading: false})
-        if(resp.data.status != 0){
-            return false;
-        }
-        // redirect
-        wx.showToast({
-          title: '问题提交成功',
-          icon: 'success',
-          mask: true,
-          duration: 2000,
-          success: function(){
-            setTimeout(function(){
-                wx.navigateBack({ delta: -1 })
-            }, 2000)
-          },
-        })
-      }
-    })
+    var content = _this.data.content
+	app.request({
+	    url: '/api/v1/answers',
+	    method: 'POST',
+	    data: {
+		question_id: _this.data.qid,
+		content: content,
+	    },
+	    success: function (resp) {
+		_this.setData({ loading: false })
+		if (resp.data.status == 0) {
+            wx.showToast({
+              title: '已回答',
+              icon: 'success',
+              mask: true,
+              duration: 1500,
+              success: function(){
+                setTimeout(function(){
+                    wx.navigateBack({ delta: -1 })
+                }, 1500)
+              },
+            })
+		}
+	    }
+	})
   },  
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
-    this.setData({target_id: q.target_id, target_type: q.target_type || 'post'})
+    this.setData({qid: q.qid})
     var _this = this
     auth.ensureUser(function(userInfo){
         _this.setData({userInfo: userInfo})

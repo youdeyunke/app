@@ -52,7 +52,7 @@
                 </view>
                 <view class="content">{{ answer.content }}</view>
                 <view class="footer">
-                    <delete wx:if="{{answer.user_id == user.id}}" bind:deleted="deletedHandle"  aid="{{answer.id}}" ></delete>
+                    <delete wx:if="{{answer.user_id == user.id}}" bind:deleted="loadData"  aid="{{answer.id}}" ></delete>
                     <like style="margin-left:8rpx;" count="{{answer.likes}}"  aid="{{answer.id}}" />
                 </view>
             </view>

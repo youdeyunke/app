@@ -1,7 +1,7 @@
 // pages/owner/sale.js
 
 const app = getApp()
-var auth = require('../../utils/auth.js');
+var auth = require('../../../utils/auth.js');
 
 Page({
 

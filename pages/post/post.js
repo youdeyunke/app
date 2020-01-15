@@ -24,7 +24,6 @@ Page({
 
     loadData: function () {
         var _this = this
-        this.setData({ loading: true })
         var query = {
             contact_name:  this.data.contactInfo.name || '',
             contact_moile: this.data.contactInfo.mobile || '',
@@ -169,9 +168,8 @@ clearInterval: function () {
  * 生命周期函数--监听页面显示
  */
 onShow: function () {
-    this.setData({
-        userInfo: app.globalData.userInfo
-    })
+    this.setData({ userInfo: app.globalData.userInfo })
+    this.loadData()
 },
 
 /**
@@ -194,8 +192,8 @@ onUnload: function () {
  * 页面相关事件处理函数--监听用户下拉动作
  */
 onPullDownRefresh: function () {
-    var pid = this.data.postId
-    this.loadData(pid)
+    this.setData({loading: true})
+    this.loadData()
 },
 
 /**

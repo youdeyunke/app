@@ -1,6 +1,6 @@
 // pages/fenxiao/withdraw.js
 const app = getApp()
-var auth = require('../../utils/auth.js');
+var auth = require('../../../utils/auth.js');
 var AMOUNT_MIN = 100
 
 Page({
@@ -14,7 +14,7 @@ Page({
 
   },
 
-  /**
+  /*
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {

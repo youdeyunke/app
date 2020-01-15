@@ -1,23 +1,33 @@
 // pages/post/qas-block.js
 Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-      value: {type: Object},
-  },
+    /**
+     * 组件的属性列表
+     */
+    properties: {
+        value: { type: Object },
+    },
 
-  /**
-   * 组件的初始数据
-   */
-  data: {
+    observers: {
+        "value.more_url": function (path) {
+            var res = path.split('/')
+            if (res[1] == 'pages') {
+                path = '/pkgQa' + path
+            }
+            this.setData({ moreUrl: path })
+        },
+    },
 
-  },
+    /**
+     * 组件的初始数据
+     */
+    data: {
+        moreUrl: '',
+    },
 
-  /**
-   * 组件的方法列表
-   */
-  methods: {
+    /**
+     * 组件的方法列表
+     */
+    methods: {
 
-  }
+    }
 })

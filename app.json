@@ -1,12 +1,35 @@
 {
+  "subpackages":[
+      {
+          "root": "pkgFenxiao",
+          "name": "fenxiao",
+          "pages":[
+            "pages/fenxiao/index",
+            "pages/fenxiao/report",
+            "pages/fenxiao/balance",
+            "pages/fenxiao/referrers",
+            "pages/fenxiao/customers",
+            "pages/fenxiao/withdraw"
+          ]
+      },
+      {
+          "root": "pkgQa",
+          "name": "qa",
+          "pages":[
+            "pages/qa/index",
+            "pages/qa/qa",
+            "pages/qa/new",
+            "pages/qa/reply",
+            "pages/qa/mine"
+          ]
+      }
+
+  ],
   "pages": [
     "pages/home/home",
     "pages/news/index",
     "pages/news/show",
     "pages/webview/webview",
-    "pages/qa/index",
-    "pages/qa/qa",
-    "pages/qa/new",
     "pages/comments/new",
     "pages/post/index",
     "pages/sub-districts/index",
@@ -48,17 +71,11 @@
     "pages/post/meta",
     "pages/auth/index",
     "pages/admin/index",
-    "pages/fenxiao/index",
     "pages/daikuan/index",
     "pages/daikuan/detail",
     "pages/udeve/index",
     "pages/map/index",
     "pages/owner/sale",
-    "pages/fenxiao/report",
-    "pages/fenxiao/balance",
-    "pages/fenxiao/referrers",
-    "pages/fenxiao/customers",
-    "pages/fenxiao/withdraw",
     "pages/myself/orders",
     "pages/poster/index",
     "pages/myself/profile",
@@ -66,9 +83,7 @@
     "pages/broker/index",
     "pages/admin/booking",
     "pages/myself/submessage",
-    "pages/post/vr",
-    "pages/qa/reply",
-    "pages/qa/mine"
+    "pages/post/vr"
   ],
   "tabBar": {
     "selectedColor": "#333",
