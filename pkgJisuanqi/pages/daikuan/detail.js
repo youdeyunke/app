@@ -1,7 +1,7 @@
 // pages/detail/detail.js
 const util = require('./util.js')
 const mortgageHelper = require('./mortgageHelper.js')
-const wxCharts = require('../../utils/wxcharts-min.js');
+const wxCharts = require('../../../utils/wxcharts-min.js');
 //获取应用实例
 const app = getApp()
 

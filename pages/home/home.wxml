@@ -21,7 +21,7 @@
           </view>
 
           <view class="right">
-            <navigator url="/pages/daikuan/index" hover-class="none" class="block-nav-item" >
+            <navigator url="/pkgJisuanqi/pages/daikuan/index" hover-class="none" class="block-nav-item" >
               <view class="block-nav-item-name">房贷计算</view>
               <view class="block-nav-item-desc">点击进入房贷计算器</view>
             </navigator>

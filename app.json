@@ -24,6 +24,15 @@
           ]
       },
       {
+          "root": "pkgJisuanqi",
+          "name": "jisuanqi",
+          "pages":[
+            "pages/daikuan/index",
+            "pages/daikuan/detail"
+          ]
+      },
+
+      {
           "root": "pkgPoster",
           "name": "poster",
           "pages":[
@@ -78,8 +87,6 @@
     "pages/post/meta",
     "pages/auth/index",
     "pages/admin/index",
-    "pages/daikuan/index",
-    "pages/daikuan/detail",
     "pages/udeve/index",
     "pages/map/index",
     "pages/owner/sale",

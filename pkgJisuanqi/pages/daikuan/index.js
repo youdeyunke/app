@@ -253,7 +253,7 @@ Page({
     }
     app.globalData.mortgageData = mortgageData;
     wx.navigateTo({
-      url: '/pages/daikuan/detail'
+      url: '/pkgJisuanqi/pages/daikuan/detail'
     });
   },
   /**
