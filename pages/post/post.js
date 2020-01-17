@@ -26,7 +26,7 @@ Page({
         var _this = this
         var query = {
             contact_name:  this.data.contactInfo.name || '',
-            contact_moile: this.data.contactInfo.mobile || '',
+            contact_mobile: this.data.contactInfo.mobile || '',
         }
         app.request({
             hideLoading: true,

@@ -18,6 +18,7 @@
 
 <form report-submit bindsubmit="formidHandle"> 
 
+
   <view class="mybox" style="padding:20rpx 20rpx 0rpx 20rpx;">
     <view class="menu"  >
 
