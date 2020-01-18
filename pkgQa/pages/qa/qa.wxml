@@ -28,7 +28,7 @@
         </view>
 
         <view class="answers">
-            <view class="answer" wx:for-item="answer" wx:for="{{answers}}">
+            <view class="answer" wx:key="id" wx:for-item="answer" wx:for="{{answers}}">
                 <view class="meta">
                     <view class="left">
                         <view class="avatar">

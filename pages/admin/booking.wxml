@@ -2,7 +2,7 @@
 <view class="empty" wx:if="{{!loading && items[0].length == 0 }}" style="text-align:center;color:#cecece;margin-top:100rpx;">没有记录</view>
 <box padding="20" wx:else>   
   <block wx:for="{{items}}" wx:for-item="logs">
-    <booking-log user-group="broker" bind:statuschange="statusChangeHandle" wx:for="{{logs}}"  wx:for-key="item.id" item="{{item}}"  />
+    <booking-log user-group="broker" bind:statuschange="statusChangeHandle" wx:for="{{logs}}"  wx:key="id" item="{{item}}"  />
   </block>
   <view style="display:flex;justify-content:center;align-items:center;">
     <van-loading wx:if="{{loading}}" />

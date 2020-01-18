@@ -12,7 +12,7 @@
         <van-skeleton  style="width:100%;"   row="2"  loading="{{true}}" avatar="{{false}}" > </van-skeleton>
     </view>
     
-    <view  style="width:750rpx;margin-bottom:20rpx;" wx:for="{{[1,2]}}">
+    <view  style="width:750rpx;margin-bottom:20rpx;" wx:for="{{[1,2]}}" >
         <van-skeleton  style="width:100%;"  title row="1" row-width="{{ ['100%', '50%', '100%', '100%'] }}" loading="{{true}}" avatar="{{true}}" avatar-size="120rpx" >
     </van-skeleton>
     </view>

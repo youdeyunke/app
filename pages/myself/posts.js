@@ -9,8 +9,8 @@ Page({
    */
   data: {
     loading: false,
-    tabs: [
-    ],
+    tabs: [ ],
+    currentTabIndex: 0,
     group_v2: 'old',
     userInfo: null,
     searchText: '',
@@ -21,9 +21,9 @@ Page({
    */
   onLoad: function (q) {
     var _this = this
-    this.setData({
-      tabs:  app.globalData.myconfigs['post_groups'],
-    })
+    var tabs =  app.globalData.myconfigs['post_groups']
+    this.setData({ tabs: tabs, group_v2: tabs[0].value })
+
     auth.ensureUser((userInfo) => {
       _this.setData({userInfo: userInfo}, () => {
         _this.loadPosts()

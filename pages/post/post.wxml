@@ -7,7 +7,7 @@
 
 
 <view style="width:100%;" hidden="{{loading}}">
-    <block wx:for="{{blocks}}" wx:for-item="block" wx:for-key="index">
+    <block wx:for="{{blocks}}" wx:for-item="block" wx:for-key="index" wx:key="name">
         <brokage-block wx:if="{{ block.name == 'brokage' }}" value="{{ block.value}}"  />
         <images-block  wx:if="{{block.name == 'images' }}"  value="{{ block.value }}" />
         <meta-block  wx:if="{{block.name == 'meta' }}"  value="{{ block.value }}" />

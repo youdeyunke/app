@@ -7,7 +7,7 @@
         <view class="tagsinfo">
           <navigator 
                 style="margin-right:10rpx;margin-bottom:0rpx;"
-                wx:for="{{value.tags}}" wx:for-item="tag" wx:for-key="{{tag.id}}" url="{{tag.url}}">
+                wx:for="{{value.tags}}" wx:for-item="tag" wx:key="id" url="{{tag.url}}">
             <van-tag 
                 size="{{tag.size }}" 
                 color="{{ tag.color || '#EDF2EF' }}" 
@@ -38,7 +38,7 @@
             </view>
         </view>
         <view class="detail-meta">
-            <view class="meta {{ meta.url ? 'link lg' : '' }} {{ meta.large ? 'lg' : '' }}" wx:key="{{meta.label}}" wx:if="{{meta}}" wx:for="{{value.meta_list}}" wx:for-item="meta">
+            <view class="meta {{ meta.url ? 'link lg' : '' }} {{ meta.large ? 'lg' : '' }}" wx:key="label" wx:if="{{meta}}" wx:for="{{value.meta_list}}" wx:for-item="meta">
                 <text class="label">{{meta.label}}</text>
                 <navigator class="value" hover-class="none" wx:if="{{meta.url}}" url="{{meta.url}}">{{meta.value}}</navigator>
                 <text wx:else  class="value">{{meta.value}}</text>

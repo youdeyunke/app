@@ -13,7 +13,7 @@
 </view>
 </box>
 
-<box padding="30">
+<box padding="0">
   <van-grid>
     <van-grid-item url="{{item.url}}"  use-slot wx:for="{{menuItems}}" wx:key="{{index}}"   hover-class="none"  >
       <view class="menu-item">

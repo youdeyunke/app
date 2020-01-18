@@ -372,6 +372,7 @@ App({
       this.request({
           url: '/api/v1/qr/',
           method: 'POST',
+          hideLoading: false,
           data: { path: path },
           success: function(resp){
               if(resp.data.status == 0){

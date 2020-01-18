@@ -27,8 +27,11 @@ Page({
         // 先加载post数据，再自动生成海报
         wx.setNavigationBarTitle({ title: '制作房源海报' })
         var _this = this
-        var post = this.loadPost(q.id, function (post) {
-            _this.setData({ post: post })
+        this.setData({ postId: q.id })
+        this.loadPost(q.id, (post) => {
+            _this.setData({ post: post }, (res) => {
+                _this.genPosterConfig()
+            })
         })
     },
 
@@ -70,12 +73,9 @@ Page({
         if (this.data.contactInfo.mobile) {
             var path = 'pages/post/post?contact=' + this.data.post.id + '_' + this.data.contactInfo.name + '_' + this.data.contactInfo.mobile + '_' + this.data.user.id
             app.genQr(path, function (data) {
-                console.log('生成专属唯一二维码', data.qr)
                 return cb(data.qr)
-
             })
         } else {
-            console.log('使用默认房源二维码', this.data.post.qr)
             return cb(this.data.post.qr)
         }
     },
@@ -287,7 +287,9 @@ Page({
         var _this = this
         auth.ensureUser(function (user) {
             _this.setData({ user: user })
-            _this.genPosterConfig()
+            if (_this.data.post && _this.data.post.id) {
+                //_this.genPosterConfig()
+            }
         })
     },
 

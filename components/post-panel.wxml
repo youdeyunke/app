@@ -6,13 +6,13 @@
   <view slot="footer" class="myfooter">
     <view class="rtime"></view>
     <view class="btns">
-    <van-button wx:if="{{item.group != 'new'}}" bindtap="editHandle"  type="default">修改</van-button>
-    <van-button bindtap="unpublicHandle"  type="danger" wx:if="{{item.public}}">下架</van-button>
-    <van-button bindtap="publicHandle"  type="primary" wx:if="{{!item.public}}">上架</van-button>
-    <van-button bindtap="gotoPost"  type="default" >预览</van-button>
-    <van-button bindtap="gotoVisitors"  type="default" >访客</van-button>
-    <van-button bindtap="doRefresh"  type="default" >刷新</van-button>
-    <van-button bindtap="gotoPoster"  type="default" >做海报</van-button>
+    <van-button size="small" wx:if="{{item.group != 'new'}}" bindtap="editHandle"  type="default">修改</van-button>
+    <van-button size="small" bindtap="unpublicHandle"  type="danger" wx:if="{{item.public}}">下架</van-button>
+    <van-button size="small" bindtap="publicHandle"  type="primary" wx:if="{{!item.public}}">上架</van-button>
+    <van-button size="small" bindtap="gotoPost"  type="default" >预览</van-button>
+    <van-button size="small" bindtap="gotoVisitors"  type="default" >访客</van-button>
+    <van-button size="small" bindtap="doRefresh"  type="default" >刷新</van-button>
+    <van-button size="small" bindtap="gotoPoster"  type="default" >做海报</van-button>
     </view>
 
   </view>

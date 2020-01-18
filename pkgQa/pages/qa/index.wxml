@@ -1,7 +1,7 @@
 
 <mycard wx:if="{{items.length > 0}}" title="{{pageTitle}}" hat="{{false}}" >
     <view class="items">
-      <item style="width:690rpx;" item="{{item}}" wx:for="{{items}}" />
+      <item style="width:690rpx;" item="{{item}}" wx:key="id" wx:for="{{items}}" />
     </view>
 </mycard>
 
