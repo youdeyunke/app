@@ -29,19 +29,14 @@ Page({
         })
     },
 
-    inputHandle: function (e) {
-        var v = e.detail.value
-        var disable = true
-        if (v.length <= this.data.maxLength && v.length >= this.data.minLength) {
-            disable = false
-        }
-        this.setData({ questionContent: v, btnDisable: disable })
+    contentChange: function (e) {
+        console.log('content change', e)
     },
 
     quickHandle: function (e) {
         var i = e.currentTarget.dataset.index
         var text = this.data.commonQs[i]
-        this.setData({ questionContent: text })
+        this.setData({ questionContent: text , btnDisable: false})
     },
 
 
@@ -115,7 +110,7 @@ Page({
                     return false;
                 }
                 var url = '/pkgQa/pages/qa/qa?id=' + resp.data.data.id
-                wx.navigateTo({
+                wx.redirectTo({
                     url: url
                 });
 

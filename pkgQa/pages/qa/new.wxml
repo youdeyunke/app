@@ -1,12 +1,6 @@
 <box padding="30">
 
-    <textarea disabled="{{ questionContent.length >= maxLength }}" bindinput="inputHandle" maxlength="200" value="{{questionContent}}" name="content" placeholder='在这里输入您想要咨询的问题...'>
-      <view class="counter">
-          {{ questionContent.length }}/{{ maxLength }}
-      </view>
-        
-    </textarea>
-
+  <mytextarea bind:change="contentChange" max-length="500" min-length="5" placeholder="请输入问题" />
   <view class="actions">
     <van-button   disabled="{{ btnDisable || loading }}" loading="{{loading}}" bindtap="submitHandle" type="info" block  >我要提问</van-button>
     <view style="height:20rpx;display:block;"></view>
