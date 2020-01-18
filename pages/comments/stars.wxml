@@ -1,4 +1,0 @@
-      <block wx:for="{{[1,2,3,4,5]}}" wx:for-item="score">
-        <image wx:if="{{value >= score }}" src="/assets/icons/star-yellow.png"></image>
-        <image wx:if="{{value < score }}" src="/assets/icons/star-dark.png"></image>
-      </block>

@@ -24,6 +24,16 @@
             ]
         },
         {
+            "root": "pkgComment",
+            "name": "comment",
+            "pages": [
+                "pages/comment/index",
+                "pages/comment/mine",
+                "pages/comment/new"
+            ]
+        },
+
+        {
             "root": "pkgJisuanqi",
             "name": "jisuanqi",
             "pages": [
@@ -54,7 +64,6 @@
         "pages/news/index",
         "pages/news/show",
         "pages/webview/webview",
-        "pages/comments/new",
         "pages/post/index",
         "pages/sub-districts/index",
         "pages/sub-districts/show",
@@ -63,7 +72,6 @@
         "pages/about/index",
         "pages/about/join",
         "pages/home/debug",
-        "pages/comments/index",
         "pages/myself/favposts",
         "pages/static/about",
         "pages/search/index",
@@ -79,7 +87,6 @@
         "pages/messages/index",
         "pages/444/index",
         "pages/video/show",
-        "pages/myself/comments",
         "pages/sub-districts/select",
         "pages/cities/select",
         "pages/districts/select",
@@ -136,6 +143,7 @@
         "no-result": "/components/no-result",
         "ad-link": "/components/ad-link",
         "van-panel": "/vant/panel/index",
+        "van-rate": "/vant/rate/index",
         "van-icon": "/vant/icon/index",
         "van-image": "/vant/image/index",
         "van-tag": "/vant/tag/index",
