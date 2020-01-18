@@ -35,7 +35,7 @@ Page({
         if (v.length <= this.data.maxLength && v.length >= this.data.minLength) {
             disable = false
         }
-        this.setData({ questionContent: v , btnDisable: disable})
+        this.setData({ questionContent: v, btnDisable: disable })
     },
 
     quickHandle: function (e) {
@@ -82,7 +82,7 @@ Page({
             return false
         }
         // 进入数据提交状态，按钮禁止点击
-        this.setData({ loading: true , btnDisable: true})
+        this.setData({ loading: true, btnDisable: true })
         auth.ensureUser(function (userInfo) {
             _this.doSubmit()
         })
@@ -111,25 +111,14 @@ Page({
             success: function (resp) {
                 //  处理完成
                 if (resp.data.status != 0) {
-                    _this.setData({btnDisable: false})
+                    _this.setData({ btnDisable: false })
                     return false;
                 }
-                // redirect
-                wx.showToast({
-                    title: '问题提交成功',
-                    icon: 'success',
-                    mask: true,
-                    duration: 2000,
-                    success: function () {
-                        setTimeout(function () {
-                            var url = '/pkgQa/pages/qa/qa?id=' + resp.data.data.id
-                            wx.navigateTo({
-                                url: url
-                            });
+                var url = '/pkgQa/pages/qa/qa?id=' + resp.data.data.id
+                wx.navigateTo({
+                    url: url
+                });
 
-                        }, 2000)
-                    },
-                })
             }
         })
     },
