@@ -8,7 +8,7 @@
     </textarea>
 
   <view class="actions">
-    <van-button   disabled="{{loading || questionContent.length < minLength || questionContent.length >= maxLength }}" loading="{{loading}}" bindtap="submitHandle" type="info" block  >我要提问</van-button>
+    <van-button   disabled="{{ btnDisable || loading }}" loading="{{loading}}" bindtap="submitHandle" type="info" block  >我要提问</van-button>
     <view style="height:20rpx;display:block;"></view>
     <van-button   bindtap="backHandle" type="default" block  >返回</van-button>
   </view>

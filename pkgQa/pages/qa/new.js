@@ -12,6 +12,7 @@ Page({
         target_id: '',
         target_type: '',
         questionContent: '',
+        btnDisable: true,
         minLength: 5,
         maxLength: 100,
         commonQs: [
@@ -30,7 +31,11 @@ Page({
 
     inputHandle: function (e) {
         var v = e.detail.value
-        this.setData({ questionContent: v })
+        var disable = true
+        if (v.length <= this.data.maxLength && v.length >= this.data.minLength) {
+            disable = false
+        }
+        this.setData({ questionContent: v , btnDisable: disable})
     },
 
     quickHandle: function (e) {
@@ -45,7 +50,10 @@ Page({
     },
 
     submitHandle: function (e) {
-        console.log('e', e)
+        if (this.data.btnDisable) {
+            return false;
+        }
+
         if (this.data.loading) {
             return false;
         }
@@ -73,7 +81,8 @@ Page({
             })
             return false
         }
-        this.setData({ loading: true })
+        // 进入数据提交状态，按钮禁止点击
+        this.setData({ loading: true , btnDisable: true})
         auth.ensureUser(function (userInfo) {
             _this.doSubmit()
         })
@@ -100,8 +109,9 @@ Page({
             url: '/api/v1/questions/',
             data: { content: content, target_id: _this.data.target_id, target_type: _this.data.target_type },
             success: function (resp) {
-                _this.setData({ loading: false })
+                //  处理完成
                 if (resp.data.status != 0) {
+                    _this.setData({btnDisable: false})
                     return false;
                 }
                 // redirect

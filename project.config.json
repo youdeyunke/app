@@ -105,10 +105,11 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 8,
 					"name": "qa-new",
-					"pathName": "pages/qa/new",
-					"query": ""
+					"pathName": "pkgQa/pages/qa/new",
+					"query": "target_id=52&target_type=post",
+					"scene": null
 				},
 				{
 					"id": -1,
