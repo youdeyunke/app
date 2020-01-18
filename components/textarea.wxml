@@ -1,0 +1,6 @@
+<textarea value="{{content}}" maxlength="{{maxLength}}"  bindinput="onInput"  placeholder='{{placeholder}}'>
+      <view class="counter">
+          {{ content.length }}/{{ maxLength }}
+      </view>
+</textarea>
+

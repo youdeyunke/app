@@ -87,8 +87,8 @@
 				},
 				{
 					"id": 5,
-					"name": "broker-apply",
-					"pathName": "pages/myself/broker",
+					"name": "broker-join",
+					"pathName": "pkgBroker/pages/broker/join",
 					"query": "",
 					"scene": null
 				},
@@ -647,9 +647,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/qa/new",
-					"pathName": "pages/qa/new",
+					"id": 88,
+					"name": "qa-new",
+					"pathName": "pkgQa/pages/qa/new",
 					"query": "target_id=52&target_type=post",
 					"scene": null
 				},
@@ -665,6 +665,13 @@
 					"name": "qa-mine",
 					"pathName": "pages/qa/mine",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "qa-answer",
+					"pathName": "pkgQa/pages/qa/reply",
+					"query": "id=81",
 					"scene": null
 				}
 			]

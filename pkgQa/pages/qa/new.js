@@ -11,8 +11,7 @@ Page({
         loading: false,
         target_id: '',
         target_type: '',
-        questionContent: '',
-        btnDisable: true,
+        content: '',
         minLength: 5,
         maxLength: 100,
         commonQs: [
@@ -30,13 +29,13 @@ Page({
     },
 
     contentChange: function (e) {
-        console.log('content change', e)
+        this.setData({ content: e.detail.value })
     },
 
     quickHandle: function (e) {
         var i = e.currentTarget.dataset.index
         var text = this.data.commonQs[i]
-        this.setData({ questionContent: text , btnDisable: false})
+        this.setData({ content: text })
     },
 
 
@@ -45,16 +44,13 @@ Page({
     },
 
     submitHandle: function (e) {
-        if (this.data.btnDisable) {
-            return false;
-        }
 
         if (this.data.loading) {
             return false;
         }
 
         var _this = this
-        var content = _this.data.questionContent
+        var content = _this.data.content
         var qLen = typeof content == 'undefined' ? 0 : content.length
         var min = this.data.minLength
         var max = this.data.maxLnegth
@@ -77,7 +73,7 @@ Page({
             return false
         }
         // 进入数据提交状态，按钮禁止点击
-        this.setData({ loading: true, btnDisable: true })
+        this.setData({ loading: true})
         auth.ensureUser(function (userInfo) {
             _this.doSubmit()
         })
@@ -89,7 +85,7 @@ Page({
 
     doSubmit: function () {
         var _this = this
-        var content = _this.data.questionContent
+        var content = _this.data.content
         if (!this.data.target_type || !this.data.target_id) {
             wx.showToast({
                 title: '系统异常',
@@ -104,9 +100,9 @@ Page({
             url: '/api/v1/questions/',
             data: { content: content, target_id: _this.data.target_id, target_type: _this.data.target_type },
             success: function (resp) {
+                _this.setData({loading: false})
                 //  处理完成
                 if (resp.data.status != 0) {
-                    _this.setData({ btnDisable: false })
                     return false;
                 }
                 var url = '/pkgQa/pages/qa/qa?id=' + resp.data.data.id
@@ -140,6 +136,10 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        this.setData({
+            loading: false,
+        })
+        wx.hideLoading()
 
     },
 
