@@ -36,6 +36,7 @@ Component({
             }
             this.setData({ content: e.detail.value })
             this.triggerEvent('input', { value: v })
+            this.triggerEvent('change', { value: v })
         },
     }
 

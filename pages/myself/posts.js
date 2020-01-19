@@ -25,9 +25,8 @@ Page({
     this.setData({ tabs: tabs, group_v2: tabs[0].value })
 
     auth.ensureUser((userInfo) => {
-      _this.setData({userInfo: userInfo}, () => {
-        _this.loadPosts()
-      })
+      _this.setData({userInfo: userInfo})
+      _this.loadPosts()
     })
 
   },

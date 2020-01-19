@@ -562,6 +562,12 @@ Page({
         this.clearError()
     },
 
+    descChange: function (e) {
+        var value = e.detail.value
+        this.updatePostField('desc', value)
+        this.clearError()
+    },
+
     showTypePicker: function () {
         this.selectComponent('#typepicker').onShow()
     },
