@@ -40,7 +40,6 @@
   justify-content:flex-start;
   align-items:center;
   color: #000;
-  font-weight: bold;
 }
 
 .card-heard-title .name{
