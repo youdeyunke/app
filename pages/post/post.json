@@ -15,6 +15,7 @@
       "types-block": "./types-block",
       "contact-block": "./contact-block",
       "qas-block": "./qas-block",
+      "comments-block": "./comments-block",
       "facilities-block": "./facilities-block",
 
     "van-transition": "/vant/transition/index",

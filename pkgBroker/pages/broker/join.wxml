@@ -3,7 +3,7 @@
     <view class="desc">轻松获得海量客源</view>
 </view>
 
-<view class="window" wx:if="{{ userInfo.apply_status == 0 }}">
+<view class="window" wx:if="{{ !userInfo.is_broker ||  userInfo.apply_status == 0 }}">
     <view class="uploader">
         <van-image src="{{userInfo.avatar }}" round width="180rpx" height="180rpx" />
         <van-button loading="{{uploading}}" loading-text="上传中" disabled="{{uploading}}" bindtap="chooseImage"  type="default" plain round >上传头像</van-button>
