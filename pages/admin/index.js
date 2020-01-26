@@ -114,7 +114,7 @@ Page({
               success(res) {
                 if (res.confirm) {
                   wx.navigateTo({
-                    url: '/pages/myself/broker',
+                    url: '/pkgBroker/pages/broker/join',
                   })
                   return 
                 } 

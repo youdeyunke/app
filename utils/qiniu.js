@@ -1,14 +1,12 @@
 // 封装七牛云前端直接上传功能
 
 const app = getApp()
-
+var  cdnDomain = 'qiniucdn.udeve.cn'
+var  cdnProtoco = 'http'
 
 module.exports = {
-
-    cdnDomain: 'qiniucdn.udeve.cn',
-
     genUrl: function(key){
-        return "https://" + this.cdnDomain + '/' + key
+        return cdnProtoco + "://" + cdnDomain + '/' + key
     },
 
     getToken: function(cb){
@@ -25,6 +23,19 @@ module.exports = {
     },
 
     upload: function(filePath, cb){
+        // 拉取服务端配置信息
+        var _this = this
+        wx.showLoading({title: '上传中', mask: true})
+        app.ensureConfigs((conf) => {
+            cdnDomain = conf['cdn_domain']
+            if(conf['cdn_https'] == true){
+                cdnProtoco = 'https'
+            }
+            return _this._upload(filePath, cb)
+        })
+    },
+
+    _upload: function(filePath, cb){
         var _this = this
         this.getToken( function(token, key){
             var formData = {token: token, key: key}
@@ -34,6 +45,7 @@ module.exports = {
                 name: 'file',
                 formData: formData,
                 success: function(resp){
+                    wx.hideLoading()
                     console.log('qiniu resp', resp, 'formdata', formData )
                     if(resp.statusCode == 200 && resp.errMsg == "uploadFile:ok"){
                       var url =  _this.genUrl(key)
