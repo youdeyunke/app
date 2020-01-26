@@ -1,3 +1,11 @@
+.window{
+  width:750rpx;
+  height:auto;
+}
+
+.window image{
+  width:750rpx;
+}
 
 .filter{
   margin-bottom:20rpx;

@@ -49,6 +49,8 @@ Component({
      */
     data: {
         items: [],
+        showImage: false,
+        currentImage: '',
         tags: [],
         imgUrls: [],
         currentGroup: 0,
@@ -63,9 +65,15 @@ Component({
             var item = this.data.items[i]
             var url = item.image.url
             var urls = this.data.imgUrls
-            wx.previewImage({
-                current: url,
-                urls: urls,
+            this.setData({
+                currentImage: url,
+                showImage: true,
+            })
+        },
+
+        closeImage: function(e){
+            this.setData({
+                showImage: false,
             })
         },
 
