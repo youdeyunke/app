@@ -44,6 +44,17 @@
                 <text wx:else  class="value">{{meta.value}}</text>
             </view>
         </view>
+
+        <view wx:if="{{false}}" class="dinyue-actions">
+            <view class="action">
+                开盘通知我   
+            </view>
+            <view class="action">
+                变价通知我
+            </view>
+        </view>
+          
+
         <navigator wx:if="{{value.more_btn.enable  }}" url="{{value.more_btn.url}}" class="more-btn more-meta" hover-class="none">
             {{ more_btn.text || '更多房源信息' }}
         </navigator>
