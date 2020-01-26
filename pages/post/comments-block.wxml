@@ -1,0 +1,5 @@
+
+<mycard title="{{ value.title }}"  hat="{{false}}" title-size="40" sub-title="{{ value.more_title }}" url="{{moreUrl}}" >
+  <van-cell title="{{item.content}}" size="large" wx:for="{{value.items}}" wx:for-item="item">
+  </van-cell>
+</mycard>
