@@ -1,1 +1,77 @@
 /* pages/post/comments-block.wxss */
+
+.tags {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.add-btn{
+  height:88rpx;
+  background:rgba(241,245,255,1);
+  border-radius:4rpx;
+  font-size:32rpx;
+  color:#1989FA;
+  line-height: 88rpx;
+  text-align: center;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tag-item {
+    height: 52rpx;
+    background: rgba(248, 248, 248, 1);
+    border-radius: 52rpx;
+    padding: 0 20rpx;
+    text-align: center;
+    line-height: 52rpx;
+    margin-right: 20rpx;
+    font-size: 24rpx;
+    color: #999999;
+}
+
+.comments {
+    margin-top: 36rpx;
+}
+
+.comment-item {
+    margin-bottom: 20rpx;
+}
+
+.comment-header .avatar image {
+    width: 64rpx;
+    height: 64rpx;
+    border-radius: 64rpx;
+    overflow: hidden;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20rpx;
+}
+
+.comment-header .title .name {
+    font-size: 28rpx;
+    color: #000000;
+}
+
+.comment-header .title {
+    margin-left: 10rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.comment-content {
+    font-size: 26rpx;
+    color: #000000;
+    line-height: 1.5;
+}
+
+.comment-item.border {
+    border-bottom: 1px solid #f4f4f4;
+    padding-bottom: 20rpx;
+}

@@ -1,4 +1,6 @@
 // components/message/post.js
+const app = getApp()
+
 Component({
   /**
    * 组件的属性列表
@@ -16,9 +18,7 @@ Component({
   },
 
   ready: function(){
-    var key = 'post.data.' + this.data.message.content
-    var post = wx.getStorageSync(key)
-    this.setData({post: post})
+      this.getPost()
   },
 
   /**
@@ -32,6 +32,26 @@ Component({
    * 组件的方法列表
    */
   methods: {
+      getPost: function(){
+          // 拉取post
+          //
+          var pid = this.data.message.content
+          var _this = this
+          var key = 'post.data.' + pid
+          var post = wx.getStorageSync(key)
+          if(post && post.id){
+            this.setData({post: post})
+            return 
+          }
+          app.request({
+              url: '/api/v2/posts/' + pid,
+              success: function(resp){
+                  var post = resp.data.data
+                  wx.setStorageSync(key, post)
+                  _this.setData({post: post})
+              }
+          })
+      },
 
   }
 })

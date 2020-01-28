@@ -1,5 +1,27 @@
 <!--pages/post/brokers-block.wxml-->
-<mycard title="{{value.title}}" hat="{{false}}" padding="{{false}}" title-size="40">
+<mycard title="{{value.title}}" hat="{{false}}" padding="{{false}}" title-size="32">
+    <view class="badges">
+        <view class="badge-item">
+          <van-icon name="after-sale" color="#999999" size="26rpx" />
+          免费带看
+        </view>
+
+        <view class="badge-item">
+          <van-icon name="medal-o" color="#999999" size="26rpx" />
+          专业服务
+        </view>
+
+        <view class="badge-item">
+          <van-icon name="volume-o" color="#999999" size="26rpx" />
+          区域解读
+        </view>
+
+        <view class="badge-item">
+          <van-icon name="wap-home-o" color="#999999" size="26rpx" />
+          户型分析
+        </view>
+    </view>
+      
     <broker-link post-id="{{post.id}}" broker="{{broker}}" wx:if="{{ index+1 <= maxLength  }}"  wx:for="{{value.brokers}}" wx:for-item="broker" wx:key="id" />
     <view class="more-brokers-btn">
         <view wx:if="{{moreBrokersBtn && more_btn}}" bindtap="moreBrokersHandle" hover-class="none" class="more-btn">

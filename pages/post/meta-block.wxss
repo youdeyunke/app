@@ -14,6 +14,7 @@
     width: 100%;
     align-items: center;
     flex-wrap: wrap;
+    margin-bottom:20rpx;
 }
 
 .tagsinfo .num {

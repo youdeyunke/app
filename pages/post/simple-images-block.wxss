@@ -2,7 +2,7 @@
 .wrapper{
   display:flex;
   justify-content:space-between;
-  margin:20rpx auto;
+  margin:0 auto 20rpx auto;
 }
 
 

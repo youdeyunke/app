@@ -1,49 +1,45 @@
-.safe-tips{
-  padding:30rpx;
-  display: flex;
-  flex-direction: column;
-}
-
-
-.safe-tips .title{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  letter-spacing: 1.1rpx;
-    margin-bottom:10rpx;  
-}
-
-.safe-tips .title text{
-    margin-left:10rpx;
-}
-
-.safe-tips .title .right button{
-  border:none;
-  background: none;
-  color: #5D77AB;
-  font-size:28rpx;
-  line-height: 28rpx;
-  font-weight: bolder;
-  opacity: 0.8;
-}
-
-.safe-tips .title .left{
-    font-size:28rpx;
-    color: #000;
-
+.safe-tips {
+    padding: 30rpx;
     display: flex;
-    font-weight: bolder;
+    flex-direction: column;
+}
+
+.safe-tips .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 1.1rpx;
+    margin-bottom: 10rpx;
+}
+
+.safe-tips .title text {
+    margin-left: 10rpx;
+}
+
+.safe-tips .title .right button {
+    border: none;
+    background: none;
+    color: #5D77AB;
+    font-size: 28rpx;
+    line-height: 28rpx;
+    opacity: 0.8;
+}
+
+.safe-tips .title .left {
+    font-size: 28rpx;
+    color: #000;
+    display: flex;
     justify-content: flex-start;
-    align-items:center;
+    align-items: center;
 }
 
-.safe-tips .title .left image{
-  width:28rpx;
+.safe-tips .title .left image {
+    width: 28rpx;
 }
 
-.safe-tips .content{
-  line-height:1.4;
-  font-size:24rpx;
-  margin-left:10rpx;
-  color: #999;
+.safe-tips .content {
+    line-height: 1.4;
+    font-size: 24rpx;
+    margin-left: 10rpx;
+    color: #999;
 }

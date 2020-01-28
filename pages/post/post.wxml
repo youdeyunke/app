@@ -18,6 +18,7 @@
         <types-block id="types" wx:if="{{block.name == 'types'}}" value="{{block.value}}" />
         <brokers-block wx:if="{{block.name == 'brokers'}}" value="{{block.value}}" />
         <qas-block  wx:if="{{block.name == 'qas' }}" value="{{block.value}}"  />
+        <comments-block  wx:if="{{block.name == 'comments' }}" value="{{block.value}}"  />
         <recoms-block wx:if="{{block.name == 'recoms'}}" value="{{block.value}}" />
         <btns-block wx:if="{{block.name == 'btns'}}" value="{{block.value}}" />
         <contact-block wx:if="{{block.name == 'contact'}}" value="{{block.value}}" />

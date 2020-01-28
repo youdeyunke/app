@@ -1,4 +1,4 @@
-<mycard title="{{ value.title }}"  hat="{{false}}" title-size="40" sub-title="{{ value.more_title }}" url="{{moreUrl}}" >
+<mycard title="{{ value.title }}"  hat="{{false}}" title-size="32" sub-title="{{ value.more_title }}" url="{{moreUrl}}" >
   <view class="qas">
     <view class="empty" wx:if="{{value.items.length == 0}}">还没有人提问</view>
 
