@@ -1,142 +1,134 @@
-
-page{
-  height:100% !important;
-  padding-top:20rpx;
+page {
+    padding-top: 20rpx;
 }
 
-.mybox{
-  width:710rpx;
-  padding:20rpx 0 20rpx  20rpx;
-  box-sizing: border-box;
-  background: #fff;
-  border-radius: 15rpx;
-  margin-bottom:30rpx;
+.mybox {
+    width: 710rpx;
+    padding: 20rpx 0 20rpx 20rpx;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 15rpx;
+    margin-bottom: 30rpx;
 }
 
-.user{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width:710rpx;
-  margin:0 auto 20rpx auto;
-  padding:0 10rpx;
+.user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 710rpx;
+    margin: 0 auto 20rpx auto;
+    padding: 0 10rpx;
 }
 
-.user .uinfo{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width:370rpx;
+.user .uinfo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 370rpx;
 }
 
-.user .user-actions{
+.user .user-actions {}
+
+.mybutton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border-radius: 10rpx;
+    height: 50rpx;
+    width: 100rpx;
+    padding: 10rpx;
 }
 
-.mybutton{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: none;
-  border-radius: 10rpx;
-  height: 50rpx;
-  width: 100rpx;
-  padding:10rpx;
+.myubtton::after {
+    border: none;
+    outline: none;
+    margin: 0;
 }
 
-.myubtton::after{
-  border:none;
-  outline: none;
-  margin:0;
+.mybutton van-icon {
+    color: #999;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-
-.mybutton van-icon{
-  color: #999;
-  display: flex;
-  justify-content: flex-end;
-  align-items:  center;
+.mylink {
+    width: 240rpx;
 }
 
-.mylink{
-  width: 240rpx;
+.user .uinfo .avatar {
+    margin-right: 20rpx;
 }
 
-.user .uinfo .avatar{
-  margin-right:20rpx;
+.avatar, .avatar image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 80rpx;
+    overflow: hidden;
+    margin-bottom: 10rpx;
 }
 
-.avatar, .avatar image{
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 80rpx;
-  overflow: hidden;
-  margin-bottom:10rpx;
+.cell-title {
+    font-size: var(--font-xl);
 }
 
-
-.cell-title{
-  font-size: var(--font-xl);
+.section {
+    width: 710rpx;
+    padding: 0 20rpx;
+    margin-bottom: 20rpx;
 }
 
-.section{
-  width:710rpx;
-  padding:0 20rpx;
-  margin-bottom:20rpx;
+.section-title {
+    padding: 10rpx 20rpx;
 }
 
-.section-title{
-  padding:10rpx 20rpx;
+.cell-menu {
+    width: 100%;
+    margin-bottom: 20rpx;
 }
 
-.cell-menu{
-  width:100%;
-  margin-bottom:20rpx;
+.cell-menu .title {
+    font-size: 30rpx;
+    color: #000;
+    font-weight: bolder;
+    padding: 0 0 20rpx 30rpx;
 }
 
-.cell-menu .title{
-  font-size:30rpx;
-  color: #000;
-  font-weight: bolder;
-  padding:0 0 20rpx 30rpx;
+.menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0rpx 0;
 }
 
-
-.menu{
-  display:flex;
-  justify-content: space-around;
-  align-items:space-between;
-  flex-wrap:wrap;
-  width:100%;
-
-  margin:0rpx 0;
+.menu-name {
+    color: #000;
+    font-size: 28rpx;
+    padding: 0 0 0 30rpx;
+    margin-bottom: 10rpx;
 }
 
-.menu-name{
-  color: #000;
-  font-size:28rpx;
-  padding:0 0 0 30rpx;
-
-  margin-bottom:10rpx;
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 165rpx;
+    height: 125rpx;
 }
 
-.menu-item{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
-  width:165rpx;
-  height: 125rpx;
+.menu-item.fake, .menu-item.fake::after {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
 }
 
-.menu-item.fake , .menu-item.fake::after{
-  background: none;
-  border:none;
-  padding:0;
-  margin:0;
-}
-
-.menu-item-name{
-  margin-top:0rpx;
-  font-size:24rpx;
+.menu-item-name {
+    margin-top: 0rpx;
+    font-size: 24rpx;
 }

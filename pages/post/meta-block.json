@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
+      "sub-button": "./sub-button",
       "simple-images-block": "./simple-images-block"
   }
 }

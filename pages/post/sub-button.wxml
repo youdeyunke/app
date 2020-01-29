@@ -1,0 +1,5 @@
+<block>
+ <view class="action {{ status == 1 ? 'dark' : '' }}" bindtap="subHandle">
+    {{ nameDict[cat]['btn'][status] }}
+ </view>
+</block>
