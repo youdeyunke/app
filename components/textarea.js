@@ -5,7 +5,7 @@ Component({
      */
     properties: {
         maxLength: { type: Number, value: 300 },
-        width: {type: String, value: '100%'} ,
+        width: { type: String, value: '100%' },
         minLength: { type: Number, value: 5 },
         value: { type: String, value: '' },
 
@@ -31,12 +31,11 @@ Component({
     methods: {
         onInput: function (e) {
             var v = e.detail.value
-            if (v.length >= this.data.maxLength) {
-                return false;
+            if (v.length <= this.data.maxLength) {
+                this.setData({ content: e.detail.value })
+                this.triggerEvent('input', { value: v })
+                this.triggerEvent('change', { value: v })
             }
-            this.setData({ content: e.detail.value })
-            this.triggerEvent('input', { value: v })
-            this.triggerEvent('change', { value: v })
         },
     }
 
