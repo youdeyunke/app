@@ -1,6 +1,6 @@
 
 <mycard title="动态分类" title-size="32" hat="{{false}}">
-  <view class="cats">
+  <view class="ecats">
     <view bindtap="catClickHandle" data-index="{{index}}" class="cat-item {{ currentCatIndex == index ? 'active': '' }}" wx:for="{{cats}}" wx:for-item="cat">{{cat.name}}</view>
   </view>
 </mycard>

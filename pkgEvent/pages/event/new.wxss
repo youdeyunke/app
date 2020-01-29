@@ -1,6 +1,6 @@
 /* pkgEvent/pages/event/new.wxss */
 
-.cats {
+.ecats {
     display: flex;
     justify-content: flex-start;
     align-items: center;
