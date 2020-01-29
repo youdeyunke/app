@@ -685,6 +685,13 @@
 					"pathName": "pkgEvent/pages/event/new",
 					"query": "pid=52",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "动态列表",
+					"pathName": "pkgEvent/pages/event/index",
+					"query": "pid=52",
+					"scene": null
 				}
 			]
 		}

@@ -10,6 +10,7 @@
       "map-block": "./map-block",
       "brokers-block": "./brokers-block",
       "recoms-block": "./recoms-block",
+      "events-block": "./events-block",
       "safe-block": "./safe-block",
       "btns-block": "./btns-block",
       "types-block": "./types-block",

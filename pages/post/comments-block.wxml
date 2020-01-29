@@ -3,7 +3,7 @@
  hat="{{false}}"
  title-size="32"
  sub-title="{{ value.more_title }}"
- url="{{moreUrl}}"
+ url="{{value.more_url}}"
 >
 	<view class="tags">
 		<navigator url="" hover-class="none" class="tag-item">好评(10)</navigator>

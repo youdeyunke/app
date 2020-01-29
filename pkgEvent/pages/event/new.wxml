@@ -13,6 +13,7 @@
     </view>
 
     <van-button type="info" bindtap="submitHandle" block loading="{{loading}}">确定发布</van-button>
+
     <view class="blank"></view>
     <van-button type="default" block plain>取消</van-button>
 </mycard>

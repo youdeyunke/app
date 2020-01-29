@@ -1,0 +1,30 @@
+/* pages/post/events-block.wxss */
+
+.event {}
+
+.event .title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.event .title .circle {
+    width: 22rpx;
+    height: 22rpx;
+    border: 6rpx solid rgba(25, 137, 250, 1);
+    border-radius: 22rpx;
+    margin-right: 30rpx;
+}
+
+.event .title .time {
+    font-size: 28rpx;
+    color: #333;
+}
+
+.event .content {
+    font-size: 28rpx;
+    color: #666;
+    padding: 14rpx 0 30rpx 42rpx;
+    border-left: 2px solid #cecece;
+    margin-left: 15rpx;
+}

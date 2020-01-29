@@ -1,2 +1,22 @@
-<!--pkgEvent/pages/event/index.wxml-->
-<text>pkgEvent/pages/event/index.wxml</text>
+<box padding="30">
+  <view class="ecats">
+    <view bindtap="catClickHandle" data-index="{{index}}" class="cat-item {{ currentCatIndex == index ? 'active': '' }}" wx:for="{{cats}}" wx:for-item="cat">{{cat.name}}({{cat.count}})</view>
+  </view>
+</box>
+
+<box padding="30" wx:if="{{items.length >0 && !loading}}">
+    <view class="tips">
+        <van-icon name="" />
+        <text>楼盘资讯</text>
+        <text class="b">免责声明</text>
+    </view>
+    <view wx:key="id" class="event" wx:for="{{items}}" wx:for-item="event" >
+      <view class="title">
+         <view class="circle"></view>
+         <view class="time">{{event.created_at_pretty}}</view>
+      </view>
+      <view class="content">{{event.content}}</view>
+    </view>
+</box>
+
+<no-result wx:if="{{!loading && items.length == 0}}" />

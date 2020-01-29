@@ -102,7 +102,7 @@ Page({
         this.setData({ loading: true })
         app.request({
             url: '/api/v1/events',
-            data: data,
+            data: {event:data, push: _this.data.push },
             method: 'POST',
             hideLoading: true,
             success: function (resp) {
