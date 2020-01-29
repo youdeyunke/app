@@ -1,5 +1,7 @@
   <navigator hover-class="none" class="post {{item.group == 'new' && item.coupon_enable ? '' : 'coupon-none'}} {{type}} {{ shadow ? 'shado' : 'shadow-none'}} {{ border ? 'border' : 'border-none'}}" open-type="navigate" url="/pages/post/post?id={{item.id}}" >
 
+	<badge wx:if="{{item.brokage_info.show == true}}">{{item.brokage_info.title}}</badge>
+
         <view class="cover skeleton-rect">
           <image lazy-load="{{true}}"  mode="aspectFill" class="i" src="{{ item.cover || '/assets/images/cover-none.png' }}?imageView2/2/w/750"></image>
           <view class="icons">
@@ -8,7 +10,7 @@
           </view>
         </view>
         <view class="meta">
-          <text class="item-title van-ellipsis "  >{{ item.title }}</text>
+          <text class="item-title van-ellipsis "  >{{ item.title_info.text }}</text>
           <view class="type-info">
             {{item.area_info.text}}{{item.area_info.px}}/{{ item.type_info.text}}/{{item.sub_district_name }}
           </view>

@@ -1,28 +1,16 @@
 <block wx:if="{{item.status != 3}}">
-<van-panel title="{{statusName[item.status]}}"  status="{{ item.date  }} {{ item.time }}" use-footer-slot  >
-  <view style="height:30rpx;"> </view>
-  <post-item style="" item="{{post}}" border="{{false}}" shadow="{{false}}" />
-
-  <view slot="footer"  class="footer">
-     <view  class="time">
-        {{ item.name }}  {{ item.mobile }} 
-    </view>
-
-     <view class="btns">
-        <van-button wx:if="{{userGroup == 'broker'}}" size="small" bindtap="callHandle"  type="info" style="margin-right:20rpx;" >拨打电话</van-button>
-        <van-button size="small" bindtap="menuToggle"  type="primary" >管理</van-button>
-     </view>
-  </view>
-</van-panel>
-
-
-<van-action-sheet
-  title="管理菜单"
-  cancle-text="取消"
-  show="{{ showMenu }}"
-  actions="{{ actions }}"
-  bind:close="menuToggle"
-  bind:select="onSelect"
-/>
-
+    <van-panel title="{{statusName[item.status]}}" status="{{ item.date  }} {{ item.time }}" use-footer-slot>
+        <view style="height:30rpx;"></view>
+        <post-item style="" item="{{post}}" border="{{false}}" shadow="{{false}}" />
+        <view slot="footer" class="footer">
+            <view class="time">{{ item.name }}  {{ item.mobile }}</view>
+            <view class="btns">
+                <van-button wx:if="{{userGroup == 'broker'}}" size="small" bindtap="callHandle" type="info" style="margin-right:20rpx;">
+                    拨打电话
+                </van-button>
+                <van-button size="small" bindtap="menuToggle" type="primary">管理</van-button>
+            </view>
+        </view>
+    </van-panel>
+    <van-action-sheet title="管理菜单" cancle-text="取消" show="{{ showMenu }}" actions="{{ actions }}" bind:close="menuToggle" bind:select="onSelect" />
 </block>

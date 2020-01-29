@@ -20,7 +20,6 @@ Page({
    */                                                                                                 
   onLoad: function (q) {
     app.checkForceLogin()
-
     var data = {}
     var filter = q || {}
     this.configFilter(q)

@@ -1,0 +1,65 @@
+.html-content {
+    line-height: 1.5;
+    letter-spacing: 2rpx;
+}
+
+.html-content.mini {
+    height: 480rpx;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 20rpx;
+}
+
+.html-content.mini .html-content-footer {
+    width: 100%;
+    height: 150rpx;
+    background: #fff;
+    position: absolute;
+    bottom: 0rpx;
+    left: 0rpx;
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 1));
+}
+
+.html-content.full .html-content-footer {
+    height: 0rpx;
+    width: 0rpx;
+    display: none;
+}
+
+.view-more-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.more-btn{
+    width: 660rpx;
+    height: 100rpx;
+    font-size:30rpx;
+    text-align: center;
+    margin:20rpx auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    background: #F8F8F8;
+    color: #333;
+    letter-spacing: 1.6rpx;
+    font-weight: bolder;
+    border-radius: 6rpx;
+}
+
+.rich-text-p{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+
+.rich-text-img{
+  width:100%;
+  height:auto;
+  margin:0 auto;
+  line-height:0;
+  padding:0;
+}

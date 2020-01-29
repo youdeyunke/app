@@ -96,6 +96,13 @@ Component({
       })
     },
 
+    gotoPoster: function(e){
+      var id = this.data.item.id
+      wx.navigateTo({
+        url: '/pkgPoster/pages/poster/index?id=' + id
+      })
+    },
+
     gotoVisitors: function(e){
       var id = this.data.item.id
       wx.navigateTo({

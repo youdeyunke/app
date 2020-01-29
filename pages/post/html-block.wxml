@@ -1,0 +1,13 @@
+<mycard title-size="32" title="{{value.title}}" hat="{{false}}" >
+    <view class="html-content {{ minicontent == true ? 'mini' : 'full' }}">
+        <view class="raw">
+            <rich-text nodes="{{prettyHtml}}" />
+        </view>
+        <view class="html-content-footer"></view>
+    </view>
+
+    <view class="more-btn" bindtap="contentHandle" wx:if="{{minicontent}}" >
+        显示全文
+    </view>
+
+</mycard>

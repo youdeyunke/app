@@ -1,8 +1,10 @@
 {
-  "navigationBarTitleText": "经纪人工作台",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "van-notice-bar": "/vant/notice-bar/index",
-    "icon-block": "/components/icon-block"
-  }
+    "navigationBarTitleText": "经纪人工作台",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "van-grid": "/vant/grid/index",
+        "van-grid-item": "/vant/grid-item/index",
+        "van-notice-bar": "/vant/notice-bar/index",
+        "icon-block": "/components/icon-block"
+    }
 }

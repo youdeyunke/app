@@ -1,0 +1,19 @@
+/* pages/qa/qa.wxss */
+
+
+page{
+  padding-top:0rpx !important; 
+  padding-bottom:100rpx;
+}
+
+.add{
+    padding:30rpx 30rpx;
+    background:#ffffff;
+    border-top:2rpx solid #f4f4f4;
+    box-sizing: border-box;
+    width: 100%;
+    position: fixed;
+    bottom: 0rpx;
+    left: 0rpx;
+    right: 0rpx;
+}

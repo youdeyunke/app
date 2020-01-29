@@ -1,104 +1,56 @@
-<van-transition show="{{showInstallTips == 1}}" duration="500" name="fade-down" custom-class="install-tips" bindtap="closeInstallTips">
+<van-transition wx:if="{{system.systemName}}" show="{{showInstallTips == 1}}" duration="500" name="fade-down" custom-class="install-tips" bindtap="closeInstallTips">
     <image src="/assets/images/install-tips-{{system.systemName}}.png" />
 </van-transition>
 
-<myslider wx:if="{{configs.plugin_home_slider != false }}"  id="slider"></myslider>
 
-<view class="header">
-  <navs id="navs" />
-</view>
+<page-loading loading="{{loading}}" />
 
-<view wx:if="{{configs.plugin_home_toutiao != false}}" class="my-news-swiper">
-    <news-swiper />
-</view>
+<view wx:for="{{homeData}}" wx:for-item="block" wx:for-key="index" hidden="{{loading}}">
+      <myslider wx:if="{{block.name == 'banners' }}" items="{{block.items}}"></myslider>
+      <view wx:if="{{block.name == 'navs' }}"  class="header"> <navs items="{{block.items}}" /> </view>
+      <view wx:if="{{block.name== 'news'  }}" class="my-news-swiper"> <news-swiper items="{{block.items}}" /> </view>
+      <view class="block-navs"   wx:if="{{block.name == 'dingzhi' }}">
+          <view class="left">
+            <navigator url="/pages/need/room-form" hover-class="none" class="block-nav-item" >
+              <view class="block-nav-item-name">定制找房</view>
+              <view class="block-nav-item-desc">只需要填写简单要求，平台经纪人即可为您找到理想居所</view>
+              <view class="block-nav-item-action">
+                <van-button type="info" size="small">点击开始找房</van-button>
+              </view>
+            </navigator>
+          </view>
 
-<view class="block-navs"   wx:if="{{configs.plugin_home_dingzhi != false }}">
-  <view class="left">
-    <view class="block-nav-item" bindtap="gotoZhaofang">
-      <view class="block-nav-item-name">定制找房</view>
-      <view class="block-nav-item-desc">只需要填写简单要求，平台经纪人即可为您找到理想居所</view>
-      <view class="block-nav-item-action">
-        <van-button type="info" size="small">点击开始找房</van-button>
+          <view class="right">
+            <navigator url="/pkgJisuanqi/pages/daikuan/index" hover-class="none" class="block-nav-item" >
+              <view class="block-nav-item-name">房贷计算</view>
+              <view class="block-nav-item-desc">点击进入房贷计算器</view>
+            </navigator>
+            <navigator url="/pages/map/index" hover-class="none" class="block-nav-item">
+              <view class="block-nav-item-name">地图找房</view>
+              <view class="block-nav-item-desc">点击开始找房</view>
+            </navigator>
+          </view>
       </view>
-    </view>
-  </view>
 
-  <view class="right">
-    <view class="block-nav-item" bindtap="gotoSubs">
-      <view class="block-nav-item-name">热门小区</view>
-      <view class="block-nav-item-desc">浏览热门小区</view>
-    </view>
-    <view class="block-nav-item" bindtap="gotoMap">
-      <view class="block-nav-item-name">地图找房</view>
-      <view class="block-nav-item-desc">点击开始找房</view>
-    </view>
-  </view>
+      <block wx:if="{{block.name == 'brokers' }}">
+            <view class="home-title" > 
+                <view class="name">{{block.label}}</view> 
+            </view>
+            <scroll-view  scroll-with-animation="{{true}}" scroll-x style="710rpx;margin-bottom:20rpx;">
+              <brokers brokers="{{block.items}}"  max="10" />
+            </scroll-view>
+      </block>
+
+      <block wx:if="{{block.name == 'posts' }}">
+        <view class="home-title">
+          <view class="name">{{block.label}}</view>
+        </view>
+        <posts-block block="{{block}}" />
+      </block>
+        
+      <new-version wx:if="{{block.name == 'version' }}" />
+      <cr wx:if="{{ block.name == 'copyright' }}" text="{{block.text}}"  />
+
 </view>
 
-<block wx:if="{{configs.plugin_home_brokers != false}}">
-<view class="home-title">
-  <view class="name">绩优经纪人</view>
-</view>
 
-<scroll-view  scroll-with-animation="{{true}}" scroll-x style="width:100%">
-  <brokers   max="10" />
-</scroll-view>
-</block>
-
-
-
-<block wx:if="{{configs.plugin_home_xinfang != false }}">
-<view class="home-title">
-  <view class="name">新房推荐</view>
-</view>
-<box width="750" padding="30">
-  <items cache="home_posts_new" id="new-posts" kw="" page="1" filter="{{newFilter}}" />
-  <navigator url="/pages/post/index?group_v2=new" hover-class="none" class="more-btn">查看更多新房</navigator>
-</box>
-</block>
-
-
-<block wx:if="{{ configs.plugin_home_ershoufang != false }}">
-<view class="home-title">
-  <view class="name">二手房推荐</view>
-</view>
-<box width="750" padding="30">
-  <items cache="home_posts_old" id="old-posts" kw="" page="1" filter="{{oldFilter}}" />
-  <navigator url="/pages/post/index?group_v2=old" hover-class="none" class="more-btn">查看更多二手房</navigator>  
-</box>
-</block>
-
-
-<block wx:if="{{ configs.plugin_home_zufang != false }}">
-<view class="home-title">
-  <view class="name">租房推荐</view>
-</view>
-<box width="750" padding="30">
-  <items cache="home_posts_rent" id="rent-posts" kw="" page="1" filter="{{rentFilter}}" />
- <navigator url="/pages/post/index?group_v2=rental" hover-class="none" class="more-btn">查看更多租房</navigator>  
-</box>
-</block>
-
-<block wx:if="{{ configs.plugin_home_shop != false }}">
-<view class="home-title">
-  <view class="name">商铺推荐</view>
-</view>
-<box width="750" padding="30">
-  <items cache="home_posts_shop" id="shop-posts" kw="" page="1" filter="{{shopFilter}}" />
- <navigator url="/pages/post/index?group_v2=shop" hover-class="none" class="more-btn">查看更多商铺</navigator>  
-</box>
-</block>
-
-<cr />
-
-<van-popup show="{{showNewVersionWindow}}" duration="800" custom-style="background:none;"   >
-  <view class="new-version-window">
-    <view class="close" bindtap="markNewVersion"></view>
-    <image src="https://qiniucdn.udeve.cn/wefang-sass/new-version-popup.png" class="bg" /> 
-    <view class="confirm" bindtap="markNewVersion"></view>
-    <view class="title">发现新版本</view>
-    <view class="sub-title">最新版本号：{{ ext.version }}</view>
-    <view class="desc">{{ ext.version_desc }}</view>
-  </view>
-
-</van-popup>

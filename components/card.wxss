@@ -39,9 +39,12 @@
   display:flex;
   justify-content:flex-start;
   align-items:center;
-    color: #000;
-    font-size:38rpx;
-    font-weight: bold;
+  color: #000;
+}
+
+.card-heard-title .name{
+  font-weight:bolder;
+  color:#333333;
 }
 
 .card-header-action{
@@ -69,7 +72,7 @@
 }
 
 .card-body{
-  padding:30rpx;
+  padding:0 30rpx 30rpx 30rpx;
 }
 
 

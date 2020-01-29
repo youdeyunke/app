@@ -5,9 +5,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
+  align-items:space-between;
   box-sizing: border-box;
-  margin-top:30rpx;
-  padding-bottom:30rpx;
 }
 
 .navs navigator{
@@ -15,13 +14,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin:5rpx 0 15rpx 0;
 }
 
 
 .navs .icon-cover{
-  width:84rpx;
-  height:84rpx;
+  width:94rpx;
+  height:94rpx;
   margin-bottom:8rpx;
   display:flex;
   justify-content:center;
@@ -29,8 +27,8 @@
 }
 
 .navs navigator image{
-  width:84rpx;
-  height:84rpx;
+  width:94rpx;
+  height:94rpx;
   overflow: hidden;
 }
 

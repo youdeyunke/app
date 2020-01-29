@@ -7,7 +7,10 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"coverView": true,
 		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": true,
 		"uglifyFileName": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
@@ -20,11 +23,16 @@
 		"bundle": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.9.2",
+	"libVersion": "2.10.0",
 	"appid": "wx175508800f405090",
 	"projectname": "%E5%86%85%E9%83%A8%E6%BC%94%E7%A4%BA%E9%A1%B9%E7%9B%AE",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"scripts": {
+		"beforeCompile": "",
+		"beforePreview": "",
+		"beforeUpload": ""
+	},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -62,10 +70,11 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "nwe-comment",
-					"pathName": "pages/comments/new",
-					"query": "target_id=1&target_type=post"
+					"id": 2,
+					"name": "comment-new",
+					"pathName": "pkgComment/pages/comment/new",
+					"query": "target_id=52&target_type=post",
+					"scene": null
 				},
 				{
 					"id": 3,
@@ -83,8 +92,8 @@
 				},
 				{
 					"id": 5,
-					"name": "broker-apply",
-					"pathName": "pages/myself/broker",
+					"name": "broker-join",
+					"pathName": "pkgBroker/pages/broker/join",
 					"query": "",
 					"scene": null
 				},
@@ -101,10 +110,11 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 8,
 					"name": "qa-new",
-					"pathName": "pages/qa/new",
-					"query": ""
+					"pathName": "pkgQa/pages/qa/new",
+					"query": "target_id=52&target_type=post",
+					"scene": null
 				},
 				{
 					"id": -1,
@@ -348,10 +358,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 46,
 					"name": "post show",
 					"pathName": "pages/post/post",
-					"query": "id=30",
+					"query": "id=52",
 					"scene": null
 				},
 				{
@@ -604,6 +614,76 @@
 					"name": "pages/fenxiao/referrers",
 					"pathName": "pages/fenxiao/referrers",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "submessage",
+					"pathName": "pages/myself/submessage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 84,
+					"name": "根据标签返回房源",
+					"pathName": "pages/post/index",
+					"query": "group_v2=new&tag_id=35",
+					"scene": null
+				},
+				{
+					"id": 85,
+					"name": "qa-show",
+					"pathName": "pages/qa/qa",
+					"query": "id=43",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/qa/new",
+					"pathName": "pages/qa/new",
+					"query": "target_id=52&target_type=post",
+					"scene": null
+				},
+				{
+					"id": 87,
+					"name": "我的问答",
+					"pathName": "pages/myself/qa",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 88,
+					"name": "qa-new",
+					"pathName": "pkgQa/pages/qa/new",
+					"query": "target_id=52&target_type=post",
+					"scene": null
+				},
+				{
+					"id": 89,
+					"name": "pages/qa/index",
+					"pathName": "pages/qa/index",
+					"query": "target_id=52&target_type=post",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "qa-mine",
+					"pathName": "pages/qa/mine",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "qa-answer",
+					"pathName": "pkgQa/pages/qa/reply",
+					"query": "id=81",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发动态",
+					"pathName": "pkgEvent/pages/event/new",
+					"query": "pid=52",
 					"scene": null
 				}
 			]

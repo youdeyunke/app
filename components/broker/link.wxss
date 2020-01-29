@@ -4,10 +4,10 @@
   align-items: center;
   box-sizing: border-box;
   width: 750rpx;
-  height:180rpx;
   box-sizing:border-box;
   background:#fff;
-  padding:30rpx 30rpx;
+  padding:0rpx 30rpx;
+  margin-bottom:20rpx;
 }
 
 .line-limit{

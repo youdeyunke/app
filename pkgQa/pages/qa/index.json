@@ -1,0 +1,8 @@
+{
+    "enablePullDownRefresh": true,  
+    "usingComponents": {
+        "item": "./question-item",
+        "like": "./answer-like"
+    }
+
+}

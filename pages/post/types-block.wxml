@@ -1,0 +1,37 @@
+<block>
+    <van-popup  show="{{showImage}}" bindclose="closeImage">
+      <view class="window">
+        <image src="{{currentImage}}" ></image>
+      </view>
+    </van-popup>
+
+    <mycard width="750" title="户型介绍" hat="{{false}}"  title-size="32">
+        <view class="filter">
+          <view class="item {{ tag.className}} "  data-group="{{tag.group}}" bindtap="groupClick" wx:key="id"  wx:for="{{tags}}" wx:for-item="tag" >{{tag.name}} </view>
+        </view>
+
+        <view class="housetype {{ item.className}}" wx:for="{{items}}" wx:key="id">
+            <view class="poster">
+                <image width="165px" height="110px" bindtap="viewImage" data-index="{{index}}" src="{{item.image.url ? item.image.url  : 'https://qiniucdn.udeve.cn/wefang-sass/type-image-none.jpg'  }}?imageView2/1/w/165/h/110"></image>
+            </view>
+            <view class="meta">
+                <view class="name">{{item.name}}</view>
+                <view class="kv">
+                    <text class="key">户型朝向</text>
+                    <text class="value">{{item.position}}</text>
+                </view>
+
+                <view class="kv">
+                    <text class="key">建筑面积</text>
+                    <text class="value">{{item.area}} ㎡</text>
+                </view>
+
+                <view class="kv">
+                    <text class="key">参考总价</text>
+                    <text class="value price">{{item.total_price}}万</text>
+                </view>
+
+            </view>
+        </view>
+    </mycard>
+</block>

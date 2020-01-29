@@ -3,7 +3,7 @@
     <view class="card-header {{ headBorder ? '' : 'border-none' }}">
           <view class="card-header-title">
             <view wx:if="{{hat}}" class="card-hat"></view>
-            <view class="h1">{{title}}
+            <view class="name"  style="font-size:{{titleSize}}rpx;">{{title}}
               <text wx:if="{{number>0}}">({{number}})</text>
             </view>
     </view>
@@ -18,7 +18,7 @@
     </view>
 
   </view>
-  <view class="card-body">
+  <view class="card-body" style="font-size:{{ bodySize}}rpx;">
     <slot></slot>
   </view>
   <view class="card-footer">

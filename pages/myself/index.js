@@ -11,25 +11,6 @@ Page({
         userInfo: {},
         configs: {},
         ext: wx.getExtConfigSync(),
-        cells: [
-            {
-                icon: "chat-o",
-                name: '提问',
-                url: '/pages/myself/qa',
-            },
-            {
-                icon: "comment-o",
-                name: '评论',
-                url: '/pages/comments/index?myself=true&limit=10000"',
-            },
-            {
-                icon: "eye-o",
-                name: '关注',
-                url: '/pages/myself/favposts'
-            },
-            //{ icon:"pause-circle-o",  name: '退出登录',  bindtap:"logoutHandle", loginRequired: true},
-            //{ icon:"service-o", name: '联系客服',  url: '/pages/about/index'},
-        ],
     },
 
     gotoLoginPage: function(e){
@@ -152,7 +133,6 @@ Page({
     this.setData({ userInfo: null })
     app.globalData.userInfo = null
     app.globalData.token = null
-    wx.switchTab({ url: '/pages/myself/index' })
   },
 
   syncAvatar: function (e) {

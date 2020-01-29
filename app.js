@@ -6,6 +6,7 @@ const EXT   = wx.getExtConfigSync()
 App({
   globalData: {
     EXT: EXT,
+    myconfigs: null,
     system: {},
     reddot: 0,
     reddotIntervalId: null,
@@ -371,6 +372,7 @@ App({
       this.request({
           url: '/api/v1/qr/',
           method: 'POST',
+          hideLoading: false,
           data: { path: path },
           success: function(resp){
               if(resp.data.status == 0){
@@ -380,14 +382,27 @@ App({
       })
   },
 
+
+  setNav: function(configs){
+      var bgColor = configs.plugin_home_topbar_color_desc 
+      var frontColor = configs.plugin_home_topbar_front_color_desc
+      wx.setNavigationBarColor({
+        frontColor: frontColor,
+        backgroundColor: bgColor,
+        animation: { duration: 400, timingFunc: 'easeIn' }
+      })
+  },
+
   loadConfigs: function(cb) {
     /* 从服务器加载系统配置嘻嘻 */
     var _this = this;
+    console.log('加载myconfigs')
     this.request({
       url: "/api/v1/myconfigs",
       hideLoading: true,
       success: function(resp) {
         var conf = resp.data.data;
+        _this.setNav(conf)
         _this.globalData.myconfigs = conf
         return typeof cb == "function" && cb(conf);
       }
@@ -526,6 +541,7 @@ App({
     this.startReddotInterval()
     console.log('EXT is ', EXT)
     this.ensureConfigs(function(config){
+      console.log('ensure configs', config)
       _this.loadCities(function(cities) {
         _this.globalData.cities = cities;
         _this.getLocation();
@@ -654,40 +670,7 @@ App({
   },
 
   uploadFormId: function(e, cb) {
-    // 保存formid
-    if(!e || !e.detail){
-      return false; 
-    }
-
-    var _this = this;
-    var formId = e.detail.formId
-    var token = this.globalData.token;
-
-    if (!token) {
-      console.log('token empty pass')
-      return false;
-    }
-
-    if (formId == 'the formId is a mock one'){
-      console.log('formid pass, ', formId)
-      return false;
-    }
-
-    wx.checkSession({
-      success: function(){
-        console.log('check session success, post formid ', e.detail.formId)
-        _this.request({
-          hideLoading: true,
-          url: "/api/v1/formid/",
-          data: {formid: e.detail.formId},
-          hideLoading: true,
-          method: "POST",
-          success: function(resp){
-              return typeof cb == 'function' && cb(resp.data)
-          }
-        });
-      },
-    })
+    return false
   },
 
 
@@ -829,17 +812,22 @@ App({
             content: res.data.error
           });
         }
-        return typeof obj.success == "function" && obj.success(res);
 
+        // 加载完成后
+        if(!obj.hideLoading){ 
+            wx.hideLoading(); 
+            wx.hideNavigationBarLoading();
+            wx.stopPullDownRefresh();
+        }
+        return typeof obj.success == "function" && obj.success(res);
       },
       fail: function(res) {
         wx.hideNavigationBarLoading();
         wx.stopPullDownRefresh();
+        wx.hideLoading();
+        wx.hideToast();
       },
       complete: function() {
-        if(!obj.hideLoading){ wx.hideLoading(); }
-        wx.hideNavigationBarLoading();
-        wx.stopPullDownRefresh();
         typeof obj.complete == "function" && obj.complete();
       }
     });

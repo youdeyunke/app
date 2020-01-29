@@ -1,5 +1,5 @@
   <view class="brokers">
-      <navigator url="/pages/user/user?id={{item.id}}" hover-class="none" class="broker-item" wx:for="{{items}}" wx:key="{{item.id}}">
+      <navigator url="/pkgBroker/pages/broker/profile?id={{item.id}}" hover-class="none" class="broker-item" wx:for="{{items}}" wx:key="id">
         <view class="left">
           <van-image round width="100rpx" height="100rpx"  src="{{item.avatar}}?imageView2/5/h/100/w/100" lazy-load />
           <van-tag  text-color="#F7EED4" color="#222222">已认证</van-tag>
@@ -13,7 +13,7 @@
 
       </navigator>
 
-      <navigator url="/pages/broker/index?" hover-class="none" class="broker-item more" >
+      <navigator url="/pkgBroker/pages/broker/index?" hover-class="none" class="broker-item more" >
           <text>查看更多经纪人</text>
       </navigator>
 

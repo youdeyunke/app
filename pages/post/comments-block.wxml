@@ -1,0 +1,48 @@
+<mycard
+ title="{{ value.title }}"
+ hat="{{false}}"
+ title-size="32"
+ sub-title="{{ value.more_title }}"
+ url="{{moreUrl}}"
+>
+	<view class="tags">
+		<navigator url="" hover-class="none" class="tag-item">好评(10)</navigator>
+		<navigator url="" hover-class="none" class="tag-item">好评(10)</navigator>
+		<navigator url="" hover-class="none" class="tag-item">好评(10)</navigator>
+		<navigator url="" hover-class="none" class="tag-item">好评(10)</navigator>
+	</view>
+	<view class="comments">
+		<view class="comment-item {{ index + 1 == value.items.length ? 'border-none' : 'border' }}" wx:for="{{value.items}}" wx:key="id">
+			<view class="comment-header">
+				<view class="avatar">
+					<image src="{{item.user.avatar}}" lazy-load="true" />
+
+				</view>
+				<view class="title">
+					<view class="name">
+						{{ item.user.name || item.user.nickname }}
+					</view>
+					<view class="stars">
+						<van-rate
+						 value="{{item.score}}"
+						 size="10"
+						 color="#ee0a24"
+						 void-color="#eee"
+						 void-icon="star"
+						/>
+					</view>
+				</view>
+
+			</view>
+			<view class="comment-content">{{item.content}}</view>
+
+		</view>
+
+	</view>
+
+    <navigator class="add-btn"  hover-class="none" url="/pkgComment/pages/comment/new?target_id={{value.post_id}}&target_type=post">
+      <van-icon name="edit" size="32rpx" color="#1989FA" />写评论
+    </navigator>
+
+</mycard>
+

@@ -1,0 +1,17 @@
+/* pages/broker/index.wxss */
+van-search{
+  width: 100%;
+}
+
+.search-box .van-cell  {
+  background:#fff ;
+}
+
+.broker-item{
+    background: #ffffff;
+    height: 160rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}

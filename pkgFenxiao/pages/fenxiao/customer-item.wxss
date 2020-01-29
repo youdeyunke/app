@@ -1,0 +1,40 @@
+/* pages/fenxiao/customer-item.wxss */
+
+.outer{
+ width:710rpx;
+ margin:0 auto;
+ margin-bottom:20rpx;
+}
+
+.outer .content{
+  padding:30rpx;
+}
+
+.header{
+  font-weight:bolder;
+}
+
+
+.attrs{
+}
+
+.attrs .attr{
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  margin-bottom:10rpx;
+
+}
+
+.attrs .attr .label{
+  color:#999;
+}
+
+.attrs .attr .value{
+
+}
+
+
+.content .deal-status{
+  margin-bottom:20rpx;
+}

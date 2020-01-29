@@ -1,0 +1,23 @@
+/* pages/home/posts.wxss */
+
+.list{
+  width:710rpx;
+  margin:0 auto 20rpx auto;
+}
+
+.more-btn{
+    width: 660rpx;
+    height: 100rpx;
+    font-size:30rpx;
+    text-align: center;
+    margin:0rpx auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    background: #F8F8F8;
+    color: #333;
+    letter-spacing: 1.6rpx;
+    font-weight: bolder;
+    border-radius: 6rpx;
+}

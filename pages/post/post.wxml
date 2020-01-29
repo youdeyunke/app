@@ -1,201 +1,31 @@
-<van-transition duration="800" show="{{showViewCount}}" name="fade-left"  custom-class="mypop"> 过去一周，有<text class="count">{{post.views_count}}人</text>查看了此房源 </van-transition>
+<page-loading loading="{{loading}}" />
+<van-transition duration="800" show="{{showViewCount}}" name="fade-left" custom-class="mypop">
+    过去一周，有
+    <text class="count">{{post.views_count}}人</text>
+    查看了此房源
+</van-transition>
 
-<block>
-<view class="post-cover">
-       <swiper class="swiper" 
-               indicator-dots="true" 
-               autoplay="{{post.images_list.length > 1}}" 
-               interval="5000"
-               duration="500" 
-               bindchange="swiperChange"
-               circular="true" 
-               easing-function="linear"
-               indicator-color="rgba(255,255,255,0.7)" 
-               indicator-active-color="#fff" >
-                    
-               <swiper-item bindtap="viewImage" data-index="{{index}}" wx:key="{{index}}" wx:for="{{post.full_images_list}}">
-              <view class="first">
-                <image wx:if="{{ index ==0 && post.vr_url}}" catchtap='gotoVr' class="play vr" src="/assets/icons/vr.png"></image>              
-                <image wx:if="{{ index == 1 && post.video}}" catchtap='gotoVideo' class="play video" src="/assets/icons/bofang.png"></image>
-                <image mode="widthFix" wx:if="{{item}}" class="item" src="{{item}}?imageView2/2/h/420"></image>
-              </view>
-            </swiper-item>               
-        </swiper>
+
+<view style="width:100%;" hidden="{{loading}}">
+    <block wx:for="{{blocks}}" wx:for-item="block" wx:for-key="index" wx:key="name">
+        <brokage-block wx:if="{{ block.name == 'brokage' }}" value="{{ block.value}}"  />
+        <images-block  wx:if="{{block.name == 'images' }}"  value="{{ block.value }}" />
+        <meta-block  wx:if="{{block.name == 'meta' }}"  value="{{ block.value }}" />
+        <html-block wx:if="{{block.name == 'html'}}" value="{{block.value}}" />
+        <desc-block wx:if="{{block.name == 'desc'}}" value="{{block.value}}" />
+        <facilities-block wx:if="{{block.name == 'facilities'}}" value="{{block.value}}" />
+        <map-block wx:if="{{block.name == 'map'}}" value="{{block.value}}" />
+        <types-block id="types" wx:if="{{block.name == 'types'}}" value="{{block.value}}" />
+        <brokers-block wx:if="{{block.name == 'brokers'}}" value="{{block.value}}" />
+        <qas-block  wx:if="{{block.name == 'qas' }}" value="{{block.value}}"  />
+        <comments-block  wx:if="{{block.name == 'comments' }}" value="{{block.value}}"  />
+        <recoms-block wx:if="{{block.name == 'recoms'}}" value="{{block.value}}" />
+        <btns-block wx:if="{{block.name == 'btns'}}" value="{{block.value}}" />
+        <contact-block wx:if="{{block.name == 'contact'}}" value="{{block.value}}" />
+    </block>
+
+    <ad-link />
+    <safe-tips cat="{{post.group}}" />
+    <cr />
+
 </view>
-
-<box width="750" padding="30" >
-  <view class="header"> 
-     <view class="tagsinfo">
-        <mytags size="large" wx:if="{{post.tags_list}}" items="{{post.tags_list}}"></mytags>
-        <van-tag size="large"  color="#f4f4f4" text-color="#666">房源ID:{{post.id}}</van-tag>
-     </view>
-
-     <!-- view class="title-block">
-       <view class=" post-title">{{ post.title}} </view>
-       <navigator url="/pages/fenxiao/report?pid={{post.id}}" class="report" hover-class="none">
-         <van-button type="info" plain size="mini">报备</van-button>
-       </navigator>
-     </view -->
-
-     <view class="typeinfo">
-         <view class="item border">
-                 <view class="value">{{post.price_info.text}}
-                 <text class="px">{{post.price_info.px}}</text>
-                 <view class="key">{{post.price_info.label}}</view>         
-                 </view>
-         </view>
-         <view class="item border">
-                <view class="value">{{post.type_info.text}} </view>
-                <view class="key">{{post.type_info.label}}</view>         
-         </view>
-         <view class="item">
-                 <view class="value">{{post.area_info.text}}
-                 <text class="px">{{post.area_info.px}} </text>
-                 <view class="key">{{post.area_info.label}}</view>         
-                 </view>
-         </view>
-     </view>
-
-    <view  class="detail-meta">
-      <view  class="meta {{ meta.url ? 'link lg' : '' }} {{ meta.large ? 'lg' : '' }}" wx:key="{{meta.label}}" wx:if="{{meta}}" wx:for="{{post.meta_list}}" wx:for-item="meta">
-            <text class="label">{{meta.label}}</text>
-            <text bindtap="gotoMetaUrl" data-url="{{meta.url}}" class="value van-ellipsis"> {{ meta.value || '-' }} </text>
-        </view>
-
-    </view>    
-    
-    <view style="width:100%;" report-submit class="myfav-wrapper"  bindtap="gotoMeta">
-      <navigator url="/pages/post/meta?id={{post.id}}" class="more-btn more-meta"  hover-class="none">更多房源信息</navigator>
-    </view>
-
-    <view  bindtap='createBookOrder' class="coupon" wx:if="{{ post.group != 'new' && post.coupon_enable && mode == 1 }}">
-      <view class="name line-limit">{{post.coupon_desc}}</view>
-      <view class="action">{{ post.user_has_coupon ? '已支付' : '去支付' }}</view>
-    </view>    
-
-  </view>
-</box>
-
-<block wx:if="{{mode == 1 && EXT.show_brokers_enable != false  }}">
-    <broker-link post-id="{{post.id}}"   broker="{{broker}}" wx:for="{{brokers}}" wx:for-item="broker" wx:key="{{broker.id}}" />
-    <view class="more-brokers-btn">
-      <view wx:if="{{moreBrokersBtn}}"  bindtap="moreBrokersHandle"  hover-class="none" class="more-btn">展开全部</view>
-    </view>
-</block>
-
-<mycard width="750" title="配套设施"  wx:if="{{post.group == 'rental' && post.facilities && post.facilities.length > 0 }}" hat="{{false}}">
-  <view class="fac-items">
-    <view class="fac-item" wx:for="{{post.facilities}}" wx:for-item="fac" wx:key="{{fac.id}}">
-      <image class="fac-item-icon" src="{{fac.icon}}" mode="widthFix" />
-      <view class="fac-item-name">{{ fac.name }}</view>
-    </view>
-  </view>
-</mycard>
-
-<view class="mapinfo">
-  <view class="name">周边及概况</view>
-  <view class="location">
-      <text class="label">位置：</text>
-      <text class="value">{{post.sub_district.address}}</text>
-  </view>
-</view>
-<view class="mapimage">
-    <mapimage image="{{sub.map_image_url}}" latitude="{{sub.latitude}}"  longitude="{{sub.longitude}}" name="{{sub.name}}" ></mapimage>
-</view>
-
-<view class="textinfo">
-  <view class="info-block">
-    <view class="info-item" wx:if="{{post.desc}}">
-      <view class="info_title" style="margin-top:30rpx;">房源详情</view>
-      <view class="info_text"> {{ post.desc || '未填写' }} </view>
-    </view>
-  </view>
-</view>
-
-<mycard title="楼盘介绍" hat="{{false}}" wx:if="{{post.group == 'new'}}">
-   <view class="html-content {{ minicontent == true ? 'mini' : 'full' }}">
-      <view class="raw">
-        <rich-text nodes="{{post.content}}"  />
-      </view>
-      <view class="html-content-footer">
-      </view>
-  </view>  
-  <view class="view-more-container">
-
-    <form style="width:100%;" report-submit class="myfav-wrapper"  bindsubmit="formidHandle">
-      <button form-type="submit"  class="fake more-btn view-more"   bindtap="contentHandle" wx:if="{{minicontent}}"  hover-class="none">显示全文</button>
-    </form>
-
-  </view>
-</mycard>
-
-
-<mycard width="750" title="户型信息"  wx:if="{{post.group == 'new'}}" hat="{{false}}">
-    <view class="housetype" wx:for="{{post.types}}" wx:key="{{item.id}}">
-      <view class="poster">
-        <image bindtap="viewTypeImage" data-index="{{index}}" src="{{item.image.url ? item.image.url : 'https://qiniucdn.udeve.cn/wefang-sass/type-image-none.jpg'  }}?imageView2/2/w/300"></image>
-      </view>
-      <view class="meta">
-        <view class="name">{{item.name}}</view>
-        <view class="kv"><text decode="{{true}}">朝向&nbsp; &nbsp;&nbsp;{{item.position}}</text></view>
-        <view class="kvs">
-           <view class="kv"><text decode="{{true}}">建面&nbsp; &nbsp;&nbsp;{{item.area}} ㎡</text></view>
-          <view class="kv">总价<text decode="{{true}}" class="i">&nbsp; &nbsp;&nbsp;{{item.total_price}} 万</text></view>
-        </view>
-      </view>
-    </view>
-</mycard>
-
-<ad-link />
-
-<view class="recoms" wx:if="{{post.recoms.length >= 2}}">
-    <view class="title">推荐房源({{post.recoms.length}})</view>
-       <scroll-view  scroll-with-animation="{{true}}" scroll-x style="width:100%">
-            <view class="items">
-                    <item-block item="{{item}}" wx:key="{{item.id}}" wx:for="{{post.recoms}}" />
-            </view>
-        </scroll-view>
-</view>
-
-<broker-btns wx:if="{{mode == 1}}" bindbooked="bookedHandle" broker="{{post.broker_info}}" pid="{{post.id}}" post="{{post}}" bookingStatus="{{post.user_has_booking}}" />
-<contact wx:if="{{mode == 2}}" info="{{contactInfo}}"  />
-
-<safe-tips cat="{{post.group}}"/>
-
-<van-popup show="{{showGroupQr}}" bind:close="closeGroupQr" > 
-    <text style="padding:10rpx;">保存识别二维码，加入我们的微信群，以便了解最新房源动态哦</text>
-  <view class="poster-preview">
-    <image bindtap='onSavePoster' src="{{post.group_qr}}" mode="widthFix"></image>
-    <view class="poster-actions">
-      <view class="poster-actions-btn poster-cancle-btn" bind:tap="closeGroupQr" >取消</view>
-      <view class="poster-actions-btn poster-save-btn"  bindtap="onSavePoster">保存到相册</view>
-    </view>
-  </view>
-</van-popup>
-
-
-<van-popup show="{{showShareBox }}" bind:close="closeShareBox" position="bottom">
-  <view class="share-box">
-    <view class="share-box-title">分享房源</view>
-    <view class="share-box-items">
-      <button plain bindtap="closeShareBox"  open-type='share' class="share-box-item">
-        <image class="share-box-item-icon" src="/assets/icons/weixin.png"></image>
-        <view class="share-box-item-name">微信</view>
-      </button>
-
-      <view bindtap="onCreatePoster" class="share-box-item" wx:if="{{post.qr}}">
-        <image class="share-box-item-icon" src="/assets/icons/pengyouquan.png"></image>
-        <view class="share-box-item-name">海报</view>
-      </view>
-            
-    </view>
-  </view>
-</van-popup>
-
-<booking show="{{showBookingDialog}}" post-id="{{post.id}}" />
-
-
-</block>
-
-
-<cr />

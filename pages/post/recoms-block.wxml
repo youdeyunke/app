@@ -1,0 +1,9 @@
+<mycard title="{{value.title}}" padding="{{true}}" hat="{{false}}" >
+    <view class="recoms">
+        <scroll-view scroll-with-animation="{{true}}" scroll-x style="width:100%">
+            <view class="items">
+                <item item="{{item}}" border="{{index == value.items.length - 1}}" wx:key="{{item.id}}" wx:for="{{value.items}}" />
+            </view>
+        </scroll-view>
+    </view>
+</mycard>

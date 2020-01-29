@@ -1,33 +1,36 @@
 // components/ad-link.js
 const app = getApp()
 Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-      width: { type:Number, value: '750'}, 
-      mini: { type:Boolean, value: false}, 
-  },
+    /**
+     * 组件的属性列表
+     */
+    properties: {
+        width: { type: Number, value: '750' },
+        mini: { type: Boolean, value: false },
+    },
 
-  /**
-   * 组件的初始数据
-   */
-  data: {
-      show: false,
-  },
+    /**
+     * 组件的初始数据
+     */
+    data: {
+        show: false,
+    },
 
 
-  ready: function(){
-      this.setData({
-          show: app.globalData.myconfigs['adv_link']
-      })
-      console.log('是否显示广告链接：', app.globalData.myconfigs['adv_link'])
-  },
+    ready: function () {
+        var _this = this
+        app.ensureConfigs((configs) => {
+            _this.setData({
+                show: configs['adv_link']
+            })
+            console.log('是否显示广告链接：', app.globalData.myconfigs['adv_link'])
+        })
+    },
 
-  /**
-   * 组件的方法列表
-   */
-  methods: {
+    /**
+     * 组件的方法列表
+     */
+    methods: {
 
-  }
+    }
 })

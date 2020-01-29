@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+      "simple-images-block": "./simple-images-block"
+  }
+}

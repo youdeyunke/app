@@ -1,0 +1,21 @@
+/* pages/post/brokers-block.wxss */
+
+.badges {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30rpx;
+    padding: 0 30rpx;
+}
+
+.badge-item {
+    font-size: 24rpx;
+    color: #999999;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.badge-item van-icon{
+  margin-right:10rpx;
+}

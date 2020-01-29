@@ -32,7 +32,7 @@
     <sub-district sid="{{filter.sub_district_id}}" />
   </view>
   
-  <box padding="20" width="750">
+  <box padding="20" width="730">
     <items show-total-count="{{true}}" kw="{{kw}}" wx:if="{{filter}}" page="{{page}}" filter="{{filter}}" />
   </box>
 

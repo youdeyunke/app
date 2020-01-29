@@ -1,6 +1,7 @@
 // pages/home/home.js
 const app = getApp()
 const EXT = wx.getExtConfigSync()
+const rowWidthItem = ['60%', "100%", "30%", "40%", "100%"]
 
 Page({
   /**
@@ -8,33 +9,14 @@ Page({
    */
   
   data: {
+    loading:true,
+    rowWidth: rowWidthItem ,
+    homeData: [],
     system: {},
     showInstallTips: 0,  // 1:正常显示，2：自动关闭，3：手动关闭
     configs : {},
     city_id: null,
     ext: {},
-    showNewVersionWindow: false,
-    posts: [],
-    newFilter: {
-      group_v2: 'new',
-      per_page: 5,
-      order:'id desc',
-    },
-    oldFilter: {
-      group_v2: 'old',
-      per_page: 5,
-      order: 'id desc',
-    },
-    rentFilter: {
-      group_v2: 'rental',
-      per_page: 5,
-      order: 'id desc',
-    },    
-    shopFilter: {
-      group_v2: 'shop',
-      per_page: 5,
-      order: 'id desc',
-    },    
   },
 
   comming: function(e){
@@ -82,29 +64,16 @@ Page({
    * 
   */
   onPullDownRefresh: function () {
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    this.setData({loading: true})
+    this.loadHomeData()
     var _this = this
     app.loadConfigs( function(configs){
-        _this.setNav(configs)
         _this.setData({configs: configs})
+        wx.stopPullDownRefresh()
+        wx.hideNavigationBarLoading()
+        wx.stopPullDownRefresh() //停止下拉刷新    
     })
-    wx.stopPullDownRefresh()
-    wx.showNavigationBarLoading() //在标题栏中显示加载
-    app.loadConfigs(function(configs){
-      _this.setData({configs: configs})
-    })
-    var navs = this.selectComponent('#navs')
-    var slider = this.selectComponent('#slider')
-    var oldPosts = this.selectComponent('#old-posts')
-    var newPosts = this.selectComponent('#new-posts')
-    var rentPosts = this.selectComponent('#rent-posts')
-
-    navs && navs.loadData()
-    slider && slider.loadData()
-    newPosts && newPosts.loadData()
-    oldPosts && oldPosts.loadData()
-    rentPosts && rentPosts.loadData()
-    wx.hideNavigationBarLoading()
-    wx.stopPullDownRefresh() //停止下拉刷新    
 
   },
 
@@ -113,27 +82,36 @@ Page({
    */
   onLoad: function (options) {
     var _this = this   
-    _this.setData({system: app.globalData.system})
-    app.ensureConfigs(function(configs){
-      console.log('configs is', configs)
-      var name = EXT['name'] || '首页'
-      _this.setData({configs: configs, ext: EXT})
-      _this.checkInstallTips()
-      wx.setNavigationBarTitle({title: name})
-      _this.setNav(configs)
-      setTimeout(function(){  _this.checkNewVersion() }, 1000)
+    var name = EXT['name'] || '首页'
+    app.ensureConfigs( (configs) => {
+      var color =  configs.plugin_home_topbar_color_desc
+      _this.setData({ system: app.globalData.system, ext: EXT, configs: configs })
+      wx.setBackgroundColor({
+        backgroundColor: color, // 顶部窗口的背景色为白色
+      })
 
     })
+    this.checkInstallTips()
+    this.loadHomeData()
+    wx.setNavigationBarTitle({title: name})
+
   },
 
-  setNav: function(configs){
-      var bgColor = configs.plugin_home_topbar_color_desc 
-      var frontColor = configs.plugin_home_topbar_front_color_desc
-      console.log('bgcolor', bgColor, 'front color',  frontColor)
-      wx.setNavigationBarColor({
-        frontColor: frontColor,
-        backgroundColor: bgColor,
-        animation: { duration: 400, timingFunc: 'easeIn' }
+  loadHomeData: function(){
+      // 一次性加载首页所需数据
+      var _this = this
+      this.setData({loading: true})
+      app.request({
+          url: '/api/v1/home',
+          method: 'GET',
+          hideLoading: true,
+          success: function(resp){
+              console.log('resp.data.data', resp.data)
+              _this.setData({
+                homeData: resp.data.data,
+                loading: false,
+              })
+          },
       })
   },
 
@@ -154,32 +132,6 @@ Page({
       wx.setStorageSync( 'closeInstallTips', true)
    },
   
-  markNewVersion: function(e){
-    // 本地保存最新版本号，以便下次比对
-    var _this = this
-    wx.setStorage({key: 'version', data: EXT.version, success: function(res){
-      _this.setData({showNewVersionWindow: false})
-    }})
-  },
-
-
-  checkNewVersion: function(){
-      var _this = this
-      // 检查新版本，并弹出提示
-      wx.getStorage({key: 'version', success: function(res){
-          if(res.data != EXT.version){
-              // 新版本，提示
-              _this.setData({showNewVersionWindow: true})
-          }
-        },
-        fail: function(res){
-            // 没有读取到本地保存的版本号码，说明是第一次进入系统
-            _this.markNewVersion()
-        },
-
-      })
-  },
-
 
 
   /**

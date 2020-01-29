@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view class="myswiper">
+  <view class="bg" style="background-color:{{bg}}"></view>
   <view bindtap="gotoSearch" class="search-box">
     <image src="/assets/icons/search-icon.png"></image>
     <view>你想住在哪？</view>

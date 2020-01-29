@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-notice-bar": "/vant/notice-bar/index"
+  }
+}

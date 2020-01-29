@@ -23,7 +23,8 @@ Component({
   },
 
   ready: function(){
-     var chatEnable = app.globalData.EXT['chat_enable'] != false
+     var ext = wx.getExtConfigSync()
+     var chatEnable = ext['chat_enable'] != false
      this.setData({ chatEnable: chatEnable})
   },
 
@@ -76,7 +77,7 @@ Component({
 
     gotoUser: function(e){
       var _this = this
-      var url = '/pages/user/user?id=' + this.data.broker.id
+      var url = '/pkgBroker/pages/broker/profile?id=' + this.data.broker.id
       wx.navigateTo({
         url: url,
       })

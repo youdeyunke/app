@@ -1,0 +1,11 @@
+<view class="post-cover">
+    <swiper class="swiper" indicator-dots="true" autoplay="{{value.images.length > 1}}" interval="5000" duration="500" bindchange="swiperChange" circular="true" easing-function="linear" indicator-color="rgba(255,255,255,0.7)" indicator-active-color="#fff">
+        <swiper-item bindtap="viewImage" data-index="{{index}}" wx:key="{{index}}" wx:for="{{value.images}}">
+            <view class="first">
+                <image wx:if="{{ index ==0 && value.vr_url}}" catchtap='gotoVr' class="play vr" src="/assets/icons/vr.png"></image>
+                <image wx:if="{{ index == 1 && value.video_url}}" catchtap='gotoVideo' class="play video" src="/assets/icons/bofang.png"></image>
+                <image mode="widthFix" wx:if="{{item}}" class="item" src="{{item}}?imageView2/2/h/420"></image>
+            </view>
+        </swiper-item>
+    </swiper>
+</view>

@@ -77,6 +77,9 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+      if(this.data.items.length == 0){
+          return false;
+      }
       this.setData({page: 1})
       this.loadData()
   },
@@ -85,6 +88,10 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+      console.log('items', this.data.items)
+      if(this.data.items.length == 0){
+          return false;
+      }
       var page = this.data.page
       this.setData({page: page + 1})
       this.loadData()

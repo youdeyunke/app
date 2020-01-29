@@ -22,7 +22,7 @@ Page({
       { name: '求购客源', icon: 'friends', color: '#4184AF', url: '/pages/need/room?cat=buy' },  
       { name: '求租客源', icon: 'friends', color: '#E15C32', url: '/pages/need/room?cat=rent' },  
       { name: '我的客源', icon: 'manager', color: '#5857CE', url: '/pages/need/room?cat=myself' },  
-      { name: '我的档案', icon: 'bars', color: '#', url: '/pages/myself/broker' },                                    
+      { name: '我的档案', icon: 'bars', color: '#', url: '/pkgBroker/pages/broker/join' },                                    
     ]
   },
 
@@ -49,6 +49,10 @@ Page({
         }
         console.log('可推送消息数：', c)
     })
+  },
+
+  subMessageHandle: function(e){
+    wx.navigateTo({url: '/pages/myself/submessage'})
   },
 
   menuItemClickHandle: function(e){
@@ -98,25 +102,27 @@ Page({
   onShow: function () {
     var ext = app.globalData.EXT
     var _this = this
-    auth.ensureUser(function(user){
-      _this.checkFormids()
-      _this.setData({ userInfo: user })
-      if(!user.is_broker){
-        wx.showModal({
-          title: '没有权限',
-          content: '你不是经纪人，没有权限进入工作台界面',
-          confirmText: '申请入驻',
-          confirmColor: '#00ae66',
-        
-          success(res) {
-            if (res.confirm) {
-              wx.navigateTo({
-                url: '/pages/myself/broker',
-              })
-            }
-          }          
-        })
-      }
+    auth.getRemoteUserInfo(function (user) {
+          _this.setData({ userInfo: user })
+          if(!user.is_broker){
+            wx.showModal({
+              title: '没有权限',
+              content: '你不是经纪人，没有权限进入工作台界面',
+              confirmText: '申请入驻',
+              confirmColor: '#00ae66',
+            
+              success(res) {
+                if (res.confirm) {
+                  wx.navigateTo({
+                    url: '/pkgBroker/pages/broker/join',
+                  })
+                  return 
+                } 
+                console.log('cancle')
+                wx.switchTab({url: '/pages/home/home'})
+              }          
+            })
+          }
     })
   },
 

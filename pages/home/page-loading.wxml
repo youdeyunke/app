@@ -1,0 +1,14 @@
+<view data-name="{{loading}}" hidden="{{loading == false}}">
+    <view  style="width:750rpx;margin-bottom:70rpx;margin-top:30rpx;">
+        <van-skeleton  style="width:100%;"   row="5"  loading="{{true}}" avatar="{{false}}" > </van-skeleton>
+    </view>
+
+    <view  style="width:750rpx;margin-bottom:70rpx;margin-top:20rpx;">
+        <van-skeleton  style="width:100%;"   row="3"  loading="{{true}}" avatar="{{false}}" > </van-skeleton>
+    </view>
+    
+    <view  style="width:750rpx;margin-bottom:20rpx;" wx:for="{{[1,2,3,4,5]}}">
+        <van-skeleton  style="width:100%;"  title row="2" row-width="{{ ['100%', '50%', '100%', '100%'] }}" loading="{{true}}" avatar="{{true}}" avatar-size="180rpx" avatar-shape="square">
+    </van-skeleton>
+    </view>
+</view>

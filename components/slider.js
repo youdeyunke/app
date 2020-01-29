@@ -6,18 +6,22 @@ Component({
    * 组件的属性列表
    */
   properties: {
+      items: {type:Array, value: []},
 
   },
 
   ready: function(){
-    this.loadData()
+      var _this = this
+      app.ensureConfigs((configs) => {
+          _this.setData({bg: configs.plugin_home_topbar_color_desc})
+      })
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    items: wx.getStorageSync('banners'),
+      bg: '#ffffff'
   },
 
   /**
@@ -42,24 +46,6 @@ Component({
           break
       }
     },
-    loadData: function(e){
-      var _this = this
-      app.request({
-        url: '/api/v1/banners',
-        hideLoading: true,
-        success: function(resp){
-          wx.setStorage({
-            key: 'banners',
-            data: resp.data.data,
-          })
-          _this.setData({items: resp.data.data})
-        }
-      })
-    },
-
-    soon: function(e){
-      app.comingSoon()
-    }
 
   }
 })

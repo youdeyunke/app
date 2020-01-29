@@ -23,3 +23,5 @@
       <post item="{{item}}"/>    
     </box>
 </block>
+
+<no-result wx:if="{{posts.length == 0 && loading == false}}" />

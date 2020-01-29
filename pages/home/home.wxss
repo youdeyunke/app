@@ -1,5 +1,5 @@
 page{
-  padding-top:0rpx;
+  padding-top:20rpx;
   background: #fff !important;
 }
 
@@ -20,10 +20,10 @@ page{
 .header{
 background:#fff;
 width:710rpx;
-padding:0 0rpx 20rpx 0rpx;
-
+padding:0 0rpx 0rpx 0rpx;
 box-sizing: border-box;
 border-radius:15rpx;
+margin-bottom:20rpx;
 
 }
 
@@ -33,13 +33,12 @@ border-radius:15rpx;
   align-items: center;
   width:100%;
   box-sizing:border-box;
-  padding:0rpx 30rpx;
   background: #fff;
-  margin-top:20rpx;
+  margin:20rpx 0;
 }
 
 .my-news-swiper{
-  margin:20rpx 20rpx;
+  margin:0rpx 20rpx 20rpx 20rpx;
   width:670rpx;
   border-radius: 10rpx;
   padding:20rpx;
@@ -104,102 +103,11 @@ border-radius:15rpx;
   line-height:1.4;
 }
 
-.new-version-window{
-  width:600rpx;
-  height:929rpx;
-  background:none;
-  position:relative;
-}
-
-.new-version-window image.bg{
-  width:100%;
-  height:100%;
-  position:absolute;
-  left:0;
-  right:0;
-  top:0;
-  bottom:0;
-}
-
-.new-version-window .close{
-  display:block;
-  z-index:999;
-  position:absolute;
-  width:60rpx;
-  height:60rpx;
-  border-radius:60rpx;
-  right:39rpx;
-  top:36rpx;
-}
-
-.new-version-window .confirm{
-  display:block;
-  z-index:999;
-  position:absolute;
-  width:60rpx;
-  height:60rpx;
-  border-radius:60rpx;
-  left:130rpx;
-  right:130rpx;
-  bottom:40rpx;
-  width:340rpx;
-  height:80rpx;
-  border-radius:40rpx;
-  z-index:999;
-}
-
-.new-version-window .title{
-  display:block;
-  z-index:999;
-  position:absolute;
-  width:100%;
-  height:70rpx;
-
-  left:0rpx;
-  right:0rpx;
-  top:98rpx;
-  z-index:999;
-  color:#fff;
-  font-size:50rpx;
-  text-align:center;
-}
-
-
-.new-version-window .sub-title{
-  display:block;
-  z-index:999;
-  position:absolute;
-  width:100%;
-  height:70rpx;
-
-  left:0rpx;
-  right:0rpx;
-  top:172rpx;
-  z-index:999;
-  color:#fff;
-  font-size:28rpx;
-  text-align:center;
-}
-
-.new-version-window .desc{
-  display:block;
-  z-index:999;
-  position:absolute;
-  width:480rpx;
-  left:60rpx;
-  right:60rpx;
-  top:237rpx;
-  z-index:999;
-  color:#fff;
-  font-size:28rpx;
-  line-height:1.4;
-}
-
 .block-navs{
   display:flex;
   justify-content:space-between;
   width:710rpx;
-  margin:20rpx auto;
+  margin:0rpx auto 0 auto;
   height:280rpx;
 }
 
