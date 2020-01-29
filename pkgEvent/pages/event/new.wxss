@@ -1,0 +1,47 @@
+/* pkgEvent/pages/event/new.wxss */
+
+.cats {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cat-item {
+    height: 60rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24rpx;
+    border-radius: 4rpx;
+    color: #333333;
+    border: 2rpx solid rgba(200, 201, 204, 1);
+    padding: 0 15rpx;
+    margin-right: 10rpx;
+}
+
+.cat-item.active {
+    color: #ffffff;
+    background: rgba(25, 137, 250, 1);
+    border: none;
+}
+
+.blank {
+    height: 20rpx;
+    display: block;
+}
+
+.confirm {
+    margin-top: 30rpx;
+    margin-bottom: 60rpx;
+    font-size: 24rpx;
+    color: #cecece;
+}
+
+.confirm text {
+    margin-left: 20rpx;
+}
+
+.confirm checkbox, .confirm checkbox .wx-checkbox-input {
+    width: 24rpx;
+    height: 24rpx;
+}

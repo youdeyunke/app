@@ -1,0 +1,18 @@
+
+<mycard title="动态分类" title-size="32" hat="{{false}}">
+  <view class="cats">
+    <view bindtap="catClickHandle" data-index="{{index}}" class="cat-item {{ currentCatIndex == index ? 'active': '' }}" wx:for="{{cats}}" wx:for-item="cat">{{cat.name}}</view>
+  </view>
+</mycard>
+
+<mycard title="动态内容" title-size="32" hat="{{false}}">
+    <mytextarea bind:input="contentHandle" value="{{content}}" max-length="300" />
+    <view class="confirm" bindtap="pushHandle">
+        <checkbox checked="{{push}}" />
+        <text>向已订阅楼盘动态的客户发送短信通知</text>
+    </view>
+
+    <van-button type="info" bindtap="submitHandle" block loading="{{loading}}">确定发布</van-button>
+    <view class="blank"></view>
+    <van-button type="default" block plain>取消</van-button>
+</mycard>
