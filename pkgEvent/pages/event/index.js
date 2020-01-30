@@ -18,7 +18,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
-        this.setData({ postId: q.pid })
+        this.setData({ postId: q.post_id })
         this.loadData()
     },
 

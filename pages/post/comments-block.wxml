@@ -26,7 +26,7 @@
 						<van-rate
 						 value="{{item.score}}"
 						 size="10"
-						 color="#ee0a24"
+                         readonly="{{true}}"
 						 void-color="#eee"
 						 void-icon="star"
 						/>
