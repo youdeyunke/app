@@ -1,5 +1,6 @@
 // pages/post/sub-button.js
 const app = getApp()
+var auth = require('../../utils/auth.js');
 
 Component({
     /**
@@ -20,12 +21,17 @@ Component({
      */
     data: {
         loading: false,
+        showDialog: false,
         title: '',
         nameDict: {
             open: {
+                title: ['订阅开盘提醒', '已订阅开盘提醒'],
+                desc: ['一键订阅，开盘消息会通过短信通知您，让您抢占买房先机','已订阅开盘提醒，开盘消息会通过短信通知您'],
                 btn: ['开盘提醒我', '取消开盘提醒']
             },
             price: {
+                title: ['订阅变价提醒', '已订阅变价提醒'],
+                desc: ['一键订阅，变价消息会通过短信通知您，让您抢占买房先机','已订阅变价提醒，变价消息会通过短信通知您'],
                 btn: ['变价提醒我', '取消变价提醒'],
             }
         },
@@ -37,8 +43,29 @@ Component({
      * 组件的方法列表
      */
     methods: {
+        confirmHandle: function (e) {
+            this.setData({
+                confirm: !this.data.confirm
+            })
+        },
         setTitle: function () {
             // status变化出发title的变化
+        },
+
+        closeHandle: function () {
+            this.setData({ showDialog: false })
+        },
+
+        openHandle: function () {
+            var _this = this
+            auth.ensureUser((user) => {
+                if (_this.data.status == 0) {
+                    _this.setData({ showDialog: true })
+                    return false
+                }
+                _this.subHandle()
+
+            })
         },
 
         subHandle: function () {

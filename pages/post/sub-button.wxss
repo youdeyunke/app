@@ -1,5 +1,6 @@
 /* pages/post/sub-button.wxss */
-.action{
+
+.action {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,4 +14,55 @@
     height: 88rpx;
     background: rgba(241, 245, 255, 1);
     border-radius: 8rpx;
+}
+
+.dialog {
+    width: 468rpx;
+    padding: 60rpx;
+    background: #ffffff;
+}
+
+.dialog .title {
+    font-size: 40rpx;
+    color: #333;
+    margin-bottom: 60rpx;
+    margin-top:30rpx;
+}
+
+.dialog .title image{
+    width:56rpx;
+    height: 56rpx;
+    margin-right:10rpx;
+}
+
+.dialog .desc {
+    font-size: 28rpx;
+    color: #333;
+    line-height: 40rpx;
+    margin-bottom: 60rpx;
+}
+
+.dialog .tips {
+    margin-top: 60rpx;
+    font-size: 24rpx;
+    color: #cecece;
+}
+
+.dialog .tip {}
+
+.dialog .confirm .b {}
+
+.confirm {
+    margin-top: 30rpx;
+    font-size: 24rpx;
+    color: #cecece;
+}
+
+checkbox{
+    margin-right:10rpx;
+}
+
+checkbox .wx-checkbox-input {
+    width: 20rpx;
+    height: 20rpx;
 }

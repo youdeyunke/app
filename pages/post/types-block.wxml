@@ -6,7 +6,7 @@
     </van-popup>
 
     <mycard width="750" title="户型介绍" hat="{{false}}"  title-size="32">
-        <view class="filter">
+        <view class="filter" wx:if="{{tags.length > 1}}">
           <view class="item {{ tag.className}} "  data-group="{{tag.group}}" bindtap="groupClick" wx:key="id"  wx:for="{{tags}}" wx:for-item="tag" >{{tag.name}} </view>
         </view>
 
