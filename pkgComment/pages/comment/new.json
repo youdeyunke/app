@@ -1,5 +1,6 @@
 {
-  "usingComponents": {
-    "mystars": "/components/stars"
-  }
+    "usingComponents": {
+        "images-uploader": "/components/images-uploader2",
+        "mystars": "/components/stars"
+    }
 }

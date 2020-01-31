@@ -1,19 +1,19 @@
 
 <box padding="30">
-van rate:
     <van-rate value="{{ comment.score }}" bind:change="scoreChange" />
-
     <textarea bindinput="contentInput" maxlength="200" name="content" placeholder='在这里输入评论内容'>
       <view class="counter">
           {{ content.length }}/{{ maxLength }}
       </view>
     </textarea>
+    <images-uploader bind:success="imagesHandle" max="10" images-str="" bind:change="imagesHandle" />
 
   <view class="actions">
     <van-button    loading="{{loading}}" bindtap="submitHandle" type="info" block  >发表评论</van-button>
     <view style="height:20rpx;display:block;"></view>
     <van-button   bindtap="backHandle" type="default" block  >返回</van-button>
   </view>
+
 </box>
 
 

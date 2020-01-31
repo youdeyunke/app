@@ -1,0 +1,9 @@
+<block>
+
+<van-uploader
+  multiple="{{true}}"
+  file-list="{{ images }}"
+  bind:after-read="afterRead"
+/>
+
+</block>

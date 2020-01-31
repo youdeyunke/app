@@ -10,6 +10,7 @@ Page({
     data: {
         user_id: null,
         content: '',
+        images: '',
         maxLength: 300,
         minLength: 10,
         score: 5,
@@ -40,10 +41,19 @@ Page({
         })
     },
 
+    imagesHandle: function (e) { 
+        console.log('images success handle', e)
+        var images = e.detail.value
+        this.setData({
+            imagesStr: images.join(','),
+            images: images
+        })
+    },
 
     submitHandle: function (e) {
         var comment = {
             content: this.data.content,
+            images: this.data.imagesStr,
             score: this.data.score,
             target_id: this.data.target_id,
             target_type: this.data.target_type
