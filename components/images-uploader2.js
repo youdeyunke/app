@@ -59,7 +59,7 @@ Component({
             console.log('执行第' + i + '个')
             var _this = this
             if (i + 1 > paths.length) {
-                _this.hasDone()
+                _this.hasChanged()
                 wx.hideLoading()
                 return false
             }
@@ -69,7 +69,7 @@ Component({
             })
         },
 
-        hasDone: function () {
+        hasChanged: function () {
             var urls = []
             this.data.images.forEach((image, i) => {
                 var url = image.url.split('?')[0]
@@ -88,8 +88,13 @@ Component({
             this.setData({ images: images })
         },
 
-        removeFromImages: function (index) {
-            // TODO 
+        deleteHandle: function (e) {
+            var i = e.detail.index
+            var images = this.data.images
+            images.splice(i, 1)
+            console.log('images slice',i, images)
+            this.setData({ images: images })
+            this.hasChanged()
         },
 
     }

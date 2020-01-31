@@ -42,7 +42,7 @@ Page({
     },
 
     imagesHandle: function (e) { 
-        console.log('images success handle', e)
+        console.log('images change', e.detail.value)
         var images = e.detail.value
         this.setData({
             imagesStr: images.join(','),
