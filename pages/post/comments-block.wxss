@@ -3,6 +3,7 @@
 .tags {
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .add-btn{
@@ -19,16 +20,21 @@
   align-items: center;
 }
 
+.add-btn van-icon{
+    margin-right:6rpx;
+}
+
 .tag-item {
     height: 52rpx;
-    background: rgba(248, 248, 248, 1);
+    background:#f4f4f4;
     border-radius: 52rpx;
     padding: 0 20rpx;
     text-align: center;
     line-height: 52rpx;
     margin-right: 20rpx;
+    margin-bottom:10rpx;
     font-size: 24rpx;
-    color: #999999;
+    color: #333333;
 }
 
 .comments {

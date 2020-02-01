@@ -1,8 +1,6 @@
-<view class="container comments">
-    <comments items="{{comments}}"></comments>
-</view>
+items {{ items.length }}
+<box padding="30">
+  <comment-item item="{{item}}" wx:for="{{items}}"  wx:key="id" />
+</box>
 
-<view class="empty" wx:if="{{loaded && comments.length == 0}}">
-   <image src="/assets/images/cover-none.png"></image>
-   <view>没有数据</view>
-</view>
+<no-result wx:if="{{!loading && items.length == 0}}" />

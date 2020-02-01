@@ -16,6 +16,15 @@
     border-radius: 8rpx;
 }
 
+.action.dark{
+    background:#f4f4f4;
+    color:#333;
+}
+
+.action  van-icon{
+    margin-right:6rpx;
+}
+
 .dialog {
     width: 468rpx;
     padding: 60rpx;
@@ -27,6 +36,9 @@
     color: #333;
     margin-bottom: 60rpx;
     margin-top:30rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .dialog .title image{

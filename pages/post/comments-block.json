@@ -1,6 +1,7 @@
 {
     "component": true,
     "usingComponents": {
+        "comment-item": "/components/comments/comment-item",
         "van-rate": "/vant/rate/index"
     }
 }

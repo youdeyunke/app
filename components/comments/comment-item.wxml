@@ -1,0 +1,41 @@
+<!--components/comments/comment-item.wxml-->
+    <view class="comment-item {{ border == true ? 'border' : 'border-none' }}" >
+        <view class="comment-header">
+            <view class="avatar">
+                <image src="{{item.user.avatar}}" lazy-load="true" />
+            </view>
+            <view class="title">
+                <view class="name">
+                    {{ item.user.name || item.user.nickname }}
+                    <van-tag type="warning" wx:if="{{item.cat == 1}}">实看用户</van-tag>
+                </view>
+                <view class="stars">
+                    <van-rate
+                        value="{{item.score}}"
+                        size="10"
+                        readonly="{{true}}"
+                        void-color="#eee"
+                        void-icon="star"
+                    />
+                </view>
+            </view>
+
+        </view>
+        <view class="comment-content">{{item.content}}</view>
+        
+        <view wx:if="{{images && item.images_list.length > 0}}" class="comment-images">
+           <image bindtap="viewImage" data-index="{{index}}" wx:for="{{item.images_list}}" src="{{item}}?viewImage2/2/w/200/h200" /> 
+        </view>
+
+        <view class="comment-footer">
+            <view class="time">{{ item.created_at }}</view>
+            <view class="nums">
+                <view class="reply-nums">
+                    <van-icon size="24rpx;" color="#999999" name="chat-o" />({{item.reply_nums}})
+                </view>
+                <view class="like-nums" bindtap="likeHandle" >
+                    <van-icon  size="24rpx;" color="#999999"  name="{{  liked ? 'good-job' : 'good-job-o' }}" />({{likeNums}})
+                </view>
+            </view>
+        </view>
+    </view>

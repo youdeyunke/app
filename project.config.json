@@ -175,7 +175,7 @@
 					"id": 18,
 					"name": "comment-index",
 					"pathName": "pkgComment/pages/comment/index",
-					"query": "target_id=52&target_type=post",
+					"query": "target_id=52&target_type=post&scope=good_items",
 					"scene": null
 				},
 				{

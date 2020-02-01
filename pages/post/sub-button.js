@@ -23,6 +23,12 @@ Component({
         loading: false,
         showDialog: false,
         title: '',
+        btnIcon: {
+            open: {
+                name: 'clock-o'
+            },
+            price: { name: 'chart-trending-o' },
+        },
         nameDict: {
             open: {
                 title: ['订阅开盘提醒', '已订阅开盘提醒'],

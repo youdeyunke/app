@@ -1,6 +1,6 @@
 {
     "enablePullDownRefresh": true,
-    "navigationBarTitleText": "分销中心",
+    "navigationBarTitleText": "详细介绍",
     "navigationBarTextStyle": "black",
     "usingComponents": {
         "images-block": "./images-block",

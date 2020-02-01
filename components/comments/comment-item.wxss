@@ -1,0 +1,85 @@
+/* components/comments/comment-item.wxss */
+
+.comment-item {
+    margin-bottom: 20rpx;
+}
+
+.comment-header .avatar image {
+    width: 64rpx;
+    height: 64rpx;
+    border-radius: 64rpx;
+    overflow: hidden;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20rpx;
+}
+
+.comment-header .title .name {
+    font-size: 28rpx;
+    color: #000000;
+    font-weight: 600;
+}
+
+.comment-header .title {
+    margin-left: 10rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.comment-content {
+    font-size: 26rpx;
+    color: #000000;
+    line-height: 1.5;
+    margin-bottom: 20rpx;
+}
+
+.comment-item.border {
+    border-bottom: 1rpx solid #cecece;
+}
+
+.comment-footer {
+    margin-bottom: 20rpx;
+    font-size: 24rpx;
+    color: #999999;
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment-footer .nums {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.comment-footer .nums view {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.reply-nums {
+    margin-right: 12rpx;
+}
+
+.comment-footer van-icon {
+    margin-right: 8rpx;
+}
+
+.comment-images {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom:20rpx;
+}
+
+.comment-images image {
+    width: 160rpx;
+    height:160rpx;
+    padding: 10rpx;
+    border-radius: 4rpx;
+}

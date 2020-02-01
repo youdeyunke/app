@@ -7,7 +7,7 @@
   show="{{showDialog}}">
    <view class="dialog">
      <view class="title">
-     <image src="/assets/icons/dinyue.png" />
+     <image src="/assets/icons/lindang.png" />
      {{ nameDict[cat]['title'][status] }}</view>
      <view class="desc">{{ nameDict[cat]['desc'][status] }}</view>
 
@@ -25,6 +25,6 @@
  </van-popup>
 
  <view class="action {{ status == 1 ? 'dark' : '' }}" bindtap="openHandle">
-    {{ nameDict[cat]['btn'][status] }}
+   <van-icon name="{{btnIcon[cat]['name'] }}" /> {{ nameDict[cat]['btn'][status] }}
  </view>
 </block>

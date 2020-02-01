@@ -15,6 +15,13 @@
   line-height: 88rpx;
   text-align: center;
   width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-btn van-icon{
+    margin-right:6rpx;
 }
 
 .qas{
