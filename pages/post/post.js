@@ -41,24 +41,9 @@ Page({
                     loading: false,
                     blocks: resp.data.data,
                 })
-                console.log('blocks', resp.data.data)
                 //html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
                 //html = html.replace(/\<p/gi, '<p class="rich-text-p" ')
-                wx.setNavigationBarTitle({ title: '房源详情' })
-                _this.queryElementsPosition()
             }
-        })
-    },
-
-    queryElementsPosition() {
-        // TODO
-        const query = wx.createSelectorQuery()
-        query.select('#types').boundingClientRect()
-        query.selectViewport().scrollOffset()
-        query.exec(function (res) {
-            console.log('ele', res)
-            //res[0].top       // #the-id节点的上边界坐标
-            //res[1].scrollTop // 显示区域的竖直滚动位置
         })
     },
 
@@ -127,7 +112,6 @@ Page({
     setInterval: function () {
         // 如果是开发环境，不处理
         if (this.data.EXT['is_dev'] == true) {
-            console.log('开发环境下不记录访客在线时长')
             return false
         }
 
@@ -150,7 +134,6 @@ Page({
     intervalHandle: function () {
         // 每秒钟执行
         var _this = this
-        console.log('统计停留时长, visitorlogid ', this.data.visitorLogId)
         // 更新最后在线时间戳
         app.markVisitor(this.data.visitorLogId, this.data.postId, 'post')
     },

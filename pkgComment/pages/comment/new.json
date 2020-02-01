@@ -1,5 +1,6 @@
 {
     "usingComponents": {
+        "van-divider": "/vant/divider/index",
         "images-uploader": "/components/images-uploader2",
         "mystars": "/components/stars"
     }

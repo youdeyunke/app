@@ -23,7 +23,6 @@ Component({
                     })
                 }
             })
-            console.log('images', images)
             this.setData({ images: images })
         },
     },
@@ -56,7 +55,6 @@ Component({
         },
 
         doUpload: function (i, paths) {
-            console.log('执行第' + i + '个')
             var _this = this
             if (i + 1 > paths.length) {
                 _this.hasChanged()
@@ -92,7 +90,6 @@ Component({
             var i = e.detail.index
             var images = this.data.images
             images.splice(i, 1)
-            console.log('images slice',i, images)
             this.setData({ images: images })
             this.hasChanged()
         },

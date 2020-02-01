@@ -1,12 +1,33 @@
+<box padding="30">
+    <view class="title"> 您看过该楼盘吗？ </view>
+	<view class="tags">
+		<view bindtap="catHandle" data-cat="{{catItem.value}}" wx:for="{{cats}}" wx:for-item="catItem" hover-class="none" class="tag-item {{ cat == catItem.value ? 'active' : '' }}">{{catItem.name}}</view>
+	</view>
+</box>
 
 <box padding="30">
-    <van-rate value="{{ comment.score }}" bind:change="scoreChange" />
-    <textarea bindinput="contentInput" maxlength="200" name="content" placeholder='在这里输入评论内容'>
+  <view hidden="{{cat == 0}}">
+    <view class="title center">推荐好友买这个房子的意愿</view>
+    <view class="score"><van-rate size="60rpx" value="{{ score }}" bind:change="scoreChange" /></view>
+    <van-divider contentPosition="center">{{ scoreName[score] }}</van-divider>
+
+    <view hidden="{{allTags.length == 0 }}">
+        <view class="title">您对该楼盘的印象</view>
+        <view class="tags">
+        <view data-index="{{index}}" bindtap="tagHandle" wx:for="{{allTags}}" wx:for-item="tag" class="tag-item {{ tag.selected == true ? 'active' : '' }}">{{tag.name}}</view>
+        </view>
+    </view>
+  </view>
+
+    <textarea style="margin-bottom:20rpx;" bindinput="contentInput" maxlength="200" name="content" placeholder='您觉得位置如何，环境怎样，周边规划满意吗？'>
       <view class="counter">
           {{ content.length }}/{{ maxLength }}
       </view>
     </textarea>
-    <images-uploader bind:success="imagesHandle" max="10" images-str="" bind:change="imagesHandle" />
+
+    <view class="images">
+        <images-uploader bind:success="imagesHandle" max="10" images-str="" bind:change="imagesHandle" />
+    </view>
 
   <view class="actions">
     <van-button    loading="{{loading}}" bindtap="submitHandle" type="info" block  >发表评论</van-button>

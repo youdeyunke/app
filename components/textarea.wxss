@@ -1,7 +1,7 @@
 /* components/textarea.wxss */
 textarea{
     padding:20rpx;
-    font-size:32rpx;
+    font-size:28rpx;
     box-sizing:border-box;
     background:#f8f8f8;
     border-radius:6rpx;
@@ -11,6 +11,6 @@ textarea{
     position: absolute;
     right:10rpx;
     bottom:10rpx;
-    font-size:28rpx;
+    font-size:26rpx;
     color:#cecece;
 }

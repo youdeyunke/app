@@ -396,7 +396,6 @@ App({
   loadConfigs: function(cb) {
     /* 从服务器加载系统配置嘻嘻 */
     var _this = this;
-    console.log('加载myconfigs')
     this.request({
       url: "/api/v1/myconfigs",
       hideLoading: true,
@@ -533,7 +532,6 @@ App({
     this.clearReddotInterval()
   },
 
-
   onLaunch: function() {
     var _this = this;
     this.setUserInfo()
@@ -541,7 +539,6 @@ App({
     this.startReddotInterval()
     console.log('EXT is ', EXT)
     this.ensureConfigs(function(config){
-      console.log('ensure configs', config)
       _this.loadCities(function(cities) {
         _this.globalData.cities = cities;
         _this.getLocation();
@@ -682,7 +679,6 @@ App({
         mobile: mobile
       },
       success: function(resp) {
-        console.log("send sms resp", resp);
       }
     });
   },
@@ -710,7 +706,6 @@ App({
               } else {
                   // 绑定手机号成功
                   var user =  res.data.data
-                  console.log(that.data.mobile)
                   typeof cb == 'function' && cb(user.mobile)
               }
           }
@@ -748,7 +743,6 @@ App({
       header: header,
       success: function(res) {
         if (res.data.statusCode == 500) {
-          console.log("server error", res);
           wx.showModal({ title: "服务器错误", content: "服务器出错了，请稍后重试" });
           return false;
         }
@@ -762,7 +756,6 @@ App({
             signType: res.data.data.signType,
             paySign: res.data.data.paySign,
             success: function(wxpay_res) {
-              console.log('wxpay res is', wxpay_res, 'obj.success func is', obj.success)
               if(wxpay_res['errMsg'] ==  "requestPayment:ok"){
                 // 支付成功了
                 wx.showToast({ title: "支付成功", icon: "success" });

@@ -5,6 +5,12 @@
   bind:delete="deleteHandle"
   file-list="{{ images }}"
   bind:after-read="afterRead"
-/>
+>
+    <view class="upload-btn">
+        <van-icon size="40rpx" color="#999999" name="photograph" />
+        <text>添加照片</text>
+    </view>
+
+</van-uploader>
 
 </block>

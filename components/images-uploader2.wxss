@@ -1,1 +1,17 @@
 /* components/images-uploader2.wxss */
+.upload-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:160rpx;
+    height: 160rpx;
+    border-radius: 8rpx;
+    padding:10rpx;
+    border:2rpx dashed #cecece;
+}
+
+.upload-btn text{
+    color:#999999;
+    font-size:28rpx;
+}
