@@ -9,7 +9,7 @@
                     {{ item.user.name || item.user.nickname }}
                     <van-tag type="warning" wx:if="{{item.cat == 1}}">实看用户</van-tag>
                 </view>
-                <view class="stars">
+                <view class="stars" wx:if="{{showStars}}">
                     <van-rate
                         value="{{item.score}}"
                         size="10"
@@ -21,7 +21,10 @@
             </view>
 
         </view>
-        <view bindtap="gotoDetail" class="comment-content">{{item.content}}</view>
+        <view bindtap="gotoDetail" class="comment-content">
+        <text bindtap="gotoAtUser" wx:if="{{item.at_user}}" class="at">@{{item.at_user.name}}</text>
+        {{item.content}}
+        </view>
         
         <view wx:if="{{images && item.images_list.length > 0}}" class="comment-images">
            <image lazy-load="{{true}}" bindtap="previewHandle" data-index="{{index}}" wx:for="{{item.images_list}}" src="{{item}}?imageView2/5/w/200" /> 
@@ -31,7 +34,12 @@
             <view bindtap="gotoDetail" class="time">{{ item.created_at }}</view>
             <view class="nums">
                 <view class="reply-nums" bindtap="replyClickHandle">
-                    <van-icon size="24rpx;" color="#999999" name="chat-o" />({{item.reply_nums}})
+                    <block wx:if="{{showReplyBtn}}">
+                        回复Ta
+                    </block>
+                    <block wx:else>
+                        <van-icon size="24rpx;" color="#999999" name="chat-o" />({{item.reply_nums}})
+                    </block>
                 </view>
                 <view class="like-nums" bindtap="likeHandle" >
                     <van-icon  size="24rpx;" color="#999999"  name="{{  liked ? 'good-job' : 'good-job-o' }}" />({{likeNums}})

@@ -10,9 +10,16 @@ Component({
         images: { type: Boolean, value: true },
         isLink: { type:Boolean, value: true},
         border: { type: Boolean, value: true },
+        showReplyBtn: { type: Boolean, value: false },
     },
 
     observers: {
+        "item.target_type": function (t) {
+            // 如果是回复，就不显示五角星
+            this.setData({
+                showStars: t  == 'comment'
+            })
+        },
         "item.like_nums": function (c) {
             var _this = this
             this.setData({ likeNums: c })
@@ -30,6 +37,14 @@ Component({
     },
 
     methods: {
+        gotoAtUser: function (e) {
+            // 点击at的用户，如果对方是经纪人，就跳转
+            if (!this.data.item.at_user.is_broker) {
+                return false
+            }
+            var pid = this.data.item.at_user.id
+            wx.navigateTo({url: '/pkgBroker/pages/broker/profile?id=' + pid })
+        },
         replyClickHandle: function (e) {
             // 点击回复按钮
             if (this.data.isLink) {

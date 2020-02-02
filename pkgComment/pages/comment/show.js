@@ -12,6 +12,9 @@ Page({
         item: {},
         showForm: false,
         reply_items: [],
+        content: null,
+        maxLength: 300,
+        minLength: 10,
         loading: true,
     },
 
@@ -19,12 +22,49 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
-        this.setData({ cid: q.id })
+        this.setData({ cid: q.id, target_id: q.id })
         this.loadData()
     },
 
-    submitHandle: function () {
+    submitHandle: function (e) {
         auth.ensureUser((user) => {
+            // 验证
+            var data = {
+                target_id: this.data.item.id,
+                target_type: 'mycomment',
+                at_user_id: this.data.at_user_id,
+                content: this.data.content,
+            }
+            if (data.content.length <= 10) {
+                wx.showToast({
+                    title: '内容不能少于10个字',
+                    icon: 'none',
+                    duration: 1500,
+                    mask: false,
+                });
+                return false
+            }
+            var _this = this
+            app.request({
+                url: '/api/v1/mycomments',
+                method: 'POST',
+                data: data,
+                success: function (resp) {
+                    if (resp.data.status == 0) { 
+                        _this.closeFormHandle()
+                        wx.showToast({
+                            title: '已回复',
+                            icon: 'success',
+                            image: '',
+                            duration: 1500,
+                            mask: false,
+                            success: (result) => {
+                            },
+                        });
+                        _this.loadData()
+                    }
+                }
+            })
         })
     },
 
@@ -32,12 +72,16 @@ Page({
         this.setData({ showForm: true })
     },
     replyClickHandle: function (e) {
-        console.log('e', e)
-        var user = e.detail.comment
+        var c = e.detail.comment
         this.setData({
-            placeholder: '回复' + user.name
+            at_user_id: c.user.id,
+            placeholder: '回复' + c.user.name,
         })
         this.openFormHandle()
+    },
+
+    contentChange: function (e) {
+        this.setData({content: e.detail})
     },
 
     closeFormHandle: function () {

@@ -38,6 +38,10 @@
     margin-bottom: 20rpx;
 }
 
+.comment-content .at{
+    color:#1989FA;
+}
+
 .comment-item.border {
     border-bottom: 2rpx solid #f4f4f4;
 }
