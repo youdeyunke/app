@@ -1,4 +1,18 @@
-items {{ items.length }}
+<box padding="30">
+	<view class="tags">
+		<view
+        data-index="{{index}}"
+		 wx:for="{{scopes}}"
+		 wx:key="scope"
+		 wx:for-item="s"
+		 hover-class="none"
+         bindtap="scopeHandle"
+		 class="tag-item {{scope == s.scope ? 'active' : ''}}"
+		>{{s.name}}({{s.count}})
+		</view>
+	</view>
+
+</box>
 <box padding="30">
   <comment-item item="{{item}}" wx:for="{{items}}"  wx:key="id" />
 </box>

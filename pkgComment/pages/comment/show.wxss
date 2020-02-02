@@ -1,0 +1,29 @@
+/* pkgComment/pages/comment/show.wxss */
+.form-header{
+    margin:30rpx 30rpx 30rpx 30rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size:28rpx;
+    border-bottom:2rpx solid #f9f9f9;
+
+}
+
+.form-header .submit {
+    color:#1989FA;
+}
+
+.form-header .cancle{
+    color:#333333;
+}
+
+.float-footer{
+  width:690rpx;
+  padding:30rpx;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom:0rpx;
+  left:0rpx;
+  right:0rpx;
+}

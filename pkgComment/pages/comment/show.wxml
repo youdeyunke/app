@@ -1,0 +1,30 @@
+<box padding="30">
+    <comment-item bind:replyclick="replyClickHandle" item="{{item}}" is-link="{{false}}" border="{{false}}" />
+</box>
+
+<mycard title="回复({{item.reply_nums}})" hat="{{false}}">
+    <comment-item wx:key="id" item="{{c}}" wx:item="c" wx:for="{{reply_items}}" is-link="{{false}}" />
+    <view class="empty" wx:if="{{!loading && item.reply_nums == 0}}">还没有收到回复</view>
+</mycard>
+
+<van-popup position="bottom"  show="{{showForm}}">
+   <view class="form-header">
+    <view bindtap="closeFormHandle" class="cancle" >取消</view>
+    <view class="submit" bindtap="submitHandle">发送</view>
+   </view>
+   <van-field
+     z-index="100"
+     type="textarea"
+     placeholder-style="color:#999999;font-size:24rpx;"
+     autosize="{{true}}"
+     focus="{{showForm}}"
+    value="{{ value }}"
+    placeholder="请输入内容"
+    border="{{ false }}"
+    bind:change="onChange"
+  /> 
+</van-popup>
+
+<view class="float-footer">
+    <view class="text"  bindtap="openFormHandle">{{ placeholder || '请输入'}}</view>
+</view>

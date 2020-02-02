@@ -693,6 +693,13 @@
 					"pathName": "pkgEvent/pages/event/index",
 					"query": "pid=52",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "comment-sho",
+					"pathName": "pkgComment/pages/comment/show",
+					"query": "id=56",
+					"scene": null
 				}
 			]
 		}

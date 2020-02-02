@@ -1,8 +1,8 @@
 <!--components/comments/comment-item.wxml-->
     <view class="comment-item {{ border == true ? 'border' : 'border-none' }}" >
-        <view class="comment-header">
+        <view class="comment-header" bindtap="gotoDetail">
             <view class="avatar">
-                <image src="{{item.user.avatar}}" lazy-load="true" />
+                <image src="{{item.user.avatar}}?imageView2/2/w/100" lazy-load="{{true}}" />
             </view>
             <view class="title">
                 <view class="name">
@@ -21,16 +21,16 @@
             </view>
 
         </view>
-        <view class="comment-content">{{item.content}}</view>
+        <view bindtap="gotoDetail" class="comment-content">{{item.content}}</view>
         
         <view wx:if="{{images && item.images_list.length > 0}}" class="comment-images">
-           <image bindtap="viewImage" data-index="{{index}}" wx:for="{{item.images_list}}" src="{{item}}?viewImage2/2/w/200/h200" /> 
+           <image lazy-load="{{true}}" bindtap="previewHandle" data-index="{{index}}" wx:for="{{item.images_list}}" src="{{item}}?imageView2/5/w/200" /> 
         </view>
 
         <view class="comment-footer">
-            <view class="time">{{ item.created_at }}</view>
+            <view bindtap="gotoDetail" class="time">{{ item.created_at }}</view>
             <view class="nums">
-                <view class="reply-nums">
+                <view class="reply-nums" bindtap="replyClickHandle">
                     <van-icon size="24rpx;" color="#999999" name="chat-o" />({{item.reply_nums}})
                 </view>
                 <view class="like-nums" bindtap="likeHandle" >

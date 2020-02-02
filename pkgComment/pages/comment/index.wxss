@@ -1,7 +1,31 @@
-page{
-  padding-top: 0rpx;
+page {
+    padding-top: 0rpx;
 }
 
-.comments .item{
-  margin-bottom: 40rpx;  
+.comments .item {
+    margin-bottom: 40rpx;
+}
+
+.tags {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.tag-item {
+    height: 52rpx;
+    background: #f4f4f4;
+    border-radius: 52rpx;
+    padding: 0 20rpx;
+    text-align: center;
+    line-height: 52rpx;
+    margin-right: 20rpx;
+    font-size: 24rpx;
+    color: #333333;
+    margin-bottom: 20rpx;
+}
+
+.tag-item.active {
+    color: #528af4;
+    background: #e6f4ff;
 }

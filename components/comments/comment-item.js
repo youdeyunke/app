@@ -7,19 +7,18 @@ Component({
      */
     properties: {
         item: { type: Object },
-        stars: { type: Boolean, value: true },
-        images: { type: Boolean, value: true},
-        cat: { type: Boolean, value: true },
+        images: { type: Boolean, value: true },
+        isLink: { type:Boolean, value: true},
         border: { type: Boolean, value: true },
     },
 
     observers: {
-        "item.like_nums": function (c) { 
+        "item.like_nums": function (c) {
             var _this = this
-            this.setData({likeNums: c})
+            this.setData({ likeNums: c })
             var key = 'liked_comment.' + this.data.item.id
             if (wx.getStorageSync(key)) {
-                _this.setData({liked: true})
+                _this.setData({ liked: true })
             }
         },
     },
@@ -31,6 +30,31 @@ Component({
     },
 
     methods: {
+        replyClickHandle: function (e) {
+            // 点击回复按钮
+            if (this.data.isLink) {
+                this.gotoDetail()
+                return false
+            }
+            this.triggerEvent('replyclick', {comment: this.data.item})
+        },
+        gotoDetail: function (e) {
+            if (!this.data.isLink) {
+                return false
+            }
+            wx.navigateTo({
+                url: '/pkgComment/pages/comment/show?id=' + this.data.item.id
+            })
+        },
+        previewHandle: function (e) {
+            var i = e.currentTarget.dataset.index
+            var url = this.data.item.images_list[i]
+            var urls = this.data.item.images_list
+            wx.previewImage({
+                current: url, // 当前显示图片的http链接
+                urls: urls // 需要预览的图片http链接列表
+            })
+        },
         likeHandle: function (e) {
             var cid = this.data.item.id
             var key = 'liked_comment.' + cid

@@ -97,6 +97,9 @@ Component({
 
         loadStatus: function () {
             // 查询订阅状态
+            if (!app.globalData.token) {
+                return false
+            }
             var _this = this
             app.request({
                 url: '/api/v1/event_followers',

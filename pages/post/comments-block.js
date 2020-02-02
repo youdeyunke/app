@@ -8,6 +8,13 @@ Component({
 
   },
 
+    observers: {
+        "value.scopes": function (items) {
+            // 过滤掉count为0的
+            var items = items.filter((item,i) => { return item.count > 0})
+            this.setData({scopes: items})
+      }
+  },
   /**
    * 组件的初始数据
    */

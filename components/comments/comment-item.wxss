@@ -39,7 +39,7 @@
 }
 
 .comment-item.border {
-    border-bottom: 1rpx solid #cecece;
+    border-bottom: 2rpx solid #f4f4f4;
 }
 
 .comment-footer {

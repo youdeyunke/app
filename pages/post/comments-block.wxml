@@ -5,9 +5,9 @@
  sub-title="{{ value.more_title }}"
  url="{{value.more_url}}"
 >
-	<view class="tags">
+	<view class="tags" wx:if="{{scopes.length}}">
 		<navigator
-		 wx:for="{{value.scopes}}"
+		 wx:for="{{scopes}}"
 		 wx:key="scope"
 		 wx:for-item="scope"
 		 url="/pkgComment/pages/comment/index?target_type=post&target_id={{value.post_id}}&scope={{scope.scope}}"

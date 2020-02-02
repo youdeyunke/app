@@ -1,4 +1,3 @@
-// pages/myself/myself.js
 const app = getApp()
 var auth = require('../../utils/auth.js');
 

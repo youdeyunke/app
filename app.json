@@ -37,6 +37,7 @@
             "name": "comment",
             "pages": [
                 "pages/comment/index",
+                "pages/comment/show",
                 "pages/comment/mine",
                 "pages/comment/new"
             ]
