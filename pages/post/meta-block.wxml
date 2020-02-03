@@ -45,7 +45,7 @@
             </view>
         </view>
 
-        <view  class="dinyue-actions">
+        <view  class="dinyue-actions" wx:if="{{value.sub_btn}}">
             <sub-button pid="{{value.post_id}}" cat="open" style="width:316rpx;">开盘通知我</sub-button>
             <sub-button pid="{{value.post_id}}" cat="price" style="width:316rpx;">变价通知我</sub-button>
         </view>

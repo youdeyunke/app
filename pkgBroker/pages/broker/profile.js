@@ -159,7 +159,7 @@ Page({
     return {
       title:  _this.data.userInfo.name + '的名片',
       desc: '帮你找好房',
-      path: 'pages/user/user?id=' + _this.data.userId,
+      path: 'pkgBroker/pages/broker/profile?id=' + _this.data.userId,
       imageUrl: _this.data.userInfo.avatar,
     }
   },

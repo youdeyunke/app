@@ -35,7 +35,7 @@
             <view class="nums">
                 <view class="reply-nums" bindtap="replyClickHandle">
                     <block wx:if="{{showReplyBtn}}">
-                        回复Ta
+                        回复
                     </block>
                     <block wx:else>
                         <van-icon size="24rpx;" color="#999999" name="chat-o" />({{item.reply_nums}})
