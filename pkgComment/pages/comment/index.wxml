@@ -19,6 +19,6 @@
 
 <no-result wx:if="{{!loading && items.length == 0}}" />
 
-<navigator url="/pkgComment/pages/comment/new?target_id={{target_id}}&target_type={{target_type}}"  class="float-footer">
+<navigator hover-cloass="none" url="/pkgComment/pages/comment/new?target_id={{target_id}}&target_type={{target_type}}"  class="float-footer">
     <van-button style="width:100%" type="info" block icon="edit-o">我要写点评</van-button>
 </navigator>
