@@ -23,9 +23,9 @@
     </view>
       
     <broker-link post-id="{{post.id}}" broker="{{broker}}" wx:if="{{ index+1 <= maxLength  }}"  wx:for="{{value.brokers}}" wx:for-item="broker" wx:key="id" />
-    <view class="more-brokers-btn">
-        <view wx:if="{{moreBrokersBtn && more_btn}}" bindtap="moreBrokersHandle" hover-class="none" class="more-btn">
+    <box padding="30"  wx:if="{{moreBrokersBtn && value.more_btn}}" >
+        <view bindtap="moreBrokersHandle" hover-class="none" class="more-btn">
             展开全部
         </view>
-    </view>
+    </box>
 </mycard>

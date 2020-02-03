@@ -103,6 +103,7 @@ Component({
             var _this = this
             app.request({
                 url: '/api/v1/event_followers',
+                hideLoading: true,
                 data: {
                     post_id: _this.data.pid,
                     cat: _this.data.cat,
