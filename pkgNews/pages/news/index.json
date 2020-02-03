@@ -3,7 +3,6 @@
   "usingComponents": {
     "van-tab": "/vant/tab/index",
     "van-tabs": "/vant/tabs/index",
-    "tt": "/components/tt",
-    "box": "/components/box"
+    "tt": "/components/tt"
   }
 }

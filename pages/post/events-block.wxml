@@ -1,7 +1,7 @@
 <!--pages/post/events-block.wxml-->
 
 <mycard sub-title="{{value.more_title}}"  url="{{value.more_url}}" hat="{{false}}" title-size="32" title="{{value.title || '楼盘动态'}}"  sub-title="查看全部动态">
-    <view class="event" wx:key="id" wx:for="{{value.items}}" wx:for-item="event" >
+    <view class="event" wx:key="id" wx:for="{{events}}" wx:for-item="event" >
       <view class="title">
          <view class="circle"></view>
          <view class="time">{{event.created_at}}</view>

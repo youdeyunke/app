@@ -1,3 +1,7 @@
+page{
+    padding-bottom:120rpx;
+}
+
 .ecats {
     display: flex;
     justify-content: flex-start;
@@ -50,20 +54,40 @@
     padding: 14rpx 0 30rpx 42rpx;
     border-left: 2px solid #cecece;
     margin-left: 15rpx;
+    line-height: 1.5;
 }
 
-.tips{
+.tips {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    font-size:22rpx;
-    margin-bottom:30rpx;
+    font-size: 22rpx;
+    margin-bottom: 30rpx;
 }
 
-.tips text{
-    color:#cecece;
+.tips text {
+    color: #666;
 }
 
-.tips text.b{
+.tips van-icon {
+    margin-right: 6rpx;
+}
 
+.tips text.b {
+    color: #5D77AB;
+}
+
+.footer{
+    padding:30rpx;
+    width:690rpx;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom:0rpx;
+    left:0rpx;
+}
+.footer van-button{
+    width:45%;
 }

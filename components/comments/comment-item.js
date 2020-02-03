@@ -17,7 +17,7 @@ Component({
         "item.target_type": function (t) {
             // 如果是回复，就不显示五角星
             this.setData({
-                showStars: t  == 'comment'
+                showStars: t  == 'post'
             })
         },
         "item.like_nums": function (c) {

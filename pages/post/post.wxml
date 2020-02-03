@@ -25,8 +25,8 @@
         <contact-block wx:if="{{block.name == 'contact'}}" value="{{block.value}}" />
     </block>
 
+    <!-- official-account></official-account -->
     <ad-link />
     <safe-tips cat="{{post.group}}" />
     <cr />
-
 </view>

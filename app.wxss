@@ -414,6 +414,7 @@ textarea{
 .rich-text-p{
   display:flex;
   flex-direction:column;
+  line-height: 1.5;
   justify-content:flex-start;
 }
 

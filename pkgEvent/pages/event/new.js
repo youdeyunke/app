@@ -34,7 +34,7 @@ Page({
         })
 
         this.setData({
-            pid: q.pid
+            pid: q.id
         })
         this.loadCats()
     },
@@ -65,6 +65,12 @@ Page({
      */
     onUnload: function () {
 
+    },
+
+    cancleHandle: function (e) {
+        wx.navigateBack({
+            delta: -1
+        })
     },
 
     catClickHandle: function (e) {
@@ -108,7 +114,7 @@ Page({
             success: function (resp) {
                 _this.setData({ loading: false })
                 if (resp.data.status != 0) {
-                    return flase
+                    return false
                 }
                 wx.showToast({
                     title: '发布成功',

@@ -1,5 +1,6 @@
 page {
     padding-top: 0rpx;
+    padding-bottom:120rpx;
 }
 
 .comments .item {
@@ -28,4 +29,15 @@ page {
 .tag-item.active {
     color: #528af4;
     background: #e6f4ff;
+}
+.float-footer{
+    padding:30rpx;
+    width:690rpx;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom:0rpx;
+    left:0rpx;
 }

@@ -91,7 +91,7 @@ Page({
     return {
       title: this.data.item.title,
       imageUrl: this.data.item.cover_v2 + "?imageView2/1/w/500/h/400",
-      path: '/pages/news/show?homebtn=1&id=' + this.data.nid
+      path: '/pkgNews/pages/news/show?id=' + this.data.nid
     }
   }
 })

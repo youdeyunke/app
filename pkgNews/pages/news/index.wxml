@@ -6,7 +6,7 @@
                 <tt data-id="{{item.id}}"  item="{{item}}"> </tt>
             </box>
         </block>
-        <view class="empty" wx:if="{{isEmpty}}">没有数据</view>
+        <no-result  wx:if="{{isEmpty}}" />
         <view class="empty" wx:if="{{loading}}"> <van-loading /> </view>
       </van-tab>
     </van-tabs>  

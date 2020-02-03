@@ -13,7 +13,9 @@
     <view class="empty" wx:if="{{!loading && item.reply_nums == 0}}">还没有收到回复</view>
 </mycard>
 
-<van-popup position="bottom"  show="{{showForm}}">
+<van-popup 
+close-on-click-overlay="{{true}}"
+position="bottom"  show="{{showForm}}">
    <view class="form-header">
     <view bindtap="closeFormHandle" class="cancle" >取消</view>
     <view class="submit" bindtap="submitHandle">发送</view>
@@ -33,5 +35,6 @@
 </van-popup>
 
 <view class="float-footer">
-    <view class="text"  bindtap="openFormHandle">{{ placeholder || '请输入'}}</view>
+    <view class="text"  bindtap="openFormHandle">{{ '点赞都是套路，评论才算真诚'}}</view>
+    <van-icon bindtap="likeHandle"  color="#999999"  name="{{  liked ? 'good-job' : 'good-job-o' }}" />
 </view>

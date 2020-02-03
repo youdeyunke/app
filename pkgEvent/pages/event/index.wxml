@@ -5,8 +5,8 @@
 </box>
 
 <box padding="30" wx:if="{{items.length >0 && !loading}}">
-    <view class="tips">
-        <van-icon name="" />
+    <view class="tips" bindtap="tipsHandle">
+        <van-icon name="/assets/icons/safe-tips-icon.png" />
         <text>楼盘资讯</text>
         <text class="b">免责声明</text>
     </view>
@@ -20,3 +20,9 @@
 </box>
 
 <no-result wx:if="{{!loading && items.length == 0}}" />
+
+<view class="footer">
+    <van-button bindtap="chatHandle" icon="chat-o" type="primary" block >在线咨询</van-button>
+    <van-button bindtap="callHandle" icon="phone-o" type="info" block >电话咨询</van-button>
+
+</view>

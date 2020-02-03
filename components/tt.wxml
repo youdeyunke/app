@@ -1,4 +1,4 @@
-<view bindtap='newsClick' class="item">
+<navigator hover-class="none" class="item" url="/pkgNews/pages/news/show?id={{item.id}}">
   <image class="cover" src="{{item.cover_v2 }}?imageView2/2/w/250"></image>
   <view class="item-title-block">
     <view class="title">{{item.title}}</view>
@@ -6,4 +6,4 @@
       <view class="date">发布于：{{item.created_at_pretty}}</view>
     </view>
   </view>
-</view>
+</navigator>

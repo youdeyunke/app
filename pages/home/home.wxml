@@ -49,6 +49,9 @@
       </block>
         
       <new-version wx:if="{{block.name == 'version' }}" />
+      <!-- view style="width:710rpx;"  wx:if="{{block.name == 'copyright'}}" >
+        <official-account ></official-account>
+      </view -->
       <cr wx:if="{{ block.name == 'copyright' }}" text="{{block.text}}"  />
 
 </view>

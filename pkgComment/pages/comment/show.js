@@ -9,6 +9,8 @@ Page({
      */
     data: {
         cid: null,
+        likeNums: 0,
+        liked: false,
         item: {},
         showForm: false,
         reply_items: [],
@@ -24,6 +26,45 @@ Page({
     onLoad: function (q) {
         this.setData({ cid: q.id, target_id: q.id })
         this.loadData()
+        var _this = this
+        var key = 'liked_comment.' + q.id
+        if (wx.getStorageSync(key)) {
+            _this.setData({ liked: true })
+        }
+    },
+
+    likeHandle: function (e) {
+        var _this = this
+        auth.ensureUser((user) => {
+            _this._likeHandle(e)
+        })
+    },
+
+    _likeHandle: function (e) {
+        var cid = this.data.item.id
+        var key = 'liked_comment.' + cid
+        if (wx.getStorageSync(key)) {
+            console.log('重复点击', key)
+            return false
+        }
+        this.setData({
+            likeNums: this.data.item.like_nums + 1,
+            liked: true,
+        })
+
+        app.request({
+            url: '/api/v1/mycomments/like',
+            hideLoading: true,
+            method: 'POST',
+            data: { id: cid },
+            success: function (resp) {
+                console.log('resp')
+                wx.setStorage({
+                    key: key,
+                    data: true,
+                })
+            }
+        })
     },
 
     submitHandle: function (e) {
@@ -50,7 +91,7 @@ Page({
                 method: 'POST',
                 data: data,
                 success: function (resp) {
-                    if (resp.data.status == 0) { 
+                    if (resp.data.status == 0) {
                         _this.closeFormHandle()
                         wx.showToast({
                             title: '已回复',
@@ -81,11 +122,11 @@ Page({
     },
 
     contentChange: function (e) {
-        this.setData({content: e.detail})
+        this.setData({ content: e.detail })
     },
 
     closeFormHandle: function () {
-        this.setData({ showForm: false })
+        this.setData({ showForm: false, at_user_id: '', placeholder: '回复楼主' })
     },
 
     loadData: function () {
@@ -97,6 +138,7 @@ Page({
                 _this.setData({
                     loading: false,
                     item: resp.data.data.item,
+                    likeNums: resp.data.data.item.like_nums,
                     reply_items: resp.data.data.reply_items
                 })
             }

@@ -38,8 +38,8 @@
     margin-bottom: 20rpx;
 }
 
-.comment-content .at{
-    color:#1989FA;
+.comment-content .at {
+    color: #1989FA;
 }
 
 .comment-item.border {
@@ -78,12 +78,13 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom:20rpx;
+    margin-bottom: 20rpx;
+    flex-wrap: wrap;
 }
 
 .comment-images image {
-    width: 160rpx;
-    height:160rpx;
+    width: 155rpx;
+    height: 155rpx;
     padding: 10rpx;
     border-radius: 4rpx;
 }

@@ -1,5 +1,6 @@
 // pkgEvent/pages/event/index.js
 const app = getApp()
+var auth = require('../../../utils/auth.js');
 
 Page({
 
@@ -12,13 +13,15 @@ Page({
         loading: true,
         postId: null,
         items: [],
+        post: null,
+        broker: null,
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
-        this.setData({ postId: q.post_id })
+        this.setData({ postId: q.id })
         this.loadData()
     },
 
@@ -51,9 +54,65 @@ Page({
                 _this.setData({
                     loading: false,
                     items: resp.data.data.items,
+                    post: resp.data.data.post,
+                    broker: resp.data.data.broker,
                     cats: resp.data.data.cats,
                 })
             }
+        })
+    },
+
+    callHandle: function () {
+        var m = this.data.broker.mobile
+        wx.makePhoneCall({
+            phoneNumber: m,
+        })
+    },
+
+
+   tipsHandle: function () { 
+       var content = "楼盘动态资讯内容，旨在满足广大用户的信息需求而采集提供，如有异议请及时与我们联系。页面所载内容不代表本网站之观点或意见，仅供用户参考与借鉴，最终以政府网站或开发商实际公示为准，用户在购房时需慎重查验开发商的证件信息。"
+        wx.showModal({
+            title: '免责声明',
+            content: content,
+            showCancel: false,
+            confirmText: '知道了',
+            confirmColor: '#1989FA',
+        });
+          
+    },
+
+    chatHandle: function () {
+        var _this = this
+        auth.ensureUser(function (user) {
+            // 不能和自己聊天
+            if (user.id == _this.data.broker.id) {
+                wx.showToast({ icon: 'none', title: '不能和自己聊天' })
+                return false
+            }
+            return _this._chatHandle()
+        })
+    },
+
+    _chatHandle: function () {
+        // 先调用打招呼接口
+        wx.showLoading({ title: '正在打开', icon: 'none', mask: true })
+        var pid = this.data.postId
+        var brokerId = this.data.broker.id
+        var _this = this
+        app.request({
+            url: '/api/v2/posts/hello?id=' + pid + '&receiver_id=' + brokerId,
+            success: function (resp) {
+                if (resp.data.status == 0) {
+                    // 跳转到消息列表
+                    wx.navigateTo({
+                        url: '/pages/messages/show?target_user_id=' + brokerId,
+                    })
+                }
+            },
+            complete: function () {
+                wx.hideLoading()
+            },
         })
     },
 

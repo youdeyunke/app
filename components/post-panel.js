@@ -96,6 +96,12 @@ Component({
       })
     },
 
+      newEventHandle: function (e) { 
+          wx.navigateTo({
+              url: '/pkgEvent/pages/event/new?id=' + this.data.item.id
+          })
+      },
+
     gotoPoster: function(e){
       var id = this.data.item.id
       wx.navigateTo({

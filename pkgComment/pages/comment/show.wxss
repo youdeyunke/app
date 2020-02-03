@@ -17,13 +17,19 @@
     color:#333333;
 }
 
+    
 .float-footer{
   width:690rpx;
   padding:30rpx;
+  height:50rpx;
   display: flex;
   justify-content: space-between;
   position: fixed;
   bottom:0rpx;
   left:0rpx;
   right:0rpx;
+  font-size:28rpx;
+  color: #cecece;
+  background:#fff;
+  border-top:2rpx solid #f9f9f9;
 }

@@ -13,6 +13,14 @@
             ]
         },
         {
+            "root": "pkgNews",
+            "name": "news",
+            "pages": [
+                "pages/news/index",
+                "pages/news/show"
+            ]
+        },
+        {
             "root": "pkgQa",
             "name": "qa",
             "pages": [
@@ -71,8 +79,6 @@
     ],
     "pages": [
         "pages/home/home",
-        "pages/news/index",
-        "pages/news/show",
         "pages/webview/webview",
         "pages/post/index",
         "pages/sub-districts/index",

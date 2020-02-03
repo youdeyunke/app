@@ -17,6 +17,5 @@
   <view class="raw">
       <rich-text  nodes="{{html}}" />
   </view>
-
 </box>
 
