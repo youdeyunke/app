@@ -17,7 +17,7 @@
 		</navigator>
 	</view>
 
-	<view class="comments">
+	<view class="comments" wx:if="{{value.items.length}}">
 		<navigator
 		 wx:for="{{value.items}}"
 		 wx:key="id"
@@ -58,6 +58,7 @@
 		</navigator>
 
 	</view>
+    <view class="empty" wx:else>还没有收到评论</view>
 
 	<navigator class="add-btn" hover-class="none" url="/pkgComment/pages/comment/new?target_id={{value.post_id}}&target_type=post">
 		<van-icon name="edit" size="32rpx" color="#1989FA" />

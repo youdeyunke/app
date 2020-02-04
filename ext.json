@@ -1,11 +1,11 @@
 {
   "extEnable": true,
-  "extAppid": "wxac0389e2d3809d50",
+  "extAppid": "wx175508800f405090",
   "directCommit": false,
   "ext": {
     "name": "开发版",
     "is_dev": true, 
-    "apihost": "https://weapp1.udeve.cn/39041",
+    "apihost": "https://weapp.udeve.cn/9000",
     "version_desc": "这里是版本介绍信息",
     "fenxiao_enable": true,
     "show_brokers_enable": true,

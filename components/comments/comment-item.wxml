@@ -38,11 +38,11 @@
                         回复
                     </block>
                     <block wx:else>
-                        <van-icon size="24rpx;" color="#999999" name="chat-o" />({{item.reply_nums}})
+                        <van-button size="mini" type="default" round plain icon="chat-o" >{{item.reply_nums}}</van-button>
                     </block>
                 </view>
                 <view class="like-nums" bindtap="likeHandle" >
-                    <van-icon  size="24rpx;" color="#999999"  name="{{  liked ? 'good-job' : 'good-job-o' }}" />({{likeNums}})
+                    <van-button round size="mini" type="default" icon="{{  liked ? 'good-job' : 'good-job-o' }}" >{{likeNums}}</van-button>
                 </view>
             </view>
         </view>

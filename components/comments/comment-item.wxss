@@ -60,12 +60,6 @@
     align-items: center;
 }
 
-.comment-footer .nums view {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
 .reply-nums {
     margin-right: 12rpx;
 }

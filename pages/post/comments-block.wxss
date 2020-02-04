@@ -81,3 +81,10 @@
     border-bottom: 1px solid #f4f4f4;
     padding-bottom: 20rpx;
 }
+
+.empty{
+    padding:30rpx 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

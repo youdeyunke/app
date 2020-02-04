@@ -29,3 +29,10 @@
     margin-left: 15rpx;
     line-height: 1.5;
 }
+
+.empty{
+    padding:30rpx 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
