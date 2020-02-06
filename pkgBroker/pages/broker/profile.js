@@ -67,19 +67,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
-
     var _this = this
     var filter = this.data.filter
-    filter['user_id'] = q.id
-    this.setData({
-      tabs:  app.globalData.myconfigs['post_groups'],
-      userId: q.id,
-      filter: filter,
-    }, function(){
-      _this.loadUserInfo()
+    app.ensureConfigs((configs) => {
+        var tabs =  configs['post_groups']
+        filter['user_id'] = q.id
+        filter['group_v2'] = tabs[0].value
+        _this.setData({
+          tabs: tabs,
+          userId: q.id,
+          filter: filter,
+        }, function(){
+          _this.loadUserInfo()
+        })
+        app.markVisitor(null, q.id, 'user')
     })
-
-    app.markVisitor(null, q.id, 'user')
   },
 
   loadUserInfo: function(){

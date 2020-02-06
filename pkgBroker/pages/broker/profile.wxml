@@ -8,7 +8,7 @@
 
 
   <view class="body">
-    <van-tabs animated swipeable  type="line" color="#00ae66" bind:change="tabChange">
+    <van-tabs wx:if="{{tabs.length > 1}}" animated swipeable  type="line" color="#00ae66" bind:change="tabChange">
       <van-tab wx:for="{{tabs}}" wx:for-item="tab" title="{{tab.name}}">
       </van-tab>
     </van-tabs> 
