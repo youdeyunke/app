@@ -1,6 +1,6 @@
 <view class="visitors">
         <view class="avatars">
-            <image wx:for="{{visitors}}" src="{{item.user.avatar}}" />
+            <image wx:for="{{visitors}}" src="{{item.user.avatar}}?imageView2/5/h/80/w/80" />
         </view>
         <view class="count">{{visitorsMeta.total_visitors || 0 }}人看过</view>
 </view>

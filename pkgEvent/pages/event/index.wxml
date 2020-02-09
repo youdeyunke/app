@@ -24,5 +24,4 @@
 <view class="footer">
     <van-button bindtap="chatHandle" icon="chat-o" type="primary" block >在线咨询</van-button>
     <van-button bindtap="callHandle" icon="phone-o" type="info" block >电话咨询</van-button>
-
 </view>

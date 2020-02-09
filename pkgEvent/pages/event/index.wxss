@@ -1,5 +1,5 @@
-page{
-    padding-bottom:120rpx;
+page {
+    padding-bottom: 120rpx;
 }
 
 .ecats {
@@ -77,17 +77,19 @@ page{
     color: #5D77AB;
 }
 
-.footer{
-    padding:30rpx;
-    width:690rpx;
+.footer {
+    padding: 30rpx;
+    width: 690rpx;
     background: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    bottom:0rpx;
-    left:0rpx;
+    bottom: 0rpx;
+    left: 0rpx;
+    border-top: 2rpx solid #f9f9f9;
 }
-.footer van-button{
-    width:45%;
+
+.footer van-button {
+    width: 45%;
 }

@@ -8,7 +8,7 @@
 
 
   <view class="body">
-    <van-tabs wx:if="{{tabs.length > 1}}" animated swipeable  type="line" color="#00ae66" bind:change="tabChange">
+    <van-tabs wx:if="{{tabs.length > 1}}" animated swipeable  type="line" color="#1989FA" bind:change="tabChange">
       <van-tab wx:for="{{tabs}}" wx:for-item="tab" title="{{tab.name}}">
       </van-tab>
     </van-tabs> 
@@ -28,5 +28,10 @@
   <button hover-class="none" form-type="submit" data-action="share" open-type="share" class="fake btn btn-share" >分享名片</button>
   </view>
 </form>
+
+<view class="footer">
+    <van-button bindtap="callMe" icon="phone-o" type="primary" block >电话咨询</van-button>
+    <van-button bindtap="share" icon="gift-o" type="info" block >分享名片</van-button>
+</view>
 
 <cr />

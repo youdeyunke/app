@@ -7,7 +7,7 @@
   box-sizing:border-box;
   background:#fff;
   padding:0rpx 30rpx;
-  margin-bottom:20rpx;
+  margin:30rpx auto;
 }
 
 .line-limit{

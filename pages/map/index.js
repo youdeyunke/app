@@ -13,11 +13,7 @@ Page({
     data: {
         markers: [],
         currentGroupIndex: 0,
-        groupItems: [
-            { name: '二手房', value: 'old' },
-            { name: '租房', value: 'rental' },
-            { name: '新房', value: 'new' },
-        ],
+        groupItems: [],
         tabShow: true,
         posts: [],
         center: {},
@@ -35,15 +31,20 @@ Page({
         app.checkForceLogin()
         map = wx.createMapContext('map', this)
         wx.setNavigationBarTitle({ title: '地图找房' })
-        this.setData({
-            groupItems: app.globalData.myconfigs['post_groups']
+        var _this = this
+        app.ensureConfigs((configs) => {
+            _this.setData({
+                groupItems: app.globalData.myconfigs['post_groups']
+            })
+            _this.initMap(q.group)
+            // 判断是否隐藏切换标签
+            if (_this.data.groupItems.length == 1 || q.group) {
+                var g = q.group || _this.data.groupItems[0].value
+                _this.setData({ tabShow: false, postGroup: g })
+            }
+
         })
-        this.initMap(q.group)
-        // 判断是否隐藏切换标签
-        if (this.data.groupItems.length == 1 || q.group) {
-            var g = q.group || this.data.groupItems[0].value
-            this.setData({ tabShow: false, postGroup: g })
-        }
+        console.log('postGroup', this.data.postGroup)
     },
 
     popShow: function () {
@@ -74,31 +75,22 @@ Page({
             url: '/api/v2/posts',
             data: query,
             success: function (resp) {
+                // 第一次加载,根据房源所在的位置，自动定位视野，防止出现定位到其他国家的问题
+                var group = _this.data.groupItems[_this.data.currentGroupIndex].value
+                var points = []
                 resp.data.data.forEach((post, i) => {
                     var sub = post.sub_district
                     var point = { longitude: sub.longitude, latitude: sub.latitude }
-                    pointsDict[post.group].push(point)
-
+                    if (post.group == group) {
+                        points.push(point)
+                    }
                 })
-
-                var i = 0
-
-                if (pointsDict['old'].length > 0) {
-                    i = 0
-                    points = pointsDict['old']
-                } else if (pointsDict['rental'].length > 0) {
-                    i = 1
-                    points = pointsDict['rental']
-                } else if (pointsDict['new'].length > 0) {
-                    i = 2
-                    points = pointsDict['new']
-                }
 
                 map.includePoints({
                     points: points.slice(0, 2),
                     padding: 10,
                     success: function () {
-                        _this.setData({ currentGroupIndex: i })
+                        _this.setData({ currentGroupIndex: 0 })
                         // 注意，这里需要延时执行，否则在真机上加载不到标记点
                         // 因为获取屏幕范围时地图视野还未更新，
                         // 获取到的视野还是初始状态下的数据
@@ -124,6 +116,8 @@ Page({
     },
 
     _loadSubs: function (latitude, longitude) {
+        console.log('current index', this.data.currentGroupIndex)
+        console.log('group items', this.data.groupItems)
         var group = this.data.groupItems[this.data.currentGroupIndex].value || 'old'
 
         // 加载小区数据

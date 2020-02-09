@@ -74,7 +74,7 @@ Component({
 
         },
 
-        closeImage: function(e){
+        closeImage: function (e) {
             this.setData({
                 showImage: false,
             })

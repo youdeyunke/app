@@ -1,5 +1,5 @@
 <navigator url="/pages/post/post?id={{item.id}}" hover-class="navigator-hover" open-type="navigate"class="block">
-    <image class="cover" src="{{item.cover}}" mode="aspectFill" lazy-load="{{true}}" />
+    <image class="cover" src="{{item.cover}}?imageView2/2/w/400" mode="aspectFill" lazy-load="{{true}}" />
     <view class="type-info  van-ellipsis"> {{item.sub_district_name }} </view>
     <mytags mini="true" items="{{item.tags_list}}" max="3"></mytags>
     <view class="price-info">
