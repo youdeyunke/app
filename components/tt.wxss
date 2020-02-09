@@ -1,73 +1,73 @@
-.item{
-  letter-spacing: 4rpx;
-  width: 100%;
-  height: 160rpx;
-  background: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-  position: relative;
+.item {
+    letter-spacing: 4rpx;
+    width: 100%;
+    height: 140rpx;
+    background: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    border-bottom: 2rpx solid #f9f9f9;
+    margin-bottom: 20rpx;
+    padding-bottom: 20rpx;
 }
 
-.item .badge{
-  width: 120rpx;
-  height: 110rpx;
-  position: absolute;
-  top:-30rpx;
-  left:-24rpx;
-  z-index: 10;
+.item .badge {
+    width: 120rpx;
+    height: 110rpx;
+    position: absolute;
+    top: -30rpx;
+    left: -24rpx;
+    z-index: 10;
 }
 
-
-.item .cover{
-  width: 240rpx;
-  height: 160rpx;
-  border-radius: 0rpx;
-  overflow: hidden;
+.item .cover {
+    width: 200rpx;
+    height: 120rpx;
+    border-radius: 0rpx;
+    overflow: hidden;
 }
 
-.item .title{
-  font-size:26rpx;
-  color: #000;
-  line-height: 36rpx;
-  letter-spacing: 5rpx;
-  font-weight: bold;
-
-  display: -webkit-box ;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: break-all;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp:2;  
- 
+.item .title {
+    font-size: 26rpx;
+    color: #000;
+    line-height: 36rpx;
+    letter-spacing: 5rpx;
+    font-weight: bold;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
 
-.item .item-title-block{
-  height: 100%;
-  display: flex;
-  width: 450rpx;
-  flex-direction: column;
-  justify-content: space-between;
+.item .item-title-block {
+    height: 100%;
+    display: flex;
+    width: 450rpx;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20rpx;
 }
 
-.item .meta{
-  display: flex;
-  justify-content:space-between;
-  align-items: center;
-  color: #666;
-  font-size:20rpx;
-  width: 100%;
+.item .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #666;
+    font-size: 20rpx;
+    width: 100%;
 }
 
-.item .date{
-  padding:4rpx 20rpx;
-  font-size:22rpx;
-  color: #333;
+.item .date {
+    font-size: 22rpx;
+    color: #333;
 }
 
-.item .author{
-  font-size:22rpx;
-  color: #666;
-  letter-spacing: 1rpx;
+.item .author {
+    font-size: 22rpx;
+    color: #666;
+    letter-spacing: 1rpx;
 }

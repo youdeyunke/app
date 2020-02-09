@@ -3,7 +3,7 @@
 <view class="map-view" style="width: 100%; height:{{mapViewHeight}}px;z-index:100;">
   <map id="map" enable-zoom longitude="{{center.longitude}}" bindpoitap="poiHandle" latitude="{{center.latitude}}" scale="16"   markers="{{markers}}" bindcallouttap="markertap"  bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" style="width: 100%; height:100%;">
 
-    <cover-view class="groups shadow">
+    <cover-view class="groups shadow" hidden="{{!tabShow}}">
       <cover-view bindtap="groupClick" class="group-item {{currentGroupIndex == index ? 'active' : '' }}" wx:for="{{groupItems}}" wx:key="item.id"  data-index="{{index}}">{{item.name}}</cover-view>
     </cover-view>
 

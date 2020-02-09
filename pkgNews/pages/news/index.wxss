@@ -1,8 +1,7 @@
-.res{
+.res {
     width: 100%;
 }
 
-
-.res .empty{
-    padding:30rpx 0;
+.res .empty {
+    padding: 30rpx 0;
 }

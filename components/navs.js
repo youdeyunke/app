@@ -75,7 +75,8 @@ Component({
 
             }
             console.log('navpages ', navPages)
-            _this.setData({ navPages: navPages })
+            var heightClass = navPages[0].length <= 5 ? 'one' : 'two'
+            _this.setData({ navPages: navPages, heightClass: heightClass })
         }
     }
 })

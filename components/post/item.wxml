@@ -11,14 +11,8 @@
         </view>
         <view class="meta">
           <text class="item-title van-ellipsis "  >{{ item.title_info.text }}</text>
-          <view class="type-info">
-            {{item.area_info.text}}{{item.area_info.px}}/{{ item.type_info.text}}/{{item.sub_district_name }}
-          </view>
+          <view class="price-info"> {{ item.price_info.label }} <text class="red">{{item.price_info.text}}{{item.price_info.px}}</text> </view>
+          <view class="type-info"> {{item.sub_district.address }} </view>
           <mytags mini="true" items="{{item.tags_list}}" max="3"></mytags>
-
-          <view class="price-info">
-            <text class="total">{{item.price_info.text}}{{item.price_info.px}}</text> 
-            <text class="average" wx:if="{{item.group != 'rental'}}"> {{item.average_price_info.text}} {{ item.average_price_info.px }}</text>     
-          </view>
         </view>
   </navigator>

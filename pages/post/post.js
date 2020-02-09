@@ -28,6 +28,11 @@ Page({
             contact_name: this.data.contactInfo.name || '',
             contact_mobile: this.data.contactInfo.mobile || '',
         }
+        var isDev = this.data.EXT['is_dev'] == true 
+        if (isDev) {
+            query['dev'] = true
+        }
+
         app.request({
             hideLoading: true,
             url: '/api/v5/posts/' + _this.data.postId,

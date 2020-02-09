@@ -17,10 +17,10 @@
 
         <simple-images-block value="{{ value.simple_images_block.value }}"  wx:if="{{ value.simple_images_block }}"  />
 
-        <view class="baseinfo">
+        <view class="baseinfo" hidden="{{value.baseinfo_hidden}}">
             <view class="item border">
                 <view class="value">
-                    {{value.price_info.text}}
+                    {{value.price_info.text}} {{ value.baseinfo_hidden}}
                     <text class="px">{{value.price_info.px}}</text>
                     <view class="key">{{value.price_info.label}}</view>
                 </view>
@@ -41,7 +41,7 @@
             <view class="meta {{ meta.url ? 'link lg' : '' }} {{ meta.large ? 'lg' : '' }}" wx:key="label" wx:if="{{meta}}" wx:for="{{value.meta_list}}" wx:for-item="meta">
                 <text class="label">{{meta.label}}</text>
                 <navigator class="value" hover-class="none" wx:if="{{meta.url}}" url="{{meta.url}}">{{meta.value}}</navigator>
-                <text wx:else  class="value">{{meta.value}}</text>
+                <text wx:else style="color:{{meta.color}}"  class="value">{{meta.value}}</text>
             </view>
         </view>
 

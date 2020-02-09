@@ -1,73 +1,70 @@
-page{
-  font-size:24rpx;
+page {
+    font-size: 24rpx;
 }
 
-.cover{
-  width:750rpx;
-  height:400rpx;
-  background:#fff;
+.cover {
+    width: 750rpx;
+    background: #fff;
 }
 
-.header{
-  background: #fff;
-  box-sizing: border-box;
-  border-radius: 20rpx;
+.header {
+    background: #fff;
+    box-sizing: border-box;
+    border-radius: 20rpx;
 }
 
-.header .h1{
-  font-size: var(--font-xl);
-  font-weight: bold;
-  line-height: 1.6;
-  letter-spacing: 2rpx;
-  margin-bottom:18rpx;
+.header .h1 {
+    font-size: var(--font-xl);
+    font-weight: bold;
+    line-height: 1.6;
+    letter-spacing: 2rpx;
+    margin-bottom: 18rpx;
 }
 
-.header .author{
-  font-size:var(--font-xs);
-  color: #666;
-  margin-bottom:13rpx;
+.header .author {
+    font-size: var(--font-xs);
+    color: #666;
+    margin-bottom: 13rpx;
 }
 
-.header .date{
-  font-size:22rpx;
-  color: #666;
+.header .date {
+    font-size: 22rpx;
+    color: #666;
 }
 
-.raw{
+.raw {}
+
+.raw .wxParse-inline {
+    color: #666;
+    font-size: var(--font-l);
+    line-height: 2.1;
+    letter-spacing: 3rpx;
 }
 
-.raw .wxParse-inline{
-  color: #666;
-  font-size:var(--font-l);
-  line-height:2.1;
-  letter-spacing: 3rpx;  
+.raw .wxParse-p {
+    margin-bottom: 20rpx;
+    overflow: hidden;
 }
 
-.raw .wxParse-p{
-  margin-bottom:20rpx;
-  overflow: hidden;
-
+.raw .wxParse-img {
+    width: 100% !important;
 }
 
-.raw .wxParse-img{
-  width:100% !important;
+myfav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40rpx;
+    width: 60rpx;
+    height: 50rpx;
+    border: 1rpx solid #cecece;
+    margin: 40rpx auto 30rpx auto;
+    border-radius: 50rpx;
+    color: #666;
 }
 
-myfav  {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding:0 40rpx;
-  width: 60rpx;  
-  height: 50rpx;
-  border: 1rpx solid #cecece;
-  margin:40rpx auto 30rpx auto;
-  border-radius: 50rpx;
-  color: #666;
-
-}
-myfav  image{
-  width: 30rpx;
-  height: 30rpx;
-  margin-right:20rpx;
+myfav image {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 20rpx;
 }

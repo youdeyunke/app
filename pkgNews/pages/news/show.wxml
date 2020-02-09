@@ -2,7 +2,8 @@
   <image src="/assets/icons/home.1.png"></image>
   <text>首页</text>
 </navigator>
-<image wx:if="{{item.show_cover && item.cover_v2 }}" mode="aspectFill"  class="cover" src="{{item.cover_v2 }}?imageView2/2/w/750"></image>
+<image wx:if="{{item.show_cover && item.cover_v2 }}"  
+class="cover" src="{{item.cover_v2 }}?imageView2/2/w/750"></image>
 
 <box padding="30" margin-bottom="2"  wx:if="{{item.show_cover}}">
   <view class="header">

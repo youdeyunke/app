@@ -2,7 +2,6 @@
     <image src="/assets/images/install-tips-{{system.systemName}}.png" />
 </van-transition>
 
-
 <page-loading loading="{{loading}}" />
 
 <view wx:for="{{homeData}}" wx:for-item="block" wx:for-key="index" hidden="{{loading}}">

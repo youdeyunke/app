@@ -1,6 +1,7 @@
 {
-  "component": true,
-  "usingComponents": {
-    "item": "/components/post/item"
-  }
+    "component": true,
+    "usingComponents": {
+        "card": "/components/postcard",
+        "item": "/components/post/item"
+    }
 }

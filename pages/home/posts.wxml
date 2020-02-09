@@ -1,8 +1,13 @@
 <block wx:if="{{block.items.length >= 1}}">
     <view class="list">
       <view class="empty" wx:if="{{items.length  == 0 }}" style="text-align:center;color:#cecece;">没有结果</view>
-      <item border="{{ index == block.items.length - 1 ? false : true  }}" wx:key="{{post.id}}" wx:for="{{block.items}}" wx:for-item="post" item="{{post}}" />
+      <block  wx:key="{{post.id}}" wx:for="{{block.items}}" wx:for-item="post" wx:if="{{block.style == 'list' || !block.style}}">
+        <item   border="{{ index == block.items.length - 1 ? false : true  }}"  item="{{post}}" />
+      </block>
+      <block  wx:key="{{post.id}}" wx:for="{{block.items}}" wx:for-item="post"  wx:if="{{block.style == 'card'}}">
+        <card   item="{{post}}" />
+      </block>
+
       <navigator url="{{block.more_url}}" hover-class="none" class="more-btn">{{ block.more_text || '查看全部房源' }}</navigator>
     </view>
-
 </block>

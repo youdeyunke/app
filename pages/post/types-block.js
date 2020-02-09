@@ -65,10 +65,13 @@ Component({
             var item = this.data.items[i]
             var url = item.image.url
             var urls = this.data.imgUrls
-            this.setData({
-                currentImage: url,
-                showImage: true,
+
+            wx.previewImage({
+                current: url,
+                urls: urls,
             })
+
+
         },
 
         closeImage: function(e){

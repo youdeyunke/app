@@ -6,7 +6,7 @@ Page({
   },
 
   onShow: function(){
-    var url = wx.getStorageSync('webview')
+    var url = app.globalData.webviewUrl || wx.getStorageSync('webview')
     this.setData({url: url})
   },
 

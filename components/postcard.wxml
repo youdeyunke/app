@@ -1,32 +1,34 @@
-<box radius="10" width="710" padding="0">
-<navigator hover-class='none' open-type='navigateTo' url="/pages/post/post?id={{item.id}}" class="post-card">
+<box shadow="{{false}}" radius="10" width="710" padding="0">
+	<navigator
+	 hover-class='none'
+	 open-type='navigateTo'
+	 url="/pages/post/post?id={{item.id}}"
+	 class="post-card"
+	>
+		<view class="cover" wx:if="{{!mini}}">
+			<view class="address">
+				<van-icon name="location" />
+				{{item.sub_district.address}}
+			</view>
+			<view class="count">{{item.cat.name}}</view>
+			<image src="{{item.cover}}?imageView2/1/w/750/h/400" />
+		</view>
 
-  <view class="cover" wx:if="{{!mini}}">
-    <view class="address">{{item.district.name}} {{item.street}} {{item.block_name}}</view>
-    <view class="count" wx:if="{{item.images_count > 1}}">共 {{item.images_count }} 张</view>
-    <image src="{{item.cover}}?imageView2/1/w/750/h/400"></image>
-  </view>
+		<badge size="big" wx:if="{{item.badage_info.enable}}">{{item.badage_info.text}}</badge>
 
-  <badge size="big" wx:if="{{item.coupon_enable}}">{{item.coupon_desc}}</badge>
+		<view class="info">
+			<view class="name">
+				<mytags wx:if="{{item.tags_list}}" items="{{item.tags_list}}" />
 
-  <view class="info">
-     <view class="name">
-       <mytags wx:if="{{item.tags_list}}"  items="{{item.tags_list}}"></mytags>
-       <block wx:if="{{item.group != 'new' }}">
-         <view class="pos">
-           <image src="/assets/icons/location.png"></image>
-           <view>{{item.district.name}}</view>
-         </view>
-       </block>
-       <text class="price" >{{item.price_info.text}}</text>
-      </view>
-    <view class="title-block">
-      <view class="title line-limit">{{item.title}}{{ item.group == 'new' ? item.block_name : item.area_name }}</view>
-      <view class="view">详情</view>
-    </view>
+				<text class="price" > {{item.price_info.text}} {{ item.price_info.px }}</text>
+			</view>
+			<view class="title-block">
+				<view class="title line-limit">{{item.title}}</view>
+				<van-button type="default" size="mini" plain>查看详情</van-button>
+			</view>
 
+		</view>
 
-  </view>
-
-</navigator>
+	</navigator>
 </box>
+

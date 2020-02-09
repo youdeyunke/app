@@ -1,10 +1,10 @@
 {
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "van-tab": "/vant/tab/index",
-    "van-tabs": "/vant/tabs/index",
-    "namecard": "/components/broker/namecard",
-    "items": "/components/post/items",
-    "box":"/components/box"
-  }
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "van-tab": "/vant/tab/index",
+        "van-tabs": "/vant/tabs/index",
+        "namecard": "/components/broker/namecard",
+        "items": "/components/post/items",
+        "box": "/components/box"
+    }
 }

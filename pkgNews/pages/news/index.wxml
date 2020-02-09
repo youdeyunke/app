@@ -1,11 +1,11 @@
 <view class="res">
-    <van-tabs active="{{active}}" type="line" color="#00ae66" bind:change="catChange">
+    <van-tabs active="{{active}}" type="line" color="#1989fa" bind:change="catChange">
       <van-tab wx:key="{{cat.id}}" wx:for="{{cats}}" wx:for-item="cat" title="{{cat.name}}"> 
+      <box padding="20">
        <block wx:for="{{news}}" wx:for-item="newsItems">
-            <box padding="20" margin-bottom="2" class="fixed-box"  v-if="{{item}}" wx:for="{{newsItems}}"  wx:if="{{item.id}}" >
-                <tt data-id="{{item.id}}"  item="{{item}}"> </tt>
-            </box>
+            <tt data-id="{{item.id}}" item="{{item}}" v-if="{{item}}" wx:for="{{newsItems}}"  wx:if="{{item.id}}" />
         </block>
+      </box>
         <no-result  wx:if="{{isEmpty}}" />
         <view class="empty" wx:if="{{loading}}"> <van-loading /> </view>
       </van-tab>

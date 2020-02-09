@@ -2,8 +2,8 @@
   <view class="user">
     <view class="uinfo">
       <view class="avatar">
-        <image wx:if="{{userInfo.avatar}}" src="{{userInfo.avatar}}?imageView2/5/h/100/w/100"></image>
-        <image ex:else src="/assets/images/default-avatar.png"></image>
+        <image hidden="{{!userInfo.avatar}}" src="{{userInfo.avatar}}?imageView2/5/h/100/w/100"></image>
+        <image hidden="{{userInfo.avatar}}" src="/assets/images/default-avatar.png"></image>
       </view>
       <view class="nickname"><text wx:if="{{userInfo.id}}">{{userInfo.nickname}}</text><text wx:else>游客,你好</text></view>
     </view>
@@ -19,13 +19,7 @@
   <view class="mybox" style="padding:20rpx 20rpx 0rpx 20rpx;">
     <view class="menu"  >
 
-      <button  bindtap="navigatetTo" data-url="/pages/owner/sale?group=old" form-type="submit" hover-class="none"  class="fake menu-item" >
-        <van-icon color="#ff9501" size="58rpx" name="balance-list" />
-        <view class="menu-item-name">业主登记 </view>
-      </button>  
-
-
-      <button wx:if="{{ext.fenxiao_enable == true}}"  bindtap="navigatetTo" data-url="/pkgFenxiao/pages/fenxiao/index" form-type="submit" hover-class="none"  class="fake menu-item" >
+      <button hidden="{{ext.fenxiao_enable == false}}"  bindtap="navigatetTo" data-url="/pkgFenxiao/pages/fenxiao/index" form-type="submit" hover-class="none"  class="fake menu-item" >
         <van-icon color="#5857CE" size="58rpx" name="cluster" />
         <view class="menu-item-name">分销中心 </view>
       </button>    
@@ -35,11 +29,11 @@
         <view class="menu-item-name">我的收藏 </view>
       </button>          
 
-      <button wx:if="{{!userInfo.is_broker }}"  bindtap="navigatetTo" data-url="/pkgBroker/pages/broker/join" form-type="submit" hover-class="none"  class="fake menu-item" >
+      <button hidden="{{userInfo.is_broker }}"  bindtap="navigatetTo" data-url="/pkgBroker/pages/broker/join" form-type="submit" hover-class="none"  class="fake menu-item" >
         <van-icon color="#E15C32" size="58rpx" name="add" />
         <view class="menu-item-name">经纪人入驻 </view>
       </button>  
-      <button wx:else  bindtap="navigatetTo" data-url="/pages/admin/index" form-type="submit" hover-class="none"  class="fake menu-item" >
+      <button hidden="{{!userInfo.is_broker}}" bindtap="navigatetTo" data-url="/pages/admin/index" form-type="submit" hover-class="none"  class="fake menu-item" >
         <van-icon color="#E15C32" size="58rpx" name="printer" />
         <view class="menu-item-name">工作台 </view>
       </button>  

@@ -1,5 +1,13 @@
 /* components/home-navs.wxss */
 
+swiper.one {
+    height: 120rpx;
+}
+
+swiper.two {
+    height: 260rpx;
+}
+
 .navs {
     display: flex;
     flex-direction: row;
@@ -17,8 +25,8 @@
 }
 
 .navs .icon-cover {
-    width: 94rpx;
-    height: 94rpx;
+    width: 84rpx;
+    height: 84rpx;
     margin-bottom: 8rpx;
     display: flex;
     justify-content: center;
@@ -26,14 +34,11 @@
 }
 
 .navs .nav image {
-    width: 94rpx;
-    height: 94rpx;
-    overflow: hidden;
+    width: 100%;
+    height: 100%;
 }
 
 .navs .nav text {
     color: #000;
-    margin-top: 10rpx;
     font-size: 24rpx;
-    font-weight: bolder;
 }
