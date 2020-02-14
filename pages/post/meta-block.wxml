@@ -20,7 +20,7 @@
         <view class="baseinfo" hidden="{{value.baseinfo_hidden}}">
             <view class="item border">
                 <view class="value">
-                    {{value.price_info.text}} {{ value.baseinfo_hidden}}
+                    {{value.price_info.text}}
                     <text class="px">{{value.price_info.px}}</text>
                     <view class="key">{{value.price_info.label}}</view>
                 </view>

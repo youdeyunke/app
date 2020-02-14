@@ -743,6 +743,12 @@
 					"pathName": "pages/map/index",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "comment-mine",
+					"pathName": "pkgComment/pages/comment/mine",
+					"scene": null
 				}
 			]
 		}

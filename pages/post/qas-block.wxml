@@ -13,7 +13,7 @@
     </view>
 
     <navigator class="add-btn"  hover-class="none" url="/pkgQa/pages/qa/new?target_id={{value.post_id}}&target_type=post">
-     <van-icon name="edit" /> 我要提问
+     <van-icon name="edit" /> 去提问
     </navigator>
 
   </view>

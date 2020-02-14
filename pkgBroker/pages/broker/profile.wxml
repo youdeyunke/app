@@ -31,7 +31,7 @@
 
 <view class="footer">
     <van-button bindtap="callMe" icon="phone-o" type="primary" block >电话咨询</van-button>
-    <van-button bindtap="share" icon="gift-o" type="info" block >分享名片</van-button>
+    <van-button open-type="share" icon="gift-o" type="info" block >分享名片</van-button>
 </view>
 
 <cr />

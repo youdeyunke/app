@@ -1,4 +1,4 @@
-<mycard width="750" title="配套设施"  hat="{{false}}" title-size="40">
+<mycard width="750" title="配套设施"  hat="{{false}}" title-size="32">
     <view class="fac-items">
         <view class="fac-item" wx:for="{{value.items }}" wx:for-item="fac" wx:key="{{fac.id}}">
             <image class="fac-item-icon" src="{{fac.icon}}" mode="widthFix" />
