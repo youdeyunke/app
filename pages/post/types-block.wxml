@@ -1,38 +1,29 @@
 <block>
-    <van-popup  show="{{showImage}}" bindclose="closeImage">
-      <view class="window">
-        <image src="{{currentImage}}" ></image>
-      </view>
-    </van-popup>
-
-    <mycard width="750" title="户型介绍" hat="{{false}}"  title-size="32">
-        <view class="filter" wx:if="{{tags.length > 1}}">
-          <view class="item {{ tag.className}} "  data-group="{{tag.group}}" bindtap="groupClick" wx:key="id"  wx:for="{{tags}}" wx:for-item="tag" >{{tag.name}} </view>
-        </view>
-
-        <view class="housetype {{ item.className}}" wx:for="{{items}}" wx:key="id">
-            <view class="poster">
+    <mycard width="750" title="户型介绍" hat="{{false}}" url="{{item.more_url}}" subtitle="{{value.more_title}}"  title-size="32">
+        <scroll-view scroll-with-animation="{{true}}" scroll-x style="width:100%">
+        <view class="types">
+        <navigator hover-class="none" url="/pkgType/pages/type/show?id={{item.id}}" class="type" wx:for="{{value.items}}" wx:key="id">
+            <view class="cover">
                 <image width="165px" height="110px" bindtap="viewImage" data-index="{{index}}" src="{{item.image.url ? item.image.url  : 'https://qiniucdn.udeve.cn/wefang-sass/type-image-none.jpg'  }}?imageView2/1/w/165/h/110"></image>
             </view>
             <view class="meta">
                 <view class="name">{{item.name}}</view>
-                <view class="kv">
-                    <text class="key">户型朝向</text>
-                    <text class="value">{{item.position}}</text>
+                <view class="attr">
+                    <text class="label">朝向</text> 
+                    <text class="value">{{item.position}}</text> 
+                    <text class="label">建面</text> 
+                    <text class="value">{{item.area}} ㎡</text> 
                 </view>
-
-                <view class="kv">
-                    <text class="key">建筑面积</text>
-                    <text class="value">{{item.area}} ㎡</text>
-                </view>
-
-                <view class="kv">
-                    <text class="key">参考总价</text>
+                <view class="attr">
+                    <text class="label">售价</text>
                     <text wx:if="{{item.total_price > 0}}" class="value price">约{{item.total_price}}万/套</text>
-                    <text wx:else class="value ">待定</text>
+                    <text wx:else class="value price">待定</text>
                 </view>
 
             </view>
+        </navigator>
         </view>
+        </scroll-view>
+
     </mycard>
 </block>
