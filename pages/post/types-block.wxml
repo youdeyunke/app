@@ -1,5 +1,5 @@
 <block>
-    <mycard width="750" title="户型介绍" hat="{{false}}" url="{{value.more_url}}" subtitle="{{value.more_title}}"  title-size="32">
+    <mycard width="750" title="户型介绍" hat="{{false}}" url="{{value.more_url}}" sub-title="{{value.more_title}}"  title-size="32">
         <scroll-view scroll-with-animation="{{true}}" scroll-x style="width:100%">
         <view class="types">
         <navigator hover-class="none" url="/pkgType/pages/type/show?id={{item.id}}" class="type" wx:for="{{value.items}}" wx:key="id">

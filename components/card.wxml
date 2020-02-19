@@ -8,13 +8,9 @@
             </view>
     </view>
 
-    <view wx:if="{{url}}" class="font-mini card-header-action" bindtap='actionHandle'>
-      <text class="card-header-action-name">{{action}}</text>
-      <image wx:if="{{arrow}}" class="card-header-action-image" src="/assets/icons/right-arrow.png"></image> 
-    </view>
-
-    <view wx:if="{{subtitle}}" class="font-mini card-header-action">
-            <text class="card-header-action-name">{{subtitle}}</text>
+    <view wx:if="{{subTitle}}" class="font-mini card-header-action" bindtap='actionHandle'>
+      <text class="card-header-action-name">{{subTitle}}</text>
+      <van-icon wx:if="{{url}}" name="arrow" />
     </view>
 
   </view>

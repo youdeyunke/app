@@ -1,67 +1,62 @@
 // components/card.js
 Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-    padding: { type: Boolean, value: true, },
-    titleSize: {type: Number, value: '38'},
-    bodySize: {type: Number, value: '28'},
+    /**
+     * 组件的属性列表
+     */
+    properties: {
+        padding: { type: Boolean, value: true, },
+        titleSize: { type: Number, value: '38' },
+        bodySize: { type: Number, value: '28' },
 
-    width: { type: Number, value: 750, },
-    title: {type: String, value: '标题'},
-    subtitle: {type: String, value: ''},
-    hat: { type: Boolean, value: true, },
-    arrow: { type: Boolean, value: true },
-    headBorder: {type: Boolean, value: false},
-     
-    number: {type: Number, value: 0,},
-    action: { type: String, value: '查看更多'},
-    url: { type: String, value: null},
-    opentype: {type: String, value: 'navigateTo'}
-  },
-
-  /**
-   * 组件的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 组件的方法列表
-   */
-  methods: {
-
-    actionHandle: function(e){
-      console.log('url:', this.data.url, 'opentype', this.data.opentype)
-      if(!this.data.url){
-        return false
-      }
-
-      var _this = this
-      var url = _this.data.url
-      switch (_this.data.opentype.toLowerCase()){
-        case 'navigateto':
-          wx.navigateTo({
-            url: url,
-          })
-          break;
-        case "switchtab":
-          wx.switchTab({
-            url: url,
-          })
-          break;
-        case "webview":
-          wx.navigateTo({
-            url: '/pages/webview/webview?url=' + url,
-          })
-          console.log('hello')
-          break;
-        default:
-          console.log('default:', _this.data.opentype.toLowerCase, 'url', url)
-      }
+        width: { type: Number, value: 750, },
+        title: { type: String, value: '标题' },
+        subTitle: { type: String, value: '' },
+        url: { type: String, value: null },
+        hat: { type: Boolean, value: true, },
+        headBorder: { type: Boolean, value: false },
+        opentype: { type: String, value: 'navigateTo' }
     },
 
-  }
+    /**
+     * 组件的初始数据
+     */
+    data: {
+    },
+
+    /**
+     * 组件的方法列表
+     */
+    methods: {
+
+        actionHandle: function (e) {
+            console.log('url:', this.data.url, 'opentype', this.data.opentype)
+            if (!this.data.url) {
+                return false
+            }
+
+            var _this = this
+            var url = _this.data.url
+            switch (_this.data.opentype.toLowerCase()) {
+                case 'navigateto':
+                    wx.navigateTo({
+                        url: url,
+                    })
+                    break;
+                case "switchtab":
+                    wx.switchTab({
+                        url: url,
+                    })
+                    break;
+                case "webview":
+                    wx.navigateTo({
+                        url: '/pages/webview/webview?url=' + url,
+                    })
+                    console.log('hello')
+                    break;
+                default:
+                    console.log('default:', _this.data.opentype.toLowerCase, 'url', url)
+            }
+        },
+
+    }
 })
