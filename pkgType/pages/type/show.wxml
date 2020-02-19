@@ -21,7 +21,7 @@
         </view>
 </box>
 
-<box padding="30">
+<box padding="30" wx:if="{{ type.merit || type.shortcoming || type.desc}}">
     <view class="desc" wx:if="{{type.merit}}">
       <view class="title">优势描述</view>
       <view class="content"> {{ type.merit }} </view>
