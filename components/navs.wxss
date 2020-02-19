@@ -5,7 +5,7 @@ swiper.one {
 }
 
 swiper.two {
-    height: 260rpx;
+    height: 264rpx;
 }
 
 .navs {

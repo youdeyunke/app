@@ -50,7 +50,6 @@
                 "pages/comment/new"
             ]
         },
-
         {
             "root": "pkgJisuanqi",
             "name": "jisuanqi",
@@ -67,6 +66,14 @@
                 "pages/broker/join",
                 "pages/broker/membership",
                 "pages/broker/profile"
+            ]
+        },
+        {
+            "root": "pkgType",
+            "name": "type",
+            "pages": [
+                "pages/type/index",
+                "pages/type/show"
             ]
         },
         {

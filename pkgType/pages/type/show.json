@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+        "safe-tips": "/components/safe-tips"
+  }
+}

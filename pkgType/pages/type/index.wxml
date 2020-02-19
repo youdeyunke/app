@@ -1,0 +1,32 @@
+<!--pkgType/pages/type/index.wxml-->
+    <box width="750" padding="20" wx:if="{{!loading}}">
+        <view class="filter" wx:if="{{tags.length > 1}}">
+          <view class="item {{ group == tag.group ? 'active' : '' }}"  
+          data-group="{{tag.group}}" bindtap="groupClick" wx:key="id"  wx:for="{{tags}}" wx:for-item="tag" >{{tag.name}} </view>
+        </view>
+
+        <navigator hover-class="none" url="/pkgType/pages/type/show?id={{item.id}}" hidden="{{ group > 0 && group != item.s}}" class="housetype {{ item.className}}" wx:for="{{items}}" wx:key="id">
+            <view class="poster">
+                <image width="165px" height="110px" bindtap="viewImage" data-index="{{index}}" src="{{item.image.url ? item.image.url  : 'https://qiniucdn.udeve.cn/wefang-sass/type-image-none.jpg'  }}?imageView2/1/w/165/h/110"></image>
+            </view>
+            <view class="meta">
+                <view class="name">{{item.name}}</view>
+                <view class="kv">
+                    <text class="key">户型朝向</text>
+                    <text class="value">{{item.position}}</text>
+                </view>
+
+                <view class="kv">
+                    <text class="key">建筑面积</text>
+                    <text class="value">{{item.area}} ㎡</text>
+                </view>
+
+                <view class="kv">
+                    <text class="key">参考总价</text>
+                    <text wx:if="{{item.total_price > 0}}" class="value price">约{{item.total_price}}万/套</text>
+                    <text wx:else class="value ">待定</text>
+                </view>
+
+            </view>
+        </navigator>
+    </box>

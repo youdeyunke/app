@@ -83,10 +83,10 @@ App({
         },
         gotoWebview: function (url) {
             this.globalData.webviewUrl = url
-            wx.navigateTo({url: '/pages/webview/webview'})
+            wx.navigateTo({ url: '/pages/webview/webview' })
         },
 
-    filterTotalPriceItem: {
+        filterTotalPriceItem: {
             type: "picker",
             name: "总价",
             key: "total_price",
@@ -811,13 +811,17 @@ App({
                     });
                 }
 
-                // 加载完成后
-                if (!obj.hideLoading) {
-                    wx.hideLoading();
-                    wx.hideNavigationBarLoading();
-                    wx.stopPullDownRefresh();
-                }
-                return typeof obj.success == "function" && obj.success(res);
+                var t = _this.globalData.myconfigs &&  _this.globalData.myconfigs.timeout ?  _this.globalData.myconfigs.timeout : 0
+                console.log('timeout value is', t)
+                setTimeout(function () {
+                    // 加载完成后
+                    if (!obj.hideLoading) {
+                        wx.hideLoading();
+                        wx.hideNavigationBarLoading();
+                        wx.stopPullDownRefresh();
+                    }
+                    return typeof obj.success == "function" && obj.success(res);
+                }, t)
             },
             fail: function (res) {
                 wx.hideNavigationBarLoading();

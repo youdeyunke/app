@@ -1,0 +1,46 @@
+<view class="cover" hidden="{{loading}}">
+    <swiper class="swiper" indicator-dots="true" autoplay="{{type.images_list.length > 1}}" interval="5000" duration="500" bindchange="swiperChange" circular="true" easing-function="linear" indicator-color="rgba(255,255,255,0.7)" indicator-active-color="#fff">
+        <swiper-item  bindtap="viewImage" data-index="{{index}}" wx:key="{{index}}" wx:for="{{type.images_list}}">
+            <image  class="item" 
+            src="{{item}}?imageView2/2/h/420"></image>
+        </swiper-item>
+    </swiper>
+</view>
+
+<box padding="30">
+        <view class="title-block">
+            <view class=" post-title">{{type.name}} </view>
+        </view >
+
+        <view class="detail-meta">
+            <view class="meta {{ meta.url ? 'link lg' : '' }} {{ meta.large ? 'lg' : '' }}" wx:key="label" wx:if="{{meta}}" wx:for="{{type.meta_list}}" wx:for-item="meta">
+                <text class="label">{{meta.label}}</text>
+                <navigator class="value" hover-class="none" wx:if="{{meta.url}}" url="{{meta.url}}">{{meta.value}}</navigator>
+                <text wx:else style="color:{{meta.color}}"  class="value">{{meta.value}}</text>
+            </view>
+        </view>
+</box>
+
+<box padding="30">
+    <view class="desc" wx:if="{{type.merit}}">
+      <view class="title">优势描述</view>
+      <view class="content"> {{ type.merit }} </view>
+    </view>
+    <view class="desc" wx:if="{{type.shortcoming}}" >
+        <view class="title">劣势描述</view>
+      <view class="content"> {{ type.shortcoming }} </view>
+    </view>
+    <view class="desc" wx:if="{{type.desc}}">
+        <view class="title">劣势描述</view>
+      <view class="content"> {{ type.desc }} </view>
+    </view>
+</box>
+
+
+<view class="footer" hidden="{{loading}}">
+    <van-button bindtap="chatHandle" icon="chat-o" type="primary" block >在线咨询</van-button>
+    <van-button bindtap="callHandle" icon="phone-o" type="info" block >电话咨询</van-button>
+</view>
+
+    <safe-tips cat="{{post.group}}" />
+    <cr />
