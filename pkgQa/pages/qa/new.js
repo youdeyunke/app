@@ -86,16 +86,6 @@ Page({
     doSubmit: function () {
         var _this = this
         var content = _this.data.content
-        if (!this.data.target_type && !this.data.target_id) {
-            wx.showToast({
-                title: '系统异常',
-                icon: 'none',
-                duration: 2000
-            })
-            this.setData({loading: false})
-            return false
-        }
-
         app.request({
             method: 'POST',
             url: '/api/v1/questions/',
