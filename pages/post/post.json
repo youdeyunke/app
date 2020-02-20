@@ -21,7 +21,6 @@
         "facilities-block": "./facilities-block",
         "van-transition": "/vant/transition/index",
         "page-loading": "/pages/post/page-loading",
-        "qa": "/components/qa",
         "box": "/components/box",
         "visitors": "/components/visitors/index",
         "safe-tips": "/components/safe-tips"
