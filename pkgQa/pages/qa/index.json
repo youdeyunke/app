@@ -2,7 +2,7 @@
     "enablePullDownRefresh": true,  
     "usingComponents": {
         "item": "/components/qa/question-item",
-        "like": "/components/answer-like"
+        "like": "/components/qa/answer-like"
     }
 
 }

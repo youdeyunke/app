@@ -4,12 +4,11 @@
         "broker-link": "/components/broker/link",
         "page-loading": "./page-loading",
         "q-icon": "/components/qa/question-icon",
-        "like": "/componets/answer-like",
+        "like": "/components/qa/answer-like",
         "delete": "/components/answer-delete",
         "card": "/components/card",
         "box": "/components/box",
         "recoms": "/components/recom-posts",
-        "van-field": "/vant/field/index",
-        "qa": "/components/qa"
+        "van-field": "/vant/field/index"
       }
 }
