@@ -1,17 +1,14 @@
-  <view class="cats" >
-    <text data-cid="{{item.id}}" bindtap="catHandle" class="item {{  catId == item.id ? 'active' : '' }}" wx:for="{{cats}}" id="item-{{index}}">{{item.name}}</text>
-  </view>
 
-<box padding="30" margin-bottom="0" wx:for="{{items}}" >
-    <qa wx:if="{{item}}"  item="{{item}}"></qa>
-</box>
+<mycard wx:if="{{items.length > 0}}" title="{{pageTitle}}" hat="{{false}}" >
+    <view class="items">
+      <item style="width:690rpx;" item="{{item}}" wx:key="id" wx:for="{{items}}" />
+    </view>
+</mycard>
 
-<view  class="weui-loadmore" wx:if="{{hasMore}}">
-  <i class="weui-loading"></i>
-  <text class="weui-loadmore__tips">正在加载</text>
-</view>
+<no-result wx:if="{{!loading && items.length == 0}}" />
 
-<view class="fixed-footer add-new">
-  <view>在这里，问关于房子的一切问题</view>
-  <button bindtap="gotoNew" class="btn primary mini">去提问</button>
-</view>
+<navigator hover-class="none" url="/pkgQa/pages/qa/new?target_id={{target_id}}&target_type={{target_type}}" class="add" wx:if="{{target_id}}">
+    <van-button type="info" block>我要提问</van-button>
+</navigator>
+
+

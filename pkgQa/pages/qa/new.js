@@ -86,12 +86,13 @@ Page({
     doSubmit: function () {
         var _this = this
         var content = _this.data.content
-        if (!this.data.target_type || !this.data.target_id) {
+        if (!this.data.target_type && !this.data.target_id) {
             wx.showToast({
                 title: '系统异常',
                 icon: 'none',
                 duration: 2000
             })
+            this.setData({loading: false})
             return false
         }
 
@@ -121,7 +122,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
-        this.setData({ target_id: q.target_id, target_type: q.target_type || 'post' })
+        this.setData({ target_id: q.target_id, target_type: q.target_type  })
         var _this = this
         auth.ensureUser(function (userInfo) {
             _this.setData({ userInfo: userInfo })

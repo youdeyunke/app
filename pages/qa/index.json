@@ -1,13 +1,7 @@
 {
-    "enablePullDownRefresh": true,  
+    "enablePullDownRefresh": true,
     "usingComponents": {
-      "mytopbar": "/components/topbar",
-      "mytags": "/components/tags",
-      "myslider": "/components/slider",
-      "card": "/components/card",
-      "qa": "/components/qa",
-      "box": "/components/box",
-      "myslider": "/components/slider"
+        "item": "/components/qa/question-item",
+        "like": "/components/qa/answer-like"
     }
-
 }

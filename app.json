@@ -86,6 +86,7 @@
     ],
     "pages": [
         "pages/home/home",
+        "pages/qa/index",
         "pages/webview/webview",
         "pages/post/index",
         "pages/sub-districts/index",

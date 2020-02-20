@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-      "q-icon": "./question-icon"
-  }
-}

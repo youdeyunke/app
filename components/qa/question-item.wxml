@@ -3,7 +3,7 @@
             <q-icon />
             <view class="body">
                 <view class="content">
-                    <text class="target" bindtap="gotoTarget">#{{item.target_name}}#</text>
+                    <text wx:if="{{item.target_name}}" class="target" bindtap="gotoTarget">#{{item.target_name}}#</text>
                     {{ item.content }}
                 </view>
                 <view class="count" wx:if="{{item.answers_count == 0}}">

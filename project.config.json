@@ -60,8 +60,9 @@
 				{
 					"id": 0,
 					"name": "qa-index",
-					"pathName": "pages/qa/index",
-					"query": ""
+					"pathName": "pkgQa/pages/qa/index",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
@@ -635,8 +636,8 @@
 				{
 					"id": 85,
 					"name": "qa-show",
-					"pathName": "pages/qa/qa",
-					"query": "id=43",
+					"pathName": "pkgQa/pages/qa/qa",
+					"query": "id=82",
 					"scene": null
 				},
 				{
@@ -657,7 +658,7 @@
 					"id": 88,
 					"name": "qa-new",
 					"pathName": "pkgQa/pages/qa/new",
-					"query": "target_id=52&target_type=post",
+					"query": "",
 					"scene": null
 				},
 				{
@@ -770,6 +771,13 @@
 					"name": "type-show",
 					"pathName": "pkgType/pages/type/show",
 					"query": "id=59",
+					"scene": null
+				},
+				{
+					"id": 105,
+					"name": "全部问答咨询模块",
+					"pathName": "pages/qa/index",
+					"query": "",
 					"scene": null
 				}
 			]

@@ -1,8 +1,0 @@
-{
-    "usingComponents": {
-      "mytopbar": "/components/topbar",
-      "mytags": "/components/tags",
-      "myslider": "/components/slider"
-    }
-
-}
