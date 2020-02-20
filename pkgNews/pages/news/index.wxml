@@ -1,5 +1,5 @@
 <view class="res">
-    <van-tabs active="{{active}}" type="line" color="#1989fa" bind:change="catChange">
+    <van-tabs  active="{{active}}" type="line" color="#1989fa" bind:change="catChange">
       <van-tab wx:key="{{cat.id}}" wx:for="{{cats}}" wx:for-item="cat" title="{{cat.name}}"> 
       <box padding="20">
        <block wx:for="{{news}}" wx:for-item="newsItems">

@@ -21,12 +21,24 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad: function (q) {
         app.checkForceLogin()
         var _this = this
+        var catId = q.cat_id || ''
         wx.setNavigationBarTitle({ title: '头条' })
         this.ensureCats(function (cats) {
-            var data = { cats: cats }
+            // 根据catid 找到需要选中哪个分类
+            var active = 0
+            cats.forEach((cat,i) => {
+                if(cat.id.toString() == catId.toString()){
+                    active = i
+                }
+            })
+            var data = { 
+                active: active,
+                cats: cats, 
+                catId: catId
+            }
             _this.setData(data)
             _this.loadNews()
         })

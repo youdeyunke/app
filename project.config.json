@@ -221,7 +221,7 @@
 					"id": 25,
 					"name": "news-index",
 					"pathName": "pkgNews/pages/news/index",
-					"query": "",
+					"query": "cat_id=21",
 					"scene": null
 				},
 				{
