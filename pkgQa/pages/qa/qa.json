@@ -5,7 +5,7 @@
         "page-loading": "./page-loading",
         "q-icon": "/components/qa/question-icon",
         "like": "/components/qa/answer-like",
-        "delete": "/components/answer-delete",
+        "delete": "/components/qa/answer-delete",
         "card": "/components/card",
         "box": "/components/box",
         "recoms": "/components/recom-posts",
