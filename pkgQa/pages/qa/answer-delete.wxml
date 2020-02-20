@@ -1,2 +1,0 @@
-
-<van-button plain size="mini" bindtap="deleteHandle" round icon="delete"></van-button>
