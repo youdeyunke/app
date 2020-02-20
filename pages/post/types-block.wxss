@@ -22,12 +22,14 @@
     font-size: 28rpx;
     color: #333;
     font-weight: bolder;
+    margin-top:8rpx;
 }
 
 .type .attr {
     font-size: 24rpx;
     display: flex;
     justify-content: flex-start;
+    margin-top:8rpx;
 }
 
 .type .attr .label {
