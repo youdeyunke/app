@@ -1,8 +1,10 @@
 <!--pkgType/pages/type/index.wxml-->
-    <van-tabs sticky style="width:100%;"  active="{{currentIndex}}" type="line" color="#1989fa" bind:change="itemChange">
+<view class="filter">
+    <van-tabs swipeable="{{true}}" border sticky="{{true}}" style="width:100%;"  active="{{currentIndex}}" type="line" color="#1989fa" bind:change="itemChange">
       <van-tab wx:key="{{item.id}}" wx:for="{{items}}" wx:for-item="item" title="{{item.name}}"> 
       </van-tab>
     </van-tabs>  
+</view>
     <view class="bimage">
         <image mode="widthFix" bindtap="viewImage"  src="{{items[currentIndex].image}}?imageView2/2/w/710"  lazy-load="false" binderror="" bindload="" />
         </view>

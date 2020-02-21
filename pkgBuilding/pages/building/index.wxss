@@ -1,5 +1,14 @@
 page{
     padding-bottom:150rpx;
+    padding-top:100rpx;
+}
+
+.filter{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  
 }
 
 .bimage {
