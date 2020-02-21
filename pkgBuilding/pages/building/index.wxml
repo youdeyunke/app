@@ -1,5 +1,5 @@
 <!--pkgType/pages/type/index.wxml-->
-    <van-tabs style="width:100%;"  active="{{currentIndex}}" type="line" color="#1989fa" bind:change="itemChange">
+    <van-tabs sticky style="width:100%;"  active="{{currentIndex}}" type="line" color="#1989fa" bind:change="itemChange">
       <van-tab wx:key="{{item.id}}" wx:for="{{items}}" wx:for-item="item" title="{{item.name}}"> 
       </van-tab>
     </van-tabs>  

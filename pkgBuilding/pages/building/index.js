@@ -46,7 +46,7 @@ Page({
         console.log('save handle', this.data.item)
         var url = this.data.item.image
         console.log('url', url)
-        app.saveImage(url, function (res) {
+        app.downloadImage(url, function (res) {
             // done
         })
 
