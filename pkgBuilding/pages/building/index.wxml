@@ -1,0 +1,17 @@
+<!--pkgType/pages/type/index.wxml-->
+    <van-tabs style="width:100%;"  active="{{currentIndex}}" type="line" color="#1989fa" bind:change="itemChange">
+      <van-tab wx:key="{{item.id}}" wx:for="{{items}}" wx:for-item="item" title="{{item.name}}"> 
+      </van-tab>
+    </van-tabs>  
+    <view class="bimage">
+        <image mode="widthFix" bindtap="viewImage"  src="{{items[currentIndex].image}}?imageView2/2/w/710"  lazy-load="false" binderror="" bindload="" />
+        </view>
+        <view class="desc">{{item.desc || '' }}</view>
+
+
+<view class="footer" hidden="{{loading}}">
+    <van-button open-type="share" bindtap="shareHandle" icon="good-job" type="info" block >分享</van-button>
+    <van-button bindtap="saveHandle" icon="passed" type="primary" block >下载保存</van-button>
+</view>
+    <safe-tips cat="{{post.group}}" />
+    <cr />

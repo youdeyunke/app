@@ -16,6 +16,7 @@
         <facilities-block wx:if="{{block.name == 'facilities'}}" value="{{block.value}}" />
         <map-block wx:if="{{block.name == 'map'}}" value="{{block.value}}" />
         <types-block id="types" wx:if="{{block.name == 'types'}}" value="{{block.value}}" />
+        <buildings-block id="buildings" wx:if="{{block.name == 'buildings'}}" value="{{block.value}}" />
         <brokers-block wx:if="{{block.name == 'brokers'}}" value="{{block.value}}" />
         <qas-block  wx:if="{{block.name == 'qas' }}" value="{{block.value}}"  />
         <comments-block  wx:if="{{block.name == 'comments' }}" value="{{block.value}}"  />

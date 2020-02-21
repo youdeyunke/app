@@ -81,7 +81,7 @@
 					"id": 3,
 					"name": "post",
 					"pathName": "pages/post/post",
-					"query": "id=6",
+					"query": "id=100",
 					"scene": 1011
 				},
 				{
@@ -778,6 +778,20 @@
 					"name": "全部问答咨询模块",
 					"pathName": "pages/qa/index",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "building-show",
+					"pathName": "pkgBuilding/pages/building/index",
+					"query": "id=100",
+					"scene": null
+				},
+				{
+					"id": 107,
+					"name": "building-index",
+					"pathName": "pkgBuilding/pages/building/index",
+					"query": "post_id=100",
 					"scene": null
 				}
 			]

@@ -69,6 +69,15 @@
             ]
         },
         {
+            "root": "pkgBuilding",
+            "name": "building",
+            "pages": [
+                "pages/building/index",
+                "pages/building/show"
+            ]
+        },
+
+        {
             "root": "pkgType",
             "name": "type",
             "pages": [

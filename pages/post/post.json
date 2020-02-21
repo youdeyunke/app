@@ -15,6 +15,7 @@
         "safe-block": "./safe-block",
         "btns-block": "./btns-block",
         "types-block": "./types-block",
+        "buildings-block": "./buildings-block",
         "contact-block": "./contact-block",
         "qas-block": "./qas-block",
         "comments-block": "./comments-block",

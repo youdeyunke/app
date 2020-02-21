@@ -1,0 +1,26 @@
+.bimage {
+    width: 710rpx;
+    margin: 20rpx;
+}
+
+.bimage image{
+    height:100%;
+    width: 100%;
+}
+
+.footer {
+    padding: 30rpx;
+    width: 690rpx;
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0rpx;
+    left: 0rpx;
+    border-top: 2rpx solid #f9f9f9;
+}
+
+.footer van-button {
+    width: 45%;
+}
