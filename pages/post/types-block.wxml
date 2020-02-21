@@ -4,7 +4,8 @@
         <view class="types">
         <navigator hover-class="none" url="/pkgType/pages/type/show?id={{item.id}}" class="type" wx:for="{{value.items}}" wx:key="id">
             <view class="cover">
-                <image width="165px" height="110px" bindtap="viewImage" data-index="{{index}}" src="{{item.image.url ? item.image.url  : 'https://qiniucdn.udeve.cn/wefang-sass/type-image-none.jpg'  }}?imageView2/1/w/165/h/110"></image>
+                <view class="zoom"><van-icon name="search" /></view>
+                <image width="165px" height="110px" bindtap="viewImage" data-index="{{index}}" src="{{item.images_list[0] ? item.images_list[0]  : 'https://qiniucdn.udeve.cn/wefang-sass/type-image-none.jpg'  }}?imageView2/1/w/165/h/110"></image>
             </view>
             <view class="meta">
                 <view class="name">{{item.name}}</view>
