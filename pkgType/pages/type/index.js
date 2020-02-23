@@ -8,6 +8,7 @@ Page({
      */
     data: {
         loading: true,
+        pid: null,
         tags: [],
         group: 0,
         items: [],
@@ -107,6 +108,12 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
-    }
+        var _this = this
+        var title = '户型介绍'
+        return {
+            title: title,
+            path: 'pkgBuilding/pages/type/index?pid=' + _this.data.pid,
+            imageUrl: image
+        }
+    },
 })

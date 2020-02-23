@@ -140,6 +140,15 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
+        var _this = this
+        var item = this.data.item
+        var title = this.data.post.titel  + this.data.type.name 
+        var image = this.type.images_list[0]
+        return {
+            title: title,
+            path: 'pkgBuilding/pages/type/shop?id=' + _this.data.tid,
+            imageUrl: image
+        }
 
     }
 })
