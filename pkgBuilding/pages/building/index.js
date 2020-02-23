@@ -28,7 +28,6 @@ Page({
 
     viewImage: function () {
         // TODO
-        console.log('image tap')
         var item = this.data.item
         wx.previewImage({
             current: item.image,

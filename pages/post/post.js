@@ -28,7 +28,7 @@ Page({
             contact_name: this.data.contactInfo.name || '',
             contact_mobile: this.data.contactInfo.mobile || '',
         }
-        var isDev = this.data.EXT['is_dev'] == true 
+        var isDev = this.data.EXT['is_dev'] == true
         if (isDev) {
             query['dev'] = true
         }
@@ -113,7 +113,6 @@ Page({
     },
 
 
-
     setInterval: function () {
         // 如果是开发环境，不处理
         if (this.data.EXT['is_dev'] == true) {
@@ -164,7 +163,6 @@ Page({
      * 生命周期函数--监听页面隐藏
      */
     onHide: function () {
-        console.log('离开页面 onhide ')
         this.clearInterval()
     },
 
@@ -172,7 +170,6 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
-        console.log('离开页面 onunload ')
         this.clearInterval()
     },
 
