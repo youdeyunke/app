@@ -8,7 +8,9 @@
                 <image width="165px" height="110px" bindtap="viewImage" data-index="{{index}}" src="{{item.images_list[0] ? item.images_list[0]  : 'https://qiniucdn.udeve.cn/wefang-sass/type-image-none.jpg'  }}?imageView2/1/w/165/h/110"></image>
             </view>
             <view class="meta">
-                <view class="name">{{item.name}}</view>
+                <view class="name">{{item.name}}
+                <view class="tag">{{ item.sale_status_name }}</view>
+                </view>
                 <view class="attr">
                     <text class="label">朝向</text> 
                     <text class="value">{{item.position}}</text> 

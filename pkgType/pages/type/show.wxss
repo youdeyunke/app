@@ -1,7 +1,7 @@
 /* pkgType/pages/type/show.wxss */
 
-page{
-    padding-bottom:120rpx;
+page {
+    padding-bottom: 120rpx;
 }
 
 .cover, .swiper {
@@ -31,6 +31,16 @@ page{
     font-size: 40rpx;
     font-weight: bolder;
     color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-block .tag {
+    padding: 4rpx 4rpx;
+    color: #1989fa;
+    border: 1px solid #1989fa;
+    font-size: 22rpx;
 }
 
 .desc .title {

@@ -61,6 +61,16 @@
     font-weight: bolder;
     color: #333;
     margin-bottom: 10rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.housetype .name .tag {
+    padding: 4rpx 4rpx;
+    color: #1989fa;
+    border: 1px solid #1989fa;
+    font-size: 22rpx;
 }
 
 .housetype .kv {

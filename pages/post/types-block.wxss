@@ -23,6 +23,16 @@
     color: #333;
     font-weight: bolder;
     margin-top: 8rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.type .name .tag{
+    padding: 4rpx 4rpx;
+    color: #1989fa;
+    border: 1px solid #1989fa;
+    font-size: 22rpx;
 }
 
 .type .attr {
