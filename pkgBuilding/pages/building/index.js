@@ -37,7 +37,7 @@ Page({
 
     },
 
-    updateCurrentItem: function () { 
+    updateCurrentItem: function () {
         var item = this.data.items[this.data.currentIndex]
         this.setData({ item: item })
     },
@@ -48,14 +48,13 @@ Page({
         app.downloadImage(url, function (res) {
             // done
         })
-
     },
 
 
     onShareAppMessage: function () {
         var _this = this
         var item = this.data.item
-        var title = '【'+ this.data.post.title  + '】' + '一房一价:'
+        var title = '【' + this.data.post.title + '】' + '一房一价:'
         var image = item.image
         return {
             title: title,
@@ -95,7 +94,6 @@ Page({
     },
 
     itemChange: function (e) {
-        console.log('e', e)
         var index = e.detail.name
         var item = this.data.items[index]
         this.setData({ currentIndex: index, item: item })

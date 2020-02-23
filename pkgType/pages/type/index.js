@@ -54,9 +54,7 @@ Page({
     },
 
     groupClick: function (e) {
-        console.log('e', e)
         var g = e.target.dataset['group']
-        console.log('g is', g)
         if (g == this.data.group) {
             return false
         }
