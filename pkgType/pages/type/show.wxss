@@ -6,7 +6,7 @@ page{
 
 .cover, .swiper {
     width: 750rpx;
-    height: 420rpx;
+    height: 500rpx;
     border-radius: 0rpx;
     overflow: hidden;
     margin: 0 0 0rpx 0;
@@ -14,7 +14,7 @@ page{
 }
 
 .cover image.item, swiper-item {
-    height: 420rpx;
+    height: 500rpx;
     width: 750rpx;
     margin: 0 auto;
 }

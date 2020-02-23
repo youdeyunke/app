@@ -94,6 +94,7 @@ Page({
         var data = {
             post_id: this.data.pid,
             content: this.data.content,
+            push_enable: this.data.push == true,
             cat_id: catId
         }
         // validate

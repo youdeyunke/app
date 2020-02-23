@@ -793,6 +793,13 @@
 					"pathName": "pkgBuilding/pages/building/index",
 					"query": "post_id=100",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pkgType/pages/type/show",
+					"pathName": "pkgType/pages/type/show",
+					"query": "id=65",
+					"scene": null
 				}
 			]
 		}

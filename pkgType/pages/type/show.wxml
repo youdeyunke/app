@@ -2,7 +2,7 @@
     <swiper class="swiper" indicator-dots="true" autoplay="{{type.images_list.length > 1}}" interval="5000" duration="500" bindchange="swiperChange" circular="true" easing-function="linear" indicator-color="rgba(255,255,255,0.7)" indicator-active-color="#fff">
         <swiper-item  bindtap="viewImage" data-index="{{index}}" wx:key="{{index}}" wx:for="{{type.images_list}}">
             <image  class="item" 
-            src="{{item}}?imageView2/2/h/420"></image>
+            src="{{item}}?imageView2/1/w/375/h/250"></image>
         </swiper-item>
     </swiper>
 </view>
