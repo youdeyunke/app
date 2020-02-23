@@ -18,6 +18,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
+        wx.setNavigationBarTitle({ title: '全部户型' });
         this.setData({ pid: q.id })
         this.loadTypes(q.id)
     },

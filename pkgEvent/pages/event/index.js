@@ -162,6 +162,14 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
+        var _this = this
+        var title = this.data.post.title + '的动态' 
+        var image = this.data.post.cover
+        return {
+            title: title,
+            path: 'pkgBuilding/pages/event/index?id=' + _this.data.postId,
+            imageUrl: image
+        }
 
     }
 })

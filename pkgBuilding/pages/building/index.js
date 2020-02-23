@@ -45,7 +45,6 @@ Page({
     saveHandle: function () {
         console.log('save handle', this.data.item)
         var url = this.data.item.image
-        console.log('url', url)
         app.downloadImage(url, function (res) {
             // done
         })
@@ -56,7 +55,7 @@ Page({
     onShareAppMessage: function () {
         var _this = this
         var item = this.data.item
-        var title = this.data.post.titel  + '-一房一价:' + item.name
+        var title = '【'+ this.data.post.title  + '】' + '一房一价:'
         var image = item.image
         return {
             title: title,
