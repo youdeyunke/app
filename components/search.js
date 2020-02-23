@@ -1,4 +1,5 @@
 // components/search.js
+const app = getApp()
 Component({
   /**
    * 组件的属性列表
@@ -17,7 +18,10 @@ Component({
       historyTitle = '大家都在搜'
       history = ['江景房', '不限购']
     }
-    this.setData({history: history, historyTitle: historyTitle })
+      this.setData({
+          history: history, historyTitle: historyTitle,
+          cats: app.globalData.myconfigs['post_groups'],
+      })
   },
 
   /**
@@ -29,9 +33,9 @@ Component({
     mode: 1, // 1: 输入模式， 2： 搜索结果模式
     currentCatIndex: '0',
     cats: [
-      {label: '新房', value: 'xinfang'},
-      {label: '二手房', value: 'ershoufang'},
-      {label: '租房', value: 'zufang'},
+      {name: '新房', value: 'xinfang'},
+      {name: '二手房', value: 'ershoufang'},
+      {name: '租房', value: 'zufang'},
     ],
   },
 
