@@ -140,7 +140,7 @@ Page({
 
     setMarkers: function (subs, group) {
         var R = app.globalData.system.pixelRatio / 2.0
-        var fontSize = app.globalData.system.fontSizeSetting
+        var fontSize = app.globalData.system.fontSizeSetting * 0.8
         var markers = []
         subs.forEach((sub, i) => {
             var marker = {
@@ -161,7 +161,7 @@ Page({
                     color: whiteColor,
                     borderWidth: R,
                     fontSize: fontSize,
-                    padding: fontSize*0.5,
+                    padding: fontSize * 0.5,
                     textAlign: 'center',
                 }
             }
