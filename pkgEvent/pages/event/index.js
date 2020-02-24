@@ -14,6 +14,7 @@ Page({
         postId: null,
         items: [],
         post: null,
+        user: null,
         broker: null,
     },
 
@@ -56,6 +57,7 @@ Page({
                     items: resp.data.data.items,
                     post: resp.data.data.post,
                     broker: resp.data.data.broker,
+                    user: app.globalData.userInfo,
                     cats: resp.data.data.cats,
                 })
             }
@@ -69,9 +71,42 @@ Page({
         })
     },
 
+    deleteHandle: function (e) {
+        // 删除动kk
+        if (!this.data.user) {
+            console.log('no user')
+            return false
+        }
 
-   tipsHandle: function () { 
-       var content = "楼盘动态资讯内容，旨在满足广大用户的信息需求而采集提供，如有异议请及时与我们联系。页面所载内容不代表本网站之观点或意见，仅供用户参考与借鉴，最终以政府网站或开发商实际公示为准，用户在购房时需慎重查验开发商的证件信息。"
+        if (this.data.user.id != this.data.broker.id) {
+            return false
+        }
+
+        var _this = this
+        var eid = e.currentTarget.dataset['id']
+        app.request({
+            url: '/api/v1/events/' + eid,
+            method: 'DELETE',
+            success: function (resp) {
+                if (resp.data.status != 0) {
+                    return false
+                }
+                _this.loadData()
+                setTimeout(function () {
+                    wx.showToast({
+                        title: '已删除',
+                        icon: 'none',
+                    })
+
+                }, 1500)
+
+            }
+        })
+    },
+
+
+    tipsHandle: function () {
+        var content = "楼盘动态资讯内容，旨在满足广大用户的信息需求而采集提供，如有异议请及时与我们联系。页面所载内容不代表本网站之观点或意见，仅供用户参考与借鉴，最终以政府网站或开发商实际公示为准，用户在购房时需慎重查验开发商的证件信息。"
         wx.showModal({
             title: '免责声明',
             content: content,
@@ -79,7 +114,7 @@ Page({
             confirmText: '知道了',
             confirmColor: '#1989FA',
         });
-          
+
     },
 
     chatHandle: function () {
@@ -127,7 +162,12 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        // 检查一些是否管理登陆了
+        if (this.data.user) {
+            return false
+        }
+        var user = app.globalData.userInfo
+        this.setData({ user: user })
     },
 
     /**
@@ -163,7 +203,7 @@ Page({
      */
     onShareAppMessage: function () {
         var _this = this
-        var title = this.data.post.title + '的动态' 
+        var title = this.data.post.title + '的动态'
         var image = this.data.post.cover
         return {
             title: title,

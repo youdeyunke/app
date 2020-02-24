@@ -718,10 +718,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 97,
 					"name": "event-new",
 					"pathName": "pkgEvent/pages/event/new",
-					"query": "",
+					"query": "id=52",
 					"scene": null
 				},
 				{

@@ -13,9 +13,12 @@
     <view wx:key="id" class="event" wx:for="{{items}}" wx:for-item="event" >
       <view class="title">
          <view class="circle"></view>
-         <view class="time">{{event.created_at_pretty}}</view>
+         <view class="time">{{event.created_at_pretty}}
+          <van-button wx:if="{{user.id == broker.id }}" plain round data-id="{{event.id}}" bindtap="deleteHandle" size="mini" icon="delete" type="danger" />
+         </view>
       </view>
       <view class="content">{{event.content}}</view>
+      </view>
     </view>
 </box>
 
