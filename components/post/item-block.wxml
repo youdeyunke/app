@@ -1,6 +1,6 @@
 <navigator url="/pages/post/post?id={{item.id}}" hover-class="navigator-hover" open-type="navigate"class="block">
     <image class="cover" src="{{item.cover}}?imageView2/2/w/400" mode="aspectFill" lazy-load="{{true}}" />
-    <view class="type-info  van-ellipsis"> {{item.sub_district_name }} </view>
+    <view class="type-info  van-ellipsis"> {{item.title || item.title_info.text }} </view>
     <mytags mini="true" items="{{item.tags_list}}" max="3"></mytags>
     <view class="price-info">
         <text class="total">{{item.price_info.label}} {{item.price_info.text}}{{item.price_info.px}}</text> 

@@ -36,13 +36,6 @@ page {
     align-items: center;
 }
 
-.title-block .tag {
-    padding: 4rpx 4rpx;
-    color: #1989fa;
-    border: 1px solid #1989fa;
-    font-size: 22rpx;
-}
-
 .desc .title {
     font-size: 28rpx;
     color: #333;

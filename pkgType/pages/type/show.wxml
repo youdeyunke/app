@@ -12,7 +12,7 @@
 <box padding="30">
         <view class="title-block">
             <view class=" post-title">{{type.name}} </view>
-            <view class="tag">{{ type.sale_status_name }}</view>
+            <van-tag plain size="mini" type="primary">{{ type.sale_status_name }}</van-tag>
         </view >
 
         <view class="detail-meta">

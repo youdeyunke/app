@@ -28,13 +28,6 @@
     align-items: center;
 }
 
-.type .name .tag{
-    padding: 4rpx 4rpx;
-    color: #1989fa;
-    border: 1px solid #1989fa;
-    font-size: 22rpx;
-}
-
 .type .attr {
     font-size: 24rpx;
     display: flex;
