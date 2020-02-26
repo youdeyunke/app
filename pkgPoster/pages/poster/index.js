@@ -286,9 +286,9 @@ Page({
     onShow: function () {
         var _this = this
         auth.ensureUser(function (user) {
-            _this.setData({ user: user })
+            _this.setData({ user: user, showEditForm: false, loading: true })
             if (_this.data.post && _this.data.post.id) {
-                //_this.genPosterConfig()
+                _this.genPosterConfig()
             }
         })
     },
