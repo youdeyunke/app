@@ -32,12 +32,16 @@ Page({
                 if (resp.data.status != 0) {
                     return false
                 }
+                var type = resp.data.data.type
+                var post = resp.data.data.post
                 _this.setData({
                     loading: false,
                     post: resp.data.data.post,
                     broker: resp.data.data.broker,
                     type: resp.data.data.type,
                 })
+                var title = post.sub_district_name + type.name + type.sale_status_name || ''
+                wx.setNavigationBarTitle({ title: title, }); 
             }
         })
     },

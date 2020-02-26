@@ -88,6 +88,10 @@ Page({
                 })
                 _this.setData(data)
                 _this.updateCurrentItem()
+                var title = '【' + post.title + '】' + '一房一价:'
+                wx.setNavigationBarTitle({ title: title, });
+                  
+
             }
         })
     },
@@ -109,7 +113,6 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
     },
 
     /**

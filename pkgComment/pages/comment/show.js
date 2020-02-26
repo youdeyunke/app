@@ -141,6 +141,7 @@ Page({
                     likeNums: resp.data.data.item.like_nums,
                     reply_items: resp.data.data.reply_items
                 })
+
             }
         })
     },
