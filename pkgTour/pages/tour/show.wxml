@@ -14,7 +14,7 @@ class="cover" src="{{item.cover }}?imageView2/2/w/750"></image>
 <view class="server">
     <text>快速了解活动进展、活动答疑</text>
     <view>
-    <van-button custom-class="call-btn" size="mini" type="info" bindtap="callHandle" icon="service-o" >联系客服</van-button>
+    <van-button custom-class="call-btn" size="small" type="info" bindtap="callHandle" icon="service-o" >联系客服</van-button>
     </view>
 </view>
 </box>
