@@ -800,6 +800,20 @@
 					"pathName": "pkgType/pages/type/show",
 					"query": "id=65",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "tour-index",
+					"pathName": "pkgTour/pages/tour/index",
+					"query": "cat_id=21",
+					"scene": null
+				},
+				{
+					"id": 110,
+					"name": "tour-show",
+					"pathName": "pkgTour/pages/tour/show",
+					"query": "id=4",
+					"scene": null
 				}
 			]
 		}

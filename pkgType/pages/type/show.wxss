@@ -93,7 +93,7 @@ page {
     width: 690rpx;
     background: #fff;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     position: fixed;
     bottom: 0rpx;

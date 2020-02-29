@@ -1,0 +1,73 @@
+page {
+    font-size: 24rpx;
+    padding-bottom: 150rpx;
+}
+
+.cover {
+    width: 750rpx;
+    background: #fff;
+}
+
+.header {
+    background: #fff;
+    box-sizing: border-box;
+    border-radius: 20rpx;
+}
+
+.header .h1 {
+    font-size: var(--font-xl);
+    font-weight: bold;
+    line-height: 1.6;
+    letter-spacing: 2rpx;
+    margin-bottom: 18rpx;
+}
+
+.header .author {
+    font-size: var(--font-xs);
+    color: #666;
+    margin-bottom: 13rpx;
+}
+
+.header .date {
+    font-size: 22rpx;
+    color: #666;
+}
+
+.raw {}
+
+.raw .wxParse-inline {
+    color: #666;
+    font-size: var(--font-l);
+    line-height: 2.1;
+    letter-spacing: 3rpx;
+}
+
+.raw .wxParse-p {
+    margin-bottom: 20rpx;
+    overflow: hidden;
+}
+
+.raw .wxParse-img {
+    width: 100% !important;
+}
+
+.mycell-value {
+    text-align: left !important;
+}
+
+.footer {
+    padding: 30rpx;
+    width: 690rpx;
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0rpx;
+    left: 0rpx;
+    border-top: 2rpx solid #f9f9f9;
+}
+
+.footer van-button {
+    width: 45%;
+}

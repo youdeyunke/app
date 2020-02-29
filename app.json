@@ -21,6 +21,14 @@
             ]
         },
         {
+            "root": "pkgTour",
+            "name": "tour",
+            "pages": [
+                "pages/tour/index",
+                "pages/tour/show"
+            ]
+        },
+        {
             "root": "pkgQa",
             "name": "qa",
             "pages": [
