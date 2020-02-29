@@ -158,7 +158,7 @@ Page({
         return {
             title: this.data.item.title,
             imageUrl: this.data.item.cover + "?imageView2/1/w/500/h/400",
-            path: '/pkgNews/pages/tours/show?id=' + this.data.tourId
+            path: '/pkgTour/pages/tour/show?id=' + this.data.tourId
         }
     }
 })
