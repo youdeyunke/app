@@ -89,6 +89,10 @@ Page({
                     loading: false,
                     joined: joined
                 })
+                wx.setNavigationBarTitle({
+                    title: tour.title + ' ' + tour.status.name,
+                });
+                  
                 return typeof cb == 'function' && cb(resp.data.data)
             }
         })
