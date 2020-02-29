@@ -10,7 +10,7 @@
     <van-icon name="location" />{{ item.address }}
     </div>
     <div class="right">
-    <van-icons name="friends-o" />{{ item.join_nums }} 人报名
+    <van-icon name="friends-o" />{{ item.join_nums }} 人报名
     </div>
   </div>
   </mycard>
