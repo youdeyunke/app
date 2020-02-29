@@ -1,10 +1,17 @@
-<navigator hover-class="none" class="item" url="/pkgTour/pages/tour/show?id={{item.id}}">
-  <image class="cover" src="{{item.cover }}?imageView2/2/w/250"></image>
-  <view class="item-title-block">
-    <view class="title">{{item.title}}</view>
-    <view class="meta">
-      <view class="date">{{item.created_at_pretty}}</view>
-      <view class="views"><van-icon name="eye-o" />{{ item.view_nums }}</view>
-    </view>
+<navigator hover-class="none"  url="/pkgTour/pages/tour/show?id={{item.id}}">
+<mycard title-size="28" title="{{item.title}}" width="710" >
+  <view class="cover">
+  <van-tag wx:if="{{item.status.value == 2 }}" class="vtag"  mark >{{ item.status.name }}</van-tag>
+  <van-tag wx:else  class="vtag" type="success"  mark >{{ item.status.name }}</van-tag>
+  <image  src="{{item.cover }}?imageView2/2/w/250"></image>
   </view>
+  <div class="info">
+    <div class="left">
+    <van-icon name="location" />{{ item.address }}
+    </div>
+    <div class="right">
+    <van-icons name="friends-o" />{{ item.join_nums }} 人报名
+    </div>
+  </div>
+  </mycard>
 </navigator>

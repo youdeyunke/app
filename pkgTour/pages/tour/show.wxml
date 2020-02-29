@@ -1,17 +1,25 @@
 <image wx:if="{{item.cover }}"  
 class="cover" src="{{item.cover }}?imageView2/2/w/750"></image>
-<box padding="10" margin-bottom="2" >
+<box width="710" padding="20" margin-bottom="2" >
   <view class="header">
     <view class="h1">{{item.title}}</view>
     <van-cell icon="clock-o" label="集合时间" size="mini" value-class="mycell-value" value="{{item.starts_at_pretty}}" />
-    <van-cell icon="flag-o" label="集合地点" value="{{item.address  }}" value-class="mycell-value"  />
+    <van-cell icon="location" label="集合地点" value="{{item.address  }}" value-class="mycell-value"  />
     <van-cell icon="sign" label="报名截止" value="{{item.ends_at_pretty   }}" value-class="mycell-value"  />
-    <van-cell icon="friends-o" label="已报人数" value="{{item.join_nums   }}" value-class="mycell-value"  />
-    <van-cell border="{{false}}" is-link icon="contact" label="联系人" value="{{item.server_name }} {{ item.server_mobile}}" bindtap="callHandle" value-class="mycell-value"  />
+    <van-cell border="{{false}}" icon="friends-o" label="已报人数" value="{{item.join_nums   }}" value-class="mycell-value"  />
   </view>
 </box>
 
-<mycard title="活动介绍" hat="{{false}}">
+<box width="710" padding="20">
+<view class="server">
+    <text>快速了解活动进展、活动答疑</text>
+    <view>
+    <van-button custom-class="call-btn" size="mini" type="info" bindtap="callHandle" icon="service-o" >联系客服</van-button>
+    </view>
+</view>
+</box>
+
+<mycard title-size="28" width="710" title="活动介绍" hat="{{false}}">
   <view class="raw">
       <rich-text  nodes="{{html}}" />
   </view>
@@ -27,3 +35,4 @@ class="cover" src="{{item.cover }}?imageView2/2/w/750"></image>
     <van-button  plain  icon="close" type="info" block >报名已截止</van-button>
 </view>
 
+<cr />

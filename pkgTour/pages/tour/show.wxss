@@ -6,6 +6,7 @@ page {
 .cover {
     width: 750rpx;
     background: #fff;
+    margin-bottom: 20rpx;
 }
 
 .header {
@@ -70,4 +71,14 @@ page {
 
 .footer van-button {
     width: 45%;
+}
+
+.server {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.server .call-btn{
+    padding:0 10rpx;
 }

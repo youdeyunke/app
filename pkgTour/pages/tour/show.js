@@ -102,6 +102,14 @@ Page({
 
     },
 
+    callHandle: function () {
+        var m = this.data.item.server_mobile
+        wx.makePhoneCall({
+            phoneNumber: m,
+        })
+    },
+
+
     /**
      * 生命周期函数--监听页面显示
      */

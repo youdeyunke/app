@@ -1,8 +1,6 @@
-      <box padding="20">
-       <block wx:for="{{items}}" wx:for-item="tourItems">
+    <block wx:for="{{items}}" wx:for-item="tourItems">
             <tour-item data-id="{{item.id}}" item="{{item}}" v-if="{{item}}" wx:for="{{tourItems}}"  wx:if="{{item.id}}" />
         </block>
-      </box>
 
         <no-result  wx:if="{{isEmpty}}" />
         <view class="empty" wx:if="{{loading}}"> <van-loading /> </view>
