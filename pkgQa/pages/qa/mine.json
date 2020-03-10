@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-      "item": "./question-item"
+        "item": "/components/qa/question-item",
+        "like": "/components/qa/answer-like"
   }
 }
