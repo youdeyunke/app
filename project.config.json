@@ -814,6 +814,20 @@
 					"pathName": "pkgTour/pages/tour/show",
 					"query": "id=4",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "company-index",
+					"pathName": "pkgCompany/pages/company/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pkgCompany/pages/company/show",
+					"pathName": "pkgCompany/pages/company/show",
+					"query": "id=1",
+					"scene": null
 				}
 			]
 		}
