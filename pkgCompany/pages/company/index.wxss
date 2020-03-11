@@ -1,0 +1,41 @@
+/* pkgCompany/pages/company/index.wxss */
+
+.banner {
+    margin-bottom: 20rpx;
+    width: 750rpx;
+    height: 370rpx;
+    position: relative;
+}
+
+.banner .wechat {
+    position: absolute;
+    bottom: 100rpx;
+    width: 750rpx;
+    text-align: center;
+    color: #999;
+    font-size: 24rpx;
+}
+
+.banner image {
+    width: 750rpx;
+    height: 370rpx;
+}
+
+.items {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.items .item {
+    width: 300rpx;
+    height: 180rpx;
+    margin: 10rpx;
+    overflow: hidden;
+}
+
+.items .item image {
+    width: 300rpx;
+    height: 180rpx;
+}

@@ -1,0 +1,16 @@
+/* pkgCompany/pages/company/show.wxss */
+
+page {
+    background: #fff !important;
+}
+
+.banner {
+    width: 750rpx;
+    height: 370rpx;
+    position: relative;
+}
+
+.banner image {
+    width: 750rpx;
+    height: 370rpx;
+}

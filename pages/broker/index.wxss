@@ -1,8 +1,0 @@
-/* pages/broker/index.wxss */
-van-search{
-  width: 100%;
-}
-
-.search-box .van-cell  {
-  background:#fff ;
-}

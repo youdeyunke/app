@@ -85,3 +85,23 @@ page {
 .steps {
     margin-top: 40rpx;
 }
+
+.form-header{
+    margin:30rpx 30rpx 30rpx 30rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size:28rpx;
+    border-bottom:2rpx solid #f9f9f9;
+
+}
+
+.form-header .submit {
+    color:#1989FA;
+}
+
+.form-header .cancle{
+    color:#333333;
+}
+
+    

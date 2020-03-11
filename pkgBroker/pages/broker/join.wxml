@@ -2,18 +2,27 @@
     <view class="title">入驻平台，轻松招租</view>
     <view class="desc">轻松获得海量客源</view>
 </view>
-
+<van-popup show="{{companyPickerShow}}">
+    <view class="form-header">
+        <view class="cancle"></view>
+        <view class="submit" bindtap="closeCompanyPicker">确定</view>
+    </view>
+    <box width="690">
+        <van-picker title="请选择入住的公司或团队" loading="{{false}}" columns="{{ companies }}" bind:change="companyChange" />
+    </box>
+</van-popup>
 <view class="window" wx:if="{{ !userInfo.is_broker ||  userInfo.apply_status == 0 }}">
     <view class="uploader">
         <van-image src="{{userInfo.avatar }}" round width="180rpx" height="180rpx" />
-        <van-button loading="{{uploading}}" loading-text="上传中" disabled="{{uploading}}" bindtap="chooseImage"  type="default" plain round >上传头像</van-button>
+        <van-button loading="{{uploading}}" loading-text="上传中" disabled="{{uploading}}" bindtap="chooseImage" type="default" plain round>
+            上传头像
+        </van-button>
     </view>
-
     <form bindsubmit="submitHandle">
         <van-field required label="姓名" value="" name="name" placeholder="你的真实姓名" />
-        <van-field required label="公司" value="" name="company" placeholder="你所在的公司" />
-        <van-field required label="电话" disabled="{{true}}" value="{{userInfo.mobile}}" name="mobile" placeholder="真实联系电话" >
-              <mbutton wx:if="{{!userInfo.mobile}}" bind:change="mobileBind" slot="button" size="small" type="primary" />
+        <van-field is-link required label="公司" value="{{company.text}}" name="company" placeholder="你所在的公司" bindtap="showCompanyPicker" />
+        <van-field required label="电话" disabled="{{true}}" value="{{userInfo.mobile}}" name="mobile" placeholder="真实联系电话" disabled="{{true}}">
+            <mbutton wx:if="{{!userInfo.mobile}}" bind:change="mobileBind" slot="button" size="small" type="primary" />
         </van-field>
         <van-field label="微信" value="{{userInfo.wechat}}" name="wechat" placeholder="微信账号" />
         <van-field border="{{false}}" label="介绍" value="" name="desc" placeholder="简短的个人介绍" />
@@ -22,40 +31,37 @@
         </button>
     </form>
 </view>
-
-<view class="window"  wx:if="{{ userInfo.apply_status == 1 }}" >
+<view class="window" wx:if="{{ userInfo.apply_status == 1 }}">
     <view class="result">
-        <view class="icon"><van-icon name="todo-list-o"  color="#cecece" size="150px;" /></view>
+        <view class="icon">
+            <van-icon name="todo-list-o" color="#cecece" size="150px;" />
+        </view>
         <view class="title">审核中</view>
         <view class="text">你的入驻申请正在审核中，请耐心等待...</view>
     </view>
 </view>
-
-<view class="window"  wx:if="{{ userInfo.apply_status == 3 }}" >
+<view class="window" wx:if="{{ userInfo.apply_status == 3 }}">
     <view class="result">
-        <view class="icon"><van-icon name="warning-o"  color="#ff0000" size="150px;" /></view>
+        <view class="icon">
+            <van-icon name="warning-o" color="#ff0000" size="150px;" />
+        </view>
         <view class="title">已拒绝</view>
-        <view class="text">你的入驻申请被拒绝，拒绝原因： <text>{{ userInfo.apply_reject_reason || '未知'}}</text> </view>
-
-        <van-button  type="default" plain round  size="small" bindtap="fixHandle"> 修改申请 </van-button>
-
-
+        <view class="text">
+            你的入驻申请被拒绝，拒绝原因：
+            <text>{{ userInfo.apply_reject_reason || '未知'}}</text>
+        </view>
+        <van-button type="default" plain round size="small" bindtap="fixHandle">修改申请</van-button>
     </view>
 </view>
-
-<view class="window"  wx:if="{{  userInfo.is_broker }}" >
+<view class="window" wx:if="{{  userInfo.is_broker }}">
     <view class="result">
         <text>恭喜，你已成功入驻成为平台经纪人！</text>
     </view>
 </view>
-
 <view class="plan" wx:if="{{ userInfo.is_broker  }}">
     <van-cell icon="clock-o" title="经纪人权限" value="已开通" />
     <van-cell icon="clock-o" title="到期时间" value="剩余 {{broker.remain_days}}天" />
     <van-cell icon="bar-chart-o" title="每天可发布房源数" value="{{broker.per_day_limit}}套" />
     <van-cell icon="chart-trending-o" title="总共可发布房源数" value="{{broker.total_limit}}套" />
 </view>
-
-
 <flow-tips wx:if="{{ !userInfo.is_broker  }}" title="经纪人入驻流程" steps="{{steps}}" />
-

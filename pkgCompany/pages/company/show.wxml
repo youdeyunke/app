@@ -1,0 +1,18 @@
+<!-- pkgCompany/pages/company/show.wxml -->
+<view class="banner">
+    <image src="{{company.cover}}" />
+</view>
+<box>
+    <van-tabs active="{{tab}}" animated swipeable type="line" color="#1989FA" bind:change="tabChange">
+        <van-tab title="房源" name="posts"></van-tab>
+        <van-tab title="简介" name="desc"></van-tab>
+    </van-tabs>
+</box>
+<view hidden="{{tab != 'posts'}}">
+    <box padding="0" width="700">
+        <items kw="" wx:if="{{filter}}" page="{{page}}" filter="{{filter}}" />
+    </box>
+</view>
+<view hidden="{{ tab != 'desc' }}">
+    <mycard hat="{{false}}" title="{{company.name}}">{{ company.desc}}</mycard>
+</view>
