@@ -1,5 +1,5 @@
 <view class="header-block">
-    <view class="title">入驻平台，轻松招租</view>
+    <view class="title">入驻平台</view>
     <view class="desc">轻松获得海量客源</view>
 </view>
 <van-popup show="{{companyPickerShow}}">
