@@ -277,6 +277,7 @@ Page({
         contact_mobile_lock = true
       }
       _this.setData({ contact_mobile: user.mobile, contact_mobile_lock: contact_mobile_lock })
+      wx.hideLoading();
     })
   },
 
