@@ -413,13 +413,13 @@ App({
         });
     },
 
-    downloadImage: function (url, cb) { 
+    downloadImage: function (url, cb) {
         // 先下载，再保存
         wx.showLoading({
             title: '正在保存图片',
             mask: true,
         });
-          
+
         var _this = this
         var downTask = wx.downloadFile({
             url: url,
@@ -431,13 +431,13 @@ App({
                     title: '下载图片失败',
                     icon: 'none',
                 });
-                  
+
             },
             complete: () => {
                 wx.hideLoading();
             }
         });
-          
+
     },
 
     saveImage: function (path, cb) {
@@ -587,7 +587,8 @@ App({
             return false
         }
 
-        var iid = setInterval(this.reddotHandle, 15000)
+        var t = EXT['reddot_interval']
+        var iid = setInterval(this.reddotHandle, 30000)
         this.globalData['reddotIntervalId'] = iid
         console.log('新的小红点轮训开始', iid)
     },
@@ -838,7 +839,7 @@ App({
                     });
                 }
 
-                var t = _this.globalData.myconfigs &&  _this.globalData.myconfigs.timeout ?  _this.globalData.myconfigs.timeout : 0
+                var t = _this.globalData.myconfigs && _this.globalData.myconfigs.timeout ? _this.globalData.myconfigs.timeout : 0
                 console.log('timeout value is', t)
                 setTimeout(function () {
                     // 加载完成后
