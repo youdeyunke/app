@@ -1,6 +1,6 @@
 <!--components/broker/namecard.wxml-->
     <view class="card">
-      <view class="header"><van-tag size="large" color="#EDF2EF" text-color="#8C99A8" >{{ userInfo.company || '' }}</van-tag> </view>
+      <view class="header"><van-tag size="large" color="#EDF2EF" text-color="#8C99A8" >{{ userInfo.company_name || '' }}</van-tag> </view>
       <view class="body">
         <view class="info">
           <view class="name">{{ userInfo.name }}  <van-tag wx:if="{{userInfo.is_broker }}" mark text-color="#F7EED4" color="#222222" >实名认证</van-tag></view>

@@ -5,7 +5,7 @@
         <view class="text">
           <view class="name line-limit"><text>{{broker.name}}</text> <van-tag text-color="#F7EED4" color="#222222">已认证</van-tag> </view>
           <view class="desc">
-            <text wx:if="{{broker.company}}">{{broker.company}}</text>
+            <text wx:if="{{broker.company_name}}">{{broker.company_name}}</text>
           </view>
         </view>
     </view>
