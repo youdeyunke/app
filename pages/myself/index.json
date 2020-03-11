@@ -7,7 +7,6 @@
         "van-tab": "/vant/tab/index",
         "van-tabs": "/vant/tabs/index",
         "post": "/components/post/item",
-        "broker-join": "/components/broker/join",
         "box": "/components/box",
         "van-cell": "/vant/cell/index",
         "van-cell-group": "/vant/cell-group/index"
