@@ -11,7 +11,7 @@
         <van-picker title="请选择入住的公司或团队" loading="{{false}}" columns="{{ companies }}" bind:change="companyChange" />
     </box>
 </van-popup>
-<view class="window" wx:if="{{ !userInfo.is_broker ||  userInfo.apply_status == 0 }}">
+<view class="window" wx:if="{{  userInfo.apply_status == 0 }}">
     <view class="uploader">
         <van-image src="{{userInfo.avatar }}" round width="180rpx" height="180rpx" />
         <van-button loading="{{uploading}}" loading-text="上传中" disabled="{{uploading}}" bindtap="chooseImage" type="default" plain round>
@@ -53,15 +53,14 @@
         <van-button type="default" plain round size="small" bindtap="fixHandle">修改申请</van-button>
     </view>
 </view>
-<view class="window" wx:if="{{  userInfo.is_broker }}">
-    <view class="result">
-        <text>恭喜，你已成功入驻成为平台经纪人！</text>
-    </view>
-</view>
-<view class="plan" wx:if="{{ userInfo.is_broker  }}">
-    <van-cell icon="clock-o" title="经纪人权限" value="已开通" />
-    <van-cell icon="clock-o" title="到期时间" value="剩余 {{broker.remain_days}}天" />
+
+<block wx:if="{{userInfo.apply_status == 2}}">
+<view class="plan" >
+    <van-cell icon="clock-o" title="经纪人权限" value="{{ broker.enable ? '已开通' : '已失效,请联系管理员' }}" />
+    <van-cell icon="clock-o" title="到期时间" value="{{broker.ends_at}}" />
     <van-cell icon="bar-chart-o" title="每天可发布房源数" value="{{broker.per_day_limit}}套" />
     <van-cell icon="chart-trending-o" title="总共可发布房源数" value="{{broker.total_limit}}套" />
 </view>
+</block>
+
 <flow-tips wx:if="{{ !userInfo.is_broker  }}" title="经纪人入驻流程" steps="{{steps}}" />

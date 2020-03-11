@@ -128,6 +128,7 @@ Page({
         auth.getRemoteUserInfo(function (user) {
             _this.setData({
                 userInfo: user,
+                broker: user.broker_profile,
                 loading: false
             })
             wx.hideLoading()
