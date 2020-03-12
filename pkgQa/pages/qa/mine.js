@@ -117,7 +117,7 @@ Page({
       var page = this.data.page + 1
       this.setData({
           page: page,
-          loading: loading,
+          loading: true,
       })
       this.loadData()
   },

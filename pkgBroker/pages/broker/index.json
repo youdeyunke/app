@@ -1,5 +1,6 @@
 {
-  "usingComponents": {
-      "broker-link": "/components/broker/link"
-  }
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "broker-link": "/components/broker/link"
+    }
 }

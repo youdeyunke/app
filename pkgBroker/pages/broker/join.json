@@ -1,5 +1,5 @@
 {
-    "enablePullDownRefresh": true,
+    "enablePullDownRefresh": false,
     "usingComponents": {
         "van-field": "/vant/field/index",
         "van-picker": "/vant/picker/index",

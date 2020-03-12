@@ -1,42 +1,42 @@
-<form report-submit bindsubmit="formidHandle">
-
-
-<box width="750" padding="30">
-  <view class="header">
-    <image class="avatar" src="{{need.user_info.avatar}}" />
-    <view class="name">{{ need.contact_name }}</view>
-    <view class="cat">{{ need.cat == 'buy' ? '买房' : '租房'}}</view>
-  </view>
-
-
-</box>
-
-<box width="710" padding="0">
-
-  <view class="body">
-    <van-cell size="large" title="客户姓名" value="{{ need.contact_name }}" />
-    <van-cell size="large"  title="客户电话" value="{{ need.broker_id == user.id ?  need.contact_mobile : '抢单后可见' }}" />
-    <van-cell size="large"  title="客户微信" value="{{ need.contact_wechat || '无' }}" />
-
-    <van-cell size="large"  title="要求区域" value="{{need.position}}" />
-    <van-cell size="large"  title="要求预算" value="{{need.budget_min}}~{{need.budget_max}}" />
-    <van-cell size="large"  title="其他要求" value="{{need.content}}" />
-    <van-cell size="large"  border="{{false}}" title="发布时间" value="{{ need.created_at_pretty }}" />
-  </view>
-</box>
-
-<view class="btns" wx:if="[{user.id}}">
-  <button form-type="submit" wx:if="{{user.id == need.broker_id}}" bindtap="call" class="">拨打电话</button>
-  <button form-type="submit" type="warn" wx:if="{{user.id == need.broker_id}}" bindtap="holdOff" class="">取消抢单</button>
-  <button form-type="submit" type="primary" wx:if="{{user.id != need.broker_id}}" bindtap="holdOn" class="">马上抢单</button>
+<view hidden="{{pageLoading}}">
+    <form>
+        <box width="750" padding="30">
+            <view class="header">
+                <image class="avatar" src="{{need.user_info.avatar}}" />
+                <view class="name">{{ need.contact_name }}</view>
+                <view class="cat">{{ need.cat == 'buy' ? '买房' : '租房'}}</view>
+            </view>
+        </box>
+        <box width="710" padding="0">
+            <view class="body">
+                <van-cell size="large" title="客户姓名" value="{{ need.contact_name }}" />
+                <van-cell size="large" title="客户电话" value="{{ need.broker_id == user.id ?  need.contact_mobile : '抢单后可见' }}" />
+                <van-cell size="large" title="客户微信" value="{{ need.contact_wechat || '无' }}" />
+                <van-cell size="large" title="要求区域" value="{{need.position}}" />
+                <van-cell size="large" title="要求预算" value="{{need.budget_min}}~{{need.budget_max}}" />
+                <van-cell size="large" title="其他要求" value="{{need.content}}" />
+                <van-cell size="large" border="{{false}}" title="发布时间" value="{{ need.created_at_pretty }}" />
+            </view>
+        </box>
+        <view class="btns">
+            <view hidden="{{ user.id != need.broker_id}}">
+                <van-button block bindtap="callHandle" type="primary">拨打电话</van-button>
+                <van-button block form-type="submit" type="warn" wx:if="{{user.id == need.broker_id}}" type="primary" plain bindtap="holdOff" class="">
+                    取消抢单
+                </van-button>
+            </view>
+            <view hidden="{{user.id == need.broker_id }}">
+                <van-button block form-type="submit" type="primary" wx:if="{{user.id != need.broker_id}}" type="info" bindtap="holdOn" class="">
+                    马上抢单
+                </van-button>
+            </view>
+        </view>
+        <view bindtap="tipsHandle" class="tips">
+            <text>抢单规则</text>
+            <van-icon color="#000000" name="info-o" />
+        </view>
+    </form>
+    <van-action-sheet show="{{ showTips }}" title="抢单规则说明" bindclose="tipsClose">
+        <view class="tips-body">对于同一个客源，只允许一个经纪人抢单，只有在抢单成功后，经纪人才可以查看客户联系方式</view>
+    </van-action-sheet>
 </view>
-
-<view bindtap="tipsHandle" class="tips"> <text>抢单规则</text> <van-icon color="#000000" name="info-o" /></view>
-
-</form>
-
-<van-action-sheet show="{{ showTips }}" title="抢单规则说明" bindclose="tipsClose">
-  <view class="tips-body">
-    对于同一个客源，只允许一个经纪人抢单，只有在抢单成功后，经纪人才可以查看客户联系方式
-  </view>
-</van-action-sheet>

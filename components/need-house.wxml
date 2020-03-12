@@ -12,7 +12,7 @@
 
   </view>
   <view class="footer"> 
-    <van-button wx:if="{{!hideBtn}}" size="mini" type="primary" plain="{{item.can_hold_on ? false : true}}">   {{ item.can_hold_on ? '去抢单' : '已被抢'}} </van-button>
+    <van-button wx:if="{{!hideBtn}}" size="mini" type="info" plain="{{item.can_hold_on ? false : true}}">   {{ item.can_hold_on ? '去抢单' : '已被抢'}} </van-button>
   </view>
 
 </navigator>

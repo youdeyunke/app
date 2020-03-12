@@ -1,6 +1,6 @@
 {
     "navigationBarTitleText": "经纪人工作台",
-    "enablePullDownRefresh": true,
+    "enablePullDownRefresh": false,
     "usingComponents": {
         "van-grid": "/vant/grid/index",
         "van-grid-item": "/vant/grid-item/index",

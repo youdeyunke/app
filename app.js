@@ -845,9 +845,9 @@ App({
                     // 加载完成后
                     if (!obj.hideLoading) {
                         wx.hideLoading();
-                        wx.hideNavigationBarLoading();
-                        wx.stopPullDownRefresh();
                     }
+                    wx.hideNavigationBarLoading();
+                    wx.stopPullDownRefresh();
                     return typeof obj.success == "function" && obj.success(res);
                 }, t)
             },

@@ -53,14 +53,12 @@
         <van-button type="default" plain round size="small" bindtap="fixHandle">修改申请</van-button>
     </view>
 </view>
-
 <block wx:if="{{userInfo.apply_status == 2}}">
-<view class="plan" >
-    <van-cell icon="clock-o" title="经纪人权限" value="{{ broker.enable ? '已开通' : '已失效,请联系管理员' }}" />
-    <van-cell icon="clock-o" title="到期时间" value="{{broker.ends_at}}" />
-    <van-cell icon="bar-chart-o" title="每天可发布房源数" value="{{broker.per_day_limit}}套" />
-    <van-cell icon="chart-trending-o" title="总共可发布房源数" value="{{broker.total_limit}}套" />
-</view>
+    <view class="plan">
+        <van-cell icon="clock-o" title="经纪人权限" value="{{ broker.enable ? '已开通' : '已失效,请联系管理员' }}" />
+        <van-cell icon="clock-o" title="到期时间" value="{{broker.ends_at}}" />
+        <van-cell icon="bar-chart-o" title="每天可发布房源数" value="{{broker.per_day_limit}}套" />
+        <van-cell icon="chart-trending-o" title="总共可发布房源数" value="{{broker.total_limit}}套" />
+    </view>
 </block>
-
 <flow-tips wx:if="{{ !userInfo.is_broker  }}" title="经纪人入驻流程" steps="{{steps}}" />

@@ -4,7 +4,7 @@
     <view class="avatar">
       <open-data type="userAvatarUrl"></open-data>
     </view>
-    <view class="nickname">{{userInfo.name || '' }} {{ userInfo.company || '' }} </view>
+    <view class="nickname">{{userInfo.name || '' }} {{ userInfo.company_name || '' }} </view>
   </view>
 
   <view class="user-actions">
