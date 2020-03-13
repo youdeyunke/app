@@ -102,11 +102,11 @@
 
 .detail-meta .meta {
     display: flex;
-    height: 40rpx;
+    min-height: 40rpx;
     margin-bottom: 10rpx;
     width: 50%;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .detail-meta .meta.lg {
@@ -115,7 +115,7 @@
 
 .detail-meta .meta text.label {
     color: #999;
-    width: 130rpx;
+    min-width: 130rpx;
     display: flex;
     justify-content: flex-start;
     align-items: center;

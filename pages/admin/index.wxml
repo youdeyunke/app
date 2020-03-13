@@ -1,18 +1,3 @@
-<box padding="40" >
-<view class="user">
-  <view class="uinfo">
-    <view class="avatar">
-      <open-data type="userAvatarUrl"></open-data>
-    </view>
-    <view class="nickname">{{userInfo.name || '' }} {{ userInfo.company_name || '' }} </view>
-  </view>
-
-  <view class="user-actions">
-      <!-- button bindtap="subMessageHandle"  style="font-size:24rpx; color:#333;" type="default" plain >激活微信推送</button -->
-  </view>
-</view>
-</box>
-
 <box padding="0">
   <van-grid>
     <van-grid-item url="{{item.url}}"  use-slot wx:for="{{menuItems}}" wx:key="{{index}}"   hover-class="none"  >

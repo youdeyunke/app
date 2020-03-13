@@ -1,10 +1,10 @@
 {
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "items": "/components/post/items",
-    "sub-district": "/components/sub-district/mini-item",
-    "myslider": "/components/slider",
-    "navs": "/components/navs",
-    "base-filter": "/components/base-filter"
-  }
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "items": "/components/post/items",
+        "sub-district": "/components/sub-district/mini-item",
+        "myslider": "/components/slider",
+        "navs": "/components/navs",
+        "base-filter": "/components/base-filter"
+    }
 }
