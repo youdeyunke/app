@@ -3,10 +3,10 @@
         <view class="label">我的佣金</view>
         <view class="value">￥{{balanceInfo.amount }}</view>
     </view>
-    <view class="more">
+    <navigator hover-class="none" url="/pkgFenxiao/pages/fenxiao/balance" class="more">
         佣金明细
         <van-icon name='arrow' />
-    </view>
+    </navigator>
 </view>
 <form report-submit bindsubmit="formidHandle">
     <box padding="30">
