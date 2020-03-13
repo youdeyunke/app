@@ -1,30 +1,24 @@
 <view class="user">
-  <view class="uinfo">
-    <view class="avatar">
-      <open-data type="userAvatarUrl"></open-data>
+    <view class="balance">
+        <view class="label">我的佣金</view>
+        <view class="value">￥{{balanceInfo.amount }}</view>
     </view>
-  </view>
-
-  <view class="balance">
-    <view class="label">我的佣金</view>
-    <view class="value">￥{{balanceInfo.amount }}</view>
-  </view>
+    <view class="more">
+        佣金明细
+        <van-icon name='arrow' />
+    </view>
 </view>
-
-
-<form report-submit bindsubmit="formidHandle"> 
-  <box padding="30">
-    <view class="menu">
-      <button bindtap="menuItemClickHandle" data-url="{{item.url}}" wx:for="{{menuItems}}" wx:key="{{index}}"   form-type="submit" hover-class="none"   class="fake menu-item" >
-        <van-icon color="{{item.color}}" size="58rpx" name="{{item.icon}}"  />
-        <view class="menu-item-name">{{item.name}} </view>
-      </button>
-
-      <button open-type="share" hover-class="none"   class="fake menu-item" >
-        <van-icon color="#4184AF" size="58rpx" name="gift"  />
-        <view class="menu-item-name">邀请好友</view>
-      </button>
-
-    </view>
-  </box>
+<form report-submit bindsubmit="formidHandle">
+    <box padding="30">
+        <view class="menu">
+            <button bindtap="menuItemClickHandle" data-url="{{item.url}}" wx:for="{{menuItems}}" wx:key="{{index}}" form-type="submit" hover-class="none" class="fake menu-item">
+                <van-icon color="{{item.color}}" size="58rpx" name="{{item.icon}}" />
+                <view class="menu-item-name">{{item.name}}</view>
+            </button>
+            <button open-type="share" hover-class="none" class="fake menu-item">
+                <van-icon color="#4184AF" size="58rpx" name="gift" />
+                <view class="menu-item-name">邀请好友</view>
+            </button>
+        </view>
+    </box>
 </form>
