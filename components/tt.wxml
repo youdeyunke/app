@@ -1,10 +1,13 @@
-<navigator hover-class="none" class="item" url="/pkgNews/pages/news/show?id={{item.id}}">
-  <image class="cover" src="{{item.cover_v2 }}?imageView2/2/w/250"></image>
-  <view class="item-title-block">
-    <view class="title">{{item.title}}</view>
-    <view class="meta">
-      <view class="date">{{item.created_at_pretty}}</view>
-      <view class="views"><van-icon name="eye-o" />{{ item.view_nums }}</view>
+<navigator hover-class="none" class="item" bindtap="itemClick">
+    <image class="cover" src="{{item.cover_v2 }}?imageView2/2/w/250"></image>
+    <view class="item-title-block">
+        <view class="title">{{item.title}}</view>
+        <view class="meta">
+            <view class="date">{{item.created_at_pretty}}</view>
+            <view class="views">
+                <van-icon name="eye-o" />
+                {{ item.view_nums }}
+            </view>
+        </view>
     </view>
-  </view>
 </navigator>

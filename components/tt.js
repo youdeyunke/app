@@ -40,10 +40,10 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        newsClick: function () {
+        itemClick: function () {
             var _this = this
             var url = this.data.item.url
-            var path = '/pages/news/show?id=' + this.data.item.id
+            var path = '/pkgNews/pages/news/show?id=' + this.data.item.id
             // 判断是打开webview，还是显示自定义内容
             if (url) {
                 app.gotoWebview(url, this.data.item.title)
