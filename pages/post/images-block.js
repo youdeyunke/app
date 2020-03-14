@@ -1,4 +1,5 @@
 // pages/post/images-block.js
+const app = getApp()
 Component({
     /**
      * 组件的属性列表
@@ -19,8 +20,11 @@ Component({
      */
     methods: {
         gotoVideo: function () {
-            wx.setStorageSync('video-url', this.data.value.video_url)
-            wx.navigateTo({ url: '/pages/video/show' })
+            var url = this.data.value.video_url
+            if (!url) {
+                return false
+            }
+            app.gotoVideo(url, '视频看房')
         },
 
         viewImage: function (e) {
@@ -35,18 +39,10 @@ Component({
 
         gotoVr: function () {
             var vr = this.data.value.vr_url
-            //var vr = 'https://csimum.udeve.cn/vr.html'
-            //var vr = 'https://csimum.udeve.cn/vr2.html?id=21963'
-            //var vrid = vr.split('?')[1].split('=')[1]
-            //var vr = 'https://csimum.udeve.cn/vr2.html?id=' + vrid  + '&iframe=true'
-
             if (!vr) {
                 return false
             }
-            wx.setStorageSync('webview', vr)
-            wx.navigateTo({
-                url: '/pages/webview/webview',
-            })
+            app.gotoWebview(vr, '全景看房')
         },
 
     }

@@ -81,10 +81,6 @@ App({
                 }
             ]
         },
-        gotoWebview: function (url) {
-            this.globalData.webviewUrl = url
-            wx.navigateTo({ url: '/pages/webview/webview' })
-        },
 
         filterTotalPriceItem: {
             type: "picker",
@@ -296,6 +292,17 @@ App({
         }
 
 
+    },
+    gotoWebview: function (url, title = '') {
+        var url2 = encodeURIComponent(url)
+        console.log('goto webvie url1 is', url, 'url2 is', url2)
+        wx.navigateTo({ url: '/pages/webview/webview?url=' + url2 + '&title=' + title })
+    },
+
+    gotoVideo: function (url, title = "") {
+        var url2 = encodeURIComponent(url)
+        console.log('goto viewo url1 is', url, 'url2 is', url2)
+        wx.navigateTo({ url: '/pages/video/show?url=' + url2 + '&title=' + title })
     },
 
 
