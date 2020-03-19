@@ -835,6 +835,13 @@
 					"pathName": "pages/webview/webview",
 					"query": "url=https%253A%252F%252Fvr.udeve.cn%252Ftour%252F2aec412dfd2e4e89&title=%E5%85%A8%E6%99%AF%E7%9C%8B%E6%88%BF",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "分销报备",
+					"pathName": "pkgFenxiao/pages/fenxiao/report",
+					"query": "",
+					"scene": null
 				}
 			]
 		}
