@@ -12,7 +12,6 @@ Page({
      */
     data: {
         markers: [],
-        currentGroupIndex: 0,
         groupItems: [],
         tabShow: true,
         posts: [],
@@ -32,19 +31,19 @@ Page({
         map = wx.createMapContext('map', this)
         wx.setNavigationBarTitle({ title: '地图找房' })
         var _this = this
+        var currentPostGroup = q.group || app.globalData.myconfigs['post_groups'][0]
         app.ensureConfigs((configs) => {
             _this.setData({
-                groupItems: app.globalData.myconfigs['post_groups']
+                groupItems: app.globalData.myconfigs['post_groups'],
+                currentPostGroup: currentPostGroup
             })
             _this.initMap(q.group)
-            // 判断是否隐藏切换标签
+            // 如果只开启了一个房源模块，或者带有参数进入，那就不显示房源类型切换标签
             if (_this.data.groupItems.length == 1 || q.group) {
-                var g = q.group || _this.data.groupItems[0].value
-                _this.setData({ tabShow: false, postGroup: g })
+                _this.setData({ tabShow: false })
             }
 
         })
-        console.log('postGroup', this.data.postGroup)
     },
 
     popShow: function () {
@@ -76,7 +75,7 @@ Page({
             data: query,
             success: function (resp) {
                 // 第一次加载,根据房源所在的位置，自动定位视野，防止出现定位到其他国家的问题
-                var group = _this.data.groupItems[_this.data.currentGroupIndex].value
+                var group = _this.data.currentPostGroup
                 var points = []
                 resp.data.data.forEach((post, i) => {
                     var sub = post.sub_district
@@ -90,7 +89,6 @@ Page({
                     points: points.slice(0, 2),
                     padding: 10,
                     success: function () {
-                        _this.setData({ currentGroupIndex: 0 })
                         // 注意，这里需要延时执行，否则在真机上加载不到标记点
                         // 因为获取屏幕范围时地图视野还未更新，
                         // 获取到的视野还是初始状态下的数据
@@ -116,9 +114,7 @@ Page({
     },
 
     _loadSubs: function (latitude, longitude) {
-        console.log('current index', this.data.currentGroupIndex)
-        console.log('group items', this.data.groupItems)
-        var group = this.data.groupItems[this.data.currentGroupIndex].value || 'old'
+        var group = this.data.currentPostGroup
 
         // 加载小区数据
         var _this = this
@@ -139,6 +135,7 @@ Page({
     },
 
     setMarkers: function (subs, group) {
+        console.log('set markers, group is ', group)
         var R = app.globalData.system.pixelRatio / 2.0
         var fontSize = app.globalData.system.fontSizeSetting * 0.8
         var markers = []
@@ -239,10 +236,10 @@ Page({
 
     loadPosts: function (sid) {
         // 根据小区id查询下面的房源数据
-        var pGroup = this.data.groupItems[this.data.currentGroupIndex]
+        var pGroup = this.data.currentPostGroup
         var query = {
             sub_district_id: sid,
-            group_v2: pGroup.value,
+            group_v2: pGroup,
             order: 'id desc',
             per_page: 999,
         }
@@ -266,7 +263,6 @@ Page({
             return false
         }
 
-
         this.popClose()
 
         if (e.detail.type != 'end') {
@@ -284,8 +280,8 @@ Page({
 
 
     groupClick: function (e) {
-        var i = e.currentTarget.dataset.index
-        this.setData({ currentGroupIndex: i })
+        var g = e.currentTarget.dataset.group
+        this.setData({ currentPostGroup: g })
         this.popClose()
         this.loadSubs()
     },

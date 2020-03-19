@@ -19,7 +19,7 @@
   </view>
 
   <view class="buttons">
-    <van-button round style="width:50%;" custom-style="border-top-right-radius:0;border-bottom-right-radius:0;"  size="large" bindtap="bookingHandle"  type="primary" >{{ bookingStatus == 1? '已预约' : '预约看房' }}</van-button>
+    <van-button round style="width:50%;" custom-style="border-top-right-radius:0;border-bottom-right-radius:0;"  size="large" bindtap="bookingHandle"  type="primary" >{{ bookingStatus == 1? '已预约' : value.button_1.name }}</van-button>
     <van-button round style="width:50%" custom-style="border-top-left-radius:0;border-bottom-left-radius:0;" size="large" bindtap="callHandle"     type="info"  >
     {{ value.button_2.name}}
     </van-button>

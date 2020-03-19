@@ -34,7 +34,7 @@
       <view class="content"> {{ type.shortcoming }} </view>
     </view>
     <view class="desc" wx:if="{{type.desc}}">
-        <view class="title">劣势描述</view>
+        <view class="title">居室详解</view>
       <view class="content"> {{ type.desc }} </view>
     </view>
 </box>

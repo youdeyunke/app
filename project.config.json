@@ -739,10 +739,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 100,
 					"name": "map",
 					"pathName": "pages/map/index",
-					"query": "",
+					"query": "group=old",
 					"scene": null
 				},
 				{
