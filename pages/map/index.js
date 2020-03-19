@@ -31,7 +31,7 @@ Page({
         map = wx.createMapContext('map', this)
         wx.setNavigationBarTitle({ title: '地图找房' })
         var _this = this
-        var currentPostGroup = q.group || app.globalData.myconfigs['post_groups'][0]
+        var currentPostGroup = q.group || app.globalData.myconfigs['post_groups'][0].value
         app.ensureConfigs((configs) => {
             _this.setData({
                 groupItems: app.globalData.myconfigs['post_groups'],

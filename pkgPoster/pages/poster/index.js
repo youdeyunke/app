@@ -73,7 +73,11 @@ Page({
         if (this.data.contactInfo.mobile) {
             var path = 'pages/post/post?contact=' + this.data.post.id + '_' + this.data.contactInfo.name + '_' + this.data.contactInfo.mobile + '_' + this.data.user.id
             app.genQr(path, function (data) {
-                return cb(data.qr)
+                var url = data.qr
+                console.log('生成专属唯一二维码', url)
+                // 先touch一下，防止cdn没有同步到
+                app.touchCdnFile(url)
+                setTimeout(cb(url), 4000)
             })
         } else {
             return cb(this.data.post.qr)
