@@ -27,7 +27,7 @@
 
     <mycard width="750" title="客户意向房源"   hat="{{false}}">
         <van-field size="large"  data-name="post_name"  input-align="left" border="{{false}}" value="{{ postName}} "
-            label="" bind:change="inputChange" autosize />
+            placeholder="请输入" bind:change="inputChange" autosize />
     </mycard>    
 
     <view class="actions" >
