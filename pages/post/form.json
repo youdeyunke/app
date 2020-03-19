@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "发布房源",
   "usingComponents": {
     "card": "/components/card",
     "city-picker": "/components/city-picker",
