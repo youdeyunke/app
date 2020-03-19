@@ -1,10 +1,9 @@
 {
-  "usingComponents": {
-    "van-cell": "/vant/cell/index",
-    "mapimage": "/components/map",
-    "broker": "/components/broker/btns",
-    "sub-location-info": "/components/sub-district/location-info",    
-    "posts": "/components/post/items",
-    "van-cell-group": "/vant/cell-group/index"    
-  }
+    "usingComponents": {
+        "van-cell": "/vant/cell/index",
+        "mapimage": "/components/map",
+        "sub-location-info": "/components/sub-district/location-info",
+        "posts": "/components/post/items",
+        "van-cell-group": "/vant/cell-group/index"
+    }
 }
