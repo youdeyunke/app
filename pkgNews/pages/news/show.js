@@ -37,6 +37,10 @@ Page({
           item: resp.data.data,
           html: html,
         })
+        wx.setNavigationBarTitle({
+            title: resp.data.data.title,
+        });
+          
       }
     })
   },

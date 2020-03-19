@@ -28,6 +28,30 @@ Page({
       data['kw'] = q.kw || q.text
     }
     this.setData(data)
+    this.setPageTitle()
+  },
+
+    setPageTitle: function () {
+        var g = this.data.filter.group || this.data.filter.group_v2
+        var title = '房源列表'
+        switch (g) {
+            case 'new':
+                title = '楼盘'
+                break;
+            case 'old':
+                title = '二手房'
+                break;
+            case 'shop':
+                title = '商铺'
+                break;
+            case 'rental':
+                title = '租房'
+                break;
+      }
+      wx.setNavigationBarTitle({
+          title: title,
+      });
+        
   },
 
   configFilter: function(q){
