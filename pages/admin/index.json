@@ -1,5 +1,7 @@
 {
-    "navigationBarTitleText": "经纪人工作台",
+  "navigationBarBackgroundColor": "#00bbee",
+  "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "工作台",
     "enablePullDownRefresh": false,
     "usingComponents": {
         "van-grid": "/vant/grid/index",

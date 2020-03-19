@@ -1,59 +1,32 @@
-.notice{
-  width:100%;
-  position: absolute;
-  left:0;
-  bottom:0;
-  right:0;
+.notice {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 
-.user{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width:100%;
+.user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20rpx 40rpx 40rpx 40rpx;
+    box-sizing: border-box;
+    background: #00bbee;
+    color: #ffffff;
 }
 
-.user .uinfo{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width:370rpx;
+.menu-item-name {
+    color: #333;
+    font-size: 24rpx;
+    margin-top: 15rpx;
 }
 
-.user .user-actions{
-  display:flex;
-  justify-content:flex-end;
-}
-
-.user .uinfo .avatar{
-  margin-right:20rpx;
-}
-
-.avatar, .avatar image{
-  width: 80rpx;
-  height: 80rpx;
-  border-radius: 10rpx;
-  overflow: hidden;
-  margin-bottom:10rpx;
-}
-
-.user button.fake, .user button.fake::after{
-  background: none;
-  border:none;
-  font-size:28rpx;
-}
-
-
-.menu-item-name{
-  color: #333;
-  font-size:24rpx;
-  margin-top:15rpx;
-}
-
-.menu-item{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
+.menu-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
