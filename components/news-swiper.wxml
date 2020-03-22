@@ -5,10 +5,10 @@
 
   <view class="swiper-block">
   <swiper autoplay="true" circular="true" interval="3000" vertical="true">
-    <swiper-item item-id="{{index}}" wx:key="{{item.id}}" wx:for="{{items}}">
-      <navigator hover-class='none' url="/pkgNews/pages/news/show?id={{item.id}}" class="title-block">
+    <swiper-item item-id="{{index}}" data-index="{{index}}" wx:key="{{item.id}}" wx:for="{{items}}" bindtap="itemClick">
+      <view hover-class='none' class="title-block">
         <view class="line-limit">{{item.title}}</view>
-      </navigator>
+      </view>
     </swiper-item>  
   </swiper>
   </view>
