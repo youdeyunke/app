@@ -13,6 +13,7 @@ Page({
         posterConfig: {},
         posterUrl: '',
         showEditForm: false,
+        sub_district_label: '',
         contactInfo: {
             name: '',
             mobile: '',
@@ -29,7 +30,16 @@ Page({
         var _this = this
         this.setData({ postId: q.id })
         this.loadPost(q.id, (post) => {
-            _this.setData({ post: post }, (res) => {
+            // 根据房源信息生成对应的海报需要的字段
+            var sub_district_label = '小区'
+            switch (post.group) {
+                case 'new':
+                    sub_district_label = '楼盘'
+                    break
+            }
+
+            var data = { post: post, sub_district_label: sub_district_label }
+            _this.setData(data, (res) => {
                 _this.genPosterConfig()
             })
         })
@@ -162,33 +172,14 @@ Page({
             preload: false,
             height: 1754,
             blocks: [
-                {
-                    desc: '内容区域背景',
-                    width: 991,
-                    height: 747,
-                    zIndex: 10,
-                    x: 125,
-                    y: 646,
-                    backgroundColor: '#ffffff',
-                },
-
-                {
-                    desc: '底部二维码区域背景',
-                    width: 1240,
-                    height: 303,
-                    zIndex: 10,
-                    x: 0,
-                    y: 1451,
-                    backgroundColor: '#ffffff',
-                },
 
 
             ],
             images: [
                 {
-                    width: 991,
+                    width: 1081,
                     height: 590,
-                    x: 125,
+                    x: 80,
                     y: 56,
                     borderRadius: 0,
                     url: post.cover,
@@ -199,7 +190,7 @@ Page({
                     width: 245,
                     height: 245,
                     x: 125,
-                    y: 1400,
+                    y: 1460,
                     borderRadius: 0,
                     zIndex: 100,
                     url: qrUrl,
@@ -211,7 +202,7 @@ Page({
                     x: 125,
                     y: 718,
                     baseLine: 'top',
-                    text: "物业：" + post.sub_district_name,
+                    text: this.data.sub_district_label + "：" + post.sub_district_name,
                     fontSize: 60,
                     color: '#000000',
                     zIndex: 100,
@@ -220,8 +211,8 @@ Page({
                     x: 125,
                     y: 848,
                     baseLine: 'top',
-                    text: "户型：" + post.type_info.text + post.type_info.px,
-                    fontSize: 60,
+                    text: post.sub_district.address,
+                    fontSize: 40,
                     color: '#000000',
                     zIndex: 100,
                 },
@@ -229,7 +220,7 @@ Page({
                     x: 125,
                     y: 978,
                     baseLine: 'top',
-                    text: "面积：" + post.area_info.text + post.area_info.px,
+                    text: "户型：" + post.type_info.text + post.type_info.px,
                     fontSize: 60,
                     color: '#000000',
                     zIndex: 100,
@@ -238,7 +229,7 @@ Page({
                     x: 125,
                     y: 1108,
                     baseLine: 'top',
-                    text: post.price_info.label + "：" + post.price_info.text + post.price_info.px,
+                    text: "面积：" + post.area_info.text + post.area_info.px,
                     fontSize: 60,
                     color: '#000000',
                     zIndex: 100,
@@ -246,6 +237,15 @@ Page({
                 {
                     x: 125,
                     y: 1238,
+                    baseLine: 'top',
+                    text: post.price_info.label + "：" + post.price_info.text + post.price_info.px,
+                    fontSize: 60,
+                    color: '#000000',
+                    zIndex: 100,
+                },
+                {
+                    x: 125,
+                    y: 1368,
                     baseLine: 'top',
                     text: "电话: " + mobileStr,
                     fontSize: 60,
@@ -255,10 +255,10 @@ Page({
 
                 {
                     x: 404,
-                    y: 1483,
+                    y: 1540,
                     baseLine: 'top',
                     text: "微信扫码，在线看房",
-                    fontSize: 80,
+                    fontSize: 60,
                     color: '#666666',
                     zIndex: 100,
                 },
