@@ -14,6 +14,7 @@ Page({
         posterUrl: '',
         showEditForm: false,
         sub_district_label: '',
+        type_info_value: '',
         contactInfo: {
             name: '',
             mobile: '',
@@ -32,13 +33,15 @@ Page({
         this.loadPost(q.id, (post) => {
             // 根据房源信息生成对应的海报需要的字段
             var sub_district_label = '小区'
+            var type_info_value = post.type_info['text']
+            type_info_value = type_info_value.replace('0室', '待定')
             switch (post.group) {
                 case 'new':
                     sub_district_label = '楼盘'
                     break
             }
 
-            var data = { post: post, sub_district_label: sub_district_label }
+            var data = { post: post, sub_district_label: sub_district_label, type_info_value: type_info_value }
             _this.setData(data, (res) => {
                 _this.genPosterConfig()
             })
@@ -220,7 +223,7 @@ Page({
                     x: 125,
                     y: 978,
                     baseLine: 'top',
-                    text: "户型：" + post.type_info.text + post.type_info.px,
+                    text: "户型：" + this.data.type_info_value,
                     fontSize: 60,
                     color: '#000000',
                     zIndex: 100,
