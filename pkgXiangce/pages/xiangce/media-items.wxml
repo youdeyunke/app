@@ -1,0 +1,9 @@
+<!-- pkgXiangce/pages/xiangce/index/media-items.wxml -->
+<view class="items">
+    <view class="item" bindtap="itemClick" data-index="{{index}}" wx:for="{{items}}" wx:for-id="id">
+        <image mode="aspectFill" class="image" src="{{item.url}}" hidden="{{item.file_type != 'image'}}" />
+        <view class="video" hidden="{{item.file_type != 'video' }}">
+            <video show-center-play-btn="{{true}}" enable-progress-gesture="{{false}}" page-gesture="{{false}}" id="myvideo" catchtap='' autoplay='{{false}}' src="{{item.url}}"></video>
+        </view>
+    </view>
+</view>

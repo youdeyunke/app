@@ -20,7 +20,13 @@
         "pages/news/show"
       ]
     },
-
+    {
+      "root": "pkgXiangce",
+      "name": "xiangce",
+      "pages": [
+        "pages/xiangce/index"
+      ]
+    },
     {
       "root": "pkgTour",
       "name": "tour",

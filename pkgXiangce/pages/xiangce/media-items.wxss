@@ -1,0 +1,20 @@
+/* pkgXiangce/pages/xiangce/index/media-items.wxss */
+
+.items {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.items .item {
+    width: 220rpx;
+    height: 220rpx;
+    padding: 15rpx;
+    box-sizing: border-box;
+    margin: 10rpx 5rpx 10rpx 5rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}

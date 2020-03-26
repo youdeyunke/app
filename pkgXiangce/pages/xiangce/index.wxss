@@ -1,0 +1,11 @@
+/* pkgXiangce/pages/xiangce/index.wxss */
+
+page {
+    padding-top: 0rpx;
+}
+
+.media-cats {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}

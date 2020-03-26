@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+      "media-items": "./media-items"
+  }
+}
