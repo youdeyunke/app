@@ -4,7 +4,7 @@
         <image mode="aspectFill" class="image" src="{{item.url}}" hidden="{{item.file_type != 'image'}}" />
         <view class="video" hidden="{{item.file_type != 'video' }}">
             <video controls="{{false}}" show-center-play-btn="{{false}}" enable-progress-gesture="{{false}}" page-gesture="{{false}}" id="myvideo" catchtap='' autoplay='{{false}}' src="{{item.url}}">
-                <cover-view class="video-cover">
+                <cover-view class="video-cover" bindtap="itemClick" data-index="{{index}}">
                     <cover-image class="video-cover-image" src="/pkgXiangce/images/play.png" />
                 </cover-view>
             </video>
