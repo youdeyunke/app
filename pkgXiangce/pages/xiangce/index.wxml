@@ -1,6 +1,6 @@
 <!-- pkgXiangce/pages/xiangce/index.wxml -->
 <view class="media-cats">
-    <mycard hat="{{false}}" title="{{cat.name}}" title-size="28" wx:for="{{cats}}" wx:for-item="cat" wx:for-key="id">
+    <mycard padding="{{false}}" hat="{{false}}" title="{{cat.name}}" title-size="28" wx:for="{{cats}}" wx:for-item="cat" wx:for-key="id">
         <media-items items="{{cat.media_items}}" />
     </mycard>
 </view>

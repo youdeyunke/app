@@ -3,7 +3,11 @@
     <view class="item" bindtap="itemClick" data-index="{{index}}" wx:for="{{items}}" wx:for-id="id">
         <image mode="aspectFill" class="image" src="{{item.url}}" hidden="{{item.file_type != 'image'}}" />
         <view class="video" hidden="{{item.file_type != 'video' }}">
-            <video show-center-play-btn="{{true}}" enable-progress-gesture="{{false}}" page-gesture="{{false}}" id="myvideo" catchtap='' autoplay='{{false}}' src="{{item.url}}"></video>
+            <video controls="{{false}}" show-center-play-btn="{{false}}" enable-progress-gesture="{{false}}" page-gesture="{{false}}" id="myvideo" catchtap='' autoplay='{{false}}' src="{{item.url}}">
+                <cover-view class="video-cover">
+                    <cover-image class="video-cover-image" src="/pkgXiangce/images/play.png" />
+                </cover-view>
+            </video>
         </view>
     </view>
 </view>

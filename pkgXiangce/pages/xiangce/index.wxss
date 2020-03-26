@@ -2,6 +2,7 @@
 
 page {
     padding-top: 0rpx;
+    background: #fff !important;
 }
 
 .media-cats {
