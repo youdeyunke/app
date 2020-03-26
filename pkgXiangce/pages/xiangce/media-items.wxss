@@ -10,7 +10,7 @@
 .items .item {
     width: 220rpx;
     height: 220rpx;
-    padding: 20rpx;
+    padding: 10rpx;
     box-sizing: border-box;
     margin: 10rpx;
     display: flex;
