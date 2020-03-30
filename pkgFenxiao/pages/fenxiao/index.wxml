@@ -8,17 +8,13 @@
         <van-icon name='arrow' />
     </navigator>
 </view>
-<form report-submit bindsubmit="formidHandle">
-    <box padding="30">
-        <view class="menu">
-            <button bindtap="menuItemClickHandle" data-url="{{item.url}}" wx:for="{{menuItems}}" wx:key="{{index}}" form-type="submit" hover-class="none" class="fake menu-item">
+<box padding="0">
+    <van-grid>
+        <van-grid-item bindtap="menuItemClickHandle" data-index="{{index}}" use-slot wx:for="{{menuItems}}" wx:key="{{index}}" hover-class="none">
+            <view class="menu-item">
                 <van-icon color="{{item.color}}" size="58rpx" name="{{item.icon}}" />
                 <view class="menu-item-name">{{item.name}}</view>
-            </button>
-            <button open-type="share" hover-class="none" class="fake menu-item">
-                <van-icon color="#4184AF" size="58rpx" name="gift" />
-                <view class="menu-item-name">邀请好友</view>
-            </button>
-        </view>
-    </box>
-</form>
+            </view>
+        </van-grid-item>
+    </van-grid>
+</box>

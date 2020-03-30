@@ -15,6 +15,7 @@ Page({
             { name: '历史报备', icon: 'friends', color: '#4184AF', url: '/pkgFenxiao/pages/fenxiao/customers' },
             { name: '我的团队', icon: 'cluster', color: '#ff9501', url: '/pkgFenxiao/pages/fenxiao/referrers' },
             { name: '申请提现', icon: 'bill', color: '#acdb0c', url: '/pkgFenxiao/pages/fenxiao/withdraw' },
+            { name: '邀请码', icon: 'gift', color: '#4184af', url: '/pkgFenxiao/pages/fenxiao/qr' },
         ]
     },
 
@@ -40,12 +41,17 @@ Page({
     },
 
     menuItemClickHandle: function (e) {
+        var _this = this
+        var index = e.currentTarget.dataset.index
+        var item = this.data.menuItems[index]
         var user = this.data.userInfo
-        var url = e.currentTarget.dataset.url
+        var url = item.url
         wx.navigateTo({
             url: url,
         })
     },
+
+    genQr: function () { },
 
     /**
      * 生命周期函数--监听页面初次渲染完成

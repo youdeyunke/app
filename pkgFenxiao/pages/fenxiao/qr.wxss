@@ -1,0 +1,37 @@
+/* pkgFenxiao/pages/fenxiao/qr.wxss */
+
+page {
+    padding-top: 20rpx;
+}
+
+.qr {
+    width: 670rpx;
+    height: 670rpx;
+    margin-bottom: 20rpx;
+}
+
+.tips {
+    padding: 40rpx 20rpx;
+    color: #999999;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 28rpx;
+    letter-space: 1.2;
+}
+
+.footer {
+    height: 120rpx;
+    width: 100%;
+    background: #ffffff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 2rpx solid #cecece;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+}

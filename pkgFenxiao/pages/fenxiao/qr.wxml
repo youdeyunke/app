@@ -1,0 +1,10 @@
+<box width="710">
+    <image class="qr" src="{{qr}}" />
+    <view class="tips" bindtap="showTips">
+        <van-icon name="info-o" />
+        <text>通过邀请码注册的新用户，将自动绑定为我的团队</text>
+    </view>
+</box>
+<view class="footer">
+    <van-button style="width:100%;" block type="primary" bindtap="saveQr">下载保存</van-button>
+</view>

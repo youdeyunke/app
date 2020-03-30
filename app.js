@@ -443,25 +443,26 @@ App({
 
     touchCdnFile: function (url) {
         // 当cdn是通过镜像同步的时候，对于刚刚生成的图片，腾讯cdn会返回302重定向到源站，导致错误
-            var max = 50 // 重试次数
-            for (var i = 0; i <= max; i++) {
-                console.log('尝试下载二维码图片', i, url)
-                // 将图片下载到本地
-                wx.downloadFile({
-                    url: url,
-                    success: (res) => {
-                        var path = res.tempFilePath
-                        console.log('下载二维码成功', i, path)
-                    },
-                    fail: (res) => {
-                        console.log('下载二维码失败', i, res)
-                    }
-                });
-            }
+        var max = 50 // 重试次数
+        for (var i = 0; i <= max; i++) {
+            console.log('尝试下载二维码图片', i, url)
+            // 将图片下载到本地
+            wx.downloadFile({
+                url: url,
+                success: (res) => {
+                    var path = res.tempFilePath
+                    console.log('下载二维码成功', i, path)
+                },
+                fail: (res) => {
+                    console.log('下载二维码失败', i, res)
+                }
+            });
+        }
     },
 
     downloadImage: function (url, cb) {
         // 先下载，再保存
+        var url = url.replace('http://', 'https://')
         wx.showLoading({
             title: '正在保存图片',
             mask: true,

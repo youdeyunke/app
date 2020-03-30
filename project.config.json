@@ -452,9 +452,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "fenxiao",
-					"pathName": "pages/fenxiao/index",
+					"id": 59,
+					"name": "fenxiao-index",
+					"pathName": "pkgFenxiao/pages/fenxiao/index",
 					"query": "",
 					"scene": null
 				},
@@ -848,6 +848,13 @@
 					"name": "楼盘相册",
 					"pathName": "pkgXiangce/pages/xiangce/index",
 					"query": "id=52",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "fenxiao-qr",
+					"pathName": "pkgFenxiao/pages/fenxiao/qr",
+					"query": "",
 					"scene": null
 				}
 			]

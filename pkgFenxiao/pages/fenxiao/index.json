@@ -1,10 +1,12 @@
 {
-  "navigationBarBackgroundColor": "#00bbee",
-  "navigationBarTextStyle": "white",
-  "navigationBarTitleText": "分销中心",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "van-notice-bar": "/vant/notice-bar/index",
-    "icon-block": "/components/icon-block"
-  }
+    "navigationBarBackgroundColor": "#00bbee",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "分销中心",
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "van-notice-bar": "/vant/notice-bar/index",
+        "van-grid": "/vant/grid/index",
+        "van-grid-item": "/vant/grid-item/index",
+        "icon-block": "/components/icon-block"
+    }
 }
