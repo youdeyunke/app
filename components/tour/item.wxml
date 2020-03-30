@@ -3,7 +3,7 @@
   <view class="cover">
   <van-tag wx:if="{{item.status.value == 2 }}" class="vtag"  mark >{{ item.status.name }}</van-tag>
   <van-tag wx:else  class="vtag" type="success"  mark >{{ item.status.name }}</van-tag>
-  <image  src="{{item.cover }}?imageView2/2/w/250"></image>
+  <image  src="{{item.cover }}?imageView2/2/w/750"></image>
   </view>
   <div class="info">
     <div class="left">

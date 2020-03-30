@@ -28,6 +28,11 @@ Page({
     app.request({
       url: '/api/v1/news/' + _this.data.nid,
       success: function(resp){
+        var url = resp.data.data.url
+        if (url) {
+            app.gotoWebview(url, '文章')
+            return false
+        }
         var html = resp.data.data['content'] || ''
         if(html){
           html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
