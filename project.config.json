@@ -742,7 +742,7 @@
 					"id": 100,
 					"name": "map",
 					"pathName": "pages/map/index",
-					"query": "group=old",
+					"query": "",
 					"scene": null
 				},
 				{

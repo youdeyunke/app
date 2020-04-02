@@ -31,13 +31,13 @@ Page({
         map = wx.createMapContext('map', this)
         wx.setNavigationBarTitle({ title: '地图找房' })
         var _this = this
-        var currentPostGroup = q.group || app.globalData.myconfigs['post_groups'][0].value
         app.ensureConfigs((configs) => {
+            var currentPostGroup = q.group || configs['post_groups'][0].value
             _this.setData({
-                groupItems: app.globalData.myconfigs['post_groups'],
+                groupItems: configs['post_groups'],
                 currentPostGroup: currentPostGroup
             })
-            _this.initMap(q.group)
+            _this.initMap(currentPostGroup)
             // 如果只开启了一个房源模块，或者带有参数进入，那就不显示房源类型切换标签
             if (_this.data.groupItems.length == 1 || q.group) {
                 _this.setData({ tabShow: false })
@@ -62,6 +62,7 @@ Page({
 
     initMap: function (group) {
         // 初始化，第一次进入地图时候
+        console.log('init map')
         var pointsDict = { 'old': [], 'new': [], 'rental': [] }
         var points = []
         var query = {}
@@ -75,6 +76,7 @@ Page({
             data: query,
             success: function (resp) {
                 // 第一次加载,根据房源所在的位置，自动定位视野，防止出现定位到其他国家的问题
+                console.log('load posts success')
                 var group = _this.data.currentPostGroup
                 var points = []
                 resp.data.data.forEach((post, i) => {
