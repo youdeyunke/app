@@ -12,178 +12,178 @@ Page({
         ext: wx.getExtConfigSync(),
     },
 
-    gotoLoginPage: function(e){
-        wx.navigateTo({url: '/pages/auth/index',})
+    gotoLoginPage: function (e) {
+        wx.navigateTo({ url: '/pages/auth/index', })
     },
 
-  doUpdate: function (userInfo) {
-    var url = userInfo.avatarUrl
-    app.request({
-      url: '/api/v1/users/update_avatar',
-      data: { avatar: url },
-      method: 'POST',
-      success: function (resp) {
-        if (resp.data.status == 0) {
-          wx.showToast({
+    doUpdate: function (userInfo) {
+        var url = userInfo.avatarUrl
+        app.request({
+            url: '/api/v1/users/update_avatar',
+            data: { avatar: url },
+            method: 'POST',
+            success: function (resp) {
+                if (resp.data.status == 0) {
+                    wx.showToast({
+                        icon: 'none',
+                        title: '微信头像同步成功',
+                        duration: 2000,
+                    })
+                }
+            }
+        })
+    },
+
+    clearCache: function (e) {
+        var _this = this
+        wx.showModal({
+            title: '操作提示',
+            content: '确定要清除缓存吗，清除缓存后，小程序将会自动重启',
+            success(res) {
+                if (res.confirm) {
+                    _this._clearCache(e)
+                } else if (res.cancel) {
+                }
+            }
+        })
+    },
+
+    _clearCache: function (e) {
+        var _this = this
+        var _keys = ['userInfo', 'token', 'myconfigs', 'location']
+        var keys = this.data.cache.keys
+        var cache = this.data.cache
+        keys.forEach(function (key, i) {
+            var remove = true
+            _keys.forEach(function (_key, j) {
+                if (_key == key) {
+                    remove = false
+                }
+            })
+            if (remove) {
+                wx.removeStorage({ key: key })
+                console.log('remove', key, remove)
+            }
+        })
+        wx.showToast({
+            title: '缓存已清除',
             icon: 'none',
-            title: '微信头像同步成功',
             duration: 2000,
-          })
-        }
-      }
-    })
-  },
-
-  clearCache: function(e){
-    var _this = this
-		wx.showModal({
-			title: '操作提示',
-			content: '确定要清除缓存吗，清除缓存后，小程序将会自动重启',
-			success(res) {
-				if (res.confirm) {
-					_this._clearCache(e)
-				} else if (res.cancel) {
-				}
-			}
-		})
-  },
-
-  _clearCache: function(e){
-    var _this = this
-    var _keys = ['userInfo', 'token', 'myconfigs', 'location']
-    var keys = this.data.cache.keys
-    var cache = this.data.cache
-    keys.forEach(function(key, i){
-      var remove = true
-      _keys.forEach(function(_key, j){
-        if(_key == key){
-          remove = false
-        }
-      })
-      if(remove){
-          wx.removeStorage({key: key})
-          console.log('remove', key, remove)
-      }
-    })
-		wx.showToast({
-			title: '缓存已清除',
-			icon: 'none',
-			duration: 2000,
-            success: function(){
+            success: function () {
                 wx.reLaunch({ url: '/pages/home/home' })
             },
-		})
-  },
+        })
+    },
 
 
-  loadCacheInfo: function(){
-    var _this = this
-		wx.getStorageInfo({
-			success(res) {
-                _this.setData({cache: res})
-			}
-		})
-  },
-
-  openAuthSetting: function(e){
-		wx.openSetting({
-			success(res) {
-				console.log(res.authSetting)
-				// res.authSetting = {
-				//   "scope.userInfo": true,
-				//   "scope.userLocation": true
-				// }
-			}
-		})
-  },
-
-  navigatetTo: function(e){
-    console.log('e', e)
-    var url = e.currentTarget.dataset.url
-    wx.navigateTo({
-      url: url,
-    })
-  },
-
-  formidHandle: function(e){
-    app.uploadFormid(e)
-  },
-
-  logoutHandle: function(e){
-    var _this = this
-    wx.showModal({
-      title: '退出登录',
-      content: '确定需要退出当前登录的账号吗？',
-      confirmText: '退出',
-      confirmColor: '#00ae66',
-      showCancel: true,
-      success(res) {
-        if (res.confirm) {
-            _this._logoutHandle()
-        } 
-      }
-    })
-  },
-
-  _logoutHandle: function () {
-    wx.setStorageSync('userInfo', null)
-    wx.setStorageSync('token', null)
-    this.setData({ userInfo: null })
-    this.setData({ userInfo: null })
-    app.globalData.userInfo = null
-    app.globalData.token = null
-  },
-
-  syncAvatar: function (e) {
-    var _this = this
-    wx.showModal({
-      title: '提示',
-      cancelText: "取消",
-      confirmText: "同步",
-      content: '确认要同步微信头像吗？',
-      success(res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-          _this._syncAvatar(e)
-
-        }
-      }
-    })
-  },
-
-  callService: function(e){
-    var n = this.data.configs['service_mobile']
-    wx.makePhoneCall({
-      phoneNumber: n,
-    })
-  },
-
-  _syncAvatar: function (e) {
-    var _this = this
-    wx.getSetting({
-      success(res) {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-          wx.getUserInfo({
-            success: function (res) {
-              console.log(res.userInfo)
-              _this.doUpdate(res.userInfo)
+    loadCacheInfo: function () {
+        var _this = this
+        wx.getStorageInfo({
+            success(res) {
+                _this.setData({ cache: res })
             }
-          })
-        } else {
-          wx.showToast({
-            title: '请先允许授权',
-            duration: 2000,
-            icon: 'none',
-            mask: true,
-            success: function () {
-              wx.openSetting()
-            },
-          })
-        }
-      }
-    })
-  },    
+        })
+    },
+
+    openAuthSetting: function (e) {
+        wx.openSetting({
+            success(res) {
+                console.log(res.authSetting)
+                // res.authSetting = {
+                //   "scope.userInfo": true,
+                //   "scope.userLocation": true
+                // }
+            }
+        })
+    },
+
+    navigatetTo: function (e) {
+        console.log('e', e)
+        var url = e.currentTarget.dataset.url
+        wx.navigateTo({
+            url: url,
+        })
+    },
+
+    formidHandle: function (e) {
+        app.uploadFormid(e)
+    },
+
+    logoutHandle: function (e) {
+        var _this = this
+        wx.showModal({
+            title: '退出登录',
+            content: '确定需要退出当前登录的账号吗？',
+            confirmText: '退出',
+            confirmColor: '#00ae66',
+            showCancel: true,
+            success(res) {
+                if (res.confirm) {
+                    _this._logoutHandle()
+                }
+            }
+        })
+    },
+
+    _logoutHandle: function () {
+        wx.setStorageSync('userInfo', null)
+        wx.setStorageSync('token', null)
+        this.setData({ userInfo: null })
+        this.setData({ userInfo: null })
+        app.globalData.userInfo = null
+        app.globalData.token = null
+    },
+
+    syncAvatar: function (e) {
+        var _this = this
+        wx.showModal({
+            title: '提示',
+            cancelText: "取消",
+            confirmText: "同步",
+            content: '确认要同步微信头像吗？',
+            success(res) {
+                if (res.confirm) {
+                    console.log('用户点击确定')
+                    _this._syncAvatar(e)
+
+                }
+            }
+        })
+    },
+
+    callService: function (e) {
+        var n = this.data.configs['service_mobile']
+        wx.makePhoneCall({
+            phoneNumber: n,
+        })
+    },
+
+    _syncAvatar: function (e) {
+        var _this = this
+        wx.getSetting({
+            success(res) {
+                if (res.authSetting['scope.userInfo']) {
+                    // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+                    wx.getUserInfo({
+                        success: function (res) {
+                            console.log(res.userInfo)
+                            _this.doUpdate(res.userInfo)
+                        }
+                    })
+                } else {
+                    wx.showToast({
+                        title: '请先允许授权',
+                        duration: 2000,
+                        icon: 'none',
+                        mask: true,
+                        success: function () {
+                            wx.openSetting()
+                        },
+                    })
+                }
+            }
+        })
+    },
 
     getPhoneNumber: function (e) {
 
@@ -234,29 +234,29 @@ Page({
         })
     },
 
-    gotoSetting: function(e){
-      wx.navigateTo({url: '/pages/myself/setting'})
+    gotoSetting: function (e) {
+        wx.navigateTo({ url: '/pages/myself/setting' })
     },
 
 
-    gotoMembership: function(e){
+    gotoMembership: function (e) {
         // 开通经纪人身份
         // 如果是免费入驻，就去个人资料页面
         // 如果是付费入驻，就去套餐页面
-        app.loadConfigs(function(conf){
-          if(conf['broker_join_type'] == 'free'){
-            var url =  '/pages/myself/broker'
-          }else{
-            var url = '/pages/broker/membership'
-          }
-          wx.navigateTo({url: url})
+        app.loadConfigs(function (conf) {
+            if (conf['broker_join_type'] == 'free') {
+                var url = '/pages/myself/broker'
+            } else {
+                var url = '/pages/broker/membership'
+            }
+            wx.navigateTo({ url: url })
         })
     },
 
 
     loginHandle: function (e) {
-        var _this  = this
-        auth.loginHandle(this, e, function(u){
+        var _this = this
+        auth.loginHandle(this, e, function (u) {
         })
     },
 
@@ -265,17 +265,36 @@ Page({
      */
     onLoad: function (q) {
         var _this = this
-        wx.setNavigationBarTitle({title: '我的'})
-        app.ensureConfigs( function(configs){
-          _this.setData({ configs: configs})
+        wx.setNavigationBarTitle({ title: '我的' })
+        app.ensureConfigs(function (configs) {
+            _this.setData({ configs: configs })
         })
+        var token = app.globalData.token
 
         // 如果是别人邀请注册的，就记录下referrer_id，注册时携带referrer_id
-        if(q.referrer_id && q.referrer_id.length >0){
+        if (q.referrer_id && q.referrer_id.length > 0) {
             console.log("推荐人的id 为", q.referrer_id)
-            wx.setStorageSync( 'referrer_id', q.referrer_id)
+            wx.setStorageSync('referrer_id', q.referrer_id)
+            // 如果当前账号没有登陆，就弹出收到邀请的提示
+            if (!token) {
+                wx.showModal({
+                    title: '邀请注册',
+                    content: '您收到了好友的注册邀请，是否现在注册？',
+                    showCancel: true,
+                    cancelText: '取消',
+                    cancelColor: '#000000',
+                    confirmText: '马上注册',
+                    confirmColor: '#1989fa',
+                    success: (result) => {
+                        if (result.confirm) {
+                            _this.gotoLoginPage()
+                        }
+                    },
+                    fail: () => { },
+                    complete: () => { }
+                });
+            }
         }
-
         this.loadCacheInfo()
     },
 
@@ -305,14 +324,14 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-      var _this = this
-      var user = app.globalData.userInfo
-      var token = app.globalData.token
-      console.log(' app.globalData.userInfo', app.globalData.userInfo)
-      this.setData({userInfo: app.globalData.userInfo})
-      if(token){
-          this.getRemoteUserInfo()
-      }
+        var _this = this
+        var user = app.globalData.userInfo
+        var token = app.globalData.token
+        console.log(' app.globalData.userInfo', app.globalData.userInfo)
+        this.setData({ userInfo: app.globalData.userInfo })
+        if (token) {
+            this.getRemoteUserInfo()
+        }
     },
 
     /**
