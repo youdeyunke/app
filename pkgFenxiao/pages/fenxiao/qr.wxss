@@ -4,20 +4,41 @@ page {
     padding-top: 20rpx;
 }
 
-.qr {
-    width: 670rpx;
-    height: 670rpx;
+.tips {
+    width: 100%;
+    color: #999999;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 30rpx;
+}
+
+.main {
+    width: 600rpx;
+    height: 600rpx;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main .qr {
+    width: 600rpx;
+    height: 600rpx;
     margin-bottom: 20rpx;
 }
 
-.tips {
-    padding: 40rpx 20rpx;
-    color: #999999;
+.counter {
+    margin: 40rpx auto auto auto;
+    width: 100%;
+    text-align: center;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    font-size: 28rpx;
-    letter-space: 1.2;
+}
+
+.counter .link {
+    color: #1989fa;
 }
 
 .footer {
