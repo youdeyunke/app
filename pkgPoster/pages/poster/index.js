@@ -9,11 +9,12 @@ Page({
      * 页面的初始数据
      */
     data: {
+        loading: true,
         tpls: [],
         tplIndex: 0,
+        newTplIndex: 0,
         user: {},
         posterConfig: {},
-        loading: true,
         posterUrl: '',
         coverUrl: '',
         showEditForm: false,
@@ -55,6 +56,7 @@ Page({
         this.setData({ postId: q.id })
         this.loadPost(q.id, (post) => {
             // 根据房源信息生成对应的海报需要的字段
+            qrUrl = post.qr
             coverUrl = post.cover || ''
             text_1 = post.sub_district.name
             text_2 = post.sub_district.address
@@ -68,7 +70,7 @@ Page({
             text_3 = text_3.replace('0室', '待定')
             text_4 = post.price_info.text + post.price_info.px
             text_5 = post.broker_info.mobile + '(' + post.broker_info.name + ')'
-            qrUrl = post.qr
+
             switch (post.group) {
                 case 'new':
                     label_1 = '楼盘'
@@ -105,11 +107,22 @@ Page({
     },
 
     loadTpls: function (cb) {
+        var _this = this
         app.request({
             url: '/api/v1/poster_templates/',
             success: function (resp) {
                 if (resp.data.status == 0) {
                     return typeof cb == 'function' && cb(resp.data.data)
+                } else {
+                    // 服务器版本不够，降级处理
+                    var tpls = [
+                        {
+                            name: '祥云',
+                            bg: 'https://qiniucdn.udeve.cn/poster-templates/6.jpg',
+                            font_color: '#fff'
+                        }
+                    ]
+                    return typeof cb == 'function' && cb(tpls)
                 }
             }
         })
@@ -128,13 +141,29 @@ Page({
 
     onPosterFail: function (e) {
         console.log('生成海报失败', e)
+        wx.hideLoading();
+        this.setData({ loading: false })
     },
 
     onPosterSuccess: function (e) {
+        console.log('on poster success', e)
+        var _this = this
         const { detail } = e;
         this.setData({
             posterUrl: detail,
         })
+        setTimeout(function () {
+            wx.hideLoading();
+            _this.setData({ loading: false })
+            wx.showToast({
+                title: '已生成',
+                icon: 'success',
+                image: '',
+                duration: 1000,
+                mask: false,
+            });
+
+        }, 1000)
     },
 
     onSavePoster: function (e) {
@@ -151,15 +180,21 @@ Page({
     },
 
     cancleTplHandle: function () {
-        this.setData({ showTpls: false, tplIndex: 0 })
+        this.setData({ showTpls: false, tplIndex: 0, newTplIndex: 0 })
     },
 
     confirmTplHandle: function (e) {
+        if (this.data.newTplIndex == this.data.tplIndex) {
+            // tpl 没有变化，不重做
+            this.setData({ showTpls: false })
+            return false;
+        }
+        var tplIndex = this.data.newTplIndex
         this.setData({
+            tplIndex: tplIndex,
             posterUrl: '',
             loading: true,
             showTpls: false,
-            loading: true,
         })
         this.genPoster()
     },
@@ -167,24 +202,24 @@ Page({
     tplChange: function (e) {
         var i = e.currentTarget.dataset.index
         var tpl = this.data.tpls[i]
-        this.setData({ tplIndex: i })
-
+        this.setData({ newTplIndex: i })
     },
 
     genPostQrUrl: function (info, cb) {
         // 根据数据生成房源的二维码信息
         console.log('生成绑定唯一联系人的二维码', info)
+        var uid = this.data.user.id || '0'
         if (info.mobile) {
             wx.showLoading({
                 title: '生成二维码',
                 mask: true,
             });
 
-            var path = 'pages/post/post?contact=' + this.data.post.id + '_' + info.name + '_' + info.mobile + '_' + this.data.user.id
+            var path = 'pages/post/post?contact=' + this.data.post.id + '_' + info.name + '_' + info.mobile + '_' + uid
             app.genQr(path, function (data) {
                 var url = data.qr
                 console.log('生成专属唯一二维码', url)
-                setTimeout(cb(url), 4000)
+                cb(url)
             })
         }
     },
@@ -210,7 +245,8 @@ Page({
             return false
         }
 
-        if (info.mobile.length <= 10 || info.mobile.includes('_')) {
+
+        if (info.mobile.length <= 8 || info.mobile.includes('_')) {
             wx.showToast({
                 title: '请输入正确的联系号码',
                 icon: 'none',
@@ -218,6 +254,10 @@ Page({
             })
             return false
         }
+
+        this.setData({
+            showEditForm: false,
+        })
 
         var text_5 = info.mobile + ' (' + info.name + ')'
         // 生成唯一二维码
@@ -247,7 +287,7 @@ Page({
 
     genPoster: function () {
         wx.showLoading({
-            title: '制作海报',
+            title: '制作海报中...',
             mask: true,
         });
 
@@ -263,7 +303,6 @@ Page({
         var bgImage = tpl.bg
         var fontColor = tpl.font_color || '#ffffff'
         var config = {
-            hideLoading: true,
             debug: false,
             backgroundColor: '#ffffff',
             width: 370,
@@ -432,8 +471,7 @@ Page({
         }
 
         var _this = this
-        this.setData({ posterConfig: config, showEditForm: false }, () => {
-            _this.setData({ loading: false })
+        this.setData({ posterConfig: config }, () => {
             Poster.create(true)
         })
     },
@@ -453,13 +491,6 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        var _this = this
-        auth.ensureUser(function (user) {
-            _this.setData({ user: user, showEditForm: false, loading: true })
-            if (_this.data.post && _this.data.post.id) {
-                _this.genPoster()
-            }
-        })
     },
 
     /**

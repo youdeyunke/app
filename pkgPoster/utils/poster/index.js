@@ -58,22 +58,29 @@ Component({
                             resolve();
                         })
                         .catch((e) => reject(e));
-                }  
+                }
             })
         },
         onCreate(reset = false) {
-            !this.data.hideLoading && wx.showLoading({ mask: true, title: '生成中' });
+            if (!this.data.hideLoading) {
+                wx.showLoading({ mask: true, title: '生成中' });
+            }
+            console.log('hide loading value is', this.data.hideLoading)
             return this.downloadResource(typeof reset === 'boolean' && reset).then(() => {
-                !this.data.hideLoading && wx.hideLoading();
+                if (!this.data.hideLoading) {
+                    console.log('hide loading in poster')
+                    wx.hideLoading();
+                }
+
                 const poster = this.selectComponent('#poster');
                 poster.create(this.data.config);
             })
-            .catch((err) => {
-                !this.data.hideLoading && wx.hideLoading();
-                wx.showToast({ icon: 'none', title: err.errMsg || '生成失败' });
-                console.error(err);
-                this.triggerEvent('fail', err);
-            })
+                .catch((err) => {
+                    !this.data.hideLoading && wx.hideLoading();
+                    wx.showToast({ icon: 'none', title: err.errMsg || '生成失败' });
+                    console.error(err);
+                    this.triggerEvent('fail', err);
+                })
         },
         onCreateSuccess(e) {
             const { detail } = e;

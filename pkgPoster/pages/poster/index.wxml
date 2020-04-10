@@ -1,9 +1,6 @@
 <!-- pages/poster/index.wxml -->
-<view class="loading" wx:if="{{!posterUrl || loading}}" style="padding-top:100rpx;">
-    <van-loading />
-    <view style="margin-top:40rpx;">正在制作海报图片，请等待...</view>
-</view>
-<block wx:else>
+<page-loading loading="{{loading}}" />
+<view hidden="{{loading}}">
     <image style="margin-top:30rpx;width:690rpx;height:1227rpx;" mode="aspectFill" bindtap='previewPoster' src="{{posterUrl}}"></image>
     <view class="tips" bindtap="showTips">
         <van-icon name="question-o" />
@@ -13,20 +10,20 @@
         <view class="tools">
             <view class="tool-item" bindtap="editHandle" style="display:flex;justify-content:flex-start;">
                 <van-icon name="edit" />
-                <text>修改电话</text>
+                <text>电话</text>
             </view>
             <view class="blank"></view>
             <view class="tool-item" bindtap="tplHandle" style="display:flex;justify-content:flex-start;">
                 <van-icon name="photo" />
-                <text>背景图</text>
+                <text>背景</text>
             </view>
         </view>
         <view class="right">
             <van-button bindtap="onSavePoster" type="info" round>保存海报</van-button>
         </view>
     </view>
-</block>
-<poster wx:if="{{posterConfig}}" id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster>
+</view>
+<poster wx:if="{{posterConfig}}" id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail" hide-loading="{{true}}"></poster>
 <van-popup show="{{ showEditForm  }}" bind:close="cancleHandle" position="bottom">
     <form class="editor" bindsubmit="submitHandle" bindreset="cancleHandle">
         <van-field name="name" value="{{ contactInfo.name  }}" placeholder="请输入联系人姓名" />
@@ -43,11 +40,10 @@
         <view class="submit" bindtap="confirmTplHandle">设为背景</view>
     </view>
     <view class="tpls-title">选择海报背景图</view>
-
     <scroll-view class="tpls" scroll-x="true" bindscroll="scroll" style="width: 100%;height:300rpx;">
-        <view bindtap="tplChange" data-index="{{index}}" wx:for-item="tpl" wx:for-key="id" class="tpl-item {{ tplIndex == index ? 'active' : '' }}" wx:for="{{tpls}}">
+        <view bindtap="tplChange" data-index="{{index}}" wx:for-item="tpl" wx:for-key="id" class="tpl-item {{ newTplIndex == index ? 'active' : '' }}" wx:for="{{tpls}}">
             <image src="{{tpl.bg}}" mode="scaleToFill" />
-            <view class="name">{{tpl.name}}</view>
+            <view class="name">{{tpl.name}}{{ index == 0 ? '(默认)' : ''}}</view>
         </view>
     </scroll-view>
 </van-popup>
