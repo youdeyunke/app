@@ -81,7 +81,7 @@
 					"id": 3,
 					"name": "post",
 					"pathName": "pages/post/post",
-					"query": "id=100",
+					"query": "id=3",
 					"scene": 1011
 				},
 				{

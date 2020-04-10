@@ -194,6 +194,7 @@ Page({
                     break;
             }
         })
+        console.log('markers is', markers)
         this.setData({ markers: markers })
     },
 
