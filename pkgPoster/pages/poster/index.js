@@ -156,6 +156,8 @@ Page({
 
     confirmTplHandle: function (e) {
         this.setData({
+            posterUrl: '',
+            loading: true,
             showTpls: false,
             loading: true,
         })
@@ -221,7 +223,7 @@ Page({
         // 生成唯一二维码
         var _this = this
         this.genPostQrUrl(info, (qrUrl) => {
-            _this.setData({ text_5: text_5, loading: true, qrUrl: qrUrl })
+            _this.setData({ text_5: text_5, loading: true, qrUrl: qrUrl, posterUrl: '' })
             _this.genPoster()
         })
     },
