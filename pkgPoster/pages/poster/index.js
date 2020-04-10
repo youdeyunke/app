@@ -1,6 +1,6 @@
 // pages/poster/index.js
 const app = getApp()
-import Poster from '../../..//utils/wxa-plugin-canvas/poster/poster';
+import Poster from '../../utils/poster/poster';
 var auth = require('../../../utils/auth.js');
 
 Page({
@@ -9,16 +9,24 @@ Page({
      * 页面的初始数据
      */
     data: {
+        tpls: [],
+        tplIndex: 0,
         user: {},
         posterConfig: {},
+        loading: true,
         posterUrl: '',
         showEditForm: false,
-        sub_district_label: '',
-        type_info_value: '',
-        contactInfo: {
-            name: '',
-            mobile: '',
-        },
+        qrUrl: '',
+        label_1: '小区',
+        label_2: '地址',
+        label_3: '户型',
+        label_4: '价格',
+        label_5: '联系',
+        text_1: '',
+        text_2: '',
+        text_3: '',
+        text_4: '',
+        text_5: '',
 
     },
 
@@ -27,24 +35,76 @@ Page({
      */
     onLoad: function (q) {
         // 先加载post数据，再自动生成海报
+        var label_1 = '小区'
+        var label_2 = '地址'
+        var label_3 = '户型'
+        var label_4 = '价格'
+        var label_5 = '联系'
+        var text_1 = ''
+        var text_2 = ''
+        var text_3 = ''
+        var text_4 = ''
+        var text_5 = ''
+        var qrUrl = ''
+
         wx.setNavigationBarTitle({ title: '制作房源海报' })
         var _this = this
         this.setData({ postId: q.id })
         this.loadPost(q.id, (post) => {
             // 根据房源信息生成对应的海报需要的字段
-            var sub_district_label = '小区'
-            var type_info_value = post.type_info['text']
-            type_info_value = type_info_value.replace('0室', '待定')
+            text_1 = post.sub_district.name
+            text_2 = post.sub_district.address
+            var _max = 18
+            //  处理地址字符串超过19个情况
+            if (text_2.length > _max) {
+                text_2 = text_2.slice(0, _max) + '...'
+            }
+
+            text_3 = post.type_info.text
+            text_3 = text_3.replace('0室', '待定')
+            text_4 = post.price_info.text + post.price_info.px
+            text_5 = post.broker_info.mobile + '(' + post.broker_info.name + ')'
+            qrUrl = post.qr
             switch (post.group) {
                 case 'new':
-                    sub_district_label = '楼盘'
+                    label_1 = '楼盘'
+                    label_4 = '均价'
                     break
             }
 
-            var data = { post: post, sub_district_label: sub_district_label, type_info_value: type_info_value }
-            _this.setData(data, (res) => {
-                _this.genPosterConfig()
+            // 加载模板
+            _this.loadTpls((tpls) => {
+                var data = {
+                    post: post,
+                    qrUrl: qrUrl,
+                    label_1: label_1,
+                    label_2: label_2,
+                    label_3: label_3,
+                    label_4: label_4,
+                    label_5: label_5,
+                    text_1: text_1,
+                    text_2: text_2,
+                    text_3: text_3,
+                    text_4: text_4,
+                    text_5: text_5,
+                    tplIndex: 0,
+                    tpls: tpls,
+                }
+                _this.setData(data, (res) => {
+                    _this.genPoster()
+                })
             })
+        })
+    },
+
+    loadTpls: function (cb) {
+        app.request({
+            url: '/api/v1/poster_templates/',
+            success: function (resp) {
+                if (resp.data.status == 0) {
+                    return typeof cb == 'function' && cb(resp.data.data)
+                }
+            }
         })
     },
 
@@ -80,24 +140,26 @@ Page({
     },
 
 
-    genPostQrUrl: function (cb) {
+    genPostQrUrl: function (info, cb) {
         // 根据数据生成房源的二维码信息
-        console.log('this.data.contactInfo', this.data.contactInfo.mobile)
-        if (this.data.contactInfo.mobile) {
-            var path = 'pages/post/post?contact=' + this.data.post.id + '_' + this.data.contactInfo.name + '_' + this.data.contactInfo.mobile + '_' + this.data.user.id
+        console.log('生成绑定唯一联系人的二维码', info)
+        if (info.mobile) {
+            wx.showLoading({
+                title: '生成二维码',
+                mask: true,
+            });
+
+            var path = 'pages/post/post?contact=' + this.data.post.id + '_' + info.name + '_' + info.mobile + '_' + this.data.user.id
             app.genQr(path, function (data) {
                 var url = data.qr
                 console.log('生成专属唯一二维码', url)
-                // 先touch一下，防止cdn没有同步到
-                app.touchCdnFile(url)
                 setTimeout(cb(url), 4000)
             })
-        } else {
-            return cb(this.data.post.qr)
         }
     },
 
     editHandle: function (e) {
+        // 保存修改后的联系人
         this.setData({ showEditForm: true })
     },
 
@@ -117,25 +179,28 @@ Page({
             return false
         }
 
-        if (info.mobile.length != 11 || info.mobile.includes('_')) {
+        if (info.mobile.length <= 10 || info.mobile.includes('_')) {
             wx.showToast({
-                title: '请输入正确的联系人手机号码',
+                title: '请输入正确的联系号码',
                 icon: 'none',
                 duration: 2000
             })
             return false
         }
 
+        var text_5 = info.mobile + ' (' + info.name + ')'
+        // 生成唯一二维码
         var _this = this
-        this.setData({ contactInfo: info, loading: true, }, function () {
-            _this.genPosterConfig()
+        this.genPostQrUrl(info, (qrUrl) => {
+            _this.setData({ text_5: text_5, loading: true, qrUrl: qrUrl })
+            _this.genPoster()
         })
     },
 
     showTips: function () {
         wx.showModal({
             title: '房源海报有什么用途?',
-            content: '1，可按A4格式打印后张贴，客户扫码看房 2，可发布到朋友圈，好友长按识别即可打开房源页面',
+            content: '可发布到朋友圈、微信聊天群等，好友长按识别即可打开房源页面',
             confirmText: '知道了',
             success(res) {
             }
@@ -149,51 +214,70 @@ Page({
     },
 
 
-    genPosterConfig: function () {
-        this.setData({ posterUrl: '', loading: true, showEditForm: false })
-        var _this = this
-        var post = this.data.post
-        var mobileStr = post.broker_info.mobile + '(' + post.broker_info.name + ')'
-        if (this.data.contactInfo.mobile) {
-            var mobileStr = this.data.contactInfo.mobile + '(' + this.data.contactInfo.name + ')'
-        }
-        this.genPostQrUrl(function (qrUrl) {
-            _this._genPosterConfig(mobileStr, qrUrl)
+    genPoster: function () {
+        wx.showLoading({
+            title: '制作海报',
+            mask: true,
+        });
+
+        this.setData({
+            showEditForm: false,
+            loading: true,
         })
-    },
-
-
-    _genPosterConfig: function (mobileStr, qrUrl) {
+        var _this = this
+        var qrUrl = this.data.qrUrl
         console.log('生成海报时，携带的二维码图片为', qrUrl)
         var post = this.data.post
+        var tpl = this.data.tpls[this.data.tplIndex]
+        var bgImage = tpl.bg
+        var fontColor = tpl.font_color || '#ffffff'
         var config = {
             hideLoading: true,
             debug: false,
             backgroundColor: '#ffffff',
-            width: 1240,
-            pixelRatio: 1,
+            width: 370,
+            pixelRatio: 3,
             preload: false,
-            height: 1754,
+            height: 658,
             blocks: [
-
-
+                {
+                    width: 90,
+                    height: 90,
+                    x: 242,
+                    y: 542,
+                    borderRadius: 90,
+                    backgroundColor: '#ffffff',
+                    zIndex: 1,
+                },
             ],
             images: [
                 {
-                    width: 1081,
-                    height: 590,
-                    x: 80,
-                    y: 56,
+                    _desc: '背景底图',
+                    width: 370,
+                    height: 658,
+                    x: 0,
+                    y: 0,
                     borderRadius: 0,
-                    url: post.cover,
-                    zIndex: 10,
+                    url: bgImage,
+                    zIndex: 0,
                 },
 
                 {
-                    width: 245,
-                    height: 245,
-                    x: 125,
-                    y: 1460,
+                    _desc: '封面图',
+                    width: 340,
+                    height: 232,
+                    x: 15,
+                    y: 19,
+                    borderRadius: 0,
+                    url: post.cover,
+                    zIndex: 19,
+                },
+
+                {
+                    width: 90,
+                    height: 90,
+                    x: 242,
+                    y: 542,
                     borderRadius: 0,
                     zIndex: 100,
                     url: qrUrl,
@@ -202,67 +286,113 @@ Page({
             ],
             texts: [
                 {
-                    x: 125,
-                    y: 718,
+                    x: 23.5,
+                    y: 280,
                     baseLine: 'top',
-                    text: this.data.sub_district_label + "：" + post.sub_district_name,
-                    fontSize: 60,
-                    color: '#000000',
+                    text: _this.data.label_1,
+                    fontSize: 20,
+                    color: fontColor,
                     zIndex: 100,
                 },
                 {
-                    x: 125,
-                    y: 848,
+                    x: 23.5,
+                    y: 316,
                     baseLine: 'top',
-                    text: post.sub_district.address,
-                    fontSize: 40,
-                    color: '#000000',
-                    zIndex: 100,
-                },
-                {
-                    x: 125,
-                    y: 978,
-                    baseLine: 'top',
-                    text: "户型：" + this.data.type_info_value,
-                    fontSize: 60,
-                    color: '#000000',
-                    zIndex: 100,
-                },
-                {
-                    x: 125,
-                    y: 1108,
-                    baseLine: 'top',
-                    text: "面积：" + post.area_info.text + post.area_info.px,
-                    fontSize: 60,
-                    color: '#000000',
-                    zIndex: 100,
-                },
-                {
-                    x: 125,
-                    y: 1238,
-                    baseLine: 'top',
-                    text: post.price_info.label + "：" + post.price_info.text + post.price_info.px,
-                    fontSize: 60,
-                    color: '#000000',
-                    zIndex: 100,
-                },
-                {
-                    x: 125,
-                    y: 1368,
-                    baseLine: 'top',
-                    text: "电话: " + mobileStr,
-                    fontSize: 60,
-                    color: '#000000',
+                    text: _this.data.label_2,
+                    fontSize: 20,
+                    color: fontColor,
                     zIndex: 100,
                 },
 
                 {
-                    x: 404,
-                    y: 1540,
+                    x: 23.5,
+                    y: 353,
                     baseLine: 'top',
-                    text: "微信扫码，在线看房",
-                    fontSize: 60,
-                    color: '#666666',
+                    text: _this.data.label_3,
+                    fontSize: 20,
+                    color: fontColor,
+                    zIndex: 100,
+                },
+                {
+                    x: 23.5,
+                    y: 390,
+                    baseLine: 'top',
+                    text: _this.data.label_4,
+                    fontSize: 20,
+                    color: fontColor,
+                    zIndex: 100,
+                },
+                {
+                    x: 23.5,
+                    y: 427,
+                    baseLine: 'top',
+                    text: _this.data.label_5,
+                    fontSize: 20,
+                    color: fontColor,
+                    zIndex: 100,
+                },
+                {
+                    x: 83,
+                    y: 283,
+                    baseLine: 'top',
+                    text: _this.data.text_1,
+                    fontSize: 14,
+                    color: fontColor,
+                    zIndex: 100,
+                },
+                {
+                    x: 83,
+                    y: 320,
+                    baseLine: 'top',
+                    text: _this.data.text_2,
+                    fontSize: 14,
+                    color: fontColor,
+                    zIndex: 100,
+                },
+                {
+                    x: 83,
+                    y: 357,
+                    baseLine: 'top',
+                    text: _this.data.text_3,
+                    fontSize: 14,
+                    color: fontColor,
+                    zIndex: 100,
+                },
+                {
+                    x: 83,
+                    y: 395,
+                    baseLine: 'top',
+                    text: _this.data.text_4,
+                    fontSize: 12,
+                    color: fontColor,
+                    zIndex: 100,
+                },
+                {
+                    x: 83,
+                    y: 432,
+                    baseLine: 'top',
+                    text: _this.data.text_5,
+                    fontSize: 12,
+                    color: fontColor,
+                    zIndex: 100,
+                },
+
+                {
+                    x: 36,
+                    y: 553,
+                    baseLine: 'top',
+                    text: "长按识别",
+                    fontSize: 24,
+                    color: fontColor,
+                    zIndex: 100,
+                },
+                {
+                    x: 36,
+                    y: 586,
+                    baseLine: 'top',
+                    text: "在线看房",
+                    fontSize: 24,
+                    color: fontColor,
                     zIndex: 100,
                 },
 
@@ -272,6 +402,7 @@ Page({
 
         var _this = this
         this.setData({ posterConfig: config, showEditForm: false }, () => {
+            _this.setData({ loading: false })
             Poster.create(true)
         })
     },
@@ -295,7 +426,7 @@ Page({
         auth.ensureUser(function (user) {
             _this.setData({ user: user, showEditForm: false, loading: true })
             if (_this.data.post && _this.data.post.id) {
-                _this.genPosterConfig()
+                _this.genPoster()
             }
         })
     },

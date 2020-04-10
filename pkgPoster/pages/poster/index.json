@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "poster":"/utils/wxa-plugin-canvas/poster/index"
+    "poster":"../../utils/poster/index"
   }
 }

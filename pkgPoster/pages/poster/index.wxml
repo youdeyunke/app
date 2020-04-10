@@ -1,42 +1,32 @@
-<!--pages/poster/index.wxml-->
-
-  <view class="loading" wx:if="{{!posterUrl}}" style="padding-top:100rpx;">
-    <van-loading  />
+<!-- pages/poster/index.wxml -->
+<view class="loading" wx:if="{{!posterUrl || loading}}" style="padding-top:100rpx;">
+    <van-loading />
     <view style="margin-top:40rpx;">正在制作海报图片，请等待...</view>
-  </view>
-
-  <block wx:else>
-    <image style="margin-top:30rpx;width:690rpx;height:976rpx;" bindtap='previewPoster' src="{{posterUrl}}" ></image>
+</view>
+<block wx:else>
+    <image style="margin-top:30rpx;width:690rpx;height:1227rpx;" mode="aspectFill" bindtap='previewPoster' src="{{posterUrl}}"></image>
     <view class="tips" bindtap="showTips">
-     <van-icon name="question-o" />
-     <text>  房源海报有什么用途？</text>
+        <van-icon name="question-o" />
+        <text>房源海报有什么用途？</text>
     </view>
-
     <view class="bar">
-      <view class="left" bindtap="editHandle" style="display:flex;justify-content:flex-start;">
-        <van-icon name="edit" /> 修改联系人信息
-      </view>
-      <view class="right">
-        <van-button bindtap="onSavePoster" type="primary"  round>下载打印海报</van-button>
-      </view>
+        <view class="left" bindtap="editHandle" style="display:flex;justify-content:flex-start;">
+            <van-icon name="edit" />
+            修改联系人信息
+        </view>
+        <view class="right">
+            <van-button bindtap="onSavePoster" type="primary" round>下载打印海报</van-button>
+        </view>
     </view>
-
-
-  </block>
-
-<poster wx:if="{{posterConfig}}" id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster> 
-
-
+</block>
+<poster wx:if="{{posterConfig}}" id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"></poster>
 <van-popup show="{{ showEditForm  }}" bind:close="cancleHandle" position="bottom">
-  <form class="editor" bindsubmit="submitHandle" bindreset="cancleHandle">
-    <van-field name="name" value="{{ contactInfo.name  }}" placeholder="请输入联系人姓名" />
-    <van-field name="mobile"  value="{{ contactInfo.mobile }}" placeholder="请输入联系电话" />
-    
-    <view class="btns">
-        <button type="primary" form-type="submit">确认修改</button>
-        <button type="default" form-type="reset">取消修改</button>
-    </view>
-    
-  </form>
-
+    <form class="editor" bindsubmit="submitHandle" bindreset="cancleHandle">
+        <van-field name="name" value="{{ contactInfo.name  }}" placeholder="请输入联系人姓名" />
+        <van-field name="mobile" value="{{ contactInfo.mobile }}" placeholder="请输入联系电话" />
+        <view class="btns">
+            <button type="primary" form-type="submit">确认修改</button>
+            <button type="default" form-type="reset">取消修改</button>
+        </view>
+    </form>
 </van-popup>
