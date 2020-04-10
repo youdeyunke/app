@@ -157,6 +157,9 @@ Page({
     onShow: function () {
         this.setData({ userInfo: app.globalData.userInfo })
         this.loadData()
+        setTimeout(() => {
+            wx.hideLoading();
+        }, 3000);
     },
 
     /**

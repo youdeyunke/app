@@ -15,6 +15,7 @@ Page({
         posterConfig: {},
         loading: true,
         posterUrl: '',
+        coverUrl: '',
         showEditForm: false,
         qrUrl: '',
         label_1: '小区',
@@ -46,12 +47,14 @@ Page({
         var text_4 = ''
         var text_5 = ''
         var qrUrl = ''
+        var coverUrl = ''
 
         wx.setNavigationBarTitle({ title: '制作房源海报' })
         var _this = this
         this.setData({ postId: q.id })
         this.loadPost(q.id, (post) => {
             // 根据房源信息生成对应的海报需要的字段
+            coverUrl = post.cover || ''
             text_1 = post.sub_district.name
             text_2 = post.sub_district.address
             var _max = 18
@@ -70,6 +73,8 @@ Page({
                     label_1 = '楼盘'
                     label_4 = '均价'
                     break
+                case 'rental':
+                    label_4 = '租金'
             }
 
             // 加载模板
@@ -88,6 +93,7 @@ Page({
                     text_4: text_4,
                     text_5: text_5,
                     tplIndex: 0,
+                    coverUrl: coverUrl,
                     tpls: tpls,
                 }
                 _this.setData(data, (res) => {
@@ -269,7 +275,7 @@ Page({
                     x: 15,
                     y: 19,
                     borderRadius: 0,
-                    url: post.cover,
+                    url: _this.data.coverUrl,
                     zIndex: 19,
                 },
 
