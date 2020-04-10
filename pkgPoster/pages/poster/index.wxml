@@ -10,12 +10,18 @@
         <text>房源海报有什么用途？</text>
     </view>
     <view class="bar">
-        <view class="left" bindtap="editHandle" style="display:flex;justify-content:flex-start;">
-            <van-icon name="edit" />
-            修改联系人信息
+        <view class="tools">
+            <view class="tool-item" bindtap="editHandle" style="display:flex;justify-content:flex-start;">
+                <van-icon name="edit" />
+                修改联系
+            </view>
+            <view class="tool-item" bindtap="tplHandle" style="display:flex;justify-content:flex-start;">
+                <van-icon name="image" />
+                换背景
+            </view>
         </view>
         <view class="right">
-            <van-button bindtap="onSavePoster" type="primary" round>下载打印海报</van-button>
+            <van-button bindtap="onSavePoster" type="info" round>保存海报</van-button>
         </view>
     </view>
 </block>
@@ -29,4 +35,16 @@
             <button type="default" form-type="reset">取消修改</button>
         </view>
     </form>
+</van-popup>
+<van-popup show="{{ showTpls }}" bind:close="cancleTplHandle" position="bottom">
+    <view class="pop-header">
+        <view bindtap="cancleTplHandle" class="cancle">取消</view>
+        <view class="submit" bindtap="confirmTplHandle">确定选择</view>
+    </view>
+    <view class="tpls-title">选择海报背景图</view>
+    <scroll-view class="tpls" scroll-x="true" bindscroll="scroll" style="width: 100%;height:260rpx;">
+        <view bindtap="tplChange" data-index="{{index}}" wx:for-item="tpl" wx:for-key="id" class="tpl-item {{ tplIndex == index ? 'active' : '' }}" wx:for="{{tpls}}">
+            <image src="{{tpl.bg}}" mode="scaleToFill" />
+        </view>
+    </scroll-view>
 </van-popup>

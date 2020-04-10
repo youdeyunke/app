@@ -17,6 +17,7 @@ Page({
         posterUrl: '',
         coverUrl: '',
         showEditForm: false,
+        showTpls: false,
         qrUrl: '',
         label_1: '小区',
         label_2: '地址',
@@ -145,6 +146,28 @@ Page({
         })
     },
 
+    tplHandle: function () {
+        this.setData({ showTpls: true })
+    },
+
+    cancleTplHandle: function () {
+        this.setData({ showTpls: false, tplIndex: 0 })
+    },
+
+    confirmTplHandle: function (e) {
+        this.setData({
+            showTpls: false,
+            loading: true,
+        })
+        this.genPoster()
+    },
+
+    tplChange: function (e) {
+        var i = e.currentTarget.dataset.index
+        var tpl = this.data.tpls[i]
+        this.setData({ tplIndex: i })
+
+    },
 
     genPostQrUrl: function (info, cb) {
         // 根据数据生成房源的二维码信息
