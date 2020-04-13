@@ -1,68 +1,57 @@
-
-  <view class="user">
+<view class="user">
     <view class="uinfo">
-      <view class="avatar">
-        <image hidden="{{!userInfo.avatar}}" src="{{userInfo.avatar}}?imageView2/5/h/100/w/100"></image>
-        <image hidden="{{userInfo.avatar}}" src="/assets/images/default-avatar.png"></image>
-      </view>
-      <view class="nickname"><text wx:if="{{userInfo.id}}">{{userInfo.nickname}}</text><text wx:else>游客,你好</text></view>
+        <view class="avatar">
+            <image hidden="{{!userInfo.avatar}}" src="{{userInfo.avatar}}?imageView2/5/h/100/w/100"></image>
+            <image hidden="{{userInfo.avatar}}" src="/assets/images/default-avatar.png"></image>
+        </view>
+        <view class="nickname">
+            <text wx:if="{{userInfo.id}}">{{userInfo.nickname}}</text>
+            <text wx:else>游客,你好</text>
+        </view>
     </view>
-
     <view class="user-actions">
-      <van-button round size="normal" hover-class='none' type="primary" bindtap="gotoLoginPage" wx:if="{{!userInfo.id}}">登录/注册</van-button> 
-      <navigator hover-class="none" url="/pages/myself/profile"  wx:if="{{userInfo.id}}" hover-class="none"  bindtap="gotoProfile"> <van-icon size="28px"  name="setting-o" /> </navigator>
+        <van-button round size="normal" hover-class='none' type="primary" bindtap="gotoLoginPage" wx:if="{{!userInfo.id}}">
+            登录/注册
+        </van-button>
+        <navigator hover-class="none" url="/pages/myself/profile" wx:if="{{userInfo.id}}" hover-class="none" bindtap="gotoProfile">
+            <van-icon size="28px" name="setting-o" />
+        </navigator>
     </view>
-  </view>
-
-
-
-  <view class="mybox" style="padding:20rpx 20rpx 0rpx 20rpx;">
-    <view class="menu"  >
-
-      <button hidden="{{ext.fenxiao_enable == false}}"  bindtap="navigatetTo" data-url="/pkgFenxiao/pages/fenxiao/index" form-type="submit" hover-class="none"  class="fake menu-item" >
-        <van-icon color="#5857CE" size="58rpx" name="cluster" />
-        <view class="menu-item-name">分销中心 </view>
-      </button>    
-
-      <button bindtap="navigatetTo" data-url="/pages/myself/favposts" form-type="submit" hover-class="none"   class="fake menu-item" >
-        <van-icon color="#65CF9D" size="58rpx" name="star"  />
-        <view class="menu-item-name">我的收藏 </view>
-      </button>          
-
-      <button hidden="{{userInfo.is_broker }}"  bindtap="navigatetTo" data-url="/pkgBroker/pages/broker/join" form-type="submit" hover-class="none"  class="fake menu-item" >
-        <van-icon color="#E15C32" size="58rpx" name="add" />
-        <view class="menu-item-name">经纪人入注册</view>
-      </button>  
-      <button hidden="{{!userInfo.is_broker}}" bindtap="navigatetTo" data-url="/pages/admin/index" form-type="submit" hover-class="none"  class="fake menu-item" >
-        <van-icon color="#E15C32" size="58rpx" name="printer" />
-        <view class="menu-item-name">工作台 </view>
-      </button>  
-
+</view>
+<view class="mybox" style="padding:20rpx 20rpx 0rpx 20rpx;">
+    <view class="menu">
+        <button hidden="{{ext.fenxiao_enable == false}}" bindtap="navigatetTo" data-url="/pkgFenxiao/pages/fenxiao/index" form-type="submit" hover-class="none" class="fake menu-item">
+            <van-icon color="#5857CE" size="58rpx" name="cluster" />
+            <view class="menu-item-name">分销中心</view>
+        </button>
+        <button bindtap="navigatetTo" data-url="/pages/myself/favposts" form-type="submit" hover-class="none" class="fake menu-item">
+            <van-icon color="#65CF9D" size="58rpx" name="star" />
+            <view class="menu-item-name">我的收藏</view>
+        </button>
+        <button hidden="{{userInfo.is_broker }}" bindtap="navigatetTo" data-url="/pkgBroker/pages/broker/join" form-type="submit" hover-class="none" class="fake menu-item">
+            <van-icon color="#E15C32" size="58rpx" name="add" />
+            <view class="menu-item-name">经纪人入注册</view>
+        </button>
+        <button hidden="{{!userInfo.is_broker}}" bindtap="navigatetTo" data-url="/pages/admin/index" form-type="submit" hover-class="none" class="fake menu-item">
+            <van-icon color="#E15C32" size="58rpx" name="printer" />
+            <view class="menu-item-name">工作台</view>
+        </button>
     </view>
-  </view>
-
-
+</view>
 <block>
-  <view class="mybox">  
-    <van-cell icon="clock-o" url="/pages/myself/booking" size="large" is-link  hover-class="none" title="我的预约"  />
-    <van-cell icon="bill-o" url="/pages/myself/orders" size="large" is-link  hover-class="none" title="我的订单"  />
-    <van-cell border="{{false}}" icon="question-o" url="/pkgQa/pages/qa/mine" size="large" is-link  hover-class="none" title="我的问答"  />
-  </view>
-
-  <view class="mybox">  
-
-    <van-cell icon="service-o" size="large"   bindtap="callService"  hover-class="none" title="客服电话" wx:if="{{configs.service_mobile}}"  value="{{configs.service_mobile || ''}}" />
-    <van-cell icon="chat-o" size="large"   hover-class="none" title="客服微信"  value="{{configs.service_wechat}}" wx:if="{{configs.service_wechat}}" />
-
-    <van-cell icon="info-o" size="large" hover-class="none" title="当前版本" value="{{ext.version}}"  > </van-cell>    
-
-    <van-cell icon="brush-o"  bindtap="clearCache" size="large" hover-class="none" title="清除缓存"  value="{{cache.currentSize || 0}} Kb" > </van-cell>
-
-    <van-cell icon="certificate" bindtap="openAuthSetting" size="large" hover-class="none" title="权限设置" is-link  > </van-cell>
-
-    <van-cell  wx:if="{{userInfo.id}}" icon="close" border="{{false}}" size="large" is-link bindtap="logoutHandle" hover-class="none" title="退出登录" />                             
-  </view>  
-
-  <ad-link  width="710" mini />
+    <view class="mybox">
+        <van-cell icon="clock-o" url="/pages/myself/booking" size="large" is-link hover-class="none" title="我的预约" />
+        <!-- van-cell icon="bill-o" url="/pages/myself/orders" size="large" is-link  hover-class="none" title="我的订单"  / -->
+        <van-cell border="{{false}}" icon="question-o" url="/pkgQa/pages/qa/mine" size="large" is-link hover-class="none" title="我的问答" />
+    </view>
+    <view class="mybox">
+        <van-cell icon="service-o" size="large" bindtap="callService" hover-class="none" title="客服电话" wx:if="{{configs.service_mobile}}" value="{{configs.service_mobile || ''}}" />
+        <van-cell icon="chat-o" size="large" hover-class="none" title="客服微信" value="{{configs.service_wechat}}" wx:if="{{configs.service_wechat}}" />
+        <van-cell icon="info-o" size="large" hover-class="none" title="当前版本" value="{{ext.version}}"></van-cell>
+        <van-cell icon="brush-o" bindtap="clearCache" size="large" hover-class="none" title="清除缓存" value="{{cache.currentSize || 0}} Kb"></van-cell>
+        <van-cell icon="certificate" bindtap="openAuthSetting" size="large" hover-class="none" title="权限设置" is-link></van-cell>
+        <van-cell wx:if="{{userInfo.id}}" icon="close" border="{{false}}" size="large" is-link bindtap="logoutHandle" hover-class="none" title="退出登录" />
+    </view>
+    <ad-link width="710" mini />
 </block>
 <cr />

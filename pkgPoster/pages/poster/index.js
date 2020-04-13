@@ -20,11 +20,12 @@ Page({
         showEditForm: false,
         showTpls: false,
         qrUrl: '',
-        label_1: '小区',
-        label_2: '地址',
-        label_3: '户型',
-        label_4: '价格',
-        label_5: '联系',
+        label_1: '',
+        label_2: '',
+        label_3: '',
+        label_4: '',
+        label_5: '',
+        label_6: '',
         text_1: '',
         text_2: '',
         text_3: '',
@@ -43,11 +44,13 @@ Page({
         var label_3 = '户型'
         var label_4 = '价格'
         var label_5 = '联系'
-        var text_1 = ''
-        var text_2 = ''
-        var text_3 = ''
-        var text_4 = ''
-        var text_5 = ''
+        var label_6 = '面积'
+        var text_1 = '未知'
+        var text_2 = '未知'
+        var text_3 = '未知'
+        var text_4 = '未知'
+        var text_5 = '未知'
+        var text_6 = '未知'
         var qrUrl = ''
         var coverUrl = ''
 
@@ -66,7 +69,13 @@ Page({
                 text_2 = text_2.slice(0, _max) + '...'
             }
 
-            text_3 = post.type_info.text
+            // 处理面积字段
+            if (post.area_info.min) {
+                // 有面积字段
+                text_6 = post.area_info.text + ' 平米'
+            }
+
+            text_3 = post.type_info.text + ' ' + post.area_info.text
             text_3 = text_3.replace('0室', '待定')
             text_4 = post.price_info.text + post.price_info.px
             text_5 = post.broker_info.mobile + '(' + post.broker_info.name + ')'
@@ -90,11 +99,13 @@ Page({
                     label_3: label_3,
                     label_4: label_4,
                     label_5: label_5,
+                    label_6: label_6,
                     text_1: text_1,
                     text_2: text_2,
                     text_3: text_3,
                     text_4: text_4,
                     text_5: text_5,
+                    text_6: text_6,
                     tplIndex: 0,
                     coverUrl: coverUrl,
                     tpls: tpls,
@@ -306,7 +317,7 @@ Page({
             debug: false,
             backgroundColor: '#ffffff',
             width: 370,
-            pixelRatio: 3,
+            pixelRatio: 2,
             preload: false,
             height: 658,
             blocks: [
@@ -387,7 +398,7 @@ Page({
                     x: 23.5,
                     y: 390,
                     baseLine: 'top',
-                    text: _this.data.label_4,
+                    text: _this.data.label_6,
                     fontSize: 20,
                     color: fontColor,
                     zIndex: 100,
@@ -395,6 +406,16 @@ Page({
                 {
                     x: 23.5,
                     y: 427,
+                    baseLine: 'top',
+                    text: _this.data.label_4,
+                    fontSize: 20,
+                    color: fontColor,
+                    zIndex: 100,
+                },
+
+                {
+                    x: 23.5,
+                    y: 464,
                     baseLine: 'top',
                     text: _this.data.label_5,
                     fontSize: 20,
@@ -432,8 +453,8 @@ Page({
                     x: 83,
                     y: 395,
                     baseLine: 'top',
-                    text: _this.data.text_4,
-                    fontSize: 12,
+                    text: _this.data.text_6,
+                    fontSize: 14,
                     color: fontColor,
                     zIndex: 100,
                 },
@@ -441,8 +462,17 @@ Page({
                     x: 83,
                     y: 432,
                     baseLine: 'top',
+                    text: _this.data.text_4,
+                    fontSize: 14,
+                    color: fontColor,
+                    zIndex: 100,
+                },
+                {
+                    x: 83,
+                    y: 469,
+                    baseLine: 'top',
                     text: _this.data.text_5,
-                    fontSize: 12,
+                    fontSize: 14,
                     color: fontColor,
                     zIndex: 100,
                 },
