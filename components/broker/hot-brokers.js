@@ -43,7 +43,7 @@ Component({
       initBrokers: function(){
           var _this = this
           var items = this.data.brokers
-          _this.shuffle(items)
+          //_this.shuffle(items)
           _this.setData({items: items.slice(0, _this.data.max)})
       },
 
