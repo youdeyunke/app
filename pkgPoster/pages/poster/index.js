@@ -69,13 +69,9 @@ Page({
                 text_2 = text_2.slice(0, _max) + '...'
             }
 
-            // 处理面积字段
-            if (post.area_info.min) {
-                // 有面积字段
-                text_6 = post.area_info.text + ' 平米'
-            }
-
-            text_3 = post.type_info.text + ' ' + post.area_info.text
+            // 有面积字段
+            text_6 = post.area_info.text + ' 平'
+            text_3 = post.type_info.text
             text_3 = text_3.replace('0室', '待定')
             text_4 = post.price_info.text + post.price_info.px
             text_5 = post.broker_info.mobile + '(' + post.broker_info.name + ')'
