@@ -320,6 +320,14 @@ App({
         wx.navigateTo({ url: '/pages/webview/webview?url=' + url2 + '&title=' + title })
     },
 
+    sendEvent: function (key, event) {
+        // 发送阿拉丁
+        var appName = EXT['name'] || this.globalData.myconfigs.xcx_name || '未知小程序名'
+        event["小程序名"] = appName
+        wx.aldstat.sendEvent(key, event)
+        console.log('send event', key)
+    },
+
     gotoVideo: function (url, title = "") {
         var url2 = encodeURIComponent(url)
         console.log('goto viewo url1 is', url, 'url2 is', url2)

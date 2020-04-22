@@ -105,12 +105,13 @@ Page({
           url: '/api/v1/home',
           method: 'GET',
           hideLoading: true,
-          success: function(resp){
+          success: function (resp) {
               console.log('resp.data.data', resp.data)
               _this.setData({
-                homeData: resp.data.data,
-                loading: false,
+                  homeData: resp.data.data,
+                  loading: false,
               })
+              app.sendEvent('首页加载完成', {})
           },
       })
   },

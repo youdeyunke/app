@@ -268,6 +268,7 @@ Page({
 
         var text_5 = info.mobile + ' (' + info.name + ')'
         // 生成唯一二维码
+        app.sendEvent('修改海报联系人', { "联系人": info.name, "电话": info.mobile })
         var _this = this
         this.genPostQrUrl(info, (qrUrl) => {
             _this.setData({ text_5: text_5, loading: true, qrUrl: qrUrl, posterUrl: '' })
@@ -307,6 +308,7 @@ Page({
         console.log('生成海报时，携带的二维码图片为', qrUrl)
         var post = this.data.post
         var tpl = this.data.tpls[this.data.tplIndex]
+        app.sendEvent("生成房源海报", { "模板": tpl.name })
         var bgImage = tpl.bg
         var fontColor = tpl.font_color || '#ffffff'
         var config = {
@@ -475,7 +477,7 @@ Page({
 
                 {
                     x: 36,
-                    y: 553,
+                    y: 563,
                     baseLine: 'top',
                     text: "长按识别",
                     fontSize: 24,
@@ -484,7 +486,7 @@ Page({
                 },
                 {
                     x: 36,
-                    y: 586,
+                    y: 596,
                     baseLine: 'top',
                     text: "在线看房",
                     fontSize: 24,

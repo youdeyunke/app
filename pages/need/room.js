@@ -67,6 +67,9 @@ Page({
       hideLoading: true,
       success: function(resp){
         var items = resp.data.data
+          if (items.length == 0) {
+            _this.setData({loading: false})
+        }
         var meta = resp.data.meta
         var d = {}
         var i = _this.data.page - 1

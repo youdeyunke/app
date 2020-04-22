@@ -42,7 +42,7 @@
     <view class="tpls-title">选择海报背景图</view>
     <scroll-view class="tpls" scroll-x="true" bindscroll="scroll" style="width: 100%;height:300rpx;">
         <view bindtap="tplChange" data-index="{{index}}" wx:for-item="tpl" wx:for-key="id" class="tpl-item {{ newTplIndex == index ? 'active' : '' }}" wx:for="{{tpls}}">
-            <image src="{{tpl.bg}}" mode="scaleToFill" />
+            <image src="{{tpl.bg}}?imageView2/2/w/50" mode="scaleToFill" />
             <view class="name">{{tpl.name}}{{ index == 0 ? '(默认)' : ''}}</view>
         </view>
     </scroll-view>
