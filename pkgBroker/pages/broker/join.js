@@ -133,7 +133,7 @@ Page({
             })
             wx.hideLoading()
             // 如果没有开通经纪人，并且已经提交了个人资料，就进入购买有
-            if (!user.is_broker && user.apply_status == 1 && this.data.joinType != 'free') {
+            if (!user.is_broker && user.apply_status == 1 && _this.data.joinType != 'free') {
                 wx.navigateTo({
                     url: '/pkgBroker/pages/broker/membership'
                 })
