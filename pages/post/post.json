@@ -12,6 +12,7 @@
         "brokers-block": "./brokers-block",
         "recoms-block": "./recoms-block",
         "events-block": "./events-block",
+        "tours-block": "./tours-block",
         "safe-block": "./safe-block",
         "btns-block": "./btns-block",
         "types-block": "./types-block",

@@ -31,7 +31,7 @@
 .card-header .card-hat{
   height:30rpx;
   width:12rpx;
-  background:var(--color-a);
+  background:#1989fa;
   margin-right:15rpx;
 }
 

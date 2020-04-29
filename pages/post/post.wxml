@@ -4,13 +4,11 @@
     <text class="count">{{post.views_count}}人</text>
     查看了此房源
 </van-transition>
-
-
 <view style="width:100%;" hidden="{{loading}}">
     <block wx:for="{{blocks}}" wx:for-item="block" wx:for-key="index" wx:key="name">
-        <brokage-block wx:if="{{ block.name == 'brokage' }}" value="{{ block.value}}"  />
-        <images-block  wx:if="{{block.name == 'images' }}"  value="{{ block.value }}" />
-        <meta-block  wx:if="{{block.name == 'meta' }}"  value="{{ block.value }}" />
+        <brokage-block wx:if="{{ block.name == 'brokage' }}" value="{{ block.value}}" />
+        <images-block wx:if="{{block.name == 'images' }}" value="{{ block.value }}" />
+        <meta-block wx:if="{{block.name == 'meta' }}" value="{{ block.value }}" />
         <html-block wx:if="{{block.name == 'html'}}" value="{{block.value}}" />
         <desc-block wx:if="{{block.name == 'desc'}}" value="{{block.value}}" />
         <facilities-block wx:if="{{block.name == 'facilities'}}" value="{{block.value}}" />
@@ -18,14 +16,14 @@
         <types-block id="types" wx:if="{{block.name == 'types'}}" value="{{block.value}}" />
         <buildings-block id="buildings" wx:if="{{block.name == 'buildings'}}" value="{{block.value}}" />
         <brokers-block wx:if="{{block.name == 'brokers'}}" value="{{block.value}}" />
-        <qas-block  wx:if="{{block.name == 'qas' }}" value="{{block.value}}"  />
-        <comments-block  wx:if="{{block.name == 'comments' }}" value="{{block.value}}"  />
-        <events-block  wx:if="{{block.name == 'events' }}" value="{{block.value}}"  />
+        <qas-block wx:if="{{block.name == 'qas' }}" value="{{block.value}}" />
+        <comments-block wx:if="{{block.name == 'comments' }}" value="{{block.value}}" />
+        <events-block wx:if="{{block.name == 'events' }}" value="{{block.value}}" />
+        <tours-block wx:if="{{block.name == 'tours' }}" value="{{block.value}}" />
         <recoms-block wx:if="{{block.name == 'recoms'}}" value="{{block.value}}" />
         <btns-block wx:if="{{block.name == 'btns'}}" value="{{block.value}}" />
         <contact-block wx:if="{{block.name == 'contact'}}" value="{{block.value}}" />
     </block>
-
     <!-- official-account></official-account -->
     <ad-link />
     <safe-tips cat="{{post.group}}" />
