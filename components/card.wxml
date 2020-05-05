@@ -8,7 +8,7 @@
             </view>
     </view>
 
-    <view wx:if="{{subTitle}}" class="font-mini card-header-action" bindtap='actionHandle'>
+    <view wx:if="{{subTitle}}" class="sub-title card-header-action" bindtap='actionHandle'>
       <text class="card-header-action-name">{{subTitle}}</text>
       <van-icon wx:if="{{url}}" name="arrow" />
     </view>

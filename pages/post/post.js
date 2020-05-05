@@ -81,6 +81,8 @@ Page({
         var postId = options.id
         if (options.contact) {
             // 分享海报进入，并设置成我自己的联系方式
+            // 隐藏home
+            wx.hideHomeButton()
             var _contacts = options.contact.split('_')
             var postId = _contacts[0]
             this.setData({

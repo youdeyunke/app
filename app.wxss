@@ -77,17 +77,6 @@ van-icon{
     font-weight: bold !important;
 }
 
-.blak-1x{
-  height:10rpx;
-  width:100%;
-  display:block;
-}
-
-.blank-2x{
-  height:20rpx;
-  width:100%;
-  display:block;
-}
 
 .container {
   background:#fff;
@@ -104,54 +93,8 @@ van-icon{
   border-radius: 0;
 } 
 
-page .container.container-padding-none{
-  padding:none !important;
-}
-
-.container-bg-none{
-  background:none;
-  
-}
-
-.container-head{
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 1px solid #f4f4f4;
-  padding:0 0 15rpx 0;
-  width: 100%;
-}
-
-.container-head-action{
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 300rpx;
-}
-
-.container-head-action image{
-  width: 24rpx;
-  height: 24rpx;
-  margin-right:10rpx;
-}
-
-.container-head .h2{
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.container-body{
-  padding-top:20rpx;
-}
 
 textarea{
-  width:100%;
-}
-
-.weui-panel{
   width:100%;
 }
 
@@ -166,42 +109,6 @@ textarea{
 .h2{
   font-size:var(--font-l);
 }
-
-.font-normal{
-  font-size:var(--font-s);
-}
-
-.font-mini{
-  font-size:var(--font-xs);
-}
-
-.weui-loadmore{
-  margin:0 auto
-}
-
-.weui-loadmore__tips_in-line{
-  background:none !important;
-}
-
-
-.loading-more{
-  width:100%;
-  text-align: center;
-  align-items: center;
-  font-size:24rpx;
-  color:#333;
-}
-
-.data-end{
-  width:100%;
-  text-align: center;
-  align-items: center;
-  font-size:24rpx;
-  color:#333;
-  border-bottom:1px solid #333
-
-}
-
 
 .cats{
   height:100rpx;
@@ -237,23 +144,6 @@ textarea{
   white-space: nowrap;  
 }
 
-
-.gohome{
-  font-size:24rpx;
-  height: 36rpx;
-  line-height: 100%;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 130rpx;
-  background: #ffd900;
-  border-top-left-radius: 30rpx;
-  border-bottom-left-radius: 30rpx;
-  position: fixed;
-  top:60rpx;
-  right:0rpx;
-}
 
 
 .empty{
@@ -318,32 +208,6 @@ textarea{
   color:#fff;
 }
 
-
-
-.home-btn{
-  position: fixed;
-  right:30rpx;
-  bottom:152rpx;
-  padding:0rpx;
-  z-index:9999;
-  width:84rpx;
-  height: 84rpx;
-  background: #f4f4f4;
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 4rpx 10rpx rgba(0,0,0, 0.2);  
-  font-size:18rpx;
-  color:#333;
-  flex-direction: column;
-
-}
-
-.home-btn image{
-   width:37rpx;
-   height:37rpx;
-}
 
  .typeinfo{
   display:flex;

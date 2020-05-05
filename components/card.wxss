@@ -11,6 +11,10 @@
   box-sizing: border-box;
 }
 
+.card .sub-title{
+  font-size:22rpx;
+}
+
 .card.shadow-none{
   box-shadow:none;
 }
