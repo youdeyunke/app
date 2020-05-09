@@ -9,7 +9,7 @@
         <van-cell size="large" title="微信二维码" value="{{ userInfo.wechat_qr ? '已上传' : '未上传' }}" bindtap="chooseQrImage" placeholder="上传您的微信二维码" is-link></van-cell>
         <van-cell size="large" title="手机号" value="{{ userInfo.mobile }}" border="{{false}}" disabled />
     </box>
-    <box>
+    <box wx:if="{{false}}">
         <van-cell size="large" title="自动回复">
             <van-switch checked="{{ userInfo.auto_reply_switch }}" bind:change="textChange" data-name="auto_reply_switch" />
         </van-cell>
