@@ -1,1 +1,6 @@
 /* pages/myself/profile.wxss */
+
+.actions {
+    width: 710rpx;
+    margin: auto;
+}

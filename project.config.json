@@ -856,6 +856,12 @@
 					"pathName": "pkgFenxiao/pages/fenxiao/qr",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "myself-profiel",
+					"pathName": "pages/myself/profile",
+					"scene": null
 				}
 			]
 		}
