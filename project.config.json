@@ -364,7 +364,7 @@
 					"id": 46,
 					"name": "post show",
 					"pathName": "pages/post/post",
-					"query": "id=52",
+					"query": "id=149",
 					"scene": null
 				},
 				{
@@ -861,6 +861,7 @@
 					"id": -1,
 					"name": "myself-profiel",
 					"pathName": "pages/myself/profile",
+					"query": "",
 					"scene": null
 				}
 			]

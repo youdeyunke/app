@@ -148,7 +148,8 @@ Component({
             var _this = this
             auth.ensureUser(function (user) {
                 // 经纪人本人不能预约经纪人的房源
-                if (user.is_broker) {
+                var allowBokerBooking = true
+                if (allowBokerBooking == false &&  user.is_broker) {
                     wx.showToast({
                         icon: 'none',
                         title: '您是经纪人，不能预约看房',
