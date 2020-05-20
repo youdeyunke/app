@@ -92,7 +92,7 @@ Page({
                 var post_name = p.title + ' ' + p.sub_district.name + ' ' + p.type_info.text + ' ' + p.area_info.text
                 _this.setData({
                     post: p,
-                    post_name: post_name
+                    postName: post_name
                 })
             }
         })
