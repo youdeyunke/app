@@ -21,7 +21,8 @@
 			"outputPath": ""
 		},
 		"bundle": true,
-		"useCompilerModule": false
+		"useCompilerModule": false,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.0",

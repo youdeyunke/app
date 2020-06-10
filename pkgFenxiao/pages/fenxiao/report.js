@@ -147,7 +147,8 @@ Page({
                 icon: 'none'
             })
             return false;
-        }
+       }
+       console.log('fdata', fdata)
 
         if (!fdata['post_name'] || fdata['post_name'].length <= 1) {
             wx.showToast({
@@ -166,7 +167,7 @@ Page({
         var fdata = {
             mobile: _this.data.mobile,
             name: _this.data.name,
-            post_name: _this.data.post_name,
+            post_name: _this.data.postName,
             sex: _this.data.sex,
             post_id: _this.data.pid
         }
