@@ -1,0 +1,13 @@
+/* pkgYfyj/pages/yfyj/room-item.wxss */
+
+.room-item {
+    background: #57BE92;
+    color: #fff;
+    border: 1px solid #fff;
+    width: 180rpx;
+    height: 180rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

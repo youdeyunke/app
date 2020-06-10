@@ -1,0 +1,60 @@
+/* pkgYfyj/pages/yfyj/show.wxss */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .title {
+    color: #000;
+    font-weight: bold;
+    font-size: 32rpx;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0 20rpx;
+}
+
+.info .info-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 28rpx;
+    margin: 10rpx 0;
+}
+
+.info .info-item .label {
+    color: #999;
+    width: 200rpx;
+}
+
+.info .info-item .value {
+    color: #333;
+}
+
+.info .info-item .value.red {
+    color: darkred;
+}
+
+.info .type-image image {
+    width: 100%;
+    margin-top: 20rpx;
+}
+
+.daikuan {
+    color: #999;
+    margin-top: 20rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22rpx;
+}
+
+.daikuan .b {
+    color: #000;
+    font-weight: bolder;
+}

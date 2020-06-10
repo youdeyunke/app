@@ -1,0 +1,46 @@
+<box width="750" padding="20">
+    <view class="header">
+        <view class="title">{{ building.name }} 号楼{{ room.floor }}楼{{ room.name }}号</view>
+        <van-button plain size="mini" open-type="share" icon="good-job" type="info" round>
+            分享
+        </van-button>
+    </view>
+</box>
+<box width="750" padding="20">
+    <view class="info">
+        <view class="info-item">
+            <view class="label">楼盘名称</view>
+            <view class="value">{{post.title}}</view>
+        </view>
+        <view class="info-item">
+            <view class="label">建筑面积</view>
+            <view class="value">{{room.area}}㎡</view>
+        </view>
+        <view class="info-item">
+            <view class="label">物业类型</view>
+            <view class="value">{{post.cat.name}}</view>
+        </view>
+        <view class="info-item">
+            <view class="label">单价</view>
+            <view class="value red">{{room.average_price}}</view>
+        </view>
+        <view class="info-item">
+            <view class="label">总价</view>
+            <view class="value red">{{ room.total_price }}</view>
+        </view>
+        <view class="type-image">
+            <image mode="aspectFill" bindtap="gotoType" src="{{typeImage}}"></image>
+        </view>
+        <view class="daikuan">
+            <view>
+                首付
+                <block wx:for="{{showfuItems}}">
+                    <text class="b">{{item.n}}</text>
+                    成
+                    <text class="b" style="margin-right:20rpx;">{{item.amount}}万</text>
+                </block>
+            </view>
+            <van-button type="info" bindtap="gotoJisuan" size="mini">算房贷</van-button>
+        </view>
+    </view>
+</box>

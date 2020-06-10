@@ -1,0 +1,26 @@
+<viwe class="header">
+    <view class="title">
+        <view>{{ post.title }} 一房一价表</view>
+        <navigator class="more" url="/pkgBuilding/pages/building/index?post_id={{post.id}}">房源表</navigator>
+    </view>
+    <van-tabs animated type="line" color="#1989FA" bind:change="tabChange" sticky>
+        <van-tab wx:for="{{buildings}}" wx:for-item="b" title="{{b.name}}号楼"></van-tab>
+    </van-tabs>
+</viwe>
+<box width="750" padding="10">
+    <view class="floor-list">
+        <view class="floors">
+            <view class="floor-item" wx:for="{{floorRooms}}" wx:for-item="floor">
+                <view>{{ floor.floor }}</view>
+                <view>层</view>
+            </view>
+        </view>
+        <view class="scroll-views">
+            <scroll-view scroll-x="{{true}}" wx:for="{{floorRooms}}" wx:for-item="floor" style="width:690rpx;">
+                <view class="rooms">
+                    <room-item wx:for="{{floor.rooms}}" wx:for-item="room" room="{{room}}" />
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+</box>

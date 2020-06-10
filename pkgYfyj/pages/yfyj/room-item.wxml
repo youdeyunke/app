@@ -1,0 +1,7 @@
+<!-- pkgYfyj/pages/yfyj/room-item.wxml -->
+<navigator hover-class="none" url="/pkgYfyj/pages/yfyj/show?id={{room.id}}" class="room-item" >
+    <view class="name">{{ room.name }}</view>
+    <view class="area">{{ room.area  }}㎡</view>
+    <view class="average-price">{{ room.average_price }}</view>
+    <view class="total-price">{{room.total_price}}</view>
+</navigator>
