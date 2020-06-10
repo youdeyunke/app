@@ -1,5 +1,14 @@
 {
   "subpackages": [
+        {
+            "root": "pkgYfyj",
+            "name": "yfyj",
+            "pages": [
+                "pages/yfyj/index",
+                "pages/yfyj/show"
+            ]
+        },
+
     {
       "root": "pkgFenxiao",
       "name": "fenxiao",

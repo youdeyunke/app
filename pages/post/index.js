@@ -41,6 +41,9 @@ Page({
             case 'old':
                 title = '二手房'
                 break;
+            case 'auction':
+                title = '法拍房'
+                break;
             case 'shop':
                 title = '商铺'
                 break;
@@ -79,6 +82,14 @@ Page({
     }
 
     if(g == 'old'){
+      items = [{ name: '位置', type: 'citypicker', }, 
+        app.globalData.filterTypeItem,
+        app.globalData.filterTotalPriceItem,
+        app.globalData.filterAreaItem,
+        app.globalData.filterOrderItem2,
+      ]
+    }
+    if(g == 'auction'){
       items = [{ name: '位置', type: 'citypicker', }, 
         app.globalData.filterTypeItem,
         app.globalData.filterTotalPriceItem,

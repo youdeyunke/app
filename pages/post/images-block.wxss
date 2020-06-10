@@ -41,6 +41,7 @@
     left: calc(50% - 80rpx);
     top: calc(50% - 80rpx);
     position: absolute;
+    border:4rpx solid rgba(255,255,255,0.4);
 }
 
 .post-cover .first image.item {
