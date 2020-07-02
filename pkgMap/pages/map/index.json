@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "base-filter": "/components/base-filter",
+        "post-item": "/components/post/item"
+    }
+}
