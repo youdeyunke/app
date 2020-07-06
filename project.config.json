@@ -866,6 +866,12 @@
 					"pathName": "pages/myself/profile",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "wallet index",
+					"pathName": "pkgWallet/pages/wallet/index",
+					"scene": null
 				}
 			]
 		}

@@ -1,0 +1,7 @@
+/* pages/fenxiao/withdraw.wxss */
+
+.actions {
+    width: 710rpx;
+    margin: 20rpx;
+    auto;
+}
