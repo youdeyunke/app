@@ -7,6 +7,7 @@ page {
     font-size: 28rpx;
     color: #000;
     margin-bottom: 20rpx;
+    margin-top: 20rpx;
 }
 
 .balance {
@@ -51,8 +52,14 @@ page {
     color: #1989fa;
 }
 
-.refund {
-    font-size: 20rpx;
-    margin: 20rpx autop;
-    text-align: center;
+.actions {
+    margin: 20rpx auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24rpx;
+}
+
+.actions .refund {
+    margin-right: 20rpx;
 }

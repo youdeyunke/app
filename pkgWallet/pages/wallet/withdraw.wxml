@@ -1,15 +1,18 @@
 <mycard width="750" title="" hat="{{false}}">
-    <van-field title="提现金额" border="{{false}}" size="large" bind:change="inputChange" data-name="amount" v input-align="left" label="￥" placeholder="最多可提现金额：{{balanceInfo.amount }}" />
+    <van-field label="提现金额" border="{{false}}" bind:change="inputChange" data-name="amount" v input-align="left" placeholder="最多可提现金额：{{balanceInfo.amount }}" />
 </mycard>
-<mycard width="750" title="银行卡信息" hat="{{false}}">
-    <van-field size="large" data-name="card_info.name" v input-align="left" label="户主姓名" bind:change="inputChange" autosize />
-    <van-field size="large" data-name="card_info.bank_name" input-align="left" label="开户银行" bind:change="inputChange" autosize />
-    <van-field size="large" data-name="card_info.sub_bank_name" input-align="left" label="开户支行" bind:change="inputChange" autosize />
-    <van-field size="large" data-name="card_info.card_num" input-align="left" border="{{false}}" label="银行卡号" bind:change="inputChange" autosize />
+<mycard title-size="28" width="750" title="银行卡信息" hat="{{false}}">
+    <van-field data-name="card_info.name" v input-align="left" label="户主姓名" bind:change="inputChange" autosize />
+    <van-field data-name="card_info.bank_name" input-align="left" label="开户银行" bind:change="inputChange" autosize />
+    <van-field data-name="card_info.sub_bank_name" input-align="left" label="开户支行" bind:change="inputChange" autosize />
+    <van-field data-name="card_info.card_num" input-align="left" border="{{false}}" label="银行卡号" bind:change="inputChange" autosize />
 </mycard>
 <view class="actions">
     <van-button bindtap="submitHandle" block type="primary" disabled="{{ balanceInfo.amount < 100 }}">
         申请提现
     </van-button>
 </view>
-<flow-tips steps="{{setpsText}}" />
+<view class="tips">
+    <view class="tip-title">提现说明</view>
+    <view class="tip-desc">请正确填写银行卡信息，经管理员审核无误后，将会通过银行转账至您提供的银行卡内。</view>
+</view>

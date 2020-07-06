@@ -8,9 +8,14 @@
         </view>
         <image src="../../images/lines.png" />
     </view>
-    <navigator url="/pkgWallet/pages/wallet/withdraw" hover-class="none" class="link refund">
-        申请提现
-    </navigator>
+    <view class="actions">
+        <navigator url="/pkgWallet/pages/wallet/withdraw" hover-class="none" class="link refund">
+            申请提现
+        </navigator>
+        <navigator url="/pkgWallet/pages/wallet/recharge" hover-class="none" class="link recharge">
+            我要充值
+        </navigator>
+    </view>
 </box>
 <mycard width="710" title-size="28" title="账单明细" sub-title="共1笔">
     <block wx:for="{{items}}" wx:for-item="balances">

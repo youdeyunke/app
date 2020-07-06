@@ -5,3 +5,15 @@
     margin: 20rpx;
     auto;
 }
+
+.tips {
+    margin-top: 20rpx;
+    font-size: 24rpx;
+    color: #333;
+    width: 710rpx;
+    margin: 0 auto;
+}
+
+.tip-title {
+    margin-bottom: 10rpx;
+}
