@@ -1,6 +1,14 @@
 {
   "subpackages": [
     {
+      "root": "pkgAuction",
+      "name": "auction",
+      "pages": [
+        "pages/auction/index",
+        "pages/auction/bid"
+      ]
+    },
+    {
       "root": "pkgWallet",
       "name": "wallet",
       "pages": [

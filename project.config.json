@@ -880,6 +880,20 @@
 					"pathName": "pkgWallet/pages/wallet/recharge",
 					"query": "type=2",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pkg auction index",
+					"pathName": "pkgAuction/pages/auction/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pkgAuction/pages/auction/bid",
+					"pathName": "pkgAuction/pages/auction/bid",
+					"query": "",
+					"scene": null
 				}
 			]
 		}
