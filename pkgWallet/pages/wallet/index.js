@@ -12,6 +12,7 @@ Page({
         items: [],
         per_page: 40,
         balancesInfo: {},
+        total_items: 0,
         loading: true,
     },
 
@@ -34,7 +35,7 @@ Page({
             data: query,
             success: function (resp) {
                 var i = query['page'] - 1
-                var data = { loading: false }
+                var data = { loading: false, total_items: resp.data.total_items }
                 if (i > 0) {
                     var key = 'items[' + i + ']'
                     data[key] = resp.data.data
