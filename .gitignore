@@ -9,3 +9,4 @@ project.config.json
 *.DS_Store
 app.json
 project.config.json
+.vscode
