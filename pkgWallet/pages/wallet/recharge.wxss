@@ -21,6 +21,7 @@ page {
     color: #333;
     height: 100rpx;
     padding-bottom: 20rpx;
+    width: 535rpx;
 }
 
 .tip {
