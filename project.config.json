@@ -10,11 +10,12 @@
 		"coverView": true,
 		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": true,
+		"scopeDataCheck": false,
 		"uglifyFileName": true,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
 		"babelSetting": {
 			"ignore": [],
 			"disablePlugins": [],
@@ -26,7 +27,7 @@
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.10.0",
+	"libVersion": "2.11.3",
 	"appid": "wx175508800f405090",
 	"projectname": "%E5%86%85%E9%83%A8%E6%BC%94%E7%A4%BA%E9%A1%B9%E7%9B%AE",
 	"simulatorType": "wechat",
@@ -882,17 +883,24 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 120,
 					"name": "pkg auction index",
 					"pathName": "pkgAuction/pages/auction/index",
-					"query": "",
+					"query": "post_id=149",
+					"scene": null
+				},
+				{
+					"id": 121,
+					"name": "pkgAuction/pages/auction/bid",
+					"pathName": "pkgAuction/pages/auction/bid",
+					"query": "post_id=149",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "pkgAuction/pages/auction/bid",
 					"pathName": "pkgAuction/pages/auction/bid",
-					"query": "",
+					"query": "post_id=149",
 					"scene": null
 				}
 			]

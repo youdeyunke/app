@@ -1,0 +1,43 @@
+/* pkgAuction/pages/auction/index.wxss */
+
+page {
+    padding-top: 20rpx !important;
+}
+
+.title {
+    text-align: center;
+    font-size: 28rpx;
+    color: #000;
+    margin-bottom: 20rpx;
+    margin-top: 20rpx;
+}
+
+.amount {
+    margin: 20rpx auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.number-group {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.number-group .unit {
+    font-size: 28rpx;
+    color: #000;
+    margin-bottom: 20rpx;
+}
+
+.number-group .number {
+    font-size: 100rpx;
+    color: red;
+    margin: 0 20rpx;
+}
+
+.actions {
+    margin: 20rpx auto;
+    width: 710rpx;
+}
