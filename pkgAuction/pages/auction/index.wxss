@@ -43,6 +43,5 @@ page {
     position: fixed;
     bottom: 0;
     left: 0;
-    padding: 20rpx 20rpx;
-    width: 710rpx;
+    width: 750rpx;
 }
