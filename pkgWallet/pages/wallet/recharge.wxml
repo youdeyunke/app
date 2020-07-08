@@ -9,5 +9,5 @@
     </view>
 </mycard>
 <view class="actions">
-    <van-button block type="primary" bindtap="gotoPay">微信支付</van-button>
+    <van-button wx:if="{{showButton}}" block type="primary" bindtap="gotoPay">微信支付</van-button>
 </view>

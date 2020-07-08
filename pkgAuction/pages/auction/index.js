@@ -66,7 +66,7 @@ Page({
                 var data = {
                     loading: false,
                     currentPrice: d.current_price,
-                    triggerPrice: d.triggerPrice,
+                    triggerPrice: d.trigger_price,
                     deposit: d.deposit,
                     startsAt: _this.formatDatetime(d.starts_at),
                     endsAt: _this.formatDatetime(d.ends_at),
