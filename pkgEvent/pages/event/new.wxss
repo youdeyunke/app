@@ -45,3 +45,7 @@
     width: 24rpx;
     height: 24rpx;
 }
+
+.images-uploader {
+    margin-top: 20rpx;
+}

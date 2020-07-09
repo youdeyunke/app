@@ -1,4 +1,4 @@
-/* pages/post/events-block.wxss */
+/* components/event/item.wxss */
 
 .event {}
 
@@ -30,23 +30,29 @@
     line-height: 1.5;
 }
 
-.empty {
-    padding: 30rpx 0;
+.event .strong {
+    font-weight: bolder;
+}
+
+.event .images {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
-.more-btn {
-    height: 88rpx;
-    background: rgba(241, 245, 255, 1);
-    border-radius: 4rpx;
-    font-size: 32rpx;
-    color: #1989FA;
-    line-height: 88rpx;
-    text-align: center;
-    width: 100%;
+.event .images .image-item {
+    width: 200rpx;
+    height: 200rpx;
+    background: #f9f9f9;
+    border-radius: 10rpx;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 10rpx;
+    margin-bottom: 10rpx;
+}
+
+.event .images .image-item image {
+    width: 180rpx;
+    height: 180rpx;
 }

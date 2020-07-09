@@ -1,13 +1,9 @@
 <!-- pkgXiangce/pages/xiangce/index/media-items.wxml -->
 <view class="items">
     <view class="item" bindtap="itemClick" data-index="{{index}}" wx:for="{{items}}" wx:for-id="id">
-        <image mode="aspectFill" class="image" src="{{item.url}}" hidden="{{item.file_type != 'image'}}" />
-        <view class="video" hidden="{{item.file_type != 'video' }}">
-            <video controls="{{false}}" show-center-play-btn="{{false}}" enable-progress-gesture="{{false}}" page-gesture="{{false}}" id="myvideo" catchtap='' autoplay='{{false}}' src="{{item.url}}">
-                <cover-view class="video-cover" bindtap="itemClick" data-index="{{index}}">
-                    <cover-image class="video-cover-image" src="/pkgXiangce/images/play.png" />
-                </cover-view>
-            </video>
+        <image lazy-load="{{true}}" mode="aspectFill" class="image" src="{{item.url}}?imageView2/5/h/200/w/200" wx:if="{{item.file_type == 'image'}}" />
+        <view class="video" wx:if="{{item.file_type == 'video' && showVideo == true }}">
+            <video muted="{{true}}" controls="{{false}}" show-center-play-btn="{{true}}" enable-progress-gesture="{{false}}" page-gesture="{{false}}" id="myvideo" catchtap='' autoplay='{{false}}' src="{{item.url}}"></video>
         </view>
     </view>
 </view>

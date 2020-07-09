@@ -1,19 +1,25 @@
-
-<mycard title="动态分类" title-size="32" hat="{{false}}">
-  <view class="ecats">
-    <view bindtap="catClickHandle" data-index="{{index}}" class="cat-item {{ currentCatIndex == index ? 'active': '' }}" wx:for="{{cats}}" wx:for-item="cat">{{cat.name}}</view>
-  </view>
+<mycard title="动态分类" title-size="28" hat="{{false}}">
+    <view class="ecats">
+        <view bindtap="catClickHandle" data-index="{{index}}" class="cat-item {{ currentCatIndex == index ? 'active': '' }}" wx:for="{{cats}}" wx:for-item="cat">
+            {{cat.name}}
+        </view>
+    </view>
 </mycard>
-
-<mycard title="动态内容" title-size="32" hat="{{false}}">
+<box>
+    <van-field value="{{title}}" data-name="title" bindinput="textInput" placeholder="请输入标题" label="动态标题" />
+    <van-field value="{{pub_time}}" data-name="pub_time" bindinput="textInput" placeholder="请输入日期和时间" label="发布时间" />
+    <van-field disabled="{{true}}" value="{{author}}" data-name="author" label="动态作者" />
+</box>
+<mycard title="动态内容" title-size="28" hat="{{false}}">
     <mytextarea bind:input="contentHandle" value="{{content}}" max-length="300" />
+    <view class="images-uploader">
+        <images-uploader bind:success="imagesHandle" max="10" images-str="{{images}}" bind:change="imagesHandle" />
+    </view>
     <view class="confirm" bindtap="pushHandle">
         <checkbox checked="{{push}}" />
         <text>向已订阅楼盘动态的客户发送短信通知</text>
     </view>
-
     <van-button type="info" bindtap="submitHandle" block loading="{{loading}}">确定发布</van-button>
-
     <view class="blank"></view>
     <van-button bindtap="cancleHandle" type="default" block plain>取消</van-button>
 </mycard>

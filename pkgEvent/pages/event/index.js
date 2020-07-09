@@ -52,14 +52,20 @@ Page({
             url: '/api/v1/events',
             data: query,
             success: function (resp) {
+                var post = resp.data.data.post
                 _this.setData({
                     loading: false,
                     items: resp.data.data.items,
-                    post: resp.data.data.post,
+                    post: post,
                     broker: resp.data.data.broker,
                     user: app.globalData.userInfo,
                     cats: resp.data.data.cats,
                 })
+                var title = '聪屋选房-' + post.title + '的楼盘动态'
+                wx.setNavigationBarTitle({
+                    title: title,
+                });
+
             }
         })
     },
@@ -203,11 +209,11 @@ Page({
      */
     onShareAppMessage: function () {
         var _this = this
-        var title = this.data.post.title + '的动态'
+        var title = this.data.post.title + '的动态更新啦，快点击查看'
         var image = this.data.post.cover
         return {
             title: title,
-            path: 'pkgBuilding/pages/event/index?id=' + _this.data.postId,
+            path: 'pkgEvent/pages/event/index?id=' + _this.data.postId,
             imageUrl: image
         }
 

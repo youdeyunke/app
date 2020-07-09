@@ -12,7 +12,15 @@ Component({
      * 组件的初始数据
      */
     data: {
+        showVideo: false,
+        mark: 'watermark/4/text/6IGq5bGL6YCJ5oi_/font/5a6L5L2T/fontsize/500/fill/Z3JheQ==/dissolve/50/rotate/-45/uw/100/uh/100/resize/1'
+    },
 
+    ready: function () {
+        var _this = this
+        setTimeout(() => {
+            _this.setData({ showVideo: true })
+        }, 500)
     },
 
     /**
@@ -20,8 +28,9 @@ Component({
      */
     methods: {
         viewImage: function (item) {
-            var url = item.url
-            var urls = this.data.items.map((m, i) => { return m.url })
+            var _this = this
+            var url = item.url + '?' + this.data.mark
+            var urls = this.data.items.map((m, i) => { return m.url + '?' + _this.data.mark })
             wx.previewImage({
                 current: url,
                 urls: urls,
@@ -31,6 +40,7 @@ Component({
             var _this = this
             var index = e.currentTarget.dataset.index
             var item = this.data.items[index]
+            console.log('index is', index, 'item is', item, 'items sis', this.data.items)
             switch (item.file_type) {
                 case 'image':
                     _this.viewImage(item)

@@ -1,12 +1,6 @@
-<!--pages/post/events-block.wxml-->
-
-<mycard sub-title="{{value.more_title}}"  url="{{value.more_url}}" hat="{{false}}" title-size="32" title="{{value.title || '楼盘动态'}}"  sub-title="查看全部动态">
+<!-- pages/post/events-block.wxml -->
+<mycard sub-title="{{value.more_title}}" url="{{value.more_url}}" hat="{{false}}" title-size="28" title="{{value.title || '楼盘动态'}}" sub-title="查看全部动态">
     <view class="empty" wx:if="{{events.length == 0}}">没有动态</view>
-    <view class="event" wx:key="id" wx:for="{{events}}" wx:for-item="event" >
-      <view class="title">
-         <view class="circle"></view>
-         <view class="time">{{event.created_at}}</view>
-      </view>
-      <view class="content">{{event.content}}</view>
-    </view>
+    <event wx:if="{{event && event.id}}" event="{{event}}"></event>
+    <navigator class="more-btn" hover-class="none" url="{{value.more_url}}">查看更多楼盘动态</navigator>
 </mycard>

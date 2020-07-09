@@ -1,29 +1,20 @@
 <box padding="30">
-  <view class="ecats">
-    <view bindtap="catClickHandle" data-index="{{index}}" class="cat-item {{ currentCatIndex == index ? 'active': '' }}" wx:for="{{cats}}" wx:for-item="cat">{{cat.name}}({{cat.count}})</view>
-  </view>
+    <view class="ecats">
+        <view bindtap="catClickHandle" data-index="{{index}}" class="cat-item {{ currentCatIndex == index ? 'active': '' }}" wx:for="{{cats}}" wx:for-item="cat">
+            {{cat.name}}({{cat.count}})
+        </view>
+    </view>
 </box>
-
 <box padding="30" wx:if="{{items.length >0 && !loading}}">
     <view class="tips" bindtap="tipsHandle">
         <van-icon name="/assets/icons/safe-tips-icon.png" />
         <text>楼盘资讯</text>
         <text class="b">免责声明</text>
     </view>
-    <view wx:key="id" class="event" wx:for="{{items}}" wx:for-item="event" >
-      <view class="title">
-         <view class="circle"></view>
-         <view class="time">{{event.created_at_pretty}}
-          <van-button wx:if="{{user.id == broker.id }}" plain round data-id="{{event.id}}" bindtap="deleteHandle" size="mini" icon="delete" type="danger" />
-         </view>
-      </view>
-      <view class="content">{{event.content}}</view>
-    </view>
+    <event event="{{event}}" can-delete="{{user.id == broker.id}}" wx:key="id" class="event" wx:for="{{items}}" wx:for-item="event"></event>
 </box>
-
 <no-result wx:if="{{!loading && items.length == 0}}" />
-
 <view class="footer">
-    <van-button bindtap="chatHandle" icon="chat-o" type="primary" block >在线咨询</van-button>
-    <van-button bindtap="callHandle" icon="phone-o" type="info" block >电话咨询</van-button>
+    <van-button bindtap="chatHandle" icon="chat-o" type="primary" block>在线咨询</van-button>
+    <van-button bindtap="callHandle" icon="phone-o" type="info" block>电话咨询</van-button>
 </view>

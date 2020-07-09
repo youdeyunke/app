@@ -1,4 +1,6 @@
 {
-  "component": true,
-  "usingComponents": {}
+    "component": true,
+    "usingComponents": {
+        "event": "/components/event/item"
+    }
 }

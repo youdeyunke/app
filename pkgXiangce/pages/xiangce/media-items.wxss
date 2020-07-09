@@ -8,20 +8,21 @@
 }
 
 .items .item {
-    width: 220rpx;
-    height: 220rpx;
-    padding: 10rpx;
+    width: 150rpx;
+    height: 150rpx;
     box-sizing: border-box;
-    margin: 10rpx;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    margin-left: 12px;
+    margin-bottom: 8px;
+    margin-right: 12rpx;
 }
 
 .items .item .video-cover, .items .item video, .items .item .image {
-    width: 200rpx;
-    height: 200rpx;
+    width: 170rpx;
+    height: 170rpx;
     display: flex;
     justify-content: center;
     align-items: center;
