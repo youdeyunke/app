@@ -867,6 +867,13 @@
 					"pathName": "pages/myself/profile",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pkg map",
+					"pathName": "pkgMap/pages/map/index",
+					"query": "id=149",
+					"scene": null
 				}
 			]
 		}

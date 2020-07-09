@@ -1,0 +1,20 @@
+<view class="map-view" style="width: 100%; height:100%;z-index:100;">
+    <view class="filter">
+        <base-filter configs="{{filterConfigs}}" bind:change="filterChange" />
+    </view>
+    <map id="map" enable-zoom longitude="{{center.longitude}}" show-scale="true" bindpoitap="poiHandle" latitude="{{center.latitude}}" scale="{{scale}}" markers="{{markers}}" bindcallouttap="markertap" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" style="width: 100%; height:100%;">
+        <cover-view class="groups shadow" hidden="{{!tabShow}}">
+            <cover-view data-group="{{item.value}}" bindtap="groupClick" class="group-item {{currentPostGroup == item.value ? 'active' : '' }}" wx:for="{{groupItems}}" wx:key="item.id" data-index="{{index}}">
+                {{item.name}}
+            </cover-view>
+        </cover-view>
+        <cover-view wx:if="{{level != 'city'}}" bindtap="upLevel" class="back">回到上级</cover-view>
+        <cover-view wx:if="{{loading}}" class="loading shadow">正在加载...</cover-view>
+        <cover-image class="center-point" src="/assets/icons/center-point.png"></cover-image>
+    </map>
+</view>
+<van-popup show="{{ popState == 1 }}" z-index="999" position="bottom" overlay="{{ false }}" bind:close="popClose" closeable>
+    <view class="result-view">
+        <post-item wx:if="{{post}}" item="{{post}}" border="false" />
+    </view>
+</van-popup>
