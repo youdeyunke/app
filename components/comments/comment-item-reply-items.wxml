@@ -1,0 +1,6 @@
+<view class="reply-items" wx:if="{{show}}">
+    <view class="reply-item" wx:for="{{items}}" wx:key="id">
+        <text class="author">{{item.user.name}}:</text>
+        <text class="content">{{ item.content }}</text>
+    </view>
+</view>

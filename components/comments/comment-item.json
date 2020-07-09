@@ -1,6 +1,6 @@
 {
-  "component": true,
-  "usingComponents": {
-      "comment-item": "/components/comments/comment-item"
-  }
+    "component": true,
+    "usingComponents": {
+        "reply-items": "/components/comments/comment-item-reply-items"
+    }
 }

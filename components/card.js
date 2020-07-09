@@ -5,7 +5,6 @@ Component({
      */
     properties: {
         padding: { type: Boolean, value: true, },
-        titleSize: { type: Number, value: '38' },
         bodySize: { type: Number, value: '28' },
 
         width: { type: Number, value: 750, },
@@ -21,6 +20,7 @@ Component({
      * 组件的初始数据
      */
     data: {
+        titleSize: '28'
     },
 
     /**

@@ -1,69 +1,15 @@
-<mycard
- title="{{ value.title }}"
- hat="{{false}}"
- title-size="32"
- sub-title="{{ value.more_title }}"
- url="{{value.more_url}}"
->
-	<view class="tags" wx:if="{{scopes.length}}">
-		<navigator
-		 wx:for="{{scopes}}"
-		 wx:key="scope"
-		 wx:for-item="scope"
-		 url="/pkgComment/pages/comment/index?target_type=post&target_id={{value.post_id}}&scope={{scope.scope}}"
-		 hover-class="none"
-		 class="tag-item"
-		>{{scope.name}}({{scope.count}})
-		</navigator>
-	</view>
-
-	<view class="comments" wx:if="{{value.items.length}}">
-		<navigator
-		 wx:for="{{value.items}}"
-		 wx:key="id"
-		 class="comment-item"
-		 hover-class="none"
-		 url="/pkgComment/pages/comment/show?id={{item.id}}"
-		>
-			<view class="comment-header">
-				<view class="avatar">
-					<image src="{{item.user.avatar}}" lazy-load="true" />
-				</view>
-				<view class="title">
-					<view class="name">
-						{{ item.user.name || item.user.nickname }}
-						<van-tag type="warning" wx:if="{{item.cat == 1}}">实看用户</van-tag>
-					</view>
-					<view class="stars">
-						<van-rate
-						 value="{{item.score}}"
-						 size="10"
-						 readonly="{{true}}"
-						 void-color="#eee"
-						 void-icon="star"
-						/>
-					</view>
-				</view>
-			</view>
-
-			<view class="comment-content">{{item.content}}</view>
-			<view wx:if="{{images && item.images_list.length > 0}}" class="comment-images">
-				<image
-				 bindtap="viewImage"
-				 data-index="{{index}}"
-				 wx:for="{{item.images_list}}"
-				 src="{{item}}?viewImage2/2/w/200/h200"
-				/>
-			</view>
-		</navigator>
-
-	</view>
+<mycard title="楼盘评论({{value.total_count}})" hat="{{false}}" title-size="28" sub-title="{{ value.more_title }}" url="{{value.more_url}}">
+    <view class="tags" wx:if="{{scopes.length}}">
+        <navigator wx:for="{{scopes}}" wx:key="scope" wx:for-item="scope" url="/pkgComment/pages/comment/index?target_type=post&target_id={{value.post_id}}&scope={{scope.scope}}" hover-class="none" class="tag-item">
+            {{scope.name}}({{scope.count}})
+        </navigator>
+    </view>
+    <view class="comments" wx:if="{{value.items.length}}">
+        <comment-item wx:for="{{value.items}}" item="{{item}}"></comment-item>
+    </view>
     <view class="empty" wx:else>还没有收到评论</view>
-
-	<navigator class="add-btn" hover-class="none" url="/pkgComment/pages/comment/new?target_id={{value.post_id}}&target_type=post">
-		<van-icon name="edit" size="32rpx" color="#1989FA" />
-		写评论
-	</navigator>
-
+    <navigator class="add-btn" hover-class="none" url="/pkgComment/pages/comment/new?target_id={{value.post_id}}&target_type=post">
+        <van-icon name="edit" size="32rpx" color="#1989FA" />
+        写评论
+    </navigator>
 </mycard>
-

@@ -6,33 +6,33 @@
     flex-wrap: wrap;
 }
 
-.add-btn{
-  height:88rpx;
-  background:rgba(241,245,255,1);
-  border-radius:4rpx;
-  font-size:32rpx;
-  color:#1989FA;
-  line-height: 88rpx;
-  text-align: center;
-  width:100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.add-btn {
+    height: 88rpx;
+    background: rgba(241, 245, 255, 1);
+    border-radius: 4rpx;
+    font-size: 32rpx;
+    color: #1989FA;
+    line-height: 88rpx;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.add-btn van-icon{
-    margin-right:6rpx;
+.add-btn van-icon {
+    margin-right: 6rpx;
 }
 
 .tag-item {
     height: 52rpx;
-    background:#f4f4f4;
+    background: #f4f4f4;
     border-radius: 52rpx;
     padding: 0 20rpx;
     text-align: center;
     line-height: 52rpx;
     margin-right: 20rpx;
-    margin-bottom:10rpx;
+    margin-bottom: 10rpx;
     font-size: 24rpx;
     color: #333333;
 }
@@ -73,6 +73,7 @@
 
 .comment-content {
     font-size: 26rpx;
+    padding-left: 70rpx;
     color: #000000;
     line-height: 1.5;
 }
@@ -82,8 +83,8 @@
     padding-bottom: 20rpx;
 }
 
-.empty{
-    padding:30rpx 0;
+.empty {
+    padding: 30rpx 0;
     display: flex;
     justify-content: center;
     align-items: center;

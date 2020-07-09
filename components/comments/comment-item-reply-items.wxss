@@ -1,0 +1,25 @@
+/* components/comments/comment-item-reply-items.wxss */
+
+.reply-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: #f9f9f9;
+    padding: 20rpx;
+    border-radius: 6rpx;
+    margin-bottom: 20rpx;
+}
+
+.reply-item {
+    font-size: 24rpx;
+}
+
+.author {
+    color: #999;
+    margin-right: 10rpx;
+}
+
+.content {
+    color: #333;
+}

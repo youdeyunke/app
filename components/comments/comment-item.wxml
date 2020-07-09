@@ -1,49 +1,43 @@
-<!--components/comments/comment-item.wxml-->
-    <view class="comment-item {{ border == true ? 'border' : 'border-none' }}" >
-        <view class="comment-header" bindtap="gotoDetail">
-            <view class="avatar">
-                <image src="{{item.user.avatar}}?imageView2/2/w/100" lazy-load="{{true}}" />
+<!-- components/comments/comment-item.wxml -->
+<view class="comment-item {{ border == true ? 'border' : 'border-none' }}">
+    <view class="comment-header" bindtap="gotoDetail">
+        <view class="avatar">
+            <image src="{{item.user.avatar}}?imageView2/2/w/100" lazy-load="{{true}}" />
+        </view>
+        <view class="title">
+            <view class="name">
+                {{ item.user.name || item.user.nickname }}
+                <van-tag type="warning" wx:if="{{item.cat == 1}}">实看用户</van-tag>
             </view>
-            <view class="title">
-                <view class="name">
-                    {{ item.user.name || item.user.nickname }}
-                    <van-tag type="warning" wx:if="{{item.cat == 1}}">实看用户</van-tag>
-                </view>
-                <view class="stars" wx:if="{{showStars}}">
-                    <van-rate
-                        value="{{item.score}}"
-                        size="10"
-                        readonly="{{true}}"
-                        void-color="#eee"
-                        void-icon="star"
-                    />
-                </view>
-            </view>
-
-        </view>
-        <view bindtap="gotoDetail" class="comment-content">
-        <text bindtap="gotoAtUser" wx:if="{{item.at_user}}" class="at">@{{item.at_user.name}}</text>
-        {{item.content}}
-        </view>
-        
-        <view wx:if="{{images && item.images_list.length > 0}}" class="comment-images">
-           <image lazy-load="{{true}}" bindtap="previewHandle" data-index="{{index}}" wx:for="{{item.images_list}}" src="{{item}}?imageView2/5/w/200" /> 
-        </view>
-
-        <view class="comment-footer">
-            <view bindtap="gotoDetail" class="time">{{ item.created_at }}</view>
-            <view class="nums">
-                <view class="reply-nums" bindtap="replyClickHandle">
-                    <block wx:if="{{showReplyBtn}}">
-                        回复
-                    </block>
-                    <block wx:else>
-                        <van-button size="mini" type="default" round plain icon="chat-o" >{{item.reply_nums}}</van-button>
-                    </block>
-                </view>
-                <view class="like-nums" bindtap="likeHandle" >
-                    <van-button round size="mini" type="default" icon="{{  liked ? 'good-job' : 'good-job-o' }}" >{{likeNums}}</van-button>
-                </view>
+            <view class="stars" wx:if="{{showStars}}">
+                <van-rate value="{{item.score}}" size="10" readonly="{{true}}" void-color="#eee" void-icon="star" />
             </view>
         </view>
     </view>
+    <view bindtap="gotoDetail" class="comment-content">
+        <text bindtap="gotoAtUser" wx:if="{{item.at_user}}" class="at">@{{item.at_user.name}}</text>
+        {{item.content}}
+    </view>
+    <view wx:if="{{images && item.images_list.length > 0}}" class="comment-images">
+        <image lazy-load="{{true}}" bindtap="previewHandle" data-index="{{index}}" wx:for="{{item.images_list}}" src="{{item}}?imageView2/5/w/200" />
+    </view>
+    <reply-items items="{{item.reply_items}}"></reply-items>
+    <view class="comment-footer">
+        <view bindtap="gotoDetail" class="time">{{ item.created_at }}</view>
+        <view class="nums">
+            <view class="reply-nums" bindtap="replyClickHandle">
+                <block wx:if="{{showReplyBtn}}">回复</block>
+                <block wx:else>
+                    <van-button size="mini" type="default" round plain icon="chat-o">
+                        {{item.reply_nums}}
+                    </van-button>
+                </block>
+            </view>
+            <view class="like-nums" bindtap="likeHandle">
+                <van-button round size="mini" type="default" icon="{{  liked ? 'good-job' : 'good-job-o' }}">
+                    {{likeNums}}
+                </van-button>
+            </view>
+        </view>
+    </view>
+</view>

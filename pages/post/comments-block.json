@@ -2,6 +2,7 @@
     "component": true,
     "usingComponents": {
         "comment-item": "/components/comments/comment-item",
+        "comment-top": "/components/comments/comment-top",
         "van-rate": "/vant/rate/index"
     }
 }

@@ -135,11 +135,14 @@ Page({
         app.request({
             url: '/api/v1/mycomments/' + _this.data.cid,
             success: function (resp) {
+                var item = resp.data.data.item
+                var reply_items = item.reply_items
+                item.reply_items = []
                 _this.setData({
                     loading: false,
-                    item: resp.data.data.item,
+                    item: item,
                     likeNums: resp.data.data.item.like_nums,
-                    reply_items: resp.data.data.reply_items
+                    reply_items: reply_items
                 })
 
             }
