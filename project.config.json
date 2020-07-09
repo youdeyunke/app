@@ -368,7 +368,7 @@
 					"id": 46,
 					"name": "post show",
 					"pathName": "pages/post/post",
-					"query": "id=149",
+					"query": "id=100",
 					"scene": null
 				},
 				{
