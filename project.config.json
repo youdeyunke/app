@@ -869,8 +869,8 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pkg map",
+					"id": 118,
+					"name": "pkgMap/pages/map/index",
 					"pathName": "pkgMap/pages/map/index",
 					"query": "id=149",
 					"scene": null

@@ -61,7 +61,7 @@ Page({
                     user: app.globalData.userInfo,
                     cats: resp.data.data.cats,
                 })
-                var title = '聪屋选房-' + post.title + '的楼盘动态'
+                var title = post.title + '的楼盘动态'
                 wx.setNavigationBarTitle({
                     title: title,
                 });

@@ -16,11 +16,13 @@ Page({
      * 页面的初始数据
      */
     data: {
-        level: 'district',
-        cityId: 1,
+        level: 'city',
+        cityId: null,
         scale: 8,
         map: null,
-        filter: {},
+        filter: {
+            group: 'new',
+        },
         filterConfigs: [],
         districtId: null,
         subDistrictId: null,
@@ -118,7 +120,10 @@ Page({
 
     initMap: function (group) {
         // 初始化，第一次进入地图时候
-        this.loadMarkers('district')
+        var filter = this.data.filter
+        filter.group = group
+        this.setData({ filter: filter })
+        this.loadMarkers('city')
     },
 
     renderMarkers: function (markers) {
@@ -208,6 +213,7 @@ Page({
         // merge filter
 
         var _this = this
+        console.log('load markers with data', data)
         app.request({
             url: '/api/v1/map_markers',
             method: 'POST',
@@ -357,16 +363,8 @@ Page({
         var g = e.currentTarget.dataset.group
         this.setData({ currentPostGroup: g })
         this.popClose()
-        this.loadSubs()
     },
 
-    poiHandle: function (e) {
-        // 点击位置点，更新中心点
-
-        var p = e.detail
-        // 将位置移动到中心
-        //this.moveTo(p.latitude, p.longitude)
-    },
 
     moveTo: function (latitude, longitude) {
         this.setData({ center: { longitude: longitude, latitude: latitude } })
