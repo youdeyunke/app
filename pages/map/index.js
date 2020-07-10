@@ -122,6 +122,7 @@ Page({
         var _this = this
         // 标记点时候，将中心点也标记上
         var query = {
+            group: group,
             region_latitude: latitude,
             region_longitude: longitude,
         }
@@ -164,35 +165,7 @@ Page({
                     textAlign: 'center',
                 }
             }
-            switch (group) {
-                case 'old':
-                    if (sub.old_nums > 0) {
-                        var t = ' | ' + sub.old_nums + '套'
-                        marker.callout.content += t
-                        markers.push(marker)
-                    }
-                    break;
-                case 'shop':
-                    if (sub.shop_nums > 0) {
-                        var t = ' | ' + sub.shop_nums + '套'
-                        marker.callout.content += t
-                        markers.push(marker)
-                    }
-                    break;
-
-                case 'rental':
-                    if (sub.rental_nums > 0) {
-                        var t = ' | ' + sub.rental_nums + '套'
-                        marker.callout.content += t
-                        markers.push(marker)
-                    }
-                    break;
-                case 'new':
-                    if (sub.new_nums > 0) {
-                        markers.push(marker)
-                    }
-                    break;
-            }
+            markers.push(marker)
         })
         console.log('markers is', markers)
         this.setData({ markers: markers })
