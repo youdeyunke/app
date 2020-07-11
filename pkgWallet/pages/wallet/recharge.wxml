@@ -1,0 +1,13 @@
+<mycard title="充值" title-size="28" width="710">
+    <view class="amount-block">
+        <view class="unit">￥</view>
+        <input bind:input="amountInput" class="amount-input" type="number" value="{{amount}}" data-name="amount"></input>
+    </view>
+    <view class="tip">
+        <view class="tip-title">充值说明</view>
+        <view class="tip-desc">这里是充值说明</view>
+    </view>
+</mycard>
+<view class="actions">
+    <van-button wx:if="{{showButton}}" block type="primary" bindtap="gotoPay">微信支付</van-button>
+</view>

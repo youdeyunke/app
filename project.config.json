@@ -23,7 +23,7 @@
 		},
 		"bundle": true,
 		"useIsolateContext": true,
-		"useCompilerModule": false,
+		"useCompilerModule": true,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -869,10 +869,45 @@
 					"scene": null
 				},
 				{
+<<<<<<< HEAD
 					"id": 118,
 					"name": "pkgMap/pages/map/index",
 					"pathName": "pkgMap/pages/map/index",
 					"query": "id=149",
+=======
+					"id": -1,
+					"name": "wallet index",
+					"pathName": "pkgWallet/pages/wallet/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "wallet recharge",
+					"pathName": "pkgWallet/pages/wallet/recharge",
+					"query": "type=2",
+					"scene": null
+				},
+				{
+					"id": 120,
+					"name": "pkg auction index",
+					"pathName": "pkgAuction/pages/auction/index",
+					"query": "post_id=149",
+					"scene": null
+				},
+				{
+					"id": 121,
+					"name": "pkgAuction/pages/auction/bid",
+					"pathName": "pkgAuction/pages/auction/bid",
+					"query": "post_id=149",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pkgAuction/pages/auction/bid",
+					"pathName": "pkgAuction/pages/auction/bid",
+					"query": "post_id=149",
+>>>>>>> dev-paimai
 					"scene": null
 				}
 			]

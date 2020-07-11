@@ -1,0 +1,39 @@
+page {
+    padding-top: 20rpx !important;
+}
+
+.amount-block {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    border-bottom: 2rpx solid #f4f4f4;
+    margin-bottom: 20rpx;
+}
+
+.amount-block .unit {
+    font-size: 28rpx;
+    color: #000;
+    margin-right: 20rpx;
+}
+
+.amount-block .amount-input {
+    font-size: 100rpx;
+    color: #333;
+    height: 100rpx;
+    padding-bottom: 20rpx;
+    width: 505rpx;
+}
+
+.tip {
+    font-size: 24rpx;
+    color: #666;
+}
+
+.tip-title {
+    margin-bottom: 10rpx;
+}
+
+.actions {
+    width: 710rpx;
+    margin: 20rpx auto;
+}

@@ -1,0 +1,65 @@
+page {
+    padding-top: 20rpx !important;
+}
+
+.title {
+    text-align: center;
+    font-size: 28rpx;
+    color: #000;
+    margin-bottom: 20rpx;
+    margin-top: 20rpx;
+}
+
+.balance {
+    width: 560rpx;
+    height: 140rpx;
+    position: relative;
+    margin: 20rpx auto;
+}
+
+.balance image {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    width: 560rpx;
+    height: 140rpx;
+}
+
+.balance .number-group {
+    width: 560rpx;
+    height: 140rpx;
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.number-group .unit {
+    font-size: 28rpx;
+    color: #000;
+    margin-top: 20rpx;
+}
+
+.number-group .number {
+    font-size: 100rpx;
+    color: #333;
+}
+
+.link {
+    color: #1989fa;
+}
+
+.actions {
+    margin: 20rpx auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24rpx;
+}
+
+.actions .refund {
+    margin-right: 20rpx;
+}

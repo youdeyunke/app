@@ -1,38 +1,18 @@
-// pages/need/roommate-show.js
-const app = getApp()
-
+// pkgWallet/pages/wallet/show.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    item: {},
-    id: null,
 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (q) {
-    this.setData({id: q.id})
-    this.loadData()
+  onLoad: function (options) {
 
-  },
-
-  loadData: function(){
-    var _this = this
-    app.request({
-      url: '/api/v2/roommates/' +  _this.data.id,
-      success: function(resp){
-        if(resp.data.status == 0){
-          _this.setData({
-            item: resp.data.data
-          })
-        }
-      }
-    })
   },
 
   /**

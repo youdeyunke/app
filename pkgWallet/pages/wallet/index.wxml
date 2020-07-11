@@ -1,0 +1,27 @@
+<!-- pkgWallet/pages/wallet/index.wxml -->
+<box width="710" padding="20">
+    <view class="title">我的钱包余额</view>
+    <view class="balance">
+        <view class="number-group">
+            <view class="unit">￥</view>
+            <view class="number">{{ balanceInfo.amount || 0}}</view>
+        </view>
+        <image src="../../images/lines.png" />
+    </view>
+    <view class="actions">
+        <navigator url="/pkgWallet/pages/wallet/withdraw" hover-class="none" class="link refund">
+            申请提现
+        </navigator>
+        <navigator url="/pkgWallet/pages/wallet/recharge" hover-class="none" class="link recharge">
+            我要充值
+        </navigator>
+    </view>
+</box>
+<mycard width="710" title-size="28" title="账单明细" sub-title="共{{total_items}}笔">
+    <block wx:for="{{items}}" wx:for-item="balances">
+        <van-cell wx:for="{{balances}}" wx:for-key="item.id" label="{{ item.created_at_pretty }}" size="large" hover-class="none" title="{{item.name}} " value="￥{{item.amount || 0 }}" />
+    </block>
+    <view style="display:flex;justify-content:center;align-items:center;">
+        <van-loading wx:if="{{loading}}" />
+    </view>
+</mycard>

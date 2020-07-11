@@ -1,8 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "box": "/components/box",
-    "broker": "/components/broker",
-    "howlong": "/components/howlong"
-  }
-}

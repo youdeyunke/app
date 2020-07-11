@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "need-roommate": "/components/need-roommate",
-    "add-new": "/components/add-new",
-    "box": "/components/box"
-  }
-}

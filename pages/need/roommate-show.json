@@ -1,9 +1,0 @@
-{
-  "usingComponents": {
-    "need-roommate": "/components/need-roommate",
-    "add-new": "/components/add-new",
-    "safe-tips": "/components/safe-tips",
-    "broker": "/components/broker",
-    "box": "/components/box"
-  }
-}
