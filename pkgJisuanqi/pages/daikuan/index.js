@@ -13,9 +13,9 @@ Page({
         loanType: '1',
         startDate: undefined,
 
-        lprRate: '',
-        lprBase: '', // lpr基点
-        lprValue: '', // 计算基点之后的lpr值
+        lprRate: 4.65,
+        lprBase: 0, // lpr基点
+        lprValue: 4.65, // 计算基点之后的lpr值
 
         actionsBottom: 20,
         businessTotalLoanStr: '',

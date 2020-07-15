@@ -5,8 +5,8 @@
     </van-tabs>
 </box>
 <box padding="0">
-    <van-field placeholder="单位：万元" title-width="120" focus="{{businessFocus}}" bind:focus="inputFocus" bind:blur="inputBlur" size="large" wx:if="{{loanType == 1 || loanType == 3}}" input-align="right" label="商业贷款总额" bindinput="businessTotalLoanInput" value="{{businessTotalLoanStr}}" />
-    <van-field placeholder="单位：万元" title-width="120" focus="{{gjjFocus}}" bind:focus="inputFocus" bind:blur="inputBlur" size="large" wx:if="{{loanType == 2 || loanType == 3 }}" input-align="right" label="公积金贷款总额" bindinput="gjjTotalLoanInput" value="{{gjjTotalLoanStr}}" />
+    <van-field type="number" placeholder="单位：万元" title-width="120" focus="{{businessFocus}}" bind:focus="inputFocus" bind:blur="inputBlur" size="large" wx:if="{{loanType == 1 || loanType == 3}}" input-align="right" label="商业贷款总额" bindinput="businessTotalLoanInput" value="{{businessTotalLoanStr}}" />
+    <van-field type="number" placeholder="单位：万元" title-width="120" focus="{{gjjFocus}}" bind:focus="inputFocus" bind:blur="inputBlur" size="large" wx:if="{{loanType == 2 || loanType == 3 }}" input-align="right" label="公积金贷款总额" bindinput="gjjTotalLoanInput" value="{{gjjTotalLoanStr}}" />
 </box>
 <box padding="0">
     <picker mode="selector" range="{{paymentMethodArr}}" value="{{paymentMethodIndex}}" bindchange="paymentMethodchange" range-key="text">
@@ -26,17 +26,20 @@
     </picker>
 </box>
 <box>
-    <van-field placeholder="央行公布的当月LPR" title-width="120" focus="{{lprRateFocus}}" bind:focus="inputFocus" bind:blur="inputBlur" size="large" wx:if="{{loanType == 1 || loanType == 3}}" input-align="right" label="最新LPR" bindinput="lprRateInput" value="{{lprRate}}" />
-    <van-field placeholder="加点" title-width="120" focus="{{lprBaseFocus}}" bind:focus="inputFocus" bind:blur="inputBlur" size="large" wx:if="{{loanType == 1 || loanType == 3}}" input-align="right" label="加点数" bindinput="lprBaseInput" value="{{lprBase}}" />
+    <van-field type="number" placeholder="央行公布的当月LPR" title-width="120" focus="{{lprRateFocus}}" bind:focus="inputFocus" bind:blur="inputBlur" size="large" wx:if="{{loanType == 1 || loanType == 3}}" input-align="right" label="最新LPR" bindinput="lprRateInput" value="{{lprRate}}" />
+    <van-field type="number" placeholder="加点" title-width="120" focus="{{lprBaseFocus}}" bind:focus="inputFocus" bind:blur="inputBlur" size="large" wx:if="{{loanType == 1 || loanType == 3}}" input-align="right" label="加点数" bindinput="lprBaseInput" value="{{lprBase}}" />
     <van-field disabled="{{true}}" placeholder="贷款利率" title-width="120" size="large" wx:if="{{loanType == 1 || loanType == 3}}" input-align="right" label="贷款利率" value="{{lprValue}}" />
 </box>
 <view class="tips" bindtap="tipsToggleHandle">
     <van-icon name="question-o"></van-icon>
     什么是LPR？
 </view>
-<van-popup show="{{ showTips }}" round bind:close="tipsToggleHandle" closeable custom-style="padding-top:60rpx;padding-bottom:60rpx;">
+<van-popup show="{{ showTips }}" round bind:close="tipsToggleHandle" closeable custom-style="padding-top:60rpx;padding-bottom:10rpx;">
     <view class="tips-content">
         LPR全称贷款市场报价利率，自2019年10月8日起，新发放商业性个人住房贷款利率以最近一个月相应期限的LPR为定价基准加点形成。每月20日（遇节假日顺延），央行会公布最近一个月期限的LPR数值，公众可在央行网站查询。
+        <view style="margin-top:20rpx;">
+            <van-button bindtap="tipsToggleHandle" type="default" block plain round>知道了</van-button>
+        </view>
     </view>
 </van-popup>
 <view class="actions">

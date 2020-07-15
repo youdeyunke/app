@@ -15,6 +15,7 @@
     margin-top: 20rpx;
     font-size: 24rpx;
     color: #999;
+    vertical-align: middle;
 }
 
 .tips-content {
