@@ -1,5 +1,8 @@
 {
-	"description": "项目配置文件。",
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
 	"setting": {
 		"urlCheck": true,
 		"es6": false,
@@ -23,15 +26,20 @@
 		},
 		"bundle": true,
 		"useIsolateContext": true,
-		"useCompilerModule": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.11.3",
 	"appid": "wx175508800f405090",
 	"projectname": "%E5%86%85%E9%83%A8%E6%BC%94%E7%A4%BA%E9%A1%B9%E7%9B%AE",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "",
+	"watchOptions": {
+		"ignore": []
+	},
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
 	"scripts": {
 		"beforeCompile": "",
 		"beforePreview": "",
@@ -51,7 +59,6 @@
 			"list": []
 		},
 		"game": {
-			"current": -1,
 			"list": []
 		},
 		"gamePlugin": {
@@ -59,7 +66,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": -1,
 			"list": [
 				{
 					"id": 0,
@@ -869,45 +876,16 @@
 					"scene": null
 				},
 				{
-<<<<<<< HEAD
 					"id": 118,
 					"name": "pkgMap/pages/map/index",
 					"pathName": "pkgMap/pages/map/index",
 					"query": "id=149",
-=======
-					"id": -1,
-					"name": "wallet index",
-					"pathName": "pkgWallet/pages/wallet/index",
-					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "wallet recharge",
-					"pathName": "pkgWallet/pages/wallet/recharge",
-					"query": "type=2",
-					"scene": null
-				},
-				{
-					"id": 120,
-					"name": "pkg auction index",
-					"pathName": "pkgAuction/pages/auction/index",
-					"query": "post_id=149",
-					"scene": null
-				},
-				{
-					"id": 121,
-					"name": "pkgAuction/pages/auction/bid",
-					"pathName": "pkgAuction/pages/auction/bid",
-					"query": "post_id=149",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pkgAuction/pages/auction/bid",
-					"pathName": "pkgAuction/pages/auction/bid",
-					"query": "post_id=149",
->>>>>>> dev-paimai
+					"name": "daikuan",
+					"pathName": "pkgJisuanqi/pages/daikuan/index",
 					"scene": null
 				}
 			]

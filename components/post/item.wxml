@@ -1,18 +1,19 @@
-  <navigator hover-class="none" class="post {{item.group == 'new' && item.coupon_enable ? '' : 'coupon-none'}} {{type}} {{ shadow ? 'shado' : 'shadow-none'}} {{ border ? 'border' : 'border-none'}}" open-type="navigate" url="/pages/post/post?id={{item.id}}" >
-
-	<badge wx:if="{{item.brokage_info.show == true}}">{{item.brokage_info.title}}</badge>
-
-        <view class="cover skeleton-rect">
-          <image lazy-load="{{true}}"  mode="aspectFill" class="i" src="{{ item.cover || '/assets/images/cover-none.png' }}?imageView2/2/w/750"></image>
-          <view class="icons">
+<navigator hover-class="none" class="post {{item.group == 'new' && item.coupon_enable ? '' : 'coupon-none'}} {{type}} {{ shadow ? 'shado' : 'shadow-none'}} {{ border ? 'border' : 'border-none'}}" open-type="navigate" url="/pages/post/post?id={{item.id}}">
+    <badge wx:if="{{item.brokage_info.show == true}}">{{item.brokage_info.title}}</badge>
+    <view class="cover skeleton-rect">
+        <image lazy-load="{{true}}" mode="aspectFill" class="i" src="{{ item.cover || '/assets/images/cover-none.png' }}?imageView2/2/w/750"></image>
+        <view class="icons">
             <image wx:if="{{item.vr_url}}" class="vr-btn" src="/assets/icons/vr.png"></image>
             <image wx:if="{{item.video}}" class="video-btn" src="/assets/icons/bofang.png"></image>
-          </view>
         </view>
-        <view class="meta">
-          <text class="item-title van-ellipsis "  >{{ item.title_info.text }}</text>
-          <view class="price-info"> {{ item.price_info.label }} <text class="red">{{item.price_info.text}}{{item.price_info.px}}</text> </view>
-          <view class="type-info"> {{item.sub_district.address }} </view>
-          <mytags mini="true" items="{{item.tags_list}}" max="3"></mytags>
+    </view>
+    <view class="meta">
+        <text class="item-title van-ellipsis ">{{ item.title_info.text }}</text>
+        <view class="price-info">
+            {{ item.price_info.label }}
+            <text class="red">{{item.price_info.text}}{{item.price_info.px}}</text>
         </view>
-  </navigator>
+        <view class="type-info">{{item.address }}</view>
+        <mytags mini="true" items="{{item.tags_list}}" max="3"></mytags>
+    </view>
+</navigator>
