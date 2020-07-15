@@ -184,6 +184,12 @@ Page({
             })
         }
     },
+
+    tipsToggleHandle: function () {
+        this.setData({ showTips: !this.data.showTips })
+
+
+    },
     gjjTotalLoanInput: function (e) {
         let value = e.detail || 0.0;
         if (value === 0) {
