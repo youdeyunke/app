@@ -33,4 +33,8 @@
 
 .subtitle .arrow {
     margin-left: 6rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
 }

@@ -1,4 +1,6 @@
 // components/pagemaker/header/style0.js
+const app = getApp()
+
 Component({
     /**
      * 组件的属性列表
@@ -21,6 +23,13 @@ Component({
      * 组件的方法列表
      */
     methods: {
+        linkHandle: function (e) {
+            if (!this.link) {
+                return false
+            }
+            // TODO link handle
+            app.linkHandle(this.data.link)
+        },
 
     }
 })
