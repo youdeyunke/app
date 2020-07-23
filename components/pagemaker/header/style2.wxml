@@ -1,2 +1,8 @@
-<!--components/pagemaker/header/style2.wxml-->
-<text>components/pagemaker/header/style2.wxml</text>
+<view class="header" v-cloak>
+    <view class="title">
+        <view class="line"></view>
+        <span>{{title}}</span>
+        <view class="line"></view>
+    </view>
+    <view class="subtitle">{{subtitle}}</view>
+</view>

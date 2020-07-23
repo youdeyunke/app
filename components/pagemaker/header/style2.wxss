@@ -1,1 +1,39 @@
 /* components/pagemaker/header/style2.wxss */
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20rpx 20rpx 0 20rpx;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.title {
+    font-size: 28rpx;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title span {
+    margin: 0 16rpx;
+}
+
+.title .line {
+    height: 2rpx;
+    border-bottom: 2rpx solid #f4f4f4;
+    width: 120rpx;
+}
+
+.subtitle {
+    font-size: 24rpx;
+    color: #999;
+    margin-top: 6rpx;
+}
+
+.subtitle .arrow {
+    margin-left: 6rpx;
+}

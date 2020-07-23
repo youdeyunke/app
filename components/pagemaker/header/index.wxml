@@ -1,7 +1,8 @@
 <!-- components/pagemaker/header/index.wxml -->
 <block wx:if="{{config}}">
-    <style0 title="{{title}}" subtitle="{{subtitle}}" link="{{link}}" wx:if="{{config.style === 0}}" />
-    <style1 wx:if="{{config.style === 1}}" />
-    <style2 wx:if="{{config.style === 2}}" />
-    <style3 wx:if="{{config.style === 3}}" />
+    <view class="header-container">
+        <style0 title="{{title}}" subtitle="{{subtitle}}" link="{{link}}" wx:if="{{config.style === 0}}" />
+        <style1 title="{{title}}" subtitle="{{subtitle}}" link="{{link}}" wx:if="{{config.style === 1}}" />
+        <style2 title="{{title}}" subtitle="{{subtitle}}" link="{{link}}" wx:if="{{config.style === 2}}" />
+    </view>
 </block>
