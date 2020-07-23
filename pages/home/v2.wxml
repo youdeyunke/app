@@ -1,0 +1,5 @@
+<!-- pages/home/v2.wxml -->
+<page-meta background-color="{{pageConfig.bg_color}}" scroll-top="{{scrollTop}}">
+    <navigation-bar title="{{pageConfig.title}}" loading="{{nbLoading}}" front-color="{{pageConfig.font_color}}" background-color="{{pageConfig.title_bg_color}}" />
+</page-meta>
+<pagemaker page-id="1" bind:ready="pageReadyHandle"></pagemaker>

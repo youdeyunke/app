@@ -888,6 +888,13 @@
 					"id": -1,
 					"name": "daikuan",
 					"pathName": "pkgJisuanqi/pages/daikuan/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "home-v2",
+					"pathName": "pages/home/v2",
 					"scene": null
 				}
 			]

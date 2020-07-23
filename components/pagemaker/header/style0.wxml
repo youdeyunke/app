@@ -1,0 +1,11 @@
+<!-- components/pagemaker/header/style0.wxml -->
+<view class="header">
+    <view class="title">
+        <view class="hat"></view>
+        {{title}}
+    </view>
+    <view class="subtitle">
+        {{subtitle}}
+        <view class="arrow" wx:if="{{link}}">x</view>
+    </view>
+</view>

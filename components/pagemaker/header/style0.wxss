@@ -1,0 +1,36 @@
+/* components/pagemaker/header/style0.wxss */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 20rpx 20rpx 0 20rpx;
+    width: 750rpx;
+    box-sizing: border-box;
+}
+
+.title {
+    font-size: 28rpx;
+    color: #000;
+    display: flex;
+    align-items: center;
+}
+
+.title .hat {
+    height: 16px;
+    width: 8rpx;
+    background-color: #1989fa;
+    margin-right: 6rpx;
+}
+
+.subtitle {
+    font-size: 12px;
+    color: #999;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.subtitle .arrow {
+    margin-left: 6rpx;
+}

@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "pagemaker-page-meat": "/components/pagemaker/page-meta",
+        "pagemaker": "/components/pagemaker/index"
+    }
+}

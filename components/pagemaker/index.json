@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "pagemaker-page-meta": "./page-meta",
+        "header-module": "./header/index"
+    }
+}

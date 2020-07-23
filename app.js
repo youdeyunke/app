@@ -632,6 +632,32 @@ App({
                 _this.getLocation();
             });
         })
+        // 监听小程序前后台切换
+        wx.onAppShow(this.onAppShow)
+        wx.onAppHide(this.onAppHide)
+    },
+
+
+    onAppShow: function () {
+        console.log('小程序切换到前台')
+        this.markUserOnlineStatus('online')
+    },
+
+    onAppHide: function () {
+        console.log('小程序切换到后台')
+        this.markUserOnlineStatus('offline')
+    },
+
+    markUserOnlineStatus: function (status) {
+        // 向服务器端报告用户的在线状态
+        this.request({
+            url: '/api/v1/users/' + status,
+            method: 'POST',
+            hideLoading: true,
+            success: function (resp) {
+                // pass
+            }
+        })
     },
 
     startReddotInterval: function () {
