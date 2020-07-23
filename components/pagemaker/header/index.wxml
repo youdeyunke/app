@@ -4,5 +4,6 @@
         <style0 title="{{title}}" subtitle="{{subtitle}}" link="{{link}}" wx:if="{{config.style === 0}}" />
         <style1 title="{{title}}" subtitle="{{subtitle}}" link="{{link}}" wx:if="{{config.style === 1}}" />
         <style2 title="{{title}}" subtitle="{{subtitle}}" link="{{link}}" wx:if="{{config.style === 2}}" />
+        <style3 title="{{title}}" subtitle="{{subtitle}}" link="{{link}}" wx:if="{{config.style === 3}}" />
     </view>
 </block>

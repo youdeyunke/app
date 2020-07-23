@@ -1,1 +1,31 @@
-/* components/pagemaker/header/style3.wxss */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx 20rpx 0 0px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.title {
+    font-size: 28rpx;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    background: #1989fa;
+    border-top-right-radius: 28rpx;
+    border-bottom-right-radius: 28rpx;
+    padding: 12rpx 28rpx 12rpx 12rpx;
+}
+
+.subtitle {
+    font-size: 24rpx;
+    color: #999;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.subtitle .arrow {
+    margin-left: 6rpx;
+}

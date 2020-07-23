@@ -1,2 +1,9 @@
-<!--components/pagemaker/header/style3.wxml-->
-<text>components/pagemaker/header/style3.wxml</text>
+<div class="header">
+    <div class="title">{{title}}</div>
+    <div class="subtitle">
+        {{subtitle}}
+        <div class="arrow" wx:if="{{link}}">
+            <i class="el-icon-arrow-right"></i>
+        </div>
+    </div>
+</div>
