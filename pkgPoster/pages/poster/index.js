@@ -62,7 +62,7 @@ Page({
             qrUrl = post.qr
             coverUrl = post.cover || ''
             text_1 = post.sub_district.name
-            text_2 = post.sub_district.address
+            text_2 = post.street || post.sub_district.address
             var _max = 18
             //  处理地址字符串超过19个情况
             if (text_2.length > _max) {

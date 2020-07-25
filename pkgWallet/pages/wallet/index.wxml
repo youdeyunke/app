@@ -19,7 +19,7 @@
 </box>
 <mycard width="710" title-size="28" title="账单明细" sub-title="共{{total_items}}笔">
     <block wx:for="{{items}}" wx:for-item="balances">
-        <van-cell wx:for="{{balances}}" wx:for-key="item.id" label="{{ item.created_at_pretty }}" size="large" hover-class="none" title="{{item.name}} " value="￥{{item.amount || 0 }}" />
+        <van-cell wx:for="{{balances}}" wx:for-key="item.id" label="{{ item.created_at_pretty }}" size="large" hover-class="none" title="{{item.name || item.status_name}} " value="￥{{item.amount || 0 }}" />
     </block>
     <view style="display:flex;justify-content:center;align-items:center;">
         <van-loading wx:if="{{loading}}" />

@@ -71,13 +71,11 @@ Page({
     },
 
     inputChange: function (e) {
-        console.log('input change', e)
         var k = e.currentTarget.dataset['name']
         var v = e.detail
         var data = {}
         data[k] = v
         this.setData(data)
-        console.log('set data', data)
     },
 
     loadPost: function (pid) {
@@ -92,7 +90,7 @@ Page({
                 var post_name = p.title + ' ' + p.sub_district.name + ' ' + p.type_info.text + ' ' + p.area_info.text
                 _this.setData({
                     post: p,
-                    postName: post_name
+                    post_name: post_name
                 })
             }
         })
@@ -132,7 +130,6 @@ Page({
 
 
     validateFormData: function (fdata) {
-        console.log('fdata', fdata)
         if (!fdata['name']) {
             wx.showToast({
                 title: '请填写客户姓名',
@@ -148,11 +145,10 @@ Page({
             })
             return false;
        }
-       console.log('fdata', fdata)
 
         if (!fdata['post_name'] || fdata['post_name'].length <= 1) {
             wx.showToast({
-                title: '请填写客户意向房源',
+                title: '请填写客户意向',
                 icon: 'none'
             })
             return false;
@@ -161,13 +157,12 @@ Page({
         return true
     },
 
-    submit: function (e) {
-        app.uploadFormid(e)
+    submitHandle: function (e) {
         var _this = this
         var fdata = {
             mobile: _this.data.mobile,
             name: _this.data.name,
-            post_name: _this.data.postName,
+            post_name: _this.data.post_name,
             sex: _this.data.sex,
             post_id: _this.data.pid
         }
@@ -183,7 +178,6 @@ Page({
                 customer: fdata
             },
             success: function (resp) {
-                console.log('resp.data', resp.data)
                 if (resp.data.status != 0) {
                     return false;
                 }

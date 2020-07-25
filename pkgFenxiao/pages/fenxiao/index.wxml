@@ -3,7 +3,7 @@
         <view class="label">我的佣金</view>
         <view class="value">￥{{balanceInfo.amount }}</view>
     </view>
-    <navigator hover-class="none" url="/pkgFenxiao/pages/fenxiao/balance" class="more">
+    <navigator hover-class="none" url="/pkgWallet/pages/wallet/index" class="more">
         佣金明细
         <van-icon name='arrow' />
     </navigator>

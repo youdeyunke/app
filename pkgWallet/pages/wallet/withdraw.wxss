@@ -3,7 +3,6 @@
 .actions {
     width: 710rpx;
     margin: 20rpx;
-    auto;
 }
 
 .tips {
