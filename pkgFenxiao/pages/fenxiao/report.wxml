@@ -1,7 +1,7 @@
 <van-tabs style="width:100%" animated swipeable type="line" color="#00ae66" bind:change="tabChange">
     <van-tab wx:for="{{tabs}}" wx:for-item="tab" title="{{tab.name}}"></van-tab>
 </van-tabs>
-    <mycard width="710" title="客户信息" hat="{{false}}">
+    <mycard style="margin-top:20rpx;" width="710" title="客户信息" hat="{{false}}">
         <van-field size="large" focus="{{true}}" data-name="name" input-align="left" label="姓名" bind:change="inputChange" maxlength="5" placeholder="请输入客户姓名">
             <view slot="button">
                 <cell-radio size="large" value="{{sex}}" options="{{ sexOptions}}" bind:change="sexChange" />
@@ -16,7 +16,7 @@
         <van-field size="large" data-name="post_name" input-align="left" border="{{false}}" value="{{ post_name}} " label="意向房源" bind:change="inputChange" autosize />
     </mycard>
     <view class="actions">
-        <van-button bindtap="submitHandle" type="primary" block >提交报备</van-button>
-        <van-button type="default" block bindtap="backHandle" >取消</van-button>
+        <van-button bindtap="submitHandle" type="info" block >提交报备</van-button>
+        <van-button custom-style="margin-top:10rpx;" type="default" block bindtap="backHandle" >取消</van-button>
     </view>
 <flow-tips title="报备流程" steps="{{setpsText}}" />

@@ -11,7 +11,7 @@ Component({
         latitude: { type: Number },
         width: { type: Number, value: 750 },
         height: { type: Number, value: 320 },
-        image: { type: String, value: '' },
+        scale: { type: Number, value: 15 },
         name: { type: String, value: null },
     },
 
@@ -19,14 +19,52 @@ Component({
      * 组件的初始数据
      */
     data: {
-        ak: 'FdgWb2yDCALRFnQ1978WKpwztv4dHOHD',
+        markers: [],
+    },
+    ready: function () {
+        // 设置marker
+        //this.setCenter()
+        this.setMarker()
     },
 
     /**
      * 组件的方法列表
      */
     methods: {
-        ready: function () {
+        setCenter: function () {
+            var _this = this
+            this.setData({ center: { longitude: _this.data.longitude, latitude: _this.data.latitude } })
+        },
+        setMarker: function () {
+            var _this = this
+            const bgColor = '#1989fa'
+            const whiteColor = '#ffffff'
+            var R = app.globalData.system.pixelRatio / 2.0
+            var fontSize = app.globalData.system.fontSizeSetting * 0.8
+            var padding = fontSize * 1
+            var marker = {
+                iconPath: '/assets/icons/location.png',
+                alpha: '0.5',
+                latitude: _this.data.latitude,
+                longitude: _this.data.longitude,
+                width: "40rpx",
+                height: "50rpx",
+                zIndex: 10,
+                callout: {
+                    content: _this.data.name,
+                    display: 'ALWAYS',
+                    borderRadius: fontSize,
+                    borderColor: whiteColor,
+                    bgColor: bgColor,
+                    color: whiteColor,
+                    borderWidth: R,
+                    fontSize: fontSize,
+                    padding: padding,
+                    textAlign: 'center',
+                }
+            }
+            this.setData({ markers: [marker] })
+            console.log('markers', this.data.markers)
         },
 
         clickHandle: function () {

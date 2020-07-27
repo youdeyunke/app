@@ -8,7 +8,7 @@
 		<view class="cover" wx:if="{{!mini}}">
 			<view class="address">
 				<van-icon name="location" />
-				{{item.sub_district.address}}
+				{{item.address || item.street}}
 			</view>
 			<view class="count">{{item.cat.name}}</view>
 			<image src="{{item.cover}}?imageView2/1/w/750/h/400" />

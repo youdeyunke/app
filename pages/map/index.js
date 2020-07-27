@@ -76,16 +76,20 @@ Page({
             data: query,
             success: function (resp) {
                 // 第一次加载,根据房源所在的位置，自动定位视野，防止出现定位到其他国家的问题
-                console.log('load posts success')
                 var group = _this.data.currentPostGroup
                 var points = []
                 resp.data.data.forEach((post, i) => {
                     var sub = post.sub_district
-                    var point = { longitude: sub.longitude, latitude: sub.latitude }
-                    if (post.group == group) {
+                    // 用于兼容新版本后台
+                    // 老版本后台，是以sub的坐标为准的
+                    var long = post.longitude || sub.longitude
+                    var lat = post.latitude || sub.latitude
+                    var point = { longitude: long, latitude: lat }
+                    if (long > 0 && lat > 0 && post.group == group) {
                         points.push(point)
                     }
                 })
+                console.log('load posts success', points)
 
                 map.includePoints({
                     points: points.slice(0, 2),

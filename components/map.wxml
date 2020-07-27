@@ -1,15 +1,4 @@
-<!--components/map.wxml-->
-
-<view style="width:100%;" class="myfav-wrapper"  bindtap="clickHandle">
-  <view hover-class="none" form-type="submit" class=" mymap">
-    <image src="{{image}}"></image>
-    <view class="map-layer">
-      <view class="map-layer-inner">
-        <view class="content"><text class="name">{{name || '未知地点'}}</text></view>
-        <view class="circle"></view>
-      </view>
-    </view>  
+<!-- components/map.wxml -->
+<view class="map-box">
+    <map id="map" enable-zoom longitude="{{longitude}}" show-scale="true" latitude="{{latitude}}" scale="{{scale}}" markers="{{markers}}" bindcallouttap="markertap" bindmarkertap="markertap" style="width:{{width}}rpx; height:{{height}}rpx;"></map>
 </view>
-</view>
-
-

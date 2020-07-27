@@ -1,6 +1,8 @@
 /* pages/fenxiao/report.wxss */
+
 .actions{
   margin:auto 20rpx;
+  width:710rpx;
 }
 
 .radio-value-class {
