@@ -1,6 +1,6 @@
 {
-  "usingComponents":{
-    "van-slider": "/vant/slider/index"
-  }
- 
+    "usingComponents": {
+        "navigationBarTitleText": "LPR房贷计算器",
+        "van-slider": "/vant/slider/index"
+    }
 }

@@ -1,58 +1,53 @@
 <van-transition wx:if="{{system.systemName}}" show="{{showInstallTips == 1}}" duration="500" name="fade-down" custom-class="install-tips" bindtap="closeInstallTips">
     <image src="/assets/images/install-tips-{{system.systemName}}.png" />
 </van-transition>
-
 <page-loading loading="{{loading}}" />
-
 <view wx:for="{{homeData}}" wx:for-item="block" wx:for-key="index" hidden="{{loading}}">
-      <myslider wx:if="{{block.name == 'banners' }}" items="{{block.items}}"></myslider>
-      <view wx:if="{{block.name == 'navs' }}"  class="header"> <navs items="{{block.items}}" /> </view>
-      <view wx:if="{{block.name== 'news'  }}" class="my-news-swiper"> <news-swiper items="{{block.items}}" /> </view>
-      <view class="block-navs"   wx:if="{{block.name == 'dingzhi' }}">
-          <view class="left">
-            <navigator url="/pages/need/room-form" hover-class="none" class="block-nav-item" >
-              <view class="block-nav-item-name">定制找房</view>
-              <view class="block-nav-item-desc">只需要填写简单要求，平台经纪人即可为您找到理想居所</view>
-              <view class="block-nav-item-action">
-                <van-button type="info" size="small">点击开始找房</van-button>
-              </view>
+    <myslider wx:if="{{block.name == 'banners' }}" items="{{block.items}}"></myslider>
+    <view wx:if="{{block.name == 'navs' }}" class="header">
+        <navs items="{{block.items}}" />
+    </view>
+    <view wx:if="{{block.name== 'news'  }}" class="my-news-swiper">
+        <news-swiper items="{{block.items}}" />
+    </view>
+    <view class="block-navs" wx:if="{{block.name == 'dingzhi' }}">
+        <view class="left">
+            <navigator url="/pages/need/room-form" hover-class="none" class="block-nav-item">
+                <view class="block-nav-item-name">定制找房</view>
+                <view class="block-nav-item-desc">只需要填写简单要求，平台经纪人即可为您找到理想居所</view>
+                <view class="block-nav-item-action">
+                    <van-button type="info" size="small">点击开始找房</van-button>
+                </view>
             </navigator>
-          </view>
-
-          <view class="right">
-            <navigator url="/pkgJisuanqi/pages/daikuan/index" hover-class="none" class="block-nav-item" >
-              <view class="block-nav-item-name">房贷计算</view>
-              <view class="block-nav-item-desc">点击进入房贷计算器</view>
+        </view>
+        <view class="right">
+            <navigator url="/pkgJisuanqi/pages/daikuan/index" hover-class="none" class="block-nav-item">
+                <view class="block-nav-item-name">LPR房贷计算</view>
+                <view class="block-nav-item-desc">点击进入房贷计算器</view>
             </navigator>
             <navigator url="/pages/map/index" hover-class="none" class="block-nav-item">
-              <view class="block-nav-item-name">地图找房</view>
-              <view class="block-nav-item-desc">点击开始找房</view>
+                <view class="block-nav-item-name">地图找房</view>
+                <view class="block-nav-item-desc">点击开始找房</view>
             </navigator>
-          </view>
-      </view>
-
-      <block wx:if="{{block.name == 'brokers' }}">
-            <view class="home-title" > 
-                <view class="name">{{block.label}}</view> 
-            </view>
-            <scroll-view  scroll-with-animation="{{true}}" scroll-x style="710rpx;margin-bottom:20rpx;">
-              <brokers brokers="{{block.items}}"  max="10" />
-            </scroll-view>
-      </block>
-
-      <block wx:if="{{block.name == 'posts' }}">
+        </view>
+    </view>
+    <block wx:if="{{block.name == 'brokers' }}">
         <view class="home-title">
-          <view class="name">{{block.label}}</view>
+            <view class="name">{{block.label}}</view>
+        </view>
+        <scroll-view scroll-with-animation="{{true}}" scroll-x style="710rpx;margin-bottom:20rpx;">
+            <brokers brokers="{{block.items}}" max="10" />
+        </scroll-view>
+    </block>
+    <block wx:if="{{block.name == 'posts' }}">
+        <view class="home-title">
+            <view class="name">{{block.label}}</view>
         </view>
         <posts-block block="{{block}}" />
-      </block>
-        
-      <new-version wx:if="{{block.name == 'version' }}" />
-      <!-- view style="width:710rpx;"  wx:if="{{block.name == 'copyright'}}" >
+    </block>
+    <new-version wx:if="{{block.name == 'version' }}" />
+    <!-- view style="width:710rpx;"  wx:if="{{block.name == 'copyright'}}" >
         <official-account ></official-account>
       </view -->
-      <cr wx:if="{{ block.name == 'copyright' }}" text="{{block.text}}"  />
-
+    <cr wx:if="{{ block.name == 'copyright' }}" text="{{block.text}}" />
 </view>
-
-
