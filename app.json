@@ -5,6 +5,7 @@
             "name": "pkgadmin",
             "pages": [
                 "pages/admin/index",
+                "pages/admin/posts",
                 "pages/admin/booking"
             ]
         },

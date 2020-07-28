@@ -1,6 +1,12 @@
 // pages/admin/index.js
 const app = getApp()
 var auth = require('../../../utils/auth.js');
+/*
+
+ TODO 独立的经纪人工作台页面，完成后，删除老的页面： /pages/admin/、/pages/myself/posts
+
+
+*/
 
 
 Page({
@@ -15,7 +21,7 @@ Page({
             { name: '发布租房', icon: 'new', color: '#ff9501', url: '/pages/post/form?group=rental&rent_type=zhengzu' },
             { name: '发布商铺', icon: 'new', color: '#ff9501', url: '/pages/post/form?group=shop' },
 
-            { name: '房源管理', icon: 'posts', color: '#59B8EB', url: '/pages/myself/posts' },
+            { name: '房源管理', icon: 'posts', color: '#59B8EB', url: './posts' },
             { name: '预约看房', icon: 'booking', color: '#59B8EB', url: '/pages/admin/booking' },
             { name: '访客足迹', icon: 'visitors', color: '#59B8EB', url: '/pages/visitors/index' },
 

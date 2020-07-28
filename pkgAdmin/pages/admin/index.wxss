@@ -14,7 +14,7 @@ page {
 }
 
 .main .body {
-    margin: 220rpx auto 0 auto;
+    margin: 345rpx auto 0 auto;
     width: 690rpx;
     padding: 20rpx 10rpx;
     background: #fff;
