@@ -32,7 +32,7 @@
             <van-icon color="#E15C32" size="58rpx" name="add" />
             <view class="menu-item-name">经纪人入注册</view>
         </button>
-        <button hidden="{{!userInfo.is_broker}}" bindtap="navigatetTo" data-url="/pages/admin/index" form-type="submit" hover-class="none" class="fake menu-item">
+        <button hidden="{{!userInfo.is_broker}}" bindtap="navigatetTo" data-url="/pkgAdmin/pages/admin/index" form-type="submit" hover-class="none" class="fake menu-item">
             <van-icon color="#E15C32" size="58rpx" name="printer" />
             <view class="menu-item-name">工作台</view>
         </button>

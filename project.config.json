@@ -904,6 +904,13 @@
 					"pathName": "pkgFenxiao/pages/fenxiao/report",
 					"query": "pid=52",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pkg-admin-index",
+					"pathName": "pkgAdmin/pages/admin/index",
+					"query": "pid=52",
+					"scene": null
 				}
 			]
 		}
