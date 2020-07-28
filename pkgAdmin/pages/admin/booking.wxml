@@ -1,0 +1,13 @@
+<view class="empty" wx:if="{{!loading && items[0].length == 0 }}" style="text-align:center;color:#cecece;margin-top:100rpx;">
+    没有记录
+</view>
+<view wx:else>
+    <block wx:for="{{items}}" wx:for-item="logs">
+        <box width="710" wx:for="{{logs}}" wx:key="id" >
+            <booking-log user-group="broker" bind:statuschange="statusChangeHandle" item="{{item}}" />
+        </box>
+    </block>
+    <view style="display:flex;justify-content:center;align-items:center;">
+        <van-loading wx:if="{{loading}}" />
+    </view>
+</view>

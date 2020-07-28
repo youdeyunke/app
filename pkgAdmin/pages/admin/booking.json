@@ -1,0 +1,6 @@
+{
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+      "booking-log": "/components/booking-log"
+  }
+}

@@ -1,0 +1,12 @@
+{
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "工作台",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "van-grid": "/vant/grid/index",
+        "van-grid-item": "/vant/grid-item/index",
+        "van-notice-bar": "/vant/notice-bar/index",
+        "icon-block": "/components/icon-block"
+    }
+}
