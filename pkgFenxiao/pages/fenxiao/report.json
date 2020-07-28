@@ -1,7 +1,8 @@
 {
-  "usingComponents": {
-      "cell-radio": "/components/cell-radio",
-      "flow-tips": "/components/flow-tips",
-      "protected-mobile-input": "/components/protected-mobile-input"
-  }
+    "usingComponents": {
+        "cell-radio": "/components/cell-radio",
+        "flow-tips": "/components/flow-tips",
+        "post-item": "/components/post/item",
+        "protected-mobile-input": "/components/protected-mobile-input"
+    }
 }

@@ -1,10 +1,16 @@
 /* pages/fenxiao/report.wxss */
 
-.actions{
-  margin:auto 20rpx;
-  width:710rpx;
+.actions {
+    margin: auto 20rpx;
+    width: 710rpx;
 }
 
 .radio-value-class {
-  flex: none !important;
+    flex: none !important;
+}
+
+.post-item {
+    background: #f9f9f9;
+    padding: 20rpx 10px 0 10px;
+    border-radius: 10rpx;
 }
