@@ -1,5 +1,6 @@
 {
     "navigationBarBackgroundColor": "#f4f4f4",
+    "navigationStyle": "custom",
     "usingComponents": {
         "card": "/components/card",
         "avatar-sync": "/components/avatar-sync",
