@@ -3,6 +3,7 @@
     "usingComponents": {
         "module-box": "./module-box",
         "unknow-module": "unknow-module",
+        "searchbar-module": "./searchbar/index",
         "header-module": "./header/index"
     }
 }

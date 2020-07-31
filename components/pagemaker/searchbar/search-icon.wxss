@@ -1,0 +1,6 @@
+/* components/pagemaker/searchbar/search-icon.wxss */
+
+.icon image {
+    width: 36rpx;
+    height: 36rpx;
+}

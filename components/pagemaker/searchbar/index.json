@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "search-icon": "./search-icon",
+        "city-selector": "./city-selector"
+    }
+}

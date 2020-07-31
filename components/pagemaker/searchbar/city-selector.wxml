@@ -1,0 +1,2 @@
+<!-- components/pagemaker/searchbar/city-selector.wxml -->
+<view class="city">城市</view>

@@ -3,6 +3,7 @@
     <block wx:for="{{modules}}">
         <module-box config="{{item}}" style="width:{{moduleWidth}};">
             <header-module config="{{item}}" wx:if="{{item.name === 'header'}}"></header-module>
+            <searchbar-module config="{{item}}" wx:elif="{{item.name === 'searchbar'}}"></searchbar-module>
             <unknow-module wx:else />
         </module-box>
     </block>

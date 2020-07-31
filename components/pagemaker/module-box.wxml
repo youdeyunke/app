@@ -1,0 +1,4 @@
+<!-- components/pagemaker/header/module-box.wxml -->
+<view class="module-box" style="background-color: {{bgColor}}; background-image: {{bgImage }}; padding: {{padding }};margin:{{margin}};height:{{height}}">
+    <slot></slot>
+</view>

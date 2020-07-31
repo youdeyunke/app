@@ -1,0 +1,29 @@
+/* components/pagemaker/searchbar/index.wxss */
+
+.searchbar {
+    height: calc(80rpx - 4rpx);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24rpx;
+}
+
+.searchbar .body {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 4rpx;
+    border-width: 2rpx;
+    border-style: solid;
+    padding: 0 20rpx;
+}
+
+.searchbar .body-style-2, .searchbar .body-style-3 {
+    border-radius: 80rpx;
+}
+
+.searchbar .footer {
+    width: 100rpx;
+}

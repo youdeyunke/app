@@ -1,0 +1,8 @@
+/* components/pagemaker/searchbar/city-selector.wxss */
+
+.city {
+    width: 100%;
+    text-align: right;
+    font-size: 24rpx;
+    color: #666;
+}
