@@ -1,2 +1,20 @@
 <!-- components/pagemaker/searchbar/city-selector.wxml -->
-<view class="city">城市</view>
+<block>
+    <view class="city" bindtap="onPopShow">
+        <text wx:for="{{cityItems}}" wx:key="id" wx:if="{{item.id == cityId }}">{{item.name}}</text>
+    </view>
+    <van-popup position="top" show="{{ popShow }}" bind:close="onPopClose">
+        <view class="title">切换城市</view>
+        <view class="city-items">
+            <view wx:for="{{cityItems}}" wx:for-item="city" wx:key="id" class="city-item {{ cityId == city.id ? 'active' :  '' }}" bindtap="cityClick" data-city-id="{{city.id}}">
+                {{city.name}}
+            </view>
+        </view>
+        <view class="actions">
+            <van-button bindtap="resetHandle" type="default" block style="width:100%;">
+                重置
+            </van-button>
+            <van-button type="info" block bindtap="submitHandle" style="width:100%">确定</van-button>
+        </view>
+    </van-popup>
+</block>

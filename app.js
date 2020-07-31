@@ -5,6 +5,8 @@ const EXT = wx.getExtConfigSync()
 
 App({
     globalData: {
+        hotKeywords: [],
+        cityId: null, // 全局城市过滤
         EXT: EXT,
         myconfigs: null,
         system: {},

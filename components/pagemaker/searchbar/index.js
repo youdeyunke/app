@@ -1,4 +1,5 @@
 // components/pagemaker/searchbar/index.js
+const app = getApp()
 Component({
     /**
      * 组件的属性列表
@@ -9,6 +10,10 @@ Component({
     },
 
     observers: {
+        "config.keywords": function (kws) {
+            // 搜索词设置为全局
+            app.globalData.hotKeywords = kws
+        },
         "config.text": function (v) {
             var text = v.cat == 'default' ? v.defaultValue : v.value
             var textColor = v.cat == 'default' ? v.defaultColor : v.color

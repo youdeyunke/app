@@ -18,6 +18,7 @@
     border-width: 2rpx;
     border-style: solid;
     padding: 0 20rpx;
+    margin-right: 10rpx;
 }
 
 .searchbar .body-style-2, .searchbar .body-style-3 {
@@ -25,5 +26,6 @@
 }
 
 .searchbar .footer {
-    width: 100rpx;
+    max-width: 100rpx;
+    width: auto;
 }

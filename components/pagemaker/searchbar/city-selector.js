@@ -11,7 +11,7 @@ Component({
 
     observers: {
         "config.id": function (cityId) {
-            // TODO 设置全局选择的city id
+            this.setCityId(cityId)
         }
     },
 
@@ -19,22 +19,55 @@ Component({
      * 组件的初始数据
      */
     data: {
-        cityItems: [],
-        cityId: null,
+        popShow: false,
+        cityItems: [], // 全部城市
+        cityId: null,  // 当前选择城市
+    },
+
+    ready: function () {
+        this.loadAllCity()
     },
 
     /**
      * 组件的方法列表
      */
     methods: {
+        cityClick: function (e) {
+            const { cityId } = e.currentTarget.dataset
+            this.setData({ cityId: cityId })
+        },
+
+        submitHandle: function (e) {
+            this.setCityId(this.data.cityId)
+            this.onPopClose()
+        },
+        resetHandle: function (e) {
+            this.setCityId(null)
+            this.onPopClose()
+        },
+        onPopShow: function (e) {
+            this.setData({ popShow: true })
+        },
+        onPopClose: function (e) {
+            this.setData({ popShow: false })
+        },
+
+        setCityId: function (cid) {
+            this.setData({ cityId: cid })
+            app.globalData.cityId = cid
+        },
+
         loadAllCity: function () {
+            var _this = this
             app.request({
                 url: '/api/v1/cities',
                 success: function (resp) {
                     if (resp.data.status != 0) {
                         return
                     }
-                    _this.setData({ cityItems: resp.data.data })
+                    var items = resp.data.data
+                    items = [{ name: '全国', id: null }].concat(items)
+                    _this.setData({ cityItems: items })
                 }
             })
         },

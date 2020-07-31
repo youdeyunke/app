@@ -4,7 +4,7 @@
         <search-icon style="margin-right:20rpx;" />
         <view class="text" style="color: {{textColor}}">{{text}}</view>
     </view>
-    <view class="footer">
+    <view class="footer" wx:if="{{config.city.show}}">
         <city-selector></city-selector>
     </view>
 </view>
