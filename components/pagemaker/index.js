@@ -14,8 +14,8 @@ Component({
      */
     data: {
         modules: [],
-        paddingSmall: 20,
-        paddingLarge: 30,
+        paddingSmall: 10,
+        paddingLarge: 20,
         paddingValue: 0,
         config: null,
     },
@@ -52,10 +52,13 @@ Component({
             switch (config.padding) {
                 case "small":
                     padding = this.data.paddingSmall
+                    break;
                 case "large":
                     padding = this.data.paddingLarge
+                    break;
             }
             moduleWidth -= padding * 2
+            console.log('padding value', padding)
             this.setData({
                 paddingValue: padding + 'rpx',
                 moduleWidth: moduleWidth + 'rpx'
