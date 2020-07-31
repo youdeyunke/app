@@ -11,7 +11,9 @@ Component({
 
     observers: {
         "config.id": function (cityId) {
-            this.setCityId(cityId)
+            if (cityId) {
+                this.setCityId(cityId)
+            }
         }
     },
 

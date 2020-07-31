@@ -45,7 +45,6 @@
 
 .city-item:nth-child(3n) {
     margin-right: 0;
-    color: red;
 }
 
 .city-item.active {
