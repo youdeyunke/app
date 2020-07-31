@@ -1,0 +1,2 @@
+<!-- components/pagemaker/unknow-module.wxml -->
+<view class="unknow">未实现的module: {{ config.name }}</view>

@@ -4,9 +4,8 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    padding: 20rpx 20rpx 0 20rpx;
-    width: 750rpx;
-    box-sizing: border-box;
+    height: 80rpx;
+    width: 100%;
 }
 
 .title {

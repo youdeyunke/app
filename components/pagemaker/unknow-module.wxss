@@ -1,0 +1,10 @@
+/* components/pagemaker/unknow-module.wxss */
+
+.unknow {
+    color: #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 24rpx;
+}

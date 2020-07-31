@@ -1,7 +1,8 @@
 {
     "component": true,
     "usingComponents": {
-        "pagemaker-page-meta": "./page-meta",
+        "module-box": "./module-box",
+        "unknow-module": "unknow-module",
         "header-module": "./header/index"
     }
 }

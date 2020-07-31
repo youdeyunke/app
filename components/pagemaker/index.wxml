@@ -1,7 +1,10 @@
 <!-- components/pagemaker/index.wxml -->
-<view class="pagemaker">
+<view class="pagemaker" style="padding:{{paddingValue }}">
     <block wx:for="{{modules}}">
-        <header-module config="{{item}}" wx:if="{{item.name === 'header'}}"></header-module>
+        <module-box config="{{item}}" style="width:{{moduleWidth}};">
+            <header-module config="{{item}}" wx:if="{{item.name === 'header'}}"></header-module>
+            <unknow-module wx:else />
+        </module-box>
     </block>
     <view class="pagemaker-bg">
         <image src="{{pageConfig.bg.image }}" />

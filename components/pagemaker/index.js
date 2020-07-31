@@ -14,6 +14,9 @@ Component({
      */
     data: {
         modules: [],
+        paddingSmall: 20,
+        paddingLarge: 30,
+        paddingValue: 0,
         config: null,
     },
 
@@ -31,6 +34,7 @@ Component({
                 })
                 _this.triggerEvent('ready', data.config)
                 _this.setNavbar(data.config)
+                _this.setPadding(data.config)
             }
         })
 
@@ -40,8 +44,28 @@ Component({
      * 组件的方法列表
      */
     methods: {
+
+        // 设置页面的边距
+        setPadding: function (config) {
+            var padding = this.data.paddingValue
+            var moduleWidth = 750 // rpx
+            switch (config.padding) {
+                case "small":
+                    padding = this.data.paddingSmall
+                case "large":
+                    padding = this.data.paddingLarge
+            }
+            moduleWidth -= padding * 2
+            this.setData({
+                paddingValue: padding + 'rpx',
+                moduleWidth: moduleWidth + 'rpx'
+            })
+
+        },
+
+
+        // 设置导航栏颜色、文字、背景
         setNavbar: function (config) {
-            // 设置导航栏颜色、文字、背景
             var bgColor = config.title.bgColor
             var fontColor = config.title.color
             var title = config.title.value
