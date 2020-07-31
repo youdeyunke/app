@@ -3,4 +3,7 @@
     <block wx:for="{{modules}}">
         <header-module config="{{item}}" wx:if="{{item.name === 'header'}}"></header-module>
     </block>
+    <view class="pagemaker-bg">
+        <image src="{{pageConfig.bg.image }}" />
+    </view>
 </view>
