@@ -1,0 +1,4 @@
+<block>
+    <view bindtap="popToggleHandle">{{ order.label || '排序' }}</view>
+    <mypicker bind:close="popToggleHandle" bind:change="orderChange" options="{{options}}" show="{{popShow}}"></mypicker>
+</block>

@@ -38,6 +38,9 @@ Component({
             this.setData({ bgColor: bgColor, bgImage: bgImage })
         },
         "config.padding": function (padding) {
+            if (!padding) {
+                return false
+            }
             var v = 20
             var items = [0, 0, 0, 0] // top,right,bottom,left
             padding.right = padding.left // right == left

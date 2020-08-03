@@ -23,11 +23,13 @@ Page({
         app.checkForceLogin()
         var data = {}
         var filter = q || {}
-        this.configFilter(q)
-        data['filter'] = filter
-        if (q.kw || q.text) {
-            data['kw'] = q.kw || q.text
+        var fkeys = Object.keys(filter)
+        // global city id , 如果查询参数中city id 有传，则以查询参数为准
+        if (!fkeys.includes('city_id')) {
+            filter.city_id = app.globalData.cityId
         }
+        filter.page = 1 // 强制设置为第一页
+        data['filter'] = filter
         this.setData(data)
         this.setPageTitle()
         this.loadAlbum(q.album_id)
@@ -58,7 +60,6 @@ Page({
         });
 
     },
-
 
     loadAlbum: function (albumId) {
         if (!albumId) {
@@ -136,7 +137,10 @@ Page({
     onSearch: function (e) {
         var kwInput = this.data.kwInput
         if (kwInput && kwInput.length >= 2) {
-            this.setData({ kw: kwInput, page: 1 })
+            var filter = this.data.filter
+            filter.page = 1
+            filter.kw = kwInput
+            this.setData({ filter: filter })
         } else {
             wx.showToast({
                 title: '关键词不能少于2个字符',
@@ -146,7 +150,10 @@ Page({
     },
 
     kwClear: function (e) {
-        this.setData({ kw: '', page: 1 })
+        var filter = this.data.filter
+        filter.kw = ''
+        filter.page = 1
+        this.setData({ filter: filter })
     },
 
 
@@ -193,9 +200,9 @@ Page({
      */
     onReachBottom: function () {
         var page = this.data.page || 1
-        this.setData({
-            page: page + 1
-        })
+        var filter = this.data.filter
+        filter.page = page
+        this.setData({ filter: filter })
     },
 
     /**

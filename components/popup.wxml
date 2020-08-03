@@ -1,10 +1,12 @@
-  <van-popup show="{{show}}"   position="{{position}}">
+<van-popup show="{{show}}" position="{{position}}">
     <view class="mypopup mypopup-{{position}}">
-        <view class="main"><slot></slot></view>
+        <view class="main">
+            <slot></slot>
+        </view>
         <view class="actions">
-          <view catchtap="onCancle" class="cancle">{{cancleBtnText}}</view>
-          <view class="label">{{label}}</view>
-          <view catchtap="onConfirm" class="confirm">{{confirmBtnText}}</view>
+            <view catchtap="onCancle" class="cancle">{{cancleBtnText}}</view>
+            <view class="label">{{label}}</view>
+            <view catchtap="onConfirm" class="confirm">{{confirmBtnText}}</view>
         </view>
     </view>
-  </van-popup>
+</van-popup>

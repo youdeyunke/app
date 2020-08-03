@@ -207,8 +207,8 @@
 				{
 					"id": 21,
 					"name": "ershoufang-index",
-					"pathName": "pages/ershoufang/index",
-					"query": "",
+					"pathName": "pages/post/index",
+					"query": "group_v2=old",
 					"scene": null
 				},
 				{
@@ -910,6 +910,13 @@
 					"name": "pkg-admin-index",
 					"pathName": "pkgAdmin/pages/admin/index",
 					"query": "pid=52",
+					"scene": null
+				},
+				{
+					"id": 123,
+					"name": "post-index-with-city-id",
+					"pathName": "pages/post/index",
+					"query": "group_v2=old&city_id=1",
 					"scene": null
 				}
 			]

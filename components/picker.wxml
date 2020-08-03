@@ -1,10 +1,11 @@
-<!--components/citypicker.wxml-->
-
-<popup  position="{{position}}" show="{{ show }}" bind:cancle="onClose" bind:confirm="onConfirm" label="请选择" cancle-btn-text="取消">
-
-<picker-view class="picker"  bindchange="changeHandle" value="{{value}}">
-  <picker-view-column >
-    <view wx:key="{{item.label}}" wx:for="{{items}}">{{item.label}}</view>
-  </picker-view-column>
-</picker-view>
+<popup position="{{position}}" show="{{ show }}" bind:cancle="onClose" bind:confirm="onConfirm" label="请选择" cancle-btn-text="取消">
+    <view class="options">
+        <van-radio-group value="{{ currentIndex }}">
+            <van-cell-group>
+                <van-cell wx:for="{{options}}" data-index="{{index}}" title="{{item.label}}" bind:click="optionClick">
+                    <van-radio custom-style="margin-left:20rpx;" slot="right-icon" name="{{index}}" />
+                </van-cell>
+            </van-cell-group>
+        </van-radio-group>
+    </view>
 </popup>

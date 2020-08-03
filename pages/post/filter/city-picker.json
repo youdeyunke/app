@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "popup": "/components/popup",
+        "van-tree-select": "/vant/tree-select/index"
+    }
+}

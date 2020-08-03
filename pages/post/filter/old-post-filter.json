@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "order-picker": "./order-picker",
+        "city-picker": "./city-picker"
+    }
+}

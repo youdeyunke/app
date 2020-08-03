@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "old-post-filter": "./old-post-filter"
+    }
+}
