@@ -4,10 +4,10 @@
         <view class="hat"></view>
         {{title}}
     </view>
-    <view class="subtitle" bind:tap="linkHandle">
+    <link config="{{link}}" custom-class="subtitle">
         {{subtitle}}
         <view class="arrow" wx:if="{{link}}">
             <van-icon name="arrow" />
         </view>
-    </view>
+    </link>
 </view>

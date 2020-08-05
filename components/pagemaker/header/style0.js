@@ -23,13 +23,6 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        linkHandle: function (e) {
-            if (!this.link) {
-                return false
-            }
-            // TODO link handle
-            app.linkHandle(this.data.link)
-        },
 
     }
 })

@@ -1,0 +1,3 @@
+<view bindtap="clickHandle" class="custom-class custom-style">
+    <slot></slot>
+</view>
