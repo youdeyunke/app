@@ -1,9 +1,10 @@
 {
     "component": true,
     "usingComponents": {
-        "module-box": "./module-box",
-        "unknow-module": "unknow-module",
+        "banners-module": "./banners/index",
         "searchbar-module": "./searchbar/index",
-        "header-module": "./header/index"
+        "header-module": "./header/index",
+        "unknow-module": "unknow-module",
+        "module-box": "./module-box"
     }
 }

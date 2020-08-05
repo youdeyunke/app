@@ -9,6 +9,9 @@ Component({
 
     observers: {
         "config.height": function (height) {
+            if (!height) {
+                return
+            }
             var h = height.cat == 'default' ? height.default : height.value
             if (h != 'auto' && typeof h == 'number') {
                 // conver px to rpx
@@ -17,6 +20,9 @@ Component({
             this.setData({ height: h })
         },
         "config.background": function (bg) {
+            if (!bg) {
+                return
+            }
             // 设置背景
             var bgColor = ''
             var bgImage = ''
@@ -75,6 +81,7 @@ Component({
     data: {
         bgColor: '',
         bgImage: '',
+        height: 'auto',
         padding: 'none',
         margin: 'none',
     },

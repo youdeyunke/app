@@ -1,4 +1,4 @@
 <!-- components/pagemaker/searchbar/search-icon.wxml -->
 <view class="icon">
-    <image src="/assets/icons/search-icon.png" />
+    <image src="{{url || defaultIcon }}" />
 </view>
