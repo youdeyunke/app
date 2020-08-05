@@ -17,33 +17,54 @@ Component({
         paddingSmall: 10,
         paddingLarge: 20,
         paddingValue: 0,
+        loading: true,
         config: null,
     },
 
-
-    ready: function () {
-        var _this = this
-        var pageId = this.data.pageId
-        app.request({
-            url: '/api/v1/pages/' + pageId,
-            success: function (resp) {
-                var data = resp.data.data
-                _this.setData({
-                    modules: data.modules,
-                    pageConfig: data.config,
-                })
-                _this.triggerEvent('ready', data.config)
-                _this.setNavbar(data.config)
-                _this.setPadding(data.config)
-            }
-        })
-
+    observers: {
+        'pageId': function () {
+            this.setData({ loading: true })
+            this.loadData()
+        },
     },
+
+    reLoad: function () {
+        // 用于父组件调用，刷新页面
+        this.setData({ loading: true })
+        this.loadData()
+    },
+
 
     /**
      * 组件的方法列表
      */
     methods: {
+
+        reload: function () {
+            this.setData({ loading: true })
+            this.loadData()
+        },
+
+        loadData: function (cb) {
+            var _this = this
+            var pageId = this.data.pageId
+            app.request({
+                url: '/api/v1/pages/' + pageId,
+                hideLoading: true,
+                success: function (resp) {
+                    var data = resp.data.data
+                    _this.setData({
+                        loading: false,
+                        modules: data.modules,
+                        pageConfig: data.config,
+                    })
+                    _this.setNavbar(data.config)
+                    _this.setPadding(data.config)
+                    _this.triggerEvent('ready', data.config)
+                }
+            })
+
+        },
 
         // 设置页面的边距
         setPadding: function (config) {
