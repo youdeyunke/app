@@ -1,7 +1,9 @@
 <block>
     <swiper style="overflow:hidden;width:100%;height:100%; border-radius:{{imageRadius}}" indicator-dots="{{items.length > 1}}" autoplay="{{ items.length > 1}}" interval="5000" duration="500" circular="{{items.length > 1}}" indicator-color="rgba(255,255,255,0.7)" autoplay indicator-active-color="#1989fa">
         <swiper-item wx:key="{{index}}" wx:for="{{config.items}}" bindtap="goto" data-index="{{index}}">
-            <image style="width:100%;height:100%;" src="{{item.url }}?imageView2/1/w/710/h/320"></image>
+            <link config="{{item.link}}" custom-style="link">
+                <image mode="scaleToFill" style="width:100%;height:100%;" src="{{item.url }}"></image>
+            </link>
         </swiper-item>
     </swiper>
 </block>
