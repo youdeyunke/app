@@ -1,5 +1,5 @@
 <!-- pages/post/filter/old-post-filter.wxml -->
-<block>
+<view class="filter">
     <city-picker bind:change="cityChange" city-id="{{filter.city_id}}" district-id="{{filter.district_id}}" />
     <order-picker bind:change="orderChange" options="{{orderOptions}}" />
-</block>
+</view>

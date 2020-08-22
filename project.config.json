@@ -27,10 +27,10 @@
 		"bundle": true,
 		"useIsolateContext": true,
 		"useCompilerModule": true,
-		"userConfirmedUseCompilerModuleSwitch": false
+		"userConfirmedUseCompilerModuleSwitch": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.11.3",
+	"libVersion": "2.12.1",
 	"appid": "wx175508800f405090",
 	"projectname": "%E5%86%85%E9%83%A8%E6%BC%94%E7%A4%BA%E9%A1%B9%E7%9B%AE",
 	"cloudfunctionTemplateRoot": "",
@@ -182,7 +182,7 @@
 					"id": 17,
 					"name": "post-index",
 					"pathName": "pages/post/index",
-					"query": "group_v2=shop",
+					"query": "group_v2=old",
 					"scene": null
 				},
 				{

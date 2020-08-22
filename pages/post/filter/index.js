@@ -2,6 +2,7 @@
 Component({
     /**
      * 组件的属性列表
+     * 根据filter传递的参数，自动调用对应房源的filter
      */
 
     properties: {
