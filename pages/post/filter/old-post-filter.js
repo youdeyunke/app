@@ -12,6 +12,7 @@ Component({
      */
     data: {
         houseTypeItems: [
+            { name: '不限', value: null },
             { name: '两室', value: 2 },
             { name: '三室', value: 3 },
             { name: '四室', value: 4 },
@@ -19,6 +20,8 @@ Component({
         ],
         totalPriceMin: null,
         totalPriceMax: null,
+        houseTypeIndex: 0,
+
         areaMin: null,
         areaMax: null,
         showPop: false,
@@ -97,11 +100,13 @@ Component({
                 filter.area = this.data.areaMin + ',' + this.data.areaMax
             }
 
-            if (this.data.houseTypeIndex != null) {
-                var v = this.data.houseTypeItems[this.data.houseTypeIndex].value
+            var v = this.data.houseTypeItems[this.data.houseTypeIndex].value
+            if (v === null) {
+                delete filter.type
+            } else {
                 filter.type = v
-
             }
+
             this.setData({ filter: filter })
             this.triggerEvent('change', filter)
             this.setData({ showPop: false })
