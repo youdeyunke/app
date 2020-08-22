@@ -1,1 +1,5 @@
 /* pages/post/filter/index.wxss */
+
+.post-filter-index {
+    height: 80rpx;
+}

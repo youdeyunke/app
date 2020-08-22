@@ -1,1 +1,16 @@
 /* pages/post/filter/city-picker.wxss */
+
+.post-city-picker {
+    height: 100%;
+}
+
+.active {
+    color: #1989fa;
+}
+
+.filter-name {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}

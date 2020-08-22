@@ -2,6 +2,8 @@
     "component": true,
     "usingComponents": {
         "order-picker": "./order-picker",
-        "city-picker": "./city-picker"
+        "popup": "/components/popup",
+        "city-picker": "./city-picker",
+        "range-slider": "/components/range-slider/range-slider"
     }
 }

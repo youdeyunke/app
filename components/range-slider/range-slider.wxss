@@ -1,35 +1,50 @@
 .range-slider {
-  position: relative;
+    position: relative;
 }
 
 .range-bar {
-  position: absolute;
+    position: absolute;
 }
 
 .range-bar {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-  border-radius: 10000rpx;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    border-radius: 10000rpx;
 }
 
 .range-bar-bg {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 10000rpx;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10000rpx;
 }
 
 .range-bar-progress {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: blueviolet;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: blueviolet;
 }
 
 .block {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
 
+.slider-block::after {
+    content: "";
+    width: 16px;
+    height: 16px;
+    background: #cecece;
+    border: 4px solid #fff;
+    -webkit-box-shadow: 0 2px 6px 0 #9fa7b3;
+    -moz-box-shadow: 0 2px 6px 0 #9fa7b3;
+    box-shadow: 0 2px 6px 0 #9fa7b3;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    position: absolute;
+    top: 0rpx;
 }

@@ -11,6 +11,17 @@ Component({
      * 组件的初始数据
      */
     data: {
+        houseTypeItems: [
+            { name: '两室', value: 2 },
+            { name: '三室', value: 3 },
+            { name: '四室', value: 4 },
+            { name: '五室及以上', value: 5 },
+        ],
+        totalPriceMin: null,
+        totalPriceMax: null,
+        areaMin: null,
+        areaMax: null,
+        showPop: false,
         orderOptions: [
             {
                 label: "默认",
@@ -39,6 +50,91 @@ Component({
      * 组件的方法列表
      */
     methods: {
+        showFilterHandle: function (e) {
+            this.setData({ showPop: true })
+        },
+        filterConfirmHandle: function (e) {
+            // validate 
+            // check price range 
+            if (this.data.totalPriceMin === null && this.data.totalPriceMax != null) {
+                wx.showToast({
+                    title: '请输入价格范围',
+                    icon: 'none',
+                });
+                return false
+            }
+            if (this.data.totalPriceMin != null && this.data.totalPriceMax === null) {
+                wx.showToast({
+                    title: '请输入价格范围',
+                    icon: 'none',
+                });
+                return false
+            }
+
+            // check area range 
+            if (this.data.areaMin === null && this.data.areaMax != null) {
+                wx.showToast({
+                    title: '请输入面积范围',
+                    icon: 'none',
+                });
+                return false
+            }
+            if (this.data.areaMin != null && this.data.areaMax === null) {
+                wx.showToast({
+                    title: '请输入面积范围',
+                    icon: 'none',
+                });
+                return false
+            }
+
+            // 拼接filter
+            var filter = this.data.filter
+            if (this.data.totalPriceMin != null) {
+                filter.total_price = this.data.totalPriceMin + ',' + this.data.totalPriceMax
+
+            }
+            if (this.data.areaMin != null) {
+                filter.area = this.data.areaMin + ',' + this.data.areaMax
+            }
+
+            if (this.data.houseTypeIndex != null) {
+                var v = this.data.houseTypeItems[this.data.houseTypeIndex].value
+                filter.type = v
+
+            }
+            this.setData({ filter: filter })
+            this.triggerEvent('change', filter)
+            this.setData({ showPop: false })
+        },
+        filterCancleHandle: function (e) {
+            this.setData({
+                totalPriceMin: null,
+                totalPriceMax: null,
+                areaMin: null,
+                areaMax: null,
+                houseTypeIndex: null
+            })
+        },
+        houseTypeItemHandle: function (e) {
+            const { index } = e.target.dataset
+            this.setData({ houseTypeIndex: index })
+        },
+        totalPriceChange: function (e) {
+            var key = e.currentTarget.dataset.name
+            var value = Math.floor(e.detail)
+            var data = {}
+            data[key] = value
+            this.setData(data)
+        },
+
+        areaChange: function (e) {
+            var key = e.currentTarget.dataset.name
+            var value = Math.floor(e.detail)
+            var data = {}
+            data[key] = value
+            this.setData(data)
+        },
+
         orderChange: function (e) {
             // TODO CHANGE FILTER
             const { order } = e.detail

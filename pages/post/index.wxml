@@ -8,7 +8,6 @@
     </van-search>
 </view>
 <view class="filter" wx:if="{{filterConfigs}}">
-    <base-filter configs="{{filterConfigs}}" initValue="{{filter}}" bind:change="filterChange" />
     <post-filter filter="{{filter}}" bind:change="filterChange" />
 </view>
 <view class="res">

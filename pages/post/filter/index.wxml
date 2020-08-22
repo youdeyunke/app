@@ -1,5 +1,5 @@
 <!-- pages/post/filter/index.wxml -->
-<view class="post-filter">
+<view class="post-filter-index">
     <old-post-filter wx:if="{{postGroup == 'old'}}" filter="{{filter}}" bind:change="filterChange" />
     <new-post-filter wx:if="{{postGroup == 'new'}}" filter="{{filter}}" bind:change="filterChange" />
     <rental-post-filter wx:if="{{postGroup == 'rental'}}" filter="{{filter}}" bind:change="filterChange" />

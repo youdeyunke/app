@@ -1,7 +1,10 @@
 <!-- pages/post/filter/city-picker.wxml -->
-<block>
-    <view bindtap="popToggleHandle">{{ city.text }} {{ district.text }}</view>
+<view class="post-city-picker">
+    <view class="{{popShow === true ? 'active' : '' }} filter-name" bindtap="popToggleHandle">
+        {{ city.text }} {{ district.text }}
+        <van-icon name="arrow-down" />
+    </view>
     <popup show="{{popShow}}" position="top" bind:cancle="onReset" bind:confirm="onConfirm" label="请选择">
         <van-tree-select items="{{ cityItems }}" main-active-index="{{ cityIndex }}" active-id="{{ district.id }}" bind:click-nav="cityClick" bind:click-item="districtClick" content-active-class="content-active" main-active-class="main-content-active" />
     </popup>
-</block>
+</view>

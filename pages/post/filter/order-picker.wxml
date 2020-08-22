@@ -1,4 +1,7 @@
-<block>
-    <view bindtap="popToggleHandle">{{ order.label || '排序' }}</view>
+<view class="post-order-picker">
+    <view class="label {{ popShow === true ? 'active' : '' }}" bindtap="popToggleHandle">
+        {{ order.label || '排序' }}
+        <van-icon name="arrow-down" />
+    </view>
     <mypicker bind:close="popToggleHandle" bind:change="orderChange" options="{{options}}" show="{{popShow}}"></mypicker>
-</block>
+</view>

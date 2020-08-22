@@ -1,1 +1,19 @@
 /* pages/post/filter/order-picker.wxss */
+
+.post-order-picker {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.label {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.label.active {
+    color: #1989fa;
+}
