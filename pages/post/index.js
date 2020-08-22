@@ -10,9 +10,7 @@ Page({
         kw: '',
         kwInput: '',
         album: null,
-        filter: {
-            page: 1,
-        },
+        filter: {},
         filterConfigs: [
         ],
     },
@@ -33,7 +31,6 @@ Page({
         data['filter'] = filter
         this.setData(data)
         this.setPageTitle()
-        this.loadAlbum(q.album_id)
     },
 
     setPageTitle: function () {

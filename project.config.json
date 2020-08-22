@@ -182,7 +182,7 @@
 					"id": 17,
 					"name": "post-index",
 					"pathName": "pages/post/index",
-					"query": "group_v2=rental",
+					"query": "group_v2=shop",
 					"scene": null
 				},
 				{
