@@ -21,7 +21,7 @@
                 </view>
                 <view class="section house-type">
                     <view class="title-block">
-                        <view class="title">户型</view>
+                        <view class="title">转让类型</view>
                     </view>
                     <view class="body">
                         <view class="house-type-list">
