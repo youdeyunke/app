@@ -1,5 +1,3 @@
-/* pages/post/filter/old-post-filter.wxss */
-
 .old-post-filter {
     display: flex;
     justify-content: space-between;
@@ -91,6 +89,6 @@
     margin-right: 0;
 }
 
-.myinput  {
-    width: 250rpx;
+.myinput {
+    width: 290rpx;
 }

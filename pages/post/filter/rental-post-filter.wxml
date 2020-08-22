@@ -9,15 +9,15 @@
             <view class="filter-body">
                 <view class="section total-price">
                     <view class="title-block">
-                        <view class="title">总价</view>
+                        <view class="title">月租金</view>
                     </view>
                     <view class="body">
-                        <van-field class="myinput" maxlength="3" clearable type="number" data-name="totalPriceMin" value="{{ totalPriceMin }}" placeholder="请输入" bind:change="totalPriceChange">
+                        <van-field class="myinput" maxlength="5" clearable type="number" data-name="rentPriceMin" value="{{ rentPriceMin }}" placeholder="请输入" bind:change="rentPriceChange">
                             <text slot="right-icon"></text>
                         </van-field>
                         <view class="text">至</view>
-                        <van-field class="myinput" maxlength="3" clearable type="number" data-name="totalPriceMax" value="{{ totalPriceMax }}" placeholder="请输入" bind:change="totalPriceChange">
-                            <text slot="right-icon">万元</text>
+                        <van-field class="myinput" maxlength="5" clearable type="number" data-name="rentPriceMax" value="{{ rentPriceMax }}" placeholder="请输入" bind:change="rentPriceChange">
+                            <text slot="right-icon">元/月</text>
                         </van-field>
                     </view>
                 </view>

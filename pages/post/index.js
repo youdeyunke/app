@@ -10,8 +10,9 @@ Page({
         kw: '',
         kwInput: '',
         album: null,
-        filter: {},
-        page: 1,
+        filter: {
+            page: 1,
+        },
         filterConfigs: [
         ],
     },
@@ -158,7 +159,9 @@ Page({
 
 
     filterChange: function (e) {
-        this.setData({ filter: e.detail })
+        var filter = e.detail
+        filter.page = 1
+        this.setData({ filter: filter })
     },
 
     /**
@@ -199,9 +202,9 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-        var page = this.data.page || 1
         var filter = this.data.filter
-        filter.page = page
+        filter.page = filter.page === null ? 1 : filter.page
+        filter.page += 1
         this.setData({ filter: filter })
     },
 

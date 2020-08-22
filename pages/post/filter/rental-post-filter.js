@@ -1,4 +1,3 @@
-// pages/post/filter/old-post-filter.js
 Component({
     /**
      * 组件的属性列表
@@ -18,8 +17,8 @@ Component({
             { name: '四室', value: 4 },
             { name: '五室及以上', value: 5 },
         ],
-        totalPriceMin: null,
-        totalPriceMax: null,
+        rentPriceMin: null,
+        rentPriceMax: null,
         houseTypeIndex: 0,
 
         areaMin: null,
@@ -39,12 +38,12 @@ Component({
                 value: "area asc"
             },
             {
-                label: "总价（从小到大)",
-                value: "total_price  asc"
+                label: "月租金（从低到高)",
+                value: "rent_price asc"
             },
             {
-                label: "总价（从大到小)",
-                value: "total_price desc"
+                label: "月租金（从高到低)",
+                value: "rent_price desc"
             }
         ]
     },
@@ -59,16 +58,16 @@ Component({
         filterConfirmHandle: function (e) {
             // validate 
             // check price range 
-            if (this.data.totalPriceMin === null && this.data.totalPriceMax != null) {
+            if (this.data.rentPriceMin === null && this.data.rentPriceMax != null) {
                 wx.showToast({
-                    title: '请输入价格范围',
+                    title: '请输入租金范围',
                     icon: 'none',
                 });
                 return false
             }
-            if (this.data.totalPriceMin != null && this.data.totalPriceMax === null) {
+            if (this.data.rentPriceMin != null && this.data.rentPriceMax === null) {
                 wx.showToast({
-                    title: '请输入价格范围',
+                    title: '请输入租金范围',
                     icon: 'none',
                 });
                 return false
@@ -92,8 +91,8 @@ Component({
 
             // 拼接filter
             var filter = this.data.filter
-            if (this.data.totalPriceMin != null) {
-                filter.total_price = this.data.totalPriceMin + ',' + this.data.totalPriceMax
+            if (this.data.rentPriceMin != null) {
+                filter.rent_price = this.data.rentPriceMin + ',' + this.data.rentPriceMax
 
             }
             if (this.data.areaMin != null) {
@@ -114,8 +113,8 @@ Component({
         },
         filterCancleHandle: function (e) {
             this.setData({
-                totalPriceMin: null,
-                totalPriceMax: null,
+                rentPriceMin: null,
+                rentPriceMax: null,
                 areaMin: null,
                 areaMax: null,
                 houseTypeIndex: 0
@@ -125,7 +124,7 @@ Component({
             const { index } = e.target.dataset
             this.setData({ houseTypeIndex: index })
         },
-        totalPriceChange: function (e) {
+        rentPriceChange: function (e) {
             var key = e.currentTarget.dataset.name
             var value = Math.floor(e.detail)
             var data = {}

@@ -39,12 +39,12 @@ Component({
                 value: "area asc"
             },
             {
-                label: "总价（从小到大)",
-                value: "total_price  asc"
+                label: "均价（从小到大)",
+                value: "custom_average_price  asc"
             },
             {
-                label: "总价（从大到小)",
-                value: "total_price desc"
+                label: "均价（从大到小)",
+                value: "custom_average_price desc"
             }
         ]
     },
@@ -110,6 +110,7 @@ Component({
             filter.page = 1
             this.setData({ filter: filter })
             this.triggerEvent('change', filter)
+            console.log('filter on change ', filter)
             this.setData({ showPop: false })
         },
         filterCancleHandle: function (e) {
