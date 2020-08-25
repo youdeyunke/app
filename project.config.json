@@ -918,6 +918,13 @@
 					"pathName": "pages/post/index",
 					"query": "group_v2=old&city_id=1",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pkg-admin-posts",
+					"pathName": "pkgAdmin/pages/admin/posts",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

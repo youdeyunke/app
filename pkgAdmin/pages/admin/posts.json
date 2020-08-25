@@ -1,6 +1,7 @@
 {
     "enablePullDownRefresh": true,
     "usingComponents": {
+        "mypicker": "/components/picker",
         "post": "/components/post-panel",
         "van-search": "/vant/search/index",
         "box": "/components/box"

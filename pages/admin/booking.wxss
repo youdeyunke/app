@@ -1,5 +1,0 @@
-/* pages/admin/booking.wxss */
-
-page {
-    padding-top: 20rpx;
-}

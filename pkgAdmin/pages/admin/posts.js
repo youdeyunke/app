@@ -9,9 +9,9 @@ Page({
      */
     data: {
         loading: false,
-        tabs: [],
-        currentTabIndex: 0,
-        group_v2: 'old',
+        groups: [],
+        groupIndex: 0,
+        popShow: false,
         userInfo: null,
         searchText: '',
     },
@@ -19,16 +19,33 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
+
     onLoad: function (q) {
         var _this = this
-        var tabs = app.globalData.myconfigs['post_groups']
-        this.setData({ tabs: tabs, group_v2: tabs[0].value })
+        var groups = app.globalData.myconfigs['post_groups'].map((g, i) => {
+            g.value = g.key
+            return g
+        })
+        console.log('groups', groups)
+        this.setData({ groups: groups })
 
         auth.ensureUser((userInfo) => {
             _this.setData({ userInfo: userInfo })
             _this.loadPosts()
         })
 
+    },
+
+    popShowHandle: function () {
+        this.setData({ popShow: true })
+    },
+    popCloseHandle: function () {
+        this.setData({ popShow: false })
+    },
+    groupChange: function (e) {
+        const { index } = e.detail
+        this.setData({ groupIndex: index, popShow: false, posts: [] })
+        this.loadPosts()
     },
 
 
@@ -41,35 +58,22 @@ Page({
         this.loadPosts()
     },
 
-    tabChange: function (e) {
-        var i = e.detail.name
-        var tab = this.data.tabs[i]
-        var filter = this.data.filter
-        this.setData({ page: 1, group_v2: tab.value, loading: true })
-        this.loadPosts()
-    },
 
     loadPosts: function () {
         /* 拉取我的房源 */
         this.setData({ loading: true })
         var _this = this
-        var userId = this.data.userInfo.id
-
+        var g = this.data.groups[this.data.groupIndex].value
         app.request({
-            url: '/api/v2/posts/',
+            url: '/api/v1/admin_posts/',
             data: {
-                'user_id': userId,
                 per_page: 999,
                 text: _this.data.searchText,
-                group_v2: _this.data.group_v2,
+                group_v2: g,
             },
             success: function (resp) {
                 _this.setData({ loading: false })
                 if (!resp.data.status == 0) {
-                    wx.showModal({
-                        title: '崩溃了',
-                        content: '服务器出现错误，请稍后再试',
-                    })
                     return false
                 }
                 _this.setData({

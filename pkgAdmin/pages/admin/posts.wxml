@@ -1,27 +1,14 @@
-
-<van-tabs style="width:100%;" animated swipeable  type="line" color="#00ae66" bind:change="tabChange">
-    <van-tab wx:for="{{tabs}}" wx:for-item="tab" title="{{tab.name}}">
-    </van-tab>
-</van-tabs> 
-
-<block wx:if="{{userInfo && posts }}">
-
-<van-search
-  value="{{ value }}"
-  background="#f3f5f7"
-  placeholder="请输入搜索关键词"
-  use-action-slot
-  bind:clear="clearSearch"
-  bind:search="loadPosts"
-  custom-class="search-box"
-  bind:change="searchTextInput"
->
-  <view slot="action" bind:tap="loadPosts">搜索</view>
-</van-search>
-    
-    <box padding="30"  wx:for="{{posts}}" >
-      <post item="{{item}}"/>    
-    </box>
-</block>
-
+<view class="topbar">
+    <view class="post-group" bindtap="popShowHandle">
+        {{ groups[groupIndex].name}}
+        <van-icon name="arrow-down" />
+    </view>
+    <van-search value="{{ value }}" placeholder="请输入搜索关键词" use-action-slot bind:clear="clearSearch" bind:search="loadPosts" custom-class="search-box" bind:change="searchTextInput">
+        <view slot="action" bind:tap="loadPosts">搜索</view>
+    </van-search>
+</view>
+<mypicker options="{{groups}}" show="{{popShow}}" bind:change="groupChange" bind:close="popCloseHandle" />
+<box padding="30" wx:for="{{posts}}">
+    <post item="{{item}}" />
+</box>
 <no-result wx:if="{{posts.length == 0 && loading == false}}" />

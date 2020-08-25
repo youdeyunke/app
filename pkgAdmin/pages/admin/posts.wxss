@@ -1,9 +1,38 @@
 /* pages/myself/posts.wxss */
 
-van-search{
-  width: 100%;
+page {
+    padding-top: 140rpx;
 }
 
-.search-box .van-cell  {
-  background:#fff ;
+.topbar {
+    height: 120rpx;
+    border-bottom: 2rpx solid #f4f4f4;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 20rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fff;
+    z-index: 10;
+    box-sizing: border-box;
+}
+
+.topbar .post-group {
+    width: 150rpx;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1989fa;
+}
+
+van-search {
+    flex: 1;
+}
+
+.search-box .van-cell {
+    background: #fff;
 }

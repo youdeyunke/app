@@ -2,7 +2,7 @@
     <view class="options">
         <van-radio-group value="{{ currentIndex }}">
             <van-cell-group>
-                <van-cell wx:for="{{options}}" data-index="{{index}}" title="{{item.label}}" bind:click="optionClick">
+                <van-cell wx:for="{{options}}" data-index="{{index}}" title="{{item.label || item.name}}" bind:click="optionClick">
                     <van-radio custom-style="margin-left:20rpx;" slot="right-icon" name="{{index}}" />
                 </van-cell>
             </van-cell-group>

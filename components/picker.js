@@ -31,7 +31,6 @@ Component({
 
         optionClick: function (e) {
             const { index } = e.currentTarget.dataset;
-            console.log('option click', e)
             this.setData({ currentIndex: index.toString() })
         },
 
