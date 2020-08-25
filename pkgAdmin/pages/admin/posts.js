@@ -76,6 +76,13 @@ Page({
                 if (!resp.data.status == 0) {
                     return false
                 }
+                var posts = resp.data.data.map((p, i) => {
+                    p.counter_1 = p.count_info[1].value
+                    p.counter_2 = p.count_info[2].value
+                    p.counter_3 = p.count_info[5].value
+                    return p
+
+                })
                 _this.setData({
                     posts: resp.data.data,
                 })

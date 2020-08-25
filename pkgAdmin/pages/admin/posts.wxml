@@ -8,7 +8,25 @@
     </van-search>
 </view>
 <mypicker options="{{groups}}" show="{{popShow}}" bind:change="groupChange" bind:close="popCloseHandle" />
-<box padding="30" wx:for="{{posts}}">
-    <post item="{{item}}" />
-</box>
+<view class="list">
+    <view class="post-item" wx:for="{{posts}}">
+        <view class="title">{{item.title}}</view>
+        <view class="detail">
+            <image class="cover" src="{{item.cover}}" />
+            <view class="counter">
+                <view class="number">{{item.counter_1}}</view>
+                <view class="label">访客</view>
+            </view>
+            <view class="counter">
+                <view class="number">{{item.counter_2}}</view>
+                <view class="label">收藏</view>
+            </view>
+            <view class="counter">
+                <view class="number">{{item.counter_3}}</view>
+                <view class="label">报备</view>
+            </view>
+            <van-icon name="arrow" />
+        </view>
+    </view>
+</view>
 <no-result wx:if="{{posts.length == 0 && loading == false}}" />

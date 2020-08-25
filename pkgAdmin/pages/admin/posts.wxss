@@ -36,3 +36,66 @@ van-search {
 .search-box .van-cell {
     background: #fff;
 }
+
+.list .post-item {
+    width: 710rpx;
+    height: 286rpx;
+    border-radius: 8rpx;
+    border: 2rpx solid #f4f4f4;
+    margin-bottom: 20rpx;
+    padding: 30rpx;
+    background: #fff;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.list .post-item .title {
+    font-size: 32rpx;
+    color: #333;
+}
+
+.list .post-item .detail {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list .post-item .detail .cover {
+    width: 140rpx;
+    height: 140rpx;
+}
+
+.list .post-item .counter {
+    width: 108rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.list .post-item .counter .number {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #333;
+}
+
+.list .post-item .number:first-child {
+    color: #039E00;
+}
+
+.list .post-item .counter:nth-child(3) .number {
+    color: #FF2F2F;
+}
+
+.list .post-item .counter:nth-child(4) .number {
+    color: #CEAD00;
+}
+
+.list .post-item .counter .label {
+    font-size: 24rpx;
+    color: #999;
+}
