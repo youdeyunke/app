@@ -72,6 +72,7 @@ van-search {
 .list .post-item .counter {
     width: 108rpx;
     display: flex;
+    height: 112rpx;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;

@@ -26,7 +26,7 @@ Page({
             g.value = g.key
             return g
         })
-        console.log('groups', groups)
+        groups = [{ name: '全部', value: '' }].concat(groups)
         this.setData({ groups: groups })
 
         auth.ensureUser((userInfo) => {
