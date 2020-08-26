@@ -37,3 +37,13 @@
 .content .deal-status {
     margin-bottom: 20rpx;
 }
+
+.myfooter {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.myfooter van-button {
+    margin-left: 20rpx;
+}

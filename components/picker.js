@@ -5,12 +5,23 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        options: { type: Array, value: [] },
-        show: { type: Boolean, value: false },
+        options: { type: Array, default: [] },
+        current: { type: Number, default: 0 },
+        show: { type: Boolean, default: false },
         position: {
             type: String, value: 'top'
         }
     },
+
+    observers: {
+        "current": function (val) {
+            this.setData({
+                currentIndex: val + ''
+            })
+        }
+    },
+
+
 
 
     /**

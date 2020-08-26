@@ -10,6 +10,7 @@ Page({
         postId: null,
         items: [],
         loading: null,
+        noResult: false,
         page: 1,
         statusItems: [
             { name: '待审核', value: 1 },
@@ -56,9 +57,11 @@ Page({
                 if (resp.data.status != 0) {
                     return
                 }
+
                 var items = resp.data.data
                 _this.setData({
                     loading: false,
+                    noResult: resp.data.total_count === 0,
                     items: items
                 })
             }
