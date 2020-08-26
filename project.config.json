@@ -531,7 +531,7 @@
 					"id": 68,
 					"name": "post visitors",
 					"pathName": "pages/visitors/index",
-					"query": "targetId=31&targetType=post",
+					"query": "targetId=52&targetType=post&scope=this_month_items",
 					"scene": null
 				},
 				{
@@ -924,6 +924,13 @@
 					"name": "pkg-admin-posts",
 					"pathName": "pkgAdmin/pages/admin/posts",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pkg-admin-post-detail",
+					"pathName": "pkgAdmin/pages/admin/post",
+					"query": "id=52",
 					"scene": null
 				}
 			]

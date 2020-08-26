@@ -1,19 +1,14 @@
-<view hidden="{{targetId}}" style="width:100%;margin-bottom:20rpx">
-    <van-tabs  animated swipeable  type="line" color="#00ae66" bind:change="tabChange">
-    <van-tab wx:for="{{tabs}}" wx:for-item="tab" title="{{tab.name}}">
-        </van-tab>
-    </van-tabs> 
+<view style="width:100%;margin-bottom:20rpx">
+    <van-tabs active="{{scopeIndex}}" animated swipeable type="line" color="#1989fa" bind:change="tabChange">
+        <van-tab wx:for="{{scopes}}" wx:for-item="tab" title="{{tab.name}}"></van-tab>
+    </van-tabs>
 </view>
-
-<no-result wx:if="{{!loading && items[0].length == 0 }}" />
-
-<box padding="20" wx:else>   
-    <van-cell title="{{ item.target_info.title }}" wx:for="{{items}}"  wx:for-key="item.id"  size="large" hover-class="none" 
-    label="{{item.user.mobile || '未知手机号' }} / {{ item.updated_at }}  / 停留{{ item.delta_time}} "   >
+<no-result wx:if="{{ noResult }}" />
+<box padding="20" wx:else>
+    <van-cell title="{{ item.target_info.title }}" wx:for="{{items}}" wx:for-key="item.id" size="large" hover-class="none" label="{{item.user.mobile || '未知手机号' }} / {{ item.updated_at }}  / 停留{{ item.delta_time}} ">
         <image style="width:80rpx;height:80rpx;border-radius:80rpx;" slot="right-icon" src="{{item.user.avatar}}" />
     </van-cell>
-
-  <view style="display:flex;justify-content:center;align-items:center;">
-    <van-loading wx:if="{{loading}}" />
-  </view>
+    <view style="display:flex;justify-content:center;align-items:center;">
+        <van-loading wx:if="{{loading}}" />
+    </view>
 </box>

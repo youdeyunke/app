@@ -8,10 +8,14 @@ Page({
      */
     data: {
         postId: '',
-        tabs: [
-            { name: '房源访客', value: 'post' },
-            { name: '主页访客', value: 'user' },
+        scopes: [
+            { name: '今日', value: 'today_items' },
+            { name: '昨日', value: 'yesterday_items' },
+            { name: '本月', value: 'this_month_items' },
+            { name: '全部', value: 'all' },
         ],
+        noResult: false,
+        scopeIndex: 0,
         items: [],
         page: 1,
         targetId: '',
@@ -24,7 +28,11 @@ Page({
      */
     onLoad: function (q) {
         var _this = this
+        var scopeIndex = this.data.scopes.findIndex((item, index) => { return item.value === q.scope })
+        console.log('scope index', scopeIndex)
+
         this.setData({
+            scopeIndex: scopeIndex || 0,
             targetId: q.targetId || '',
             targetType: q.targetType || 'post',
         }, function () {
@@ -33,16 +41,11 @@ Page({
     },
 
     tabChange: function (e) {
-        var i = e.detail.name
-        var tab = this.data.tabs[i]
-        var filter = this.data.filter
-        this.setData({
-            targetType: tab.value,
-            page: 1,
-            items: [],
-            loading: true,
+        var index = e.detail.name
+        var _this = this
+        this.setData({ scopeIndex: index, items: [], page: 1, loading: true }, () => {
+            _this.loadData()
         })
-        this.loadData()
     },
 
     loadData: function () {
@@ -50,6 +53,7 @@ Page({
         var query = {
             order: 'updated_at desc',
             page: this.data.page,
+            scope: this.data.scopes[this.data.scopeIndex].value,
             target_type: this.data.targetType || 'post',
             target_id: this.data.targetId || '',
         }
@@ -64,7 +68,7 @@ Page({
                     var key = 'items[' + i + ']'
                     data[key] = item
                 })
-                console.log(' set data', data)
+                data.noResult = resp.data.meta.total_visitors === 0
                 _this.setData(data)
             },
         })

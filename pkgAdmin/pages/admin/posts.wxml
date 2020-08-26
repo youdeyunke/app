@@ -9,7 +9,7 @@
 </view>
 <mypicker options="{{groups}}" show="{{popShow}}" bind:change="groupChange" bind:close="popCloseHandle" />
 <view class="list">
-    <view class="post-item" wx:for="{{posts}}">
+    <navigator url="/pkgAdmin/pages/admin/post?id={{item.id}}" class="post-item" wx:for="{{posts}}">
         <view class="title">{{item.title}}</view>
         <view class="detail">
             <image class="cover" src="{{item.cover}}" />
@@ -27,6 +27,6 @@
             </view>
             <van-icon name="arrow" />
         </view>
-    </view>
+    </navigator>
 </view>
 <no-result wx:if="{{posts.length == 0 && loading == false}}" />
