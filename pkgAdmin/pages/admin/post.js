@@ -10,6 +10,7 @@ Page({
         postId: null,
         loading: null,
         post: null,
+        canEdit: false,
 
     },
 
@@ -161,11 +162,12 @@ Page({
                     return false
                 }
                 var post = resp.data.data
-                _this.setData({ post: post })
                 wx.setNavigationBarTitle({
                     title: post.title,
                 });
-
+                var items = ["old", "rental", "shop"]
+                var r = items.includes(post.group)
+                _this.setData({ post: post, canEdit: r })
             }
         })
 
