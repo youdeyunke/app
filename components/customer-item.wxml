@@ -1,5 +1,5 @@
 <view class="outer">
-    <van-panel title="客户：{{item.name}} ({{ item.mobile}})" header-class="header" use-footer-slot footer-class="myfooter">
+    <van-panel title="客户：{{item.name}} ({{ item.mobile}})" header-class="header" use-footer-slot="{{isAdmin}}" footer-class="myfooter">
         <view class="content">
             <view class="attrs">
                 <view class="attr">

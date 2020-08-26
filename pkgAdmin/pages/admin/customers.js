@@ -15,6 +15,7 @@ Page({
         statusItems: [
             { name: '待审核', value: 1 },
             { name: '有效', value: 2 },
+            { name: '无效', value: 0 },
         ],
         statusIndex: 0
 
