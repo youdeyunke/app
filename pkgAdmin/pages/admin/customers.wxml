@@ -1,2 +1,8 @@
-<!--pkgAdmin/pages/admin/customers.wxml-->
-<text>pkgAdmin/pages/admin/customers.wxml</text>
+<view style="width:100%;margin-bottom:20rpx">
+    <van-tabs active="{{statusIndex}}" animated swipeable type="line" color="#1989fa" bind:change="tabChange">
+        <van-tab wx:for="{{statusItems}}" wx:for-item="tab" title="{{tab.name}}"></van-tab>
+    </van-tabs>
+</view>
+<navigator wx:for="{{items}}">
+    <customer-item item="{{item}}"></customer-item>
+</navigator>

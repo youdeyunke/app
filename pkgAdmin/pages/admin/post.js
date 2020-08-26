@@ -102,19 +102,19 @@ Page({
                 break;
 
             case 'today_customers_count':
-                this.gotoCustomers();
+                this.gotoCustomers(1);
                 break;
             case 'pending_customers_count':
-                this.gotoCustomers();
+                this.gotoCustomers(1);
                 break;
-            case 'valida_customers_count':
-                this.gotoCustomers();
+            case 'valid_customers_count':
+                this.gotoCustomers(2);
                 break;
         }
     },
 
-    gotoCustomers: function () {
-        var url = '/pkgAdmin/pages/admin/customers?postId=' + this.data.postId
+    gotoCustomers: function (status) {
+        var url = '/pkgAdmin/pages/admin/customers?post_id=' + this.data.postId + '&status=' + status
         wx.navigateTo({ url: url });
     },
 
