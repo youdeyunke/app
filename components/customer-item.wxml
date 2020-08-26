@@ -1,34 +1,23 @@
-
 <view class="outer">
-    <van-panel title="{{item.name}} ({{ item.mobile}})" header-class="header" >
-      <view class="content">
-        <view class="attrs">
-            <view class="attr">
-              <view class="label">报备项目：</view>
-              <view class="value">{{item.post_name || '未知' }}</view>
+    <van-panel title="{{item.name}} ({{ item.mobile}})" header-class="header">
+        <view class="content">
+            <view class="attrs">
+                <view class="attr">
+                    <view class="label">报备项目：</view>
+                    <view class="value">{{item.post_name || '未知' }}</view>
+                </view>
+                <view class="attr">
+                    <view class="label">报备时间：</view>
+                    <view class="value">{{ createdAt }}</view>
+                </view>
+                <view class="attr" wx:if="{{item.status == 0}}">
+                    <view class="label">无效原因：</view>
+                    <view class="value">{{ item.status_remark }}</view>
+                </view>
+                <view class="deal-status" wx:if="{{ item.status == 2 }}">
+                    <van-steps steps="{{ steps }}" active="{{ item.deal_status }}" active-icon="success" active-color="#38f" />
+                </view>
             </view>
-
-            <view class="attr">
-              <view class="label">报备时间：</view>
-              <view class="value">{{ item.created_at_pretty }}</view>
-            </view>
-
-            <view class="attr" wx:if="{{item.status == 0}}">
-              <view class="label">无效原因：</view>
-              <view class="value">{{ item.status_remark }}</view>
-            </view>
-
-            <view class="deal-status" wx:if="{{ item.status == 2 }}">
-                <van-steps
-                  steps="{{ steps }}"
-                  active="{{ item.deal_status }}"
-                  active-icon="success"
-                  active-color="#38f"
-                />
-            </view>
-
         </view>
-      
-      </view>
     </van-panel>
 </view>

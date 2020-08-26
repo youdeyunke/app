@@ -19,6 +19,16 @@ Component({
                 steps: steps
             })
         },
+
+        "item.created_at": function (t) {
+            console.log('created', t)
+            var dt = t.split('T')[0]
+            var tm = t.split('T')[1].split('.')[0]
+            var v = dt + ' ' + tm
+            this.setData({
+                createdAt: v
+            })
+        }
     },
 
     /**
