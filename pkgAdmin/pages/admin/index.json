@@ -1,6 +1,4 @@
 {
-    "navigationStyle": "custom",
-    "navigationBarTextStyle": "white",
     "navigationBarTitleText": "工作台",
     "enablePullDownRefresh": false,
     "usingComponents": {
