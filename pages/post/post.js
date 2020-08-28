@@ -82,7 +82,6 @@ Page({
         if (options.contact) {
             // 分享海报进入，并设置成我自己的联系方式
             // 隐藏home
-            wx.hideHomeButton()
             var _contacts = options.contact.split('_')
             var postId = _contacts[0]
             this.setData({
@@ -157,7 +156,6 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        wx.hideHomeButton()
         this.setData({ userInfo: app.globalData.userInfo })
         this.loadData()
         setTimeout(() => {
