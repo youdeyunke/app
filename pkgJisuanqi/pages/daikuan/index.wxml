@@ -26,8 +26,8 @@
     </picker>
 </box>
 <box>
-    <van-field type="number" placeholder="央行公布的当月LPR" title-width="120" focus="{{lprRateFocus}}" bind:focus="inputFocus" bind:blur="inputBlur" size="large" wx:if="{{loanType == 1 || loanType == 3}}" input-align="right" label="最新LPR" bindinput="lprRateInput" value="{{lprRate}}" />
-    <van-field type="number" placeholder="加点" title-width="120" focus="{{lprBaseFocus}}" bind:focus="inputFocus" bind:blur="inputBlur" size="large" wx:if="{{loanType == 1 || loanType == 3}}" input-align="right" label="加点数" bindinput="lprBaseInput" value="{{lprBase}}" />
+    <van-field type="digit" placeholder="央行公布的当月LPR" title-width="120" focus="{{lprRateFocus}}" bind:focus="inputFocus" bind:blur="inputBlur" size="large" wx:if="{{loanType == 1 || loanType == 3}}" input-align="right" label="最新LPR" bindinput="lprRateInput" value="{{lprRate}}" />
+    <van-field type="digit" placeholder="加点" title-width="120" focus="{{lprBaseFocus}}" bind:focus="inputFocus" bind:blur="inputBlur" size="large" wx:if="{{loanType == 1 || loanType == 3}}" input-align="right" label="加点数" bindinput="lprBaseInput" value="{{lprBase}}" />
     <van-field disabled="{{true}}" placeholder="贷款利率" title-width="120" size="large" wx:if="{{loanType == 1 || loanType == 3}}" input-align="right" label="贷款利率" value="{{lprValue}}" />
 </box>
 <view class="tips" bindtap="tipsToggleHandle">
