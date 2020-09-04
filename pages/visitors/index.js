@@ -29,6 +29,7 @@ Page({
     onLoad: function (q) {
         var _this = this
         var scopeIndex = this.data.scopes.findIndex((item, index) => { return item.value === q.scope })
+        scopeIndex = scopeIndex <= 0 ? 0 : scopeIndex
         console.log('scope index', scopeIndex)
 
         this.setData({
@@ -50,10 +51,12 @@ Page({
 
     loadData: function () {
         var _this = this
+        var si = this.data.scopeIndex
+        console.log('si ', si)
         var query = {
             order: 'updated_at desc',
             page: this.data.page,
-            scope: this.data.scopes[this.data.scopeIndex].value,
+            scope: this.data.scopes[si].value,
             target_type: this.data.targetType || 'post',
             target_id: this.data.targetId || '',
         }
