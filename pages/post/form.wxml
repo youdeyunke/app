@@ -1,64 +1,45 @@
 <import src="/tpls/posts/form-rental.wxml" />
 <import src="/tpls/posts/form-old.wxml" />
 <import src="/tpls/posts/form-shop.wxml" />
-
 <form bindsubmit="submit">
     <box>
-      <van-field size="large" bindchange="inputChange" error="{{error.title}}" input-align="left" data-name="title" label="房源标题"
-            value="{{post.title}}" clearable placeholder="如：房东急租小2房" />
+        <van-field size="large" bindchange="inputChange" error="{{error.title}}" input-align="left" data-name="title" label="房源标题" value="{{post.title}}" clearable placeholder="如：房东急租小2房" />
     </box>
-
     <mycard title="地址" wx:if="{{step==1}}" subtitle="门牌号保密，仅管理员可见" hat>
-        <van-field size="large"  error="{{error.district_id}}" input-align="left" disabled bindtap="chooseLocation" is-link label="位置"
-            value="{{post.sub_district_name}}" arrow-direction="down" />
-        <van-field size="large"  data-name="building_number" value="{{ post.building_number }}" input-align="left" label="栋座"
-            placeholder="如：A栋" bind:change="inputChange" />
-        <van-field size="large"  data-name="house_number" value="{{ post.house_number }}" input-align="left" label="门牌号"
-            placeholder="如：55号楼 1002室" bind:change="inputChange" />
+        <van-field size="large" error="{{error.district_id}}" input-align="left" disabled bindtap="chooseDistrict" is-link label="区域" value="{{ post.city.name }} {{post.district.name}}" arrow-direction="down" />
+        <van-field size="large" error="{{error.district_id}}" input-align="left" disabled bindtap="chooseLocation" is-link label="位置" value="{{post.sub_district_name}}" arrow-direction="down" />
+        <van-field size="large" data-name="building_number" value="{{ post.building_number }}" input-align="left" label="栋座" placeholder="如：A栋" bind:change="inputChange" />
+        <van-field size="large" data-name="house_number" value="{{ post.house_number }}" input-align="left" label="门牌号" placeholder="如：55号楼 1002室" bind:change="inputChange" />
     </mycard>
-
     <mycard wx:if="{{step == 1}}" title="房源照片" subtitle="请上传{{imagesMin}}~{{imagesMax}}张真实房源照片" hat>
-        <images-uploader overlook-image="{{post.overlook_image}}" bindchange="imagesChanged" max="{{imagesMax}}"
-            min="{{imagesMin}}" enable-video="{{true}}" video="{{post.video}}" cover="{{post.cover_index || 0}}"
-            images="{{post.images || []}}"></images-uploader>
-
+        <images-uploader overlook-image="{{post.overlook_image}}" bindchange="imagesChanged" max="{{imagesMax}}" min="{{imagesMin}}" enable-video="{{true}}" video="{{post.video}}" cover="{{post.cover_index || 0}}" images="{{post.images || []}}"></images-uploader>
     </mycard>
-
     <!-- mycard wx:if="{{step == 1}}" title="全景外链" subtitle="选填" hat>
         <van-field bindchange="inputChange" label="链接" value="{{ post.vr_url }}" input-align="left" placeholder="请输入"
             data-name="vr_url" error="{{error.vr_url}}" />
     </mycard -->
-
-    <template wx:if="{{post.group}}" is="form-{{post.group}}"
-        data="{{user:user, is_sublet: is_sublet, error: error, post: post, step, minRentMonthItems: minRentMonthItems, allTags, selectedTags, shopRentTypeItems, shopPositionItems}}" />
-
-
-    <card title="标签" hat  subtitle="请选择标签" wx:if="{{step==2}}">
+    <template wx:if="{{post.group}}" is="form-{{post.group}}" data="{{user:user, is_sublet: is_sublet, error: error, post: post, step, minRentMonthItems: minRentMonthItems, allTags, selectedTags, shopRentTypeItems, shopPositionItems}}" />
+    <card title="标签" hat subtitle="请选择标签" wx:if="{{step==2}}">
         <view class="post-tags">
-            <view bindtap="tagHandle" data-index="{{index}}"
-                class="post-tag-item {{ tag.selected ? 'active' : '' }}" wx:for="{{allTags}}" wx:for-item="tag">
-                {{tag.name}}</view>
+            <view bindtap="tagHandle" data-index="{{index}}" class="post-tag-item {{ tag.selected ? 'active' : '' }}" wx:for="{{allTags}}" wx:for-item="tag">
+                {{tag.name}}
+            </view>
         </view>
     </card>
-
     <flow-tips />
-
     <view class="buttons">
         <block wx:if="{{step == 1}}">
-            <button data-name="step1" form-type="submit" type="primary" class="btn ">下一步 1/2</button>
+            <button data-name="step1" form-type="submit" type="primary" class="btn ">
+                下一步 1/2
+            </button>
         </block>
-
         <block wx:if="{{step == 2}}">
             <button data-name="step2" type="primary" form-type="submit" class="btn ">提交保存</button>
             <button bindtap="previousStep" type="default" class="btn ">返回修改</button>
         </block>
     </view>
-
-
-
 </form>
-<mypicker bindtap="showMinRentMonthPicker" id="min-rent-month" items="{{minRentMonthItems}}"
-    bindchange="minRentMonthChange" />
+<mypicker bindtap="showMinRentMonthPicker" id="min-rent-month" items="{{minRentMonthItems}}" bindchange="minRentMonthChange" />
 <typepicker id="typepicker" bindconfirm="typeChanged" />
 <payment id="payment" bindconfirm="paymentChanged" />
 <floorpicker id="floorpicker" bindconfirm="floorChanged" />

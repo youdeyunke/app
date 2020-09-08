@@ -34,12 +34,12 @@ Page({
             title: '',
         },
         shopRentTypeItems: [
-            {label: '出售', value: 'sale'},
-            {label: '出租', value: 'rent'},
+            { label: '出售', value: 'sale' },
+            { label: '出租', value: 'rent' },
         ],
         shopPositionItems: [
-            {label: '临街', value: 'linjie'},
-            {label: '不临街', value: 'bulinjie'},
+            { label: '临街', value: 'linjie' },
+            { label: '不临街', value: 'bulinjie' },
         ],
 
         draftCacheKey: null,
@@ -107,7 +107,7 @@ Page({
         })
     },
 
-    checkLimit: function(user){
+    checkLimit: function (user) {
         // 判断发布房源数量限制情况
         var canPub = true
         var canPubError = ''
@@ -116,15 +116,15 @@ Page({
         // 判断总数
         if (binfo.total_limit <= binfo.total_posts) {
             canPub = false
-            canPubError =  '你总共可以发布' + binfo.total_limit + '套房源，已发布' + binfo.total_posts + '套'
+            canPubError = '你总共可以发布' + binfo.total_limit + '套房源，已发布' + binfo.total_posts + '套'
             console.log(canPubError)
         }
         // 判断总数
         if (binfo.per_day_limit <= binfo.today_posts) {
             canPub = false
-            canPubError =  '你今天可以发布' + binfo.per_day_limit + '套房源，已发布' + binfo.total_posts + '套'
+            canPubError = '你今天可以发布' + binfo.per_day_limit + '套房源，已发布' + binfo.total_posts + '套'
         }
-        if(!canPub){
+        if (!canPub) {
             wx.showModal({
                 title: '禁止发布',
                 content: canPubError,
@@ -212,21 +212,21 @@ Page({
         this.updatePostField('tags', selectedTags.join(','))
     },
 
-  mobileBind: function(e){
-    console.log('用户授权获取手机号成功', e.detail)
-    var mobile = e.detail
-    if(!mobile){
-      wx.showToast({
-        title: '手机号授权失败，请重试',
-        icon: 'error',
-      })
-      return false
-    }
+    mobileBind: function (e) {
+        console.log('用户授权获取手机号成功', e.detail)
+        var mobile = e.detail
+        if (!mobile) {
+            wx.showToast({
+                title: '手机号授权失败，请重试',
+                icon: 'error',
+            })
+            return false
+        }
 
-    var post = this.data.post
-    post['broker_mobile'] = mobile
-    this.setData({post: post })
-  },
+        var post = this.data.post
+        post['broker_mobile'] = mobile
+        this.setData({ post: post })
+    },
 
 
     unbindEvent: function () {
@@ -297,13 +297,13 @@ Page({
             key = 'broker_' + key
             value = wx.getStorageSync(key) || ''
             _this.updatePostField(key, value)
-            console.log('从草稿中取出信息',key,value)
-            _this.setData({key: value})
+            console.log('从草稿中取出信息', key, value)
+            _this.setData({ key: value })
         })
 
         // 如果草稿中不存在经纪人电话号码信息
-        if(!this.data.broker_mobile){
-            this.setData({'broker_mobile': this.data.user.mobile || ''})
+        if (!this.data.broker_mobile) {
+            this.setData({ 'broker_mobile': this.data.user.mobile || '' })
         }
     },
 
@@ -486,7 +486,7 @@ Page({
         if (_this.data.post.id) {
             url = url + _this.data.post.id
             method = 'PUT'
-        }else{
+        } else {
             data['meta_create_from'] = 'weapp'
         }
 
@@ -539,12 +539,12 @@ Page({
         this.updatePostField('rent_type', v)
     },
 
-    rentTypeRadioChange: function(e){
+    rentTypeRadioChange: function (e) {
         console.log('e', e.detail.value)
         this.updatePostField('rent_type', e.detail.value)
     },
 
-    positionRadioChange: function(e){
+    positionRadioChange: function (e) {
         this.updatePostField('position', e.detail.value)
     },
 
@@ -605,7 +605,7 @@ Page({
 
     },
 
-    positionClick: function(e){
+    positionClick: function (e) {
         const { name } = e.currentTarget.dataset;
         this.updatePostField('position', name)
     },
@@ -638,6 +638,14 @@ Page({
             console.log('set overlook image')
             this.updatePostField('overlook_image', e.detail.overlook_image)
         }
+
+    },
+
+    chooseDistrict: function (e) {
+        var did = this.data.post && this.data.post.id ? this.data.post.district_id : ''
+        wx.navigateTo({
+            url: '/pages/districts/select?id=' + did,
+        });
 
     },
 

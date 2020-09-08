@@ -1,13 +1,14 @@
-page{
-
+.res {
+    height: 100%;
+    width: 710rpx;
+    margin: auto;
 }
 
-.res{
-  height: 100%;
-  width:100%;
+.res .cname {
+    margin: 30rpx 0 10rpx 0;
+    padding-left: 20rpx;
 }
 
-.res .cname{
-  margin:30rpx 0 10rpx 0;
-  padding-left:20rpx;
+.custom-icon {
+    color: #1989fa;
 }

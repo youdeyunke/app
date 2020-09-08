@@ -939,6 +939,13 @@
 					"pathName": "pkgAdmin/pages/admin/customers",
 					"query": "post_id=52&status=1",
 					"scene": null
+				},
+				{
+					"id": 127,
+					"name": "old-form",
+					"pathName": "pages/post/form",
+					"query": "group_v2=old&id=52",
+					"scene": null
 				}
 			]
 		}
