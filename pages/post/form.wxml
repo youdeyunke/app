@@ -6,8 +6,8 @@
         <van-field size="large" bindchange="inputChange" error="{{error.title}}" input-align="left" data-name="title" label="房源标题" value="{{post.title}}" clearable placeholder="如：房东急租小2房" />
     </box>
     <mycard title="地址" wx:if="{{step==1}}" subtitle="门牌号保密，仅管理员可见" hat>
-        <van-field size="large" error="{{error.district_id}}" input-align="left" disabled bindtap="chooseDistrict" is-link label="区域" value="{{ post.city.name }} {{post.district.name}}" arrow-direction="down" />
-        <van-field size="large" error="{{error.district_id}}" input-align="left" disabled bindtap="chooseLocation" is-link label="位置" value="{{post.sub_district_name}}" arrow-direction="down" />
+        <van-field size="large" error="{{error.district_id}}" input-align="left" disabled bindtap="chooseDistrict" is-link label="区域" value="{{ post.city.name }} / {{post.district.name}}" />
+        <van-field size="large" error="{{error.street  }}" input-align="left" disabled bindtap="chooseLocation" is-link label="位置" value="{{post.street}}" />
         <van-field size="large" data-name="building_number" value="{{ post.building_number }}" input-align="left" label="栋座" placeholder="如：A栋" bind:change="inputChange" />
         <van-field size="large" data-name="house_number" value="{{ post.house_number }}" input-align="left" label="门牌号" placeholder="如：55号楼 1002室" bind:change="inputChange" />
     </mycard>

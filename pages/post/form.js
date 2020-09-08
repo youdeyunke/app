@@ -71,16 +71,11 @@ Page({
      */
     onLoad: function (q) {
         var _this = this
-        // 监听选择小区事件
-        let sdEvent = onfire.on('selectSubDistrict', (s) => {
-            _this.updateSubDistrict(s)
-        })
         // 监听行政区选择事件
         let dEvent = onfire.on('selectDistrict', (c, d) => {
             _this.updateDistrict(c, d)
         })
         this.setData({
-            sdEvent: sdEvent,
             dEvent: dEvent
         })
         var draftCacheKey = this.genDraftCacheKey(q)
@@ -230,30 +225,10 @@ Page({
 
 
     unbindEvent: function () {
-        onfire.un('selectSubDistrict')
-        onfire.un(this.data.sdEvent)
         onfire.un('selectDistrict')
         onfire.un(this.data.dEvent)
     },
 
-    updateSubDistrict: function (s, back = true) {
-        // 更新小区信息
-        console.log('小区信息改变了', s)
-        this.updatePostField('sub_district_name', s.name)
-        this.updatePostField('sub_district_id', s.id || '')
-        this.updatePostField('address', s.address || '')
-        if (s.district) {
-            this.updatePostField('city', s.city)
-            this.updatePostField('city_id', s.city.id)
-            this.updatePostField('district', s.district)
-            this.updatePostField('district_id', s.district.id)
-        }
-        if (back) {
-            wx.navigateBack({
-                delta: -1
-            })
-        }
-    },
 
     updateDistrict: function (c, d) {
         // 更新行政区信息
@@ -262,9 +237,7 @@ Page({
         this.updatePostField('district', d)
         this.updatePostField('city_id', c.id)
         this.updatePostField('district_id', d.id)
-        wx.navigateBack({
-            delta: -1
-        })
+        wx.navigateBack({ delta: -1 })
     },
 
     loadPost: function (pid) {
@@ -275,6 +248,14 @@ Page({
                 var post = resp.data.data
                 if (post.user_id != _this.data.user.id) {
                     console.log('error')
+                    wx.showToast({
+                        title: '没有权限',
+                        icon: 'none',
+                        duration: 1500,
+                    });
+                    wx.navigateBack({ delta: 1 });
+                    return
+
                 } else {
                     // 将有些字段进行装换
                     post.images = post.images.split(',')
@@ -651,10 +632,21 @@ Page({
 
     chooseLocation: function (e) {
         var _this = this
-        app.chooseLocation(function (sub) {
-            _this.updateSubDistrict(sub, false)
+        wx.chooseLocation({
+            success: function (poi) {
+                _this.updateStreet(poi, false)
+            }
         })
     },
+
+    updateStreet: function (poi) {
+        console.log('街道地址更新', poi)
+        this.updatePostField('street', poi.name)
+        this.updatePostField('sub_district_name', poi.name)
+        this.updatePostField('latitude', poi.latitude)
+        this.updatePostField('longitude', poi.longitude)
+    },
+
 
     updatePostField: function (key, value) {
         var d = {}
