@@ -325,29 +325,25 @@ Page({
         console.log('on hide, set cache, key', key)
     },
 
+    gotoSubmit: function (e) {
+        var _this = this
+        var post = this.data.post
+        _this.validateStep2(function (post) {
+            _this.doSubmit(post)
+        })
 
-    submit: function (e) {
-        app.uploadFormId(e)
-        var fdata = e.detail.value
+    },
+
+    gotoStep2: function (e) {
+        // 点击进入下一步
         var post = this.data.post
         var _this = this
-
-        var name = e.detail.target.dataset.name
-        switch (name) {
-            case 'step1':
-                _this.validateStep1(function (post) {
-                    _this.setData({
-                        post: post
-                    })
-                    _this.nextStep()
-                })
-                break
-            case 'step2':
-                _this.validateStep2(function (post) {
-                    _this.doSubmit(post)
-                })
-                break
-        }
+        _this.validateStep1(function (post) {
+            _this.setData({
+                post: post
+            })
+            _this.nextStep()
+        })
     },
 
     showError: function (key, msg) {
@@ -450,7 +446,7 @@ Page({
                         })
                     } else if (res.cancel) {
                         wx.redirectTo({
-                            url: '/pages/myself/posts',
+                            url: '/pkgAdmin/pages/admin/posts',
                         })
                     }
                 }

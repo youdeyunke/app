@@ -29,13 +29,11 @@
     <flow-tips />
     <view class="buttons">
         <block wx:if="{{step == 1}}">
-            <button data-name="step1" form-type="submit" type="primary" class="btn ">
-                下一步 1/2
-            </button>
+            <van-button block type="info" bindtap="gotoStep2">下一步 1/2</van-button>
         </block>
         <block wx:if="{{step == 2}}">
-            <button data-name="step2" type="primary" form-type="submit" class="btn ">提交保存</button>
-            <button bindtap="previousStep" type="default" class="btn ">返回修改</button>
+            <van-button block type="info" bindtap="gotoSubmit">提交保存</van-button>
+            <van-button block bindtap="previousStep">返回修改</van-button>
         </block>
     </view>
 </form>
