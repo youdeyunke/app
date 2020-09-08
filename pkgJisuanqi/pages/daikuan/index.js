@@ -79,12 +79,13 @@ Page({
                 text: `${i}年 (${i * 12}月)`
             });
         }
+        var lprRate = app.globalData.myconfigs.lpr_rate || 4.65
         this.setData({
             paymentYearArr: paymentYearArr,
             gjjLoanRateArr: util.getGJJLoanRateArr(this.data.paymentYear),
             startDate: currentDate,
             startDateStr: util.formatDate(currentDate),
-            lprRate: 4.65, // 初始值
+            lprRate: lprRate, // 初始值
             lprBase: 0,
         })
         this.resetData(1)

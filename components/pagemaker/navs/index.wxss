@@ -1,0 +1,55 @@
+/* components/pagemaker/navs/index.wxss */
+
+.list {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.list .item .icon {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.list .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 20rpx;
+}
+
+.list.mode-5 .item {
+    margin-right: calc((100% - 500rpx) /4);
+}
+
+.list.mode-5 .item:nth-child(5n) {
+    margin-right: 0rpx;
+}
+
+.list.mode-5 .item:nth-child(-n+5) {
+    margin-top: 0;
+}
+
+.list.mode-4 .item {
+    margin-right: calc((100% - 400rpx) /3);
+}
+
+.list.mode-4 .item:nth-child(4n) {
+    margin-right: 0rpx;
+}
+
+.list.mode-4 .item:nth-child(-n+4) {
+    margin-top: 0;
+}
+
+.list.mode-3 .item {
+    margin-right: calc((100% - 300rpx) /2);
+}
+
+.list.mode-3 .item:nth-child(3n) {
+    margin-right: 0rpx;
+}
+
+.list.mode-3 .item:nth-child(-n+3) {
+    margin-top: 0;
+}

@@ -5,6 +5,7 @@
             <header-module config="{{item}}" wx:if="{{item.name === 'header'}}"></header-module>
             <searchbar-module config="{{item}}" wx:elif="{{item.name === 'searchbar'}}"></searchbar-module>
             <banners-module config="{{item}}" wx:elif="{{item.name === 'banners'}}"></banners-module>
+            <navs-module config="{{item}}" wx:elif="{{item.name === 'navs'}}"></navs-module>
             <unknow-module wx:else />
         </module-box>
     </block>

@@ -2,6 +2,7 @@
     "component": true,
     "usingComponents": {
         "banners-module": "./banners/index",
+        "navs-module": "./navs/index",
         "searchbar-module": "./searchbar/index",
         "header-module": "./header/index",
         "unknow-module": "unknow-module",

@@ -1,0 +1,6 @@
+<view class="list mode-{{config.mode}}">
+    <link wx:for="{{config.items}}" config="{{item.link}}" custom-style="item">
+        <image class="icon" src="{{item.url}}" />
+        <view class="name">按钮名称</view>
+    </link>
+</view>
