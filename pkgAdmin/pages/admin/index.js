@@ -21,7 +21,7 @@ Page({
             { name: '发布租房', icon: 'new', color: '#ff9501', url: '/pages/post/form?group=rental&rent_type=zhengzu' },
             { name: '发布商铺', icon: 'new', color: '#ff9501', url: '/pages/post/form?group=shop' },
 
-            { name: '房源管理', icon: 'posts', color: '#59B8EB', url: './posts' },
+            { name: '我的房源', icon: 'posts', color: '#59B8EB', url: './posts' },
             { name: '预约看房', icon: 'booking', color: '#59B8EB', url: '/pkgAdmin/pages/admin/booking' },
             { name: '访客足迹', icon: 'visitors', color: '#59B8EB', url: '/pages/visitors/index' },
 

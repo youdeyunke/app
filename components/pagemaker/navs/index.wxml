@@ -1,6 +1,8 @@
 <view class="list mode-{{config.mode}}">
-    <link wx:for="{{config.items}}" config="{{item.link}}" custom-style="item">
-        <image class="icon" src="{{item.url}}" />
-        <view class="name">按钮名称</view>
-    </link>
+    <view wx:for="{{config.items}}" class="item">
+        <link config="{{item.link}}">
+            <image class="icon" src="{{item.url}}" />
+            <view class="name" style="color: {{ item.color || '#333333' }}">{{item.title}}</view>
+        </link>
+    </view>
 </view>

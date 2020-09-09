@@ -3,11 +3,25 @@
 .list {
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
 }
 
 .list .item .icon {
     width: 100rpx;
     height: 100rpx;
+}
+
+.list .item .name {
+    font-size: 24rpx;
+    color: #333;
+    margin-top: 10rpx;
+    width: 100rpx;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .list .item {
@@ -16,10 +30,12 @@
     justify-content: flex-start;
     align-items: center;
     margin-top: 20rpx;
+    width: auto;
+    height: auto;
 }
 
 .list.mode-5 .item {
-    margin-right: calc((100% - 500rpx) /4);
+    margin-right: calc((100% - 510rpx) /4);
 }
 
 .list.mode-5 .item:nth-child(5n) {
@@ -31,7 +47,7 @@
 }
 
 .list.mode-4 .item {
-    margin-right: calc((100% - 400rpx) /3);
+    margin-right: calc((100% - 410rpx) /3);
 }
 
 .list.mode-4 .item:nth-child(4n) {

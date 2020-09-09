@@ -10,7 +10,7 @@
 <mypicker options="{{groups}}" show="{{popShow}}" bind:change="groupChange" bind:close="popCloseHandle" />
 <view class="list">
     <navigator url="/pkgAdmin/pages/admin/post?id={{item.id}}" class="post-item" wx:for="{{posts}}">
-        <view class="title">{{item.title}}</view>
+        <view class="title">#{{item.id}} {{item.title}}</view>
         <view class="detail">
             <image class="cover" src="{{item.cover}}" />
             <view class="counter">
