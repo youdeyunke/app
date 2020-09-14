@@ -383,11 +383,6 @@ Page({
             return
         }
 
-        if (!post.sub_district_id) {
-            _this.showError('sub_district_id', '请在地图中选择你所在的小区')
-            return
-        }
-
 
         if (post.group == 'rental' && !post.rent_price) {
             _this.showError('rent_price', '请填写租金')
