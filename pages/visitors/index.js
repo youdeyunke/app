@@ -62,7 +62,6 @@ Page({
             url: '/api/v1/myvisitors/',
             data: query,
             success: function (resp) {
-                var baseIndex = _this.data.items.length
                 var data = { loading: false }
                 data.noResult = resp.data.meta.total_visitors === 0
                 _this.setData(data)

@@ -18,7 +18,7 @@
             </view>
             <!-- 第三层 -->
             <view class="cell-detail-third">
-            <van-button custom-style="color: #333;margin-right: 16rpx;" class="button-shield" size="mini" color="#F4F4F4" style="color:'#333 !improtant" icon="eye">屏蔽</van-button>
+            <!-- van-button custom-style="color: #333;margin-right: 16rpx;" class="button-shield" size="mini" color="#F4F4F4" style="color:'#333 !improtant" icon="eye">屏蔽</van-button -->
             <van-button type="info" size="mini" icon="phone" bindclick='phoneCall' data-phone="{{item.user.mobile}}">呼叫</van-button>
             </view>
         </view>
