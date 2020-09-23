@@ -17,8 +17,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    phoneCall(e){
-      let phone = e.currentTarget.dataset['phone']
+    phoneCall(){
+      let phone = this.properties.item.user.mobile
       wx.makePhoneCall({
         phoneNumber: phone //仅为示例，并非真实的电话号码
       })
