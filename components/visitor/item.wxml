@@ -1,0 +1,24 @@
+<!-- 内容格 -->
+        <view class="cell-detail">
+            <!-- 第一层 -->
+            <view class="cell-detail-first">
+                <!-- 第一层左侧 -->
+                <view class="first-left">
+                    <image src="{{item.user.avatar}}"></image>
+                    <text>{{item.user.mobile}}</text>
+                </view>
+                <!-- 第一层右侧 -->
+                <view class="first-right">
+                停留<text>{{item.target_info.delta_time}}</text>
+                </view>
+            </view>
+            <!-- 第二层-->
+            <view class="cell-detail-second">
+            {{item.lookTime}} <text style="margin-left: 10rpx;">{{item.target_info.title}}</text>
+            </view>
+            <!-- 第三层 -->
+            <view class="cell-detail-third">
+            <van-button custom-style="color: #333;margin-right: 16rpx;" class="button-shield" size="mini" color="#F4F4F4" style="color:'#333 !improtant" icon="eye">屏蔽</van-button>
+            <van-button type="info" size="mini" icon="phone" bindclick='phoneCall' data-phone="{{item.user.mobile}}">呼叫</van-button>
+            </view>
+        </view>
