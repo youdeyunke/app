@@ -1,0 +1,50 @@
+.cell-detail{
+    background-color: #fff;
+    padding: 20rpx 16rpx 20rpx 20rpx;
+    margin: 0 16rpx;
+    margin-bottom: 20rpx;
+}
+.cell-detail-first{
+    display: flex;
+    justify-content: space-between;
+}
+.first-left{
+    display: flex;
+    align-items: center;
+}
+.first-left image{
+    width: 64rpx;
+    height: 64rpx;
+    border-radius: 50%;
+    
+}
+.first-left text{
+    margin-left: 10rpx;
+    line-height: normal;
+    font-weight: bold;
+    text-align: left;
+}
+.first-right{
+    color: #666;
+    font-weight: regular;
+    font-size: 24rpx;
+    line-height: normal;
+    letter-spacing: 0;
+    text-align: center;
+}
+.first-right text{
+    color: red;
+    font-size: 28rpx;
+    font-weight: bold;
+}
+.cell-detail-second{
+    margin: 18rpx 0;
+    margin-left: 12rpx;
+    font-weight: regualr;
+    line-height: normal;
+    letter-spacing: 0;
+    text-align: left;
+}
+.cell-detail-third{
+    text-align: right;
+}

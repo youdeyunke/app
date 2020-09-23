@@ -8,9 +8,11 @@
 		"es6": false,
 		"enhance": true,
 		"postcss": true,
+		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
+		"nodeModules": false,
 		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
@@ -30,7 +32,7 @@
 		"userConfirmedUseCompilerModuleSwitch": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.12.2",
+	"libVersion": "2.13.0",
 	"appid": "wx175508800f405090",
 	"projectname": "%E5%86%85%E9%83%A8%E6%BC%94%E7%A4%BA%E9%A1%B9%E7%9B%AE",
 	"cloudfunctionTemplateRoot": "",
@@ -945,6 +947,19 @@
 					"name": "old-form",
 					"pathName": "pages/post/form",
 					"query": "group_v2=old&id=110",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/visitors/index",
+					"pathName": "pages/visitors/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/visitors/index",
+					"pathName": "pages/visitors/index",
 					"scene": null
 				}
 			]

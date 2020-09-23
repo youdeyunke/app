@@ -1,1 +1,19 @@
 /* pages/visitors/index.wxss */
+.list{
+  width: 100%;
+}
+.cell{
+  background-color: #F4F4F4;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  font-size: 28rpx;
+}
+.cell-title{
+  color: #999;
+  font-size: 20rpx;
+  letter-spacing: 0;
+  text-align: center;
+  padding-top: 6rpx;
+  padding-bottom: 20rpx;
+}

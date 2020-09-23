@@ -16,11 +16,11 @@ Page({
         ],
         noResult: false,
         scopeIndex: 0,
-        items: [],
         page: 1,
         targetId: '',
         per_page: 20,
         loading: true,
+        vistorList:[],
     },
 
     /**
@@ -30,12 +30,12 @@ Page({
         var _this = this
         var scopeIndex = this.data.scopes.findIndex((item, index) => { return item.value === q.scope })
         scopeIndex = scopeIndex <= 0 ? 0 : scopeIndex
-
         this.setData({
             scopeIndex: scopeIndex || 0,
             targetId: q.targetId || '',
             targetType: q.targetType || 'post',
-        }, function () {
+        },
+        function () {
             _this.loadData()
         })
     },
@@ -43,7 +43,7 @@ Page({
     tabChange: function (e) {
         var index = e.detail.name
         var _this = this
-        this.setData({ scopeIndex: index, items: [], page: 1, loading: true }, () => {
+        this.setData({ scopeIndex: index, items: [], page: 1, loading: true ,vistorList:[]}, () => {
             _this.loadData()
         })
     },
@@ -64,17 +64,39 @@ Page({
             success: function (resp) {
                 var baseIndex = _this.data.items.length
                 var data = { loading: false }
-                resp.data.data.forEach((item, index) => {
-                    var i = baseIndex + index
-                    var key = 'items[' + i + ']'
-                    data[key] = item
-                })
                 data.noResult = resp.data.meta.total_visitors === 0
                 _this.setData(data)
+                _this.ListData(resp.data.data)
             },
         })
     },
-
+    ListData:function(arr){
+        //获取data中的 vistorList
+        var vistorList = this.data.vistorList
+        var obj ={}
+        arr.forEach((v,i,a)=>{
+            var v1 = v
+            //根据空格切割字符串
+            var arr1 = v.updated_at.trim().split(" ")
+            //将浏览的小时和分钟存放到数据中
+            a[i].lookTime=arr1[1]
+            //将日期根据-切割 然后在拼接 月和 日
+            var x =arr1[0].trim().split("-")[1] + '-' +arr1[0].trim().split("-")[2];
+            //中文版
+            var strc =  arr1[0].trim().split("-")[1] + '月' +arr1[0].trim().split("-")[2] + '日';
+            
+            if(!obj[x]){
+                obj[x]={}
+                obj[x].date = strc
+                obj[x].logs =[]
+            }
+            obj[x].logs.push(v1)
+            vistorList.push(obj[x])
+        })
+        this.setData({
+            vistorList :vistorList
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
