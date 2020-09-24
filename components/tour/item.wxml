@@ -1,17 +1,36 @@
 <navigator hover-class="none"  url="/pkgTour/pages/tour/show?id={{item.id}}">
-<mycard title-size="28" title="{{item.title}}" width="710" >
-  <view class="cover">
-  <van-tag wx:if="{{item.status.value == 2 }}" class="vtag"  mark >{{ item.status.name }}</van-tag>
-  <van-tag wx:else  class="vtag" type="success"  mark >{{ item.status.name }}</van-tag>
-  <image  src="{{item.cover }}?imageView2/2/w/750"></image>
-  </view>
-  <div class="info">
-    <div class="left">
-    <van-icon name="location" />{{ item.address }}
+  <!-- <mycard title-size="28" title="{{item.title}}" width="710" >
+    <view class="cover">
+    <van-tag wx:if="{{item.status.value == 2 }}" class="vtag"  mark >{{ item.status.name }}</van-tag>
+    <van-tag wx:else  class="vtag" type="success"  mark >{{ item.status.name }}</van-tag>
+    <image  src="{{item.cover }}?imageView2/2/w/750"></image>
+    </view>
+    <div class="info">
+      <div class="left">
+      <van-icon name="location" />{{ item.address }}
+      </div>
+      <div class="right">
+      <van-icon name="friends-o" />{{ item.join_nums }} 人报名
+      </div>
     </div>
-    <div class="right">
-    <van-icon name="friends-o" />{{ item.join_nums }} 人报名
-    </div>
-  </div>
-  </mycard>
-</navigator>
+    </mycard> -->
+      <view class="cover">
+        <view class="img">
+          <view class="title {{item.status.value == 2 }}? fail:''" wx:if="{{item.status.value == 2 }}">
+            <text>{{ item.status.name }}</text>
+          </view>
+          <view class="title {{item.status.value == 2 }}? '':success" wx:else>
+            <text>{{ item.status.name }}</text>
+          </view>
+          <image src="{{item.cover}}?imageView2" />
+        </view>
+        <view class="text">
+          <view class="text-title">
+          <view >{{ item.address }}</view>
+          <view>活动时间：{{item.starts_at_pretty}}</view>
+          <view>已报名人数：{{ item.join_nums }}</view>
+          </view>
+          <van-button class="text-btn" type="info" size="mini">立即报名</van-button>
+        </view>
+      </view>
+  </navigator>
