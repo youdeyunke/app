@@ -1,24 +1,60 @@
-.info {
+.cover{
+    width: 710rpx;
+    border: 2rpx solid #f4f4f4;
+    background-color: #fff;
+}
+.title{
+    margin: 30rpx 26rpx;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 28rpx;
-    color: #999;
-    margin-top: 20rpx;
 }
-
-.cover {
-    width: 100%;
+.img{
+    width: 710rpx;
+    height: 450rpx;
     position: relative;
-    margin:0 auto;
 }
-
-.cover image{
-    width:100%;
+.img image{
+    width: 100%;
+    height: 100%;
 }
-
-.cover .vtag {
+.img .title{
+    width: 184rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 24rpx;
+    border-top-right-radius: 30rpx;
+    border-bottom-right-radius:30rpx ;
     position: absolute;
-    top: 20rpx;
-    left: 0rpx;
+    top: 60rpx;
+    left: 0;
+    color: #fff;
+}
+.title{
+    margin: 0;
+}
+.title text{
+    margin: 0 auto;
+}
+.success{
+    background-color: #ED6A0C;
+}
+.fail{
+    background-color: #cecece;
+}
+.text{
+    color: #333;
+    font-size: 28rpx;
+    padding-top: 20rpx;
+    margin-left: 36rpx;
+    padding-bottom: 30rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end
+}
+.text-title view{
+    margin-bottom: 20rpx;
+}
+.text-btn{
+    margin-right: 30rpx;
 }
