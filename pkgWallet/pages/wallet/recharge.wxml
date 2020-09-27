@@ -4,10 +4,10 @@
         <input bind:input="amountInput" class="amount-input" type="number" value="{{amount}}" data-name="amount"></input>
     </view>
     <view class="tip">
-        <view class="tip-title">充值说明</view>
-        <view class="tip-desc">这里是充值说明</view>
+        <view class="tip-title"></view>
+        <view class="tip-desc"></view>
     </view>
 </mycard>
 <view class="actions">
-    <van-button wx:if="{{showButton}}" block type="primary" bindtap="gotoPay">微信支付</van-button>
+    <van-button wx:if="{{showButton}}" block type="info" bindtap="gotoPay">微信支付</van-button>
 </view>

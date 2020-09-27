@@ -9,6 +9,7 @@ Page({
     data: {
         amount: 0,
         name: '',
+        showButton: true,
         minAmount: 0.1,
     },
 
