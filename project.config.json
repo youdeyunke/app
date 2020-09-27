@@ -964,6 +964,56 @@
 					"id": -1,
 					"name": "pages/visitors/index",
 					"pathName": "pages/visitors/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 130,
+					"name": "pkgAdmin/pages/admin/owner",
+					"pathName": "pkgAdmin/pages/admin/owner",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pkgAdmin/pages/admin/owner",
+					"pathName": "pkgAdmin\\pages\\admin\\owner",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "业主委托",
+					"pathName": "pkgAdmin/pages/admin/owner",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/visitors/index",
+					"pathName": "pages/visitors/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 134,
+					"name": "pkgAdmin/pages/admin/owners",
+					"pathName": "pkgAdmin/pages/admin/owners.wxml",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pkgAdmin/pages/admin/owners.wxml",
+					"pathName": "pkgAdmin/pages/admin/owners",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "owner",
+					"pathName": "components/owner/item",
+					"query": "",
 					"scene": null
 				}
 			]

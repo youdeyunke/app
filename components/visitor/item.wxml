@@ -9,7 +9,7 @@
                 </view>
                 <!-- 第一层右侧 -->
                 <view class="first-right">
-                停留<text>{{item.target_info.delta_time}}</text>
+                停留<text>{{item.delta_time}}</text>
                 </view>
             </view>
             <!-- 第二层-->
