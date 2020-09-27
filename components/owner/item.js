@@ -10,7 +10,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    whiteSpace:'wrap'
+    whiteSpace:'nowrap'
   },
 
   /**

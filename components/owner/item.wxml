@@ -1,4 +1,4 @@
-<van-panel use-footer-slot  class="all">
+<van-panel use-footer-slot  custom-class="all">
     <view>
         <van-cell-group>
         <van-cell title="业主" value="{{item.name}}({{item.mobile}})" value-class="cell" />
