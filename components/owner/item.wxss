@@ -3,12 +3,13 @@
     color: red!important;
 }
 .cell-color , .cell{
-    font-size: 20rpx !important;
+    font-size: 24rpx !important;
 }
 .slot{
     text-overflow: ellipsis;
     overflow: hidden;
 }
 .all{
-    width: 100%!important;
+    width: 710rpx !important;
+    margin-bottom: 20rpx;
 }
