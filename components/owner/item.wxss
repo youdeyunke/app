@@ -5,3 +5,10 @@
 .cell-color , .cell{
     font-size: 20rpx !important;
 }
+.slot{
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.all{
+    width: 100%!important;
+}

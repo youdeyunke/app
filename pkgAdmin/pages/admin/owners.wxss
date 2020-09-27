@@ -4,5 +4,6 @@ page {
   padding: none;
 }
 .content{
-  width: 100% !important;
+  width: 710rpx;
+  margin: 10rpx 10rpx 0 10rpx;
 }

@@ -1,12 +1,17 @@
-<van-panel use-footer-slot >
+<van-panel use-footer-slot  class="all">
     <view>
         <van-cell-group>
-        <van-cell title="业主" value="王小姐（15102991111）" value-class="cell" />
-        <van-cell title="校区" value="浦东南路11号（盛大天地青春里）" value-class="cell"  />
-        <van-cell title="租金" value="3500/月" value-class="cell-color" />
+        <van-cell title="业主" value="{{item.name}}({{item.mobile}})" value-class="cell" />
+        <van-cell title="小区">
+        <view class="cell slot" bind:tap="change" style="white-space: {{whiteSpace}}">
+            {{item.sub_district.name}}
+        </view>
+        </van-cell>
+        <van-cell title="租金" value="{{item.price}}/月" value-class="cell-color" wx:if="{{item.group == 'rental'}}" />
+        <van-cell title="售价" value="{{item.price}}" value-class="cell-color"  wx:else/>
         </van-cell-group>
     </view>
     <view slot="footer" style="text-align: right;" >
-        <van-button size="mini" type="info">联系业主</van-button>
+        <van-button size="mini" type="info" bindclick='phoneCall'>联系业主</van-button>
     </view>
 </van-panel>

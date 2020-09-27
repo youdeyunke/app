@@ -1,9 +1,1 @@
-<view style="width: 710rpx;margin: 10rpx 10rpx 0 10rpx;">
-  <my-owner  class="content"></my-owner>
-</view>
-<view style="width: 710rpx;margin: 10rpx 10rpx 0 10rpx;">
-  <my-owner  class="content"></my-owner>
-</view>
-<view style="width: 710rpx;margin: 10rpx 10rpx 0 10rpx;">
-  <my-owner  class="content"></my-owner>
-</view>
+<my-owner  class="content" wx:for="{{ownersList}}" wx:key="id" item="{{item}}"></my-owner>
