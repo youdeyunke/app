@@ -1,0 +1,7 @@
+/* components/owner/index.wxss */
+.cell-color{
+    color: red!important;
+}
+.cell-color , .cell{
+    font-size: 20rpx !important;
+}

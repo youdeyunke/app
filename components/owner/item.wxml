@@ -1,0 +1,12 @@
+<van-panel use-footer-slot >
+    <view>
+        <van-cell-group>
+        <van-cell title="业主" value="王小姐（15102991111）" value-class="cell" />
+        <van-cell title="校区" value="浦东南路11号（盛大天地青春里）" value-class="cell"  />
+        <van-cell title="租金" value="3500/月" value-class="cell-color" />
+        </van-cell-group>
+    </view>
+    <view slot="footer" style="text-align: right;" >
+        <van-button size="mini" type="info">联系业主</van-button>
+    </view>
+</van-panel>

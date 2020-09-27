@@ -8,7 +8,8 @@
                 "pages/admin/posts",
                 "pages/admin/booking",
                 "pages/admin/post",
-                "pages/admin/customers"
+                "pages/admin/customers",
+                "pages/admin/owners"
             ]
         },
         {

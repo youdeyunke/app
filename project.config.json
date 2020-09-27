@@ -964,6 +964,48 @@
 					"id": -1,
 					"name": "pages/visitors/index",
 					"pathName": "pages/visitors/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "业主委托",
+					"pathName": "pkgAdmin/pages/admin/owner",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pkgAdmin/pages/admin/owner",
+					"pathName": "pkgAdmin/pages/admin/owner",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pkgAdmin/pages/admin/owner",
+					"pathName": "pkgAdmin\\pages\\admin\\owner",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "业主委托",
+					"pathName": "pkgAdmin/pages/admin/owner",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pkgAdmin/pages/admin/owner",
+					"pathName": "pkgAdmin/pages/admin/owners",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/visitors/index",
+					"pathName": "pages/visitors/index",
 					"scene": null
 				}
 			]
