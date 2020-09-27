@@ -1,4 +1,5 @@
 {
+  "enablePullDownRefresh":true,
   "navigationBarTitleText": "访客记录",
   "usingComponents": {
     "cell":"/components/visitor/item"

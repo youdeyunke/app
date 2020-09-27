@@ -1,0 +1,1 @@
+<my-owner  class="content" wx:for="{{ownersList}}" wx:key="id" item="{{item}}"></my-owner>

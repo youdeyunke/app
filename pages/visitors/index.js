@@ -14,6 +14,7 @@ Page({
             { name: '本月', value: 'this_month_items' },
             { name: '全部', value: 'all' },
         ],
+        total_pages:0,
         noResult: false,
         scopeIndex: 0,
         page: 1,
@@ -43,7 +44,7 @@ Page({
     tabChange: function (e) {
         var index = e.detail.name
         var _this = this
-        this.setData({ scopeIndex: index, items: [], page: 1, loading: true ,vistorList:[]}, () => {
+        this.setData({ scopeIndex: index, page: 1, loading: true ,vistorList:[]}, () => {
             _this.loadData()
         })
     },
@@ -62,9 +63,12 @@ Page({
             url: '/api/v1/myvisitors/',
             data: query,
             success: function (resp) {
+                //console.log(resp.data);
                 var data = { loading: false }
                 data.noResult = resp.data.meta.total_visitors === 0
-                _this.setData(data)
+                _this.setData({
+                    total_pages : resp.data.total_pages
+                })
                 _this.ListData(resp.data.data)
             },
         })
@@ -128,7 +132,14 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-
+        this.setData({
+            page:1,
+            loading:true,
+            vistorList:[]
+        }),
+            this.loadData()
+        
+        
     },
 
     /**
@@ -136,10 +147,14 @@ Page({
      */
     onReachBottom: function () {
         var page = this.data.page || 1
-        this.setData({
-            page: page + 1,
-            loading: true,
-        })
+        if(page < this.data.total_pages){
+            this.setData({
+                page: page + 1,
+                loading: true,
+            })
+        }else{
+            return false
+        }
         this.loadData()
     },
 
