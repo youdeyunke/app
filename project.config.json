@@ -1015,6 +1015,13 @@
 					"pathName": "components/owner/item",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "访客记录",
+					"pathName": "pages/visitors/index",
+					"query": "",
+					"scene": null
 				}
 			]
 		}
