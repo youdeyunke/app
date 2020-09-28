@@ -1,0 +1,66 @@
+/* components/pagemaker/posts/post-item0.wxss */
+.post {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.post .cover {
+  width: 200rpx;
+  height: 150rpx;
+  border-radius: 4rpx;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+
+.post .title {
+  color: #000;
+  margin-bottom: 10rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 400rpx;
+}
+
+.post .address {
+  color: #999;
+  margin-bottom: 10rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width:  400rpx;
+}
+
+.post .tags {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 20rpx;
+  margin-bottom: 10rpx;
+}
+
+.post .tag-item:last-child {
+  margin-right: 0;
+}
+
+.post .tag-item {
+  border: 2rpx solid #999;
+  color: #999;
+  padding: 6rpx 10rpx;
+  margin-right: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post .red {
+  color: red;
+}

@@ -1,0 +1,18 @@
+<view class="post" >
+    <view class="cover">
+        <image src="{{post.cover}}" />
+        <view class="address">{{post.address}}</view>
+    </view>
+    <view class="footer">
+        <view class="top">
+        <view class="tags">
+            <view class="tag-item" wx:for="{{post.tags_list}}" wx:key="item">{{item}}</view>
+        </view>
+        <view class="price">
+            {{post.price_info.label}}:
+            <text >{{post.price_info.text}}{{post.price_info.px}}</text>>
+        </view>
+        </view>
+        <view class="title">{{post.title}}</view>
+    </view>
+</view>

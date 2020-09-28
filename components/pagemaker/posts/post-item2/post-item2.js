@@ -1,11 +1,10 @@
-// components/pagemaker/posts/style0.js
+// components/pagemaker/posts/post-item2/post-item2.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-      items: {type: Array, default: []},
-
+    post: { type: Object, value: {} }
   },
 
   /**

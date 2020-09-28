@@ -1,0 +1,8 @@
+/* components/pagemaker/posts/style2.wxss */
+.posts .post {
+    margin-bottom: 20rpx;
+}
+
+.posts .post:last-child {
+    margin-bottom: 0;
+}
