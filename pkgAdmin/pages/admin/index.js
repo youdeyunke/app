@@ -29,6 +29,7 @@ Page({
             { name: '求租客源', icon: 'rent', color: '#E15C32', url: '/pages/need/room?cat=rent' },
             { name: '我的客源', icon: 'customers', color: '#5857CE', url: '/pages/need/room?cat=myself' },
             { name: '我的档案', icon: 'profile', color: '#', url: '/pkgBroker/pages/broker/join' },
+            { name: '业主委托', icon: 'owners', color: '#', url: '/pkgAdmin/pages/admin/owners' }
         ]
     },
 
