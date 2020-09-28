@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "style0": "./style0",
+    "style1": "./style1",
+    "style2": "./style2"
+  }
+}
