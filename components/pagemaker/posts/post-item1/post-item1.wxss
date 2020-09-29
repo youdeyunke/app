@@ -24,6 +24,8 @@
     overflow-x: hidden;
     overflow-y: hidden;
     width: 100%;
+    font-size:28rpx; 
+    font-weight: bolder;
 }
 
 .price {
