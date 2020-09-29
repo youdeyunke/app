@@ -10,7 +10,7 @@
         </view>
         <view class="price">
             {{post.price_info.label}}:
-            <text >{{post.price_info.text}}{{post.price_info.px}}</text>>
+            <text >{{post.price_info.text}}{{post.price_info.px}}</text>
         </view>
         </view>
         <view class="title">{{post.title}}</view>
