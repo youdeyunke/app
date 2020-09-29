@@ -24,7 +24,7 @@
     overflow-y: hidden;
 }
 
-.list .item {
+.list .item  {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -32,6 +32,13 @@
     margin-top: 20rpx;
     width: auto;
     height: auto;
+}
+
+.list .item .link {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .list.mode-5 .item {
