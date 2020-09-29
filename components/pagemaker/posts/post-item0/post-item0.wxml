@@ -1,5 +1,5 @@
 <!--components/pagemaker/posts/post-item0.wxml-->
-<view  class="post" >
+<navigator hover-class="none" class="post" url="/pages/post/post?id={{post.id}}" >
     <view class="left">
     <image   class="cover" src="{{post.cover}}" />
     </view>
@@ -14,4 +14,4 @@
         {{post.area_info.label}} {{post.area_info.text}}
         </view>
     </view>
-    </view>
+    </navigator>

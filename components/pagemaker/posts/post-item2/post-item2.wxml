@@ -1,4 +1,4 @@
-<view class="post" >
+<navigator hover-class="none" class="post" url="/pages/post/post?id={{post.id}}" >
     <view class="cover">
         <image src="{{post.cover}}" />
         <view class="address">{{post.address}}</view>
@@ -15,4 +15,4 @@
         </view>
         <view class="title">{{post.title}}</view>
     </view>
-</view>
+</navigator>

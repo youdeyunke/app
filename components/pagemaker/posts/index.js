@@ -41,11 +41,18 @@ Component({
           data: query, 
           success: function(resp){
             var res = resp.data.data
-            // TODO setData items
+            var config = _this.data.config
             console.log(res);
+            // TODO setData items
+            res = res.sort((p1,p2)=>{
+              var index1 = config.ids.findIndex((v)=>v === p1.id)
+              var index2 = config.ids.findIndex((v)=>v === p2.id)
+              return index1 - index2
+            })
               res.forEach(v => {
                 v.tags_list= v.tags_list.slice(0,3)
               });
+
             _this.setData({
               items:res
             })

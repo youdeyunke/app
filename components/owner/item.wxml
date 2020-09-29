@@ -8,7 +8,7 @@
         </view>
         </van-cell>
         <van-cell title="租金" value="{{item.price}}/月" value-class="cell-color" wx:if="{{item.group == 'rental'}}" />
-        <van-cell title="售价" value="{{item.price}}" value-class="cell-color"  wx:else/>
+        <van-cell title="售价" value="{{item.price}}万" value-class="cell-color"  wx:else/>
         </van-cell-group>
     </view>
     <view slot="footer" style="text-align: right;" >
