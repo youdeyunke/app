@@ -50,7 +50,14 @@ Component({
               return index1 - index2
             })
               res.forEach(v => {
-                v.tags_list= v.tags_list.slice(0,3)
+                v.tag_objs= v.tag_objs.slice(0,3).map((tag,i)  => {
+                  // 处理标签颜色，只以text_color 为准  
+                  var color  =  tag.text_color === '#ffffff' ?   tag.color : tag.text_color     
+                  tag.text_color = color 
+                  return tag
+  
+
+                })
               });
 
             _this.setData({
