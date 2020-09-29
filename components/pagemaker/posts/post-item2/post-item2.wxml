@@ -6,7 +6,8 @@
     <view class="footer">
         <view class="top">
         <view class="tags">
-            <view class="tag-item" wx:for="{{post.tags_list}}" wx:key="item">{{item}}</view>
+          
+            <van-tag text-color="{{item.text_color }}"  size="mini"  plain wx:for="{{post.tag_objs}}" wx:key="item.id">{{item.name}}</van-tag>
         </view>
         <view class="price">
             {{post.price_info.label}}:

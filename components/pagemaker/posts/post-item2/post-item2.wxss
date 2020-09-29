@@ -29,23 +29,15 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    font-size: 20rpx;
+   
     margin-bottom: 10rpx;
 }
-.post .tag-item:last-child {
+.post .tags van-tag:last-child {
     margin-right: 0;
 }
-.tag-item{
-    font-size: 20rpx !important;
-}
-.post .tag-item {
-    border: 2rpx solid #999;
-    color: #999;
-    padding: 6rpx 10rpx;
+.post .tags van-tag {
     margin-right: 10rpx;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+   
 }
 .post .cover .address {
     width: 100%;
