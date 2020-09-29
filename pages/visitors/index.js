@@ -67,7 +67,8 @@ Page({
                 var data = { loading: false }
                 data.noResult = resp.data.meta.total_visitors === 0
                 _this.setData({
-                    total_pages : resp.data.total_pages
+                    total_pages : resp.data.total_pages,
+                    loading:false
                 })
                 _this.ListData(resp.data.data)
             },
