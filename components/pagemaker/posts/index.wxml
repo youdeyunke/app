@@ -1,6 +1,7 @@
 <!--components/pagemaker/posts/index.wxml-->
 <view class="posts-items">
-ids : {{ config.ids }}
   <style0 items="{{items}}" wx:if="{{config.styleName == 0 }}" />
+  <style1 items="{{items}}" wx:if="{{config.styleName == 1 }}" />
+  <style2 items="{{items}}" wx:if="{{config.styleName == 2 }}" />
 </view>
 

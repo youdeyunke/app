@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "post-item0":"../post-item0/post-item0",
+    "post-item1":"../post-item1/post-item1"
+  }
+}

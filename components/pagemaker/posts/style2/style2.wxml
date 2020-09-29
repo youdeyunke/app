@@ -1,0 +1,4 @@
+
+<view class="posts" >
+    <post-item2 wx:for="{{items}}" post="{{item}}"></post-item2>
+</view>

@@ -1,4 +1,0 @@
-<!--components/pagemaker/posts/style0.wxml-->
-<text>components/pagemaker/posts/style0.wxml</text>
-
-<post-item0 wx:for="{{items}}"></post-item0>

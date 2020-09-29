@@ -1,0 +1,10 @@
+<view class="posts" >
+    <view class="top">
+        <post-item0 post="{{items[0]}}"></post-item0>
+    </view>
+    <scroll-view scroll-x="true" class="other" scroll-with-animation="true">
+            <view class="others" >
+                <post-item1 post="{{item}}" wx:for="{{items}}" wx:if="{{index != 0}}" style="margin-right:20rpx"></post-item1>
+            </view>
+    </scroll-view>
+</view>

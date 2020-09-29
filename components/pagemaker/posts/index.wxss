@@ -1,1 +1,4 @@
 /* components/pagemaker/posts/index.wxss */
+.posts-items{
+    padding: 20rpx;
+}
