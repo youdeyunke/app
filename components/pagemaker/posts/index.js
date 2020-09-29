@@ -52,7 +52,11 @@ Component({
               res.forEach(v => {
                 v.tag_objs= v.tag_objs.slice(0,3).map((tag,i)  => {
                   // 处理标签颜色，只以text_color 为准  
-                  var color  =  tag.text_color === '#ffffff' ?   tag.color : tag.text_color     
+                  if(!tag.text_color){
+                    tag.text_color = '#666666'
+                  }
+
+                  var color  =  tag.text_color.toLocaleLowerCase() === '#ffffff'  ?   tag.color : tag.text_color     
                   tag.text_color = color 
                   return tag
   
