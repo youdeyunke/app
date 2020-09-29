@@ -6,7 +6,7 @@
     <view class="right">
     <view class="title">
         <text> {{post.title}} </text> 
-        <van-tag wx:if="{{ post.sale_status >= 0}}"  color="#1989fa" plain size="mini">{{post.sale_status_name }}</van-tag>
+     
     </view>
     <view class="address">{{post.address}}</view>
     <view class="tags">
