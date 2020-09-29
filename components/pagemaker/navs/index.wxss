@@ -7,8 +7,8 @@
 }
 
 .list .item .icon {
-    width: 100rpx;
-    height: 100rpx;
+    width: 84rpx;
+    height: 84rpx;
 }
 
 .list .item .name {
