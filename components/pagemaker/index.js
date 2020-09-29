@@ -26,6 +26,9 @@ Component({
             this.setData({ loading: true })
             this.loadData()
         },
+        "config.padding": function(v){
+            console.log('observers.padding', v)
+        },
     },
 
     reLoad: function () {
@@ -68,6 +71,7 @@ Component({
 
         // 设置页面的边距
         setPadding: function (config) {
+            // TODO move to observers 
             var padding = this.data.paddingValue
             var moduleWidth = 750 // rpx
             switch (config.padding) {
@@ -79,10 +83,10 @@ Component({
                     break;
             }
             moduleWidth -= padding * 2
-            console.log('padding value', padding)
+
             this.setData({
-                paddingValue: padding + 'rpx',
-                moduleWidth: moduleWidth + 'rpx'
+                paddingValue: padding,
+                moduleWidth: moduleWidth,
             })
 
         },
@@ -93,7 +97,6 @@ Component({
             var bgColor = config.title.bgColor
             var fontColor = config.title.color
             var title = config.title.value
-            console.log('bg', bgColor, 'font', fontColor)
             wx.setNavigationBarColor({
                 frontColor: fontColor,
                 backgroundColor: bgColor,

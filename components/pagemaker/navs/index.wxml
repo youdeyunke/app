@@ -1,6 +1,6 @@
 <view class="list mode-{{config.mode}}">
     <view wx:for="{{config.items}}" class="item">
-        <link config="{{item.link}}">
+        <link config="{{item.link}}" custom-class="link">
             <image class="icon" src="{{item.url}}" />
             <view class="name" style="color: {{ item.color || '#333333' }}">{{item.title}}</view>
         </link>

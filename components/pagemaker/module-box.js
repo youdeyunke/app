@@ -5,9 +5,18 @@ Component({
      */
     properties: {
         config: { type: Object, default: null },
+        width: {type: Number, default: 710}, // 根据750 - padding*2 计算出模块的实际宽度指，单位为rpx
     },
 
     observers: {
+        "width": function(v){
+            if(!v){
+                return
+            }
+            this.setData({
+                widthValue: v + 'rpx',
+            })
+        },
         "config.height": function (height) {
             if (!height) {
                 return
@@ -81,6 +90,7 @@ Component({
     data: {
         bgColor: '',
         bgImage: '',
+        widthValue: 'auto',
         height: 'auto',
         padding: 'none',
         margin: 'none',
