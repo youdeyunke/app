@@ -1,2 +1,3 @@
-<!--components/pagemaker/posts/more-button.wxml-->
-<text>components/pagemaker/posts/more-button.wxml</text>
+    <link config="{{morelink.link}}">
+    <view class="btn" style="color:{{morelink.color}};background-color:{{bg}} ;border-color: {{morelink.bg}};border-radius:{{br}}">{{morelink.text}}</view>
+    </link>
