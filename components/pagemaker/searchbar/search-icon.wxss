@@ -3,4 +3,5 @@
 .icon image {
     width: 36rpx;
     height: 36rpx;
+    vertical-align: middle;
 }

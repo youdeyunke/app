@@ -1,8 +1,10 @@
 <!-- components/pagemaker/searchbar/index.wxml -->
 <view class="searchbar">
     <view bindtap="gotoSearch" class="body body-style-{{config.style}}" style="background-color: {{bodyBgColor}};border-color:{{config.color}}">
-        <search-icon url="{{config.icon}}" style="margin-right:20rpx;" />
-        <view class="text" style="color: {{textColor}}">{{text}}</view>
+        <view class="left-part">
+            <search-icon url="{{config.icon}}" style="margin-right:20rpx;" />
+            <view class="text" style="color: {{textColor}}">{{text}}</view>
+        </view>
     </view>
     <view class="footer" wx:if="{{config.city.show}}">
         <city-selector></city-selector>

@@ -1,7 +1,12 @@
 <mycard title="{{value.title}}" hat="{{false}}" padding="{{false}}" title-size="32">
     <mapimage image="{{value.map_image_url}}" latitude="{{value.latitude}}" longitude="{{value.longitude}}" name="{{value.name}}"></mapimage>
     <view class="location">
-        <text class="label">位置：</text>
-        <text class="value">{{value.address}}</text>
+        <view class="location-left">
+            <text class="label">位置：</text>
+            <text class="value">{{value.address}}</text>
+        </view>
+        <view class="location-right">
+            <view bind:tap="getLocation">导航</view>
+        </view>
     </view>
 </mycard>
