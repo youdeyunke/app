@@ -1,10 +1,14 @@
 .location {
     padding: 20rpx 0 40rpx 30rpx;
     font-size:28rpx;
+    display: flex;
+    justify-content: space-between;
 }
 
 
 .location .label{
   color:#999999;
 }
-
+.location-right{
+  padding-right: 30rpx;
+}
