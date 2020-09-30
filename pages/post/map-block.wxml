@@ -6,7 +6,9 @@
             <text class="value">{{value.address}}</text>
         </view>
         <view class="location-right">
-            <view bind:tap="getLocation">导航</view>
+            <van-button round size="mini" plain type="default" bind:tap="getLocation">
+                导航
+            </van-button>
         </view>
     </view>
 </mycard>
