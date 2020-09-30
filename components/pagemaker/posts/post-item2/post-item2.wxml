@@ -1,18 +1,19 @@
-<navigator hover-class="none" class="post" url="/pages/post/post?id={{post.id}}" >
+<navigator hover-class="none" class="post" url="/pages/post/post?id={{post.id}}">
     <view class="cover">
-        <image src="{{post.cover}}" />
+        <image src="{{post.cover}}?imageView2/1/w/750/h/400" />
         <view class="address">{{post.address}}</view>
     </view>
     <view class="footer">
         <view class="top">
-        <view class="tags">
-          
-            <van-tag text-color="{{item.text_color }}"  size="mini"  plain wx:for="{{post.tag_objs}}" wx:key="item.id">{{item.name}}</van-tag>
-        </view>
-        <view class="price">
-            {{post.price_info.label}}:
-            <text >{{post.price_info.text}}{{post.price_info.px}}</text>
-        </view>
+            <view class="tags">
+                <van-tag text-color="{{item.text_color }}" size="mini" plain wx:for="{{post.tag_objs}}" wx:key="item.id">
+                    {{item.name}}
+                </van-tag>
+            </view>
+            <view class="price">
+                {{post.price_info.label}}:
+                <text>{{post.price_info.text}}{{post.price_info.px}}</text>
+            </view>
         </view>
         <view class="title">{{post.title}}</view>
     </view>
