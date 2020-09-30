@@ -132,3 +132,12 @@ page {
     margin-top: 0rpx;
     font-size: 24rpx;
 }
+.icon{
+    width: 58rpx;
+    height: 58rpx;
+}
+.icons{
+    width: 30rpx;
+    margin-top: 10rpx;
+    margin-right: 10rpx;
+}
