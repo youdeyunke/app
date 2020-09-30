@@ -13,7 +13,7 @@
     justify-content: flex-start;
     align-items: center;
     height: 100%;
-    width: 100%;
+    width: 75%;
     border-radius: 4rpx;
     border-width: 2rpx;
     border-style: solid;
@@ -28,4 +28,9 @@
     max-width: 120rpx;
     min-width: 80rpx;
     width: auto;
+}
+.left-part{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
