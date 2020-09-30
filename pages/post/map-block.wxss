@@ -12,3 +12,6 @@
 .location-right {
     padding-right: 30rpx;
 }
+button :hover{
+  background-color: none;
+}
