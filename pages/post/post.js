@@ -205,5 +205,23 @@ Page({
             imageUrl: _this.data.post['cover']
         }
     },
+    onShareTimeline: function(res){
+        var title
+        var imageUrl
+        var blocks = this.data.blocks
+        blocks.forEach(v=>{
+            if(v.name == 'meta'){
+                title = v.value.title
+                imageUrl =v.value.simple_images_block.value.images[0]
+            }
+        })
+        console.log(res);
+        var _this  = this
+        return{
+            title: title,
+            query:  _this.data.postId,
+            imageUrl: imageUrl
+        }
+    }
 
 })
