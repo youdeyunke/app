@@ -10,6 +10,7 @@ Page({
         userInfo: {},
         configs: {},
         ext: wx.getExtConfigSync(),
+        n:0
     },
 
     gotoLoginPage: function (e) {
@@ -364,5 +365,19 @@ Page({
      */
     onShareAppMessage: function () {
 
+    },
+    domain:function(){
+        var _this = this
+        this.data.n++
+        if(this.data.n>=10){
+            wx.navigateTo({
+                url: '/pkgDebug/pages/db/index',
+                success:function(){
+                    _this.setData({
+                        n:0
+                    })
+                }
+            })
+        }
     }
 })

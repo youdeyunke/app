@@ -55,7 +55,7 @@
         <van-cell  size="large" hover-class="none" title="客服微信" value="{{configs.service_wechat}}" wx:if="{{configs.service_wechat}}" >
                 <image slot="icon" mode="widthFix" class="icons" src="/assets/icons/myself/wechat.png" ></image>
         </van-cell>
-        <van-cell  size="large" hover-class="none" title="当前版本" value="{{ext.version}}">
+        <van-cell  size="large" hover-class="none" title="当前版本" value="{{ext.version}}" bind:tap="domain">
             <image slot="icon" mode="widthFix" class="icons" src="/assets/icons/myself/info.png" ></image>
         </van-cell>
         <van-cell  bindtap="clearCache" size="large" hover-class="none" title="清除缓存" value="{{cache.currentSize || 0}} Kb">

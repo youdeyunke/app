@@ -157,6 +157,13 @@
                 "pages/qa/reply",
                 "pages/qa/new"
             ]
+        },
+        {
+            "root": "pkgDebug",
+            "name": "db",
+            "pages": [
+                "pages/db/index"
+            ]
         }
     ],
     "pages": [
