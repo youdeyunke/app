@@ -371,7 +371,7 @@ Page({
         this.data.n++
         if(this.data.n>=10){
             wx.navigateTo({
-                url: '/pkgDebug/pages/db/index',
+                url: '/pkgDebug/pages/debug/index',
                 success:function(){
                     _this.setData({
                         n:0
