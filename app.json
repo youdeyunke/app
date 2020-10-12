@@ -160,9 +160,9 @@
         },
         {
             "root": "pkgDebug",
-            "name": "db",
+            "name": "debug",
             "pages": [
-                "pages/db/index"
+                "pages/debug/index"
             ]
         }
     ],
