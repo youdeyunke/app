@@ -18,6 +18,8 @@ Page({
         user: {},
         showViewCount: false,
         showShareBox: false,
+        title:'',
+        imageUrl:''
     },
 
 
@@ -49,6 +51,10 @@ Page({
                 //html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
                 //html = html.replace(/\<p/gi, '<p class="rich-text-p" ')
             }
+        })
+        wx.showShareMenu({
+            withShareTicket: true,
+            menus: ['shareAppMessage', 'shareTimeline']
         })
     },
 
@@ -99,6 +105,9 @@ Page({
             _this.setData({ 'visitorLogId': vid })
             _this.setInterval()
         })
+        wx.hideShareMenu({
+            menus: ['shareAppMessage', 'shareTimeline']
+        })
     },
 
     /**
@@ -106,7 +115,7 @@ Page({
      */
     onReady: function () {
         // 页面渲染完成后
-
+        this.loadData()
     },
 
     queryTabsPosition: function () {
@@ -205,5 +214,22 @@ Page({
             imageUrl: _this.data.post['cover']
         }
     },
-
+    onShareTimeline: function(){
+        var title 
+        var imageUrl
+        var _this = this
+        var blocks=  this.data.blocks || []
+        for(let i of blocks){
+            if(i.name =='meta'){
+                title = i.value.title
+                imageUrl =i.value.simple_images_block.value.images[0]
+                break;
+            }
+            }
+            return{
+                title: title,
+                query:  'id='+_this.data.postId,
+                imageUrl: imageUrl
+            }
+    }
 })
