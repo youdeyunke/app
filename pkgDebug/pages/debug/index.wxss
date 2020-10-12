@@ -1,1 +1,4 @@
-/* pkgDebug/pages/debug/index.wxss */
+/* pkgDebug/pages/db/index.wxss */
+.input{
+    width: 100%!important;
+}
