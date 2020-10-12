@@ -1,0 +1,7 @@
+<!--index.wxml-->
+<van-tabs active="{{active}}" bind:change="getContent">
+    <van-tab  title="{{item}}" wx:for="{{array}}" >
+        <van-cell title="{{item.title}}" value="{{item._distance}}" label="{{item.address}}"  wx:for="{{resp}}" />
+    </van-tab>
+</van-tabs>
+

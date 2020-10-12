@@ -25,6 +25,7 @@
         "page-loading": "/pages/post/page-loading",
         "box": "/components/box",
         "visitors": "/components/visitors/index",
-        "safe-tips": "/components/safe-tips"
+        "safe-tips": "/components/safe-tips",
+        "ambitus":"/components/ambitus/index"
     }
 }

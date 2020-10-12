@@ -1,0 +1,11 @@
+/**index.wxss**/
+.name{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+.content{
+  margin-top:50rpx ;
+  display: flex;
+  justify-content: space-between;
+}
