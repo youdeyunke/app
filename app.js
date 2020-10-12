@@ -841,7 +841,8 @@ App({
         if (!header["Content-Type"]) {
             header["Content-Type"] = "application/json";
         }
-        if (!header["Authorization"]) {
+        if (!header["Authorization"] && token) {
+            // 判断token有值才传递，防止传递null obj给后端
             header["Authorization"] = token;
         }
 
@@ -850,7 +851,7 @@ App({
         var _method = obj.method || 'GET'
         var _Methods = ['GET', 'POST', 'PUT', 'DELETE']
         if (!_Methods.includes(_method)) {
-            console.log(_method, "方法错误")
+            console.log(_method, "方法错误,仅支持", _Methods)
         }
 
         wx.request({

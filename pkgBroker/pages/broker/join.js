@@ -40,13 +40,13 @@ Page({
         })
     },
 
-    closeCompanyPicker: function () { 
+    closeCompanyPicker: function () {
         this.setData({
             companyPickerShow: false
         })
     },
 
-    showCompanyPicker: function () { 
+    showCompanyPicker: function () {
         this.setData({
             companyPickerShow: true
         })
@@ -58,7 +58,6 @@ Page({
             return false
         }
         this.setData({ company: c })
-        console.log('set company', c)
     },
 
     loadCompanies: function () {
