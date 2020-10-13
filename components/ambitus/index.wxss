@@ -10,3 +10,20 @@
   text-align: center;
   margin: 20rpx;
 }
+.more-btn{
+  height:88rpx;
+  background:rgba(241,245,255,1);
+  border-radius:4rpx;
+  font-size:32rpx;
+  color:#1989FA;
+  line-height: 88rpx;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30rpx;
+}
+.mini{
+  height: 240rpx;
+  overflow: hidden;
+}
