@@ -40,12 +40,13 @@ Component({
         },
 
         viewImage: function (e) {
-            var urls = this.data.value.full_images
-            var url = urls[0]
-            wx.previewImage({
-                current: url,
-                urls: urls,
+            // 去相册 
+            var pid = this.data.value.post_id  
+            var path = '/pkgXiangce/pages/xiangce/index?id=' + pid  
+            wx.navigateTo({
+              url: path,
             })
+            return
         },
 
     }

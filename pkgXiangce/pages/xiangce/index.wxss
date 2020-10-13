@@ -3,10 +3,38 @@
 page {
     padding-top: 0rpx;
     background: #fff !important;
+    padding-bottom: 120rpx;
 }
 
 .media-cats {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
+}
+
+
+.header{
+    position: fixed;
+    top:0;
+    left:0;
+    background: #fff;
+    z-index:99;
+    width:100%;
+}
+
+.footer {
+    padding: 30rpx;
+    width: 690rpx;
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0rpx;
+    left: 0rpx;
+    border-top: 2rpx solid #f9f9f9;
+}
+
+.footer van-button {
+    width: 45%;
 }

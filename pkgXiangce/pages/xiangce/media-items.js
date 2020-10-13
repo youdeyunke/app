@@ -13,7 +13,8 @@ Component({
      */
     data: {
         showVideo: false,
-        mark: 'watermark/4/text/6IGq5bGL6YCJ5oi_/font/5a6L5L2T/fontsize/500/fill/Z3JheQ==/dissolve/50/rotate/-45/uw/100/uh/100/resize/1'
+        mark: 'watermark/4/text/6IGq5bGL6YCJ5oi_/font/5a6L5L2T/fontsize/500/fill/Z3JheQ==/dissolve/50/rotate/-45/uw/100/uh/100/resize/1',
+        mark: 'watermark/4/text/5oi_5bCP54mbCg/font/5a6L5L2T/fontsize/500/fill/Z3JheQ==/dissolve/50/rotate/-45/uw/200/uh/200/resize/1'
     },
 
     ready: function () {
