@@ -6,7 +6,7 @@
             <van-cell wx:if="{{ index+1 <= maxLength  }}"   title="{{item.title}}" value="{{item._distance}}" label="{{item.address}}" name='{{item}}'  wx:for="{{resp}}" title-class='title' />
         </view>
         <view wx:if="{{buttonShow}}">
-            <button hidden="{{isShow ==1}}" class="more-btn" bind:tap="moreHandle">{{buttonVal}}</button>
+            <view hidden="{{isShow ==1}}" class="more-btn" bind:tap="moreHandle">{{buttonVal}}</view>
         </view>
         
     </van-tab>

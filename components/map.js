@@ -13,6 +13,7 @@ Component({
         height: { type: Number, value: 320 },
         scale: { type: Number, value: 15 },
         name: { type: String, value: null },
+        pois:{type:Array}
     },
 
     /**
@@ -26,7 +27,12 @@ Component({
         //this.setCenter()
         this.setMarker()
     },
-
+    observers: {
+        'pois': function(pois) {
+          // 在 numberA 或者 numberB 被设置时，执行这个函数
+        this.setMarker()
+        }
+    },
     /**
      * 组件的方法列表
      */
@@ -36,6 +42,8 @@ Component({
             this.setData({ center: { longitude: _this.data.longitude, latitude: _this.data.latitude } })
         },
         setMarker: function () {
+            var pois = this.data.pois
+            var markers =[]
             var _this = this
             const bgColor = '#1989fa'
             const whiteColor = '#ffffff'
@@ -63,7 +71,20 @@ Component({
                     textAlign: 'center',
                 }
             }
-            this.setData({ markers: [marker] })
+            markers.push(marker)
+            pois.forEach(v=>{
+                var marker = {
+                    iconPath: '/assets/icons/zhoubian.png',
+                    alpha: '0.5',
+                    latitude: v.location.lat,
+                    longitude: v.location.lng,
+                    width: "50rpx",
+                    height: "50rpx",
+                    zIndex: 10
+                }
+                markers.push(marker)
+            })
+            this.setData({ markers: markers })
             console.log('markers', this.data.markers)
         },
 
