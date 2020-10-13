@@ -116,6 +116,7 @@ Page({
     onReady: function () {
         // 页面渲染完成后
         this.loadData()
+        //获取经纬度
     },
 
     queryTabsPosition: function () {

@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "mapimage":"/components/map"
+    "mapimage":"/components/map",
+    "ambitus":"/components/ambitus/index"
   }
 }
