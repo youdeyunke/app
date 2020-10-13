@@ -40,7 +40,7 @@ Component({
             return 
             // goto default albumt 
             var cid = this.data.value.default_media_cat_id   
-            var path = 
+            var path = ''
             
         },
 
