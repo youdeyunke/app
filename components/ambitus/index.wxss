@@ -5,23 +5,25 @@
   text-overflow: ellipsis;
 }
 .null{
-  font-size: 36rpx;
-  color: #000;
-  text-align: center;
-  margin: 20rpx;
+  padding: 30rpx 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 .more-btn{
   height:88rpx;
-  background:rgba(241,245,255,1);
   border-radius:4rpx;
-  font-size:32rpx;
-  color:#1989FA;
+  font-size:30rpx;
+  background: #F8F8F8;
+  color: #333;
   line-height: 88rpx;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 30rpx;
+  font-weight: bolder;
 }
 .mini{
   height: 240rpx;

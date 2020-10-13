@@ -51,7 +51,7 @@ Component({
             var fontSize = app.globalData.system.fontSizeSetting * 0.8
             var padding = fontSize * 1
             var marker = {
-                iconPath: '/assets/icons/location.png',
+                iconPath: '',
                 alpha: '0.5',
                 latitude: _this.data.latitude,
                 longitude: _this.data.longitude,
