@@ -11,4 +11,5 @@
             </van-button>
         </view>
     </view>
+    <ambitus latitude="{{value.latitude}}" longitude="{{value.longitude}}" />
 </mycard>
