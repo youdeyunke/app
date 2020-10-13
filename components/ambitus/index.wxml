@@ -1,7 +1,9 @@
 <!--index.wxml-->
 <van-tabs active="{{active}}" bind:change="getContent">
     <van-tab  title="{{item}}" wx:for="{{array}}" >
-        <van-cell title="{{item.title}}" value="{{item._distance}}" label="{{item.address}}"  wx:for="{{resp}}" />
+        <view wx:if="{{isShow == 1}}" class="null">暂未搜索到</view>
+        <van-cell  title="{{item.title}}" value="{{item._distance}}" label="{{item.address}}" name='{{item}}'  wx:for="{{resp}}" title-class='title' />
+        
     </van-tab>
 </van-tabs>
 

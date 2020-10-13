@@ -24,7 +24,6 @@
         <btns-block wx:if="{{block.name == 'btns'}}" value="{{block.value}}" />
         <contact-block wx:if="{{block.name == 'contact'}}" value="{{block.value}}" />
     </block>
-    <ambitus/>
     <!-- official-account></official-account -->
     <ad-link />
     <safe-tips cat="{{post.group}}" />

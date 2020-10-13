@@ -1,11 +1,12 @@
 /**index.wxss**/
-.name{
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: nowrap;
+.title{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
-.content{
-  margin-top:50rpx ;
-  display: flex;
-  justify-content: space-between;
+.null{
+  font-size: 36rpx;
+  color: #000;
+  text-align: center;
+  margin: 20rpx;
 }
