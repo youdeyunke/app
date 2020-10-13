@@ -50,7 +50,6 @@ Component({
       var _this = this
       var app = getApp()
       var tab = this.data.tabs[this.data.active]
-      var maxLength =  this.data.maxLength
       wx.request({
         url: 'https://apis.map.qq.com/ws/place/v1/search',
         data:{
@@ -88,6 +87,7 @@ Component({
               buttonShow:true
             })
           }
+          _this.triggerEvent('myevent',res.data.data)
         }
       })
     },
@@ -104,6 +104,6 @@ Component({
           buttonVal:'展开全部'
         })
       }
-    }
+    },
   }
 })
