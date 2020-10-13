@@ -12,7 +12,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    pois:[]
   },
   /**
    * 组件的方法列表
@@ -61,6 +61,11 @@ Component({
       }
     })
   },
-  
+  getMyevent(e) { //e为子组件传过来的值
+    //console.log(e.detail)
+    this.setData({
+      pois: e.detail //这里是改变Page中data上的值
+    })
+  }
   }
 })
