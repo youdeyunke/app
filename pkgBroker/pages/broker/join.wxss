@@ -1,28 +1,34 @@
-page {
-    background: url('http://qiniucdn.udeve.cn/04860.jpg') !important;
-    background-size: 750rpx 466rpx !important;
-    background-repeat: no-repeat !important;
-    padding-top: 400rpx;
+
+.header-block .bg{
+    width:750rpx;
+    height:750rpx; 
+    z-index:-1;
+    position: absolute;
+    top:-266rpx;
+    left:0;
 }
 
 .header-block {
-    position: absolute;
-    top: 100rpx;
-    left: 0rpx;
-    right: 0rpx;
-
-    width: 100%;
+    position: relative;
+    width:750rpx; 
+    height:300rpx;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: #000;
     letter-spacing: 2.5rpx;
+    
 }
 
 .header-block .title {
     font-size: 48rpx;
     margin-bottom: 20rpx;
+}
+
+.header-block .desc{
+    width:400rpx;
+    text-align: center;
 }
 
 .window {  

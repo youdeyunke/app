@@ -14,6 +14,8 @@ Page({
         companiesLoading: true,
         companyPickerShow: false,
         loading: true,
+        service_mobile: null, 
+        service_wechat: null,
         companies: [],
         company: { name: '', id: '' },
         state: '',
@@ -34,7 +36,11 @@ Page({
         auth.ensureUser(function (userInfo) {
             app.loadConfigs(function (conf) {
                 _this.loadCompanies()
-                _this.setData({ joinType: conf['broker_join_type'], })
+                _this.setData({ 
+                    joinType: conf['broker_join_type'], 
+                    service_mobile: conf.service_mobile, 
+                    service_wechat: conf.service_wechat,
+                })
                 _this.loadUserInfo()
             })
         })

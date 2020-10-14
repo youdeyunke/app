@@ -1,6 +1,9 @@
 <view class="header-block">
+    <image class="bg" src="/pkgBroker/images/broker-join.png" />
     <view class="title">入驻平台</view>
-    <view class="desc">轻松获得海量客源</view>
+    <view class="desc">
+        若需帮助，请联系客服。<text wx:if="{{service_wechat}}" >微信：{{service_wechat}}</text>  <text wx:if="{{service_mobile}}">电话：{{service_mobile}}</text>
+    </view>
 </view>
 <van-popup show="{{companyPickerShow}}">
     <view class="form-header">
