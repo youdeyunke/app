@@ -131,14 +131,15 @@ Page({
         var _this = this
         this.setData({ loading: true })
         auth.getRemoteUserInfo(function (user) {
+ 
             _this.setData({
                 userInfo: user,
                 broker: user.broker_profile,
                 loading: false
             })
             wx.hideLoading()
-            // 如果没有开通经纪人，并且已经提交了个人资料，就进入购买有
-            if (!user.is_broker && user.apply_status == 1 && _this.data.joinType != 'free') {
+            // 如果没有开通经纪人，并且已经提交了个人资料，就进入购买
+            if (!user.broker_profile.enable && user.apply_status != 0 && _this.data.joinType != 'free') {
                 wx.navigateTo({
                     url: '/pkgBroker/pages/broker/membership'
                 })
@@ -264,6 +265,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+       
         this.setData({
             userInfo: app.globalData.userInfo
         })

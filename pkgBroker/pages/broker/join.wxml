@@ -22,7 +22,7 @@
         </van-button>
     </view>
     <form bindsubmit="submitHandle">
-        <van-field required label="姓名" value="" name="name" placeholder="你的真实姓名" />
+        <van-field required label="姓名" value="{{userInfo.name}}" name="name" placeholder="你的真实姓名" />
         <van-field is-link required label="公司" value="{{company.text}}" name="company" placeholder="你所在的公司" bindtap="showCompanyPicker" />
         <van-field required label="电话" disabled="{{true}}" value="{{userInfo.mobile}}" name="mobile" placeholder="真实联系电话" disabled="{{true}}">
             <mbutton wx:if="{{!userInfo.mobile}}" bind:change="mobileBind" slot="button" size="small" type="primary" />

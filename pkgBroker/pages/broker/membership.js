@@ -18,6 +18,9 @@ Page({
      */
     onLoad: function (q) {
         this.loadItems()
+        wx.setNavigationBarTitle({
+          title: '付费入驻',
+        })
     },
 
     onChange: function (e) {
