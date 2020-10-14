@@ -8,7 +8,7 @@
 
     <view class="media-cats">
         <mycard padding="{{false}}" hat="{{false}}" title="{{cat.name}}" title-size="28" wx:for="{{cats}}" wx:for-item="cat" wx:for-key="id">
-            <media-items items="{{cat.media_items}}"  />
+            <media-items cat-id="{{cat.id}}"  />
             <view id="loc-{{cat.id}}"></view>
         </mycard>
     </view>
