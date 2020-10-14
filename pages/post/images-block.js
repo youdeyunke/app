@@ -28,6 +28,8 @@ Component({
         },
 
         viewImage: function (e) {
+
+
             var urls = this.data.value.images
             var index = e.currentTarget.dataset.index
             var url = urls[index]
@@ -35,6 +37,11 @@ Component({
                 current: url,
                 urls: urls,
             })
+            return 
+            // goto default albumt 
+            var cid = this.data.value.default_media_cat_id   
+            var path = ''
+            
         },
 
         gotoVr: function () {

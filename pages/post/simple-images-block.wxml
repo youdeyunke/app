@@ -2,7 +2,7 @@
    <view class="west">
      <van-image fit="cover" radius="10rpx" width="480rpx" height="404rpx" src="{{ value.images[0] }}?imageView2/2/w/500" />
      <image wx:if="{{value.vr_url}}"  catchtap='gotoVr' class="vr" src="/assets/icons/vr.png"></image>
-   </view>
+  </view>
 
    <view class="wrapper2">
     <view class="north">

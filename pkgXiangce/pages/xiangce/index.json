@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+      "booking": "/components/post/booking",
       "media-items": "./media-items"
   }
 }
