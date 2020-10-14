@@ -1,0 +1,17 @@
+/* pkgAdmin/pages/admin/xiangce.wxss */
+.items {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 710rpx;
+    align-items: center;
+    margin: 0rpx auto;
+    box-sizing: border-box;
+    padding: 20rpx 0;
+}
+.items .item  {
+    margin-right: 0rpx;
+}
+
+
+

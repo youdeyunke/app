@@ -1,0 +1,8 @@
+<view class="image custom-class custom-style" wx:if="{{show ==0}}">
+        <image src="{{item.url}}" wx:if="{{item.file_type == 'image'}}" ></image>
+        <video wx:else src="{{item.url}}"></video>
+        <view class="icon">
+        <van-icon name="clear" size='40rpx' color='red' bind:click='toggle' />
+        </view>
+    </view>
+

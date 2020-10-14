@@ -10,7 +10,7 @@
         "pages/admin/post",
         "pages/admin/customers",
         "pages/admin/owners",
-        "pages/admin/xiangce"
+        "pages/admin/xiangce/index"
       ]
     },
     {

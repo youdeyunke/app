@@ -148,7 +148,7 @@ Page({
     gotoXiang:function(){
         var id  = this.data.media_cat_id
         wx.navigateTo({
-            url: '/pkgAdmin/pages/admin/xiangce?media_cat_id='+id
+            url: '/pkgAdmin/pages/admin/xiangce/index?media_cat_id='+id
         })
     },
     editHandle: function (e) {

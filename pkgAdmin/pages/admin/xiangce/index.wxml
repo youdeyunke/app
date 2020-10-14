@@ -1,0 +1,6 @@
+<box width='750'>
+    <view class="items"  >
+        <media-item item="{{item}}" custom-class="" wx:for="{{images}}"></media-item>
+    </view>
+</box>
+<upload-btn images="{{images}}" bind:change='imagesChanged'></upload-btn>
