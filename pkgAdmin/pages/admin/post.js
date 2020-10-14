@@ -11,7 +11,7 @@ Page({
         loading: null,
         post: null,
         canEdit: false,
-
+        media_cat_id:0
     },
 
 
@@ -145,7 +145,12 @@ Page({
             url: '/pages/visitors/index?targetType=post&targetId=' + id + '&scope=' + scope
         })
     },
-
+    gotoXiang:function(){
+        var id  = this.data.media_cat_id
+        wx.navigateTo({
+            url: '/pkgAdmin/pages/admin/xiangce?media_cat_id='+id
+        })
+    },
     editHandle: function (e) {
         var id = this.data.postId
         wx.navigateTo({
@@ -158,6 +163,7 @@ Page({
         app.request({
             url: '/api/v1/admin_posts/' + _this.data.postId,
             success: function (resp) {
+                var id = resp.data.data.media_cat_id
                 if (resp.data.status != 0) {
                     return false
                 }
@@ -167,7 +173,7 @@ Page({
                 });
                 var items = ["old", "rental", "shop"]
                 var r = items.includes(post.group)
-                _this.setData({ post: post, canEdit: r })
+                _this.setData({ post: post, canEdit: r,media_cat_id:id })
             }
         })
 
