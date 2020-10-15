@@ -1,4 +1,5 @@
 // pkgAdmin/pages/admin/xiangce/upload-btn.js
+const app = getApp()
 var qiniu = require('../../../../utils/qiniu.js');
 Component({
   /**
@@ -6,35 +7,28 @@ Component({
    */
   properties: {
     max: {type: Number, value: 15},
-    images:{type:Array}
+    images:{type:Array},
+    mediaid:{type:Number}
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-
+    types:null,
+    files:0
   },
-
   /**
    * 组件的方法列表
    */
   methods: {
-    doUpload: function(ftype, paths){
+    doUpload: function(paths){
       wx.setKeepScreenOn({ keepScreenOn: true })          
       wx.showLoading({title: "上传中,请勿关闭", mask: true})
       var _this = this
       var path = paths.shift()
       qiniu.upload(path, function(url){
-            if(ftype == 'images'){
-              var urls = _this.data.images
-              urls.push(url)
-              _this.triggerEvent('change', { images: urls, cover_index: _this.data.cover })
-            }
-            if(ftype == 'video'){
-              _this.triggerEvent('change', {video: url })
-            }
-          
+              _this.insertPath(url)
             if(paths.length > 0){
               _this.doUpload('images', paths)
             }
@@ -52,16 +46,34 @@ Component({
   },
   chooseImages: function(e){
     var that = this
-    console.log('images count',that.data.max - that.data.images.length )
     wx.chooseImage({
       count: that.data.max - that.data.images.length,
       sizeType: ['original', 'compressed'],
-
       success (res) {
         const paths = res.tempFilePaths
-        that.doUpload('images', paths)
+        that.setData({
+          types:'image'
+        })
+        that.doUpload(paths)
       }
   })
 },
+  insertPath(url){
+    var _this =  this
+    var id  =this.data.mediaid
+    var type = this.data.types
+    app.request({
+      url:'/api/v1/media_items/',
+      method:'POST',
+      data:{
+        file_type: type,
+        url:url,
+        media_cat_id:id
+      },
+      success:function(res){
+        _this.triggerEvent('change')
+      }
+    })
+  }
   }
 })

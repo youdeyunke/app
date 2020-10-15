@@ -8,7 +8,8 @@ Page({
   data: {
     Isshow:0,
     media_cat_id:null,
-    images:[]
+    images:[],
+    watcher:0
   },
   onLoad:function(q){
     this.setData({
@@ -29,36 +30,11 @@ Page({
       url:'/api/v1/media_items',
       data:media_cat_id,
       success: function(res) {
-        console.log(res.data);
+        //console.log(res.data);
         _this.setData({
           images:res.data.data
         })
       }
     })
   },
-  imagesChanged: function (e) {
-    //this.clearError()
-    console.log('images change', e)
-    var keys = Object.keys(e.detail)
-    if (keys.includes('images')) {
-        this.updatePostField('images', e.detail.images)
-    }
-    if (keys.includes('cover_index')) {
-        this.updatePostField('cover_index', e.detail.cover_index)
-    }
-    if (keys.includes('video')) {
-        this.updatePostField('video', e.detail.video)
-    }
-    if (keys.includes('overlook_image')) {
-        console.log('set overlook image')
-        this.updatePostField('overlook_image', e.detail.overlook_image)
-    }
-
-},
-updatePostField: function (key, value) {
-  var d = {}
-  var key = 'post.' + key
-  d[key] = value
-  this.setData(d)
-},
 })

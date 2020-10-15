@@ -26,17 +26,22 @@ Component({
       wx.showModal({
         title: '提示',
         content: '确定删除吗',
-        success: function() {
-          app.request({
-            url: '/api/v1/media_items/'+id,
-            method: '',
-            success:function(res){
-              console.log(res);
-            }
-          })
-          _this.setData({
-            show:1
-          })
+        success: function(res) {
+          if(res.confirm){
+            app.request({
+              url: '/api/v1/media_items/'+id,
+              method: 'DELETE',
+              success:function(){
+                wx.showToast({
+                  title: '删除成功',
+                  icon: 'success'
+                })
+              }
+            })
+            _this.setData({
+              show:1
+            })
+          }
         }
       })
     }
