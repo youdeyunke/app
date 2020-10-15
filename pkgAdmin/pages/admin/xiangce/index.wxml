@@ -3,4 +3,7 @@
         <media-item item="{{item}}" custom-class="" wx:for="{{images}}"></media-item>
     </view>
 </box>
-<upload-btn images="{{images}}" bindchange='loadData' mediaid="{{media_cat_id}}"></upload-btn>
+<view class="footer">
+    <upload-btn  bindchange='loadData' mediaid="{{media_cat_id}}" fileType='image'></upload-btn>
+    <upload-btn  bindchange='loadData' mediaid="{{media_cat_id}}" fileType='video'></upload-btn>
+</view>

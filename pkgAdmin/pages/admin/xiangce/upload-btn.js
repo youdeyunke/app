@@ -6,17 +6,14 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    max: {type: Number, value: 15},
-    images:{type:Array},
-    mediaid:{type:Number}
+    mediaid:{type:Number},
+    fileType:{type:String,value:'image'}
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-    types:null,
-    files:0
   },
   /**
    * 组件的方法列表
@@ -30,7 +27,7 @@ Component({
       qiniu.upload(path, function(url){
               _this.insertPath(url)
             if(paths.length > 0){
-              _this.doUpload('images', paths)
+              _this.doUpload(paths)
             }
             // 上传完
             if(paths.length == 0){
@@ -47,21 +44,17 @@ Component({
   chooseImages: function(e){
     var that = this
     wx.chooseImage({
-      count: that.data.max - that.data.images.length,
       sizeType: ['original', 'compressed'],
       success (res) {
-        const paths = res.tempFilePaths
-        that.setData({
-          types:'image'
-        })
-        that.doUpload(paths)
+        var paths =res.tempFilePaths
+          that.doUpload(paths)
       }
   })
 },
   insertPath(url){
     var _this =  this
     var id  =this.data.mediaid
-    var type = this.data.types
+    var type = this.data.fileType
     app.request({
       url:'/api/v1/media_items/',
       method:'POST',
@@ -74,6 +67,32 @@ Component({
         _this.triggerEvent('change')
       }
     })
+  },
+  chooseVideo: function(e){
+    var _this = this  
+    wx.chooseVideo({
+      sourceType: ['album', 'camera'],
+      compressed: true,
+      maxDuration: 60,
+      camera: 'back',
+      fail: function(res){
+        wx.showToast({
+          title: res,
+          icon: 'none',
+        })
+      },
+      success: function(res) {
+        const paths = [res.tempFilePath]
+        _this.doUpload(paths)
+      }
+    })
+  },
+  chooseHandle:function(){
+    if(this.data.fileType == 'image'){
+      this.chooseImages()
+    }else if(this.data.fileType == 'video'){
+      this.chooseVideo()
+    }
   }
-  }
+  },
 })

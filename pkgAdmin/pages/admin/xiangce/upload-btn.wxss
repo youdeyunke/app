@@ -1,17 +1,1 @@
 /* pkgAdmin/pages/admin/xiangce/upload-btn.wxss */
-.footer {
-    padding: 30rpx;
-    width: 690rpx;
-    background: #fff;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: fixed;
-    bottom: 0rpx;
-    left: 0rpx;
-    border-top: 2rpx solid #f9f9f9;
-}
-
-.footer van-button {
-    width: 45%;
-}

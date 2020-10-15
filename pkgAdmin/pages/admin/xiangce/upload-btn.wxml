@@ -1,5 +1,2 @@
-<view class="footer">
-    <van-button bindtap="bookingHandle" icon="photo-o" type="info" block bindtap
-    ="chooseImages">上传图片</van-button>
-    <van-button bindtap="callHandle" icon="video-o" type="info" block>上传视频</van-button>
-</view>
+
+    <van-button icon="{{fileType == 'image'? 'photo-o': 'video-o'}}" type="info" block bindtap="chooseHandle">上传{{fileType == 'image'? '图片': '视频'}}</van-button>
