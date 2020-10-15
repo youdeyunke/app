@@ -1,6 +1,16 @@
+
+
+
+<van-popup show="{{ show }}" bind:close="onClose"  position="bottom" around  >
+    <van-picker columns="{{ columns }}" custom-class='choose' round default-index="{{ 0 }}" show-toolbar title="相册列表"  bind:cancel="onClose" bind:confirm="onConfirm"/>
+</van-popup>
 <box width='750'>
+    <view class="choose-content" bind:tap="showPopup" >
+        <view>选择相册</view>
+        <van-icon name="arrow-down"></van-icon>
+    </view>
     <view class="items"  >
-        <media-item item="{{item}}" custom-class="" wx:for="{{images}}"></media-item>
+        <media-item item="{{item}}" custom-class="{{(index+1)%4 ==0? 'item' : ''}}" wx:for="{{images}}"></media-item>
     </view>
 </box>
 <view class="footer">

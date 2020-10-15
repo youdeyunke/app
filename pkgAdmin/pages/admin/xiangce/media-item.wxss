@@ -3,7 +3,7 @@
     width: 150rpx;
     height: 150rpx;
     position: relative;
-    margin-right: 27rpx ;
+    margin-right: 37rpx ;
     margin-bottom: 18rpx;
 }
 .image image{
@@ -17,5 +17,5 @@
 .icon{
     position: absolute;
     top: -10rpx; right: -10rpx;
-    z-index: 100;
+    z-index: 10;
 }

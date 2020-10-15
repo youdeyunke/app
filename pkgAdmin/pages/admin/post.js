@@ -147,8 +147,9 @@ Page({
     },
     gotoXiang:function(){
         var id  = this.data.media_cat_id
+        var postid = this.data.postId
         wx.navigateTo({
-            url: '/pkgAdmin/pages/admin/xiangce/index?media_cat_id='+id
+            url: '/pkgAdmin/pages/admin/xiangce/index?media_cat_id='+id +'&post_id=' + postid
         })
     },
     editHandle: function (e) {
