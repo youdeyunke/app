@@ -1,20 +1,18 @@
-page{
-  padding-top:0rpx;
-  padding-bottom:20rpx;
-
+page {
+    padding-top: 0rpx;
+    padding-bottom: 20rpx;
 }
 
-
-.mycats{
-  width: 750rpx;
-  margin:0rpx 0 20rpx 0;
-  padding:0rpx 30rpx;
-  box-sizing: border-box;
-  background: #fff;
+.mycats {
+    width: 750rpx;
+    margin: 0rpx 0 20rpx 0;
+    padding: 0rpx 30rpx;
+    box-sizing: border-box;
+    background: #fff;
 }
 
-.range-slider-block::after{
-  content: "";
+.range-slider-block::after {
+    content: "";
     width: 16px;
     height: 16px;
     background: #cecece;
@@ -24,105 +22,111 @@ page{
     box-shadow: 0 2px 6px 0 #9fa7b3;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
-    border-radius: 50%;  
+    border-radius: 50%;
     position: absolute;
-    top:0rpx;
+    top: 0rpx;
 }
 
-
-.range-value{
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  margin-bottom:30rpx;  
+.range-value {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 30rpx;
 }
 
-.range-value .number{
-  color: #000;
-  font-size:50rpx;
-  font-weight: bolder;
-  text-align: center;
+.range-value .number {
+    color: #000;
+    font-size: 50rpx;
+    font-weight: bolder;
+    text-align: center;
 }
 
-.range-value .blank{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  color: #999;
-  margin:0 100rpx;
+.range-value .blank {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #999;
+    margin: 0 100rpx;
 }
 
-.range-value .unit{
-  color: #999;
-  font-size:28rpx;
-  margin-left:10rpx;
+.range-value .unit {
+    color: #999;
+    font-size: 28rpx;
+    margin-left: 10rpx;
 }
 
-.bind{
-  text-decoration: underline;
-  color: var(--color-a);
+.bind {
+    text-decoration: underline;
+    color: var(--color-a);
 }
 
-
-.basic  .item .label{
-  width: 120rpx;
+.tags-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
-.basic .item input{
-  width: calc(100% - 120rpx);
+.tag-item {
+    margin-right: 10rpx;
+    margin-bottom: 10rpx;
 }
 
-.container-bg-none{
-  padding:0;
+.basic .item .label {
+    width: 120rpx;
 }
 
-button{
-  margin-top:20rpx;
-  width:100%;
+.basic .item input {
+    width: calc(100% - 120rpx);
 }
 
-
-.res{
-  width: 690rpx;
-  margin:0 auto;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding-top:200rpx;
-  
+.container-bg-none {
+    padding: 0;
 }
 
-.res .title{
-  color: #000;
-  font-size:40rpx;
-  font-weight: bolder;
-  width: 100%;
-  text-align: center;
-  margin-top:60rpx;
+button {
+    margin-top: 20rpx;
+    width: 100%;
 }
 
-.res .desc{
-  font-size:28rpx;
-  color: #333;
-  line-height: 1.5;
-  text-align: center;
-  margin-top:60rpx;  
+.res {
+    width: 690rpx;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 200rpx;
 }
 
-.res .btns{
-  margin-top:60rpx;  
-  display: flex;
-  flex-direction: column;
+.res .title {
+    color: #000;
+    font-size: 40rpx;
+    font-weight: bolder;
+    width: 100%;
+    text-align: center;
+    margin-top: 60rpx;
 }
 
-.res .btns button{
-  width: 100%;
+.res .desc {
+    font-size: 28rpx;
+    color: #333;
+    line-height: 1.5;
+    text-align: center;
+    margin-top: 60rpx;
 }
 
+.res .btns {
+    margin-top: 60rpx;
+    display: flex;
+    flex-direction: column;
+}
+
+.res .btns button {
+    width: 100%;
+}
 
 .radio-value-class {
-  flex: none !important;
+    flex: none !important;
 }
