@@ -1,7 +1,7 @@
 <view class="main">
     <view class="body">
         <van-grid>
-            <van-grid-item url="{{item.url}}" use-slot wx:for="{{menuItems}}" wx:key="{{index}}" hover-class="none">
+            <van-grid-item url="{{item.url}}" use-slot wx:if="{{item.show}}" wx:for="{{menuItems}}" wx:key="{{index}}" hover-class="none">
                 <view class="menu-item">
                     <van-icon color="{{item.color}}" size="58rpx" name="/pkgAdmin/images/{{item.icon}}.png" />
                     <view class="menu-item-name">{{item.name}}</view>

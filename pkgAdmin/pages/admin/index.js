@@ -17,26 +17,42 @@ Page({
     data: {
         fixFormid: false,
         menuItems: [
-            { name: '发布二手房', icon: 'new', color: '#0ddb0c', url: '/pages/post/form?group=old' },
-            { name: '发布租房', icon: 'new', color: '#ff9501', url: '/pages/post/form?group=rental&rent_type=zhengzu' },
-            { name: '发布商铺', icon: 'new', color: '#ff9501', url: '/pages/post/form?group=shop' },
+            { gvalue: 'old', name: '发布二手房', icon: 'new', color: '#0ddb0c', url: '/pages/post/form?group=old' },
+            { gvalue: 'rental', name: '发布租房', icon: 'new', color: '#ff9501', url: '/pages/post/form?group=rental&rent_type=zhengzu' },
+            { gvalue: 'shop', name: '发布商铺', icon: 'new', color: '#ff9501', url: '/pages/post/form?group=shop' },
 
             { name: '我的房源', icon: 'posts', color: '#59B8EB', url: './posts' },
             { name: '预约看房', icon: 'booking', color: '#59B8EB', url: '/pkgAdmin/pages/admin/booking' },
             { name: '访客足迹', icon: 'visitors', color: '#59B8EB', url: '/pages/visitors/index' },
 
             { name: '求购客源', icon: 'buy', color: '#4184AF', url: '/pages/need/room?cat=buy' },
-            { name: '求租客源', icon: 'rent', color: '#E15C32', url: '/pages/need/room?cat=rent' },
+            { gvalue: 'rental', name: '求租客源', icon: 'rent', color: '#E15C32', url: '/pages/need/room?cat=rent' },
             { name: '我的客源', icon: 'customers', color: '#5857CE', url: '/pages/need/room?cat=myself' },
             { name: '我的档案', icon: 'profile', color: '#', url: '/pkgBroker/pages/broker/join' },
             { name: '业主委托', icon: 'owners', color: '#', url: '/pkgAdmin/pages/admin/owners' }
         ]
     },
 
+
+
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
+        // 根据后台开启的房源模块，设置模块的显示和隐藏
+        var items = this.data.menuItems
+        app.globalData.myconfigs.post_groups.forEach((g, i) => {
+            items.forEach((item, j) => {
+                item.show = false
+                if (!item.gvalue) {
+                    item.show = true
+                }
+                if (item.gvalue && item.gvalue === g.value) {
+                    item.show = true
+                }
+            })
+        })
+        this.setData({ menuItems: items })
     },
 
     formidHandle: function (e) {

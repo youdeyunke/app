@@ -32,10 +32,7 @@ Page({
      */
     data: {
         isDone: false,
-        cats: [
-            { label: '我要买房', value: 'buy' },
-            { label: '我要租房', value: 'rent' },
-        ],
+        cats: [],
         contact_name: '',
         contact_mobile: '',
         contact_wechat: '',
@@ -66,6 +63,14 @@ Page({
         var _this = this
         var cat = q.cat || 'buy'
         _this.updateForm(cat)
+        var cats = [{ label: '我要买房', value: 'buy' }]
+        // 根据房源模块开关控制类型
+        app.globalData.myconfigs.post_groups.forEach((g, i) => {
+            if (g.value == 'rental') {
+                cats.push({ label: '我要租房', value: 'rent' })
+            }
+        })
+        this.setData({ cats: cats })
     },
 
     catChange: function (e) {

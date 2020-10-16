@@ -1,6 +1,9 @@
 <view class="header-block">
+    <image class="bg" src="/pkgBroker/images/broker-join.png" />
     <view class="title">入驻平台</view>
-    <view class="desc">轻松获得海量客源</view>
+    <view class="desc">
+        若需帮助，请联系客服。<text wx:if="{{service_wechat}}" >微信：{{service_wechat}}</text>  <text wx:if="{{service_mobile}}">电话：{{service_mobile}}</text>
+    </view>
 </view>
 <van-popup show="{{companyPickerShow}}">
     <view class="form-header">
@@ -19,7 +22,7 @@
         </van-button>
     </view>
     <form bindsubmit="submitHandle">
-        <van-field required label="姓名" value="" name="name" placeholder="你的真实姓名" />
+        <van-field required label="姓名" value="{{userInfo.name}}" name="name" placeholder="你的真实姓名" />
         <van-field is-link required label="公司" value="{{company.text}}" name="company" placeholder="你所在的公司" bindtap="showCompanyPicker" />
         <van-field required label="电话" disabled="{{true}}" value="{{userInfo.mobile}}" name="mobile" placeholder="真实联系电话" disabled="{{true}}">
             <mbutton wx:if="{{!userInfo.mobile}}" bind:change="mobileBind" slot="button" size="small" type="primary" />

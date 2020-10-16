@@ -14,6 +14,8 @@ Page({
         companiesLoading: true,
         companyPickerShow: false,
         loading: true,
+        service_mobile: null, 
+        service_wechat: null,
         companies: [],
         company: { name: '', id: '' },
         state: '',
@@ -34,7 +36,11 @@ Page({
         auth.ensureUser(function (userInfo) {
             app.loadConfigs(function (conf) {
                 _this.loadCompanies()
-                _this.setData({ joinType: conf['broker_join_type'], })
+                _this.setData({ 
+                    joinType: conf['broker_join_type'], 
+                    service_mobile: conf.service_mobile, 
+                    service_wechat: conf.service_wechat,
+                })
                 _this.loadUserInfo()
             })
         })
@@ -125,14 +131,15 @@ Page({
         var _this = this
         this.setData({ loading: true })
         auth.getRemoteUserInfo(function (user) {
+ 
             _this.setData({
                 userInfo: user,
                 broker: user.broker_profile,
                 loading: false
             })
             wx.hideLoading()
-            // 如果没有开通经纪人，并且已经提交了个人资料，就进入购买有
-            if (!user.is_broker && user.apply_status == 1 && _this.data.joinType != 'free') {
+            // 如果没有开通经纪人，并且已经提交了个人资料，就进入购买
+            if (!user.broker_profile.enable && user.apply_status != 0 && _this.data.joinType != 'free') {
                 wx.navigateTo({
                     url: '/pkgBroker/pages/broker/membership'
                 })
@@ -258,6 +265,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+       
         this.setData({
             userInfo: app.globalData.userInfo
         })
