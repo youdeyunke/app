@@ -13,11 +13,11 @@
     margin-right: 0rpx !important;
 }
 .footer {
-    padding: 30rpx;
+    padding:20rpx 30rpx;
     width: 690rpx;
     background: #fff;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     position: fixed;
     bottom: 0rpx;
@@ -25,18 +25,43 @@
     border-top: 2rpx solid #f9f9f9;
 }
 
-.footer van-button {
-    width: 45%;
+.footer-content van-button {
+    width: 25%;
+    margin: 0 10rpx;
 }
 .choose{
     width: 750rpx;
 }
 .choose-content{
-    background-color: #fff;
-    width: 150rpx;
     display: flex;
-    margin: 0 auto;
-    padding-top: 20rpx;
 }
-
-
+.choose-all{
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx 30rpx;
+}
+.footer-content{
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    margin-right: 30rpx;
+}
+.footer-btn{
+    display: flex;
+    justify-content: space-between;
+    width: 70% !important;
+}
+.icon-name{
+    font-size: 24rpx;
+    margin-top: 6rpx;
+}
+.footer-c-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.pinpai-color{
+    color: #1989fa !important;
+}

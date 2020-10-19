@@ -10,7 +10,14 @@ Page({
     postId:null,
     images:[],
     cats:[],
-    show:false
+    show:false,
+    //控制相册修改的弹出层
+    albumShow:false,
+    //控制相册修改的为新建还是修改
+    albumType:'',
+    //相册数组下标
+    albumIndex:0,
+    albumVal:''
   },
   onLoad:function(q){
     this.setData({
@@ -26,7 +33,6 @@ Page({
     app.request({
       url:'/api/v1/media_cats/'+id,
       success: function(res) {
-        console.log(res.data);
         _this.setData({
           images:res.data.data.media_items
         })
@@ -55,9 +61,27 @@ Page({
   onConfirm(v){
     var cats = this.data.cats
     this.setData({
-      mediaCatId:cats[v.detail.index].id
+      mediaCatId:cats[v.detail.index].id,
+      albumIndex:v.detail.index
     })
     this.loadData()
     this.setData({ show: false });
+  },
+  createAlbum(){
+    this.setData({
+      albumShow:true,
+      albumType:'create'
+    })
+  },
+  updateAlbum(){
+    this.setData({
+      albumShow:true,
+      albumType:'update',
+      albumVal:this.data.cats[this.data.albumIndex].name
+    })
+  },
+  changeAlbum(e){
+    this.getXiangce()
+    wx.setNavigationBarTitle({title: e.detail,});
   }
 })

@@ -1,9 +1,11 @@
-<view class="image custom-class custom-style"  wx:if="{{show ==0}}"bind:tap='playHandle' >
-        <image src="{{item.url}}" wx:if="{{item.file_type == 'image'}}" ></image>
-        <view class="" wx:else>
-            <video   src="{{item.url}}" object-fit='fill'   controls='{{false}}' custom-cache='{{false}}' show-center-play-btn='{{false}}' class="video"></video>
-            <view  class="mask">
-                <image  src="/assets/icons/bofang.png" mode="widthFix" lazy-load="false"></image>
+<view class="image custom-class custom-style"  wx:if="{{show ==0}}">
+        <view bind:tap='playHandle' >
+            <image src="{{item.url}}" wx:if="{{item.file_type == 'image'}}" ></image>
+            <view class="" wx:else>
+                <video   src="{{item.url}}" object-fit='fill'   controls='{{false}}' custom-cache='{{false}}' show-center-play-btn='{{false}}' class="video"></video>
+                <view  class="mask">
+                    <image  src="/assets/icons/bofang.png" mode="widthFix" lazy-load="false"></image>
+                </view>
             </view>
         </view>
         <view class="icon">
