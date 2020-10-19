@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "media-item":"./media-item",
+    "upload-btn":"./upload-btn",
+    "van-picker":"/vant/picker/index",
+    "van-popup": "/vant/popup/index",
+    "van-icon": "/vant/icon/index"
+  }
+}

@@ -1,0 +1,21 @@
+/* pkgAdmin/pages/admin/xiangce/media-item.wxss */
+.image{
+    width: 150rpx;
+    height: 150rpx;
+    position: relative;
+    margin-right: 37rpx ;
+    margin-bottom: 18rpx;
+}
+.image image{
+    width: 150rpx;
+    height: 150rpx;
+}
+.image video{
+    width: 150rpx;
+    height: 150rpx;
+}
+.icon{
+    position: absolute;
+    top: -10rpx; right: -10rpx;
+    z-index: 10;
+}

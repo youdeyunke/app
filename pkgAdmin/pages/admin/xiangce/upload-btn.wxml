@@ -1,0 +1,2 @@
+
+    <van-button icon="{{fileType == 'image'? 'photo-o': 'video-o'}}" type="info" block bindtap="chooseHandle">上传{{fileType == 'image'? '图片': '视频'}}</van-button>
