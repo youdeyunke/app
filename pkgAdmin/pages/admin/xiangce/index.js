@@ -11,7 +11,7 @@ Page({
     postId:null,
     images:[],
     watcher:0,
-    posts:[],
+    cats:[],
     columns: [],
     show:false
   },
@@ -20,6 +20,7 @@ Page({
       media_cat_id:q.media_cat_id,
       postId:q.post_id
     })
+    //console.log(this.data.media_cat_id);
     this.loadData(this.data.media_cat_id)
     this.getXiangce()
   },
@@ -29,12 +30,13 @@ Page({
     //   Isshow:e.detail.data
     // })
   },
-  loadData:function(id){
+  loadData:function(){
     var _this = this
+    var id = this.data.media_cat_id
     app.request({
       url:'/api/v1/media_cats/'+id,
       success: function(res) {
-        //console.log(res.data);
+        console.log(res.data);
         _this.setData({
           images:res.data.data.media_items
         })
@@ -48,14 +50,8 @@ Page({
     app.request({
       url:'/api/v1/media_cats?post_id='+post_id,
       success:function(res){
-        //console.log(res.data.data);
-        var columns = _this.data.columns
-        res.data.data.forEach(v=>{
-          columns.push(v.name)
-        })
         _this.setData({
-          posts:res.data.data,
-          columns:columns
+          cats:res.data.data,
         })
       }
     })
@@ -67,10 +63,11 @@ Page({
     this.setData({ show: false });
   },
   onConfirm(v){
-    //console.log(v.detail.index)
-    var posts = this.data.posts
-    //console.log(posts[v.detail.index].id);
-    this.loadData(posts[v.detail.index].id)
+    var cats = this.data.cats
+    this.setData({
+      media_cat_id:cats[v.detail.index].id
+    })
+    this.loadData()
     this.setData({ show: false });
   }
 })

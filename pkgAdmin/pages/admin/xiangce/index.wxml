@@ -2,7 +2,7 @@
 
 
 <van-popup show="{{ show }}" bind:close="onClose"  position="bottom" around  >
-    <van-picker columns="{{ columns }}" custom-class='choose' round default-index="{{ 0 }}" show-toolbar title="相册列表"  bind:cancel="onClose" bind:confirm="onConfirm"/>
+    <van-picker columns="{{ cats }}" value-key='name' custom-class='choose' round default-index="{{ 0 }}" show-toolbar title="相册列表"  bind:cancel="onClose" bind:confirm="onConfirm"/>
 </van-popup>
 <box width='750'>
     <view class="choose-content" bind:tap="showPopup" >
