@@ -13,7 +13,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-   // tabs :['地铁','幼儿园','小学','学校：中学','美食','购物','公交','银行'],
   tabs: [
     {name:'地铁', value: '地铁'},
     {name:'幼儿园', value:'学校:幼儿园'},
@@ -24,7 +23,7 @@ Component({
     {name:'公交', value:'公交'},
     {name:'银行', value:'银行'},
   ] ,
-  resp:[],
+    resp:[],
     active: 0,
     isShow:0,
     contentAll:1,

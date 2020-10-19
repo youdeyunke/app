@@ -6,33 +6,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-    Isshow:0,
-    media_cat_id:null,
+    mediaCatId:null,
     postId:null,
     images:[],
-    watcher:0,
     cats:[],
-    columns: [],
     show:false
   },
   onLoad:function(q){
     this.setData({
-      media_cat_id:q.media_cat_id,
+      mediaCatId:q.media_cat_id,
       postId:q.post_id
     })
-    //console.log(this.data.media_cat_id);
-    this.loadData(this.data.media_cat_id)
+    this.loadData()
     this.getXiangce()
-  },
-  Isshow:function(e){
-    console.log(e);
-    // this.setData({
-    //   Isshow:e.detail.data
-    // })
   },
   loadData:function(){
     var _this = this
-    var id = this.data.media_cat_id
+    var id = this.data.mediaCatId
     app.request({
       url:'/api/v1/media_cats/'+id,
       success: function(res) {
@@ -65,7 +55,7 @@ Page({
   onConfirm(v){
     var cats = this.data.cats
     this.setData({
-      media_cat_id:cats[v.detail.index].id
+      mediaCatId:cats[v.detail.index].id
     })
     this.loadData()
     this.setData({ show: false });

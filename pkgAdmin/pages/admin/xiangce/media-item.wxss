@@ -19,3 +19,21 @@
     top: -10rpx; right: -10rpx;
     z-index: 10;
 }
+.video{
+    position: relative;
+}
+.mask{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 150rpx;
+    height: 150rpx;
+    z-index: 2021;
+    top: 0;
+    left: 0;
+}
+.mask image{
+    width: 80rpx;
+    height: 80rpx;
+}

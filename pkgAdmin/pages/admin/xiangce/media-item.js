@@ -15,6 +15,7 @@ Component({
    */
   data: {
     show:0,
+
   },
   /**
    * 组件的方法列表
@@ -44,6 +45,17 @@ Component({
           }
         }
       })
-    }
+    },
+    playHandle:function(){
+      if(this.data.item.file_type == 'video'){
+        app.gotoVideo(this.data.item.url)
+      }
+      if(this.data.item.file_type == 'image'){
+        wx.previewImage({
+          urls: [this.data.item.url]
+        })
+      }
+      }
+      
   }
 })
