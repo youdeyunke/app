@@ -64,7 +64,6 @@ Component({
         media_cat_id:id
       },
       success:function(res){
-        //console.log(res);
         _this.triggerEvent('change')
       }
     })

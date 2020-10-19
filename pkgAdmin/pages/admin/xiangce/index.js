@@ -17,8 +17,7 @@ Page({
       mediaCatId:q.media_cat_id,
       postId:q.post_id
     })
-    //console.log(this.data.media_cat_id);
-    this.loadData(this.data.mediaCatId)
+    this.loadData()
     this.getXiangce()
   },
   loadData:function(){
