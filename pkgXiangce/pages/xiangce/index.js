@@ -30,61 +30,41 @@ Page({
      */
     onLoad: function (q) {
         var postId = q.id
+        var _this = this
         this.setData({
             postId: postId,
+            loading: true,
+            cats: [],
             height: app.globalData.system.windowHeight,
+        }, (res) => {
+            _this.loadData()
         })
-        this.loadData(postId)
-        this.loadPost()
+    
+   
     },
 
-    loadPost: function () {
-        var _this = this
-        var postId = this.data.postId
-        app.request({
-            url: '/api/v2/posts/' + postId,
-            success: function (resp) {
-                var post = resp.data.data
-                var title =  post.title + '的相册'
-                _this.setData({ post: post })
-                wx.setNavigationBarTitle({
-                    title: title,
-                });
 
-            }
-        })
-    },
-
-    loadData: function (postId) {
+    loadData: function () {
         wx.showLoading({
             title: '加载中...',
             mask: true,
         });
 
-    
-        var query = { post_id: postId }
+
+        var query = { post_id: this.data.postId }
         var _this = this
         app.request({
             url: '/api/v1/media_cats',
             data: query,
             success: function (resp) {
-                _this.setData({ cats: resp.data.data })
+                _this.setData({ 
+                    cats: resp.data.data,
+                    post: resp.data.post,
+                 })
                 wx.hideLoading();
-            }
-        })
-        app.request({
-            url: '/api/v2/posts/' + postId,
-            success: function (resp) {
-                console.log('load post resp', resp)
-                _this.setData({
-                    post: resp.data.data,
-                    broker: resp.data.data.broker_info,
-                })
-                var title = resp.data.data.title + ' 楼盘相册-房小牛'
                 wx.setNavigationBarTitle({
-                    title: title,
-                });
-
+                  title:  resp.data.post.title + '的相册',
+                })
             }
         })
 
@@ -93,14 +73,7 @@ Page({
     bookingHandle: function (e) {
         var _this = this
         auth.ensureUser(function (user) {
-            // 经纪人本人不能预约经纪人的房源
-            if (user.is_broker) {
-                wx.showToast({
-                    icon: 'none',
-                    title: '您是经纪人，不能预约看房',
-                })
-                return false;
-            }
+            
 
             // 去绑定用户手机号
             if (!user.mobile) {
@@ -115,7 +88,7 @@ Page({
 
 
     callHandle: function () {
-        var m = this.data.broker.mobile
+        var m = this.data.post.broker.mobile
         wx.makePhoneCall({
             phoneNumber: m,
         })
@@ -187,6 +160,15 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
+
+        // 下拉刷新
+        this.setData({
+            loading: true, 
+            cats: [],
+            scrollIntoView: ''
+        })
+    
+        this.loadData()
 
     },
 

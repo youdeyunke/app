@@ -1,6 +1,6 @@
 <!-- pkgXiangce/pages/xiangce/index.wxml -->
 <scroll-view scroll-with-animation="{{true}}" scroll-into-view="{{scrollIntoView}}" id="body" style="height:{{height}}px;width:100%;padding:0rpx 20rpx  0rpx 20rpx;" scroll-y="{{true}}">
-<viwe class="header" wx:if="{{cats.length > 1}}">
+<viwe class="header" wx:if="{{cats.length >=  5}}">
     <van-tabs animated type="line" color="#1989FA" bind:change="tabChange" sticky>
         <van-tab wx:for="{{cats}}" wx:for-item="tab" title="{{tab.name}}"></van-tab>
     </van-tabs>
@@ -8,7 +8,7 @@
 
     <view class="media-cats">
         <mycard padding="{{false}}" hat="{{false}}" title="{{cat.name}}" title-size="28" wx:for="{{cats}}" wx:for-item="cat" wx:for-key="id">
-            <media-items cat-id="{{cat.id}}"  />
+            <media-items items="{{cat.media_items}}"  />
             <view id="loc-{{cat.id}}"></view>
         </mycard>
     </view>

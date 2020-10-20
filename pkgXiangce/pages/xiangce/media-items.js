@@ -5,7 +5,7 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        catId: { type: Number, value: null }
+        items: {type: Array},
     },
 
     /**
@@ -13,7 +13,7 @@ Component({
      */
     data: {
         showVideo: false,
-        items: [],
+   
         mark: 'watermark/4/text/6IGq5bGL6YCJ5oi_/font/5a6L5L2T/fontsize/500/fill/Z3JheQ==/dissolve/50/rotate/-45/uw/100/uh/100/resize/1',
         mark: 'watermark/4/text/5oi_5bCP54mbCg/font/5a6L5L2T/fontsize/500/fill/Z3JheQ==/dissolve/50/rotate/-45/uw/200/uh/200/resize/1'
     },
@@ -23,25 +23,14 @@ Component({
         setTimeout(() => {
             _this.setData({ showVideo: true })
         }, 500)
-        this.loadData()
+        
     },
 
     /**
      * 组件的方法列表
      */
     methods: {
-        loadData: function(){
-            var _this = this  
-            app.request({
-                url: '/api/v1/media_items/',
-                data: { media_cat_id: _this.data.catId}, 
-                success: function(resp){
-                    _this.setData({
-                        items: resp.data.data
-                    })
-                }
-            })
-        },
+
         viewImage: function (item) {
             var _this = this
             var url = item.url + '?' + this.data.mark
