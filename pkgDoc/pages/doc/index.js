@@ -1,0 +1,38 @@
+// pkgDoc/pages/doc/index.js
+const app =getApp()
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    postId:111,
+    docItem:[]
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.loadData()
+  },
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    this.loadData()
+  },
+  loadData(){
+    var _this= this
+    app.request({
+      url:'/api/v1/post_docs?post_id='+this.data.postId,
+      success:function(res){
+        _this.setData({
+          docItem:res.data.data
+        })
+        wx.setNavigationBarTitle({title: res.data.post.title+'的楼盘资料',});
+      }
+    })
+  }
+    
+})

@@ -1,0 +1,6 @@
+/* pkgDoc/pages/doc/index.wxss */
+.doc-item{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20rpx;
+}
