@@ -1,2 +1,2 @@
 
-        <van-cell title="{{item.name}}"value="预览" is-link  size='large' bind:click='openDocument' title-class='cell-title'/>
+        <van-cell title="{{item.name}}"value="预览" is-link  size='large' bind:click='showFile' title-class='cell-title'/>
