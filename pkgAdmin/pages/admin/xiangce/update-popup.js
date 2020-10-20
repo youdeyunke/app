@@ -1,0 +1,89 @@
+// pkgAdmin/pages/admin/xiangce/update-poup.js
+const app = getApp()
+Component({
+  /**
+   * 组件的属性列表
+   */
+  properties: {
+    show:{type:Boolean},
+    cat:{type:Object,value:{}}
+  },
+  
+  /**
+   * 组件的初始数据
+   */
+  data: {
+    errorShow:'',
+    btnDis:false,
+    loading: false,
+  },
+  /**
+   * 组件的方法列表
+   */
+  methods: {
+    onClose() {
+      this.setData({ show: false });
+    },
+    changeHandle(v){
+      var cat = this.data.cat
+      cat.name = v.detail
+      this.setData({
+        cat:cat
+      })
+      if(v.detail.length<2){
+        this.setData({
+          btnDis:true
+        })
+      }else{
+        this.setData({
+          errorShow:'',
+          btnDis:false
+        })
+      }
+    },
+    changeAlbum(){
+      if(this.data.cat.id){
+        this.updateAlbum()
+      }else{
+        this.createAlbum()
+      }
+    },
+    createAlbum(){
+      var _this = this
+      _this.setData({ loading: true })
+      app.request({
+        url:'/api/v1/media_cats/',
+        method:'POST',
+        data:{
+          name:_this.data.cat.name,
+          post_id:_this.data.cat.post_id
+        },
+        success: function() {
+          _this.triggerEvent('update')
+          _this.setData({
+            show:false,
+            loading: false
+          })
+        }
+      })
+    },
+    updateAlbum(){
+      var _this = this
+      _this.setData({ loading: true })
+      app.request({
+        url:'/api/v1/media_cats/'+_this.data.cat.id,
+        method:'PUT',
+        data:{
+          name:_this.data.cat.name,
+        },
+        success: function() {
+          _this.triggerEvent('update')
+          _this.setData({
+            show:false,
+            loading: false
+          })
+        }
+      })
+    },
+  }
+})

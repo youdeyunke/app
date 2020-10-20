@@ -1,0 +1,6 @@
+<view class="doc-item" >
+    <view wx:for="{{docItem}}">
+        <doc-item item='{{item}}'></doc-item>
+    </view>
+</view>
+

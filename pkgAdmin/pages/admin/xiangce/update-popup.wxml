@@ -1,0 +1,10 @@
+<van-popup show="{{ show }}" bind:close="onClose" custom-style='width: 690rpx;padding:50rpx 30rpx 40rpx 30rpx;' closeable round>
+    <van-field
+    model:value="{{cat.name}}"
+    placeholder="请输入相册名"
+    border="{{ false }}"
+    maxlength='10'
+    bind:change='changeHandle'
+    />
+    <van-button round type="info" size="large" block custom-class='up-btn' bind:click='changeAlbum' disabled='{{btnDis}}'>{{cat.id ? '修改':"创建"}}</van-button>
+</van-popup>

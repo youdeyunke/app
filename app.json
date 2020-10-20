@@ -142,6 +142,13 @@
       ]
     },
     {
+      "root": "pkgDoc",
+      "name": "pkgDoc",
+      "pages": [
+        "pages/doc/index"
+      ]
+    },
+    {
       "root": "pkgCompany",
       "name": "company",
       "pages": [

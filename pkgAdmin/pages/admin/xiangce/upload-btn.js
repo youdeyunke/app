@@ -43,11 +43,18 @@ Component({
   },
   chooseImages: function(e){
     var that = this
-    wx.chooseImage({
-      sizeType: ['original', 'compressed'],
+    wx.chooseMedia({
+      count: 9,
+      mediaType: ['image'],
+      sourceType: ['album', 'camera'],
+      maxDuration: 30,
       success (res) {
-        var paths =res.tempFilePaths
-          that.doUpload(paths)
+        var paths = []
+        var path =res.tempFiles
+        path.forEach(v=>{
+          paths.push(v.tempFilePath)
+        })
+        that.doUpload(paths)
       }
   })
 },
@@ -70,22 +77,20 @@ Component({
   },
   chooseVideo: function(e){
     var _this = this  
-    wx.chooseVideo({
+    wx.chooseMedia({
+      count: 9,
+      mediaType: ['video'],
       sourceType: ['album', 'camera'],
-      compressed: true,
-      maxDuration: 60,
-      camera: 'back',
-      fail: function(res){
-        wx.showToast({
-          title: res,
-          icon: 'none',
+      maxDuration: 30,
+      success (res) {
+        var paths = []
+        var path =res.tempFiles
+        path.forEach(v=>{
+          paths.push(v.tempFilePath)
         })
-      },
-      success: function(res) {
-        const paths = [res.tempFilePath]
         _this.doUpload(paths)
       }
-    })
+  })
   },
   chooseHandle:function(){
     if(this.data.fileType == 'image'){

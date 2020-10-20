@@ -1,19 +1,36 @@
 
-
-
 <van-popup show="{{ show }}" bind:close="onClose"  position="bottom" around  >
-    <van-picker columns="{{ cats }}" value-key='name' custom-class='choose' round default-index="{{ 0 }}" show-toolbar title="相册列表"  bind:cancel="onClose" bind:confirm="onConfirm"/>
+    <van-picker columns="{{ cats }}" value-key='name' custom-class='choose' round default-index="{{ 0 }}" show-toolbar title="相册列表"  bind:cancel="onClose" bind:confirm="onConfirm" default-index='{{albumIndex}}'/>
 </van-popup>
+<update-popup show='{{albumShow}}'  cat='{{albumVal}}'   bind:update='getXiangce'></update-popup>
 <box width='750'>
-    <view class="choose-content" bind:tap="showPopup" >
-        <view>选择相册</view>
-        <van-icon name="arrow-down"></van-icon>
+    <view class="choose-all" >
+        <view class="choose-content" bind:tap="showPopup">
+            <view>选择相册</view>
+            <van-icon name="arrow-down"></van-icon>
+        </view>
+        <view class="choose-content pinpai-color" bind:tap="createAlbum">
+            <view>新建相册</view>
+            <van-icon name="plus"></van-icon>
+        </view>
     </view>
     <view class="items"  >
         <media-item item="{{item}}" custom-class="{{(index+1)%4 ==0? 'item' : ''}}" wx:for="{{images}}"></media-item>
     </view>
 </box>
 <view class="footer">
-    <upload-btn  bindchange='loadData' mediaid="{{mediaCatId}}" fileType='image'></upload-btn>
-    <upload-btn  bindchange='loadData' mediaid="{{mediaCatId}}" fileType='video'></upload-btn>
+    <view class="footer-content">
+        <view class="footer-c-btn" bind:tap="updateAlbum">
+            <van-icon name="edit" size="40rpx"></van-icon>
+            <text class="icon-name">修改</text>
+        </view>
+        <view class="footer-c-btn" bind:tap="deleteAlbum">
+            <van-icon name="close" size="40rpx"></van-icon>
+            <text class="icon-name">删除</text>
+        </view>
+    </view>
+    <view class="footer-btn">
+        <upload-btn  bindchange='loadData' mediaid="{{mediaCatId}}" fileType='image'></upload-btn>
+        <upload-btn  bindchange='loadData' mediaid="{{mediaCatId}}" fileType='video'></upload-btn>
+    </view>
 </view>

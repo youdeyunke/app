@@ -1,0 +1,4 @@
+/* pkgAdmin/pages/admin/xiangce/update-poup.wxss */
+.up-btn{
+    margin-top: 100rpx;
+}
