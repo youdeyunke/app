@@ -13,11 +13,9 @@ Page({
     show:false,
     //控制相册修改的弹出层
     albumShow:false,
-    //控制相册修改的为新建还是修改
-    albumType:'',
     //相册数组下标
     albumIndex:0,
-    albumVal:''
+    albumVal:{}
   },
   onLoad:function(q){
     this.setData({
@@ -70,18 +68,49 @@ Page({
   createAlbum(){
     this.setData({
       albumShow:true,
-      albumType:'create'
+      albumVal:{post_id:this.data.postId}
     })
   },
   updateAlbum(){
     this.setData({
       albumShow:true,
-      albumType:'update',
-      albumVal:this.data.cats[this.data.albumIndex].name
+      albumVal:this.data.cats[this.data.albumIndex]
+      
     })
   },
-  changeAlbum(e){
-    this.getXiangce()
-    wx.setNavigationBarTitle({title: e.detail,});
+  deleteAlbum(){
+    var _this = this
+    wx.showModal({
+      title: '提示',
+      content:'是否确认删除',
+      success: (result) => {
+        if(result.confirm){
+          if(this.data.cats[this.data.albumIndex].is_system == true){
+            wx.showToast({title: '系统默认相册无法删除',icon:'none'})
+          }else if(this.data.cats.length<2){
+            wx.showToast({title: '相册数量必须大于2',icon:'none'})
+          }else{
+            app.request({
+              url:'/api/v1/media_cats/'+this.data.cats[this.data.albumIndex].id,
+              method:'DELETE',
+              success:function(){
+                wx.showToast({
+                  title: '删除成功',
+                  icon: 'success',
+                  success:function(){
+                    _this.setData({
+                      albumIndex:0,
+                      mediaCatId:_this.data.cats[0].id
+                    })
+                    _this.getXiangce()
+                    _this.loadData()
+                  }
+                })
+              }
+            })
+          }
+        }
+      },
+    });
   }
 })

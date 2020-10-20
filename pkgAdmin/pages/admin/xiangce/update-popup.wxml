@@ -1,13 +1,10 @@
-<van-popup show="{{ show }}" bind:close="onClose" custom-style='width: 100%;padding:50rpx 30rpx 20rpx 30rpx;' closeable>
+<van-popup show="{{ show }}" bind:close="onClose" custom-style='width: 690rpx;padding:50rpx 30rpx 40rpx 30rpx;' closeable round>
     <van-field
-    model:value="{{ val }}"
+    model:value="{{cat.name}}"
     placeholder="请输入相册名"
     border="{{ false }}"
-    minlength='2'
     maxlength='10'
-    error-message='{{errorShow}}'
-    error-message-align='center'
-    bind:blur='blurHandle'
+    bind:change='changeHandle'
     />
-    <van-button type="info" size="large" block custom-class='up-btn' bind:click='getAlbum' disabled='{{btnDis}}'>{{type == 'create'? '创建':"修改"}}</van-button>
+    <van-button round type="info" size="large" block custom-class='up-btn' bind:click='changeAlbum' disabled='{{btnDis}}'>{{cat.id ? '修改':"创建"}}</van-button>
 </van-popup>
