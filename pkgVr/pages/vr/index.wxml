@@ -1,0 +1,6 @@
+<view class="vr-item" >
+    <view  wx:for="{{vrItem}}">
+        <vr-item item='{{item}}'></vr-item>
+    </view>
+</view>
+
