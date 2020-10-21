@@ -67,7 +67,7 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function () {
+    onLoad: function (q) {
         app.checkForceLogin()
         wx.setNavigationBarTitle({ title: '房贷计算器' })
 
@@ -80,8 +80,18 @@ Page({
             });
         }
         var lprRate = app.globalData.myconfigs.lpr_rate || 4.65
+        var businessTotalLoanStr = '' 
+        var businessTotalLoan = 0
+        if(q.total){
+            businessTotalLoanStr = q.total  
+            businessTotalLoan = parseFloat(q.total)
+        }
+        console.log('businessTotalLoanStr',businessTotalLoanStr,businessTotalLoan)
+        
         this.setData({
             paymentYearArr: paymentYearArr,
+            businessTotalLoanStr: businessTotalLoanStr,
+            businessTotalLoan: businessTotalLoan,
             gjjLoanRateArr: util.getGJJLoanRateArr(this.data.paymentYear),
             startDate: currentDate,
             startDateStr: util.formatDate(currentDate),

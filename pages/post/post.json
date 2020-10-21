@@ -5,6 +5,7 @@
     "usingComponents": {
         "images-block": "./images-block",
         "meta-block": "./meta-block",
+        "navs-block": "./navs-block",
         "desc-block": "./desc-block",
         "brokage-block": "./brokage-block",
         "html-block": "./html-block",

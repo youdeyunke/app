@@ -22,7 +22,8 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
-        this.setData({ postId: q.id })
+        var pid = q.id || q.post_id
+        this.setData({ postId: pid })
         this.loadData()
     },
 
