@@ -29,7 +29,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
-        var postId = q.id
+        var postId = q.id || q.post_id
         var _this = this
         this.setData({
             postId: postId,

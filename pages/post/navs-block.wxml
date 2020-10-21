@@ -1,0 +1,11 @@
+<box width="750" padding="30">
+  <view class="navs">
+    <navigator wx:for="{{value.navs}}" hover-class="none"  class="nav" url="{{item.path}}">
+      <view class="bg bg-{{index+1}}">
+        <van-icon size="40rpx;" name="{{item.icon}}" /> 
+      </view>
+      <text>{{item.name}}</text>
+    </navigator>
+
+  </view>
+</box>
