@@ -1,4 +1,5 @@
 {
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "doc-item":"./doc-item"
   }

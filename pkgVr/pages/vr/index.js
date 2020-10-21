@@ -7,7 +7,8 @@ Page({
    */
   data: {
     postId:111,
-    vrItem:[]
+    vrItem:[],
+    title:''
   },
 
   /**
@@ -29,9 +30,23 @@ Page({
       url:'/api/v1/post_vrs?post_id='+_this.data.postId,
       success: function(res) {
         _this.setData({
-          vrItem:res.data.data
+          vrItem:res.data.data,
+          title:res.data.post.title+'的全景'
         })
+        wx.setNavigationBarTitle({title: _this.data.title,});
       }
     })
+  },
+  onShareAppMessage(){
+    return {
+      title:this.data.title,
+      path:'/pkgVr/pages/vr/index/post_id='+this.data.postId
+    }
+  },
+  onShareTimeline(){
+    return{
+      title:this.data.title,
+      path:'/pkgVr/pages/vr/index/post_id='+this.data.postId
+    }
   }
 })

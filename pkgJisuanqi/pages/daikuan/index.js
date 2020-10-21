@@ -304,6 +304,15 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-    }
-
+        return {
+            title:'房贷计算器',
+            path:'/pkgJisuanqi/pages/daikuan/index'
+        }
+    },
+    onShareTimeline(){
+            return{
+            title:'房贷计算器',
+            path:'/pkgJisuanqi/pages/daikuan/index'
+            }
+        }
 })

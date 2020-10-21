@@ -7,7 +7,8 @@ Page({
    */
   data: {
     postId:111,
-    docItem:[]
+    docItem:[],
+    title:''
   },
 
   /**
@@ -28,11 +29,23 @@ Page({
       url:'/api/v1/post_docs?post_id='+this.data.postId,
       success:function(res){
         _this.setData({
-          docItem:res.data.data
+          docItem:res.data.data,
+          title:res.data.post.title+'的楼盘资料'
         })
-        wx.setNavigationBarTitle({title: res.data.post.title+'的楼盘资料',});
+        wx.setNavigationBarTitle({title: _this.data.title,});
       }
     })
+  },
+  onShareAppMessage(){
+    return {
+      title:this.data.title,
+      path:'pkgDoc/pages/doc/indexpost_id='+this.data.postId
   }
-    
+  },
+  onShareTimeline(){
+    return {
+      title:this.data.title,
+      path:'pkgDoc/pages/doc/indexpost_id='+this.data.postId
+  }
+  }
 })
