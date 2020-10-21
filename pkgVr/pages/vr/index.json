@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "vr-item":"./vr-item"
+  }
+}

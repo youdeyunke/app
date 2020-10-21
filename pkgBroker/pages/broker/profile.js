@@ -165,5 +165,12 @@ Page({
       imageUrl: _this.data.userInfo.avatar,
     }
   },
-
+  onShareTimeline(){
+    var _this = this
+    return{
+      title:  _this.data.userInfo.name + '的名片',
+      path:'pkgBroker/pages/broker/profile?id='+_this.data.userId,
+      imageUrl: _this.data.userInfo.avatar
+    }
+  }
 })
