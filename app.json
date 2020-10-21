@@ -149,6 +149,13 @@
       ]
     },
     {
+      "root": "pkgVr",
+      "name": "pkgVr",
+      "pages": [
+        "pages/vr/index"
+      ]
+    },
+    {
       "root": "pkgCompany",
       "name": "company",
       "pages": [
