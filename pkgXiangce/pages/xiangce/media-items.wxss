@@ -32,3 +32,19 @@
     width: 100rpx;
     height: 100rpx;
 }
+.video{
+    position: relative;
+}
+.mask{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 20;
+    top: 25%;
+    left: 25%;
+}
+.mask image{
+    width: 80rpx;
+    height: 80rpx;
+}

@@ -3,12 +3,11 @@
     <van-tab  title="{{item.name}}" wx:for="{{tabs}}" >
         <view hidden="{{isShow == 0}}" class="null">暂未搜索到</view>
         <view hidden="{{isShow ==1}}">
-            <van-cell wx:if="{{ index+1 <= maxLength  }}"   title="{{item.title}}" value="{{item._distance}}" label="{{item.address}}" name='{{item}}'  wx:for="{{resp}}" title-class='title' />
+            <van-cell wx:if="{{ index+1 <= maxLength || type == 'big' }}"   title="{{item.title}}" value="{{item._distance}}" label="{{item.address}}" name='{{item}}'  wx:for="{{resp}}" title-class='title' label-class='title' />
         </view>
         <view wx:if="{{buttonShow}}">
-            <view hidden="{{isShow ==1}}" class="more-btn" bind:tap="moreHandle">{{buttonVal}}</view>
+            <view hidden="{{isShow ==1 || type == 'big'}}" class="more-btn" bind:tap="moreHandle">{{buttonVal}}</view>
         </view>
-        
     </van-tab>
 </van-tabs>
 

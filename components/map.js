@@ -13,7 +13,7 @@ Component({
         height: { type: Number, value: 320 },
         scale: { type: Number, value: 15 },
         name: { type: String, value: null },
-        pois:{type:Array}
+        pois:{type:Array,value:null}
     },
 
     /**
@@ -21,15 +21,24 @@ Component({
      */
     data: {
         markers: [],
+        map:null,
+        points:[]
     },
     ready: function () {
-        // 设置marker
-        //this.setCenter()
         this.setMarker()
+    },
+    attached:function(){
+        var map = wx.createMapContext('map', this);
+        this.setData({
+            map:map
+        })
     },
     observers: {
         'pois': function(pois) {
-          // 在 numberA 或者 numberB 被设置时，执行这个函数
+            if(!this.data.map){
+                return
+            }
+        this.getMapContext()
         this.setMarker()
         }
     },
@@ -125,10 +134,28 @@ Component({
                         fail: () => { },
                         complete: () => { }
                     });
-
-
                 },
             })
         },
+        getMapContext(){
+        
+        var _this = this
+        var arr = []
+        var pois = this.data.pois
+        pois.forEach(v=>{
+            var obj = {}
+            obj.longitude = v.location.lng
+            obj.latitude = v.location.lat
+            arr.push(obj)
+        })
+        //缩放视野展示所有经纬度 此方法传入的数组不能为空 所以手动进行非空验证
+        if(pois.length ==0){
+            return
+        }
+        this.data.map.includePoints({
+            points: arr,
+            padding:[50,50,50,50]
+        });
+    }
     }
 })

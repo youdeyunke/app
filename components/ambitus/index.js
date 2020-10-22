@@ -8,6 +8,7 @@ Component({
   properties: {
     longitude: { type: Number },
     latitude: { type: Number },
+    type:{type:String}
   },
   /**
    * 组件的初始数据
@@ -49,12 +50,13 @@ Component({
       var _this = this
       var app = getApp()
       var tab = this.data.tabs[this.data.active]
+      //console.log(this.data.latitude,this.data.longitude);
       wx.request({
         url: 'https://apis.map.qq.com/ws/place/v1/search',
         data:{
           keyword:tab.value,
           key:app.globalData.qqMapAppKey,
-          boundary:`nearby(${this.data.latitude},${this.data.longitude},1000,0)`,
+          boundary:`nearby(${_this.data.latitude},${_this.data.longitude},1000,0)`,
           page_size:'20'
         },
         success:function(res){

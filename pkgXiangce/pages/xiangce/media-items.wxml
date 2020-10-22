@@ -3,7 +3,10 @@
     <view class="item" bindtap="itemClick" data-index="{{index}}" wx:for="{{items}}" wx:for-id="id">
         <image lazy-load="{{true}}" mode="aspectFill" class="image" src="{{item.url}}?imageView2/5/h/200/w/200" wx:if="{{item.file_type == 'image'}}" />
         <view class="video" wx:if="{{item.file_type == 'video' && showVideo == true }}">
-            <video muted="{{true}}" controls="{{false}}" show-center-play-btn="{{true}}" enable-progress-gesture="{{false}}" page-gesture="{{false}}" id="myvideo" catchtap='' autoplay='{{false}}' src="{{item.url}}"></video>
+            <video object-fit='fill' class="video" controls='{{false}}' custom-cache='{{false}}' show-center-play-btn='{{false}}' page-gesture="{{false}}" id="myvideo" catchtap='' autoplay='{{false}}' src="{{item.url}}"></video>
+            <view  class="mask">
+                    <image  src="/assets/icons/bofang.png" mode="widthFix" lazy-load="false"></image>
+            </view>
         </view>
     </view>
 </view>
