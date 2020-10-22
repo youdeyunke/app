@@ -283,7 +283,6 @@ textarea{
 }
 
 .rich-text-img{
-  width:100%;
   height:auto;
   margin:0 auto;
   line-height:0;
