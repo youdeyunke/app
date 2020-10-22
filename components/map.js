@@ -94,7 +94,7 @@ Component({
                 markers.push(marker)
             })
             this.setData({ markers: markers })
-            console.log('markers', this.data.markers)
+            //console.log('markers', this.data.markers)
         },
 
         clickHandle: function () {
@@ -141,6 +141,7 @@ Component({
         
         var _this = this
         var arr = []
+        arr.push({longitude:this.data.longitude,latitude:this.data.latitude})
         var pois = this.data.pois
         pois.forEach(v=>{
             var obj = {}
@@ -148,10 +149,10 @@ Component({
             obj.latitude = v.location.lat
             arr.push(obj)
         })
-        //缩放视野展示所有经纬度 此方法传入的数组不能为空 所以手动进行非空验证
-        if(pois.length ==0){
-            return
-        }
+        // //缩放视野展示所有经纬度 此方法传入的数组不能为空 所以手动进行非空验证
+        // if(pois.length ==0){
+        //     return
+        // }
         this.data.map.includePoints({
             points: arr,
             padding:[50,50,50,50]
