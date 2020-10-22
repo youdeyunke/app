@@ -7,9 +7,9 @@ Page({
    */
   data: {
     postId:111,
-    ambitus:[]
+    ambitus:[],
+    pois:[],
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -29,7 +29,13 @@ Page({
       }
     })
   },
+  getMyevent(e) { //e为子组件传过来的值
+    //console.log(e.detail)
+    this.setData({
+      pois: e.detail //这里是改变Page中data上的值
+    })
+  },
   onShareAppMessage: function () {
 
-  }
+  },
 })

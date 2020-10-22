@@ -1,3 +1,6 @@
 <view class="map" >
-    <map name="" longitude='{{ambitus.longitude}}' latitude='{{ambitus.latitude}}' markers></map>
+    <mapimage wx:if="{{ambitus.longitude && pois.length >= 0}}" pois='{{pois}}' latitude="{{ambitus.latitude}}" longitude="{{ambitus.longitude}}" name="{{ambitus.title}}" height='750'></mapimage>
+</view>
+<view class="tab" hover-class="none" hover-stop-propagation="false">
+    <ambitus wx:if='{{ambitus.id}}' latitude="{{ambitus.latitude}}" longitude="{{ambitus.longitude}}" bind:myevent="getMyevent"  type='big'/>
 </view>
