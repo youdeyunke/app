@@ -26,8 +26,16 @@ Component({
           wx.openDocument({
             filePath: res.data,
             fileType:_this.data.item.file_type,
-            success(){
-              wx.hideLoading()
+            success:function(){
+              setTimeout(() => {
+                wx.hideLoading()
+              }, 3000);
+            },
+            fail: function() {
+              wx.showToast({
+                title:'文件下载失败',
+                duration:3000
+              })
             }
           })
         },
@@ -40,8 +48,10 @@ Component({
       var _this = this
       wx.downloadFile({
         url: _this.data.item.url,
+        filePath:wx.env.USER_DATA_PATH+'/'+this.data.item.name,
         success: function (res) {
-          const filePath = res.tempFilePath
+          console.log(res);
+          const filePath = res.filePath
           wx.setStorage({
             key:"doc."+_this.data.item.id,
             data:filePath
@@ -50,8 +60,22 @@ Component({
             filePath: filePath,
             fileType:_this.data.item.file_type,
             success(){
-              wx.hideLoading()
+              setTimeout(() => {
+                wx.hideLoading()
+              }, 2000);
+            },
+            fail: function() {
+              wx.showToast({
+                title:'文件下载失败',
+                duration:3000
+              })
             }
+          })
+        },
+        fail: function() {
+          wx.showToast({
+            title:'文件下载失败',
+            duration:3000
           })
         }
       })

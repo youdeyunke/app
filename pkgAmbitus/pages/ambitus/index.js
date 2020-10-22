@@ -1,0 +1,35 @@
+// pkgAmbitus/pages/ambitus/index.js
+const app = getApp()
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    postId:111,
+    ambitus:[]
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.loadData()
+  },
+  loadData(){
+    var _this = this
+    app.request({
+      url:'/api/v4/posts/'+_this.data.postId,
+      success: function(res) {
+        //console.log(res.data.data);
+        _this.setData({
+          ambitus:res.data.data
+        })
+      wx.setNavigationBarTitle({title: _this.data.ambitus.title+'的周边配套'});
+      }
+    })
+  },
+  onShareAppMessage: function () {
+
+  }
+})

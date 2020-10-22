@@ -11,6 +11,7 @@ Page({
             sourceUrl: q.url
         })
         this.setData({ title: q.title })
+        wx.setNavigationBarTitle({title: q.title+'的全景',});
     },
 
     onShow: function () {

@@ -1,1 +1,1 @@
-<van-cell title="{{item.name}}" value="内容"  bind:click='openFile' is-link/>
+<van-cell title="{{item.name}}" value="查看"  bind:click='openFile' is-link/>

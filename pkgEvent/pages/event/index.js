@@ -217,6 +217,15 @@ Page({
             path: 'pkgEvent/pages/event/index?id=' + _this.data.postId,
             imageUrl: image
         }
-
+    },
+    onShareTimeline(){
+        var _this = this
+        var title = this.data.post.title + '的动态更新啦，快点击查看'
+        var image = this.data.post.cover
+        return{
+        title:title,
+        path:'pkgEvent/pages/event/index?id=' + _this.data.postId,
+        imageUrl: image
+        }
     }
 })

@@ -15,15 +15,17 @@ Page({
     albumShow:false,
     //相册数组下标
     albumIndex:0,
-    albumVal:{}
+    albumVal:{},
+    homeName:'',
+    title:''
   },
   onLoad:function(q){
     this.setData({
       mediaCatId:q.media_cat_id,
       postId:q.post_id
     })
-    this.loadData()
     this.getXiangce()
+    this.loadData()
   },
   loadData:function(){
     var _this = this
@@ -31,10 +33,12 @@ Page({
     app.request({
       url:'/api/v1/media_cats/'+id,
       success: function(res) {
+        console.log(res);
         _this.setData({
-          images:res.data.data.media_items
+          images:res.data.data.media_items,
+          title:_this.data.homeName +'的'+res.data.data.name
         })
-        wx.setNavigationBarTitle({title: res.data.data.name,});
+        wx.setNavigationBarTitle({title: _this.data.title,});
       }
     })
   },
@@ -44,8 +48,10 @@ Page({
     app.request({
       url:'/api/v1/media_cats?post_id='+post_id,
       success:function(res){
+        console.log(res.data.post.title);
         _this.setData({
           cats:res.data.data,
+          homeName:res.data.post.title
         })
       }
     })
@@ -112,5 +118,17 @@ Page({
         }
       },
     });
+  },
+  onShareAppMessage(){
+    return {
+      title:this.data.title,
+      path:'/pkgAdmin/pages/admin/xiangce/index/media_cat_id='+this.data.mediaCatId+'&post_id='+this.data.postId
+    }
+  },
+  onShareTimeline(){
+    return{
+      title:this.data.title,
+      path:'/pkgAdmin/pages/admin/xiangce/index/media_cat_id='+this.data.mediaCatId+'&post_id='+this.data.postId
+    }
   }
 })

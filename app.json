@@ -36,6 +36,13 @@
       ]
     },
     {
+      "root": "pkgAmbitus",
+      "name": "ambitus",
+      "pages": [
+        "pages/ambitus/index"
+      ]
+    },
+    {
       "root": "pkgWallet",
       "name": "wallet",
       "pages": [

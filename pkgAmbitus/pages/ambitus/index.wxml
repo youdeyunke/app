@@ -1,0 +1,3 @@
+<view class="map" >
+    <map name="" longitude='{{ambitus.longitude}}' latitude='{{ambitus.latitude}}' markers></map>
+</view>
