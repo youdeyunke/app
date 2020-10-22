@@ -6,15 +6,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    postId:111,
+    postId:null,
     ambitus:[],
     pois:[],
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this.loadData()
+  onLoad: function (q) {
+    var _this = this
+    this.setData({
+      postId: q.post_id
+    }, () => {
+      _this.loadData()
+      
+    })
+
   },
   loadData(){
     var _this = this
