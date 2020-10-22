@@ -148,6 +148,7 @@ Component({
             obj.latitude = v.location.lat
             arr.push(obj)
         })
+        //缩放视野展示所有经纬度 此方法传入的数组不能为空 所以手动进行非空验证
         if(pois.length ==0){
             return
         }
