@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    postId:111,
+    postId:52,
     ambitus:[],
     pois:[],
   },
