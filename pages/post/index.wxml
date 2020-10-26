@@ -7,7 +7,7 @@
         <view slot="action" class="action-btn" bind:tap="onSearch">搜索</view>
     </van-search>
 </view>
-<view class="filter" wx:if="{{filterConfigs}}" style="top:{{ !albumId ? '110rpx' : '0rpx'}}">
+<view class="filter" style="top:{{ !albumId ? '110rpx' : '0rpx'}}">
     <post-filter filter="{{filter}}" bind:change="filterChange" />
 </view>
 <view class="res" style="padding-top:{{ !albumId ? '200rpx' : '80rpx'}}">
