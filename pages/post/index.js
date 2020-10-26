@@ -23,6 +23,7 @@ Page({
      */
     onLoad: function (q) {
         app.checkForceLogin()
+        var _this = this
         var data = {}
         var filter = q || {}
         var fkeys = Object.keys(filter)
@@ -69,8 +70,9 @@ Page({
                 title = '租房'
                 break;
         }
+        this.setData({ pageTitle: title })
         wx.setNavigationBarTitle({
-            pageTitle: title,
+            title: title,
         });
 
     },
