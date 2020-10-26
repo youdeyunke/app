@@ -91,10 +91,13 @@ Page({
             method: 'GET',
             success: function (resp) {
                 var album = resp.data.data
-                _this.setData({ album: album })
-                wx.setNavigationBarTitle({
+                _this.setData({
+                    album: album,
                     pageTitle: album.name,
-                    pageCover: album.cover,
+                    pageCover: album.cover
+                })
+                wx.setNavigationBarTitle({
+                    title: album.name,
                 });
             }
         })
@@ -107,7 +110,7 @@ Page({
         app.globalData.filterRentPriceItem,
         app.globalData.filterOrderItem2,
         ]
-        var g = q.group || q.group_v2
+        var g = q.group || q.group_v2 || 'new'
 
         if (g == 'rental') {
             items = [{ name: '位置', type: 'citypicker', },

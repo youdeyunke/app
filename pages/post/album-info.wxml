@@ -1,2 +1,5 @@
-<!--pages/post/album-info.wxml-->
-<text>pages/post/album-info.wxml</text>
+<!-- pages/post/album-info.wxml -->
+<view class="album" style="background-image:url({{album.cover}})">
+    <view class="name">{{album.name}}</view>
+    <view class="content">{{album.content}}</view>
+</view>

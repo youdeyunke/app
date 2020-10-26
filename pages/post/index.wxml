@@ -1,4 +1,4 @@
-<view class="header">
+<view class="header" wx:if="{{!albumId}}">
     <navigator class="ditu" open-type="navigateTo" url="/pages/map/index?group={{filter.group_v2 || filter.group}}">
         <van-icon name="location" size="24rpx;" />
         地图
@@ -7,11 +7,11 @@
         <view slot="action" class="action-btn" bind:tap="onSearch">搜索</view>
     </van-search>
 </view>
-<album-info wx:if="{{albumId}}" albumId="{{albumId}}"></album-info>
-<view class="filter" wx:if="{{filterConfigs}}">
+<view class="filter" wx:if="{{filterConfigs}}" style="top:{{ !albumId ? '110rpx' : '0rpx'}}">
     <post-filter filter="{{filter}}" bind:change="filterChange" />
 </view>
-<view class="res">
+<view class="res" style="padding-top:{{ !albumId ? '200rpx' : '80rpx'}}">
+    <album-info wx:if="{{album && album.id}}" album="{{album}}"></album-info>
     <view class="subinfo" wx:if="{{filter.sub_district_id}}">
         <sub-district sid="{{filter.sub_district_id}}" />
     </view>
