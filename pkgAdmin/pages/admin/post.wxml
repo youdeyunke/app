@@ -24,6 +24,6 @@
         <van-button size="small" bindtap="gotoPost" type="default">预览</van-button>
         <van-button size="small" bindtap="doRefresh" type="default">刷新</van-button>
         <van-button size="small" bindtap="gotoPoster" type="default">做海报</van-button>
-        <van-button size="small" bindtap="gotoXiang" type="default">相册</van-button>
+        <van-button wx:if="{{post.media_cat_id}}" size="small" bindtap="gotoXiang" type="default">相册</van-button>
     </view>
 </mycard>
