@@ -1,0 +1,17 @@
+<view class="mytabs">
+    <van-tabs sticky="{{true}}" active="{{tab}}" color="#1989fa" bind:change="tabChangeHandle">
+        <van-tab wx:for-key="id" name="{{tab.id}}" title="{{tab.name}}" wx:for-item="tab" wx:for="{{tabs}}"></van-tab>
+    </van-tabs>
+</view>
+<view hidden="{{ tab != 'news'}}">
+    <mycard title="热点资讯">todo</mycard>
+    <view class="res news-list">
+        <news-item wx:for="{{newsItems}}" item="{{item}}"></news-item>
+    </view>
+</view>
+<view hidden="{{tab != 'qa'}}">
+    <view class="res qa-list">
+        <qa-item wx:for="{{qaItems}}" item="{{item}}"></qa-item>
+    </view>
+    <navigator url="/pkgQa/pages/qa/new" class="qa-new">我要提问</navigator>
+</view>

@@ -1,0 +1,7 @@
+{
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "news-item": "/components/tt",
+        "qa-item": "./qa-item"
+    }
+}

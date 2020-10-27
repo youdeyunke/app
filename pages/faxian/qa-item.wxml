@@ -1,0 +1,26 @@
+<view hover-class="none" class="question">
+    <view class="header">
+        <view class="left">
+            <q-icon />
+            <van-tag style="margin-right:10rpx;" wx:for="{{tags}}" type="primary" plain>
+                {{item}}
+            </van-tag>
+            <view wx:if="{{item.target_name}}" class="target-name">#{{ item.target_name }}#</view>
+        </view>
+        <view class="right">{{item.answers_count || 0 }}   回答</view>
+    </view>
+    <navigator url="/pkgQa/pages/qa/qa?id={{item.id}}" class="body">{{ item.content }}</navigator>
+    <view class="footer">
+        <view class="left">
+            <image class="avatar" src="{{avatar}}" />
+            <text>{{ item.user.nickname }}</text>
+            <text>{{createdAt}}</text>
+        </view>
+        <view class="right">
+            <navigator wx:if="{{!item.is_done}}" url="/pkgQa/pages/qa/reply?qid={{item.id}}" class="btn1">
+                我要回答
+            </navigator>
+            <navigator wx:else url="/pkgQa/pages/qa/qa?id={{item.id}}" class="btn2">查看回答</navigator>
+        </view>
+    </view>
+</view>
