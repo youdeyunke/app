@@ -15,3 +15,9 @@
     </view>
     <navigator url="/pkgQa/pages/qa/new" class="qa-new">我要提问</navigator>
 </view>
+<view hidden="{{tab != 'tour'}}">
+    <view class="res tour-list">
+        <tour-item wx:for="{{tourItems}}" item="{{item}}"></tour-item>
+    </view>
+</view>
+<no-result wx:if="{{isEmpty}}" />

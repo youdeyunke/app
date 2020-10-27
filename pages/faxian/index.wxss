@@ -11,7 +11,7 @@
     box-sizing: border-box;
 }
 
-.news-list {
+.news-list, .tour-list {
     background: #fff;
 }
 

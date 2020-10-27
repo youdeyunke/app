@@ -10,9 +10,11 @@ Page({
         tabs: [
             { name: '资讯', id: 'news' },
             { name: '问答', id: 'qa' },
+            { name: '活动', id: 'tour' },
         ],
         tab: 'news',
         newsItems: [],
+        tourItems: [],
         page: 1,
         per_page: 10,
         loading: true,
@@ -44,8 +46,37 @@ Page({
                 data.qaItems = []
                 this.loadQas()
                 break;
+            case 'tour':
+                data.tourItems = []
+                this.loadTours()
+                break;
         }
         this.setData(data)
+    },
+
+    loadTours: function () {
+        var _this = this
+        var query = this.data.tourFilter || {}
+        query.page = this.data.page
+        query.per_page = this.data.per_page || 10
+        app.request({
+            url: '/api/v1/tours/',
+            data: query,
+            success: function (resp) {
+                if (resp.data.status != 0) {
+                    return
+                }
+                var items = _this.data.tourItems.concat(resp.data.data)
+                _this.setData({ tourItems: items, loading: false })
+                if (items.length == 0 && query.page === 1) {
+                    wx.showToast({
+                        title: '没有数据',
+                        icon: 'none',
+                    })
+                }
+            }
+        })
+
     },
     loadQas: function () {
         // 加载问答
@@ -160,6 +191,9 @@ Page({
                     break;
                 case 'qa':
                     this.loadQas()
+                    break;
+                case 'tour':
+                    this.loadTours()
                     break;
             }
         })
