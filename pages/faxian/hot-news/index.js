@@ -24,6 +24,16 @@ Component({
    */
   methods: {
 
+    gotoDetail: function(e){
+      console.log('e', e)
+      const {  index  } =  e.currentTarget.dataset 
+      var item = this.data.items[index]
+      var path = '/pkgNews/pages/news/show?id=' + item.id  
+      wx.navigateTo({
+        url: path,
+      })
+    },
+
     loadData: function(){
       var _this = this  
       var query = {

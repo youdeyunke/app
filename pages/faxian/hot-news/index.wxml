@@ -1,6 +1,6 @@
 <view class="hot-items">
   <swiper indicator-color="#ffffff" indicator-active-color="#1989fa" autoplay="{{true}}" indicator-dots="{{true}}" >
-    <swiper-item bindtap="gotoDetail" data-index="{{index}}" wx:for="{{items}}" wx:for-key="id">
+    <swiper-item bindtap="gotoDetail" data-index="{{index}}" wx:for="{{items}}" wx:key="id">
       <image mode="fill" src="{{item.cover_v2}}" />
       <view class="title">{{item.title}}</view>
     </swiper-item>
