@@ -1,5 +1,4 @@
 .item {
-    letter-spacing: 4rpx;
     width: 100%;
     height: 140rpx;
     background: #fff;
@@ -30,11 +29,9 @@
 }
 
 .item .title {
-    font-size: 26rpx;
-    color: #000;
+    font-size: 28rpx;
+    color: #333;
     line-height: 36rpx;
-    letter-spacing: 5rpx;
-    font-weight: bold;
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -69,5 +66,4 @@
 .item .author {
     font-size: 22rpx;
     color: #666;
-    letter-spacing: 1rpx;
 }

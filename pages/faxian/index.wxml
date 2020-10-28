@@ -6,6 +6,8 @@
 <view hidden="{{ tab != 'news'}}">
     <hot-news limit="5"></hot-news>
     <view class="res news-list">
+        <news-cats bind:change="newsCatChange"></news-cats>
+        <view style="height:20rpx;display:block;"></view>
         <news-item wx:for="{{newsItems}}" item="{{item}}"></news-item>
     </view>
 </view>

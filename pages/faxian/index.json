@@ -2,6 +2,7 @@
     "enablePullDownRefresh": true,
     "usingComponents": {
         "news-item": "/components/tt",
+        "news-cats": "./news-cats",
         "hot-news": "./hot-news/index",
         "tour-item": "/components/tour/item",
         "qa-item": "./qa-item"

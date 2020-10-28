@@ -1,0 +1,10 @@
+<!-- pages/faxian/news-cats.wxml -->
+<view class="news-cats" hidden="{{cats.length == 0}}">
+    <scroll-view scroll-with-animation="{{true}}" scroll-x="{{true}}" style="width:700rpx; white-space: nowrap;">
+        <view class="cat-item" wx:for="{{cats}}" wx:for-item="cat">
+            <van-tag size="large" color="#1989fa" plain="{{ index !== active }}" data-index="{{index}}" bind:tap="catChange">
+                {{ cat.name }}
+            </van-tag>
+        </view>
+    </scroll-view>
+</view>

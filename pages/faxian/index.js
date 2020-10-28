@@ -14,6 +14,7 @@ Page({
         ],
         tab: 'news',
         newsItems: [],
+        newsCatId: '',
         tourItems: [],
         page: 1,
         per_page: 10,
@@ -105,11 +106,27 @@ Page({
     },
 
 
+    newsCatChange: function (e) {
+        var cat = e.detail
+        console.log('c', e, 'cat', cat)
+        var data = {
+            newsCatId: cat.id,
+            page: 1,
+            newsItems: [],
+            loading: true
+        }
+        this.setData(data, () => {
+            this.loadNews()
+        })
+    },
+
     loadNews: function () {
+
         var _this = this
         var query = {
             page: this.data.page,
             is_top: false,
+            cat_id: this.data.newsCatId,
             per_page: 30
         }
         app.request({
