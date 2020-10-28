@@ -4,7 +4,7 @@
     </van-tabs>
 </view>
 <view hidden="{{ tab != 'news'}}">
-    <mycard title="热点资讯">todo</mycard>
+    <hot-news limit="5"></hot-news>
     <view class="res news-list">
         <news-item wx:for="{{newsItems}}" item="{{item}}"></news-item>
     </view>

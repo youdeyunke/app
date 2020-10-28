@@ -109,6 +109,7 @@ Page({
         var _this = this
         var query = {
             page: this.data.page,
+            is_top: false,
             per_page: 30
         }
         app.request({

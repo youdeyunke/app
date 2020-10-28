@@ -38,7 +38,7 @@ Page({
     if (qLen > max) {
       wx.showToast({
         title: '内容太长',
-        icon: 'none',
+      icon: 'none',
         duration: 2000
       })
       return false
