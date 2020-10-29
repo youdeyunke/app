@@ -1,17 +1,12 @@
-<image wx:if="{{item.show_cover && item.cover_v2 }}"  
-class="cover" src="{{item.cover_v2 }}?imageView2/2/w/750"></image>
-<box padding="30" margin-bottom="2"  wx:if="{{item.show_cover}}">
-  <view class="header">
-    <view class="h1">{{item.title}}</view>
-    <view class="date">
-      发布于：{{item.created_at_pretty}} / 浏览量：{{ item.view_nums}}
+<image wx:if="{{item.show_cover && item.cover_v2 }}" class="cover" src="{{item.cover_v2 }}?imageView2/2/w/750"></image>
+<box padding="30" margin-bottom="2" wx:if="{{item.show_cover}}">
+    <view class="header">
+        <view class="h1">{{item.title}}</view>
+        <view class="date">发布于：{{item.created_at_pretty}} / 浏览量：{{ item.view_nums}}</view>
     </view>
-  </view>
 </box>
-
 <box padding="40">
-  <view class="raw">
-      <rich-text  nodes="{{html}}" />
-  </view>
+    <view class="raw">
+        <raw-html html="{{item.content}}"></raw-html>
+    </view>
 </box>
-

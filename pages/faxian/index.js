@@ -15,6 +15,8 @@ Page({
         tab: 'news',
         newsItems: [],
         newsCatId: '',
+        newsKw: '',
+        qaKw: '',
         tourItems: [],
         page: 1,
         per_page: 10,
@@ -86,6 +88,7 @@ Page({
         var query = this.data.qaFilter || {}
         query.page = this.data.page
         query.per_page = this.data.per_page || 10
+        query.kw = this.data.qaKw || ''
         app.request({
             url: '/api/v1/questions/',
             data: query,
@@ -102,6 +105,33 @@ Page({
                     })
                 }
             }
+        })
+    },
+
+    qaKwChange: function (e) {
+        var kw = e.detail
+        var data = {
+            qaKw: kw,
+            page: 1,
+            qaItems: [],
+            loading: true
+        }
+        this.setData(data, () => {
+            this.loadQas()
+        })
+    },
+
+    newsKwChange: function (e) {
+        console.log('e', e)
+        var kw = e.detail
+        var data = {
+            newsKw: kw,
+            page: 1,
+            newsItems: [],
+            loading: true
+        }
+        this.setData(data, () => {
+            this.loadNews()
         })
     },
 
@@ -127,6 +157,7 @@ Page({
             page: this.data.page,
             is_top: false,
             cat_id: this.data.newsCatId,
+            kw: this.data.newsKw,
             per_page: 30
         }
         app.request({

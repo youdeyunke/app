@@ -7,12 +7,14 @@
     <hot-news limit="5"></hot-news>
     <view class="res news-list">
         <news-cats bind:change="newsCatChange"></news-cats>
+        <search-bar bind:change="newsKwChange"></search-bar>
         <view style="height:20rpx;display:block;"></view>
         <news-item wx:for="{{newsItems}}" item="{{item}}"></news-item>
     </view>
 </view>
 <view hidden="{{tab != 'qa'}}">
     <view class="res qa-list">
+        <search-bar bind:change="qaKwChange"></search-bar>
         <qa-item wx:for="{{qaItems}}" item="{{item}}"></qa-item>
     </view>
     <navigator url="/pkgQa/pages/qa/new" class="qa-new">我要提问</navigator>

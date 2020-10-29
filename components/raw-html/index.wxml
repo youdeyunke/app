@@ -1,0 +1,2 @@
+<!-- components/raw-html/index.wxml -->
+<rich-text nodes="{{prettyHtml}}" />

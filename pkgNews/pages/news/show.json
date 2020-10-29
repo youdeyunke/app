@@ -1,8 +1,9 @@
 {
-  "usingComponents": {
-    "mytags": "/components/tags",
-    "myfav": "/components/fav",
-    "box": "/components/box",
-    "mystars": "/components/stars"
-  }
+    "usingComponents": {
+        "mytags": "/components/tags",
+        "myfav": "/components/fav",
+        "raw-html": "/components/raw-html/index",
+        "box": "/components/box",
+        "mystars": "/components/stars"
+    }
 }
