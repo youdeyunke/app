@@ -1,16 +1,12 @@
 page {
     font-size: 24rpx;
-}
-
-.cover {
-    width: 750rpx;
-    background: #fff;
+    background: #fff !important;
 }
 
 .header {
     background: #fff;
     box-sizing: border-box;
-    border-radius: 20rpx;
+    margin-bottom: 80rpx;
 }
 
 .header .h1 {
@@ -22,32 +18,13 @@ page {
 }
 
 .header .author {
-    font-size: var(--font-xs);
-    color: #666;
-    margin-bottom: 13rpx;
+    color: #1989fa;
+    margin-right:8rpx;
 }
 
 .header .date {
     font-size: 22rpx;
     color: #666;
-}
-
-.raw {}
-
-.raw .wxParse-inline {
-    color: #666;
-    font-size: var(--font-l);
-    line-height: 2.1;
-    letter-spacing: 3rpx;
-}
-
-.raw .wxParse-p {
-    margin-bottom: 20rpx;
-    overflow: hidden;
-}
-
-.raw .wxParse-img {
-    width: 100% !important;
 }
 
 myfav {
