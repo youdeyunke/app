@@ -9,6 +9,7 @@
         </view>
         <view class="raw">
             <raw-html html="{{item.content}}"></raw-html>
+            <van-divider contentPosition="center">END</van-divider>
         </view>
     </box>
 </block>
