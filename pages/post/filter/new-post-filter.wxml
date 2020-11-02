@@ -16,7 +16,7 @@
                         <view class="title">物业类型</view>
                     </view>
                     <view class="body">
-                        <selector value-key="id"  options="{{catOptions}}" model:value="{{catValue}}" ></selector>
+                        <selector style="width:100%;" value-key="id"  options="{{catOptions}}" model:value="{{catValue}}" ></selector>
                     </view>
                 </view>
 
@@ -48,7 +48,6 @@
                         <view class="title">装修</view>
                     </view>
                     <view class="body">
-                    fitment value {{ fitmentValue }}
                         <selector value-key="id" columns="4" options="{{fitmentOptions}}" model:value="{{fitmentValue}}" ></selector>
                     </view>
                 </view>
