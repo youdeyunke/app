@@ -1,0 +1,11 @@
+
+                        <view class="option-list {{optionListClassName}}">
+                            <view data-index="{{index}}" bindtap="optionClickHandle" wx:key="{{index}}" class="option {{ value == item[valueKey] ? 'active' : '' }}" wx:for="{{options}}">
+                                {{item.name }}
+                            </view>
+                            <view class="option blank"></view>
+                            <view class="option blank"></view>
+                            <view class="option blank"></view>
+                            <view class="option blank"></view>
+                            <view class="option blank"></view>
+                        </view>

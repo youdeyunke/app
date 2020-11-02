@@ -4,6 +4,9 @@
         "order-picker": "./order-picker",
         "popup": "/components/popup",
         "city-picker": "./city-picker",
+        "price-picker": "./price-picker",
+        "range-input": "/components/range-input/index",
+        "selector": "/components/selector/index",
         "range-slider": "/components/range-slider/range-slider"
     }
 }

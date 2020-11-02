@@ -1,0 +1,10 @@
+/* components/price-picker.wxss */
+
+.content-active {
+    color: #1989fa;
+}
+
+.main-content-active {
+    color: #1989fa;
+    border-left-color: #1989fa;
+}

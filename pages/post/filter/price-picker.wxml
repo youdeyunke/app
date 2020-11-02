@@ -1,0 +1,11 @@
+<!-- components/price-picker.wxml -->
+<view>
+    <view bind:tap="showHandle">{{title}} 售价<van-icon name="arrow-down" /></view>
+    <popup show="{{show}}" position="top" bind:cancle="onReset" bind:confirm="onConfirm" label="请选择">
+        <van-tree-select items="{{ items }}" main-active-index="{{ mainActiveIndex }}" active-id="{{ activeId }}" bind:click-nav="navClick" bind:click-item="itemClick" content-active-class="content-active" main-active-class="main-content-active" />
+        <view class="footer">
+            <van-field value="{{input_min}}" data-name="input_min" bindinput="priceInput" placeholder="请输入" label="最低价格" />
+            <van-field value="{{input_max}}" data-name="input_max" bindinput="priceInput" placeholder="请输入" label="最高价格" />
+        </view>
+    </popup>
+</view>
