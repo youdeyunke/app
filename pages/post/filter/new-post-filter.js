@@ -8,16 +8,16 @@ Component({
         options: { type: Object, default: null },
     },
 
-    
+
     observers: {
-        "options.cats": function(v){
-            this.setData({catOptions: [{name: '不限', id: 0}].concat(v)})
+        "options.cats": function (v) {
+            this.setData({ catOptions: [{ name: '不限', id: 0 }].concat(v) })
         },
-        "options.fitments": function(v){
-            this.setData({fitmentOptions: v})
+        "options.fitments": function (v) {
+            this.setData({ fitmentOptions: [{ name: '不限', id: 0 }].concat(v) })
         },
-        "options.sale_status": function(v){
-            this.setData({saleStatusOptions: v})
+        "options.sale_status": function (v) {
+            this.setData({ saleStatusOptions: v })
         },
     },
 
@@ -33,13 +33,13 @@ Component({
             { name: '五室及以上', value: 5 },
         ],
         areaOptions: [
-            {name: '60以下', value: '0,60'}, 
-            {name: '60-80', value: '60,80'}, 
-            {name: '80-100', value: '80,100'}, 
-            {name: '100-120', value: '100-120'}, 
-            {name: '120-150', value: '120,150'}, 
-            {name: '150-200', value: '150,200'}, 
-            {name: '200以上', value: '200,999'}, 
+            { name: '60以下', value: '0,60' },
+            { name: '60-80', value: '60,80' },
+            { name: '80-100', value: '80,100' },
+            { name: '100-120', value: '100-120' },
+            { name: '120-150', value: '120,150' },
+            { name: '150-200', value: '150,200' },
+            { name: '200以上', value: '200,999' },
         ],
 
         catOptions: [], // 物业类型
@@ -49,10 +49,8 @@ Component({
         houseTypeValue: 0,
         fitmentValue: 0,
         catValue: 0,
-
-        areaMin: null,
-        areaMax: null,
         areaValue: '',
+
         showPop: false,
         orderOptions: [
             {
@@ -122,43 +120,42 @@ Component({
                 filter.type = v
             }
 
-            v = this.data.catValue 
-            if(v == 0 ){
+            v = this.data.catValue
+            if (v == 0) {
                 delete filter.cat_id
-            }else{
-                filter.cat_id =v 
+            } else {
+                filter.cat_id = v
             }
             filter.page = 1
             this.setData({ filter: filter })
             this.triggerEvent('change', filter)
-            console.log('filter on change ', filter)
             this.setData({ showPop: false })
         },
         filterCancleHandle: function (e) {
             this.setData({
-                areaMin: null,
-                areaMax: null,
+                areaValue: '',
+                catValue: 0,
+                fitmentValue: 0,
                 houseTypeValue: 0
             })
         },
 
 
         priceChange: function (e) {
-            console.log('e', e)
-            var filter = this.data.filter 
+            var filter = this.data.filter
             var data = e.detail
-            if(data.price && data.price.length >= 3){
+            if (data.price && data.price.length >= 3) {
                 filter.price = data.price
-            }else{
+            } else {
                 delete filter.price
             }
 
-            if(data.total_price && data.total_price.length >= 3){
+            if (data.total_price && data.total_price.length >= 3) {
                 filter.total_price = data.total_price
-            }else{
+            } else {
                 delete filter.total_price
             }
-            this.setData({filter: filter})
+            this.setData({ filter: filter })
             this.triggerEvent('change', filter)
 
         },
