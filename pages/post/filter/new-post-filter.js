@@ -11,7 +11,7 @@ Component({
     
     observers: {
         "options.cats": function(v){
-            this.setData({catOptions: v})
+            this.setData({catOptions: [{name: '不限', id: 0}].concat(v)})
         },
         "options.fitments": function(v){
             this.setData({fitmentOptions: v})
@@ -32,6 +32,15 @@ Component({
             { name: '四室', value: 4 },
             { name: '五室及以上', value: 5 },
         ],
+        areaOptions: [
+            {name: '60以下', value: '0,60'}, 
+            {name: '60-80', value: '60,80'}, 
+            {name: '80-100', value: '80,100'}, 
+            {name: '100-120', value: '100-120'}, 
+            {name: '120-150', value: '120,150'}, 
+            {name: '150-200', value: '150,200'}, 
+            {name: '200以上', value: '200,999'}, 
+        ],
 
         catOptions: [], // 物业类型
         fitmentOptions: [], //装修
@@ -43,6 +52,7 @@ Component({
 
         areaMin: null,
         areaMax: null,
+        areaValue: '',
         showPop: false,
         orderOptions: [
             {
