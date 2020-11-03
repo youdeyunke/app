@@ -4,6 +4,7 @@ Component({
      * 组件的属性列表
      */
     properties: {
+        maxlength: { type: Number, value: 4 },
         value: { type: String, value: "0,0" },
         unit: { type: String, value: '单位' },
     },
@@ -14,8 +15,8 @@ Component({
         value: function (value) {
             var res = value.split(',')
             this.setData({
-                leftValue: res[0],
-                rightValue: res[1],
+                leftValue: res[0] || '',
+                rightValue: res[1] || '',
             })
         },
     },
@@ -33,9 +34,41 @@ Component({
      * 组件的方法列表
      */
     methods: {
+
+
+
+        blurHandle: function (e) {
+            console.log('blur handle', e, typeof this.data.leftValue)
+            // 当输入框失去焦点
+            // 验证输入值
+            // 并触发更新
+            if (this.data.leftValue == '' || this.data.rightValue == '') {
+                return
+            }
+
+            // 左边要小于右边
+            if (this.data.leftValue >= this.data.rightValue) {
+                var error = '输入的范围值错误，请检查'
+                this.setData({ showError: true, error: error })
+                wx.showToast({
+                    title: error,
+                    icon: 'none',
+                    duration: 1500,
+                    mask: true,
+                });
+                return false
+            }
+
+            // sync value
+            // 只有当两个都有值得时候，才触发value更新 
+            var value = this.data.leftValue + ',' + this.data.rightValue
+            this.setData({ value: value })
+        },
+
+
+
         inputHandle: function (e) {
             // 输入后，更新value
-            console.log('e', e)
             var v = e.detail
             const { key } = e.currentTarget.dataset
             // update data 
@@ -43,12 +76,6 @@ Component({
             data[key] = v
             this.setData(data)
 
-            // sync value
-            // 只有当两个都有值得时候，才触发value更新 
-            if (this.data.leftValue >= 0 && this.data.rightValue >= 0) {
-                var value = this.data.leftValue + ',' + this.data.rightValue
-                this.setData({ value: value })
-            }
         },
 
     }

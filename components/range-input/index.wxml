@@ -1,12 +1,10 @@
-<!--components/range-input/index.wxml-->
-<view class="box" >
-                        <van-field class="myinput" bind:input="inputHandle" maxlength="3" clearable type="number" data-key="leftValue" value="{{ leftValue }}" placeholder="请输入" >
-                            <text slot="right-icon"></text>
-                        </van-field>
-
-                        <view class="blank-text">至</view>
-                        <van-field class="myinput" maxlength="3" clearable type="number"  value="{{ rightValue }}" placeholder="请输入" data-key="rightValue"  bind:input="inputHandle">
-                            <text slot="right-icon">{{unit}}</text>
-                        </van-field>
+<!-- components/range-input/index.wxml -->
+<view class="box">
+    <van-field bind:blur="blurHandle" class="myinput" bind:input="inputHandle" maxlength="{{maxlength}}" clearable type="number" data-key="leftValue" value="{{ leftValue }}" placeholder="请输入">
+        <text slot="right-icon"></text>
+    </van-field>
+    <view class="blank-text">至</view>
+    <van-field bind:blur="blurHandle" class="myinput" maxlength="{{maxlength}}" clearable type="number" value="{{ rightValue }}" placeholder="请输入" data-key="rightValue" bind:input="inputHandle">
+        <text slot="right-icon">{{unit}}</text>
+    </van-field>
 </view>
-
