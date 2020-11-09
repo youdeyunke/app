@@ -41,18 +41,9 @@ Component({
      */
     methods: {
         itemClick: function () {
-            var _this = this
-            var url = this.data.item.url
             var path = '/pkgNews/pages/news/show?id=' + this.data.item.id
-            // 判断是打开webview，还是显示自定义内容
-            if (url) {
-                app.gotoWebview(url, this.data.item.title)
-                return false
-            }
             wx.navigateTo({ url: path, })
-
         },
-
         getDateDiff: function (dateStr) {
             var result = ''
             var dateTimeStamp = Date.parse(dateStr)

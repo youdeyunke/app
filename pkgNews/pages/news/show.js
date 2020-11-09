@@ -28,11 +28,6 @@ Page({
         app.request({
             url: '/api/v1/news/' + _this.data.nid,
             success: function (resp) {
-                var url = resp.data.data.url
-                if (url) {
-                    app.gotoWebview(url, '文章')
-                    return false
-                }
                 _this.setData({
                     item: resp.data.data,
                 })
@@ -86,13 +81,6 @@ Page({
     onReachBottom: function () {
 
     },
-    onShareTimeline() {
-        return {
-            title: this.data.item.title,
-            imageUrl: this.data.item.cover_v2 + "?imageView2/1/w/500/h/400",
-            path: '/pkgNews/pages/news/show?id=' + this.data.nid
-        }
-    },
     /**
      * 用户点击右上角分享
      */
@@ -103,11 +91,11 @@ Page({
             path: '/pkgNews/pages/news/show?id=' + this.data.nid
         }
     },
-    onShareTimeline(){
-      return{
-        title: this.data.item.title,
-        imageUrl: this.data.item.cover_v2 + "?imageView2/1/w/500/h/400",
-        path: '/pkgNews/pages/news/show?id=' + this.data.nid
-      }
+    onShareTimeline:function(){
+        return{
+            title: this.data.item.title,
+            imageUrl: this.data.item.cover_v2 + "?imageView2/1/w/500/h/400",
+            path: '/pkgNews/pages/news/show?id=' + this.data.nid
+        }
     },
 })
