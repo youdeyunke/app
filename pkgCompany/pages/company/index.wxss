@@ -25,17 +25,20 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
     width: 100%;
 }
 
 .items .item {
-    width: 300rpx;
+    width: 320rpx;
     height: 180rpx;
-    margin: 10rpx;
+    margin: 10rpx 20rpx 10rpx 20rpx;
+    overflow: hidden;
+    border-radius: 8rpx;
     overflow: hidden;
 }
 
 .items .item image {
-    width: 300rpx;
+    width: 320rpx;
     height: 180rpx;
 }
