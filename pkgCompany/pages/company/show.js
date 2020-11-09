@@ -9,9 +9,11 @@ Page({
     data: {
         company: {},
         items: [],
+        staff:[],
         tab: 'posts',
         page: 1,
         loading: false,
+        cid:''
     },
 
     /**
@@ -19,12 +21,13 @@ Page({
      */
     onLoad: function (q) {
         var cid = q.id
-        var filter = { company_id: cid, order: 'id desc', per_page: 10, page: 1 }
+        var filter = { company_id: cid, order: 'id desc', per_page: 10, page: 1,city_id:null,group_v2:'new' }
         this.setData({
             filter: filter,
-            cid: cid,
+            cid: cid
         })
         this.loadCompany()
+        this.loadStaff()
 
     },
 
@@ -44,13 +47,37 @@ Page({
             }
         })
     },
-
+    loadStaff:function(){
+        var _this = this
+        app.request({
+            url:'/api/v1/brokers/',
+            data:{company_id:this.data.cid,per_page: 10, page: _this.data.page},
+            success:function(res){
+                    var staff = [..._this.data.staff,...res.data.data]
+                _this.setData({
+                    staff : staff
+                })
+            }
+        })
+    },
     tabChange: function (e) {
         var tab = e.detail.name
+        console.log(tab)
         if (tab == this.data.tab) {
             return false
         }
-        this.setData({ tab: e.detail.name })
+        var filter = this.data.filter
+        filter.page = 1
+        this.setData({ tab: e.detail.name,
+                    page:1,
+                    staff:[],
+                    filter: filter})
+        this.loadStaff()
+    },
+    filterChange: function (e) {
+        var filter = e.detail
+        filter.page = 1
+        this.setData({ filter: filter })
     },
 
     /**
@@ -94,6 +121,7 @@ Page({
     onReachBottom: function () {
         var page = this.data.page + 1
         this.setData({ page: page })
+        this.loadStaff()
     },
 
     /**
