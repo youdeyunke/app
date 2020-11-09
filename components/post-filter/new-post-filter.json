@@ -2,6 +2,7 @@
     "component": true,
     "usingComponents": {
         "order-picker": "./order-picker",
+        "other-filter": "./other-filter",
         "popup": "/components/popup",
         "city-picker": "./city-picker",
         "price-picker": "./price-picker",

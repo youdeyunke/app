@@ -1,5 +1,5 @@
 <view class="header" wx:if="{{!albumId}}">
-    <navigator class="ditu" open-type="navigateTo" url="/pages/map/index?group={{filter.group_v2 || filter.group}}">
+    <navigator class="ditu" open-type="navigateTo" url="/pkgMap/pages/map/index?group={{filter.group_v2 || filter.group}}">
         <van-icon name="location" size="24rpx;" />
         地图
     </navigator>

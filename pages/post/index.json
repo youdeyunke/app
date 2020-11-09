@@ -2,7 +2,7 @@
     "enablePullDownRefresh": false,
     "usingComponents": {
         "items": "/components/post/items",
-        "post-filter": "./filter/index",
+        "post-filter": "/components/post-filter/index",
         "album-info": "./album-info",
         "sub-district": "/components/sub-district/mini-item",
         "myslider": "/components/slider",

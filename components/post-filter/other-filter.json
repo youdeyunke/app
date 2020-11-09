@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "selector": "/components/selector/index",
+        "range-input": "/components/range-input/index",
+        "popup": "/components/popup"
+    }
+}
