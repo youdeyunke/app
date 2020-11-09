@@ -9,7 +9,10 @@ Page({
     data: {
         kw: '',
         kwInput: '',
+        pageTitle: '房源列表',
+        pageCover: '',
         album: null,
+        albumId: null,
         filter: {},
         filterConfigs: [
         ],
@@ -20,6 +23,7 @@ Page({
      */
     onLoad: function (q) {
         app.checkForceLogin()
+        var _this = this
         var data = {}
         var filter = q || {}
         var fkeys = Object.keys(filter)
@@ -27,13 +31,26 @@ Page({
         if (!fkeys.includes('city_id')) {
             filter.city_id = app.globalData.cityId
         }
+        // 如果是加载主题房源列表
+        if (q.album_id) {
+            filter.album_id = q.album_id
+            data.albumId = q.album_id
+        }
+
         filter.page = 1 // 强制设置为第一页
         data['filter'] = filter
-        this.setData(data)
-        this.setPageTitle()
+        this.setData(data, (res) => {
+            _this.loadAlbum()
+            _this.setPageTitle()
+        })
     },
 
     setPageTitle: function () {
+        // 如果是主题楼盘，就跳过
+        if (this.data.albumId) {
+            return
+        }
+
         var g = this.data.filter.group || this.data.filter.group_v2
         var title = '房源列表'
         switch (g) {
@@ -53,16 +70,20 @@ Page({
                 title = '租房'
                 break;
         }
+        this.setData({ pageTitle: title })
         wx.setNavigationBarTitle({
             title: title,
         });
 
     },
 
-    loadAlbum: function (albumId) {
+    loadAlbum: function () {
+        // 如果不是主题楼盘就跳过
+        var albumId = this.data.albumId
         if (!albumId) {
             return false
         }
+
         // 根据专辑Id加载分类信息
         var _this = this
         app.request({
@@ -70,7 +91,11 @@ Page({
             method: 'GET',
             success: function (resp) {
                 var album = resp.data.data
-                _this.setData({ album: album })
+                _this.setData({
+                    album: album,
+                    pageTitle: album.name,
+                    pageCover: album.cover
+                })
                 wx.setNavigationBarTitle({
                     title: album.name,
                 });
@@ -85,7 +110,7 @@ Page({
         app.globalData.filterRentPriceItem,
         app.globalData.filterOrderItem2,
         ]
-        var g = q.group || q.group_v2
+        var g = q.group || q.group_v2 || 'new'
 
         if (g == 'rental') {
             items = [{ name: '位置', type: 'citypicker', },
@@ -209,5 +234,30 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-    }
+        var _this = this
+        return {
+            title: _this.data.pageTitle,
+            imageUrl: _this.data.pageCover,
+        }
+    },
+
+    onShareTimeLine: function () {
+        var qs = []
+        if (this.data.albumId) {
+            qs.push('album_id=' + this.data.albumId)
+        }
+        if (this.data.filter.group_v2) {
+            qs.push('group_v2=' + this.data.filter.group_v2)
+        }
+        if (this.data.filter.city_id) {
+            qs.push('city_id=' + this.data.filter.city_id)
+        }
+        var query = qa.join('&')
+        var _this = this
+        return {
+            title: _this.data.pageTitle,
+            imageUrl: _this.data.pageCover,
+            query: query
+        }
+    },
 })

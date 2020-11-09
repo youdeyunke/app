@@ -1,0 +1,10 @@
+/* pages/faxian/news-cats.wxss */
+
+.news-cats {
+    margin-bottom: 20rpx;
+}
+
+.cat-item {
+    display: inline-block;
+    margin-right: 20rpx;
+}

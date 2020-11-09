@@ -1,0 +1,22 @@
+/* components/range-input/index.wxss */
+.box{
+  display:flex;
+  justify-content:space-between;
+  aligin-items:center;
+}
+
+.myinput{
+
+}
+
+.blank-text{
+  color:#999999;
+  font-size:24rpx;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.unit-text{
+
+}

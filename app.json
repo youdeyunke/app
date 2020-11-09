@@ -224,7 +224,8 @@
     "pages/myself/profile",
     "pages/visitors/index",
     "pages/post/vr",
-    "pages/home/v2"
+    "pages/home/v2",
+    "pages/faxian/index"
   ],
   "tabBar": {
     "selectedColor": "#333",
@@ -244,6 +245,14 @@
         "selectedIconPath": "/assets/icons/message.1.png",
         "text": "消息"
       },
+
+      {
+        "pagePath": "pages/faxian/index",
+        "iconPath": "/assets/icons/faxian.0.png",
+        "selectedIconPath": "/assets/icons/faxian.1.png",
+        "text": "发现"
+      },
+
       {
         "pagePath": "pages/myself/index",
         "iconPath": "/assets/icons/myself.0.png",

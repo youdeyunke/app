@@ -1,0 +1,33 @@
+/* pages/faxian/index.wxss */
+
+.mytabs {
+    width: 100%;
+    margin-bottom: 20rpx;
+}
+
+.res {
+    width: 750rpx;
+    padding: 20rpx;
+    box-sizing: border-box;
+}
+
+.news-list, .tour-list {
+    background: #fff;
+}
+
+.qa-list {}
+
+.qa-new {
+    height: 80rpx;
+    line-height: 80rpx;
+    background: #1989fa;
+    color: #fff;
+    border-radius: 80rpx;
+    font-size: 28rpx;
+    text-align: center;
+    position: fixed;
+    bottom: 20rpx;
+    width: 200rpx;
+    left: calc(50% - 100rpx);
+    z-index: 10;
+}

@@ -10,7 +10,12 @@ Page({
      */
     data: {
         blocks: [],
+        
         points: [],
+        pageTitle: '房源详情',
+        pageCover: '',
+        pageUrl: '/pages/post/post?post_id=',
+
         loading: true,
         visitorLogId: null,
         contactInfo: {},
@@ -46,10 +51,14 @@ Page({
 
                 _this.setData({
                     loading: false,
+                
                     blocks: resp.data.data,
+                }, () => {
+                    _this.setPageInfo()
                 })
                 //html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
                 //html = html.replace(/\<p/gi, '<p class="rich-text-p" ')
+                
             }
         })
         wx.showShareMenu({
@@ -115,7 +124,7 @@ Page({
      */
     onReady: function () {
         // 页面渲染完成后
-        this.loadData()
+   
         //获取经纬度
     },
 
@@ -167,10 +176,13 @@ Page({
      */
     onShow: function () {
         this.setData({ userInfo: app.globalData.userInfo })
-        this.loadData()
-        setTimeout(() => {
-            wx.hideLoading();
-        }, 3000);
+        if(!this.data.loading ){
+            this.loadData()
+        
+            setTimeout(() => {
+                wx.hideLoading();
+            }, 3000);
+        }
     },
 
     /**
@@ -210,27 +222,51 @@ Page({
     onShareAppMessage: function () {
         var _this = this
         return {
-            title: _this.data.post['title'],
-            path: 'pages/post/post?from_share=1&id=' + _this.data.post['id'],
-            imageUrl: _this.data.post['cover']
+            title: _this.data.pageTitle,
+            path: 'pages/post/post?from_share=1&id=' + _this.data.postId,
+            imageUrl: _this.data.pageCover,
         }
     },
-    onShareTimeline: function(){
-        var title 
-        var imageUrl
+
+    setPageInfo: function(){
+        // 根据返回的数据设置页面标题、分享标题等信息
         var _this = this
-        var blocks=  this.data.blocks || []
-        for(let i of blocks){
-            if(i.name =='meta'){
-                title = i.value.title
-                imageUrl =i.value.simple_images_block.value.images[0]
-                break;
+        this.data.blocks.forEach((block,i) => {
+            if(block.name == 'base_info'){
+                _this.setData({
+                    pageTitle: block.value.title, 
+                    pageCover: block.value.cover,  
+                    pageUrl: '/pages/post/post?id=' + block.value.post_id,
+                })
+                wx.setNavigationBarTitle({
+                  title: _this.data.pageTitle,
+                })
+
             }
+            // 兼容老版本接口，没有返回base_info的情况
+            if(i > 0 && !_this.data.pageTitle & block.name == 'meta'){
+                var s = block.value.simple_images_block  
+                // find cover 
+                if(s){
+                    _this.setData({pageCover: s.cover})
+                }
+                var c = block.value.cover  
+                if(c){
+                    _this.setData({pageCover: c})
+                }
+                // find title 
+                _this.setData({pageTitle: block.value.title})
             }
+
+        })
+    },
+    onShareTimeline: function(){
+        var _this = this
+ 
             return{
-                title: title,
+                title: _this.data.pageTitle,
                 query:  'id='+_this.data.postId,
-                imageUrl: imageUrl
+                imageUrl: _this.data.pageCover
             }
     }
 })

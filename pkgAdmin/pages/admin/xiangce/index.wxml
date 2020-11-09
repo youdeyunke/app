@@ -10,8 +10,8 @@
             <van-icon name="arrow-down"></van-icon>
         </view>
         <view class="choose-content pinpai-color" bind:tap="createAlbum">
-            <view>新建相册</view>
             <van-icon name="plus"></van-icon>
+            <view>新建相册</view>
         </view>
     </view>
     <view class="items"  >
