@@ -20,37 +20,6 @@ page {
     opacity: 0.78;
 }
 
-.groups {
-    height: 80rpx;
-    display: flex;
-    justify-content: space-between;
-    background: #fff;
-    border-radius: 80rpx;
-    width: 480rpx;
-    box-sizing: border-box;
-    padding: 10rpx;
-    position: fixed;
-    top: 50rpx;
-    left: calc(50% - 240rpx);
-}
-
-.group-item {
-    width: 33.33%;
-    height: 60rpx;
-    color: #333;
-    border-radius: 60rpx;
-    display: flex;
-    justify-content: center;
-    line-height: 60rpx;
-    text-align: center;
-    align-items: center;
-}
-
-.group-item.active {
-    background: #00ae66;
-    color: #fff;
-}
-
 .dingwei {
     width: 80rpx;
     height: 80rpx;
@@ -96,7 +65,7 @@ page {
 
 .filter {
     background: #fff;
-    width: 100%;
-    padding: 20rpx 250rpx;
+    width: 750rpx;
+    padding: 20rpx 20rpx;
     box-sizing: border-box;
 }

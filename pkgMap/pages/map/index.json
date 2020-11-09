@@ -1,6 +1,6 @@
 {
     "usingComponents": {
-        "base-filter": "/components/base-filter",
+        "post-filter": "/components/post-filter/index",
         "post-item": "/components/post/item"
     }
 }

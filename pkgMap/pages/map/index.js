@@ -17,15 +17,16 @@ Page({
      */
     data: {
         level: 'city',
-        cityId: null,
         scale: 8,
         map: null,
-        filter: {
-            group: 'new',
-        },
+
+        filter: {},
+        searchText: '',
+
         filterConfigs: [],
+        groupV2: 'new',
+        cityId: null,
         districtId: null,
-        subDistrictId: null,
         postId: null,
         markers: [],
         groupItems: [],
@@ -34,7 +35,7 @@ Page({
         center: {},
         sid: null,
         mapViewHeight: app.globalData.system.windowHeight,
-        loading: false,
+        loading: true,
         postGroup: 'old',
         resultViewState: 0,
     },
@@ -43,10 +44,10 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
-        this.initFilter()
         app.checkForceLogin()
         const map = wx.createMapContext('map', this)
-        this.setData({ map: map })
+        var filter = { group_v2: q.group }
+        this.setData({ map: map, groupV2: q.group, filter: filter })
         wx.setNavigationBarTitle({ title: '地图找房' })
         var _this = this
         app.ensureConfigs((configs) => {
@@ -64,9 +65,44 @@ Page({
         })
     },
 
+    searchTextInput: function (e) {
+        this.setData({ searchText: e.detail })
+    },
+
+    clearSearch: function (e) {
+        this.setData({ searchText: '' })
+
+    },
+
+    filterChange: function (e) {
+        // 当筛选条件改变
+        var filter = e.detail
+        if (filter.cityId) {
+            this.setData({
+                cityId: filter.city_id,
+            })
+            delete filter.city_id
+        }
+        if (filter.districtId) {
+            this.setData({
+                districtId: filter.district_id
+            })
+            delete filter.district_id
+
+        }
+        var _this = this
+        this.setData({ filter: filter }, () => {
+            _this.loadMarkers('post')
+        })
+
+    },
+
+    searchHandle: function (e) {
+        this.loadMarkers('post')
+    },
+
     renderPost: function (pid) {
         // 显示所选房源
-        console.log('render post', pid)
         var _this = this
         app.request({
             url: '/api/v4/posts/' + pid,
@@ -83,19 +119,6 @@ Page({
 
     },
 
-    filterChange: function (e) {
-        this.setData({ filter: e.detail })
-        this.loadMarkers(this.data.level)
-    },
-
-    initFilter: function () {
-        var items = [
-            app.globalData.filterAreaItem,
-            app.globalData.filterTotalPriceItem
-        ]
-        // 强制返回新房过滤配置
-        this.setData({ filterConfigs: items })
-    },
 
 
     popShow: function () {
@@ -114,16 +137,10 @@ Page({
         // 第一次进入地图，先加载行政区信息
     },
 
-    loadPosts: function () {
-        // 点击
-    },
 
     initMap: function (group) {
         // 初始化，第一次进入地图时候
-        var filter = this.data.filter
-        filter.group = group
-        this.setData({ filter: filter })
-        this.loadMarkers('city')
+        this.loadMarkers('post')
     },
 
     renderMarkers: function (markers) {
@@ -158,18 +175,28 @@ Page({
         })
         var k = this.data.level
         var scale = SCALE_DICT[k]
-        var m = markers[0]
         var _this = this
-        this.moveTo(m.latitude, m.longitude)
-        this.setData({ markers: markers, scale: scale })
-        console.log('set markers', markers)
+        this.setData({ markers: markers }, () => {
+            setTimeout(() => {
+                wx.hideLoading();
+                _this.setData({ loading: false })
+            }, 3000);
+        })
+
+        if (this.data.level == 'city') {
+            // 将中心点移动到第一个marker
+            var m = markers[0]
+            this.moveTo(m.latitude, m.longitude)
+            return
+        }
+
         // 将视野移动到
-        //this.data.map.includePoints({
-        //    points: markers,
-        //    padding: 10,
-        //    success: function () {
-        //    },
-        //})
+        this.data.map.includePoints({
+            points: markers,
+            padding: 20,
+            success: function () {
+            },
+        })
     },
 
     upLevel: function () {
@@ -179,13 +206,11 @@ Page({
             case 'city':
                 break;
             case 'district':
+                // 清空已经选中的district_id
                 _this.loadMarkers('city')
                 break;
-            case 'sub_district':
-                _this.loadMarkers('district')
-                break;
             case 'post':
-                _this.loadMarkers('sub_district')
+                _this.loadMarkers('district')
                 break;
         }
     },
@@ -204,22 +229,33 @@ Page({
     },
 
     loadMarkers: function (level) {
+        wx.showLoading({
+            title: '加载中',
+            mask: true,
+        });
+        this.setData({ loading: true })
+
         var _level = level || 'district'
         var data = {
+            group_v2: this.data.groupV2 || 'new',
             city_id: this.data.cityId,
+            kw: this.data.searchText || '',
             district_id: this.data.districtId,
-            sub_district_id: this.data.subDistrictId,
             level: _level,
-            filter: this.data.filter,
         }
-        // merge filter
-
+        // 合并filter 部分
+        var filter = this.data.filter
         var _this = this
-        console.log('load markers with data', data)
+        Object.keys(filter).forEach((key, i) => {
+            data[key] = filter[key]
+        })
+        var _this = this
+        console.log('load markers with query data ', data)
         app.request({
             url: '/api/v1/map_markers',
             method: 'POST',
             data: data,
+            hideLoading: true,
             success: function (resp) {
                 console.log('markers resp', resp.data.data)
                 if (resp.data.status != 0) {
@@ -238,7 +274,7 @@ Page({
     markertap: function (e) {
         console.log('marker click', e)
         var _this = this
-        var index =  e.detail.markerId
+        var index = e.detail.markerId
         console.log('marker index ', index)
         var marker = this.data.markers[index]
         var markerId = marker._id
@@ -257,10 +293,6 @@ Page({
                 break;
             case 'district':
                 this.setData({ districtId: nid })
-                nextLevel = 'sub_district'
-                break;
-            case 'sub_district':
-                this.setData({ subDistrictId: nid })
                 nextLevel = 'post'
                 break;
             case 'post':
@@ -291,26 +323,6 @@ Page({
             marker['callout']['color'] = _color
         })
         this.setData({ markers: markers, markerId: markerId })
-    },
-
-    loadPosts: function (sid) {
-        // 根据小区id查询下面的房源数据
-        var pGroup = this.data.currentPostGroup
-        var query = {
-            sub_district_id: sid,
-            group_v2: pGroup,
-            order: 'id desc',
-            per_page: 999,
-        }
-        var _this = this
-        app.request({
-            url: '/api/v2/posts',
-            data: query,
-            success(res) {
-                var scale = SCALE_DICT['post']
-                _this.setData({ posts: res.data.data, total_posts: res.data.meta.total_entries, scale: scale })
-            }
-        })
     },
 
 
@@ -348,13 +360,9 @@ Page({
                     return
                 }
 
-                if (res.scale <= 12 && _this.data.level == 'sub_district') {
-                    _this.loadMarkers('district')
-                    return
-                }
 
                 if (res.scale <= 16 && _this.data.level == 'post') {
-                    _this.loadMarkers('sub_district')
+                    _this.loadMarkers('district')
                     return
                 }
 

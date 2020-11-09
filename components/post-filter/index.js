@@ -8,21 +8,22 @@ Component({
      */
 
     properties: {
-        filter: { type: Object, default: null }
+        filter: { type: Object, default: null },
     },
 
     observers: {
         "filter.group_v2": function (g) {
             console.log('filter.group v2', g)
-            if(!g){
+            if (!g) {
                 return
             }
             this.setData({ postGroup: g })
         }
     },
 
-    ready: function(){
-            this.loadFilterOptions()
+    ready: function () {
+        console.log('ready load filter options')
+        this.loadFilterOptions()
     },
 
 
@@ -38,19 +39,21 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        
-        loadFilterOptions: function(){
+
+
+        loadFilterOptions: function () {
             // 加载销售状态选项
-            // TODO 
-            var _this  = this
+            var _this = this
+            console.log('load filter options start')
             app.request({
-                url: '/api/v1/filter_options/', 
-                data: { group: _this.data.postGroup  },
-                success: function(resp){
-                    if(resp.data.status != 0){
+                url: '/api/v1/filter_options/',
+                data: { group: _this.data.postGroup },
+                success: function (resp) {
+                    console.log('load filter options', resp)
+                    if (resp.data.status != 0) {
                         return
                     }
-                    _this.setData({filterOptions: resp.data.data})
+                    _this.setData({ filterOptions: resp.data.data })
                 }
             })
         },

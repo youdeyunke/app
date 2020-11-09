@@ -1,5 +1,5 @@
 {
-  "usingComponents": {
-    "item-block": "/components/post/item-block"
-  }
+    "usingComponents": {
+        "item-block": "/components/post/item-block"
+    }
 }
