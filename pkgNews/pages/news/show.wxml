@@ -1,4 +1,4 @@
-<block>
+<block class="{{item.content_type == 'video' ? 'page' :''}}">
     <view wx:if="{{item.content_type == 'html'}}">
         <box padding="20" margin-bottom="2" wx:if="{{item.show_cover}}">
             <view class="header">
@@ -15,4 +15,7 @@
         </box>
     </view>
     <web-view  wx:if="{{item.content_type == 'url'}}" src='{{item.url}}' />
+    <view class="video" wx:if="{{item.content_type == 'video'}}">
+        <video  controls id="video"  src="{{item.url}}" bindended="endAction" bindplay="startAciton" custom-cache="{{false}}"></video>
+    </view>
 </block>

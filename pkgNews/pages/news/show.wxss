@@ -1,6 +1,7 @@
 page {
     font-size: 24rpx;
     background: #fff !important;
+    min-height: 100%;
 }
 
 .header {
@@ -44,4 +45,17 @@ myfav image {
     width: 30rpx;
     height: 30rpx;
     margin-right: 20rpx;
+}
+.video{
+    width: 100%;
+    height: 100% !important;
+    min-height: 100vh !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #000;
+}
+.video video {
+    width: 750rpx;
+    height: 750rpx;
 }
