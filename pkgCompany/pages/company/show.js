@@ -21,7 +21,7 @@ Page({
      */
     onLoad: function (q) {
         var cid = q.id
-        var filter = { company_id: cid, order: 'id desc', per_page: 10, page: 1,city_id:null,group_v2:'new' }
+        var filter = { company_id: cid, order: 'id desc', per_page: 10, page: 1,city_id:'',group_v2:'new' }
         this.setData({
             filter: filter,
             cid: cid
