@@ -20,9 +20,6 @@ Component({
             type: String, value: null
         },
 
-        kw: {
-            type: String, value: '', observer: "kwChange"
-        }
     },
 
     /**
@@ -64,17 +61,6 @@ Component({
             console.log('filter: query is', query)
             console.log('this.data.filter is', this.data.filter)
             console.log('v is', v)
-            this.setData({ query: query })
-            this.loadData()
-        },
-
-        kwChange: function () {
-            // TODO  remove this  function
-            console.log('kw change')
-            return
-            var query = {}
-            query.page = 1
-            query.kw = this.data.kw
             this.setData({ query: query })
             this.loadData()
         },

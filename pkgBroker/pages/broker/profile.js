@@ -17,6 +17,8 @@ Page({
       {id: 'wechat', bindtap: 'copyWechat'},
     ],
     tabs: [ ],
+    val:'',
+    inputVal:''
   },
 
 
@@ -107,7 +109,23 @@ Page({
       title:''
     })    
   },  
-
+  loadPosts(){
+    var filter =  this.data.filter
+    filter['kw'] = this.data.val
+    this.setData({
+      filter:filter
+    })
+  },
+  searchTextInput(e){
+    this.setData({val:e.detail})
+  },
+  clearSearch(){
+    var filter =  this.data.filter
+    filter['kw'] = ''
+    this.setData({
+      filter:filter
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
