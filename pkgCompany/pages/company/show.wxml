@@ -11,8 +11,11 @@
 </box>
 <view hidden="{{tab != 'posts'}}">
     <box padding="0" width="700">
+    <van-search value="{{ val }}" placeholder="请输入搜索关键词" use-action-slot bind:clear="clearSearch" bind:search="loadPosts" custom-class="search-box" bind:change="searchTextInput">
+        <view slot="action" bind:tap="loadPosts">搜索</view>
+    </van-search>
     <post-filter filter="{{filter}}" wx:if="{{filter.group_v2}}" bind:change="filterChange"></post-filter>
-        <items kw="" wx:if="{{filter}}" page="{{page}}" filter="{{filter}}" />
+        <items  wx:if="{{filter}}" page="{{page}}" filter="{{filter}}" />
     </box>
 </view>
 <view hidden="{{ tab != 'desc' }}">

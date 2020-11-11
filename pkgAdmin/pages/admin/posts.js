@@ -68,7 +68,7 @@ Page({
             url: '/api/v1/admin_posts/',
             data: {
                 per_page: 999,
-                text: _this.data.searchText,
+                kw: _this.data.searchText,
                 group_v2: g,
             },
             success: function (resp) {

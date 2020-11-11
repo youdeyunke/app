@@ -39,7 +39,16 @@ Page({
         })
     },
 
-
+    endAction(){
+        this.videoContext = wx.createVideoContext('video', this);
+        this.videoContext.exitFullScreen()
+    },
+    startAciton(){
+        var videoContext = wx.createVideoContext('myVideo', this);// 	创建 video 上下文 VideoContext 对象。
+		videoContext.requestFullScreen({	// 设置全屏时视频的方向，不指定则根据宽高比自动判断。
+			direction: 90						// 屏幕逆时针90度
+		});
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -51,7 +60,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        
     },
 
     /**

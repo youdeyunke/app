@@ -5,6 +5,7 @@
         "van-tabs": "/vant/tabs/index",
         "namecard": "/components/broker/namecard",
         "items": "/components/post/items",
-        "box": "/components/box"
+        "box": "/components/box",
+        "van-search": "/vant/search/index"
     }
 }

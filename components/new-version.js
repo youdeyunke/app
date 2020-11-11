@@ -21,7 +21,9 @@ Component({
         if (configs.plugin_home_ad && configs.plugin_home_ad_desc) {
             this.setData({ show: true, mode: 2, ad_image: configs.plugin_home_ad_desc })
             // 延时关闭
-            setTimeout(function () { _this.closeHandle() }, 10000)
+            setTimeout(() => {
+                _this.Timeout()
+            }, 1000);
             return false
         }
 
@@ -42,7 +44,8 @@ Component({
      */
     data: {
         show: false,
-        mode: 1, // 1:检查版本，2，开屏广告
+        mode: 1, // 1:检查版本，2，开屏广告,
+        time:3
 
     },
 
@@ -74,7 +77,20 @@ Component({
         closeHandle: function () {
             this.setData({ show: false })
         },
-
+        Timeout(){
+            var _this = this
+            var time = this.data.time -1 
+            setTimeout(() => {
+                _this.setData({time : time})
+                if(this.data.time<=0){
+                    this.closeHandle()  
+                    return
+                }else{
+                    this.Timeout()
+                }
+            }, 1000);
+            
+        },
         markNewVersion: function (e) {
             // 本地保存最新版本号，以便下次比对
             var _this = this
