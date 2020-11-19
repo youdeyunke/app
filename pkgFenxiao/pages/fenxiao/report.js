@@ -35,9 +35,8 @@ Page({
         mobileType: 'protected',
 
         setpsText: ["报备客户", "核实成交", "发放佣金"],
+        popupShow:false
     },
-
-
     /**
      * 生命周期函数--监听页面加载
      */
@@ -70,14 +69,18 @@ Page({
         })
     },
 
-    inputChange: function (e) {
-        var k = e.currentTarget.dataset['name']
-        var v = e.detail
-        var data = {}
-        data[k] = v
-        this.setData(data)
+    fangChange(){
+        this.setData({
+            popupShow:true
+        })
     },
-
+    pidChange(e){
+        this.setData({
+            pid:e.detail,
+            popupShow:false
+        })
+        this.loadPost(e.detail)
+    },
     loadPost: function (pid) {
         if (!pid) {
             return false;
