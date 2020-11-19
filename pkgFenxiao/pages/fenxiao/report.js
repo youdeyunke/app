@@ -11,6 +11,7 @@ Page({
     data: {
         pid: null,
         sex: 1,
+        name: '',
         sexOptions: [{
             label: '先生',
             value: 1
@@ -149,9 +150,9 @@ Page({
             return false;
        }
 
-        if (!fdata['post_name'] || fdata['post_name'].length <= 1) {
+        if (!fdata['post_id']) {
             wx.showToast({
-                title: '请填写客户意向',
+                title: '请选择楼盘',
                 icon: 'none'
             })
             return false;
