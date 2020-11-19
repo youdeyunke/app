@@ -31,9 +31,9 @@ Page({
             value: 'full'
         },
         ],
-
+        name:'',
+        mobile:'',
         mobileType: 'protected',
-
         setpsText: ["报备客户", "核实成交", "发放佣金"],
         popupShow:false
     },
