@@ -1,0 +1,6 @@
+<van-popup show="{{ show }}" bind:close="onClose" closeable custom-style='width:100%;height:100%;padding:70rpx 20rpx;'   position="bottom">
+    <van-search value="{{ value }}" placeholder="请输入房源名称"  bind:change='onChange'/>
+    <view class="" >
+        <van-cell wx:for="{{postItem}}" title="{{item.title}}" value="确认"  title-class='cell' data-id='{{item.id}}'  is-link bind:click='pidChange'/>
+    </view>
+</van-popup>

@@ -3,6 +3,8 @@
         "cell-radio": "/components/cell-radio",
         "flow-tips": "/components/flow-tips",
         "post-item": "/components/post/item",
-        "protected-mobile-input": "/components/protected-mobile-input"
+        "protected-mobile-input": "/components/protected-mobile-input",
+        "post-selector":"/components/post-selector/index",
+        "van-icon": "/vant/icon/index"
     }
 }

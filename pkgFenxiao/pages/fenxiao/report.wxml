@@ -16,7 +16,11 @@
     <view class="post-item" wx:if="{{pid}}">
         <post-item item="{{post}}" />
     </view>
-    <van-field wx:else size="large" data-name="post_name" input-align="left" border="{{false}}" value="{{ post_name}} " label="意向房源" bind:change="inputChange" autosize />
+    <view class="fangText" bind:tap="fangChange">
+        <van-icon name="edit" size='38rpx'/>
+        <text class="">点击选择房源</text>
+    </view>
+    <post-selector bind:change='pidChange' class="post-selector" show="{{popupShow}}"></post-selector>
 </mycard>
 <view class="actions">
     <van-button bindtap="submitHandle" type="info" block>提交报备</van-button>

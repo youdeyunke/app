@@ -14,3 +14,12 @@
     padding: 20rpx 10px 0 10px;
     border-radius: 10rpx;
 }
+.post-selector{
+    width: 100%;
+    height: 100%;
+}
+.fangText{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

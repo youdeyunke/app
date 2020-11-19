@@ -1,0 +1,6 @@
+/* components/post-selector/index.wxss */
+.cell{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
