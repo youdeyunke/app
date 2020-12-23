@@ -59,12 +59,14 @@ Page({
                 //html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
                 //html = html.replace(/\<p/gi, '<p class="rich-text-p" ')
                 
+                wx.showShareMenu({
+                    withShareTicket: true,
+                    menus: ['shareAppMessage', 'shareTimeline']
+                })
             }
+            
         })
-        wx.showShareMenu({
-            withShareTicket: true,
-            menus: ['shareAppMessage', 'shareTimeline']
-        })
+
     },
 
     checkViewsCount: function (c) {
