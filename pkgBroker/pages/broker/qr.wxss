@@ -1,0 +1,58 @@
+/* pkgBroker/pages/broker/qr.wxss */
+page{
+    margin-bottom: 20rpx;
+}
+.card-wrapper {
+    width: 750rpx;
+    height: 480rpx;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-wrapper-bg {
+    width: 1500rpx;
+    height: 1500rpx;
+    position: absolute;
+    top: -500rpx;
+    left: -400rpx;
+    z-index: 1;
+    filter: blur(20px);
+}
+
+.card-wrapper .card {
+    z-index: 1;
+    position: absolute;
+
+    top: 40rpx;
+    left: 45rpx;
+}
+    .image{
+        width: 100%;
+        height: 600rpx;
+        margin: auto 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        color: #BCBCBC;
+    }
+    .image image{
+        width: 300rpx;
+        height: 300rpx;
+        margin-bottom: 30rpx;
+    }
+    .footer{
+        box-sizing: border-box;
+        padding: 10rpx;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .poster-image{
+        width: 750rpx;
+        height: 1110rpx;
+    }

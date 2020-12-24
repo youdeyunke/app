@@ -1,0 +1,30 @@
+<view class="sms">
+    <image class="sms-bg" src="/assets/images/Group-68@1x.png" mode="widthFix"></image>
+    <view class="title">
+        <view>手机验证码登录</view>
+        <view class="sub-title">未注册过的手机号将自动创建账号</view>
+    </view>
+</view>
+<view class="body" >
+    <view class="input">
+        <text class="desc">+86</text>
+        <input type="number" model:value='{{phone}}' placeholder="请输入手机号" maxlength="11"/>
+    </view>
+    <view class="input">
+        <text class="desc">验证码:</text>
+        <input type="text" model:value='{{yanzheng}}' placeholder="请输入验证码" maxlength="4" class="yanzheng"/>
+        <text wx:if="{{!yanzhengShow}}" class="fsyzm" bind:tap="sendYanzheng">发送验证码</text>
+        <text wx:else class="fsyzm-f" >{{time}}s后重新获取</text>
+    </view>
+    <button class="button" disabled="{{!phone || !yanzheng}}" bind:tap="loginHandle">立即登录</button>
+</view>
+<view class="footer"  hover-class="none">
+        <view bind:tap="toggleShow">
+            <image  class="icons" wx:if='{{alowTerms}}' src="/assets/icons/Group-69@1x.png" ></image>
+            <image class="icons"  wx:else src="/assets/icons/Rectangle-4@1x.png" ></image>
+        </view>
+        <view class="terms">
+        <text>同意</text>
+        <navigator style="color:#1989fa" url="/pages/static/terms">《用户协议》</navigator>
+        </view>
+    </view>
