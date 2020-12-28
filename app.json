@@ -181,6 +181,14 @@
       ]
     },
     {
+      "root": "pkgAuth",
+      "name": "auth",
+      "pages": [
+        "pages/auth/index",
+        "pages/auth/sms"
+      ]
+    },
+    {
       "root": "pkgDebug",
       "name": "debug",
       "pages": [
@@ -216,7 +224,6 @@
     "pages/districts/select",
     "pages/static/terms",
     "pages/post/meta",
-    "pages/auth/index",
     "pages/udeve/index",
     "pages/map/index",
     "pages/owner/sale",
@@ -225,8 +232,7 @@
     "pages/visitors/index",
     "pages/post/vr",
     "pages/home/v2",
-    "pages/faxian/index",
-    "pages/auth/sms"
+    "pages/faxian/index"
   ],
   "tabBar": {
     "custom": true,

@@ -1,5 +1,5 @@
 <view class="sms">
-    <image class="sms-bg" src="/assets/images/Group-68@1x.png" mode="widthFix"></image>
+    <image class="sms-bg" src="/pkgAuth/images/Group-68@1x.png" mode="widthFix"></image>
     <view class="title">
         <view>手机验证码登录</view>
         <view class="sub-title">未注册过的手机号将自动创建账号</view>
@@ -20,8 +20,8 @@
 </view>
 <view class="footer"  hover-class="none">
         <view bind:tap="toggleShow">
-            <image  class="icons" wx:if='{{alowTerms}}' src="/assets/icons/Group-69@1x.png" ></image>
-            <image class="icons"  wx:else src="/assets/icons/Rectangle-4@1x.png" ></image>
+            <image  class="icons" wx:if='{{alowTerms}}' src="/pkgAuth/images/Group-69@1x.png" ></image>
+            <image class="icons"  wx:else src="/pkgAuth/images/Rectangle-4@1x.png" ></image>
         </view>
         <view class="terms">
         <text>同意</text>
