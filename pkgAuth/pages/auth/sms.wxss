@@ -1,0 +1,88 @@
+/* pages/auth/sms.wxss */
+.sms{
+    width: 750rpx;
+    position: relative;
+}
+.sms-bg{
+    position: absolute;
+    width: 100%;
+    height: 300rpx!important;
+    top: 0;left: 0;
+    z-index: -1;
+}
+.title{
+    color: #FFFFFF;
+    margin-top: 80rpx;
+    margin-left: 40rpx;
+    font-size: 38rpx;
+}
+.sub-title{
+    font-size: 24rpx;
+    margin-top: 20rpx;
+}
+.body{
+    width: 670rpx;
+    margin: 300rpx 20rpx;
+    margin-bottom: 250rpx;
+}
+.input{
+    width: 100%;
+    height: 62rpx;
+    border-bottom: 1rpx solid #B4B4B4;
+    display: flex;
+    
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 80rpx;
+}
+.input text{
+    color: #666666;
+}
+.input input{
+    width: 80%;
+    height: 100%;
+    color: #B4B4B4;
+}
+.desc{
+    width: 20%;
+    text-align: left;
+}
+.yanzheng{
+    width: 55%!important;
+    height: 100%;
+}
+.fsyzm{
+    width: 30%;
+    color: #1989F9!important;
+}
+.button{
+    width: 100%;
+    height: 87rpx;
+    background-color:#1989F9 ;
+    color: #fff;
+    font-size: 32rpx;
+    line-height: 87rpx;
+    text-align: center;
+}
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333333;
+    font-size: 24prx;
+    padding-bottom: 57rpx;
+}
+.icons{
+    width: 20rpx;
+    height: 20rpx;
+}
+.terms{
+    font-size: 24rpx;
+    margin-left: 10rpx;
+    display: flex;
+}
+.fsyzm-f{
+    width: 30%;
+    color: #AEAEAE !important;
+    font-size: 28rpx!important;
+}

@@ -1,10 +1,16 @@
 /* pages/static/terms.wxss */
 page{
-    background: #fff !important;
+   
+    font-size: 24rpx;
+    background: #f4f4f4;
 }
 .terms{
     line-height: 1.5;
+    margin: 20rpx;
     padding:20rpx;
+    background: #fff !important;
+    border-radius: 20rpx;
+    
 }
 
 .p{
@@ -13,8 +19,13 @@ page{
 
 .h{
     color:#000;
-    font-size:var(--font-lg);
+    font-weight: bold;
 }
 view{
     margin:4rpx 0;
+}
+.title{
+    font-size: 36rpx;
+    font-weight: bold;  
+    color: #000;
 }

@@ -14,7 +14,7 @@ Page({
     },
 
     gotoLoginPage: function (e) {
-        wx.navigateTo({ url: '/pages/auth/index', })
+        wx.navigateTo({ url: '/pkgAuth/pages/auth/index', })
     },
 
     doUpdate: function (userInfo) {
@@ -101,6 +101,7 @@ Page({
     navigatetTo: function (e) {
         console.log('e', e)
         var url = e.currentTarget.dataset.url
+        console.log("url",url);
         wx.navigateTo({
             url: url,
         })

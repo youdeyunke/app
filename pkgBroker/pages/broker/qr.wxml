@@ -1,0 +1,11 @@
+    <poster  id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
+    <image class="poster-image" src="{{posterUrl}}"></image>
+    </poster>
+    <view class="footer" wx:if=" {{ userId   == userInfoId}}">
+        <van-button  type="default"  custom-style='width:350rpx;' bind:click='userEdit'>编辑名片</van-button>
+        <van-button type="info" custom-style="width:350rpx;" bind:click='saveFile'>立即分享</van-button>
+    </view>
+    <view class="footer" wx:if='{{userId != userInfoId}}'>
+        <van-button type="info" custom-style="width:700rpx;" bind:click='saveFile'>立即分享</van-button>
+    </view>
+    

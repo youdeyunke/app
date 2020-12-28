@@ -1,6 +1,6 @@
 // pages/myself/myself.js
 const app = getApp()
-var auth = require('../../utils/auth.js');
+var auth = require('../../../utils/auth.js');
 
 Page({
 
@@ -11,6 +11,7 @@ Page({
         loginMethod: '',
         code: null,
         loading: false,
+        show:true
     },
 
 
@@ -96,7 +97,15 @@ Page({
         console.log('app.globalData.userInfo auth/index.js', app.globalData.userInfo)
     },
 
-
+    toggleShow(){
+        var show = this.data.show
+        if(!show){
+            show = true
+        }else{
+            show = false
+        }
+        this.setData({show:show})
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

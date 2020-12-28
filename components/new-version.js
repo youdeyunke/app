@@ -79,7 +79,7 @@ Component({
         },
         Timeout(){
             var _this = this
-            var time = this.data.time -1 
+            var time = _this.data.time -1 
             setTimeout(() => {
                 _this.setData({time : time})
                 if(this.data.time<=0){

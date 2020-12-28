@@ -15,7 +15,7 @@ page {
 }
 
 .header {
-    padding-top: 300rpx;
+    padding-top: 230rpx;
     text-align: center;
 }
 
@@ -25,14 +25,14 @@ page {
 }
 
 .header .subtitle {
-    font-size: 28rpx;
+    font-size: 24rpx;
     color: #fff;
-    margin-top: 10rpx;
+    margin-top: 20rpx;
 }
 
 .body {
     padding-top: 300rpx;
-    width: 590rpx;
+    width: 650rpx;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -43,7 +43,7 @@ page {
 .body .tips {
     color: #fff;
     font-size: 24rpx;
-    margin-top: 10rpx;
+    margin-top: 20rpx;
 }
 
 .footer {
@@ -77,4 +77,38 @@ page {
     right: 0;
     bottom: 0;
     filter: blur(2px);
+}
+
+.icon{
+    width: 34rpx;
+    height:34rpx;
+    padding-top: 7rpx;
+}
+.nav{
+    background: #fff;
+    color: #333333;
+    width: 100%;
+    height: 88rpx;
+    line-height: 88rpx;
+    margin-top: 20rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav text{
+    font-size: 32rpx;
+    margin-left: 10rpx;
+    font-weight: medium
+}
+.icons{
+    width: 20rpx;
+    height: 20rpx;
+}
+.terms{
+    font-size: 24rpx;
+    margin-left: 10rpx;
+    display: flex;
+}
+.van-button--normal{
+    font-size: 32rpx !important;
 }

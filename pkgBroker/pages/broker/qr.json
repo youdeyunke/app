@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "namecard": "/components/broker/namecard",
+    "van-button": "/vant/button/index",
+    "poster":"../../utils/poster/index"
+  }
+  
+}
