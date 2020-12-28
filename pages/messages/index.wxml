@@ -18,7 +18,7 @@
 </block>
 
 <block wx:else>
-  <navigator hover-class="none" url="/pages/auth/index" class="unlogin empty">
+  <navigator hover-class="none" url="/pkgAuth/pages/auth/index" class="unlogin empty">
     <text class="title">请先登录账号</text>
     <text class="desc">消息功能仅限登录用户使用</text>
     <van-button type="primary" size="small" >前往登录页面</van-button>
