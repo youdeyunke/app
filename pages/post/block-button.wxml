@@ -1,0 +1,4 @@
+
+<view  url="{{url}}"  open-type="navigate" style="background-color:{{bgColor}};color:{{color}};">
+        <view  class="more-btn" bind:tap="btnHandle">{{buttonVal}}</view>
+</view>

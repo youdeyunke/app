@@ -27,5 +27,6 @@
         "box": "/components/box",
         "visitors": "/components/visitors/index",
         "safe-tips": "/components/safe-tips"
+        
     }
 }

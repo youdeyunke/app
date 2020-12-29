@@ -1,5 +1,5 @@
 .location {
-    padding: 20rpx 0 20rpx 30rpx;
+    padding: 22rpx 0 22rpx 30rpx;
     font-size: 28rpx;
     display: flex;
     justify-content: space-between;

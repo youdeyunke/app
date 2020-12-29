@@ -15,22 +15,19 @@ Component({
    */
   data: {
   tabs: [
-    {name:'地铁', value: '地铁'},
-    {name:'幼儿园', value:'学校:幼儿园'},
-    {name:'小学', value:'学校:小学'},
-    {name:'中学', value:'学校:中学'},
-    {name:'美食', value:'美食'},
-    {name:'购物', value:'购物'},
-    {name:'公交', value:'公交'},
-    {name:'银行', value:'银行'},
+    {name:'地铁', value: '地铁',icon:'map-i-dt.png',isActive:true},
+    {name:'幼儿园', value:'学校:幼儿园',icon:'map-i-yey.png',isActive:false},
+    {name:'小学', value:'学校:小学',icon:'map-i-xx.png',isActive:false},
+    {name:'中学', value:'学校:中学',icon:'map-i-zx.png',isActive:false},
+    {name:'美食', value:'美食',icon:'map-i-ms.png',isActive:false},
+    {name:'购物', value:'购物',icon:'map-i-gw.png',isActive:false},
+    {name:'公交', value:'公交',icon:'map-i-gj.png',isActive:false},
+    {name:'银行', value:'银行',icon:'map-i-yh.png',isActive:false},
   ] ,
     resp:[],
     active: 0,
     isShow:0,
-    contentAll:1,
     maxLength:2,
-    buttonShow:true,
-    buttonVal:'展开全部'
   },
   ready: function() {
     this.getContent()
@@ -39,12 +36,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    tabHandle:function(e){
-      const { index } = e.detail 
-      this.setData({active:index })
-      this.getContent() 
-    }, 
-
 
     getContent(e){
       var _this = this
@@ -92,19 +83,26 @@ Component({
         }
       })
     },
-    moreHandle(){
-      var maxlength  = this.data.maxLength
-      if(maxlength ==2){
-        this.setData({
-          maxLength:this.data.resp.length,
-          buttonVal:'收起'
-        })
-      }else{
-        this.setData({
-          maxLength:2,
-          buttonVal:'展开全部'
-        })
-      }
+    handleItemTap(e){
+      this.setData({maxLength:2})
+      var _this = this
+      const{index} = e.currentTarget.dataset;
+      var tabs = this.data.tabs
+      tabs.forEach((v,i) => {
+          if(i == index){
+            v.isActive = true
+          }else{
+            v.isActive = false
+          }
+      });
+      this.setData({
+        tabs:tabs,
+        active:index
+      })
+      this.getContent()
     },
+    lengthChange(e){
+      this.setData({maxLength:e.detail})
+    }
   }
 })

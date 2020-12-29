@@ -1,4 +1,4 @@
-<mycard title="{{ value.title }}"  hat="{{false}}" title-size="32" subtitle="{{ value.more_title }}" url="{{moreUrl}}" >
+<my-card title="{{ value.title }}"   subtitle="{{ value.more_title }}" url="{{moreUrl}}" >
   <view class="qas">
     <view class="empty" wx:if="{{value.items.length == 0}}">还没有人提问</view>
 
@@ -12,10 +12,7 @@
         </view>
     </view>
 
-    <navigator class="add-btn"  hover-class="none" url="/pkgQa/pages/qa/new?target_id={{value.post_id}}&target_type=post">
-     <van-icon name="edit" /> 去提问
-    </navigator>
-
+    <block-button  url="/pkgQa/pages/qa/new?target_id={{value.post_id}}&target_type=post" buttonVal='去提问' />
   </view>
 
-</mycard>
+</my-card>

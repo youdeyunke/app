@@ -3,6 +3,13 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  font-size: 26rpx;
+}
+.label{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 24rpx;
 }
 .null{
   padding: 30rpx 0;
@@ -28,4 +35,50 @@
 .mini{
   height: 240rpx;
   overflow: hidden;
+}
+.active{
+  width: 80rpx;
+  height: 4rpx;
+  border-bottom:5rpx solid #1989fa ;
+  z-index: 5;
+  position: absolute;
+  top: 138rpx;
+  margin-left: 36rpx;
+}
+.tabs_title{
+  width: 750rpx;
+  height: 146rpx;
+  white-space: nowrap;
+}
+.title_item{
+  display: inline-block;
+  padding: 15rpx  0;
+  text-align: center;
+  width: 20%;
+}
+.icon{
+  width: 68rpx;
+  height: 68rpx;
+  margin-top: 8rpx;
+}
+.name{
+  width: 80rpx;
+  height: 30rpx;
+  margin: 0 auto;
+  line-height: 30rpx;
+  font-size: 24rpx;
+}
+.border{
+  height: 2rpx;
+  background-color: #F0F0F0;
+}
+.images{
+  width:16rpx;
+  height:22rpx;
+  margin-right:8rpx;
+}
+.value{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }

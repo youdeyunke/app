@@ -1,14 +1,14 @@
 <van-skeleton loading="{{loading}}" title="{{true}}" row="5" style="width:100%;" >
 
-<mycard title="基础信息" hat="{{false}}">
+<my-card title="基础信息">
   <van-cell  size="large" wx:for="{{post.meta_list}}" title="{{item.label}}" value="{{item.value}}" wx:key="{{index}}" />
-</mycard>
+</my-card>
 
-<mycard  title="加密信息" hat="{{false}}" subtitle="仅发布者可见">
+<my-card  title="加密信息"  subtitle="仅发布者可见">
   <view class="{{ userInfo.id == post.user_id ? '' : 'blur' }}">
     <van-cell  size="large" wx:key="{{index}}" wx:for="{{post.protected_meta_list}}" title="{{item.label}}" value="{{item.value}}" />
   </view>
-</mycard>
+</my-card>
 
 </van-skeleton>
 

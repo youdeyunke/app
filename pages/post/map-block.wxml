@@ -1,4 +1,4 @@
-<mycard title="{{value.title}}" hat="{{false}}" padding="{{false}}" title-size="32">
+<my-card title="{{value.title}}"  padding="{{false}}" title-size="30" >
     <mapimage pois='{{pois}}' image="{{value.map_image_url}}" latitude="{{value.latitude}}" longitude="{{value.longitude}}" name="{{value.name}}"></mapimage>
     <view class="location">
         <view class="location-left">
@@ -12,4 +12,4 @@
         </view>
     </view>
     <ambitus latitude="{{value.latitude}}" longitude="{{value.longitude}}" bind:myevent="getMyevent" />
-</mycard>
+</my-card>    
