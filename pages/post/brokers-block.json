@@ -2,6 +2,7 @@
   "component": true,
   "usingComponents": {
     "broker-link": "/components/broker/link",
-    "my-card":"./card"
+    "my-card":"./card",
+    "broker-item":"./broker-item"
   }
 }

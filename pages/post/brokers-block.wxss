@@ -9,8 +9,8 @@
 }
 
 .badge-item {
-    font-size: 24rpx;
-    color: #999999;
+    font-size: 26rpx;
+    color: #A0A0A0;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -31,4 +31,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.broker{
+  width: 710rpx;
+  margin: 30rpx 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
 }
