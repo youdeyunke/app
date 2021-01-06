@@ -20,6 +20,14 @@
         "pages/map/index"
       ]
     },
+
+    {
+      "root": "pkgRanking",
+      "name": "pkgranking",
+      "pages": [
+        "pages/ranking/index"
+      ]
+    },
     {
       "root": "pkgPoster",
       "name": "poster",
