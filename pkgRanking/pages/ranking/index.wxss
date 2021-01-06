@@ -1,1 +1,46 @@
 /* pkgRanking/pages/ranking/index.wxss */
+page{
+    margin-bottom: 200rpx;
+}
+.ranking{
+    width: 750rpx;
+    position: relative;
+}
+.image{
+    width:750rpx;
+    height: 500rpx; 
+    position: absolute;
+    top: 0; left: 0; 
+    z-index: -1;
+}
+.content{
+    width: 710rpx;
+    height: 108rpx;
+    font-size: 24rpx;
+    position: absolute;
+    top: 273rpx;left: 20rpx;
+    color: #fff;
+    background: rgba(24,24,24,.35);
+    box-sizing: border-box;
+    padding: 20rpx ;
+}
+.item{
+    padding: 0 20rpx;
+    margin-top: 400rpx;
+    z-index: 2;
+}
+.buttons{
+    width: 710rpx;
+    padding: 25rpx  0;
+    margin:  0 20rpx;
+    border-radius: 50rpx;
+    background: linear-gradient(-89.89deg, #1A73E7 0%, #64ABFF 100%);
+    font-size: 36rpx;
+    color:#fff;
+    box-sizing: border-box;
+    text-align: center;
+    position: fixed;
+    bottom: 50rpx;
+    left: 0;
+    z-index: 50;
+}
