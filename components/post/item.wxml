@@ -4,7 +4,7 @@
         <image lazy-load="{{true}}" mode="aspectFill" class="i" src="{{ item.cover || '/assets/images/cover-none.png' }}?imageView2/2/w/750"></image>
         <view class="icons">
             <image wx:if="{{item.vr_url}}" class="vr-btn" src="/assets/icons/vr.png"></image>
-            <image wx:if="{{item.video}}" class="video-btn" src="/assets/icons/bofang.png"></image>
+            <image wx:if="{{item.video_url}}" class="video-btn" src="/assets/icons/bofang.png"></image>
         </view>
     </view>
     <view class="meta">

@@ -18,7 +18,7 @@
     </view>
     <view class="fangText" bind:tap="fangChange">
         <van-icon name="edit" size='38rpx'/>
-        <text class="">点击选择房源</text>
+        <text class="">点击{{  pid ? '修改' : '选择'  }}房源</text>
     </view>
     <post-selector bind:change='pidChange' class="post-selector" show="{{popupShow}}"></post-selector>
 </mycard>
