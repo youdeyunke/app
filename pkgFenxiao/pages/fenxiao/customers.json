@@ -1,6 +1,6 @@
 {
     "navigationBarTitleText": "我的报备记录",
     "usingComponents": {
-        "customer": "/components/customer-item"
+        "customer": "./customer-item"
     }
 }
