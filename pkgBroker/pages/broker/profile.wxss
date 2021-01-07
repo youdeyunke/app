@@ -5,28 +5,52 @@ page {
 
 .card-wrapper {
     width: 750rpx;
-    height: 480rpx;
+    height: 550rpx;
     position: relative;
     overflow: hidden;
 }
 
 .card-wrapper-bg {
-    width: 1500rpx;
-    height: 1500rpx;
+    width: 750rpx;
+    height: 382rpx;
     position: absolute;
-    top: -500rpx;
-    left: -400rpx;
-    z-index: 1;
-    filter: blur(20px);
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
-
-.card-wrapper .card {
-    z-index: 999;
+.user-bg{
+    width: 710rpx;
+    height: 314rpx;
     position: absolute;
-    top: 40rpx;
-    left: 45rpx;
+    left: 20rpx;
+    top: 208rpx;
+    z-index: 2;
+    border-radius: 20rpx;
 }
-
+.avatar{
+    width: 158rpx;
+    height: 158rpx;
+    border: 6rpx solid #FDEBBD;
+    position: absolute;
+    top: 114rpx;
+    left: 57rpx;
+    border-radius: 50%;
+    z-index: 3;
+}
+.name{
+    font-size: 38rpx;
+    color: #333333;
+    position: absolute;
+    top: 292rpx; left: 82rpx;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+}
+.name-icon{
+    width: 36rpx;
+    height: 36rpx;
+    margin-left: 8rpx;
+}
 .body {
     width: 100%;
     padding-top: 0rpx;
@@ -48,4 +72,67 @@ page {
 
 .footer van-button {
     width: 45%;
+}
+.weixin{
+    color: #333333;
+    font-size:24rpx ;
+    position: absolute;
+    top: 346rpx; left: 82rpx;
+    z-index: 3;
+    display: flex;
+    align-items: baseline;
+}
+.weixin-icon{
+    width: 26rpx;
+    height: 26rpx;
+    margin-left: 14rpx;
+}
+.desc{
+    width: 330rpx;
+    height: 62rpx;
+    font-size: 24rpx;
+    position: absolute;
+    top: 414rpx;
+    left: 82rpx;
+    z-index: 3;
+}
+.haoyou{
+    position: absolute;
+    top: 280rpx; left: 490rpx;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.haoyou-icon{
+    width: 66rpx;
+    height: 66rpx;
+    background: #FFF4D7;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.haoyou-text{
+    font-size: 24rpx;
+    color: #3F3F3F;
+    margin-top: 13rpx;
+}
+.zhuanfa{
+    position: absolute;
+    top: 280rpx; left: 612rpx;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.liulan{
+    font-size: 22rpx;
+    color: #333333;
+    position: absolute;
+    z-index: 3;
+    top: 448rpx;
+    left: 536rpx;
 }
