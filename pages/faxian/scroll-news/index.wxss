@@ -1,0 +1,38 @@
+/* pages/faxian/scroll-news/index.wxss */
+.scroll-cell{
+    width: 75%;
+    color: #333;
+    font-size: 24rpx;
+    display: inline-flex;
+    position: relative;
+    z-index: 2;
+}
+.scroll{
+    width: 100%;
+    white-space: nowrap;
+}
+.cell-image{
+    width: 500rpx;
+    height: 312rpx;
+    z-index: -1;
+}
+.cell-tag{
+    border-radius: 0rpx 10rpx 10rpx 0rpx;
+    background: #1989FA;
+    width: 110rpx;
+    height: 40rpx;
+    color: #fff;
+    font-size: 26rpx;
+    position: absolute;
+    top: 16rpx; left: 0;
+    padding: 6rpx 0 6rpx 6rpx;
+}
+.cell-text{
+    width: 454rpx;
+    height: 78rpx;
+    color: #fff;
+    font-size: 28rpx;
+    position: absolute;
+    top:  214rpx; left: 26rpx;
+    white-space: pre-wrap;
+}

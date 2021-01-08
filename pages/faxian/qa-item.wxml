@@ -1,13 +1,15 @@
 <view hover-class="none" class="question">
     <view class="header">
         <view class="left">
-            <q-icon />
-            <van-tag style="margin-right:10rpx;" wx:for="{{tags}}" type="primary" plain>
+            <image src="/assets/icons/question.png" style="width:32rpx;height:32rpx;margin-right:10rpx;"/>
+            <image src="/assets/icons/reyi.png" style="width:51rpx;height:32rpx"/>
+            <van-tag style="margin: 0 10rpx;" wx:for="{{tags}}" type="primary" plain>
                 {{item}}
             </van-tag>
             <view wx:if="{{item.target_name}}" class="target-name">#{{ item.target_name }}#</view>
+            <view class="jiejue">已解决</view>
         </view>
-        <view class="right">{{item.answers_count || 0 }}   回答</view>
+        <view class="right">{{item.answers_count || 0 }}回答</view>
     </view>
     <navigator url="/pkgQa/pages/qa/qa?id={{item.id}}" class="body">{{ item.content }}</navigator>
     <view class="footer">

@@ -1,0 +1,24 @@
+<navigator hover-class="none"  url="/pkgTour/pages/tour/show?id={{item.id}}" style="">
+      <view class="cover">
+        <view class="img">
+          <view class="title {{item.status.value == 2 }}? fail:''" wx:if="{{item.status.value == 2 }}">
+            <text>{{ item.status.name }}</text>
+          </view>
+          <view class="title {{item.status.value == 2 }}? '':success" wx:else>
+            <text>{{ item.status.name }}</text>
+          </view>
+          <image style="border-top-left-radius:20rpx;border-top-right-radius:20rpx;" src="{{item.cover}}?imageView2" />
+        </view>
+        <view class="text">
+          <view class="text-title">
+            <view class="title">{{item.title}}</view>
+            <view style="margin:20rpx 0;">活动地址：{{ item.address }}</view>
+            <view>活动时间：{{item.starts_at_pretty}}</view>
+          </view>
+          <view class="text-right">
+            <view class="renshu">报名人数:  125</view>
+            <view class="text-btn"  wx:if="{{item.status.value != 2 }}">立即报名</view>
+          </view>
+        </view>
+      </view>
+  </navigator>

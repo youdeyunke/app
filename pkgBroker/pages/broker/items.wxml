@@ -1,0 +1,45 @@
+<view class="show" hover-class="none" hover-stop-propagation="false" wx:for="{{items}}">
+    <item item='{{item}}'></item>
+    <scroll-view scroll-x class="scroll">
+            <navigator class="scroll-cell">
+                <image src="../../icons/icon-0.png"  style="width:80rpx;height:80rpx;margin-bottom:10rpx"/>
+                <text class="">置业顾问</text>
+            </navigator>
+            <navigator class="scroll-cell">
+                <image src="../../icons/icon-1.png"  style="width:80rpx;height:80rpx;margin-bottom:10rpx"/>
+                <text class="">户型图</text>
+            </navigator>
+            <navigator class="scroll-cell">
+                <image src="../../icons/icon-2.png"  style="width:80rpx;height:80rpx;margin-bottom:10rpx"/>
+                <text class="">周边配套</text>
+            </navigator>
+            <navigator class="scroll-cell">
+                <image src="../../icons/icon-3.png"  style="width:80rpx;height:80rpx;margin-bottom:10rpx"/>
+                <text class="">楼盘动态</text>
+            </navigator>
+            <navigator class="scroll-cell">
+                <image src="../../icons/icon-4.png"  style="width:80rpx;height:80rpx;margin-bottom:10rpx"/>
+                <text class="">一房一价</text>
+            </navigator>
+            <navigator class="scroll-cell">
+                <image src="../../icons/icon-5.png"  style="width:80rpx;height:80rpx;margin-bottom:10rpx"/>
+                <text class="">VR看房</text>
+            </navigator>
+            <navigator class="scroll-cell">
+                <image src="../../icons/icon-6.png"  style="width:80rpx;height:80rpx;margin-bottom:10rpx"/>
+                <text class="">计算器</text>
+            </navigator>
+            <navigator class="scroll-cell">
+                <image src="../../icons/icon-7.png"  style="width:80rpx;height:80rpx;margin-bottom:10rpx"/>
+                <text class="">活动</text>
+            </navigator>
+            <navigator class="scroll-cell">
+                <image src="../../icons/icon-8.png"  style="width:80rpx;height:80rpx;margin-bottom:10rpx"/>
+                <text class="">有问必答</text>
+            </navigator>
+            <navigator class="scroll-cell">
+                <image src="../../icons/icon-9.png"  style="width:80rpx;height:80rpx;margin-bottom:10rpx"/>
+                <text class="">相关资讯</text>
+            </navigator>
+    </scroll-view>
+</view>

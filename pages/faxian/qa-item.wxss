@@ -8,10 +8,10 @@
     width: 100%;
     margin-bottom: 20rpx;
     background: #fff;
-    border-radius: 6rpx;
+    border-radius: 20rpx;
     border: 2rpx solid #f4f4f4;
-    padding: 20rpx;
-    width: calc(100% - 40rpx);
+    padding: 40rpx;
+    width: calc(100% - 80rpx);
 }
 
 .question .header {
@@ -23,10 +23,19 @@
 
 .question .header .left {
     display: flex;
+    align-items: center;
 }
-
+.right{
+    color: #A0A0A0;
+    font-size: 24rpx;
+}
 .question .target-name {
     color: #1989fa;
+    margin:  0 10rpx;
+    max-width: 200rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .question .body {
@@ -44,8 +53,8 @@
 }
 
 .question .avatar {
-    width: 30rpx;
-    height: 30rpx;
+    width: 36rpx;
+    height: 36rpx;
     border-radius: 30rpx;
     overflow: hidden;
 }
@@ -59,12 +68,23 @@
     margin-top: 20rpx;
 }
 
+.question .footer .left{
+    display: flex;
+    align-items: center;
+}
 .question .footer text {
     margin-right: 10rpx;
+    color: #A0A0A0;
+    font-size: 24rpx;
 }
 
 .question .btn1 {
     color: #1989fa;
+    border-radius: 5rpx;
+    border: 1rpx solid #1989FA;
+    width: 122rpx;height: 42rpx;
+    line-height: 42rpx;
+    text-align: center;
 }
 
 .question .btn2 {
@@ -72,4 +92,14 @@
     border: 1px solid #1989fa;
     color: #1989fa;
     font-size: 24rpx;
+}
+.jiejue{
+    border-radius: 6rpx;
+    border: 1rpx solid #1989FA;
+    width: 76rpx;
+    height: 32rpx;
+    line-height: 32rpx;
+    color: #1989FA;
+    font-size: 20rpx;
+    text-align: center;
 }

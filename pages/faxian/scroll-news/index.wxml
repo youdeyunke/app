@@ -1,0 +1,12 @@
+<scroll-view class="scroll" scroll-x>
+    <view class="scroll-cell">
+        <image src="/assets/images/scroll-news.png"   class="cell-image"/>
+        <view class="cell-tag">楼市头条</view>
+        <view class="cell-text">看了平江新城这个样板房，别的盘我都不想买了。</view>
+    </view>
+    <view class="scroll-cell">
+        <image src="/assets/images/scroll-news.png"   class="cell-image"/>
+        <view class="cell-tag">楼市头条</view>
+        <view class="cell-text">看了平江新城这个样板房，别的盘我都不想买了。</view>
+    </view>
+</scroll-view>
