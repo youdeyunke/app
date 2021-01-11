@@ -8,7 +8,6 @@
     <block wx:for="{{blocks}}" wx:for-item="block" wx:for-key="index" wx:key="name">
         <cover-block wx:if="{{block.name == 'cover'}}" value="{{block.value}}" />
         <header-block wx:if="{{block.name == 'header'}}" value="{{block.value}}" />
-    
         <info-block wx:if="{{block.name == 'info'}}" value="{{block.value}}" />
      
      
