@@ -3,12 +3,11 @@
     "navigationBarTitleText": "详细介绍",
     "navigationBarTextStyle": "black",
     "usingComponents": {
-        "images-block": "./images-block",
-        "meta-block": "./meta-block",
-        "navs-block": "./navs-block",
-        "desc-block": "./desc-block",
-        "brokage-block": "./brokage-block",
-        "html-block": "./html-block",
+
+        "cover-block": "./cover-block",
+        "header-block": "./header-block",
+        "info-block": "./info-block",
+        
         "map-block": "./map-block",
         "brokers-block": "./brokers-block",
         "recoms-block": "./recoms-block",
