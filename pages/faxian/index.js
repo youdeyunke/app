@@ -1,4 +1,4 @@
-// pages/faxian/index.js
+    // pages/faxian/index.js
 const app = getApp()
 
 Page({
@@ -12,7 +12,6 @@ Page({
             { name: '问答', id: 'qa' },
             { name: '活动', id: 'tour' },
         ],
-        tab: 'news',
         newsItems: [],
         newsCatId: '',
         newsKw: '',
@@ -21,11 +20,13 @@ Page({
         page: 1,
         per_page: 10,
         loading: true,
+        tabIndex:0
     },
 
     tabChangeHandle: function (e) {
-        // 切换tab
-        var name = e.detail.name
+        var tabs = this.data.tabs
+        var index = this.data.tabIndex
+        var name = tabs[index].id
         // 防止重复点击 
         if (name == this.data.tab) {
             return

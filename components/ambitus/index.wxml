@@ -1,13 +1,34 @@
-<!--index.wxml-->
-<van-tabs color="#1989fa" active="{{active}}" bind:change="tabHandle">
-    <van-tab  title="{{item.name}}" wx:for="{{tabs}}" >
+<view class="tabs">
+    <scroll-view class="tabs_title" scroll-x='{{true}}'>
+        <view class="border"></view>
+        <view 
+        wx:for='{{tabs}}' wx:key='id'
+        class="title_item  "
+        bindtap="handleItemTap"
+        data-index='{{index}}'>
+        <view class="content">
+            <image class="icon" src="/assets/icons/{{item.icon}}" />
+            <view class="name">{{item.name}}</view>
+            <view class="active" hidden="{{index != active}}"></view>
+        </view>
+        </view>
+        <view class="border"></view>
+    </scroll-view>
+    <view class="tabs_content">
         <view hidden="{{isShow == 0}}" class="null">暂未搜索到</view>
         <view hidden="{{isShow ==1}}">
-            <van-cell wx:if="{{ index+1 <= maxLength || type == 'big' }}"   title="{{item.title}}" value="{{item._distance}}" label="{{item.address}}" name='{{item}}'  wx:for="{{resp}}" title-class='title' label-class='title' />
+            <van-cell center  wx:if="{{ index+1 <= maxLength || type == 'big' }}"   title="{{item.title}}"  label="{{item.address}}" name='{{item}}'  wx:for="{{resp}}" title-class='title' label-class='label' >
+                <view class="value" slot=''>
+                    <image class="images" src="/assets/icons/location.3x.png"></image>
+                    <text class="" style="font-size:26rpx">{{item._distance}}</text>
+                </view>
+            </van-cell>
         </view>
-        <view wx:if="{{buttonShow}}">
+        <!-- <view wx:if="{{buttonShow}}">
             <view hidden="{{isShow ==1 || type == 'big'}}" class="more-btn" bind:tap="moreHandle">{{buttonVal}}</view>
+        </view> -->
+        <view style="padding:30rpx" wx:if="{{buttonShow}}">
+            <block-button  maxLength='2'  allLength='{{resp.length}}' buttonVal='展开全部' bind:change='lengthChange'  />
         </view>
-    </van-tab>
-</van-tabs>
-
+    </view>
+</view>

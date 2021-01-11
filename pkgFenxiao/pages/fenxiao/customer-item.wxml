@@ -1,2 +1,17 @@
-<!--pkgFenxiao/pages/fenxiao/customer-item.wxml-->
-<text>pkgFenxiao/pages/fenxiao/customer-item.wxml</text>
+<navigator class="customer" url="/pkgFenxiao/pages/fenxiao/customer-detail">
+    <view class="title">客户：张三（151****1111）</view>
+    <view class="content">
+        <view style="margin-bottom:30rpx;">客户意向: <text style="color:#333">4444</text></view>
+        <view style="margin-bottom:44rpx;">客户意向: <text style="color:#333">2020-09-23  10:28:56  </text></view>
+        <view class="status-name">
+            <view>已报备</view>
+            <view>已带看</view>
+            <view>已认购</view>
+            <view>已签约</view>
+            <view>已结佣</view>
+        </view>
+        <view class="status-image">
+            <image src='../../images/status-1.png' />
+        </view>
+    </view>
+</navigator>

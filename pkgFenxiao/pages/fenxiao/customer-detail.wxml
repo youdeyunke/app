@@ -1,4 +1,31 @@
-<!--pkgFenxiao/pages/fenxiao/customer-detail.wxml-->
-<text>
-查看报备客户详细信息
-</text>
+<view class="title-bg">
+    <image src="../../images/detail-0.png" />
+</view>
+
+<view class="detail">
+    <view class="detail-title">
+    <image src="../../images/boy.png" class="title-icon"/>
+    张三 151****1111
+    </view>
+    <view class="detail-content">
+        <view class="contents">
+            <view class="content-data">12-19</view>
+            <view class="content-circle active"></view>
+            <view class="content-desc">
+                <view class="desc-title">9：30</view>
+                <view class="desc-detail">报备有效期6天</view>
+            </view>
+            <view class="content-border"></view>
+        </view>
+        <view class="contents">
+            <view class="content-data">12-19</view>
+            <view class="content-circle"></view>
+            <view class="content-desc">
+                <view class="desc-title">9：30</view>
+                <view class="desc-detail">报备有效期6天</view>
+            </view>
+            
+        </view>
+    </view>
+    
+</view>

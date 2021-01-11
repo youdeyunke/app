@@ -1,29 +1,41 @@
 <block wx:if="{{userInfo}}">
 
   <view class="card-wrapper">
-    <image src="{{userInfo.avatar}}" class="card-wrapper-bg" />
-    <view class="card"><namecard user-info="{{userInfo}}" /> </view>
+    <image src="../../images/bg.jpg"  class="card-wrapper-bg"/>
+    <image src="../../images/user-bg.png"  class="user-bg"/>
+    <image class="avatar" src="{{userInfo.avatar}}" />
+    <view class="name">
+      <text>{{userInfo.name}}</text>
+      <image src="../../images/Frame.png" class="name-icon"/>
+    </view>
+    <view class="weixin">
+      <text>微信: {{userInfo.wechat}}</text>
+      <image src="../../images/copy.png" class="weixin-icon"/>
+    </view>
+    <view class="desc">{{userInfo.desc}}
+</view>
+    <view class="haoyou">
+      <view class="haoyou-icon">
+        <image src="../../images/ma.png"  style="width:32rpx;height:32rpx"/>
+      </view>
+      <text class="haoyou-text">加为好友</text>
+    </view>
+    <view class="zhuanfa">
+      <view class="haoyou-icon">
+        <image src="../../images/Vector.png"  style="width:32rpx;height:32rpx"/>
+      </view>
+      <text class="haoyou-text">转发</text>
+    </view>
+    <view class="liulan"><text style="font-weight:bold;">5000+</text>浏览量</view>
   </view>
 
 
-
-  <view class="body">
-    <van-tabs wx:if="{{tabs.length > 1}}" animated swipeable  type="line" color="#1989FA" bind:change="tabChange">
-      <van-tab wx:for="{{tabs}}" wx:for-item="tab" title="{{tab.name}}"> 
-      </van-tab>
-    </van-tabs> 
-    <van-search value="{{ val }}" placeholder="请输入搜索关键词" use-action-slot bind:clear="clearSearch" bind:search="loadPosts" custom-class="search-box" bind:change="searchTextInput">
-        <view slot="action" bind:tap="loadPosts">搜索</view>
-    </van-search>
-
-    <view style="height:30rpx;" class="blank"></view>
-    <box padding="0" width="700">
-      <items wx:if="{{filter}}" page="{{page}}" filter="{{filter}}" />
-    </box>
-
-  </view>
 </block>
-
+  <mycard title='主营楼盘' hat='{{false}}'>
+      <box padding="0" width="700">
+        <items kw="" wx:if="{{filter.user_id}}" page="{{page}}" filter="{{filter}}" />
+      </box>
+    </mycard>
 <form report-submit bindsubmit="submit">
   <view class="fixed-footer btns">
   <button hover-class="none" form-type="submit" data-action="callme" bindtap="callMe" class="fake btn btn-call" open-type="">电话咨询</button>

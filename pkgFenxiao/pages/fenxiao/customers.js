@@ -20,15 +20,15 @@ Page({
 
   },
 
-  tabChange: function(e){
-     var i = e.detail.name
-     this.setData({
-         page:1,
-         currentTabIndex: i,
-         items: [],
-     })
-     this.loadData()
-  },
+    tabChange: function(e){
+      var i = e.detail.name
+      this.setData({
+          page:1,
+          currentTabIndex: i,
+          items: [],
+      })
+      this.loadData()
+    },
 
   loadData: function(){
       this.setData({loading: true})

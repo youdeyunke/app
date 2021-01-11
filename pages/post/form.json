@@ -19,6 +19,7 @@
     "van-popup": "/vant/popup/index",
     "van-cell-group": "/vant/cell-group/index",
     "flow-tips": "/components/flow-tips",
-    "box": "/components/box"
+    "box": "/components/box",
+    "my-card":"./card"
   }
 }

@@ -1,1 +1,56 @@
 /* pkgRanking/pages/ranking/post-item.wxss */
+.body{
+    border-radius: 10rpx;
+    background: #FFFFFF;
+    height: 165rpx;
+    padding: 30rpx;
+    margin-bottom: 20rpx;
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+}
+.content{
+    height: 165rpx;
+    font-size: 26rpx;
+    color: #000;
+    margin-left: 30rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.color-a0{
+    color: #A0A0A0;
+}
+.tags{
+    display: flex;
+    justify-content: space-between;
+}
+.tag{
+    height: 37rpx;
+    line-height: 37rpx;
+    border: 1rpx solid #A0A0A0;
+    padding: 4rpx 8rpx;
+    margin-right: 10rpx;
+    align-items: center;
+}
+.price{
+    color:  #E82525;
+    margin-right: 6rpx;
+}
+.mingci{
+    position: absolute;
+    top: 0;
+    left: 596rpx;
+}
+.subtracts{
+    position: relative;
+}
+.subtract{
+    position: absolute;
+    z-index: 5;
+    top: 3rpx;left:15rpx;
+    color: #fff;
+    font-size: 36rpx;
+    font-weight: bold;
+
+}

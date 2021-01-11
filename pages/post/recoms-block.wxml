@@ -1,4 +1,4 @@
-<mycard title="{{value.title}}" padding="{{true}}" hat="{{false}}" >
+<my-card title="{{value.title}}" padding="{{true}}" hat="{{false}}" >
     <view class="recoms">
         <scroll-view scroll-with-animation="{{true}}" scroll-x style="width:100%">
             <view class="items">
@@ -6,4 +6,4 @@
             </view>
         </scroll-view>
     </view>
-</mycard>
+</my-card>

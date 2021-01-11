@@ -1,5 +1,10 @@
 <view>
-    <van-search round bind:clear="clearHandle" value="{{ value }}" placeholder="请输入搜索关键词" use-action-slot custom-class="search-box" bind:change="searchTextInput">
-        <view slot="action" bind:tap="submitHandle">搜索</view>
-    </van-search>
+    <van-search 
+    round bind:clear="clearHandle" 
+    value="{{ value }}" 
+    placeholder="请输入搜索关键词"  
+    custom-class="search-box" 
+    bind:change="searchTextInput" 
+    bind:search='submitHandle' 
+    input-class='search'/>
 </view>

@@ -1,0 +1,13 @@
+<navigator hover-class="none" class="item" bindtap="itemClick">
+    <view class="item-title-block">
+        <view class="title">{{item.title}}</view>
+        <view class="meta">
+            <view class="author">{{item.author}}</view>
+            <view class="date">{{item.created_at_pretty}}</view>
+        </view>
+    </view>
+    <view class="cover" hover-class="none" hover-stop-propagation="false">
+        <image  src="{{item.cover_v2 }}?imageView2/2/w/250"></image>
+        <image wx:if="{{item.content_type == 'video'}}" class="bofang" src="/assets/icons/bofang.png"></image>
+    </view>
+</navigator>

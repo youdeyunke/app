@@ -1,6 +1,6 @@
 <!-- pages/post/tours-block.wxml -->
 <block>
-    <mycard width="750" title="看房团" title-size="32" sub-title="{{value.more_title}}" url="{{value.more_url}}" hat="{{false}}">
+    <my-card width="750" title="看房团"  sub-title="{{value.more_title}}" url="{{value.more_url}}" >
         <van-cell url="/pkgTour/pages/tour/show?id={{item.id}}" wx:for="{{value.items}}" center title="{{item.title}}" label="活动时间：{{item.starts_at_pretty}}  已报名人数：{{item.join_nums}}" value="{{item.status.name}}" />
-    </mycard>
+    </my-card>
 </block>

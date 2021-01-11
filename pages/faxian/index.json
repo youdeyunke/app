@@ -1,11 +1,14 @@
 {
     "enablePullDownRefresh": true,
     "usingComponents": {
-        "news-item": "/components/tt",
+        "news-item": "./news-item/index",
         "news-cats": "./news-cats",
         "search-bar": "./news-search",
         "hot-news": "./hot-news/index",
-        "tour-item": "/components/tour/item",
-        "qa-item": "./qa-item"
+        "tour-item": "./tour-item/index",
+        "qa-item": "./qa-item",
+        "ud-tabs":"/components/ud/tabs/index",
+        "ud-card":"/components/ud/card/index",
+        "scroll-news":"./scroll-news/index"
     }
 }

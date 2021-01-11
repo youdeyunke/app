@@ -1,31 +1,35 @@
 <!--pages/post/brokers-block.wxml-->
-<mycard title="{{value.title}}" hat="{{false}}" padding="{{false}}" title-size="32">
+<my-card title="{{value.title}}"  padding="{{false}}" sub-title='查看更多' url="/pkgBroker/pages/broker/index">
     <view class="badges">
         <view class="badge-item">
-          <van-icon name="after-sale" color="#999999" size="26rpx" />
+          <image class="" src="/assets/icons/jingji-icon-0.png" style="width:24rpx;height:24rpx;margin-right:8rpx"/>
           免费带看
         </view>
 
         <view class="badge-item">
-          <van-icon name="medal-o" color="#999999" size="26rpx" />
+          <image class="" src="/assets/icons/jingji-icon-1.png" style="width:24rpx;height:24rpx;margin-right:8rpx"/>
           专业服务
         </view>
 
         <view class="badge-item">
-          <van-icon name="volume-o" color="#999999" size="26rpx" />
+          <image class="" src="/assets/icons/jingji-icon-2.png" style="width:24rpx;height:24rpx;margin-right:8rpx"/>
           区域解读
         </view>
 
         <view class="badge-item">
-          <van-icon name="wap-home-o" color="#999999" size="26rpx" />
+          <image class="" src="/assets/icons/jingji-icon-3.png" style="width:24rpx;height:24rpx;margin-right:8rpx"/>
           户型分析
         </view>
     </view>
       
-    <broker-link post-id="{{post.id}}" broker="{{broker}}" wx:if="{{ index+1 <= maxLength  }}"  wx:for="{{value.brokers}}" wx:for-item="broker" wx:key="id" />
+    <!-- <broker-link post-id="{{post.id}}" broker="{{broker}}" wx:if="{{ index+1 <= maxLength  }}"  wx:for="{{value.brokers}}" wx:for-item="broker" wx:key="id" /> -->
+    <view class="broker">
+      <broker-item wx:for="{{value.brokers}}"  item="{{item}}"/>
+    </view>
+    
     <box padding="30"  wx:if="{{moreBrokersBtn && value.more_btn}}" >
         <view bindtap="moreBrokersHandle" hover-class="none" class="more-btn">
             展开全部
         </view>
     </box>
-</mycard>
+</my-card>

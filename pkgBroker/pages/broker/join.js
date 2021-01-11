@@ -24,6 +24,7 @@ Page({
             '开通会员',
             '发布房源',
         ],
+        successShow:false
     },
 
     /**
@@ -231,15 +232,11 @@ Page({
     },
 
     submitHandle: function (e) {
-        var _this = this
-        var data = e.detail.value
-        data['company_id'] = this.data.company.id
-        _this.validate(data, (vdata) => {
-            _this.setData({ loading: true })
-            _this.doPost(vdata)
-        })
+        this.setData({successShow:true})
     },
-
+    backHandle(){
+        this.setData({successShow:false})
+    },
     mobileBind: function (e) {
         console.log('用户授权获取手机号成功', e.detail)
         var mobile = e.detail

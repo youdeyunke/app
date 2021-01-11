@@ -1,5 +1,5 @@
 <block>
-    <mycard width="750" title="一房一价" hat="{{false}}" url="{{value.more_url}}" sub-title="{{value.more_title}}"  title-size="32">
+    <my-card width="750" title="一房一价"  url="{{value.more_url}}" sub-title="{{value.more_title}}" >
         <scroll-view scroll-with-animation="{{true}}" scroll-x style="width:100%">
         <view class="buildings">
         <navigator hover-class="none" url="/pkgBuilding/pages/building/index?building_id={{item.id}}&post_id={{item.post_id}}" class="building" wx:for="{{value.items}}" wx:key="id">
@@ -14,5 +14,5 @@
         </view>
         </scroll-view>
 
-    </mycard>
+    </my-card>
 </block>

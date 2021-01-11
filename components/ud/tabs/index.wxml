@@ -1,0 +1,6 @@
+<scroll-view class="tabs" scroll-x>
+    <view class="tab {{activeIndex == index? 'active' : ''}} " wx:for="{{tabs}}" data-index='{{index}}' bind:tap="tabChange">
+        <text>{{item.name}}</text>
+        <view wx:if="{{activeIndex == index}}" class="border"></view>
+    </view>
+</scroll-view>
