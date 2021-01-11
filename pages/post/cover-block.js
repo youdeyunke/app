@@ -1,4 +1,4 @@
-// pages/faxian/scroll-news/index.js
+// pages/post/cover-block.js
 Component({
   /**
    * 组件的属性列表

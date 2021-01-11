@@ -6,13 +6,13 @@
 </van-transition>
 <view style="width:100%;" hidden="{{loading}}">
     <block wx:for="{{blocks}}" wx:for-item="block" wx:for-key="index" wx:key="name">
-        <brokage-block wx:if="{{ block.name == 'brokage' }}" value="{{ block.value}}" />
-        <navs-block wx:if="{{ block.name == 'navs' }}" value="{{ block.value}}" />
-        <images-block wx:if="{{block.name == 'images' }}" value="{{ block.value }}" />
-        <meta-block wx:if="{{block.name == 'meta' }}" value="{{ block.value }}" />
-        <html-block wx:if="{{block.name == 'html'}}" value="{{block.value}}" />
-        <desc-block wx:if="{{block.name == 'desc'}}" value="{{block.value}}" />
-        <facilities-block wx:if="{{block.name == 'facilities'}}" value="{{block.value}}" />
+        <cover-block wx:if="{{block.name == 'cover'}}" value="{{block.value}}" />
+        <header-block wx:if="{{block.name == 'header'}}" value="{{block.value}}" />
+    
+        <info-block wx:if="{{block.name == 'info'}}" value="{{block.value}}" />
+     
+     
+       
         <map-block wx:if="{{block.name == 'map'}}" value="{{block.value}}" />
         <types-block id="types" wx:if="{{block.name == 'types'}}" value="{{block.value}}" />
         <buildings-block id="buildings" wx:if="{{block.name == 'buildings'}}" value="{{block.value}}" />
