@@ -63,7 +63,7 @@
     width: 450rpx;
     flex-direction: column;
     justify-content: space-between;
-    padding-right:  20rpx;
+    padding: 10rpx 20rpx 10rpx 0;
     box-sizing: border-box;
 }
 
