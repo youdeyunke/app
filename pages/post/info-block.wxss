@@ -1,1 +1,60 @@
 /* pages/post/info-block.wxss */
+.scroll-cell{
+    width: 40%;
+    height: 180rpx;
+    position: relative;
+    display: inline-block;
+    margin-right: 20rpx;
+}
+.cell-image{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.cell-title{
+    position: absolute;
+    top: 140rpx;
+    left: 100rpx;
+    z-index: 5;
+    color: #fff;
+    font-size: 22rpx;
+}
+.scroll{
+    width: 750rpx;
+    margin-left: 18rpx;
+    height: 180rpx;
+    box-sizing: border-box;
+    white-space: nowrap;
+    margin-bottom: 30rpx;
+}
+.block-title{
+    border-top: 1rpx solid #F0F0F0;
+    padding:  0  20rpx 20rpx 20rpx;
+}
+.content-title{
+    width: 146rpx;
+    font-size: 26rpx;
+    color: #777777;
+    text-align:justify;
+    text-justify: distribute-all-lines;
+    text-align-last:justify ;
+}
+.block-content{
+    color: #333;
+    margin-top: 16rpx;
+    display: flex;
+    justify-content: flex-start;
+}
+.maohao , .content-desc{
+    font-weight: bold;
+    font-size: 26rpx;
+}
+.content-desc{
+    margin-left: 10rpx;
+    max-width: 370rpx;
+}
+.red{
+    color: #E82525 !important;
+}

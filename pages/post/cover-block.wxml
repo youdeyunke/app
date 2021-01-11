@@ -1,2 +1,11 @@
-<!--pages/post/cover-block.wxml-->
-<text>pages/post/cover-block.wxml</text>
+<view class="block">
+    <view class="block-title">
+        <view class="title-left">
+            <image class="title-icon" src="/assets/icons/bang.png" />
+            <text>入选朝阳区楼盘热评榜第10名</text>
+        </view>
+        <view>详情 ></view>
+    </view>
+    <image class="bg" src="/assets/images/scroll-news.png"/>
+    <image class="fenxiang" src="/assets/icons/fenxiang.png"/>
+</view>

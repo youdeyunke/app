@@ -1,2 +1,33 @@
-<!--pages/post/info-block.wxml-->
-<text>pages/post/info-block.wxml</text>
+<my-card title="楼盘详情信息" sub-title='查看更多' url=''  padding="{{false}}" title-size="30">
+    <scroll-view scroll-x="{{true}}" class="scroll">
+        <view class="scroll-cell">
+            <image class="cell-image" src="/assets/images/scroll-news.png" />
+            <view class="cell-title">效果图(10)</view>
+        </view>
+        <view class="scroll-cell">
+            <image class="cell-image" src="/assets/images/scroll-news.png" />
+            <view class="cell-title">效果图(10)</view>
+        </view>
+        <view class="scroll-cell">
+            <image class="cell-image" src="/assets/images/scroll-news.png" />
+            <view class="cell-title">效果图(10)</view>
+        </view>
+    </scroll-view>
+    <view class="block-title">
+        <view class="block-content">
+            <text class="content-title" >参考价格</text>
+            <text style="margin-left:4rpx">:</text>
+            <text class="content-desc red">清水价格800万起     高层760万起     底层850~900万</text>
+        </view>
+        <view class="block-content">
+            <text class="content-title" >类型</text>
+            <text class="maohao" style="margin-left:4rpx">:</text>
+            <text class="content-desc">住宅</text>
+        </view>
+        <view class="block-content">
+            <text class="content-title" space='nbsp'>开发商</text>
+            <text class="maohao" style="margin-left:4rpx">:</text>
+            <text class="content-desc">云浮市翔顺房地产投资有限公司</text>
+        </view>
+    </view>
+</my-card>

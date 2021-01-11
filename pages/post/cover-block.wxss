@@ -1,1 +1,41 @@
 /* pages/post/cover-block.wxss */
+.block{
+    width: 100%;
+    height: 504rpx;
+    position: relative;
+}
+.block-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    font-size: 26rpx;
+    padding:  15rpx 20rpx;
+    background: #1989F9;
+    z-index: 5;
+}
+.title-icon{
+    width: 28rpx;
+    height: 28rpx;
+    margin-right: 10rpx;
+    margin-top: 4rpx;
+}
+.title-left{
+    display: flex;
+    justify-content: flex-start;
+}
+.bg{
+    width: 100%;
+    height: 504rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.fenxiang{
+    width: 80rpx;
+    height: 80rpx;
+    position: absolute;
+    top: 84rpx;
+    left: 648rpx;
+}
