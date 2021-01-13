@@ -1,4 +1,4 @@
-<box width="{{width}}" >
+<view style="width:{{width}};" class="box">
 <view class="card  {{ padding ? '' : 'padding-none'}}">
     <view class="card-header {{ headBorder ? '' : 'border-none' }}">
           <view class="card-header-title">
@@ -20,4 +20,4 @@
   <view class="card-footer">
   </view>
 </view>
-</box>
+</view>

@@ -1,8 +1,10 @@
-/* pages/post/header-block.wxss */
+
 .block{
     background-color: #fff;
     color: #333;
     font-size: 24rpx;
+    border-top-left-radius: 20rpx;
+    border-top-right-radius: 20rpx;
 }
 .block-first{
     border-top-left-radius: 20rpx;

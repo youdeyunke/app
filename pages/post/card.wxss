@@ -1,6 +1,14 @@
 /* components/card.wxss */
 @import "../../app.wxss";
-
+.box{
+    z-index: 999;
+    background: #fff;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    /* Firefox */
+    -webkit-box-sizing: border-box;
+    /* Safari */
+}
 .card{
   width:100%;
   margin:0 auto;

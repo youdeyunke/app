@@ -14,14 +14,15 @@
 }
 
 .type .cover image {
-    width: 280rpx;
-    height: 180rpx;
+    width: 260rpx;
+    height: 260rpx;
 }
 
 .type .name {
-    font-size: 28rpx;
+    width: 260rpx;
+    font-size: 26rpx;
     color: #333;
-    font-weight: bolder;
+    font-weight: bold;
     margin-top: 8rpx;
     display: flex;
     justify-content: space-between;
@@ -29,14 +30,14 @@
 }
 
 .type .attr {
-    font-size: 24rpx;
+    font-size: 26rpx;
     display: flex;
     justify-content: flex-start;
     margin-top: 8rpx;
 }
 
 .type .attr .label {
-    margin-right: 15rpx;
+    margin-right: 8rpx;
     color: #999;
 }
 
@@ -46,7 +47,7 @@
 
 .type .zoom {
     position: absolute;
-    bottom: 0rpx;
+    bottom: 10rpx;
     right: 0rpx;
     padding: 4rpx;
     background: rgba(0, 0, 0, 0.15);
@@ -56,10 +57,19 @@
     border-radius: 6rpx;
 }
 
-.type .attr .value {
-    margin-right: 15rpx;
-}
 
 .price {
-    color: #ff0000;
+    font-weight: bold;
+    color: #E82525;
+}
+.tag{
+    background-color: #fff;
+    border: 1rpx solid #1989FA;
+    width: 60rpx;
+    height: 32rpx;
+    line-height: 32rpx;
+    color: #1989FA;
+    text-align: center;
+    font-size: 24rpx;
+    font-weight: normal;
 }

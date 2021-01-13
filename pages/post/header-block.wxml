@@ -3,7 +3,7 @@
         <view class="first-left">
             <view class="left-title">翔顺筠粤号苑</view>
             <view class="left-content">
-                <image src="/assets/icons/location.3x.png" />
+                <image src="/assets/icons/post-location.png" />
                 <text class="">高新区科技城青城山路和通墅路交汇处</text>
             </view>
             <view class="left-tags">

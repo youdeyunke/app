@@ -7,7 +7,6 @@
         "cover-block": "./cover-block",
         "header-block": "./header-block",
         "info-block": "./info-block",
-        
         "map-block": "./map-block",
         "brokers-block": "./brokers-block",
         "recoms-block": "./recoms-block",
@@ -25,7 +24,7 @@
         "page-loading": "/pages/post/page-loading",
         "box": "/components/box",
         "visitors": "/components/visitors/index",
-        "safe-tips": "/components/safe-tips"
-        
+        "safe-tips": "/components/safe-tips",
+        "my-card":"./card"
     }
 }

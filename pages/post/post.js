@@ -2,7 +2,8 @@
 const app = getApp()
 var auth = require('../../utils/auth.js');
 var util = require('../../utils/util.js');
-
+var wxCharts = require('../../utils/wxcharts-min');
+var radarChart = null;
 Page({
 
     /**
@@ -126,7 +127,7 @@ Page({
      */
     onReady: function () {
         // 页面渲染完成后
-   
+        this.drawRadar()
         //获取经纬度
     },
 
@@ -172,7 +173,35 @@ Page({
         }
     },
 
+    drawRadar(){
+        let windowWidth = 320;
+        try {
+            let res = wx.getSystemInfoSync();
+            windowWidth = res.windowWidth;
+        } catch (e) {
+            // do something when get system info failed
+        }
+        radarChart = new wxCharts({
+            canvasId: 'radarCanvas',
+            type: 'radar',
+            background:"#D1E8FF",
+            categories: ['区域发展', '周边设施', '交通概况', '小区环境', '室内体验'],
+            series: [{
+                name:"综合评分",
+                data: [90, 110, 125, 95, 87],
+                color:"#1989fa"
+            }],
+            width: windowWidth,
+            height:200,
+            extra: {
+                radar: {
+                    max: 150,
+                    labelColor:'#333',
 
+                }
+            }
+        });
+    },
     /**
      * 生命周期函数--监听页面显示
      */
@@ -241,7 +270,7 @@ Page({
                     pageUrl: '/pages/post/post?id=' + block.value.post_id,
                 })
                 wx.setNavigationBarTitle({
-                  title: _this.data.pageTitle,
+                title: _this.data.pageTitle,
                 })
 
             }
