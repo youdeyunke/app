@@ -6,7 +6,7 @@ Component({
     properties: {
         padding: { type: Boolean, value: true, },
         bodySize: { type: Number, value: '28' },
-
+        radius:{type:Number, value:'0'},
         width: { type: Number, value: 750, },
         title: { type: String, value: '标题' },
         subTitle: { type: String, value: '' },

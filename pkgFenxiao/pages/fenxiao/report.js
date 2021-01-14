@@ -36,7 +36,9 @@ Page({
         mobile:'',
         mobileType: 'protected',
         setpsText: ["报备客户", "核实成交", "发放佣金"],
-        popupShow:false
+        popupShow:false,
+        chooseShow:true,
+        tags:[]
     },
     /**
      * 生命周期函数--监听页面加载
@@ -48,19 +50,15 @@ Page({
         })
         this.loadPost(q.pid)
     },
-
-    tabChange: function (e) {
-        var i = e.detail.name
-        var tab = this.data.tabs[i]
-        this.setData({
-            mobileType: tab.value,
-            mobile: ''
-        })
-    },
-
     sexChange: function (e) {
+        var sex= e.detail
+        if(sex){
+            sex= 1
+        }else{
+            sex=0
+        }
         this.setData({
-            sex: e.detail.value
+            sex: sex
         })
     },
 
@@ -92,14 +90,21 @@ Page({
             success: function (resp) {
                 var p = resp.data.data
                 var post_name = p.title + ' ' + p.sub_district.name + ' ' + p.type_info.text + ' ' + p.area_info.text
+                var tags = p.tags
+                tags = tags.split(',')
                 _this.setData({
                     post: p,
-                    post_name: post_name
+                    post_name: post_name,
+                    tags:tags
                 })
             }
         })
+    },  
+    chooseHandle(e){
+        this.setData({
+            chooseShow : e.detail
+        })
     },
-
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

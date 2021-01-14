@@ -12,17 +12,23 @@
   justify-content:center;
   align-items:center;
   text-align:center;
-  margin-right:10rpx;
+  margin-right:4rpx;
+  color: #666;
+  font-size: 26rpx;
 }
 
 
 .input-number-item.border{
-  border:1rpx solid #1989fa;
+  border:1rpx solid #B4B4B4;
 }
 
 .input-number-item.small{
-  width:30rpx;
-  height:30rpx;
+  width:64rpx;
+  height:64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  color: #000;
+  font-size: 36rpx;
 }
 
 .input-number-asterisk{

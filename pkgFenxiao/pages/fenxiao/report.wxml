@@ -1,27 +1,54 @@
-<van-tabs style="width:100%" animated swipeable type="line" color="#1989fa" bind:change="tabChange">
-    <van-tab wx:for="{{tabs}}" wx:for-item="tab" title="{{tab.name}}"></van-tab>
-</van-tabs>
-<mycard style="margin-top:20rpx;" width="710" title="客户信息" hat="{{false}}">
-    <van-field size="large" focus="{{true}}" data-name="name" input-align="left" label="姓名" model:value="{{name}}" maxlength="5" placeholder="请输入客户姓名">
-        <view slot="button">
-            <cell-radio size="large" value="{{sex}}" options="{{ sexOptions}}" bind:change="sexChange" />
+
+<view class="forms">
+        <view class="form">
+            <view class="form-title">
+                <text>客户姓名</text>
+            </view>
+            <view class="form-flex">
+                <input class="form-input" placeholder="请输入姓名" model:value="{{mobile}}" minlength="11" maxlength="11"  />
+                <choose-block left-content='男士' right-content='女士' show="{{sex}}"  bind:change='sexChange'/>
+            </view>
         </view>
-    </van-field>
-    <van-field wx:if="{{ mobileType == 'full'  }}" size="large" data-name="mobile" input-align="right" label="手机全号" placeholder="请输入11位手机全号" model:value="{{mobile}}" minlength="11" maxlength="11"></van-field>
-    <van-cell wx:else size="large" name="mobile" input-align="left" title="手机隐号">
-        <protected-mobile-input value="{{mobile}}" bind:change="mobileChange" />
-    </van-cell>
-</mycard>
-<mycard width="710" title="客户意向" hat="{{false}}">
+        <view class="form">
+            <view class="form-title">
+                <text>手机号码</text>
+                <choose-block left-content='隐号' right-content='全号' show="{{chooseShow}}"  bind:change='chooseHandle'/>
+            </view>
+            <view class="form-content">
+                <input placeholder="请输入11位手机全号" model:value="{{mobile}}" minlength="11" maxlength="11" class="mobile" wx:if="{{!chooseShow}}"/>
+                <protected-mobile-input value="{{mobile}}" bind:change="mobileChange" wx:else />
+            </view>
+        </view>
+        
+    
+</view>
+<mycard width="710" title="客户意向" radius='20' hat="{{false}}">
     <view class="post-item" wx:if="{{pid}}">
-        <post-item item="{{post}}" />
+        <view class="item-image">
+            <image src="{{post.cover}}" />
+        </view>
+        <view class="item-content">
+            <view class="content-title">{{post.title}}</view>
+            <view class="content-address">{{post.address}}</view>
+            <view class="content-tags">
+                <view class="tag" wx:for="{{tags}}" hidden="{{index >2}}">{{item}}</view>
+            </view>
+            <view class="content-price">
+                <text class="price">参加均价: {{average_price}}万/㎡</text>
+                <text>面积: {{area}}</text>
+            </view>
+        </view>
     </view>
     <view class="fangText" bind:tap="fangChange">
-        <van-icon name="edit" size='38rpx'/>
-        <text class="">点击{{  pid ? '修改' : '选择'  }}房源</text>
+        <image src="../../images/search.png" />
     </view>
     <post-selector bind:change='pidChange' class="post-selector" show="{{popupShow}}"></post-selector>
 </mycard>
+
+<mycard width="710" title="备注" radius='20' hat="{{false}}">
+    <input  class="mobile" placeholder="填写备注信息"/>
+</mycard>
+
 <view class="actions">
     <van-button bindtap="submitHandle" type="info" block>提交报备</van-button>
     <van-button custom-style="margin-top:10rpx;" type="default" block bindtap="backHandle">

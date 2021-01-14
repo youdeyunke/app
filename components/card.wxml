@@ -1,4 +1,4 @@
-<box width="{{width}}" >
+<box width="{{width}}" radius='{{radius}}' >
 <view class="card  {{ padding ? '' : 'padding-none'}}">
     <view class="card-header {{ headBorder ? '' : 'border-none' }}">
           <view class="card-header-title">
