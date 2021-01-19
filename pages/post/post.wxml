@@ -1,9 +1,9 @@
 <page-loading loading="{{loading}}" />
 <view style="width:100%;" hidden="{{loading}}" class="content">
     <block wx:for="{{blocks}}" wx:for-item="block" wx:for-key="index" wx:key="name">
-        <view class="cover">
+
             <cover-block wx:if="{{block.name == 'cover'}}" value="{{block.value}}" />
-        </view>
+      
             <header-block wx:if="{{block.name == 'header'}}" value="{{block.value}}" />
             <info-block wx:if="{{block.name == 'info'}}" value="{{block.value}}" />
             <map-block wx:if="{{block.name == 'map'}}" value="{{block.value}}" />
@@ -27,7 +27,7 @@
             </view>
             <btns-block wx:if="{{block.name == 'btns'}}" value="{{block.value}}" />
             <contact-block wx:if="{{block.name == 'contact'}}" value="{{block.value}}" />
-            <view class="margin" wx:if="{{block.name != 'cover'}}"></view>
+            <view class="margin" wx:if="{{block.name != 'cover'}}">{{block.name}}</view>
     </block>
     <!-- official-account></official-account -->
     <ad-link />

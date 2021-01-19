@@ -4,6 +4,7 @@
     height: 504rpx;
     position: fixed;
     top: 0;left: 0;
+    z-index:-1;
 }
 .block-title{
     display: flex;
