@@ -1,3 +1,4 @@
 {
-  "usingComponents": {}
+    "navigationStyle": "custom",
+    "usingComponents": {}
 }

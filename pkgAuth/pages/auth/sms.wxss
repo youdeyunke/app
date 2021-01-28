@@ -1,69 +1,81 @@
 /* pages/auth/sms.wxss */
-.sms{
+
+.sms {
     width: 750rpx;
     position: relative;
 }
-.sms-bg{
+
+.sms-bg {
     position: absolute;
     width: 100%;
     height: 300rpx!important;
-    top: 0;left: 0;
+    top: 0;
+    left: 0;
     z-index: -1;
 }
-.title{
+
+.title {
     color: #FFFFFF;
-    margin-top: 80rpx;
-    margin-left: 40rpx;
+    padding-top: 80rpx;
+    padding-left: 40rpx;
     font-size: 38rpx;
 }
-.sub-title{
+
+.sub-title {
     font-size: 24rpx;
     margin-top: 20rpx;
 }
-.body{
+
+.body {
     width: 670rpx;
-    margin: 300rpx 20rpx;
-    margin-bottom: 250rpx;
+    margin: 300rpx auto 250rpx auto;
 }
-.input{
+
+.input {
     width: 100%;
     height: 62rpx;
     border-bottom: 1rpx solid #B4B4B4;
     display: flex;
-    
     justify-content: start;
     align-items: center;
     margin-bottom: 80rpx;
 }
-.input text{
+
+.input text {
     color: #666666;
 }
-.input input{
+
+.input input {
     width: 80%;
     height: 100%;
     color: #B4B4B4;
 }
-.desc{
+
+.desc {
     width: 20%;
     text-align: left;
 }
-.yanzheng{
+
+.yanzheng {
     width: 55%!important;
     height: 100%;
 }
-.fsyzm{
+
+.fsyzm {
     width: 30%;
     color: #1989F9!important;
 }
-.button{
+
+.button {
     width: 100%;
     height: 87rpx;
-    background-color:#1989F9 ;
+    background-color: #1989F9;
     color: #fff;
     font-size: 32rpx;
     line-height: 87rpx;
     text-align: center;
 }
+
 .footer {
     display: flex;
     justify-content: center;
@@ -72,16 +84,19 @@
     font-size: 24prx;
     padding-bottom: 57rpx;
 }
-.icons{
+
+.icons {
     width: 20rpx;
     height: 20rpx;
 }
-.terms{
+
+.terms {
     font-size: 24rpx;
     margin-left: 10rpx;
     display: flex;
 }
-.fsyzm-f{
+
+.fsyzm-f {
     width: 30%;
     color: #AEAEAE !important;
     font-size: 28rpx!important;
