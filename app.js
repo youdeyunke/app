@@ -1,5 +1,4 @@
 //app.js
-const ald = require('utils/ald-stat.js')
 const auth = require("utils/auth.js");
 const EXT = wx.getExtConfigSync()
 
@@ -326,7 +325,6 @@ App({
         // 发送阿拉丁
         var appName = EXT['name'] || this.globalData.myconfigs.xcx_name || '未知小程序名'
         event["小程序名"] = appName
-        wx.aldstat.sendEvent(key, event)
         console.log('send event', key)
     },
 
