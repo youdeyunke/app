@@ -32,7 +32,7 @@ Component({
         },
     },
 
-    reLoad: function () {
+    refresh: function () {
         // 用于父组件调用，刷新页面
         this.setData({ loading: true })
         this.loadData()

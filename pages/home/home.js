@@ -68,10 +68,12 @@ Page({
         this.setData({ loading: true })
         var _this = this
         app.loadConfigs(function (configs) {
+            _this.selectComponent('#pm').refresh()
             _this.setData({ configs: configs })
             wx.stopPullDownRefresh()
             wx.hideNavigationBarLoading()
             wx.stopPullDownRefresh() //停止下拉刷新    
+
         })
 
     },
