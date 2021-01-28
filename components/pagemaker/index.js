@@ -98,17 +98,15 @@ Component({
 
         // 设置导航栏颜色、文字、背景
         setNavbar: function (config) {
-            var bgColor = config.title.bgColor
-            var fontColor = config.title.color
-            var title = config.title.value
+            var bgColor = config.title.bgColor || '#F0F0F0'
+            var fontColor = config.title.color || '#333333'
+            var title = config.title.value || ''
             wx.setNavigationBarColor({
                 frontColor: fontColor,
                 backgroundColor: bgColor,
                 success: (err) => {
-                    console.log('set nav error', err)
                 },
             });
-
             wx.setNavigationBarTitle({
                 title: title,
             });

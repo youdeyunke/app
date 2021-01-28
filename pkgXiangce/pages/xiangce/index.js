@@ -39,8 +39,8 @@ Page({
         }, (res) => {
             _this.loadData()
         })
-    
-   
+
+
     },
 
 
@@ -57,13 +57,13 @@ Page({
             url: '/api/v1/media_cats',
             data: query,
             success: function (resp) {
-                _this.setData({ 
+                _this.setData({
                     cats: resp.data.data,
                     post: resp.data.post,
-                 })
+                })
                 wx.hideLoading();
                 wx.setNavigationBarTitle({
-                  title:  resp.data.post.title + '的相册',
+                    title: resp.data.post.title + '的相册',
                 })
             }
         })
@@ -73,7 +73,7 @@ Page({
     bookingHandle: function (e) {
         var _this = this
         auth.ensureUser(function (user) {
-            
+
 
             // 去绑定用户手机号
             if (!user.mobile) {
@@ -113,7 +113,7 @@ Page({
         var brokerId = this.data.broker.id
         var _this = this
         app.request({
-            url: '/api/v2/posts/hello?id=' + pid + '&receiver_id=' + brokerId,
+            url: '/api/v1/posts/hello?id=' + pid + '&receiver_id=' + brokerId,
             success: function (resp) {
                 if (resp.data.status == 0) {
                     // 跳转到消息列表
@@ -163,11 +163,11 @@ Page({
 
         // 下拉刷新
         this.setData({
-            loading: true, 
+            loading: true,
             cats: [],
             scrollIntoView: ''
         })
-    
+
         this.loadData()
 
     },

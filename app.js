@@ -321,12 +321,6 @@ App({
         wx.navigateTo({ url: '/pages/webview/webview?url=' + url2 + '&title=' + title })
     },
 
-    sendEvent: function (key, event) {
-        // 发送阿拉丁
-        var appName = EXT['name'] || this.globalData.myconfigs.xcx_name || '未知小程序名'
-        event["小程序名"] = appName
-        console.log('send event', key)
-    },
 
     gotoVideo: function (url, title = "") {
         var url2 = encodeURIComponent(url)
@@ -555,28 +549,7 @@ App({
         });
     },
 
-    cachePosts: function (posts) {
-        // 在列表页面中，缓存房源详情信息
-        var _this = this;
-        posts.forEach(function (post, i) {
-            var pid = post.id;
-            var key = "post.data." + pid;
-            var _post = wx.getStorageSync(key);
-            if (!_post) {
-                _this.request({
-                    url: "/api/v2/posts/" + pid,
-                    hideLoading: true,
-                    success: function (resp) {
-                        var post = resp.data.data;
-                        wx.setStorage({
-                            key: key,
-                            data: post
-                        });
-                    }
-                });
-            }
-        });
-    },
+
 
     loadPosts: function (that) {
         if (!that.data.hasMore) {

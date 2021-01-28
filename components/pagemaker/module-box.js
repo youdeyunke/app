@@ -5,12 +5,12 @@ Component({
      */
     properties: {
         config: { type: Object, default: null },
-        width: {type: Number, default: 710}, // 根据750 - padding*2 计算出模块的实际宽度指，单位为rpx
+        width: { type: Number, default: 710 }, // 根据750 - padding*2 计算出模块的实际宽度指，单位为rpx
     },
 
     observers: {
-        "width": function(v){
-            if(!v){
+        "width": function (v) {
+            if (!v) {
                 return
             }
             this.setData({
@@ -72,6 +72,9 @@ Component({
 
         "config.margin": function (margin) {
             /*  margin 只需要考虑top,bottom*/
+            if (!margin) {
+                return
+            }
             var v = 20
             var items = [0, 0, 0, 0] // top,right,bottom,left
             items[0] = margin.top == true ? v : 0

@@ -143,7 +143,7 @@ Page({
         var brokerId = this.data.broker.id
         var _this = this
         app.request({
-            url: '/api/v2/posts/hello?id=' + pid + '&receiver_id=' + brokerId,
+            url: '/api/v1/posts/hello?id=' + pid + '&receiver_id=' + brokerId,
             success: function (resp) {
                 if (resp.data.status == 0) {
                     // 跳转到消息列表
@@ -218,14 +218,14 @@ Page({
             imageUrl: image
         }
     },
-    onShareTimeline(){
+    onShareTimeline() {
         var _this = this
         var title = this.data.post.title + '的动态更新啦，快点击查看'
         var image = this.data.post.cover
-        return{
-        title:title,
-        path:'pkgEvent/pages/event/index?id=' + _this.data.postId,
-        imageUrl: image
+        return {
+            title: title,
+            path: 'pkgEvent/pages/event/index?id=' + _this.data.postId,
+            imageUrl: image
         }
     }
 })

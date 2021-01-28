@@ -32,13 +32,13 @@ Page({
             value: 'full'
         },
         ],
-        name:'',
-        mobile:'',
+        name: '',
+        mobile: '',
         mobileType: 'protected',
         setpsText: ["报备客户", "核实成交", "发放佣金"],
-        popupShow:false,
-        chooseShow:true,
-        tags:[]
+        popupShow: false,
+        chooseShow: true,
+        tags: []
     },
     /**
      * 生命周期函数--监听页面加载
@@ -51,11 +51,11 @@ Page({
         this.loadPost(q.pid)
     },
     sexChange: function (e) {
-        var sex= e.detail
-        if(sex){
-            sex= 1
-        }else{
-            sex=0
+        var sex = e.detail
+        if (sex) {
+            sex = 1
+        } else {
+            sex = 0
         }
         this.setData({
             sex: sex
@@ -68,15 +68,15 @@ Page({
         })
     },
 
-    fangChange(){
+    fangChange() {
         this.setData({
-            popupShow:true
+            popupShow: true
         })
     },
-    pidChange(e){
+    pidChange(e) {
         this.setData({
-            pid:e.detail,
-            popupShow:false
+            pid: e.detail,
+            popupShow: false
         })
         this.loadPost(e.detail)
     },
@@ -86,7 +86,7 @@ Page({
         }
         var _this = this
         app.request({
-            url: '/api/v2/posts/' + pid,
+            url: '/api/v1/posts/' + pid,
             success: function (resp) {
                 var p = resp.data.data
                 var post_name = p.title + ' ' + p.sub_district.name + ' ' + p.type_info.text + ' ' + p.area_info.text
@@ -95,14 +95,14 @@ Page({
                 _this.setData({
                     post: p,
                     post_name: post_name,
-                    tags:tags
+                    tags: tags
                 })
             }
         })
-    },  
-    chooseHandle(e){
+    },
+    chooseHandle(e) {
         this.setData({
-            chooseShow : e.detail
+            chooseShow: e.detail
         })
     },
     /**
@@ -153,7 +153,7 @@ Page({
                 icon: 'none'
             })
             return false;
-       }
+        }
 
         if (!fdata['post_id']) {
             wx.showToast({

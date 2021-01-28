@@ -15,7 +15,7 @@ Component({
         "item.group": function (g) {
             var items = ["old", "rental", "shop"]
             var r = items.includes(g)
-            this.setData({canEdit: r})
+            this.setData({ canEdit: r })
         },
     },
 
@@ -51,25 +51,7 @@ Component({
 
         },
 
-        doRefresh: function (e) {
-            var _this = this
-            var item = this.data.item
-            var data = { id: item.id }
-            app.request({
-                url: '/api/v2/posts/refresh',
-                method: 'GET',
-                data: data,
-                success: function (resp) {
-                    if (resp.data.status == 1) {
-                        return
-                    }
-                    wx.showToast({
-                        icon: 'none',
-                        title: '刷新成功，房源将优先显示',
-                    })
-                }
-            })
-        },
+
 
         publicUpdate: function (isPublic) {
             var id = this.data.item.id
@@ -77,7 +59,7 @@ Component({
             var item = this.data.item
             var _this = this
             app.request({
-                url: '/api/v2/posts/public',
+                url: '/api/v1/posts/public',
                 method: 'GET',
                 data: data,
                 success: function (resp) {

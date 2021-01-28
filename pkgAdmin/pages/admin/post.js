@@ -11,7 +11,7 @@ Page({
         loading: null,
         post: null,
         canEdit: false,
-        media_cat_id:0
+        media_cat_id: 0
     },
 
 
@@ -49,7 +49,7 @@ Page({
         var item = this.data.post
         var data = { id: item.id }
         app.request({
-            url: '/api/v2/posts/refresh',
+            url: '/api/v1/posts/refresh',
             method: 'GET',
             data: data,
             success: function (resp) {
@@ -70,7 +70,7 @@ Page({
         var item = this.data.post
         var _this = this
         app.request({
-            url: '/api/v2/posts/public',
+            url: '/api/v1/posts/public',
             method: 'GET',
             data: data,
             success: function (resp) {
@@ -145,11 +145,11 @@ Page({
             url: '/pages/visitors/index?targetType=post&targetId=' + id + '&scope=' + scope
         })
     },
-    gotoXiang:function(){
-        var id  = this.data.media_cat_id
+    gotoXiang: function () {
+        var id = this.data.media_cat_id
         var postid = this.data.postId
         wx.navigateTo({
-            url: '/pkgAdmin/pages/admin/xiangce/index?media_cat_id='+id +'&post_id=' + postid
+            url: '/pkgAdmin/pages/admin/xiangce/index?media_cat_id=' + id + '&post_id=' + postid
         })
     },
     editHandle: function (e) {
@@ -174,7 +174,7 @@ Page({
                 });
                 var items = ["old", "rental", "shop"]
                 var r = items.includes(post.group)
-                _this.setData({ post: post, canEdit: r,media_cat_id:id })
+                _this.setData({ post: post, canEdit: r, media_cat_id: id })
             }
         })
 

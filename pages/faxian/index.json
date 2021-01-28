@@ -1,5 +1,6 @@
 {
     "enablePullDownRefresh": true,
+    "navigationStyle": "custom",
     "usingComponents": {
         "news-item": "./news-item/index",
         "news-cats": "./news-cats",
@@ -7,8 +8,8 @@
         "hot-news": "./hot-news/index",
         "tour-item": "./tour-item/index",
         "qa-item": "./qa-item",
-        "ud-tabs":"/components/ud/tabs/index",
-        "ud-card":"/components/ud/card/index",
-        "scroll-news":"./scroll-news/index"
+        "ud-tabs": "/components/ud/tabs/index",
+        "ud-card": "/components/ud/card/index",
+        "scroll-news": "./scroll-news/index"
     }
 }

@@ -127,7 +127,7 @@ Component({
             var brokerId = this.data.value.broker_id
             var _this = this
             app.request({
-                url: '/api/v2/posts/hello?id=' + pid + '&receiver_id=' + brokerId,
+                url: '/api/v1/posts/hello?id=' + pid + '&receiver_id=' + brokerId,
                 success: function (resp) {
                     if (resp.data.status == 0) {
                         // 跳转到消息列表
@@ -148,7 +148,7 @@ Component({
             var _this = this
             auth.ensureUser(function (user) {
                 // 经纪人本人不能预约经纪人的房源
-         
+
                 // 去绑定用户手机号
                 if (!user.mobile) {
                     app.bindPhoneNumber(e, function (mobile) {

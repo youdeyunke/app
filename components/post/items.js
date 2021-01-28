@@ -75,7 +75,7 @@ Component({
             _this.setData({ loading: true })
             var query = this.data.query
             app.request({
-                url: '/api/v2/posts/',
+                url: '/api/v1/posts/',
                 hideLoading: true,
                 data: query,
                 complete: function (r) {

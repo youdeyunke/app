@@ -1,198 +1,198 @@
 // components/booking-log.js
 const app = getApp()
 Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-      userGroup:{ type:String, value: 'broker'},
-      item: {type: Object, value: {}},
-  },
+    /**
+     * 组件的属性列表
+     */
+    properties: {
+        userGroup: { type: String, value: 'broker' },
+        item: { type: Object, value: {} },
+    },
 
-  /**
-   * 组件的初始数据
-   */
-  data: {
-    statusName: [
-        "已预约",
-        "已带看",
-        "已取消",
-        "已删除"
-    ],
-    actions: [ ],
-    showMenu: false,
-  },
+    /**
+     * 组件的初始数据
+     */
+    data: {
+        statusName: [
+            "已预约",
+            "已带看",
+            "已取消",
+            "已删除"
+        ],
+        actions: [],
+        showMenu: false,
+    },
 
-  observers:{
-      'item.status': function(statue){
-          console.log('status 变化')
-          this.initUserActions()
-      },
-  },
+    observers: {
+        'item.status': function (statue) {
+            console.log('status 变化')
+            this.initUserActions()
+        },
+    },
 
-  ready: function(){
-      this.initActions()
-      this.loadPost()
-  },
+    ready: function () {
+        this.initActions()
+        this.loadPost()
+    },
 
 
-  /**
-   * 组件的方法列表
-   */
-  methods: {
-      initActions: function(){
-          if(this.data.userGroup == 'user'){
-              this.initUserActions()
-          }else{
-              this.initBrokerActions()
-          }
+    /**
+     * 组件的方法列表
+     */
+    methods: {
+        initActions: function () {
+            if (this.data.userGroup == 'user') {
+                this.initUserActions()
+            } else {
+                this.initBrokerActions()
+            }
 
-      },
+        },
 
-      initUserActions: function(){
-          // 0:新建，1：确认带看,2:取消,3：删除
-          var _this = this
-          var ac = [
-            {name: '取消预约', method: 'cancle'},
-            {name: '删除预约', method: 'delete', color: '#ff0000'},
-          ]
-          var status = this.data.item.status
-          if(status == 0){
-              ac[0]['disabled'] = false
-              ac[1]['disabled'] = false
-          }
-          if(status == 1){
-              ac[0]['disabled'] = true
-              ac[1]['disabled'] = true
-          }
-          if(status == 2){
-              ac[0]['disabled'] = true
-              ac[1]['disabled'] = false
-          }
+        initUserActions: function () {
+            // 0:新建，1：确认带看,2:取消,3：删除
+            var _this = this
+            var ac = [
+                { name: '取消预约', method: 'cancle' },
+                { name: '删除预约', method: 'delete', color: '#ff0000' },
+            ]
+            var status = this.data.item.status
+            if (status == 0) {
+                ac[0]['disabled'] = false
+                ac[1]['disabled'] = false
+            }
+            if (status == 1) {
+                ac[0]['disabled'] = true
+                ac[1]['disabled'] = true
+            }
+            if (status == 2) {
+                ac[0]['disabled'] = true
+                ac[1]['disabled'] = false
+            }
 
-          if(status == 3){
-              ac[0]['disabled'] = true
-              ac[1]['disabled'] = true
-          }
+            if (status == 3) {
+                ac[0]['disabled'] = true
+                ac[1]['disabled'] = true
+            }
 
-          this.setData({actions: ac})
-      },
+            this.setData({ actions: ac })
+        },
 
-      initBrokerActions: function(){
-          // 0:新建，1：确认带看,2:取消,3：删除
-          var _this = this
-          var ac = [
-            {name: '取消预约', method: 'cancle'},
-            {name: '确认已带看', method: 'confirm'},
-            {name: '删除预约', method: 'delete', color: '#ff0000'},
-          ]
-          var status = this.data.item.status
-          if(status == 1){
-              ac[0]['disabled'] = true
-              ac[2]['disabled'] = true
-          }
-          if(status == 2){
-              ac[0]['disabled'] = true
-              ac[1]['disabled'] = true
-          }
-          this.setData({actions: ac})
-      },
-      
+        initBrokerActions: function () {
+            // 0:新建，1：确认带看,2:取消,3：删除
+            var _this = this
+            var ac = [
+                { name: '取消预约', method: 'cancle' },
+                { name: '确认已带看', method: 'confirm' },
+                { name: '删除预约', method: 'delete', color: '#ff0000' },
+            ]
+            var status = this.data.item.status
+            if (status == 1) {
+                ac[0]['disabled'] = true
+                ac[2]['disabled'] = true
+            }
+            if (status == 2) {
+                ac[0]['disabled'] = true
+                ac[1]['disabled'] = true
+            }
+            this.setData({ actions: ac })
+        },
 
-      loadPost: function(){
-          var pid = this.data.item.post_id
-          var post = wx.getStorageSync('post.' + pid) || null
-          if(post){
-              this.setData({post: post})
-              return 
-          }
-          var _this = this 
-          app.request({
-              url: '/api/v2/posts/' + pid,
-              method: 'GET',
-              success: function(resp){
-                  _this.setData({
-                      post: resp.data.data
-                  })
-              }
-          })
-      },
 
-      callHandle: function(e){
-          var m = this.data.item.mobile
-          wx.makePhoneCall({
-            phoneNumber: m,
-          })
-      },
+        loadPost: function () {
+            var pid = this.data.item.post_id
+            var post = wx.getStorageSync('post.' + pid) || null
+            if (post) {
+                this.setData({ post: post })
+                return
+            }
+            var _this = this
+            app.request({
+                url: '/api/v1/posts/' + pid,
+                method: 'GET',
+                success: function (resp) {
+                    _this.setData({
+                        post: resp.data.data
+                    })
+                }
+            })
+        },
 
-      onSelect: function(e){
-          console.log('e', e)
-          var method = e.detail['method']
-          var _this = this
-          console.log('m', method)
-          switch(method){
-              case 'cancle':
-                  console.log('cancle handle')
-                  _this.cancleHandle()
-                  break;
-              case 'confirm':
-                  _this.confirmHandle()
-                  break;
-              case 'delete':
-                  _this.deleteHandle()
-                  break;
-          }
-      },
+        callHandle: function (e) {
+            var m = this.data.item.mobile
+            wx.makePhoneCall({
+                phoneNumber: m,
+            })
+        },
 
-      cancleHandle: function(){
-          // 取消预约
-          console.log('cancle handle exec')
-          this.updateLogStatus(2)
-      },
+        onSelect: function (e) {
+            console.log('e', e)
+            var method = e.detail['method']
+            var _this = this
+            console.log('m', method)
+            switch (method) {
+                case 'cancle':
+                    console.log('cancle handle')
+                    _this.cancleHandle()
+                    break;
+                case 'confirm':
+                    _this.confirmHandle()
+                    break;
+                case 'delete':
+                    _this.deleteHandle()
+                    break;
+            }
+        },
 
-      menuToggle: function(){
-          this.setData({
-              showMenu: !this.data.showMenu
-          })
-      },
+        cancleHandle: function () {
+            // 取消预约
+            console.log('cancle handle exec')
+            this.updateLogStatus(2)
+        },
 
-      updateLogStatus: function(status, cb){
-          var url = '/api/v1/booking_logs/' + this.data.item.id
-          var data = { status: status}
-          var _this = this
-          app.request({
-                  url: url,
-                  method: 'PUT',
-                  data: {booking_log: data },
-                  success: function(resp){
-                      console.log('update status resp', resp)
-                      if(resp.data.status == 0){
+        menuToggle: function () {
+            this.setData({
+                showMenu: !this.data.showMenu
+            })
+        },
+
+        updateLogStatus: function (status, cb) {
+            var url = '/api/v1/booking_logs/' + this.data.item.id
+            var data = { status: status }
+            var _this = this
+            app.request({
+                url: url,
+                method: 'PUT',
+                data: { booking_log: data },
+                success: function (resp) {
+                    console.log('update status resp', resp)
+                    if (resp.data.status == 0) {
                         var item = _this.data.item
                         item['status'] = status
-                        _this.setData({item: item})
+                        _this.setData({ item: item })
                         return typeof cb == 'function' && cb(resp.data.data)
-                      }
-                  }
-          })
-      },
+                    }
+                }
+            })
+        },
 
-      deleteHandle: function(){
-          var _this = this
-          wx.showModal({
-            title: '操作提示',
-            content: '确定要删除这条预约记录吗?',
-            success(res) {
-              if (res.confirm) {
-                _this.updateLogStatus(3)
-              }
-            }
-          })
+        deleteHandle: function () {
+            var _this = this
+            wx.showModal({
+                title: '操作提示',
+                content: '确定要删除这条预约记录吗?',
+                success(res) {
+                    if (res.confirm) {
+                        _this.updateLogStatus(3)
+                    }
+                }
+            })
 
-      },
+        },
 
-      confirmHandle: function(){
-          this.updateLogStatus(1)
-      },
-  }
+        confirmHandle: function () {
+            this.updateLogStatus(1)
+        },
+    }
 
 })
