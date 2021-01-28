@@ -1,7 +1,0 @@
-<template name="xinfang">
-  <block>
-    <block wx:for="{{posts}}" wx:for-item="postitems">
-            <postcard wx:for="{{postitems}}" item="{{item}}"></postcard>
-    </block>
-  </block>
-</template>

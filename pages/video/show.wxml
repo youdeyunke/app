@@ -1,1 +1,0 @@
-<video wx:if="{{url}}" show-center-play-btn="{{true}}" enable-progress-gesture="{{false}}" page-gesture="{{false}}" id="myvideo" catchtap='' autoplay='{{false}}' autoplay="{{true}}" src="{{url}}"></video>

@@ -4,7 +4,6 @@
         "items": "/components/post/items",
         "post-filter": "/components/post-filter/index",
         "album-info": "./album-info",
-        "sub-district": "/components/sub-district/mini-item",
         "myslider": "/components/slider",
         "navs": "/components/navs",
         "base-filter": "/components/base-filter"

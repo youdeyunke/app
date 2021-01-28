@@ -34,14 +34,6 @@
             ]
         },
         {
-            "root": "pkgAuction",
-            "name": "auction",
-            "pages": [
-                "pages/auction/index",
-                "pages/auction/bid"
-            ]
-        },
-        {
             "root": "pkgAmbitus",
             "name": "ambitus",
             "pages": [
@@ -206,36 +198,27 @@
     "pages": [
         "pages/home/home",
         "pages/qa/index",
-        "pages/webview/webview",
         "pages/post/index",
-        "pages/sub-districts/index",
-        "pages/sub-districts/show",
         "pages/post/post",
         "pages/myself/index",
-        "pages/about/index",
-        "pages/about/join",
         "pages/home/debug",
         "pages/myself/favposts",
-        "pages/static/about",
         "pages/search/index",
         "pages/need/room",
         "pages/post/form",
         "pages/messages/show",
         "pages/messages/index",
         "pages/444/index",
-        "pages/video/show",
         "pages/sub-districts/select",
         "pages/cities/select",
         "pages/districts/select",
         "pages/static/terms",
         "pages/post/meta",
         "pages/udeve/index",
-        "pages/map/index",
         "pages/myself/orders",
         "pages/myself/profile",
         "pages/visitors/index",
         "pages/post/vr",
-        "pages/home/v2",
         "pages/faxian/index"
     ],
     "tabBar": {
@@ -285,7 +268,6 @@
         "cr": "/components/copyright",
         "mytextarea": "/components/textarea",
         "no-result": "/components/no-result",
-        "ad-link": "/components/ad-link",
         "van-panel": "/vant/panel/index",
         "van-rate": "/vant/rate/index",
         "van-icon": "/vant/icon/index",

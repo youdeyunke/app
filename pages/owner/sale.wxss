@@ -1,8 +1,0 @@
-.actions{
-  width: 90%;
-  margin:0 auto;
-}
-
-page{
-  padding-top:0rpx;
-}

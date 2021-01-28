@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "district": "/components/school-region/district"
-  }
-}

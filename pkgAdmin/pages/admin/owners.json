@@ -1,7 +1,0 @@
-{
-  "enablePullDownRefresh":true,
-  "navigationBarTitleText": "业主委托",
-  "usingComponents": {
-    "my-owner":"/components/owner/item"
-  }
-}

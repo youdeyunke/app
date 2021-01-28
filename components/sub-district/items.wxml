@@ -1,8 +1,0 @@
-
-<box width="750" padding="20">
-  <block wx:for="{{items}}" wx:for-item="subdistricts">
-    <block wx:key="{{d.id}}"  wx:for="{{subdistricts}}" wx:for-item="d" >
-      <sub-district item="{{d}}" />
-    </block>
-  </block>
-</box>
