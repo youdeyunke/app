@@ -14,13 +14,26 @@
     align-items: center;
     height: 100%;
     width: 75%;
-    border-radius: 4rpx;
-    border-width: 2rpx;
-    border-style: solid;
     padding: 0 20rpx;
 }
 
-.searchbar .body-style-2, .searchbar .body-style-3 {
+.searchbar .body-style-0 {
+    border-radius: 8rpx;
+    background: #F4F4F4;
+    box-shadow: 0px 0px 14rpx rgba(0, 0, 0, 0.2);
+}
+
+.searchbar .body-style-1 {
+    border-radius: 8rpx;
+}
+
+.searchbar .body-style-2 {
+    border-radius: 80rpx;
+    box-shadow: 0px 0px 14rpx rgba(0, 0, 0, 0.2);
+    background: #F4F4F4;
+}
+
+.searchbar .body-style-3 {
     border-radius: 80rpx;
 }
 
@@ -29,7 +42,8 @@
     min-width: 80rpx;
     width: auto;
 }
-.left-part{
+
+.left-part {
     display: flex;
     justify-content: flex-start;
     align-items: center;
