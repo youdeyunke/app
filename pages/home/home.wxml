@@ -2,4 +2,4 @@
     <image src="/assets/images/install-tips-{{system.systemName}}.png" />
 </van-transition>
 <page-loading wx:if="{{loading}}" loading="{{loading}}" />
-<pagemaker ref="pagemaker" id="pm" wx:else pageId="1" />
+<pagemaker bind:ready="pageReadyHandle" ref="pagemaker" id="pm" pageId="1" />

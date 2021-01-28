@@ -100,12 +100,12 @@ Page({
     },
 
 
-    followHandle: function(e){
+    followHandle: function (e) {
         // 点击关注问题
         var _this = this
         var method = 'POST'
         var url = '/api/v1/question_followers'
-        if(this.data.item.followed){
+        if (this.data.item.followed) {
             method = 'DELETE'
             url = ''
             url = '/api/v1/question_followers/' + this.data.item.id
@@ -113,33 +113,33 @@ Page({
         // 先改变按钮状态，再发送请求
         var item = this.data.item
         item.followed = !item.followed
-        this.setData({item: item})
+        this.setData({ item: item })
 
         app.request({
             url: url,
             method: method,
             hideLoading: true,
-            data: {question_id: _this.data.item.id},
-            success: function(resp){
-                if(resp.data.status != 0){
+            data: { question_id: _this.data.item.id },
+            success: function (resp) {
+                if (resp.data.status != 0) {
                     return false
                 }
                 // 关注成功, 重新加载数据
                 _this.loadData()
-                
+
             }
         })
     },
 
-    
+
 
     addHandle: function (e) {
         // 点击我来回答按钮
         var _this = this
         auth.ensureUser(function (userInfo) {
-		    wx.navigateTo({
-			    url: '/pkgQa/pages/qa/reply?qid=' + _this.data.item.id
-		    })
+            wx.navigateTo({
+                url: '/pkgQa/pages/qa/reply?qid=' + _this.data.item.id
+            })
         })
     },
 
@@ -152,7 +152,6 @@ Page({
     },
 
     gotoNew: function (e) {
-        app.uploadFormId(e)
         wx.navigateTo({
             url: '/pages/qa/new'
         })
@@ -172,38 +171,38 @@ Page({
         this.loadData()
     },
 
-    deleteHandle: function(e){
-      var _this = this
-      wx.showModal({
-        title: '操作提示',
-        content: '确定要删除这条回答吗？',
-        success(res) {
-          if (res.confirm) {
-            _this.doDelete()
-          }
-        }
-      })
+    deleteHandle: function (e) {
+        var _this = this
+        wx.showModal({
+            title: '操作提示',
+            content: '确定要删除这条回答吗？',
+            success(res) {
+                if (res.confirm) {
+                    _this.doDelete()
+                }
+            }
+        })
     },
 
-    doDelete: function(){
+    doDelete: function () {
         var _this = this
         app.request({
             url: '/api/v1/questions/' + _this.data.item.id,
             method: 'DELETE',
-            success: function(resp){
-                if(resp.data.status != 0){
+            success: function (resp) {
+                if (resp.data.status != 0) {
                     return false
                 }
                 wx.showToast({
-                  title: '已删除',
-                  icon: 'none',
-                  mask: true,
-                  duration: 1500,
-                  success: function(){
-                    setTimeout(function(){
-                        wx.navigateBack({ delta: -1 })
-                    }, 1500)
-                  },
+                    title: '已删除',
+                    icon: 'none',
+                    mask: true,
+                    duration: 1500,
+                    success: function () {
+                        setTimeout(function () {
+                            wx.navigateBack({ delta: -1 })
+                        }, 1500)
+                    },
                 })
             }
         })

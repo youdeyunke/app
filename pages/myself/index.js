@@ -10,7 +10,7 @@ Page({
         userInfo: {},
         configs: {},
         ext: wx.getExtConfigSync(),
-        n:0
+        n: 0
     },
 
     gotoLoginPage: function (e) {
@@ -101,15 +101,12 @@ Page({
     navigatetTo: function (e) {
         console.log('e', e)
         var url = e.currentTarget.dataset.url
-        console.log("url",url);
+        console.log("url", url);
         wx.navigateTo({
             url: url,
         })
     },
 
-    formidHandle: function (e) {
-        app.uploadFormid(e)
-    },
 
     logoutHandle: function (e) {
         var _this = this
@@ -335,11 +332,11 @@ Page({
             this.getRemoteUserInfo()
         }
         if (typeof this.getTabBar === 'function' &&
-        this.getTabBar()) {
-        this.getTabBar().setData({
-            selected: 3
-        })
-    }
+            this.getTabBar()) {
+            this.getTabBar().setData({
+                selected: 3
+            })
+        }
     },
 
     /**
@@ -373,15 +370,15 @@ Page({
     onShareAppMessage: function () {
 
     },
-    domain:function(){
+    domain: function () {
         var _this = this
         this.data.n++
-        if(this.data.n>=10){
+        if (this.data.n >= 10) {
             wx.navigateTo({
                 url: '/pkgDebug/pages/debug/index',
-                success:function(){
+                success: function () {
                     _this.setData({
-                        n:0
+                        n: 0
                     })
                 }
             })

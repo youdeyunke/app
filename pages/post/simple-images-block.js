@@ -36,15 +36,15 @@ Component({
             if (!url) {
                 return false
             }
-            app.gotoWebview(url, '全景看房')
+            // TODO vr page
         },
 
         viewImage: function (e) {
             // 去相册 
-            var pid = this.data.value.post_id  
-            var path = '/pkgXiangce/pages/xiangce/index?id=' + pid  
+            var pid = this.data.value.post_id
+            var path = '/pkgXiangce/pages/xiangce/index?id=' + pid
             wx.navigateTo({
-              url: path,
+                url: path,
             })
             return
         },

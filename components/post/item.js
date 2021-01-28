@@ -2,41 +2,38 @@
 const app = getApp()
 
 Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-    type: {
-      type: String, value: 'normal',
+    /**
+     * 组件的属性列表
+     */
+    properties: {
+        type: {
+            type: String, value: 'normal',
+        },
+        border: {
+            type: Boolean, value: true,
+        },
+        shadow: {
+            type: Boolean, value: true,
+        },
+        item: {
+            type: Object, value: {},
+        }
     },
-    border: {
-      type: Boolean, value: true,
+
+    ready: function () {
     },
-    shadow: {
-      type: Boolean, value: true,
+
+    /**
+     * 组件的初始数据
+     */
+    data: {
+
     },
-    item: {
-      type: Object, value: {},
+
+    /**
+     * 组件的方法列表
+     */
+    methods: {
+
     }
-  },
-
-  ready: function(){
-  },
-
-  /**
-   * 组件的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 组件的方法列表
-   */
-  methods: {
-    formHandle: function(e){
-      app.uploadFormId(e)
-    },
-
-  }
 })

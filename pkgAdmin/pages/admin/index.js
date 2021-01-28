@@ -15,7 +15,6 @@ Page({
      * 页面的初始数据
      */
     data: {
-        fixFormid: false,
         menuItems: [
             { gvalue: 'old', name: '发布二手房', icon: 'new', color: '#0ddb0c', url: '/pages/post/form?group=old' },
             { gvalue: 'rental', name: '发布租房', icon: 'new', color: '#ff9501', url: '/pages/post/form?group=rental&rent_type=zhengzu' },
@@ -29,7 +28,7 @@ Page({
             { gvalue: 'rental', name: '求租客源', icon: 'rent', color: '#E15C32', url: '/pages/need/room?cat=rent' },
             { name: '我的客源', icon: 'customers', color: '#5857CE', url: '/pages/need/room?cat=myself' },
             { name: '我的档案', icon: 'profile', color: '#', url: '/pkgBroker/pages/broker/join' },
-            { gvalue:"old", name: '业主委托', icon: 'owners', color: '#', url: '/pkgAdmin/pages/admin/owners' }
+            { gvalue: "old", name: '业主委托', icon: 'owners', color: '#', url: '/pkgAdmin/pages/admin/owners' }
         ]
     },
 
@@ -55,24 +54,6 @@ Page({
         this.setData({ menuItems: items })
     },
 
-    formidHandle: function (e) {
-        var _this = this
-        app.uploadFormId(e, function (data) {
-            var c = data.data.can_use_count
-            if (c >= 30) {
-                _this.setData({ fixFormid: false })
-            } else {
-
-                wx.showToast({
-                    title: '可接收：' + c + '条，请继续点击按钮',
-                    icon: 'none', image: '',
-                    duration: 1000,
-                    mask: false,
-                });
-            }
-            console.log('可推送消息数：', c)
-        })
-    },
 
     subMessageHandle: function (e) {
         wx.navigateTo({ url: '/pages/myself/submessage' })
@@ -103,23 +84,6 @@ Page({
 
     },
 
-    checkFormids: function (e) {
-        var _this = this
-        app.request({
-            url: '/api/v1/formid', success: function (resp) {
-                if (resp.data.status == 1) {
-                    return false;
-                }
-                var c = resp.data.data.count || 0
-                if (c <= 20) {
-                    // 开启修复按钮
-                    _this.setData({ fixFormid: true })
-                }
-                console.log('enable form ids count', c)
-            }
-        })
-
-    },
 
     /**
      * 生命周期函数--监听页面显示

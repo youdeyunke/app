@@ -37,19 +37,19 @@ Component({
                 current: url,
                 urls: urls,
             })
-            return 
+            return
             // goto default albumt 
-            var cid = this.data.value.default_media_cat_id   
+            var cid = this.data.value.default_media_cat_id
             var path = ''
-            
+
         },
 
         gotoVr: function () {
+            // VR PAGE 
             var vr = this.data.value.vr_url
             if (!vr) {
                 return false
             }
-            app.gotoWebview(vr, '全景看房')
         },
 
     }

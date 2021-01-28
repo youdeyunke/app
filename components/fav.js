@@ -3,67 +3,66 @@ const app = getApp()
 var auth = require('../utils/auth.js');
 
 Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-    pid: {type: Number, value: null},
-    showcount: {type: Boolean, value: false},
-    showstatus: {type: Boolean, value: false,}
-  },
-
-  /**
-   * 组件的初始数据
-   */
-  data: {
-    count: 0, 
-    status: 0,
-  },
-
-  ready: function () {
-    // 查询状态
-    var _this = this
- 
-    app.request({
-      url: '/api/v2/favs/',
-      hideLoading: false,
-      data: { post_id: _this.data.pid },
-      success: function (resp) {
-        _this.setData(resp.data.data)
-      },
-    })
-  },
-
-
-
-  /**
-   * 组件的方法列表
-   */
-  methods: {
-
-    clickHandle: function(e){
-      app.uploadFormId(e)
-      
-      var pid = this.data.pid
-      var _this = this
-      auth.ensureUser(function(userInfo){
-        _this.doSubmit(pid)
-      })
+    /**
+     * 组件的属性列表
+     */
+    properties: {
+        pid: { type: Number, value: null },
+        showcount: { type: Boolean, value: false },
+        showstatus: { type: Boolean, value: false, }
     },
 
-    doSubmit: function(pid){
-      var _this = this
-      app.request({
-        url: '/api/v2/favs/',
-        hideLoading: false,
-        method: 'POST',
-        data: { post_id: pid },
-        success: function (resp) {
-          _this.setData(resp.data.data)
-        }
-      })      
+    /**
+     * 组件的初始数据
+     */
+    data: {
+        count: 0,
+        status: 0,
     },
 
-  }
+    ready: function () {
+        // 查询状态
+        var _this = this
+
+        app.request({
+            url: '/api/v2/favs/',
+            hideLoading: false,
+            data: { post_id: _this.data.pid },
+            success: function (resp) {
+                _this.setData(resp.data.data)
+            },
+        })
+    },
+
+
+
+    /**
+     * 组件的方法列表
+     */
+    methods: {
+
+        clickHandle: function (e) {
+
+            var pid = this.data.pid
+            var _this = this
+            auth.ensureUser(function (userInfo) {
+                _this.doSubmit(pid)
+            })
+        },
+
+        doSubmit: function (pid) {
+            var _this = this
+            app.request({
+                url: '/api/v2/favs/',
+                hideLoading: false,
+                method: 'POST',
+                data: { post_id: pid },
+                success: function (resp) {
+                    _this.setData(resp.data.data)
+                }
+            })
+        },
+
+    }
 
 })

@@ -97,9 +97,5 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        formHandle: function (e) {
-            app.uploadFormId(e)
-        },
-
     }
 })

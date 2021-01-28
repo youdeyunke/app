@@ -11,7 +11,7 @@ Page({
      */
     data: {
         blocks: [],
-        
+
         points: [],
         pageTitle: '房源详情',
         pageCover: '',
@@ -24,8 +24,8 @@ Page({
         user: {},
         showViewCount: false,
         showShareBox: false,
-        title:'',
-        imageUrl:''
+        title: '',
+        imageUrl: ''
     },
 
 
@@ -52,20 +52,20 @@ Page({
 
                 _this.setData({
                     loading: false,
-                
+
                     blocks: resp.data.data,
                 }, () => {
                     _this.setPageInfo()
                 })
                 //html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
                 //html = html.replace(/\<p/gi, '<p class="rich-text-p" ')
-                
+
                 wx.showShareMenu({
                     withShareTicket: true,
                     menus: ['shareAppMessage', 'shareTimeline']
                 })
             }
-            
+
         })
 
     },
@@ -173,7 +173,7 @@ Page({
         }
     },
 
-    drawRadar(){
+    drawRadar() {
         let windowWidth = 320;
         try {
             let res = wx.getSystemInfoSync();
@@ -184,19 +184,19 @@ Page({
         radarChart = new wxCharts({
             canvasId: 'radarCanvas',
             type: 'radar',
-            background:"#D1E8FF",
+            background: "#D1E8FF",
             categories: ['区域发展', '周边设施', '交通概况', '小区环境', '室内体验'],
             series: [{
-                name:"综合评分",
+                name: "综合评分",
                 data: [90, 110, 125, 95, 87],
-                color:"#1989fa"
+                color: "#1989fa"
             }],
             width: windowWidth,
-            height:200,
+            height: 200,
             extra: {
                 radar: {
                     max: 150,
-                    labelColor:'#333',
+                    labelColor: '#333',
 
                 }
             }
@@ -207,9 +207,9 @@ Page({
      */
     onShow: function () {
         this.setData({ userInfo: app.globalData.userInfo })
-        if(!this.data.loading ){
+        if (!this.data.loading) {
             this.loadData()
-        
+
             setTimeout(() => {
                 wx.hideLoading();
             }, 3000);
@@ -245,9 +245,6 @@ Page({
 
     },
 
-    formidHandle: function (e) {
-        app.uploadFormId(e)
-    },
 
 
     onShareAppMessage: function () {
@@ -259,45 +256,45 @@ Page({
         }
     },
 
-    setPageInfo: function(){
+    setPageInfo: function () {
         // 根据返回的数据设置页面标题、分享标题等信息
         var _this = this
-        this.data.blocks.forEach((block,i) => {
-            if(block.name == 'base_info'){
+        this.data.blocks.forEach((block, i) => {
+            if (block.name == 'base_info') {
                 _this.setData({
-                    pageTitle: block.value.title, 
-                    pageCover: block.value.cover,  
+                    pageTitle: block.value.title,
+                    pageCover: block.value.cover,
                     pageUrl: '/pages/post/post?id=' + block.value.post_id,
                 })
                 wx.setNavigationBarTitle({
-                title: _this.data.pageTitle,
+                    title: _this.data.pageTitle,
                 })
 
             }
             // 兼容老版本接口，没有返回base_info的情况
-            if(i > 0 && !_this.data.pageTitle & block.name == 'meta'){
-                var s = block.value.simple_images_block  
+            if (i > 0 && !_this.data.pageTitle & block.name == 'meta') {
+                var s = block.value.simple_images_block
                 // find cover 
-                if(s){
-                    _this.setData({pageCover: s.cover})
+                if (s) {
+                    _this.setData({ pageCover: s.cover })
                 }
-                var c = block.value.cover  
-                if(c){
-                    _this.setData({pageCover: c})
+                var c = block.value.cover
+                if (c) {
+                    _this.setData({ pageCover: c })
                 }
                 // find title 
-                _this.setData({pageTitle: block.value.title})
+                _this.setData({ pageTitle: block.value.title })
             }
 
         })
     },
-    onShareTimeline: function(){
+    onShareTimeline: function () {
         var _this = this
- 
-            return{
-                title: _this.data.pageTitle,
-                query:  'id='+_this.data.postId,
-                imageUrl: _this.data.pageCover
-            }
+
+        return {
+            title: _this.data.pageTitle,
+            query: 'id=' + _this.data.postId,
+            imageUrl: _this.data.pageCover
+        }
     }
 })

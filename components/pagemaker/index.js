@@ -32,11 +32,6 @@ Component({
         },
     },
 
-    refresh: function () {
-        // 用于父组件调用，刷新页面
-        this.setData({ loading: true })
-        this.loadData()
-    },
 
 
     /**
@@ -45,6 +40,7 @@ Component({
     methods: {
 
         reload: function () {
+            // 用于父组件调用，刷新页面
             this.setData({ loading: true })
             this.loadData()
         },
@@ -101,6 +97,7 @@ Component({
             var bgColor = config.title.bgColor || '#F0F0F0'
             var fontColor = config.title.color || '#333333'
             var title = config.title.value || ''
+            console.log('bgcolor', bgColor, 'font color', fontColor)
             wx.setNavigationBarColor({
                 frontColor: fontColor,
                 backgroundColor: bgColor,

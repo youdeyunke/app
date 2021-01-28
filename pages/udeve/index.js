@@ -10,9 +10,6 @@ Page({
         isDone: false,
     },
 
-    formidHandle: function (e) {
-        app.uploadFormid(e)
-    },
 
     gotoHome: function () {
         wx.switchTab({
@@ -64,7 +61,6 @@ Page({
 
 
     submitHandle: function (e) {
-        app.uploadFormid(e)
         console.log(e)
         var data = e.detail.value
         if (!data.name) {

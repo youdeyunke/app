@@ -1,10 +1,5 @@
 <form bindsubmit='submitHandle' report-submit wx:if="{{!isDone}}">
-    <view class="mycats" wx:if="{{cats.length >= 2}}">
-        <van-tabs active="{{activeTabIndex}}" border="{{false}}" type="line" color="#1989fa" bind:change="catChange">
-            <van-tab wx:for="{{cats}}" title="{{item.label}}"></van-tab>
-        </van-tabs>
-    </view>
-    <card width="710" hat="{{false}}" title="{{ cat == 'buy' ? '买房' : '租房'}}预算" subtitle="请拖动滑块选择预算范围">
+    <card width="710" hat="{{false}}" title="'买房预算" subtitle="请拖动滑块选择预算范围">
         <view class="range-value">
             <text class="number">{{ budget_min_value }}</text>
             <text class="unit">{{priceUnit}}</text>

@@ -75,7 +75,6 @@ Component({
         },
 
         favHandle: function (e) {
-            app.uploadFormId(e)
             var pid = this.data.value.post_id
             var _this = this
             auth.ensureUser(function (userInfo) {

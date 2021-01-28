@@ -27,9 +27,6 @@ Page({
     },
 
 
-    formidHandle: function (e) {
-        app.uploadFormId(e)
-    },
 
     gotoZhaofang: function (e) {
         wx.navigateTo({ url: '/pages/need/room-form' })
@@ -59,6 +56,10 @@ Page({
         }
     },
 
+    pageReadyHandle: function (e) {
+        this.setData({ loading: false })
+    },
+
 
     /** 下拉刷新
      * 
@@ -68,7 +69,7 @@ Page({
         this.setData({ loading: true })
         var _this = this
         app.loadConfigs(function (configs) {
-            _this.selectComponent('#pm').refresh()
+            _this.selectComponent('#pm').reload()
             _this.setData({ configs: configs })
             wx.stopPullDownRefresh()
             wx.hideNavigationBarLoading()

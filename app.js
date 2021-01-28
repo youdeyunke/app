@@ -4,7 +4,6 @@ const EXT = wx.getExtConfigSync()
 
 App({
     globalData: {
-        hotKeywords: [],
         cityId: null, // 全局城市过滤
         EXT: EXT,
         myconfigs: null,
@@ -17,316 +16,8 @@ App({
         token: null,
         cities: [],
         qqMapAppKey: "OH2BZ-7QJK6-L44SI-MEJFO-PJNH2-IABHQ",
-
-        filterTypeItem: {
-            type: "picker",
-            name: "户型",
-            key: "type",
-            options: [
-                {
-                    label: "不限",
-                    value: ""
-                },
-                {
-                    label: "一室",
-                    value: "1"
-                },
-                {
-                    label: "两室",
-                    value: "2"
-                },
-                {
-                    label: "三室",
-                    value: "3"
-                },
-                {
-                    label: "四室",
-                    value: "4"
-                },
-                {
-                    label: "五室以上",
-                    value: "5"
-                }
-            ]
-        },
-
-
-        filterAreaItem: {
-            type: "picker",
-            name: "面积",
-            key: "area",
-            options: [
-                {
-                    label: "不限",
-                    value: ""
-                },
-                {
-                    label: "0~50㎡",
-                    value: "0,50"
-                },
-                {
-                    label: "50~100㎡",
-                    value: "50,100"
-                },
-                {
-                    label: "100~150㎡",
-                    value: "100,150"
-                },
-                {
-                    label: "150~200㎡",
-                    value: "150,200"
-                },
-                {
-                    label: "200㎡以上",
-                    value: "200,99999"
-                }
-            ]
-        },
-
-        filterTotalPriceItem: {
-            type: "picker",
-            name: "总价",
-            key: "total_price",
-            options: [
-                {
-                    label: "不限",
-                    value: ""
-                },
-                {
-                    label: "50万以内",
-                    value: "0,50"
-                },
-                {
-                    label: "50万～80万",
-                    value: "50,80"
-                },
-                {
-                    label: "80万~100万",
-                    value: "80,100"
-                },
-                {
-                    label: "100万~120万",
-                    value: "100,120"
-                },
-                {
-                    label: "120万~150万",
-                    value: "120,150"
-                },
-                {
-                    label: "150万~200万",
-                    value: "150,200"
-                },
-                {
-                    label: "200万~300万",
-                    value: "200,300"
-                },
-                {
-                    label: "300万~400万",
-                    value: "300,400"
-                },
-
-                {
-                    label: "400万~500万",
-                    value: "400,500"
-                },
-                {
-                    label: "500万~600万",
-                    value: "500,600"
-                },
-                {
-                    label: "600万~700万",
-                    value: "600,700"
-                },
-                {
-                    label: "700万~800万",
-                    value: "700,800"
-                },
-                {
-                    label: "800万~900万",
-                    value: "800,900"
-                },
-                {
-                    label: "一千万以上",
-                    value: "1000,99999"
-                },
-            ]
-        },
-
-
-        filterRentPriceItem: {
-            type: "picker",
-            name: "租金",
-            key: "rent_price",
-            options: [
-                {
-                    label: "不限",
-                    value: ""
-                },
-                {
-                    label: "1000以内",
-                    value: "0,1000"
-                },
-                {
-                    label: "1000~1200",
-                    value: "1000,1200"
-                },
-                {
-                    label: "1200~1500",
-                    value: "1200,1500"
-                },
-                {
-                    label: "1500,2000",
-                    value: "1500,2000"
-                },
-                {
-                    label: "2000~2500",
-                    value: "2000,2500"
-                },
-                {
-                    label: "2500~3000",
-                    value: "2500,3000"
-                },
-                {
-                    label: "3000~4000",
-                    value: "3000,4000"
-                },
-                {
-                    label: "4000~5000",
-                    value: "4000,5000"
-                },
-                {
-                    label: "5000以上",
-                    value: "5000,99999"
-                }
-            ]
-        },
-
-        filterShopPriceItem: {
-            type: "picker",
-            name: "价格",
-            key: "price",
-            options: [
-                {
-                    label: "不限",
-                    value: ""
-                },
-                {
-                    label: "5000以内",
-                    value: "0,5000"
-                },
-                {
-                    label: "5000~1万",
-                    value: "5000,10000"
-                },
-                {
-                    label: "1.5万~1.8万",
-                    value: "15000,18000"
-                },
-                {
-                    label: "1.8万~2.0万",
-                    value: "18000,20000"
-                },
-                {
-                    label: "2万~2.5万",
-                    value: "20000,25000"
-                },
-                {
-                    label: "2.5万~3万",
-                    value: "20000,30000"
-                },
-                {
-                    label: "3万以上",
-                    value: "30000,999999"
-                }
-            ]
-        },
-
-        filterOrderItem1: {
-            type: "picker",
-            name: "排序",
-            key: "order",
-            options: [
-                {
-                    label: "默认",
-                    value: "refresh_at desc"
-                },
-                {
-                    label: "面积（从大到小)",
-                    value: "area desc"
-                },
-                {
-                    label: "面积（从小到大)",
-                    value: "area asc"
-                },
-                {
-                    label: "租金（从小到大)",
-                    value: "rent_price  asc"
-                },
-                {
-                    label: "租金（从大到小)",
-                    value: "rent_price desc"
-                }
-            ]
-        },
-
-        filterOrderItem2: {
-            type: "picker",
-            name: "排序",
-            key: "order",
-            options: [
-                {
-                    label: "默认",
-                    value: "refresh_at desc"
-                },
-                {
-                    label: "面积（从大到小)",
-                    value: "area desc"
-                },
-                {
-                    label: "面积（从小到大)",
-                    value: "area asc"
-                },
-                {
-                    label: "总价（从小到大)",
-                    value: "total_price  asc"
-                },
-                {
-                    label: "总价（从大到小)",
-                    value: "total_price desc"
-                }
-            ]
-        },
-
-        filterRenttypeItem: {
-            type: "picker",
-            name: "转让类型",
-            key: "rent_type",
-            options: [
-                {
-                    label: "出租",
-                    value: "rent"
-                },
-                {
-                    label: "出售",
-                    value: "sale"
-                },
-            ]
-        }
-
-
-    },
-    gotoWebview: function (url, title = '') {
-        var url2 = encodeURIComponent(url)
-        console.log('goto webvie url1 is', url, 'url2 is', url2)
-        wx.navigateTo({ url: '/pages/webview/webview?url=' + url2 + '&title=' + title })
     },
 
-
-    gotoVideo: function (url, title = "") {
-        var url2 = encodeURIComponent(url)
-        console.log('goto viewo url1 is', url, 'url2 is', url2)
-        wx.navigateTo({ url: '/pages/video/show?url=' + url2 + '&title=' + title })
-    },
 
 
     chooseLocation: function (cb) {
@@ -349,7 +40,6 @@ App({
     },
 
     ensureLocation: function (cb) {
-
         // 确保能获取用户位置信息
         var _this = this;
         var location = wx.getStorageSync("location");
@@ -418,16 +108,6 @@ App({
     },
 
 
-    setNav: function (configs) {
-        var bgColor = configs.plugin_home_topbar_color_desc
-        var frontColor = configs.plugin_home_topbar_front_color_desc
-        wx.setNavigationBarColor({
-            frontColor: frontColor,
-            backgroundColor: bgColor,
-            animation: { duration: 400, timingFunc: 'easeIn' }
-        })
-    },
-
     loadConfigs: function (cb) {
         /* 从服务器加载系统配置嘻嘻 */
         var _this = this;
@@ -436,7 +116,6 @@ App({
             hideLoading: true,
             success: function (resp) {
                 var conf = resp.data.data;
-                _this.setNav(conf)
                 _this.globalData.myconfigs = conf
                 return typeof cb == "function" && cb(conf);
             }
@@ -551,34 +230,6 @@ App({
 
 
 
-    loadPosts: function (that) {
-        if (!that.data.hasMore) {
-            return false;
-        }
-        var query = {
-            //city_id: that.data.city_id || '',
-            offset: that.data.offset || 0,
-            limit: that.data.limit || 0,
-            group: that.data.group || "all"
-        };
-        var _this = this;
-        this.request({
-            url: "/api/v1/posts",
-            data: query,
-            success: function (resp) {
-                var d = {};
-                if (resp.data.data.length == 0) {
-                    d.hasMore = false;
-                } else {
-                    var k = "posts[" + that.data.offset + "]";
-                    d[k] = resp.data.data;
-                    _this.cachePosts(resp.data.data);
-                }
-                d.offset = resp.data.paginate.offset;
-                that.setData(d);
-            }
-        });
-    },
 
     comingSoon: function () {
         wx.showToast({
@@ -598,7 +249,6 @@ App({
         this.setUserInfo()
         this.setSystemInfo()
         this.startReddotInterval()
-        console.log('EXT is ', EXT)
         this.ensureConfigs(function (config) {
             _this.loadCities(function (cities) {
                 _this.globalData.cities = cities;
@@ -656,16 +306,6 @@ App({
         }
     },
 
-    newMessageAudio: function () {
-        const innerAudioContext = wx.createInnerAudioContext();//新建一个createInnerAudioContext();
-        innerAudioContext.autoplay = true;//音频自动播放设置
-        innerAudioContext.src = '/audio/notice.mp3';//链接到音频的地址
-        innerAudioContext.onPlay(() => { });//播放音效
-        innerAudioContext.onError((res) => {//打印错误
-            console.log(res.errMsg);//错误信息
-            console.log(res.errCode);//错误码
-        })
-    },
 
     reddotHandle: function () {
         // 如果没有登录，就不检查
@@ -750,13 +390,7 @@ App({
         })
     },
 
-    uploadFormid: function (e, cb) {
-        return this.uploadFormId(e, cb)
-    },
 
-    uploadFormId: function (e, cb) {
-        return false
-    },
 
 
     sendSms: function (mobile, cb) {
