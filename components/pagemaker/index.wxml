@@ -10,7 +10,7 @@
             <unknow-module wx:else />
         </module-box>
     </block>
-    <view class="pagemaker-bg">
-        <image src="{{pageConfig.bg.image }}" />
+    <view class="pagemaker-bg" style="background-color: {{pageConfig.bg.color}}">
+        <image wx:if="{{pageConfig.bg.image}}" src="{{pageConfig.bg.image }}" />
     </view>
 </view>

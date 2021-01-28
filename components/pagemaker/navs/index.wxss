@@ -7,31 +7,51 @@
 }
 
 .list .item .icon {
-    width: 84rpx;
-    height: 84rpx;
+    width: 80rpx;
+    height: 80rpx;
+    position: relative;
+}
+
+.list .item .icon image {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.list .item .count {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    z-index: 10;
+    font-weight: bold;
+    font-size: 24rpx;
 }
 
 .list .item .name {
     font-size: 24rpx;
     color: #333;
-    margin-top: 10rpx;
-    width: 100rpx;
+    min-width: 100rpx;
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
+    margin-top: 11rpx;
 }
 
-.list .item  {
+.list .item {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 20rpx;
-    width: auto;
-    height: auto;
+    width: 100rpx;
+    margin-top: 10rpx;
 }
 
 .list .item .link {
@@ -42,7 +62,7 @@
 }
 
 .list.mode-5 .item {
-    margin-right: calc((100% - 510rpx) /4);
+    margin-right: calc((100% - 500rpx) /4);
 }
 
 .list.mode-5 .item:nth-child(5n) {
@@ -54,7 +74,7 @@
 }
 
 .list.mode-4 .item {
-    margin-right: calc((100% - 410rpx) /3);
+    margin-right: calc((100% - 400rpx) /3);
 }
 
 .list.mode-4 .item:nth-child(4n) {
@@ -62,17 +82,5 @@
 }
 
 .list.mode-4 .item:nth-child(-n+4) {
-    margin-top: 0;
-}
-
-.list.mode-3 .item {
-    margin-right: calc((100% - 300rpx) /2);
-}
-
-.list.mode-3 .item:nth-child(3n) {
-    margin-right: 0rpx;
-}
-
-.list.mode-3 .item:nth-child(-n+3) {
     margin-top: 0;
 }
