@@ -6,6 +6,7 @@
         "posts-block": "/pages/home/posts",
         "page-loading": "/pages/home/page-loading",
         "news-swiper": "/components/news-swiper",
+        "pagemaker": "/components/pagemaker/index",
         "navs": "/components/navs",
         "van-transition": "/vant/transition/index",
         "brokers": "/components/broker/hot-brokers",

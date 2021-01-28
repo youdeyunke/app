@@ -6,7 +6,8 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        pageId: { type: Number, default: 1 }
+        pageId: { type: Number, default: 1 },
+        pageKey: { type: Number, default: null },
     },
 
     /**
@@ -26,7 +27,7 @@ Component({
             this.setData({ loading: true })
             this.loadData()
         },
-        "config.padding": function(v){
+        "config.padding": function (v) {
             console.log('observers.padding', v)
         },
     },
@@ -51,8 +52,11 @@ Component({
         loadData: function (cb) {
             var _this = this
             var pageId = this.data.pageId
+            var pageKey = this.data.pageKey
+            var v = pageKey || pageId
+
             app.request({
-                url: '/api/v1/pages/' + pageId,
+                url: '/api/v1/pages/' + v,
                 hideLoading: true,
                 success: function (resp) {
                     var data = resp.data.data
