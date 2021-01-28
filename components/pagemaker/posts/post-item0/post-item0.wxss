@@ -1,68 +1,74 @@
 /* components/pagemaker/posts/post-item0.wxss */
+
 .post {
-  box-sizing: border-box;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  font-size: 24rpx;
-  margin-bottom: 20rpx;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 24rpx;
+    margin-bottom: 20rpx;
 }
 
 .post .cover {
-  width: 200rpx;
-  height: 150rpx;
-  border-radius: 4rpx;
-  overflow: hidden;
-  margin-right: 20rpx;
+    width: 220rpx;
+    height: 165rpx;
+    border-radius: 5rpx;
+    overflow: hidden;
+    margin-right: 20rpx;
 }
 
 .post .title text {
-  color: #000;
-  margin-bottom: 10rpx;
-  font-size:28rpx;
-  font-weight: bolder;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  width: 400rpx;
+    color: #000;
+    margin-bottom: 10rpx;
+    font-size: 30rpx;
+    font-weight: bolder;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 400rpx;
 }
 
-.post .title{
-  display: flex;
-  justify-content: space-between;
+.post .title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post .price {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .post .address {
-  color: #999;
-  margin-bottom: 10rpx;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  overflow-x: hidden;
-  overflow-y: hidden;
-  width:  400rpx;
+    color: #A0A0A0;
+    margin-bottom: 10rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 400rpx;
 }
 
 .post .tags {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 10rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10rpx;
 }
 
 .post van-tag:last-child {
-  margin-right: 0;
+    margin-right: 0;
 }
 
 .post van-tag {
-
-  margin-right: 10rpx;
-
+    margin-right: 10rpx;
 }
 
 .post .red {
-  color: red;
+    margin-right: 10rpx;
+    color: red;
 }

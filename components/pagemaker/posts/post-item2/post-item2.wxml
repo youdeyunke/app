@@ -4,6 +4,7 @@
         <view class="address">{{post.address}}</view>
     </view>
     <view class="footer">
+        <view class="title">{{post.title}}</view>
         <view class="top">
             <view class="tags">
                 <van-tag text-color="{{item.text_color }}" size="mini" plain wx:for="{{post.tag_objs}}" wx:key="item.id">
@@ -11,10 +12,9 @@
                 </van-tag>
             </view>
             <view class="price">
-                {{post.price_info.label}}:
-                <text>{{post.price_info.text}}{{post.price_info.px}}</text>
+                {{post.average_price_info.label}}:
+                <text>{{post.average_price_info.text}}{{post.average_price_info.px}}</text>
             </view>
         </view>
-        <view class="title">{{post.title}}</view>
     </view>
 </navigator>

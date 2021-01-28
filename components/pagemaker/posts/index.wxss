@@ -1,4 +1,5 @@
 /* components/pagemaker/posts/index.wxss */
-.posts-items{
-    padding: 20rpx;
+
+.posts-items {
+    padding: 0rpx;
 }

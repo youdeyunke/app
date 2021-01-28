@@ -1,4 +1,5 @@
 /* components/pagemaker/posts/post-item1/post-item1.wxss */
+
 .post {
     display: flex;
     flex-direction: column;
@@ -6,15 +7,17 @@
     align-items: flex-start;
     font-size: 24rpx;
     margin-bottom: 20rpx;
-    width: 200rpx;
+    width: 220rpx;
 }
+
 .cover {
-    width: 200rpx;
-    height: 150rpx;
-    border-radius: 8rpx;
+    width: 220rpx;
+    height: 165rpx;
+    border-radius: 5rpx;
     overflow: hidden;
     margin-bottom: 10rpx;
 }
+
 .title {
     color: #000;
     margin-bottom: 10rpx;
@@ -24,8 +27,8 @@
     overflow-x: hidden;
     overflow-y: hidden;
     width: 100%;
-    font-size:28rpx; 
-    font-weight: bolder;
+    font-size: 26rpx;
+    font-weight: bold;
 }
 
 .price {
@@ -35,6 +38,7 @@
     overflow-x: hidden;
     overflow-y: hidden;
     width: 100%;
+    font-size: 26rpx;
 }
 
 .red {

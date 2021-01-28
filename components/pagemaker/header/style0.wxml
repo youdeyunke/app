@@ -1,8 +1,8 @@
 <!-- components/pagemaker/header/style0.wxml -->
 <view class="header">
     <view class="title">
+        <text>{{title}}</text>
         <view class="hat"></view>
-        {{title}}
     </view>
     <link config="{{link}}" custom-class="subtitle">
         {{subtitle}}

@@ -8,20 +8,20 @@ Component({
     },
 
     observers: {
+        "config": function (c) {
+            var link = c.link && c.link.cat !== 'no' ? c.link : null
+            console.log('link is', link)
+            var data = {
+                title: c.title.text,
+                subtitle: c.subtitle.text,
+                link: link
+            }
+            this.setData(data)
+        },
 
     },
 
     ready: function () {
-        console.log('header index module ready', this.data.config)
-        var c = this.data.config
-        var link = c.link && c.link.cat !== 'no' ? c.link : null
-        console.log('link is', link)
-        var data = {
-            title: c.title.text,
-            subtitle: c.subtitle.text,
-            link: link
-        }
-        this.setData(data)
     },
 
     /**

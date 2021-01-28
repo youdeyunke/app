@@ -73,7 +73,7 @@ Page({
             text_6 = post.area_info.text + ' 平'
             text_3 = post.type_info.text
             text_3 = text_3.replace('0室', '待定')
-            text_4 = post.price_info.text + post.price_info.px
+            text_4 = post.average_price_info.text + post.average_price_info.px
             text_5 = post.broker_info.mobile + '(' + post.broker_info.name + ')'
 
             switch (post.group) {

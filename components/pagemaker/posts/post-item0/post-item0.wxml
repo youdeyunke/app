@@ -1,20 +1,21 @@
-<!--components/pagemaker/posts/post-item0.wxml-->
-<navigator hover-class="none" class="post" url="/pages/post/post?id={{post.id}}" >
+<!-- components/pagemaker/posts/post-item0.wxml -->
+<navigator hover-class="none" class="post" url="/pages/post/post?id={{post.id}}">
     <view class="left">
-    <image   class="cover" src="{{post.cover}}" />
+        <image class="cover" src="{{post.cover}}" />
     </view>
     <view class="right">
-    <view class="title">
-        <text> {{post.title}} </text> 
-     
-    </view>
-    <view class="address">{{post.address}}</view>
-    <view class="tags">
-        <van-tag text-color="{{item.text_color }}"  size="mini"  plain wx:for="{{post.tag_objs}}" wx:key="item.id">{{item.name}}</van-tag>
-    </view>
-    <view class="price">
-        <text class="red">{{post.price_info.label}}:{{post.price_info.text}}{{post.price_info.px}}</text>
-        {{post.area_info.label}} {{post.area_info.text}}
+        <view class="title">
+            <text>{{post.title}}</text>
+        </view>
+        <view class="address">{{post.street}}</view>
+        <view class="tags">
+            <van-tag text-color="{{item.color }}" size="mini" plain wx:for="{{post.tags}}" wx:key="item.id">
+                {{item.name}}
+            </van-tag>
+        </view>
+        <view class="price">
+            <text class="red">{{post.average_price_info.text}}{{post.average_price_info.px}}</text>
+            <text>{{post.area_info.label}} {{post.area_info.text}}</text>
         </view>
     </view>
-    </navigator>
+</navigator>

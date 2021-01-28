@@ -1,4 +1,5 @@
 <!-- components/pagemaker/header/module-box.wxml -->
 <view class="module-box" style="width: {{widthValue}}; background-color: {{bgColor}}; background-image: {{bgImage }}; padding: {{padding }};margin:{{margin}};height:{{height}}">
+    <module-header wx:if="{{config.header}}" config="{{config.header}}"></module-header>
     <slot></slot>
 </view>

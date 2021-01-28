@@ -1,9 +1,11 @@
 /* components/pagemaker/posts/post-item2/post-item2.wxss */
+
 .post {
     font-size: 24rpx;
     height: 524rpx;
-    margin-bottom:20rpx
+    margin-bottom: 20rpx
 }
+
 .post .cover {
     height: 400rpx;
     position: relative;
@@ -29,16 +31,17 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-   
     margin-bottom: 10rpx;
 }
+
 .post .tags van-tag:last-child {
     margin-right: 0;
 }
+
 .post .tags van-tag {
     margin-right: 10rpx;
-   
 }
+
 .post .cover .address {
     width: 100%;
     background: rgba(0, 0, 0, 0.4);
@@ -61,11 +64,11 @@
 
 .post .title {
     color: #000;
-    font-size: 32rpx;
+    font-size: 30rpx;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
-    
+    font-weight: bold;
 }
