@@ -1,0 +1,3 @@
+<!--pages/messages/last-time.wxml-->
+
+<view>{{timeStr}}</view>

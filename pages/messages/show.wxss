@@ -1,8 +1,110 @@
-page{
-  background: #ebebeb !important;
-  padding-bottom:100rpx;
+page::after {
+    content: "" !important;
 }
 
-page::after{
-  content: "" !important;
+.dialog {
+    background: #ebebeb !important;
+    box-sizing: border-box;
+}
+
+.system {
+    width: 100%;
+    text-align: center;
+    margin: 20rpx auto;
+}
+
+.touser {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: 120rpx;
+    padding: 0 40rpx;
+}
+
+.line-limit {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.touser .left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.touser .text {
+    height: 100%;
+    width: 350rpx;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.touser .text .name {
+    font-size: 30rpx;
+    color: #000;
+    margin-bottom: 10rpx;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.touser .text .name text {
+    margin-right: 30rpx;
+}
+
+.touser .text .desc {
+    font-size: 28rpx;
+    color: #333;
+}
+
+.touser .avatar {
+    height: 74rpx;
+    width: 74rpx;
+    border-radius: 74rpx;
+    border: 2rpx solid #cecece;
+    padding: 0rpx;
+    overflow: hidden;
+    margin-right: 20rpx;
+}
+
+.touser .actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.touser .action-item {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 80rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20rpx;
+}
+
+.touser .action-item.wechat image {
+    width: 60rpx;
+    height: 60rpx;
+}
+
+.touser .action-item.mobile {
+    background: #1989fa;
+}
+
+#bottom {
+    display: block;
+    height: 100rpx;
 }

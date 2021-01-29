@@ -1,61 +1,7 @@
 page{
-  background: #fff;
+  background: #fff !important;
   height: 100%!important;
 }
-
-.item{
-  display: flex;
-  justify-content: space-between;
-  align-items:  center;
-  height: 92rpx;
-  border-bottom: 2rpx solid #f4f4f4;
-  padding:30rpx 0;
-  position: relative;
-}
-
-.item .tip::after{
-  content: ' ';
-  height: 12rpx;
-  width: 12rpx;
-  display: flex;
-  border-radius: 8rpx;
-  background: red;
-  position: absolute;
-  left: 92rpx;
-  top: 30rpx;
-}
-
-.item .avatar{
-  height:92rpx;
-  width: 92rpx;
-  border-radius: 10rpx;
-}
-
-.item .info{
-  height: 100%;
-  width: calc(750rpx - 60rpx - 92rpx - 20rpx);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-
-.item .name{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.item  .nickname{
-  color: #000;
-  font-size:var(--font-lg);
-}
-
-.item .info .text{
-  color: #cecece;
-}
-
-
 
 .empty{
   height:100%;

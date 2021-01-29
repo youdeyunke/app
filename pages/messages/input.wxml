@@ -1,0 +1,48 @@
+<block>
+    <view class="cyy" bindtap="cyyToggle" hidden="{{showCyy}}">
+        <image src="https://qiniucdn.udeve.cn/fang/assets/icons/message/message-cyy.png" />
+        <text>常用语</text>
+    </view>
+    <van-popup closeable="{{true}}" show="{{ showCyy }}" position="bottom" overlay="{{true}}" bind:close="cyyToggle">
+        <van-cell-group>
+            <van-cell data-index="{{index}}" wx:for="{{cyyList}}" title="{{item}}" size="small" bindtap="sendCyyHandle" />
+        </van-cell-group>
+    </van-popup>
+    <view class="outer" hidden="{{showCyy}}">
+        <view class="input-wrapper">
+            <view class="icon" bindtap="audioModeToggle2">
+                <!-- - image src="https://qiniucdn.udeve.cn/fang/assets/icons/message/icon-{{ audioMode ? 'text' : 'audio'}}.png" / -->
+                <image src="https://qiniucdn.udeve.cn/fang/assets/icons/message/icon-text.png" />
+            </view>
+            <block wx:if="{{audioMode}}">
+                <view hidden="{{!audioMode || audioRes}}" class="audio-record-btn" bind:longpress="startAudioHandle" bindtouchend="stopAudioHandle">
+                    {{ audioRecording ? '录音中...' : '按住开始录音，松开停止' }}
+                </view>
+                <view class="audio-res" hidden="{{!audioRes}}">
+                    <view class="btn-sent default" bindtap="sendAudioMessageHandle">发送</view>
+                    <view class="btn-cancle" bindtap="cancleAudioHandle">取消</view>
+                </view>
+            </block>
+            <block wx:else>
+                <input value="{{content}}" bindconfirm="sentHandle" confirm-type="send" confirm-hold="{{true}}" placeholder='请输入' bindinput='inputHandle' auto-focus='{{false}}'></input>
+                <view class="icon" bindtap="toolsToggle" hidden="{{audioRecording}}">
+                    <image src="https://qiniucdn.udeve.cn/fang/assets/icons/message-add.png" />
+                </view>
+            </block>
+        </view>
+        <view class="tool-box {{ showTools ? 'open' : 'close' }}">
+            <view class="tool-item" bindtap="sendImageHandle">
+                <view class="icon-wrapper">
+                    <image src="https://qiniucdn.udeve.cn/fang/assets/icons/message/tool-image.png" />
+                </view>
+                <view class="name">发送图片</view>
+            </view>
+            <!-- view class="tool-item" bindtap="sendMobiledHandle">
+                <view class="icon-wrapper">
+                    <image src="https://qiniucdn.udeve.cn/fang/assets/icons/message/tool-mobile.png" />
+                </view>
+                <view class="name">发送电话</view>
+            </view -->
+        </view>
+    </view>
+</block>

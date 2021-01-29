@@ -1,10 +1,7 @@
 {
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "card": "/components/card",
-    "message-item": "/components/message/item",
-    "message-input": "/components/message/input",
-    "post-input": "/components/message/post",
-    "box": "/components/box"
-  }
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "message-item": "./item",
+        "message-input": "./input"
+    }
 }

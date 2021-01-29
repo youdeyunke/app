@@ -1,0 +1,6 @@
+<!-- components/message/nmamecard.wxml -->
+<view class="card">
+    <view class="body">您好，非常不好意思，我正在忙其他事情，稍后给你回复您可以吗？如果着急的话可以打我电话。</view>
+    <view class="line"></view>
+    <view bindtap="callHandle" class="footer">立即致电</view>
+</view>

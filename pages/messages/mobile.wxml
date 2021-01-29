@@ -1,0 +1,18 @@
+<!--components/message/nmamecard.wxml-->
+<view class="card">
+    <view class="info">
+        <view class="icon">
+            <image src="https://qiniucdn.udeve.cn/fang/assets/icons/message/mobile-number-icon.png" mode="scaleToFill" />
+        </view>
+        <view class="text">
+            <view>{{userInfo.name || userInfo.nickname }}的手机号</view>
+            <view class="number">{{userInfo.mobile}}</view>
+        </view>
+    </view>
+    <view class="actions">
+        <view class="btn call-btn" bindtap="callHandle">拨打电话</view>
+        <view class="blank"></view>
+        <view class="btn copy-btn" bindtap="copyHandle">复制号码</view>
+    </view>
+
+</view>

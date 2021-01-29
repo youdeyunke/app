@@ -2,7 +2,9 @@ const TIM = require('./tim-wx');
 const COS = require('./cos-wx-sdk-v5.js');
 
 module.exports = {
+    TIM: TIM,
     tim: null,
+    readyStatus: null,
     SIGN_DATA: null,
 
     initTim: function (appid) {
@@ -21,7 +23,7 @@ module.exports = {
         tim.on(TIM.EVENT.SDK_READY, _this.SDK_READY)
         tim.on(TIM.EVENT.ERROR, _this.ERROR)
         tim.on(TIM.EVENT.CONVERSATION_LIST_UPDATED, _this.CONVERSATION_LIST_UPDATED)
-        tim.on(TIM.EVENT.MESSAGE_RECEIVED, MESSAGE_RECEIVED)
+        tim.on(TIM.EVENT.MESSAGE_RECEIVED, _this.MESSAGE_RECEIVED)
         tim.on(TIM.EVENT.KICKED_OUT, _this.KICKED_OUT)
         this.tim = tim
     },
@@ -101,6 +103,7 @@ module.exports = {
     SDK_READY: function (event) {
         console.log('tim sdk ready now!', event)
         // 用户账户已经登陆了，可以开始监听事件
+        module.exports.readyStatus = true
     },
 
 
