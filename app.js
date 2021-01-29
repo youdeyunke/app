@@ -1,6 +1,8 @@
 //app.js
 const auth = require("utils/auth.js");
 const EXT = wx.getExtConfigSync()
+const T = require("utils/test.js");
+const TIM = require('tim/index.js');
 
 App({
     globalData: {
@@ -11,7 +13,7 @@ App({
         reddot: 0,
         reddotIntervalId: null,
         assetsList: ['客梯', '货梯', '扶梯', '中央空调', '停车位', '天然气', '网络', '暖气', '上水', '下水', '排烟', '排污', '可明火', '380V', '外摆区'],
-        apiHost: 'http://weapp2.udeve.net:32021/',
+        apiHost: 'http://weapp2.udeve.net:32021',
         userInfo: null,
         token: null,
         cities: [],
@@ -244,7 +246,21 @@ App({
         this.clearReddotInterval()
     },
 
+    initTim: function () {
+        console.log('配置加载完毕，准备初始化tim sdk')
+        var appid = 1400181975
+        TIM.initTim(appid)
+        // 如果当前用户已经登陆过的话，将tim也登陆
+        setTimeout(function () {
+            TIM.login()
+        }, 1000)
+    },
+
+
+    timLogin: function () { },
+
     onLaunch: function () {
+
         var _this = this;
         this.setUserInfo()
         this.setSystemInfo()
@@ -254,10 +270,13 @@ App({
                 _this.globalData.cities = cities;
                 _this.getLocation();
             });
+            setTimeout(_this.initTim, 2000)
         })
         // 监听小程序前后台切换
         wx.onAppShow(this.onAppShow)
         wx.onAppHide(this.onAppHide)
+        T.setName('Yohn')
+        T.hello()
     },
 
 

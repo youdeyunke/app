@@ -1,5 +1,6 @@
 const app = getApp()
 var auth = require('../../utils/auth.js');
+const T = require('../../utils/test.js');
 
 Page({
 
@@ -263,6 +264,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
+        T.hello()
         var _this = this
         wx.setNavigationBarTitle({ title: '我的' })
         app.ensureConfigs(function (configs) {
