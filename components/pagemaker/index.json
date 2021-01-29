@@ -2,6 +2,8 @@
     "component": true,
     "usingComponents": {
         "banners-module": "./banners/index",
+        "text-module": "./text/index",
+        "blank-module": "./blank/index",
         "navs-module": "./navs/index",
         "searchbar-module": "./searchbar/index",
         "header-module": "./header/index",

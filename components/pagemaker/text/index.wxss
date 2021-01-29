@@ -1,0 +1,6 @@
+/* components/pagemaker/text/index.wxss */
+
+text {
+    width: 100%;
+    display: block;
+}
