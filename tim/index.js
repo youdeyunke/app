@@ -21,6 +21,7 @@ module.exports = {
         tim.on(TIM.EVENT.SDK_READY, _this.SDK_READY)
         tim.on(TIM.EVENT.ERROR, _this.ERROR)
         tim.on(TIM.EVENT.CONVERSATION_LIST_UPDATED, _this.CONVERSATION_LIST_UPDATED)
+        tim.on(TIM.EVENT.MESSAGE_RECEIVED, MESSAGE_RECEIVED)
         tim.on(TIM.EVENT.KICKED_OUT, _this.KICKED_OUT)
         this.tim = tim
     },
@@ -109,6 +110,10 @@ module.exports = {
 
     ERROR: function (event) {
         console.error('tim sdk 出错', event)
+    },
+
+    MESSAGE_RECEIVED: function (event) {
+        console.log('tim 收到新消息', event)
     },
 
     KICKED_OUT: function (event) {
