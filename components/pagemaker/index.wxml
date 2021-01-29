@@ -12,7 +12,6 @@
             <notice-module config="{{item}}" wx:elif="{{item.name === 'notice'}}"></notice-module>
             <blocknavs-module config="{{item}}" wx:elif="{{item.name === 'blocknavs'}}"></blocknavs-module>
             <news-module config="{{item}}" wx:elif="{{item.name === 'news'}}"></news-module>
-            <unknow-module wx:else />
         </module-box>
     </block>
     <view class="pagemaker-bg" style="background-color: {{pageConfig.bg.color}}">
