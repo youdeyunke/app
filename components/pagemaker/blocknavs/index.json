@@ -1,4 +1,8 @@
 {
-  "component": true,
-  "usingComponents": {}
+    "component": true,
+    "usingComponents": {
+        "style3": "./style3",
+        "style5": "./style5",
+        "style4": "./style4"
+    }
 }

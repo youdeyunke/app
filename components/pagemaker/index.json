@@ -11,7 +11,7 @@
         "posts-module": "./posts/index",
         "unknow-module": "unknow-module",
         "notice-module": "./notice/index",
-        "blocknavs": "./blocknavs/index",
+        "blocknavs-module": "./blocknavs/index",
         "module-box": "./module-box"
     }
 }

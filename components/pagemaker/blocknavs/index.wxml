@@ -1,2 +1,6 @@
-<!--components/pagemaker/blocknavs/index.wxml-->
-<text>components/pagemaker/blocknavs/index.wxml</text>
+<!-- components/pagemaker/blocknavs/index.wxml -->
+<view class="blocknavs-outer" wx:if="{{config}}">
+    <style3 wx:if="{{config.styleName == 3}}" config="{{config}}"></style3>
+    <style4 wx:if="{{config.styleName == 4}}" config="{{config}}"></style4>
+    <style5 wx:if="{{config.styleName == 5}}" config="{{config}}"></style5>
+</view>
