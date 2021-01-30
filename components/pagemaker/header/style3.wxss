@@ -5,6 +5,7 @@
     padding: 20rpx 20rpx 0 0px;
     width: 100%;
     box-sizing: border-box;
+    margin-bottom: 10rpx;
 }
 
 .title {

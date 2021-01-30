@@ -1,5 +1,6 @@
 // components/pagemaker/header/style0.js
 const app = getApp()
+const link = require('../link.js')
 
 Component({
     /**
@@ -23,6 +24,10 @@ Component({
      * 组件的方法列表
      */
     methods: {
+
+        clickHandle: function (e) {
+            link.clickHandle(this.data.link)
+        }
 
     }
 })

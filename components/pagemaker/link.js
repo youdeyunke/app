@@ -1,72 +1,52 @@
-// components/pagemaker/searchbar/link.js
-Component({
-    externalClasses: ['custom-class', 'custom-style'],
-    /**
-     * 组件的属性列表
-     */
-    properties: {
-        config: { type: Object, default: null }
+module.exports = {
 
+
+    functionHandle: function (config) {
+        var phone = config.phone
+        wx.makePhoneCall({
+            phoneNumber: phone,
+        });
     },
 
-    /**
-     * 组件的初始数据
-     */
-    data: {
-
+    weappHandle: function (config) {
+        // TODO 
+        //  打开另外一个小程序
     },
 
-    /**
-     * 组件的方法列表
-     */
-    methods: {
-        functionHandle: function () {
-            var phone = this.data.config.phone
-            wx.makePhoneCall({
-                phoneNumber: phone,
-            });
-        },
+    pageHandle: function (config) {
+        var path = config.path
+        switch (config.opentype) {
+            case 'switchTab':
+                wx.switchTab({
+                    url: path,
+                });
+                break;
+            case 'navigateTo':
+                wx.navigateTo({
+                    url: path,
+                });
+                break;
+        }
+    },
 
-        weappHandle: function () {
-            // TODO 
-            var config = this.data.config
-        },
+    clickHandle: function (config) {
+        // 点击按钮后，根据link对象，决定做和操作
+        if (!config) {
+            return
+        }
 
-        pageHandle: function () {
-            var path = this.data.config.path
-            switch (this.data.config.opentype) {
-                case 'switchTab':
-                    wx.switchTab({
-                        url: path,
-                    });
-                    break;
-                case 'navigateTo':
-                    wx.navigateTo({
-                        url: path,
-                    });
-                    break;
-            }
-        },
-
-        clickHandle: function () {
-            console.log('link click', this.data.config)
-            var config = this.data.config
-            if (!config) {
-                return
-            }
-            switch (config.cat) {
-                case 'page':
-                    this.pageHandle()
-                    break;
-                case 'web':
-                    this.webHandle()
-                    break;
-                case 'function':
-                    this.functionHandle()
-                    break;
-            }
-
+        switch (config.cat) {
+            case 'page':
+                this.pageHandle(config)
+                break;
+            case 'web':
+                this.webHandle(config)
+                break;
+            case 'function':
+                this.functionHandle(config)
+                break;
         }
 
     }
-})
+
+}

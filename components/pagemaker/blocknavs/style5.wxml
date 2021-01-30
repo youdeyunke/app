@@ -1,10 +1,10 @@
 <!-- components/pagemaker/blocknavs/style5.wxml -->
-<view class="outer" wx-if="{{config.config.blocks}}">
-    <view style="background-image: {{image}};" class="pos pos-1"></view>
-    <view style="background-image: {{image}};" class="pos pos-2"></view>
-    <view style="background-image: {{image}};" class="pos pos-3"></view>
-    <view style="background-image: {{image}};" class="pos pos-4"></view>
-    <view style="background-image: {{image}};" class="pos pos-5"></view>
+<view class="outer" wx-if="{{config}}">
+    <view bindtap="clickHandle" data-index="0" style="background-image: {{image}};" class="pos pos-1"></view>
+    <view bindtap="clickHandle" data-index="1" style="background-image: {{image}};" class="pos pos-2"></view>
+    <view bindtap="clickHandle" data-index="2" style="background-image: {{image}};" class="pos pos-3"></view>
+    <view bindtap="clickHandle" data-index="3" style="background-image: {{image}};" class="pos pos-4"></view>
+    <view bindtap="clickHandle" data-index="4" style="background-image: {{image}};" class="pos pos-5"></view>
     <view class="name name-1">{{config.blocks[0].title}}</view>
     <view class="name name-2">{{config.blocks[1].title}}</view>
     <view class="name name-3">{{config.blocks[2].title}}</view>

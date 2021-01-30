@@ -1,6 +1,6 @@
 <div class="header">
     <div class="title">{{title}}</div>
-    <div class="subtitle">
+    <div class="subtitle" bindtap="clickHandle">
         {{subtitle}}
         <div class="arrow" wx:if="{{link}}">
             <i class="el-icon-arrow-right"></i>

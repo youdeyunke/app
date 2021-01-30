@@ -1,11 +1,11 @@
 <view class="list mode-{{config.styleName}}">
     <view wx:for="{{navs}}" class="item">
-        <link config="{{item.link}}" custom-class="link">
+        <view data-index="{{index}}" config="{{item.link}}" class="link" hover-class="none" bindtap="clickHandle">
             <view class="icon">
                 <image src="{{item.url}}" />
                 <view wx:if="{{item.showCount}}" class="count">{{item.count}}</view>
             </view>
             <view class="name" style="color: {{ item.color || '#333333' }}">{{item.title}}</view>
-        </link>
+        </view>
     </view>
 </view>

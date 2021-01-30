@@ -1,3 +1,6 @@
+const link = require("../link")
+
+
 // components/pagemaker/navs/index.js
 Component({
     /**
@@ -35,6 +38,13 @@ Component({
      * 组件的方法列表
      */
     methods: {
+        clickHandle: function (e) {
+            console.log('nav click', e)
+            const { index } = e.currentTarget.dataset
+            var item = this.data.navs[index]
+            link.clickHandle(item.link)
+
+        }
 
     }
 })

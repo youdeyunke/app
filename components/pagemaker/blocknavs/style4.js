@@ -1,4 +1,5 @@
 // components/pagemaker/blocknavs/style5.js
+const link = require('../link.js');
 Component({
     /**
      * 组件的属性列表
@@ -32,6 +33,12 @@ Component({
      * 组件的方法列表
      */
     methods: {
+
+        clickHandle: function (e) {
+            const { index } = e.currentTarget.dataset
+            var data = this.data.config.blocks[index].link
+            link.clickHandle(data)
+        }
 
     }
 })
