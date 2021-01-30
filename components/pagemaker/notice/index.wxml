@@ -6,7 +6,7 @@
     <view class="items" style="color: {{ config.fontColor }}">
         <swiper autoplay="true" circular="true" interval="3000" vertical="true">
             <swiper-item item-id="{{index}}" data-index="{{index}}" wx:key="{{item.id}}" wx:for="{{items}}" bindtap="itemClick">
-                <view hover-class='none' class="title line-limit">{{item.title}}</view>
+                <navigator url="/pkgNews/pages/news/show?id={{item.id}}" hover-class='none' class="title line-limit">{{item.title}}</navigator>
             </swiper-item>
         </swiper>
     </view>

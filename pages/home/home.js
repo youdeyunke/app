@@ -1,6 +1,5 @@
 // pages/home/home.js
 const app = getApp()
-const EXT = wx.getExtConfigSync()
 const rowWidthItem = ['60%', "100%", "30%", "40%", "100%"]
 
 Page({
@@ -11,12 +10,10 @@ Page({
     data: {
         loading: true,
         rowWidth: rowWidthItem,
-        homeData: [],
         system: {},
+        configs: null,
         showInstallTips: 0,  // 1:正常显示，2：自动关闭，3：手动关闭
-        configs: {},
         city_id: null,
-        ext: {},
     },
 
     comming: function (e) {
@@ -27,37 +24,12 @@ Page({
     },
 
 
-
-    gotoZhaofang: function (e) {
-        wx.navigateTo({ url: '/pages/need/room-form' })
-    },
-
-    gotoSubs: function (e) {
-        wx.navigateTo({ url: '/pages/sub-districts/index' })
-    },
-
-    gotoSale: function (e) {
-        wx.navigateTo({ url: '/pages/owner/sale?group=old' })
-    },
-
-    gotoMap: function (e) {
-        wx.navigateTo({ url: '/pages/map/index' })
-    },
-
-    cityHandle: function (e) {
-        _this.setData({ city_id: e.detail.city.id, posts: [], offset: 0 })
-    },
-
     onShareAppMessage: function () {
         return {
             title: '',
             desc: '',
             path: 'pages/index/index'
         }
-    },
-
-    pageReadyHandle: function (e) {
-        this.setData({ loading: false })
     },
 
 
@@ -83,7 +55,10 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.checkInstallTips()
+        this.setData({ system: app.globalData.system }, () => {
+
+            this.checkInstallTips()
+        })
     },
 
 
@@ -113,6 +88,10 @@ Page({
     onReady: function () {
     },
 
+    pageReadyHandle: function () {
+        this.setData({ loading: false })
+    },
+
     /**
      * 生命周期函数--监听页面显示
      */
@@ -131,7 +110,6 @@ Page({
      * 生命周期函数--监听页面隐藏
      */
     onHide: function () {
-        app.checkForceLogin()
     },
 
     /**

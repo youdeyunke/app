@@ -1,4 +1,5 @@
 // components/pagemaker/text/index.js
+const link = require('../link.js')
 Component({
     /**
      * 组件的属性列表
@@ -33,6 +34,9 @@ Component({
      * 组件的方法列表
      */
     methods: {
+        clickHandle: function (e) {
+            link.clickHandle(this.data.config.link)
+        }
 
     }
 })
