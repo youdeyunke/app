@@ -1,2 +1,3 @@
-<!--components/pagemaker/news/index.wxml-->
-<text>components/pagemaker/news/index.wxml</text>
+<block>
+    <style0 items="{{items}}"></style0>
+</block>

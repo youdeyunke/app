@@ -1,0 +1,14 @@
+<view class="style1 item-list">
+    <view class="item" wx:for="{{items}}">
+        <view class="left">
+            <view class="title">{{item.title}}</view>
+            <view class="footer">
+                <view class="author">{{item.author}}</view>
+                <view class="date">2021-12-12</view>
+            </view>
+        </view>
+        <view class="cover">
+            <image src="{{item.cover}}" />
+        </view>
+    </view>
+</view>

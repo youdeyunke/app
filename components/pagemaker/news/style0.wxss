@@ -1,0 +1,64 @@
+/* components/pagemaker/news/style0.wxss */
+
+.item-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 152rpx;
+    margin-bottom: 20rpx;
+    border-bottom: 2rpx solid #f0f0f0;
+    padding-bottom: 20rpx;
+}
+
+.item:last-child {
+    border: none;
+    margin-bottom: none;
+}
+
+.item .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 460rpx;
+    min-width: 400rpx;
+    height: 100%;
+    padding: 16rpx 0;
+}
+
+.item .footer {
+    font-size: 24rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: bottom;
+}
+
+.item .author {
+    color: #666;
+}
+
+.item .date {
+    color: #999;
+}
+
+.item .title {
+    font-size: 26rpx;
+    height: 72rpx;
+    font-weight: bold;
+    color: 333;
+}
+
+.item .cover img {
+    width: 210rpx;
+    height: 132rpx;
+    border-radius: 10rpx;
+}
