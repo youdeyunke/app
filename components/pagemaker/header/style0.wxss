@@ -23,15 +23,15 @@
     background-color: #1989fa;
     width: 100%;
     opacity: 0.5;
-    border-radius: 8px;
-    height: 8px;
+    border-radius: 8rpx;
+    height: 8rpx;
     position: absolute;
     bottom: 0;
     left: 0;
 }
 
 .subtitle {
-    font-size: 12px;
+    font-size: 24rpx;
     color: #999;
     display: flex;
     justify-content: flex-end;
