@@ -1,23 +1,66 @@
 // components/pagemaker/noticebar/index.js
+const app = getApp()
 Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
+    /**
+     * 组件的属性列表
+     */
+    properties: {
+        config: { type: Object, }
 
-  },
+    },
 
-  /**
-   * 组件的初始数据
-   */
-  data: {
+    observers: {
+        "config.icon": function (v) {
+            if (!v) {
+                return
+            }
+            if (v.length <= 5) {
+                return
+            }
+            this.setData({ iconUrl: v })
+        },
+        "config.ids": function (ids) {
+            this.loadNews(ids)
 
-  },
+        },
+    },
 
-  /**
-   * 组件的方法列表
-   */
-  methods: {
+    /**
+     * 组件的初始数据
+     */
+    data: {
+        // TODO default icon
+        iconUrl: "https://qiniucdn.udeve.cn/fang2021/c91c5e84-55fd-4fb2-a0ac-edfee71d73c3.png",
+        items: [],
 
-  }
+    },
+
+    /**
+     * 组件的方法列表
+     */
+    methods: {
+        loadNews: function (ids) {
+            if (!ids) {
+                return
+            }
+            if (ids.length == 0) {
+                return
+            }
+
+            var query = { ids: ids.join(',') }
+            var _this = this
+            app.request({
+                url: '/api/v1/news',
+                hideLoading: true,
+                data: query,
+                success: function (resp) {
+                    if (resp.data.status == 0) {
+                        _this.setData({ items: resp.data.data })
+
+                    }
+                }
+            })
+        }
+
+    }
 })

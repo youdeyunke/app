@@ -71,6 +71,7 @@ Component({
         },
 
         "config.margin": function (margin) {
+            // remove this
             /*  margin 只需要考虑top,bottom*/
             if (!margin) {
                 return

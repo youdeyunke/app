@@ -13,7 +13,7 @@
 .post .cover {
     width: 220rpx;
     height: 165rpx;
-    border-radius: 5rpx;
+    border-radius: 10rpx;
     overflow: hidden;
     margin-right: 20rpx;
 }
