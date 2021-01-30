@@ -1,8 +1,5 @@
-  
-<view class="msg-{{position}}">  
-  <view  class="text-wrapper">
-    <view class="text">
-      {{message.content}}
+<view class="msg-{{position}}">
+    <view class="text-wrapper">
+        <view class="text">{{message.content}}</view>
     </view>
-  </view>
 </view>
