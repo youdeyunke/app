@@ -21,7 +21,7 @@
 .name {
     position: absolute;
     z-index: 10;
-    font-size: 24rpx;
+    font-size: 28rpx;
     color: #fff;
     font-weight: bold;
 }
@@ -29,7 +29,6 @@
 .name-1 {
     left: 18rpx;
     top: 15rpx;
-    font-size: 28rpx;
 }
 
 .name-2 {
