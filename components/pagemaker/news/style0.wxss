@@ -39,6 +39,7 @@
     font-size: 24rpx;
     display: flex;
     justify-content: space-between;
+    width: 100%;
     align-items: bottom;
 }
 
@@ -57,8 +58,8 @@
     color: 333;
 }
 
-.item .cover img {
+.item .cover image {
     width: 210rpx;
-    height: 132rpx;
+    height: 135rpx;
     border-radius: 10rpx;
 }

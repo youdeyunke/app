@@ -8,7 +8,7 @@
             </view>
         </view>
         <view class="cover">
-            <image src="{{item.cover}}" />
+            <image mode="fill" src="{{item.cover_v2}}" />
         </view>
     </view>
 </view>
