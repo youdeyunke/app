@@ -17,23 +17,23 @@
     padding: 0 20rpx;
 }
 
-.searchbar .body-style-0 {
+.body-style-0 {
     border-radius: 8rpx;
     background: #F4F4F4;
     box-shadow: 0px 0px 14rpx rgba(0, 0, 0, 0.2);
 }
 
-.searchbar .body-style-1 {
+.body-style-1 {
     border-radius: 8rpx;
 }
 
-.searchbar .body-style-2 {
+.body-style-2 {
     border-radius: 80rpx;
     box-shadow: 0px 0px 14rpx rgba(0, 0, 0, 0.2);
     background: #F4F4F4;
 }
 
-.searchbar .body-style-3 {
+.body-style-3 {
     border-radius: 80rpx;
 }
 
@@ -41,6 +41,13 @@
     max-width: 120rpx;
     min-width: 80rpx;
     width: auto;
+    min-width: 100rpx;
+    height: 40rpx;
+    border-left: 2rpx solid #C1C1C1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1989fa;
 }
 
 .left-part {

@@ -1,9 +1,7 @@
 <!-- components/pagemaker/searchbar/city-selector.wxml -->
 <block>
     <view class="city" bindtap="onPopShow">
-        <view wx:for="{{cityItems}}" wx:key="id" wx:if="{{item.id == cityId }}">{{item.name}}
-            <van-icon name="arrow-down" size="20rpx" />
-        </view>
+        <view wx:for="{{cityItems}}" wx:key="id" wx:if="{{item.id == cityId }}">{{item.name}}</view>
     </view>
     <van-popup position="top" show="{{ popShow }}" bind:close="onPopClose">
         <view class="title">切换城市</view>
