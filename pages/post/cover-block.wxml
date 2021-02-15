@@ -6,6 +6,6 @@
         </view>
         <view>详情 ></view>
     </view>
-    <image class="bg" src="/assets/images/scroll-news.png"/>
-    <image class="fenxiang" src="/assets/icons/fenxiang.png"/>
+    <image class="bg" src="{{value.cover}}" />
+    <image class="fenxiang" src="/assets/icons/fenxiang.png" />
 </view>

@@ -565,6 +565,7 @@ App({
                 wx.stopPullDownRefresh();
                 wx.hideLoading();
                 wx.hideToast();
+                return typeof obj.fail === 'function' && obj.fail(res)
             },
             complete: function () {
                 typeof obj.complete == "function" && obj.complete();

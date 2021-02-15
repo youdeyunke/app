@@ -45,6 +45,20 @@ Page({
             hideLoading: true,
             url: '/api/v5/posts/' + _this.data.postId,
             data: query,
+            fail: function (resp) {
+                wx.showToast({
+                    title: '楼盘页面渲染错误',
+                    icon: 'error',
+                    image: '',
+                    duration: 1500,
+                    mask: true,
+                    success: (result) => {
+                    },
+                    fail: () => { },
+                    complete: () => { }
+                });
+
+            },
             success: function (resp) {
                 wx.stopPullDownRefresh()
                 wx.hideNavigationBarLoading()

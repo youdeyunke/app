@@ -1,13 +1,15 @@
 <view class="block">
     <view class="block-first">
         <view class="first-left">
-            <view class="left-title">翔顺筠粤号苑</view>
+            <view class="left-title">{{value.title}}</view>
             <view class="left-content">
                 <image src="/assets/icons/post-location.png" />
-                <text class="">高新区科技城青城山路和通墅路交汇处</text>
+                <text class="">{{value.address}}</text>
             </view>
             <view class="left-tags">
-                <view class="left-tag">新盘</view>
+                <view class="left-tag" wx:for="{{value.tags}}" wx:for-item="tag" wx:for-key="tag.id">
+                    {{tag.name}}
+                </view>
                 <view class="left-tag">品质楼盘</view>
                 <view class="left-tag">知名开发商</view>
             </view>
@@ -18,15 +20,15 @@
         </view>
     </view>
     <view class="bock-second">
-        <view class="second-cell" wx:for="{{arr}}">
+        <view class="second-cell" wx:for="{{value.navs}}" wx:for-item="nav">
             <image src="/assets/icons/icon-0.png" />
-            <view>置业顾问</view>
+            <view>{{nav.name}}</view>
         </view>
     </view>
-    <view class="block-third">
+    <view class="block-third" wx:if="{{value.brokage_info}}">
         <view class="thrid-left">
             <image src="/assets/icons/yong.png" />
-            <text class="">3万5+3%</text>
+            <text class="">{{value.brokage_info.title}}</text>
         </view>
         <view style="color:#666666;">了解详情 ></view>
     </view>
