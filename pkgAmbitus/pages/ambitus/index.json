@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "ambitus":"/components/ambitus/index",
-    "mapimage":"/components/map"
-  }
-}

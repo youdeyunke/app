@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "ambitus": "../../components/zhoubian/index",
+        "mapimage": "/components/map"
+    }
+}

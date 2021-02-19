@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "my-card": "./card",
+        "block-button": "../../components/block-button"
+    }
+}

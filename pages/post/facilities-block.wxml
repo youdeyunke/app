@@ -1,8 +1,0 @@
-<my-card width="750" title="配套设施"  >
-    <view class="fac-items">
-        <view class="fac-item" wx:for="{{value.items }}" wx:for-item="fac" wx:key="{{fac.id}}">
-            <image class="fac-item-icon" src="{{fac.icon}}" mode="widthFix" />
-            <view class="fac-item-name">{{ fac.name }}</view>
-        </view>
-    </view>
-</my-card>

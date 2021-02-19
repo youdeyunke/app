@@ -16,9 +16,10 @@
             "root": "pkgPost",
             "name": "pkgpost",
             "pages": [
+                "pages/show/index",
                 "pages/detail/index",
                 "pages/type/index",
-                "pages/around/index"
+                "pages/zhoubian/index"
             ]
         },
         {
@@ -193,7 +194,6 @@
         "pages/home/home",
         "pages/qa/index",
         "pages/post/index",
-        "pages/post/post",
         "pages/myself/index",
         "pages/home/debug",
         "pages/myself/favposts",
@@ -206,12 +206,10 @@
         "pages/cities/select",
         "pages/districts/select",
         "pages/static/terms",
-        "pages/post/meta",
         "pages/udeve/index",
         "pages/myself/orders",
         "pages/myself/profile",
         "pages/visitors/index",
-        "pages/post/vr",
         "pages/faxian/index"
     ],
     "tabBar": {

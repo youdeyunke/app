@@ -1,0 +1,10 @@
+{
+    "component": true,
+    "usingComponents": {
+        "van-tab": "/vant/tab/index",
+        "van-tabs": "/vant/tabs/index",
+        "van-cell": "/vant/cell/index",
+        "van-cell-group": "/vant/cell-group/index",
+        "block-button": "../../components/block-button/index"
+    }
+}

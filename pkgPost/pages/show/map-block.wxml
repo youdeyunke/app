@@ -1,0 +1,15 @@
+<my-card title="{{value.title}}" padding="{{false}}" title-size="30">
+    <mapimage pois='{{pois}}' image="{{value.map_image_url}}" latitude="{{value.latitude}}" longitude="{{value.longitude}}" name="{{value.name}}"></mapimage>
+    <view class="location">
+        <view class="location-left">
+            <text class="label">位置：</text>
+            <text class="value">{{value.address}}</text>
+        </view>
+        <view class="location-right">
+            <van-button round size="mini" plain type="default" bind:tap="getLocation">
+                导航
+            </van-button>
+        </view>
+    </view>
+    <zhoubian latitude="{{value.latitude}}" longitude="{{value.longitude}}" bind:myevent="getMyevent" />
+</my-card>

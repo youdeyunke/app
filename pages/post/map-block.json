@@ -1,8 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "mapimage":"/components/map",
-    "ambitus":"/components/ambitus/index",
-    "my-card": "./card"
-  }
-}

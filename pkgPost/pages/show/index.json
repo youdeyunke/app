@@ -1,0 +1,28 @@
+{
+    "enablePullDownRefresh": true,
+    "navigationBarTitleText": "详细介绍",
+    "navigationBarTextStyle": "black",
+    "usingComponents": {
+        "cover-block": "./cover-block",
+        "header-block": "./header-block",
+        "info-block": "./info-block",
+        "map-block": "./map-block",
+        "brokers-block": "./brokers-block",
+        "recoms-block": "./recoms-block",
+        "events-block": "./events-block",
+        "tours-block": "./tours-block",
+        "safe-block": "./safe-block",
+        "btns-block": "./btns-block",
+        "types-block": "./types-block",
+        "buildings-block": "./buildings-block",
+        "contact-block": "./contact-block",
+        "qas-block": "./qas-block",
+        "comments-block": "./comments-block",
+        "van-transition": "/vant/transition/index",
+        "page-loading": "./page-loading",
+        "box": "/components/box",
+        "visitors": "/components/visitors/index",
+        "safe-tips": "/components/safe-tips",
+        "my-card": "./card"
+    }
+}
