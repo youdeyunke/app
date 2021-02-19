@@ -1,6 +1,6 @@
-<view class="broker custom-class">
+<navigatort hover-class="none" class="broker custom-class">
     <image class="bg" src="../../images/bg-jingji.png" />
     <image class="avatar" src="{{item.avatar}}" />
     <text class="name">{{item.name}}</text>
     <view class="zixun" bind:tap="chatHandle"></view>
-</view>
+</navigator>

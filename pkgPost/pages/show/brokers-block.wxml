@@ -19,8 +19,8 @@
         </view>
     </view>
     <!-- <broker-link post-id="{{post.id}}" broker="{{broker}}" wx:if="{{ index+1 <= maxLength  }}"  wx:for="{{value.brokers}}" wx:for-item="broker" wx:key="id" /> -->
-    <scroll-view scroll-x scroll-with-animation="true" style="width:710rpx;">
-        <view class="broker">
+    <scroll-view scroll-x scroll-with-animation="true">
+        <view class="brokers">
             <broker-item custom-class="broker-item" wx:for="{{value.brokers}}" item="{{item}}" />
             <view></view>
             <view></view>

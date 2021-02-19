@@ -33,17 +33,17 @@
     align-items: center;
 }
 
-.broker {
-    box-sizing: border-box;
+.brokers {
+    width: 710rpx;
     display: flex;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
     margin: 0 20rpx;
-    justify-content: space-around;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .broker-item {
     margin-right: 20rpx;
-}
-
-.broker:first {
-    margin-left: 20rpx;
+    display: inline-flex;
 }
