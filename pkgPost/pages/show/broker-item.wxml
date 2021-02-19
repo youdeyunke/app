@@ -1,5 +1,5 @@
-<view class="broker">
-    <image class="bg" src="/assets/images/bg-jingji.png" />
+<view class="broker custom-class">
+    <image class="bg" src="../../images/bg-jingji.png" />
     <image class="avatar" src="{{item.avatar}}" />
     <text class="name">{{item.name}}</text>
     <view class="zixun" bind:tap="chatHandle"></view>

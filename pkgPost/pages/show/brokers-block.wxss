@@ -16,26 +16,34 @@
     align-items: center;
 }
 
-.badge-item van-icon{
-  margin-right:10rpx;
+.badge-item van-icon {
+    margin-right: 10rpx;
 }
 
-.more-btn{
-  height:88rpx;
-  background:rgba(241,245,255,1);
-  border-radius:4rpx;
-  font-size:32rpx;
-  color:#1989FA;
-  line-height: 88rpx;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.more-btn {
+    height: 88rpx;
+    background: rgba(241, 245, 255, 1);
+    border-radius: 4rpx;
+    font-size: 32rpx;
+    color: #1989FA;
+    line-height: 88rpx;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.broker{
-  width: 710rpx;
-  margin: 30rpx 20rpx;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-around;
+
+.broker {
+    box-sizing: border-box;
+    display: flex;
+    margin: 0 20rpx;
+    justify-content: space-around;
+}
+
+.broker-item {
+    margin-right: 20rpx;
+}
+
+.broker:first {
+    margin-left: 20rpx;
 }

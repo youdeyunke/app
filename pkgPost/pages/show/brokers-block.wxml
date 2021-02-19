@@ -2,28 +2,30 @@
 <my-card title="{{value.title}}" padding="{{false}}" sub-title='查看更多' url="/pkgBroker/pages/broker/index">
     <view class="badges">
         <view class="badge-item">
-            <ud-image class="" src="/assets/icons/jingji-icon-0.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
+            <image class="" src="../../icons/jingji-icon-0.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
             免费带看
         </view>
         <view class="badge-item">
-            <ud-image class="" src="/assets/icons/jingji-icon-1.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
+            <image class="" src="../../icons/jingji-icon-1.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
             专业服务
         </view>
         <view class="badge-item">
-            <ud-image class="" src="/assets/icons/jingji-icon-2.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
+            <image class="" src="../../icons/jingji-icon-2.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
             区域解读
         </view>
         <view class="badge-item">
-            <ud-image class="" src="/assets/icons/jingji-icon-3.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
+            <image class="" src="../../icons/jingji-icon-3.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
             户型分析
         </view>
     </view>
     <!-- <broker-link post-id="{{post.id}}" broker="{{broker}}" wx:if="{{ index+1 <= maxLength  }}"  wx:for="{{value.brokers}}" wx:for-item="broker" wx:key="id" /> -->
-    <view class="broker">
-        <broker-item wx:for="{{value.brokers}}" item="{{item}}" />
-        <view></view>
-        <view></view>
-    </view>
+    <scroll-view scroll-x scroll-with-animation="true" style="width:710rpx;">
+        <view class="broker">
+            <broker-item custom-class="broker-item" wx:for="{{value.brokers}}" item="{{item}}" />
+            <view></view>
+            <view></view>
+        </view>
+    </scroll-view>
     <box padding="30" wx:if="{{moreBrokersBtn && value.more_btn}}">
         <view bindtap="moreBrokersHandle" hover-class="none" class="more-btn">展开全部</view>
     </box>
