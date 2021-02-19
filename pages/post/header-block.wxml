@@ -16,17 +16,17 @@
             <event-button cat="open" pid="{{value.post_id}}"></event-button>
         </view>
     </view>
-    <view class="bock-second">
-        <view class="second-cell" wx:for="{{value.navs}}" wx:for-item="nav">
-            <image src="/assets/icons/icon-0.png" />
+    <view class="block-second">
+        <navigator url="{{nav.path}}" hover-class="none" class="second-cell" wx:for="{{value.navs}}" wx:for-item="nav">
+            <image src="/assets/icons/post-navs/{{nav.id}}.png" />
             <view>{{nav.name}}</view>
-        </view>
+        </navigator>
     </view>
-    <view class="block-third" wx:if="{{value.brokage_info}}">
+    <navigator url="/pkgBrokage/pages/brokage/index?post_id={{value.post_id}}" hover-class="none" class="block-third" wx:if="{{value.brokage_info}}">
         <view class="thrid-left">
             <image src="/assets/icons/yong.png" />
             <text class="">{{value.brokage_info.title}}</text>
         </view>
         <view style="color:#666666;">了解详情 ></view>
-    </view>
+    </navigator>
 </view>

@@ -41,14 +41,14 @@
 }
 
 .housetype .poster, .housetype .poster image {
-    width: 300rpx;
+    width: 280rpx;
     height: 200rpx;
     overflow: hidden;
     background: #cecece;
 }
 
 .housetype .meta {
-    width: 320rpx;
+    width: 340rpx;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -65,7 +65,6 @@
     justify-content: space-between;
     align-items: center;
 }
-
 
 .housetype .kv {
     font-size: 28rpx;

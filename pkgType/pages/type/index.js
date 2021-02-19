@@ -19,8 +19,9 @@ Page({
      */
     onLoad: function (q) {
         wx.setNavigationBarTitle({ title: '全部户型列表' });
-        this.setData({ pid: q.id })
-        this.loadTypes(q.id)
+        var pid = q.post_id || q.id
+        this.setData({ pid: pid })
+        this.loadTypes(pid)
     },
 
     loadTypes: function (pid) {
@@ -38,6 +39,10 @@ Page({
                 var tags = [{ name: '全部', group: 0 }]
                 var tagDict = {}
                 items.forEach((item, i) => {
+                    item.cover = 'https://qiniucdn.udeve.cn/wefang-sass/type-image-none.jpg'
+                    if (item.images && item.images_list.length >= 1) {
+                        item.cover = item.images_list[0]
+                    }
                     var key = item.s.toString() // 几室
                     if (!tagDict[key] == true) {
                         tagDict[key] = true

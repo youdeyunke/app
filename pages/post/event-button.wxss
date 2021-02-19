@@ -15,6 +15,7 @@
 .action .status-text {
     font-size: 24rpx;
     font-weight: bold;
+    margin-top: 8rpx;
 }
 
 .action.dark {
