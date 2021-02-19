@@ -4,14 +4,12 @@
             <view class="left-title">{{value.title}}</view>
             <view class="left-content">
                 <image src="/assets/icons/post-location.png" />
-                <text class="">{{value.address}}</text>
+                <text class="address">{{value.address}}</text>
             </view>
             <view class="left-tags">
                 <view class="left-tag" wx:for="{{value.tags}}" wx:for-item="tag" wx:for-key="tag.id">
                     {{tag.name}}
                 </view>
-                <view class="left-tag">品质楼盘</view>
-                <view class="left-tag">知名开发商</view>
             </view>
         </view>
         <view class="first-right">
