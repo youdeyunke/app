@@ -40,7 +40,7 @@ Page({
                     broker: resp.data.data.broker,
                     type: resp.data.data.type,
                 })
-                var title = post.sub_district_name + type.name + type.sale_status_name || ''
+                var title = post.title + type.name + type.sale_status_name || ''
                 wx.setNavigationBarTitle({ title: title, });
             }
         })
@@ -146,11 +146,11 @@ Page({
     onShareAppMessage: function () {
         var _this = this
         var item = this.data.item
-        var title = this.data.post.titel + this.data.type.name
+        var title = this.data.post.title + this.data.type.name
         var image = this.type.images_list[0]
+        // TODO  share path
         return {
             title: title,
-            path: 'pkgBuilding/pages/type/show?id=' + _this.data.tid,
             imageUrl: image
         }
 

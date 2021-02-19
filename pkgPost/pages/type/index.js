@@ -1,4 +1,3 @@
-// pkgType/pages/type/index.js
 const app = getApp()
 
 Page({
@@ -22,6 +21,22 @@ Page({
         var pid = q.post_id || q.id
         this.setData({ pid: pid })
         this.loadTypes(pid)
+        this.loadPostInfo(pid)
+    },
+
+    loadPostInfo: function (pid) {
+        var _this = this
+        app.request({
+            url: '/api/v1/post_base_info/' + pid,
+            success: function (res) {
+                //console.log(res.data.data);
+                var post = res.data.data
+                _this.setData({
+                    post: res.data.data
+                })
+                wx.setNavigationBarTitle({ title: post.title + '的全部户型' });
+            }
+        })
     },
 
     loadTypes: function (pid) {

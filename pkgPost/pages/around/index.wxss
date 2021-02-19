@@ -1,0 +1,12 @@
+/* pkgAmbitus/pages/ambitus/index.wxss */
+.map{
+    width: 750rpx;
+    height: 750rpx;
+}
+.map map{
+    width: 100%;
+    height: 100%;
+}
+.tab{
+    width: 100%;
+}

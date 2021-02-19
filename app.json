@@ -13,6 +13,15 @@
             ]
         },
         {
+            "root": "pkgPost",
+            "name": "pkgpost",
+            "pages": [
+                "pages/detail/index",
+                "pages/type/index",
+                "pages/around/index"
+            ]
+        },
+        {
             "root": "pkgMap",
             "name": "pkgmap",
             "pages": [
@@ -31,13 +40,6 @@
             "name": "poster",
             "pages": [
                 "pages/poster/index"
-            ]
-        },
-        {
-            "root": "pkgAmbitus",
-            "name": "ambitus",
-            "pages": [
-                "pages/ambitus/index"
             ]
         },
         {
@@ -104,14 +106,6 @@
             "pages": [
                 "pages/daikuan/index",
                 "pages/daikuan/detail"
-            ]
-        },
-        {
-            "root": "pkgType",
-            "name": "type",
-            "pages": [
-                "pages/type/index",
-                "pages/type/show"
             ]
         },
         {
