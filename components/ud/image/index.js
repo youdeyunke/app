@@ -3,7 +3,7 @@ Component({
     /**
      * 组件的属性列表
      */
-    extrenalClasses: ['custom-class'],
+    externalClasses: ['custom-class'],
     properties: {
         src: { type: String, value: null },
         mode: { type: String, value: "fit" },
