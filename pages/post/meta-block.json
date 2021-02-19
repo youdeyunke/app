@@ -1,7 +1,7 @@
 {
-  "component": true,
-  "usingComponents": {
-      "sub-button": "./sub-button",
-      "simple-images-block": "./simple-images-block"
-  }
+    "component": true,
+    "usingComponents": {
+        "event-button": "./event-button",
+        "simple-images-block": "./simple-images-block"
+    }
 }

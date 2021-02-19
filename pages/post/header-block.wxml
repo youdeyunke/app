@@ -13,8 +13,7 @@
             </view>
         </view>
         <view class="first-right">
-            <image src="/assets/icons/dingyue.png" />
-            <view>订阅提醒</view>
+            <event-button cat="open" pid="{{value.post_id}}"></event-button>
         </view>
     </view>
     <view class="bock-second">

@@ -1,0 +1,29 @@
+<block>
+    <van-popup closeable round bind:close="closeHandle" duration="400" show="{{showDialog}}">
+        <view class="dialog">
+            <view class="title">
+                <image src="/assets/icons/lindang.png" />
+                {{ nameDict['title'][status] }}
+            </view>
+            <view class="desc">{{ nameDict['desc'][status] }}</view>
+            <van-button wx:if="{{status == 0}}" bindtap="subHandle" loading="{{loading}}" block type="info" size="large">
+                立即订阅
+            </van-button>
+            <van-button wx:else bindtap="closeHandle" block plain type="default" size="large">
+                知道了
+            </van-button>
+            <view class="tips" wx:if="{{ status == 0}}">
+                <view class="tip confirm" bindtap="confirmHandle">
+                    <ud-checkbox model:value="{{confirm}}" />
+                    我已阅读并同意
+                    <text class="b">《用户服务协议》</text>
+                </view>
+                <view class="tip">订阅后后置业顾问可能会与您电话联系并提供服务</view>
+            </view>
+        </view>
+    </van-popup>
+    <view class="action {{ status == 1 ? 'dark' : '' }}" bindtap="openHandle">
+        <image src="/assets/icons/dingyue.png" />
+        <view class="status-text">{{ nameDict['btn'][status] }}</view>
+    </view>
+</block>

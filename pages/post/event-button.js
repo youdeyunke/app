@@ -1,4 +1,4 @@
-// pages/post/sub-button.js
+// pages/post/event-button.js
 const app = getApp()
 var auth = require('../../utils/auth.js');
 
@@ -7,7 +7,6 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        cat: { type: String },
         pid: { type: Number },
     },
 
@@ -30,16 +29,9 @@ Component({
             price: { name: 'chart-trending-o' },
         },
         nameDict: {
-            open: {
-                title: ['订阅开盘提醒', '已订阅开盘提醒'],
-                desc: ['一键订阅，开盘消息会通过短信通知您，让您抢占买房先机','已订阅开盘提醒，开盘消息会通过短信通知您'],
-                btn: ['开盘提醒我', '取消开盘提醒']
-            },
-            price: {
-                title: ['订阅变价提醒', '已订阅变价提醒'],
-                desc: ['一键订阅，变价消息会通过短信通知您，让您抢占买房先机','已订阅变价提醒，变价消息会通过短信通知您'],
-                btn: ['变价提醒我', '取消变价提醒'],
-            }
+            title: ['订阅楼盘动态提醒', '已订阅楼盘动态提醒'],
+            desc: ['一键订阅楼盘动态，开盘、变价、优惠活动等楼盘信息将会通过短信通知您，让您抢占买房先机', '已订阅，楼盘动态将会通过短信通知您'],
+            btn: ['订阅提醒', '已订阅']
         },
         fid: null,
         status: 0,
@@ -78,7 +70,7 @@ Component({
             var _this = this
             var method = 'POST'
             var url = '/api/v1/event_followers'
-            var data = { post_id: this.data.pid, cat: this.data.cat }
+            var data = { post_id: this.data.pid }
             if (this.data.status == 1) {
                 // 取消订阅
                 method = 'DELETE'
@@ -106,7 +98,6 @@ Component({
                 hideLoading: true,
                 data: {
                     post_id: _this.data.pid,
-                    cat: _this.data.cat,
                 },
                 success: function (resp) {
                     _this.setTitle()

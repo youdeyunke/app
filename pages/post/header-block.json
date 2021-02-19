@@ -1,4 +1,6 @@
 {
-  "component": true,
-  "usingComponents": {}
+    "component": true,
+    "usingComponents": {
+        "event-button": "./event-button"
+    }
 }
