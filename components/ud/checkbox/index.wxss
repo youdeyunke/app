@@ -1,0 +1,13 @@
+/* components/ud/checkbox/index.wxss */
+
+.checkbox {
+    display: inline-flex;
+    margin-right: 2rpx;
+    width: 24rpx;
+    height: 24rpx;
+}
+
+.checkbox image {
+    width: 100%;
+    height: 100%;
+}
