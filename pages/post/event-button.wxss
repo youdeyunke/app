@@ -45,6 +45,8 @@
     width: 56rpx;
     height: 56rpx;
     margin-right: 10rpx;
+    margin-bottom: 0;
+    vertical-align: middle;
 }
 
 .dialog .desc {
@@ -60,7 +62,9 @@
     color: #cecece;
 }
 
-.dialog .tip {}
+.dialog .tip {
+    margin-top: 10rpx;
+}
 
 .dialog .confirm .b {}
 

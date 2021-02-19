@@ -29,7 +29,7 @@ Component({
             price: { name: 'chart-trending-o' },
         },
         nameDict: {
-            title: ['订阅楼盘动态提醒', '已订阅楼盘动态提醒'],
+            title: ['订阅楼盘动态提醒', '已订阅!'],
             desc: ['一键订阅楼盘动态，开盘、变价、优惠活动等楼盘信息将会通过短信通知您，让您抢占买房先机', '已订阅，楼盘动态将会通过短信通知您'],
             btn: ['订阅提醒', '已订阅']
         },
@@ -83,6 +83,18 @@ Component({
                 success: function (resp) {
                     // 提交后刷新状态
                     _this.loadStatus()
+                    // 取消后
+                    if (method === 'DELETE') {
+                        wx.showToast({
+                            title: '已取消订阅楼盘动态通知',
+                            icon: 'none',
+                            image: '',
+                            duration: 1500,
+                            mask: true,
+                        });
+
+                    }
+
                 }
             })
         },
