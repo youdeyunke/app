@@ -18,7 +18,7 @@
     </view>
     <view class="block-second">
         <navigator url="{{nav.path}}" hover-class="none" class="second-cell" wx:for="{{value.navs}}" wx:for-item="nav">
-            <image src="/assets/icons/post-navs/{{nav.id}}.png" />
+            <ud-image src="/assets/icons/post-navs/{{nav.id}}.png" />
             <view>{{nav.name}}</view>
         </navigator>
     </view>

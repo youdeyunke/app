@@ -283,6 +283,7 @@
         "cell-radio": "/components/cell-radio",
         "mycard": "/components/card",
         "ud-checkbox": "/components/ud/checkbox/index",
+        "ud-image": "/components/ud/image/index",
         "box": "/components/box"
     },
     "networkTimeout": {
