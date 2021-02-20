@@ -4,7 +4,8 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        value: { type: Object, default: null }
+        value: { type: Object, value: null },
+        postInfo: { type: Object, value: null }
 
     },
 

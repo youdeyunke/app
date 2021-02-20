@@ -1,6 +1,6 @@
 <view class="outer">
-    <van-popup round position="bottom" show="{{ show }}">
-        <view class="dialog">
+    <van-popup round position="bottom" show="{{ show }}" bind:close="closeHandle">
+        <view class="dialog main">
             <view class="header">
                 转发分享
                 <image src="../../../icons/share-close.png" class="close" bindtap="closeHandle" />
@@ -15,6 +15,14 @@
                     <image src="../../../icons/share-tl.png" />
                     <view class="name">朋友圈</view>
                 </view>
+                <view class="icon" bindtap="copyHandle" wx:if="{{postInfo}}">
+                    <image src="../../../icons/share-tl.png" />
+                    <view class="name">复制文本</view>
+                </view>
+                <view class="icon" bindtap="timelineHandle">
+                    <image src="../../../icons/share-tl.png" />
+                    <view class="name">生成楼盘海报</view>
+                </view>
             </view>
             <view class="footer">
                 <view bindtap="closeHandle" class="cancle">取消</view>
@@ -23,5 +31,43 @@
     </van-popup>
     <van-popup position="top" show="{{showTips}}" bind:close="closeTips">
         <view class="tips">请点击右上角...选择分享到朋友圈</view>
+    </van-popup>
+    <van-popup round show="{{showCopy}}" bind:close="closeCopy">
+        <view class="dialog copy">
+            <view class="header">
+                {{postInfo.title}}
+                <image src="../../../icons/share-close.png" class="close" bindtap="closeCopy" />
+            </view>
+            <view class="body">
+                <view class="postinfo">
+                    <view class="info">
+                        <view class="label">项目名称</view>
+                        <view clss="text">{{postInfo.title}}</view>
+                    </view>
+                    <view class="info">
+                        <view class="label">参考均价</view>
+                        <view clss="text">{{postInfo.average_price}}</view>
+                    </view>
+                    <view class="info">
+                        <view class="label">项目亮点</view>
+                        <view clss="text">{{postInfo.tags}}</view>
+                    </view>
+                    <view class="info">
+                        <view class="label">项目地址</view>
+                        <view clss="text">{{postInfo.address}}</view>
+                    </view>
+                    <view class="info">
+                        <view class="label">咨询热线</view>
+                        <view clss="text">4000121122转12</view>
+                    </view>
+                </view>
+            </view>
+            <view class="footer">
+                <view class="cancle" bindtap="closeCopy">
+                    <van-icon name="passed" />
+                    文本已复制到剪贴板
+                </view>
+            </view>
+        </view>
     </van-popup>
 </view>

@@ -6,7 +6,6 @@
 
 .dialog {
     width: 100%;
-    height: 421rpx;
     background: #fff;
     display: flex;
     flex-direction: column;
@@ -14,17 +13,32 @@
     align-items: center;
 }
 
+.dialog.main {
+    height: 421rpx;
+}
+
+.dialog.copy {
+    width: 710rpx;
+    padding-top: 30rpx;
+}
+
+.dialog.copy .body {
+    padding: 20rpx;
+}
+
 .dialog .header {
     width: 100%;
+    box-sizing: border-box;
     height: 100rpx;
     line-height: 100rpx;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 28rpx;
+    font-size: 30rpx;
     color: #333;
     font-weight: bold;
+    border-bottom: 2rpx solid #f4f4f4;
 }
 
 .dialog .header .close {
@@ -43,8 +57,6 @@
     justify-content: center;
     align-items: center;
     font-size: 28rpx;
-    color: #1989fa;
-    border-top: 2rpx solid #f4f4f4;
 }
 
 .body {
@@ -55,8 +67,14 @@
 }
 
 .footer .cancle {
-    width: 100%;
     text-align: center;
+    color: #999;
+    border: 2rpx solid #cecece;
+    height: 60rpx;
+    border-radius: 60rpx;
+    line-height: 60rpx;
+    font-size: 24rpx;
+    padding: 0 30rpx;
 }
 
 .body .icon {
@@ -93,4 +111,26 @@
     width: 100%;
     padding: 20rpx 20rpx 40rpx 20rpx;
     text-align: center;
+}
+
+.dialog.copy .postinfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 0 30rpx;
+}
+
+.dialog.copy .info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 50rpx;
+}
+
+.dialog.copy .info .label {
+    color: #666;
+    width: 200rpx;
 }

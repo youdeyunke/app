@@ -15,6 +15,7 @@ Page({
         pageTitle: '房源详情',
         pageCover: '',
         pageUrl: '/pages/post/post?post_id=',
+        postInfo: null,
 
         loading: true,
         visitorLogId: null,
@@ -152,7 +153,8 @@ Page({
                 var post = resp.data.data
                 _this.setData({
                     pageTitle: post.title,
-                    pageCover: post.cover
+                    pageCover: post.cover,
+                    postInfo: post
                 })
                 wx.setNavigationBarTitle({
                     title: post.title,

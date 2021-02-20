@@ -4,7 +4,8 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        show: { type: Boolean, value: false }
+        show: { type: Boolean, value: false },
+        postInfo: { type: Object, value: null },
 
     },
 
@@ -13,6 +14,7 @@ Component({
      */
     data: {
         showTips: false,
+        showCopy: false,
 
     },
 
@@ -22,6 +24,27 @@ Component({
     methods: {
         wechatHandle: function () {
 
+        },
+
+        copyHandle: function () {
+            // 复制到剪贴板
+            var p = this.data.postInfo
+            var text = ""
+            text += "【项目名称】" + p.title
+            text += "\n【参考均价】" + p.average_price
+            text += "\n【项目亮点】" + p.tags.join(',')
+            text += "\n【项目地址】" + p.address
+            // TODO 联系电话服务端还没完成
+            text += "\n【咨询热线】" + '40002111199'
+            wx.setClipboardData({
+                data: text,
+            });
+            this.setData({ showCopy: true, show: false })
+
+        },
+
+        closeCopy: function () {
+            this.setData({ showCopy: false })
         },
 
         closeTips: function () {
