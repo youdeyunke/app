@@ -12,6 +12,7 @@ Component({
      * 组件的初始数据
      */
     data: {
+        showShareBox: false,
 
     },
 
@@ -19,5 +20,8 @@ Component({
      * 组件的方法列表
      */
     methods: {
+        shareHandle: function () {
+            this.setData({ showShareBox: true })
+        }
     }
 })

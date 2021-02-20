@@ -1,4 +1,6 @@
 {
-  "component": true,
-  "usingComponents": {}
+    "component": true,
+    "usingComponents": {
+        "share-box": "./share-box/index"
+    }
 }

@@ -1,0 +1,96 @@
+/* pkgPost/components/share-box/index.wxss */
+
+.outer {
+    width: 100%;
+}
+
+.dialog {
+    width: 100%;
+    height: 421rpx;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dialog .header {
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28rpx;
+    color: #333;
+    font-weight: bold;
+}
+
+.dialog .header .close {
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    top: 30rpx;
+    right: 20rpx;
+}
+
+.dialog .footer {
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28rpx;
+    color: #1989fa;
+    border-top: 2rpx solid #f4f4f4;
+}
+
+.body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.footer .cancle {
+    width: 100%;
+    text-align: center;
+}
+
+.body .icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.body .icon .name {
+    color: #a0a0a0;
+    font-size: 28rpx;
+    margin-top: 10rpx;
+}
+
+.body .icon image {
+    width: 92rpx;
+    height: 92rpx;
+}
+
+.icon button {
+    background: none;
+    border: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    z-index: 99;
+}
+
+.tips {
+    font-size: 28rpx;
+    width: 100%;
+    padding: 20rpx 20rpx 40rpx 20rpx;
+    text-align: center;
+}
