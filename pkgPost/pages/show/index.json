@@ -1,6 +1,6 @@
 {
-    "enablePullDownRefresh": true,
-    "navigationBarTitleText": "详细介绍",
+    "enablePullDownRefresh": false,
+    "navigationBarTitleText": "楼盘详情",
     "navigationBarTextStyle": "black",
     "usingComponents": {
         "cover-block": "./cover-block",

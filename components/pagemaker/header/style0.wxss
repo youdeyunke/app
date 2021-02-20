@@ -11,7 +11,7 @@
 
 .title {
     height: 30rpx;
-    font-size: 30rpx;
+    font-size: 36rpx;
     color: #000;
     display: flex;
     font-weight: bold;
@@ -31,7 +31,7 @@
 }
 
 .subtitle {
-    font-size: 24rpx;
+    font-size: 28rpx;
     color: #999;
     display: flex;
     justify-content: flex-end;

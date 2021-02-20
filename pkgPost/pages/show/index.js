@@ -11,7 +11,6 @@ Page({
      */
     data: {
         blocks: [],
-
         points: [],
         pageTitle: '房源详情',
         pageCover: '',
@@ -35,10 +34,6 @@ Page({
         var query = {
             contact_name: this.data.contactInfo.name || '',
             contact_mobile: this.data.contactInfo.mobile || '',
-        }
-        var isDev = this.data.EXT['is_dev'] == true
-        if (isDev) {
-            query['dev'] = true
         }
 
         app.request({
@@ -66,10 +61,8 @@ Page({
 
                 _this.setData({
                     loading: false,
-
                     blocks: resp.data.data,
                 }, () => {
-                    _this.setPageInfo()
                 })
                 //html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
                 //html = html.replace(/\<p/gi, '<p class="rich-text-p" ')
@@ -125,8 +118,11 @@ Page({
             })
         }
 
-        _this.setData({ postId: postId })
-        _this.loadData()
+        _this.setData({ postId: postId }, () => {
+            _this.loadData()
+            _this.loadPostInfo()
+
+        })
         app.markVisitor(null, postId, 'post', function (vid) {
             _this.setData({ 'visitorLogId': vid })
             _this.setInterval()
@@ -145,10 +141,27 @@ Page({
         //获取经纬度
     },
 
-    queryTabsPosition: function () {
-        // 查询tabs距离顶部的像素值
-    },
 
+    loadPostInfo: function () {
+        // 查询楼盘的基本信息，用于设置页面标题、分享文案等
+        var _this = this
+        app.request({
+            url: '/api/v1/post_base_info/' + _this.data.postId,
+            method: 'GET',
+            success: function (resp) {
+                var post = resp.data.data
+                _this.setData({
+                    pageTitle: post.title,
+                    pageCover: post.cover
+                })
+                wx.setNavigationBarTitle({
+                    title: post.title,
+                });
+
+            }
+
+        })
+    },
 
     setInterval: function () {
         // 如果是开发环境，不处理
@@ -260,7 +273,6 @@ Page({
     },
 
 
-
     onShareAppMessage: function () {
         var _this = this
         return {
@@ -270,38 +282,7 @@ Page({
         }
     },
 
-    setPageInfo: function () {
-        // 根据返回的数据设置页面标题、分享标题等信息
-        var _this = this
-        this.data.blocks.forEach((block, i) => {
-            if (block.name == 'base_info') {
-                _this.setData({
-                    pageTitle: block.value.title,
-                    pageCover: block.value.cover,
-                    pageUrl: '/pages/post/post?id=' + block.value.post_id,
-                })
-                wx.setNavigationBarTitle({
-                    title: _this.data.pageTitle,
-                })
 
-            }
-            // 兼容老版本接口，没有返回base_info的情况
-            if (i > 0 && !_this.data.pageTitle & block.name == 'meta') {
-                var s = block.value.simple_images_block
-                // find cover 
-                if (s) {
-                    _this.setData({ pageCover: s.cover })
-                }
-                var c = block.value.cover
-                if (c) {
-                    _this.setData({ pageCover: c })
-                }
-                // find title 
-                _this.setData({ pageTitle: block.value.title })
-            }
-
-        })
-    },
     onShareTimeline: function () {
         var _this = this
 

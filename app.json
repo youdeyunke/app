@@ -94,14 +94,6 @@
             ]
         },
         {
-            "root": "pkgBuilding",
-            "name": "building",
-            "pages": [
-                "pages/building/index",
-                "pages/building/show"
-            ]
-        },
-        {
             "root": "pkgJisuanqi",
             "name": "jisuanqi",
             "pages": [

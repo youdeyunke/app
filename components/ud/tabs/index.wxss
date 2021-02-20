@@ -1,14 +1,17 @@
 /* components/ud/ud-tabs/index.wxss */
-.tabs{
+
+.tabs {
     width: 100%;
     height: 124rpx;
     line-height: 124rpx;
+    box-sizing: border-box;
     border-bottom: 1rpx solid #D3D3D3;
     white-space: nowrap;
     background-color: #fff;
     padding: 0 26rpx;
 }
-.tab{
+
+.tab {
     display: inline-block;
     margin-right: 76rpx;
     color: #333333;
@@ -16,16 +19,19 @@
     position: relative;
     padding-top: 10rpx;
 }
-.active{
+
+.active {
     font-size: 36rpx;
     font-weight: bold;
 }
-.border{
+
+.border {
     width: 48rpx;
     height: 8rpx;
     border-radius: 10rpx;
     background: #1989FA;
     position: absolute;
-    top: 116rpx; left: 14rpx;
+    top: 116rpx;
+    left: 14rpx;
     z-index: 999;
 }

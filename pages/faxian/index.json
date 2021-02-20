@@ -1,6 +1,5 @@
 {
     "enablePullDownRefresh": true,
-    "navigationStyle": "custom",
     "usingComponents": {
         "news-item": "./news-item/index",
         "news-cats": "./news-cats",
