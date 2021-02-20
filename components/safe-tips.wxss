@@ -35,6 +35,7 @@
 
 .safe-tips .title .left image {
     width: 28rpx;
+    height: 28rpx;
 }
 
 .safe-tips .content {
