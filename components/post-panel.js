@@ -84,7 +84,7 @@ Component({
         gotoPost: function (e) {
             var id = this.data.item.id
             wx.navigateTo({
-                url: '/pages/post/post?id=' + id
+                url: '/pkgPost/pages/show/index?id=' + id
             })
         },
 

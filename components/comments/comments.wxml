@@ -1,35 +1,30 @@
 <block>
-<view class="comments full">
-  
-  <navigator url="/pages/post/post?id={{comment.target_id}}" class="item box" wx:if="{{items.length > 0}}" wx:for="{{items}}" wx:for-item="comment" >
-      <image class="user" src="{{comment.user.avatar}}"></image>
-      <view class="meta">
-        <view class="nickname">
-          <view class="main">
-            <view class="uname">{{comment.user.nickname}}</view>
-          </view>
-          <view class="score" wx:if="{{!comment.mycomment_id}}">
-            <mystars value="{{comment.score}}"></mystars>
-            <view class="start-text">{{comment.score_text}}</view>
-          </view>
-        </view>
-
-        <view class="content">
-          <text class="target">#{{comment.target_name}}#  </text>
-          <text>{{comment.content}}</text>
-        </view>
-
-        <view class="footer">
-          <text class="time">{{comment.created_at}}</text>
-          <view class="actions">
-            <view class="like" bindtap='commentlikeHandle' data-index="{{index}}" >有用 ({{comment.like_nums || 0}}）</view>
-      
-          </view>
-        </view>        
-
-      </view>
-    </navigator>
-  </view>
-
-
-  </block>
+    <view class="comments full">
+        <navigator url="/pkgPost/pages/show/index?id={{comment.target_id}}" class="item box" wx:if="{{items.length > 0}}" wx:for="{{items}}" wx:for-item="comment">
+            <image class="user" src="{{comment.user.avatar}}"></image>
+            <view class="meta">
+                <view class="nickname">
+                    <view class="main">
+                        <view class="uname">{{comment.user.nickname}}</view>
+                    </view>
+                    <view class="score" wx:if="{{!comment.mycomment_id}}">
+                        <mystars value="{{comment.score}}"></mystars>
+                        <view class="start-text">{{comment.score_text}}</view>
+                    </view>
+                </view>
+                <view class="content">
+                    <text class="target">#{{comment.target_name}}#</text>
+                    <text>{{comment.content}}</text>
+                </view>
+                <view class="footer">
+                    <text class="time">{{comment.created_at}}</text>
+                    <view class="actions">
+                        <view class="like" bindtap='commentlikeHandle' data-index="{{index}}">
+                            有用 ({{comment.like_nums || 0}}）
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+</block>

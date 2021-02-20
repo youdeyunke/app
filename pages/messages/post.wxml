@@ -1,5 +1,5 @@
 <box width="480">
-    <navigator hover-class="none" class="post {{post.group == 'new' && post.coupon_enable ? '' : 'coupon-none'}} {{type}} {{ shadow ? 'shado' : 'shadow-none'}} {{ border ? 'border' : 'border-none'}}" open-type="navigate" url="/pages/post/post?id={{post.id}}">
+    <navigator hover-class="none" class="post {{post.group == 'new' && post.coupon_enable ? '' : 'coupon-none'}} {{type}} {{ shadow ? 'shado' : 'shadow-none'}} {{ border ? 'border' : 'border-none'}}" open-type="navigate" url="/pkgPost/pages/show/index?id={{post.id}}">
         <badge wx:if="{{post.brokage_info.show == true}}">{{post.brokage_info.title}}</badge>
         <view class="cover skeleton-rect">
             <image lazy-load="{{true}}" mode="aspectFill" class="i" src="{{ post.cover || '/assets/images/cover-none.png' }}?imageView2/2/w/750"></image>

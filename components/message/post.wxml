@@ -1,6 +1,6 @@
 <!-- components/message/post.wxml -->
 <view class="post-wrapper">
-    <navigator url="/pages/post/post?id={{post.id}}" hover-class="navigator-hover" open-type="navigate" class="block">
+    <navigator url="/pkgPost/pages/show/index?id={{post.id}}" hover-class="navigator-hover" open-type="navigate" class="block">
         <text>正在查看</text>
         <image class="cover" src="{{post.cover}}" mode="aspectFill" lazy-load="{{true}}" />
         <view class="type-info  van-ellipsis">

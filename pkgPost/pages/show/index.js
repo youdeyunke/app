@@ -14,7 +14,7 @@ Page({
         points: [],
         pageTitle: '房源详情',
         pageCover: '',
-        pageUrl: '/pages/post/post?post_id=',
+        pageUrl: '/pkgPost/pages/show/index?post_id=',
         postInfo: null,
 
         loading: true,

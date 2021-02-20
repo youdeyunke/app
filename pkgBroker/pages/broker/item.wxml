@@ -1,4 +1,4 @@
-<navigator wx:if="{{item && item.id }}" hover-class="none" class="post" open-type="navigate" url="/pages/post/post?id={{item.id}}">
+<navigator wx:if="{{item && item.id }}" hover-class="none" class="post" open-type="navigate" url="/pkgPost/pages/show/index?id={{item.id}}">
     <view class="cover skeleton-rect">
         <view wx:if="{{ range > 0 && showNumber  }}" class="rank {{ range <= 3 ? 'red' : 'default' }}">
             {{range}}
@@ -11,7 +11,7 @@
     </view>
     <view class="meta">
         <view class="item-title van-ellipsis ">
-            <view class="left">{{ item.title}}</view>   
+            <view class="left">{{ item.title}}</view>
         </view>
         <view class="price-info" wx:for="{{item.prices}}" wx:if="{{item.cat == 'average'}}">
             {{item.name}}
@@ -20,9 +20,7 @@
             <view class="left">{{item.district.name}}</view>
             <view wx:if="{{ album_tag }}" class="right">/ {{ album_tag}}</view>
         </view>
-        <view class="price">
-            均价{{item.average_price}}万元/㎡
-        </view>
+        <view class="price">均价{{item.average_price}}万元/㎡</view>
         <view class="footer">
             <mytags mini="true" items="{{tags}}" max="3"></mytags>
         </view>

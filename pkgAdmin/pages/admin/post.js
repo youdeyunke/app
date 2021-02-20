@@ -122,7 +122,7 @@ Page({
     gotoPost: function (e) {
         var id = this.data.postId
         wx.navigateTo({
-            url: '/pages/post/post?id=' + id
+            url: '/pkgPost/pages/show/index?id=' + id
         })
     },
 
