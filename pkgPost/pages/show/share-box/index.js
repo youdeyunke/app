@@ -35,7 +35,11 @@ Component({
             text += "\n【项目亮点】" + p.tags.join(',')
             text += "\n【项目地址】" + p.address
             // TODO 联系电话服务端还没完成
-            text += "\n【咨询热线】" + '40002111199'
+            var phone = p.phone
+            if (p.sub_phone && p.sub_phone.length >= 1) {
+                phone += '转' + p.sub_phone
+            }
+            text += "\n【咨询热线】" + phone
             wx.setClipboardData({
                 data: text,
             });

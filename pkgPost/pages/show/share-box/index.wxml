@@ -16,11 +16,11 @@
                     <view class="name">朋友圈</view>
                 </view>
                 <view class="icon" bindtap="copyHandle" wx:if="{{postInfo}}">
-                    <image src="../../../icons/share-tl.png" />
+                    <image src="../../../icons/share-copy.png" />
                     <view class="name">复制文本</view>
                 </view>
-                <view class="icon" bindtap="timelineHandle">
-                    <image src="../../../icons/share-tl.png" />
+                <view class="icon" bindtap="posterHandle">
+                    <image src="../../../icons/share-poster.png" />
                     <view class="name">生成楼盘海报</view>
                 </view>
             </view>
