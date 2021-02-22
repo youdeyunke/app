@@ -1,5 +1,5 @@
 <page-loading loading="{{loading}}" />
-<view style="width:100%;" hidden="{{loading}}" class="content">
+<block hidden="{{loading}}">
     <block wx:for="{{blocks}}" wx:for-item="block" wx:for-key="index" wx:key="name">
         <cover-block post-info="{{postInfo}}" wx:if="{{block.name == 'cover'}}" value="{{block.value}}" />
         <header-block wx:if="{{block.name == 'header'}}" value="{{block.value}}" />
@@ -32,4 +32,4 @@
     <ad-link />
     <safe-tips cat="{{post.group}}" />
     <cr />
-</view>
+</block>

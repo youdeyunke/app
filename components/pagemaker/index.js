@@ -7,7 +7,7 @@ Component({
      */
     properties: {
         pageId: { type: Number, default: 1 },
-        pageKey: { type: Number, default: null },
+        pageKey: { type: String, default: null },
     },
 
     /**
@@ -23,7 +23,17 @@ Component({
     },
 
     observers: {
-        'pageId': function () {
+        'pageId': function (v) {
+            if (!v) {
+                return
+            }
+            this.setData({ loading: true })
+            this.loadData()
+        },
+        'pageKey': function (v) {
+            if (!v) {
+                return
+            }
             this.setData({ loading: true })
             this.loadData()
         },

@@ -1,11 +1,7 @@
 /* pages/home/home.wxss */
 
 page {
-    padding-bottom: 130rpx;
-}
-
-.content {
-    margin-top: 487rpx !important;
+    height: auto impo !important;
 }
 
 .margin {
