@@ -113,6 +113,21 @@
     text-align: center;
 }
 
+.tips image {
+    width: 120rpx;
+    height: 120rpx;
+    position: absolute;
+    top: 0rpx;
+    right: 124rpx;
+}
+
+.tips .text {
+    margin-top: 130rpx;
+    margin-bottom: 10rpx;
+    color: #1989fa;
+    font-weight: bolder;
+}
+
 .dialog.copy .postinfo {
     display: flex;
     flex-direction: column;

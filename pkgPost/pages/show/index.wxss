@@ -4,6 +4,8 @@ page {
     height: auto impo !important;
 }
 
+.outer {}
+
 .margin {
     width: 100%;
     height: 20rpx;

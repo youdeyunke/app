@@ -1,4 +1,4 @@
-<mycard title="{{value.title}}" padding="{{false}}" title-size="32">
+<mycard title="{{value.title}}" padding="{{false}}" title-size="36">
     <mapimage pois='{{pois}}' image="{{value.map_image_url}}" latitude="{{value.latitude}}" longitude="{{value.longitude}}" name="{{value.name}}"></mapimage>
     <view class="location">
         <view class="location-left">

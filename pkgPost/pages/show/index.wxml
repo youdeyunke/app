@@ -1,5 +1,5 @@
 <page-loading loading="{{loading}}" />
-<block hidden="{{loading}}">
+<view class="outer" hidden="{{loading}}">
     <block wx:for="{{blocks}}" wx:for-item="block" wx:for-key="index" wx:key="name">
         <cover-block post-info="{{postInfo}}" wx:if="{{block.name == 'cover'}}" value="{{block.value}}" />
         <header-block wx:if="{{block.name == 'header'}}" value="{{block.value}}" />
@@ -25,11 +25,10 @@
             </mycard>
         </view>
         <btns-block wx:if="{{block.name == 'btns'}}" value="{{block.value}}" />
-        <contact-block wx:if="{{block.name == 'contact'}}" value="{{block.value}}" />
         <view class="margin" wx:if="{{block.name != 'cover'}}"></view>
     </block>
     <!-- official-account></official-account -->
     <ad-link />
     <safe-tips cat="{{post.group}}" />
     <cr />
-</block>
+</view>

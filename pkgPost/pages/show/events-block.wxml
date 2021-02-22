@@ -1,5 +1,5 @@
 <!-- pages/post/events-block.wxml -->
-<mycard sub-title="{{value.more_title}}" url="{{value.more_url}}" title="{{value.title || '楼盘动态'}}" sub-title="查看全部动态">
+<mycard font-size="36" sub-title="{{value.more_title}}" url="{{value.more_url}}" title="{{value.title || '楼盘动态'}}" sub-title="查看全部动态">
     <event wx:if="{{event && event.id}}" event="{{event}}"></event>
     <view class="empty" wx:else>没有动态</view>
     <block-button url="{{value.more_url}}" buttonVal='查看更多楼盘动态' />

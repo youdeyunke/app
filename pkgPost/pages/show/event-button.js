@@ -55,14 +55,18 @@ Component({
         },
 
         openHandle: function () {
+            wx.showLoading({
+                title: '处理中',
+                mask: true,
+            });
             var _this = this
             auth.ensureUser((user) => {
+                wx.hideLoading();
                 if (_this.data.status == 0) {
                     _this.setData({ showDialog: true })
                     return false
                 }
                 _this.subHandle()
-
             })
         },
 

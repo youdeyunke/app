@@ -1,4 +1,4 @@
-<mycard title="楼盘评论({{value.total_count}})" hat="{{false}}" title-size="28" sub-title="{{ value.more_title }}" url="{{value.more_url}}">
+<mycard title="楼盘评论({{value.total_count}})" hat="{{false}}" title-size="36" sub-title="{{ value.more_title }}" url="{{value.more_url}}">
     <view class="tags" wx:if="{{scopes.length}}">
         <navigator wx:for="{{scopes}}" wx:key="scope" wx:for-item="scope" url="/pkgComment/pages/comment/index?target_type=post&target_id={{value.post_id}}&scope={{scope.scope}}" hover-class="none" class="tag-item">
             {{scope.name}}({{scope.count}})
