@@ -1,7 +1,6 @@
 {
-  "component": true,
-  "usingComponents": {
-      "item": "/components/post/item-block",
-      "my-card":"./card"
-  }
+    "component": true,
+    "usingComponents": {
+        "item": "/components/post/item-block"
+    }
 }

@@ -1,7 +1,6 @@
 {
     "component": true,
     "usingComponents": {
-        "raw-html": "/components/raw-html/index",
-        "my-card":"./card"
+        "raw-html": "/components/raw-html/index"
     }
 }

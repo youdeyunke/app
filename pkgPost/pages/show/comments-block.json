@@ -4,7 +4,6 @@
         "comment-item": "/components/comments/comment-item",
         "comment-top": "/components/comments/comment-top",
         "van-rate": "/vant/rate/index",
-        "my-card": "./card",
         "block-button": "../../components/block-button"
     }
 }

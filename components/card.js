@@ -6,12 +6,13 @@ Component({
     properties: {
         padding: { type: Boolean, value: true, },
         bodySize: { type: Number, value: '28' },
-        radius:{type:Number, value:'0'},
+        radius: { type: Number, value: '0' },
         width: { type: Number, value: 750, },
+        titleSize: { type: Number, value: 32, },
         title: { type: String, value: '标题' },
         subTitle: { type: String, value: '' },
         url: { type: String, value: null },
-        hat: { type: Boolean, value: true, },
+        hat: { type: Boolean, value: false, },
         headBorder: { type: Boolean, value: false },
         opentype: { type: String, value: 'navigateTo' }
     },
@@ -20,7 +21,6 @@ Component({
      * 组件的初始数据
      */
     data: {
-        titleSize: '28'
     },
 
     /**

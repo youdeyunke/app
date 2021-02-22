@@ -1,5 +1,5 @@
 <!-- pages/post/brokers-block.wxml -->
-<my-card title="{{value.title}}" padding="{{false}}" sub-title='查看更多' url="/pkgBroker/pages/broker/index">
+<mycard title="{{value.title}}" padding="{{false}}" sub-title='查看更多' url="/pkgBroker/pages/broker/index">
     <view class="badges">
         <view class="badge-item">
             <image class="" src="../../icons/jingji-icon-0.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
@@ -29,4 +29,4 @@
     <box padding="30" wx:if="{{moreBrokersBtn && value.more_btn}}">
         <view bindtap="moreBrokersHandle" hover-class="none" class="more-btn">展开全部</view>
     </box>
-</my-card>
+</mycard>

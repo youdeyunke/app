@@ -1,33 +1,36 @@
 <block>
-    <my-card width="750" title="户型介绍" hat="{{false}}" url="{{value.more_url}}" sub-title="{{value.more_title}}"  title-size="32">
+    <mycard hat="{{false}}" width="750" title="户型介绍" url="{{value.more_url}}" sub-title="{{value.more_title}}">
         <scroll-view scroll-with-animation="{{true}}" scroll-x style="width:100%">
-        <view class="types">
-        <navigator hover-class="none" url="/pkgType/pages/type/show?id={{item.id}}" class="type" wx:for="{{value.items}}" wx:key="id">
-            <view class="cover">
-                <view class="zoom"><van-icon name="search" /></view>
-                <image wx:if="{{item.images_list[0]}}" width="165px" height="110px" bindtap="viewImage" data-index="{{index}}" src="{{item.images_list[0]}}?imageView2/1/w/165/h/110"></image>
-                <image wx:else src="/assets/images/image-null.png" />
+            <view class="types">
+                <navigator hover-class="none" url="/pkgType/pages/type/show?id={{item.id}}" class="type" wx:for="{{value.items}}" wx:key="id">
+                    <view class="cover">
+                        <view class="zoom">
+                            <van-icon name="search" />
+                        </view>
+                        <image wx:if="{{item.images_list[0]}}" width="165px" height="110px" bindtap="viewImage" data-index="{{index}}" src="{{item.images_list[0]}}?imageView2/1/w/165/h/110"></image>
+                        <image wx:else src="/assets/images/image-null.png" />
+                    </view>
+                    <view class="meta">
+                        <view class="name">
+                            {{item.name}}
+                            <view class="tag">在售</view>
+                        </view>
+                        <view class="attr">
+                            <text class="label">朝向</text>
+                            <text class="value">{{item.position}}</text>
+                            <text class="label" style="margin-left:36rpx">建面</text>
+                            <text class="value">{{item.area}}㎡</text>
+                        </view>
+                        <view class="attr">
+                            <text class="label">售价</text>
+                            <text wx:if="{{item.total_price > 0}}" class="value price">
+                                约{{item.total_price}}万/套
+                            </text>
+                            <text wx:else class="value price">待定</text>
+                        </view>
+                    </view>
+                </navigator>
             </view>
-            <view class="meta">
-                <view class="name">{{item.name}}
-                <view class="tag">在售</view>
-                </view>
-                <view class="attr">
-                    <text class="label">朝向</text> 
-                    <text class="value">{{item.position}}</text> 
-                    <text class="label" style="margin-left:36rpx">建面</text> 
-                    <text class="value">{{item.area}}㎡</text> 
-                </view>
-                <view class="attr">
-                    <text class="label">售价</text>
-                    <text wx:if="{{item.total_price > 0}}" class="value price">约{{item.total_price}}万/套</text>
-                    <text wx:else class="value price">待定</text>
-                </view>
-
-            </view>
-        </navigator>
-        </view>
         </scroll-view>
-
-    </my-card>
+    </mycard>
 </block>

@@ -1,18 +1,17 @@
-<my-card title="{{ value.title }}"   subtitle="{{ value.more_title }}" url="{{moreUrl}}" >
-  <view class="qas">
-    <view class="empty" wx:if="{{value.items.length == 0}}">还没有人提问</view>
-
-    <view class="item" hover-class="none" wx:key="id"   wx:for="{{value.items}}" >
-        <view class="icon">问</view>
-        <view class="info">
-            <navigator hover-class="none" url="/pkgQa/pages/qa/qa?id={{item.id}}"  class="content">{{item.content}}</navigator>
-            <view class="footer">
-                <view class="count">{{item.answers_count}}条回答</view>
+<mycard title="{{ value.title }}" subtitle="{{ value.more_title }}" url="{{moreUrl}}">
+    <view class="qas">
+        <view class="empty" wx:if="{{value.items.length == 0}}">还没有人提问</view>
+        <view class="item" hover-class="none" wx:key="id" wx:for="{{value.items}}">
+            <view class="icon">问</view>
+            <view class="info">
+                <navigator hover-class="none" url="/pkgQa/pages/qa/qa?id={{item.id}}" class="content">
+                    {{item.content}}
+                </navigator>
+                <view class="footer">
+                    <view class="count">{{item.answers_count}}条回答</view>
+                </view>
             </view>
         </view>
+        <block-button url="/pkgQa/pages/qa/new?target_id={{value.post_id}}&target_type=post" buttonVal='去提问' />
     </view>
-
-    <block-button  url="/pkgQa/pages/qa/new?target_id={{value.post_id}}&target_type=post" buttonVal='去提问' />
-  </view>
-
-</my-card>
+</mycard>

@@ -1,88 +1,87 @@
 /* components/card.wxss */
+
 @import "../app.wxss";
-
-.card{
-  width:100%;
-  margin:0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  position: relative;
-  box-sizing: border-box;
+.card {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+    box-sizing: border-box;
 }
 
-.card .sub-title{
-  font-size:22rpx;
+.card .sub-title {
+    font-size: 22rpx;
 }
 
-.card.shadow-none{
-  box-shadow:none;
+.card.shadow-none {
+    box-shadow: none;
 }
 
-.card .card-header.border-none{
-  border:none;
+.card .card-header.border-none {
+    border: none;
 }
 
-.card-header{
-  display: flex;
-  justify-content: space-between;
-  letter-spacing: 2rpx;
-  border-bottom:1rpx solid #f4f4f4;
-  margin:30rpx 30rpx 0rpx 30rpx;
-  padding-bottom:30rpx;
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 2rpx;
+    border-bottom: 1rpx solid #f4f4f4;
+    margin: 30rpx 30rpx 0rpx 30rpx;
+    padding-bottom: 30rpx;
 }
 
-.card-header .card-hat{
-  height:30rpx;
-  width:12rpx;
-  background:#1989fa;
-  margin-right:15rpx;
+.card-header .card-hat {
+    height: 30rpx;
+    width: 12rpx;
+    background: #1989fa;
+    margin-right: 15rpx;
 }
 
-.card-header-title{
-  display:flex;
-  justify-content:flex-start;
-  align-items:center;
-  color: #000;
+.card-header-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #000;
 }
 
-.card-heard-title .name{
-  font-weight:bolder;
-  color:#333333;
+.card-header-title .name {
+    font-weight: bolder;
+    color: #333333;
 }
 
-.card-header-action{
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+.card-header-action {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-.card-header-action-name{
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  line-height: 100%;
-  margin-right:10rpx;
+.card-header-action-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    line-height: 100%;
+    margin-right: 10rpx;
 }
 
-.card-header-action-image{
-  width: 24rpx;
-  height: 24rpx;
-  margin-right:10rpx;  
-  vertical-align: middle;
+.card-header-action-image {
+    width: 24rpx;
+    height: 24rpx;
+    margin-right: 10rpx;
+    vertical-align: middle;
 }
 
-.card-body{
-  padding:0 30rpx 30rpx 30rpx;
+.card-body {
+    padding: 0 30rpx 30rpx 30rpx;
 }
 
-
-.card.padding-none .card-body{
-  padding:0;
-  margin:0;
+.card.padding-none .card-body {
+    padding: 0;
+    margin: 0;
 }
 
-.card-footer{}
+.card-footer {}

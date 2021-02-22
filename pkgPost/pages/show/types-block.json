@@ -1,6 +1,4 @@
 {
-  "component": true,
-  "usingComponents": {
-    "my-card":"./card"
-  }
+    "component": true,
+    "usingComponents": {}
 }

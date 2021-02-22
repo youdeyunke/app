@@ -1,8 +1,7 @@
 {
-  "component": true,
-  "usingComponents": {
-    "broker-link": "/components/broker/link",
-    "my-card":"./card",
-    "broker-item":"./broker-item"
-  }
+    "component": true,
+    "usingComponents": {
+        "broker-link": "/components/broker/link",
+        "broker-item": "./broker-item"
+    }
 }

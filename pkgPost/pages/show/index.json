@@ -22,7 +22,6 @@
         "page-loading": "./page-loading",
         "box": "/components/box",
         "visitors": "/components/visitors/index",
-        "safe-tips": "/components/safe-tips",
-        "my-card": "./card"
+        "safe-tips": "/components/safe-tips"
     }
 }
