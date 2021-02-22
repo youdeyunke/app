@@ -3,7 +3,7 @@
         <view class="first-left">
             <view class="left-title">{{value.title}}</view>
             <view class="left-content">
-                <ud-image src="/assets/icons/post-location.png" />
+                <image src="../../icons/post-location.png" />
                 <text class="address">{{value.address}}</text>
             </view>
             <view class="left-tags">
@@ -18,13 +18,13 @@
     </view>
     <view class="block-second">
         <navigator url="{{nav.path}}" hover-class="none" class="second-cell" wx:for="{{value.navs}}" wx:for-item="nav">
-            <ud-image src="/assets/icons/post-navs/{{nav.id}}.png" />
+            <image src="../../icons/navs/{{nav.id}}.png" />
             <view>{{nav.name}}</view>
         </navigator>
     </view>
     <navigator url="/pkgBrokage/pages/brokage/index?post_id={{value.post_id}}" hover-class="none" class="block-third" wx:if="{{value.brokage_info}}">
         <view class="thrid-left">
-            <ud-image src="/assets/icons/yong.png" />
+            <image src="../../icons/yong.png" />
             <text class="">{{value.brokage_info.title}}</text>
         </view>
         <view style="color:#666666;">了解详情 ></view>

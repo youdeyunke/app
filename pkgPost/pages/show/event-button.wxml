@@ -23,7 +23,7 @@
         </view>
     </van-popup>
     <view class="action {{ status == 1 ? 'dark' : '' }}" bindtap="openHandle">
-        <ud-image src="/assets/icons/dingyue-{{status}}.png" />
+        <image src="../../icons/dingyue-{{status}}.png" />
         <view class="status-text">{{ nameDict['btn'][status] }}</view>
     </view>
 </block>
