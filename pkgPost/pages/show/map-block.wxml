@@ -5,10 +5,8 @@
             <text class="label">位置：</text>
             <text class="value">{{value.address}}</text>
         </view>
-        <view class="location-right">
-            <van-button round size="mini" plain type="default" bind:tap="getLocation">
-                导航
-            </van-button>
+        <view class="location-right" binddtap="getLocation">
+            <van-icon name="arrow" />
         </view>
     </view>
     <zhoubian latitude="{{value.latitude}}" longitude="{{value.longitude}}" bind:myevent="getMyevent" />

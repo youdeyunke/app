@@ -1,8 +1,10 @@
 .location {
-    padding: 22rpx 0 22rpx 30rpx;
     font-size: 28rpx;
     display: flex;
     justify-content: space-between;
+    height: 80rpx;
+    line-height: 80rpx;
+    padding: 0 20rpx;
 }
 
 .location .label {
@@ -12,6 +14,7 @@
 .location-right {
     padding-right: 30rpx;
 }
-button :hover{
-  background-color: none;
+
+button :hover {
+    background-color: none;
 }

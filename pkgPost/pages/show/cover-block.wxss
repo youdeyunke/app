@@ -1,43 +1,58 @@
 /* pages/post/cover-block.wxss */
-.block{
+
+.block {
     width: 100%;
     height: 504rpx;
     position: fixed;
-    top: 0;left: 0;
-    z-index:-1;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
-.block-title{
+
+.block-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: #fff;
     font-size: 26rpx;
-    padding:  15rpx 20rpx;
+    padding: 15rpx 20rpx;
     background: #1989F9;
     z-index: 5;
 }
-.title-icon{
+
+.title-icon {
     width: 28rpx;
     height: 28rpx;
     margin-right: 10rpx;
     margin-top: 4rpx;
 }
-.title-left{
+
+.title-left {
     display: flex;
     justify-content: flex-start;
 }
-.bg{
-    width: 100%;
+
+.bg {
+    width: 750rpx;
     height: 504rpx;
     position: absolute;
     top: 0;
     left: 0;
     z-index: -1;
 }
-.fenxiang{
+
+.fenxiang {
     width: 80rpx;
     height: 80rpx;
     position: absolute;
-    top: 84rpx;
+    top: 142rpx;
+    left: 648rpx;
+}
+
+.vr {
+    width: 80rpx;
+    height: 80rpx;
+    position: absolute;
+    top: 250rpx;
     left: 648rpx;
 }

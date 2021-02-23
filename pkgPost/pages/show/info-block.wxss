@@ -1,6 +1,6 @@
 /* pages/post/info-block.wxss */
 
-.scroll-cell {
+.xiangce-item {
     width: 230rpx;
     height: 180rpx;
     position: relative;
@@ -10,7 +10,11 @@
     overflow: hidden;
 }
 
-.cell-image {
+.xiangce:nth-child(1) {
+    margin-left: 20rpx;
+}
+
+.xiangce-item .image {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -18,7 +22,7 @@
     left: 0;
 }
 
-.cell-title {
+.xiangce-item .title {
     position: absolute;
     width: 100%;
     height: 70rpx;
@@ -33,18 +37,19 @@
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
 }
 
-.scroll {
-    width: 750rpx;
-    margin-left: 18rpx;
+.xiangce {
     height: 180rpx;
-    box-sizing: border-box;
+    width: 710rpx;
     white-space: nowrap;
-    margin-bottom: 30rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .block-title {
     border-top: 1rpx solid #F0F0F0;
     padding: 0 20rpx 20rpx 20rpx;
+    width: 710rpx;
 }
 
 .content-title {

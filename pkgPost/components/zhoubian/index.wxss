@@ -4,7 +4,8 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    font-size: 26rpx;
+    font-size: 28rpx;
+    color: #333;
 }
 
 .label {
@@ -12,6 +13,14 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     font-size: 24rpx;
+}
+
+.name {
+    width: 80rpx;
+    height: 30rpx;
+    margin: 0 auto;
+    line-height: 30rpx;
+    font-size: 28rpx;
 }
 
 .null {
@@ -73,14 +82,6 @@
     width: 68rpx;
     height: 68rpx;
     margin-top: 8rpx;
-}
-
-.name {
-    width: 80rpx;
-    height: 30rpx;
-    margin: 0 auto;
-    line-height: 30rpx;
-    font-size: 24rpx;
 }
 
 .border {

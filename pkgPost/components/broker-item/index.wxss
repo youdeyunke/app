@@ -40,7 +40,7 @@
     width: 127rpx;
     height: 34rpx;
     position: absolute;
-    left: -10rpx;
+    left: -13rpx;
     bottom: 0rpx;
 }
 

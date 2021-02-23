@@ -3,7 +3,7 @@
         <view class="border"></view>
         <view wx:for='{{tabs}}' wx:key='id' class="title_item  {{ index === active ? 'current-active' : ''}}" bindtap="handleItemTap" data-index='{{index}}'>
             <view class="content">
-                <image class="icon" src="../../icons//zhoubian/{{item.icon}}" />
+                <image class="icon" src="../../icons/zhoubian/{{item.icon}}" />
                 <view class="name">{{item.name}}</view>
                 <view class="active" hidden="{{index != active}}"></view>
             </view>
@@ -11,7 +11,7 @@
         <view class="border"></view>
     </scroll-view>
     <view class="tabs_content">
-        <view hidden="{{isShow == 0}}" class="null">暂未搜索到</view>
+        <view hidden="{{isShow == 0}}" class="null">无数据</view>
         <view hidden="{{isShow ==1}}">
             <van-cell center wx:if="{{ index+1 <= maxLength || type == 'big' }}" title="{{item.title}}" label="{{item.address}}" name='{{item}}' wx:for="{{resp}}" title-class='title' label-class='label'>
                 <view class="value" slot=''>
