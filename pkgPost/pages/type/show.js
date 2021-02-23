@@ -147,7 +147,6 @@ Page({
     onShareAppMessage: function () {
         var _this = this
         var title = this.data.post.title + this.data.type.name
-        console.log('title', title)
         var path = 'pkgPost/pages/type/show?id=' + this.data.tid
         var image = this.type.images_list[0]
         return {

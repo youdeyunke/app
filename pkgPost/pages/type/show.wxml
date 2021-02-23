@@ -3,8 +3,7 @@
 <view class="cover">
     <swiper class="swiper" indicator-dots="true" autoplay="{{type.images_list.length > 1}}" interval="5000" duration="500" bindchange="swiperChange" circular="true" easing-function="linear" indicator-color="rgba(255,255,255,0.7)" indicator-active-color="#fff">
         <swiper-item  bindtap="viewImage" data-index="{{index}}" wx:key="{{index}}" wx:for="{{type.images_list}}">
-            <image  class="item" 
-            src="{{item}}"></image>
+            <van-image width="750rpx" height="500rpx"  custom-class="item" src="{{item}}"></van-image> 
         </swiper-item>
     </swiper>
 </view>
@@ -24,20 +23,9 @@
         </view>
 </box>
 
-<box padding="30" wx:if="{{ type.merit || type.shortcoming || type.desc}}">
-    <view class="desc" wx:if="{{type.merit}}">
-      <view class="title">优势描述</view>
-      <view class="content"> {{ type.merit }} </view>
-    </view>
-    <view class="desc" wx:if="{{type.shortcoming}}" >
-        <view class="title">劣势描述</view>
-      <view class="content"> {{ type.shortcoming }} </view>
-    </view>
-    <view class="desc" wx:if="{{type.desc}}">
-        <view class="title">居室详解</view>
-      <view class="content"> {{ type.desc }} </view>
-    </view>
-</box>
+<mycard title="户型分析" wx:if="{{value.deesc}}">
+      <view class="desc"> {{ type.desc }} </view>
+</mycard>
 
 
 <view class="footer">
@@ -45,6 +33,6 @@
     <van-button bindtap="callHandle" icon="phone-o" type="info" block >电话咨询</van-button>
 </view>
 
-    <safe-tips cat="{{post.group}}" />
+    <safe-tips />
     <cr />
 </view>
