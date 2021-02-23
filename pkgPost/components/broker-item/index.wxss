@@ -1,0 +1,57 @@
+/* components/broker-item/index.wxss */
+
+.outer {
+    width: 710rpx;
+    box-sizing: border-box;
+    padding: 0 20rpx;
+    height: 130rpx;
+    background: linear-gradient(111.48deg, #F7F7F7 17.42%, #F2FAFF 88.05%);
+    border-radius: 10rpx;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name {
+    width: 276rpx;
+    font-size: 36rpx;
+    color: #333;
+    font-weight: bold;
+}
+
+.avatar {
+    margin-right: 40rpx;
+    position: relative;
+}
+
+.avatar image.user {
+    width: 95rpx;
+    height: 95rpx;
+    border: 2rpx solid #fff;
+    border-radius: 95rpx;
+    width: 95rpx;
+    height: 95rpx;
+    overflow: hidden;
+}
+
+.avatar image.badge {
+    width: 127rpx;
+    height: 34rpx;
+    position: absolute;
+    left: -10rpx;
+    bottom: 0rpx;
+}
+
+.actions {
+    width: 260rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn image {
+    width: 120rpx;
+    height: 50rpx;
+}

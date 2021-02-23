@@ -2,6 +2,6 @@
     "component": true,
     "usingComponents": {
         "broker-link": "/components/broker/link",
-        "broker-item": "./broker-item"
+        "broker-item": "../../components/broker-item/index"
     }
 }

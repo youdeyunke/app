@@ -1,6 +1,7 @@
 {
     "enablePullDownRefresh": false,
     "navigationStyle": "custom",
+    "navigationBarTextStyle": "white",
     "usingComponents": {
         "post-title": "/components/post-title/index",
         "event": "/components/event/item"
