@@ -1,0 +1,3 @@
+<view class="header" style="background-image:url('{{cover}}')">
+    <view class="mask">{{ name }}</view>
+</view>

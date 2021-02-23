@@ -1,5 +1,5 @@
-<view class="header" style="background-image:url('{{post.cover}}')">{{ post.title }}</view>
 <view class="body">
+    <post-title name="{{post.title}}" cover="{{post.cover}}"></post-title>
     <mycard title="基本信息">
         <van-cell size="mini" title="项目名称" value="{{post.title}}"></van-cell>
         <van-cell size="mini" title="参考均价">

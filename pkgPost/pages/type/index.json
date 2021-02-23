@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+    "enablePullDownRefresh": false,
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom",
+    "usingComponents": {
+        "post-title": "/components/post-title/index"
+    }
 }

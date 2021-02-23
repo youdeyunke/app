@@ -2,6 +2,7 @@
     "enablePullDownRefresh": false,
     "navigationStyle": "custom",
     "usingComponents": {
+        "post-title": "/components/post-title/index",
         "raw-html": "/components/raw-html/index"
     }
 }

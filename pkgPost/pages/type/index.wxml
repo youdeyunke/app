@@ -1,4 +1,5 @@
 <!-- pkgType/pages/type/index.wxml -->
+<post-title name="{{post.title}}" cover="{{post.cover}}"></post-title>
 <box width="750" padding="20" wx:if="{{!loading}}">
     <view class="filter" wx:if="{{tags.length > 1}}">
         <view class="item {{ group == tag.group ? 'active' : '' }}" data-group="{{tag.group}}" bindtap="groupClick" wx:key="id" wx:for="{{tags}}" wx:for-item="tag">
