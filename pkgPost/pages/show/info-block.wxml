@@ -1,17 +1,9 @@
-<mycard title="楼盘详情信息" sub-title='查看更多' url='' padding="{{false}}" title-size="32">
+<mycard title="楼盘详情信息" sub-title='查看更多信息' url='' padding="{{false}}" title-size="32">
     <scroll-view scroll-x="{{true}}" class="scroll">
-        <view class="scroll-cell">
-            <image class="cell-image" src="/assets/images/scroll-news.png" />
-            <view class="cell-title">效果图(10)</view>
-        </view>
-        <view class="scroll-cell">
-            <image class="cell-image" src="/assets/images/scroll-news.png" />
-            <view class="cell-title">效果图(10)</view>
-        </view>
-        <view class="scroll-cell">
-            <image class="cell-image" src="/assets/images/scroll-news.png" />
-            <view class="cell-title">效果图(10)</view>
-        </view>
+        <navigator url="/pkgXiangce/pages/xiangce/index?post_id={{value.post_id}}" hover-class="none" class="scroll-cell" wx:for="{{value.albums}}" wx:for-item="album">
+            <image class="cell-image" src="{{album.cover || '../../images/image-none.png'}}" />
+            <view class="cell-title">{{album.name}}({{album.items_count}})</view>
+        </navigator>
     </scroll-view>
     <view class="block-title">
         <view class="block-content">
@@ -24,10 +16,10 @@
             <text class="maohao" style="margin-left:4rpx">:</text>
             <text class="content-desc">住宅</text>
         </view>
-        <view class="block-content">
-            <text class="content-title" space='nbsp'>开发商</text>
+        <view class="block-content" wx:for="{{metaItems}}" wx:for-item="meta">
+            <text class="content-title" space='nbsp'>{{meta.label}}</text>
             <text class="maohao" style="margin-left:4rpx">:</text>
-            <text class="content-desc">云浮市翔顺房地产投资有限公司</text>
+            <text class="content-desc">{{meta.text}}</text>
         </view>
     </view>
 </mycard>

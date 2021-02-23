@@ -1,27 +1,39 @@
 /* pages/post/info-block.wxss */
-.scroll-cell{
-    width: 40%;
+
+.scroll-cell {
+    width: 230rpx;
     height: 180rpx;
     position: relative;
     display: inline-block;
     margin-right: 20rpx;
+    border-radius: 6rpx;
+    overflow: hidden;
 }
-.cell-image{
+
+.cell-image {
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
 }
-.cell-title{
+
+.cell-title {
     position: absolute;
-    top: 140rpx;
-    left: 100rpx;
+    width: 100%;
+    height: 70rpx;
+    line-height: 70rpx;
+    text-align: center;
     z-index: 5;
+    bottom: 0rpx;
+    left: 0;
     color: #fff;
     font-size: 22rpx;
+    /* Rectangle 63 */
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
 }
-.scroll{
+
+.scroll {
     width: 750rpx;
     margin-left: 18rpx;
     height: 180rpx;
@@ -29,32 +41,44 @@
     white-space: nowrap;
     margin-bottom: 30rpx;
 }
-.block-title{
+
+.block-title {
     border-top: 1rpx solid #F0F0F0;
-    padding:  0  20rpx 20rpx 20rpx;
+    padding: 0 20rpx 20rpx 20rpx;
 }
-.content-title{
+
+.content-title {
     width: 146rpx;
-    font-size: 26rpx;
+    font-size: 28rpx;
     color: #777777;
-    text-align:justify;
+    text-align: justify;
     text-justify: distribute-all-lines;
-    text-align-last:justify ;
+    text-align-last: justify;
 }
-.block-content{
+
+.block-content {
     color: #333;
     margin-top: 16rpx;
     display: flex;
     justify-content: flex-start;
 }
-.maohao , .content-desc{
+
+.maohao, .content-desc {
     font-weight: bold;
-    font-size: 26rpx;
+    color: #333;
+    font-size: 28rpx;
 }
-.content-desc{
+
+.maohao {
+    text-align: center;
+    width: 8rpx;
+}
+
+.content-desc {
     margin-left: 10rpx;
     max-width: 370rpx;
 }
-.red{
+
+.red {
     color: #E82525 !important;
 }
