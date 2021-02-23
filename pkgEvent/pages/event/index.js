@@ -23,8 +23,22 @@ Page({
      */
     onLoad: function (q) {
         var pid = q.id || q.post_id
-        this.setData({ postId: pid })
-        this.loadData()
+        this.setData({ postId: pid }, () => {
+            this.loadData()
+            this.loadPost()
+
+        })
+    },
+
+    loadPost: function () {
+        var _this = this
+        app.request({
+            url: '/api/v1/post_base_info/' + this.data.postId,
+            success: function (resp) {
+                _this.setData({ post: resp.data.data })
+            }
+        })
+
     },
 
     catClickHandle: function (e) {
@@ -53,11 +67,9 @@ Page({
             url: '/api/v1/events',
             data: query,
             success: function (resp) {
-                var post = resp.data.data.post
                 _this.setData({
                     loading: false,
                     items: resp.data.data.items,
-                    post: post,
                     broker: resp.data.data.broker,
                     user: app.globalData.userInfo,
                     cats: resp.data.data.cats,

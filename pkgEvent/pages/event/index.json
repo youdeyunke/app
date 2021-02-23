@@ -1,5 +1,8 @@
 {
+    "enablePullDownRefresh": false,
+    "navigationStyle": "custom",
     "usingComponents": {
+        "post-title": "/components/post-title/index",
         "event": "/components/event/item"
     }
 }
