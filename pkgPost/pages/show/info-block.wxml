@@ -12,17 +12,19 @@
     <view class="block-title">
         <view class="block-content">
             <text class="content-title">参考价格</text>
-            <text style="margin-left:4rpx">:</text>
-            <text class="content-desc red">清水价格800万起     高层760万起     底层850~900万</text>
+            <text style="margin-left:4rpx"></text>
+            <text class="content-desc red">
+                {{value.average_price_info.text}} {{value.average_price_info.px}}
+            </text>
         </view>
         <view class="block-content">
             <text class="content-title">类型</text>
-            <text class="maohao" style="margin-left:4rpx">:</text>
-            <text class="content-desc">住宅</text>
+            <text class="maohao" style="margin-left:4rpx"></text>
+            <text class="content-desc">{{value.cats }}</text>
         </view>
         <view class="block-content" wx:for="{{metaItems}}" wx:for-item="meta">
             <text class="content-title" space='nbsp'>{{meta.label}}</text>
-            <text class="maohao" style="margin-left:4rpx">:</text>
+            <text class="maohao" style="margin-left:4rpx"></text>
             <text class="content-desc">{{meta.text}}</text>
         </view>
     </view>

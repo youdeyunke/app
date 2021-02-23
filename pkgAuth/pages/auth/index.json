@@ -1,6 +1,8 @@
 {
     "navigationBarBackgroundColor": "#f4f4f4",
     "navigationStyle": "custom",
+    "enablePullDownRefresh": false,
+    "disableScroll": true,
     "usingComponents": {
         "card": "/components/card",
         "avatar-sync": "/components/avatar-sync",
