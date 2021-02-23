@@ -10,9 +10,6 @@ App({
         EXT: EXT,
         myconfigs: null,
         system: {},
-        reddot: 0,
-        reddotIntervalId: null,
-        assetsList: ['客梯', '货梯', '扶梯', '中央空调', '停车位', '天然气', '网络', '暖气', '上水', '下水', '排烟', '排污', '可明火', '380V', '外摆区'],
         apiHost: 'http://weapp2.udeve.net:32021',
         userInfo: null,
         token: null,
@@ -21,25 +18,6 @@ App({
     },
 
 
-
-    chooseLocation: function (cb) {
-        var _this = this
-        wx.chooseLocation({
-            success: function (res) {
-                _this.request({
-                    url: '/api/v1/sub_districts',
-                    method: 'POST',
-                    data: res,
-                    success: function (resp) {
-                        if (resp.data.status == 0) {
-                            var data = resp.data.data
-                            typeof cb == 'function' && cb(data)
-                        }
-                    }
-                })
-            }
-        })
-    },
 
     ensureLocation: function (cb) {
         // 确保能获取用户位置信息
@@ -124,24 +102,6 @@ App({
         });
     },
 
-    touchCdnFile: function (url) {
-        // 当cdn是通过镜像同步的时候，对于刚刚生成的图片，腾讯cdn会返回302重定向到源站，导致错误
-        var max = 50 // 重试次数
-        for (var i = 0; i <= max; i++) {
-            console.log('尝试下载二维码图片', i, url)
-            // 将图片下载到本地
-            wx.downloadFile({
-                url: url,
-                success: (res) => {
-                    var path = res.tempFilePath
-                    console.log('下载二维码成功', i, path)
-                },
-                fail: (res) => {
-                    console.log('下载二维码失败', i, res)
-                }
-            });
-        }
-    },
 
     downloadImage: function (url, cb) {
         // 先下载，再保存
@@ -231,8 +191,6 @@ App({
     },
 
 
-
-
     comingSoon: function () {
         wx.showToast({
             title: "功能正在完善中，敬请期待 :)",
@@ -243,7 +201,6 @@ App({
 
 
     onHide: function () {
-        this.clearReddotInterval()
     },
 
     initTim: function () {
@@ -264,7 +221,6 @@ App({
         var _this = this;
         this.setUserInfo()
         this.setSystemInfo()
-        this.startReddotInterval()
         this.ensureConfigs(function (config) {
             _this.loadCities(function (cities) {
                 _this.globalData.cities = cities;
@@ -302,61 +258,6 @@ App({
         })
     },
 
-    startReddotInterval: function () {
-        // 开始小红点轮训
-        this.clearReddotInterval()
-        // 如果没有开启聊天功能，那么就不用轮训
-        if (EXT['chat_enable'] == false) {
-            console.log('没有开启聊天功能')
-            return false
-        }
-
-        var t = EXT['reddot_interval']
-        var iid = setInterval(this.reddotHandle, 30000)
-        this.globalData['reddotIntervalId'] = iid
-        console.log('新的小红点轮训开始', iid)
-    },
-
-    clearReddotInterval: function () {
-        var iid = this.globalData.reddotIntervalId
-        if (iid) {
-            console.log('停止查询小红点')
-            clearInterval(iid);
-        }
-    },
-
-
-    reddotHandle: function () {
-        // 如果没有登录，就不检查
-        if (!this.globalData.token) {
-            console.log('未登录，不检查未读')
-            return false
-        }
-
-        // 如果已经有小红点，那几不用查询了
-        if (this.globalData.reddot == 1) {
-            console.log('已有小红点了，不用重复查询')
-            return false;
-        }
-
-        var _this = this;
-        this.request({
-            url: "/api/v1/chat_lists/reddot",
-            hideLoading: true,
-            success: function (resp) {
-                if (resp.data.data == 1) {
-                    console.log("显示红点");
-                    wx.showTabBarRedDot({
-                        index: 1,
-                        fail: function (e) { console.log('显示红点失败') },
-                        success: function () {
-                            _this.globalData['reddot'] = 1
-                        },
-                    });
-                }
-            }
-        });
-    },
 
     setUserInfo: function () {
         // 从本地缓存中加载用户信息
