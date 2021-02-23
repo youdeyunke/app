@@ -103,7 +103,7 @@ Page({
         var p = this.data.post
         return {
             title: p.title,
-            coverImage: p.cover,
+            imageUrl: p.cover,
         }
 
     }

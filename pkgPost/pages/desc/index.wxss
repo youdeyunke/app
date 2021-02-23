@@ -3,3 +3,14 @@
 page {
     background: #f4f4f4;
 }
+
+.header {
+    background-size: 750rpx 500rpx;
+    padding-top: 120rpx;
+    height: 120rpx;
+    line-height: 120rpx;
+    text-align: center;
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #fff;
+}

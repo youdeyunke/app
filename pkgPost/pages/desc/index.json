@@ -1,4 +1,6 @@
 {
+    "enablePullDownRefresh": false,
+    "navigationStyle": "custom",
     "usingComponents": {
         "raw-html": "/components/raw-html/index"
     }
