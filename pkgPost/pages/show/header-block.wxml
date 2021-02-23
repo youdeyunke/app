@@ -1,23 +1,26 @@
-<view class="block">
-    <view class="block-first">
+<view class="outer">
+    <view class="title-block">
         <view class="first-left">
             <view class="left-title">{{value.title}}</view>
-            <view class="left-content">
-                <image src="../../icons/post-location.png" />
-                <text class="address">{{value.address}}</text>
-            </view>
             <view class="left-tags">
                 <view class="left-tag" wx:for="{{value.tags}}" wx:for-item="tag" wx:for-key="tag.id">
                     {{tag.name}}
                 </view>
             </view>
         </view>
-        <view class="first-right">
+        <view class="event-button">
             <event-button cat="open" pid="{{value.post_id}}"></event-button>
         </view>
     </view>
-    <view class="block-second">
-        <navigator url="{{nav.path}}" hover-class="none" class="second-cell" wx:for="{{value.navs}}" wx:for-item="nav">
+    <view class="address" bindtap="gotoLocation">
+        <view class="text">
+            <image src="../../icons/post-location.png" />
+            <text>{{value.address}}</text>
+        </view>
+        <van-icon name="arrow" class="icon"></van-icon>
+    </view>
+    <view class="navs">
+        <navigator url="{{nav.path}}" hover-class="none" class="nav-item" wx:for="{{value.navs}}" wx:for-item="nav">
             <image src="../../icons/navs/{{nav.id}}.png" />
             <view>{{nav.name}}</view>
         </navigator>

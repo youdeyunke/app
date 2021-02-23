@@ -441,14 +441,6 @@ Page({
 
     },
 
-    chooseLocation: function () {
-        var _this = this
-        wx.chooseLocation({
-            success: function (res) {
-                _this.moveTo(res.latitude, res.longitude)
-            },
-        })
-    },
 
     /**
      * 页面上拉触底事件的处理函数
