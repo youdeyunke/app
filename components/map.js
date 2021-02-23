@@ -9,11 +9,12 @@ Component({
     properties: {
         longitude: { type: Number },
         latitude: { type: Number },
+        enableScroll: { type: Boolean, value: false },
         width: { type: Number, value: 750 },
         height: { type: Number, value: 320 },
         scale: { type: Number, value: 15 },
         name: { type: String, value: null },
-        pois:{type:Array,value:null}
+        pois: { type: Array, value: null }
     },
 
     /**
@@ -21,25 +22,25 @@ Component({
      */
     data: {
         markers: [],
-        map:null,
-        points:[]
+        map: null,
+        points: []
     },
     ready: function () {
         this.setMarker()
     },
-    attached:function(){
+    attached: function () {
         var map = wx.createMapContext('map', this);
         this.setData({
-            map:map
+            map: map
         })
     },
     observers: {
-        'pois': function(pois) {
-            if(!this.data.map){
+        'pois': function (pois) {
+            if (!this.data.map) {
                 return
             }
-        this.getMapContext()
-        this.setMarker()
+            this.getMapContext()
+            this.setMarker()
         }
     },
     /**
@@ -52,7 +53,7 @@ Component({
         },
         setMarker: function () {
             var pois = this.data.pois
-            var markers =[]
+            var markers = []
             var _this = this
             const bgColor = '#1989fa'
             const whiteColor = '#ffffff'
@@ -81,7 +82,7 @@ Component({
                 }
             }
             markers.push(marker)
-            pois.forEach(v=>{
+            pois.forEach(v => {
                 var marker = {
                     iconPath: '/assets/icons/zhoubian.png',
                     alpha: '0.5',
@@ -137,26 +138,26 @@ Component({
                 },
             })
         },
-        getMapContext(){
-        
-        var _this = this
-        var arr = []
-        arr.push({longitude:this.data.longitude,latitude:this.data.latitude})
-        var pois = this.data.pois
-        pois.forEach(v=>{
-            var obj = {}
-            obj.longitude = v.location.lng
-            obj.latitude = v.location.lat
-            arr.push(obj)
-        })
-        // //缩放视野展示所有经纬度 此方法传入的数组不能为空 所以手动进行非空验证
-        // if(pois.length ==0){
-        //     return
-        // }
-        this.data.map.includePoints({
-            points: arr,
-            padding:[50,50,50,50]
-        });
-    }
+        getMapContext() {
+
+            var _this = this
+            var arr = []
+            arr.push({ longitude: this.data.longitude, latitude: this.data.latitude })
+            var pois = this.data.pois
+            pois.forEach(v => {
+                var obj = {}
+                obj.longitude = v.location.lng
+                obj.latitude = v.location.lat
+                arr.push(obj)
+            })
+            // //缩放视野展示所有经纬度 此方法传入的数组不能为空 所以手动进行非空验证
+            // if(pois.length ==0){
+            //     return
+            // }
+            this.data.map.includePoints({
+                points: arr,
+                padding: [50, 50, 50, 50]
+            });
+        }
     }
 })

@@ -1,4 +1,4 @@
 <!-- components/map.wxml -->
 <view class="map-box">
-    <map  id="map" enable-zoom enable-scroll="{{true}}" enable-rotate="{{false}}" longitude="{{longitude}}" show-scale="{{false}}" latitude="{{latitude}}" scale="{{scale}}" markers="{{markers}}" bindcallouttap="markertap" bindmarkertap="markertap" style="width:{{width}}rpx; height:{{height}}rpx;"></map>
+    <map id="map" enable-zoom enable-scroll="{{enableScroll}}" enable-rotate="{{false}}" longitude="{{longitude}}" show-scale="{{false}}" latitude="{{latitude}}" scale="{{scale}}" markers="{{markers}}" bindcallouttap="markertap" bindmarkertap="markertap" style="width:{{width}}rpx; height:{{height}}rpx;"></map>
 </view>
