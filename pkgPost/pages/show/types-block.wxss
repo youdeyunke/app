@@ -16,11 +16,13 @@
 .type .cover image {
     width: 260rpx;
     height: 260rpx;
+    border-radius: 4rpx;
+    overflow: hidden;
 }
 
 .type .name {
     width: 260rpx;
-    font-size: 26rpx;
+    font-size: 28rpx;
     color: #333;
     font-weight: bold;
     margin-top: 8rpx;
@@ -30,7 +32,7 @@
 }
 
 .type .attr {
-    font-size: 26rpx;
+    font-size: 24rpx;
     display: flex;
     justify-content: flex-start;
     margin-top: 8rpx;
@@ -57,12 +59,12 @@
     border-radius: 6rpx;
 }
 
-
 .price {
     font-weight: bold;
     color: #E82525;
 }
-.tag{
+
+.tag {
     background-color: #fff;
     border: 1rpx solid #1989FA;
     width: 60rpx;
@@ -70,6 +72,6 @@
     line-height: 32rpx;
     color: #1989FA;
     text-align: center;
-    font-size: 24rpx;
+    font-size: 20rpx;
     font-weight: normal;
 }
