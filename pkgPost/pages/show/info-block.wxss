@@ -63,15 +63,14 @@
     justify-content: flex-start;
 }
 
-.maohao, .content-desc {
-    font-weight: bold;
+.content-desc {
     color: #333;
     font-size: 28rpx;
 }
 
 .maohao {
     text-align: center;
-    width: 8rpx;
+    width: 10rpx;
 }
 
 .content-desc {

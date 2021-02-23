@@ -1,1 +1,5 @@
 /* pkgPost/pages/detail/index.wxss */
+
+page {
+    background: #f4f4f4;
+}

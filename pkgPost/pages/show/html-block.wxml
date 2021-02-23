@@ -1,9 +1,0 @@
-<mycard title="{{value.title}}">
-    <view class="html-content {{ minicontent == true ? 'mini' : 'full' }}">
-        <view class="raw">
-            <raw-html html="{{value.html}}"></raw-html>
-        </view>
-        <view class="html-content-footer"></view>
-    </view>
-    <view class="more-btn" bindtap="contentHandle" wx:if="{{minicontent}}">显示全文</view>
-</mycard>
