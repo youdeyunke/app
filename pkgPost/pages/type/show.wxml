@@ -23,7 +23,7 @@
         </view>
 </box>
 
-<mycard title="户型分析" wx:if="{{value.deesc}}">
+<mycard title="户型分析" wx:if="{{type.desc}}">
       <view class="desc"> {{ type.desc }} </view>
 </mycard>
 
