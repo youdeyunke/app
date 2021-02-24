@@ -29,8 +29,8 @@
 }
 
 .bg {
-    width: 750rpx;
-    height: 504rpx;
+    min-width: 750rpx;
+    height: 700rpx;
     position: absolute;
     top: 0;
     left: 0;

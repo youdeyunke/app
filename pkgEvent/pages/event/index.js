@@ -36,6 +36,9 @@ Page({
             url: '/api/v1/post_base_info/' + this.data.postId,
             success: function (resp) {
                 _this.setData({ post: resp.data.data })
+                wx.setNavigationBarTitle({
+                    title: '楼盘动态：' + resp.data.data.title
+                });
             }
         })
 
@@ -74,10 +77,6 @@ Page({
                     user: app.globalData.userInfo,
                     cats: resp.data.data.cats,
                 })
-                var title = post.title + '的楼盘动态'
-                wx.setNavigationBarTitle({
-                    title: title,
-                });
 
             }
         })

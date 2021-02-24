@@ -4,6 +4,7 @@
     box-sizing: border-box;
     height: 130rpx;
     width: 710rpx;
+    padding: 0 20rpx;
     background: linear-gradient(111.48deg, #F7F7F7 17.42%, #F2FAFF 88.05%);
     border-radius: 10rpx;
     overflow: hidden;

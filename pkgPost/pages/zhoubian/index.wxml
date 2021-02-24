@@ -1,6 +1,8 @@
 <view class="map">
     <mapimage enable-scroll="{{true}}" wx:if="{{post.longitude && pois.length >= 0}}" pois='{{pois}}' latitude="{{post.latitude}}" longitude="{{post.longitude}}" name="{{post.title}}" height='750'></mapimage>
 </view>
-<view class="tab" hover-class="none" hover-stop-propagation="false">
-    <zhoubian wx:if='{{post.id}}' latitude="{{post.latitude}}" longitude="{{post.longitude}}" bind:myevent="getMyevent" type='big' />
-</view>
+<box width="750">
+    <view class="tab" hover-class="none" hover-stop-propagation="false">
+        <zhoubian wx:if='{{post.id}}' latitude="{{post.latitude}}" longitude="{{post.longitude}}" bind:myevent="getMyevent" type='big' />
+    </view>
+</box>

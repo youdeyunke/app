@@ -4,6 +4,7 @@
     font-size: 24rpx;
     border-top-left-radius: 20rpx;
     border-top-right-radius: 20rpx;
+    margin-bottom: 20rpx;
 }
 
 .first-left {
@@ -22,25 +23,6 @@
     color: #333;
     font-weight: 600;
     font-size: 40rpx;
-}
-
-.address {
-    display: flex;
-    align-items: center;
-    font-size: 28rpx;
-    height: 80rpx;
-    line-height: 80rpx;
-    display: flex;
-    justify-content: space-between;
-    width: 710rpx;
-    margin: 0 auto;
-}
-
-.address image {
-    width: 28rpx;
-    height: 28rpx;
-    margin-right: 0rpx;
-    vertical-align: middle;
 }
 
 .left-tags {

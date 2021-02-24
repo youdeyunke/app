@@ -2,12 +2,13 @@
 
 .card {
     width: 750rpx;
-    margin: 0 auto;
+    margin: 0 auto 20rpx auto;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     position: relative;
     box-sizing: border-box;
+    background: #fff;
 }
 
 .card .sub-title {
@@ -29,7 +30,7 @@
     letter-spacing: 2rpx;
     height: 100rpx;
     line-height: 100rpx;
-    padding: 0 20rpx;
+    padding: 0 30rpx;
 }
 
 .card-header .card-hat {

@@ -25,7 +25,6 @@
             </block-box>
         </view>
         <btns-block wx:if="{{block.name == 'btns'}}" value="{{block.value}}" />
-        <view class="margin" wx:if="{{block.name != 'cover'}}"></view>
     </block>
     <!-- official-account></official-account -->
     <ad-link />

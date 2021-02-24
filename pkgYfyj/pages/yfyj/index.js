@@ -33,13 +33,25 @@ Page({
         var _this = this
         this.setData({ postId: postId }, function () {
             _this.loadBuildings()
+            _this.loadPost()
         })
         var floors = []
-        wx.setNavigationBarTitle({
-            title: '房一价',
-        });
 
     },
+
+    loadPost: function () {
+        var _this = this
+        app.request({
+            url: '/api/v1/post_base_info/' + this.data.postId,
+            success: function (resp) {
+                _this.setData({ post: resp.data.data })
+                wx.setNavigationBarTitle({
+                    title: '房一价' + resp.data.data.title,
+                });
+            }
+        })
+    },
+
 
     loadBuildings: function () {
         var _this = this

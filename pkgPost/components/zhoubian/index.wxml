@@ -1,6 +1,5 @@
 <view class="tabs">
     <scroll-view class="tabs_title" scroll-x='{{true}}'>
-        <view class="border"></view>
         <view wx:for='{{tabs}}' wx:key='id' class="title_item  {{ index === active ? 'current-active' : ''}}" bindtap="handleItemTap" data-index='{{index}}'>
             <view class="content">
                 <image class="icon" src="../../icons/zhoubian/{{item.icon}}" />
@@ -8,7 +7,6 @@
                 <view class="active" hidden="{{index != active}}"></view>
             </view>
         </view>
-        <view class="border"></view>
     </scroll-view>
     <view class="tabs_content">
         <view hidden="{{isShow == 0}}" class="null">无数据</view>

@@ -1,8 +1,5 @@
+<post-title name="{{post.title}}" cover="{{post.cover}}"></post-title>
 <viwe class="header">
-    <view class="title">
-        <view>{{ post.title }} 一房一价表</view>
-        <navigator class="more" url="/pkgBuilding/pages/building/index?post_id={{post.id}}">房源表</navigator>
-    </view>
     <van-tabs animated type="line" color="#1989FA" bind:change="tabChange" sticky>
         <van-tab wx:for="{{buildings}}" wx:for-item="b" title="{{b.name}}号楼"></van-tab>
     </van-tabs>
