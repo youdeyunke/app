@@ -2,7 +2,7 @@
     <van-popup closeable round bind:close="closeHandle" duration="400" show="{{showDialog}}">
         <view class="dialog">
             <view class="title">
-                <image src="../../icons/lindang.png" />
+                <image src="../../icons/dingyue-{{status}}.png" />
                 {{ nameDict['title'][status] }}
             </view>
             <view class="desc">{{ nameDict['desc'][status] }}</view>
