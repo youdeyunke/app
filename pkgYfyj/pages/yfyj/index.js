@@ -88,7 +88,7 @@ Page({
                 var rooms = resp.data.data.map((r, i) => {
                     // 格式化价格
                     r.average_price += '元/㎡'
-                    var t = r.total_price / 10000
+                    var t = r.total_price
                     t = t.toFixed(2) + '万'
                     r.total_price = t
                     return r
