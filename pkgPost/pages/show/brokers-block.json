@@ -1,6 +1,7 @@
 {
     "component": true,
     "usingComponents": {
+        "block-box": "./block-box/index",
         "broker-link": "/components/broker/link",
         "broker-item": "../../components/broker-item/index"
     }

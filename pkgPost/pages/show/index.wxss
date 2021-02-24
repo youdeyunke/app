@@ -15,8 +15,8 @@ page {
 
 .margin {
     width: 100%;
-    height: 20rpx;
-    background: #F2F2F2;
+    height: 15rpx;
+    background: #f4f4f4;
 }
 
 /* pages/post/score-block.wxss */

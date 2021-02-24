@@ -1,4 +1,4 @@
-<mycard title="楼盘详情信息" sub-title='查看更多信息' url='{{value.more_url}}' padding="{{false}}" title-size="36">
+<block-box title="楼盘详情信息" sub-title='查看更多信息' url='{{value.more_url}}' padding="{{false}}" title-size="36">
     <scroll-view scroll-x="{{true}}" class="xiangce" scroll-with-animation="{{true}}">
         <navigator url="/pkgXiangce/pages/xiangce/index?post_id={{value.post_id}}" hover-class="none" class="xiangce-item" wx:for="{{value.albums}}" wx:for-item="album">
             <image class="image" src="{{album.cover || '../../images/image-none.png'}}" />
@@ -11,21 +11,22 @@
     </scroll-view>
     <view class="block-title">
         <view class="block-content">
-            <text class="content-title">参考价格</text>
-            <text style="margin-left:4rpx"></text>
-            <text class="content-desc red">
-                {{value.average_price_info.text}} {{value.average_price_info.px}}
-            </text>
+            <view class="content-title">参考价格</view>
+            <view style="margin-left:4rpx"></view>
+            <view class="content-desc red">
+                <view>参考均价：{{value.average_price_info.text}} {{value.average_price_info.px}}</view>
+                <view>参考总价：{{value.total_price_info.text}} {{value.total_price_info.px}}</view>
+            </view>
         </view>
         <view class="block-content">
-            <text class="content-title">类型</text>
-            <text class="maohao" style="margin-left:4rpx"></text>
-            <text class="content-desc">{{value.cats }}</text>
+            <view class="content-title">类型</view>
+            <view class="maohao" style="margin-left:4rpx"></view>
+            <view class="content-desc">{{value.cat }}</view>
         </view>
         <view class="block-content" wx:for="{{metaItems}}" wx:for-item="meta">
-            <text class="content-title" space='nbsp'>{{meta.label}}</text>
-            <text class="maohao" style="margin-left:4rpx"></text>
-            <text class="content-desc">{{meta.text}}</text>
+            <view class="content-title" space='nbsp'>{{meta.label}}</view>
+            <view class="maohao" style="margin-left:4rpx"></view>
+            <view class="content-desc">{{meta.text}}</view>
         </view>
     </view>
-</mycard>
+</block-box>

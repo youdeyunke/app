@@ -1,4 +1,4 @@
 <!-- pages/post/desc-block.wxml -->
-<mycard title="{{ value.title }}">
+<block-box title="{{ value.title }}">
     <view class="content">{{ value.desc }}</view>
-</mycard>
+</block-box>

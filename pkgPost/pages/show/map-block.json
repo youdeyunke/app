@@ -1,6 +1,7 @@
 {
     "component": true,
     "usingComponents": {
+        "block-box": "./block-box/index",
         "mapimage": "/components/map",
         "zhoubian": "../../components/zhoubian/index"
     }

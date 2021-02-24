@@ -1,5 +1,5 @@
 <!-- pages/post/brokers-block.wxml -->
-<mycard title-size="36" title="{{value.title}}" padding="{{false}}" sub-title="{{value.count >= 3 ? '查看全部' : ''}}" url="{{value.count >= 3 ? value.more_url : ''}}">
+<block-box title-size="36" title="{{value.title}}" padding="{{false}}" sub-title="{{value.count >= 3 ? '查看全部' : ''}}" url="{{value.count >= 3 ? value.more_url : ''}}">
     <view class="badges">
         <view class="badge-item">
             <image class="" src="../../icons/jingji-icon-0.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
@@ -29,4 +29,4 @@
     <box padding="30" wx:if="{{moreBrokersBtn && value.more_btn}}">
         <view bindtap="moreBrokersHandle" hover-class="none" class="more-btn">展开全部</view>
     </box>
-</mycard>
+</block-box>

@@ -1,4 +1,4 @@
-<mycard title="{{value.title}}" padding="{{false}}" title-size="36" sub-title="查看详情" url="/pkgPost/pages/zhoubian/index?id={{value.post_id}}">
+<block-box title="{{value.title}}" padding="{{false}}" title-size="36" sub-title="查看详情" url="/pkgPost/pages/zhoubian/index?id={{value.post_id}}">
     <mapimage pois='{{pois}}' image="{{value.map_image_url}}" latitude="{{value.latitude}}" longitude="{{value.longitude}}" name="{{value.name}}"></mapimage>
     <view class="location">
         <view class="location-left">
@@ -10,4 +10,4 @@
         </view>
     </view>
     <zhoubian latitude="{{value.latitude}}" longitude="{{value.longitude}}" bind:myevent="getMyevent" />
-</mycard>
+</block-box>

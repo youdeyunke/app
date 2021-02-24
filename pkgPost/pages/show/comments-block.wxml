@@ -1,4 +1,4 @@
-<mycard title="楼盘评论({{value.total_count}})" hat="{{false}}" title-size="36" sub-title="{{ value.more_title }}" url="{{value.more_url}}">
+<block-box title="楼盘评论({{value.total_count}})" hat="{{false}}" title-size="36" sub-title="{{ value.more_title }}" url="{{value.more_url}}">
     <view class="tags" wx:if="{{scopes.length}}">
         <navigator wx:for="{{scopes}}" wx:key="scope" wx:for-item="scope" url="/pkgComment/pages/comment/index?target_type=post&target_id={{value.post_id}}&scope={{scope.scope}}" hover-class="none" class="tag-item">
             {{scope.name}}({{scope.count}})
@@ -9,4 +9,4 @@
     </view>
     <view class="empty" wx:else>还没有收到评论</view>
     <block-button url="/pkgComment/pages/comment/new?target_id={{value.post_id}}&target_type=post" buttonVal='查看更多楼盘动态' />
-</mycard>
+</block-box>

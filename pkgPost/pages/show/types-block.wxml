@@ -1,5 +1,5 @@
 <block>
-    <mycard hat="{{false}}" width="750" title-size="36" title="户型介绍" url="{{value.more_url}}}}" sub-title="{{value.more_title}}">
+    <block-box hat="{{false}}" width="750" title-size="36" title="户型介绍" url="{{value.more_url}}}}" sub-title="{{value.more_title}}">
         <scroll-view scroll-with-animation="{{true}}" scroll-x style="width:100%">
             <view class="types">
                 <navigator hover-class="none" url="/pkgPost/pages/type/show?id={{item.id}}" class="type" wx:for="{{items}}" wx:key="id">
@@ -30,5 +30,5 @@
                 </navigator>
             </view>
         </scroll-view>
-    </mycard>
+    </block-box>
 </block>

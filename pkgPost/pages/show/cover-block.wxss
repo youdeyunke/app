@@ -45,7 +45,7 @@
     width: 80rpx;
     height: 80rpx;
     position: absolute;
-    top: 142rpx;
+    top: 182rpx;
     left: 648rpx;
 }
 
@@ -53,6 +53,6 @@
     width: 80rpx;
     height: 80rpx;
     position: absolute;
-    top: 250rpx;
+    top: 290rpx;
     left: 648rpx;
 }
