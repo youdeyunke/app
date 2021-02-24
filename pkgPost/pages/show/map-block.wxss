@@ -4,15 +4,10 @@
     justify-content: space-between;
     height: 80rpx;
     line-height: 80rpx;
-    padding: 0 20rpx;
 }
 
 .location .label {
     color: #999999;
-}
-
-.location-right {
-    padding-right: 30rpx;
 }
 
 button :hover {

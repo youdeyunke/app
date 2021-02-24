@@ -2,7 +2,6 @@
     "usingComponents": {
         "items": "/components/post/items",
         "post-filter": "/components/post-filter/index",
-        "broker-link":"/components/broker/link",
         "van-search": "/vant/search/index"
     }
 }

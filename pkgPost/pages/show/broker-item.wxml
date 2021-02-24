@@ -1,6 +1,0 @@
-<navigator url="/pkgBroker/pages/broker/index?id={{item.id}}" hover-class="none" class="broker custom-class">
-    <image class="bg" src="../../images/bg-jingji.png" />
-    <image class="avatar" src="{{item.avatar}}" />
-    <text class="name">{{item.name}}</text>
-    <view class="zixun" bind:tap="chatHandle"></view>
-</navigator>

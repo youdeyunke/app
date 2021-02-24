@@ -1,25 +1,14 @@
-<van-search
-  value="{{ kw }}"
-  background="#f3f5f7"
-  placeholder="输入经纪人手机号、姓名进行搜索"
-  use-action-slot
-  bind:clear="clearSearch"
-  bind:search="doSearch"
-  custom-class="search-box"
-  bind:change="searchTextInput"
->
-  <view slot="action" bind:tap="doSearch">搜索</view>
+<van-search value="{{ kw }}" background="#f3f5f7" placeholder="输入经纪人手机号、姓名进行搜索" use-action-slot bind:clear="clearSearch" bind:search="doSearch" custom-class="search-box" bind:change="searchTextInput">
+    <view slot="action" bind:tap="doSearch">搜索</view>
 </van-search>
-
-
-<view class="empty" wx:if="{{!loading && items[0].length == 0 }}" style="text-align:center;color:#cecece;margin-top:100rpx;">没有记录</view>
-<block  wx:else>  
-  <block wx:for="{{items}}" wx:for-item="brokers">
-    <view class="broker-item"  wx:for="{{brokers}}" wx:for-item="broker" ><broker-link  broker="{{broker}}" /></view>
-  </block>
-
-  <view style="display:flex;justify-content:center;align-items:center;margin-top:30rpx;">
-    <van-loading wx:if="{{loading}}" />
-  </view>
-
+<view class="empty" wx:if="{{!loading && items[0].length == 0 }}" style="text-align:center;color:#cecece;margin-top:100rpx;">
+    没有记录
+</view>
+<block wx:else>
+    <block wx:for="{{items}}" wx:for-item="brokers">
+        <view class="broker-item" wx:for="{{brokers}}" wx:for-item="broker"></view>
+    </block>
+    <view style="display:flex;justify-content:center;align-items:center;margin-top:30rpx;">
+        <van-loading wx:if="{{loading}}" />
+    </view>
 </block>

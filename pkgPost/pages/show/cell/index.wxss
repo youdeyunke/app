@@ -1,0 +1,30 @@
+.cell {
+    height: 80rpx;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20rpx;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2rpx solid #f0f0f0;
+    align-items: center;
+}
+
+.cell .body {
+    font-size: 28rpx;
+    color: #333333;
+    width: 640rpx;
+}
+
+.cell .icon {
+    width: 40rpx;
+    height: 100%;
+    margin-right: 20rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.cell .icon image {
+    width: 40rpx;
+    height: 40rpx;
+}

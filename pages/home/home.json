@@ -9,7 +9,6 @@
         "pagemaker": "/components/pagemaker/index",
         "navs": "/components/navs",
         "van-transition": "/vant/transition/index",
-        "brokers": "/components/broker/hot-brokers",
         "myslider": "/components/slider",
         "items": "/components/post/items",
         "van-action-sheet": "/vant/action-sheet/index",

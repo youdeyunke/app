@@ -2,11 +2,7 @@
 
 .block {
     width: 100%;
-    height: 504rpx;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    position: fixed;
+    height: 300rpx;
 }
 
 .block-title {
@@ -39,6 +35,10 @@
     top: 0;
     left: 0;
     z-index: -1;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    position: fixed;
 }
 
 .fenxiang {
@@ -47,6 +47,7 @@
     position: absolute;
     top: 182rpx;
     left: 648rpx;
+    z-index: 10;
 }
 
 .vr {
@@ -55,4 +56,5 @@
     position: absolute;
     top: 290rpx;
     left: 648rpx;
+    z-index: 10;
 }

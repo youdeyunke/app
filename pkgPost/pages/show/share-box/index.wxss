@@ -75,6 +75,7 @@
     line-height: 60rpx;
     font-size: 24rpx;
     padding: 0 30rpx;
+    min-width: 200rpx;
 }
 
 .body .icon {

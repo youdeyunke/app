@@ -61,7 +61,7 @@
 }
 
 .tabs_title {
-    width: 750rpx;
+    width: 100%;
     height: 146rpx;
     white-space: nowrap;
 }

@@ -1,4 +1,3 @@
-<!-- components/broker-link.wxml -->
 <block wx:if="{{ready}}">
     <view class="touser" hidden="{{!toUser.is_broker}}">
         <view class="left">
@@ -15,7 +14,7 @@
         </view>
         <view class="right actions">
             <view bindtap="wechatHandle" class="action-item wechat">
-                <image src="/assets/icons/wechat-round.png"  />
+                <image src="/assets/icons/wechat-round.png" />
             </view>
             <view bindtap="mobileHandle" class="action-item mobile">
                 <van-icon color="#ffffff" name="phone" size="40rpx;" />

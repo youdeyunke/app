@@ -22,6 +22,13 @@ Component({
     methods: {
         shareHandle: function () {
             this.setData({ showShareBox: true })
-        }
+        },
+        vrHandle: function () {
+            wx.showToast({
+                title: 'todo...',
+                icon: 'none',
+            });
+
+        },
     }
 })

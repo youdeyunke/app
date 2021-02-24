@@ -4,12 +4,11 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 276rpx;
+    height: 200rpx;
 }
 
 .mask {
-    padding-top: 176rpx;
-    line-height: 100rpx;
+    line-height: 200rpx;
     text-align: center;
     font-size: 40rpx;
     font-weight: bold;

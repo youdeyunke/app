@@ -12,12 +12,10 @@
             <event-button cat="open" pid="{{value.post_id}}"></event-button>
         </view>
     </view>
-    <view class="address" bindtap="gotoLocation">
-        <view class="text">
-            <image src="../../icons/post-location.png" />
-            <text>{{value.address}}</text>
-        </view>
-        <van-icon name="arrow" class="icon"></van-icon>
+    <view class="cell-group">
+        <cell custom-style="cell-item" icon="location" title="{{value.address}}" bindtap="gotoLocation"></cell>
+        <cell custom-style="cell-item" icon="bang" title="已入选灞桥区热销排名第3名" url="/pkgMap/pages/map/index"></cell>
+        <cell custom-style="cell-item" icon="yong" title="分佣2~10万元，周结" url="/pkgMap/pages/map/index"></cell>
     </view>
     <view class="navs">
         <navigator url="{{nav.path}}" hover-class="none" class="nav-item" wx:for="{{value.navs}}" wx:for-item="nav">

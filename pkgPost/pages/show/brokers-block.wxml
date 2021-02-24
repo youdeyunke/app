@@ -18,14 +18,14 @@
             户型分析
         </view>
     </view>
-    <!-- <broker-link post-id="{{post.id}}" broker="{{broker}}" wx:if="{{ index+1 <= maxLength  }}"  wx:for="{{value.brokers}}" wx:for-item="broker" wx:key="id" /> -->
-    <scroll-view scroll-x scroll-with-animation="true">
+    <broker-item post-id="{{post.id}}" item="{{broker}}" wx:if="{{ index+1 <= maxLength  }}" wx:for="{{value.brokers}}" wx:for-item="broker" wx:key="id" />
+    <!-- scroll-view scroll-x scroll-with-animation="true">
         <view class="brokers">
             <broker-item custom-class="broker-item" wx:for="{{value.brokers}}" item="{{item}}" />
             <view></view>
             <view></view>
         </view>
-    </scroll-view>
+    </scroll-view -->
     <box padding="30" wx:if="{{moreBrokersBtn && value.more_btn}}">
         <view bindtap="moreBrokersHandle" hover-class="none" class="more-btn">展开全部</view>
     </box>

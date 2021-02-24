@@ -1,0 +1,9 @@
+<navigator hover-class="none" class="cell custom-style" url="{{url}}">
+    <view class="icon">
+        <image src="../../../icons/{{icon}}.png" />
+    </view>
+    <view class="body">{{title}}</view>
+    <view class="footer">
+        <van-icon name="arrow" />
+    </view>
+</navigator>

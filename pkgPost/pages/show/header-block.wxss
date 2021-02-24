@@ -76,11 +76,12 @@
 
 .navs {
     background-color: #fff;
-    padding: 0 20rpx 30rpx 20rpx;
+    padding: 10rpx 20rpx 30rpx 20rpx;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
+    margin-top: -2rpx;
 }
 
 .nav-item {

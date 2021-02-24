@@ -1,11 +1,12 @@
 <block-box title="{{value.title}}" padding="{{false}}" title-size="36" sub-title="查看详情" url="/pkgPost/pages/zhoubian/index?id={{value.post_id}}">
-    <mapimage pois='{{pois}}' image="{{value.map_image_url}}" latitude="{{value.latitude}}" longitude="{{value.longitude}}" name="{{value.name}}"></mapimage>
-    <view class="location">
+    <mapimage width="710" pois='{{pois}}' image="{{value.map_image_url}}" latitude="{{value.latitude}}" longitude="{{value.longitude}}" name="{{value.name}}"></mapimage>
+    <view class="location" bindtap="getLocation">
         <view class="location-left">
             <text class="label">位置：</text>
             <text class="value">{{value.address}}</text>
         </view>
-        <view class="location-right" binddtap="getLocation">
+        <view class="location-right">
+            导航
             <van-icon name="arrow" />
         </view>
     </view>

@@ -6,6 +6,7 @@ Component({
         title: { type: String, value: '标题' },
         subTitle: { type: String, value: '' },
         url: { type: String, value: null },
+        opentype: { type: String, value: 'navigateto' },
     },
 
     /**
