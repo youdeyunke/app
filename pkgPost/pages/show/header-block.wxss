@@ -4,7 +4,6 @@
     font-size: 24rpx;
     border-top-left-radius: 20rpx;
     border-top-right-radius: 20rpx;
-    margin-top: 487rpx;
 }
 
 .first-left {
@@ -12,8 +11,6 @@
 }
 
 .title-block {
-    border-top-left-radius: 20rpx;
-    border-top-right-radius: 20rpx;
     background: linear-gradient(180deg, #FEEB85 0%, #FEFEFE 100%);
     padding: 25rpx 20rpx 0 20rpx;
     display: flex;

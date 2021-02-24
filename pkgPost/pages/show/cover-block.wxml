@@ -8,8 +8,8 @@
             <view>详情 ></view>
         </navigator>
         <image class="bg" src="{{value.cover}}" />
-        <image wx:if="{{postInfo}}" bindtap="shareHandle" class="fenxiang" src="../../icons/fenxiang.png" />
-        <image wx:if="{{postInfo}}" bindtap="vrHandle" class="vr" src="../../icons/vr.png" />
+        <image bindtap="shareHandle" class="fenxiang" src="../../icons/fenxiang.png" />
+        <image bindtap="vrHandle" class="vr" src="../../icons/vr.png" />
     </view>
-    <share-box post-info="{{postInfo}}" model:show="{{showShareBox}}" />
+    <share-box post-info="{{value}}" model:show="{{showShareBox}}" />
 </block>

@@ -5,11 +5,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
     text-align: center;
     line-height: 100%;
-    height: 100%;
     height: 88rpx;
+    width: 120rpx;
 }
 
 .action .status-text {
@@ -27,7 +26,7 @@
 }
 
 .dialog {
-    width: 468rpx;
+    width: 568rpx;
     padding: 60rpx;
     background: #ffffff;
 }
@@ -54,11 +53,12 @@
     font-size: 28rpx;
     color: #333;
     line-height: 40rpx;
-    margin-bottom: 60rpx;
+    margin-bottom: 20rpx;
 }
 
 .dialog .tips {
-    margin-top: 60rpx;
+    margin-top: 0rpx;
+    margin-bottom: 40rpx;
     font-size: 24rpx;
     color: #cecece;
 }

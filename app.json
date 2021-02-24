@@ -248,6 +248,7 @@
     },
     "usingComponents": {
         "cr": "/components/copyright",
+        "navigation-bar": "/components/navBar/navBar",
         "mytextarea": "/components/textarea",
         "no-result": "/components/no-result",
         "van-panel": "/vant/panel/index",

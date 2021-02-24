@@ -5,7 +5,6 @@ Component({
      */
     properties: {
         value: { type: Object, value: null },
-        postInfo: { type: Object, value: null }
 
     },
 

@@ -4,7 +4,14 @@ page {
     height: auto impo !important;
 }
 
-.outer {}
+.outer {
+    background: #fff;
+    border-top-left-radius: 20rpx;
+    border-top-right-radius: 20rpx;
+    z-index: 2;
+    margin-top: 300rpx;
+    overflow: hidden;
+}
 
 .margin {
     width: 100%;

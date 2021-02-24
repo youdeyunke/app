@@ -1,4 +1,4 @@
-<mycard title="楼盘详情信息" sub-title='查看更多信息' url='{{value.more_url}}' padding="{{false}}" title-size="32">
+<mycard title="楼盘详情信息" sub-title='查看更多信息' url='{{value.more_url}}' padding="{{false}}" title-size="36">
     <scroll-view scroll-x="{{true}}" class="xiangce" scroll-with-animation="{{true}}">
         <navigator url="/pkgXiangce/pages/xiangce/index?post_id={{value.post_id}}" hover-class="none" class="xiangce-item" wx:for="{{value.albums}}" wx:for-item="album">
             <image class="image" src="{{album.cover || '../../images/image-none.png'}}" />
