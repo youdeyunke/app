@@ -5,7 +5,7 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        items: {type: Array},
+        items: { type: Array },
     },
 
     /**
@@ -13,7 +13,7 @@ Component({
      */
     data: {
         showVideo: false,
-   
+
         mark: 'watermark/4/text/6IGq5bGL6YCJ5oi_/font/5a6L5L2T/fontsize/500/fill/Z3JheQ==/dissolve/50/rotate/-45/uw/100/uh/100/resize/1',
         mark: 'watermark/4/text/5oi_5bCP54mbCg/font/5a6L5L2T/fontsize/500/fill/Z3JheQ==/dissolve/50/rotate/-45/uw/200/uh/200/resize/1'
     },
@@ -23,7 +23,7 @@ Component({
         setTimeout(() => {
             _this.setData({ showVideo: true })
         }, 500)
-        
+
     },
 
     /**
@@ -45,7 +45,7 @@ Component({
             var index = e.currentTarget.dataset.index
             var item = this.data.items[index]
             console.log('index is', index, 'item is', item, 'items sis', this.data.items)
-            switch (item.file_type) {
+            switch (item.filetype) {
                 case 'image':
                     _this.viewImage(item)
                     break;
