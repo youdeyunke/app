@@ -19,9 +19,9 @@
             </view>
         </view>
         <view class="block-content">
-            <view class="content-title">类型</view>
+            <view class="content-title">物业类型</view>
             <view class="maohao" style="margin-left:4rpx"></view>
-            <view class="content-desc">{{value.cat }}</view>
+            <view class="content-desc">{{value.cats }}</view>
         </view>
         <view class="block-content" wx:for="{{metaItems}}" wx:for-item="meta">
             <view class="content-title" space='nbsp'>{{meta.label}}</view>
