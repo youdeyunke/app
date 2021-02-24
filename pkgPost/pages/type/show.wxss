@@ -2,6 +2,7 @@
 
 page {
     padding-bottom: 120rpx;
+    background: #f0f0f0 !important;
 }
 
 .cover, .swiper {
