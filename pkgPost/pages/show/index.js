@@ -10,6 +10,7 @@ Page({
      * 页面的初始 数据
      */
     data: {
+        showNavBack: false, // 是否显示返回按钮
         blocks: [],
         points: [],
         pageTitle: '房源详情',
@@ -26,6 +27,22 @@ Page({
         showShareBox: false,
         title: '',
         imageUrl: ''
+    },
+
+
+    backHandle: function () {
+        wx.navigateBack({
+            delta: 1
+        });
+    },
+
+    homeHandle: function () {
+        wx.switchTab({
+            url: '/pages/home/home',
+            success: (result) => {
+
+            },
+        });
     },
 
 
@@ -235,7 +252,14 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        this.setData({ userInfo: app.globalData.userInfo })
+        var pages = getCurrentPages()
+        console.log('pages', pages)
+        var showNavBack = false
+        if (pages.length > 1) {
+            showNavBack = true
+        }
+
+        this.setData({ userInfo: app.globalData.userInfo, showNavBack: showNavBack })
         if (!this.data.loading) {
             this.loadData()
 

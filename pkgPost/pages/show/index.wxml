@@ -1,4 +1,4 @@
-<navigation-bar back home background="none" background-color-top="none"></navigation-bar>
+<navigation-bar bindhome="homeHandle" bindback="backHandle" back="{{showNavBack}}" home background="none" background-color-top="none"></navigation-bar>
 <page-loading loading="{{loading}}" />
 <cover-block value="{{postInfo}}" />
 <view class="outer" hidden="{{loading}}">
