@@ -63,6 +63,14 @@ Page({
                     key: key,
                     data: true,
                 })
+                wx.showToast({
+                    title: '点赞+1',
+                    icon: 'none',
+                    image: '',
+                    duration: 1500,
+                    mask: false,
+                });
+
             }
         })
     },

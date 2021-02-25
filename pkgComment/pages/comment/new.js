@@ -74,6 +74,7 @@ Page({
 
 
     contentInput: function (e) {
+        console.log('content input', e.detail.value)
         this.setData({ content: e.detail.value })
     },
 
@@ -119,7 +120,6 @@ Page({
     submitHandle: function (e) {
         var comment = {
             content: this.data.content,
-            // TODO cat
             tags: this.genTagsStr(),
             cat: this.data.cat,
             images: this.data.imagesStr,
@@ -162,12 +162,14 @@ Page({
             success: function (resp) {
                 // 页面卸载的收，会将this.data.comment写入globalData.newComment
                 // 发布成功后，就清空
-                _this.setData({ comment: null })
-                wx.setStorageSync('eventBus', { key: 'reloadComments', value: comment.target_id })
-                wx.showToast({ title: '提交评论成功', duration: 1500, mask: true })
-                setTimeout(function () {
-                    wx.navigateBack({ delta: -1 })
-                }, 1500)
+                _this.setData({ comment: '' })
+                if (resp.data.status === 0) {
+                    wx.setStorageSync('eventBus', { key: 'reloadComments', value: comment.target_id })
+                    wx.showToast({ title: '提交成功。您的评论审核通过后将对外展示', duration: 2000, mask: true })
+                    setTimeout(function () {
+                        wx.navigateBack({ delta: -1 })
+                    }, 2000)
+                }
             }
         })
 

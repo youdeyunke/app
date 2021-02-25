@@ -7,6 +7,7 @@ textarea {
     font-size: 32rpx;
     box-sizing: border-box;
     background: #f8f8f8;
+    width: 100%;
     border-radius: 6rpx;
 }
 
@@ -29,7 +30,6 @@ textarea {
     flex-wrap: wrap;
 }
 
-
 .tag-item {
     height: 52rpx;
     background: #f4f4f4;
@@ -40,11 +40,11 @@ textarea {
     margin-right: 20rpx;
     font-size: 24rpx;
     color: #333333;
-    margin-bottom:20rpx;
+    margin-bottom: 20rpx;
 }
 
-.tag-item.active{
-    color:#528af4;
+.tag-item.active {
+    color: #528af4;
     background: #e6f4ff;
 }
 
@@ -54,6 +54,7 @@ textarea {
     align-items: center;
     margin-bottom: 20rpx;
 }
+
 .title {
     font-size: 28rpx;
     color: #333;

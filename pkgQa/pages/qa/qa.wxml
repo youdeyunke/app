@@ -1,66 +1,59 @@
 <page-loading loading="{{loading}}" />
-
-<view class="box" hidden="{{loading && !item.id}}">
-
- <view class="float-btn">
-   <van-button bindtap="addHandle" type="info" block>我要回答</van-button>
- </view>
-
-        <view class="question">
-            <q-icon />
-            <view class="body">
-                <view class="content">
-                    <text wx:if="{{item.target_name}}" class="target" bindtap="gotoTarget">#{{item.target_name}}#</text>
-                    {{ item.content }}
-                </view>
-                <view class="actions">
-                    <view class="count">
-                        {{ item.answers_count}}条回答
-                    </view>
-                    <view class="btns">
-                        <van-button style="margin-right:10rpx;" wx:if="{{user.id == item.user_id }}" plain icon="delete" type="danger" size="mini" bindtap="deleteHandle">删除</van-button>
-                        <van-button plain="{{item.followed}}" type="info" name="eye" size="mini"  class="follow" hover-class="none" bindtap="followHandle">
-                            {{ item.followed ? '已关注' : '关注' }} ({{ item.followers_count }})
-                        </van-button>
-                    </view>
+<box width="750" padding="20" hidden="{{loading && !item.id}}">
+    <view class="float-btn">
+        <van-button bindtap="addHandle" type="info" block>我要回答</van-button>
+    </view>
+    <view class="question">
+        <q-icon />
+        <view class="body">
+            <view class="content">
+                <text wx:if="{{item.target_name}}" class="target" bindtap="gotoTarget">
+                    #{{item.target_name}}#
+                </text>
+                {{ item.content }}
+            </view>
+            <view class="actions">
+                <view class="count">{{ item.answers_count}}条回答</view>
+                <view class="btns">
+                    <van-button style="margin-right:10rpx;" wx:if="{{user.id == item.user_id }}" plain icon="delete" type="danger" size="mini" bindtap="deleteHandle">
+                        删除
+                    </van-button>
+                    <van-button plain="{{item.followed}}" type="info" name="eye" size="mini" class="follow" hover-class="none" bindtap="followHandle">
+                        {{ item.followed ? '已关注' : '关注' }} ({{ item.followers_count }})
+                    </van-button>
                 </view>
             </view>
         </view>
-
-        <view class="answers">
-            <view class="answer" wx:key="id" wx:for-item="answer" wx:for="{{answers}}">
-                <view class="meta">
-                    <view class="left">
-                        <view class="avatar">
-                            <image src="{{answer.user.avatar}}" />
-                        </view>
-                        <view class="name">
-                            {{ answer.user.name}}  {{ answer.created_at_pretty }}
-                        </view>
-                        <view class="tag" wx:if="{{ index == 0}}">
-                            <van-tag size="mini" type="primary">最佳回答</van-tag>
-                        </view>
+    </view>
+    <view class="answers">
+        <view class="answer" wx:key="id" wx:for-item="answer" wx:for="{{answers}}">
+            <view class="meta">
+                <view class="left">
+                    <view class="avatar">
+                        <image src="{{answer.user.avatar}}" />
                     </view>
-                    <view class="right actions">
-                        <view  bindtap="chatHandle" data-index="{{index}}" wx:if="{{chatEnable}}" style="margin-right:20rpx;"  class="action-item">
-                            <van-icon size="40rpx;" color="#1989fa" name="chat" />
-                        </view>
-                        <view bindtap="callHandle" data-index="{{index}}" class="action-item">
-                            <van-icon color="#1989fa" name="phone" size="40rpx;" />
-                        </view>
+                    <view class="name">{{ answer.user.name}}  {{ answer.created_at_pretty }}</view>
+                    <view class="tag" wx:if="{{ index == 0}}">
+                        <van-tag size="mini" type="primary">最佳回答</van-tag>
                     </view>
                 </view>
-                <view class="content">{{ answer.content }}</view>
-                <view class="footer">
-                    <delete wx:if="{{answer.user_id == user.id}}" bind:deleted="loadData"  aid="{{answer.id}}" ></delete>
-                    <like style="margin-left:8rpx;" count="{{answer.likes}}"  aid="{{answer.id}}" />
+                <view class="right actions">
+                    <view bindtap="chatHandle" data-index="{{index}}" wx:if="{{chatEnable}}" style="margin-right:20rpx;" class="action-item">
+                        <van-icon size="40rpx;" color="#1989fa" name="chat" />
+                    </view>
+                    <view bindtap="callHandle" data-index="{{index}}" class="action-item">
+                        <van-icon color="#1989fa" name="phone" size="40rpx;" />
+                    </view>
                 </view>
             </view>
+            <view class="content">{{ answer.content }}</view>
+            <view class="footer">
+                <delete wx:if="{{answer.user_id == user.id}}" bind:deleted="loadData" aid="{{answer.id}}"></delete>
+                <like style="margin-left:8rpx;" count="{{answer.likes}}" aid="{{answer.id}}" />
+            </view>
         </view>
-
-        <view wx:if="{{answers.length == 0}}" class="waiting empty" style="margin-bottom:20rpx;">
-            <image src="/assets/images/waiting.png" style="margin-bottom:20rpx;font-size:24rpx;color:#999;"></image>
-            该问题还未收到回复
-        </view>
-
-</view>
+    </view>
+    <view wx:if="{{answers.length == 0}}" class="waiting empty" style="margin-bottom:20rpx;">
+        该问题还未收到回复
+    </view>
+</box>

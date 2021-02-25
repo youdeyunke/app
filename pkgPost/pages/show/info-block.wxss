@@ -82,4 +82,5 @@
 
 .red {
     color: #E82525 !important;
+    font-weight: bolder;
 }

@@ -1,44 +1,43 @@
-page{
-  padding-top:0rpx !important;
-  padding-bottom:110rpx;
+page {
+    padding-top: 0rpx !important;
+    padding-bottom: 110rpx;
 }
 
-.box{
-    padding:30rpx;
-    width:690rpx;
+.box {
+    padding: 30rpx;
+    width: 690rpx;
     background: #fff;
-    margin-bottom:20rpx;
+    margin-bottom: 20rpx;
 }
 
-.float-btn{
+.float-btn {
     width: 100%;
-    padding:30rpx;
+    padding: 30rpx;
     position: fixed;
-    left:0rpx;
-    bottom:0rpx;
+    left: 0rpx;
+    bottom: 0rpx;
     right: 0rpx;
     background: #fff;
-    border-top:1px solid #f4f4f4;
+    border-top: 1px solid #f4f4f4;
     box-sizing: border-box;
-    z-index:999;
+    z-index: 999;
 }
 
-
-.question{
-    margin-bottom:30rpx;
-    padding-bottom:30rpx;
-    border-bottom:2rpx solid #f4f4f4;
+.question {
+    margin-bottom: 30rpx;
+    padding-bottom: 30rpx;
+    border-bottom: 2rpx solid #f4f4f4;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
 }
 
-.question .content .target{
-    color:#1989FA;
-    margin-right:5rpx;
+.question .content .target {
+    color: #1989FA;
+    margin-right: 5rpx;
 }
 
-.question .body{
+.question .body {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -47,93 +46,99 @@ page{
 }
 
 .question .content {
-    font-size:28rpx;
-    color:#000000;
-    line-height:1.4;
+    font-size: 28rpx;
+    color: #000000;
+    line-height: 1.4;
     letter-spacing: 0.3rpx;
     border-radius: 8rpx;
-    margin-bottom:20rpx;
-    line-height:1.4;
+    margin-bottom: 20rpx;
+    line-height: 1.4;
     letter-spacing: 2.2rpx;
 }
 
-.question .actions{
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-size: 28rpx;
-}
-
-.question .count{
-  color: #999999;
-  font-size:24rpx;
-}
-
-.question .add{
-  color:#1989fa;
-}
-
-.answer{
-    border-bottom:2rpx solid #f4f4f4;
-    margin-bottom:30rpx;
-    padding-bottom:30rpx;
-}
-
-.answer .meta{
+.question .actions {
+    width: 100%;
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 28rpx;
+}
+
+.question .count {
+    color: #999999;
+    font-size: 24rpx;
+}
+
+.question .add {
+    color: #1989fa;
+}
+
+.answer {
+    border-bottom: 2rpx solid #f4f4f4;
+    margin-bottom: 30rpx;
+    padding-bottom: 30rpx;
+}
+
+.answer .meta {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 20rpx;
 }
 
-.answer .avatar, .answer .name, .answer .tag{
-    margin-right:20rpx;
+.answer .avatar, .answer .name, .answer .tag {
+    margin-right: 20rpx;
 }
 
-.answer .meta .left{
+.answer .meta .left {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    font-size:28rpx;
+    font-size: 28rpx;
 }
 
-.answer .avatar image{
+.answer .avatar image {
     width: 60rpx;
     height: 60rpx;
     border-radius: 60rpx;
-    border:1rpx solid #f4f4f4;
+    border: 1rpx solid #f4f4f4;
 }
 
-.answer .content{
-  letter-spacing: 2.2rpx;
-  width:690rpx;
-  font-size:28rpx;
-  word-break: break-all;
-  padding:0rpx;
-  border-radius: 8rpx;
-  margin-bottom:20rpx;
-  line-height:1.4;
-  letter-spacing: 2.2rpx;
+.answer .content {
+    letter-spacing: 2.2rpx;
+    width: 690rpx;
+    font-size: 28rpx;
+    word-break: break-all;
+    padding: 0rpx;
+    border-radius: 8rpx;
+    margin-bottom: 20rpx;
+    line-height: 1.4;
+    letter-spacing: 2.2rpx;
 }
 
-.answer .actions{
-  display:none;
-  justify-content:flex-end;
+.answer .actions {
+    display: none;
+    justify-content: flex-end;
 }
 
-
-.answer .action-item{
-  width:60rpx;
-  height:60rpx;
-  border-radius:60rpx;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+.answer .action-item {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 60rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.answer .footer{
+.answer .footer {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+
+.empty {
+    color: #999999;
+    font-size: 24rpx;
+    text-align: center;
+    margin: 20rpx auto;
 }

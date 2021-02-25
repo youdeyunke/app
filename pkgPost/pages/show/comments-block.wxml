@@ -8,5 +8,5 @@
         <comment-item wx:for="{{value.items}}" item="{{item}}"></comment-item>
     </view>
     <view class="empty" wx:else>还没有收到评论</view>
-    <block-button url="/pkgComment/pages/comment/new?target_id={{value.post_id}}&target_type=post" buttonVal='查看更多楼盘动态' />
+    <block-button url="/pkgComment/pages/comment/new?target_id={{value.post_id}}&target_type=post" buttonVal='写评价' />
 </block-box>

@@ -161,6 +161,7 @@
             "name": "qa",
             "pages": [
                 "pages/qa/index",
+                "pages/qa/qa",
                 "pages/qa/mine",
                 "pages/qa/reply",
                 "pages/qa/new"
