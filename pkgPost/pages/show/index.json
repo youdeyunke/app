@@ -21,7 +21,7 @@
         "page-loading": "./page-loading",
         "box": "/components/box",
         "default-contact": "../../components/default-contact/index",
-        "broker-contact": "../../components/default-contact/index",
+        "broker-contact": "../../components/broker-contact/index",
         "visitors": "/components/visitors/index",
         "safe-tips": "/components/safe-tips"
     }

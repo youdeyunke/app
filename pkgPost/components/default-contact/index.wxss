@@ -8,6 +8,7 @@
     bottom: 0;
     left: 0;
     background: #ffffff;
+    border-top: 2rpx solid #f0f0f0;
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -1,2 +1,21 @@
-<!--pkgPost/components/broker-contact/index.wxml-->
-<text>pkgPost/components/broker-contact/index.wxml</text>
+<block>
+    <view class="blank-{{mode}}"></view>
+    <view hidden="{{mode != 'full' }}" class="full">
+        <image src="{{broker.avatar}}" class="avatar" />
+        <view class="name">{{broker.name}}</view>
+        <view class="close" bindtap="closeHandle"></view>
+        <view class="btn btn1" bindtap="chatHandle"></view>
+        <view class="btn btn2" bindtap="callHandle"></view>
+        <image src="../../images/broker-contact-bg.png" class="bg" />
+        <image src="../../icons/broker/{{broker.level}}.png" class="badge" />
+    </view>
+    <view hidden="{{mode != 'mini' }}" class="mini">
+        <image src="{{broker.avatar}}" class="avatar" />
+        <view class="name">
+            <view class="text">{{broker.name}}</view>
+            <image src="../../icons/broker/{{broker.level}}.png" class="badge" />
+        </view>
+        <view class="btn btn1" bindtap="chatHandle">在线咨询</view>
+        <view class="btn btn2" bindtap="callHandle">电话咨询</view>
+    </view>
+</block>

@@ -17,6 +17,7 @@ Page({
         pageCover: '',
         pageUrl: '/pkgPost/pages/show/index?post_id=',
         postInfo: null,
+        brokerInfo: null,
 
         loading: true,
         visitorLogId: null,
@@ -50,8 +51,7 @@ Page({
     loadData: function () {
         var _this = this
         var query = {
-            contact_name: this.data.contactInfo.name || '',
-            contact_mobile: this.data.contactInfo.mobile || '',
+            broker_id: 1, // TEST
         }
 
         app.request({
@@ -77,6 +77,7 @@ Page({
                 wx.hideNavigationBarLoading()
                 wx.stopPullDownRefresh() //停止下拉刷新    
                 var post = resp.data.post
+                var broker = resp.data.broker
                 wx.setNavigationBarTitle({
                     title: post.title,
                 });
@@ -84,6 +85,7 @@ Page({
                     loading: false,
                     pageTitle: post.title,
                     pageCover: post.cover,
+                    brokerInfo: broker,
                     postInfo: post,
                     blocks: resp.data.data,
                 }, () => {
