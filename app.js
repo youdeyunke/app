@@ -72,9 +72,11 @@ App({
         return this.loadConfigs(cb)
     },
 
-
-    genQr: function (path, cb) {
+    genQr: function (path, query, cb) {
         /*  统一的生成二维码图片的方法  */
+        var qrdata = JSON.stringify(query)
+        path = path + '?qrdata=' + qrdata
+        console.log('qr path', path, 'qdata ', query)
         var _this = this
         this.request({
             url: '/api/v1/qr/',
@@ -88,6 +90,7 @@ App({
             },
         })
     },
+
 
 
     loadConfigs: function (cb) {

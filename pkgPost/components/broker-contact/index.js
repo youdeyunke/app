@@ -6,7 +6,10 @@ Component({
     properties: {
         broker: {
             type: Object, value: null,
-        }
+        },
+        post: {
+            type: Object, value: null,
+        },
 
     },
 

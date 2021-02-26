@@ -30,5 +30,5 @@
     <safe-tips cat="{{post.group}}" />
     <cr />
 </view>
-<default-contact wx:if="{{false}}" post="{{postInfo}}"></default-contact>
-<broker-contact wx:if="{{brokerInfo}}" broker="{{brokerInfo}}"></broker-contact>
+<broker-contact wx:if="{{brokerInfo}}" broker="{{brokerInfo}}" post="{{post}}"></broker-contact>
+<default-contact wx:else post="{{postInfo}}"></default-contact>

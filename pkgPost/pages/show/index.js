@@ -117,29 +117,22 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        var system = wx.getSystemInfoSync()
-        var h = system['windowHeight']
-        this.setData({ windowHeight: h })
-        this.setData({ EXT: app.globalData.EXT })
         app.checkForceLogin()
         var _this = this
-        var mode = 1 // 房源信息的显示模式 1：正常显示，2，显示自定义联系人信息
 
-        // 正常进入
-        var postId = options.id
-        if (options.contact) {
-            // 分享海报进入，并设置成我自己的联系方式
+        if (options.qrdata) {
+            // 分享海报进入
+            // 解析海报url中的数据
             // 隐藏home
-            var _contacts = options.contact.split('_')
-            var postId = _contacts[0]
-            this.setData({
-                contactInfo: {
-                    name: decodeURIComponent(_contacts[1]),
-                    mobile: decodeURIComponent(_contacts[2]),
-                    uid: decodeURIComponent(_contacts[3]),
-                }
-            })
+
+            var qrdata = options.qrdata
+            qrdata = decodeURIComponent(qrdata)
+            qrdata = JSON.parse(qrdata)
+            console.log('decode qrdata is', qrdata, typeof qrdata)
+            options = qrdata
         }
+        var postId = options.id
+        var brokerId = options.broker_id || ''
 
         _this.setData({ postId: postId }, () => {
             _this.loadData()
@@ -165,10 +158,6 @@ Page({
 
 
     setInterval: function () {
-        // 如果是开发环境，不处理
-        if (this.data.EXT['is_dev'] == true) {
-            return false
-        }
 
         // 如果没有登录，直接退出
         if (!app.globalData.token) {
