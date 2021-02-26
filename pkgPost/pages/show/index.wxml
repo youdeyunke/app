@@ -2,8 +2,8 @@
 <page-loading loading="{{loading}}" />
 <cover-block value="{{postInfo}}" />
 <view class="outer" hidden="{{loading}}">
+    <header-block navs="{{navs}}" post="{{postInfo}}" />
     <block wx:for="{{blocks}}" wx:for-item="block" wx:for-key="index" wx:key="name">
-        <header-block wx:if="{{block.name == 'header'}}" value="{{block.value}}" />
         <info-block wx:if="{{block.name == 'info'}}" value="{{block.value}}" />
         <map-block wx:if="{{block.name == 'map'}}" value="{{block.value}}" />
         <types-block id="types" wx:if="{{block.name == 'types'}}" value="{{block.value}}" />

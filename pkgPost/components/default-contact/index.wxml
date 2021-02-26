@@ -1,4 +1,5 @@
 <block>
+    <view style="width:100%;height:150rpx;"></view>
     <view class="outer">
         <div class="fav">
             <fav pid="{{post.id}}"></fav>

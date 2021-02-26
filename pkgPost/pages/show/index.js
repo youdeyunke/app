@@ -18,6 +18,7 @@ Page({
         pageUrl: '/pkgPost/pages/show/index?post_id=',
         postInfo: null,
         brokerInfo: null,
+        brokerId: null,
 
         loading: true,
         visitorLogId: null,
@@ -50,8 +51,10 @@ Page({
 
     loadData: function () {
         var _this = this
-        var query = {
-            broker_id: 1, // TEST
+        var query = {}
+        if (this.data.brokerId) {
+            // 如果是通过经纪人分享进入
+            query.broker_id = this.data.brokerId
         }
 
         app.request({
@@ -83,6 +86,7 @@ Page({
                 });
                 _this.setData({
                     loading: false,
+                    navs: resp.data.navs,
                     pageTitle: post.title,
                     pageCover: post.cover,
                     brokerInfo: broker,
@@ -95,9 +99,7 @@ Page({
                     menus: ['shareAppMessage', 'shareTimeline']
                 })
             }
-
         })
-
     },
 
     checkViewsCount: function (c) {

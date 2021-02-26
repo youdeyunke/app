@@ -4,7 +4,8 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        value: { type: Object, default: null }
+        post: { type: Object, default: null },
+        navs: { type: Array, default: null }
 
     },
 
@@ -12,7 +13,6 @@ Component({
      * 组件的初始数据
      */
     data: {
-        arr: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
     },
 
     /**
@@ -38,10 +38,10 @@ Component({
 
         openLocation: function () {
             wx.openLocation({
-                latitude: Number(this.data.value.latitude),
-                longitude: Number(this.data.value.longitude),
-                name: this.data.value.title,
-                address: this.data.value.address
+                latitude: Number(this.data.post.latitude),
+                longitude: Number(this.data.post.longitude),
+                name: this.data.post.title,
+                address: this.data.post.address
             })
         },
         openSetting() {

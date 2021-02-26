@@ -1,24 +1,24 @@
 <view class="outer">
     <view class="title-block">
         <view class="first-left">
-            <view class="left-title">{{value.title}}</view>
+            <view class="left-title">{{post.title}}</view>
             <view class="left-tags">
-                <view class="left-tag" wx:for="{{value.tags}}" wx:for-item="tag" wx:for-key="tag.id">
+                <view class="left-tag" wx:for="{{post.tags}}" wx:for-item="tag" wx:for-key="tag.id">
                     {{tag.name}}
                 </view>
             </view>
         </view>
         <view class="event-button">
-            <event-button cat="open" pid="{{value.post_id}}"></event-button>
+            <event-button cat="open" pid="{{post.post_id}}"></event-button>
         </view>
     </view>
     <view class="cell-group">
-        <cell custom-style="cell-item" icon="location" title="{{value.address}}" bindtap="gotoLocation"></cell>
-        <cell custom-style="cell-item" icon="bang" title="已入选灞桥区热销排名第3名" url="/pkgMap/pages/map/index"></cell>
-        <cell custom-style="cell-item" icon="yong" title="分佣2~10万元，周结" url="/pkgMap/pages/map/index"></cell>
+        <cell custom-style="cell-item" icon="location" title="{{post.address}}" bindtap="gotoLocation"></cell>
+        <cell wx:if="{{post.rank_info.show}}" custom-style="cell-item" icon="bang" title="已入选灞桥区热销排名第3名" url="/pkgMap/pages/map/index"></cell>
+        <cell wx:if="{{post.brokage_info.show}}" custom-style="cell-item" icon="yong" title="分佣2~10万元，周结" url="/pkgMap/pages/map/index"></cell>
     </view>
     <view class="navs">
-        <navigator url="{{nav.path}}" hover-class="none" class="nav-item" wx:for="{{value.navs}}" wx:for-item="nav">
+        <navigator url="{{nav.path}}" hover-class="none" class="nav-item" wx:for="{{navs}}" wx:for-item="nav">
             <image src="../../icons/navs/{{nav.id}}.png" />
             <view>{{nav.name}}</view>
         </navigator>
