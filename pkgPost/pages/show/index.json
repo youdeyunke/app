@@ -13,7 +13,6 @@
         "events-block": "./events-block",
         "tours-block": "./tours-block",
         "safe-block": "./safe-block",
-        "btns-block": "./btns-block",
         "types-block": "./types-block",
         "contact-block": "./contact-block",
         "qas-block": "./qas-block",
@@ -21,6 +20,8 @@
         "van-transition": "/vant/transition/index",
         "page-loading": "./page-loading",
         "box": "/components/box",
+        "default-contact": "../../components/default-contact/index",
+        "broker-contact": "../../components/default-contact/index",
         "visitors": "/components/visitors/index",
         "safe-tips": "/components/safe-tips"
     }

@@ -1,0 +1,61 @@
+.outer {
+    height: 150rpx;
+    width: 750rpx;
+    padding: 20rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.share {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    font-size: 24rpx;
+}
+
+.share image {
+    width: 54rpx;
+    height: 54rpx;
+    margin-bottom: 4rpx;
+}
+
+.btn {
+    height: 90rpx;
+    border-radius: 5rpx;
+    width: 255rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.btn .name {
+    color: #fdfdfd;
+    font-size: 30rpx;
+}
+
+.btn .desc {
+    font-size: 20rpx;
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.67);
+}
+
+.btn1 {
+    background: linear-gradient(270deg, #0FC19A 0%, #36D8C0 100%);
+}
+
+.btn2 {
+    background: linear-gradient(270.65deg, #1972E7 0.49%, #4794EF 99.43%);
+}

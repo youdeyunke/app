@@ -9,12 +9,25 @@ Component({
 
     },
 
+    observers: {
+        "postInfo": function (p) {
+            if (!p) {
+                return
+            }
+            var tags = p.tags.map((t, i) => {
+                return t.name
+            })
+            this.setData({ tags: tags })
+        },
+    },
+
     /**
      * 组件的初始数据
      */
     data: {
         showTips: false,
         showCopy: false,
+        tags: [],
 
     },
 
@@ -30,9 +43,10 @@ Component({
             // 复制到剪贴板
             var p = this.data.postInfo
             var text = ""
+            var tags = this.data.tags.join(',')
             text += "【项目名称】" + p.title
             text += "\n【参考均价】" + p.average_price
-            text += "\n【项目亮点】" + p.tags.join(',')
+            text += "\n【项目亮点】" + tags
             text += "\n【项目地址】" + p.address
             // TODO 联系电话服务端还没完成
             var phone = p.phone

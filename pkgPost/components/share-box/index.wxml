@@ -3,24 +3,24 @@
         <view class="dialog main">
             <view class="header">
                 转发分享
-                <image src="../../../icons/share-close.png" class="close" bindtap="closeHandle" />
+                <image src="../../icons/share-close.png" class="close" bindtap="closeHandle" />
             </view>
             <view class="body" bindtap="closeHandle">
                 <view class="icon" hover-class="none" bindtap="wechatHandle">
-                    <image src="../../../icons/share-chat.png" />
+                    <image src="../../icons/share-chat.png" />
                     <view class="name">微信好友</view>
                     <button open-type="share" bindtap=""></button>
                 </view>
                 <view class="icon" bindtap="timelineHandle">
-                    <image src="../../../icons/share-tl.png" />
+                    <image src="../../icons/share-tl.png" />
                     <view class="name">朋友圈</view>
                 </view>
                 <view class="icon" bindtap="copyHandle" wx:if="{{postInfo}}">
-                    <image src="../../../icons/share-copy.png" />
+                    <image src="../../icons/share-copy.png" />
                     <view class="name">复制文本</view>
                 </view>
                 <view class="icon" bindtap="posterHandle">
-                    <image src="../../../icons/share-poster.png" />
+                    <image src="../../icons/share-poster.png" />
                     <view class="name">生成楼盘海报</view>
                 </view>
             </view>
@@ -31,7 +31,7 @@
     </van-popup>
     <van-popup position="top" show="{{showTips}}" bind:close="closeTips">
         <view class="tips">
-            <image src="../../../images/share-tips.png" />
+            <image src="../../images/share-tips.png" />
             <view class="text">请点击右上角...选择分享到朋友圈</view>
         </view>
     </van-popup>
@@ -39,7 +39,7 @@
         <view class="dialog copy">
             <view class="header">
                 {{postInfo.title}}
-                <image src="../../../icons/share-close.png" class="close" bindtap="closeCopy" />
+                <image src="../../icons/share-close.png" class="close" bindtap="closeCopy" />
             </view>
             <view class="body">
                 <view class="postinfo">
@@ -53,7 +53,7 @@
                     </view>
                     <view class="info">
                         <view class="label">项目亮点</view>
-                        <view clss="text">{{postInfo.tags}}</view>
+                        <view clss="text">{{tags}}</view>
                     </view>
                     <view class="info">
                         <view class="label">项目地址</view>
@@ -61,7 +61,9 @@
                     </view>
                     <view class="info">
                         <view class="label">咨询热线</view>
-                        <view clss="text">4000121122转12</view>
+                        <view clss="text">
+                            {{postInfo.phone}}{{postInfo.sub_phone ? postInfo.sub_phone : ''}}
+                        </view>
                     </view>
                 </view>
             </view>

@@ -1,6 +1,0 @@
-<form report-submit class="myfav-wrapper"  bindsubmit="clickHandle" >
-  <button hover-class="none" form-type="submit" class="myfav" >
-  <van-icon size="38rpx;" color="{{ status == 1 ? 'orange' : ''  }}"  name="{{ status == 1 ? 'star' : 'star-o'  }}"  />
-  <text>{{ status == 1 ? '已收藏' : '收藏' }}</text>
-  </button>
-</form>

@@ -165,7 +165,7 @@ Page({
                 _this.setData({ comment: '' })
                 if (resp.data.status === 0) {
                     wx.setStorageSync('eventBus', { key: 'reloadComments', value: comment.target_id })
-                    wx.showToast({ title: '提交成功。您的评论审核通过后将对外展示', duration: 2000, mask: true })
+                    wx.showToast({ icon: 'none', title: '提交成功。您的评论审核通过后将对外展示', duration: 2000, mask: true })
                     setTimeout(function () {
                         wx.navigateBack({ delta: -1 })
                     }, 2000)

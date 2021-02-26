@@ -24,10 +24,10 @@
                 </view>
             </block-box>
         </view>
-        <btns-block wx:if="{{block.name == 'btns'}}" value="{{block.value}}" />
     </block>
     <!-- official-account></official-account -->
     <ad-link />
     <safe-tips cat="{{post.group}}" />
     <cr />
 </view>
+<default-contact post="{{postInfo}}"></default-contact>

@@ -76,15 +76,18 @@ Page({
                 wx.stopPullDownRefresh()
                 wx.hideNavigationBarLoading()
                 wx.stopPullDownRefresh() //停止下拉刷新    
-
+                var post = resp.data.post
+                wx.setNavigationBarTitle({
+                    title: post.title,
+                });
                 _this.setData({
                     loading: false,
+                    pageTitle: post.title,
+                    pageCover: post.cover,
+                    postInfo: post,
                     blocks: resp.data.data,
                 }, () => {
                 })
-                //html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
-                //html = html.replace(/\<p/gi, '<p class="rich-text-p" ')
-
                 wx.showShareMenu({
                     withShareTicket: true,
                     menus: ['shareAppMessage', 'shareTimeline']
@@ -138,8 +141,6 @@ Page({
 
         _this.setData({ postId: postId }, () => {
             _this.loadData()
-            _this.loadPostInfo()
-
         })
         app.markVisitor(null, postId, 'post', function (vid) {
             _this.setData({ 'visitorLogId': vid })
@@ -160,27 +161,6 @@ Page({
     },
 
 
-    loadPostInfo: function () {
-        // 查询楼盘的基本信息，用于设置页面标题、分享文案等
-        var _this = this
-        app.request({
-            url: '/api/v1/post_base_info/' + _this.data.postId,
-            method: 'GET',
-            success: function (resp) {
-                var post = resp.data.data
-                _this.setData({
-                    pageTitle: post.title,
-                    pageCover: post.cover,
-                    postInfo: post
-                })
-                wx.setNavigationBarTitle({
-                    title: post.title,
-                });
-
-            }
-
-        })
-    },
 
     setInterval: function () {
         // 如果是开发环境，不处理

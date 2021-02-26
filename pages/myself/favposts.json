@@ -1,9 +1,8 @@
 {
-  "usingComponents": {
-    "myfav": "/components/fav",
-    "mytags": "/components/tags",
-    "post": "/components/post/item",
-    "box": "/components/box",
-    "myslider": "/components/slider"
-  }
+    "usingComponents": {
+        "mytags": "/components/tags",
+        "post": "/components/post/item",
+        "box": "/components/box",
+        "myslider": "/components/slider"
+    }
 }
