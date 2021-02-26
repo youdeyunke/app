@@ -1,12 +1,5 @@
 <block>
     <view class="block">
-        <navigator url="{{value.rank_info.path}}" class="block-title" wx:if="{{value.rank_info}}" hover-class="none">
-            <view class="title-left">
-                <image class="title-icon" src="../../icons/bang.png" />
-                <text>{{value.rank_info.title}}</text>
-            </view>
-            <view>详情 ></view>
-        </navigator>
         <image mode="aspectFill" class="bg" src="{{value.cover}}" />
         <image bindtap="shareHandle" class="fenxiang" src="../../icons/fenxiang.png" />
         <image bindtap="vrHandle" class="vr" src="../../icons/vr.png" />

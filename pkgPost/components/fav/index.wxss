@@ -13,7 +13,7 @@
 
 .myfav text {
     height: 24rpx;
-    color: #666;
+    color: #333;
     margin-top: 8rpx;
 }
 

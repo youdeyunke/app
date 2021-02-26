@@ -9,7 +9,7 @@
             </view>
         </view>
         <view class="event-button">
-            <event-button cat="open" pid="{{post.post_id}}"></event-button>
+            <event-button cat="open" pid="{{post.id}}"></event-button>
         </view>
     </view>
     <view class="cell-group">
