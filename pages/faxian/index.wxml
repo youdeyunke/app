@@ -1,16 +1,10 @@
 <view style="width:100%">
     <ud-tabs tabs='{{tabs}}' model:active-index='{{tabIndex}}' bind:change='tabChangeHandle'></ud-tabs>
 </view>
-<!-- <view class="mytabs">
-    <van-tabs sticky="{{true}}" active="{{tab}}" color="#1989fa" bind:change="tabChangeHandle">
-        <van-tab wx:for-key="id" name="{{tab.id}}" title="{{tab.name}}" wx:for-item="tab" wx:for="{{tabs}}"></van-tab>
-    </van-tabs>
-</view> -->
+<search-bar bind:change="kwChange" />
 <view hidden="{{ tabIndex != 0}}" style="">
     <view class="res news-list">
-        <view style="padding-top:20rpx">
-            <search-bar bind:change="newsKwChange" />
-        </view>
+        <view style="padding-top:20rpx"></view>
         <scroll-view scroll-x class="scroll">
             <navigator url="/pkgNews/pages/news/index?cat_id={{cat.id}}" class="scroll-cell" wx:for="{{newsCats}}" wx:for-item="cat" wx:key="id" hover-class="none">
                 <image src="{{cat.icon}}" style="width:80rpx;height:80rpx;margin-bottom:10rpx" />
@@ -29,7 +23,6 @@
 </view>
 <view hidden="{{tabIndex != 1}}">
     <view class="res qa-list">
-        <search-bar bind:change="qaKwChange"></search-bar>
         <view style="margin-top:20rpx;">
             <qa-item wx:for="{{qaItems}}" item="{{item}}"></qa-item>
         </view>
@@ -37,7 +30,6 @@
     <navigator url="/pkgQa/pages/qa/new" class="qa-new">我要提问</navigator>
 </view>
 <view hidden="{{tabIndex != 2}}">
-    <search-bar bind:change="newsKwChange" />
     <view class="res tour-list">
         <tour-item wx:for="{{tourItems}}" item="{{item}}"></tour-item>
     </view>

@@ -14,11 +14,11 @@ Page({
         ],
         newsCats: [], //  资讯分类
         newsItems: [],
-        newsCatId: '',
-        newsKw: '',
-        qaKw: '',
         tourItems: [],
+        qaItems: [],
+        newsCatId: '',
         page: 1,
+        kw: '',
         per_page: 10,
         loading: true,
         tabIndex: 0
@@ -110,50 +110,22 @@ Page({
         })
     },
 
-    qaKwChange: function (e) {
+    kwChange: function (e) {
         var kw = e.detail
         var data = {
-            qaKw: kw,
+            kw: kw,
             page: 1,
-            qaItems: [],
             loading: true
         }
+        var _this = this
         this.setData(data, () => {
-            this.loadQas()
+            // load data
+            _this.reloadPage()
         })
     },
 
-    newsKwChange: function (e) {
-        console.log('e', e)
-        var kw = e.detail
-        var data = {
-            newsKw: kw,
-            page: 1,
-            newsItems: [],
-            loading: true
-        }
-        this.setData(data, () => {
-            this.loadNews()
-        })
-    },
-
-
-    newsCatChange: function (e) {
-        var cat = e.detail
-        console.log('c', e, 'cat', cat)
-        var data = {
-            newsCatId: cat.id,
-            page: 1,
-            newsItems: [],
-            loading: true
-        }
-        this.setData(data, () => {
-            this.loadNews()
-        })
-    },
 
     loadNews: function () {
-
         var _this = this
         var query = {
             page: this.data.page,
@@ -252,19 +224,25 @@ Page({
         var page = this.data.page
         data.page = page + 1
         this.setData(data, () => {
-
-            switch (this.data.tab) {
-                case 'news':
-                    this.loadNews()
-                    break;
-                case 'qa':
-                    this.loadQas()
-                    break;
-                case 'tour':
-                    this.loadTours()
-                    break;
-            }
+            _this.loadCurrentPageData()
         })
+    },
+
+    loadCurrentPageData: function () {
+        // 根据当前选中标签，加载对应的列表数据
+
+        switch (this.data.tab) {
+            case 'news':
+                this.loadNews()
+                break;
+            case 'qa':
+                this.loadQas()
+                break;
+            case 'tour':
+                this.loadTours()
+                break;
+        }
+
     },
 
     /**
