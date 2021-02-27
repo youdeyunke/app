@@ -14,6 +14,7 @@ Page({
         ],
         newsCats: [], //  资讯分类
         newsItems: [],
+        topNewsItems: [],
         tourItems: [],
         qaItems: [],
         newsCatId: '',
@@ -90,7 +91,7 @@ Page({
         var query = this.data.qaFilter || {}
         query.page = this.data.page
         query.per_page = this.data.per_page || 10
-        query.kw = this.data.qaKw || ''
+        query.kw = this.data.kw || ''
         app.request({
             url: '/api/v1/questions/',
             data: query,
@@ -125,13 +126,33 @@ Page({
     },
 
 
+    loadTopNews: function () {
+        // 精选资讯
+        var query = {
+            is_top: true,
+            per_page: 30
+        }
+        var _this = this
+        app.request({
+            url: '/api/v1/news',
+            data: query,
+            success: function (resp) {
+                if (resp.data.status != 0) {
+                    return
+                }
+                var items = resp.data.data
+                _this.setData({ topNewsItems: items, loading: false })
+            }
+        })
+    },
+
     loadNews: function () {
         var _this = this
         var query = {
             page: this.data.page,
             is_top: false,
             cat_id: this.data.newsCatId,
-            kw: this.data.newsKw,
+            kw: this.data.kw,
             per_page: 30
         }
         app.request({
@@ -159,6 +180,7 @@ Page({
     onLoad: function (q) {
         wx.setNavigationBarTitle({ title: '发现', });
         this.loadNews()
+        this.loadTopNews()
         this.loadNewsCats()
 
     },

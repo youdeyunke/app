@@ -13,7 +13,7 @@
         </scroll-view>
         <view style="width:750rpx;height:20rpx;display:block;background: #F2F2F2;"></view>
         <ud-card title='热门推荐' sub-title='查看更多'>
-            <scroll-news />
+            <scroll-news items="{{topNewsItems}}" />
         </ud-card>
         <view style="width:750rpx;height:20rpx;display:block;background: #F2F2F2;"></view>
         <ud-card title='楼盘资讯'>
