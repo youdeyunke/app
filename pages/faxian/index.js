@@ -1,4 +1,4 @@
-    // pages/faxian/index.js
+// pages/faxian/index.js
 const app = getApp()
 
 Page({
@@ -12,6 +12,7 @@ Page({
             { name: '问答', id: 'qa' },
             { name: '活动', id: 'tour' },
         ],
+        newsCats: [], //  资讯分类
         newsItems: [],
         newsCatId: '',
         newsKw: '',
@@ -20,7 +21,7 @@ Page({
         page: 1,
         per_page: 10,
         loading: true,
-        tabIndex:0
+        tabIndex: 0
     },
 
     tabChangeHandle: function (e) {
@@ -186,6 +187,18 @@ Page({
     onLoad: function (q) {
         wx.setNavigationBarTitle({ title: '发现', });
         this.loadNews()
+        this.loadNewsCats()
+
+    },
+
+    loadNewsCats: function () {
+        var _this = this
+        app.request({
+            url: '/api/v1/news_cats',
+            success: function (resp) {
+                _this.setData({ newsCats: resp.data.data })
+            }
+        })
 
     },
 
@@ -201,11 +214,11 @@ Page({
      */
     onShow: function () {
         if (typeof this.getTabBar === 'function' &&
-        this.getTabBar()) {
-        this.getTabBar().setData({
-          selected: 2
-        })
-      }
+            this.getTabBar()) {
+            this.getTabBar().setData({
+                selected: 2
+            })
+        }
     },
 
     /**

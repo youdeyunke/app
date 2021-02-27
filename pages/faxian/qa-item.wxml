@@ -1,13 +1,13 @@
 <view hover-class="none" class="question">
     <view class="header">
         <view class="left">
-            <image src="/assets/icons/question.png" style="width:32rpx;height:32rpx;margin-right:10rpx;"/>
-            <image src="/assets/icons/reyi.png" style="width:51rpx;height:32rpx"/>
+            <image src="/assets/icons/question.png" style="width:32rpx;height:32rpx;margin-right:10rpx;" />
+            <image src="/assets/icons/reyi.png" style="width:51rpx;height:32rpx" />
             <van-tag style="margin: 0 10rpx;" wx:for="{{tags}}" type="primary" plain>
                 {{item}}
             </van-tag>
             <view wx:if="{{item.target_name}}" class="target-name">#{{ item.target_name }}#</view>
-            <view class="jiejue">已解决</view>
+            <view wx:if="{{item.is_done}}" class="jiejue">已解决</view>
         </view>
         <view class="right">{{item.answers_count || 0 }}回答</view>
     </view>
@@ -15,7 +15,7 @@
     <view class="footer">
         <view class="left">
             <image class="avatar" src="{{avatar}}" />
-            <text>{{ item.user.nickname }}</text>
+            <text style="margin-left:10rpx;">{{ item.user_info.name }}</text>
             <text>{{createdAt}}</text>
         </view>
         <view class="right">

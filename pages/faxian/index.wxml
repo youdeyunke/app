@@ -1,5 +1,5 @@
 <view style="width:100%">
-    <ud-tabs tabs='{{tabs}}'  model:active-index='{{tabIndex}}' bind:change='tabChangeHandle'></ud-tabs>
+    <ud-tabs tabs='{{tabs}}' model:active-index='{{tabIndex}}' bind:change='tabChangeHandle'></ud-tabs>
 </view>
 <!-- <view class="mytabs">
     <van-tabs sticky="{{true}}" active="{{tab}}" color="#1989fa" bind:change="tabChangeHandle">
@@ -7,77 +7,37 @@
     </van-tabs>
 </view> -->
 <view hidden="{{ tabIndex != 0}}" style="">
-    
     <view class="res news-list">
         <view style="padding-top:20rpx">
-            <search-bar bind:change="newsKwChange"/>
+            <search-bar bind:change="newsKwChange" />
         </view>
-        
         <scroll-view scroll-x class="scroll">
-            <navigator class="scroll-cell">
-                <image src="/assets/icons/icon-0.png"  style="width:80rpx;height:80rpx;margin-bottom:10rpx"/>
-                <text class="">置业顾问</text>
-            </navigator>
-            <navigator class="scroll-cell">
-                <image src="/assets/icons/icon-0.png"  style="width:80rpx;height:80rpx;margin-bottom:10rpx"/>
-                <text class="">户型图</text>
-            </navigator>
-            <navigator class="scroll-cell">
-                <image src="/assets/icons/icon-0.png"  style="width:80rpx;height:80rpx;margin-bottom:10rpx"/>
-                <text class="">周边配套</text>
-            </navigator>
-            <navigator class="scroll-cell">
-                <image src="/assets/icons/icon-0.png"  style="width:80rpx;height:80rpx;margin-bottom:10rpx"/>
-                <text class="">楼盘动态</text>
-            </navigator>
-            <navigator class="scroll-cell">
-                <image src="/assets/icons/icon-0.png"  style="width:80rpx;height:80rpx;margin-bottom:10rpx"/>
-                <text class="">一房一价</text>
-            </navigator>
-            <navigator class="scroll-cell">
-                <image src="/assets/icons/icon-0.png"  style="width:80rpx;height:80rpx;margin-bottom:10rpx"/>
-                <text class="">VR看房</text>
-            </navigator>
-            <navigator class="scroll-cell">
-                <image src="/assets/icons/icon-0.png"  style="width:80rpx;height:80rpx;margin-bottom:10rpx"/>
-                <text class="">计算器</text>
-            </navigator>
-            <navigator class="scroll-cell">
-                <image src="/assets/icons/icon-0.png"  style="width:80rpx;height:80rpx;margin-bottom:10rpx"/>
-                <text class="">活动</text>
-            </navigator>
-            <navigator class="scroll-cell">
-                <image src="/assets/icons/icon-0.png"  style="width:80rpx;height:80rpx;margin-bottom:10rpx"/>
-                <text class="">有问必答</text>
-            </navigator>
-            <navigator class="scroll-cell">
-                <image src="/assets/icons/icon-0.png"  style="width:80rpx;height:80rpx;margin-bottom:10rpx"/>
-                <text class="">相关资讯</text>
+            <navigator url="/pkgNews/pages/news/index?cat_id={{cat.id}}" class="scroll-cell" wx:for="{{newsCats}}" wx:for-item="cat" wx:key="id" hover-class="none">
+                <image src="{{cat.icon}}" style="width:80rpx;height:80rpx;margin-bottom:10rpx" />
+                <text class="">{{cat.name}}</text>
             </navigator>
         </scroll-view>
         <view style="width:750rpx;height:20rpx;display:block;background: #F2F2F2;"></view>
-        <ud-card  title='热门推荐' sub-title='查看更多' >
+        <ud-card title='热门推荐' sub-title='查看更多'>
             <scroll-news />
         </ud-card>
         <view style="width:750rpx;height:20rpx;display:block;background: #F2F2F2;"></view>
-        <ud-card  title='楼盘资讯' >
-            <news-item wx:for="{{newsItems}}" item="{{item}}" ></news-item>
+        <ud-card title='楼盘资讯'>
+            <news-item wx:for="{{newsItems}}" item="{{item}}"></news-item>
         </ud-card>
-
     </view>
 </view>
 <view hidden="{{tabIndex != 1}}">
     <view class="res qa-list">
-            <search-bar bind:change="qaKwChange"></search-bar>
-            <view style="margin-top:20rpx;">
-                <qa-item wx:for="{{qaItems}}" item="{{item}}"></qa-item>
-            </view>
-        
+        <search-bar bind:change="qaKwChange"></search-bar>
+        <view style="margin-top:20rpx;">
+            <qa-item wx:for="{{qaItems}}" item="{{item}}"></qa-item>
+        </view>
     </view>
     <navigator url="/pkgQa/pages/qa/new" class="qa-new">我要提问</navigator>
 </view>
 <view hidden="{{tabIndex != 2}}">
-    <search-bar bind:change="newsKwChange"/>
+    <search-bar bind:change="newsKwChange" />
     <view class="res tour-list">
         <tour-item wx:for="{{tourItems}}" item="{{item}}"></tour-item>
     </view>

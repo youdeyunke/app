@@ -82,12 +82,7 @@ Page({
         })
     },
 
-    callHandle: function () {
-        var m = this.data.broker.mobile
-        wx.makePhoneCall({
-            phoneNumber: m,
-        })
-    },
+,
 
     deleteHandle: function (e) {
         // 删除动kk
@@ -135,39 +130,6 @@ Page({
 
     },
 
-    chatHandle: function () {
-        var _this = this
-        auth.ensureUser(function (user) {
-            // 不能和自己聊天
-            if (user.id == _this.data.broker.id) {
-                wx.showToast({ icon: 'none', title: '不能和自己聊天' })
-                return false
-            }
-            return _this._chatHandle()
-        })
-    },
-
-    _chatHandle: function () {
-        // 先调用打招呼接口
-        wx.showLoading({ title: '正在打开', icon: 'none', mask: true })
-        var pid = this.data.postId
-        var brokerId = this.data.broker.id
-        var _this = this
-        app.request({
-            url: '/api/v1/posts/hello?id=' + pid + '&receiver_id=' + brokerId,
-            success: function (resp) {
-                if (resp.data.status == 0) {
-                    // 跳转到消息列表
-                    wx.navigateTo({
-                        url: '/pages/messages/show?target_user_id=' + brokerId,
-                    })
-                }
-            },
-            complete: function () {
-                wx.hideLoading()
-            },
-        })
-    },
 
     /**
      * 生命周期函数--监听页面初次渲染完成

@@ -24,7 +24,7 @@ Component({
             this.setData({ createdAt: v })
         },
 
-        "item.user.avatar": function (url) {
+        "item.user_info.avatar": function (url) {
             if (!url) {
                 return
             }
