@@ -1,4 +1,5 @@
 /* pages/faxian/index.wxss */
+
 .mytabs {
     width: 100%;
     margin-bottom: 20rpx;
@@ -11,16 +12,16 @@
 
 .news-list, .tour-list {
     background: #fff;
-    
 }
 
-.qa-list , .tour-list {
+.qa-list, .tour-list {
     padding: 20rpx;
 }
 
-.tour-list{
+.tour-list {
     background-color: #f2f2f2;
 }
+
 .qa-new {
     height: 80rpx;
     line-height: 80rpx;
@@ -35,7 +36,8 @@
     left: calc(50% - 100rpx);
     z-index: 10;
 }
-.scroll-cell{
+
+.news-cat-item {
     width: 20%;
     display: flex;
     flex-direction: column;
@@ -45,8 +47,9 @@
     font-size: 24rpx;
     display: inline-flex;
 }
-.scroll{
-    width: 100%;
+
+.news-cats-scroll {
+    width: 750rpx;
     white-space: nowrap;
-    margin:  34rpx 0 ;
+    margin: 0;
 }

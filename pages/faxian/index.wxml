@@ -4,18 +4,15 @@
 <search-bar bind:change="kwChange" />
 <view hidden="{{ tabIndex != 0}}" style="">
     <view class="res news-list">
-        <view style="padding-top:20rpx"></view>
-        <scroll-view scroll-x class="scroll">
-            <navigator url="/pkgNews/pages/news/index?cat_id={{cat.id}}" class="scroll-cell" wx:for="{{newsCats}}" wx:for-item="cat" wx:key="id" hover-class="none">
+        <scroll-view scroll-x class="news-cats-scroll">
+            <navigator url="/pkgNews/pages/news/index?cat_id={{cat.id}}" class="news-cat-item" wx:for="{{newsCats}}" wx:for-item="cat" wx:key="id" hover-class="none">
                 <image src="{{cat.icon}}" style="width:80rpx;height:80rpx;margin-bottom:10rpx" />
                 <text class="">{{cat.name}}</text>
             </navigator>
         </scroll-view>
-        <view style="width:750rpx;height:20rpx;display:block;background: #F2F2F2;"></view>
         <ud-card title='热门推荐' sub-title='查看更多'>
             <scroll-news items="{{topNewsItems}}" />
         </ud-card>
-        <view style="width:750rpx;height:20rpx;display:block;background: #F2F2F2;"></view>
         <ud-card title='楼盘资讯'>
             <news-item wx:for="{{newsItems}}" item="{{item}}"></news-item>
         </ud-card>
