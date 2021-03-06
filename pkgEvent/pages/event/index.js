@@ -81,9 +81,6 @@ Page({
             }
         })
     },
-
-,
-
     deleteHandle: function (e) {
         // 删除动kk
         if (!this.data.user) {

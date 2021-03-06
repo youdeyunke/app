@@ -5,10 +5,10 @@ page {
 .mybox {
     width: 710rpx;
     padding: 20rpx 0 20rpx 20rpx;
+    margin: 0 auto 20rpx auto;
     box-sizing: border-box;
     background: #fff;
     border-radius: 15rpx;
-    margin-bottom: 30rpx;
 }
 
 .user {
