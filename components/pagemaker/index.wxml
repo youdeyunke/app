@@ -1,5 +1,5 @@
 <!-- components/pagemaker/index.wxml -->
-<view class="pagemaker" style="padding:{{paddingValue }}rpx;">
+<view class="pagemaker">
     <block wx:for="{{modules}}">
         <module-box config="{{item}}" width="{{moduleWidth}}">
             <header-module config="{{item}}" wx:if="{{item.name === 'header'}}"></header-module>

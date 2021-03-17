@@ -5,18 +5,9 @@ Component({
      */
     properties: {
         config: { type: Object, default: null },
-        width: { type: Number, default: 710 }, // 根据750 - padding*2 计算出模块的实际宽度指，单位为rpx
     },
 
     observers: {
-        "width": function (v) {
-            if (!v) {
-                return
-            }
-            this.setData({
-                widthValue: v + 'rpx',
-            })
-        },
         "config.height": function (height) {
             if (!height) {
                 return
@@ -70,22 +61,6 @@ Component({
             this.setData({ padding: s })
         },
 
-        "config.margin": function (margin) {
-            // remove this
-            /*  margin 只需要考虑top,bottom*/
-            if (!margin) {
-                return
-            }
-            var v = 20
-            var items = [0, 0, 0, 0] // top,right,bottom,left
-            items[0] = margin.top == true ? v : 0
-            items[2] = margin.bottom == true ? v : 0
-            items = items.map((n, i) => {
-                return n + 'rpx'
-            })
-            var s = items.join(" ")
-            this.setData({ margin: s })
-        },
     },
 
     /**
@@ -94,10 +69,7 @@ Component({
     data: {
         bgColor: '',
         bgImage: '',
-        widthValue: 'auto',
         height: 'auto',
-        padding: 'none',
-        margin: 'none',
     },
 
     /**

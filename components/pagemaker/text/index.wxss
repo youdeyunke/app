@@ -1,6 +1,13 @@
 /* components/pagemaker/text/index.wxss */
 
 text {
-    width: 100%;
+   
     display: block;
+    margin:0 auto;
+}
+
+.outer{
+    width:710rpx;
+
+    margin:0 auto 16rpx auto;
 }

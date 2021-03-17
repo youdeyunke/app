@@ -1,12 +1,13 @@
 <!-- components/pagemaker/searchbar/index.wxml -->
-<view class="searchbar  body-style-{{config.style}}">
+<view class="searchbar  body-style-{{config.styleName }}">
     <view bindtap="gotoSearch" class="body">
         <view class="left-part">
-            <search-icon url="{{config.icon}}" style="margin-right:20rpx;" />
+            <search-icon url="{{config.searchIcon}}" style="margin-right:20rpx;" />
             <view class="text" style="color: {{textColor}}">{{text}}</view>
         </view>
     </view>
-    <view class="footer" wx:if="{{!config.city.show}}">
-        <city-selector></city-selector>
-    </view>
+    <navigator url="/pkgMap/pages/map/index" hover-class="none"  class="footer" >
+        <image src="{{config.mapIcon}}" />
+       <view>地图找房</view> 
+    </navigator>
 </view>

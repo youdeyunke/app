@@ -1,5 +1,7 @@
 /* components/pagemaker/header/module-box.wxss */
 .module-box{
-
-  box-sizing: border-box;
+  width:750rpx;
+  margin:0; 
+  height: auto;
+  padding:0;
 }

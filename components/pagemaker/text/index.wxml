@@ -1,4 +1,6 @@
 <!-- components/pagemaker/text/index.wxml -->
+<view class="outer">
 <text bindtap="clickHandle" style="line-height:{{lineHeight}};color:{{config.color}}; text-align:{{config.textAlign}}; font-weight:{{config.fontWeight}};font-size:{{fontSize}}" class="text-module">
     <text>{{config.text}}</text>
 </text>
+</view>

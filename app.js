@@ -10,7 +10,7 @@ App({
         EXT: EXT,
         myconfigs: null,
         system: {},
-        apiHost: 'http://weapp2.udeve.net:32021',
+        apiHost: 'http://192.168.31.66:20210',
         userInfo: null,
         token: null,
         cities: [],

@@ -1,5 +1,9 @@
 /* components/pagemaker/banners/index.wxss */
 
+.outer{
+    margin:16rpx auto;
+}
+
 .link {
     width: 100%;
     height: 100%;

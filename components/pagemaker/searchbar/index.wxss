@@ -1,7 +1,9 @@
 /* components/pagemaker/searchbar/index.wxss */
 
 .searchbar {
-    height: calc(76rpx - 4rpx);
+    height: 88rpx;
+    width:710rpx;
+    margin:16rpx auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,41 +15,49 @@
     justify-content: flex-start;
     align-items: center;
     height: 100%;
-    width: 75%;
+    width: 500rpx;
     padding: 0 20rpx;
 }
 
 .body-style-0 {
     border-radius: 8rpx;
     background: #F4F4F4;
-    box-shadow: 0px 0px 14rpx rgba(0, 0, 0, 0.2);
+
 }
 
 .body-style-1 {
     border-radius: 8rpx;
+    border:2rpx solid #f0f0f0;
+    box-shadow: 0 0 20rpx rgba(0,0,0, 0.15);
+    background:#fff;
 }
 
 .body-style-2 {
     border-radius: 80rpx;
-    box-shadow: 0px 0px 14rpx rgba(0, 0, 0, 0.2);
     background: #F4F4F4;
+    box-shadow: 0 0 20rpx rgba(0,0,0, 0.15);
 }
 
 .body-style-3 {
     border-radius: 80rpx;
+    background: #F4F4F4;
 }
 
 .searchbar .footer {
-    max-width: 120rpx;
-    min-width: 80rpx;
-    width: auto;
-    min-width: 100rpx;
+
     height: 40rpx;
     border-left: 2rpx solid #C1C1C1;
+    padding:0rpx 20rpx 0 20rpx;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     color: #1989fa;
+}
+
+.searchbar .footer image{
+    height:30rpx;
+    width:30rpx;
+    margin-right:8rpx;
 }
 
 .left-part {
