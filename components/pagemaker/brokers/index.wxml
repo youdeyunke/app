@@ -1,0 +1,18 @@
+  <scroll-view scroll-x="{{true}}">
+  <view class="brokers">
+      <navigator url="/pkgBroker/pages/broker/profile?id={{item.id}}" hover-class="none" class="broker-item" wx:for="{{items}}" wx:key="id">
+        <view class="right">
+          <van-image round width="100rpx" height="100rpx"  src="{{item.avatar}}?imageView2/5/h/100/w/100" lazy-load />
+          <view class="broker-name line-limit">{{ item.name }}</view>
+          <view class="broker-company line-limit">{{ item.company_name || '' }}</view>
+          <image class="bgcolor" src="/assets/images/broker-item.png" alt=""/>
+        </view>
+      </navigator>
+
+
+      <navigator url="/pkgBroker/pages/broker/index?" hover-class="none" class="broker-item more" >
+          <text>查看更多</text>
+      </navigator>
+
+  </view>
+</scroll-view>

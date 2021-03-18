@@ -18,7 +18,7 @@ module.exports = {
         switch (config.opentype) {
             case 'switchTab':
                 wx.switchTab({
-                    url: path,
+                url: path,
                 });
                 break;
             case 'navigateTo':
