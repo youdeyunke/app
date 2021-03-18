@@ -1,4 +1,5 @@
 
-<view style="display:flex;">
+<view class="outer">
   <image mode="widthFix"  src="{{config.url}}" style="width:{{widthValue}};margin:0 auto; padding:0;width:{{widthValue}};" />
+  <view bindtap="linkHandle" class="block" data-index="{{index}}" wx:for="{{blocks}}" wx:for-item="block" style="left:{{block.left}};top:{{block.top}};width:{{block.width}};height:{{block.height}}"></view>
 </view>

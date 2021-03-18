@@ -24,6 +24,13 @@ module.exports = {
             case 'navigateTo':
                 wx.navigateTo({
                     url: path,
+                    fail: function(){
+                        wx.showToast({
+                            icon: 'none',
+                          title: '页面不存在',
+                        
+                        })
+                    },
                 });
                 break;
         }

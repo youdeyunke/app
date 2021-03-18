@@ -1,4 +1,5 @@
 // components/pagemaker/banners/index.js
+const link = require("../link")
 Component({
   /**
    * 组件的属性列表
@@ -11,6 +12,18 @@ Component({
 
 
   observers: {
+
+    "config.blocks": function(blocks){
+        var val = blocks.map((block,index) => {
+            block.width = block.width*2 + 'rpx'
+            block.height = block.height*2 + 'rpx'
+            block.left = block.left*2 + 'rpx'
+            block.top = block.top*2 + 'rpx'
+            block.index = index + 1
+            return block
+        })
+        this.setData({blocks: val})
+    },
 
       "config.height": function(v){
           // 图片的高度值
@@ -46,7 +59,8 @@ Component({
       imageRadius: 'none', 
       widthValue: '710rpx',
       heightValue: 'auto',
-      borderRadiusValue: '0'
+      borderRadiusValue: '0',
+      blocks: [],
 
   },
 
@@ -54,6 +68,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
+
+    linkHandle: function(e){
+        var index = e.currentTarget.dataset.index 
+        var block = this.data.blocks[index]
+        link.clickHandle(block.link)
+    }
 
   }
 })
