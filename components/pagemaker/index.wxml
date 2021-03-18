@@ -16,6 +16,6 @@
         </module-box>
     </block>
     <view class="pagemaker-bg" style="background-color: {{pageConfig.bg.color}}">
-        <image wx:if="{{pageConfig.bg.image}}" src="{{pageConfig.bg.image }}" />
+        <image style="width:100%;" mode="widthFix" wx:if="{{pageConfig.bg.image}}" src="{{pageConfig.bg.image }}" />
     </view>
 </view>

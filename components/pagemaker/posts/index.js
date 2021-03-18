@@ -31,12 +31,16 @@ Component({
         loadPosts: function () {
             var _this = this
             var ids = this.data.config.ids || []
-            if (ids.length == 0) {
-                return
+            var albumId = this.data.config.albumId || 0
+            var f = this.data.config.dataFrom || 'ids'
+            var query = {  }
+            if(f == 'ids'){
+                query.ids = ids.join(',')
             }
-            var query = {
-                ids: ids.join(',')
+            if( f == 'album'){
+                query.album_id = albumId
             }
+
             app.request({
                 url: '/api/v1/posts/',
                 data: query,
