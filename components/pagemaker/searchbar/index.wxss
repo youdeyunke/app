@@ -24,7 +24,6 @@
     background: #F4F4F4;
 
 }
-
 .body-style-1 {
     border-radius: 8rpx;
     border:2rpx solid #f0f0f0;
@@ -32,16 +31,7 @@
     background:#fff;
 }
 
-.body-style-2 {
-    border-radius: 80rpx;
-    background: #F4F4F4;
-    box-shadow: 0 0 20rpx rgba(0,0,0, 0.15);
-}
 
-.body-style-3 {
-    border-radius: 80rpx;
-    background: #F4F4F4;
-}
 
 .searchbar .footer {
 

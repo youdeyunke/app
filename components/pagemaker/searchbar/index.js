@@ -27,6 +27,11 @@ Component({
             }
             this.setData({ bodyBgColor: bg })
         },
+
+        "config.radius": function(v){
+            var value = v ? v.value * 2 + 'rpx' : '0rpx'
+            this.setData({radiusValue: value})
+        },
     },
 
     /**
@@ -36,6 +41,7 @@ Component({
         text: '',
         textColor: '',
         bodyBgColor: '',
+        radiusValue: 'none'
     },
 
     /**

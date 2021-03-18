@@ -1,5 +1,3 @@
 <!-- components/pagemaker/header/module-box.wxml -->
 <view class="module-box" style="background-color: {{bgColor}}; background-image: {{bgImage }};">
-    <module-header wx:if="{{config.header}}" config="{{config.header}}"></module-header>
-    <slot></slot>
-</view>
+    <module-header wx:if="{{config.header}}" config="{{config.header}}"></module-header><slot></slot></view>

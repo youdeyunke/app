@@ -1,0 +1,4 @@
+
+<view>
+  <image mode="widthFix"  src="{{config.url}}" style="width:{{widthValue}};margin:0 auto; padding:0;width:{{widthValue}};" />
+</view>

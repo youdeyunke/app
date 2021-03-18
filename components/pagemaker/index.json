@@ -8,6 +8,7 @@
         "navs-module": "./navs/index",
         "searchbar-module": "./searchbar/index",
         "header-module": "./header/index",
+        "image-module": "./image/index",
         "posts-module": "./posts/index",
         "unknow-module": "unknow-module",
         "notice-module": "./notice/index",

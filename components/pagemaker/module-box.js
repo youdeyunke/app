@@ -24,8 +24,8 @@ Component({
                 return
             }
             // 设置背景
-            var bgColor = ''
-            var bgImage = ''
+            var bgColor = '#ffffff'
+            var bgImage = 'none'
             switch (bg.cat) {
                 case 'none':
                     bgColor = 'none'

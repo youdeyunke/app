@@ -4,4 +4,6 @@
   margin:0; 
   height: auto;
   padding:0;
+  border:none;
+  background:yellow;
 }

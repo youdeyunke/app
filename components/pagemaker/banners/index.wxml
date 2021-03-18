@@ -1,6 +1,6 @@
 <view class="outer" style="width:{{widthValue}}">
     
-    <swiper style="height:{{heightValue}};overflow:hidden;width:100%; border-radius:{{imageRadius}}" indicator-dots="{{items.length > 1}}" autoplay="{{ items.length > 1}}" interval="5000" duration="500" circular="{{items.length > 1}}" indicator-color="rgba(255,255,255,0.7)" autoplay indicator-active-color="#1989fa">
+    <swiper style="height:{{heightValue}};overflow:hidden;width:100%; border-radius:{{borderRadiusValue}}" indicator-dots="{{items.length > 1}}" autoplay="{{ items.length > 1}}" interval="5000" duration="500" circular="{{items.length > 1}}" indicator-color="rgba(255,255,255,0.7)" autoplay indicator-active-color="#1989fa">
         <swiper-item wx:key="{{index}}" wx:for="{{config.items}}" bindtap="goto" data-index="{{index}}">
             <link config="{{item.link}}" custom-style="link">
                 <image mode="scaleToFill" style="width:100%;height:100%;border-radius: {{ borderRadiusValue }}" src="{{item.url }}"></image>

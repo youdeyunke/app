@@ -11,42 +11,24 @@ Component({
 
 
     observers: {
-        "config.imageRadius": function (v) {
-            console.log('config radius', v)
-            if (!v) {
-                return
-            }
-            if (v.cat == 'off') {
-                return
-            }
-            var rpx = v.value * 2 + 'rpx'
-            this.setData({ imageRadius: rpx })
 
-        },
-
-        "config.height": function(h){
+        "config.height": function(v){
             // 图片的高度值
-            var rpx = h.value * 2 + 'rpx'
-            this.setData({heightValue: rpx})
+
+            var value = v ?  v.value * 2 + 'rpx' : 'auto'
+            this.setData({heightValue: value})
         },
 
         "config.radius": function(v){
             // 是否开启图片圆角效果
-            if(v == 'on'){
-                this.setData({borderRadiusValue: '16rpx'})
-            }
+            var value = v ?  v.value * 2 + 'rpx' : '0rpx'
+            this.setData({borderRadiusValue: value}) 
         },
 
-        "config.widthSize": function(w){
+        "config.widthSize": function(v){
             // 根据不同的宽度，设置具体的值
-            var v = 710 // full 
-            if(w == 'full'){
-                v = 750
-            }
-            if(w == 'small'){
-                v = 710
-            }
-            this.setData({widthValue: v + 'rpx'})
+            var value = v ?  v.value * 2 + 'rpx' : '710rpx'
+            this.setData({widthValue: value})
         }
     },
 

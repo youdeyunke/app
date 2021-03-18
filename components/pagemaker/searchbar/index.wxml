@@ -1,5 +1,5 @@
 <!-- components/pagemaker/searchbar/index.wxml -->
-<view class="searchbar  body-style-{{config.styleName }}">
+<view class="searchbar  body-style-{{config.styleName }}" style="border-radius:{{radiusValue}}">
     <view bindtap="gotoSearch" class="body">
         <view class="left-part">
             <search-icon url="{{config.searchIcon}}" style="margin-right:20rpx;" />

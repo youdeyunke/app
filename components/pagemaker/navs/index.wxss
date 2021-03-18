@@ -4,6 +4,9 @@
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
+    width:710rpx;
+    margin:16rpx auto;
+    padding:- 30rpx;
 }
 
 .list .item .icon {
@@ -75,7 +78,7 @@
 }
 
 .list.mode-4 .item {
-    margin-right: calc((100% - 500rpx) /3);
+    margin-right: calc((100% - 400rpx) /3);
 }
 
 .list.mode-4 .item:nth-child(4n) {
