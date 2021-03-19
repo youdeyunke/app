@@ -1,7 +1,7 @@
 {
     "usingComponents": {
-        "mytags": "/components/tags",
-        "post": "/components/post/item",
+
+        "post": "/components/post-item/cell/index",
         "box": "/components/box",
         "myslider": "/components/slider"
     }

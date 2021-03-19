@@ -1,6 +1,6 @@
 {
     "usingComponents": {
-        "mytags": "/components/tags",
+
         "raw-html": "/components/raw-html/index",
         "box": "/components/box",
         "mystars": "/components/stars"

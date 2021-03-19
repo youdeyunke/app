@@ -1,8 +1,0 @@
-<swiper class="hot" indicator-dots="ture" indicator-color="rgba(255,255,255,0.7)" autoplay="true" interval="5000" duration="500" circular="true">
-    <swiper-item>
-        <navigator url="/pkgPost/pages/show/index?id={{item.id}}" hover-class='none' class="item" wx:for="{{items}}">
-            <image class="cover" src="{{item.cover}}"></image>
-            <image wx:if="{{item.video}}" class="play" src="/assets/icons/bofang.png"></image>
-        </navigator>
-    </swiper-item>
-</swiper>

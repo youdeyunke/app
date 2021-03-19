@@ -846,6 +846,11 @@
           "pathName": "pkgPost/pages/desc/index",
           "query": "id=1",
           "scene": null
+        },
+        {
+          "name": "pages/post/index",
+          "pathName": "pages/post/index",
+          "scene": null
         }
       ]
     }

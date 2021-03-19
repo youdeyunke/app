@@ -103,9 +103,7 @@ Component({
                             data: post,
                         })
                     }
-                    var key = _this.data.cache
-                    wx.setStorage({ key: key, data: data['items'] })
-
+            
                 }
             })
         }

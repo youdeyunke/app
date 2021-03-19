@@ -2,6 +2,6 @@
     <image class="cover" src="{{post.cover}}" />
     <view class="title">{{post.title}}</view>
     <view class="price red">
-        {{post.average_price_info.label}}{{post.average_price_info.text}}{{post.average_price_info.px}}
+      {{post.average_price_info.text}}{{post.average_price_info.px}}
     </view>
 </navigator>

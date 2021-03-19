@@ -1,7 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "item": "/components/post/item",
+    "item": "/components/post-item/cell/index",
     "vant-notify": "/vant/notify/index",
     "vant-loading": "/vant/loading/index"
   }

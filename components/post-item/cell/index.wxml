@@ -7,15 +7,18 @@
         <view class="title">
             <text>{{post.title}}</text>
         </view>
+        <view class="price">
+            <text class="red">{{post.average_price_info.text}}{{post.average_price_info.px}}</text>
+
+        </view>       
         <view class="address">{{post.street}}</view>
         <view class="tags">
-            <van-tag text-color="{{item.color }}" size="mini" plain wx:for="{{post.tags}}" wx:key="item.id">
+            <van-tag color="#ECEFF6" text-color="#848CA1" size="mini"  wx:for="{{post.tags}}" wx:key="item.id">
                 {{item.name}}
             </van-tag>
         </view>
-        <view class="price">
-            <text class="red">{{post.average_price_info.text}}{{post.average_price_info.px}}</text>
-            <text>{{post.area_info.label}} {{post.area_info.text}}</text>
-        </view>
+    </view>
+    <view class="status">
+        <van-tag color="{{post.sale_status_item.color}}" text-color="#ffffff" size="mini">{{post.sale_status_item.name}}</van-tag>
     </view>
 </navigator>

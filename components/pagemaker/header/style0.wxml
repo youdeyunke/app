@@ -2,7 +2,7 @@
 <view class="header">
     <view class="title">
         <text>{{title}}</text>
-        <view class="hat"></view>
+        <!-- view class="hat"></view  -->
     </view>
     <view class="subtitle" bindtap="clickHandle">
         {{subtitle}}

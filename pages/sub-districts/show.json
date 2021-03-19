@@ -2,7 +2,7 @@
     "usingComponents": {
         "van-cell": "/vant/cell/index",
         "mapimage": "/components/map",
-        "posts": "/components/post/items",
+        "posts": "/components/post-items/index",
         "van-cell-group": "/vant/cell-group/index"
     }
 }

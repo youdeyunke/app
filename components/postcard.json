@@ -1,8 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "box": "/components/box",
-    "badge": "/components/badge",
-    "mytags": "/components/tags"
-  }
-}

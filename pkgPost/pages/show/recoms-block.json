@@ -1,6 +1,6 @@
 {
     "component": true,
     "usingComponents": {
-        "item": "/components/post/item-block"
+        "item": "/components/post-item/cell/index"
     }
 }

@@ -5,23 +5,27 @@
     width: 100%;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
-    font-size: 24rpx;
-    margin-bottom: 20rpx;
+    align-items: flex-start;
+    font-size: 28rpx;
+    margin-bottom: 30rpx;
+    padding-bottom:30rpx;
+    border-bottom:2rpx solid #f0f0f0;
+    position: relative;
+ 
 }
 
 .post .cover {
     width: 220rpx;
     height: 165rpx;
-    border-radius: 10rpx;
+    border-radius: 6rpx;
     overflow: hidden;
     margin-right: 20rpx;
 }
 
 .post .title text {
     color: #000;
-    margin-bottom: 10rpx;
-    font-size: 30rpx;
+    margin-bottom: 0rpx;
+    font-size: 34rpx;
     font-weight: bolder;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -29,6 +33,7 @@
     overflow-x: hidden;
     overflow-y: hidden;
     width: 400rpx;
+    margin-bottom:6rpx;
 }
 
 .post .title {
@@ -37,20 +42,19 @@
 }
 
 .post .price {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    margin-bottom:6rpx;
 }
 
 .post .address {
     color: #A0A0A0;
-    margin-bottom: 10rpx;
+    margin-bottom: 6rpx;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
     width: 400rpx;
+    font-size:24rpx;
 }
 
 .post .tags {
@@ -70,5 +74,20 @@
 
 .post .red {
     margin-right: 10rpx;
-    color: red;
+    color: #EF3C51;
+    font-weight: bold;
+    font-size:30rpx; 
 }
+
+.post .status{
+    position: absolute;
+    top:0;
+    right:10rpx;
+    padding:0 4rpx;
+}
+
+.post .status text{
+    font-size:24rpx;
+    scale: 0.8;
+}
+

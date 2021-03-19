@@ -4,7 +4,7 @@
         "van-tab": "/vant/tab/index",
         "van-tabs": "/vant/tabs/index",
         "namecard": "/components/broker/namecard",
-        "items": "/components/post/items",
+        "items": "/components/post-items/index",
         "box": "/components/box",
         "van-search": "/vant/search/index",
         "items":"./items"

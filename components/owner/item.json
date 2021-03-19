@@ -1,9 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "van-panel": "/vant/panel/index",
-    "van-button": "/vant/button/index",
-    "van-cell": "/vant/cell/index",
-    "van-cell-group": "/vant/cell-group/index"
-  }
-}
