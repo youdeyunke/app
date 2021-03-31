@@ -1,4 +1,4 @@
-<block wx:if="{{userInfo}}">
+<block >
 
   <view class="card-wrapper">
     <image src="../../images/bg.jpg"  class="card-wrapper-bg"/>

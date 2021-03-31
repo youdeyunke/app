@@ -19,11 +19,7 @@ Page({
         companies: [],
         company: { name: '', id: '' },
         state: '',
-        steps: [
-            '提交资料',
-            '开通会员',
-            '发布房源',
-        ],
+     
         successShow:false
     },
 

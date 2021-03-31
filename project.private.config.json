@@ -850,6 +850,18 @@
         {
           "name": "pages/post/index",
           "pathName": "pages/post/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "search",
+          "pathName": "pages/home/home",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pkgRanking/pages/ranking/index",
+          "pathName": "pkgRanking/pages/ranking/index",
           "scene": null
         }
       ]

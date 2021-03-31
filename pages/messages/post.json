@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "post-item": "/components/postcard"
+    "post-item": "/components/post-item/card/index"
   }
 }

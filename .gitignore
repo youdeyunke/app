@@ -2,6 +2,7 @@
 tpls/posts/mini_listing.wxml
 tpls/posts/mini_listing.wxss
 project.config.json
+project.private.config.json
 *.swp
 *.bac
 *.log
