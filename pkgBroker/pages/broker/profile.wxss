@@ -49,7 +49,7 @@ page{
     font-weight: bold;
 }
 .card-name{
-    width: 300rpx;
+    width: 188rpx;
     height: 55rpx;
     display: flex;
     align-items: center;

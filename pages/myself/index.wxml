@@ -72,5 +72,5 @@
 <cr /> -->
 
 
-<user-page></user-page>
-<!-- <broker-page></broker-page> -->
+<!-- <user-page></user-page> -->
+<broker-page></broker-page>

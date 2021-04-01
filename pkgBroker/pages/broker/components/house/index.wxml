@@ -4,7 +4,7 @@
   <view class="house-top">
     <view>
       <image class="house-image1" src="../../../../images/0.png"></image>
-      <image class="house-image2" src="../../../../images/11.png"></image>
+      <image class="house-image2" src="/assets/icons/VR.png"></image>
     </view>
     <view class="house-message">
       <view class="house-message-title">
@@ -47,7 +47,7 @@
       <image class="house-image4" src="../../../../images/6.png"></image>
       <text>楼盘动态</text>
     </navigator>
-    <navigator class="house-bottom-class">
+    <navigator class="house-bottom-class" url="/pkgYfyj/pages/yfyj/index">
       <image class="house-image4" src="../../../../images/7.png"></image>
       <text>一房一价</text>
     </navigator>

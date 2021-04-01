@@ -9,7 +9,8 @@ Page({
         brokerProfile: null,
         userId: null,
         likeNumber: '',
-        browses:''
+        browses: '',
+        level: ''
     },
     likeHandle: function () {
         var id = this.data.userId
@@ -42,28 +43,6 @@ Page({
             })
         }
     },
-    // viewHandle: function () {
-    //     var id = this.data.brokerProfile.id
-    //     var _this = this
-    //     var key = 'view.broker.' + id
-    //     if (wx.getStorageSync(key) == true) {
-    //         return
-    //     }
-
-    //     app.request({
-    //         method: 'POST',
-    //         data: {
-    //             broker_id: id
-    //         },
-    //         url: '/api/v1/brokers/view',
-    //         success: function (res) {
-    //             if (res.data.status != 0) {
-    //                 return
-    //             }
-    //             wx.setStorageSync(key, true)
-    //         }
-    //     })
-    // },
     callMe: function (e) {
         var mobile = this.data.userInfo.mobile
         if (!mobile) {
@@ -124,7 +103,8 @@ Page({
                 _this.setData({
                     brokerProfile: u,
                     likeNumber: u.like_nums,
-                    browses:u.view_nums
+                    browses: u.view_nums,
+                    level: u.level
                 })
                 // _this.viewHandle()
                 var title = u.name + "的主页"
@@ -134,6 +114,30 @@ Page({
                 console.log("uuu", u)
             }
         })
+    },
+    qrHandle: function () {
+        var code = this.data.brokerProfile.wechat_qr
+        console.log("二维码路径:", code)
+        if (code == null) {
+            wx.showToast({
+                title: '对方还没有上传二维码',
+                icon: 'none'
+            })
+        } else {
+            wx.downloadFile({
+                url: code,
+                success(res) {
+                    wx.saveImageToPhotosAlbum({
+                        filePath: res.tempFilePath,
+                        success(res) {
+                            wx.showToast({
+                                title: '保存二维码成功',
+                            })
+                        }
+                    })
+                }
+            })
+        }
     },
 
 
