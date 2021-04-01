@@ -12,7 +12,7 @@ Page({
         browses:''
     },
     likeHandle: function () {
-        var id = this.data.brokerProfile.id
+        var id = this.data.userId
         var _this = this
         if (wx.getStorageSync('storage' + id) == true) {
             wx.showToast({

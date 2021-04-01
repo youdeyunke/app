@@ -56,6 +56,7 @@ Component({
               data: query, 
               hideLoading: true,
               success: function(resp){
+                  
                   _this.setData({
                       loading: false, 
                       items: resp.data.data,
