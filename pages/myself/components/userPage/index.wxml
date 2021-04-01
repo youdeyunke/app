@@ -1,0 +1,24 @@
+<image class="user-image1" src="../../images/1.png"></image>
+<image class="user-image2" src="../../images/4.png"></image>
+<person class="person"></person>
+<view class="user-box">
+  <view class="person-fn">
+    <view class="person-fn-class"  bindtap="navigatetTo" data-url="/pages/myself/favposts">
+      <image class="user-image3" src="../../images/11.png"></image>
+      <view>我的收藏</view>
+    </view>
+    <view class="person-fn-class">
+      <image class="user-image3" src="../../images/10.png"></image>
+      <view>我的订阅</view>
+    </view>
+    <navigator class="person-fn-class" url="/pkgQa/pages/qa/mine" >
+      <image class="user-image3" src="../../images/12.png"></image>
+      <view>我的问答</view>
+    </navigator>
+    <view class="person-fn-class">
+      <image class="user-image3" src="../../images/13.png"></image>
+      <view>访问足迹</view>
+    </view>
+  </view>
+  <operation></operation>
+</view>

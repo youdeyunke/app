@@ -1,0 +1,41 @@
+<!--pages/myself/images/components/brokerPage/index.wxml-->
+<image class="broker-image1" src="../../images/14.png"></image>
+<image class="broker-image2" src="../../images/4.png"></image>
+<view class="broker-box">
+  <view class="broker-left">
+    <image class="broker-image3" src="/assets/images/default-avatar.png"></image>
+    <view class="broker-message">
+      <view class="broker-message-nav">
+        <text class="broker-text1">刘经理</text>
+        <image class="broker-image4" src="../../images/medal/1.png"></image>
+        <text class="broker-text2">70046积分</text>
+        <image class="broker-image5" src="../../images/2.png"></image>
+      </view>
+      <text class="broker-text3">这个人很懒什么都没有留下~</text>
+    </view>
+  </view>
+  <view class="broker-right">
+    <text>修改资料</text>
+    <image class="broker-image6" src="../../images/3.png"></image>
+  </view>
+</view>
+<view class="broker-fun">
+  <view class="broker-fun-class">
+    <view class="broker-fun-class-view1">999</view>
+    <view>今日访客</view>
+  </view>
+  <view class="broker-fun-class">
+    <view class="broker-fun-class-view1">55</view>
+    <view>我的预约</view>
+  </view>
+  <view class="broker-fun-class">
+    <view class="broker-fun-class-view1">109</view>
+    <view>我的收藏</view>
+  </view>
+</view>
+<brokeroperation></brokeroperation>
+<view class="broker-emphasis">
+  <text class="broker-text4">重点功能</text>
+  <brokeroperation></brokeroperation>
+</view>
+<operation></operation>

@@ -1,0 +1,13 @@
+<view class="person-box">
+  <view class="person-left">
+    <image class="person-image1" src="/assets/images/default-avatar.png"></image>
+    <view class="person-message">
+      <view>刘女士</view>
+      <text class="person-text1">这个人很懒什么都没有留下~</text>
+    </view>
+  </view>
+  <view class="person-right">
+    <text>修改资料</text>
+    <image class="person-image3" src="../../images/3.png"></image>
+  </view>
+</view>

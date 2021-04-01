@@ -1,0 +1,129 @@
+/* pkgBroker/pages/broker/components/house/index.wxss */
+.house-box{
+  width:750rpx ;
+  height: 415rpx;
+  margin-left: -19rpx;
+  padding-left:20rpx ;
+  box-sizing: border-box;
+  padding-right: 20rpx;
+  border-bottom: 1rpx solid #EAEAEA;
+  margin-top: 27rpx;
+}
+.house-top{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.house-image1{
+  width:220rpx ;
+  height: 165rpx;
+  border-radius: 10rpx;
+}
+.house-image2{
+  width:30rpx ;
+  height:30rpx ;
+  position: absolute;
+  top: 127rpx;
+  left: 178rpx;
+}
+.house-message{
+  width:457rpx ;
+  height: 230rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.house-message-title{
+  width:457rpx ;
+  height: 45rpx;
+  display: flex;
+  justify-content: space-between;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333333;
+}
+.house-text1{
+  width:59rpx ;
+  height: 36rpx;
+  border: 1rpx solid #1989FA;
+  color:#1989FA ;
+  font-size: 24rpx;
+  text-align: center;
+  display: inline-block;
+  border-radius: 5rpx;
+}
+.house-message-site{
+  width: 152rpx;
+  height: 34rpx;
+  font-size: 24rpx;
+  color:#A0A0A0 ;
+  display: flex;
+  justify-content: space-between;
+}
+.house-trait{
+  height:38rpx ;
+  font-size:24rpx ;
+  display: flex;
+  justify-content: space-between;
+}
+.house-trait text{
+  width:137rpx ;
+  height:35rpx ;
+  display: inline-block;
+  text-align: center;
+  border-radius: 5rpx;
+}
+.house-text2{
+  border: 1rpx solid #FE7373;
+  color: #FE7373;
+}
+.house-text3{
+  border: 1rpx solid #95C88D;
+  color: #95C88D;
+}
+.house-text4{
+  border: 1rpx solid #FDD08D;
+  color: #FDD08D;
+}
+.house-area text:nth-of-type(1){
+  font-size: 28rpx;
+  color:#E82525 ;
+  font-weight: bold;
+  margin-right: 20rpx;
+}
+.house-area text:nth-of-type(2){
+  font-size:24rpx ;
+  color: #333333;
+}
+.house-money{
+  height: 37rpx;
+  background-color: #FFE3E3;
+  display: flex;
+  align-items: center;
+}
+.house-image3{
+  width: 28rpx;
+  height:28rpx ;
+  margin:12rpx ;
+}
+.house-money text{
+  color: #FF4040;
+  font-size: 24rpx;
+}
+.house-bottom{
+  height:180rpx ;
+  margin-top: 10rpx;
+  display: flex;
+}
+.house-image4{
+  width:80rpx;
+  height: 80rpx;
+  margin-bottom: 10rpx;
+}
+.house-bottom-class{
+  width:150rpx ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20rpx;
+}

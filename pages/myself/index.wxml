@@ -1,4 +1,4 @@
-<view class="user">
+<!-- <view class="user">
     <view class="uinfo">
         <view class="avatar">
             <image hidden="{{!userInfo.avatar}}" src="{{userInfo.avatar}}?imageView2/5/h/100/w/100"></image>
@@ -43,7 +43,6 @@
         <van-cell  url="/pages/myself/booking" size="large" is-link hover-class="none" title="我的预约" >
             <image slot="icon" mode="widthFix" class="icons" src="/assets/icons/myself/booking.png" ></image>
         </van-cell>
-        <!-- van-cell icon="bill-o" url="/pages/myself/orders" size="large" is-link  hover-class="none" title="我的订单"  / -->
         <van-cell border="{{false}}"  url="/pkgQa/pages/qa/mine" size="large" is-link hover-class="none" title="我的问答" >
             <image slot="icon" mode="widthFix" class="icons" src="/assets/icons/myself/question.png" ></image>
         </van-cell>
@@ -70,4 +69,8 @@
     </view>
     <ad-link width="710" mini />
 </block>
-<cr />
+<cr /> -->
+
+
+<user-page></user-page>
+<!-- <broker-page></broker-page> -->

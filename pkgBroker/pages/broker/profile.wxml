@@ -1,4 +1,4 @@
-<block >
+<!-- <block >
 
   <view class="card-wrapper">
     <image src="../../images/bg.jpg"  class="card-wrapper-bg"/>
@@ -48,4 +48,60 @@
     <van-button open-type="share" icon="gift-o" type="info" block >分享名片</van-button>
 </view>
 
-<cr />
+<cr /> -->
+
+
+
+<image class="profile-image1" src="../../images/1.png"></image>
+<view class="profile-card">
+  <image class="profile-image2" src="{{brokerProfile.avatar}}"></image>
+  <image class="profile-image3" src="../../images/2.png"></image>
+  <view class="card-message">
+    <view class="card-message-top">
+      <view class="card-name">
+        <text>{{brokerProfile.name}}</text>
+        <image class="profile-image4" src="../../images/medal/1.png"></image>
+        <image class="profile-image5" src="../../images/medal/2.png"></image>
+        <image class="profile-image6" src="../../images/medal/3.png"></image>
+        <image class="profile-image7" src="../../images/13.png"></image>
+      </view>
+
+
+
+      <block wx:if="{{brokerProfile.wechat!=null}}">
+        <view class="card-wechat" >
+          <text>微信：{{brokerProfile.wechat}}</text>
+          <image src="../../images/3.png" bindtap="copyWechat"></image>
+        </view>
+      </block>
+
+
+
+    </view>
+    <view class="card-message-bottom">{{brokerProfile.desc}}</view>
+  </view>
+  <text class="profile-text1">{{browses}}</text>
+  <view class="profile-position">
+    <view class="profile-position-top">
+      <view></view>
+      <button open-type="share"></button>
+      <view bindtap="likeHandle"></view>
+    </view>
+    <!-- 事件绑定 -->
+    <view class="profile-position-bottom">
+      <text>加好友</text>
+      <text>转发</text>
+      <view class="profile-position-bottom-nav">
+        <text>赞</text>
+        <text class="profile-text2">{{likeNumber}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="profile-house">主营楼盘</view>
+  <house></house>
+  <house></house>
+  <view class="profile-fun">
+    <image src="../../images/10.png"></image>
+    <image src="../../images/9.png"></image>
+  </view>
+</view>

@@ -9,6 +9,8 @@
         "post": "/components/post-item/cell/index",
         "box": "/components/box",
         "van-cell": "/vant/cell/index",
-        "van-cell-group": "/vant/cell-group/index"
+        "van-cell-group": "/vant/cell-group/index",
+        "user-page":"./components/userPage",
+        "broker-page":"./components/brokerPage/index"
     }
 }

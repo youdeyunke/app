@@ -2,27 +2,68 @@
 const app = getApp()
 
 Page({
-
     /**
      * 页面的初始数据
      */
     data: {
-        userInfo: null,
-        filter: { user_id: '', order: 'id desc', group_v2: 'old', per_page: 5 },
+        brokerProfile: null,
         userId: null,
-        currentTabIndex: 0,
-        page: 1,
-        icons: [
-            { id: 'mobile', bindtap: "callMe" },
-            { id: 'wechat', bindtap: 'copyWechat' },
-        ],
-        tabs: [],
-        val: '',
-        inputVal: ''
+        likeNumber: '',
+        browses:''
     },
+    likeHandle: function () {
+        var id = this.data.brokerProfile.id
+        var _this = this
+        if (wx.getStorageSync('storage' + id) == true) {
+            wx.showToast({
+                title: '您已经点过赞了',
+                icon: 'none',
+            })
+        } else {
+            app.request({
+                method: 'POST',
+                data: {
+                    broker_id: id
+                },
+                url: '/api/v1/brokers/like',
+                success: function (res) {
+                    if (res.data.status != 0) {
+                        return
+                    }
+                    wx.showToast({
+                        icon: 'none',
+                        title: "点赞+1",
+                    })
+                    _this.setData({
+                        likeNumber: res.data.data,
+                    })
+                    wx.setStorageSync('storage' + id, true)
+                }
+            })
+        }
+    },
+    // viewHandle: function () {
+    //     var id = this.data.brokerProfile.id
+    //     var _this = this
+    //     var key = 'view.broker.' + id
+    //     if (wx.getStorageSync(key) == true) {
+    //         return
+    //     }
 
-
-
+    //     app.request({
+    //         method: 'POST',
+    //         data: {
+    //             broker_id: id
+    //         },
+    //         url: '/api/v1/brokers/view',
+    //         success: function (res) {
+    //             if (res.data.status != 0) {
+    //                 return
+    //             }
+    //             wx.setStorageSync(key, true)
+    //         }
+    //     })
+    // },
     callMe: function (e) {
         var mobile = this.data.userInfo.mobile
         if (!mobile) {
@@ -35,66 +76,62 @@ Page({
     },
 
     copyWechat: function (e) {
-        var wechat = this.data.userInfo.wechat
-        if (!wechat) {
-            return false
-        }
-
+        var wechat = this.data.brokerProfile.wechat
         wx.setClipboardData({
             data: wechat,
-            success: function (res) {
-                wx.showTosta({
+            success: (result) => {
+                wx.showToast({
                     title: '微信号已复制',
-                    icon: 'none',
-                })
-            }
-        })
+                    icon: 'success',
+                    image: '',
+                    duration: 1500,
+                    mask: false,
+                    success: (result) => {
+
+                    },
+                    fail: () => {},
+                    complete: () => {}
+                });
+            },
+            fail: () => {},
+            complete: () => {}
+        });
     },
 
-    tabChange: function (e) {
-        var i = e.detail.name
-        var tab = this.data.tabs[i]
-        var filter = this.data.filter
-        filter['group_v2'] = tab.value
-        this.setData({
-            page: 1,
-            filter: filter
-        })
-    },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
         var _this = this
-        var filter = this.data.filter
-        app.ensureConfigs((configs) => {
-            var tabs = configs['post_groups']
-            filter['user_id'] = q.id
-            filter['group_v2'] = tabs[0].value
-            _this.setData({
-                tabs: tabs,
-                userId: q.id,
-                filter: filter,
-            }, function () {
-                _this.loadUserInfo()
-            })
-            app.markVisitor(null, q.id, 'user')
+        _this.setData({
+            userId: q.id,
+
+        }, function () {
+            _this.loadBrokerProfile()
         })
+
+        app.markVisitor(null, q.id, 'user')
     },
 
-    loadUserInfo: function () {
+    loadBrokerProfile: function () {
         var uid = this.data.userId
         var _this = this
         app.request({
-            url: '/api/v1/users/' + uid,
+            url: '/api/v1/brokers/' + uid,
             success: function (resp) {
                 var u = resp.data.data
-                _this.setData({ userInfo: u })
-                var title = u.name + "的名片"
+                _this.setData({
+                    brokerProfile: u,
+                    likeNumber: u.like_nums,
+                    browses:u.view_nums
+                })
+                // _this.viewHandle()
+                var title = u.name + "的主页"
                 wx.setNavigationBarTitle({
                     title: title
                 })
+                console.log("uuu", u)
             }
         })
     },
@@ -114,7 +151,9 @@ Page({
         })
     },
     searchTextInput(e) {
-        this.setData({ val: e.detail })
+        this.setData({
+            val: e.detail
+        })
     },
     clearSearch() {
         var filter = this.data.filter
