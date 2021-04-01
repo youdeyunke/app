@@ -27,8 +27,6 @@ page {
     width: 370rpx;
 }
 
-.user .user-actions {}
-
 .mybutton {
     display: flex;
     justify-content: center;

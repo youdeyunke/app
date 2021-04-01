@@ -1,0 +1,45 @@
+.user-image1{
+  width:750rpx ;
+  height:400rpx ;
+  position: fixed;
+  z-index: -1;
+}
+.user-image2{
+  width: 41rpx;
+  height: 41rpx;
+  margin-top: 35rpx;
+  margin-left: 675rpx;
+  margin-bottom: 30rpx;
+}
+.user-box{
+  background-color: #fff;
+  height: 1135rpx;
+  margin: 0 auto;
+}
+.person-fn{
+  width:710rpx ;
+  height:197rpx ;
+  background-color: #fff;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 10rpx;
+  box-shadow: 0rpx 30rpx 18rpx rgba(0, 0, 0, .15);
+  margin-top: 62rpx;
+  margin-bottom: 85rpx;
+}
+.person-fn-class{
+  width: 177rpx;
+  height: 197rpx;
+  padding-top: 30rpx; 
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24rpx;
+}
+.user-image3{
+  width: 80rpx;
+  height: 80rpx;
+  margin-bottom: 15rpx;
+}

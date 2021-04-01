@@ -1,138 +1,143 @@
-page {
-    background: #fff !important;
-    padding-bottom: 140rpx !important;
+page{
+    background-color: #fff !important;
 }
-
-.card-wrapper {
-    width: 750rpx;
-    height: 550rpx;
-    position: relative;
-    overflow: hidden;
-}
-
-.card-wrapper-bg {
-    width: 750rpx;
-    height: 382rpx;
+.profile-image1{
+    width:750rpx ;
+    height:400rpx ;
     position: absolute;
     top: 0;
-    left: 0;
     z-index: -1;
 }
-.user-bg{
+.profile-card{
     width: 710rpx;
-    height: 314rpx;
-    position: absolute;
-    left: 20rpx;
-    top: 208rpx;
-    z-index: 2;
-    border-radius: 20rpx;
+    margin: 0 auto;
+    margin-top: 120rpx;
 }
-.avatar{
-    width: 158rpx;
-    height: 158rpx;
-    border: 6rpx solid #FDEBBD;
-    position: absolute;
-    top: 114rpx;
-    left: 57rpx;
+.profile-image2{
+    width:163rpx ;
+    height:163rpx ;
     border-radius: 50%;
-    z-index: 3;
+    border:6rpx solid #FDEBBD ;
+    margin-left: 35rpx;
+    z-index: 5;
+    position: relative;
 }
-.name{
+.profile-image3{
+    width: 710rpx;
+    height:315rpx ;
+    margin-top: -80rpx;
+}
+.card-message{
+    width: 300rpx;
+    height: 180rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 294rpx;
+    left: 70rpx;
+}
+.card-message-top{
+    width: 300rpx;
+    height: 90rpx;
+}
+.card-message-bottom{
+    width:220rpx ;
+    height: 55rpx;
+    font-size: 22rpx;
+    color: #3F3F3F;
+    font-weight: bold;
+}
+.card-name{
+    width: 300rpx;
+    height: 55rpx;
+    display: flex;
+    align-items: center;
     font-size: 38rpx;
     color: #333333;
-    position: absolute;
-    top: 292rpx; left: 82rpx;
-    z-index: 3;
-    display: flex;
-    align-items: center;
+    justify-content: space-around;
 }
-.name-icon{
-    width: 36rpx;
-    height: 36rpx;
-    margin-left: 8rpx;
-}
-.body {
-    width: 100%;
-    padding-top: 0rpx;
-}
-
-.footer {
-    padding: 30rpx;
-    width: 690rpx;
-    background: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    bottom: 0rpx;
-    z-index:999;
-    border-top:2rpx solid #f9f9f9;
-    left: 0rpx;
-}
-
-.footer van-button {
-    width: 45%;
-}
-.weixin{
-    color: #333333;
+.card-wechat{
     font-size:24rpx ;
-    position: absolute;
-    top: 346rpx; left: 82rpx;
-    z-index: 3;
+    color: #333333;
+    width:262rpx ;
+    height:32rpx ;
     display: flex;
-    align-items: baseline;
-}
-.weixin-icon{
-    width: 26rpx;
-    height: 26rpx;
-    margin-left: 14rpx;
-}
-.desc{
-    width: 330rpx;
-    height: 62rpx;
-    font-size: 24rpx;
-    position: absolute;
-    top: 414rpx;
-    left: 82rpx;
-    z-index: 3;
-}
-.haoyou{
-    position: absolute;
-    top: 280rpx; left: 490rpx;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
 }
-.haoyou-icon{
-    width: 66rpx;
-    height: 66rpx;
-    background: #FFF4D7;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.card-wechat image{
+    width: 25rpx;
+    height: 25rpx;
 }
-.haoyou-text{
+.profile-image4,.profile-image5,.profile-image6,.profile-image7{
+    width:35rpx ;
+    height:35rpx ;
+}
+.profile-text1{
     font-size: 24rpx;
     color: #3F3F3F;
-    margin-top: 13rpx;
-}
-.zhuanfa{
     position: absolute;
-    top: 280rpx; left: 612rpx;
-    z-index: 3;
+    top: 301rpx;
+    right: 89rpx;
+}
+.profile-position{
+    width: 303rpx;
+    height: 110rpx;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.liulan{
-    font-size: 22rpx;
-    color: #333333;
+    justify-content: space-between;
     position: absolute;
-    z-index: 3;
-    top: 448rpx;
-    left: 536rpx;
+    top: 371rpx;
+    right: 63rpx;
+}
+.profile-position-top,.profile-position-bottom{
+    display: flex;
+    justify-content: space-between;
+    font-size: 24rpx;
+    color: #3F3F3F;
+}
+.profile-position-bottom{
+    width:310rpx ;
+}
+.profile-position-bottom-nav{
+    width:80rpx ;
+    display: flex;
+    justify-content: space-around;
+}
+.profile-position-top view:nth-of-type(1),.profile-position-top view:nth-of-type(2){
+    width: 66rpx;
+    height:66rpx ;
+    border-radius: 50%;
+}
+button{
+    width: 66rpx;
+    height:66rpx ;
+    border-radius: 50%;
+    background-color: transparent;
+}
+button::after {
+    border: none;
+  }
+.profile-text2{
+    color: white;
+    margin-left: 4rpx;
+}
+.profile-house{
+    font-size:34rpx ;
+    font-weight: bold;
+    color: #333333;
+    margin-top: 50rpx;
+}
+.profile-fun{
+    width: 750rpx;
+    height:150rpx ;
+    padding-top: 30rpx;
+}
+.profile-fun image{
+    width:327rpx ;
+    height:92rpx ;
+}
+.profile-fun image:nth-of-type(1){
+    margin-right: 55rpx;
 }

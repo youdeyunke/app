@@ -1,0 +1,45 @@
+<!--pages/myself/components/brokeroperation/index.wxml-->
+<view class="broker-operation-box">
+  <view class="broker-operation">
+    <view class="broker-operation-class">
+      <image class="broker-image7" src="../../images/15.png"></image>
+      <view>发布租房</view>
+    </view>
+    <view class="broker-operation-class">
+      <image class="broker-image7" src="../../images/16.png"></image>
+      <view>我的房源</view>
+    </view>
+    <view class="broker-operation-class">
+      <image class="broker-image7" src="../../images/18.png"></image>
+      <view>预约看房</view>
+    </view>
+  </view>
+  <view class="broker-operation">
+    <view class="broker-operation-class">
+      <image class="broker-image7" src="../../images/19.png"></image>
+      <view>访客足迹</view>
+    </view>
+    <view class="broker-operation-class">
+      <image class="broker-image7" src="../../images/17.png"></image>
+      <view>求购客源</view>
+    </view>
+    <view class="broker-operation-class">
+      <image class="broker-image7" src="../../images/17.png"></image>
+      <view>求租客源</view>
+    </view>
+  </view>
+  <view class="broker-operation">
+    <view class="broker-operation-class">
+      <image class="broker-image7" src="../../images/15.png"></image>
+      <view>我的客源</view>
+    </view>
+    <view class="broker-operation-class">
+      <image class="broker-image7" src="../../images/16.png"></image>
+      <view>我的档案</view>
+    </view>
+    <view class="broker-operation-class">
+      <image class="broker-image7" src="../../images/18.png"></image>
+      <view>积分商城</view>
+    </view>
+  </view>
+</view>

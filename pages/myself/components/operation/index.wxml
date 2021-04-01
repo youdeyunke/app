@@ -1,0 +1,37 @@
+<view class="operation-box">
+  <view class="operation-class">
+    <view class="operation-class-nav">
+      <image class="operation-image1" src="../../images/6.png"></image>
+      <text>客服电话</text>
+    </view>
+    <image class="operation-image2" src="../../images/2.png"></image>
+  </view>
+  <view class="operation-class">
+    <view class="operation-class-nav">
+      <image class="operation-image1" src="../../images/5.png"></image>
+      <text>客服微信</text>
+    </view>
+    <image class="operation-image2" src="../../images/2.png"></image>
+  </view>
+  <view class="operation-class" bindtap="clearCache">
+    <view class="operation-class-nav">
+      <image class="operation-image1" src="../../images/7.png"></image>
+      <text>清除缓存</text>
+    </view>
+    <text class="operation-text1">{{cache.currentSize}}kb</text>
+  </view>
+  <view class="operation-class" bindtap="openAuthSetting">
+    <view class="operation-class-nav">
+      <image class="operation-image1" src="../../images/8.png"></image>
+      <text>微信权限</text>
+    </view>
+    <image class="operation-image2" src="../../images/2.png"></image>
+  </view>
+  <view class="operation-class" bindtap="logoutHandle">
+    <view class="operation-class-nav">
+      <image class="operation-image1" src="../../images/9.png"></image>
+      <text>退出登录</text>
+    </view>
+    <image class="operation-image2" src="../../images/2.png"></image>
+  </view>
+</view>

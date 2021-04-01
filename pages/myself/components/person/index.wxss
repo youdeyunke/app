@@ -1,0 +1,45 @@
+/* pages/myself/components/person/index.wxss */
+image{
+  vertical-align: top;
+}
+.person-box{
+  width:710rpx ;
+  height: 121rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.person-image1{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+.person-message{
+  width: 330rpx;
+  height:120rpx ;
+  font-size: 40rpx;
+  color: white;
+  margin-left: 19rpx;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.person-text1{
+  font-size:24rpx ;
+}
+.person-right{
+  width:130rpx ;
+  height:35rpx ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20rpx;
+  font-size: 24rpx;
+  color: white;
+}
+.person-image3{
+  width:25rpx ;
+  height:25rpx ;
+}

@@ -862,6 +862,19 @@
         {
           "name": "pkgRanking/pages/ranking/index",
           "pathName": "pkgRanking/pages/ranking/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的页面",
+          "pathName": "pages/myself/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "经纪人首页",
+          "pathName": "pkgBroker/pages/broker/profile",
+          "query": "id=1",
           "scene": null
         }
       ]

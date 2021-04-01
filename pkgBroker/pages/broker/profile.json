@@ -7,6 +7,7 @@
         "items": "/components/post-items/index",
         "box": "/components/box",
         "van-search": "/vant/search/index",
-        "items":"./items"
+        "items":"./items",
+        "house":"./components/house/index"
     }
 }

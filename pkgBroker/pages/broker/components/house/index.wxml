@@ -1,0 +1,55 @@
+<!--pkgBroker/pages/broker/components/house/index.wxml-->
+<!-- <text>pkgBroker/pages/broker/components/house/index.wxml</text> -->
+<view class="house-box">
+  <view class="house-top">
+    <view>
+      <image class="house-image1" src="../../../../images/0.png"></image>
+      <image class="house-image2" src="../../../../images/11.png"></image>
+    </view>
+    <view class="house-message">
+      <view class="house-message-title">
+        <text>兴城花园</text>
+        <text class="house-text1">在售</text>
+      </view>
+      <view class="house-message-site">
+        <text>宝鸡市</text>
+        <text>金台区</text>
+      </view>
+      <view class="house-trait">
+        <text class="house-text2">学区</text>
+        <text class="house-text3">品质楼盘</text>
+        <text class="house-text4">知名开发商</text>
+      </view>
+      <view class="house-area">
+        <text>3.9万/m²</text>
+        <text>面积：1000m²-1500m²</text>
+      </view>
+      <view class="house-money">
+        <image class="house-image3" src="../../../../images/12.png"></image>
+        <text>3万5+3%</text>
+      </view>
+    </view>
+  </view>
+  <view class="house-bottom">
+    <navigator class="house-bottom-class">
+      <image class="house-image4" src="../../../../images/8.png"></image>
+      <text>置业顾问</text>
+    </navigator>
+    <navigator class="house-bottom-class">
+      <image class="house-image4" src="../../../../images/4.png"></image>
+      <text>户型图</text>
+    </navigator>
+    <navigator class="house-bottom-class">
+      <image class="house-image4" src="../../../../images/5.png"></image>
+      <text>周边配套</text>
+    </navigator>
+    <navigator class="house-bottom-class">
+      <image class="house-image4" src="../../../../images/6.png"></image>
+      <text>楼盘动态</text>
+    </navigator>
+    <navigator class="house-bottom-class">
+      <image class="house-image4" src="../../../../images/7.png"></image>
+      <text>一房一价</text>
+    </navigator>
+  </view>
+</view>
