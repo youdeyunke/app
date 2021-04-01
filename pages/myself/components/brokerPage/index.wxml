@@ -3,7 +3,7 @@
 <image class="broker-image2" src="../../images/4.png"></image>
 <view class="broker-box">
   <view class="broker-left">
-    <image class="broker-image3" src="/assets/images/default-avatar.png"></image>
+    <image class="broker-image3" src="/assets/images/no-result.png"></image>
     <view class="broker-message">
       <view class="broker-message-nav">
         <text class="broker-text1">刘经理</text>

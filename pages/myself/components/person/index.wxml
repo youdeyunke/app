@@ -1,6 +1,6 @@
 <view class="person-box">
   <view class="person-left">
-    <image class="person-image1" src="/assets/images/default-avatar.png"></image>
+    <image class="person-image1" src="/assets/images/no-result.png"></image>
     <view class="person-message">
       <view>刘女士</view>
       <text class="person-text1">这个人很懒什么都没有留下~</text>
