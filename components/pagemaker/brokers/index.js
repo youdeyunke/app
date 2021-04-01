@@ -45,10 +45,10 @@ Component({
           // TODO 根据id查询
           var _this = this
           var query = {}
-          //var ids = this.data.config.ids 
-          //if(ids){
-          //    query.ids = ids.join(',')
-          //}
+          var ids = this.data.config.ids 
+          if(ids){
+              query.ids = ids.join(',')
+          }
           var _this = this
           this.setData({loading: true})
           app.request({
