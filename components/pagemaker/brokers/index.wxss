@@ -5,10 +5,15 @@
     justify-content: flex-start;
     width:750rpx;
     height:320rpx;
-    padding: 0rpx 10rpx;
+    padding: 0rpx 20rpx;
     box-sizing: border-box;
     margin:0rpx auto;
  
+}
+
+.avatar{
+    border:4rpx solid #fff;
+    background:#fff;
 }
 
 .line-limit {

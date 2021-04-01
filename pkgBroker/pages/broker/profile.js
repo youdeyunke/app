@@ -12,10 +12,37 @@ Page({
         browses: '',
         level: ''
     },
+
+    viewHandle: function () {
+        var id = this.data.userId
+        var _this = this
+        var key = 'broker_be_vied.' + id
+        if (wx.getStorageSync(key) == true) {
+            return
+        }
+
+            app.request({
+                method: 'POST',
+                hideLoading: true,
+                data: {
+                    broker_id: id
+                },
+                url: '/api/v1/brokers/view',
+                success: function (res) {
+                    if (res.data.status != 0) {
+                        return
+                    }
+                    wx.setStorageSync(key, true)
+                }
+            })
+
+    },
+
     likeHandle: function () {
         var id = this.data.userId
         var _this = this
-        if (wx.getStorageSync('storage' + id) == true) {
+        var key = 'broker_be_liked' + id
+        if (wx.getStorageSync(key) == true) {
             wx.showToast({
                 title: '您已经点过赞了',
                 icon: 'none',
@@ -38,7 +65,7 @@ Page({
                     _this.setData({
                         likeNumber: res.data.data,
                     })
-                    wx.setStorageSync('storage' + id, true)
+                    wx.setStorageSync(key, true)
                 }
             })
         }
@@ -91,6 +118,7 @@ Page({
         })
 
         app.markVisitor(null, q.id, 'user')
+        this.viewHandle()
     },
 
     loadBrokerProfile: function () {
@@ -99,6 +127,11 @@ Page({
         app.request({
             url: '/api/v1/brokers/' + uid,
             success: function (resp) {
+                // 有可能没有开通个人主页
+                if(resp.data.status != 0){
+                    // TODO 显示未开通主页的情况
+                    return
+                }
                 var u = resp.data.data
                 _this.setData({
                     brokerProfile: u,
@@ -139,33 +172,9 @@ Page({
             })
         }
     },
+    
+   
 
-
-    setPageTitle: function () {
-        var _this = this
-        wx.setNavigationBarTitle({
-            title: ''
-        })
-    },
-    loadPosts() {
-        var filter = this.data.filter
-        filter['kw'] = this.data.val
-        this.setData({
-            filter: filter
-        })
-    },
-    searchTextInput(e) {
-        this.setData({
-            val: e.detail
-        })
-    },
-    clearSearch() {
-        var filter = this.data.filter
-        filter['kw'] = ''
-        this.setData({
-            filter: filter
-        })
-    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -201,15 +210,7 @@ Page({
 
     },
 
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-        var _this = this
-        this.setData({
-            page: _this.data.page + 1
-        })
-    },
+
 
     /**
      * 用户点击右上角分享
