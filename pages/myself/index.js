@@ -10,7 +10,7 @@ Page({
     data: {
         userInfo: {},
         configs: {},
-        ext: wx.getExtConfigSync(),
+    
         n: 0
     },
 
