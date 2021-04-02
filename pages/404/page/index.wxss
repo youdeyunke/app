@@ -1,0 +1,36 @@
+/* pages/404/page/index.wxss */
+page{
+  background-color: #F0F0F0 !important;
+}
+.lose-box{
+  height: 1385rpx;
+  display: flex;
+  flex-direction: column;
+  padding-top:460rpx ;
+  align-items: center;
+}
+image{
+  width:475rpx ;
+  height:300rpx ;
+  margin-bottom: 50rpx;
+}
+.lose-text{ 
+  width:240rpx ;
+  height: 90rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #888888;
+  margin-bottom: 116rpx;
+}
+.lose-back{
+  width: 624rpx;
+  height:90rpx ;
+  background-color: #9ACDFF;
+  color: white;
+  line-height: 90rpx;
+  text-align: center;
+  border-radius:5rpx ;
+}
+.lose-back text{
+  opacity: .7;
+}
