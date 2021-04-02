@@ -21,6 +21,7 @@ page{
     margin-left: 35rpx;
     z-index: 5;
     position: relative;
+    background-color: #fff;
 }
 .profile-image3{
     width: 710rpx;
@@ -60,15 +61,13 @@ page{
 .card-wechat{
     font-size:24rpx ;
     color: #333333;
-    width:262rpx ;
     height:32rpx ;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 .card-wechat image{
     width: 25rpx;
     height: 25rpx;
+    margin-left: 15rpx;
+    margin-bottom: -2rpx;
 }
 .profile-image4,.profile-image5,.profile-image6,.profile-image7{
     width:35rpx ;

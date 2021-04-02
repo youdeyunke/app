@@ -1,5 +1,5 @@
-<navigator class="house-box" url="/pkgPost/pages/show/index?id={{post.id}}">
-  <view class="house-top">
+<view class="house-box">
+  <navigator class="house-top"  url="/pkgPost/pages/show/index?id={{post.id}}">
     <view>
       <image class="house-image1" src="{{post.cover}}"></image>
       <image class="house-image2" src="/assets/icons/VR.png"></image>
@@ -13,10 +13,7 @@
         <text>{{post.address}}</text>
       </view>
       <view class="house-trait">
-
           <text class="house-text2" wx:for="{{posttags}}" style="color:{{item.color}};border-color:{{item.color}}" wx:if="{{index<=2}}">{{item.name}}</text>
-
-
       </view>
       <view class="house-area">
         <text>{{post.average_price_info.text}}{{post.average_price_info.px}}</text>
@@ -27,27 +24,27 @@
         <text>3万5+3%</text>
       </view>
     </view>
-  </view>
+  </navigator>
   <view class="house-bottom">
-    <navigator class="house-bottom-class">
+    <navigator class="house-bottom-class" url="/pkgBroker/pages/broker/index?post_id={{post.id}}">
       <image class="house-image4" src="../../../../images/8.png"></image>
       <text>置业顾问</text>
     </navigator>
-    <navigator class="house-bottom-class">
+    <navigator class="house-bottom-class" url="/pkgPost/pages/type/index?post_id={{post.id}}">
       <image class="house-image4" src="../../../../images/4.png"></image>
       <text>户型图</text>
     </navigator>
-    <navigator class="house-bottom-class">
+    <navigator class="house-bottom-class" url="/pkgPost/pages/zhoubian/index?post_id={{post.id}}">
       <image class="house-image4" src="../../../../images/5.png"></image>
       <text>周边配套</text>
     </navigator>
-    <navigator class="house-bottom-class">
+    <navigator class="house-bottom-class" url="/pkgEvent/pages/event/index?post_id={{post.id}}">
       <image class="house-image4" src="../../../../images/6.png"></image>
       <text>楼盘动态</text>
     </navigator>
-    <navigator class="house-bottom-class" url="/pkgYfyj/pages/yfyj/index">
+    <navigator class="house-bottom-class" url="/pkgYfyj/pages/yfyj/index?post_id={{post.id}}">
       <image class="house-image4" src="../../../../images/7.png"></image>
       <text>一房一价</text>
     </navigator>
   </view>
-</navigator>
+</view>
