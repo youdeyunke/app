@@ -876,6 +876,11 @@
           "pathName": "pkgBroker/pages/broker/profile",
           "query": "id=1",
           "scene": null
+        },
+        {
+          "name": "404",
+          "pathName": "pages/404/page/index",
+          "scene": null
         }
       ]
     }
