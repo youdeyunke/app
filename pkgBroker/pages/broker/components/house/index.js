@@ -4,8 +4,11 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    hid:{
-      type:String
+    post:{
+      type:Object
+    },
+    posttags:{
+      type:Object
     }
   },
 

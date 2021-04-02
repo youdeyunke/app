@@ -53,7 +53,6 @@
   border-radius: 5rpx;
 }
 .house-message-site{
-  width: 152rpx;
   height: 34rpx;
   font-size: 24rpx;
   color:#A0A0A0 ;
@@ -63,27 +62,21 @@
 .house-trait{
   height:38rpx ;
   font-size:24rpx ;
+  /* justify-content: space-between; */
+  flex-direction: row;
   display: flex;
-  justify-content: space-between;
 }
 .house-trait text{
-  width:137rpx ;
   height:35rpx ;
   display: inline-block;
   text-align: center;
   border-radius: 5rpx;
+  margin-right:12rpx ;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
 }
 .house-text2{
-  border: 1rpx solid #FE7373;
-  color: #FE7373;
-}
-.house-text3{
-  border: 1rpx solid #95C88D;
-  color: #95C88D;
-}
-.house-text4{
-  border: 1rpx solid #FDD08D;
-  color: #FDD08D;
+  border: 1rpx solid black;
 }
 .house-area text:nth-of-type(1){
   font-size: 28rpx;

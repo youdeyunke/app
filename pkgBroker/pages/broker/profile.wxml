@@ -73,10 +73,35 @@
   <text class="profile-text1">{{browses || 0}}</text>
   <view class="profile-position">
     <view class="profile-position-top">
-      <view bindtap="qrHandle"></view>
-      <button open-type="share"></button>
-      <view bindtap="likeHandle"></view>
+    <view  bindtap="showPopup" class="button"></view>
+      <button open-type="share" class="profile-button1"></button>
+      <text bindtap="likeHandle" class="profile-like"></text>
     </view>
+    <block wx:if="{{brokerProfile.wechat_qr != null}}">
+      <van-popup show="{{ show }}" bind:close="onClose" round position="bottom" closeable>
+      <view class="profile-wechatqr">
+        <view class="profile-wechatqr-nav">
+          <view class="profile-wechatr-nav-qr">
+            <view>
+              <image src="{{qrurl}}"></image>
+            </view>
+          </view>
+        </view>
+        <view class="profile-wechatqr-text">这是我的微信二维码，请用微信扫码加好友，或者保存到相册</view>
+        <view class="profile-wechatqr-save" bindtap="qrHandle">
+          保存到相册
+        </view>
+      </view>
+    </van-popup>
+    </block>
+    <block wx:if="{{brokerProfile.wechat_qr === null}}">
+      <van-popup show="{{ show }}" bind:close="onClose" round position="bottom" closeable>
+      <view class="profile-wechatqr-else">
+        该经纪人还没有上传二维码
+      </view>
+    </van-popup>
+    </block>
+
     <!-- 事件绑定 -->
     <view class="profile-position-bottom">
       <text>加好友</text>
@@ -88,9 +113,9 @@
     </view>
   </view>
   <view class="profile-house">主营楼盘</view>
-  <house hid="{{brokerProfile.id}}"></house>
+  <house post="{{house}}" posttags="{{housetags}}"></house>
   <view class="profile-fun">
-    <image src="../../images/10.png"></image>
-    <image src="../../images/9.png"></image>
+    <image src="../../images/10.png" bindtap="chatHandle"></image>
+    <image src="../../images/9.png" bindtap="callphone"></image>
   </view>
 </view>

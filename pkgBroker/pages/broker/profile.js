@@ -7,10 +7,46 @@ Page({
      */
     data: {
         brokerProfile: null,
+        house:null,
         userId: null,
         likeNumber: '',
         browses: '',
-        level: ''
+        level: '',
+        housetags:null,
+        show:false,
+        qrurl:''
+    },
+    showPopup() {
+        this.setData({ show: true });
+      },
+    
+      onClose() {
+        this.setData({ show: false });
+      },
+    chatHandle: function () {
+        // 先调用打招呼接口
+        wx.showLoading({
+            title: '正在打开',
+            icon: 'none',
+            mask: true
+        })
+        var _this = this
+        wx.navigateTo({
+            url: '/pages/messages/show?target_user_id=' + _this.data.brokerProfile.id,
+            success: function () {
+                wx.hideLoading()
+            }
+        })
+        return
+    },
+    callphone: function (e) {
+        var mobile = this.data.brokerProfile.mobile
+        if (!mobile) {
+            return false
+        }
+        wx.makePhoneCall({
+            phoneNumber: mobile
+        })
     },
     likeHandle: function () {
         var id = this.data.userId
@@ -85,11 +121,9 @@ Page({
         var _this = this
         _this.setData({
             userId: q.id,
-
         }, function () {
             _this.loadBrokerProfile()
         })
-
         app.markVisitor(null, q.id, 'user')
     },
 
@@ -100,11 +134,15 @@ Page({
             url: '/api/v1/brokers/' + uid,
             success: function (resp) {
                 var u = resp.data.data
+                var p = resp.data.post
                 _this.setData({
                     brokerProfile: u,
+                    house:p,
                     likeNumber: u.like_nums,
                     browses: u.view_nums,
-                    level: u.level
+                    level: u.level,
+                    housetags:p.tags,
+                    qrurl:u.wechat_qr
                 })
                 // _this.viewHandle()
                 var title = u.name + "的主页"
@@ -112,11 +150,13 @@ Page({
                     title: title
                 })
                 console.log("uuu", u)
+                console.log("信息信息信息",p)
             }
         })
     },
     qrHandle: function () {
         var code = this.data.brokerProfile.wechat_qr
+        var _this = this
         console.log("二维码路径:", code)
         if (code == null) {
             wx.showToast({

@@ -105,19 +105,79 @@ page{
     display: flex;
     justify-content: space-around;
 }
-.profile-position-top view:nth-of-type(1),.profile-position-top view:nth-of-type(2){
+.profile-position-top view{
+    width: 66rpx;
+    height: 66rpx;
+    border-radius: 50%;
+    background-color: transparent;
+}
+.profile-like{
     width: 66rpx;
     height:66rpx ;
     border-radius: 50%;
+    display: inline-block;
 }
-button{
+ .profile-button1{
     width: 66rpx;
     height:66rpx ;
     border-radius: 50%;
     background-color: transparent;
 }
-button::after {
+ button::after {
     border: none;
+  }
+  .profile-wechatqr{
+      width:750rpx ;
+      height:965rpx ;
+      padding-top: 78rpx;
+      box-sizing: border-box;
+  }
+  .profile-wechatqr-else{
+    width:750rpx ;
+    height:965rpx ;
+    line-height: 965rpx;
+    text-align: center;
+    color: #666666;
+  }
+  .profile-wechatqr-nav{
+      width: 534rpx;
+      height:534rpx ;
+      background-color: #ECF5FF;
+      margin: 0 auto;
+  }
+  .profile-wechatr-nav-qr{
+      padding:65rpx 15rpx 15rpx 15rpx ;
+      height: 534rpx;
+  }
+  .profile-wechatr-nav-qr view{
+      margin: 0 auto;
+      width: 400rpx;
+      height:400rpx ;
+  }
+  .profile-wechatr-nav-qr image{
+      width: 400rpx;
+      height:400rpx ;
+  }
+  .profile-wechatqr-text{
+      width: 457rpx;
+      height:78rpx ;
+      margin: 0 auto;
+      margin-top: 36rpx;
+      font-size: 28rpx;
+      color:#666666 ;
+      text-align: center;
+  }
+  .profile-wechatqr-save{
+      width:650rpx ;
+      height: 90rpx;
+      background-color:#1989FA;
+      font-size:30rpx;
+      color:#FFFFFF ;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 90rpx;
+      border-radius: 5rpx;
+      margin-top:40rpx ;
   }
 .profile-text2{
     color: white;
@@ -132,7 +192,11 @@ button::after {
 .profile-fun{
     width: 750rpx;
     height:150rpx ;
-    padding-top: 30rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    padding-left: 30rpx;
 }
 .profile-fun image{
     width:327rpx ;

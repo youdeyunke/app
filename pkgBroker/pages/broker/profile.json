@@ -8,6 +8,7 @@
         "box": "/components/box",
         "van-search": "/vant/search/index",
         "items":"./items",
-        "house":"./components/house/index"
+        "house":"./components/house/index",
+        "van-popup":"/vant/popup/index"
     }
 }
