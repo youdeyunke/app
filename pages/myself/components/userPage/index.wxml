@@ -1,6 +1,6 @@
 <image class="user-image1" src="../../images/1.png"></image>
 <image class="user-image2" src="../../images/4.png"></image>
-<person class="person"></person>
+<person class="person" myuser="{{user}}"></person>
 <view class="user-box">
   <view class="person-fn">
     <view class="person-fn-class"  bindtap="navigatetTo" data-url="/pages/myself/favposts">

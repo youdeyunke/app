@@ -10,7 +10,7 @@ image{
   justify-content: space-between;
   align-items: center;
 }
-.person-image1{
+.person-image1,.person-else-image1{
   width: 120rpx;
   height: 120rpx;
   border-radius: 50%;
@@ -42,4 +42,15 @@ image{
 .person-image3{
   width:25rpx ;
   height:25rpx ;
+}
+.person-else-box{
+  width:710rpx ;
+  height: 121rpx;
+  margin: 0 auto;
+}
+.person-else-image2{
+  width: 220rpx;
+  height: 88rpx;
+  margin-left: 50rpx;
+  margin-top: 22rpx;
 }
