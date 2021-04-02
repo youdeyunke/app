@@ -72,5 +72,9 @@
 <cr /> -->
 
 
-<!-- <user-page></user-page> -->
-<broker-page></broker-page>
+<block wx:if="{{userInfo.is_broker === true}}&&{{userInfo.id!= null}}" >
+    <broker-page user="{{userInfo}}"></broker-page>
+</block>
+<block wx:else>
+    <user-page></user-page>
+</block>
