@@ -340,6 +340,12 @@ Page({
             })
         }
     },
+    myQuit:function(e){
+        console.log("uesepage里面e",e)
+        this.setData({
+            userInfo:null
+        })
+    },
 
     /**
      * 生命周期函数--监听页面隐藏

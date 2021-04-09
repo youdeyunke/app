@@ -13,7 +13,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    userinfo:''
   },
 
   /**
@@ -28,5 +28,11 @@ Component({
           url: url,
       })
   },
+  myquit:function(e){
+    this.setData({
+      userinfo:null
+    })
+    this.triggerEvent("changeQuit",{userinfo:null})
   }
+  },
 })
