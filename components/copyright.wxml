@@ -1,3 +1,0 @@
-<view class="cr">
-  <text  wx:if="{{text}}" class="copyright">{{text}}</text>
-</view>

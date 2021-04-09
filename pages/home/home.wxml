@@ -2,3 +2,4 @@
     <image src="/assets/images/install-tips-{{system.systemName}}.png" />
 </van-transition>
 <pagemaker bind:ready="pageReadyHandle" ref="pagemaker" id="pm" page-key="home" />
+<copyright></copyright>
