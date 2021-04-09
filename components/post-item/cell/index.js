@@ -5,6 +5,7 @@ Component({
    */
   properties: {
     post: { type: Object, value: {} }
+    source: {type: String, value: null} 
   },
   /**
    * 组件的初始数据

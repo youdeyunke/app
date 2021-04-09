@@ -1,5 +1,5 @@
 <!-- components/pagemaker/posts/post-item0.wxml -->
-<navigator hover-class="none" class="post" url="/pkgPost/pages/show/index?id={{post.id}}">
+<navigator hover-class="none" class="post" url="/pkgPost/pages/show/index?id={{post.id}}{{ source ? '&source=' + source : '' }}">
     <view class="left">
         <image class="cover" src="{{post.cover}}" />
     </view>
