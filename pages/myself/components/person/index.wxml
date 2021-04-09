@@ -21,7 +21,7 @@
 
 <block wx:else>
   <view class="person-else-box">
-      <image class="person-else-image1" src="../../images/21.png"></image>
-      <image class="person-else-image2" src="../../images/20.png"></image>
-    </view>
+    <image class="person-else-image1" src="../../images/21.png"></image>
+    <image class="person-else-image2" src="../../images/20.png" bindtap="gologin"></image>
+  </view>
 </block>

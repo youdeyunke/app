@@ -2,7 +2,6 @@
     "enablePullDownRefresh": true,
     "usingComponents": {
         "new-version": "/components/new-version",
- 
         "posts-block": "/pages/home/posts",
         "page-loading": "/pages/home/page-loading",
         "news-swiper": "/components/news-swiper",
@@ -12,6 +11,7 @@
         "myslider": "/components/slider",
         "items": "/components/post-items/index",
         "van-action-sheet": "/vant/action-sheet/index",
-        "box": "/components/box"
+        "box": "/components/box",
+        "copyright":"/components/copyright/index"
     }
 }

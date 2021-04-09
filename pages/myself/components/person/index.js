@@ -20,6 +20,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    gologin:function(){
+      wx.navigateTo({
+        url: '/pkgAuth/pages/auth/index',
+      })
+    }
   }
 })
