@@ -3,11 +3,15 @@
         <van-cell size="large" title="头像" bindtap="chooseImage">
             <image style="width:90rpx;height:90rpx;border-radius:90rpx;" slot="right-icon" src="{{userInfo.avatar}}?imageView2/5/h/200/w/200" />
         </van-cell>
-        <van-field bind:input="textChange" data-name="nickname" size="large" label="昵称" value="{{ userInfo.nickname  }}" placeholder="" input-align="right" name="nickname" />
+      
+      <block wx:if="{{userInfo.is_broker}}">
+
         <van-field bind:input="textChange" data-name="name" size="large" label="姓名" value="{{ userInfo.name }}" placeholder="" input-align="right" name="name" />
         <van-field bind:input="textChange" data-name="wechat" size="large" label="微信号码" value="{{ userInfo.wechat }}" placeholder="" input-align="right" name="wechat" />
+        <van-field bind:input="textChange" data-name="desc" size="large" label="个性签名" value="{{ userInfo.desc }}" placeholder="" input-align="right"  />
         <van-cell size="large" title="微信二维码" value="{{ userInfo.wechat_qr ? '已上传' : '未上传' }}" bindtap="chooseQrImage" placeholder="上传您的微信二维码" is-link></van-cell>
         <van-cell size="large" title="手机号" value="{{ userInfo.mobile }}" border="{{false}}" disabled />
+        </block>
     </box>
     <box wx:if="{{false}}">
         <van-cell size="large" title="自动回复">

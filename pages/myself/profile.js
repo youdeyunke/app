@@ -27,10 +27,37 @@ Page({
     },
 
     submitHandle: function (e) {
+        if(this.data.userInfo.is_broker){
+            this.updateBrokerProfile()
+            return
+        }
+        this.updateUserProfile()
+    },
+
+    updateBrokerProfile: function(){
         var _this = this
         var data = this.data.userInfo
         app.request({
-            url: '/api/v1/users/0',
+            url: '/api/v1/broker_profile',
+            method: 'PUT',
+            data: { user: data },
+            success: function (resp) {
+                if (resp.data.status == 0) {
+                    wx.showToast({
+                        icon: 'none', title: '修改成功', success: function () {
+                            wx.navigateBack({ delta: -1 })
+                        }
+                    })
+                }
+            }
+        })        
+
+    },
+    updateUserProfile: function(){
+        var _this = this
+        var data = this.data.userInfo
+        app.request({
+            url: '/api/v1/user_profile',
             method: 'PUT',
             data: { user: data },
             success: function (resp) {

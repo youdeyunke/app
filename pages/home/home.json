@@ -1,5 +1,6 @@
 {
     "enablePullDownRefresh": true,
+ 
     "usingComponents": {
         "new-version": "/components/new-version",
  
