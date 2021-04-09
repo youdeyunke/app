@@ -44,9 +44,16 @@ Component({
       })
       this.setData({
         userInfo: null
-      })
+      })  
       app.globalData.userInfo = null
       app.globalData.token = null
+
+
+
+      this.triggerEvent('quitHandle',{userInfo:null})
+
+
+
     },
     openAuthSetting: function (e) {
       wx.openSetting({
