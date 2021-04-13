@@ -73,7 +73,7 @@
 
 
 <block wx:if="{{userInfo.is_broker === true}}" >
-    <broker-page user="{{userInfo}}"></broker-page>
+    <broker-page user="{{userInfo}}" bindchangeQuit="myQuit"></broker-page>
 </block>
 <block wx:else>
     <user-page user="{{userInfo}}" bindchangeQuit="myQuit"></user-page>

@@ -53,7 +53,7 @@
 
 <image class="profile-image1" src="../../images/1.png"></image>
 <view class="profile-card">
-  <image class="profile-image2" src="{{brokerProfile.avatar}}"></image>
+  <image class="profile-image2" src="{{brokerProfile.avatar}}" bindtap="lookphoto" data-src="{{brokerProfile.avatar}}"></image>
   <image class="profile-image3" src="../../images/ranking/{{level}}.png"></image>
   <view class="card-message">
     <view class="card-message-top">
@@ -101,7 +101,6 @@
         </view>
       </van-popup>
     </block>
-
     <!-- 事件绑定 -->
     <view class="profile-position-bottom">
       <text>加好友</text>
