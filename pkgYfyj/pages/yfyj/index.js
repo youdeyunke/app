@@ -14,7 +14,6 @@ Page({
         floors: [], // 楼层数
         post: null,
         currentBuildingIndex: null,
-
     },
 
     tabChange: function (e) {

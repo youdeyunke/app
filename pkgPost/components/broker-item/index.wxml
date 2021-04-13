@@ -1,6 +1,6 @@
 <!-- components/broker-item/index.wxml -->
 <view class="outer">
-    <view class="avatar">
+    <view class="avatar" bindtap="gotoProfile">
         <image src="{{item.avatar}}" class="user" />
         <image src="../../icons/broker/{{item.level}}.png" class="badge" />
     </view>

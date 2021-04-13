@@ -4,7 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    post: { type: Object, value: {} }
+    post: { type: Object, value: {} },
     source: {type: String, value: null} 
   },
   /**

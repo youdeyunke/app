@@ -204,7 +204,7 @@
     "pages/myself/profile",
     "pages/visitors/index",
     "pages/faxian/index",
-    "pages/404/page/index"
+    "pages/404/index"
   ],
   "tabBar": {
     "custom": false,

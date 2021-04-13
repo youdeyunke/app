@@ -61,7 +61,7 @@ Page({
         app.request({
             data: data,
             method: 'POST',
-            url: '/api/' + _this.data.loginMethod + '/sessions',
+            url: '/api/v2/sessions',
             hideLoading: true,
             success: function (resp) {
                 var data = resp.data

@@ -450,6 +450,14 @@ App({
                     return false;
                 }
 
+                if (res.data.status == 404) {
+                    var error = res.data.error;
+                    wx.redirectTo({
+                        url: "/pages/404/index?error=" + error
+                    });
+                    return false;
+                }              
+
                 if ([2000, 2001].includes(res.data.status)) {
                     // token 过期,清空当前登录状态
                     auth.gotoAuth("需要登录", "请先登录账号");
