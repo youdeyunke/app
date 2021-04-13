@@ -44,4 +44,4 @@
   <text class="broker-text4">重点功能</text>
   <brokeroperation></brokeroperation>
 </view>
-<operation></operation>
+<operation myuser="{{user}}"></operation>
