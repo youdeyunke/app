@@ -67,6 +67,7 @@
     white-space: nowrap;
     border-top: 2rpx solid #f0f0f0;
     border-bottom: 2rpx solid #f0f0f0;
+    margin-top: 80rpx;
 }
 
 .title_item {

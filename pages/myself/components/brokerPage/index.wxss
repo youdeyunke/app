@@ -117,3 +117,65 @@ image{
   border-bottom: 1rpx solid #F1F1F1;
   padding-left: 37rpx;
 }
+
+/* pages/myself/components/person/index.wxss */
+image{
+  vertical-align: top;
+}
+.person-box{
+  width:710rpx ;
+  height: 121rpx;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.person-image1,.person-else-image1{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+.person-message{
+  width: 330rpx;
+  height:120rpx ;
+  font-size: 40rpx;
+  color: white;
+  margin-left: 19rpx;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.person-text1{
+  font-size:24rpx ;
+}
+.person-message-nav{
+  font-size:40rpx ;
+  height: 120rpx;
+  line-height: 120rpx;
+}
+.person-right{
+  width:130rpx ;
+  height:35rpx ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20rpx;
+  font-size: 24rpx;
+  color: white;
+}
+.person-image3{
+  width:25rpx ;
+  height:25rpx ;
+}
+.person-else-box{
+  width:560rpx ;
+  height: 121rpx;
+  margin: 0 auto;
+}
+.person-else-image2{
+  width: 220rpx;
+  height: 88rpx;
+  margin-left: 50rpx;
+  margin-top: 22rpx;
+}

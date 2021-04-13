@@ -7,22 +7,27 @@ Page({
      */
     data: {
         brokerProfile: null,
-        house:null,
+        house: null,
         userId: null,
         likeNumber: '',
         browses: '',
         level: '',
-        housetags:null,
-        show:false,
-        qrurl:''
+        housetags: null,
+        show: false,
+        qrurl: '',
+        avatar:''
     },
     showPopup() {
-        this.setData({ show: true });
-      },
-    
-      onClose() {
-        this.setData({ show: false });
-      },
+        this.setData({
+            show: true
+        });
+    },
+
+    onClose() {
+        this.setData({
+            show: false
+        });
+    },
     chatHandle: function () {
         // 先调用打招呼接口
         wx.showLoading({
@@ -57,20 +62,20 @@ Page({
             return
         }
 
-            app.request({
-                method: 'POST',
-                hideLoading: true,
-                data: {
-                    broker_id: id
-                },
-                url: '/api/v1/brokers/view',
-                success: function (res) {
-                    if (res.data.status != 0) {
-                        return
-                    }
-                    wx.setStorageSync(key, true)
+        app.request({
+            method: 'POST',
+            hideLoading: true,
+            data: {
+                broker_id: id
+            },
+            url: '/api/v1/brokers/view',
+            success: function (res) {
+                if (res.data.status != 0) {
+                    return
                 }
-            })
+                wx.setStorageSync(key, true)
+            }
+        })
 
     },
 
@@ -162,22 +167,22 @@ Page({
             url: '/api/v1/brokers/' + uid,
             success: function (resp) {
                 // 有可能没有开通个人主页
-                if(resp.data.status != 0){
+                if (resp.data.status != 0) {
                     // TODO 显示未开通主页的情况
                     return
                 }
                 var u = resp.data.data
                 var p = resp.data.post
-                console.log("ppppppppp",p)
-                console.log("uuuuuuu",u)
+                console.log("ppppppppp", p)
+                console.log("uuuuuuu", u)
                 _this.setData({
                     brokerProfile: u,
-                    house:p,
+                    house: p,
                     likeNumber: u.like_nums,
                     browses: u.view_nums,
                     level: u.level,
                     // housetags:p.tags,
-                    qrurl:u.wechat_qr
+                    qrurl: u.wechat_qr
                 })
                 // _this.viewHandle()
                 var title = u.name + "的主页"
@@ -185,7 +190,7 @@ Page({
                     title: title
                 })
                 console.log("uuu", u)
-                console.log("信息信息信息",p)
+                console.log("信息信息信息", p)
             }
         })
     },
@@ -214,8 +219,8 @@ Page({
             })
         }
     },
-    
-   
+
+
 
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -273,5 +278,13 @@ Page({
             path: 'pkgBroker/pages/broker/profile?id=' + _this.data.userId,
             imageUrl: _this.data.userInfo.avatar
         }
+    },
+    lookphoto:function(e){
+        var myavatar = e.currentTarget.dataset.src
+        var imgList = [e.currentTarget.dataset.src]
+        wx.previewImage({
+            current: 'myavatar',
+            urls:imgList
+        })
     }
 })

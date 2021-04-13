@@ -17,7 +17,7 @@
                         <view class="attr">
                             <text class="label">朝向</text>
                             <text class="value">{{item.position}}</text>
-                            <text class="label" style="margin-left:36rpx">建面</text>
+                            <text class="label" style="margin-left:30rpx">建面</text>
                             <text class="value">{{item.area}}㎡</text>
                         </view>
                         <view class="attr">

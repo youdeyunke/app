@@ -15,6 +15,14 @@
     width: 640rpx;
 }
 
+.body text{
+    width: 610rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    text-overflow: ellipsis;
+}
+
 .cell .icon {
     width: 40rpx;
     height: 100%;

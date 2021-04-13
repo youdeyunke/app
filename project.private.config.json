@@ -894,6 +894,12 @@
           "pathName": "pkgBroker/pages/broker/audit/index",
           "query": "id=1",
           "scene": null
+        },
+        {
+          "name": "pkgPost/pages/show/index",
+          "pathName": "pkgPost/pages/show/index",
+          "query": "id=10",
+          "scene": null
         }
       ]
     }

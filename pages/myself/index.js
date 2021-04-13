@@ -344,7 +344,6 @@ Page({
             userInfo:e.detail
         })
         console.log("eninini",e.detail.userinfo)
-        // console.log("uesepage里面e",userInfo)
 
     },
 
