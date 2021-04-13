@@ -57,11 +57,12 @@
                 <view class="join-information-box">
                     <view class="join-information-name">
                         <text>主营楼盘</text>
-                        <input data-key="company_name" bindinput="serachHandle" type="text" placeholder="请输入楼盘名称全称"
-                            value="{{keyword}}" />
+                        <input data-key="company_name" bindinput="serachHandle" type="text" placeholder="请输入楼盘名称全称" value="{{keyword}}" />
                         <image class="image3" src="../../images/join/6.png"></image>
                     </view>
-                    <search class="join-search" bindcheckedtitle="searchtitle" va lue="{{keyword}}"></search>
+                    <block wx:if="{{showkw===true}}">
+                        <search class="join-search" bindcheckedtitle="searchtitle" value="{{keyword}}"></search>
+                    </block>
                 </view>
 
 

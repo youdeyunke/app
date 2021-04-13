@@ -141,7 +141,7 @@ page{
     display: flex;
     align-items: center;
     border-bottom: 1rpx solid #F6F6F6;
-    padding-top: 75rpx;
+    /* padding-top: 75rpx; */
     box-sizing: border-box;
 }
 .join-information-name text{
@@ -185,12 +185,7 @@ page{
     height: 220rpx;
     margin-top: 20rpx;
 }
-.join-search{
-    position: absolute;
-    top: 135rpx;
-    left: 0;
-    z-index: 2;
-}
+
 .image3{
     width:30rpx ;
     height: 30rpx;
@@ -210,4 +205,15 @@ page{
     line-height: 90rpx;
     color: white;
     margin-top: 40rpx;
+}
+.join-information-box{
+    position: relative;
+}
+.join-search{
+    position: absolute !important;
+    top: 135rpx;
+    /* top: 0; */
+    left: 0;
+    z-index: 2555;
+    background-color: aquamarine;
 }

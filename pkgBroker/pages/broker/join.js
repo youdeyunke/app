@@ -347,6 +347,7 @@ Page({
      */
     serachHandle:function(e){
         var value = e.detail.value;
+        console.log("经纪人页面eeee",value)
         this.setData({
             keyword:value,
             showkw:true
