@@ -1,0 +1,13 @@
+/* pkgBroker/pages/broker/search/index.wxss */
+.search-box{
+  width:640rpx ;
+  background-color: #fff;
+}
+.search-box view{
+  height: 60rpx;
+  margin-left: 13rpx;
+  border-bottom: 1rpx solid #cecccc;
+  padding: 10rpx;
+  box-sizing: border-box;
+  font-size: 26rpx;
+}

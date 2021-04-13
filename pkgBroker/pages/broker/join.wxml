@@ -1,4 +1,4 @@
-<view style="height:100%">
+<!-- <view style="height:100%">
     <view class="join" wx:if="{{!successShow}}">
         <view  style="height: 90%">
             <view class="upload">
@@ -34,4 +34,59 @@
             <view class="success-btn" bind:tap='backHandle'>返回主页</view>
         </view>
     
+</view> -->
+
+
+
+
+<image class="join-image1" src="../../images/join/1.png"></image>
+<view class="join-box">
+    <view class="join-nav-box">
+        <view class="join-information">
+            <view class="join-information-message">
+                <view class="join-information-title">基本信息</view>
+                <view class="join-information-name">
+                    <text>姓名</text>
+                    <input data-key="name" bindinput="inputHandle" type="text" placeholder="请输入公司注册人姓名" />
+                </view>
+                <view class="join-information-name">
+                    <text>微信号</text>
+                    <input data-key="wechat" bindinput="inputHandle" type="text" placeholder="请输入您的微信号" />
+                </view>
+
+                <view class="join-information-box">
+                    <view class="join-information-name">
+                        <text>主营楼盘</text>
+                        <input data-key="company_name" bindinput="serachHandle" type="text" placeholder="请输入楼盘名称全称"
+                            value="{{keyword}}" />
+                        <image class="image3" src="../../images/join/6.png"></image>
+                    </view>
+                    <search class="join-search" bindcheckedtitle="searchtitle" va lue="{{keyword}}"></search>
+                </view>
+
+
+            </view>
+        </view>
+        <view class="join-uploading">
+            <view class="join-information-title">资料上传</view>
+            <view class="join-uploading-portrait">
+                <view>上传头像</view>
+                <view class="join-text2">上传一张适合的图片作为您账户的头像</view>
+                <image data-key="avatar" bindtap="chooseImage" src="{{imageurl1}}" data-image="{{imageurl1}}"></image>
+            </view>
+            <view class="join-uploading-portrait">
+                <view>上传二维码</view>
+                <view class="join-text2">上传一张清晰的二维码图片以便联系到您</view>
+                <image data-key="wechat_qr" bindtap="chooseImage" src="{{imageurl2}}" data-image="{{imageurl2}}">
+                </image>
+            </view>
+            <view class="join-uploading-portrait">
+                <view>上传工牌/名片</view>
+                <view class="join-text2">上传贵公司统一的名牌/名片图片</view>
+                <image class="image4" data-key="namecard" bindtap="chooseImage" src="{{imageurl3}}"
+                    data-image="{{imageurl3}}"></image>
+            </view>
+        </view>
+        <view class="join-submit" bindtap="submitHandle">确认提交</view>
+    </view>
 </view>

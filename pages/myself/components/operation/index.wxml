@@ -27,11 +27,13 @@
     </view>
     <image class="operation-image2" src="../../images/2.png"></image>
   </view>
-  <view class="operation-class" bindtap="logoutHandle">
-    <view class="operation-class-nav">
-      <image class="operation-image1" src="../../images/9.png"></image>
-      <text>退出登录</text>
+  <block wx:if="{{myuser.id!=null}}">
+    <view class="operation-class" bindtap="logoutHandle">
+      <view class="operation-class-nav">
+        <image class="operation-image1" src="../../images/9.png"></image>
+        <text>退出登录</text>
+      </view>
+      <image class="operation-image2" src="../../images/2.png"></image>
     </view>
-    <image class="operation-image2" src="../../images/2.png"></image>
-  </view>
+  </block>
 </view>

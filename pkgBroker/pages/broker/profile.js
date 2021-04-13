@@ -168,13 +168,15 @@ Page({
                 }
                 var u = resp.data.data
                 var p = resp.data.post
+                console.log("ppppppppp",p)
+                console.log("uuuuuuu",u)
                 _this.setData({
                     brokerProfile: u,
                     house:p,
                     likeNumber: u.like_nums,
                     browses: u.view_nums,
                     level: u.level,
-                    housetags:p.tags,
+                    // housetags:p.tags,
                     qrurl:u.wechat_qr
                 })
                 // _this.viewHandle()

@@ -29,6 +29,11 @@ image{
 .person-text1{
   font-size:24rpx ;
 }
+.person-message-nav{
+  font-size:40rpx ;
+  height: 120rpx;
+  line-height: 120rpx;
+}
 .person-right{
   width:130rpx ;
   height:35rpx ;

@@ -880,6 +880,19 @@
         {
           "name": "404",
           "pathName": "pages/404/page/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "顾问入住页面",
+          "pathName": "pkgBroker/pages/broker/join",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "name": "入驻成功页面",
+          "pathName": "pkgBroker/pages/broker/audit/index",
+          "query": "id=1",
           "scene": null
         }
       ]

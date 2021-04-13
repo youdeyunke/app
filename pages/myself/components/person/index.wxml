@@ -3,13 +3,15 @@
     <view class="person-left">
       <image class="person-image1" src="{{myuser.avatar}}"></image>
       <view class="person-message">
-        <view>{{myuser.name}}</view>
         <block wx:if="{{myuser.desc === null}}">
-          <text class="person-text1">这个人很懒什么都没有留下~</text>
+          <view class="person-message-nav">{{myuser.name}}</view>
         </block>
         <block wx:else>
+          <view >{{myuser.name}}</view>
           <text class="person-text1">{{myuser.desc}}</text>
         </block>
+
+
       </view>
     </view>
     <view class="person-right">
@@ -18,10 +20,9 @@
     </view>
   </view>
 </block>
-
 <block wx:else>
   <view class="person-else-box">
     <image class="person-else-image1" src="../../images/21.png"></image>
     <image class="person-else-image2" src="../../images/20.png" bindtap="gologin"></image>
   </view>
-</block>
+</block> 

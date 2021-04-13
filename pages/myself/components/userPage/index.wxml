@@ -20,5 +20,5 @@
       <view>访问足迹</view>
     </view>
   </view>
-  <operation bindquitHandle="myquit"></operation>
+  <operation bindquitHandle="myquit" myuser="{{user}}"></operation>
 </view>

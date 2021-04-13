@@ -10,7 +10,6 @@ Page({
     data: {
         userInfo: {},
         configs: {},
-    
         n: 0
     },
 
@@ -341,10 +340,12 @@ Page({
         }
     },
     myQuit:function(e){
-        console.log("uesepage里面e",e)
         this.setData({
-            userInfo:null
+            userInfo:e.detail
         })
+        console.log("eninini",e.detail.userinfo)
+        // console.log("uesepage里面e",userInfo)
+
     },
 
     /**

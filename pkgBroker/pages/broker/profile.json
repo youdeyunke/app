@@ -4,10 +4,8 @@
         "van-tab": "/vant/tab/index",
         "van-tabs": "/vant/tabs/index",
         "namecard": "/components/broker/namecard",
-        "items": "/components/post-items/index",
         "box": "/components/box",
         "van-search": "/vant/search/index",
-        "items":"./items",
         "house":"./components/house/index",
         "van-popup":"/vant/popup/index"
     }

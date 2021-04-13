@@ -90,7 +90,8 @@
         "pages/broker/index",
         "pages/broker/join",
         "pages/broker/membership",
-        "pages/broker/profile"
+        "pages/broker/profile",
+        "pages/broker/audit/index"
       ]
     },
     {

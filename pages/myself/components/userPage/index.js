@@ -4,8 +4,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    user:{
-      type:Object
+    user: {
+      type: Object
     }
   },
 
@@ -13,7 +13,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    userinfo:''
+    userinfo: ''
   },
 
   /**
@@ -25,14 +25,22 @@ Component({
       var url = e.currentTarget.dataset.url
       console.log("url", url);
       wx.navigateTo({
-          url: url,
+        url: url,
       })
+    },
+    gologin:function(){
+      wx.navigateTo({
+        url: '/pkgAuth/pages/auth/index',
+      })
+    },
+    myquit: function (e) {
+      this.setData({
+        userinfo: e.detail
+      })
+      this.triggerEvent("changeQuit", {
+        userinfo: null
+      })
+    }
   },
-  myquit:function(e){
-    this.setData({
-      userinfo:null
-    })
-    this.triggerEvent("changeQuit",{userinfo:null})
-  }
-  },
+
 })

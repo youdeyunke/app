@@ -1,4 +1,4 @@
-page{
+/* page{
     height: 100% !important;
 }
 .join{
@@ -92,4 +92,122 @@ page{
     font-size: 30rpx;
     font-weight: bold;
     padding: 24rpx 0;
+} */
+
+
+
+
+
+
+
+
+
+
+page{
+    background-color: #fff !important;
+}
+ image{
+    vertical-align: top;
+}
+.join-image1{
+    width: 750rpx;
+    height:540rpx ;
+    position: relative;
+    z-index: -2;
+}
+.join-information{
+    width:750rpx ;
+    height: 575rpx;
+    padding-top: 48rpx;
+    box-sizing: border-box;
+    padding-left: 50rpx;
+}
+.join-box{
+    border-radius: 20rpx 20rpx 0 0;
+    margin-top: -115rpx;
+    background-color: white;
+}
+.join-information-title,.join-process-title{
+    font-size:36rpx ;
+    font-weight: bold;
+    margin-bottom: 10rpx;
+}
+.join-information-name,.join-information-company,.join-information-number{
+    width:628rpx ;
+    height:156rpx ;
+    margin-left: 13rpx;
+    font-size:28rpx ;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    border-bottom: 1rpx solid #F6F6F6;
+    padding-top: 75rpx;
+    box-sizing: border-box;
+}
+.join-information-name text{
+    display: inline-block;
+    width: 140rpx;
+}
+.join-information-name input,.join-information-company input,.join-information-number input{
+    height: 80rpx;
+    font-size: 24rpx;
+    color: #C4C4C4;
+    font-weight: normal;
+    padding-left: 20rpx;
+    box-sizing: border-box;
+    border-radius: 10rpx;
+    margin-top: 8rpx;
+    margin-right: 20rpx;
+    width: 430rpx;
+}
+.join-uploading{
+    height: 1089rpx;
+    margin-top: 50rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 50rpx;
+}
+.join-uploading-portrait{
+    width:432rpx ;
+    height:312rpx ;
+    font-size:28rpx ;
+    font-weight: bold;
+    margin-left: 13rpx;
+}
+.join-text2{
+    font-size:24rpx ;
+    color: #C4C4C4;
+    font-weight: normal;
+}
+.join-uploading-portrait image{
+    width:220rpx ;
+    height: 220rpx;
+    margin-top: 20rpx;
+}
+.join-search{
+    position: absolute;
+    top: 135rpx;
+    left: 0;
+    z-index: 2;
+}
+.image3{
+    width:30rpx ;
+    height: 30rpx;
+}
+.join-uploading-portrait .image4{
+    width: 430rpx;
+    height: 220rpx;
+}
+.join-submit{
+    width: 624rpx;
+    height:90rpx ;
+    background-color:#1989FA ;
+    margin: 0 auto;
+    margin-bottom: 60rpx;
+    border-radius: 5rpx;
+    text-align: center;
+    line-height: 90rpx;
+    color: white;
+    margin-top: 40rpx;
 }

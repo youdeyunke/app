@@ -5,8 +5,8 @@
         "van-picker": "/vant/picker/index",
         "mbutton": "/components/bind-mobile-button",
         "van-button": "/vant/button/index",
-        "van-cell": "/vant/cell/index",
         "flow-tips": "/components/flow-tips",
-        "van-cell": "/vant/cell/index"
+        "search":"./components/search/index"
+
     }
 }
