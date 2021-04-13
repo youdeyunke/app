@@ -13,9 +13,7 @@
         </view>       
         <view class="address">{{post.street}}</view>
         <view class="tags">
-            <van-tag color="#ECEFF6" text-color="#848CA1" size="mini"  wx:for="{{post.tags}}" wx:key="item.id">
-                {{item.name}}
-            </van-tag>
+            <van-tag color="#ECEFF6" text-color="#848CA1" size="mini"  wx:for="{{post.tags}}" wx:key="item.id" wx:if="{{index<=2}}">{{item.name}}</van-tag>
         </view>
     </view>
     <view class="status">

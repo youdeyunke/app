@@ -2,10 +2,18 @@
     font-size: 28rpx;
     display: flex;
     justify-content: space-between;
-    height: 80rpx;
-    line-height: 80rpx;
+    margin-top: 20rpx;
+}
+.location-left{
+    width: 580rpx;
+}
+.value{
+    font-size: 26rpx;
 }
 
+.location-right{
+    line-height: 80rpx;
+}
 .location .label {
     color: #999999;
 }
