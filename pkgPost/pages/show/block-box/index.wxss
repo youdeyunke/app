@@ -5,7 +5,7 @@
     margin: 0 auto 20rpx auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     position: relative;
     box-sizing: border-box;
     background: #fff;
@@ -85,5 +85,3 @@
     padding: 0;
     margin: 0;
 }
-
-.card-footer {}
