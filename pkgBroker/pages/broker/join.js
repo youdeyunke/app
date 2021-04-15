@@ -620,6 +620,43 @@ Page({
         })
     },
 
+    loadCurrentUserInfo: function(){
+        // 判断当前账号状态 
+        var uid = app.globalData.userInfo.id
+        app.request({
+            url: '/api/v1/brokers/' + uid, 
+            success: function(resp){
+                console.log('resp,',resp.data.data)
+                var user = resp.data.data 
+                console.log('user.status is', user.status)
+                if(user.status == 1){
+                    // 审核中
+                    wx.redirectTo({
+                      url: '/pkgBroker/pages/broker/audit/index',
+                    })
+                    return
+                }
+                if(user.status == -1){
+                    var msg = user.reject_reason 
+                    wx.showModal({ title: "审核被拒绝", content: msg });
+                    return
+                }
+                if(user.status == 1){
+                    wx.showToast({
+                      title: '您已经入驻，无需重复申请',
+                      icon:'none',
+                    })
+                    setTimeout(function(){
+                        wx.navigateBack({
+                          delta: 1,
+                        })
+                    },1500)
+                    return
+                }
+            }
+        })
+    },
+
     doPost: function (data) {
         var _this = this
         var joinSubmit = this.data.formData
@@ -695,6 +732,7 @@ Page({
         this.setData({
             userInfo: app.globalData.userInfo
         })
+        this.loadCurrentUserInfo()
     },
 
     /**
