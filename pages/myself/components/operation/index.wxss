@@ -1,6 +1,5 @@
 .operation-box{
   width:710rpx ;
-  height:500rpx ;
   margin: 0 auto;
   background-color: #fff;
   margin-bottom: 50rpx;

@@ -38,6 +38,11 @@ Component({
         }
       })
     },
+    openApply:function(){
+      wx.navigateTo({
+        url: '/pkgBroker/pages/broker/join',
+      })
+    },
     _logoutHandle: function () {
       wx.setStorageSync('userInfo', null)
       wx.setStorageSync('token', null)
