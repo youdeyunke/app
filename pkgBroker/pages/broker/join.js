@@ -182,79 +182,9 @@ Page({
             }
         })
     },
-    updateAvatar: function (url) {
-        var _this = this
-        // 设置avatar
-        app.request({
-            url: '/api/v1/users/update_avatar',
-            data: {
-                avatar: url
-            },
-            method: 'POST',
-            success: function (resp) {
-                if (resp.data.status == 0) {
-                    _this.loadUserInfo()
-                    wx.showToast({
-                        icon: 'none',
-                        title: '头像上传成功！',
-                        duration: 2000,
-                    })
-                }
-            }
-        })
-    },
-    loadUserInfo: function () {
-        // 从服务器加载最新的用户数据
-        var _this = this
-        this.setData({
-            loading: true
-        })
-        auth.getRemoteUserInfo(function (user) {
-            _this.setData({
-                userInfo: user,
-                broker: user.broker_profile,
-                loading: false
-            })
-            wx.hideLoading()
-            var uid = app.globalData.userInfo.id
-            app.request({
-                url: '/api/v1/brokers/' + uid,
-                success: function (resp) {
-                    console.log('resp,', resp.data.data)
-                    var user = resp.data.data
-                    console.log('user.status is', user.status)
-                    _this.setData({
-                        userstate: user
-                    })
-                    if (user.status == 2) {
-                        wx.showToast({
-                            title: '您已经入驻，无需重复申请',
-                            icon: 'none',
-                        })
-                        setTimeout(function () {
-                            wx.navigateBack({
-                                delta: 1,
-                            })
-                        }, 1500)
-                        return
-                    }
-                    if (user.status == 1) {
-                        wx.navigateTo({
-                            url: '/pkgBroker/pages/broker/audit/index',
-                        })
-                    }
-                }
-            })
 
-            console.log("user", user)
-        })
-    },
 
-    gotoEdit: function (e) {
-        this.setData({
-            state: 'new'
-        })
-    },
+  
 
 
     validate: function () {
@@ -307,13 +237,7 @@ Page({
         return true
     },
 
-    fixHandle: function (e) {
-        var user = this.data.userInfo
-        user['apply_status'] = 0
-        this.setData({
-            userInfo: user
-        })
-    },
+
 
     doPost: function (data) {
         var _this = this
