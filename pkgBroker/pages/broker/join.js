@@ -325,7 +325,7 @@ Page({
             data: {},
             success: function(resp){
                 _this.setData({
-                    userstate:resp.data.data.join_status
+                    userstate:resp.data.data
                 }) 
                 var join_state = JSON.stringify(resp.data.data)
                 if(resp.data.data.join_status==1){
