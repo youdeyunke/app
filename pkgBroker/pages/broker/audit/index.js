@@ -5,7 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    state:'',
+    auditbgt:'../../../images/17.png',
+    auditicon:'../../../images/16.png',
+    passbgt:'../../../images/13.png',
+    passicon:'../../../images/14.png'
   },
 
   /**
@@ -17,7 +21,10 @@ Page({
     })
   },
   onLoad: function (options) {
-
+    console.log("opentisn",options.id)
+    this.setData({
+      state:options.id
+    })
   },
 
   /**

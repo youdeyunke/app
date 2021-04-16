@@ -85,7 +85,7 @@ Page({
                 _this.setData({
                     joinType: conf['broker_join_type'],
                 })
-                _this.loadUserInfo()
+               
             })
         })
     },
@@ -184,7 +184,6 @@ Page({
     },
 
 
-  
 
 
     validate: function () {
@@ -313,7 +312,19 @@ Page({
         this.setData({
             userInfo: app.globalData.userInfo
         })
-        // this.loadCurrentUserInfo()
+        this.checkBrokerStatus()
+    },
+
+    checkBrokerStatus: function(){
+        var _this=this 
+        app.request({
+            url: '/api/v1/brokers/check_status', 
+            method: 'POST',
+            data: {},
+            success: function(resp){
+                console.log("join status is: ", resp.data.data.join_status)
+            }
+        })
     },
 
     /**
@@ -334,7 +345,7 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-        this.loadUserInfo()
+        this.checkBrokerStatus()
     },
 
     /**
