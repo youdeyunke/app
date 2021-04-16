@@ -5,7 +5,7 @@
             <view class="join-warn">
             <image src="../../images/15.png"></image>
             <view>
-                <view>审核状态：暂未通过！</view>
+                <view>审核状态：暂未通过！请修改资料重新提交</view>
                 <view>拒绝原因：{{userstate.reject_reason}}!</view>
             </view>
         </view>

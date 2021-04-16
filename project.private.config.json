@@ -510,9 +510,8 @@
           "scene": null
         },
         {
-          "id": -1,
-          "name": "brokers",
-          "pathName": "pages/broker/index",
+          "name": "pkgBroker/pages/broker/index",
+          "pathName": "pkgBroker/pages/broker/index",
           "query": "",
           "scene": null
         },
