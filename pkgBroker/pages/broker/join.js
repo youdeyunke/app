@@ -227,21 +227,16 @@ Page({
                         userstate: user
                     })
                     if (user.status == 2) {
-                        wx.showToast({
-                            title: '您已经入驻，无需重复申请',
-                            icon: 'none',
+                        wx.navigateTo({
+                            url: '/pkgBroker/pages/broker/audit/index?status=0',
                         })
-                        setTimeout(function () {
-                            wx.navigateBack({
-                                delta: 1,
-                            })
-                        }, 1500)
                         return
                     }
                     if (user.status == 1) {
                         wx.navigateTo({
-                            url: '/pkgBroker/pages/broker/audit/index',
+                            url: '/pkgBroker/pages/broker/audit/index?status=1',
                         })
+                        return
                     }
                 }
             })

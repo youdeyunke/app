@@ -1,7 +1,13 @@
 <!--pkgBroker/pages/broker/audit/index.wxml-->
 <view class="audit-box">
-  <image class="image1" src="../../../images/13.png"></image>
-  <image class="image2" src="../../../images/14.png"></image>
+  <block wx:if="{{state==1}}">
+    <image class="image1" src="{{auditbgt}}"></image>
+    <image class="image2" src="{{auditicon}}"></image>
+  </block>
+    <block wx:else>
+      <image class="image1" src="{{passbgt}}"></image>
+      <image class="image2" src="{{passicon}}"></image>
+    </block>
   <view class="audit-message">
     <text>我们已收到您提交的信息</text>
     <text>\n</text>
@@ -10,4 +16,4 @@
   <view class="audit-submit" bindtap="submitHandle">
     返回主页
   </view>
-</view> 
+</view>
