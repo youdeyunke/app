@@ -1,7 +1,7 @@
 <image class="join-image1" src="../../images/join/1.png"></image>
 <view class="join-box">
     <view class="join-nav-box">
-        <block wx:if="{{userstate.status==-1}}">
+        <block wx:if="{{userstate==-1}}">
             <view class="join-warn">
             <image src="../../images/15.png"></image>
             <view>

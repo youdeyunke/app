@@ -31,7 +31,9 @@ Page({
         },
         keyword: '',
         showkw: false,
-        userstate: ''
+        userstate: '',
+        join_status:''
+
     },
 
     /**
@@ -272,7 +274,7 @@ Page({
         })
         this.doPost(data)
         wx.navigateTo({
-            url: '/pkgBroker/pages/broker/audit/index',
+            url: '/pkgBroker/pages/broker/audit/index?status=0',
         })
     },
 
@@ -322,7 +324,20 @@ Page({
             method: 'POST',
             data: {},
             success: function(resp){
-                console.log("join status is: ", resp.data.data.join_status)
+                _this.setData({
+                    userstate:resp.data.data.join_status
+                }) 
+                var join_state = JSON.stringify(resp.data.data)
+                if(resp.data.data.join_status==1){
+                    wx.navigateTo({
+                         url: '/pkgBroker/pages/broker/audit/index?status='+join_state,
+                    })
+                }
+                if(resp.data.data.join_status==2){
+                    wx.navigateTo({
+                      url: '/pkgBroker/pages/broker/audit/index?status='+join_state,
+                    })
+                }
             }
         })
     },

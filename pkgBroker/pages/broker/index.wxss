@@ -13,5 +13,7 @@ van-search{
     display: flex;
     flex-direction: column;
     justify-content: center;
-
+}
+.broker{
+  margin: 0 auto;
 }

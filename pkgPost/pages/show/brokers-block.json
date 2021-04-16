@@ -2,6 +2,6 @@
     "component": true,
     "usingComponents": {
         "block-box": "./block-box/index",
-        "broker-item": "../../components/broker-item/index"
+        "broker-item": "/components/broker-item/index"
     }
 }

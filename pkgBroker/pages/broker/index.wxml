@@ -6,7 +6,9 @@
 </view>
 <block wx:else>
     <block wx:for="{{items}}" wx:for-item="brokers">
-        <view class="broker-item" wx:for="{{brokers}}" wx:for-item="broker"></view>
+        <view class="broker-item" wx:for="{{brokers}}" wx:for-item="broker">
+            <broker-item item="{{broker}}" class="broker"></broker-item>
+        </view>
     </block>
     <view style="display:flex;justify-content:center;align-items:center;margin-top:30rpx;">
         <van-loading wx:if="{{loading}}" />
