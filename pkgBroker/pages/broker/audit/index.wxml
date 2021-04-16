@@ -3,9 +3,9 @@
   <image class="image1" src="../../../images/13.png"></image>
   <image class="image2" src="../../../images/14.png"></image>
   <view class="audit-message">
-    <text>我们已收到您提交的信息</text>
+    <text>我们已收到您的入驻申请</text>
     <text>\n</text>
-    <text>将会在3个工作日内给您回复</text>
+    <text>将会在3个工作日内审核资料，审核通过后，您的头像将会显示在主营楼盘页面中。</text>
   </view>
   <view class="audit-submit" bindtap="submitHandle">
     返回主页
