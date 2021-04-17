@@ -1,4 +1,6 @@
 {
     "enablePullDownRefresh": false,
-    "usingComponents": {}
+    "usingComponents": {
+        "broker-item":"/components/broker-item/index"
+    }
 }

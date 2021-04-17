@@ -21,10 +21,12 @@ Page({
     })
   },
   onLoad: function (options) {
-    console.log("opentisn",options.id)
+    var item = JSON.parse(options.status)
     this.setData({
-      state:options.id
+      state:item
     })
+    console.log("opentisn",item)
+
   },
 
   /**
