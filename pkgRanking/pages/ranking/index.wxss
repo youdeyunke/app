@@ -1,6 +1,7 @@
 /* pkgRanking/pages/ranking/index.wxss */
 page{
     margin-bottom: 200rpx;
+    background:#fff;
 }
 .ranking{
     width: 750rpx;
@@ -28,6 +29,7 @@ page{
     padding: 0 20rpx;
     margin-top: 400rpx;
     z-index: 2;
+    background:#fff;
 }
 .buttons{
     width: 710rpx;
@@ -43,4 +45,23 @@ page{
     bottom: 50rpx;
     left: 0;
     z-index: 50;
+}
+
+.item .p{
+    position: relative;
+}
+
+.item .p .rank{
+    position: absolute; 
+    left:20rpx;
+    top:0rpx;
+}
+
+.item .p .subtract {
+     position: absolute;
+    z-index: 5;
+    top: 3rpx;left:15rpx;
+    color: #fff;
+    font-size: 36rpx;
+    font-weight: bold;
 }
