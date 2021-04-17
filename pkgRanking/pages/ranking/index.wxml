@@ -1,11 +1,10 @@
-<view class="ranking">
-    <image class="image" src="../../images/bg.png" />
+<view class="ranking" wx:if="{{rank}}">
+    <image class="image" src="{{rank.cover}}" />
     <view class="content">
-    项目在售中,在售2,5号楼在售户型面积45㎡,118㎡
-138㎡,135㎡项目无电子版户型图,详情信息可前往售
+    {{rank.district}}{{ rank.cat}}
     </view>
     <view class="item" >
-    <item wx:for="{{post}}" index='{{index}}'></item>
+    <item wx:for="{{rank.posts}}" wx:for-item="post" wx:for-key="id" index='{{index}}'></item>
     </view>
 </view>
     <view class="buttons">分享楼盘给更多好友</view>

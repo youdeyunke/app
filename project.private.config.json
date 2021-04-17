@@ -861,7 +861,7 @@
         {
           "name": "pkgRanking/pages/ranking/index",
           "pathName": "pkgRanking/pages/ranking/index",
-          "query": "",
+          "query": "id=1",
           "scene": null
         },
         {

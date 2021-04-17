@@ -4,7 +4,7 @@ page{
 }
 .ranking{
     width: 750rpx;
-    position: relative;
+
 }
 .image{
     width:750rpx;

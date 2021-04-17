@@ -1,18 +1,38 @@
 // pkgRanking/pages/ranking/index.js
+const app = getApp()
+
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    post:[1,2,3,4]
+    rank: null,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function (q) {
+    var _this = this
+    this.setData({
+      rankId: q.id || q.rank_id
+    }, function(){
+      _this.loadData()
+    })
+  },
 
+  loadData: function(){
+    var _this = this   
+    app.request({
+      url: '/api/v1/post_rank/' + this.data.rankId, 
+      success: function(resp){
+        _this.setData({
+          rank: resp.data.data
+        })
+      }
+    })
   },
 
   /**
