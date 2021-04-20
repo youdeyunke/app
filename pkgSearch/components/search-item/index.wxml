@@ -1,0 +1,8 @@
+<!--pkgSearch/components/search-item/index.wxml-->
+<view class="search-item-box"  wx:for="{{house}}">
+  <view class="search-item-nav">
+    <image class="image1" src="../../images/{{index}}.png"></image>
+    <text>{{item.title}}</text>
+  </view>
+    <image class="image2" src="../../images/{{index+10}}.png"></image>
+</view>

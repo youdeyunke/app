@@ -182,6 +182,13 @@
       "pages": [
         "pages/debug/index"
       ]
+    },
+    {
+      "root": "pkgSearch",
+      "name": "search",
+      "pages": [
+        "page/search/index"
+      ]
     }
   ],
   "pages": [

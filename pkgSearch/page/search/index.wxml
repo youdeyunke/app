@@ -1,0 +1,20 @@
+<!--pkgSearch/page/search/index.wxml-->
+<view class="search-box">
+  <view class="search-top">
+    <view class="search-top-left">
+      <image class="image1" src="../../images/search.png"></image>
+      <input type="text" placeholder="您想住哪儿？"/>
+    </view>
+    <view class="search-top-right">搜索</view>
+  </view>
+  <view class="search-history">
+    <view>历史搜索</view>
+    <image class="image2" src="../../images/rubbish.png"></image>
+  </view>
+  <view class="search-record">
+    <text>九号公馆二期</text>
+    <text>九号公馆二期11111</text>
+  </view>
+  <image class="image3" src="../../images/Group 234.png"></image>
+  <search-item></search-item>
+</view>

@@ -905,6 +905,12 @@
           "pathName": "pkgPost/pages/show/index",
           "query": "id=9",
           "scene": null
+        },
+        {
+          "name": "搜索页面",
+          "pathName": "pkgSearch/page/search/index",
+          "query": "id=9",
+          "scene": null
         }
       ]
     }
