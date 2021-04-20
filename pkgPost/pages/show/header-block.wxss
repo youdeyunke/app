@@ -102,3 +102,7 @@
     height: 32rpx;
     margin-right: 10rpx;
 }
+
+.cell-group{
+    margin-top:15rpx;
+}
