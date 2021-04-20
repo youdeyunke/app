@@ -19,7 +19,7 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    
   },
   ready:function(){
     var _this = this

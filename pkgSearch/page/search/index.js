@@ -5,14 +5,55 @@ Page({
    * 页面的初始数据
    */
   data: {
+    value: '',
+    searchRecord: []
+  },
+  historysearch: function () {
+    this.setData({
+      searchRecord: wx.getStorageSync('searchRecord') || []
+    })
+  },
+  inputHandle: function (e) {
+    this.setData({
+      value: e.detail.value
+    })
+  },
+  searchHandle: function (e) {
+    var searchRecord = this.data.searchRecord
+    var value = this.data.value
+    if (value == '') {
+      return
+    } else {
+      searchRecord.unshift({
+        value: value,
+        id: searchRecord.length
+      })
+      wx.setStorageSync('searchRecord', searchRecord)
+    }
+    wx.navigateTo({
+      url: '/pages/post/index?text='+ value
+    })
+  },
+  clearHandle:function(){
+    var _this = this
+    wx.showModal({
+      title:'您确定要删除记录吗？',
+      success:function(res){
+        if(res.confirm){
+          wx.clearStorageSync('searchRecord')
+          _this.setData({
+            searchRecord:[]
+          })
+        }
+      }
+    })
 
   },
-
-  /**
+    /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.historysearch()
   },
 
   /**
