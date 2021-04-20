@@ -911,6 +911,12 @@
           "pathName": "pkgSearch/page/search/index",
           "query": "id=9",
           "scene": null
+        },
+        {
+          "name": "pkgSearch/page/search/index",
+          "pathName": "pkgSearch/page/search/index",
+          "query": "id=1",
+          "scene": null
         }
       ]
     }
