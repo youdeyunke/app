@@ -3,7 +3,7 @@
   <view class="search-top">
     <view class="search-top-left">
       <image class="image1" src="../../images/search.png"></image>
-      <input type="text" placeholder="您想住哪儿？" bindinput="inputHandle" />
+      <input type="text" placeholder="您想住哪儿？" bindinput="inputHandle" value="{{inputvalue}}" />
     </view>
     <view class="search-top-right" bindtap="searchHandle">搜索</view>
   </view>
@@ -12,7 +12,7 @@
     <image class="image2" src="../../images/rubbish.png" bindtap="clearHandle"></image>
   </view>
     <view class="search-record" >
-        <text wx:for="{{searchRecord}}">{{item.value}}</text>
+        <text wx:for="{{searchRecord}}" bindtap="checkvalueHandle" data-index="{{index}}">{{item.value}}</text>
     </view>
 
   <image class="image3" src="../../images/Group 234.png"></image>

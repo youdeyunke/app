@@ -6,7 +6,8 @@ Page({
    */
   data: {
     value: '',
-    searchRecord: []
+    searchRecord: [],
+    inputvalue: ''
   },
   historysearch: function () {
     this.setData({
@@ -15,41 +16,51 @@ Page({
   },
   inputHandle: function (e) {
     this.setData({
-      value: e.detail.value
+      inputvalue: e.detail.value
     })
   },
   searchHandle: function (e) {
     var searchRecord = this.data.searchRecord
-    var value = this.data.value
-    if (value == '') {
+    var inputvalue = this.data.inputvalue
+    if (inputvalue == '') {
       return
     } else {
       searchRecord.unshift({
-        value: value,
+        value: inputvalue,
         id: searchRecord.length
       })
       wx.setStorageSync('searchRecord', searchRecord)
+      wx.navigateTo({
+        url: '/pages/post/index?text=' + inputvalue
+      })
     }
-    wx.navigateTo({
-      url: '/pages/post/index?text='+ value
-    })
+
   },
-  clearHandle:function(){
+  clearHandle: function () {
     var _this = this
     wx.showModal({
-      title:'您确定要删除记录吗？',
-      success:function(res){
-        if(res.confirm){
+      title: '您确定要删除记录吗？',
+      success: function (res) {
+        if (res.confirm) {
           wx.clearStorageSync('searchRecord')
           _this.setData({
-            searchRecord:[]
+            searchRecord: []
           })
         }
       }
     })
 
   },
-    /**
+  checkvalueHandle: function (e) {
+    var searchRecord = this.data.searchRecord
+    var index = e.currentTarget.dataset.index
+    var myvalue = searchRecord[index].value
+    this.setData({
+      inputvalue: myvalue
+    })
+    console.log("searchRocd", myvalue)
+  },
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
