@@ -8,16 +8,8 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        showTotalCount: { type: Boolean, value: false },
         filter: {
             type: Object, value: {}, observer: "filterChange"
-        },
-        page: {
-            type: Number, value: 1, observer: "pageChange"
-        },
-
-        cache: {
-            type: String, value: null
         },
 
     },
@@ -38,29 +30,11 @@ Component({
      */
     methods: {
 
-        pageChange: function () {
-            // TODO remove this 
-            // 如果已经到底，则不能翻页
-            if (this.data.meta.total_pages == this.data.meta.current_page) {
-                return false
-            }
-
-            var query = this.data.filter
-            query.kw = this.data.kw
-            query.page = this.data.page
-            this.setData({ query: query })
-            this.loadData()
-        },
-
         filterChange: function (v) {
             var query = this.data.filter || {}
             if (Object.keys(query).length == 0) {
                 return false;
             }
-
-            console.log('filter: query is', query)
-            console.log('this.data.filter is', this.data.filter)
-            console.log('v is', v)
             this.setData({ query: query })
             this.loadData()
         },
