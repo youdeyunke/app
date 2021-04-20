@@ -17,6 +17,6 @@
         </view>
     </view>
     <view class="status">
-        <van-tag color="{{post.sale_status_item.color}}" text-color="#ffffff" size="mini">{{post.sale_status_item.name}}</van-tag>
+        <van-tag plain color="{{post.sale_status_item.color}}"  size="mini">{{post.sale_status_item.name}}</van-tag>
     </view>
 </navigator>

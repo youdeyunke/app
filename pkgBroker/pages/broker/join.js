@@ -328,13 +328,15 @@ Page({
                     userstate:resp.data.data
                 }) 
                 var join_state = JSON.stringify(resp.data.data)
+                // 审核中
                 if(resp.data.data.join_status==1){
-                    wx.navigateTo({
+                    wx.redirectTo({
                          url: '/pkgBroker/pages/broker/audit/index?status='+join_state,
                     })
                 }
+                // 已入驻
                 if(resp.data.data.join_status==2){
-                    wx.navigateTo({
+                    wx.redirectTo({
                       url: '/pkgBroker/pages/broker/audit/index?status='+join_state,
                     })
                 }
