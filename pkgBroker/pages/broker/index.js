@@ -11,6 +11,7 @@ Page({
       per_page: 50,
       items: [],
       loading: true,
+      postId: null,
       // brokers:''
 
   },
@@ -18,8 +19,12 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-      this.loadData()
+  onLoad: function (q) {
+      this.setData({
+          postId: q.post_id,
+      }, () => {
+        this.loadData()
+      })
   },
 
   searchTextInput: function(e){
@@ -50,6 +55,9 @@ Page({
           kw: _this.data.kw,
           page: _this.data.page,
           per_page: _this.data.per_page,
+      }
+      if(this.data.postId){
+          query.post_id = this.data.postId
       }
       app.request({
           url: '/api/v1/brokers/',
