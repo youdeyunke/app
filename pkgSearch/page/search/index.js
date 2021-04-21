@@ -6,7 +6,10 @@ Page({
    */
   data: {
     value: '',
-    searchRecord: []
+    searchRecord: [],
+    inputvalue: '',
+    delshow: false,
+    resultshow: false
   },
   historysearch: function () {
     this.setData({
@@ -15,41 +18,74 @@ Page({
   },
   inputHandle: function (e) {
     this.setData({
-      value: e.detail.value
+      inputvalue: e.detail.value,
+      delshow: true,
+      resultshow: true
     })
+    if (e.detail.value == '') {
+      this.setData({
+        delshow: false,
+        resultshow: false
+      })
+    }
   },
   searchHandle: function (e) {
     var searchRecord = this.data.searchRecord
-    var value = this.data.value
-    if (value == '') {
+    var inputvalue = this.data.inputvalue
+    if (inputvalue == '') {
       return
     } else {
-      searchRecord.unshift({
-        value: value,
-        id: searchRecord.length
-      })
-      wx.setStorageSync('searchRecord', searchRecord)
+      if (JSON.stringify(searchRecord).indexOf(JSON.stringify(inputvalue)) === -1) {
+        searchRecord.unshift({
+          value: inputvalue,
+          id: searchRecord.length
+        })
+        wx.navigateTo({
+          url: '/pages/post/index?text=' + inputvalue
+        })
+        wx.setStorageSync('searchRecord', searchRecord)
+      } else {
+        wx.navigateTo({
+          url: '/pages/post/index?text=' + inputvalue
+        })
+      }
     }
-    wx.navigateTo({
-      url: '/pages/post/index?text='+ value
+  },
+  valueHandle: function (e) {
+    this.setData({
+      inputvalue: e.detail.mytitle
     })
   },
-  clearHandle:function(){
+  delvalue: function () {
+    this.setData({
+      inputvalue: '',
+      resultshow: false
+    })
+  },
+  clearHandle: function () {
     var _this = this
     wx.showModal({
-      title:'您确定要删除记录吗？',
-      success:function(res){
-        if(res.confirm){
+      title: '您确定要删除记录吗？',
+      success: function (res) {
+        if (res.confirm) {
           wx.clearStorageSync('searchRecord')
           _this.setData({
-            searchRecord:[]
+            searchRecord: []
           })
         }
       }
     })
 
   },
-    /**
+  checkvalueHandle: function (e) {
+    var searchRecord = this.data.searchRecord
+    var index = e.currentTarget.dataset.index
+    var myvalue = searchRecord[index].value
+    wx.navigateTo({
+      url: '/pages/post/index?text=' + myvalue
+    })
+  },
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
