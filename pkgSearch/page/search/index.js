@@ -7,7 +7,9 @@ Page({
   data: {
     value: '',
     searchRecord: [],
-    inputvalue: ''
+    inputvalue: '',
+    delshow: false,
+    resultshow: false
   },
   historysearch: function () {
     this.setData({
@@ -16,8 +18,16 @@ Page({
   },
   inputHandle: function (e) {
     this.setData({
-      inputvalue: e.detail.value
+      inputvalue: e.detail.value,
+      delshow: true,
+      resultshow: true
     })
+    if (e.detail.value == '') {
+      this.setData({
+        delshow: false,
+        resultshow: false
+      })
+    }
   },
   searchHandle: function (e) {
     var searchRecord = this.data.searchRecord
@@ -25,16 +35,32 @@ Page({
     if (inputvalue == '') {
       return
     } else {
-      searchRecord.unshift({
-        value: inputvalue,
-        id: searchRecord.length
-      })
-      wx.setStorageSync('searchRecord', searchRecord)
-      wx.navigateTo({
-        url: '/pages/post/index?text=' + inputvalue
-      })
+      if (JSON.stringify(searchRecord).indexOf(JSON.stringify(inputvalue)) === -1) {
+        searchRecord.unshift({
+          value: inputvalue,
+          id: searchRecord.length
+        })
+        wx.navigateTo({
+          url: '/pages/post/index?text=' + inputvalue
+        })
+        wx.setStorageSync('searchRecord', searchRecord)
+      } else {
+        wx.navigateTo({
+          url: '/pages/post/index?text=' + inputvalue
+        })
+      }
     }
-
+  },
+  valueHandle: function (e) {
+    this.setData({
+      inputvalue: e.detail.mytitle
+    })
+  },
+  delvalue: function () {
+    this.setData({
+      inputvalue: '',
+      resultshow: false
+    })
   },
   clearHandle: function () {
     var _this = this
@@ -55,10 +81,9 @@ Page({
     var searchRecord = this.data.searchRecord
     var index = e.currentTarget.dataset.index
     var myvalue = searchRecord[index].value
-    this.setData({
-      inputvalue: myvalue
+    wx.navigateTo({
+      url: '/pages/post/index?text=' + myvalue
     })
-    console.log("searchRocd", myvalue)
   },
   /**
    * 生命周期函数--监听页面加载

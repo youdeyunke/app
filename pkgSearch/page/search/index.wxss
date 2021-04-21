@@ -9,6 +9,7 @@ page{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 .search-top-left{
   width:625rpx ;
@@ -21,6 +22,9 @@ page{
   display: flex;
   align-items: center;
   padding-left: 45rpx;
+}
+.search-top-left input{
+  width: 490rpx;
 }
 .image1{
   width:26rpx ;
@@ -62,4 +66,22 @@ page{
   height: 120rpx;
   margin-top: 20rpx;
   margin-bottom: 50rpx;
+}
+.del{
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  left: 528rpx;
+}
+.image4{
+  width:28rpx ;
+  height:28rpx;
+  position: relative;
+  z-index: 5;
+}
+.component-search{
+  position: absolute;
+  top: 75rpx;
+  width: 100%;
+  background-color: #fff;
 }
