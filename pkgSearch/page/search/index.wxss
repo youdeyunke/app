@@ -59,19 +59,13 @@ page{
   padding:0 33rpx;
   border-radius:50rpx ;
   margin-right: 20rpx;
-  margin-bottom: 20rpx;
+  /* margin-bottom: 20rpx; */
 }
 .image3{
   width: 700rpx;
   height: 120rpx;
-  margin-top: 20rpx;
+  margin-top: 40rpx;
   margin-bottom: 50rpx;
-}
-.del{
-  width: 100rpx;
-  height: 100rpx;
-  position: absolute;
-  left: 528rpx;
 }
 .image4{
   width:28rpx ;
@@ -84,4 +78,11 @@ page{
   top: 75rpx;
   width: 100%;
   background-color: #fff;
+}
+.del{
+  width: 90rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

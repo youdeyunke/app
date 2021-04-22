@@ -50,7 +50,7 @@ Component({
     methods: {
         gotoSearch: function () {
             wx.navigateTo({
-                url: '/pages/search/index',
+                url: '/pkgSearch/page/search/index',
                 success: (result) => {
 
                 },

@@ -4,23 +4,26 @@
     <view class="search-top-left">
       <image class="image1" src="../../images/search.png"></image>
       <input type="text" placeholder="您想住哪儿？" bindinput="inputHandle" value="{{inputvalue}}" />
-      <block wx:if="{{delshow===true}}">
-          <image class="image4" src="../../images/det.png" ></image>
-          <view class="del" bindtap="delvalue"></view>
-      </block>
+      <view class="del" wx:if="{{delshow===true}}">
+        <image class="image4" src="../../images/det.png" bindtap="delvalue"></image>
+      </view>
     </view>
     <view class="search-top-right" bindtap="searchHandle">搜索</view>
     <block wx:if="{{resultshow==true}}">
       <search class="component-search" value="{{inputvalue}}" bindchangevalue="valueHandle"></search>
-    </block>  
+    </block>
   </view>
-  <view class="search-history">
-    <view>历史搜索</view>
-    <image class="image2" src="../../images/rubbish.png" bindtap="clearHandle"></image>
-  </view>
-  <view class="search-record">
-    <text wx:for="{{searchRecord}}" bindtap="checkvalueHandle" data-index="{{index}}" wx:if="{{index<6}}">{{item.value}}</text>
-  </view>
+  <block wx:if="{{searchRecord != ''}}">
+    <view class="search-history">
+      <view>历史搜索</view>
+      <image class="image2" src="../../images/rubbish.png" bindtap="clearHandle"></image>
+    </view>
+    <view class="search-record">
+      <text wx:for="{{searchRecord}}" bindtap="checkvalueHandle" data-index="{{index}}"
+        wx:if="{{index<6}}">{{item}}</text>
+    </view>
+  </block>
+
   <image class="image3" src="../../images/Group 234.png"></image>
   <search-item></search-item>
 </view>

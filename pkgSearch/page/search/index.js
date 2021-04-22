@@ -9,7 +9,7 @@ Page({
     searchRecord: [],
     inputvalue: '',
     delshow: false,
-    resultshow: false
+    resultshow: false,
   },
   historysearch: function () {
     this.setData({
@@ -17,6 +17,7 @@ Page({
     })
   },
   inputHandle: function (e) {
+    console.log("e.detali",e.detail.value)
     this.setData({
       inputvalue: e.detail.value,
       delshow: true,
@@ -29,17 +30,14 @@ Page({
       })
     }
   },
-  searchHandle: function (e) {
+  searchHandle: function () {
     var searchRecord = this.data.searchRecord
     var inputvalue = this.data.inputvalue
     if (inputvalue == '') {
       return
     } else {
-      if (JSON.stringify(searchRecord).indexOf(JSON.stringify(inputvalue)) === -1) {
-        searchRecord.unshift({
-          value: inputvalue,
-          id: searchRecord.length
-        })
+      if (searchRecord.indexOf(inputvalue) === -1) {
+        searchRecord.unshift(inputvalue)
         wx.navigateTo({
           url: '/pages/post/index?text=' + inputvalue
         })
@@ -59,7 +57,8 @@ Page({
   delvalue: function () {
     this.setData({
       inputvalue: '',
-      resultshow: false
+      resultshow: false,
+      delshow:false
     })
   },
   clearHandle: function () {
@@ -89,7 +88,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.historysearch()
   },
 
   /**
@@ -103,7 +101,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.historysearch()
   },
 
   /**
