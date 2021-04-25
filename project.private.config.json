@@ -911,6 +911,18 @@
           "pathName": "pkgSearch/page/search/index",
           "query": "id=9",
           "scene": null
+        },
+        {
+          "name": "pkgSearch/page/search/index",
+          "pathName": "pkgSearch/page/search/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pkgFenxiao/pages/fenxiao/fxyj",
+          "pathName": "pkgFenxiao/pages/fenxiao/fxyj",
+          "query": "",
+          "scene": null
         }
       ]
     }

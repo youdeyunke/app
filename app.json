@@ -71,7 +71,8 @@
         "pages/fenxiao/customers",
         "pages/fenxiao/withdraw",
         "pages/fenxiao/qr",
-        "pages/fenxiao/customer-detail"
+        "pages/fenxiao/customer-detail",
+        "pages/fenxiao/fxyj"
       ]
     },
     {

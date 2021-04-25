@@ -1,0 +1,10 @@
+<view class="box">
+  <view class="biaoti ziti1">佣金金额：<text class="ziti">{{title}}</text></view>
+  <view class="biaoti ziti1">结账周期：<text class="ziti">{{time}}</text></view>
+  <view class="content ziti1"><view class="yjgz">佣金规则:</view><view class="ziti">{{content}}</view></view>
+<view  class="button">
+  <view class="buttons">报备客户</view>
+  <button class=""></button>
+</view>
+
+</view>

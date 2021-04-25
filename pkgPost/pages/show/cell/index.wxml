@@ -1,4 +1,4 @@
-<navigator hover-class="none" class="cell custom-style" url="{{url}}">
+<navigator hover-class="none" class="cell custom-style" url="/pkgFenxiao/pages/fenxiao/fxyj?pid={{pid}}">
     <view class="icon">
         <image src="../../../icons/{{icon}}.png" />
     </view>
