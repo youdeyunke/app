@@ -1,37 +1,38 @@
 <block wx:if="{{buildingShow==true}}">
-<view>
-  <view class="building-box">
-  <view class="building-left">
-    <view>
-      <text>{{value.floor}}</text>
-      <text class="text2">层</text>
+  <view>
+    <view class="building-box">
+      <view class="building-left">
+        <view>
+          <text>{{num}}</text>
+          <text class="text2">楼</text>
+        </view>
+        <text>{{value.floor}}层</text>
+      </view>
+      <view class="building-right">
+        <view>
+          <view>面积区间：89---123m²</view>
+          <view>价格区间：277.32-330.5811111111111</view>
+          <view>单位均价：{{value.average}}</view>
+        </view>
+        <image class="image1" src="../../images/1.png" bindtap="unfoldHandle" data-index="{{value}}"></image>
+      </view>
     </view>
   </view>
-  <view class="building-right">
-    <view>
-      <view>面积区间：89---123m²</view>
-      <view>价格区间：277.32-330.5811111111111</view>
-      <view>单位均价：9999</view>
-    </view>
-    <image class="image1" src="../../images/1.png" bindtap="unfoldHandle" data-index="{{value}}"></image>
-  </view>
-</view>
-</view>
 </block>
 
 
 
-<block wx:if="{{detailsShow==true}}" >
-    <view class="unfold-box">
-        <view class="unfold-top">
-        <text>{{value.floor}}层</text>
-        <image src="../../images/2.png" bindtap="closeHandle"></image>
+<block wx:if="{{detailsShow==true}}">
+  <view class="unfold-box">
+    <view class="unfold-top">
+      <view>
+      <text>{{num}}号楼</text>
+      <text class="text3">{{value.floor}}层</text>
       </view>
-
-      <block wx:for="{{value.rooms}}">
-        <details items="{{item}}" class="details"></details>
-      </block>
-
-
+      <image src="../../images/2.png" bindtap="closeHandle"></image>
     </view>
-  </block>
+    <block wx:for="{{value.rooms}}">
+      <details items="{{item}}" class="details"></details>
+    </block>
+  </view>
+</block>

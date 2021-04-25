@@ -1,5 +1,5 @@
 <!--pkgYfyj/components/details/index.wxml-->
-<navigator class="details-box" url="/pkgYfyj/pages/yfyj/show?id={{item.id}}">
+<navigator class="details-box" url="/pkgYfyj/pages/yfyj/show?id={{items.id}}">
   <view class="details-left">
     <view>{{items.name}}</view>
     <view>{{items.area}}平</view>

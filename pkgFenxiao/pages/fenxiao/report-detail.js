@@ -1,22 +1,17 @@
-// pkgFenxiao/pages/fenxiao/fxyj.js
-const app=getApp()
+// pkgFenxiao/pages/fenxiao/report-detail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    postId:'',
-    title:'',
-    time:'',
-    content:''
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('我是options'+options.pid)
     this.setData({
       pid:options.pid
     })
@@ -40,9 +35,7 @@ Page({
       }
     })
   },
-  click(){
-    console.log(this.data.value.title)
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

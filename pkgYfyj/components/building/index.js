@@ -5,7 +5,13 @@ Component({
   properties: {
     value: {
       type: Object
-    }
+    },
+    num:{
+      type:Number
+    },
+    // average:{
+    //   type:Number
+    // }
   },
   /**
    * 组件的初始数据

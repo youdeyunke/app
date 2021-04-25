@@ -17,10 +17,14 @@ Page({
     floordata: '',
     floor: '',
     floorRooms: '',
-    newbuilding: ''
+    newbuilding: '',
+    tabid:1,
+    building_num:1,
+    average:[]
   },
   queryBuilding: function () {
     var _this = this
+    var query = this.data.tabIndex
     app.request({
       url: '/api/v1/buildings?post_id=9',
       // data:query,
@@ -29,25 +33,25 @@ Page({
           buildingdata: res.data.data,
           tabs: res.data.data.items
         })
+        // console.log("res",res.data.data)
       }
     })
   },
   tabChangeHandle: function (e) {
-    console.log("eeeeee", e.detail)
-    var tabs = this.data.tabs
     var index = this.data.tabIndex
-    var name = tabs[index].id
-    if (name == this.data.tab) {
-      return
-    }
+    var tab = this.data.tabs[index].id
+    var building_num = this.data.tabs[index].name
     this.setData({
-      tab: name
-    }, )
+      tabIndex:e.detail,
+      tabid:tab,
+      building_num:building_num
+    })
+    this.queryDetails()
   },
   queryDetails: function () {
     var _this = this
     app.request({
-      url: '/api/v1/building_rooms?building_id=1',
+      url: '/api/v1/building_rooms?building_id='+this.data.tabid,
       success: function (res) {
         if (res.data.status != 0) {
           return false
@@ -57,7 +61,6 @@ Page({
           return item.floor
         })
         var myfloordata = Array.from(new Set(floordata)) //[1，3，5]
-        // console.log("myfloordata",myfloordata)
         var groups = []
         myfloordata.forEach((floor) => {
           var newarr = {
@@ -68,11 +71,23 @@ Page({
             return r.floor == floor
           })
           groups.push(newarr)
-          // console.log("newarr", groups)
+          // console.log("newarr", newarr)
+          //求每层均价
+          // var average_price = []
+          // var areanum = (newarr.rooms).map((item)=>{return item.average_price})
+          // // console.log("areanum",areanum)
+          // var sum = 0
+          // for(var i =0;i<areanum.length;i++){
+          //   sum+=parseInt(areanum[i])
+          // }
+          // var average = Math.ceil(sum/areanum.length)
+          // average_price.push(average)
+          // console.log("avaerage",average)
           _this.setData({
             floorRooms: groups,
             floordata: myfloordata,
             detailsdata: res.data.data,
+            // average:average
           })
         })
       }

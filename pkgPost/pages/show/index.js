@@ -45,10 +45,10 @@ Page({
         });
     },
     onLoad: function (options) {
-        console.log(options);
-        console.log(options.id);
         this.setData({
           id:options.id
+        },()=>{
+            this.loadData()
         })
       },
 

@@ -13,9 +13,9 @@
         </view>
     </view>
     <view class="cell-group">
-        <cell custom-style="cell-item" icon="location" title="{{post.address}}" bindtap="gotoLocation"></cell>
-        <cell wx:if="{{post.rank_info.show}}" custom-style="cell-item" icon="bang" title="{{post.rank_info.text}}" url="{{post.rank_info.url}}"></cell>
-        <cell wx:if="{{post.brokage_info.show}}" custom-style="cell-item" icon="yong" title="{{post.brokage_info.text}}" url="/pkgFenxiao/pages/fenxiao/index?post_id={{post.id}}"></cell>
+        <cell custom-style="cell-item"   icon="location" title="{{post.address}}" bindtap="gotoLocation"></cell>
+        <cell wx:if="{{post.rank_info.show}}"  custom-style="cell-item" icon="bang" title="{{post.rank_info.text}}" url="{{post.rank_info.url}}"></cell>
+        <cell wx:if="{{post.brokage_info.show}}"  custom-style="cell-item" icon="yong" title="{{post.brokage_info.text}}" url="/pkgFenxiao/pages/fenxiao/report-detail?id={{post.id}}"></cell>
     </view>
     <view class="navs">
         <navigator url="{{nav.path}}" hover-class="none" class="nav-item" wx:for="{{navs}}" wx:for-item="nav">
