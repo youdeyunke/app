@@ -6,7 +6,6 @@ Component({
     properties: {
         post: { type: Object, default: null },
         navs: { type: Array, default: null }
-
     },
 
     /**
@@ -41,7 +40,7 @@ Component({
                 latitude: Number(this.data.post.latitude),
                 longitude: Number(this.data.post.longitude),
                 name: this.data.post.title,
-                address: this.data.post.address
+                address: this.data.post.address,
             })
         },
         openSetting() {

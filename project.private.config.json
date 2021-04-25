@@ -913,8 +913,19 @@
           "scene": null
         },
         {
+<<<<<<< HEAD
           "name": "改版一房一价",
           "pathName": "pkgYfyj/pages/yfyj/index2/index",
+=======
+          "name": "pkgSearch/page/search/index",
+          "pathName": "pkgSearch/page/search/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pkgFenxiao/pages/fenxiao/fxyj",
+          "pathName": "pkgFenxiao/pages/fenxiao/fxyj",
+>>>>>>> master
           "query": "",
           "scene": null
         }

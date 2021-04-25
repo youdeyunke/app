@@ -1,0 +1,65 @@
+/* pkgFenxiao/pages/fenxiao/fxyj.wxss */
+.box
+{
+  width: 100%;
+  height: 100%;
+}
+.biaoti{
+  width: 710rpx;
+  height: 90rpx;
+  background: #ffff;
+  border-radius: 10rpx;
+  margin: 20rpx;
+  display: flex;
+  align-items: center;
+  padding-left:30rpx;
+}
+.ziti1{
+  font-size: 28rpx;
+  color: #333333;
+}
+.ziti{
+  color: #666666;
+  font-size: 28rpx;
+}
+
+.content{
+  white-space:pre-line;
+  margin: 20rpx;
+  width:710rpx;
+  background: #ffffff;
+  border-radius: 10rpx;
+  padding-left:30rpx;
+  padding-bottom: 26rpx;
+}
+.button{
+  position: relative;
+  width: 750rpx;
+  height: 90rpx;
+  position: fixed;
+  bottom: 0;
+}
+button{
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+box-sizing: border-box;
+}
+.buttons{
+  width: 750rpx;
+  height: 90rpx;
+  background: #1989FA;
+  font-size: 30rpx;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.yjgz{
+  padding-top: 26rpx;
+  padding-bottom: 5rpx;
+}
