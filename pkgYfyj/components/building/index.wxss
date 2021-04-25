@@ -87,3 +87,9 @@
 .unfold-box :nth-of-type(3n+3){
   border-right: none;
 }
+/* .unfold-border{
+  width: 2rpx;
+  height: 50rpx;
+  background-color: aqua;
+  display: inline-block;
+} */

@@ -18,9 +18,75 @@ Page({
     floor: '',
     floorRooms: '',
     newbuilding: '',
-    tabid:1,
-    building_num:1,
-    average:[]
+    tabid: 1,
+    building_num: 1,
+    average: [],
+    searchShow: false,
+    price_between: [{
+        value: '不限',
+        select: true
+      },
+      {
+        value: '50-70',
+        select: false
+      },
+      {
+        value: '70-90',
+        select: false
+      },
+      {
+        value: '90-110',
+        select: false
+      }
+    ],
+    area_price: [{
+      value: '不限',
+      select: true
+    }, 
+    {
+      value: '500-600',
+      select: false
+    }, 
+    {
+      value: '600-700',
+      select: false
+    }, 
+    {
+      value: '700-800',
+      select: false
+    }, 
+    {
+      value: '800-900',
+      select:false
+    }, 
+    ],
+    area:[
+      {
+        value:'不限',
+        select:true
+      },
+      {
+        value:'60-70',
+        select:false
+      },
+      {
+        value:'70-80',
+        select:false
+      },
+      {
+        value:'80-90',
+        select:false
+      },
+      {
+        value:'90-100',
+        select:false
+      },
+    ],
+    formdata:{
+      price:'不限',
+      areaprice:'不限',
+      area:'不限'
+    }
   },
   queryBuilding: function () {
     var _this = this
@@ -33,7 +99,6 @@ Page({
           buildingdata: res.data.data,
           tabs: res.data.data.items
         })
-        // console.log("res",res.data.data)
       }
     })
   },
@@ -42,16 +107,16 @@ Page({
     var tab = this.data.tabs[index].id
     var building_num = this.data.tabs[index].name
     this.setData({
-      tabIndex:e.detail,
-      tabid:tab,
-      building_num:building_num
+      tabIndex: e.detail,
+      tabid: tab,
+      building_num: building_num
     })
     this.queryDetails()
   },
   queryDetails: function () {
     var _this = this
     app.request({
-      url: '/api/v1/building_rooms?building_id='+this.data.tabid,
+      url: '/api/v1/building_rooms?building_id=' + this.data.tabid,
       success: function (res) {
         if (res.data.status != 0) {
           return false
@@ -65,29 +130,49 @@ Page({
         myfloordata.forEach((floor) => {
           var newarr = {
             floor: floor,
-            rooms: []
+            rooms: [],
+            areanum: [],
+            area_min: '',
+            area_max: '',
+            total_min: '',
+            total_max: ''
           }
           newarr.rooms = mydata.filter((r) => {
             return r.floor == floor
           })
+          //求平均值
+          var newareanum = (newarr.rooms).map((item) => {
+            return item.average_price
+          })
+          var sum = 0
+          for (var i = 0; i < newareanum.length; i++) {
+            sum += parseInt(newareanum[i])
+          }
+          var average = Math.ceil(sum / newareanum.length)
+          newarr.areanum = average
+
+          //求面积区间
+          var areabetween = (newarr.rooms).map((item) => {
+            return item.area
+          })
+          var areamin = Math.min.apply(null, areabetween)
+          var areamax = Math.max.apply(null, areabetween)
+          newarr.area_min = areamin
+          newarr.area_max = areamax
+
+          //求价格区间
+          var total_price = (newarr.rooms).map((item) => {
+            return item.total_price
+          })
+          var totalmin = Math.min.apply(null, total_price)
+          var totalmax = Math.max.apply(null, total_price)
+          newarr.total_min = totalmin
+          newarr.total_max = totalmax
           groups.push(newarr)
-          // console.log("newarr", newarr)
-          //求每层均价
-          // var average_price = []
-          // var areanum = (newarr.rooms).map((item)=>{return item.average_price})
-          // // console.log("areanum",areanum)
-          // var sum = 0
-          // for(var i =0;i<areanum.length;i++){
-          //   sum+=parseInt(areanum[i])
-          // }
-          // var average = Math.ceil(sum/areanum.length)
-          // average_price.push(average)
-          // console.log("avaerage",average)
           _this.setData({
             floorRooms: groups,
             floordata: myfloordata,
             detailsdata: res.data.data,
-            // average:average
           })
         })
       }
@@ -100,6 +185,69 @@ Page({
       detailsShow: mystatus,
       newbuilding: mybuilding
     })
+  },
+  unfoldSearch: function () {
+    this.setData({
+      searchShow: !this.data.searchShow
+    })
+  },
+  closeSearch: function () {
+    this.setData({
+      searchShow: !this.data.searchShow
+    })
+  },
+  priceHandle: function (e) {
+    var index = e.currentTarget.dataset.index
+    var select = this.data.price_between
+    for(var i = 0;i<select.length;i++){
+      select[i].select=false
+    }
+    select[index].select = !select[index].select
+    var key = e.currentTarget.dataset.key
+    var formdata = this.data.formdata
+    var myformdata = select.filter((myvalue)=>{return myvalue.select===true}).map((myvalue)=>{return myvalue.value})
+    formdata[key]=myformdata.toString()
+    this.setData({
+      price_between: select
+    })
+  },
+  areapriceHandle:function(e){
+    var areaprice = this.data.area_price
+    var index = e.currentTarget.dataset.index
+    for(var i = 0;i<areaprice.length;i++){
+      areaprice[i].select=false
+    }
+    areaprice[index].select = !areaprice[index].select
+    var key = e.currentTarget.dataset.key
+    var formdata = this.data.formdata
+    var myformdata = areaprice.filter((myvalue)=>{return myvalue.select===true}).map((myvalue)=>{return myvalue.value})
+    formdata[key]=myformdata.toString()
+    this.setData({
+      area_price:areaprice
+    })
+  },
+  areaHandle:function(e){
+    var area = this.data.area
+    var index = e.currentTarget.dataset.index
+    for(var i = 0;i<area.length;i++){
+      area[i].select=false
+    }
+    area[index].select = !area[index].select
+    var key = e.currentTarget.dataset.key
+    var formdata = this.data.formdata
+    var myformdata = area.filter((myvalue)=>{return myvalue.select===true}).map((myvalue)=>{return myvalue.value})
+    formdata[key]=myformdata.toString()
+    console.log("myformdata",formdata)
+    this.setData({
+      area:area
+    })
+  },
+  submitHanle:function(){
+    console.log("formdata",this.data.formdata)
+
+    // this.setData({
+    //   searchShow: !this.data.searchShow
+    // })
   },
 
   /**
@@ -114,15 +262,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    var formdata = this.data.formdata
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
-  },
+  onShow: function () {},
 
   /**
    * 生命周期函数--监听页面隐藏
