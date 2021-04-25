@@ -1,0 +1,26 @@
+image{
+  vertical-align: top;
+}
+.image1{
+  width: 750rpx;
+  height: 300rpx;
+  position: relative;
+}
+.text1{
+  height:90rpx ;
+  background-color:#FFFFFF ;
+  box-sizing: border-box;
+  padding: 20rpx 50rpx 20rpx 50rpx;
+  opacity: .75;
+  font-size:40rpx ;
+  font-weight: bold;
+  color: #333333;
+  display: inline-block;
+  margin-left: 145rpx;
+  position: absolute;
+  top: 40%;
+  left: 0;
+}
+.building{
+  position: relative;
+}

@@ -1,0 +1,10 @@
+<view class="building-box">
+  <image class="image1" src="../../../images/3.jpg">
+    <text class="text1">玉龙玄天无敌大楼盘</text>
+  </image>
+  <ud-tabs class="tabs" tabs="{{tabs}}" bind:change='tabChangeHandle' model:active-index='{{tabIndex}}'>
+  </ud-tabs>
+  <view class="building">
+      <building wx:if="{{buildingShow==true}}" bindchangestatus="mystatus" wx:for="{{floorRooms}}" value="{{item}}" num="{{building_num}}" average="{{average}}"></building>
+  </view>
+</view>
