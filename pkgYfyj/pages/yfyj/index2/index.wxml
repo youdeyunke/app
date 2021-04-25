@@ -2,9 +2,63 @@
   <image class="image1" src="../../../images/3.jpg">
     <text class="text1">玉龙玄天无敌大楼盘</text>
   </image>
+  <view class="building-message" bindtap="unfoldSearch">
+    <view class="building-message-nav">
+      <text>单位价格</text>
+      <image class="image2" src="../../../images/4.png"></image>
+    </view>
+    <view class="building-message-nav">
+      <text>面积</text>
+      <image class="image2" src="../../../images/4.png"></image>
+    </view>
+    <view class="building-message-nav">
+      <text>区间</text>
+      <image class="image2" src="../../../images/4.png"></image>
+    </view>
+  </view>
+  <van-popup show="{{searchShow}}" position="top">
+    <view class="search-box">
+      <view class="search-price">
+        <view class="search-top">
+          <text>筛选</text>
+          <text>重置</text>
+        </view>
+        <view class="search-price_between">
+          <text>总价格区间</text>
+          <text>(万元)</text>
+        </view>
+        <view class="price_between-class">
+          <block wx:for="{{price_between}}" >
+            <view class="{{item.select===true?'select':'notselect'}}" bindtap="priceHandle" data-index="{{index}}" data-key="price">{{item.value}}</view>
+          </block>
+        </view>
+        <view class="search-price_between">
+          <text>单位面积价格</text>
+          <text>(元/平)</text>
+        </view>
+        <view class="price_between-class">
+          <block wx:for="{{area_price}}">
+            <view class="{{item.select===true?'select':'notselect'}}" data-key="areaprice" bindtap="areapriceHandle" data-index="{{index}}">{{item.value}}</view>
+          </block>
+        </view>
+        <view class="search-price_between">
+          <text>总面积</text>
+          <text>(平)</text>
+        </view>
+        <view class="price_between-class">
+          <block wx:for="{{area}}">
+            <view class="{{item.select===true?'select':'notselect'}}" data-key="area" data-index="{{index}}" bindtap="areaHandle">{{item.value}}</view>
+          </block>
+        </view>
+      </view>
+      <view class="search-confirm"  bindtap="submitHanle">确定</view>
+      <view class="search-cancel"  bindtap="closeSearch">取消</view>
+    </view>
+  </van-popup>
   <ud-tabs class="tabs" tabs="{{tabs}}" bind:change='tabChangeHandle' model:active-index='{{tabIndex}}'>
   </ud-tabs>
   <view class="building">
-      <building wx:if="{{buildingShow==true}}" bindchangestatus="mystatus" wx:for="{{floorRooms}}" value="{{item}}" num="{{building_num}}" average="{{average}}"></building>
+    <building wx:if="{{buildingShow==true}}" bindchangestatus="mystatus" wx:for="{{floorRooms}}" value="{{item}}"
+      num="{{building_num}}" average="{{average}}" formdata="{{formdata}}"></building>
   </view>
 </view>

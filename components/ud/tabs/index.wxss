@@ -9,6 +9,7 @@
     white-space: nowrap;
     background-color: #fff;
     padding: 0 26rpx;
+    z-index: -4;
 }
 
 .tab {
@@ -33,5 +34,5 @@
     position: absolute;
     top: 116rpx;
     left: 14rpx;
-    z-index: 999;
+    z-index: 1;
 }

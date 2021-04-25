@@ -1,5 +1,4 @@
 {
-  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -13,6 +12,11 @@
     "miniprogram": {
       "list": [
         {
+<<<<<<< HEAD
+          "name": "改版一房一价",
+          "pathName": "pkgYfyj/pages/yfyj/index2/index",
+          "query": "post_id=9",
+=======
           "id": 0,
           "name": "qa-index",
           "pathName": "pkgQa/pages/qa/index",
@@ -844,6 +848,7 @@
           "name": "pkgFenxiao/pages/fenxiao/index",
           "pathName": "pkgFenxiao/pages/fenxiao/index",
           "query": "pid=9",
+>>>>>>> master
           "scene": null
         }
       ]

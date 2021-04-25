@@ -9,9 +9,9 @@ Component({
     num:{
       type:Number
     },
-    // average:{
-    //   type:Number
-    // }
+    formdata:{
+      type:Object
+    }
   },
   /**
    * 组件的初始数据
@@ -20,6 +20,9 @@ Component({
     detailsShow: false,
     buildingShow: true,
   },
+  // ready:function(){
+  //   console.log('提交的数据',this.properties.formdata)
+  // },
   /**
    * 组件的方法列表
    */

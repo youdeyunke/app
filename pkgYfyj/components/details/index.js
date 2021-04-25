@@ -7,7 +7,14 @@ Component({
   properties: {
     items:{
       type:Object
+    },
+    formdata:{
+      type:Object
     }
+  },
+
+  ready:function(){
+    console.log("详情页的数据",this.properties.formdata)
   },
 
   /**

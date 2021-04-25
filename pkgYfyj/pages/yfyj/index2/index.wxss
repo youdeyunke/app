@@ -24,3 +24,88 @@ image{
 .building{
   position: relative;
 }
+.building-message{
+  height: 88rpx;
+  display: flex;
+  justify-content: space-between;
+  color: #999999;
+  font-size: 26rpx;
+  padding: 0 30rpx 0 30rpx;
+}
+.building-message-nav{
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image2{
+  width: 18rpx;
+  height: 18rpx;
+  margin-left: 15rpx;
+}
+.search-box{
+  width: 750rpx;
+  z-index: 54;
+}
+.search-price{
+  padding:50rpx 50rpx 0 50rpx ;
+}
+.search-top{
+  display: flex;
+  justify-content: space-between;
+  font-size:32rpx ;
+}
+.search-top text:nth-of-type(2){
+  color:#1989FA ;
+}
+.search-price_between{
+  margin-bottom: 35rpx;
+  margin-top: 30rpx;
+}
+.search-price_between text:nth-of-type(2){
+  color: #666666;
+  margin-left: 5rpx;
+}
+
+.select{
+  height: 80rpx;
+  border-radius: 6rpx;
+  display: inline-block;
+  text-align: center;
+  line-height: 80rpx;
+  margin-right: 16rpx;
+  margin-bottom: 16rpx;
+  width: 150rpx;
+  background-color:#1989FA ;
+  color: #fff;
+}
+.notselect{
+  height: 80rpx;
+  border-radius: 6rpx;
+  display: inline-block;
+  text-align: center;
+  line-height: 80rpx;
+  margin-right: 16rpx;
+  margin-bottom: 16rpx;
+  width: 150rpx;
+  background-color: #fff;
+  color: #1989FA;
+}
+.search-confirm,.search-cancel{
+  width: 710rpx;
+  height: 90rpx;
+  background-color:#1989FA ;
+  line-height:90rpx ;
+  text-align: center;
+  color: #fff;
+  font-size:30rpx ;
+  border-radius: 6rpx;
+  margin:0 auto;
+  margin-top: 50rpx;
+  margin-bottom: 20px;
+}
+.search-cancel{
+  background-color: #fff;
+  color: #A0A0A0;
+  border: 1rpx solid #A0A0A0;
+}
