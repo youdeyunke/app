@@ -1,11 +1,12 @@
-// pkgFenxiao/pages/fenxiao/report-detail.js
+// pkgFenxiao/pages/fenxiao/fxyj.js
+const app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    
   },
 
   /**
@@ -13,29 +14,22 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      pid:options.pid
+      id:options.id
+    },()=>{
+      this.loadPost()
     })
-    this.loadPost()
   },
   loadPost:function(){
     var _this=this
     app.request({
-      url:'/api/v1/brokage_info/'+this.data.pid,
+      url:'/api/v1/brokage_info/'+this.data.id,
       success:function(res){
-        console.log(res)
         _this.setData({ 
-          yfyj: res.data.data,
-          value: res.data.data,
-          title:res.data.data.title,
-          postId:res.data.data.postId,
-          content:res.data.data.content,
-          time:res.data.data.cashin
+          value: res.data.data
         })
-        console.log(_this.data.value)
       }
     })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

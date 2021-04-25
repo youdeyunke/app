@@ -34,7 +34,7 @@ Component({
                 return
             }
             app.request({
-                url: '/api/v1/posts/quicksearch?kw=' + kw,
+                url: '/api/v2/posts/quicksearch?kw=' + kw,
                 success: function (res) {
                     _this.setData({
                         postItem: res.data.data

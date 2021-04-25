@@ -86,16 +86,15 @@ Page({
         }
         var _this = this
         app.request({
-            url: '/api/v1/posts/' + pid,
+            url: '/api/v1/post_base_info/' + pid,
             success: function (resp) {
                 var p = resp.data.data
-                var post_name = p.title + ' ' + p.sub_district.name + ' ' + p.type_info.text + ' ' + p.area_info.text
-                var tags = p.tags
-                tags = tags.split(',')
+                var post_name = p.title  + p.address
+       
                 _this.setData({
                     post: p,
                     post_name: post_name,
-                    tags: tags
+           
                 })
             }
         })

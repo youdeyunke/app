@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -832,6 +833,18 @@
           "name": "pkgYfyj/pages/yfyj/index2/index",
           "pathName": "pkgYfyj/pages/yfyj/index2/index",
           "query": "id=9",
+          "scene": null
+        },
+        {
+          "name": "pkgFenxiao/pages/fenxiao/report",
+          "pathName": "pkgFenxiao/pages/fenxiao/report",
+          "query": "pid=9",
+          "scene": null
+        },
+        {
+          "name": "pkgFenxiao/pages/fenxiao/index",
+          "pathName": "pkgFenxiao/pages/fenxiao/index",
+          "query": "pid=9",
           "scene": null
         }
       ]
