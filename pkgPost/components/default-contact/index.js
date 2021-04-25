@@ -24,6 +24,10 @@ Component({
         },
         phoneHandle: function () {
             var phone = this.data.post.phone
+            var sub = this.data.post.sub_phone
+            if(sub){
+                phone = phone + ',' + sub
+            }
             wx.makePhoneCall({
                 phoneNumber: phone,
                 success: (result) => {

@@ -1,8 +1,8 @@
-<block-box title="{{value.title}}" padding="{{true}}" hat="{{false}}">
+<block-box title-size="36" title="{{ value.title }}" subtitle="{{ value.more_title }}" url="{{moreUrl}}">
     <view class="recoms">
         <scroll-view scroll-with-animation="{{true}}" scroll-x style="width:100%">
             <view class="items">
-                <item item="{{item}}" border="{{index == value.items.length - 1}}" wx:key="{{item.id}}" wx:for="{{value.items}}" />
+                <item style="margin-right:20rpx;" post="{{item}}" border="{{index == value.items.length - 1}}" wx:key="{{item.id}}" wx:for="{{value.items}}" />
             </view>
         </scroll-view>
     </view>

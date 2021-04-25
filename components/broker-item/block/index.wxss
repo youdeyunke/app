@@ -1,0 +1,75 @@
+/* components/broker/hot-brokers.wxss */
+
+
+.line-limit {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.broker-item {
+    background: #F9F9F9;
+    width: 220rpx;
+    height: 300rpx;
+    padding: 20rpx;
+    margin-right: 20rpx;
+    box-sizing: border-box;
+    border-radius: 10rpx;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+.broker-item .right{
+  width:220rpx;
+  height: 320rpx;
+  position: relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items: center;
+  z-index: 10;
+}
+.bgcolor{
+  width: 220rpx;
+  height: 300rpx;
+  position: absolute;
+  top: 5rpx;
+  left: -20rpx;
+  z-index: -1;
+}
+
+.bgcolor {
+    width: 220rpx;
+    height: 300rpx;
+    position: absolute;
+    top: 0;
+    left: -20rpx;
+    z-index: -1;
+}
+
+.broker-company{
+  color:#8B723B;
+  font-size: 22rpx;
+  margin-bottom:40rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transform: scale(0.8);
+}
+
+.broker-company {
+    color: #8B723B;
+    font-size: 24rpx;
+    scale: 0.8;
+    margin-bottom: 54rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.broker-mobile {
+    color: #053357;
+}

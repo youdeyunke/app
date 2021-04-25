@@ -1,20 +1,35 @@
-// pkgFenxiao/pages/fenxiao/report-detail.js
+// pkgFenxiao/pages/fenxiao/fxyj.js
+const app=getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      id:options.id
+    },()=>{
+      this.loadPost()
+    })
   },
-
+  loadPost:function(){
+    var _this=this
+    app.request({
+      url:'/api/v1/brokage_info/'+this.data.id,
+      success:function(res){
+        _this.setData({ 
+          value: res.data.data
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

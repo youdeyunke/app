@@ -14,10 +14,10 @@
 
       </view>
     </view>
-    <view class="person-right">
+    <navigator url="/pages/myself/profile"  class="person-right">
       <text>修改资料</text>
       <image class="person-image3" src="../../images/3.png"></image>
-    </view>
+    </navigator>
   </view>
 </block>
 <block wx:else>

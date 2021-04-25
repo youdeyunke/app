@@ -200,12 +200,12 @@
     "pages/myself/index",
     "pages/home/debug",
     "pages/myself/favposts",
-    "pages/search/index",
+
     "pages/need/room",
     "pages/messages/show",
     "pages/messages/index",
     "pages/444/index",
-    "pages/sub-districts/select",
+
     "pages/cities/select",
     "pages/districts/select",
     "pages/static/terms",

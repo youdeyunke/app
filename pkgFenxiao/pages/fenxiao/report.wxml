@@ -5,7 +5,7 @@
                 <text>客户姓名</text>
             </view>
             <view class="form-flex">
-                <input class="form-input" placeholder="请输入姓名" model:value="{{mobile}}" minlength="11" maxlength="11"  />
+                <input class="form-input" placeholder="请输入姓名" model:value="{{name}}" minlength="11" maxlength="11"  />
                 <choose-block left-content='男士' right-content='女士' show="{{sex}}"  bind:change='sexChange'/>
             </view>
         </view>

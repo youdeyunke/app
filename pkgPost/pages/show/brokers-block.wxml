@@ -19,10 +19,19 @@
         </view>
     </view>
 
+
+<block wx:if="{{value.brokers.length <= 3}}">
+
     <view style="margin-bottom:10rpx;" wx:for="{{value.brokers}}" wx:for-item="broker" wx:key="id"  wx:if="{{ index+1 <= maxLength  }}">
-        <broker-item post-id="{{value.post_id}}" item="{{broker}}" />
+        <broker-cell post-id="{{value.post_id}}" item="{{broker}}" />
     </view>
-    <box padding="30" wx:if="{{moreBrokersBtn && value.more_btn}}">
-        <view bindtap="moreBrokersHandle" hover-class="none" class="more-btn">展开全部</view>
-    </box>
+
+</block>
+<block wx:else>
+    <scroll-view scroll-with-animation="{{true}}" scroll-x style="710rpx;margin-bottom:20rpx;">
+        <view style="display:flex;">
+            <broker-block item="{{item}}" wx:for="{{value.brokers}}" />
+        </view>
+    </scroll-view>
+</block>
 </block-box>

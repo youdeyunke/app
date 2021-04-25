@@ -86,16 +86,15 @@ Page({
         }
         var _this = this
         app.request({
-            url: '/api/v1/posts/' + pid,
+            url: '/api/v1/post_base_info/' + pid,
             success: function (resp) {
                 var p = resp.data.data
-                var post_name = p.title + ' ' + p.sub_district.name + ' ' + p.type_info.text + ' ' + p.area_info.text
-                var tags = p.tags
-                tags = tags.split(',')
+                var post_name = p.title  + p.address
+       
                 _this.setData({
                     post: p,
                     post_name: post_name,
-                    tags: tags
+           
                 })
             }
         })
@@ -194,9 +193,11 @@ Page({
                     title: '报备成功',
                     content: '系统已经记录下该客户信息，一旦签约，你将获得相应的佣金',
                     success: function (res) {
+                        // /pkgFenxiao/pages/fenxiao/customer-detail?id=id
                         wx.navigateTo({
                             url: '/pages/fenxiao/customers',
                         })
+
                     }
                 })
             }

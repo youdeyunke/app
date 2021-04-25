@@ -1,6 +1,6 @@
 {
     "enablePullDownRefresh": false,
     "usingComponents": {
-        "broker-item":"/components/broker-item/index"
+        "broker-item":"/components/broker-item/cell/index"
     }
 }

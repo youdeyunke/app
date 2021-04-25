@@ -2,6 +2,7 @@
     "component": true,
     "usingComponents": {
         "block-box": "./block-box/index",
-        "broker-item": "/components/broker-item/index"
+        "broker-cell": "/components/broker-item/cell/index",
+        "broker-block": "/components/broker-item/block/index"
     }
 }
