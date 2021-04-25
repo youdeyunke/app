@@ -17,7 +17,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.box .title .ziti {
+.ziti {
   color: #666666;
   font-size: 28rpx;
 }
