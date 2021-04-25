@@ -57,7 +57,8 @@
       "name": "yfyj",
       "pages": [
         "pages/yfyj/index",
-        "pages/yfyj/show"
+        "pages/yfyj/show",
+        "pages/yfyj/index2/index"
       ]
     },
     {
