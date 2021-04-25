@@ -301,10 +301,9 @@
           "scene": null
         },
         {
-          "id": 46,
-          "name": "post show",
-          "pathName": "pages/post/post",
-          "query": "id=111",
+          "name": "pkgPost/pages/show/index",
+          "pathName": "pkgPost/pages/show/index",
+          "query": "id=9",
           "scene": null
         },
         {
