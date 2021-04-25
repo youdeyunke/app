@@ -5,6 +5,6 @@
   <ud-tabs class="tabs" tabs="{{tabs}}" bind:change='tabChangeHandle' model:active-index='{{tabIndex}}'>
   </ud-tabs>
   <view class="building">
-      <building wx:if="{{buildingShow==true}}" bindchangestatus="mystatus" wx:for="{{floorRooms}}" value="{{item}}"></building>
+      <building wx:if="{{buildingShow==true}}" bindchangestatus="mystatus" wx:for="{{floorRooms}}" value="{{item}}" num="{{building_num}}" average="{{average}}"></building>
   </view>
 </view>
