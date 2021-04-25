@@ -193,9 +193,11 @@ Page({
                     title: '报备成功',
                     content: '系统已经记录下该客户信息，一旦签约，你将获得相应的佣金',
                     success: function (res) {
+                        // /pkgFenxiao/pages/fenxiao/customer-detail?id=id
                         wx.navigateTo({
                             url: '/pages/fenxiao/customers',
                         })
+
                     }
                 })
             }
