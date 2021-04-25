@@ -2,7 +2,7 @@
 <view class="outer">
     <view class="avatar" bindtap="gotoProfile">
         <image src="{{item.avatar}}" class="user" />
-        <image src="../../assets/icons/broker/{{item.level}}.png" class="badge" />
+        <image src="/assets/icons/broker/{{item.level}}.png" class="badge" />
     </view>
     <view class="name">
         <view>{{ item.name}}</view>
@@ -13,18 +13,18 @@
             <view>专业售楼顾问，倾城为你服务！</view>
         </block>
         <view class="name-nav">
-            <image class="image1" src="../../assets/icons/broker/4.png"></image>
+            <image class="image1" src="/assets/icons/broker/4.png"></image>
             <text>{{item.like_nums}}</text>
-            <image class="image1" src="../../assets/icons/broker/5.png"></image>
+            <image class="image1" src="/assets/icons/broker/5.png"></image>
             <text>{{item.view_nums}}</text>
         </view>
     </view>
     <view class="actions">
         <view class="btn" bindtap="chatHandle">
-            <image src="../../assets/icons/broker/chat.png" />
+            <image src="/assets/icons/broker/chat.png" />
         </view>
         <view class="btn" bindtap="phoneHandle">
-            <image src="../../assets/icons/broker/phone.png" />
+            <image src="/assets/icons/broker/phone.png" />
         </view>
     </view>
 </view>
