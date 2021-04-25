@@ -30,8 +30,6 @@ Page({
         title: '',
         imageUrl: ''
     },
-
-
     backHandle: function () {
         wx.navigateBack({
             delta: 1
@@ -46,6 +44,13 @@ Page({
             },
         });
     },
+    onLoad: function (options) {
+        console.log(options);
+        console.log(options.id);
+        this.setData({
+          id:options.id
+        })
+      },
 
 
 
