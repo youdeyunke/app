@@ -75,9 +75,10 @@ page{
 }
 .component-search{
   position: absolute;
-  top: 75rpx;
+  top: 95rpx;
   width: 100%;
   background-color: #fff;
+  box-shadow: 0 0 20rpx rgba(0,0,0, 0.15);
 }
 .del{
   width: 90rpx;

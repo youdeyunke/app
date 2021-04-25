@@ -1,3 +1,0 @@
-<box padding="30">
-<mysearch initmode="1" fake="0" bind:submit="searchHandle" bind:clear="clearHandle" />
-</box>

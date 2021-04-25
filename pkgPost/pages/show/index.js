@@ -119,7 +119,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        app.checkForceLogin()
+       
         var _this = this
 
         if (options.qrdata) {
@@ -225,6 +225,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        app.checkForceLogin()
         var pages = getCurrentPages()
         console.log('pages', pages)
         var showNavBack = false

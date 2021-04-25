@@ -8,6 +8,7 @@
   justify-content: space-between;
   flex-direction: column;
   border-bottom: 4rpx solid #EAEAEA;
+  
 }
 .search-top,.search-bottom{
   height: 40rpx;
