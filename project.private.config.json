@@ -19,9 +19,501 @@
           "scene": null
         },
         {
+<<<<<<< HEAD
           "name": "旧版一房一价",
           "pathName": "pkgYfyj/pages/yfyj/index",
           "query": "post_id=9",
+=======
+          "id": 65,
+          "name": "pkgPoster/pages/poster/index",
+          "pathName": "pkgPoster/pages/poster/index",
+          "query": "id=52",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "user profile edit",
+          "pathName": "pages/myself/profile",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 67,
+          "name": "visitors",
+          "pathName": "pages/visitors/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 68,
+          "name": "post visitors",
+          "pathName": "pages/visitors/index",
+          "query": "targetId=31&targetType=post",
+          "scene": null
+        },
+        {
+          "id": 69,
+          "name": "通过专属二维码分享进入",
+          "pathName": "pages/post/post",
+          "query": "contact=31_%E5%BC%A0%E4%B8%89_15100000000_1",
+          "scene": null
+        },
+        {
+          "id": 70,
+          "name": "新房详情页",
+          "pathName": "pages/post/post",
+          "query": "id=21",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "文章详情页",
+          "pathName": "pages/news/show",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": 72,
+          "name": "编辑二手房",
+          "pathName": "pages/post/form",
+          "query": "id=68",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "被邀请注册",
+          "pathName": "pages/myself/index",
+          "query": "referrer_id=100",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "消息标签",
+          "pathName": "pages/messages/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "对话窗口",
+          "pathName": "pages/messages/show",
+          "query": "target_user_id=27886",
+          "scene": null
+        },
+        {
+          "name": "pkgBroker/pages/broker/index",
+          "pathName": "pkgBroker/pages/broker/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "客户报备",
+          "pathName": "pages/fenxiao/report",
+          "query": "pid=27",
+          "scene": null
+        },
+        {
+          "id": 78,
+          "name": "pkgAdmin/pages/admin/index",
+          "pathName": "pkgAdmin/pages/admin/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "admin-booking",
+          "pathName": "pages/admin/booking",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "post-meta",
+          "pathName": "pages/post/meta",
+          "query": "id=52",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "申请入驻",
+          "pathName": "pages/myself/broker",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/fenxiao/referrers",
+          "pathName": "pages/fenxiao/referrers",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "submessage",
+          "pathName": "pages/myself/submessage",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 84,
+          "name": "根据标签返回房源",
+          "pathName": "pages/post/index",
+          "query": "group_v2=new&tag_id=35",
+          "scene": null
+        },
+        {
+          "id": 85,
+          "name": "qa-show",
+          "pathName": "pkgQa/pages/qa/qa",
+          "query": "id=82",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/qa/new",
+          "pathName": "pages/qa/new",
+          "query": "target_id=52&target_type=post",
+          "scene": null
+        },
+        {
+          "id": 87,
+          "name": "我的问答",
+          "pathName": "pages/myself/qa",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 88,
+          "name": "qa-new",
+          "pathName": "pkgQa/pages/qa/new",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 89,
+          "name": "pages/qa/index",
+          "pathName": "pages/qa/index",
+          "query": "target_id=52&target_type=post",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "qa-mine",
+          "pathName": "pages/qa/mine",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "qa-answer",
+          "pathName": "pkgQa/pages/qa/reply",
+          "query": "id=81",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "发动态",
+          "pathName": "pkgEvent/pages/event/new",
+          "query": "pid=52",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "动态列表",
+          "pathName": "pkgEvent/pages/event/index",
+          "query": "pid=52",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "comment-sho",
+          "pathName": "pkgComment/pages/comment/show",
+          "query": "id=56",
+          "scene": null
+        },
+        {
+          "id": 95,
+          "name": "news-show",
+          "pathName": "pkgNews/pages/news/show",
+          "query": "id=4",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "news-index",
+          "pathName": "pkgNews/pages/news/index",
+          "query": "id=2",
+          "scene": null
+        },
+        {
+          "id": 97,
+          "name": "event-new",
+          "pathName": "pkgEvent/pages/event/new",
+          "query": "id=52",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "event-index",
+          "pathName": "pkgEvent/pages/event/index",
+          "query": "id=52",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "地图找房",
+          "pathName": "pages/map/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 100,
+          "name": "map",
+          "pathName": "pages/map/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "comment-mine",
+          "pathName": "pkgComment/pages/comment/mine",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "tag-posts",
+          "pathName": "pages/post/index",
+          "query": "group_v2=new&tag_id=23",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pkgType/pages/type/index",
+          "pathName": "pkgType/pages/type/index",
+          "query": "id=52",
+          "scene": null
+        },
+        {
+          "id": 104,
+          "name": "type-show",
+          "pathName": "pkgType/pages/type/show",
+          "query": "id=59",
+          "scene": null
+        },
+        {
+          "id": 105,
+          "name": "全部问答咨询模块",
+          "pathName": "pages/qa/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "building-show",
+          "pathName": "pkgBuilding/pages/building/index",
+          "query": "id=100",
+          "scene": null
+        },
+        {
+          "id": 107,
+          "name": "building-index",
+          "pathName": "pkgBuilding/pages/building/index",
+          "query": "post_id=100",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pkgType/pages/type/show",
+          "pathName": "pkgType/pages/type/show",
+          "query": "id=65",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "tour-index",
+          "pathName": "pkgTour/pages/tour/index",
+          "query": "cat_id=21",
+          "scene": null
+        },
+        {
+          "id": 110,
+          "name": "tour-show",
+          "pathName": "pkgTour/pages/tour/show",
+          "query": "id=4",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "company-index",
+          "pathName": "pkgCompany/pages/company/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pkgCompany/pages/company/show",
+          "pathName": "pkgCompany/pages/company/show",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/webview/webview",
+          "pathName": "pages/webview/webview",
+          "query": "url=https%253A%252F%252Fvr.udeve.cn%252Ftour%252F2aec412dfd2e4e89&title=%E5%85%A8%E6%99%AF%E7%9C%8B%E6%88%BF",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "分销报备",
+          "pathName": "pkgFenxiao/pages/fenxiao/report",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "楼盘相册",
+          "pathName": "pkgXiangce/pages/xiangce/index",
+          "query": "id=52",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "fenxiao-qr",
+          "pathName": "pkgFenxiao/pages/fenxiao/qr",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "myself-profiel",
+          "pathName": "pages/myself/profile",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pkg-map",
+          "pathName": "pkgMap/pages/map/index",
+          "query": "group=new",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pkgDoc/pages/doc/index",
+          "pathName": "pkgDoc/pages/doc/index",
+          "query": "post_id=111",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/faxian/index",
+          "pathName": "pages/faxian/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/home/v2",
+          "pathName": "pages/home/v2",
+          "query": "total=500",
+          "scene": null
+        },
+        {
+          "name": "post-show",
+          "pathName": "pkgPost/pages/show/index",
+          "query": "id=1",
+          "scene": 1005
+        },
+        {
+          "name": "pkgPost/pages/type/show",
+          "pathName": "pkgPost/pages/type/show",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "name": "pkgPost/pages/desc/index",
+          "pathName": "pkgPost/pages/desc/index",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "name": "pages/post/index",
+          "pathName": "pages/post/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "search",
+          "pathName": "pages/home/home",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pkgRanking/pages/ranking/index",
+          "pathName": "pkgRanking/pages/ranking/index",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "name": "我的页面",
+          "pathName": "pages/myself/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "经纪人首页",
+          "pathName": "pkgBroker/pages/broker/profile",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "name": "404",
+          "pathName": "pages/404/page/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "顾问入住页面",
+          "pathName": "pkgBroker/pages/broker/join",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "name": "入驻成功页面",
+          "pathName": "pkgBroker/pages/broker/audit/index",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "name": "pkgPost/pages/show/index",
+          "pathName": "pkgPost/pages/show/index",
+          "query": "id=10",
+          "scene": null
+        },
+        {
+          "name": "楼盘详情页",
+          "pathName": "pkgPost/pages/show/index",
+          "query": "id=9",
+          "scene": null
+        },
+        {
+          "name": "搜索页面",
+          "pathName": "pkgSearch/page/search/index",
+          "query": "id=9",
+          "scene": null
+        },
+        {
+          "name": "pkgSearch/page/search/index",
+          "pathName": "pkgSearch/page/search/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pkgFenxiao/pages/fenxiao/report-detail",
+          "pathName": "pkgFenxiao/pages/fenxiao/report-detail",
+          "query": "",
+>>>>>>> master
           "scene": null
         }
       ]
