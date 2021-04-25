@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    postId:111,
+    postId:null,
     vrItem:[],
     title:''
   },
@@ -14,8 +14,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    this.lodaData()
+  onLoad: function (q) {
+    this.setData({
+      postId: q.id || q.post_id || q.pid 
+    }, () => {
+      this.lodaData()
+    })
+  
   },
 
   /**

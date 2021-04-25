@@ -148,7 +148,8 @@
       "root": "pkgVr",
       "name": "pkgVr",
       "pages": [
-        "pages/vr/index"
+        "pages/vr/index",
+        "pages/vr/show"
       ]
     },
     {
@@ -200,12 +201,10 @@
     "pages/myself/index",
     "pages/home/debug",
     "pages/myself/favposts",
-
     "pages/need/room",
     "pages/messages/show",
     "pages/messages/index",
     "pages/444/index",
-
     "pages/cities/select",
     "pages/districts/select",
     "pages/static/terms",

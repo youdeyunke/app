@@ -23,7 +23,10 @@ Component({
             if (this.data.item.open_type == 'browser') {
                 this.setClipboardData()
             } else if (this.data.item.open_type == 'weapp') {
-                // TODO vr page
+                var url =  '/pkgVr/pages/vr/show?id=' + this.data.item.id
+                wx.navigateTo({
+                  url: url,
+                })
             }
         },
         setClipboardData() {
