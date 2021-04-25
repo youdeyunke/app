@@ -87,7 +87,7 @@ Page({
             floorRooms: groups,
             floordata: myfloordata,
             detailsdata: res.data.data,
-            average:average
+            // average:average
           })
         })
       }
