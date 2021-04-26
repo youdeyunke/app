@@ -11,9 +11,7 @@ Component({
   },
 
   observers: {
-    //  "config.ids": function(ids){
-     //     this.initBrokers()
-     // },
+
   },
 
   /**
@@ -25,7 +23,7 @@ Component({
   },
 
   ready: function(){
-      this.initBrokers()
+ 
   },
 
   /**
