@@ -6,4 +6,5 @@
     <view>{{items.average_price}}元/平</view>
     <view>{{items.total_price}}元</view>
   </view>
+  <view class="details-right"></view>
 </navigator>

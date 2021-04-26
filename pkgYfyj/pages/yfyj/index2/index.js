@@ -37,6 +37,22 @@ Page({
       {
         value: '90-110',
         select: false
+      },
+      {
+        value: '110-130',
+        select: false
+      },
+      {
+        value: '130-150',
+        select: false
+      },
+      {
+        value: '150-170',
+        select: false
+      },
+      {
+        value: '170-190',
+        select: false
       }
     ],
     area_price: [{
@@ -44,19 +60,31 @@ Page({
       select: true
     }, 
     {
-      value: '500-600',
+      value: '5000-6000',
       select: false
     }, 
     {
-      value: '600-700',
+      value: '6000-7000',
       select: false
     }, 
     {
-      value: '700-800',
+      value: '7000-8000',
       select: false
     }, 
     {
-      value: '800-900',
+      value: '8000-9000',
+      select:false
+    }, 
+    {
+      value: '8000-9000',
+      select:false
+    }, 
+    {
+      value: '8000-9000',
+      select:false
+    }, 
+    {
+      value: '8000-9000',
       select:false
     }, 
     ],
@@ -75,6 +103,18 @@ Page({
       },
       {
         value:'80-90',
+        select:false
+      },
+      {
+        value:'90-100',
+        select:false
+      },
+      {
+        value:'90-100',
+        select:false
+      },
+      {
+        value:'90-100',
         select:false
       },
       {
@@ -208,7 +248,8 @@ Page({
     var myformdata = select.filter((myvalue)=>{return myvalue.select===true}).map((myvalue)=>{return myvalue.value})
     formdata[key]=myformdata.toString()
     this.setData({
-      price_between: select
+      price_between: select,
+      formdata:formdata
     })
   },
   areapriceHandle:function(e){
@@ -223,7 +264,8 @@ Page({
     var myformdata = areaprice.filter((myvalue)=>{return myvalue.select===true}).map((myvalue)=>{return myvalue.value})
     formdata[key]=myformdata.toString()
     this.setData({
-      area_price:areaprice
+      area_price:areaprice,
+      formdata:formdata
     })
   },
   areaHandle:function(e){
@@ -237,17 +279,40 @@ Page({
     var formdata = this.data.formdata
     var myformdata = area.filter((myvalue)=>{return myvalue.select===true}).map((myvalue)=>{return myvalue.value})
     formdata[key]=myformdata.toString()
-    console.log("myformdata",formdata)
     this.setData({
-      area:area
+      area:area,
+      formdata:formdata
     })
   },
   submitHanle:function(){
-    console.log("formdata",this.data.formdata)
+    this.setData({
+      searchShow: !this.data.searchShow
+    })
+    console.log("数据",this.data.formdata)
+  },
+  resetHandle:function(){
+    var myformdata = this.data.formdata
+    var myprice_between = this.data.price_between
+    myprice_between.map((item=>{return item.select=false}))
+    myprice_between[0].select=true
+    myformdata.price=myprice_between[0].value
 
-    // this.setData({
-    //   searchShow: !this.data.searchShow
-    // })
+    var myarea_price = this.data.area_price
+    myarea_price.map((item=>{return item.select=false}))
+    myarea_price[0].select=true
+    myformdata.areaprice=myarea_price[0].value
+
+    var myarea = this.data.area
+    myarea.map((item=>{return item.select=false}))
+    myarea[0].select=true
+    myformdata.area=myarea[0].value
+
+    this.setData({
+      price_between:myprice_between,
+      area_price:myarea_price,
+      area:myarea,
+      formdata:myformdata
+    })
   },
 
   /**
@@ -262,14 +327,14 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    var formdata = this.data.formdata
     
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {},
+  onShow: function () {
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
