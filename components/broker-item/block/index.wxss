@@ -8,67 +8,50 @@
 }
 
 .broker-item {
-    background: #F9F9F9;
+    background: #fff;
     width: 220rpx;
-    height: 300rpx;
+    height: 320rpx;
     padding: 20rpx;
-    margin-right: 20rpx;
+    margin: 10rpx 20rpx 10rpx 0;
     box-sizing: border-box;
     border-radius: 10rpx;
     font-size: 28rpx;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-direction: column;
+    box-shadow: 0 0 15rpx rgba(0,0,0, 0.15);
+    border:2rpx solid #cecece;
+}
+
+.broker-item .level{
+  width:28rpx;
+  height:28rpx;
+  vertical-align: baseline;
 }
 
 
-.broker-item .right{
-  width:220rpx;
-  height: 320rpx;
-  position: relative;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items: center;
-  z-index: 10;
-}
-.bgcolor{
-  width: 220rpx;
-  height: 300rpx;
-  position: absolute;
-  top: 5rpx;
-  left: -20rpx;
-  z-index: -1;
-}
 
-.bgcolor {
-    width: 220rpx;
-    height: 300rpx;
-    position: absolute;
-    top: 0;
-    left: -20rpx;
-    z-index: -1;
+.broker-item .btn{
+  font-size:24rpx; 
+  color:#333; 
+  border:2rpx solid #333;
+  border-radius: 4rpx;
+  padding:2rpx 10rpx;
+  letter-spacing: 2rpx;
 }
 
 .broker-company{
-  color:#8B723B;
+
   font-size: 22rpx;
-  margin-bottom:40rpx;
+  height:30rpx;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   transform: scale(0.8);
+  margin-bottom:40rpx;
 }
 
-.broker-company {
-    color: #8B723B;
-    font-size: 24rpx;
-    scale: 0.8;
-    margin-bottom: 54rpx;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
 
 .broker-mobile {
     color: #053357;

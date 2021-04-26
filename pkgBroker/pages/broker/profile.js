@@ -57,11 +57,6 @@ Page({
     viewHandle: function () {
         var id = this.data.userId
         var _this = this
-        var key = 'broker_be_vied.' + id
-        if (wx.getStorageSync(key) == true) {
-            return
-        }
-
         app.request({
             method: 'POST',
             hideLoading: true,
@@ -73,7 +68,6 @@ Page({
                 if (res.data.status != 0) {
                     return
                 }
-                wx.setStorageSync(key, true)
             }
         })
 
@@ -82,10 +76,15 @@ Page({
     likeHandle: function () {
         var id = this.data.userId
         var _this = this
-        var key = 'broker_be_liked' + id
+        var d = new Date()
+        var y = d.getFullYear() 
+        var m = d.getMonth() + 1
+        var d = d.getDate()  
+        var today = y + '-' + m + '-' + d
+        var key = 'broker_be_liked.' + today + '.' + id
         if (wx.getStorageSync(key) == true) {
             wx.showToast({
-                title: '您已经点过赞了',
+                title: '你今天已经点过赞了，明天再来吧',
                 icon: 'none',
             })
         } else {
