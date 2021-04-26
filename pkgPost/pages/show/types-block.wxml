@@ -7,13 +7,14 @@
                         <view class="zoom" wx:if="{{item.hasImage}}">
                             <van-icon name="search" />
                         </view>
-                        <van-image radius="4rpx" width="260rpx" height="260rpx" data-index="{{index}}" src="{{item.cover}}?imageView2/1/w/165/h/110"></van-image>
+                        <image src="{{item.cover}}?imageView2/1/w/165/h/110"></image>
                     </view>
                     <view class="meta">
                         <view class="name">
                             {{item.name}}
                             <view class="tag">{{item.sale_status_name}}</view>
                         </view>
+                
                         <view class="attr">
                             <text class="label">朝向</text>
                             <text class="value">{{item.position}}</text>

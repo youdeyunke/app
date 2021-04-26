@@ -1,6 +1,7 @@
 // pkgYfyj/components/details/index.js
 const app = getApp()
 Component({
+  externalClasses:['details-right'],
   /**
    * 组件的属性列表
    */
@@ -14,7 +15,8 @@ Component({
   },
 
   ready:function(){
-    console.log("详情页的数据",this.properties.formdata)
+    // console.log("详情页的数据",this.properties.formdata)
+
   },
 
   /**

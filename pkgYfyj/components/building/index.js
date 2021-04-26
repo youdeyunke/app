@@ -19,10 +19,8 @@ Component({
   data: {
     detailsShow: false,
     buildingShow: true,
+    row:''
   },
-  // ready:function(){
-  //   console.log('提交的数据',this.properties.formdata)
-  // },
   /**
    * 组件的方法列表
    */
@@ -35,6 +33,17 @@ Component({
         buildingShow: !this.data.buildingShow,
       })
       this.triggerEvent("changestatus",{detailsShow,myindex})
+
+
+      var rooms = this.properties.value.rooms
+      rooms=rooms.length
+      var row = Math.ceil(rooms/3)
+      console.log("row",row)
+      this.setData({
+        row:row
+      })
+
+
     },
     closeHandle: function () {
       this.setData({

@@ -1,5 +1,5 @@
 <view style="width:100%">
-    <ud-tabs tabs='{{tabs}}' model:active-index='{{tabIndex}}' bind:change='tabChangeHandle'></ud-tabs>
+    <ud-tabs tabs='{{tabs}}' model:active-index='{{tabIndex}}' bind:change='tabChangeHandle' mytabs="newtabs" myborder="newborder"></ud-tabs>
 </view>
 <search-bar bind:change="kwChange" />
 <view hidden="{{ tabIndex != 0}}" style="">

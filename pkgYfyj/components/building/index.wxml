@@ -9,7 +9,7 @@
         <text>{{value.floor}}层</text>
       </view>
       <view class="building-right">
-        <view>
+        <view class="building-right-nav">
           <view>面积区间：{{value.area_min}}m²-{{value.area_max}}m²</view>
           <view>价格区间：{{value.total_min}}元-{{value.total_max}}元</view>
           <view>单位均价：{{value.areanum}}</view>
@@ -32,7 +32,9 @@
       <image src="../../images/2.png" bindtap="closeHandle"></image>
     </view>
     <block wx:for="{{value.rooms}}">
-      <details items="{{item}}" class="details" formdata="{{formdata}}"></details>
+      <!-- <block wx:if="{{index}}"> -->
+        <details class="details-box" items="{{item}}" formdata="{{formdata}}" details-right="myright" ></details>
+      <!-- </block> -->
     </block>
   </view>
 </block>
