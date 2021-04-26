@@ -1,0 +1,22 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pkgYfyj/pages/yfyj/index2/index",
+          "pathName": "pkgYfyj/pages/yfyj/index2/index",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

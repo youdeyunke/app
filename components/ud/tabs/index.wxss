@@ -1,6 +1,6 @@
 /* components/ud/ud-tabs/index.wxss */
 
-.tabs {
+.mytabs {
     width: 100%;
     height: 124rpx;
     line-height: 124rpx;
@@ -18,7 +18,7 @@
     color: #333333;
     font-size: 30rpx;
     position: relative;
-    padding-top: 10rpx;
+    /* padding-top: 10rpx; */
 }
 
 .active {
@@ -26,7 +26,7 @@
     font-weight: bold;
 }
 
-.border {
+.myborder {
     width: 48rpx;
     height: 8rpx;
     border-radius: 10rpx;

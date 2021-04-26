@@ -3,6 +3,7 @@ Component({
   /**
    * 组件的属性列表
    */
+  externalClasses:['mytabs','myborder'],
   properties: {
     tabs:{type:Array},
     activeIndex:{type:Number ,value:0}

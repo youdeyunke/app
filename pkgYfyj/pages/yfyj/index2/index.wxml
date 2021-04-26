@@ -21,7 +21,7 @@
       <view class="search-price">
         <view class="search-top">
           <text>筛选</text>
-          <text>重置</text>
+          <text bindtap="resetHandle">重置</text>
         </view>
         <view class="search-price_between">
           <text>总价格区间</text>
@@ -55,8 +55,7 @@
       <view class="search-cancel"  bindtap="closeSearch">取消</view>
     </view>
   </van-popup>
-  <ud-tabs class="tabs" tabs="{{tabs}}" bind:change='tabChangeHandle' model:active-index='{{tabIndex}}'>
-  </ud-tabs>
+  <ud-tabs tabs="{{tabs}}" bind:change='tabChangeHandle' model:active-index='{{tabIndex}}' mytabs="newtabs" myborder="newborder"></ud-tabs>
   <view class="building">
     <building wx:if="{{buildingShow==true}}" bindchangestatus="mystatus" wx:for="{{floorRooms}}" value="{{item}}"
       num="{{building_num}}" average="{{average}}" formdata="{{formdata}}"></building>
