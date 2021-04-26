@@ -22,10 +22,12 @@
         <view class="contents">
             <view class="content-data">{{filter.format(value.created_at, 'MM-DD')}}</view>
             <view class="content-circle"></view>
-            <view class="content-desc">
+            <view class="content-desc desc">
                 <view class="desc-title">{{filter.format(value.created_at, 'hh-mm')}}</view>
-                <view class="desc-detail">项目名称：{{value.post.title}} 报备面积：{{value.post.area_min}}-
-{{value.post.area_max}}㎡ 报备总价：{{value.post.total_price_min}}-{{value.post.total_price_max}}万</view>
+                <view class="desc-detail">
+                    <view>项目名称：{{value.post.title}} </view>
+                    <view>报备面积：{{value.post.area_min}}-{{value.post.area_max}}㎡</view>
+                    <view>报备总价：{{value.post.total_price_min}}-{{value.post.total_price_max}}万</view></view>
             </view>
         </view>
 

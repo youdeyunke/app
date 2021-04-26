@@ -74,7 +74,7 @@
 .desc-detail{
     color: #A0A0A0;
     font-weight: normal;
-    word-break:break-all;
+    white-space: pre-line;
 }
 .content-border{
     width: 10rpx;
@@ -86,4 +86,7 @@
     background-image: linear-gradient(to bottom, #e0e0e0 0%, #e0e0e0 50%, transparent 50%);
     background-size: 4rpx 26rpx;
     background-repeat: repeat-Y;
+}
+.desc{
+    margin-left: -27rpx;
 }
