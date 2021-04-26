@@ -32,7 +32,9 @@
       <image src="../../images/2.png" bindtap="closeHandle"></image>
     </view>
     <block wx:for="{{value.rooms}}">
-      <details class="details-box" items="{{item}}" formdata="{{formdata}}" details-right="myright" ></details>
+      <!-- <block wx:if="{{index}}"> -->
+        <details class="details-box" items="{{item}}" formdata="{{formdata}}" details-right="myright" ></details>
+      <!-- </block> -->
     </block>
   </view>
 </block>

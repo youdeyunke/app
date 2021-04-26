@@ -89,7 +89,7 @@ image {
   line-height: 80rpx;
   margin-right: 16rpx;
   margin-bottom: 16rpx;
-  width: 150rpx;
+  width: 144rpx;
   background-color: #1989FA;
   color: #fff;
 }
@@ -101,8 +101,8 @@ image {
   text-align: center;
   line-height: 80rpx;
   margin-right: 16rpx;
-  margin-bottom: 16rpx;
-  width: 150rpx;
+  margin-bottom: 15rpx;
+  width: 144rpx;
   background-color: #fff;
   color: #1989FA;
   border: 1rpx solid #1989FA;
