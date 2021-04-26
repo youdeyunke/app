@@ -1,7 +1,7 @@
 /* pages/myself/components/brokeroperation/index.wxss */
 .broker-operation-box{
   width:710rpx ;
-  height:723rpx ;
+
   margin: 0 auto;
   background-color: #fff;
   border-radius: 15rpx;
@@ -10,16 +10,22 @@
 .broker-operation{
   display: flex;
   width: 710rpx;
-  height: 246rpx;
+
+
 }
 .broker-operation-class{
-  width:236rpx ;
-  height:246rpx ;
-  padding-left: 63rpx;
-  padding-top: 61rpx;
-  font-size: 24rpx;
+  width:174rpx ;
+  height:194rpx ;
+ 
+
   border-right: 1rpx solid #F1F1F1;
   border-bottom: 1rpx solid #F1F1F1;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size:24rpx;
 }
 .broker-operation-class:nth-last-child(1){
   border-right: none;
