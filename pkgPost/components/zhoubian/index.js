@@ -47,11 +47,15 @@ Component({
                 data: {
                     keyword: tab.value,
                     key: app.globalData.qqMapAppKey,
-                    boundary: `nearby(${_this.data.latitude},${_this.data.longitude},1000,0)`,
+                    boundary: `nearby(${_this.data.latitude},${_this.data.longitude},5000,0)`,
                     page_size: '20'
                 },
                 success: function (res) {
-                    //console.log(res.data.data);
+                    console.log(res);
+                    if(res.data.status == 310){
+                        console.log(res.message)
+                        return
+                    }
                     if (res.data && res.data.data.length == 0) {
                         _this.setData({
                             resp: '',
@@ -60,7 +64,8 @@ Component({
                     } else {
                         res.data.data.map(v => {
                             if (v._distance >= 1000) {
-                                v._distance = 1 + 'km'
+                                var d = v._distance / 1000
+                                v._distance =  d.toFixed(1) + 'km'
                             } else {
                                 v._distance = parseInt(v._distance) + 'm'
                             }
