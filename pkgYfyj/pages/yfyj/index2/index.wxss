@@ -58,13 +58,14 @@ image {
 }
 
 .search-price {
-  padding: 50rpx 50rpx 0 50rpx;
+  padding: 50rpx 30rpx 0 50rpx;
 }
 
 .search-top {
   display: flex;
   justify-content: space-between;
   font-size: 32rpx;
+  margin-right: 14rpx;
 }
 
 .search-top text:nth-of-type(2) {
@@ -75,6 +76,10 @@ image {
   margin-bottom: 35rpx;
   margin-top: 30rpx;
 }
+
+/* .price_between-class{
+  background-color: blue;
+} */
 
 .search-price_between text:nth-of-type(2) {
   color: #666666;
@@ -89,9 +94,10 @@ image {
   line-height: 80rpx;
   margin-right: 16rpx;
   margin-bottom: 16rpx;
-  width: 144rpx;
+  width: 153rpx;
   background-color: #1989FA;
   color: #fff;
+  font-size: 24rpx;
 }
 
 .notselect {
@@ -102,7 +108,7 @@ image {
   line-height: 80rpx;
   margin-right: 16rpx;
   margin-bottom: 15rpx;
-  width: 144rpx;
+  width: 153rpx;
   background-color: #fff;
   color: #1989FA;
   border: 1rpx solid #1989FA;
