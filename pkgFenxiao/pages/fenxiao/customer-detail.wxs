@@ -1,0 +1,40 @@
+function format(ts, option) {
+  var date = getDate(ts)
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  var hour = date.getHours()
+  var minute = date.getMinutes()
+  var second = date.getSeconds()
+  
+  //获取 年月日
+  if (option == 'YY-MM-DD') return [year, month, day].map(formatNumber).join('-')
+
+  //获取 年月
+  if (option == 'YY-MM') return [year, month].map(formatNumber).join('-')
+
+  //获取 月日
+  if (option == 'MM-DD') return [month, day].map(formatNumber).join('-')
+
+  //获取 年
+  if (option == 'YY') return [year].map(formatNumber).toString()
+
+  //获取 月
+  if (option == 'MM') return  [mont].map(formatNumber).toString()
+
+  //获取 日
+  if (option == 'DD') return [day].map(formatNumber).toString()
+
+  //获取 时分
+  if (option == 'hh-mm') return [hour, minute].map(formatNumber).join(':')
+  if (option == 'hh-mm-ss') return [hour, minute,second].map(formatNumber).join(':')
+
+  //默认 时分秒 年月日
+  return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+}
+function formatNumber(n) {
+  n = n.toString()
+  return n[1] ? n : '0' + n
+}
+
+module.exports.format = format

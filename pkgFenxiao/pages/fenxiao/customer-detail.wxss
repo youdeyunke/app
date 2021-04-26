@@ -1,8 +1,18 @@
 /* pkgFenxiao/pages/fenxiao/customer-detail.wxss */
+.box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    vertical-align: middle;
+}
 .title-bg{
     width: 710rpx;
     height: 210rpx;
-    padding: 20rpx;
+    margin-top: 20rpx;
+
 }
 .title-bg image{
     width: 100%;
@@ -13,6 +23,7 @@
     background: #FFFFFF;
     width: 710rpx;
     margin: 20rpx; 
+
 }
 .detail-title{
     color: #333333;
@@ -28,8 +39,7 @@
     margin-right: 6rpx;
 }
 .detail-content{
-    padding:60rpx  58rpx 0 58rpx;
-    
+    padding:60rpx  58rpx 60rpx 58rpx;
 }
 .contents{
     font-size: 26rpx;
@@ -64,11 +74,13 @@
 .desc-detail{
     color: #A0A0A0;
     font-weight: normal;
+    word-break:break-all;
 }
 .content-border{
     width: 10rpx;
-    margin-left:-218rpx ;
     margin-top: 48rpx;
+    margin-left: -45rpx;
+    margin-right: 10rpx;
     height: 104rpx;
     z-index: 4;
     background-image: linear-gradient(to bottom, #e0e0e0 0%, #e0e0e0 50%, transparent 50%);

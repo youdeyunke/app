@@ -1,31 +1,34 @@
+<wxs src='./customer-detail.wxs' module="filter"></wxs>
+<view class="box">
 <view class="title-bg">
-    <image src="../../images/detail-0.png" />
+    <image src="../../images/detail-{{value.deal_status_item.value}}.png" />
 </view>
 
 <view class="detail">
     <view class="detail-title">
     <image src="../../images/boy.png" class="title-icon"/>
-    张三 151****1111
+    {{value.name}} {{value.mobile}}
     </view>
     <view class="detail-content">
-        <view class="contents">
-            <view class="content-data">12-19</view>
-            <view class="content-circle active"></view>
-            <view class="content-desc">
-                <view class="desc-title">9：30</view>
-                <view class="desc-detail">报备有效期6天</view>
-            </view>
+        <view class="contents" wx:for="{{value.logs}}">
+            <view class="content-data">{{filter.format(item.created_at, 'MM-DD')}}</view>
+            <view class="content-circle {{index===0?'active ':''}}"></view>
             <view class="content-border"></view>
+            <view class="content-desc">
+                <view class="desc-title">{{filter.format(item.created_at, 'hh-mm')}}</view>
+                <view class="desc-detail">{{item.content}}</view>
+            </view>
         </view>
         <view class="contents">
-            <view class="content-data">12-19</view>
+            <view class="content-data">{{filter.format(value.created_at, 'MM-DD')}}</view>
             <view class="content-circle"></view>
             <view class="content-desc">
-                <view class="desc-title">9：30</view>
-                <view class="desc-detail">报备有效期6天</view>
+                <view class="desc-title">{{filter.format(value.created_at, 'hh-mm')}}</view>
+                <view class="desc-detail">项目名称：{{value.post.title}} 报备面积：{{value.post.area_min}}-
+{{value.post.area_max}}㎡ 报备总价：{{value.post.total_price_min}}-{{value.post.total_price_max}}万</view>
             </view>
-            
         </view>
+
     </view>
-    
+</view>
 </view>
