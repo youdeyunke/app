@@ -1,10 +1,10 @@
 <!--pkgYfyj/components/details/index.wxml-->
 <navigator class="details-box" url="/pkgYfyj/pages/yfyj/show?id={{items.id}}">
   <view class="details-left">
-    <view>{{items.name}}</view>
-    <view>{{items.area}}平</view>
-    <view>{{items.average_price}}元/平</view>
-    <view>{{items.total_price}}元</view>
+    <view class="{{result==true?'details-name':'details-message'}}">{{items.name}}</view>
+    <view class="{{result==true?'details-area':'details-message'}}">{{items.area}}平</view>
+    <view class="{{result==true?'details-average':'details-message'}}">{{items.average_price}}元/平</view>
+    <view class="{{result==true?'details-total':'details-message'}}">{{items.total_price}}元</view>
   </view>
   <view class="details-right"></view>
 </navigator>

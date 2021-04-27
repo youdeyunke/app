@@ -22,7 +22,7 @@
 
 
 
-<block wx:if="{{detailsShow==true}}">
+<block wx:if="{{detailsShow==true}}"> 
   <view class="unfold-box">
     <view class="unfold-top">
       <view>
@@ -32,9 +32,7 @@
       <image src="../../images/2.png" bindtap="closeHandle"></image>
     </view>
     <block wx:for="{{value.rooms}}">
-      <!-- <block wx:if="{{index}}"> -->
-        <details class="details-box" items="{{item}}" formdata="{{formdata}}" details-right="myright" ></details>
-      <!-- </block> -->
+        <details class="details-box" items="{{item}}" formdata="{{formdata}}" details-right="myright" result="{{result}}"></details>
     </block>
   </view>
 </block>

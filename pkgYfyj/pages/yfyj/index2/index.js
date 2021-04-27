@@ -22,6 +22,7 @@ Page({
     building_num: 1,
     average: [],
     searchShow: false,
+    resultShow:false,
     price_between: [{
         value: '不限',
         select: true

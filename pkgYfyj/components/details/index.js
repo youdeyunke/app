@@ -1,22 +1,58 @@
 // pkgYfyj/components/details/index.js
 const app = getApp()
 Component({
-  externalClasses:['details-right'],
+  externalClasses: ['details-right'],
   /**
    * 组件的属性列表
    */
   properties: {
-    items:{
-      type:Object
+    items: {
+      type: Object
     },
-    formdata:{
-      type:Object
+    formdata: {
+      type: Object
+    },
+    result: {
+      type: Boolean
     }
+
   },
 
-  ready:function(){
-    // console.log("详情页的数据",this.properties.formdata)
-
+  ready: function () {
+    var mydata = this.properties.formdata
+    if (mydata.price == '不限' && mydata.areaprice == '不限' && mydata.area == '不限') {
+      this.setData({
+        result: true
+      })
+      return
+    }
+    var items = this.properties.items
+    var mysearch = new Array(items)
+    var myarea = parseInt((mysearch.map((value) => {return value.area})).toString()) //得到面积数据
+    var myprice = parseInt((mysearch.map((value) => {return value.total_price})).toString()) //得到总价面积
+    var myaverage = parseInt((mysearch.map((value) => {return value.average_price})).toString()) //得到平方价
+    var formdata = this.properties.formdata
+    for (let i in formdata) {
+      var my = (((formdata[i]).split('-')).toString()).split(',')
+      if (i == 'area') {
+        var areamin = my[0]
+        var areamax = my[1]
+      } else if (i == 'price') {
+        var pricemin = my[0]
+        var pricemax = my[1]
+      } else {
+        var averagemin = my[0]
+        var averagemax = my[1]
+      }
+    }
+    if ((myarea >= areamin && myarea <= areamax) &&
+      (myprice >= pricemin && myprice <= pricemax) &&
+      (myaverage >= areamin && averagemin <= averagemax)) {
+      this.setData({
+        result: true
+      })
+      return
+    }
   },
 
   /**
@@ -29,6 +65,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    
+
   }
 })
