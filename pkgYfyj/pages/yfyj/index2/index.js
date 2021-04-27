@@ -53,7 +53,7 @@ Page({
         select: false
       },
       {
-        value: '170-190',
+        value: '3600-4000',
         select: false
       }
     ],
@@ -86,7 +86,7 @@ Page({
       select:false
     }, 
     {
-      value: '8000-9000',
+      value: '2500-2600',
       select:false
     }, 
     ],
@@ -120,7 +120,7 @@ Page({
         select:false
       },
       {
-        value:'90-100',
+        value:'150-160',
         select:false
       },
     ],
@@ -316,7 +316,6 @@ Page({
       formdata:myformdata
     })
   },
-
   /**
    * 生命周期函数--监听页面加载
    */

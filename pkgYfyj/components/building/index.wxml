@@ -35,7 +35,7 @@
       <image src="../../images/2.png" bindtap="closeHandle"></image>
     </view>
     <block wx:for="{{value.rooms}}">
-      <details class="details-box" items="{{item}}" formdata="{{formdata}}" details-right="myright" result="{{result}}">
+      <details class="details-box" items="{{item}}" formdata="{{formdata}}" details-right="myright" result="{{result}}" >
       </details>
     </block>
   </view>

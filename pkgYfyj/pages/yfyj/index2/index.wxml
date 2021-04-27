@@ -58,6 +58,6 @@
   <ud-tabs tabs="{{tabs}}" bind:change='tabChangeHandle' model:active-index='{{tabIndex}}' mytabs="newtabs" myborder="newborder"></ud-tabs>
   <view class="building">
     <building wx:if="{{buildingShow==true}}" bindchangestatus="mystatus" wx:for="{{floorRooms}}" value="{{item}}"
-      num="{{building_num}}" average="{{average}}" formdata="{{formdata}}" result="{{resultShow}}"></building>
+      num="{{building_num}}" average="{{average}}" formdata="{{formdata}}" result="{{resultShow}}" ></building>
   </view>
 </view>
