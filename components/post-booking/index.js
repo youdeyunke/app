@@ -34,14 +34,31 @@ Component({
      */
     methods: {
 
+        createSubTpl: function(cb){
+            // 调用模板消息
+            var tpl1 = 'Zr2THtwKDCnwDn_caZfAVvtWUoTTLIkKTnaKe57iXio'
+            wx.requestSubscribeMessage({
+                tmplIds: [tpl1 ],
+                success: function(res){
+                    // TODO 
+                    console.log('create sub tpl res',res)
+                    typeof cb === 'function' && cb(res)
+                }
+            })    
+        },        
+
         closeHandle: function () {
             this.setData({ show: false })
             this.triggerEvent('close', {})
         },
 
         openHandle: function () {
-            this.setData({ show: true })
-            this.triggerEvent('open', {})
+          
+            this.createSubTpl((res) => {
+                this.setData({ show: true })
+                this.triggerEvent('open', {})
+            })
+
         },
 
         initDate: function () {
