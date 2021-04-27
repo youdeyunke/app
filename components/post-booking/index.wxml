@@ -6,7 +6,7 @@
   position="bottom"
   round
   >
-<form  report-submit bindsubmit="formidHandle">
+
   <view class="dialog">
     <view class="form" wx:if="{{!booked}}">
       <view class="title"><van-icon name="clock-o" color="#000000"  style="margin-right:10rpx;" />  预约看房</view>
@@ -14,20 +14,20 @@
       <view class="desc">请选择日期</view>
 
 <scroll-view class="dates" scroll-with-animation="{{true}}" scroll-x style="width:100%;white-space:nowrap;">
-         <button plain class="fake" form-type="submit" wx:for="{{dates}}" data-index="{{index}}" wx:key="value" wx:for-item="date" bindtap="dateClick"  >
+         <view plain class="fake" form-type="submit" wx:for="{{dates}}" data-index="{{index}}" wx:key="value" wx:for-item="date" bindtap="dateClick"  >
             <van-tag custom-class="mytag" size="large" type="primary" plain="{{currentDateIndex != index}}" >{{ date.label }}</van-tag>
 
-        </button>
+        </view>
 
 </scroll-view>
 
       <view class="desc">请选择时间</view>
       <view class="times">
-          <button bindtap="timeClick" data-index="{{index}}" form-type="submit" class="fake" wx:for="{{dates[currentDateIndex].times}}" wx:key="value"  wx:for-item="time">
+          <view bindtap="timeClick" data-index="{{index}}" form-type="submit" class="fake" wx:for="{{dates[currentDateIndex].times}}" wx:key="value"  wx:for-item="time">
             <van-tag custom-class="mytag" size="large" wx:if="{{time.disabled}}" type="default" plain >{{ time.label }}</van-tag>
 
             <van-tag custom-class="mytag"  size="large" wx:else  plain="{{ currentTimeIndex != index }}" data-index="{{index}}" type="primary" >{{time.label}}</van-tag>
-          </button>
+          </view>
       </view>
 
       <van-field required value="" placeholder="请输入联系人姓名" bind:change="nameChange"  />
@@ -49,5 +49,5 @@
 
     </view>
   </view>
-</form>
+
 </van-popup>

@@ -4,6 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    broker: {type: Object, value: null}
 
   },
 
