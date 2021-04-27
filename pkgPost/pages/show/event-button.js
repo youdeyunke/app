@@ -54,6 +54,20 @@ Component({
             this.setData({ showDialog: false })
         },
 
+
+        createSubTpl: function(cb){
+            // 调用模板消息
+            var tpl1 = 'ut-jnNer2qYToPJ6EGQddWcRI87UWYqEIIRdQOGlBHs' // 楼盘动态提醒
+            wx.requestSubscribeMessage({
+                tmplIds: [tpl1 ],
+                success: function(res){
+                    // TODO 
+                    console.log('create sub tpl res',res)
+                    typeof cb === 'function' && cb(res)
+                }
+            })    
+        },
+
         openHandle: function () {
             wx.showLoading({
                 title: '处理中',
@@ -62,45 +76,62 @@ Component({
             var _this = this
             auth.ensureUser((user) => {
                 wx.hideLoading();
+
+                // 如果是新订阅
                 if (_this.data.status == 0) {
-                    _this.setData({ showDialog: true })
-                    return false
+                    _this.createSubTpl((res) => {                    
+                        _this.setData({ showDialog: true })
+                    })
+                    return
                 }
                 _this.subHandle()
             })
         },
 
-        subHandle: function () {
-            var _this = this
-            var method = 'POST'
-            var url = '/api/v1/event_followers'
-            var data = { post_id: this.data.pid }
-            if (this.data.status == 1) {
-                // 取消订阅
-                method = 'DELETE'
-                url = url + '/' + this.data.fid
-            }
+        cancleSub: function(){
+            var _this = this 
+            var fid = this.data.fid 
+            var pid = this.data.pid 
             app.request({
-                url: url,
-                method: method,
-                data: data,
+                url: '/api/v1/event_followers/' + fid ,
+                method: 'DELETE',
+                data:  { post_id: pid },
                 success: function (resp) {
                     // 提交后刷新状态
                     _this.loadStatus()
-                    // 取消后
-                    if (method === 'DELETE') {
-                        wx.showToast({
-                            title: '已取消订阅楼盘动态通知',
-                            icon: 'none',
-                            image: '',
-                            duration: 1500,
-                            mask: true,
-                        });
+                    wx.showToast({
+                        title: '已取消订阅楼盘动态通知，系统将不会给您发送任何该楼的动态通知',
+                        icon: 'none',
+                        image: '',
+                        duration: 1500,
+                        mask: true,
+                    });
+                }
+            })            
+        },
 
-                    }
-
+        createSub: function(){
+            var _this = this 
+            app.request({
+                url: '/api/v1/event_followers',
+                method: 'POST',
+                data:  { post_id: _this.data.pid },
+                success: function (resp) {
+                    // 提交后刷新状态
+                    _this.loadStatus()
                 }
             })
+        },
+
+        subHandle: function () {
+            var _this = this
+  
+            if (this.data.status == 1) {
+                // 取消订阅
+                this.cancleSub()
+                return
+            }
+            this.createSub()
         },
 
         loadStatus: function () {
