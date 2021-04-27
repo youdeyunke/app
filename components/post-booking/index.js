@@ -53,12 +53,8 @@ Component({
         },
 
         openHandle: function () {
-          
-            this.createSubTpl((res) => {
-                this.setData({ show: true })
-                this.triggerEvent('open', {})
-            })
-
+            this.setData({ show: true })
+            this.triggerEvent('open', {})
         },
 
         initDate: function () {
@@ -152,7 +148,13 @@ Component({
         validate: function (log) {
         },
 
-        submitHandle: function () {
+        submitHandle: function(){
+            this.createSubTpl((res) => {
+                this._submitHandle()
+            })
+        },
+
+        _submitHandle: function () {
             if (this.data.currentTimeIndex == null || this.data.currentDateIndex == null) {
                 wx.showToast({
                     title: '请选择预约时间',
