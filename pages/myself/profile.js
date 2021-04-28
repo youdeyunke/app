@@ -27,52 +27,36 @@ Page({
     },
 
     submitHandle: function (e) {
-        if(this.data.userInfo.is_broker){
-            this.updateBrokerProfile()
-            return
-        }
-        this.updateUserProfile()
+        var utype = this.data.userInfo.is_broker ? 'brokers' : 'users'
+        this.updateProfile(utype)
     },
 
-    updateBrokerProfile: function(){
+    updateProfile: function(utype){
         var _this = this
         var data = this.data.userInfo
         app.request({
-            url: '/api/v1/broker_profile',
+            url: '/api/v1/' + utype + '/0' ,
             method: 'PUT',
-            data: { user: data },
+            data: { profile: data },
             success: function (resp) {
                 if (resp.data.status == 0) {
                     wx.showToast({
-                        icon: 'none', title: '修改成功', success: function () {
-                            wx.navigateBack({ delta: -1 })
-                        }
+                        icon: 'none', title: '个人资料修改成功'
                     })
+                    setTimeout(() => {
+                        wx.navigateBack({ delta: -1 })
+                    }, 1500)
                 }
             }
         })        
 
     },
-    updateUserProfile: function(){
-        var _this = this
-        var data = this.data.userInfo
-        app.request({
-            url: '/api/v1/user_profile',
-            method: 'PUT',
-            data: { user: data },
-            success: function (resp) {
-                if (resp.data.status == 0) {
-                    wx.showToast({
-                        icon: 'none', title: '修改成功', success: function () {
-                            wx.navigateBack({ delta: -1 })
-                        }
-                    })
-                }
-            }
-        })
-    },
+
 
     chooseImage: function (e) {
+        console.log('e', e)
+        var key = e.currentTarget.dataset.key 
+        var u  = this.data.userInfo 
         var _this = this
         wx.chooseImage({
             count: 1,
@@ -80,44 +64,9 @@ Page({
             success(res) {
                 const path = res.tempFilePaths[0]
                 qiniu.upload(path, (url) => {
-                    _this.updateAvatar(url)
+                    u[key] = url
+                    _this.setData({userInfo: u})
                 })
-            }
-        })
-    },
-
-    chooseQrImage: function (e) {
-        // 上传微信二维码
-        var _this = this
-        wx.chooseImage({
-            count: 1,
-            sizeType: ['original', 'compressed'],
-            success(res) {
-                const path = res.tempFilePaths[0]
-                qiniu.upload(path, (url) => {
-                    _this.updateWechatQr(url)
-                })
-            }
-        })
-    },
-
-    updateWechatQr: function (url) {
-        var data = { wechat_qr: url }
-        var _this = this
-        app.request({
-            url: '/api/v1/users/0',
-            method: 'PUT',
-            data: { user: data },
-            success: function (resp) {
-                if (resp.data.status == 0) {
-                    var u = _this.data.userInfo
-                    u['wechat_qr'] = url
-                    _this.setData({ userInfo: u })
-                    wx.showToast({
-                        icon: 'none', title: '微信二维码已上传', success: function () {
-                        }
-                    })
-                }
             }
         })
     },
@@ -127,7 +76,6 @@ Page({
     },
 
     textChange: function (e) {
-        console.log('e', e)
         var k = e.currentTarget.dataset.name
         var v = e.detail
         var data = this.data.userInfo
@@ -135,31 +83,11 @@ Page({
         this.setData({ userInfo: data })
     },
 
-    updateAvatar: function (url) {
-        var _this = this
-        // 设置avatar
-        app.request({
-            url: '/api/v1/users/update_avatar',
-            data: { avatar: url },
-            method: 'POST',
-            success: function (resp) {
-                if (resp.data.status == 0) {
-                    _this.loadUser()
-                    wx.showToast({
-                        icon: 'none',
-                        title: '头像上传成功！',
-                        duration: 2000,
-                    })
-                }
-            }
-        })
-    },
-
-
     loadUser: function () {
         this.setData({ loading: true })
         var _this = this
         auth.getRemoteUserInfo(function (user) {
+
             _this.setData({ userInfo: user, loading: false })
         })
     },
@@ -196,7 +124,7 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-
+        this.loadUser()
     },
 
     /**

@@ -3,25 +3,30 @@
         <view class="form">
             <view class="form-title">
                 <text>客户姓名</text>
+                <block  wx:for="{{sexOptions}}" wx:key="id">
+                <choose-block class="form-choose" data-index="{{index}}" model:item="{{item.label}}" model:value="{{item.value}}"model:index="{{index}}" model:sex="{{sex}}" bindtap="changeSex"  />
+            </block>
             </view>
             <view class="form-flex">
                 <input class="form-input" placeholder="请输入姓名" model:value="{{name}}" minlength="11" maxlength="11"  />
-                <choose-block data-options="[{label: '男士', value: 1}, {label: '', value: 0 }]"  model:value="{{sex}}"   />
             </view>
         </view>
         <view class="form">
             <view class="form-title">
                 <text>手机号码</text>
-                <choose-block left-content='隐号' right-content='全号' show="{{chooseShow}}"  bind:change='chooseHandle'/>
+                <view class="right">
+                <block wx:for="{{tabs}}" wx:key="id">
+                <choose-block class="form-choose" model:item="{{item.name}}" model:index="{{index}}" data-index="{{index}}" model:sex="{{mobileType}}" model:value="{{item.value}}"   bindtap="chooseHandle"/>
+                </block>
+                </view>
             </view>
             <view class="form-content">
                 <input placeholder="请输入11位手机全号" model:value="{{mobile}}" minlength="11" maxlength="11" class="mobile" wx:if="{{!chooseShow}}"/>
-                <protected-mobile-input value="{{mobile}}" bind:change="mobileChange" wx:else />
+                <protected-mobile-input  value="{{mobile}}" bind:change="changeMobile" wx:else />
             </view>
         </view>
-        
-    
 </view>
+
 <mycard width="710" title="客户意向" radius='20' hat="{{false}}">
     <view class="post-item" wx:if="{{pid}}">
         <view class="item-image">

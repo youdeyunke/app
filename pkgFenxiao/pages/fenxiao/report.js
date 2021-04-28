@@ -24,11 +24,11 @@ Page({
         post: null,
         postValue: '',
         tabs: [{
-            name: '隐号报备',
+            name: '隐号',
             value: 'protected'
         },
         {
-            name: '全号报备',
+            name: '全号',
             value: 'full'
         },
         ],
@@ -50,19 +50,23 @@ Page({
         })
         this.loadPost(q.pid)
     },
-    sexChange: function (e) {
-        var sex = e.detail
+    changeSex: function (e) {
+        var sex = e.currentTarget.dataset.index
         if (sex) {
-            sex = 1
+            sex =0
+            this.setData({
+                sex: sex
+            })
         } else {
-            sex = 0
+            sex=1
+            this.setData({
+                sex: sex
+            })
         }
-        this.setData({
-            sex: sex
-        })
+        
     },
 
-    mobileChange: function (e) {
+    changeMobile: function (e) {
         this.setData({
             mobile: e.detail.value
         })
@@ -100,9 +104,22 @@ Page({
         })
     },
     chooseHandle(e) {
-        this.setData({
-            chooseShow: e.detail
-        })
+        let index = e.target.dataset.index
+        if(index){
+            this.setData({
+                chooseShow: false,
+                mobileType:'full'
+            })
+            console.log("false")
+        }
+        else{
+            this.setData({
+                chooseShow: true,
+                mobileType:'protected'
+            })
+            console.log("true")
+        }
+        
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

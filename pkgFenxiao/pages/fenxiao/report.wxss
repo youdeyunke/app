@@ -78,17 +78,18 @@
     padding: 30rpx;
 }
 .form-title{
-    display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     color: #666;
     font-size: 28rpx;
+    display: flex;
 }
 .form-input{
     color: #B4B4B4;
 }
 .form-title text{
+    flex:3;
     color: #666;
     font-weight: bold;
 }
@@ -97,12 +98,25 @@
 }
 .form-flex{
     margin-top: 34rpx ;
-    display: flex;
+    display:flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1rpx solid #B4B4B4;
     padding-bottom: 20rpx;
     margin-bottom: 82rpx;
+}
+.form-choose{
+    display:block;
+    float: left;
+}
+.form-choose:nth-child(1){
+    border-radius: 5rpx 0rpx 0rpx 5rpx;
+}
+.form-choose:nth-last-child(1){
+    border-radius: 0rpx 5rpx 5rpx 0rpx;
+}
+.right{
+    flex: 1;
 }
 .mobile{
     width: 100%;

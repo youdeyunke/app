@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    sex:''
   },
   /**
    * 生命周期函数--监听页面加载
@@ -30,6 +30,16 @@ Page({
           value:res.data.data
         })
         console.log(_this.data.value)
+        if(_this.data.value.sex===0){
+          _this.setData({
+            sex:'girl'
+          })
+        }
+        else{
+          _this.setData({
+            sex:'boy'
+          })
+        }
       }
     })
   },

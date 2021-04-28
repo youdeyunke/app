@@ -3,3 +3,16 @@
 page{
    padding-top:10rpx !important;
 }
+
+.outer{
+   background:#fff;
+   width:730rpx; 
+   margin:0 auto;
+}
+
+.item-outer{
+   background:#fff;
+   padding:20rpx 20rpx 0 20rpx;
+   box-sizing: border-box;
+
+}
