@@ -98,6 +98,7 @@ Page({
                     postInfo: post,
                     blocks: resp.data.data,
                 }, () => {
+                    _this.markHistory()
                 })
                 wx.showShareMenu({
                     withShareTicket: true,
@@ -143,6 +144,7 @@ Page({
 
         _this.setData({ postId: postId }, () => {
             _this.loadData()
+    
         })
         app.markVisitor(null, postId, 'post', function (vid) {
             _this.setData({ 'visitorLogId': vid })
@@ -151,6 +153,36 @@ Page({
         wx.hideShareMenu({
             menus: ['shareAppMessage', 'shareTimeline']
         })
+    },
+
+
+    markHistory: function(){
+        // 记录访问历史
+        var cacheKey = 'post.history'
+        var cacheValue = wx.getStorageSync(cacheKey) || []
+        var d = new Date() 
+        var y = d.getFullYear() 
+        var m  = d.getMonth() + 1 
+        var day = d.getDate() 
+        var today = y + '-' + m   + '-' + day
+
+        if(cacheValue.length >= 1){
+            var i = cacheValue.length - 1 
+            var last = cacheValue[i]
+            if(last.post.id == this.data.postId){
+                return 
+            }
+        }
+
+        cacheValue.push( {
+            date: today, 
+            post: this.data.postInfo, 
+        })
+        wx.setStorage({
+          data: cacheValue,
+          key: cacheKey,
+        })
+
     },
 
     /**
