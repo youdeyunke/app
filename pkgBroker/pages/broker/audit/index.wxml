@@ -1,22 +1,22 @@
 <!--pkgBroker/pages/broker/audit/index.wxml-->
 <view class="audit-box">
-  <block wx:if="{{state.join_status==1}}">
-    <image class="image1" src="{{auditbgt}}"></image>
-    <image class="image2" src="{{auditicon}}"></image>
+  <block wx:if="{{state==1}}">
+    <image class="image1" src="../../../images/17.png"></image>
+    <image class="image2" src="../../../images/16.png"></image>
     <view class="audit-message">
-      <text>{{state.info}}</text>
+      <text>审核中</text>
     </view>
   </block>
-  <block wx:if="{{state.join_status==2}}">
-    <image class="image1" src="{{passbgt}}"></image>
-    <image class="image2" src="{{passicon}}"></image>
+  <block wx:if="{{state==2}}">
+    <image class="image1" src="../../../images/13.png"></image>
+    <image class="image2" src="../../../images/14.png"></image>
     <view class="audit-message">
-      <text>{{state.info}}</text>
+      <text>您已经入驻成功，无需重复申请</text>
     </view>
   </block>
   <block wx:if="{{state==0}}">
-    <image class="image1" src="{{passbgt}}"></image>
-    <image class="image2" src="{{passicon}}"></image>
+    <image class="image1" src="../../../images/13.png"></image>
+    <image class="image2" src="../../../images/14.png"></image>
     <view class="audit-message">
       <text>已经收到您的提交信息，我们将在三个工作日为您审核</text>
     </view>

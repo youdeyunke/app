@@ -1,7 +1,12 @@
+<view class="image-box">
+  <image class="image1" src="{{buildingdata.post.cover}}"></image>
+  <view class="box">
+    <view class="text1">{{buildingdata.post.title}}</view>
+  </view>
+
+</view>
+
 <view class="building-box">
-  <image class="image1" src="../../../images/3.jpg">
-    <text class="text1">玉龙玄天无敌大楼盘</text>
-  </image>
   <view class="building-message" bindtap="unfoldSearch">
     <view class="building-message-nav">
       <text>单位价格</text>

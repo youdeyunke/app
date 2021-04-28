@@ -42,9 +42,10 @@ Component({
    */
   methods: {
     checkedHandle: function (e) {
-      var mytitle = e.currentTarget.dataset.title
+      console.log("eeeeeeeeeeee",e)
+      var mypost = e.currentTarget.dataset.mypost
       this.triggerEvent("checkedtitle", {
-        mytitle
+        mypost
       })
     }
   }

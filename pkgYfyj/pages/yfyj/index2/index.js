@@ -141,6 +141,7 @@ Page({
           buildingdata: res.data.data,
           tabs: res.data.data.items
         })
+        console.log("buildingdata",_this.data.buildingdata)
       }
     })
   },

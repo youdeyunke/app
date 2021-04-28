@@ -12,7 +12,7 @@ page{
 }
 .join-information{
     width:750rpx ;
-    height: 575rpx;
+    /* height: 575rpx; */
     padding-top: 48rpx;
     box-sizing: border-box;
     padding-left: 50rpx;
@@ -106,12 +106,7 @@ page{
     position: relative;
 }
 .join-search{
-    position: absolute !important;
-    top: 135rpx;
-    /* top: 0; */
-    left: 0;
-    z-index: 2555;
-    background-color: aquamarine;
+    background-color: #fff;
 }
 .join-warn{
     width:626rpx ;
@@ -130,4 +125,8 @@ page{
     width:70rpx ;
     height: 70rpx;
     margin-right:20rpx ;
+}
+.mysearch-box{
+    height: 642rpx;
+    background-color: #fff;
 }

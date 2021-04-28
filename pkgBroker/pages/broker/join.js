@@ -28,42 +28,47 @@ Page({
             wechat_qr: '',
             namecard: '',
             avatar: '',
+            post_title:'',
+            post_id:''
         },
         keyword: '',
         showkw: false,
         userstate: '',
         join_status:''
-
+    },
+    //接受子组件传过来的数据
+    valueHandle:function(e){
+        console.log("eeeeeeeeeeeeeeeeee",e)
+        var formdata = this.data.formData;
+        formdata['post_title'] = e.detail.mytitle;
+        formdata['post_id']=e.detail.myid
+        this.setData({
+            keyword:e.detail.mytitle,
+            showkw:false,
+            formData:formdata
+        })
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
+    
+
+
     serachHandle: function (e) {
         var value = e.detail.value;
+        var formdata = this.data.formData
+        formdata['post_title']=value
         console.log("经纪人页面eeee", value)
         this.setData({
             keyword: value,
-            showkw: true
+            showkw: true,
         })
         if (this.data.keyword === '') {
             this.setData({
                 showkw: false
             })
         }
-    },
-    // 接收子组件传过来的数据
-    searchtitle: function (e) {
-        var mytitle = e.detail.mytitle;
-        var formdata = this.data.formData;
-        formdata['company_name'] = mytitle;
-        this.setData({
-            formData: formdata,
-            keyword: mytitle,
-            showkw: false
-        })
-        console.log("所有发送的数据", formdata)
-
     },
     inputHandle: function (e) {
         var value = e.detail.value;
@@ -184,14 +189,9 @@ Page({
             }
         })
     },
-
-
-
-
     validate: function () {
         var data = this.data.formData
         console.log("data", data)
-        var noneAvatar = data.avatar
         if (!data.name) {
             wx.showToast({
                 icon: 'none',
@@ -237,9 +237,6 @@ Page({
 
         return true
     },
-
-
-
     doPost: function (data) {
         var _this = this
         var joinSubmit = this.data.formData
@@ -262,6 +259,7 @@ Page({
     },
 
     submitHandle: function (e) {
+        console.log("eeeeeeeeee",e)
         var _this = this
         var data = e.detail.value
         //data['company_id'] = this.data.company.id
@@ -327,17 +325,17 @@ Page({
                 _this.setData({
                     userstate:resp.data.data
                 }) 
-                var join_state = JSON.stringify(resp.data.data)
+                var join_status = resp.data.data.join_status
                 // 审核中
-                if(resp.data.data.join_status==1){
+                if(join_status==1){
                     wx.redirectTo({
-                         url: '/pkgBroker/pages/broker/audit/index?status='+join_state,
+                         url: '/pkgBroker/pages/broker/audit/index?status='+resp.data.data.join_status,
                     })
                 }
                 // 已入驻
-                if(resp.data.data.join_status==2){
+                if(join_status==2){
                     wx.redirectTo({
-                      url: '/pkgBroker/pages/broker/audit/index?status='+join_state,
+                      url: '/pkgBroker/pages/broker/audit/index?status='+resp.data.data.join_status,
                     })
                 }
             }

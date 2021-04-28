@@ -50,9 +50,14 @@ Page({
     }
   },
   valueHandle: function (e) {
-    this.setData({
-      inputvalue: e.detail.mytitle
-    })
+    console.log("eeeee",e)
+      wx.navigateTo({
+        url: '/pkgPost/pages/show/index?id='+e.detail.myid,
+      })
+      this.setData({
+        inputvalue:e.detail.mytitle,
+        resultshow:false
+      })
   },
   delvalue: function () {
     this.setData({
