@@ -1,8 +1,0 @@
-{
-  "usingComponents": {
-    "ud-tabs": "/components/ud/tabs/index",
-    "building":"../../../components/building/index",
-    "details":"../../../components/details/index",
-    "van-popup":"/vant/popup/index"
-  }
-}

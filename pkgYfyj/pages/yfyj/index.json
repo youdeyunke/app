@@ -1,6 +1,8 @@
 {
-    "usingComponents": {
-        "post-title": "/components/post-title/index",
-        "room-item": "./room-item"
-    }
+  "usingComponents": {
+    "ud-tabs": "/components/ud/tabs/index",
+    "building":"../../components/building/index",
+    "details":"../../components/details/index",
+    "van-popup":"/vant/popup/index"
+  }
 }
