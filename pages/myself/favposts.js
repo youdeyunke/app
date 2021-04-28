@@ -63,7 +63,7 @@ Page({
      */
     onLoad: function (options) {
         wx.setNavigationBarTitle({
-            title: '我的关注',
+            title: '我的收藏',
         })
         this.loadData()
 

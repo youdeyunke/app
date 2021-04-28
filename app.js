@@ -51,6 +51,19 @@ App({
         }
     },
 
+
+    createSubTpl: function(tplIds){
+        // 调用模板消息
+        wx.requestSubscribeMessage({
+            tmplIds: tplIds,
+            success: function(res){
+                // TODO 
+                console.log('create sub tpl res',res)
+                typeof cb === 'function' && cb(res)
+            }
+        })    
+    },      
+
     checkForceLogin: function () {
         // 检查是否强制登录
         var d = new Date()
