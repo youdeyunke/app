@@ -39,7 +39,6 @@ Page({
     },
     //接受子组件传过来的数据
     valueHandle:function(e){
-        // console.log("eeeeeeeeeeeeeeeeee",e)
         var formdata = this.data.formData;
         formdata['post_title'] = e.detail.mytitle;
         formdata['post_id']=e.detail.myid
@@ -50,10 +49,11 @@ Page({
         })
     },
     showHandle:function(e){
-        console.log("eeeeeeeeeeeeeeeeeeeeeee",e.detail.length)
-        this.setData({
-            building_length:e.detail.length
-        })
+        if(e.detail.length==0){
+            this.setData({
+                showkw:false
+            })
+        }
     },
 
     /**

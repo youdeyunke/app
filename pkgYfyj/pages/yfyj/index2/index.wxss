@@ -41,7 +41,6 @@ image {
 }
 
 .building-message {
-  height: 88rpx;
   display: flex;
   justify-content: space-between;
   color: #999999;
@@ -52,10 +51,19 @@ image {
 }
 
 .building-message-nav {
-  height: 88rpx;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav-top{
   display: flex;
   align-items: center;
-  justify-content: center;
+}
+
+.nav-bottom{
+  font-size: 28rpx;
+  color:#333333 ;
 }
 
 .image2 {

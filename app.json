@@ -192,6 +192,13 @@
       "pages": [
         "page/search/index"
       ]
+    },
+    {
+      "root": "pkgHistory",
+      "name": "history",
+      "pages": [
+        "pages/history/index"
+      ]
     }
   ],
   "pages": [
