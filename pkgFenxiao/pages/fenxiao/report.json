@@ -5,7 +5,8 @@
         "post-item": "/components/post-item/cell/index",
         "protected-mobile-input": "/components/protected-mobile-input",
         "post-selector":"/components/post-selector/index",
-        "van-icon": "/vant/icon/index"
+        "van-icon": "/vant/icon/index",
+        "choose-block":"/components/choose-block/choose-block"
 
     }
 }
