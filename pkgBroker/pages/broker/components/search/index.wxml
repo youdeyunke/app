@@ -1,6 +1,6 @@
 <!--pkgBroker/pages/broker/search/index.wxml-->
 <view class="search-box">
   <block wx:for="{{serachresule}}">
-    <view bindtap="checkedHandle" data-title="{{item.title}}" >{{item.title}}</view>
+    <view bindtap="checkedHandle" data-mypost="{{item}}" >{{item.title}}</view>
   </block>
 </view>

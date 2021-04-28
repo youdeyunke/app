@@ -25,13 +25,7 @@ Component({
     selectHanlde:function(e){
       var myid = e.currentTarget.dataset.myid
       var mytitle = e.currentTarget.dataset.mytitle
-      this.setData({
-        mytitle:mytitle
-      })
-      wx.navigateTo({
-        url: '/pkgPost/pages/show/index?id='+myid,
-      })
-      this.triggerEvent("changevalue",{mytitle})
+      this.triggerEvent("changevalue",{myid,mytitle})
     }
   },
   observers:{
@@ -48,6 +42,7 @@ Component({
           _this.setData({
             house_list:res.data.data
           })
+        _this.triggerEvent("changeShow",res.data.data)
         }
       })
     }

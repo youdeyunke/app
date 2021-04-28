@@ -6,7 +6,7 @@
         "protected-mobile-input": "/components/protected-mobile-input",
         "post-selector":"/components/post-selector/index",
         "van-icon": "/vant/icon/index",
-        "choose-block":"/components/choose-block/choose-block"
+        "choose-block":"/components/choose-block/index"
 
     }
 }

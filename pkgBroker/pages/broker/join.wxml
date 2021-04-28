@@ -3,12 +3,12 @@
     <view class="join-nav-box">
         <block wx:if="{{userstate.join_status==-1}}">
             <view class="join-warn">
-            <image src="../../images/15.png"></image>
-            <view>
-                <view>审核状态：暂未通过！请修改资料重新提交</view>
-                <view>拒绝原因：{{userstate.info}}!</view>
+                <image src="../../images/15.png"></image>
+                <view>
+                    <view>审核状态：暂未通过！请修改资料重新提交</view>
+                    <view>拒绝原因：{{userstate.info}}!</view>
+                </view>
             </view>
-        </view>
         </block>
         <view class="join-information">
             <view class="join-information-message">
@@ -25,15 +25,20 @@
                 <view class="join-information-box">
                     <view class="join-information-name">
                         <text>主营楼盘</text>
-                        <input data-key="company_name" bindinput="serachHandle" type="text" placeholder="请输入楼盘名称全称" value="{{keyword}}" />
+                        <input data-key="post_title" bindinput="serachHandle" type="text" placeholder="请输入楼盘名称全称"
+                            value="{{keyword}}" />
                         <image class="image3" src="../../images/join/6.png"></image>
                     </view>
                     <block wx:if="{{showkw===true}}">
-                        <search class="join-search" bindcheckedtitle="searchtitle" value="{{keyword}}"></search>
+                        <block wx:if="{{building_length>1}}">
+                            <scroll-view class="mysearch-box" scroll-y="true">
+                                <mysearch class="join-search" value="{{keyword}}" bindchangevalue="valueHandle"
+                                    bindchangeShow="showHandle"></mysearch>
+                            </scroll-view>
+                        </block>
+
                     </block>
                 </view>
-
-
             </view>
         </view>
         <view class="join-uploading">

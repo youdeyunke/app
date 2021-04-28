@@ -1,4 +1,3 @@
-<!--pkgSearch/components/search/index.wxml-->
   <view class="search-box" wx:for="{{house_list}}" data-myid="{{item.id}}" data-mytitle="{{item.title}}" bindtap="selectHanlde">
     <view class="search-top">
       <text>{{item.title}}</text>

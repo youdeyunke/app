@@ -10,7 +10,7 @@
     </view>
     <view class="search-top-right" bindtap="searchHandle">搜索</view>
     <block wx:if="{{resultshow==true}}">
-      <search class="component-search" value="{{inputvalue}}" bindchangevalue="valueHandle"></search>
+      <mysearch class="component-search" value="{{inputvalue}}" bindchangevalue="valueHandle"></mysearch>
     </block>
   </view>
   <block wx:if="{{searchRecord != ''}}">

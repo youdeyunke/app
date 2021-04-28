@@ -6,10 +6,6 @@ Page({
    */
   data: {
     state:'',
-    auditbgt:'../../../images/17.png',
-    auditicon:'../../../images/16.png',
-    passbgt:'../../../images/13.png',
-    passicon:'../../../images/14.png'
   },
 
   /**
@@ -21,11 +17,10 @@ Page({
     })
   },
   onLoad: function (options) {
-    var item = JSON.parse(options.status)
+    var item = options
     this.setData({
-      state:item
+      state:item.status
     })
-    console.log("opentisn",item)
 
   },
 
