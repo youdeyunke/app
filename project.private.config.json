@@ -27,6 +27,19 @@
         {
           "name": "pkgFenxiao/pages/fenxiao/",
           "pathName": "pkgFenxiao/pages/fenxiao/report",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "申请入驻",
+          "pathName": "pkgBroker/pages/broker/join",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "改版一房一价",
+          "pathName": "pkgYfyj/pages/yfyj/index2/index",
+          "query": "post_id=9",
           "scene": null
         }
       ]

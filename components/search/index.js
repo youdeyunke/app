@@ -42,6 +42,7 @@ Component({
           _this.setData({
             house_list:res.data.data
           })
+        _this.triggerEvent("changeShow",res.data.data)
         }
       })
     }

@@ -1,5 +1,5 @@
 <view class="image-box">
-  <image class="image1" src="{{buildingdata.post.cover}}"></image>
+  <image class="image1" src="{{buildingdata.post.cover}}" ></image>
   <view class="box">
     <view class="text1">{{buildingdata.post.title}}</view>
   </view>
