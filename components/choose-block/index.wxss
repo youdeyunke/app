@@ -1,12 +1,16 @@
 /* components/choose-block/choose-block.wxss */
+.container{
+  float: left;
+}
 .ziti{
-  width: 79rpx;
-  height: 52rpx;
+  width: 100rpx;
+  height: 60rpx;
   border: 1rpx solid #1989fa;
   font-size: 24rpx;
   font-weight: regular;
   text-align:center;
   color: #1989FA;
+  float: left;
 }
 .active{
   color: white;

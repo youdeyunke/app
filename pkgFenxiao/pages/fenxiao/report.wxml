@@ -3,9 +3,7 @@
         <view class="form">
             <view class="form-title">
                 <text>客户姓名</text>
-                <block  wx:for="{{sexOptions}}" wx:key="id">
-                <choose-block class="form-choose" data-index="{{index}}" model:item="{{item.label}}" model:value="{{item.value}}"model:index="{{index}}" model:sex="{{sex}}" bindtap="changeSex"  />
-            </block>
+                    <choose-block class="form-choose" options="{{sexOptions}}" model:value="{{sex}}" bindchangestatus="sexChange" />
             </view>
             <view class="form-flex">
                 <input class="form-input" placeholder="请输入姓名" model:value="{{name}}" minlength="11" maxlength="11"  />
@@ -14,11 +12,7 @@
         <view class="form">
             <view class="form-title">
                 <text>手机号码</text>
-                <view class="right">
-                <block wx:for="{{tabs}}" wx:key="id">
-                <choose-block class="form-choose" model:item="{{item.name}}" model:index="{{index}}" data-index="{{index}}" model:sex="{{mobileType}}" model:value="{{item.value}}"   bindtap="chooseHandle"/>
-                </block>
-                </view>
+                    <choose-block class="form-choose" options="{{tabs}}" model:value="{{mobileType}}"  bindchangestatus="chooseHandle"/>
             </view>
             <view class="form-content">
                 <input placeholder="请输入11位手机全号" model:value="{{mobile}}" minlength="11" maxlength="11" class="mobile" wx:if="{{!chooseShow}}"/>
