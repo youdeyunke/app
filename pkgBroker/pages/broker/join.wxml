@@ -30,13 +30,10 @@
                         <image class="image3" src="../../images/join/6.png"></image>
                     </view>
                     <block wx:if="{{showkw===true}}">
-                        <block wx:if="{{building_length>1}}">
-                            <scroll-view class="mysearch-box" scroll-y="true">
-                                <mysearch class="join-search" value="{{keyword}}" bindchangevalue="valueHandle"
-                                    bindchangeShow="showHandle"></mysearch>
-                            </scroll-view>
-                        </block>
-
+                        <scroll-view class="mysearch-box" scroll-y="true">
+                            <mysearch class="join-search" value="{{keyword}}" bindchangevalue="valueHandle"
+                                bindchangeShow="showHandle"></mysearch>
+                        </scroll-view>
                     </block>
                 </view>
             </view>

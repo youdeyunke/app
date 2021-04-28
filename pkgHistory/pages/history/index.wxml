@@ -1,0 +1,12 @@
+<view class="history-top">历史浏览</view>
+<block wx:for="{{history}}">
+  <view class="history-box">
+    <view class="history-date">
+      <image class="image1" src="../../images/time.png"></image>
+      <text>{{item.date}}</text>
+    </view>
+    <view class="history-items">
+      <items class="items" post="{{item.post}}" />
+    </view>
+  </view>
+</block>
