@@ -1,0 +1,35 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pkgYfyj/pages/yfyj/index2/index",
+          "pathName": "pkgYfyj/pages/yfyj/index2/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pkgFenxiao/pages/fenxiao/customers",
+          "pathName": "pkgFenxiao/pages/fenxiao/customers",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pkgFenxiao/pages/fenxiao/",
+          "pathName": "pkgFenxiao/pages/fenxiao/report",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

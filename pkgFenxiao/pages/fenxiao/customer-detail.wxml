@@ -6,7 +6,7 @@
 
 <view class="detail">
     <view class="detail-title">
-    <image src="../../images/boy.png" class="title-icon"/>
+    <image src="../../images/{{sex}}.png" class="title-icon"/>
     {{value.name}} {{value.mobile}}
     </view>
     <view class="detail-content">

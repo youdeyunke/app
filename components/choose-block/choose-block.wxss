@@ -1,0 +1,14 @@
+/* components/choose-block/choose-block.wxss */
+.ziti{
+  width: 79rpx;
+  height: 52rpx;
+  border: 1rpx solid #1989fa;
+  font-size: 24rpx;
+  font-weight: regular;
+  text-align:center;
+  color: #1989FA;
+}
+.active{
+  color: white;
+  background: #1989fa;
+}
