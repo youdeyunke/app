@@ -53,9 +53,9 @@
     <view>我的收藏</view>
   </view>
 </view>
-<brokeroperation></brokeroperation>
-<view class="broker-emphasis">
+<brokeroperation broker="{{user}}"></brokeroperation>
+<!-- view class="broker-emphasis">
   <text class="broker-text4">重点功能</text>
   <brokeroperation></brokeroperation>
-</view>
+</view -->
 <operation myuser="{{user}}" bindquitHandle="myquit"></operation>

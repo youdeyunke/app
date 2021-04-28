@@ -11,6 +11,9 @@ Component({
     },
     formdata:{
       type:Object
+    },
+    result:{
+      type:Boolean
     }
   },
   /**
@@ -33,15 +36,7 @@ Component({
         buildingShow: !this.data.buildingShow,
       })
       this.triggerEvent("changestatus",{detailsShow,myindex})
-
-
-      var rooms = this.properties.value.rooms
-      rooms=rooms.length
-      var row = Math.ceil(rooms/3)
-      console.log("row",row)
-      this.setData({
-        row:row
-      })
+      // console.log("不二",this.properties.result)
 
 
     },

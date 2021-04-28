@@ -22,6 +22,8 @@ Page({
     building_num: 1,
     average: [],
     searchShow: false,
+    resultShow:false,
+    post_id:null,
     price_between: [{
         value: '不限',
         select: true
@@ -51,7 +53,7 @@ Page({
         select: false
       },
       {
-        value: '170-190',
+        value: '3600-4000',
         select: false
       }
     ],
@@ -84,7 +86,7 @@ Page({
       select:false
     }, 
     {
-      value: '8000-9000',
+      value: '2500-2600',
       select:false
     }, 
     ],
@@ -118,7 +120,7 @@ Page({
         select:false
       },
       {
-        value:'90-100',
+        value:'150-160',
         select:false
       },
     ],
@@ -130,10 +132,10 @@ Page({
   },
   queryBuilding: function () {
     var _this = this
-    var query = this.data.tabIndex
+    var query = {post_id:this.data.post_id}
     app.request({
-      url: '/api/v1/buildings?post_id=9',
-      // data:query,
+      url: '/api/v1/buildings',
+      data:query,
       success: function (res) {
         _this.setData({
           buildingdata: res.data.data,
@@ -314,13 +316,20 @@ Page({
       formdata:myformdata
     })
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.queryBuilding()
-    this.queryDetails()
+    var post_id = options.post_id || options.id
+    var _this = this
+    _this.setData({
+      post_id:post_id
+    },function(){
+      _this.queryBuilding()
+      _this.queryDetails()
+    }
+
+    )
   },
 
   /**

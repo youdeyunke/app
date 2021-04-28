@@ -1,4 +1,5 @@
 // pkgPost/components/default-contact/index.js
+const auth = require("../../../utils/auth");
 Component({
     /**
      * 组件的属性列表
@@ -18,7 +19,18 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        bookingHandle: function () { },
+        bookingHandle: function (e) {
+            var _this = this
+            auth.ensureUser(function (user) {
+
+                    _this.selectComponent('#booking').openHandle()
+                
+            })
+        },
+
+        bookingChange: function (e) {
+            this.setData({ bookingStatus: 1 })
+        },
         shareHandle: function () {
             this.setData({ showShareBox: true })
         },

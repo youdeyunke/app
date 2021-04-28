@@ -19,13 +19,24 @@ Component({
         loading: false,
         currentDateIndex: 0,
         currentTimeIndex: 0,
+
         name: '',
+        date: '', 
+        time: '', 
+        remark: '', 
+        mobile: '', // 如果当前用户已经登陆，自动填充手机号， 并且不能被修改
+
+        mobileLocked: false,        
         dates: [],
     },
 
     ready: function () {
         var user = app.globalData.userInfo
-        this.setData({ user: user })
+        this.setData({ 
+            user: user ,
+            mobile:  user ?  user.mobile : '',
+            mobileLocked: user ?  true : false, 
+        })
         this.initDate()
     },
 
@@ -33,6 +44,19 @@ Component({
      * 组件的方法列表
      */
     methods: {
+
+        createSubTpl: function(cb){
+            // 调用模板消息
+            var tpl1 = 'Zr2THtwKDCnwDn_caZfAVvtWUoTTLIkKTnaKe57iXio'
+            wx.requestSubscribeMessage({
+                tmplIds: [tpl1 ],
+                success: function(res){
+                    // TODO 
+                    console.log('create sub tpl res',res)
+                    typeof cb === 'function' && cb(res)
+                }
+            })    
+        },        
 
         closeHandle: function () {
             this.setData({ show: false })
@@ -135,7 +159,13 @@ Component({
         validate: function (log) {
         },
 
-        submitHandle: function () {
+        submitHandle: function(){
+            this.createSubTpl((res) => {
+                this._submitHandle()
+            })
+        },
+
+        _submitHandle: function () {
             if (this.data.currentTimeIndex == null || this.data.currentDateIndex == null) {
                 wx.showToast({
                     title: '请选择预约时间',
@@ -147,13 +177,17 @@ Component({
             var _this = this
             var log = {
                 post_id: this.data.postId,
+                name: this.data.name, 
+                remark: this.data.remark, 
+                mobile: this.data.mobile, 
                 status: 0,
             }
             var d = this.data.dates[this.data.currentDateIndex]
             var t = d.times[this.data.currentTimeIndex]
             log['time'] = t.value
             log['date'] = d.value
-            log['name'] = _this.data.name
+    
+
             this.setData({ loging: true })
             app.request({
                 url: '/api/v1/booking_logs/',

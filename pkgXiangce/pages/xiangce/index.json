@@ -1,7 +1,7 @@
 {
   "enablePullDownRefresh": true,
   "usingComponents": {
-      "booking": "/components/post/booking",
+      "booking": "/components/post-booking/index",
       "media-items": "./media-items"
   }
 }

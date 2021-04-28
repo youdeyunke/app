@@ -18,4 +18,6 @@
         </div>
     </view>
     <share-box wx:if="{{post}}" post-info="{{post}}" model:show="{{showShareBox}}" />
+
+    <post-booking bind:change="bookingChange" booked="{{bookingStatus}}" post-id="{{value.post_id}}"   id="booking" />
 </block>

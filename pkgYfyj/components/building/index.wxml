@@ -3,10 +3,10 @@
     <view class="building-box">
       <view class="building-left">
         <view>
-          <text>{{num}}</text>
-          <text class="text2">楼</text>
+          <text>{{value.floor}}</text>
+          <text class="text2">层</text>
         </view>
-        <text>{{value.floor}}层</text>
+        <text>{{num}}号楼</text>
       </view>
       <view class="building-right">
         <view class="building-right-nav">
@@ -14,8 +14,11 @@
           <view>价格区间：{{value.total_min}}元-{{value.total_max}}元</view>
           <view>单位均价：{{value.areanum}}</view>
         </view>
-        <image class="image1" src="../../images/1.png" bindtap="unfoldHandle" data-index="{{value}}"></image>
       </view>
+      <view class="unfoldimage"  bindtap="unfoldHandle" data-index="{{value}}">
+        <image class="image1" src="../../images/1.png"></image>
+      </view>
+
     </view>
   </view>
 </block>
@@ -26,15 +29,14 @@
   <view class="unfold-box">
     <view class="unfold-top">
       <view>
-      <text>{{num}}号楼</text>
-      <text class="text3">{{value.floor}}层</text>
+        <text>{{num}}号楼</text>
+        <text class="text3">{{value.floor}}层</text>
       </view>
       <image src="../../images/2.png" bindtap="closeHandle"></image>
     </view>
     <block wx:for="{{value.rooms}}">
-      <!-- <block wx:if="{{index}}"> -->
-        <details class="details-box" items="{{item}}" formdata="{{formdata}}" details-right="myright" ></details>
-      <!-- </block> -->
+      <details class="details-box" items="{{item}}" formdata="{{formdata}}" details-right="myright" result="{{result}}" >
+      </details>
     </block>
   </view>
 </block>

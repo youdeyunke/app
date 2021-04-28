@@ -42,6 +42,7 @@
   font-size: 24rpx;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .building-right view {
@@ -112,4 +113,8 @@ border-bottom: none;
 }
 .details-box:nth-of-type(3n) .myright {
   background-color: #fff;
+}
+.unfoldimage{
+  /* background-color: blue; */
+  height: 50rpx;
 }
