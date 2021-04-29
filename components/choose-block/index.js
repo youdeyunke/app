@@ -27,8 +27,8 @@ Component({
    */
   methods:{
     change(e) {
-      var {index}=e.currentTarget.dataset
-      this.triggerEvent('changestatus', {index})
+      var {item}=e.currentTarget.dataset
+      this.triggerEvent("changeStatus",{item})
     }
   }
 })

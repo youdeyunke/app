@@ -1,6 +1,5 @@
-<view class="container" wx:for="{{options}}" data-index="{{index}}" wx:key="index" bindtap="change">
+<view class="container" wx:for="{{options}}" data-item="{{item}}" wx:key="index" bindtap="change">
   <view class="ziti {{value==item.value?'active':''}}" >
     {{item.label}}
   </view>
-
 </view>

@@ -51,13 +51,12 @@ Page({
         this.loadPost(q.pid)
     },
     sexChange: function (e) {
-        console.log(e)
-        var index = e.detail.index
+        var value = e.detail.item.value
         var sex = this.data.sex
-        if (index===0) {
-            sex = 1
-        } else {
+        if (value===0) {
             sex = 0
+        } else {
+            sex = 1
         }
         this.setData({
             sex: sex
@@ -102,14 +101,14 @@ Page({
         })
     },
     chooseHandle(e) {
-        var index = e.detail.index
+        var value = e.detail.item.value
         var mobileType= this.data.mobileType
         var chooseShow=this.data.chooseShow
-        if(index===0){
+        if(value==='protected'){
             mobileType='protected'
             chooseShow=true
         }
-        if(index===1){
+        if(value==='full'){
             mobileType='full'
             chooseShow=false
         }
