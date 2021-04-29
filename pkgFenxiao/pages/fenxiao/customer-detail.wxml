@@ -25,9 +25,14 @@
             <view class="content-desc desc">
                 <view class="desc-title">{{filter.format(value.created_at, 'hh-mm')}}</view>
                 <view class="desc-detail">
-                    <view>项目名称：{{value.post.title}} </view>
-                    <view>报备面积：{{value.post.area_min}}-{{value.post.area_max}}㎡</view>
-                    <view>报备总价：{{value.post.total_price_min}}-{{value.post.total_price_max}}万</view></view>
+
+                    <navigator class="text" url="/pkgPost/pages/show/index?id={{value.post.id}}" >
+                        <text class="xmtitle">项目名称：</text>
+                        <text>{{value.post.title}}</text>
+                        <text style="margin:0rpx 20rpx">|</text>
+                        <text>{{value.post.street}}</text>
+                    </navigator> 
+                </view>
             </view>
         </view>
 
