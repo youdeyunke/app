@@ -125,6 +125,8 @@ page{
 }
 .mysearch-box{
     height: 642rpx;
+    width:650rpx;
+    box-shadow: 0 0 10rpx rgba(0,0,0, 0.15);
     background-color: #fff;
     position: absolute;
 }
