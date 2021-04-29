@@ -1,56 +1,3 @@
-<!-- <block >
-
-  <view class="card-wrapper">
-    <image src="../../images/bg.jpg"  class="card-wrapper-bg"/>
-    <image src="../../images/user-bg.png"  class="user-bg"/>
-    <image class="avatar" src="{{userInfo.avatar}}" />
-    <view class="name">
-      <text>{{userInfo.name}}</text>
-      <image src="../../images/Frame.png" class="name-icon"/>
-    </view>
-    <view class="weixin">
-      <text>微信: {{userInfo.wechat}}</text>
-      <image src="../../images/copy.png" class="weixin-icon"/>
-    </view>
-    <view class="desc">{{userInfo.desc}}
-</view>
-    <view class="haoyou">
-      <view class="haoyou-icon">
-        <image src="../../images/ma.png"  style="width:32rpx;height:32rpx"/>
-      </view>
-      <text class="haoyou-text">加为好友</text>
-    </view>
-    <view class="zhuanfa">
-      <view class="haoyou-icon">
-        <image src="../../images/Vector.png"  style="width:32rpx;height:32rpx"/>
-      </view>
-      <text class="haoyou-text">转发</text>
-    </view>
-    <view class="liulan"><text style="font-weight:bold;">5000+</text>浏览量</view>
-  </view>
-
-
-</block>
-  <mycard title='主营楼盘' hat='{{false}}'>
-      <box padding="0" width="700">
-        <items kw="" wx:if="{{filter.user_id}}" page="{{page}}" filter="{{filter}}" />
-      </box>
-    </mycard>
-<form report-submit bindsubmit="submit">
-  <view class="fixed-footer btns">
-  <button hover-class="none" form-type="submit" data-action="callme" bindtap="callMe" class="fake btn btn-call" open-type="">电话咨询</button>
-  <button hover-class="none" form-type="submit" data-action="share" open-type="share" class="fake btn btn-share" >分享名片</button>
-  </view>
-</form>
-
-<view class="footer">
-    <van-button bindtap="callMe" icon="phone-o" type="primary" block >电话咨询</van-button>
-    <van-button open-type="share" icon="gift-o" type="info" block >分享名片</van-button>
-</view>
-<cr /> -->
-
-
-
 <image class="profile-image1" src="../../images/1.png"></image>
 <view class="profile-card">
   <image class="profile-image2" src="{{brokerProfile.avatar}}" bindtap="lookphoto" data-src="{{brokerProfile.avatar}}"></image>
@@ -68,7 +15,9 @@
         </view>
       </block>
     </view>
-    <view class="card-message-bottom">{{brokerProfile.desc}}</view>
+    <block wx:if="{{brokerProfile.desc!=null}}">
+      <view class="card-message-bottom">{{brokerProfile.desc}}</view>
+    </block>
   </view>
   <text class="profile-text1">{{browses || 0}}</text>
   <view class="profile-position">
