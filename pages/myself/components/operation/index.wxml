@@ -1,19 +1,25 @@
 <view class="operation-box">
-  <view class="operation-class">
+  <view class="operation-class" bindtap="callHandle">
     <view class="operation-class-nav">
       <image class="operation-image1" src="../../images/6.png"></image>
       <text>客服电话</text>
     </view>
-    <image class="operation-image2" src="../../images/2.png"></image>
+    <view class="service">
+      <text>{{service_mobile}}</text>
+      <image class="operation-image2" src="../../images/2.png"></image>
+    </view>
+
   </view>
-  <view class="operation-class">
+  <view class="operation-class" bindtap="copyHandle">
     <view class="operation-class-nav">
       <image class="operation-image1" src="../../images/5.png"></image>
       <text>客服微信</text>
     </view>
+    <view class="service">
+      <text>{{service_wechat}}</text>
     <image class="operation-image2" src="../../images/2.png"></image>
+    </view>
   </view>
-
   <block wx:if="{{!myuser.is_broker}}">
     <view class="operation-class" bindtap="openApply">
       <view class="operation-class-nav">
