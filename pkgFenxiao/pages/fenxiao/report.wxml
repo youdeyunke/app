@@ -46,7 +46,7 @@
 </mycard>
 
 <mycard width="710" title="备注" radius='20' hat="{{false}}">
-    <input  class="mobile" placeholder="填写备注信息"/>
+    <input  class="mobile" placeholder="填写备注信息" model:value="{{remark}}" />
 </mycard>
 
 <view class="actions">
