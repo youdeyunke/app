@@ -12,7 +12,6 @@ page{
 }
 .join-information{
     width:750rpx ;
-    /* height: 575rpx; */
     padding-top: 48rpx;
     box-sizing: border-box;
     padding-left: 50rpx;
@@ -37,7 +36,6 @@ page{
     display: flex;
     align-items: center;
     border-bottom: 1rpx solid #F6F6F6;
-    /* padding-top: 75rpx; */
     box-sizing: border-box;
 }
 .join-information-name text{
@@ -47,7 +45,6 @@ page{
 .join-information-name input,.join-information-company input,.join-information-number input{
     height: 80rpx;
     font-size: 24rpx;
-    color: #C4C4C4;
     font-weight: normal;
     padding-left: 20rpx;
     box-sizing: border-box;
@@ -130,4 +127,8 @@ page{
     height: 642rpx;
     background-color: #fff;
     position: absolute;
+}
+
+.choose{
+    width: 286rpx;
 }
