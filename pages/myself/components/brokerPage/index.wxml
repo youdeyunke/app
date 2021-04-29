@@ -32,14 +32,12 @@
   </block>
 
 
-
-
   <navigator url="/pages/myself/profile" class="broker-right">
     <text>修改资料</text>
     <image class="broker-image6" src="../../images/3.png"></image>
   </navigator>
 </view>
-<view class="broker-fun">
+<view class="broker-fun" wx:if="{{false}}">
   <view class="broker-fun-class">
     <view class="broker-fun-class-view1">999</view>
     <view>今日访客</view>
@@ -53,7 +51,10 @@
     <view>我的收藏</view>
   </view>
 </view>
-<brokeroperation broker="{{user}}"></brokeroperation>
+
+<view style="margin-top:100rpx;">
+<brokeroperation  broker="{{user}}"></brokeroperation>
+</view>
 <!-- view class="broker-emphasis">
   <text class="broker-text4">重点功能</text>
   <brokeroperation></brokeroperation>
