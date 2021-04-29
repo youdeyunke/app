@@ -185,7 +185,7 @@ Page({
             name: _this.data.name,
             post_name: _this.data.post_name,
             sex: _this.data.sex,
-            post_id: _this.data.pid
+            post_id: _this.data.pid,
         }
         var isok = this.validateFormData(fdata)
         if (!isok) {

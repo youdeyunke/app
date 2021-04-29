@@ -94,13 +94,7 @@ Page({
             loading: true
         })
         auth.ensureUser(function (userInfo) {
-            app.loadConfigs(function (conf) {
-                _this.loadCompanies()
-                _this.setData({
-                    joinType: conf['broker_join_type'],
-                })
-               
-            })
+
         })
     },
 
@@ -259,14 +253,19 @@ Page({
                         icon: 'success',
                         title: '提交成功'
                     })
-                    console.log("joj", this.data.profile)
+                    var tplid = ['1B_NsYpER2LW7Kbymr_iS9xqG7kUwtl_sNP1ja1GTVs']
+                    app.createSubTpl(tplid, (r) => {
+                        wx.navigateTo({
+                            url: '/pkgBroker/pages/broker/audit/index?status=0',
+                        })
+                    })
                 }
             },
         })
     },
 
     submitHandle: function (e) {
-        console.log("eeeeeeeeee",e)
+  
         var _this = this
         var data = e.detail.value
         //data['company_id'] = this.data.company.id
@@ -278,9 +277,6 @@ Page({
             loading: true
         })
         this.doPost(data)
-        wx.navigateTo({
-            url: '/pkgBroker/pages/broker/audit/index?status=0',
-        })
     },
 
     mobileBind: function (e) {
