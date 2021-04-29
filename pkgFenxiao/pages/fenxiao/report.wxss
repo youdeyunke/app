@@ -86,7 +86,10 @@
     display: flex;
 }
 .form-input{
-    color: #B4B4B4;
+    color: black;
+}
+input::-webkit-input-placeholder{
+    color:#B4B4B4
 }
 .form-title text{
     flex:3;
@@ -95,6 +98,7 @@
 }
 .form-content{
     margin: 48rpx 0;
+    height: 50rpx;
 }
 .form-flex{
     margin-top: 34rpx ;
@@ -121,7 +125,7 @@
 .mobile{
     width: 100%;
     border-bottom:1rpx solid #b4b4b4 ;
-    color: #B4B4B4;
+    color: black;
     font-size: 28rpx;
     padding-bottom: 20rpx;
 }

@@ -25,7 +25,6 @@ Page({
       url:'/api/v1/customers/'+_this.data.id,
       methods:"GET",
       success:function(res){
-        console.log(res)
         _this.setData({
           value:res.data.data
         })

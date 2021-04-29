@@ -34,6 +34,7 @@ Page({
         ],
         name: '',
         mobile: '',
+        remark:'',
         mobileType: 'protected',
         setpsText: ["报备客户", "核实成交", "发放佣金"],
         popupShow: false,
@@ -185,7 +186,8 @@ Page({
             name: _this.data.name,
             post_name: _this.data.post_name,
             sex: _this.data.sex,
-            post_id: _this.data.pid
+            post_id: _this.data.pid,
+            user_remark:_this.data.remark
         }
         var isok = this.validateFormData(fdata)
         if (!isok) {
