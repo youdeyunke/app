@@ -40,7 +40,7 @@ Page({
             avatar: '',
             post_title:'',
             post_id:'',
-            sex:'0'
+            sex:1
         },
         keyword: '',
         showkw: false,
@@ -62,8 +62,6 @@ Page({
     changeSex:function(e){
         var value = e.detail.item.value
         var sex = this.data.sex
-        var formdata = this.data.formData
-        formdata['sex']=sex
         if(value==0){
             sex=0
         }
@@ -73,6 +71,8 @@ Page({
         this.setData({
             sex:sex,
         })
+        var formdata = this.data.formData
+        formdata['sex']=sex
     },
     showHandle:function(e){
         if(e.detail.length==0){
