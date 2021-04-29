@@ -24,11 +24,11 @@ Page({
         post: null,
         postValue: '',
         tabs: [{
-            name: '隐号',
+            label: '隐号',
             value: 'protected'
         },
         {
-            name: '全号',
+            label: '全号',
             value: 'full'
         },
         ],
@@ -50,20 +50,17 @@ Page({
         })
         this.loadPost(q.pid)
     },
-    changeSex: function (e) {
-        var sex = e.currentTarget.dataset.index
-        if (sex) {
-            sex =0
-            this.setData({
-                sex: sex
-            })
+    sexChange: function (e) {
+        var value = e.detail.item.value
+        var sex = this.data.sex
+        if (value===0) {
+            sex = 0
         } else {
-            sex=1
-            this.setData({
-                sex: sex
-            })
+            sex = 1
         }
-        
+        this.setData({
+            sex: sex
+        })
     },
 
     changeMobile: function (e) {
@@ -104,22 +101,21 @@ Page({
         })
     },
     chooseHandle(e) {
-        let index = e.target.dataset.index
-        if(index){
-            this.setData({
-                chooseShow: false,
-                mobileType:'full'
-            })
-            console.log("false")
+        var value = e.detail.item.value
+        var mobileType= this.data.mobileType
+        var chooseShow=this.data.chooseShow
+        if(value==='protected'){
+            mobileType='protected'
+            chooseShow=true
         }
-        else{
-            this.setData({
-                chooseShow: true,
-                mobileType:'protected'
-            })
-            console.log("true")
+        if(value==='full'){
+            mobileType='full'
+            chooseShow=false
         }
-        
+        this.setData({
+            mobileType:mobileType,
+            chooseShow:chooseShow
+        })
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

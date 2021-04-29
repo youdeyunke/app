@@ -4,10 +4,15 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    item:String,
-    sex:String,
-    value:String,
-    index:String
+    options:{
+      type:Array,
+      value:''
+    },
+    value:{
+      type:String,
+      value:''
+    },
+
   },
 
   /**
@@ -21,5 +26,9 @@ Component({
    * 组件的方法列表
    */
   methods:{
+    change(e) {
+      var {item}=e.currentTarget.dataset
+      this.triggerEvent("changeStatus",{item})
+    }
   }
 })

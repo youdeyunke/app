@@ -32,6 +32,7 @@ Component({
             this.setData({ bookingStatus: 1 })
         },
         shareHandle: function () {
+            console.log("niiiiiiiii",this.properties.post.id)
             this.setData({ showShareBox: true })
         },
         phoneHandle: function () {
