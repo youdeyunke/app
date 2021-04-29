@@ -17,6 +17,16 @@ Page({
             name: '',
             id: ''
         },
+        sex:'1',
+        sexOptions:[{
+            label:'男',
+            value:'1'
+        },
+        {
+            label:'女',
+            value:'0'
+        }
+    ],
         state: '',
         phonenumber: '',
         imageurl1: "../../images/join/7.png",
@@ -29,7 +39,8 @@ Page({
             namecard: '',
             avatar: '',
             post_title:'',
-            post_id:''
+            post_id:'',
+            sex:1
         },
         keyword: '',
         showkw: false,
@@ -47,6 +58,21 @@ Page({
             showkw:false,
             formData:formdata
         })
+    },
+    changeSex:function(e){
+        var value = e.detail.item.value
+        var sex = this.data.sex
+        if(value==0){
+            sex=0
+        }
+        if(value==1){
+            sex=1
+        }
+        this.setData({
+            sex:sex,
+        })
+        var formdata = this.data.formData
+        formdata['sex']=sex
     },
     showHandle:function(e){
         if(e.detail.length==0){
@@ -94,13 +120,7 @@ Page({
             loading: true
         })
         auth.ensureUser(function (userInfo) {
-            app.loadConfigs(function (conf) {
-                _this.loadCompanies()
-                _this.setData({
-                    joinType: conf['broker_join_type'],
-                })
-               
-            })
+
         })
     },
 
@@ -259,14 +279,19 @@ Page({
                         icon: 'success',
                         title: '提交成功'
                     })
-                    console.log("joj", this.data.profile)
+                    var tplid = ['1B_NsYpER2LW7Kbymr_iS9xqG7kUwtl_sNP1ja1GTVs']
+                    app.createSubTpl(tplid, (r) => {
+                        wx.navigateTo({
+                            url: '/pkgBroker/pages/broker/audit/index?status=0',
+                        })
+                    })
                 }
             },
         })
     },
 
     submitHandle: function (e) {
-        console.log("eeeeeeeeee",e)
+  
         var _this = this
         var data = e.detail.value
         //data['company_id'] = this.data.company.id
@@ -278,9 +303,6 @@ Page({
             loading: true
         })
         this.doPost(data)
-        wx.navigateTo({
-            url: '/pkgBroker/pages/broker/audit/index?status=0',
-        })
     },
 
     mobileBind: function (e) {

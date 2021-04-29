@@ -52,7 +52,7 @@ App({
     },
 
 
-    createSubTpl: function(tplIds){
+    createSubTpl: function(tplIds, cb){
         // 调用模板消息
         wx.requestSubscribeMessage({
             tmplIds: tplIds,

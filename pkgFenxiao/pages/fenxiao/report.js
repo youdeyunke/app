@@ -187,7 +187,10 @@ Page({
             post_name: _this.data.post_name,
             sex: _this.data.sex,
             post_id: _this.data.pid,
+<<<<<<< HEAD
             user_remark:_this.data.remark
+=======
+>>>>>>> 0cf753f415fdcc8acaaf105975d4ce45244d1f7c
         }
         var isok = this.validateFormData(fdata)
         if (!isok) {

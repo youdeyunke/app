@@ -16,6 +16,7 @@
                 <view class="join-information-name">
                     <text>姓名</text>
                     <input data-key="name" bindinput="inputHandle" type="text" placeholder="请输入公司注册人姓名" />
+                    <choose-block class="choose" options="{{sexOptions}}" model:value="{{sex}}" bindchangeStatus="changeSex"></choose-block>
                 </view>
                 <view class="join-information-name">
                     <text>微信号</text>
