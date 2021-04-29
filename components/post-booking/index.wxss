@@ -1,4 +1,4 @@
-/* components/post/booking.wxss */
+
 
 .mytabs{
   padding:0;
@@ -7,10 +7,60 @@
 
 .dialog{
   box-sizing:border-box;
-  padding:80rpx 60rpx 60rpx 60rpx;
-  background:#fff;
+  background-color:#F2F2F2;
+  padding: 20rpx;
 }
 
+.dialog-date{
+  border-radius: 20rpx 20rpx 0 0 ;
+  padding: 30rpx 30rpx ;
+  border-bottom: 4rpx solid #F0F0F0;
+  background-color: #fff;
+}
+
+.dialog-time{
+  padding: 6rpx 30rpx ;
+  background-color: #fff;
+  border-radius: 0 0 20rpx 20rpx;
+  margin-bottom: 20rpx;
+  padding-bottom: 30rpx;
+}
+
+.dialog-message{
+  width: 710rpx;
+  height: 536rpx;
+  border-radius: 20rpx;
+  padding: 20rpx 30rpx ;
+  background-color: #fff;
+  color: #666666;
+}
+.message-name text:nth-of-type(1){
+  color: #E82525;
+  margin-left: 18rpx;
+  margin-right: 5rpx;
+}
+.message-word{
+  border-bottom: 1rpx solid #B4B4B4;
+  display: flex;
+  align-items: center;
+  height:133rpx ;
+}
+.message-word text{
+  margin-left: 30rpx;
+}
+.message-name text:nth-of-type(2){
+  margin-right: 30rpx;
+}
+.message-name{
+  width:650rpx ;
+  height:133rpx ;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #B4B4B4;
+}
+input{
+  display: inline-block;
+}
 .title{
   font-size:40rpx;
   color:#000;
@@ -25,8 +75,9 @@
 }
 
 .desc{
-  font-size:30rpx;
-  color: #000;
+  font-size:28rpx;
+  color: #333333;
+  margin-bottom: 30rpx;
 }
 
 .form .title{
@@ -75,7 +126,7 @@
 }
 
 .dialog .mytag{
-  width:120rpx;
+  width:150rpx;
   text-align:center;
   justify-content:center;
   align-items:center;

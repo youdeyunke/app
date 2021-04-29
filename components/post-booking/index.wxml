@@ -1,53 +1,71 @@
-<van-popup 
-  closeable 
-  bind:close="closeHandle"  
-  show="{{show}}" 
-  duration="300" 
-  position="bottom"
-  round
-  >
-
+<van-popup bind:close="closeHandle" show="{{show}}" duration="300" position="bottom" closeable>
   <view class="dialog">
-    <view class="form" wx:if="{{!booked}}">
-      <view class="title"><van-icon name="clock-o" color="#000000"  style="margin-right:10rpx;" />  预约看房</view>
-
+    <view class="dialog-date">
       <view class="desc">请选择日期</view>
-
-<scroll-view class="dates" scroll-with-animation="{{true}}" scroll-x style="width:100%;white-space:nowrap;">
-         <view plain class="fake" form-type="submit" wx:for="{{dates}}" data-index="{{index}}" wx:key="value" wx:for-item="date" bindtap="dateClick"  >
-            <van-tag custom-class="mytag" size="large" type="primary" plain="{{currentDateIndex != index}}" >{{ date.label }}</van-tag>
-
+      <scroll-view class="dates" scroll-with-animation="{{true}}">
+        <view style="display:inline-block;" class="fake" form-type="submit" wx:for="{{dates}}" data-index="{{index}}"
+          wx:key="value" wx:for-item="date" bindtap="dateClick">
+          <van-tag custom-class="mytag" size="large" type="primary" plain="{{currentDateIndex != index}}">
+            {{ date.label }}
+          </van-tag>
         </view>
-
-</scroll-view>
-
-      <view class="desc">请选择时间</view>
-      <view class="times">
-          <view bindtap="timeClick" data-index="{{index}}" form-type="submit" class="fake" wx:for="{{dates[currentDateIndex].times}}" wx:key="value"  wx:for-item="time">
-            <van-tag custom-class="mytag" size="large" wx:if="{{time.disabled}}" type="default" plain >{{ time.label }}</van-tag>
-
-            <van-tag custom-class="mytag"  size="large" wx:else  plain="{{ currentTimeIndex != index }}" data-index="{{index}}" type="primary" >{{time.label}}</van-tag>
-          </view>
-      </view>
-
-      <van-field required value="" placeholder="请输入联系人姓名" bind:change="nameChange"  />
-
-      <view class="actions">
-        <van-button bindtap="submitHandle" block="{{true}}" loading="{{loading}}" loading-text="加载中"  type="info" round disabled="{{ currentDateIndex == null || currentTimeIndex == null || !name }}">确认预约</van-button>
-      </view>
-
+      </scroll-view>
     </view>
+    <view class="form" wx:if="{{!booked}}">
+      <view class="dialog-time">
+        <view class="desc">请选择时间</view>
+        <view class="times">
+          <view bindtap="timeClick" data-index="{{index}}" form-type="submit" class="fake"
+            wx:for="{{dates[currentDateIndex].times}}" wx:key="value" wx:for-item="time">
+            <van-tag custom-class="mytag" size="large" wx:if="{{time.disabled}}" type="default" plain>{{ time.label }}
+            </van-tag>
+            <van-tag custom-class="mytag" size="large" wx:else plain="{{ currentTimeIndex != index }}"
+              data-index="{{index}}" type="primary">{{time.label}}</van-tag>
+          </view>
+        </view>
+      </view>
+      <view class="dialog-message">
+        <view class="desc">请填写详细信息</view>
+        <view class="message-name">
+          <text>*</text>
+          <text>姓名：</text>
+          <input type="text" placeholder="请输入姓名" bindinput="nameChange" />
+        </view>
+        <block wx:if="{{user==null}}">
+          <view class="message-name">
+            <text>*</text>
+            <text>联系电话：</text>
+            <input type="text" placeholder="" bindinput="mobileChange"  />
+          </view>
+        </block>
+        <block wx:if="{{user!=null}}">
+          <view class="message-name">
+            <text>*</text>
+            <text>联系电话：</text>
+            <input type="text" placeholder="{{user.mobile}}"  bindinput="mobileChange" disabled="true"/>
+          </view>
+        </block>
 
+        <view class="message-word">
+          <text>留言：</text>
+          <input type="text" placeholder="请输入留言" bindinput="wordChange" />
+        </view>
+      </view>
+      <!-- <van-field class="field" required value="" placeholder="请输入联系人姓名" bind:change="nameChange" /> -->
+      <view class="actions">
+        <van-button bindtap="submitHandle" block="{{true}}" loading="{{loading}}" loading-text="加载中" type="info"
+          disabled="{{ currentDateIndex == null || currentTimeIndex == null || !name }}">确认预约</van-button>
+      </view>
+    </view>
     <view class="success" wx:else>
       <view class="title">预约成功！</view>
       <view class="desc">经纪人已收到您的预约看房请求</view>
-      <view class="icon"> <van-icon color="#1989fa" name="passed" size="200rpx;"></van-icon> </view>
-
-      <view class="actions">
-        <van-button bindtap="closeHandle" block="{{true}}"  type="default" plain round >好的</van-button>
+      <view class="icon">
+        <van-icon color="#1989fa" name="passed" size="200rpx;"></van-icon>
       </view>
-
+      <view class="actions">
+        <van-button bindtap="closeHandle" block="{{true}}" type="default" plain round>好的</van-button>
+      </view>
     </view>
   </view>
-
 </van-popup>

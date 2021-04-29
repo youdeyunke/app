@@ -6,8 +6,8 @@ Component({
      * 组件的属性列表
      */
     properties: {
+        myid: {type: Number,value:null},
         booked: { type: Boolean, value: false },
-        postId: { type: Number, value: null },
         currentTimeIndex: null,
     },
 
@@ -31,7 +31,9 @@ Component({
     },
 
     ready: function () {
+        console.log("this.propo.post",this.properties.myid)
         var user = app.globalData.userInfo
+        console.log("user",user)
         this.setData({ 
             user: user ,
             mobile:  user ?  user.mobile : '',
@@ -173,15 +175,39 @@ Component({
                 })
                 return false;
             }
+            if(this.data.name==''){
+                wx.showToast({
+                  title: '请输入您的姓名',
+                  icon:'none'
+                })
+                return false
+            }
+            if(this.data.mobile==''){
+                wx.showToast({
+                  title: '请输入您的联系方式',
+                  icon:'none'
+                })
+                return false
+            }
+            console.log("this.data.mobile",this.data.mobile.length)
+            if(this.data.mobile.length<'11'){
+                wx.showToast({
+                  title: '号码格式错误，请重新输入',
+                  icon:'none'
+                })
+                return false
+            }
+
 
             var _this = this
             var log = {
-                post_id: this.data.postId,
+                post_id: this.properties.myid,
                 name: this.data.name, 
                 remark: this.data.remark, 
                 mobile: this.data.mobile, 
                 status: 0,
             }
+            console.log("log",log)
             var d = this.data.dates[this.data.currentDateIndex]
             var t = d.times[this.data.currentTimeIndex]
             log['time'] = t.value
@@ -203,7 +229,19 @@ Component({
         },
 
         nameChange: function (e) {
-            this.setData({ name: e.detail })
+            this.setData({ 
+                name: e.detail.value 
+            })
+        },
+        mobileChange:function(e){
+            this.setData({
+                mobile:e.detail.value
+            })
+        },
+        wordChange:function(e){
+            this.setData({
+                remark:e.detail.value
+            })
         },
 
         loadData: function () {
