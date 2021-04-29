@@ -6,6 +6,7 @@
         "mbutton": "/components/bind-mobile-button",
         "van-button": "/vant/button/index",
         "flow-tips": "/components/flow-tips",
-        "mysearch":"/components/post-search/index"
+        "mysearch":"/components/post-search/index",
+        "choose-block":"/components/choose-block/index"
     }
 }

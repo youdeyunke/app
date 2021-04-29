@@ -17,6 +17,16 @@ Page({
             name: '',
             id: ''
         },
+        sex:'1',
+        sexOptions:[{
+            label:'男',
+            value:'1'
+        },
+        {
+            label:'女',
+            value:'0'
+        }
+    ],
         state: '',
         phonenumber: '',
         imageurl1: "../../images/join/7.png",
@@ -29,7 +39,8 @@ Page({
             namecard: '',
             avatar: '',
             post_title:'',
-            post_id:''
+            post_id:'',
+            sex:'0'
         },
         keyword: '',
         showkw: false,
@@ -46,6 +57,21 @@ Page({
             keyword:e.detail.mytitle,
             showkw:false,
             formData:formdata
+        })
+    },
+    changeSex:function(e){
+        var value = e.detail.item.value
+        var sex = this.data.sex
+        var formdata = this.data.formData
+        formdata['sex']=sex
+        if(value==0){
+            sex=0
+        }
+        if(value==1){
+            sex=1
+        }
+        this.setData({
+            sex:sex,
         })
     },
     showHandle:function(e){
