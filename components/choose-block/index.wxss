@@ -9,10 +9,14 @@
   font-size: 24rpx;
   font-weight: regular;
   text-align:center;
+  letter-spacing: 0rpx;
   color: #1989FA;
+  line-height: normal;
   float: left;
+  padding: 10rpx 15rpx;
 }
+
 .active{
-  color: white;
+  color: #ffffff;
   background: #1989fa;
 }

@@ -3,10 +3,11 @@
         <view class="form">
             <view class="form-title">
                 <text>客户姓名</text>
-                    <choose-block class="form-choose" options="{{sexOptions}}" model:value="{{sex}}" bindchangeStatus="sexChange" />
+                    
             </view>
             <view class="form-flex">
                 <input class="form-input" placeholder="请输入姓名" model:value="{{name}}" minlength="11" maxlength="11"  />
+                <choose-block class="form-choose" options="{{sexOptions}}" model:value="{{sex}}" bindchangeStatus="sexChange" />
             </view>
         </view>
         <view class="form">
