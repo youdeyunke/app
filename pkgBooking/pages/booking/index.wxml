@@ -5,14 +5,14 @@
   <block wx:for="{{broker}}">
     <view class="box">
       <view class="booking-box">
-        <view class="booking-top">
+        <navigator  url="/pkgPost/pages/show/index?id={{item.post.id}}" class="booking-top">
           <view class="booking-top-nav">
             <image class="image1" src="../../image/Frame.png"></image>
-            <text>御龙玄天牛逼大楼</text>
+            <text>{{item.post.title}}</text>
           </view>
 
           <image class="image2" src="../../image/ARROW.png"></image>
-        </view>
+        </navigator>
         <view class="booking-time">
           <view class="booking-time-nav">
             <text>预约时段：</text>
