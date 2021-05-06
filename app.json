@@ -193,6 +193,13 @@
       ]
     },
     {
+      "root": "pkgBooking",
+      "name": "booking",
+      "pages": [
+        "pages/booking/index"
+      ]
+    },
+    {
       "root": "pkgHistory",
       "name": "history",
       "pages": [
