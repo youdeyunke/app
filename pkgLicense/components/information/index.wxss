@@ -10,6 +10,8 @@
   background: #FFFFFF;
   padding: 10rpx;
   border-radius: 10rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0rpx 0rpx 12rpx rgba(0, 0, 0, .15);
 }
 .ziti{
   margin: 24rpx;

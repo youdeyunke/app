@@ -1,7 +1,7 @@
-<view class="box" wx:for="{{options}}" wx:key="id">
-<view class="container"  >
-  <view class="ziti">许可证号：<text class="ziti1">{{item.number}}</text></view>
-  <view class="ziti">项目名称：<text class="ziti1">{{item.name}}</text></view>
-  <view class="ziti">公司名称：<text class="ziti1">{{item.company}}</text></view>
-</view>
+<view class="box" wx:key="id">
+  <view class="container">
+    <view class="ziti">许可证号：<text class="ziti1">{{options.number}}</text></view>
+    <view class="ziti">项目名称：<text class="ziti1">{{options.name}}</text></view>
+    <view class="ziti">公司名称：<text class="ziti1">{{options.company}}</text></view>
+  </view>
 </view>

@@ -1,6 +1,7 @@
-<van-popup bind:close="closeHandle" show="{{show}}" duration="300" position="bottom" closeable>
+<van-popup bind:close="closeHandle" show="{{show}}" duration="300" position="bottom" closeable round>
   <view class="dialog">
-    <view class="dialog-date">
+    <block wx:if="{{!booked}}">
+      <view class="dialog-date">
       <view class="desc">请选择日期</view>
       <scroll-view class="dates" scroll-with-animation="{{true}}">
         <view style="display:inline-block;" class="fake" form-type="submit" wx:for="{{dates}}" data-index="{{index}}"
@@ -11,7 +12,7 @@
         </view>
       </scroll-view>
     </view>
-    <view class="form" wx:if="{{!booked}}">
+    <view class="form" >
       <view class="dialog-time">
         <view class="desc">请选择时间</view>
         <view class="times">
@@ -57,6 +58,8 @@
           disabled="{{ currentDateIndex == null || currentTimeIndex == null || !name }}">确认预约</van-button>
       </view>
     </view>
+    </block>
+   
     <view class="success" wx:else>
       <view class="title">预约成功！</view>
       <view class="desc">经纪人已收到您的预约看房请求</view>

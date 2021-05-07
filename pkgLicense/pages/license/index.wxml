@@ -6,11 +6,12 @@
     <view class="license-left">
       <view class="license-left-nav">
         <image src="../../images/1.png"></image>
-        <input type="text" placeholder="请输入预售证号" bind:change="changeHandle"/>
+        <input type="text" placeholder="请输入预售证号" bindinput="changeHandle" value="{{kw}}"/>
       </view>
       <image src="../../images/2.png"></image>
       <view class="license-del" bindtap="delHandle"></view>
     </view>
-    <view>搜索</view>
+    <view bindtap="searchHandle">搜索</view>
   </view>
+  <information wx:for="{{options}}" options="{{item}}"></information>
 </view>
