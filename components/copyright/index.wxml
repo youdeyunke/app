@@ -1,4 +1,4 @@
 <view class="cr">
   <!-- <text  wx:if="{{text}}" class="copyright">{{text}}</text> -->
-  <image src="/assets/images/footer.png"></image>
+  <image class="image1" src="/assets/images/footer.png"></image>
 </view>

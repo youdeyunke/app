@@ -103,20 +103,3 @@
   color: #FF4040;
   font-size: 24rpx;
 }
-.house-bottom{
-  height:180rpx ;
-  margin-top: 10rpx;
-  display: flex;
-}
-.house-image4{
-  width:80rpx;
-  height: 80rpx;
-  margin-bottom: 10rpx;
-}
-.house-bottom-class{
-  width:150rpx ;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 20rpx;
-}

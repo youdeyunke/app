@@ -1,0 +1,16 @@
+<!--pkgLicense/pages/license/index.wxml-->
+<image class="image1" src="../../images/3.png" />
+<view class="license-box">
+  <view class="license-title">预售证查询</view>
+  <view class="license-search">
+    <view class="license-left">
+      <view class="license-left-nav">
+        <image src="../../images/1.png"></image>
+        <input type="text" placeholder="请输入预售证号" bind:change="changeHandle"/>
+      </view>
+      <image src="../../images/2.png"></image>
+      <view class="license-del" bindtap="delHandle"></view>
+    </view>
+    <view>搜索</view>
+  </view>
+</view>

@@ -17,12 +17,12 @@ page{
   background-color: #F0F0F0;
   border-radius: 50rpx;
   font-size:24rpx ;
-  color: #A0A0A0;
+  /* color: #A0A0A0; */
   display: inline-block;
   display: flex;
   align-items: center;
   padding-left: 45rpx;
-}
+}  
 .search-top-left input{
   width: 490rpx;
 }

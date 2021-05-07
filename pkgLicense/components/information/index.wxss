@@ -1,0 +1,26 @@
+.box{
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+}
+.container{
+  width: 710rpx;
+  height: 220rpx;
+  background: #FFFFFF;
+  padding: 10rpx;
+  border-radius: 10rpx;
+}
+.ziti{
+  margin: 24rpx;
+  color: #666666;
+  font-weight: regular;
+font-size: 24rpx;
+line-height: normal;
+letter-spacing: 0rpx;
+text-align: left;
+}
+.ziti1{
+  margin-left: 20rpx;
+  color: #333333;
+}

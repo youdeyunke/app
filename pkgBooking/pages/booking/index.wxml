@@ -25,21 +25,21 @@
         </view>
         <view class="booking-bottom">
           <view class="booking-bottom-left">
-            <image class="image3" src="../../image/6.png"></image>
+            <image class="image3" src="{{item.broker_profile.avatar}}"></image>
             <view class="booking-message">
               <view class="booking-message-top">
-                <text>{{item.name}}</text>
-                <image class="image4" src="/assets/icons/broker/1.png"></image>
+                <text>{{item.broker_profile.name}}</text>
+                <image class="image4" src="/assets/icons/broker/{{item.broker_profile.level}}.png"></image>
               </view>
               <view class="booking-message-bottom">
                 <image class="image5" src="../../image/7.png"></image>
-                <text>{{item.mobile}}</text>
+                <text>{{item.broker_profile.mobile}}</text>
               </view>
             </view>
           </view>
           <view class="booking-handle">
-            <image class="image6" src="../../image/3.png" bindtap="chatHandle"></image>
-            <image class="image6" src="../../image/4.png" bindtap="callHandle" data-mobile="{{item.mobile}}">
+            <image class="image6" src="../../image/3.png" bindtap="chatHandle" data-myid="{{item.broker_profile.id}}"></image>
+            <image class="image6" src="../../image/4.png" bindtap="callHandle" data-mobile="{{item.broker_profile.mobile}}">
             </image>
           </view>
         </view>

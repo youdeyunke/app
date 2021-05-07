@@ -1,52 +1,24 @@
-// pkgBooking/pages/booking/index.js
-const app = getApp()
+// pkgLicense/pages/license/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    broker:'',
-    tab:0
+
   },
-  chatHandle:function(e){
-    var myid = e.currentTarget.dataset.myid
-    wx.navigateTo({
-      url: '/pages/messages/show?target_user_id='+myid,
-    })
+  delHandle:function(e){
+
   },
-  callHandle:function(e){
-    var mobile = e.currentTarget.dataset.mobile
-    wx.makePhoneCall({
-      phoneNumber: mobile,
-    })
-  },
-  onChange:function(e){
-    this.setData({
-      tab:e.detail.index
-    })
-    this.getBroker()
-  },
-  getBroker:function(){
-    var _this = this
-    var tab = this.data.tab
-    app.request({
-      url: '/api/v1/booking_logs?status='+tab,
-      method:'GET',
-      success:function(res){
-        _this.setData({
-          broker:res.data.data
-        })
-        console.log("res.data.data:",res.data.data)
-      }
-    })
+  changeHandle:function(e){
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getBroker()
+
   },
 
   /**
@@ -60,7 +32,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-   
+
   },
 
   /**
