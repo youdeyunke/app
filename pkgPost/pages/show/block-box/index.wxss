@@ -12,8 +12,8 @@
 }
 
 .card .sub-title {
-    font-size: 24rpx;
-    color: #999;
+    font-size: 28rpx;
+    color: #333;
 }
 
 .card.shadow-none {

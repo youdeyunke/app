@@ -1,5 +1,5 @@
 <!-- pages/post/brokers-block.wxml -->
-<block-box title-size="36" title="{{value.title}}" padding="{{false}}" sub-title="申请入驻" url="/pkgBroker/pages/broker/join?post_id={{value.post_id}}">
+<block-box title-size="36" title="{{value.title}}" padding="{{false}}" sub-title="更多顾问" url="/pkgBroker/pages/broker/index?post_id={{value.post_id}}">
     <view class="badges">
         <view class="badge-item">
             <image class="" src="../../icons/jingji-icon-0.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
@@ -34,4 +34,7 @@
         </view>
     </scroll-view>
 </block>
+
+
+<block-button url="/pkgBroker/pages/broker/join?post_id={{value.post_id}}" buttonVal='+申请免费入驻' />
 </block-box>

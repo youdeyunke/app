@@ -38,7 +38,7 @@ Component({
       }else{
         this.setData({
           bg : 'none' ,
-          br:'100rpx'
+          br:'80rpx'
         })
       }
     },

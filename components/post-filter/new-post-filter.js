@@ -25,14 +25,7 @@ Component({
                 label: "默认",
                 value: null
             },
-            {
-                label: "面积（从大到小)",
-                value: "area desc"
-            },
-            {
-                label: "面积（从小到大)",
-                value: "area asc"
-            },
+   
             {
                 label: "均价（从小到大)",
                 value: "custom_average_price  asc"
