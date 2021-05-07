@@ -503,6 +503,7 @@ Page({
 
         var _this = this
         this.setData({ posterConfig: config }, () => {
+            console.log('config is', config)
             Poster.create(true)
         })
     },
