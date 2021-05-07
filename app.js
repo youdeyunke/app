@@ -465,9 +465,7 @@ App({
 
                 if (res.data.status == 404) {
                     var error = res.data.error;
-                    wx.redirectTo({
-                        url: "/pages/404/index?error=" + error
-                    });
+                    
                     return false;
                 }              
 

@@ -56,12 +56,12 @@ Page({
 
         wx.setNavigationBarTitle({ title: '制作房源海报' })
         var _this = this
-        this.setData({ postId: q.id })
+        this.setData({ postId: q.id || q.post_id })
         this.loadPost(q.id, (post) => {
             // 根据房源信息生成对应的海报需要的字段
             qrUrl = post.qr
             coverUrl = post.cover || ''
-            text_1 = post.sub_district.name
+            text_1 = ''
             text_2 = post.street || post.address
             var _max = 18
             //  处理地址字符串超过19个情况
@@ -71,10 +71,10 @@ Page({
 
             // 有面积字段
             text_6 = post.area_info.text + ' 平'
-            text_3 = post.type_info.text
-            text_3 = text_3.replace('0室', '待定')
+            text_3 = '' // TODO 
+          
             text_4 = post.average_price_info.text + post.average_price_info.px
-            text_5 = post.broker_info.mobile + '(' + post.broker_info.name + ')'
+            text_5 = post.phone + ' ' + post.phone_sub
 
             switch (post.group) {
                 case 'new':
@@ -115,20 +115,24 @@ Page({
 
     loadTpls: function (cb) {
         var _this = this
+        var tpls = [
+            {
+                name: '祥云',
+                bg: 'https://qiniucdn.udeve.cn/poster-templates/6.jpg',
+                font_color: '#fff'
+            }
+        ]
         app.request({
             url: '/api/v1/poster_templates/',
             success: function (resp) {
                 if (resp.data.status == 0) {
-                    return typeof cb == 'function' && cb(resp.data.data)
+                    // 后端没有录入数据
+                    if(resp.data.data && resp.data.data.length > 0){
+                        tpls = resp.data.data
+                    } 
+                    return typeof cb == 'function' && cb(tpls)
                 } else {
                     // 服务器版本不够，降级处理
-                    var tpls = [
-                        {
-                            name: '祥云',
-                            bg: 'https://qiniucdn.udeve.cn/poster-templates/6.jpg',
-                            font_color: '#fff'
-                        }
-                    ]
                     return typeof cb == 'function' && cb(tpls)
                 }
             }
@@ -138,7 +142,7 @@ Page({
     loadPost: function (postId, cb) {
         app.request({
             hideLoading: true,
-            url: '/api/v1/posts/' + postId,
+            url: '/api/v1/post_base_info/' + postId,
             success: function (resp) {
                 var post = resp.data.data
                 typeof cb == 'function' && cb(post)
@@ -308,6 +312,7 @@ Page({
         var post = this.data.post
         var tpl = this.data.tpls[this.data.tplIndex]
         var bgImage = tpl.bg
+        console.log('tpl is',tpl)
         var fontColor = tpl.font_color || '#ffffff'
         var config = {
             debug: false,
