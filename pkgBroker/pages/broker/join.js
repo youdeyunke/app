@@ -120,7 +120,10 @@ Page({
             loading: true
         })
         auth.ensureUser(function (userInfo) {
-
+            var mobile = _this.data.userInfo.mobile
+            _this.setData({
+                phonenumber: mobile,
+            })
         })
     },
 
@@ -326,12 +329,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-        var _this = this
-        var mobile = _this.data.userInfo.mobile
-
-        _this.setData({
-            phonenumber: mobile,
-        })
+   
     },
 
     /**

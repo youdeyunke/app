@@ -2,6 +2,11 @@
 page{
   background-color: #fff !important;
 }
+
+.link{
+  color:#1989fa; 
+  text-decoration-line: underline;
+}
 image{
   vertical-align: top;
 }
@@ -27,6 +32,7 @@ image{
   text-align: center;
   color: #979797;
   font-size: 30rpx;
+  line-height: 1.4;
 }
 .audit-submit{
   width: 626rpx;

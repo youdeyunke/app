@@ -4,14 +4,14 @@
     <image class="image1" src="../../../images/17.png"></image>
     <image class="image2" src="../../../images/16.png"></image>
     <view class="audit-message">
-      <text>审核中</text>
+      <text>资料审核中，审核通过后将会有短信和推送通知</text>
     </view>
   </block>
   <block wx:if="{{state==2}}">
     <image class="image1" src="../../../images/13.png"></image>
     <image class="image2" src="../../../images/14.png"></image>
     <view class="audit-message">
-      <text>您已经入驻成功，无需重复申请</text>
+      <text>您已经入驻成功，无需重复申请。</text>  <text class="link" bindtap="gotoHomepage">查看我的主页</text>
     </view>
   </block>
   <block wx:if="{{state==0}}">
