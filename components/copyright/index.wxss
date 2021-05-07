@@ -1,4 +1,4 @@
-image{
+.image1{
   width: 100%;
   height: 84rpx;
 }

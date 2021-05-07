@@ -205,6 +205,13 @@
       "pages": [
         "pages/history/index"
       ]
+    },
+    {
+      "root": "pkgLicense",
+      "name": "license",
+      "pages": [
+        "pages/license/index"
+      ]
     }
   ],
   "pages": [
