@@ -188,8 +188,6 @@ Page({
                 wx.setNavigationBarTitle({
                     title: title
                 })
-                console.log("uuu", u)
-                console.log("信息信息信息", p)
             }
         })
     },

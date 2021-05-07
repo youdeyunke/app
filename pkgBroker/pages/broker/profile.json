@@ -6,7 +6,8 @@
         "namecard": "/components/broker/namecard",
         "box": "/components/box",
         "van-search": "/vant/search/index",
-        "house":"./components/house/index",
-        "van-popup":"/vant/popup/index"
+        "van-popup":"/vant/popup/index",
+        "post-navs":"/components/post-navs/index",
+        "cell":"/components/post-item/cell/index"
     }
 }
