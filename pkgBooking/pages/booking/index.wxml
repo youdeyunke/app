@@ -28,7 +28,7 @@
             <image class="image3" src="../../image/6.png"></image>
             <view class="booking-message">
               <view class="booking-message-top">
-                <text>{{item.name}}</text>
+                <text>{{item.broker.name}}</text>
                 <image class="image4" src="/assets/icons/broker/1.png"></image>
               </view>
               <view class="booking-message-bottom">
@@ -38,7 +38,7 @@
             </view>
           </view>
           <view class="booking-handle">
-            <image class="image6" src="../../image/3.png" bindtap="chatHandle"></image>
+            <image class="image6" src="../../image/3.png" bindtap="chatHandle" data-myid="{{item.broker_id}}"></image>
             <image class="image6" src="../../image/4.png" bindtap="callHandle" data-mobile="{{item.mobile}}">
             </image>
           </view>

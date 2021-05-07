@@ -7,10 +7,13 @@ Page({
    */
   data: {
     broker:'',
-    tab:1
+    tab:0
   },
-  chatHandle:function(){
-    console.log("ddbudbud",this.data.broker)
+  chatHandle:function(e){
+    var myid = e.currentTarget.dataset.myid
+    wx.navigateTo({
+      url: '/pages/messages/show?target_user_id='+myid,
+    })
   },
   callHandle:function(e){
     var mobile = e.currentTarget.dataset.mobile
