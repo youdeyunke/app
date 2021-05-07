@@ -3,6 +3,7 @@
     "usingComponents": {
         "block-box": "./block-box/index",
         "broker-cell": "/components/broker-item/cell/index",
+        "block-button": "../../components/block-button",
         "broker-block": "/components/broker-item/block/index"
     }
 }

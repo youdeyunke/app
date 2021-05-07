@@ -3,6 +3,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 20rpx;
+    align-items: center;
 }
 .location-left{
     width: 580rpx;

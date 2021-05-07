@@ -113,17 +113,39 @@ Page({
         })
         console.log("formdata", formdata)
     },
-    onLoad: function (options) {
+    onLoad: function (q) {
         var _this = this
         wx.showLoading()
         this.setData({
-            loading: true
+            loading: true, 
         })
         auth.ensureUser(function (userInfo) {
             var mobile = _this.data.userInfo.mobile
             _this.setData({
                 phonenumber: mobile,
             })
+        })
+        if(q.post_id){
+            this.setDefaultPost(q.post_id)
+        }
+    },
+
+
+    setDefaultPost: function(pid){
+        // 默认选中的楼盘 
+        var _this = this  
+        var fdata = this.data.formData
+        app.request({
+            url: '/api/v1/post_base_info/' + pid, 
+            success: function(resp){
+                var p = resp.data.data 
+               fdata.post_id = pid  
+               fdata.post_title = p.title
+               _this.setData({
+                   formData: fdata,
+                   keyword: p.title,
+                })
+            }
         })
     },
 
