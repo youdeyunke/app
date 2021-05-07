@@ -1,0 +1,55 @@
+<van-tabs active="{{tab}}" bind:change="onChange" color="#1989FA">
+  <van-tab title="已预约"></van-tab>
+  <van-tab title="已带看"></van-tab>
+  <van-tab title="已取消"></van-tab>
+  <block wx:for="{{broker}}">
+    <view class="box">
+      <view class="booking-box">
+        <navigator  url="/pkgPost/pages/show/index?id={{item.post.id}}" class="booking-top">
+          <view class="booking-top-nav">
+            <image class="image1" src="../../image/Frame.png"></image>
+            <text>{{item.post.title}}</text>
+          </view>
+
+          <image class="image2" src="../../image/ARROW.png"></image>
+        </navigator>
+        <view class="booking-time">
+          <view class="booking-time-nav">
+            <text>预约时段：</text>
+            <text>{{item.date}} {{item.time}}</text>
+          </view>
+          <view class="booking-time-nav">
+            <text>我的留言：</text>
+            <text>{{item.remark}}</text>
+          </view>
+        </view>
+        <view class="booking-bottom">
+          <view class="booking-bottom-left">
+            <image class="image3" src="../../image/photo.png"></image>
+            <view class="booking-message">
+              <view class="booking-message-top">
+                <text>{{item.name}}</text>
+                <image class="image4" src="/assets/icons/broker/1.png"></image>
+              </view>
+              <view class="booking-message-bottom">
+                <image class="image5" src="../../image/Vector.png"></image>
+                <text>{{item.mobile}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="booking-handle">
+            <image class="image6" src="../../image/Group 275.png" bindtap="chatHandle"></image>
+            <image class="image6" src="../../image/Group 279.png" bindtap="callHandle" data-mobile="{{item.mobile}}">
+            </image>
+          </view>
+        </view>
+        <!-- <view class="booking-bot">
+        <image class="image3" src="../../image/Group 309.png"></image>
+        <text>等待分配置业顾问</text>
+      </view> -->
+      </view>
+    </view>
+  </block>
+
+
+</van-tabs>

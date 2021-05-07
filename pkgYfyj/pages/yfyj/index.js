@@ -24,6 +24,7 @@ Page({
     searchShow: false,
     resultShow:false,
     post_id:null,
+    // building:false,
     price_between: [{
         value: '不限',
         select: true
@@ -53,7 +54,7 @@ Page({
         select: false
       },
       {
-        value: '3600-4000',
+        value: '3000-4000',
         select: false
       }
     ],
@@ -86,7 +87,7 @@ Page({
       select:false
     }, 
     {
-      value: '2500-2600',
+      value: '2400-2500',
       select:false
     }, 
     ],
@@ -137,11 +138,24 @@ Page({
       url: '/api/v1/buildings',
       data:query,
       success: function (res) {
-        _this.setData({
-          buildingdata: res.data.data,
-          tabs: res.data.data.items
-        })
-        console.log("buildingdata",_this.data.buildingdata)
+        console.log("buildingdata",res.data.data)
+        if(res.data.data.items==''){
+          console.log("没有数据")
+          wx.showToast({
+            title: '该房源还没有开通一房一价',
+            icon:'none'
+          })
+          setTimeout(()=>{
+            wx.navigateBack({
+              delta: -1,
+            })
+          },1500)
+        }else{
+          _this.setData({
+            buildingdata: res.data.data,
+            tabs: res.data.data.items
+          })
+        }
       }
     })
   },

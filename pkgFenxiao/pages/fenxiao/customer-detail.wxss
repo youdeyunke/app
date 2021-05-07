@@ -52,6 +52,13 @@
 .content-data{
     margin-top: 2rpx;
 }
+.xmtitle{
+    color:#A0A0A0 !important;
+}
+.text{
+    float:left;
+    color:#1989FA;
+}
 .content-circle{
     width: 22rpx;
     height: 22rpx;

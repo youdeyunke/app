@@ -41,3 +41,11 @@
   margin-right: 26rpx;
 
 }
+.service{
+  display: flex;
+  align-items: center;
+  width: 160rpx;
+  font-size: 26rpx;
+  justify-content: space-between;
+  color: #777777;
+}

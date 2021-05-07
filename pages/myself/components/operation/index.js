@@ -16,7 +16,9 @@ Component({
    * 组件的初始数据
    */
   data: {
-    userInfo:{}
+    userInfo:{},
+    service_mobile:'',
+    service_wechat:''
   },
 
   /**
@@ -81,6 +83,21 @@ Component({
         }
       })
     },
+    callHandle:function(){
+      var mobile = this.data.service_mobile
+      // console.log("app",app.globalData.myconfigs)
+      wx.makePhoneCall({
+        phoneNumber: mobile,
+      })
+      // console.log("mobile",mobile)
+    },
+    copyHandle:function(){
+      var copydata = this.data.service_wechat
+      // console.log("copydata",copydata)
+      wx.setClipboardData({
+        data: copydata
+      })
+    },
     _clearCache: function (e) {
       var _this = this
       var _keys = ['userInfo', 'token', 'myconfigs', 'location']
@@ -137,6 +154,12 @@ Component({
   },
   ready:function(q){
         this.loadCacheInfo()
+        var service_mobile = app.globalData.myconfigs.service_mobile
+        var service_wechat = app.globalData.myconfigs.service_wechat
+        this.setData({
+          service_mobile:service_mobile,
+          service_wechat:service_wechat
+        })
   }
 
 })

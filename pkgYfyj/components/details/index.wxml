@@ -1,10 +1,21 @@
 <!--pkgYfyj/components/details/index.wxml-->
 <navigator class="details-box" url="/pkgYfyj/pages/yfyj/show?id={{items.id}}">
   <view class="details-left">
-    <view class="{{result==true?'details-name':'details-message'}}">{{items.name}}</view>
-    <view class="{{result==true?'details-area':'details-message'}}">{{items.area}}平</view>
-    <view class="{{result==true?'details-average':'details-message'}}">{{items.average_price}}元/平</view>
-    <view class="{{result==true?'details-total':'details-message'}}">{{items.total_price}}元</view>
+    <block wx:if="{{items.average_price==0}}">
+      <view class="details-message">{{items.name}}</view>
+      <view class="details-message">{{items.area}}平</view>
+      <view class="details-message">{{items.average_price}}元/平
+      </view>
+      <view class="details-message">{{items.total_price}}元</view>
+      <view class="details-right"></view>
+    </block>
+    <block wx:else>
+      <view class="{{result==true?'details-name':'details-message'}}">{{items.name}}</view>
+      <view class="{{result==true?'details-area':'details-message'}}">{{items.area}}平</view>
+      <view class="{{result==true?'details-average':'details-message'}}">{{items.average_price}}元/平
+      </view>
+      <view class="{{result==true?'details-total':'details-message'}}">{{items.total_price}}元</view>
+    <view class="details-right"></view>
+  </block>
   </view>
-  <view class="details-right"></view>
 </navigator>
