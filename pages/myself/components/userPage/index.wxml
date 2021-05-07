@@ -15,10 +15,10 @@
       <image class="user-image3" src="../../images/12.png"></image>
       <view>我的问答</view>
     </navigator>
-    <view class="person-fn-class">
+    <navigator class="person-fn-class" url="/pkgBooking/pages/booking/index">
       <image class="user-image3" src="../../images/13.png"></image>
-      <view>访问足迹</view>
-    </view>
+      <view>我的预约</view>
+    </navigator>
   </view>
   <operation bindquitHandle="myquit" myuser="{{user}}"></operation>
 </view>

@@ -30,6 +30,13 @@
     </view>
   </block>
 
+  <view class="operation-class">
+    <view class="operation-class-nav">
+      <image class="operation-image1" src="../../images/23.png"></image>
+      <text>访问足迹</text>
+    </view>
+    <image class="operation-image2" src="../../images/2.png"></image>
+  </view>
 
   <view class="operation-class" bindtap="clearCache">
     <view class="operation-class-nav">
