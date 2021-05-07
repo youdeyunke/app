@@ -21,7 +21,7 @@
                 </view>
                 <view class="icon" bindtap="posterHandle">
                     <image src="../../icons/share-poster.png" />
-                    <view class="name">生成楼盘海报</view>
+                    <view class="name">生成海报</view>
                 </view>
             </view>
             <view class="footer">

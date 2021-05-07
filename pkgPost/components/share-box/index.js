@@ -39,6 +39,13 @@ Component({
 
         },
 
+        posterHandle: function(){
+            var url = '/pkgPoster/pages/poster/index?post_id=' + this.data.postInfo.id 
+            wx.navigateTo({
+              url: url,
+            })
+        },
+
         copyHandle: function () {
             // 复制到剪贴板
             var p = this.data.postInfo

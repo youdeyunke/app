@@ -1,11 +1,12 @@
 // pkgBroker/pages/broker/audit/index.js
+const app = getApp() 
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    state:'',
+    state:1,
   },
 
   /**
@@ -22,6 +23,14 @@ Page({
       state:item.status
     })
 
+  },
+
+  gotoHomepage: function(){
+    var user = app.globalData.userInfo 
+    var url = '/pkgBroker/pages/broker/profile?id=' + user.id  
+    wx.redirectTo({
+      url: url,
+    })
   },
 
   /**
