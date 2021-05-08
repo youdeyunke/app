@@ -3,8 +3,8 @@ image {
 }
 
 .image1 {
-  width: 750rpx;
-  height: 400rpx;
+  width: 100%;
+  /* height: 400rpx; */
   position: relative;
   top: 0;
   left: 0;
@@ -14,8 +14,8 @@ image {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  /* width: 100%;
+  height: 100%; */
 }
 .box{
   position: absolute;
