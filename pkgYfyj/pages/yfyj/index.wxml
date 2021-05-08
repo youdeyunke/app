@@ -9,21 +9,21 @@
     <view class="building-message-nav">
       <view class="nav-top">
         <text>单位价格</text>
-        <image class="image2" src="../../../images/4.png"></image>
+        <image class="image2" src="../../images/4.png"></image>
       </view>
       <view class="nav-bottom">{{formdata.price}}</view>
     </view>
     <view class="building-message-nav">
       <view class="nav-top">
         <text>面积</text>
-      <image class="image2" src="../../../images/4.png"></image>
+      <image class="image2" src="../../images/4.png"></image>
       </view>
       <view class="nav-bottom">{{formdata.areaprice}}</view>
     </view>
     <view class="building-message-nav">
       <view class="nav-top">
         <text>区间</text>
-      <image class="image2" src="../../../images/4.png"></image>
+      <image class="image2" src="../../images/4.png"></image>
       </view>
       <view class="nav-bottom">{{formdata.area}}</view>
     </view>

@@ -3,7 +3,7 @@ image {
 }
 
 .image1 {
-  /* width: 750rpx; */
+  width: 750rpx;
   height: 400rpx;
   position: relative;
   top: 0;
