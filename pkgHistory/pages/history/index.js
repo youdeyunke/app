@@ -9,10 +9,12 @@ Page({
   },
 
   getHistory:function(){
+    var history = wx.getStorageSync('post.history')
+    history = history.reverse()
+    console.log(" history",history)
     this.setData({
-      history:wx.getStorageSync('post.history')
+      history:history
     })
-    console.log("数据",this.data.history)
   },
 
   /**
