@@ -32,22 +32,22 @@ Page({
       method: 'GET',
       data: query,
       success: function (res) {
-        // _this.setData({
-        //   options:res.data.data
-        // })
-          var oldData = _this.data.options
-          var newData = res.data.data
-          var Data = oldData.concat(newData)
-          _this.setData({
-            options: Data
-          })
+        var oldData = _this.data.options
+        var newData = res.data.data
+        if (newData.length == 0) {
+          return
+        }
+        var Data = oldData.concat(newData)
+        _this.setData({
+          options: Data
+        })
       }
     })
   },
   searchHandle: function () {
     this.setData({
-      page:1,
-      options:[]
+      page: 1,
+      options: []
     })
     this.loadData()
   },
