@@ -28,7 +28,6 @@ Page({
         _this.setData({
           value:res.data.data
         })
-        console.log(_this.data.value)
         if(_this.data.value.sex===0){
           _this.setData({
             sex:'girl'

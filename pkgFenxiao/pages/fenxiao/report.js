@@ -103,7 +103,6 @@ Page({
         })
     },
     checkboxChange(e){
-        console.log('checkboxChange e:',e);
         let string = "houses["+e.target.dataset.index+"].selected"
             this.setData({
                 [string]: !this.data.houses[e.target.dataset.index].selected
@@ -135,7 +134,6 @@ Page({
             success: function (resp) {
                 var p = resp.data.data
                 var post_name = p.title  + p.address
-                console.log(JSON.stringify(p))
                 _this.setData({
                     post: p,
                     post_name: post_name,
