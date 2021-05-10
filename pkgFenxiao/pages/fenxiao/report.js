@@ -12,6 +12,7 @@ Page({
         pid: null,
         sex: 1,
         name: '',
+        detailValue:[],
         sexOptions: [{
             label: '先生',
             value: 1
@@ -19,8 +20,40 @@ Page({
         {
             label: '女士',
             value: 0
-        },
+        }
         ],
+        houses:[
+        {
+            id:1,
+            selected: false ,
+            value:"不限"
+        },
+        {
+            id:2,
+            selected: false ,
+            value:"一室"
+        },
+        {
+            id:3,
+            selected: false ,
+            value:"两室"
+        },
+        {
+            id:4,
+            selected: false ,
+            value:"三室"
+        },
+        {
+            id:5,
+            selected: false ,
+            value:"四室"
+        },
+        {
+            id:6,
+            selected: false ,
+            value:"五室及以上"
+        }
+    ],
         post: null,
         postValue: '',
         tabs: [{
@@ -69,7 +102,17 @@ Page({
             mobile: e.detail.value
         })
     },
-
+    checkboxChange(e){
+        console.log('checkboxChange e:',e);
+        let string = "houses["+e.target.dataset.index+"].selected"
+            this.setData({
+                [string]: !this.data.houses[e.target.dataset.index].selected
+            })
+            let detailValue = this.data.houses.filter(it => it.selected).map(it => it.value)
+            this.setData({
+                detailValue:detailValue
+            })
+      },
     fangChange() {
         this.setData({
             popupShow: true
@@ -92,7 +135,7 @@ Page({
             success: function (resp) {
                 var p = resp.data.data
                 var post_name = p.title  + p.address
-       
+                console.log(JSON.stringify(p))
                 _this.setData({
                     post: p,
                     post_name: post_name,
@@ -178,7 +221,6 @@ Page({
 
         return true
     },
-
     submitHandle: function (e) {
         var _this = this
         var fdata = {
@@ -187,7 +229,11 @@ Page({
             post_name: _this.data.post_name,
             sex: _this.data.sex,
             post_id: _this.data.pid,
-            user_remark:_this.data.remark
+            user_remark:_this.data.remark,
+            id_number:_this.data.id_number,
+            post_type:_this.data.detailValue,
+            post_area:_this.data.post_area
+
         }
         var isok = this.validateFormData(fdata)
         if (!isok) {

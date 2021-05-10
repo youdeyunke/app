@@ -33,7 +33,17 @@
     font-weight: bold;
 }
 .content-address{
+    width:400rpx;
     color: #A0A0A0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.area{
+    width: 400rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .content-tags{
     display: flex;
@@ -61,9 +71,8 @@
     height: 100%;
 }
 .fangText{
-    position: absolute;
-    top: 24rpx;
-    right: 20rpx;
+    float: right;
+    line-height: 40rpx;
 }
 .fangText image{
     width: 118rpx;
@@ -107,17 +116,35 @@ input::-webkit-input-placeholder{
     align-items: center;
     border-bottom: 1rpx solid #B4B4B4;
     padding-bottom: 20rpx;
-    margin-bottom: 82rpx;
+    margin-bottom: 40rpx;
+}
+.btn-selected{
+    color: white;
+    background-color: #1989fa;
+}
+.btn{
+    width: 140rpx;
+    height: 70rpx;
+    font-size: 24rpx;
+    padding: 0;
+    border: 1px solid #1989fa;
+    border-radius: 4px;
+    margin: 15rpx 10rpx;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 .form-choose{
-    display:block;
     float: left;
 }
-.form-choose:nth-child(1){
-    border-radius: 5rpx 0rpx 0rpx 5rpx;
-}
-.form-choose:nth-last-child(1){
-    border-radius: 0rpx 5rpx 5rpx 0rpx;
+.form-area{
+    color: #1989fa;
+    font-size: 28rpx;
+    text-align: justified;
 }
 .right{
     flex: 1;

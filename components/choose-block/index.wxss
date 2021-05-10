@@ -15,8 +15,13 @@
   float: left;
   padding: 10rpx 15rpx;
 }
-
 .active{
   color: #ffffff;
   background: #1989fa;
+}
+.radius{
+  border-radius: 5rpx 0rpx 0rpx 5rpx;
+}
+.radiuss{
+  border-radius:0rpx 5rpx 5rpx 0rpx;
 }
