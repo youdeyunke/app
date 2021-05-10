@@ -12,7 +12,7 @@ Page({
         pid: null,
         sex: 1,
         name: '',
-        detailValue:[],
+        post_type:'',
         sexOptions: [{
             label: '先生',
             value: 1
@@ -110,7 +110,7 @@ Page({
             })
             let detailValue = this.data.houses.filter(it => it.selected).map(it => it.value)
             this.setData({
-                detailValue:detailValue
+                post_type:detailValue.join(',')
             })
       },
     fangChange() {
@@ -231,7 +231,7 @@ Page({
             post_id: _this.data.pid,
             user_remark:_this.data.remark,
             id_number:_this.data.id_number,
-            post_type:_this.data.detailValue,
+            post_type:_this.data.post_type,
             post_area:_this.data.post_area
 
         }
