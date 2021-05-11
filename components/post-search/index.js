@@ -14,12 +14,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-<<<<<<< HEAD
     house_list:[],
-=======
-    house_list:'',
-    mytitle:'',
->>>>>>> master
   },
 
   /**
@@ -27,14 +22,8 @@ Component({
    */
   methods: {
     selectHanlde:function(e){
-<<<<<<< HEAD
       var house = this.data.house_list[e.currentTarget.dataset.index]
       this.triggerEvent("changevalue",house)
-=======
-      var myid = e.currentTarget.dataset.myid
-      var mytitle = e.currentTarget.dataseft.mytitle
-      this.triggerEvent("changevalue",{myid,mytitle})
->>>>>>> master
     }
   },
   observers:{
