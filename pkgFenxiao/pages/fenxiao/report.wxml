@@ -39,22 +39,7 @@
         <image src="../../images/search.png" />
     </view> 
         </view>
-        <view class="post-item" wx:if="{{pid}}">
-        <view class="item-image">
-            <image src="{{post.cover}}" />
-        </view>
-        <view class="item-content">
-            <view class="content-title">{{post.title}}</view>
-            <view class="content-address">{{post.address}}</view>
-            <view class="content-tags">
-                <view class="tag" wx:for="{{post.tags}}" hidden="{{index >2}}">{{item}}</view>
-            </view>
-            <view class="content-price area">
-                <text class="price" wx:if="{{post.average_price!=='待定'}}">{{post.average_price}}元/㎡</text>
-                <text>面积: {{post.area_info.text}}</text>
-            </view>
-        </view>
-    </view>
+        <post-item post="{{post}}"></post-item>
     <post-selector bind:change='pidChange' class="post-selector" show="{{popupShow}}"></post-selector>
     </view>
     <view class="form">
