@@ -1,5 +1,7 @@
 // pkgPost/components/default-contact/index.js
 const auth = require("../../../utils/auth");
+const app = getApp()
+
 Component({
     /**
      * 组件的属性列表
@@ -41,11 +43,25 @@ Component({
             if(sub){
                 phone = phone + ',' + sub
             }
-            wx.makePhoneCall({
-                phoneNumber: phone,
-                success: (result) => {
-                },
-            });
+            // 弹出文本提示
+            var n = app.globalData.myconfigs.xcx_name
+            var t = '接通后请告知来自：【' + n + '小程序】'
+            wx.showModal({
+                confirmText: '拨打',
+                cancelText: '取消',
+                title: '提示', 
+                content: t, 
+                success:(res) => {
+                    if(res.confirm){
+                        wx.makePhoneCall({
+                            phoneNumber: phone,
+                            success: (result) => {
+                            },
+                        });          
+                    }
+                }
+
+            })
         },
     }
 })
