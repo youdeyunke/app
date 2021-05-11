@@ -14,8 +14,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    house_list:'',
-    mytitle:''
+    house_list:[],
   },
 
   /**
@@ -23,9 +22,8 @@ Component({
    */
   methods: {
     selectHanlde:function(e){
-      var myid = e.currentTarget.dataset.myid
-      var mytitle = e.currentTarget.dataset.mytitle
-      this.triggerEvent("changevalue",{myid,mytitle})
+      var house = this.data.house_list[e.currentTarget.dataset.index]
+      this.triggerEvent("changevalue",house)
     }
   },
   observers:{
@@ -42,6 +40,7 @@ Component({
           _this.setData({
             house_list:res.data.data
           })
+          //changeShow:控制筛选组件是否显示
         _this.triggerEvent("changeShow",res.data.data)
         }
       })

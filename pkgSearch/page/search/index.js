@@ -52,10 +52,10 @@ Page({
   valueHandle: function (e) {
     console.log("eeeee",e)
       wx.navigateTo({
-        url: '/pkgPost/pages/show/index?id='+e.detail.myid,
+        url: '/pkgPost/pages/show/index?id='+e.detail.id,
       })
       this.setData({
-        inputvalue:e.detail.mytitle,
+        inputvalue:e.detail.title,
         resultshow:false
       })
   },

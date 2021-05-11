@@ -50,11 +50,12 @@ Page({
     },
     //接受子组件传过来的数据
     valueHandle:function(e){
+        console.log("e",e)
         var formdata = this.data.formData;
-        formdata['post_title'] = e.detail.mytitle;
-        formdata['post_id']=e.detail.myid
+        formdata['post_title'] = e.detail.title;
+        formdata['post_id']=e.detail.id
         this.setData({
-            keyword:e.detail.mytitle,
+            keyword:e.detail.title,
             showkw:false,
             formData:formdata
         })
