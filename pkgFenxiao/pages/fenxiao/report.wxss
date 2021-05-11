@@ -84,7 +84,13 @@
     box-sizing: border-box;
     border-radius: 20rpx;
     background: #FFFFFF;
-    padding: 30rpx;
+
+}
+.form{
+    padding:43rpx 30rpx 43rpx 30rpx;
+}
+.form-margin{
+    padding-top: 40rpx;
 }
 .form-title{
     justify-content: space-between;
@@ -102,8 +108,9 @@ input::-webkit-input-placeholder{
 }
 .form-title text{
     flex:3;
-    color: #666;
-    font-weight: bold;
+    color: #666666;
+    font-weight: regular;
+    font-size: 28rpx;
 }
 .form-content{
     margin: 48rpx 0;
@@ -115,21 +122,21 @@ input::-webkit-input-placeholder{
     justify-content: space-between;
     align-items: center;
     border-bottom: 1rpx solid #B4B4B4;
-    padding-bottom: 20rpx;
+    padding-bottom: 25rpx;
     margin-bottom: 40rpx;
 }
 .btn-selected{
-    color: white;
+    color: white !important;
     background-color: #1989fa;
 }
 .btn{
-    width: 140rpx;
-    height: 70rpx;
+    width: 150rpx;
+    height: 80rpx;
     font-size: 24rpx;
-    padding: 0;
+    color: #1989fa;
     border: 1px solid #1989fa;
     border-radius: 4px;
-    margin: 15rpx 10rpx;
+    margin: 7rpx 7rpx;
     display: flex;
     justify-items: center;
     align-items: center;
@@ -151,8 +158,11 @@ input::-webkit-input-placeholder{
 }
 .mobile{
     width: 100%;
-    border-bottom:1rpx solid #b4b4b4 ;
     color: black;
     font-size: 28rpx;
-    padding-bottom: 20rpx;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1rpx solid #B4B4B4;
+    padding-bottom: 25rpx;
 }

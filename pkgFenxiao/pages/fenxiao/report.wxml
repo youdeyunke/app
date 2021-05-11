@@ -16,8 +16,10 @@
                     <choose-block class="form-choose" options="{{tabs}}" model:value="{{mobileType}}"  bindchangeStatus="chooseHandle"/>
             </view>
             <view class="form-content">
-                <input placeholder="请输入11位手机全号" model:value="{{mobile}}" minlength="11" maxlength="11" class="mobile" wx:if="{{!chooseShow}}"/>
-                <protected-mobile-input  value="{{mobile}}" bind:change="changeMobile" wx:else />
+                <view class="form-flex" wx:if="{{!chooseShow}}">
+                <input  class="form-input "  placeholder="请输入11位手机全号" model:value="{{mobile}}" minlength="11" maxlength="11" />
+                </view>
+                <protected-mobile-input value="{{mobile}}" bind:change="changeMobile" wx:else />
             </view>
         </view>
         <view class="form">
@@ -56,7 +58,7 @@
     <post-selector bind:change='pidChange' class="post-selector" show="{{popupShow}}"></post-selector>
     </view>
     <view class="form">
-        <view class="form-title">
+        <view class="form-title" style="margin-bottom:27rpx">
             <text>意向户型</text>    
         </view>
         <view 
@@ -72,7 +74,7 @@
         </view>
     </view>
     <view class="form">
-        <view class="form-title">
+        <view class="form-title form-margin">
             <text>意向面积</text>    
         </view>
         <view class="form-flex">
@@ -81,11 +83,16 @@
         </view>
     </view>
 </view>
-
-<mycard width="710" title="备注" radius='20' hat="{{false}}">
-    <input  class="mobile" placeholder="填写备注信息" model:value="{{remark}}" />
-</mycard>
-
+<view class="forms">
+<view class="form">
+            <view class="form-title">
+                <text>备注</text>    
+            </view>
+            <view class="form-flex">
+                <input class="form-input" placeholder="填写备注信息" model:value="{{remark}}"/>
+            </view>
+    </view>
+</view>
 <view class="actions">
     <van-button bindtap="submitHandle" type="info" block>提交报备</van-button>
     <van-button custom-style="margin-top:10rpx;" type="default" block bindtap="backHandle">
