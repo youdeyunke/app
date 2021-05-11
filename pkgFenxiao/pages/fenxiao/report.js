@@ -12,6 +12,8 @@ Page({
         pid: null,
         sex: 1,
         name: '',
+        receiver_mobile:'',
+        receiver_name:'',
         post_type:'',
         sexOptions: [{
             label: '先生',
@@ -231,8 +233,9 @@ Page({
             user_remark:_this.data.remark,
             id_number:_this.data.id_number,
             post_type:_this.data.post_type,
-            post_area:_this.data.post_area
-
+            post_area:_this.data.post_area,
+            receiver_mobile:_this.data.receiver_mobile,
+            receiver_name:_this.data.receiver_name
         }
         var isok = this.validateFormData(fdata)
         if (!isok) {
