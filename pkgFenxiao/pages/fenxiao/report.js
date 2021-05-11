@@ -118,11 +118,12 @@ Page({
         })
     },
     pidChange(e) {
+        var p = e.detail 
         this.setData({
-            pid: e.detail,
+            pid: p.id,
             popupShow: false
         })
-        this.loadPost(e.detail)
+        this.loadPost(p.id)
     },
     loadPost: function (pid) {
         if (!pid) {

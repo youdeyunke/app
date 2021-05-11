@@ -13,7 +13,7 @@ Component({
      */
     data: {
         value: '',
-        postItem: []
+        postItems: []
     },
 
     /**
@@ -37,14 +37,15 @@ Component({
                 url: '/api/v2/posts/quicksearch?kw=' + kw,
                 success: function (res) {
                     _this.setData({
-                        postItem: res.data.data
+                        postItems: res.data.data
                     })
                 }
             })
         },
-        pidChange(e) {
-            const { id } = e.currentTarget.dataset
-            this.triggerEvent("change", id)
+        selectHandle(e) {
+            const { id, index  } = e.currentTarget.dataset
+            var item =  this.data.postItems[index]
+            this.triggerEvent("change", item)
         }
     }
 })
