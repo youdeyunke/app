@@ -40,11 +40,7 @@ Component({
           _this.setData({
             house_list:res.data.data
           })
-<<<<<<< HEAD
           //changeShow:控制筛选组件是否显示
-=======
-          // 
->>>>>>> master
         _this.triggerEvent("changeShow",res.data.data)
         }
       })
