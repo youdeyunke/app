@@ -4,67 +4,12 @@
     margin: auto 20rpx;
     width: 710rpx;
 }
-
 .radio-value-class {
     flex: none !important;
-}
-
-.post-item {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.item-image image{
-    width: 220rpx;
-    height: 166rpx;
-    margin-right: 30rpx;
-    border-radius: 10rpx;
-}
-.item-content{
-    height: 166rpx;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: #333;
-    font-size: 26rpx;
-}
-.content-title{
-    font-weight: bold;
-}
-.content-address{
-    width:400rpx;
-    color: #A0A0A0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-.area{
-    width: 400rpx;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-.content-tags{
-    display: flex;
-    justify-content: flex-start;
-}
-.tag{
-    border-radius: 5rpx;
-    border: 1rpx solid #A0A0A0;
-    padding: 6rpx;
-    color: #A0A0A0;
-    text-align: center;
-    margin-right: 10rpx;
 }
 .price{
     color: #E82525;
     font-weight: bold;
-}
-.content-price{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 .post-selector{
     width: 100%;
@@ -147,11 +92,6 @@ input::-webkit-input-placeholder{
 }
 .form-choose{
     float: left;
-}
-.form-area{
-    color: #1989fa;
-    font-size: 28rpx;
-    text-align: justified;
 }
 .right{
     flex: 1;
