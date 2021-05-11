@@ -15,7 +15,7 @@ Component({
    */
   data: {
     house_list:'',
-    mytitle:''
+    mytitle:'',
   },
 
   /**
@@ -24,7 +24,7 @@ Component({
   methods: {
     selectHanlde:function(e){
       var myid = e.currentTarget.dataset.myid
-      var mytitle = e.currentTarget.dataset.mytitle
+      var mytitle = e.currentTarget.dataseft.mytitle
       this.triggerEvent("changevalue",{myid,mytitle})
     }
   },
@@ -42,6 +42,7 @@ Component({
           _this.setData({
             house_list:res.data.data
           })
+          // 
         _this.triggerEvent("changeShow",res.data.data)
         }
       })
