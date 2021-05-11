@@ -14,7 +14,12 @@ Component({
    * 组件的初始数据
    */
   data: {
+<<<<<<< HEAD
     house_list:[],
+=======
+    house_list:'',
+    mytitle:'',
+>>>>>>> master
   },
 
   /**
@@ -22,8 +27,14 @@ Component({
    */
   methods: {
     selectHanlde:function(e){
+<<<<<<< HEAD
       var house = this.data.house_list[e.currentTarget.dataset.index]
       this.triggerEvent("changevalue",house)
+=======
+      var myid = e.currentTarget.dataset.myid
+      var mytitle = e.currentTarget.dataseft.mytitle
+      this.triggerEvent("changevalue",{myid,mytitle})
+>>>>>>> master
     }
   },
   observers:{
@@ -40,7 +51,11 @@ Component({
           _this.setData({
             house_list:res.data.data
           })
+<<<<<<< HEAD
           //changeShow:控制筛选组件是否显示
+=======
+          // 
+>>>>>>> master
         _this.triggerEvent("changeShow",res.data.data)
         }
       })

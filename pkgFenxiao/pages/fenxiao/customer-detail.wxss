@@ -52,6 +52,9 @@
 .content-data{
     margin-top: 2rpx;
 }
+.content-datas{
+    width: 135rpx;
+}
 .xmtitle{
     color:#A0A0A0 !important;
 }
@@ -60,6 +63,16 @@
     color:#1989FA;
 }
 .content-circle{
+    width: 22rpx;
+    height: 22rpx;
+    border-radius: 50%;
+    background-color: #F0F0F0;
+    margin-left: 34rpx;
+    margin-right: 34rpx;
+    margin-top: 10rpx;
+    z-index: 5;
+}
+.content-circles{
     width: 22rpx;
     height: 22rpx;
     border-radius: 50%;
@@ -79,6 +92,7 @@
     font-size: 30rpx;
 }
 .desc-detail{
+
     color: #A0A0A0;
     font-weight: normal;
     white-space: pre-line;

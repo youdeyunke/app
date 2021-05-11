@@ -3,8 +3,8 @@
   float: left;
 }
 .ziti{
-  width: 100rpx;
-  height: 60rpx;
+  width: 80rpx;
+  height: 52rpx;
   border: 1rpx solid #1989fa;
   font-size: 24rpx;
   font-weight: regular;
@@ -13,10 +13,18 @@
   color: #1989FA;
   line-height: normal;
   float: left;
-  padding: 10rpx 15rpx;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
 }
-
 .active{
   color: #ffffff;
   background: #1989fa;
+}
+.radius{
+  border-radius: 5rpx 0rpx 0rpx 5rpx;
+}
+.radiuss{
+  border-radius:0rpx 5rpx 5rpx 0rpx;
 }
