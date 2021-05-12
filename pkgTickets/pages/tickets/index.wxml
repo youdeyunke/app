@@ -1,20 +1,18 @@
 <view style="width:100%">
-    <van-tabs bind:change='tabChange' color='#1989fa' class="van-tabs" title-inactive-color="#999999" title-active-color="#333333">
-        <van-tab wx:for="{{cats}}" wx:for-item="cat" title="{{cat.name}}" >
-            <view class="" wx:if="{{items.length>0}}">
-                <!-- <van-search placeholder="请输入搜索关键词" use-action-slot background='#fff'>
-                    <view slot="action" bind:tap="onSearch">搜索</view>
-                </van-search> -->
-                <view class="search" >
-                    <view class="input-box">
-                        <image src="../../images/1.png" alt="" />
-                        <input type="text" placeholder="请输入摇号编号或姓名" value="{{kw}}" bindinput='onChange'/>
-                        <image src="../../images/6.png" ></image>
-                        <view class="image-box" bindtap="delHandle">
-                        </view>
+    <van-tabs bind:change='tabChange' color='#1989fa' class="van-tabs" title-inactive-color="#999999"
+        title-active-color="#333333">
+        <van-tab wx:for="{{cats}}" wx:for-item="cat" title="{{cat.name}}">
+            <view class="search">
+                <view class="input-box">
+                    <image src="../../images/1.png" alt="" />
+                    <input type="text" placeholder="请输入摇号编号或姓名" value="{{kw}}" bindinput='onChange' />
+                    <image src="../../images/6.png"></image>
+                    <view class="image-box" bindtap="delHandle">
                     </view>
-                    <view slot="action" bindtap="onSearch">搜索</view>
                 </view>
+                <view slot="action" bindtap="onSearch">搜索</view>
+            </view>
+            <view class="" wx:if="{{items.length>0}}">
                 <ticket-item wx:for='{{items}}' item='{{item}}'></ticket-item>
             </view>
             <view wx:else class="none">
