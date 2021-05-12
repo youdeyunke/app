@@ -1,0 +1,17 @@
+<view style="width:100%">
+cats: {{ cats.length }}
+    <van-tabs type="card" bind:change='tabChange' color='#1989fa' class="van-tabs__nav--card">
+    <van-tab wx:for="{{cats}}" wx:for-item="cat" title="{{cat.name}}" >
+        <view class="" wx:if="{{items.length>0}}">
+            <van-search value="{{ kw }}" placeholder="请输入搜索关键词"  use-action-slot background='#f4f4f4' bind:change='onChange'>
+                <view slot="action" bind:tap="onSearch">搜索</view>
+            </van-search>
+            <ticket-item wx:for='{{items}}'  item='{{item}}'></ticket-item>
+        </view>
+        <view wx:else class="none">
+            暂无数据
+        </view>
+    </van-tab>
+</van-tabs>
+
+</view>

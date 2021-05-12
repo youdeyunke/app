@@ -1,0 +1,125 @@
+/* pkgTickets/pages/tickets/show.wxss */
+.bg{
+    background-color: white;
+}
+.show{
+    width: 100%;
+    height: 500rpx;
+    color: #fff;
+    font-size: 40rpx;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    background-color: #fff;
+}
+.line{
+    height: 24rpx;
+    width: 100%;
+    background: #F2F2F2
+}
+.bgcolor{
+    width:400rpx;
+    height:400rpx;
+    position: absolute;
+    z-index: 1;
+}
+.rectanglemax{
+    width: 650rpx;
+    height: 250rpx;
+    background: linear-gradient(180deg, #FE8B00 0%, #FBAF00 100%);
+    position: absolute;
+    border-radius: 10rpx;
+    top: 230rpx;
+}
+.rectanglemin{
+    width: 630rpx;
+    height: 230rpx;
+    background: white;
+    position: absolute;
+    border-radius: 10rpx;
+    top:240rpx;
+}
+.name{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 244rpx;
+    left: 5rpx;
+    color: #B93700;
+    z-index: 3;
+    font-weight: 600;
+    font-size: 30rpx;
+}
+.numberc{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 140rpx;
+    left: 0;
+    z-index: 2;
+    font-size: 56rpx;
+}
+.number{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 320rpx;
+    left: 5rpx;
+    color: #F63030;
+    z-index: 3;
+    font-weight: bold;
+    font-size: 56rpx;
+}
+.navigator{
+    margin:24rpx 30rpx; 
+    padding: 20rpx 30rpx;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: 640rpx;
+    height: 30rpx;
+    background: #E1FAF6;
+    font-size: 24rpx;
+    font-weight: 500;
+    color: #65C3B5;
+}
+.text{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    top: 400rpx;
+    left: 5rpx;
+    color: #F66630;
+    z-index: 3;
+    font-weight: 400;
+    font-size: 32rpx;
+}
+.table{
+    width: 690rpx;
+    margin: 30rpx auto;
+}
+.share{
+    background-color:#65C3B5;
+    width:100%;
+    height:70rpx;
+    font-size: 26rpx;
+    position:fixed;
+    bottom:0;
+    height: 70rpx;
+    text-align: center;
+    color:white;
+    line-height: 70rpx;
+}
+.house{
+    width:30rpx;
+    height:30rpx;
+    padding-right:30rpx;
+}
+.button{
+    position: fixed;
+    bottom:0;
+    height:70rpx;
+    width:100%;
+    opacity: 0;
+    border-radius: 0rpx;
+}

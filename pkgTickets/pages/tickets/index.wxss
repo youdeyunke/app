@@ -1,0 +1,9 @@
+/* pkgTickets/pages/tickets/index.wxss */
+.none{
+    width: 100%;
+    text-align: center;
+    padding: 20rpx 0;
+}
+.van-tabs__nav--card{
+    border: 1rpx solid #1989fa !important;
+}

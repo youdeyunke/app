@@ -23,6 +23,14 @@
       ]
     },
     {
+      "root": "pkgTickets",
+      "name": "pkgtickets",
+      "pages": [
+        "pages/tickets/index"
+      ]
+    },
+
+    {
       "root": "pkgMap",
       "name": "pkgmap",
       "pages": [

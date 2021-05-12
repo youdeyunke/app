@@ -1,0 +1,30 @@
+/* pkgTickets/pages/tickets/item.wxss */
+.card{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1rpx solid #c8c8c8;
+    padding: 30rpx;
+}
+.card-content{
+    color: #7B7A7A;
+    font-size: 30rpx;
+}
+.card-content view{
+    margin-bottom: 15rpx;
+}
+.danger{
+    color: #CF3636 !important;
+    font-weight: bold;
+}
+.card-content text{
+    color: #2F2F2F;
+    margin: 10rpx;
+}
+.title{
+    color: #7B7A7A !important;
+    width: 150rpx;
+    ruby-align: center;
+}

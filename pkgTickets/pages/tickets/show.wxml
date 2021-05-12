@@ -1,0 +1,21 @@
+<view class="bg">
+<view class="show">
+    <image class="bgcolor" src="/pkgTickets/images/Group42.png" mode="widthFix" ></image>
+    <text class="numberc">0{{ticket.number}}</text>
+    <text class="name">{{ticket.name}}</text>
+    <text class="number" >第{{ticket.number}}号</text>
+    <view class="rectanglemax"></view>
+    <view class="rectanglemin"></view>
+</view>
+<view class="line"></view>
+<navigator class="navigator" url="/pages/post/post?id={{post.id}}">
+    <image src="../../../pkgTickets/images/house.png" class="house"></image>
+    <view style="float:left;">点击进入【{{post.title}}】</view>
+    <view  style="position:absolute;right:60rpx;">></view>
+</navigator>
+    <view class="table">
+       xxx
+    </view>
+        <view class="share">立即转发</view>
+        <button class="button" open-type="share"></button>
+</view>
