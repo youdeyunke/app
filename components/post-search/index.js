@@ -33,6 +33,7 @@ Component({
       app.request({
         url: '/api/v2/posts/quicksearch',
         method: 'GET',
+        hideLoading: true,
         data: {
           kw: myvalue
         },
