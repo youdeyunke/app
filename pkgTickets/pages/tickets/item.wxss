@@ -1,23 +1,22 @@
 /* pkgTickets/pages/tickets/item.wxss */
 .card{
-    width: 100%;
+    width: 710rpx;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1rpx solid #c8c8c8;
     padding: 30rpx;
+    margin: 0 auto;
+    border-radius: 10rpx;
+    margin-bottom: 20rpx;
+    background-color: #fff;
 }
 .card-content{
     color: #7B7A7A;
-    font-size: 30rpx;
+    font-size: 24rpx;
 }
 .card-content view{
     margin-bottom: 15rpx;
-}
-.danger{
-    color: #CF3636 !important;
-    font-weight: bold;
 }
 .card-content text{
     color: #2F2F2F;

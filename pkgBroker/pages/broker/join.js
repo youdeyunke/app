@@ -76,7 +76,8 @@ Page({
         formdata['sex']=sex
     },
     showHandle:function(e){
-        if(e.detail.length==0){
+        console.log("e",e)
+        if(e.detail==0){
             this.setData({
                 showkw:false
             })

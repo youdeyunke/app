@@ -40,8 +40,8 @@ Component({
           _this.setData({
             house_list:res.data.data
           })
-          //changeShow:控制筛选组件是否显示
-        _this.triggerEvent("changeShow",res.data.data)
+          //changeShow:传组件的长度（控制筛选组件是否显示）
+        _this.triggerEvent("changeShow",res.data.data.length)
         }
       })
     }

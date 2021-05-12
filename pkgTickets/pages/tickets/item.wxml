@@ -1,21 +1,24 @@
-<navigator class="card" url="/pkgTickets/pages/tickets/show?id={{item.id}}">
+<navigator class="card" url="/pkgTickets/pages/tickets/show?id={{item.id}}&&post_id={{item.post_id}}">
     <view class="card-content">
-        <view >
-            <text class="title">摇号序号></text>
-            <text>第<text class="danger">{{item.number}}</text>号
+        <block wx:if="{{item.ticket_cat_id!=9}}">
+        <view>
+            <text class="title">摇号序号</text>
+            <text>{{item.code}}
+            </text>
+        </view>
+        </block>
+        <view>
+            <text class="title">摇号编号</text>
+            <text>第{{item.number}}名
             </text>
         </view>
         <view>
-            <text decode="{{true}}" class="title">姓&emsp;&emsp;名></text>
+            <text class="title">客户姓名</text>
             <text>{{item.name}}</text>
         </view>
         <view >
-            <text class="title">身份证号></text>
+            <text class="title">身份证号</text>
             <text>{{item.id_number}}</text>
-        </view>
-        <view>
-        <text class="title">摇号状态></text>
-        <text class="danger">{{item.status == 2 ? '复核通过':'已入围'}}</text>
         </view>
     </view>
     <view>

@@ -4,6 +4,50 @@
     text-align: center;
     padding: 20rpx 0;
 }
-.van-tabs__nav--card{
-    border: 1rpx solid #1989fa !important;
+/* .nav-class{
+    background-color: #3AA0FE !important;
+} */
+.van-tabs__scroll{
+    background-color: #F2F2F2 !important;
+}
+.search{
+    background-color: #F2F2F2;
+    padding: 20rpx;
+    font-size: 26rpx;
+    color: #1989FA;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15rpx;
+    margin-top: 20rpx;
+}
+input{
+    width:500rpx ;
+    background-color: #fff;
+    display: inline-block;
+    margin-left: 15rpx;
+    color: #333333;
+}
+.input-box{
+    width:624rpx ;
+    height: 70rpx;
+    background-color: #fff;
+    border-radius: 50rpx;
+    line-height: 70rpx;
+    padding-left: 40rpx;
+    font-size: 24rpx;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.input-box image{
+    width:26rpx ;
+    height: 26rpx;
+}
+.image-box{
+    width: 100rpx;
+    height: 100rpx;
+    position: absolute;
+    top: -20rpx;
+    right: -10rpx;
 }
