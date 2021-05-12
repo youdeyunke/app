@@ -1,4 +1,4 @@
-  <view class="search-box" wx:for="{{house_list}}" data-myid="{{item.id}}" data-mytitle="{{item.title}}" bindtap="selectHanlde">
+  <view class="search-box" wx:for="{{house_list}}"bindtap="selectHanlde" data-index="{{index}}">
     <view class="search-top">
       <text>{{item.title}}</text>
       <text>{{item.sale_status_item.name}}</text>

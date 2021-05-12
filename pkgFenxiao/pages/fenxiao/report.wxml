@@ -69,6 +69,24 @@
     </view>
 </view>
 <view class="forms">
+    <view class="form">
+            <view class="form-title">
+                <text>案场接待 姓名</text>    
+            </view>
+            <view class="form-flex">
+                <input class="form-input" placeholder="填写接待人姓名" model:value="{{receiver_name}}" minlength="11" maxlength="11"  />
+            </view>
+        </view>
+        <view class="form">
+            <view class="form-title">
+                <text>案场接待 手机号码</text>    
+            </view>
+            <view class="form-flex">
+                <input class="form-input" placeholder="填写接待人手机号码" model:value="{{receiver_mobile}}" minlength="11" maxlength="11"  />
+            </view>
+        </view>
+</view>
+<view class="forms">
 <view class="form">
             <view class="form-title">
                 <text>备注</text>    
