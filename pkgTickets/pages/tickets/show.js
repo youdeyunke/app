@@ -65,6 +65,9 @@ Page({
         _this.setData({
           title:res.data.data.title
         })
+        wx.setNavigationBarTitle({
+          title: _this.data.post.name+'的摇号结果',
+        })
       }
     })
   },

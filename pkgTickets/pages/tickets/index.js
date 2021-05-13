@@ -14,7 +14,7 @@ Page({
         tabIndex: 0,
         page: 1,
         pageSize: 10,
-        loading: false
+        loading: false,
     },
 
     /**
@@ -45,16 +45,20 @@ Page({
     loadPostData: function(){
         var _this = this  
         app.request({
-            url: '/api/v1/post_base_info/' + this.data.post_id, 
+            url: '/api/v1/post_base_info/' + this.data.postId, 
             success: function(resp){
                 _this.setData({post: resp.data.data})
+                wx.setNavigationBarTitle({
+                    title: resp.data.data.title+'摇号结果',
+                  })
             }
+           
         })
     },
     loadData(id) {
         var _this = this
-        var status = status || 0
-        var id = id || 7
+        var status =  0
+        var id = id || 10
         var params = {
             post_id: this.data.postId,
             page: this.data.page,
@@ -69,8 +73,6 @@ Page({
             success: function (res) {
                 var items = _this.data.items
                 var arr = [...items, ...res.data.data]
-                console.log("新数据",res.data.data)
-                console.log("所有数据",arr)
                 _this.setData({
                     items: arr,
                     cats: res.data.cats, 

@@ -29,7 +29,6 @@
         "pages/tickets/index"
       ]
     },
-
     {
       "root": "pkgMap",
       "name": "pkgmap",
@@ -219,6 +218,13 @@
       "name": "license",
       "pages": [
         "pages/license/index"
+      ]
+    },
+    {
+      "root": "pkgAbout",
+      "name": "about",
+      "pages": [
+        "pages/about/index"
       ]
     }
   ],

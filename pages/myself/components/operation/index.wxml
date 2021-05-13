@@ -52,6 +52,13 @@
     </view>
     <image class="operation-image2" src="../../images/2.png"></image>
   </view>
+  <navigator class="operation-class" url="/pkgAbout/pages/about/index">
+    <view class="operation-class-nav">
+      <image class="operation-image1" src="../../images/24.png"></image>
+      <text>关于我们</text>
+    </view>
+    <image class="operation-image2" src="../../images/2.png"></image>
+  </navigator>
   <block wx:if="{{myuser.id!=null}}">
     <view class="operation-class" bindtap="logoutHandle">
       <view class="operation-class-nav">
@@ -61,4 +68,5 @@
       <image class="operation-image2" src="../../images/2.png"></image>
     </view>
   </block>
+
 </view>

@@ -1,5 +1,10 @@
 <navigator class="card" url="/pkgTickets/pages/tickets/show?id={{item.id}}&&post_id={{item.post_id}}">
     <view class="card-content">
+        <view>
+            <text class="title">摇号编号</text>
+            <text>第{{item.number}}名
+            </text>
+        </view>
         <block wx:if="{{item.ticket_cat_id!=9}}">
         <view>
             <text class="title">摇号序号</text>
@@ -7,11 +12,6 @@
             </text>
         </view>
         </block>
-        <view>
-            <text class="title">摇号编号</text>
-            <text>第{{item.number}}名
-            </text>
-        </view>
         <view>
             <text class="title">客户姓名</text>
             <text>{{item.name}}</text>
