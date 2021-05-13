@@ -55,7 +55,7 @@ input::-webkit-input-placeholder{
 }
 .form-title text{
     flex:3;
-    color: #666666;
+    color: black;
     font-weight: regular;
     font-size: 28rpx;
 }
