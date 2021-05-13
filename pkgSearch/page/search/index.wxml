@@ -24,6 +24,7 @@
     </view>
   </block>
 
-  <image class="image3" src="../../images/Group 234.png"></image>
+  <image class="image3" src="../../images/hot.png"></image>
+  <view class="more"><text class="text">查看更过></text></view>
   <search-item></search-item>
 </view>
