@@ -25,6 +25,6 @@
   </block>
 
   <image class="image3" src="../../images/hot.png"></image>
-  <view class="more"><text class="text">查看更过></text></view>
+  <view class="more"><text class="text">查看更多></text></view>
   <search-item></search-item>
 </view>
