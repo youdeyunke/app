@@ -14,7 +14,7 @@ Page({
         tabIndex: 0,
         page: 1,
         pageSize: 10,
-        loading: false
+        loading: false,
     },
 
     /**
@@ -28,15 +28,10 @@ Page({
     onLoad: function (q) {
         const { post_id } = q
         this.setData({ postId: post_id })
-        console.log("this.data.post",this.data.post)
-       
     },
     onShow: function () {
         this.loadPostData()
         this.loadData()
-        // wx.setNavigationBarTitle({
-        //     title: this.data.post.title,
-        // });
     },
     tabChange(e) {
         this.setData({
@@ -62,8 +57,8 @@ Page({
     },
     loadData(id) {
         var _this = this
-        var status = status || 0
-        var id = id || 7
+        var status =  0
+        var id = id || 10
         var params = {
             post_id: this.data.postId,
             page: this.data.page,
