@@ -397,6 +397,10 @@ App({
             header["Authorization"] = token;
         }
 
+        header['Content-MD5'] = '18a8cf43bad24635aae501bb13a7157d'
+        var d = new Date() 
+        header['Accept-Datetime'] = d.toLocaleDateString()
+
         // This must be wx.request !
         var url = this.globalData.apiHost + obj.url;
         var _method = obj.method || 'GET'

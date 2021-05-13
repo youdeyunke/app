@@ -1,15 +1,10 @@
-// pkgBroker/pages/broker/components/house/index.js
+// pkgPost/pages/show/joingroup-block.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    post:{
-      type:Object
-    },
-    posttags:{
-      type:Object
-    }
+
   },
 
   /**

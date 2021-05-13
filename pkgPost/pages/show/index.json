@@ -6,6 +6,7 @@
     "usingComponents": {
         "cover-block": "./cover-block",
         "header-block": "./header-block",
+        "joingroup-block": "./joingroup-block",
         "info-block": "./info-block",
         "map-block": "./map-block",
         "brokers-block": "./brokers-block",
