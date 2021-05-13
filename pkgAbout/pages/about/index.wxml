@@ -22,7 +22,8 @@
     <image src="../../image/5.png"></image>
     <view>如需商务合作,敬请联系我们！</view>
   </view>
-  <view class="about-way" >
+  <view class="bottom">
+    <view class="about-way" >
     <view class="way-nav" bindtap="showWechat">
       <image src="../../image/3.png"></image>
       <view>客服微信</view>
@@ -33,6 +34,6 @@
     </view>
   </view>
   <view class="about-corp">版权所有：优得(西安)科技有限公司</view>
+  </view>
+  
 </view>
-<!-- <van-popup class="popup" show="{{show}}" > -->
-<!-- </van-popup> -->
