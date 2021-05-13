@@ -9,6 +9,7 @@
 }
 .about-box{
   padding-top: 196rpx;
+  height: 100vh;
 }
 .about-title{
   width: 270rpx;
@@ -85,6 +86,8 @@
   margin-top: 60rpx;
   font-size: 24rpx;
   color:#666666 ;
+  background-color: #fff;
+  height: 90rpx;
 }
 .po{
   width: 100vw;
@@ -117,4 +120,7 @@
 .po .image2{
   width: 80rpx;
   height: 80rpx;
+}
+.bottom{
+  background-color: #fff;
 }
