@@ -1,6 +1,6 @@
 
 <view class="forms">
-        <view class="form">
+        <view class="form form-margin">
             <view class="form-title">
                 <text><text style="color:red;padding-right:5rpx">*</text>客户姓名</text>    
             </view>
@@ -32,7 +32,7 @@
         </view>
 </view>
 <view class="forms">
-    <view class="form">
+    <view class="form form-margin">
         <view class="form-title">
                 <text style="margin:15rpx 0rpx"><text style="color:red;padding-right:5rpx">*</text>意向楼盘</text>   
                 <view class="fangText" bind:tap="fangChange">
@@ -69,7 +69,7 @@
     </view>
 </view>
 <view class="forms">
-    <view class="form">
+    <view class="form form-margin">
             <view class="form-title">
                 <text>案场接待 姓名</text>    
             </view>
@@ -87,7 +87,7 @@
         </view>
 </view>
 <view class="forms">
-<view class="form">
+<view class="form form-margin">
             <view class="form-title">
                 <text>备注</text>    
             </view>

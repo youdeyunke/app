@@ -32,7 +32,9 @@
 
 }
 .form{
-    padding:43rpx 30rpx 43rpx 30rpx;
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+    padding-bottom: 10rpx;
 }
 .form-margin{
     padding-top: 40rpx;

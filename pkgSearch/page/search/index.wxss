@@ -61,11 +61,23 @@ page{
   margin-right: 20rpx;
   /* margin-bottom: 20rpx; */
 }
+.text{
+color: #A0A0A0;
+font-size: 24rpx;
+text-align: left;
+}
+.more{
+  float:right;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  margin-top:40rpx;
+}
 .image3{
-  width: 700rpx;
-  height: 120rpx;
+  width: 144rpx;
+  height: 30rpx;
   margin-top: 40rpx;
-  margin-bottom: 50rpx;
 }
 .image4{
   width:28rpx ;
