@@ -28,10 +28,15 @@ Page({
     onLoad: function (q) {
         const { post_id } = q
         this.setData({ postId: post_id })
+        console.log("this.data.post",this.data.post)
+       
     },
     onShow: function () {
         this.loadPostData()
         this.loadData()
+        // wx.setNavigationBarTitle({
+        //     title: this.data.post.title,
+        // });
     },
     tabChange(e) {
         this.setData({
@@ -45,10 +50,14 @@ Page({
     loadPostData: function(){
         var _this = this  
         app.request({
-            url: '/api/v1/post_base_info/' + this.data.post_id, 
+            url: '/api/v1/post_base_info/' + this.data.postId, 
             success: function(resp){
                 _this.setData({post: resp.data.data})
+                wx.setNavigationBarTitle({
+                    title: resp.data.data.title+'摇号结果',
+                  })
             }
+           
         })
     },
     loadData(id) {
@@ -69,8 +78,6 @@ Page({
             success: function (res) {
                 var items = _this.data.items
                 var arr = [...items, ...res.data.data]
-                console.log("新数据",res.data.data)
-                console.log("所有数据",arr)
                 _this.setData({
                     items: arr,
                     cats: res.data.cats, 
