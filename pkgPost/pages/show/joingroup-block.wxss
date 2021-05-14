@@ -3,14 +3,17 @@
   width: 750rpx;
   height: 190rpx;
 }
+.box{
+  position: relative;
+}
 .text{
-  position:absolute;
-  top: 1188rpx;
-  left: 20rpx;
-  font-size:30rpx ;
+  font-size:30rpx;
   font-weight: bolder;
   color: #333333;
-  margin-top: 10rpx;
+  position: absolute;
+  left: 20rpx;
+  top:33rpx;
+  margin: auto;
 }
 .profile-wechatqr{
   width:750rpx ;
