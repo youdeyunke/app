@@ -46,7 +46,7 @@
     <block wx:if="{{brokerProfile.wechat_qr === null}}">
       <van-popup show="{{ show }}" bind:close="onClose" round position="bottom" closeable>
         <view class="profile-wechatqr-else">
-          该经纪人还没有上传二维码
+          该账号还没有上传二维码
         </view>
       </van-popup>
     </block>

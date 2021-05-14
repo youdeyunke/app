@@ -27,9 +27,9 @@ Component({
       });
   },
   onshow(){
-    this.setData({
-      show: true
-  });
+      this.setData({
+        show: true
+    });
   },
     qrhandle(){
       var code = this.data.value.qr
