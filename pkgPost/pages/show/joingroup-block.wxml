@@ -1,6 +1,6 @@
 <!--pkgPost/pages/show/joingroup-block.wxml-->
 <view class="box"style="margin-bottom: 20rpx;" >
-<image class="image" src="../../images/join.png" mode="widthFix" bindtap="onqrshow"></image>
+<image class="image" src="../../images/join.png" mode="widthFix" bindtap="onQrShow"></image>
 <text class="text">{{value.title}}</text>
 <block wx:if="{{value.qr != null}}">
       <van-popup show="{{ show }}" bind:close="onClose" round position="bottom" closeable>
@@ -13,7 +13,7 @@
             </view>
           </view>
           <view class="profile-wechatqr-text">保存并扫描二维码，进入相关群聊获取更多楼盘信息！</view>
-          <view class="profile-wechatqr-save" bindtap="getsaveImage">
+          <view class="profile-wechatqr-save" bindtap="getSaveImage">
             保存到相册
           </view>
         </view>
