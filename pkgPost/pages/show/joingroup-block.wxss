@@ -22,11 +22,11 @@
   box-sizing: border-box;
 }
 .profile-wechatqr-else{
-width:750rpx ;
-height:965rpx ;
-line-height: 965rpx;
-text-align: center;
-color: #666666;
+  width:750rpx ;
+  height:965rpx ;
+  line-height: 965rpx;
+  text-align: center;
+  color: #666666;
 }
 .profile-wechatqr-nav{
   width: 534rpx;
