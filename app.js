@@ -108,7 +108,7 @@ App({
 
     loadConfigs: function (cb) {
         /* 从服务器加载系统配置嘻嘻 */
-        var _this = this;
+        var _this = this; 
         this.request({
             url: "/api/v1/myconfigs",
             hideLoading: true,
@@ -128,52 +128,61 @@ App({
             title: '正在保存图片',
             mask: true,
         });
-
         var _this = this
         var downTask = wx.downloadFile({
             url: url,
             success: (res) => {
-                _this.saveImage(res.tempFilePath)
+                _this.saveImage(res.tempFilePath,cb)
             },
             fail: () => {
                 wx.showToast({
                     title: '下载图片失败',
                     icon: 'none',
                 });
-
             },
             complete: () => {
                 wx.hideLoading();
             }
         });
-
     },
 
     saveImage: function (path, cb) {
-        wx.saveImageToPhotosAlbum({
-            filePath: path,
-            complete: function (res) {
-                if (res.errMsg == 'saveImageToPhotosAlbum:fail auth deny') {
-                    
-                    wx.navigateTo({
-                        url: '/pages/myself/setting',
-                        success: function () {
-                            wx.showToast({
-                                title: '请先在“权限设置”中打开相册权限',
-                                icon: 'none',
-                                duration: 3000,
-                                success: function () { },
-                            })
+        wx.getSetting({
+            success:function(res){
+                if(!res.authSetting['scope.writePhotosAlbum']){
+                    wx.openSetting({
+                        success: function (res) {
+                            if (res.authSetting['scope.writePhotosAlbum']) {
+                                wx.showModal({
+                                    title: '提示',
+                                    content: '获取权限成功,再次点击图片即可保存',
+                                    showCancel: false,
+                                })
+                            }
+                            else
+                            {
+                                wx.showToast({
+                                    title: '请先在“权限设置”中打开相册权限',
+                                    icon: 'none',
+                                    duration: 3000,
+                                })
+                            }
                         },
                     })
                 }
-            },
-            success: function (res) {
-                wx.showToast({
-                    icon: 'none',
-                    title: '已保存，请前往手机相册查看',
-                })
-                return typeof cb == 'function' && cb()
+                else
+                {
+                    wx.saveImageToPhotosAlbum({
+                        filePath: path,
+                        success:function(){
+                            wx.showToast({
+                                icon: 'none',
+                                title: '已保存，请前往手机相册查看',
+                            })
+                            return typeof cb == 'function' && cb()
+                        }
+                    })
+                }
             }
         })
     },
