@@ -9,6 +9,9 @@ Component({
 
     observers: {
         "config": function (c) {
+            if(!c){
+                return
+            }
             var link = c.link && c.link.cat !== 'no' ? c.link : null
             console.log('link is', link)
             var data = {

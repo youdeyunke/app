@@ -21,26 +21,22 @@ Component({
     console.log(this.data.bc);
   },
   observers:{
-    'morelink.plain':function(){
-      this.change()
+    'morelink':function(val){
+      if(!val){
+        return
+      }
+      var bg =  val.plain ? 'none' : val.bg 
+      var br =  val.round ? '80rpx' : '4rpx'
+      this.setData({
+        bg: bg, br: br
+      })
+      
     }
   },
   /**
    * 组件的方法列表
    */
   methods: {
-    change:function (){
-      if(this.data.morelink.plain != true){
-        this.setData({
-          bg : this.data.morelink.bg,
-          br:'4rpx'
-        })
-      }else{
-        this.setData({
-          bg : 'none' ,
-          br:'80rpx'
-        })
-      }
-    },
+    
   },    
 })

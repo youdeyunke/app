@@ -154,6 +154,7 @@ App({
             filePath: path,
             complete: function (res) {
                 if (res.errMsg == 'saveImageToPhotosAlbum:fail auth deny') {
+                    
                     wx.navigateTo({
                         url: '/pages/myself/setting',
                         success: function () {

@@ -8,6 +8,7 @@ text {
 
 .outer{
     width:710rpx;
+    padding:20rpx 10rpx;
 
     margin:0 auto 16rpx auto;
 }
