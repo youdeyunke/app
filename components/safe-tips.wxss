@@ -1,3 +1,4 @@
+/* components/safe-tips.wxss */
 .safe-tips {
     padding: 30rpx;
     display: flex;

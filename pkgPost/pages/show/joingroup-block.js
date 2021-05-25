@@ -34,7 +34,17 @@ Component({
     });
     },
     getSaveImage(){
+      var _this=this
       app.downloadImage(this.data.value.qr)
+      wx.getSetting({
+        success:function(res){
+          if(res.authSetting['scope.writePhotosAlbum']){
+              _this.setData({
+                show:false
+              })
+            }
+        }
+      })
     }
   }
 })
