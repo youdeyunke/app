@@ -2,6 +2,6 @@
 
 .posts-items {
     width:710rpx; 
-    margin:0 auto;
+    margin:0 auto 20rpx auto;
     padding: 0rpx;
 }

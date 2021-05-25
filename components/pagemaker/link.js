@@ -3,8 +3,14 @@ module.exports = {
 
     functionHandle: function (config) {
         var phone = config.phone
+        if(!phone){
+            return
+        }
         wx.makePhoneCall({
             phoneNumber: phone,
+            fail: function(res){
+                // pass
+            }
         });
     },
 
@@ -21,17 +27,36 @@ module.exports = {
                 url: path,
                 });
                 break;
+                
+            case 'navigateBack': 
+                wx.navigateBack({
+                  delta: -1,
+                })
+                break;
+
             case 'navigateTo':
                 wx.navigateTo({
                     url: path,
                     fail: function(){
                         wx.showToast({
-                            icon: 'none',
+                        icon: 'none',
                           title: '页面不存在',
                         
                         })
                     },
                 });
+                break;
+
+            case 'redirectTo': 
+                wx.redirectTo({
+                  url: path,
+                  fail: function(){
+                    wx.showToast({
+                        icon: 'none',
+                          title: '页面不存在',
+                        })
+                  }
+                })    
                 break;
         }
     },

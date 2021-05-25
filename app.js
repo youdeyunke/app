@@ -120,8 +120,15 @@ App({
         });
     },
 
+    downloadImage: function(url, cb){
+        this._ensureAlbumScope((res) => {
+            return this._downloadImage(url, cb)
+        })
+    },
 
-    downloadImage: function (url, cb) {
+
+    _downloadImage: function (url, cb) {
+
         // 先下载，再保存
         var url = url.replace('http://', 'https://')
         wx.showLoading({
@@ -132,6 +139,7 @@ App({
         var downTask = wx.downloadFile({
             url: url,
             success: (res) => {
+                console.log('donwload success', res)
                 _this.saveImage(res.tempFilePath,cb)
             },
             fail: () => {
@@ -146,45 +154,62 @@ App({
         });
     },
 
-    saveImage: function (path, cb) {
+    _ensureAlbumScope: function(cb){
+        // 检查用户相册权限，如果没有相册权限，引导开启
         wx.getSetting({
             success:function(res){
                 if(!res.authSetting['scope.writePhotosAlbum']){
-                    wx.openSetting({
-                        success: function (res) {
-                            if (res.authSetting['scope.writePhotosAlbum']) {
-                                wx.showModal({
-                                    title: '提示',
-                                    content: '获取权限成功,再次点击图片即可保存',
-                                    showCancel: false,
-                                })
-                            }
-                            else
-                            {
-                                wx.showToast({
-                                    title: '请先在“权限设置”中打开相册权限',
-                                    icon: 'none',
-                                    duration: 3000,
-                                })
-                            }
-                        },
+                    wx.showModal({
+                      cancelColor: 'cancelColor',
+                      title: '权限',
+                      content: '请先允许小程序访问相册权限',
+                      success: function(r){
+                        wx.openSetting({
+                            fail: function(err){
+                                console.log('fail', err)
+                            },
+                            success: function (res) {
+                                
+                                if (res.authSetting['scope.writePhotosAlbum']) {
+                                    wx.showModal({
+                                        title: '提示',
+                                        content: '获取权限成功,再次点击图片即可保存',
+                                        showCancel: false,
+                                    })
+                                }
+                                else
+                                {
+                                    wx.showToast({
+                                        title: '请先在“权限设置”中打开相册权限',
+                                        icon: 'none',
+                                        duration: 3000,
+                                    })
+                                }
+                            },
+                        })                         
+
+                      }
                     })
+                    return
                 }
-                else
-                {
-                    wx.saveImageToPhotosAlbum({
-                        filePath: path,
-                        success:function(){
-                            wx.showToast({
-                                icon: 'none',
-                                title: '已保存，请前往手机相册查看',
-                            })
-                            return typeof cb == 'function' && cb()
-                        }
-                    })
-                }
+                typeof cb == 'function' && cb()
             }
         })
+    },
+
+    saveImage: function (path, cb) {
+        wx.saveImageToPhotosAlbum({
+            filePath: path,
+            success:function(){
+                wx.showToast({
+                    icon: 'none',
+                    title: '已保存，请前往手机相册查看',
+                })
+                return typeof cb == 'function' && cb()
+            }
+        })
+        
+    
     },
 
     getLocation: function () {

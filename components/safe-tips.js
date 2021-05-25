@@ -4,13 +4,18 @@ Component({
    * 组件的属性列表
    */
   properties: {
+<<<<<<< HEAD
     cat: { type: String, value: ''}
+=======
+     
+>>>>>>> 277600c68cb3b19b813d00419ba3ecb6794c9a6a
   },
 
   /**
    * 组件的初始数据
    */
   data: {
+<<<<<<< HEAD
     info: {
       new: {
           title: '',
@@ -25,6 +30,10 @@ Component({
           desc: '',
       },
     }
+=======
+
+
+>>>>>>> 277600c68cb3b19b813d00419ba3ecb6794c9a6a
   },
 
   /**

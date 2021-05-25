@@ -62,7 +62,7 @@
    
     <view class="success" wx:else>
       <view class="title">预约成功！</view>
-      <view class="desc">经纪人已收到您的预约看房请求</view>
+      <view class="desc">已收到您的预约看房请求</view>
       <view class="icon">
         <van-icon color="#1989fa" name="passed" size="200rpx;"></van-icon>
       </view>
