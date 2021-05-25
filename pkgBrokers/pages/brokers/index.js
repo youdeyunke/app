@@ -8,11 +8,7 @@ Page({
   data: {
     ranking:''
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  LoadHandle(){
     var _this = this
     app.request({
       url: '/api/v1/brokers',
@@ -23,6 +19,13 @@ Page({
         console.log("res.data.data",res.data.data)
       }
     })
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.LoadHandle()
   },
 
   /**
@@ -57,7 +60,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.LoadHandle()
   },
 
   /**
@@ -71,6 +74,8 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '置业顾问排行榜',
+  }
   }
 })

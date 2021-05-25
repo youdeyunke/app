@@ -1,4 +1,3 @@
-<!--pkgBrokers/Pages/Brokers/index.wxml-->
 <view id="brokers-box">
   <view class="brokers-top">
     <image src="/pkgBrokers/image/2-0.png"></image>
