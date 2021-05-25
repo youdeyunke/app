@@ -17,7 +17,7 @@ Page({
         pageCover: '',
         pageUrl: '/pkgPost/pages/show/index?post_id=',
         postInfo: null,
-        brokerInfo: null,
+    
         brokerId: null,
 
         loading: true,
@@ -57,11 +57,6 @@ Page({
     loadData: function () {
         var _this = this
         var query = {}
-        if (this.data.brokerId) {
-            // 如果是通过经纪人分享进入
-            query.broker_id = this.data.brokerId
-        }
-
         app.request({
             hideLoading: true,
             url: '/api/v5/posts/' + _this.data.postId,
@@ -94,7 +89,7 @@ Page({
                     navs: resp.data.navs,
                     pageTitle: post.title,
                     pageCover: post.cover,
-                    brokerInfo: broker,
+                
                     postInfo: post,
                     blocks: resp.data.data,
                 }, () => {
@@ -139,10 +134,10 @@ Page({
             console.log('decode qrdata is', qrdata, typeof qrdata)
             options = qrdata
         }
-        var postId = options.id
+        var postId = options.id || options.post_id
         var brokerId = options.broker_id || ''
 
-        _this.setData({ postId: postId }, () => {
+        _this.setData({ postId: postId, brokerId: brokerId  }, () => {
             _this.loadData()
     
         })
