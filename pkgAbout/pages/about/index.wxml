@@ -2,12 +2,12 @@
 <image class="image1" src="../../image/1.png"></image>
 <view class="about-box">
   <view class="about-title">
-    <view>小程序名称</view>
-    <view>VERSION 2.9.10</view>
+    <view>{{xcx_name}}</view>
+    <view> VERSION {{xcx_version }}</view>
   </view>
   <view class="about-describe">
-    <view>优得科技是一家小而美的技术驱动型公司,成立于2019年,由一群热爱互联网技术的小伙伴组成。</view>
-    <view>优得科技面对中小型企业</view>
+    <view>优得科技是一家小而美的技术驱动型公司,成立于2019年,由一群热爱互联网技术的小伙伴组成。优得科技面向中小型企业，提供基于微信小程序的互联网产品开发技术服务。公司核心产品“优得房产智慧营销系统”，适用于房产中介公司、以及房产类型的互联网平台。</view>
+
   </view>
   <view class="po" wx:if="{{show==true}}">
     <view class="image-box" >

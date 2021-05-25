@@ -1,4 +1,6 @@
 // pkgAbout/pages/about/index.js
+const app = getApp() 
+
 Page({
 
   /**
@@ -6,6 +8,9 @@ Page({
    */
   data: {
     show: false,
+    xcx_name: '', 
+    xcx_version: '', 
+    service_mobile: '',
     path: '../../image/6.png'
   },
   callHandle() {
@@ -70,6 +75,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var conf = app.globalData.myconfigs
+    var data = {
+      xcx_name: conf.xcx_name, 
+      xcx_version: conf.xcx_version, 
+      service_mobile: conf.service_mobile,
+    }
+    this.setData(data)
 
   },
 
