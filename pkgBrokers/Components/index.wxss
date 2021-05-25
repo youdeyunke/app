@@ -1,0 +1,46 @@
+/* pkgBrokers/Pages/image/Components/index.wxss */
+.brokers-box{
+  width:710rpx ;
+  height:129rpx ;
+  border-bottom: 1rpx solid #E7E7E7;
+  position: relative;
+}
+.brokers-box:nth-last-child(1){
+  border-bottom: none;
+}
+.brokers-img1{
+  width:58rpx ;
+  height:52rpx ;
+  margin-left: 31rpx;
+  margin-right:30rpx ;
+}
+.brokers-img2{
+  width:70rpx ;
+  height:70rpx ;
+  border-radius: 50%;
+  margin-right: 24.44rpx;
+  margin-top: 24rpx;
+}
+.brokers-img3{
+  width:121rpx ;
+  height:33.41rpx ;
+  position: absolute;
+  top: 48rpx;
+  left: 324rpx;
+}
+.brokers-box text:nth-of-type(1),.brokers-box text:nth-of-type(2){
+  position: absolute;
+  top: 45rpx;
+  left: 220rpx;
+}
+.brokers-box text:nth-of-type(2){
+  left: 555rpx;
+  width:123.44rpx ;
+  height:39.55rpx ;
+  line-height: 39.55rpx;
+  border: 1rpx solid #1989FA;
+  color: #1989FA;
+  border-radius: 50rpx;
+  font-size: 24rpx;
+  text-align: center;
+}

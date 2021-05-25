@@ -1,0 +1,29 @@
+<!--pkgBrokers/Pages/Brokers/index.wxml-->
+<view id="brokers-box">
+  <view class="brokers-top">
+    <image src="/pkgBrokers/image/2-0.png"></image>
+    <navigator class="brokers-top-photo" url="/pkgBroker/pages/broker/profile?id={{ranking[0].user_id}}">
+      <image src="{{ranking[0].avatar}}" ></image>
+      <image src="/pkgBrokers/image/1-24.png"></image>
+    </navigator>
+    <navigator class="brokers-top-photo2" url="/pkgBroker/pages/broker/profile?id={{ranking[1].user_id}}">
+      <image src="{{ranking[1].avatar}}"></image>
+      <image src="/pkgBrokers/image/1-28.png"></image>
+    </navigator>
+    <navigator class="brokers-top-photo3" url="/pkgBroker/pages/broker/profile?id={{ranking[2].user_id}}">
+      <image src="{{ranking[2].avatar}}"></image>
+      <image src="/pkgBrokers/image/1-32.png"></image>
+    </navigator>
+    <text>{{ranking[0].name}}</text>
+    <text>{{ranking[1].name}}</text>
+    <text>{{ranking[2].name}}</text>
+  </view>
+  <view class="brokers-nav">
+    <block wx:for="{{ranking}}">
+      <brokers ranking="{{item}}" myindex="{{index}}"></brokers>
+    </block>
+  </view>
+  <view class="brokers-bottom">
+    <image src="/pkgBrokers/image/1-19.png"></image>
+  </view>
+</view>

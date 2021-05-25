@@ -10,6 +10,7 @@
   margin-top: 35rpx;
   margin-left: 675rpx;
   margin-bottom: 30rpx;
+  position: absolute;
 }
 .user-box{
   background-color: #fff;

@@ -8,12 +8,13 @@ Page({
     data: {
         cats: [],
         items: [],
-        postId: '',
+        postId: null,
         posts: [],
         kw: '',
         tabIndex: 0,
         page: 1,
         pageSize: 10,
+        catId: null,
         loading: false,
     },
 
@@ -52,19 +53,17 @@ Page({
                     title: resp.data.data.title+'摇号结果',
                   })
             }
-           
         })
     },
-    loadData(id) {
+    loadData() {
         var _this = this
-        var status =  0
         var id = id || 10
         var params = {
             post_id: this.data.postId,
             page: this.data.page,
             cat_id:id,
+            
             per_page: this.data.pageSize,
-            status: status,
             kw:this.data.kw
         }
         app.request({
@@ -108,16 +107,12 @@ Page({
         var page = this.data.page
         page = page + 1
         this.setData({ page: page })
-        this.loadData(this.data.cats[this.data.tabIndex].id)
+        this.loadData()
     },
 
     /**
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-        setTimeout((res) => {
-            this.loadData(0)
-        }, 1500)
-
     }
 })

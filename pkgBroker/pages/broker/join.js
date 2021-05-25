@@ -367,16 +367,17 @@ Page({
     },
 
     checkBrokerStatus: function(){
-        var _this=this 
+        var _this=this
         app.request({
             url: '/api/v1/brokers/check_status', 
             method: 'POST',
             data: {},
             success: function(resp){
+                console.log("res",resp)
                 _this.setData({
                     userstate:resp.data.data
                 }) 
-                var join_status = resp.data.data.join_status
+                var join_status = resp.data.data.join_status  
                 // 审核中
                 if(join_status==1){
                     wx.redirectTo({

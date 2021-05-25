@@ -11,11 +11,12 @@ Page({
     xcx_name: '', 
     xcx_version: '', 
     service_mobile: '',
-    path: '../../image/6.png'
+    xcx_us:'',
+    xcx_wechat_qr:'',
   },
   callHandle() {
     wx.makePhoneCall({
-      phoneNumber: '17602193376',
+      phoneNumber: this.data.service_mobile,
     })
   },
   showWechat() {
@@ -61,7 +62,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.setNavigationBarTitle({
+      title: '关于我们',
+    })
   },
 
   /**
@@ -76,10 +79,13 @@ Page({
    */
   onShow: function () {
     var conf = app.globalData.myconfigs
+    console.log("conf",conf)
     var data = {
       xcx_name: conf.xcx_name, 
       xcx_version: conf.xcx_version, 
       service_mobile: conf.service_mobile,
+      xcx_us:conf.about_us,
+      xcx_wechat_qr:conf.service_wechat_qr,
     }
     this.setData(data)
 
