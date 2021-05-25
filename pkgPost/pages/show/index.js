@@ -81,18 +81,23 @@ Page({
                 wx.stopPullDownRefresh() //停止下拉刷新    
                 var post = resp.data.post
                 var broker = resp.data.broker
+                var data = {postInfo: post}
+                var user = app.globalData.userInfo 
+                data.pageQuery = 'id=' + post.id 
+                if(user.is_broker){
+                    data.pageQuery  += '&broker_id=' + user.id
+                }
+                data.pageTitle = post.title 
+                data.pageCover = post.cover 
+                data.blocks = resp.data.data  
+                data.navs = resp.data.navs 
+                data.loading = false 
+            
                 wx.setNavigationBarTitle({
                     title: post.title,
                 });
-                _this.setData({
-                    loading: false,
-                    navs: resp.data.navs,
-                    pageTitle: post.title,
-                    pageCover: post.cover,
-                
-                    postInfo: post,
-                    blocks: resp.data.data,
-                }, () => {
+
+                _this.setData(data, () => {
                     _this.markHistory()
                 })
                 wx.showShareMenu({
@@ -309,18 +314,16 @@ Page({
         var _this = this
         return {
             title: _this.data.pageTitle,
-            path: 'pages/post/post?from_share=1&id=' + _this.data.postId,
+            path: 'pages/post/post?' + _this.data.pageQuery,
             imageUrl: _this.data.pageCover,
         }
     },
 
-
     onShareTimeline: function () {
         var _this = this
-
         return {
             title: _this.data.pageTitle,
-            query: 'id=' + _this.data.postId,
+            query:  _this.data.pageQuery ,
             imageUrl: _this.data.pageCover
         }
     }

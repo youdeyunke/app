@@ -111,7 +111,7 @@ Page({
         }
     },
     callMe: function (e) {
-        var mobile = this.data.userInfo.mobile
+        var mobile = this.data.brokerProfile.mobile
         if (!mobile) {
             return false
         }
@@ -262,18 +262,18 @@ Page({
     onShareAppMessage: function () {
         var _this = this
         return {
-            title: _this.data.userInfo.name + '的名片',
+            title: _this.data.brokerProfile.name + '的名片',
             desc: '帮你找好房',
             path: 'pkgBroker/pages/broker/profile?id=' + _this.data.userId,
-            imageUrl: _this.data.userInfo.avatar,
+            imageUrl: _this.data.brokerProfile.avatar,
         }
     },
     onShareTimeline() {
         var _this = this
         return {
-            title: _this.data.userInfo.name + '的名片',
+            title: _this.data.brokerProfile.name + '的名片',
             path: 'pkgBroker/pages/broker/profile?id=' + _this.data.userId,
-            imageUrl: _this.data.userInfo.avatar
+            imageUrl: _this.data.brokerProfile.avatar
         }
     },
     lookphoto:function(e){

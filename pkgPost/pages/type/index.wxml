@@ -33,3 +33,5 @@
         </view>
     </navigator>
 </box>
+
+<broker-contact bid="{{brokerId}}" />
