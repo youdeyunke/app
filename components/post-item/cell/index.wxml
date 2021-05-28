@@ -4,9 +4,9 @@
         <image class="cover" src="{{post.cover}}" />
     </view>
     <view class="position">
-        <image src="/assets/icons/3.png"></image>
-        <image src="/assets/icons/2.png"></image>
-        <image src="/assets/icons/1.png"></image>
+        <image src="/assets/icons/post/live.png"></image>
+        <image src="/assets/icons/post/video.png"></image>
+        <image src="/assets/icons/post/VR.png"></image>
     </view>
     <view class="right">
         <view class="title">

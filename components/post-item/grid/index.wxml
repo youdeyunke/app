@@ -5,8 +5,8 @@
     {{post.average_price_info.text}}{{post.average_price_info.px}}
   </view>
   <view class="position">
-    <image class="position-image1" src="/assets/icons/3.png"></image>
-    <image class="position-image2" src="/assets/icons/2.png"></image>
-    <image class="position-image3" src="/assets/icons/1.png"></image>
+    <image class="position-image1" src="/assets/icons/post/live.png"></image>
+    <image class="position-image2" src="/assets/icons/post/video.png"></image>
+    <image class="position-image3" src="/assets/icons/post/VR.png"></image>
   </view>
 </navigator>
