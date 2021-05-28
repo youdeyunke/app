@@ -1,14 +1,27 @@
 /* pages/post/album-info.wxss */
 
 .album {
-    width: 750rpx;
+    width: 730rpx;
     height: 300rpx;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
-    padding: 20rpx;
+    padding: 0rpx;
+    position: relative;
+    margin:0 auto 10rpx 0;
+}
+
+.bg{
+    position: absolute;
+    width:730rpx;
+    height:300rpx;
+    margin:0 auto;
+    top:0;
+    left:0;
+    border-radius: 8rpx;
+    overflow: hidden;
 }
 
 .album .name {
