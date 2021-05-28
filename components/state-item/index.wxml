@@ -1,0 +1,14 @@
+<view>
+  <block wx:if="{{state=='0'}}">
+    <image class="await-image" src="/assets/icons/4.png"></image>
+    <!-- 等待直播 -->
+  </block>
+  <block wx:if="{{state=='1'}}">
+    <image class="await-image" src="/assets/icons/5.png"></image>
+    <!-- 正在直播 -->
+  </block>
+  <block wx:if="{{state=='2'}}">
+    <image class="await-image" src="/assets/icons/6.png"></image>
+    <!-- 直播结束 -->
+  </block>
+</view>

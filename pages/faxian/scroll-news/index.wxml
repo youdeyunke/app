@@ -3,5 +3,8 @@
         <image src="{{item.cover}}" class="cell-image" />
         <view class="cell-tag">{{item.news_cat.name}}</view>
         <view class="cell-text">{{item.title}} {{item.author}}</view>
+        <view class="image-box">
+            <image class="position-image" src="../image/7.png"></image>
+        </view>
     </view>
 </scroll-view>

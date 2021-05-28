@@ -1,6 +1,8 @@
 /* pages/home/home.wxss */
 
-page {}
+.show-box{
+    position: relative;
+}
 
 .outer {
     background: #f0f0f0;

@@ -6,6 +6,8 @@
     margin-bottom: 20rpx
 }
 
+
+
 .post .cover {
     height: 400rpx;
     position: relative;
@@ -18,13 +20,11 @@
     margin-top: 20rpx;
     margin-bottom: 10rpx;
 }
-.footer{
-    margin-top: 16rpx;
-}
-.post .cover image {
+
+.cover-image{
     width: 100%;
     height: 100%;
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
 }
@@ -72,14 +72,20 @@
     overflow-y: hidden;
     font-weight: bold;
 }
-.post .price{
-    float: left;
+.position{
+    height: 250rpx;
+    width: 50rpx;
+    position: absolute;
+    top: 90rpx;
+    right: 20rpx;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding-bottom: 20rpx;
+    z-index: 55555;
 }
-.left{
-float: left;
-}
-.right
-{
-float: right;
-color: red;
+.position-image1,.position-image2,.position-image3{
+    width:48rpx ;
+    height: 48rpx;
+    margin-top: 18rpx;
 }

@@ -12,6 +12,22 @@
     position: relative;
     padding-top: 30rpx;
 }
+.position{
+    height: 165rpx;
+    width: 40rpx;
+    position: absolute;
+    top: 30rpx;
+    left: 180rpx;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding-bottom: 20rpx;
+}
+.position image{
+    width:30rpx ;
+    height: 30rpx;
+    margin-top: 18rpx;
+}
 
 .post .cover {
     width: 220rpx;

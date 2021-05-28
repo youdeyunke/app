@@ -1,0 +1,4 @@
+<!--pages/faxian/hd/index.wxml-->
+<view class="tour-list">
+    <tour-item wx:for="{{tourItems}}" item="{{item}}"></tour-item>
+</view>

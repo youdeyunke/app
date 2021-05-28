@@ -6,7 +6,6 @@
     </view>
     <view class="service">
       <text>{{service_mobile}}</text>
-      <image class="operation-image2" src="../../images/2.png"></image>
     </view>
 
   </view>

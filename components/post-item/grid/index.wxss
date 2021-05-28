@@ -8,6 +8,8 @@
     font-size: 24rpx;
     margin-bottom: 20rpx;
     width: 220rpx;
+    position: relative;
+
 }
 
 .cover {
@@ -44,4 +46,21 @@
 .red {
     color: red;
     font-weight: bold;
+}
+.position{
+    height: 165rpx;
+    width: 40rpx;
+    position: absolute;
+    top: 0rpx;
+    right: 0rpx;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding-bottom: 20rpx;
+    z-index: 55555;
+}
+.position-image1,.position-image2,.position-image3{
+    width:30rpx ;
+    height: 30rpx;
+    margin-top: 18rpx;
 }

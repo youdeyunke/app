@@ -3,6 +3,11 @@
     <view class="left">
         <image class="cover" src="{{post.cover}}" />
     </view>
+    <view class="position">
+        <image src="/assets/icons/3.png"></image>
+        <image src="/assets/icons/2.png"></image>
+        <image src="/assets/icons/1.png"></image>
+    </view>
     <view class="right">
         <view class="title">
             <text>{{post.title}}</text>

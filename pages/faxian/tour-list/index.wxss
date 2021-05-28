@@ -1,0 +1,4 @@
+.tour-list{
+  width: 710rpx;
+  margin: 0 auto;
+}
