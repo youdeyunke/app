@@ -1,8 +1,7 @@
 <van-popup show="{{show}}" duration="800" custom-style="background:none;">
     <view class="new-version-window">
-        <view class="close-text" bindtap="closeHandle">关闭({{time}}s)</view>
-        <!-- <image src="{{ ad_image }}" class="bg" bindtap="adClick" /> -->
-        <image src="https://qiniucdn.udeve.cn/wefang-saas/filestore/file/1138/0c3dff8ea375239bdb642e80792de363.jpg" class="bg" bindtap="adClick"></image>
+        <view class="close-text" bindtap="closeHandle">关闭({{second}}s)</view>
+        <image src="{{url}}" class="bg" bindtap="adClick" />
     </view>
     <view class="fork">
         <image   src="../../assets/icons/round-wrong-sign.png" bindtap="closeHandle"></image>

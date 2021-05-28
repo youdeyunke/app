@@ -10,7 +10,8 @@ Component({
 
     ready: function () {
         var _this = this
-        _this.Timeout()
+        _this.loadData()
+
     },
 
     /**
@@ -18,13 +19,41 @@ Component({
      */
     data: {
         show: true,
-        time:5
+        second:'',
+        url:'',
+        id:''
     },
 
     /**
      * 组件的方法列表
      */
     methods: {
+        loadData(){
+            var _this = this
+            app.request({
+                url: '/api/v1/first_screen_ads',
+                method:'get',
+                success: function (res) {
+                    console.log("我是广告弹窗的res")
+                    console.log(res)
+                    let value = res.data.data
+                    let status = res.statusCode
+                    if(status == 200){
+                        _this.setData({
+                            id:value.id,
+                            second:value.second,
+                            url:value.url,
+                        })
+                    }
+                    else{
+                        _this.setData({
+                            show:false
+                        })
+                    }
+                    _this.Timeout()
+                }
+            })
+        },
         adClick: function (e) {
             // 点击广告图片后
             // TODO 
@@ -38,10 +67,10 @@ Component({
         },
         Timeout(){
             var _this = this
-            var time = _this.data.time-1
+            var second = _this.data.second-1
             setTimeout(() => {
-                _this.setData({time : time})
-                if(this.data.time<=0){
+                _this.setData({second: second})
+                if(_this.data.second<=0){
                     this.closeHandle()  
                     return
                 }else{
