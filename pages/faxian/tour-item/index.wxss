@@ -49,7 +49,6 @@
     font-size: 28rpx;
     padding: 0 38rpx;
     padding-top: 24rpx;
-    width: calc(100% - 76rpx);
     padding-bottom: 30rpx;
     display: flex;
     justify-content: space-between;
@@ -70,6 +69,14 @@
     color: #333333;
     font-weight: bold;
     font-size: 32rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.address{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .renshu{
     color: #A0A0A0;

@@ -14,6 +14,7 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #F1F1F1;
+  padding-right: 20rpx;
 }
 .operation-class:nth-last-child(1){
   border-bottom:none;
@@ -33,13 +34,10 @@
 .operation-image2{
   width: 24rpx;
   height:24rpx ;
-  margin-right: 32rpx;
 }
 .operation-text1{
   color: #777777;
   font-size: 26rpx;
-  margin-right: 26rpx;
-
 }
 .service{
   display: flex;

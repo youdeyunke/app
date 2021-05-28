@@ -4,14 +4,30 @@
     text-align: center;
     padding: 20rpx 0;
 }
-/* .nav-class{
-    background-color: #3AA0FE !important;
-} */
+.bgimage{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:300rpx ;
+    z-index: -2;
+}
+.title{
+    font-size:36rpx ;
+    color: #fff;
+    padding: 31rpx 30rpx 20rpx 30rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title image{
+    width:15rpx ;
+    height: 28rpx;
+}
 .van-tabs__scroll{
-    background-color: #F2F2F2 !important;
+    background-color: rgb(242, 242, 242,0) !important ;
 }
 .search{
-    background-color: #F2F2F2;
     padding: 20rpx;
     font-size: 26rpx;
     color: #1989FA;
@@ -20,6 +36,9 @@
     justify-content: space-between;
     margin-bottom: 15rpx;
     margin-top: 20rpx;
+}
+.sousuo{
+    color: #fff;
 }
 input{
     width:500rpx ;

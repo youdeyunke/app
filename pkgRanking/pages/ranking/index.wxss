@@ -33,7 +33,6 @@ page{
 }
 .buttons{
     width: 710rpx;
-    padding: 25rpx  0;
     margin:  0 20rpx;
     border-radius: 50rpx;
     background: linear-gradient(-89.89deg, #1A73E7 0%, #64ABFF 100%);

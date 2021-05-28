@@ -12,7 +12,7 @@
         <view class="text">
           <view class="text-title">
             <view class="title">{{item.title}}</view>
-            <view style="margin:20rpx 0;">活动地址：{{ item.address }}</view>
+            <view class="address" style="margin:20rpx 0;">活动地址：{{ item.address }}</view>
             <view>活动时间：{{item.starts_at_pretty}}</view>
           </view>
           <view class="text-right">

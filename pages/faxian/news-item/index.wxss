@@ -9,8 +9,9 @@
     box-sizing: border-box;
     position: relative;
     border-bottom: 1rpx solid #F0F0F0;
-    margin-bottom: 20rpx;
+    margin-top: 20rpx;
     padding-bottom: 20rpx;
+    padding-right: 20rpx;
 }
 
 .item .badge {
@@ -46,15 +47,16 @@
 }
 
 .item .title {
-    font-size: 28rpx;
+    font-size: 26rpx;
     color: #333;
-    line-height: 36rpx;
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
     word-break: break-all;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+    width: 448rpx;
+    height: 68rpx;
 }
 
 .item .item-title-block {
@@ -79,10 +81,50 @@
 
 .item .date {
     font-size: 22rpx;
-    color: #333;
+    color: #A0A0A0;
 }
 
 .item .author {
     font-size: 22rpx;
-    color: #666;
+    color: #666666;
+}
+.video-box{
+    width: 100%;
+    border-bottom: 1rpx solid #F0F0F0;
+    padding:30rpx 20rpx 30rpx 0rpx;
+}
+.video-title{
+    font-size: 26rpx;
+    color: #333333;
+    width: 90%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: 14rpx;
+}
+.video-message{
+    font-size: 24rpx;
+    color:#A0A0A0 ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20rpx;
+}
+.video-message text:nth-of-type(1){
+    color:#666666
+}
+.video-image,.video-image-box{
+    width: 710rpx;
+    height: 380rpx;
+    border-radius: 10rpx;
+}
+.video-image-box{
+    position: relative;
+}
+.video-position-image{
+    position: absolute;
+    top: 150rpx;
+    left: 315rpx;
+    width: 80rpx;
+    height: 80rpx;
 }

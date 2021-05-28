@@ -10,11 +10,23 @@
 .scroll{
     width: 100%;
     white-space: nowrap;
+    border-radius:20rpx ;
+    padding-bottom: 30rpx;
 }
 .cell-image{
     width: 500rpx;
     height: 312rpx;
     z-index: -1;
+    border-radius: 20rpx;
+}
+.position-image,.image-box{
+    width:70rpx ;
+    height: 70rpx;
+}
+.image-box{
+    position: absolute;
+    top: 121rpx;
+    left: 215rpx;
 }
 .cell-tag{
     border-radius: 0rpx 10rpx 10rpx 0rpx;
@@ -22,17 +34,18 @@
     width: 110rpx;
     height: 40rpx;
     color: #fff;
-    font-size: 26rpx;
+    font-size: 24rpx;
     position: absolute;
-    top: 16rpx; left: 0;
-    padding: 6rpx 0 6rpx 6rpx;
+    top: 29rpx; left: 0;
+    text-align: center;
+    line-height: 40rpx;
 }
 .cell-text{
     width: 454rpx;
-    height: 78rpx;
     color: #fff;
     font-size: 28rpx;
     position: absolute;
     top:  214rpx; left: 26rpx;
-    white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

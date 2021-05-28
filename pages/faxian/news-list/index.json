@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "ud-card": "/components/ud/card/index",
+    "news-item": "../news-item/index",
+    "scroll-news": "../scroll-news/index"
+  }
+}

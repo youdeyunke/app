@@ -1,0 +1,9 @@
+/* components/state-item/index.wxss */
+.await-image{
+  width: 110rpx;
+  height: 110rpx;
+  position: fixed;
+  top: 1130rpx;
+  right: 30rpx;
+  z-index: 6555;
+}

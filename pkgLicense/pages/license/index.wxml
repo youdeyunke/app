@@ -1,17 +1,22 @@
 <!--pkgLicense/pages/license/index.wxml-->
 <image class="image1" src="../../images/3.png" />
 <view class="license-box">
-  <view class="license-title">预售证查询</view>
   <view class="license-search">
     <view class="license-left">
       <view class="license-left-nav">
         <image src="../../images/1.png"></image>
-        <input type="text" placeholder="请输入预售证号" bindinput="changeHandle" value="{{kw}}"/>
+        <input type="text" placeholder="请输入预售证号" bindinput="changeHandle" value="{{kw}}" />
       </view>
       <image src="../../images/2.png"></image>
       <view class="license-del" bindtap="delHandle"></view>
     </view>
     <view bindtap="searchHandle">搜索</view>
+  </view>
+  <view class="title">
+    <view class="title-nav">
+      <image src="../../images/4.png"></image>
+      <text>注意：摇号数据均来自于网络，查询结果仅供参考，不作为最终依据。具体以政府公式结果为准。</text>
+    </view>
   </view>
   <information wx:for="{{options}}" options="{{item}}"></information>
 </view>

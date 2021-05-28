@@ -13,16 +13,11 @@ Page({
             { name: '活动', id: 'tour' },
         ],
         newsCats: [], //  资讯分类
-        newsItems: [],
-        topNewsItems: [],
-        tourItems: [],
-        qaItems: [],
-        newsCatId: '',
         page: 1,
         kw: '',
-        per_page: 10,
         loading: true,
-        tabIndex: 0
+        tabIndex: 0,
+        value:''
     },
 
     tabChangeHandle: function (e) {
@@ -33,169 +28,25 @@ Page({
         if (name == this.data.tab) {
             return
         }
-        this.setData({ tab: name }, () => {
-            this.reloadPage()
+        this.setData({
+             tab: name,
+             kw:'',
+             page:1,
+             value:''
         })
     },
-
-    reloadPage: function () {
-
-        // 切换tab后刷新页面 
-        var data = { page: 1, loading: true }
-        var tab = this.data.tab
-        switch (tab) {
-            case 'news':
-                data.newsItems = []
-                this.loadNews()
-                break;
-            case 'qa':
-                data.qaItems = []
-                this.loadQas()
-                break;
-            case 'tour':
-                data.tourItems = []
-                this.loadTours()
-                break;
-        }
-        this.setData(data)
-    },
-
-    loadTours: function () {
-        var _this = this
-        var query = this.data.tourFilter || {}
-        query.page = this.data.page
-        query.per_page = this.data.per_page || 10
-        app.request({
-            url: '/api/v1/tours/',
-            data: query,
-            success: function (resp) {
-                if (resp.data.status != 0) {
-                    return
-                }
-                var items = _this.data.tourItems.concat(resp.data.data)
-                _this.setData({ tourItems: items, loading: false })
-                if (items.length == 0 && query.page === 1) {
-                    wx.showToast({
-                        title: '没有数据',
-                        icon: 'none',
-                    })
-                }
-            }
-        })
-
-    },
-    loadQas: function () {
-        // 加载问答
-        var _this = this
-
-        var query = this.data.qaFilter || {}
-        query.page = this.data.page
-        query.per_page = this.data.per_page || 10
-        query.kw = this.data.kw || ''
-        app.request({
-            url: '/api/v1/questions/',
-            data: query,
-            success: function (resp) {
-                if (resp.data.status != 0) {
-                    return
-                }
-                var items = _this.data.qaItems.concat(resp.data.data)
-                _this.setData({ qaItems: items, loading: false })
-                if (items.length == 0 && query.page === 1) {
-                    wx.showToast({
-                        title: '没有数据',
-                        icon: 'none',
-                    })
-                }
-            }
-        })
-    },
-
     kwChange: function (e) {
         var kw = e.detail
-        var data = {
-            kw: kw,
-            page: 1,
-            loading: true
-        }
-        var _this = this
-        this.setData(data, () => {
-            // load data
-            _this.reloadPage()
+        this.setData({
+            kw:kw
         })
     },
-
-
-    loadTopNews: function () {
-        // 精选资讯
-        var query = {
-            is_top: true,
-            per_page: 30
-        }
-        var _this = this
-        app.request({
-            url: '/api/v1/news',
-            data: query,
-            success: function (resp) {
-                if (resp.data.status != 0) {
-                    return
-                }
-                var items = resp.data.data
-                _this.setData({ topNewsItems: items, loading: false })
-            }
-        })
-    },
-
-    loadNews: function () {
-        var _this = this
-        var query = {
-            page: this.data.page,
-            is_top: false,
-            cat_id: this.data.newsCatId,
-            kw: this.data.kw,
-            per_page: 30
-        }
-        app.request({
-            url: '/api/v1/news',
-            data: query,
-            success: function (resp) {
-                if (resp.data.status != 0) {
-                    return
-                }
-                var items = _this.data.newsItems.concat(resp.data.data)
-                _this.setData({ newsItems: items, loading: false })
-                if (items.length == 0 && query.page === 1) {
-                    wx.showToast({
-                        title: '没有数据',
-                        icon: 'none',
-                    })
-                }
-            }
-        })
-    },
-
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
         wx.setNavigationBarTitle({ title: '发现', });
-        this.loadNews()
-        this.loadTopNews()
-        this.loadNewsCats()
-
     },
-
-    loadNewsCats: function () {
-        var _this = this
-        app.request({
-            url: '/api/v1/news_cats',
-            success: function (resp) {
-                _this.setData({ newsCats: resp.data.data })
-            }
-        })
-
-    },
-
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -233,7 +84,6 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-        this.reloadPage()
 
     },
 
@@ -242,29 +92,13 @@ Page({
      */
     onReachBottom: function () {
         // 触底加载更多
-        var data = { loading: true }
         var page = this.data.page
-        data.page = page + 1
-        this.setData(data, () => {
-            _this.loadCurrentPageData()
+        page = page + 1
+        this.setData({
+            loading:true,
+            page:page
         })
-    },
-
-    loadCurrentPageData: function () {
-        // 根据当前选中标签，加载对应的列表数据
-
-        switch (this.data.tab) {
-            case 'news':
-                this.loadNews()
-                break;
-            case 'qa':
-                this.loadQas()
-                break;
-            case 'tour':
-                this.loadTours()
-                break;
-        }
-
+        console.log("page",this.data.page)
     },
 
     /**

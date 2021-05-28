@@ -14,8 +14,6 @@ image {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* width: 100%;
-  height: 100%; */
 }
 .box{
   position: absolute;
@@ -117,7 +115,7 @@ image {
   width: 151rpx;
   background-color: #1989FA;
   color: #fff;
-  font-size: 24rpx;
+  font-size: 22rpx;
 }
 
 .notselect {
@@ -128,11 +126,11 @@ image {
   line-height: 80rpx;
   margin-right: 16rpx;
   margin-bottom: 15rpx;
-  width: 151rpx;
+  width: 153rpx;
   background-color: #fff;
   color: #1989FA;
   border: 1rpx solid #1989FA;
-  font-size: 24rpx;
+  font-size: 22rpx;
 }
 
 .search-confirm,
