@@ -39,18 +39,20 @@ Component({
                     let value = res.data.data
                     let status = res.statusCode
                     if(status == 200){
-                        _this.setData({
-                            id:value.id,
-                            second:value.second,
-                            url:value.url,
-                        })
+                        if(value.id ==''){
+                            _this.setData({
+                                show:false
+                            })
+                        }
+                        else{
+                            _this.setData({
+                                id:value.id,
+                                second:value.second,
+                                url:value.url,
+                            })
+                            _this.Timeout()
+                        }
                     }
-                    else{
-                        _this.setData({
-                            show:false
-                        })
-                    }
-                    _this.Timeout()
                 }
             })
         },
