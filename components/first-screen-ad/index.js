@@ -10,6 +10,7 @@ Component({
 
     ready: function () {
         var _this = this
+        _this.Timeout()
     },
 
     /**
@@ -17,9 +18,7 @@ Component({
      */
     data: {
         show: true,
-        time:3
-
-
+        time:5
     },
 
     /**
@@ -29,7 +28,9 @@ Component({
         adClick: function (e) {
             // 点击广告图片后
             // TODO 
-
+            wx.navigateTo({
+              url: 'url',
+            })
         },
 
         closeHandle: function () {
@@ -37,7 +38,7 @@ Component({
         },
         Timeout(){
             var _this = this
-            var time = _this.data.time -1 
+            var time = _this.data.time-1
             setTimeout(() => {
                 _this.setData({time : time})
                 if(this.data.time<=0){
