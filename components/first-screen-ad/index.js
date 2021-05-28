@@ -18,38 +18,32 @@ Component({
      * 组件的初始数据
      */
     data: {
-        show: true,
-        second:'',
-        url:'',
-        id:''
+        show: false,
+        second: '',
+        url: '',
+        id: ''
     },
 
     /**
      * 组件的方法列表
      */
     methods: {
-        loadData(){
+        loadData() {
             var _this = this
             app.request({
                 url: '/api/v1/first_screen_ads',
-                method:'get',
+                method: 'get',
                 success: function (res) {
                     let value = res.data.data
                     let status = res.statusCode
-                    if(status == 200){
-                        if(value.id ==''){
-                            _this.setData({
-                                show:false
-                            })
-                        }
-                        else{
-                            _this.setData({
-                                id:value.id,
-                                second:value.second,
-                                url:value.url,
-                            })
-                            _this.Timeout()
-                        }
+                    if (value) {
+                        _this.setData({
+                            id: value.id,
+                            second: value.second,
+                            url: value.url,
+                            show: true
+                        })
+                        _this.Timeout()
                     }
                 }
             })
@@ -58,26 +52,30 @@ Component({
             // 点击广告图片后
             // TODO 
             wx.navigateTo({
-              url: 'url',
+                url: 'url',
             })
         },
 
         closeHandle: function () {
-            this.setData({ show: false })
+            this.setData({
+                show: false
+            })
         },
-        Timeout(){
+        Timeout() {
             var _this = this
-            var second = _this.data.second-1
+            var second = _this.data.second - 1
             setTimeout(() => {
-                _this.setData({second: second})
-                if(_this.data.second<=0){
-                    this.closeHandle()  
+                _this.setData({
+                    second: second
+                })
+                if (_this.data.second <= 0) {
+                    this.closeHandle()
                     return
-                }else{
+                } else {
                     this.Timeout()
                 }
             }, 1000);
-            
+
         },
 
     }
