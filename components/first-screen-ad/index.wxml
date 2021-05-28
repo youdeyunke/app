@@ -4,6 +4,6 @@
         <image src="{{url}}" class="bg" bindtap="adClick" />
     </view>
     <view class="fork">
-        <image   src="../../assets/icons/round-wrong-sign.png" bindtap="closeHandle"></image>
+        <image  src="../../assets/icons/round-wrong-sign.png" bindtap="closeHandle"></image>
     </view>
 </van-popup>

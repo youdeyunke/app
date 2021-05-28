@@ -260,7 +260,8 @@ Page({
       var number = '500-99999'
       formdata[key]=number
       this.setData({
-        price_between: select
+        price_between: select,
+        formdata:formdata
       })
     }else{
       this.setData({
@@ -287,6 +288,7 @@ Page({
       formdata[key]=number
       this.setData({
         area_price: areaprice,
+        formdata:formdata
       })
     }else if(formdata[key]==='10000以内'){
       var number = '0-10000'
@@ -318,6 +320,7 @@ Page({
       formdata[key]=number
       this.setData({
         area: area,
+        formdata:formdata
       })
     }else{
       this.setData({
