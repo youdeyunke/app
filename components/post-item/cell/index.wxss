@@ -80,7 +80,7 @@
 
 .post .status{
     position: absolute;
-    top:0;
+    top:26rpx;
     right:10rpx;
     padding:0 4rpx;
 }

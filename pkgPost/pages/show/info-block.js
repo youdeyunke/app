@@ -29,13 +29,26 @@ Component({
             })
             this.setData({ metaItems: items })
         },
+        "value.albums": function(albums){
+            if(!albums){
+                return
+            }
+            var data = {}
+            data.albums = albums.filter((a,i) => {
+                if(a.items_count > 0){
+                    return true
+                }
+            })
+            this.setData(data)
+        },
     },
 
     /**
      * 组件的初始数据
      */
     data: {
-        metaItems: []
+        metaItems: [],
+        albums: [],
 
     },
 

@@ -7,7 +7,7 @@
         <view class="title">{{post.title}}</view>
         <view class="top">
             <view class="tags">
-                <van-tag text-color="{{item.text_color }}" size="mini" plain wx:for="{{post.tag_objs}}" wx:key="item.id">
+                <van-tag wx:if="{{index <= 2}}" text-color="{{item.text_color }}" size="mini" plain wx:for="{{post.tags}}" wx:key="item.id">
                     {{item.name}}
                 </van-tag>
             </view>
