@@ -11,7 +11,7 @@
     <post-filter filter="{{filter}}" bind:change="filterChange" />
 </view>
 <view class="res" style="padding-top:{{ !albumId ? '200rpx' : '80rpx'}}">
-    <album-info wx:if="{{album && album.id}}" album="{{album}}"></album-info>
+    <album-info wx:if="{{ albumId}}" album="{{album}}"></album-info>
     <view class="subinfo" wx:if="{{filter.sub_district_id}}">
         <sub-district sid="{{filter.sub_district_id}}" />
     </view>
