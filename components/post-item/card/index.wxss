@@ -18,7 +18,9 @@
     margin-top: 20rpx;
     margin-bottom: 10rpx;
 }
-
+.footer{
+    margin-top: 16rpx;
+}
 .post .cover image {
     width: 100%;
     height: 100%;
@@ -58,9 +60,7 @@
     align-items: center;
 }
 
-.post .top text {
-    color: red;
-}
+
 
 .post .title {
     color: #000;
@@ -71,4 +71,15 @@
     overflow-x: hidden;
     overflow-y: hidden;
     font-weight: bold;
+}
+.post .price{
+    float: left;
+}
+.left{
+float: left;
+}
+.right
+{
+float: right;
+color: red;
 }

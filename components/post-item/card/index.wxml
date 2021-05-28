@@ -1,6 +1,6 @@
 <navigator hover-class="none" class="post" url="/pkgPost/pages/show/index?id={{post.id}}">
     <view class="cover">
-        <image src="{{post.cover}}?imageView2/1/w/750/h/400" />
+        <image style="border-radius:5rpx" src="{{post.cover}}?imageView2/1/w/750/h/400" />
         <view class="address">{{post.address}}</view>
     </view>
     <view class="footer">
@@ -12,8 +12,8 @@
                 </van-tag>
             </view>
             <view class="price">
-                {{post.average_price_info.label}}:
-                <text>{{post.average_price_info.text}}{{post.average_price_info.px}}</text>
+                <view class="left">{{post.average_price_info.label}}:</view>
+                <view class="right">{{post.average_price_info.text}}{{post.average_price_info.px}}</view>
             </view>
         </view>
     </view>
