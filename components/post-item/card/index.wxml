@@ -1,10 +1,6 @@
 <navigator hover-class="none" class="post" url="/pkgPost/pages/show/index?id={{post.id}}">
     <view class="cover">
-<<<<<<< HEAD
         <image class="cover-image" src="{{post.cover}}?imageView2/1/w/750/h/400" />
-=======
-        <image style="border-radius:5rpx" src="{{post.cover}}?imageView2/1/w/750/h/400" />
->>>>>>> master
         <view class="address">{{post.address}}</view>
         <view class="position">
             <image class="position-image1" src="/assets/icons/3.png"></image>
