@@ -146,10 +146,10 @@
 }
 
 .mini .avatar {
-    width: 120rpx;
-    height: 120rpx;
+    width: 100rpx;
+    height: 100rpx;
     box-sizing: border-box;
-    border: 4rpx solid #fff;
+    border: 6rpx solid #fde6b2;
     border-radius: 120rpx;
     overflow: hidden;
     z-index: 20;

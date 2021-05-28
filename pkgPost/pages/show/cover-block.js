@@ -24,10 +24,10 @@ Component({
             this.setData({ showShareBox: true })
         },
         vrHandle: function () {
-            wx.showToast({
-                title: 'todo...',
-                icon: 'none',
-            });
+            var url  = '/pkgVr/pages/vr/index?post_id=' + this.data.value.id
+            wx.navigateTo({
+              url: url,
+            })
 
         },
     }

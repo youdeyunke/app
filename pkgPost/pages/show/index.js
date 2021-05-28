@@ -44,17 +44,9 @@ Page({
             },
         });
     },
-    onLoad: function (options) {
-        this.setData({
-          id:options.id
-        },()=>{
-            this.loadData()
-        })
-      },
 
 
-
-    loadData: function () {
+    loadPostBlocks: function () {
         var _this = this
         var query = {}
         app.request({
@@ -79,31 +71,23 @@ Page({
                 wx.stopPullDownRefresh()
                 wx.hideNavigationBarLoading()
                 wx.stopPullDownRefresh() //停止下拉刷新    
-                var post = resp.data.post
-                var broker = resp.data.broker
-                var data = {postInfo: post}
+    
                 var user = app.globalData.userInfo 
-                data.pageQuery = 'id=' + post.id 
+                var data = {}
+                data.pageQuery = 'id=' + _this.data.postId 
                 if(user.is_broker){
                     data.pageQuery  += '&broker_id=' + user.id
                 }
-                data.pageTitle = post.title 
-                data.pageCover = post.cover 
                 data.blocks = resp.data.data  
                 data.navs = resp.data.navs 
                 data.loading = false 
-            
-                wx.setNavigationBarTitle({
-                    title: post.title,
-                });
-
                 _this.setData(data, () => {
-                    _this.markHistory()
+                    wx.showShareMenu({
+                        withShareTicket: true,
+                        menus: ['shareAppMessage', 'shareTimeline']
+                    })
                 })
-                wx.showShareMenu({
-                    withShareTicket: true,
-                    menus: ['shareAppMessage', 'shareTimeline']
-                })
+
             }
         })
     },
@@ -144,9 +128,11 @@ Page({
 
         _this.setData({ postId: postId, brokerId: brokerId  }, () => {
             _this.loadData()
-    
+
         })
         app.markVisitor(null, postId, 'post', function (vid) {
+            // TODO 优化统计功能
+            return
             _this.setData({ 'visitorLogId': vid })
             _this.setInterval()
         })
@@ -278,6 +264,60 @@ Page({
                 wx.hideLoading();
             }, 3000);
         }
+    },
+
+    loadData: function(){
+        this.loadPostInfo()
+        this.loadPostBlocks()
+    },
+
+    _setPostInfo: function(post, cb){
+        var data = {}
+        data.postInfo = post 
+        data.pageTitle = post.title 
+        data.pageCover = post.cover 
+        console.log('set post info', post)
+        wx.setNavigationBarTitle({
+          title: post.title ,
+        })
+        this.setData(data, () => {
+            typeof cb == 'function' && cb(post)
+        })
+    },
+
+    loadPostInfo: function(cb){
+        // 加载楼盘的基本信息
+        // 优先从本地缓存中读取
+        var _this = this  
+        var pid = this.data.postId
+        var key = 'post_base_info.' + pid
+        wx.getStorage({
+          key: key,
+          success: function(cache){
+            if(cache.data){
+                _this._setPostInfo(cache.data, cb)
+            }
+           
+          }
+        })
+
+        app.request({
+            url: '/api/v1/post_base_info/' + pid, 
+            hideLoading: true, 
+            success: function(resp){
+                var post = resp.data.data 
+                if(!post){
+                    // TODO 
+                    return 
+                }
+                _this._setPostInfo(post, cb)
+                wx.setStorage({
+                  data: post,
+                  key: key,
+                })
+   
+            }
+        })
     },
 
     /**

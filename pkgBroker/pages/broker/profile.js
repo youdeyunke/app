@@ -172,8 +172,7 @@ Page({
                 }
                 var u = resp.data.data
                 var p = resp.data.post
-                console.log("ppppppppp", p)
-                console.log("uuuuuuu", u)
+
                 _this.setData({
                     brokerProfile: u,
                     house: p,
