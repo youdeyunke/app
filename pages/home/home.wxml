@@ -1,5 +1,8 @@
+<first-screen-ad />
+
 <van-transition wx:if="{{system.systemName}}" show="{{showInstallTips == 1}}" duration="500" name="fade-down" custom-class="install-tips" bindtap="closeInstallTips">
     <image src="/assets/images/install-tips-{{system.systemName}}.png" />
 </van-transition>
 <pagemaker bind:ready="pageReadyHandle" ref="pagemaker" id="pm" page-key="home" />
 <copyright></copyright>
+

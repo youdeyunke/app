@@ -1,0 +1,9 @@
+<van-popup show="{{show}}" duration="800" custom-style="background:none;">
+    <view class="new-version-window">
+        <view class="close-text" bindtap="closeHandle">关闭({{second}}s)</view>
+        <image src="{{url}}" class="bg" bindtap="adClick" />
+    </view>
+    <view class="fork">
+        <image   src="../../assets/icons/round-wrong-sign.png" bindtap="closeHandle"></image>
+    </view>
+</van-popup>
