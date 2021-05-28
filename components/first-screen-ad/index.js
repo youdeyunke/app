@@ -34,11 +34,6 @@ Component({
                 url: '/api/v1/first_screen_ads',
                 method:'get',
                 success: function (res) {
-<<<<<<< HEAD
-                    console.log("我是广告弹窗的res")
-                    console.log(res)
-=======
->>>>>>> master
                     let value = res.data.data
                     let status = res.statusCode
                     if(status == 200){
