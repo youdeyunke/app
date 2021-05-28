@@ -1,17 +1,21 @@
 page{
     background-color: #fff !important;
 }
+.image-box{
+    height: 320rpx;
+    position: relative;
+}
 .profile-image1{
     width:750rpx ;
     height:400rpx ;
-    position: absolute;
     top: 0;
     z-index: -1;
+    position: absolute;
 }
 .profile-card{
     width: 710rpx;
     margin: 0 auto;
-    margin-top: 120rpx;
+    margin-top: 250rpx;
 }
 .profile-image2{
     width:163rpx ;
@@ -20,14 +24,19 @@ page{
     border:6rpx solid #FDEBBD ;
     margin-left: 35rpx;
     z-index: 5;
-    position: relative;
+    position: absolute;
     background-color: #fff;
+    top:-80rpx ;
+    left: -15rpx;
 }
 .profile-image3{
     width: 710rpx;
     height:315rpx ;
-    margin-top: -80rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
+
 .card-message{
     width: 300rpx;
     height: 180rpx;
@@ -35,8 +44,8 @@ page{
     flex-direction: column;
     justify-content: space-between;
     position: absolute;
-    top: 294rpx;
-    left: 70rpx;
+    top: 100rpx;
+    left: 35rpx;
 }
 .card-message-top{
     width: 300rpx;
@@ -77,8 +86,8 @@ page{
     font-size: 24rpx;
     color: #3F3F3F;
     position: absolute;
-    top: 301rpx;
-    right: 89rpx;
+    top: 95rpx;
+    right: 90rpx;
 }
 .profile-position{
     width: 303rpx;
@@ -87,8 +96,9 @@ page{
     flex-direction: column;
     justify-content: space-between;
     position: absolute;
-    top: 371rpx;
-    right: 63rpx;
+    top: 145rpx;
+    right: 40rpx;
+    /* background-color: chocolate; */
 }
 .profile-position-top,.profile-position-bottom{
     display: flex;
@@ -98,6 +108,9 @@ page{
 }
 .profile-position-bottom{
     width:310rpx ;
+    position: absolute;
+    top: 240rpx;
+    right: 34rpx;
 }
 .profile-position-bottom-nav{
     width:80rpx ;

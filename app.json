@@ -226,6 +226,13 @@
       "pages": [
         "pages/about/index"
       ]
+    },
+    {
+      "root": "pkgBrokers",
+      "name": "brokers",
+      "pages": [
+        "pages/brokers/index"
+      ]
     }
   ],
   "pages": [

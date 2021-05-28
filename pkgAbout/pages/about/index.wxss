@@ -12,7 +12,7 @@
   height: 100vh;
 }
 .about-title{
-  width: 270rpx;
+  width: 470rpx;
   height: 120rpx;
   margin: 0 auto;
   display: flex;

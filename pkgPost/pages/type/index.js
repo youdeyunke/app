@@ -7,6 +7,7 @@ Page({
      */
     data: {
         loading: true,
+        brokerId: null,
         pid: null,
         tags: [],
         group: 0,
@@ -19,7 +20,8 @@ Page({
     onLoad: function (q) {
         wx.setNavigationBarTitle({ title: '全部户型列表' });
         var pid = q.post_id || q.id
-        this.setData({ pid: pid })
+        var brokerId  = q.broker_id  
+        this.setData({ pid: pid, brokerId: brokerId })
         this.loadTypes(pid)
         this.loadPostInfo(pid)
     },
@@ -31,10 +33,17 @@ Page({
             success: function (res) {
                 //console.log(res.data.data);
                 var post = res.data.data
-                _this.setData({
-                    post: res.data.data
-                })
-                wx.setNavigationBarTitle({ title: post.title + '的全部户型' });
+                var data = {post: post}
+                var user = app.globalData.userInfo 
+                data.pageQuery = 'id=' + pid
+                if(user && user.is_broker){
+                    data.pageQuery += '&broker_id=' + user.id
+                }                
+                
+                data.pageTitle = post.title + ' 户型介绍'
+                data.pageCover = post.cover 
+                _this.setData(data)     
+                
             }
         })
     },
@@ -127,12 +136,24 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-        var _this = this
-        var title = '户型介绍'
+        
         return {
-            title: title,
-            path: 'pkgBuilding/pages/type/index?pid=' + _this.data.pid,
-            imageUrl: image
+            title: this.data.pageTitle,
+            path: 'pkgBuilding/pages/type/index?' + this.data.pageQuery,
+            imageUrl: this.data.pageCover
         }
     },
+
+    
+
+    onShareTimeline: function () {
+    
+
+        return {
+            title: this.data.pageTitle,
+            query:  this.data.pageQuery ,
+            imageUrl: this.data.pageCover
+        }
+    }
+
 })

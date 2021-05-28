@@ -1,0 +1,105 @@
+/* pkgBrokers/Pages/Brokers/index.wxss */
+#brokers-box{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  box-sizing: border-box;
+  background-color:#3e88ff ;
+}
+.brokers-top{
+  position: relative;
+}
+.brokers-top image{
+  width:53.42rpx ;
+  height:53.42rpx ;
+}
+.brokers-top image:nth-of-type(2){
+  top: 422rpx;
+  left: 352rpx;
+  position: absolute;
+}
+.brokers-top image:nth-of-type(1){
+  width:750rpx ;
+  height: 580rpx;
+  display: block;
+}
+.brokers-top text{
+  width:102rpx ;
+  height:45rpx ;
+  font-size:34rpx ;
+  color: white;
+  line-height: 45rpx;
+  text-align: center;
+  display: block;
+  position: absolute;
+  top:496rpx;
+  left: 326rpx;
+}
+.brokers-top text:nth-of-type(2){
+  top: 462rpx;
+  left: 115rpx;
+  font-size:28rpx ;
+  width:84rpx ;
+  height:37rpx ;
+  line-height: 37rpx;
+}
+.brokers-top text:nth-of-type(3){
+  left: 553rpx;
+  top: 462rpx;
+  font-size:28rpx ;
+  width:84rpx ;
+  height:37rpx ;
+  line-height: 37rpx;
+}
+.brokers-top-photo image:nth-of-type(1){
+  width: 153rpx;
+  height: 153rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 298rpx;
+  left: 300rpx;
+}
+.brokers-top-photo2 image:nth-of-type(2),.brokers-top-photo3 image:nth-of-type(2){
+  width:53.42rpx ;
+  height:53.42rpx ;
+  border-radius: 50%;
+  position: absolute;
+  top: 395rpx;
+  left: 130rpx;
+}
+.brokers-top-photo2 image:nth-of-type(1),.brokers-top-photo3 image:nth-of-type(1){
+  width: 106.5rpx;
+  height: 107.5rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 307.5rpx;
+  left: 102.5rpx;
+}
+.brokers-top-photo3 image:nth-of-type(1){
+  left: 538rpx;
+  top: 308rpx;
+  width: 112rpx;
+  height: 113rpx;
+}
+.brokers-top-photo3 image:nth-of-type(2){
+  left: 568rpx;
+  top: 400rpx;
+}
+.brokers-nav{
+  width:710rpx ;
+  margin: 0 auto;
+  border-radius: 20rpx;
+  background-color: #fff;
+}
+.brokers-bottom{
+  width: 750rpx;
+  height:53rpx ;
+  margin-top: 52.17rpx;
+  background-color:#3e88ff; 
+}
+.brokers-bottom image{
+  width:524.83rpx ;
+  height: 52rpx;
+  margin-left: 113.43rpx;
+  display: block;
+}

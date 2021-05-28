@@ -7,6 +7,8 @@
         "page-loading": "/pages/home/page-loading",
         "news-swiper": "/components/news-swiper",
         "pagemaker": "/components/pagemaker/index",
+  
+        "first-screen-ad": "/components/first-screen-ad/index",
         "navs": "/components/navs",
         "van-transition": "/vant/transition/index",
         "myslider": "/components/slider",

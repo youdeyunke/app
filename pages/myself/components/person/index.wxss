@@ -1,14 +1,14 @@
-/* pages/myself/components/person/index.wxss */
 image{
   vertical-align: top;
 }
 .person-box{
   width:710rpx ;
-  height: 121rpx;
+  height: 200rpx;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 100rpx;
 }
 .person-image1,.person-else-image1{
   width: 120rpx;

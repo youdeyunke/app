@@ -2,16 +2,16 @@
 <image class="image1" src="../../image/1.png"></image>
 <view class="about-box">
   <view class="about-title">
-    <view>小程序名称</view>
-    <view>VERSION 2.9.10</view>
+    <view>{{xcx_name}}</view>
+    <view> VERSION {{xcx_version }}</view>
   </view>
   <view class="about-describe">
-    <view>优得科技是一家小而美的技术驱动型公司,成立于2019年,由一群热爱互联网技术的小伙伴组成。</view>
-    <view>优得科技面对中小型企业</view>
+    <view>{{xcx_us}}</view>
+
   </view>
   <view class="po" wx:if="{{show==true}}">
     <view class="image-box" >
-      <image src="{{path}}" bindlongpress="savaHandle"></image>
+      <image src="{{xcx_wechat_qr}}" bindlongpress="savaHandle"></image>
     </view>
     <view class="close-box">
       <image class="image2" src="../../image/4.png" bindtap="closeHandle"></image>

@@ -50,6 +50,13 @@ Component({
 
         },
 
+        gotoProfile: function(){
+            var url = '/pkgBroker/pages/broker/profile?id=' + this.data.bid 
+            wx.navigateTo({
+              url: url,
+            })
+        },
+
         callHandle: function () {
             var phone = this.data.broker.mobile
             wx.makePhoneCall({

@@ -1,0 +1,9 @@
+<block wx:if="{{myindex>2}}">
+  <view class="brokers-box">
+  <image class="brokers-img1" src="../image/{{myindex}}.png"></image>
+  <image src="{{ranking.avatar}}" class="brokers-img2"></image>
+  <text>{{ranking.name}}</text>
+  <image src="/assets/icons/broker/{{ranking.level}}.png" class="brokers-img3"></image>
+  <text bindtap="GoPage" data-myid="{{ranking.user_id}}">TA的主页</text>
+</view>
+</block>
