@@ -71,6 +71,7 @@
     overflow-x: hidden;
     overflow-y: hidden;
     font-weight: bold;
+    margin-top: 16rpx;
 }
 .position{
     height: 250rpx;
@@ -88,4 +89,12 @@
     width:48rpx ;
     height: 48rpx;
     margin-top: 18rpx;
+}
+.left{
+    float: left;
+}
+.right
+{
+    float:right;
+    color: red;
 }
