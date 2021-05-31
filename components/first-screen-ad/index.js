@@ -18,39 +18,50 @@ Component({
      * 组件的初始数据
      */
     data: {
-        show: true,
-        second:'',
-        url:'',
-        id:''
+        show: false,
+        second: '',
+        url: '',
+        id: '',
+        click_nums:1,
+        skip_nums:1,
+        view:{
+            view_nums:1
+        }
     },
 
     /**
      * 组件的方法列表
      */
     methods: {
-        loadData(){
+        loadData() {
             var _this = this
             app.request({
                 url: '/api/v1/first_screen_ads',
-                method:'get',
+                method: 'get',
                 success: function (res) {
+                    console.log(res)
                     let value = res.data.data
-                    let status = res.statusCode
-                    if(status == 200){
-                        if(value.id ==''){
-                            _this.setData({
-                                show:false
-                            })
-                        }
-                        else{
-                            _this.setData({
-                                id:value.id,
-                                second:value.second,
-                                url:value.url,
-                            })
-                            _this.Timeout()
-                        }
+                    if (value) {
+                        _this.setData({
+                            id: value.id,
+                            second: value.second,
+                            url: value.url,
+                            show: true
+                        })
+                        _this.Timeout()
                     }
+                }
+            })
+        },
+        uploadData(key){
+            app.request({
+                url:'/api/v1/first_screen_ads/'+this.data.id,
+                method:'PUT',
+                data:{
+                    key
+                },
+                success(res){
+
                 }
             })
         },
@@ -58,26 +69,37 @@ Component({
             // 点击广告图片后
             // TODO 
             wx.navigateTo({
-              url: 'url',
+                url: 'url',
             })
+            this.uploadData(e.currentTarget.dataset)
         },
 
-        closeHandle: function () {
-            this.setData({ show: false })
+        closeHandle: function (e) {
+            this.setData({
+                show: false
+            })
+            if(this.data.second>=0){
+                this.uploadData(e.currentTarget.dataset)
+            }
         },
-        Timeout(){
+        Timeout() {
             var _this = this
-            var second = _this.data.second-1
+            var second = _this.data.second - 1
             setTimeout(() => {
-                _this.setData({second: second})
-                if(_this.data.second<=0){
-                    this.closeHandle()  
+                _this.setData({
+                    second: second
+                })
+                if (_this.data.second <= 0) {
+                    this.uploadData(_this.data.view)
+                    this.setData({
+                        show: false
+                    })
                     return
-                }else{
+                } else {
                     this.Timeout()
                 }
             }, 1000);
-            
+
         },
 
     }
