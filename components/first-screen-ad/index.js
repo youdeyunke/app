@@ -39,6 +39,7 @@ Component({
                 url: '/api/v1/first_screen_ads',
                 method: 'get',
                 success: function (res) {
+                    console.log(res)
                     let value = res.data.data
                     if (value) {
                         _this.setData({
@@ -55,9 +56,12 @@ Component({
         uploadData(key){
             app.request({
                 url:'/api/v1/first_screen_ads/'+this.data.id,
-                method:'PATCH',
+                method:'PUT',
                 data:{
                     key
+                },
+                success(res){
+
                 }
             })
         },
