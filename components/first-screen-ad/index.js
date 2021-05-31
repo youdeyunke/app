@@ -54,8 +54,8 @@ Component({
         },
         uploadData(key){
             app.request({
-                url:'/api/v1/first_screen_ads/'+this.data.id,
-                method:'PATCH',
+                url:'/api/v1/first_screen_ads/<id>/',
+                method:'PUT',
                 data:{
                     key
                 }
