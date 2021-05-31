@@ -21,7 +21,12 @@ Component({
         show: false,
         second: '',
         url: '',
-        id: ''
+        id: '',
+        click_nums:1,
+        skip_nums:1,
+        view:{
+            view_nums:1
+        }
     },
 
     /**
@@ -35,7 +40,6 @@ Component({
                 method: 'get',
                 success: function (res) {
                     let value = res.data.data
-                    let status = res.statusCode
                     if (value) {
                         _this.setData({
                             id: value.id,
@@ -48,18 +52,31 @@ Component({
                 }
             })
         },
+        uploadData(key){
+            app.request({
+                url:'/api/v1/first_screen_ads/'+this.data.id,
+                method:'PATCH',
+                data:{
+                    key
+                }
+            })
+        },
         adClick: function (e) {
             // 点击广告图片后
             // TODO 
             wx.navigateTo({
                 url: 'url',
             })
+            this.uploadData(e.currentTarget.dataset)
         },
 
-        closeHandle: function () {
+        closeHandle: function (e) {
             this.setData({
                 show: false
             })
+            if(this.data.second>=0){
+                this.uploadData(e.currentTarget.dataset)
+            }
         },
         Timeout() {
             var _this = this
@@ -69,7 +86,10 @@ Component({
                     second: second
                 })
                 if (_this.data.second <= 0) {
-                    this.closeHandle()
+                    this.uploadData(_this.data.view)
+                    this.setData({
+                        show: false
+                    })
                     return
                 } else {
                     this.Timeout()
