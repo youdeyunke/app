@@ -34,15 +34,19 @@ Component({
         url: '/api/v1/questions/',
         data: query,
         success: function (resp) {
-          if (resp.data.status != 0) {
-            return
+          if(query.page==1){
+            _this.setData({
+              qaItems:resp.data.data
+            })
+          }else if(query.page>1){
+            var oldData = _this.data.qaItems
+            var newData = resp.data.data
+            var Data = oldData.concat(newData)
+            _this.setData({
+              qaItems:Data
+            })
           }
-          var items = resp.data.data
-          _this.setData({
-            qaItems: items,
-            loading: false
-          })
-          if (items.length == 0 && query.page === 1) {
+          if (_this.data.qaItems.length == 0 && query.page === 1) {
             wx.showToast({
               title: '没有数据',
               icon: 'none',
@@ -57,6 +61,9 @@ Component({
   },
   observers:{
     'kw':function(){
+      this.loadQas()
+    },
+    'page':function(){
       this.loadQas()
     }
   }

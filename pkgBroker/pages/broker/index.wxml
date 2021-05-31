@@ -10,6 +10,7 @@
             <broker-item item="{{broker}}" class="broker"></broker-item>
         </view>
     </block>
+    <navigator class="footer" url="/pkgBroker/pages/broker/join">+申请入驻置业顾问</navigator>
     <view style="display:flex;justify-content:center;align-items:center;margin-top:30rpx;">
         <van-loading wx:if="{{loading}}" />
     </view>

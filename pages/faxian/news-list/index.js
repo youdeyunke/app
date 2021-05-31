@@ -41,7 +41,7 @@ Component({
       // 热门推荐
       var query = {
         is_top: true,
-        per_page: 30
+        per_page: 10
       }
       var _this = this
       app.request({
@@ -71,19 +71,18 @@ Component({
           url: '/api/v1/news',
           data: query,
           success: function (resp) {
-              if (resp.data.status != 0) {
-                  return
-              }
-              var items = resp.data.data
-              _this.setData({ newsItems: items, loading: false })
-              console.log("楼盘资讯数据："+_this.data.newsItems)
-
-              if (items.length == 0 && query.page === 1) {
-                  wx.showToast({
-                      title: '没有数据',
-                      icon: 'none',
-                  })
-              }
+            if(this.data.page==1){
+              _this.setData({
+                newsItems:resp.data.data
+              })
+            }else if(this.data.page>1){
+              var oldData = _this.data.newsItems
+              var newData = resp.data.data
+              var Data = oldData.concat(newData)
+              _this.setData({
+                newsItems:Data
+              })
+            }
           }
       })
     },
@@ -93,10 +92,12 @@ Component({
     this.loadTopNews()
     this.loadNews()
   },
-  observers:{
-    'kw':function(){
+  'observers':{
+    "kw":function(){
       this.loadNews()
-    }
+    },
+    "page":function(){
+      this.loadNews()
+    },
   }
-
 })

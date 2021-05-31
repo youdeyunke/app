@@ -4,9 +4,15 @@
         <image class="cover" src="{{post.cover}}" />
     </view>
     <view class="position">
-        <image src="/assets/icons/post/live.png"></image>
-        <image src="/assets/icons/post/video.png"></image>
-        <image src="/assets/icons/post/VR.png"></image>
+        <block wx:if="{{post.has_live==true}}">
+            <image src="/assets/icons/post/live.png"></image>
+        </block>
+        <block wx:if="{{post.has_video==true}}">
+            <image src="/assets/icons/post/video.png"></image>
+        </block>
+        <block wx:if="{{post.has_vr==true}}">
+            <image src="/assets/icons/post/VR.png"></image>
+        </block>
     </view>
     <view class="right">
         <view class="title">
@@ -14,7 +20,6 @@
         </view>
         <view class="price">
             <text class="red">{{post.average_price_info.text}}{{post.average_price_info.px}}</text>
-
         </view>       
         <view class="address">{{post.street}}</view>
         <view class="tags">
