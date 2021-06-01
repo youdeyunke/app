@@ -5,8 +5,14 @@
     {{post.average_price_info.text}}{{post.average_price_info.px}}
   </view>
   <view class="position">
-    <image class="position-image1" src="/assets/icons/post/live.png"></image>
-    <image class="position-image2" src="/assets/icons/post/video.png"></image>
-    <image class="position-image3" src="/assets/icons/post/VR.png"></image>
+    <block wx:if="{{post.has_live==true}}">
+      <image src="/assets/icons/post/live.png"></image>
+    </block>
+    <block wx:if="{{post.has_video==true}}">
+      <image src="/assets/icons/post/video.png"></image>
+    </block>
+    <block wx:if="{{post.has_vr==true}}">
+      <image src="/assets/icons/post/VR.png"></image>
+    </block>
   </view>
 </navigator>
