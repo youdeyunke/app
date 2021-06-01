@@ -47,6 +47,9 @@ Page({
    */
   onLoad: function (options) {
     this.getBroker()
+    wx.setNavigationBarTitle({
+      title: '我的预约',
+    })
   },
 
   /**

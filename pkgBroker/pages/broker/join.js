@@ -130,6 +130,9 @@ Page({
         if(q.post_id){
             this.setDefaultPost(q.post_id)
         }
+        wx.setNavigationBarTitle({
+          title: '申请入驻',
+        })
     },
 
 

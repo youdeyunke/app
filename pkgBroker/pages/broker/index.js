@@ -25,6 +25,9 @@ Page({
       }, () => {
         this.loadData()
       })
+      wx.setNavigationBarTitle({
+        title: '置业顾问',
+      })
   },
 
   searchTextInput: function(e){

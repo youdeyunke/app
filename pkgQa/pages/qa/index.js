@@ -34,6 +34,9 @@ Page({
         _this.setData({pageTitle: '我的提问'})
       })
     }
+    wx.setNavigationBarTitle({
+      title: '有问必答',
+    })
   },
 
 

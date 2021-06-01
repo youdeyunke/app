@@ -55,8 +55,4 @@
 <view style="margin-top:100rpx;">
 <brokeroperation  broker="{{user}}"></brokeroperation>
 </view>
-<!-- view class="broker-emphasis">
-  <text class="broker-text4">重点功能</text>
-  <brokeroperation></brokeroperation>
-</view -->
 <operation myuser="{{user}}" bindquitHandle="myquit"></operation>
