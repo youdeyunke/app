@@ -4,6 +4,7 @@
         <image src="{{url}}" class="bg" data-click_nums="{{click_nums}}" bindtap="adClick" />
     </view>
     <view class="fork">
-        <image  src="../../assets/icons/round-wrong-sign.png" data-skip_nums="{{skip_nums}}"  bindtap="closeHandle"></image>
+        <image src="../../assets/icons/round-wrong-sign.png" data-skip_nums="{{skip_nums}}" bindtap="closeHandle">
+        </image>
     </view>
 </van-popup>
