@@ -1,9 +1,9 @@
 <van-popup show="{{show}}" duration="800" custom-style="background:none;">
     <view class="new-version-window">
-        <view class="close-text" data-click_nums="{{click_nums}}" bindtap="closeHandle">关闭({{second}}s)</view>
-        <image src="{{url}}" class="bg" data-skip_nums="{{skip_nums}}" bindtap="adClick" />
+        <view class="close-text" data-skip_nums="{{skip_nums}}" bindtap="closeHandle">关闭({{second}}s)</view>
+        <image src="{{url}}" class="bg" data-click_nums="{{click_nums}}" bindtap="adClick" />
     </view>
     <view class="fork">
-        <image  src="../../assets/icons/round-wrong-sign.png" data-click_nums="{{click_nums}}"  bindtap="closeHandle"></image>
+        <image  src="../../assets/icons/round-wrong-sign.png" data-skip_nums="{{skip_nums}}"  bindtap="closeHandle"></image>
     </view>
 </van-popup>
