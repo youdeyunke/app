@@ -28,7 +28,7 @@ Component({
       var _this = this
       var query = {
         kw:this.properties.kw,
-        page:this.properties.page
+        page:this.properties.page,
       }
       app.request({
         url: '/api/v1/tours/',
@@ -37,17 +37,24 @@ Component({
           if (resp.data.status != 0) {
             return
           }
-          var items = resp.data.data
-          _this.setData({
-            tourItems: items,
-            loading: false
-          })
-          if (items.length == 0 && query.page === 1) {
+          if(this.data.page==1){
+            _this.setData({
+              tourItems:resp.data.data
+            })
+          }else if(this.data.page>1){
+            var oldData = _this.data.tourItems
+            var newData = resp.data.data
+            var Data = oldData.concat(newData)
+            _this.setData({
+              tourItems:Data
+            })
+          }
+          if (_this.data.tourItems.length == 0 && query.page === 1) {
             wx.showToast({
               title: '没有数据',
               icon: 'none',
             })
-          }
+          } 
         }
       })
     },
@@ -58,6 +65,10 @@ Component({
   observers:{
     'kw':function(){
       this.loadTours()
+    },
+    'page':function(){
+      this.loadTours()
+      console.log("dhiiiiii")
     },
   }
 })
