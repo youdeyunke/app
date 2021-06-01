@@ -5,12 +5,12 @@
     padding: 20rpx 0;
 }
 .bgimage{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height:300rpx ;
-    z-index: -2;
+    z-index: 2;
 }
 .title{
     font-size:36rpx ;
@@ -19,6 +19,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
 }
 .title image{
     width:15rpx ;
@@ -26,16 +30,25 @@
 }
 .van-tabs__scroll{
     background-color: rgb(242, 242, 242,0) !important ;
+    width: 100%;
+    position: fixed;
+    top: 95rpx;
+    left: 0;
+    overflow:scroll;
+    z-index: 5;
 }
 .search{
-    padding: 20rpx;
+    width: 100%;
+    padding: 0rpx 20rpx;
     font-size: 26rpx;
     color: #1989FA;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 15rpx;
-    margin-top: 20rpx;
+    position: fixed;
+    top: 210rpx;
+    left: 0;
+    z-index: 5;
 }
 .sousuo{
     color: #fff;
@@ -69,4 +82,7 @@ input{
     position: absolute;
     top: -20rpx;
     right: -10rpx;
+}
+.position{
+    margin-top: 240rpx;
 }

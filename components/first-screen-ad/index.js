@@ -19,14 +19,14 @@ Component({
 	 */
 	data: {
 		show: false,
-		second: '',
+		second:5,
 		url: '',
 		id: '',
 		click_nums: 1,
 		skip_nums: 1,
 		view: {
 			view_nums: 1
-		}
+		},
 	},
 
 	/**
@@ -44,8 +44,7 @@ Component({
 					if (value) {
 						_this.setData({
 							id: value.id,
-							second: value.second,
-							url: value.url,
+							url: value.image,
 							show: true
 						})
 						_this.Timeout()
@@ -53,12 +52,14 @@ Component({
 				}
 			})
 		},
-		uploadData(key) {
+		uploadData(keys) {
+			for(var key in keys){
+			}
 			app.request({
 				url: '/api/v1/first_screen_ads/' + this.data.id,
 				method: 'PUT',
 				data: {
-					key
+					[key]:keys[key]
 				},
 			})
 		},

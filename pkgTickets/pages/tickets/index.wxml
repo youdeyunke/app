@@ -18,14 +18,16 @@
                 <view class="sousuo" slot="action" bindtap="onSearch">搜索</view>
             </view>
             <view>
+            </view>
+            <view class="position">
+                <view wx:if="{{items.length>0}}">
+                    <ticket-item wx:for='{{items}}' item='{{item}}'></ticket-item>
+                </view>
+                <view wx:else class="none">
+                    暂无数据
+                </view>
+            </view>
 
-            </view>
-            <view class="" wx:if="{{items.length>0}}">
-                <ticket-item wx:for='{{items}}' item='{{item}}'></ticket-item>
-            </view>
-            <view wx:else class="none">
-                暂无数据
-            </view>
         </van-tab>
     </van-tabs>
 

@@ -1,7 +1,15 @@
-<view style="width:100%">
-    <ud-tabs tabs='{{tabs}}' model:active-index='{{tabIndex}}' bind:change='tabChangeHandle' mytabs="newtabs" myborder="newborder"></ud-tabs>
+<view class="top-box">
+    <view style="width:100%">
+        <ud-tabs tabs='{{tabs}}' model:active-index='{{tabIndex}}' bind:change='tabChangeHandle' mytabs="newtabs"
+            myborder="newborder"></ud-tabs>
+    </view>
+    <search-bar bind:change="kwChange" kw="{{value}}" />
 </view>
-<search-bar bind:change="kwChange" kw="{{value}}"/>
+<view style="width:100%">
+    <ud-tabs tabs='{{tabs}}' model:active-index='{{tabIndex}}' bind:change='tabChangeHandle' mytabs="newtabs"
+        myborder="newborder"></ud-tabs>
+</view>
+<search-bar bind:change="kwChange" kw="{{value}}" />
 <block wx:if="{{tabIndex==0}}">
     <news kw="{{kw}}" page="{{page}}"></news>
 </block>

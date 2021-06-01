@@ -1,5 +1,11 @@
 /* pages/faxian/index.wxss */
-
+.top-box{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    width: 100%;
+}
 .mytabs {
     width: 100%;
     margin-bottom: 20rpx;

@@ -2,10 +2,10 @@
 .image1{
   height: 165rpx;
   width: 750rpx;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: 1;
 }
 .title{
   height: 130rpx;
@@ -14,6 +14,7 @@
   color:#999999 ;
   display: flex;
   align-items: center;
+  margin-top: 165rpx;
 }
 .title-nav{
   width:678rpx ;
@@ -34,13 +35,20 @@
   text-align: center;
 }
 .license-search{
-  margin: 50rpx 0rpx;
+  width: 750rpx;
+  padding: 0rpx 20rpx;
+  height: 165rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 26rpx;
   color: #ffffff;
   position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-bottom: 100rpx;
+  z-index: 4;
 }
 .license-search image{
   width:28rpx ;

@@ -2,6 +2,7 @@
     width: 710rpx;
     border: 2rpx solid #f4f4f4;
     background-color: #fff;
+    margin: 0 auto;
 }
 .title{
     margin: 30rpx 26rpx;
