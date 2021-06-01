@@ -28,7 +28,6 @@ Component({
             wx.navigateTo({
               url: url,
             })
-
         },
-    }
+    },
 })

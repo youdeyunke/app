@@ -29,27 +29,27 @@ Page({
         select: true
       },
       {
-        value: '50-100',
+        value: '50-100万元',
         select: false
       },
       {
-        value: '100-150',
+        value: '100-150万元',
         select: false
       },
       {
-        value: '150-200',
+        value: '150-200万元',
         select: false
       },
       {
-        value: '200-300',
+        value: '200-300万元',
         select: false
       },
       {
-        value: '300-500',
+        value: '300-500万元',
         select: false
       },
       {
-        value: '500以上',
+        value: '500万元以上',
         select: false
       },
     ],
@@ -58,27 +58,27 @@ Page({
         select: true
       },
       {
-        value: '10000以内',
+        value: '10000元以内',
         select: false
       },
       {
-        value: '10000-12000',
+        value: '10000-12000元',
         select: false
       },
       {
-        value: '12000-15000',
+        value: '12000-15000元',
         select: false
       },
       {
-        value: '15000-18000',
+        value: '15000-18000元',
         select: false
       },
       {
-        value: '18000-20000',
+        value: '18000-20000元',
         select: false
       },
       {
-        value: '20000以上',
+        value: '20000元以上',
         select: false
       },
     ],
@@ -87,38 +87,38 @@ Page({
         select: true
       },
       {
-        value: '0-50',
+        value: '50m/²以下',
         select: false
       },
       {
-        value: '50-80',
+        value: '50-80m/²',
         select: false
       },
       {
-        value: '80-100',
+        value: '80-100m/²',
         select: false
       },
       {
-        value: '100-120',
+        value: '100-120m/²',
         select: false
       },
       {
-        value: '120-150',
+        value: '120-150m/²',
         select: false
       },
       {
-        value: '150-200',
+        value: '150-200m/²',
         select: false
       },
       {
-        value: '200以上',
+        value: '200m/²以上',
         select: false
       },
     ],
     formdata: {
-      price: '不限',
-      areaprice: '不限',
-      area: '不限'
+      price: '0-99999999',
+      areaprice: '0-99999999',
+      area: '0-99999999'
     }
   },
   queryBuilding: function () {
@@ -130,9 +130,7 @@ Page({
       url: '/api/v1/buildings',
       data: query,
       success: function (res) {
-        console.log("buildingdata", res.data.data)
         if (res.data.data.items == '') {
-          console.log("没有数据")
           wx.showToast({
             title: '该房源还没有开通一房一价',
             icon: 'none'
@@ -147,6 +145,10 @@ Page({
             buildingdata: res.data.data,
             tabs: res.data.data.items
           })
+          var mytitle = res.data.data.post.title
+          wx.setNavigationBarTitle({
+            title: mytitle + '一房一价',
+          });
         }
       }
     })
@@ -171,9 +173,7 @@ Page({
           return false
         }
         var mydata = res.data.data
-        var floordata = (res.data.data).map((item) => {
-          return item.floor
-        })
+        var floordata = (res.data.data).map((item) => {return item.floor})
         var myfloordata = Array.from(new Set(floordata)) //[1，3，5]
         var groups = []
         myfloordata.forEach((floor) => {
@@ -255,9 +255,16 @@ Page({
     var key = e.currentTarget.dataset.key
     var formdata = this.data.formdata
     var myformdata = select.filter((myvalue) => { return myvalue.select === true}).map((myvalue) => {return myvalue.value})
-    formdata[key] = myformdata.toString()
-    if(formdata[key]==='500以上'){
-      var number = '500-99999'
+    formdata[key] = (myformdata.toString()).split('万')[0]
+    if(formdata[key]==='500'){
+      var number = '500-9999999'
+      formdata[key]=number
+      this.setData({
+        price_between: select,
+        formdata:formdata
+      })
+    }else if(formdata[key]==='不限'){
+      var number = '0-9999999'
       formdata[key]=number
       this.setData({
         price_between: select,
@@ -269,7 +276,6 @@ Page({
         formdata: formdata
       })
     }
-    console.log("2021-05-27数据", this.data.formdata)
 
   },
   areapriceHandle: function (e) {
@@ -282,19 +288,27 @@ Page({
     var key = e.currentTarget.dataset.key
     var formdata = this.data.formdata
     var myformdata = areaprice.filter((myvalue) => { return myvalue.select === true}).map((myvalue) => {return myvalue.value})
-    formdata[key] = myformdata.toString()
-    if(formdata[key]==='20000以上'){
+    formdata[key] = (myformdata.toString()).split('元')[0]
+    if(formdata[key]==='20000'){
       var number = '20000-999999'
       formdata[key]=number
       this.setData({
         area_price: areaprice,
         formdata:formdata
       })
-    }else if(formdata[key]==='10000以内'){
+    }else if(formdata[key]==='不限'){
+      var number = '0-9999999'
+      formdata[key]=number
+      this.setData({
+        area_price: areaprice,
+        formdata:formdata
+      })
+    }else if(formdata[key]==='10000'){
       var number = '0-10000'
       formdata[key]=number
       this.setData({
         area_price: areaprice,
+        formdata:formdata
       })
     }
     else{
@@ -314,9 +328,23 @@ Page({
     var key = e.currentTarget.dataset.key
     var formdata = this.data.formdata
     var myformdata = area.filter((myvalue) => {return myvalue.select === true}).map((myvalue) => {return myvalue.value})
-    formdata[key] = myformdata.toString()
-    if(formdata[key]==='200以上'){
+    formdata[key] = (myformdata.toString()).split('m/²')[0]
+    if(formdata[key]==='200'){
       var number = '200-99999'
+      formdata[key]=number
+      this.setData({
+        area: area,
+        formdata:formdata
+      })
+    }else if(formdata[key]==='不限'){
+      var number = '0-9999999'
+      formdata[key]=number
+      this.setData({
+        area: area,
+        formdata:formdata
+      })
+    }else if(formdata[key]==='50'){
+      var number = '0-50'
       formdata[key]=number
       this.setData({
         area: area,
@@ -333,30 +361,23 @@ Page({
     this.setData({
       searchShow: !this.data.searchShow
     })
-    console.log("数据", this.data.formdata)
   },
   resetHandle: function () {
     var myformdata = this.data.formdata
     var myprice_between = this.data.price_between
-    myprice_between.map((item => {
-      return item.select = false
-    }))
+    myprice_between.map((item => {return item.select = false}))
     myprice_between[0].select = true
-    myformdata.price = myprice_between[0].value
+    myformdata.price = '0-99999999'
 
     var myarea_price = this.data.area_price
-    myarea_price.map((item => {
-      return item.select = false
-    }))
+    myarea_price.map((item => {return item.select = false}))
     myarea_price[0].select = true
-    myformdata.areaprice = myarea_price[0].value
+    myformdata.areaprice = '0-99999999'
 
     var myarea = this.data.area
-    myarea.map((item => {
-      return item.select = false
-    }))
+    myarea.map((item => {return item.select = false}))
     myarea[0].select = true
-    myformdata.area = myarea[0].value
+    myformdata.area = '0-99999999'
 
     this.setData({
       price_between: myprice_between,

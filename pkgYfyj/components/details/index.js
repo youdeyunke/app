@@ -17,17 +17,8 @@ Component({
     }
 
   },
-
-  // ready: function () {
     observers:{
       "formdata":function(){
-        var mydata = this.properties.formdata
-        if (mydata.price == '不限' && mydata.areaprice == '不限' && mydata.area == '不限') {
-          this.setData({
-            result: true
-          })
-          return
-        }
         this.setData({
           result:false
         })
@@ -52,18 +43,13 @@ Component({
         }
         if ((myarea >= areamin && myarea <= areamax) &&
           (myprice >= pricemin && myprice <= pricemax) &&
-          (myaverage >= areamin && averagemin <= averagemax)) {
+          (myaverage >= averagemin && myaverage <= averagemax)) {
           this.setData({
             result: true
           })
-          // return
         }
-    
       }
     },
-   
-  // },
-
   /**
    * 组件的初始数据
    */

@@ -22,9 +22,6 @@
     </view>
   </view>
 </block>
-
-
-
 <block wx:if="{{detailsShow==true}}">
   <view class="unfold-box">
     <view class="unfold-top">

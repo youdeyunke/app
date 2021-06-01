@@ -2,7 +2,9 @@
     <view class="block">
         <image mode="aspectFill" class="bg" src="{{value.cover}}" />
         <image bindtap="shareHandle" class="fenxiang" src="../../icons/fenxiang.png" />
-        <image bindtap="vrHandle" class="vr" src="../../icons/vr.png" />
+        <block wx:if="{{value.has_vr==true}}">
+            <image bindtap="vrHandle" class="vr" src="../../icons/vr.png" />
+        </block>
     </view>
     <share-box post-info="{{value}}" model:show="{{showShareBox}}" />
 </block>

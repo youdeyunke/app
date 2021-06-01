@@ -115,7 +115,7 @@ image {
   width: 151rpx;
   background-color: #1989FA;
   color: #fff;
-  font-size: 22rpx;
+  font-size: 20rpx;
 }
 
 .notselect {
@@ -130,7 +130,7 @@ image {
   background-color: #fff;
   color: #1989FA;
   border: 1rpx solid #1989FA;
-  font-size: 22rpx;
+  font-size: 20rpx;
 }
 
 .search-confirm,

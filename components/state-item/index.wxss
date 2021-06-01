@@ -5,7 +5,7 @@
   position: fixed;
   top: 1130rpx;
   right: 30rpx;
-  z-index: 6555;
+  /* z-index: 6555; */
 }
 .await-image:nth-of-type(1),.await-image:nth-of-type(2){
   width: 120rpx;
