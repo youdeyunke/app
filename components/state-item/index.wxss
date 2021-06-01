@@ -7,3 +7,7 @@
   right: 30rpx;
   z-index: 6555;
 }
+.await-image:nth-of-type(1),.await-image:nth-of-type(2){
+  width: 120rpx;
+  height: 200rpx;
+}
