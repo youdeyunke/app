@@ -1,7 +1,7 @@
 <!-- pages/poster/index.wxml -->
 <page-loading loading="{{loading}}" />
-<view hidden="{{loading}}">
-    <image style="margin-top:30rpx;width:690rpx;height:1227rpx;" mode="aspectFill" bindtap='previewPoster' wx:if="{{posterUrl}}" src="{{posterUrl}}"></image>
+<view style="margin-left:30rpx" hidden="{{loading}}">
+    <image style="margin-top:30rpx;width:690rpx;height:1580rpx;" mode="aspectFill" bindtap='previewPoster' wx:if="{{posterUrl}}" src="{{posterUrl}}"></image>
     <view class="tips" bindtap="showTips">
         <van-icon name="question-o" />
         <text>房源海报有什么用途？</text>

@@ -39,12 +39,14 @@ Page({
      */
     onLoad: function (q) {
         // 先加载post数据，再自动生成海报
-        var label_1 = '小区'
-        var label_2 = '地址'
-        var label_3 = '户型'
+        var label_1 = '楼盘海报'
+        var label_2 = '足不出户在线看新房'
+        var label_3 = ''
         var label_4 = '价格'
-        var label_5 = '联系'
-        var label_6 = '面积'
+        var label_5 = '地址:'
+        var label_6 = '建面'
+        var label_7 = '均价'
+        var label_8 = '装修'
         var text_1 = '未知'
         var text_2 = '未知'
         var text_3 = '未知'
@@ -57,7 +59,8 @@ Page({
         wx.setNavigationBarTitle({ title: '制作房源海报' })
         var _this = this
         this.setData({ postId: q.id || q.post_id })
-        this.loadPost(q.id, (post) => {
+        let pid = q.id || q.post_id
+        this.loadPost(pid, (post) => {
             // 根据房源信息生成对应的海报需要的字段
             qrUrl = post.qr
             coverUrl = post.cover || ''
@@ -96,6 +99,8 @@ Page({
                     label_4: label_4,
                     label_5: label_5,
                     label_6: label_6,
+                    label_7: label_7,
+                    label_8: label_8,
                     text_1: text_1,
                     text_2: text_2,
                     text_3: text_3,
@@ -312,7 +317,9 @@ Page({
         var post = this.data.post
         var tpl = this.data.tpls[this.data.tplIndex]
         var bgImage = tpl.bg
+        var Image = '../../image/icon//address.png'
         console.log('tpl is',tpl)
+        var userInfo = app.globalData.userInfo
         var fontColor = tpl.font_color || '#ffffff'
         var config = {
             debug: false,
@@ -323,20 +330,39 @@ Page({
             height: 658,
             blocks: [
                 {
-                    width: 90,
-                    height: 90,
-                    x: 242,
-                    y: 542,
-                    borderRadius: 90,
+                    width: 100,
+                    height: 100,
+                    x: 250,
+                    y: 592,
+                    borderRadius: 100,
                     backgroundColor: '#ffffff',
                     zIndex: 1,
+                },
+
+                {
+                    width: 340,
+                    height: 413,
+                    x: 15,
+                    y: 145,
+                    borderRadius: 0,
+                    backgroundColor: '#ffffff',
+                    zIndex: 1,
+                },
+                {
+                    width: 32,
+                    height: 17,
+                    x: 317,
+                    y: 350,
+                    borderRadius: 5,
+                    backgroundColor: 'white',
+                    zIndex: 50,
                 },
             ],
             images: [
                 {
                     _desc: '背景底图',
-                    width: 370,
-                    height: 658,
+                    width: 375,
+                    height: 790,
                     x: 0,
                     y: 0,
                     borderRadius: 0,
@@ -349,46 +375,64 @@ Page({
                     width: 340,
                     height: 232,
                     x: 15,
-                    y: 19,
+                    y: 145,
                     borderRadius: 0,
                     url: _this.data.coverUrl,
                     zIndex: 19,
                 },
-
+                {
+                    _desc: '用户头像',
+                    width: 40,
+                    height:40,
+                    x: 34,
+                    y: 596,
+                    borderRadius: 40,
+                    url: userInfo.avatar,
+                    zIndex: 19,
+                },
                 {
                     width: 90,
                     height: 90,
-                    x: 242,
-                    y: 542,
+                    x: 255,
+                    y: 597,
                     borderRadius: 0,
-                    zIndex: 100,
+                    zIndex: 90,
                     url: qrUrl,
                 },
-
+                {
+                    _desc: '地址图标',
+                    width: 15,
+                    height: 15,
+                    x: 34,
+                    y: 464,
+                    borderRadius: 0,
+                    url: Image,
+                    zIndex: 19,
+                },
             ],
             texts: [
                 {
-                    x: 23.5,
-                    y: 280,
+                    x: 17,
+                    y: 49,
                     baseLine: 'top',
                     text: _this.data.label_1,
-                    fontSize: 20,
-                    color: fontColor,
+                    fontSize: 30,
+                    fontWeight:'bold',
+                    color:'white',
                     zIndex: 100,
                 },
                 {
-                    x: 23.5,
-                    y: 316,
+                    x: 17,
+                    y: 92,
                     baseLine: 'top',
                     text: _this.data.label_2,
                     fontSize: 20,
-                    color: fontColor,
+                    color:'white',
                     zIndex: 100,
                 },
-
                 {
-                    x: 23.5,
-                    y: 353,
+                    x:302 ,
+                    y: 350,
                     baseLine: 'top',
                     text: _this.data.label_3,
                     fontSize: 20,
@@ -396,111 +440,189 @@ Page({
                     zIndex: 100,
                 },
                 {
-                    x: 23.5,
-                    y: 390,
+                    x: 320,
+                    y: 353,
                     baseLine: 'top',
-                    text: _this.data.label_6,
-                    fontSize: 20,
+                    text: "",
+                    fontSize: 14,
+                    fontWeight:'bold',
                     color: fontColor,
                     zIndex: 100,
                 },
                 {
-                    x: 23.5,
-                    y: 427,
+                    x: 34,
+                    y: 394,
                     baseLine: 'top',
-                    text: _this.data.label_4,
+                    text: post.title,
                     fontSize: 20,
+                    fontWeight:'bold',
                     color: fontColor,
                     zIndex: 100,
                 },
-
                 {
-                    x: 23.5,
+                    x: 50,
                     y: 464,
                     baseLine: 'top',
                     text: _this.data.label_5,
-                    fontSize: 20,
+                    fontSize: 16,
                     color: fontColor,
                     zIndex: 100,
                 },
                 {
-                    x: 83,
-                    y: 283,
+                    x: 37,
+                    y: 500,
                     baseLine: 'top',
-                    text: _this.data.text_1,
-                    fontSize: 14,
+                    text: _this.data.label_6,
+                    fontSize: 16,
                     color: fontColor,
                     zIndex: 100,
                 },
                 {
-                    x: 83,
-                    y: 320,
+                    x: 147,
+                    y: 500,
+                    baseLine: 'top',
+                    text: _this.data.label_7,
+                    fontSize: 16,
+                    color: fontColor,
+                    zIndex: 100,
+                },
+                {
+                    x: 267,
+                    y: 500,
+                    baseLine: 'top',
+                    text: _this.data.label_8,
+                    fontSize: 16,
+                    color: fontColor,
+                    zIndex: 100,
+                },
+                {
+                    x: 100,
+                    y: 466,
                     baseLine: 'top',
                     text: _this.data.text_2,
+                    fontSize: 16,
+                    color: fontColor,
+                    zIndex: 100,
+                },
+                {
+                    x: 37,
+                    y: 530,
+                    baseLine: 'top',
+                    text: post.area_info.text+post.area_info.px,
                     fontSize: 14,
                     color: fontColor,
                     zIndex: 100,
                 },
                 {
-                    x: 83,
-                    y: 357,
+                    x: 147,
+                    y: 530,
                     baseLine: 'top',
-                    text: _this.data.text_3,
+                    text: post.average_price_info.text+post.average_price_info.px,
                     fontSize: 14,
-                    color: fontColor,
+                    color: '#E46C69',
                     zIndex: 100,
                 },
                 {
-                    x: 83,
-                    y: 395,
+                    x: 90,
+                    y: 610,
                     baseLine: 'top',
-                    text: _this.data.text_6,
-                    fontSize: 14,
-                    color: fontColor,
+                    text: userInfo.name,
+                    fontSize: 20,
+                    color: 'white',
                     zIndex: 100,
                 },
                 {
-                    x: 83,
-                    y: 432,
+                    x: 267,
+                    y: 530,
                     baseLine: 'top',
-                    text: _this.data.text_4,
+                    text: _this.data.label_8,
                     fontSize: 14,
-                    color: fontColor,
-                    zIndex: 100,
-                },
-                {
-                    x: 83,
-                    y: 469,
-                    baseLine: 'top',
-                    text: _this.data.text_5,
-                    fontSize: 14,
-                    color: fontColor,
-                    zIndex: 100,
-                },
-
-                {
-                    x: 36,
-                    y: 563,
-                    baseLine: 'top',
-                    text: "长按识别",
-                    fontSize: 24,
                     color: fontColor,
                     zIndex: 100,
                 },
                 {
                     x: 36,
-                    y: 596,
+                    y: 650,
                     baseLine: 'top',
-                    text: "在线看房",
-                    fontSize: 24,
-                    color: fontColor,
+                    text: "专业、优质服务",
+                    fontSize: 16,
+                    color: 'white',
                     zIndex: 100,
                 },
-
+                {
+                    x: 36,
+                    y: 680,
+                    baseLine: 'top',
+                    text: "长安识别小程序码查看详情",
+                    fontSize: 16,
+                    color: 'white',
+                    zIndex: 100,
+                },
             ],
 
         }
-
+        let x=34
+        let keys = 0
+        let width = 0
+        for(let key of post.tags.slice(0,3)){
+            if(keys>5&&key.name.length>1){
+                x=x+95
+            }
+            if(keys==5&&key.name.length>1){
+                x=x+80
+            }
+            if(keys==4&&key.name.length>1)
+            {
+                x=x+68
+            }
+            if(keys==3&&key.name.length>1){
+                x=x+55
+            }
+            if(keys==2&&key.name.length>1){
+                x=x+38
+            }
+            keys=key.name.length
+            var arr = {
+                x:x,
+                y: 433,
+                baseLine: 'top',
+                text: key.name,
+                fontSize: 13,
+                color: key.color,
+                borderWidth:1,
+                borderColor:'#A0A0A0',
+                borderRadius:5,
+                zIndex: 100,
+            }
+            if(key.name.length==2){
+                width = 32 
+            }
+            if(key.name.length==3){
+                width = 46
+            }
+            if(key.name.length==4){
+                width = 60
+            }
+            if(key.name.length==5){
+                width = 74
+            }
+            if(key.name.length==6){
+                width = 88
+            }
+            var arrs={
+                    width: width,
+                    height: 24,
+                    x: x-4,
+                    y: 427,
+                    borderWidth:1,
+                    borderColor:key.color,
+                    borderRadius: 3,
+                    backgroundColor: '#ffffff',
+                    zIndex: 99,
+            }
+            config.texts.push(arr)
+            config.blocks.push(arrs)
+        }
         var _this = this
         this.setData({ posterConfig: config }, () => {
             console.log('config is', config)
