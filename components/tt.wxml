@@ -1,0 +1,16 @@
+<navigator hover-class="none" class="item" bindtap="itemClick">
+    <view class="cover" hover-class="none" hover-stop-propagation="false">
+        <image src="{{item.cover }}?imageView2/2/w/250"></image>
+        <image wx:if="{{item.content_type == 'video'}}" class="bofang" src="../assets/icons/bofang.png"></image>
+    </view>
+    <view class="item-title-block">
+        <view class="title">{{item.title}}</view>
+        <view class="meta">
+            <view class="date">{{item.created_at_pretty}}</view>
+            <view class="views">
+                <van-icon name="eye-o" />
+                {{ item.view_nums }}
+            </view>
+        </view>
+    </view>
+</navigator>
