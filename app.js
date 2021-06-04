@@ -295,7 +295,7 @@ App({
         this.clearReddotInterval()
         // 如果没有开启聊天功能，那么就不用轮训
 
-        var iid = setInterval(this.reddotHandle, 1000)
+        var iid = setInterval(this.reddotHandle, 10000)
         this.globalData['reddotIntervalId'] = iid
         console.log('新的小红点轮训开始', iid)
     },
