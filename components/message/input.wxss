@@ -15,9 +15,12 @@
 }
 
 .input-wrapper input{
-  border-bottom:1rpx solid #f4f4f4;
-  width: calc(100% - 120rpx);
-  height:100%;
+  border:1px solid #cecece;
+  width: calc(100% - 130rpx);
+  height:80rpx;
+  border-radius:12rpx;
+  padding:0 20rpx;
+ 
 }
 
 .input-wrapper .btn-sent{
@@ -26,13 +29,13 @@
   justify-content:center;
   align-items:center;
   padding:0 20rpx;
-  height:60rpx;
-  width:100rpx;
+  height:80rpx;
+  width:116rpx;
   border-radius:12rpx;
 }
 
 .input-wrapper .btn-sent.default{
-  background:green;
+  background:#1989fa;
   color:#fff;
 }
 

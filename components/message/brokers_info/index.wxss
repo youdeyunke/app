@@ -1,0 +1,42 @@
+/* components/message/brokers_info/index.wxss */
+.info-box{
+  width:100% ;
+  height: 130rpx;
+  padding: 0 20rpx;
+  font-size: 32rpx;
+  color: #333333;
+  font-weight: bold;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  position:sticky;
+  top:0;
+  left:0;
+  right:0;
+  z-index:100;
+}
+.info-box .avatar{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.message{
+  display: flex;
+  align-items: center;
+}
+.level{
+  width: 120rpx;
+  height: 34rpx;
+  margin-left: 12rpx;
+  margin-right: 252rpx;
+}
+.wechat,.mobile{
+  width: 58rpx;
+  height: 58rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.mobile{
+  margin-right: 0;
+}

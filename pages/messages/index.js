@@ -46,7 +46,7 @@ Page({
       hideLoading: true,
       success: function (res) {
         if (res.data.status == 0) {
-          _this.setData({ items: res.data.data, sleepTime: res.data.sleep })
+          _this.setData({ items: res.data.data, sleepTime: res.data.sleep, })
         }
       },
       complete: function(res){
@@ -72,9 +72,7 @@ Page({
       this.loadData()
       this.stopInterval()
       this.startInterval()
-      // 进入到聊天列表页面，就清空小红点
-      wx.hideTabBarRedDot({index: 1})
-      app.globalData['reddot'] = 0
+
     }
     this.setData({userInfo: userInfo})
     if (typeof this.getTabBar === 'function' &&

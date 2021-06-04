@@ -1,0 +1,9 @@
+<view class="info-box">
+  <navigator class="message" url="/pkgBroker/pages/broker/profile?id={{userinfo.id}}">
+    <image class="avatar" src="{{userinfo.avatar}}"></image>
+    <text>{{userinfo.name}}</text>
+    <image class="level" src="/assets/icons/broker/{{userinfo.level}}.png"></image>
+  </navigator>
+  <image bindtap="copyHandle" class="wechat" src="/assets/icons/message/wechat.png"></image>
+  <image bindtap="callHandle" class="mobile" src="/assets/icons/message/mobile.png"></image>
+</view>

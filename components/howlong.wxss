@@ -1,1 +1,5 @@
 /* components/howlong.wxss */
+text{
+  font-size: 24rpx;
+  color: #C4C4C4;
+}
