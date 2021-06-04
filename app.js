@@ -1,8 +1,8 @@
 //app.js
 const auth = require("utils/auth.js");
 const EXT = wx.getExtConfigSync()
-const T = require("utils/test.js");
-const TIM = require('tim/index.js');
+//const T = require("utils/test.js");
+//const TIM = require('tim/index.js');
 
 App({
     globalData: {
@@ -257,6 +257,7 @@ App({
     },
 
     initTim: function () {
+        return
         console.log('配置加载完毕，准备初始化tim sdk')
         var appid = 1400181975
         TIM.initTim(appid)

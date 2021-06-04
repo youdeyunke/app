@@ -1,5 +1,5 @@
 .input-wrapper{
-  height: 94rpx;
+  height: 120rpx;
   background: #fff;
   width: 750rpx;
   box-sizing: border-box;
