@@ -17,7 +17,6 @@
     </block>
         <ud-card title='楼市资讯'>
             <news-item wx:for="{{newsItems}}" item="{{item}}"></news-item>
-
         </ud-card>
     </view>
 </view>
