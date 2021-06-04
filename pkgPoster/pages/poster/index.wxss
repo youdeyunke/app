@@ -50,15 +50,16 @@ page {
     color: #333;
     height: 100%;
     display: flex;
-    flex-direction: column;
+
     justify-content: center;
     align-items: center;
     margin-right: 20rpx;
 }
 
 .bar .tool-item text {
-    font-size: 22rpx;
+    font-size: 24rpx;
     color: #666;
+    margin-left:8rpx;
 }
 
 .tips {
