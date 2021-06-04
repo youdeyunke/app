@@ -13,15 +13,16 @@ page{
 }
 
 .item .tip::after{
-  content: ' ';
-  height: 12rpx;
-  width: 12rpx;
+  content: '未读';
+  color:#fff;
   display: flex;
-  border-radius: 8rpx;
+  border-radius: 30rpx;
   background: red;
+  padding:8rpx 18rpx;
   position: absolute;
-  left: 92rpx;
-  top: 30rpx;
+  right: 12rpx;
+  transform: scale(0.8);
+  top: 80rpx;
 }
 
 .item .avatar{
