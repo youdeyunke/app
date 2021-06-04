@@ -85,7 +85,7 @@ Page({
         // 开启定时器，并防止重复
         var _this = this
         var key = this.data.iidKey
-        var t = 5000
+        var t = 1000
         var iid = setInterval(_this.loadData, t)
         wx.setStorageSync(key, iid)
         console.log('开启定时器，刷新聊天内容', t)
