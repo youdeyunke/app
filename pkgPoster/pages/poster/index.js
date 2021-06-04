@@ -57,7 +57,8 @@ Page({
         wx.setNavigationBarTitle({ title: '制作房源海报' })
         var _this = this
         this.setData({ postId: q.id || q.post_id })
-        this.loadPost(q.id, (post) => {
+        var pid = q.id || q.post_id
+        this.loadPost(pid, (post) => {
             // 根据房源信息生成对应的海报需要的字段
             qrUrl = post.qr
             coverUrl = post.cover || ''
