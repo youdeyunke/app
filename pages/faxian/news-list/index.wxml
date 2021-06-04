@@ -13,7 +13,6 @@
         </ud-card>
         <ud-card title='楼盘资讯'>
             <news-item wx:for="{{newsItems}}" item="{{item}}"></news-item>
-
         </ud-card>
     </view>
 </view>
