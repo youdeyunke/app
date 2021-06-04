@@ -9,6 +9,8 @@ App({
         cityId: null, // 全局城市过滤
         EXT: EXT,
         myconfigs: null,
+        reddot: 0,
+        reddotIntervalId: null,
         system: {},
         apiHost: 'http://192.168.31.66:20210',
         userInfo: null,
@@ -275,18 +277,67 @@ App({
         var _this = this;
         this.setUserInfo()
         this.setSystemInfo()
+        this.startReddotInterval()
         this.ensureConfigs(function (config) {
             _this.loadCities(function (cities) {
                 _this.globalData.cities = cities;
                 _this.getLocation();
             });
-            setTimeout(_this.initTim, 2000)
+            //setTimeout(_this.initTim, 2000)
         })
         // 监听小程序前后台切换
         wx.onAppShow(this.onAppShow)
         wx.onAppHide(this.onAppHide)
-        T.setName('Yohn')
-        T.hello()
+    },
+
+    startReddotInterval: function () {
+        // 开始小红点轮训
+        this.clearReddotInterval()
+        // 如果没有开启聊天功能，那么就不用轮训
+
+        var iid = setInterval(this.reddotHandle, 1000)
+        this.globalData['reddotIntervalId'] = iid
+        console.log('新的小红点轮训开始', iid)
+    },
+
+    clearReddotInterval: function () {
+        var iid = this.globalData.reddotIntervalId
+        if (iid) {
+            console.log('停止查询小红点')
+            clearInterval(iid);
+        }
+    },
+
+    reddotHandle: function () {
+        // 如果没有登录，就不检查
+        if (!this.globalData.token) {
+            console.log('未登录，不检查未读')
+            return false
+        }
+
+        // 如果已经有小红点，那几不用查询了
+        if (this.globalData.reddot == 1) {
+            console.log('已有小红点了，不用重复查询')
+            return false;
+        }
+
+        var _this = this;
+        this.request({
+            url: "/api/v1/chat_lists/reddot",
+            hideLoading: true,
+            success: function (resp) {
+                if (resp.data.data == 1) {
+                    console.log("显示红点");
+                    wx.showTabBarRedDot({
+                        index: 1,
+                        fail: function (e) { console.log('显示红点失败') },
+                        success: function () {
+                            _this.globalData['reddot'] = 1
+                        },
+                    });
+                }
+            }
+        });
     },
 
 
@@ -522,7 +573,6 @@ App({
                 }
 
                 var t = _this.globalData.myconfigs && _this.globalData.myconfigs.timeout ? _this.globalData.myconfigs.timeout : 0
-                console.log('timeout value is', t)
                 setTimeout(function () {
                     // 加载完成后
                     if (!obj.hideLoading) {
