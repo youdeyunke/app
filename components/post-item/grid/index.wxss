@@ -59,7 +59,7 @@
     padding-bottom: 20rpx;
     z-index: 55555;
 }
-.position-image1,.position-image2,.position-image3{
+.position image{
     width:30rpx ;
     height: 30rpx;
     margin-top: 18rpx;
