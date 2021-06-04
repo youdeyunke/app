@@ -75,12 +75,9 @@ Page({
 
     }
     this.setData({userInfo: userInfo})
-    if (typeof this.getTabBar === 'function' &&
-      this.getTabBar()) {
-      this.getTabBar().setData({
-        selected: 1
-      })
-    }
+    wx.removeTabBarBadge({
+      index: 1,
+    })  
   },
 
   /**
