@@ -38,7 +38,7 @@ Component({
         data: wechat,
         success(){
           wx.showToast({
-            title: '复制成功',
+            title: '微信号已复制',
             icon:'success',
             duration:1000
           })
