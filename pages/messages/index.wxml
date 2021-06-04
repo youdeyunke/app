@@ -8,7 +8,7 @@
       <text class="nickname">{{item.sender_info.name}}</text>
       <howlong wx:if="{{item}}" date="{{item.updated_at}}" />
     </view>
-    <view class="text line-limit">{{item.last_content}}</view>
+    <view class="line-limit">{{item.last_content}}</view>
   </view>
   </navigator>
 

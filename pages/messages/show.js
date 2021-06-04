@@ -173,7 +173,6 @@ Page({
                     console.log('return false')
                     return false
                 }
-
                 var d = {}
                 var items = resp.data.data
                 

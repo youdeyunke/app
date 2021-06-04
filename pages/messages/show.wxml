@@ -1,4 +1,8 @@
-
+<block wx:if="{{targetUserInfo!=''}}">
+  <block wx:if="{{targetUserInfo.is_broker==true}}">
+    <info userinfo="{{targetUserInfo}}" />
+  </block>
+</block>
 <block wx:for="{{messages}}" wx:for-item="items" wx:for-index="key">
   <block wx:for="{{items}}" wx:for-item="msg" wx:for-key="{{msg.id}}">
     <message-item mid="{{msg.id}}" current-user-id="{{user.id}}" />

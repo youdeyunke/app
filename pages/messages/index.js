@@ -46,7 +46,7 @@ Page({
       hideLoading: true,
       success: function (res) {
         if (res.data.status == 0) {
-          _this.setData({ items: res.data.data, sleepTime: res.data.sleep })
+          _this.setData({ items: res.data.data, sleepTime: res.data.sleep, })
         }
       },
       complete: function(res){

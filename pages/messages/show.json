@@ -5,6 +5,7 @@
     "message-item": "/components/message/item",
     "message-input": "/components/message/input",
     "post-input": "/components/message/post",
-    "box": "/components/box"
+    "box": "/components/box",
+    "info":"/components/message/brokers_info/index"
   }
 }

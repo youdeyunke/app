@@ -2,10 +2,9 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  width: calc(750rpx - 18rpx*2);
+  padding: 0 20rpx;
   margin-top:20rpx;
   margin-bottom:20rpx;
-  --height: 74rpx;
 }
 
 .msg-right{
@@ -21,7 +20,7 @@
 }
 
 .msg .avatar, .msg .avatar image{
-  width: var(--height);
-  height: var(--height);
-  background: #fff;
+  width:80rpx;
+  height: 80rpx;
+  border-radius: 50%;
 }

@@ -27,7 +27,7 @@
   align-items:center;
   padding:0 20rpx;
   height:60rpx;
-  width:100rpx;
+  width:116rpx;
   border-radius:12rpx;
 }
 
