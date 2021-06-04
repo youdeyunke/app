@@ -66,7 +66,7 @@ Page({
             coverUrl = post.cover || ''
             text_1 = ''
             text_2 = post.street || post.address
-            var _max = 18
+            var _max = 13
             //  处理地址字符串超过19个情况
             if (text_2.length > _max) {
                 text_2 = text_2.slice(0, _max) + '...'
