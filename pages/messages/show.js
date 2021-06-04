@@ -47,8 +47,32 @@ Page({
                 var pid = q.target_post_id || q.post_id
                 _this.sendPostCard(pid)
                 _this.setData({ user: user })
-                _this.stopInterval()
-                _this.startInterval()
+                _this.loadData((res) => {
+                    _this.scrollToBottom()
+                    _this.stopInterval()
+                    _this.startInterval()
+                    var t = _this.data.targetUserInfo 
+                    var title = t.name
+                    if(t.is_broker){
+                        var title = '置业顾问：' + t.name
+                        var titleColor = '#1989fa'
+                        var fontColor = '#ffffff'
+                    }else{
+                        var title = t.name 
+                        var titleColor = '#ffffff'
+                        var fontColor = '#000000'
+
+                    }
+                    wx.setNavigationBarTitle({
+                      title: title,
+                    })
+                    wx.setNavigationBarColor({
+                        backgroundColor: titleColor,
+                        frontColor: fontColor,
+                      })
+
+                })
+
             }
         })
     },
@@ -126,7 +150,9 @@ Page({
         // 发送成功处理
         this.saveMessage(value.detail)
         // 刷新消息列表
-        this.loadData()
+        this.loadData((msg) => {
+            this.scrollToBottom()
+        })
     },
 
     loadOld: function () {
@@ -157,7 +183,7 @@ Page({
     },
 
 
-    loadData: function () {
+    loadData: function (cb) {
         var _this = this
         app.request({
             url: '/api/v1/messages',
@@ -186,7 +212,7 @@ Page({
                 d['sleepTime'] = resp.data.sleep
                 d.targetUserInfo = resp.data.target_user_info
                 _this.setData(d, () => {
-                    _this.scrollToBottom()
+                    typeof cb == 'function' && cb()
                 })
               
             }

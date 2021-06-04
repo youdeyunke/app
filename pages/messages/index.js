@@ -72,9 +72,7 @@ Page({
       this.loadData()
       this.stopInterval()
       this.startInterval()
-      // 进入到聊天列表页面，就清空小红点
-      wx.hideTabBarRedDot({index: 1})
-      app.globalData['reddot'] = 0
+
     }
     this.setData({userInfo: userInfo})
     if (typeof this.getTabBar === 'function' &&

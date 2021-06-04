@@ -8,14 +8,10 @@
     </view>
     <view class="bar">
         <view class="tools">
-            <view class="tool-item" bindtap="editHandle" style="display:flex;justify-content:flex-start;">
-                <van-icon name="edit" />
-                <text>电话</text>
-            </view>
-            <view class="blank"></view>
+
             <view class="tool-item" bindtap="tplHandle" style="display:flex;justify-content:flex-start;">
                 <van-icon name="photo" />
-                <text>背景</text>
+                <text>更换背景</text>
             </view>
         </view>
         <view class="right">

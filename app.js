@@ -9,7 +9,7 @@ App({
         cityId: null, // 全局城市过滤
         EXT: EXT,
         myconfigs: null,
-        reddot: 0,
+
         reddotIntervalId: null,
         system: {},
         apiHost: 'http://192.168.31.66:20210',
@@ -292,6 +292,8 @@ App({
 
     startReddotInterval: function () {
         // 开始小红点轮训
+        this.reddotHandle() // 先执行一次，免得要等待10秒之后才会执行
+        
         this.clearReddotInterval()
         // 如果没有开启聊天功能，那么就不用轮训
 
@@ -315,27 +317,18 @@ App({
             return false
         }
 
-        // 如果已经有小红点，那几不用查询了
-        if (this.globalData.reddot == 1) {
-            console.log('已有小红点了，不用重复查询')
-            return false;
-        }
-
         var _this = this;
         this.request({
             url: "/api/v1/chat_lists/reddot",
             hideLoading: true,
             success: function (resp) {
-                if (resp.data.data == 1) {
-                    console.log("显示红点");
-                    wx.showTabBarRedDot({
-                        index: 1,
-                        fail: function (e) { console.log('显示红点失败') },
-                        success: function () {
-                            _this.globalData['reddot'] = 1
-                        },
-                    });
-                }
+                var text = resp.data.data && resp.data.data >= 1 ?  resp.data.data.toString() : ''
+
+               wx.setTabBarBadge({
+                 index: 1,
+                 text: text,
+               })
+              
             }
         });
     },
