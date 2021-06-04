@@ -21,6 +21,10 @@
   border-radius: 50%;
   margin-right: 20rpx;
 }
+.message{
+  display: flex;
+  align-items: center;
+}
 .level{
   width: 120rpx;
   height: 34rpx;
