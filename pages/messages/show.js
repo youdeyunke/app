@@ -9,6 +9,7 @@ Page({
      */
     data: {
         senderId: null,
+        targetUserInfo: null, // 对方信息
         messages: [],
         lastId: null,
         iidKey: 'messages.show.interval.id',
@@ -27,7 +28,6 @@ Page({
         this.setData({
             targetUserId: q.target_user_id
         })
-
 
 
         auth.ensureUser(function (user) {
@@ -176,6 +176,7 @@ Page({
 
                 var d = {}
                 var items = resp.data.data
+                
                 items.forEach(function (message, i) {
                     _this.saveMessage(message)
                     _this.markMessageId(message.id)
@@ -184,8 +185,11 @@ Page({
                 var k = 'messages[' + len + ']'
                 d[k] = items.reverse()
                 d['sleepTime'] = resp.data.sleep
-                _this.setData(d)
-                _this.scrollToBottom()
+                d.targetUserInfo = resp.data.target_user_info
+                _this.setData(d, () => {
+                    _this.scrollToBottom()
+                })
+              
             }
         })
     },
