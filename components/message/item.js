@@ -18,11 +18,13 @@ Component({
       position: '',
   },
 
-
-  ready: function(){
-    console.log('ready for message ', this.data.mid)
+  observers: {
+    "mid": function(mid){
+      if(!mid){
+        return
+      }
       var _this = this
-      var key = 'message.' + this.data.mid
+      var key = 'message.' + mid
       wx.getStorage({key: key, success: function(val){
         var message = val.data
         var position = _this.data.currentUserId == message.sender_id ? 'right' : 'left'
@@ -30,6 +32,13 @@ Component({
         _this.setData({message: message, position: position})
         console.log('current user id', _this.data.currentUserId, 'sender id',  message.sender_id, 'position', position, message)
       }})
+    }
+  },
+
+
+  ready: function(){
+
+
   },
 
   /**

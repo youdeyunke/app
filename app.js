@@ -323,11 +323,18 @@ App({
             hideLoading: true,
             success: function (resp) {
                 var text = resp.data.data && resp.data.data >= 1 ?  resp.data.data.toString() : ''
-
-               wx.setTabBarBadge({
-                 index: 1,
-                 text: text,
-               })
+                var c= resp.data.data || 0 
+                if(c >= 1){
+                    wx.setTabBarBadge({
+                      index: 1,
+                      text: c.toString(),
+                    })
+                }else{
+                    wx.removeTabBarBadge({
+                      index: 1,
+                      fail: function(){}
+                    })
+                }
               
             }
         });

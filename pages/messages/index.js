@@ -33,7 +33,7 @@ Page({
   startInterval: function(){
     // 开启定时器，并防止重复
     var _this = this
-    var t =  5 * 1000
+    var t =  0.5 * 1000
     var iid = setInterval(_this.loadData, t)
     this.setData({iid: iid})
     console.log('开启定时器，刷新聊天列表', t)
@@ -75,12 +75,9 @@ Page({
 
     }
     this.setData({userInfo: userInfo})
-    if (typeof this.getTabBar === 'function' &&
-      this.getTabBar()) {
-      this.getTabBar().setData({
-        selected: 1
-      })
-    }
+    wx.removeTabBarBadge({
+      index: 1,
+    })  
   },
 
   /**
