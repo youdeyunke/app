@@ -9,6 +9,11 @@
   background-color: #fff;
   display: flex;
   align-items: center;
+  position:sticky;
+  top:0;
+  left:0;
+  right:0;
+  z-index:100;
 }
 .info-box .avatar{
   width: 80rpx;
