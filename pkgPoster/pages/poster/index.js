@@ -147,7 +147,8 @@ Page({
     loadPost: function (postId, cb) {
         app.request({
             hideLoading: true,
-            url: '/api/v1/post_base_info/' + postId,
+            url: '/api/v1/poster_info?id=' + postId,
+            methods:'GET',
             success: function (resp) {
                 var post = resp.data.data
                 typeof cb == 'function' && cb(post)
