@@ -1,38 +1,10 @@
-<block wx:if="{{ready}}">
-    <view class="touser" hidden="{{!toUser.is_broker}}">
-        <view class="left">
-            <image class="avatar" src="{{toUser.avatar}}?imageView2/5/h/200/w/200" bindtap="gotoUser"></image>
-            <view class="text">
-                <view class="name line-limit">
-                    <text>{{toUser.name || toUser.nickname}}</text>
-                    <van-tag text-color="#F7EED4" size="22rpx" color="#222222">已认证</van-tag>
-                </view>
-                <view class="desc">
-                    <text wx:if="{{toUser.company_name}}">{{toUser.company_name}}</text>
-                </view>
-            </view>
-        </view>
-        <view class="right actions">
-            <view bindtap="wechatHandle" class="action-item wechat">
-                <image src="/assets/icons/wechat-round.png" />
-            </view>
-            <view bindtap="mobileHandle" class="action-item mobile">
-                <van-icon color="#ffffff" name="phone" size="40rpx;" />
-            </view>
-        </view>
-    </view>
-    <scroll-view bindrefresherrefresh="loadMoreMessages" refresher-enabled="{{true}}" refresher-triggered="{{loadingMore}}" hrefresher-threshold="{{100}}" refresher-default-style="white" refresher-background="#ebebeb" class='dialog' scroll-with-animation="{{true}}" scroll-into-view="{{scrollIntoView}}" id="dialog" style="height:{{height}}px;width:100%;padding:{{toUser.is_broker ? '130rpx' : '0rpx'}} 20rpx  0rpx 20rpx;" scroll-y="{{true}}">
-        <view class="system" hidden="{{!loadingMessages }}">正在加载对话列表...</view>
-        <block wx:for="{{oldMessages}}" wx:for-item="oldmsg" wx:key="{{oldmsg.ID}}">
-            <message-item msg="{{oldmsg}}" />
-        </block>
-        <block wx:for="{{currentMessages}}" wx:for-item="msg" wx:for-key="{{msg.ID}}">
-            <message-item msg="{{msg}}" id="{{msg.ID}}" />
-        </block>
-        <view id="bottom"></view>
-    </scroll-view>
-    <message-input to="{{toUserId}}" bind:success="sendHandle"></message-input>
+
+<block wx:for="{{messages}}" wx:for-item="items" wx:for-index="key">
+  <block wx:for="{{items}}" wx:for-item="msg" wx:for-key="{{msg.id}}">
+    <message-item mid="{{msg.id}}" current-user-id="{{user.id}}" />
+  </block>
+
+  <message-item wx:if="{{newMessageId > lastId}}" mid="{{newMessageId}}" current-user-id="{{user.id}}" />
 </block>
-<block wx:else>
-    <text style="margin-top:20rpx;">加载中</text>
-</block>
+
+<message-input receiverId="{{ targetUserId }}" bind:success="sendHandle"></message-input>

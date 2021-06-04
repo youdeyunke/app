@@ -20,6 +20,7 @@ Component({
 
 
   ready: function(){
+    console.log('ready for message ', this.data.mid)
       var _this = this
       var key = 'message.' + this.data.mid
       wx.getStorage({key: key, success: function(val){

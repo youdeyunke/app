@@ -1,6 +1,0 @@
-<!-- components/message/nmamecard.wxml -->
-<view class="card">
-    <view class="body">{{userInfo.auto_reply_text || '您好，请问有什么可以帮您？'}}</view>
-    <view class="line"></view>
-    <view bindtap="callHandle" class="footer">立即致电</view>
-</view>

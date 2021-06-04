@@ -1,12 +1,26 @@
 <block wx:if="{{userInfo.id}}">
-    <chat-item data-index="{{index}}" bindtap="gotoDetail" bind:longpress="actionsHandle" wx:key="{{item.id}}" wx:for="{{items}}" item="{{item}}" />
-    <view wx:if="{{!loading && items.length == 0}}" class="empty">没有收到任何消息</view>
+<box padding="30" >
+  <navigator wx:key="{{item.id}}" hover-class='none' open-type='navigate' url="/pages/messages/show?target_user_id={{item.sender_id}}" wx:for="{{items}}" class="item">
+  <view class="tip" wx:if="{{item.unread == true}}"> </view>
+  <image class="avatar" src="{{item.sender.avatar}}"></image>
+  <view class="info">
+    <view class="name">
+      <text class="nickname">{{item.sender.nickname}}</text>
+      <howlong wx:if="{{item}}" date="{{item.updated_at}}" />
+    </view>
+    <view class="text line-limit">{{item.last_content}}</view>
+  </view>
+  </navigator>
+
+</box>
+<view wx:if="{{items.length == 0}}" class="empty">没有收到任何消息</view>
+
 </block>
+
 <block wx:else>
-    <navigator hover-class="none" url="/pages/auth/index" class="unlogin empty">
-        <text class="title">请先登录账号</text>
-        <text class="desc">消息功能仅限登录用户使用</text>
-        <van-button type="primary" size="small">前往登录页面</van-button>
-    </navigator>
+  <navigator hover-class="none" url="/pages/auth/index" class="unlogin empty">
+    <text class="title">请先登录账号</text>
+    <text class="desc">消息功能仅限登录用户使用</text>
+    <van-button type="primary" size="small" >前往登录页面</van-button>
+  </navigator>
 </block>
-<van-action-sheet bind:select="actionSelectHandle" title="操作菜单"  show="{{ showActions }}" actions="{{ actions }}" bind:close="actionsCloseHandle" bind:cancle="actionsCloseHandle" />

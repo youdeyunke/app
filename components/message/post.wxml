@@ -1,16 +1,7 @@
-<!-- components/message/post.wxml -->
+<!--components/message/post.wxml-->
 <view class="post-wrapper">
-    <navigator url="/pkgPost/pages/show/index?id={{post.id}}" hover-class="navigator-hover" open-type="navigate" class="block">
-        <text>正在查看</text>
-        <image class="cover" src="{{post.cover}}" mode="aspectFill" lazy-load="{{true}}" />
-        <view class="type-info  van-ellipsis">
-            {{post.area_info.text}}{{post.area_info.px}}/{{ post.type_info.text}}/{{post.sub_district_name }}
-        </view>
-        <view class="price-info">
-            <text class="total">
-                {{ post.average_price_info.label }} {{post.average_price_info.text}}{{post.average_price_info.px}}
-            </text>
-            <text class="average" wx:if="{{post.average_price}}">{{post.average_price}}万/平</text>
-        </view>
-    </navigator>
+  <navigator url="/pages/post/post?id={{post.id}}" hover-class="navigator-hover" open-type="navigate"class="block">
+    <text>正在查看</text>
+    <post-item post="{{post}}" />
+  </navigator>
 </view>

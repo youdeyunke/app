@@ -1,7 +1,7 @@
 {
   "enablePullDownRefresh": true,
   "usingComponents": {
-      "van-action-sheet": "/vant/action-sheet/index",
-      "chat-item": "./chat-item"
+    "van-tag": "/vant/tag/index",
+    "howlong": "/components/howlong"
   }
 }

@@ -37,7 +37,7 @@ Page({
         })
         var _this = this
         wx.navigateTo({
-            url: '/pages/messages/show?target_user_id=' + _this.data.brokerProfile.id,
+            url: '/pages/messages/show?target_user_id=' + _this.data.userId,
             success: function () {
                 wx.hideLoading()
             }
@@ -229,6 +229,12 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        setTimeout(() => {
+            if(!this.data.brokerProfile){
+                _this.loadBrokerProfile()
+            }
+           
+        }, 1000)
 
     },
 

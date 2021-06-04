@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "post-item": "/components/post-item/card/index"
+    "post-item": "/components/post-item/grid/index"
   }
 }
