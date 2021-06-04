@@ -1,0 +1,28 @@
+<block wx:if="{{item.content_type=='html'}}">
+    <navigator hover-class="none" class="item" bindtap="itemClick">
+        <view class="cover" hover-class="none" hover-stop-propagation="false">
+            <image src="{{item.cover }}?imageView2/2/w/250"></image>
+            <image wx:if="{{item.content_type == 'video'}}" class="bofang" src="/assets/icons/bofang.png"></image>
+        </view>
+        <view class="item-title-block">
+            <view class="title">{{item.title}}</view>
+            <view class="meta">
+                <view class="author">{{item.author}}</view>
+                <view class="date">{{item.created_at_pretty}}</view>
+            </view>
+        </view>
+    </navigator>
+</block>
+<block wx:if="{{item.content_type=='video'}}">
+    <navigator class="video-box"  bindtap="itemClick">
+        <view class="video-title">{{item.title}}</view>
+        <view class="video-message">
+            <text>{{item.author}}</text>
+            <text>{{item.created_at_pretty}}</text>
+        </view>
+        <view class="video-image-box">
+            <image class="video-image" src="{{item.cover}}?imageView2/2/w/250"></image>
+            <image src="../image/7.png" class="video-position-image"></image>
+        </view>
+    </navigator>
+</block>
