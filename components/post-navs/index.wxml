@@ -1,23 +1,23 @@
 <!--components/post-navs/index.wxml-->
 <view class="house-bottom">
-    <navigator class="house-bottom-class" url="/pkgBroker/pages/broker/index?post_id={{post.id}}">
-      <image class="house-image4" src="/assets/icons/post-navs/8.png"></image>
-      <text>置业顾问</text>
-    </navigator>
-    <navigator class="house-bottom-class" url="/pkgPost/pages/type/index?post_id={{post.id}}">
-      <image class="house-image4" src="/assets/icons/post-navs/4.png"></image>
+  <navigator class="house-bottom-class" url="/pkgPost/pages/type/index?post_id={{post.id}}">
+      <image class="house-image4" src="/assets/icons/navs/huxin.png"></image>
       <text>户型图</text>
     </navigator>
-    <navigator class="house-bottom-class" url="/pkgPost/pages/zhoubian/index?post_id={{post.id}}">
-      <image class="house-image4" src="/assets/icons/post-navs/5.png"></image>
-      <text>周边配套</text>
-    </navigator>
     <navigator class="house-bottom-class" url="/pkgEvent/pages/event/index?post_id={{post.id}}">
-      <image class="house-image4" src="/assets/icons/post-navs/6.png"></image>
+      <image class="house-image4" src="/assets/icons/navs/dongtai.png"></image>
       <text>楼盘动态</text>
     </navigator>
+    <navigator class="house-bottom-class" url="/pkgPost/pages/desc/index?post_id={{post.id}}">
+      <image class="house-image4" src="/assets/icons/navs/xiangqin.png"></image>
+      <text>楼盘详情</text>
+    </navigator>
+    <navigator class="house-bottom-class" url="/pkgPost/pages/zhoubian/index?post_id={{post.id}}">
+      <image class="house-image4" src="/assets/icons/navs/zhoubian.png"></image>
+      <text>周边配套</text>
+    </navigator>
     <navigator class="house-bottom-class" url="/pkgYfyj/pages/yfyj/index?post_id={{post.id}}">
-      <image class="house-image4" src="/assets/icons/post-navs/7.png"></image>
+      <image class="house-image4" src="/assets/icons/navs/yfyj.png"></image>
       <text>一房一价</text>
     </navigator>
   </view>
