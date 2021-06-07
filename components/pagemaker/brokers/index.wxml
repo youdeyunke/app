@@ -4,7 +4,7 @@
         <view class="right">
           <van-image custom-class="avatar" round width="100rpx" height="100rpx"  src="{{item.avatar}}?imageView2/5/h/100/w/100" lazy-load />
           <view class="broker-name line-limit">{{ item.name }}</view>
-          <view class="broker-company line-limit">{{ item.company_name || '' }}</view>
+          <view class="broker-company line-limit">{{ item.post_title || '' }}</view>
           <image class="bgcolor" src="./bg/{{config.styleName}}.png" alt=""/>
         </view>
       </navigator>

@@ -13,7 +13,7 @@
 <view class="res" style="padding-top:{{ !albumId ? '200rpx' : '80rpx'}}">
     <album-info wx:if="{{ albumId}}" album="{{album}}"></album-info>
     <box padding="20" width="730">
-        <items show-total-count="{{true}}" wx:if="{{filter}}" filter="{{filter}}" />
+        <items album-key="{{ album ? album.key : ''}}" show-total-count="{{true}}" wx:if="{{filter}}" filter="{{filter}}" />
     </box>
 </view>
 <van-divider hairline contentPosition="center">END</van-divider>

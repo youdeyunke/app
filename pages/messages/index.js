@@ -77,6 +77,9 @@ Page({
     this.setData({userInfo: userInfo})
     wx.removeTabBarBadge({
       index: 1,
+      fail: function(res){
+        
+      }
     })  
   },
 

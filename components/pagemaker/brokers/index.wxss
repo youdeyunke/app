@@ -20,6 +20,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
 }
 
 .broker-item {
@@ -75,11 +76,13 @@
     color: #8B723B;
     font-size: 24rpx;
     height:24rpx;
-    margin-bottom: 56rpx;
+    margin-bottom: 50rpx;
     scale: 0.7;
     overflow: hidden;
+    width:200rpx;
     white-space: nowrap;
     text-overflow: ellipsis;
+    text-align:center;
 }
 
 .broker-mobile {

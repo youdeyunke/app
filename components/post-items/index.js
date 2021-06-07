@@ -12,6 +12,8 @@ Component({
             type: Object, value: {}, observer: "filterChange"
         },
 
+        albumKey: {type: String, value: null},
+
     },
 
     /**
