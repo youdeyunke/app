@@ -11,10 +11,19 @@ Component({
 
 
   observers: {
+    "post": function(p){
+      if(!p){
+        return 
+      }
+      if(!p.id){
+        return
+      }
+      var url = '/pkgPost/pages/show/index?id=' + p.id
+      this.setData({defaultUrl: url})
+    },
     "albumKey":function(key){
       if(!key){
-        var url = '/pkgPost/pages/show/index?id=' + this.data.post.id
-        this.setData({url: url})
+
         return
       }
       if(key == 'yaohao'){
@@ -31,6 +40,7 @@ Component({
    */
   data: {
     url: '',
+    defaultUrl: '',
 
   },
 
