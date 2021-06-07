@@ -22,7 +22,9 @@ Page({
     this.setData({
       state:item.status
     })
-
+    wx.setNavigationBarTitle({
+      title: '置业顾问入驻',
+    })
   },
 
   gotoHomepage: function(){

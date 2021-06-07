@@ -21,5 +21,7 @@ Component({
    */
   methods: {
 
+  },ready(){
+    console.log("shishsis ",this.properties.options)
   }
 })

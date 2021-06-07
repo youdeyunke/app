@@ -55,7 +55,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {},
+  onLoad: function (options){
+    wx.setNavigationBarTitle({
+      title:'预售证查询'
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -101,11 +105,18 @@ Page({
     })
     this.loadData()
   },
+  onShareTimeline:function(){
+    return{
+        title:'西安楼盘预售证查询'
+    }
+  },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return{
+      title:'西安楼盘预售证查询'
+    }
   }
 })

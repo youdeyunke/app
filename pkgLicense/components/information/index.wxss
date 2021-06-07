@@ -6,7 +6,6 @@
 }
 .container{
   width: 710rpx;
-  height: 220rpx;
   background: #FFFFFF;
   padding: 10rpx;
   border-radius: 10rpx;
