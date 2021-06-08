@@ -11,6 +11,7 @@ Page({
     page: 1,
   },
   delHandle: function (e) {
+    console.log("执行")
     this.setData({
       kw: ''
     })

@@ -1,4 +1,3 @@
-<view class="history-top">访问足迹</view>
 <block wx:for="{{history}}">
   <view class="history-box">
     <view class="history-date">

@@ -77,8 +77,10 @@ input{
 }
 .license-del{
   width: 81rpx;
-  height: 70rpx;
+  height: 71rpx;
   position: absolute;
-  top: 0;
-  right: 70rpx;
+  top: 48rpx;
+  right: 80rpx;
+  display: flex;
+  align-items: center;
 }

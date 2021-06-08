@@ -7,8 +7,12 @@
         <image src="../../images/1.png"></image>
         <input type="text" placeholder="请输入预售证号" bindinput="changeHandle" value="{{kw}}" />
       </view>
-      <image src="../../images/2.png"></image>
-      <view class="license-del" bindtap="delHandle"></view>
+      <block wx:if="{{kw!=''}}" >
+        <view class="license-del" bindtap="delHandle">
+        <image src="../../images/2.png"></image>
+        </view>
+      </block>
+
     </view>
     <view bindtap="searchHandle">搜索</view>
   </view>
