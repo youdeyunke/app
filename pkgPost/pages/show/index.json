@@ -25,6 +25,6 @@
         "broker-contact": "/components/broker-contact/index",
         "visitors": "/components/visitors/index",
         "safe-tips": "/components/safe-tips",
-        "state":"/components/state-item/index"
+        "live":"/components/state-item/index"
     }
 }
