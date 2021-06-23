@@ -9,6 +9,7 @@
 </mycard>
 <mycard title="管理操作" width="710">
     <view class="btns">
+    
         <van-button size="small" wx:if="{{post.group == 'new'}}" bindtap="newEventHandle" type="default">
             发动态
         </van-button>
@@ -21,6 +22,7 @@
         <van-button size="small" bindtap="publicHandle" type="primary" wx:if="{{!post.public}}">
             上架
         </van-button>
+
         <van-button size="small" bindtap="gotoPost" type="default">预览</van-button>
         <van-button size="small" bindtap="doRefresh" type="default">刷新</van-button>
         <van-button size="small" bindtap="gotoPoster" type="default">做海报</van-button>

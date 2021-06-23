@@ -4,7 +4,7 @@
     display: flex;
     justify-content: flex-start;
     width:750rpx;
-    height:320rpx;
+    height:314rpx;
     padding: 0rpx 20rpx;
     box-sizing: border-box;
     margin:0rpx auto;
@@ -25,9 +25,10 @@
 
 .broker-item {
     background: #F9F9F9;
-    width: 220rpx;
-    height: 320rpx;
+    width: 217rpx;
+    height: 314rpx;
     padding: 20rpx;
+    box-sizing: border-box;
     margin-right: 20rpx;
     box-sizing: border-box;
     border-radius: 10rpx;
@@ -35,11 +36,11 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    
 }
 
 .broker-item.more  {
     width: 80rpx;
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,8 +48,8 @@
 }
 
 .broker-item .right {
-    width: 220rpx;
-    height: 320rpx;
+    width: 100%;
+    height: 314rpx;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -58,8 +59,8 @@
 }
 
 .bgcolor {
-    width: 220rpx;
-    height: 320rpx;
+    width: 217rpx;
+    height: 314rpx;
     position: absolute;
     top: 0;
     left: -20rpx;

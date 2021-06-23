@@ -13,9 +13,11 @@
         </view>
     </view>
     <view class="cell-group">
+       
         <cell custom-style="cell-item"   icon="location" title="{{post.address}}" bindtap="gotoLocation"></cell>
         <cell wx:if="{{post.rank_info.show}}"  custom-style="cell-item" icon="bang" title="{{post.rank_info.text}}" url="{{post.rank_info.url}}"></cell>
         <cell wx:if="{{post.brokage_info.show}}"  custom-style="cell-item" icon="yong" title="{{post.brokage_info.text}}" url="/pkgFenxiao/pages/fenxiao/report-detail?id={{post.id}}"></cell>
+        <cell wx:if="{{post.license_info.show}}"  custom-style="cell-item" icon="yu" title="{{post.license_info.label}}" url="/pkgLicense/pages/license/index?kw={{post.title}}"></cell>
     </view>
     <view class="navs">
         <navigator url="{{nav.path}}" hover-class="none" class="nav-item" wx:for="{{navs}}" wx:for-item="nav">

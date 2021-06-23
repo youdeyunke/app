@@ -8,14 +8,20 @@
             <image src="../../icons/contact/share.png" />
             <view>转发</view>
         </div>
-        <div class="btn btn1" bindtap="bookingHandle">
-            <view class="name">预约看房</view>
-            <view class="desc">置业顾问免费带看</view>
+        <block wx:if="{{post.brokers_count > 0}}">
+            <div class="btn btn1" bindtap="bookingHandle">
+                <view class="name">预约看房</view>
+                <view class="desc">置业顾问免费带看</view>
+            </div>
+            <div class="btn btn2" bindtap="phoneHandle">
+                <view class="name">电话咨询</view>
+                <view class="desc">{{post.phone}}{{ post.sub_phone ? '转' + post.sub_phone : ''}}</view>
+            </div>
+        </block>
+        <div wx:else class="btn btn3" bindtap="joinHandle">
+            <view class="name">+ 置业顾问免费入驻</view>
         </div>
-        <div class="btn btn2" bindtap="phoneHandle">
-            <view class="name">电话咨询</view>
-            <view class="desc">{{post.phone}}{{ post.sub_phone ? '转' + post.sub_phone : ''}}</view>
-        </div>
+
     </view>
     <share-box wx:if="{{post}}" post-info="{{post}}" model:show="{{showShareBox}}" />
 

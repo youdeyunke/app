@@ -28,10 +28,10 @@
         </view>
     </block>
     <ad-link />
-    <safe-tips cat="{{post.group}}" />
+    <safe-tips  />
     <cr />
 </view>
 <broker-contact wx:if="{{brokerId}}" bid="{{brokerId}}" post-id="{{postInfo.id}}" ></broker-contact>
 <default-contact wx:else post="{{postInfo}}"></default-contact>
-<state state='1'></state>
+<!-- state  state='1'></state -->
 </view>

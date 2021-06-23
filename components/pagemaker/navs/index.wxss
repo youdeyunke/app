@@ -5,34 +5,38 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     width:710rpx;
-    margin:16rpx auto;
-    padding:- 30rpx;
+    margin:10rpx auto;
+    padding: 0 20rpx;
 }
 
 .list .item .icon {
     width: 100rpx;
     height: 100rpx;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .list .item .icon image {
-    width: 100rpx;
-    height: 100rpx;
+    width: 90rpx;
+    height: 90rpx;
 }
 
 .list .item .count {
     position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+    top: 0rpx;
+    left: 5rpx;
+    height: 90rpx;
+    width: 90rpx;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
     z-index: 10;
     font-weight: bold;
-    font-size: 30rpx;
+    font-size: 24rpx;
 }
 
 .list .item .name {

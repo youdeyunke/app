@@ -81,6 +81,7 @@ Page({
                 data.blocks = resp.data.data  
                 data.navs = resp.data.navs 
                 data.loading = false 
+                _this._setPostInfo(resp.data.post)
                 _this.setData(data, () => {
                     wx.showShareMenu({
                         withShareTicket: true,
@@ -267,7 +268,7 @@ Page({
     },
 
     loadData: function(){
-        this.loadPostInfo()
+        //this.loadPostInfo()
         this.loadPostBlocks()
     },
 

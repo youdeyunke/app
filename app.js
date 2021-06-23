@@ -12,8 +12,8 @@ App({
 
         reddotIntervalId: null,
         system: {},
-        //apiHost: 'http://192.168.31.66:20210',
-        apiHost: 'https://zzgd.udeve.cn',
+        apiHost: 'http://192.168.31.66:20210',
+        //apiHost: 'https://zzgd.udeve.cn',
         userInfo: null,
         token: null,
         cities: [],

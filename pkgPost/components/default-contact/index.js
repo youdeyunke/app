@@ -30,6 +30,15 @@ Component({
             })
         },
 
+        joinHandle: function(e){
+            var pid = this.data.post.id
+
+                wx.navigateTo({
+                  url: '/pkgBroker/pages/broker/join?post_id=' + pid,
+                })
+            
+        },
+
         bookingChange: function (e) {
             this.setData({ bookingStatus: 1 })
         },

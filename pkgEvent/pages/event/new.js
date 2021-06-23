@@ -38,8 +38,9 @@ Page({
             _this.setData({ author: user.name })
         })
 
+        var pid = q.id || q.post_id
         this.setData({
-            pid: q.id
+            pid: pid
         })
         this.loadCats()
     },

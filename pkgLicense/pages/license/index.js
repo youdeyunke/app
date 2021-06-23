@@ -56,10 +56,18 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options){
+  onLoad: function (q){
     wx.setNavigationBarTitle({
       title:'预售证查询'
     })
+    if(q.kw){
+      // 查询指定关键词的预售证
+      this.setData({kw: q.kw}, () => {
+        this.loadData()
+      })
+    }else{
+      this.loadData()
+    }
   },
 
   /**
@@ -73,7 +81,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.loadData()
+
   },
 
   /**
