@@ -2,7 +2,6 @@
     <navigator hover-class="none" class="item" bindtap="itemClick">
         <view class="cover" hover-class="none" hover-stop-propagation="false">
             <image src="{{item.cover }}?imageView2/2/w/250"></image>
-            <image wx:if="{{item.content_type == 'video'}}" class="bofang" src="/assets/icons/bofang.png"></image>
         </view>
         <view class="item-title-block">
             <view class="title">{{item.title}}</view>
@@ -22,7 +21,7 @@
         </view>
         <view class="video-image-box">
             <image class="video-image" src="{{item.cover}}?imageView2/2/w/250"></image>
-            <image src="../image/7.png" class="video-position-image"></image>
+            <image  src="/assets/icons/bofang.png" class="video-position-image"></image>
         </view>
     </navigator>
 </block>

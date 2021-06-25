@@ -2,10 +2,10 @@
 <view class="broker-operation-box">
   <view class="broker-operation">
      
-    <!-- <navigator url="pkgAdmin/pages/admin/booking" class="broker-operation-class">
+    <navigator url="/pkgBuyers/pages/buyers/index" class="broker-operation-class">
       <image class="broker-image7" src="../../images/b1.png"></image>
       <view>我的访客</view>
-    </navigator> -->
+    </navigator>
 
     <navigator class="broker-operation-class" url="/pkgBuyers/pages/buyers/index">
       <image class="broker-image7" src="../../images/b4.png"></image>

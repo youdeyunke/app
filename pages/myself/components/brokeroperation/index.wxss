@@ -12,6 +12,7 @@
   justify-content: space-evenly;
 }
 .broker-operation-class{
+  width: 174rpx;
   height:194rpx ;
   border-bottom: 1rpx solid #F1F1F1;
   box-sizing: border-box;
