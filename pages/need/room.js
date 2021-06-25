@@ -9,10 +9,10 @@ Page({
    */
   data: {
     needs: [],
-    activeTabIndex: 0,
+    activeTabIndex: 2,
     hideBtn: false,
     cats: [
-      { label: '求购客源', value: 'buy'  },
+     { label: '求购客源', value: 'buy'  },
       { label: '求租客源', value: 'rent' },
       { label: '我的客源', value: 'myself'},
     ],    

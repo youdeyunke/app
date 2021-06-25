@@ -7,10 +7,10 @@
       <view>我的访客</view>
     </navigator>
 
-    <view class="broker-operation-class">
+    <navigator class="broker-operation-class" url="/pkgBuyers/pages/buyers/index">
       <image class="broker-image7" src="../../images/b4.png"></image>
       <view>求购客户</view>
-    </view>
+    </navigator>
     <navigator url="/pkgAdmin/pages/admin/booking" class="broker-operation-class">
       <image class="broker-image7" src="../../images/b5.png"></image>
       <view>客户预约</view>
