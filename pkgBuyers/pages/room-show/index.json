@@ -1,0 +1,11 @@
+{
+    "usingComponents": {
+        "need-house": "/components/need-house",
+        "van-tabs": "/vant/tabs/index",
+        "van-tab": "/vant/tab/index",
+        "safe-tips": "/components/safe-tips",
+        "van-action-sheet": "/vant/action-sheet/index",
+        "recoms": "/components/recom-posts",
+        "box": "/components/box"
+    }
+}
