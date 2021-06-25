@@ -66,7 +66,7 @@ Component({
                 disabled: false,
                 children: [
                     {
-                        text: '150万以',
+                        text: '150万以内',
                         id: 1,
                         value: '0,150',
                     },

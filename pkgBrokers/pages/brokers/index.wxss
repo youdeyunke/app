@@ -93,13 +93,13 @@
 }
 .brokers-bottom{
   width: 750rpx;
-  height:53rpx ;
-  margin-top: 52.17rpx;
+  /* height:53rpx ; */
+  /* margin-top: 52.17rpx; */
   background-color:#3e88ff; 
 }
 .brokers-bottom image{
   width:524.83rpx ;
-  height: 52rpx;
+  height: 53rpx;
   margin-left: 113.43rpx;
   display: block;
 }
