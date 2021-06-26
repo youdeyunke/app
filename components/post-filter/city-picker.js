@@ -86,7 +86,7 @@ Component({
                     // cityitems for van-tree-select 
                     var items = resp.data.data.map((city, i) => {
                         if (i == 0) {
-                            city.text = '全国'
+                            city.text = '全部'
                         }
                         return city
                     })

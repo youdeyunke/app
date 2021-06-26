@@ -1,4 +1,4 @@
-<view class="show-box">
+
 <navigation-bar bindhome="homeHandle" bindback="backHandle" back="{{showNavBack}}" home background="none" background-color-top="none"></navigation-bar>
 <page-loading loading="{{loading}}" />
 <cover-block value="{{postInfo}}" />
@@ -33,5 +33,5 @@
 </view>
 <broker-contact wx:if="{{brokerId}}" bid="{{brokerId}}" post-id="{{postInfo.id}}" ></broker-contact>
 <default-contact wx:else post="{{postInfo}}"></default-contact>
-<!-- state  state='1'></state -->
-</view>
+
+

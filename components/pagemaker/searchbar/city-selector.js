@@ -68,7 +68,7 @@ Component({
                         return
                     }
                     var items = resp.data.data
-                    items = [{ name: '全国', id: null }].concat(items)
+                    items = [{ name: '全部', id: null }].concat(items)
                     _this.setData({ cityItems: items })
                 }
             })

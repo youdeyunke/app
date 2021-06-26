@@ -32,13 +32,19 @@ Component({
             var _this = this
             var ids = this.data.config.ids || []
             var albumId = this.data.config.albumId || 0
+            var tagIds = this.data.config.tagIds || []
             var f = this.data.config.dataFrom || 'ids'
             var query = {  }
             if(f == 'ids'){
                 query.ids = ids.join(',')
             }
-            if( f == 'album'){
+
+            if( f == 'albumId'){
                 query.album_id = albumId
+            }
+
+            if(f == 'tagIds'){
+                query.tag_ids = tagIds.join(',')
             }
 
             app.request({
