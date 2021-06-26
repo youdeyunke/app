@@ -110,7 +110,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-       
         var _this = this
 
         if (options.qrdata) {
@@ -154,16 +153,17 @@ Page({
         var today = y + '-' + m   + '-' + day
 
         if(cacheValue.length >= 1){
-            var i = cacheValue.length - 1 
-            var last = cacheValue[i]
-            if(last.post.id == this.data.postId){
-                return 
+            for(let i = 0;i<cacheValue.length;i++){
+                if(cacheValue[i].post.id == this.data.postId){
+                    console.log("出现过了")
+                    return
+                }
             }
         }
 
         cacheValue.push( {
             date: today, 
-            post: this.data.postInfo, 
+            post: wx.getStorageSync('post_base_info.'+this.data.postId), 
         })
         wx.setStorage({
           data: cacheValue,
@@ -270,6 +270,7 @@ Page({
     loadData: function(){
         //this.loadPostInfo()
         this.loadPostBlocks()
+        this.markHistory()
     },
 
     _setPostInfo: function(post, cb){

@@ -1,6 +1,6 @@
 // pages/need/index.js
 const app = getApp()
-var auth = require('../../utils/auth.js');
+var auth = require('../../../utils/auth.js')
 
 Page({
 
@@ -9,10 +9,10 @@ Page({
    */
   data: {
     needs: [],
-    activeTabIndex: 0,
+    activeTabIndex: 2,
     hideBtn: false,
     cats: [
-      { label: '求购客源', value: 'buy'  },
+     { label: '求购客源', value: 'buy'  },
       { label: '求租客源', value: 'rent' },
       { label: '我的客源', value: 'myself'},
     ],    

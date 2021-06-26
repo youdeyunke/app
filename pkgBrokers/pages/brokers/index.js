@@ -26,6 +26,9 @@ Page({
    */
   onLoad: function (options) {
     this.LoadHandle()
+    wx.setNavigationBarTitle({
+      title:'置业顾问排行榜'
+    })
   },
 
   /**

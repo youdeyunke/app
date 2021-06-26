@@ -44,6 +44,7 @@
     right: 0;
     bottom: 0;
     margin: auto; 
+    z-index: 555;
 }
 
 .item .title {
@@ -118,6 +119,9 @@
     height: 380rpx;
     border-radius: 10rpx;
 }
+.video-image{
+    z-index: -5;
+}
 .video-image-box{
     position: relative;
 }
@@ -127,4 +131,5 @@
     left: 315rpx;
     width: 80rpx;
     height: 80rpx;
+    z-index: 555555;
 }

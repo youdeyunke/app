@@ -1,8 +1,8 @@
-<view class="mycats">
+<!-- view class="mycats">
   <van-tabs  active="{{activeTabIndex}}"  border="{{false}}"  color="#00ae66" bind:change="catChange">
     <van-tab wx:for="{{cats}}" title="{{item.label}}"></van-tab>
   </van-tabs>
-</view>
+</view -->
 
 
 <box width="710" padding="20" wx:if="{{needs[0].length > 0}}">

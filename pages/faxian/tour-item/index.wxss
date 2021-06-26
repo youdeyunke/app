@@ -77,6 +77,7 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    width: 450rpx;
 }
 .renshu{
     color: #A0A0A0;
@@ -89,4 +90,5 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-left: -30rpx;
 }

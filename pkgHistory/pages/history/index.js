@@ -11,7 +11,7 @@ Page({
   getHistory:function(){
     var history = wx.getStorageSync('post.history')
     history = history.reverse()
-    console.log(" history",history)
+    console.log(" history",history)  
     this.setData({
       history:history
     })

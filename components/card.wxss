@@ -2,7 +2,7 @@
 
 @import "../app.wxss";
 .card {
-    width: 100%;
+    /* width: 100%; */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -37,6 +37,7 @@
     width: 12rpx;
     background: #1989fa;
     margin-right: 15rpx;
+
 }
 
 .card-header-title {
@@ -83,5 +84,3 @@
     padding: 0;
     margin: 0;
 }
-
-.card-footer {}

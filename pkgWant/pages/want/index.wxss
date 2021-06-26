@@ -71,6 +71,16 @@ page {
     margin-right: 10rpx;
     margin-bottom: 10rpx;
 }
+.van-tag--primary.van-tag--plain,.van-tag--primary{
+    margin-bottom: 10rpx;
+    margin-right: 10rpx;
+    border-radius: 10rpx;
+}
+.tags-list-name{
+    width: 180rpx;
+    text-align: center;
+}
+
 
 .basic .item .label {
     width: 120rpx;
