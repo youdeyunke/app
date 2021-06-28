@@ -22,12 +22,8 @@ Page({
 
     onLoad: function (q) {
         var _this = this
-        var groups = app.globalData.myconfigs['post_groups'].map((g, i) => {
-            g.value = g.key
-            return g
-        })
-        groups = [{ name: '全部', value: '' }].concat(groups)
-        this.setData({ groups: groups })
+        
+    
 
         auth.ensureUser((userInfo) => {
             _this.setData({ userInfo: userInfo })
@@ -63,13 +59,12 @@ Page({
         /* 拉取我的房源 */
         this.setData({ loading: true })
         var _this = this
-        var g = this.data.groups[this.data.groupIndex].value
         app.request({
             url: '/api/v1/admin_posts/',
             data: {
                 per_page: 999,
                 kw: _this.data.searchText,
-                group_v2: g,
+
             },
             success: function (resp) {
                 _this.setData({ loading: false })

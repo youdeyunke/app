@@ -2,10 +2,10 @@
 <view class="broker-operation-box">
   <view class="broker-operation">
      
-    <navigator url="/pkgBuyers/pages/buyers/index" class="broker-operation-class">
+    <!-- <navigator url="/pkgBuyers/pages/buyers/index" class="broker-operation-class">
       <image class="broker-image7" src="../../images/b1.png"></image>
       <view>我的访客</view>
-    </navigator>
+    </navigator> -->
 
     <navigator class="broker-operation-class" url="/pkgBuyers/pages/buyers/index">
       <image class="broker-image7" src="../../images/b4.png"></image>
@@ -20,6 +20,11 @@
       <image class="broker-image7" src="../../images/b2.png"></image>
       <view>我的名片</view>
     </navigator>
+
+    <view bindtap="Goprofile" class="broker-operation-class">
+      <image class="broker-image7" src="/assets/icons/question.png"></image>
+      <view>楼盘管理</view>
+    </view>
   </view>
   <!-- view class="broker-operation">
     <view class="broker-operation-class">

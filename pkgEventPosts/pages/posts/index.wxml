@@ -1,0 +1,11 @@
+<!--pkgEventPosts/pages/posts/index.wxml-->
+<!--pages/post/index.wxml-->
+
+<view class="outer" wx:if="{{posts.length > 0}}">
+  <view class="item-outer" wx:for="{{posts}}" wx:for-item="postitems">
+    <post wx:for="{{postitems}}" post="{{item}}"></post>
+  </view>
+</view>
+
+<no-result wx:else />
+

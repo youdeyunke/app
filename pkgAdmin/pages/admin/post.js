@@ -17,7 +17,7 @@ Page({
 
     onLoad: function (q) {
         var _this = this
-        this.setData({ postId: q.id }, () => {
+        this.setData({ postId: q.id || q.post_id }, () => {
             _this.setData({ loading: true })
             _this.loadPost()
         })

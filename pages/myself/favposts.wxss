@@ -1,8 +1,4 @@
-/* pages/myself/favposts.wxss */
 
-page{
-   padding-top:10rpx !important;
-}
 
 .outer{
    background:#fff;
