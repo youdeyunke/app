@@ -62,9 +62,9 @@ Component({
             // 查询收藏状态
             var _this = this
             app.request({
-                url: '/api/v2/favs/',
+                url: '/api/1/favs/',
                 hideLoading: true,
-                data: { post_id: _this.data.value.post_id },
+                data: { target_id: _this.data.value.post_id, target_type: 'post' },
                 success: function (resp) {
                     _this.setData({
                         favStatus: resp.data.data.status,
@@ -79,10 +79,10 @@ Component({
             var _this = this
             auth.ensureUser(function (userInfo) {
                 app.request({
-                    url: '/api/v2/favs/',
+                    url: '/api/1/favs/',
                     hideLoading: false,
                     method: 'POST',
-                    data: { post_id: pid },
+                    data: { target_id: pid, target_type: 'post' },
                     success: function (resp) {
                         _this.setData({
                             favStatus: resp.data.data.status,
