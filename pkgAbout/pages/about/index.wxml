@@ -7,7 +7,6 @@
   </view>
   <view class="about-describe">
     <view>{{xcx_us}}</view>
-
   </view>
   <view class="po" wx:if="{{show==true}}">
     <view class="image-box" >

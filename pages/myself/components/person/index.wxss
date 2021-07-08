@@ -52,6 +52,7 @@ image{
   width:710rpx ;
   height: 121rpx;
   margin: 0 auto;
+  padding-top: 35rpx;
 }
 .person-else-image2{
   width: 220rpx;

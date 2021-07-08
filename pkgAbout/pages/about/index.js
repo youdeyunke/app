@@ -13,6 +13,7 @@ Page({
     service_mobile: '',
     xcx_us:'',
     xcx_wechat_qr:'',
+    xcx_statement:''
   },
   callHandle() {
     wx.makePhoneCall({
@@ -86,6 +87,7 @@ Page({
       service_mobile: conf.service_mobile,
       xcx_us:conf.about_us,
       xcx_wechat_qr:conf.service_wechat_qr,
+      xcx_statement:conf.statement,
     }
     this.setData(data)
 

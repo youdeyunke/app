@@ -8,10 +8,10 @@
       <image class="user-image3" src="../../images/11.png"></image>
       <view>我的收藏</view>
     </view>
-    <!-- <view class="person-fn-class">
+    <navigator url="/pkgEventPosts/pages/posts/index" class="person-fn-class">
       <image class="user-image3" src="../../images/10.png"></image>
       <view>我的订阅</view>
-    </view> -->
+    </navigator>
     <navigator class="person-fn-class" url="/pkgQa/pages/qa/mine" >
       <image class="user-image3" src="../../images/12.png"></image>
       <view>我的问答</view>

@@ -247,6 +247,13 @@
       "pages": [
         "pages/buyers/index"
       ]
+    },
+    {
+      "root": "pkgEventPosts",
+      "name": "posts",
+      "pages": [
+        "pages/posts/index"
+      ]
     }
   ],
   "pages": [

@@ -28,13 +28,12 @@ Page({
             page: _this.data.page || 1,
             per_page: _this.data.per_page || 10,
         }
-
         app.request({
-            url: '/api/v1/posts/myfavs',
+            url: '/api/v1/event_followers/mine',
             data: query,
             hideLoading: true,
             success: function (resp) {
-                console.log("数据",resp.data.data)
+              console.log("最新数据",resp.data.data)
                 var d = { loading: false }
                 if (resp.data.data.length == 0) {
                     d.hasMore = false
@@ -63,7 +62,7 @@ Page({
      */
     onLoad: function (options) {
         wx.setNavigationBarTitle({
-            title: '我的收藏',
+            title: '我的订阅',
         })
         this.loadData()
 
