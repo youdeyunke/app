@@ -56,12 +56,10 @@ Page({
      */
     onLoad: function (options) {
         this.setData({ system: app.globalData.system }, () => {
-
             this.checkInstallTips()
         })
+        app.markVisitor('home', null)
     },
-
-
 
     checkInstallTips: function () {
         var _this = this
@@ -79,7 +77,6 @@ Page({
         this.setData({ 'showInstallTips': 0 })
         wx.setStorageSync('closeInstallTips', true)
     },
-
 
 
     /**

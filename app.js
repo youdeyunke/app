@@ -10,6 +10,10 @@ App({
         EXT: EXT,
         myconfigs: null,
 
+        sourceUid: null,  // 分享者user id
+        sceneName: 'default',  // 内部约定场景值
+        visitorId: null, // 访客行为id
+
         reddotIntervalId: null,
         system: {},
         apiHost: 'http://192.168.31.66:20210',
@@ -395,37 +399,50 @@ App({
         }
     },
 
-    markVisitor: function (logId, oid, otype, cb) {
-        console.log('markvisitor: logid', logId, 'cb', cb)
-        // 未登录就不发送请求
-        if (!this.globalData.token) {
-            console.log('未登录，不记录访问数据')
-            return false
-        }
+    markVisitor: function (targetType, targetId, cb) {
+        // TODO 未登录情况下产生一个唯一身份id
         var _this = this
-        var url = '/api/v1/visitors/'
-        var method = 'POST'
-        if (logId) {
-            url = '/api/v1/visitors/' + logId
-            method = 'PUT'
-        }
-
         this.request({
-            url: url,
+            url: '/api/v1/visitors',
             hideLoading: true,
-            method: method,
+            method: 'POST',
             data: {
-                target_id: oid,
-                target_type: otype
+                target_id: targetId,
+                target_type: targetType,
+                scene_name: _this.globalData.sceneName, 
+                source_uid: _this.globalData.sourceUid,
             },
             success: function (resp) {
+                var data = resp.data.data
+                if(data.status == 0){
+                    _this.globalData.visitorId = data.data
+                }
+
                 typeof cb == 'function' && cb(resp.data.data)
             }
         })
     },
 
 
-
+    markVisitorAction: function (actionName, value, time, cb) {
+        // TODO 未登录情况下产生一个唯一身份id
+        var _this = this
+        this.request({
+            url: '/api/v1/visitor_actions',
+            hideLoading: true,
+            method: 'POST',
+            data: {
+                visiton_id: _this.globalData.visitorId, 
+                action_name: actionName, 
+                value: value, 
+                time: time
+            },
+            success: function (resp) {
+                var data = resp.data.data
+                typeof cb == 'function' && cb(resp.data.data)
+            }
+        })
+    },
 
     sendSms: function (mobile, cb) {
         var _this = this;

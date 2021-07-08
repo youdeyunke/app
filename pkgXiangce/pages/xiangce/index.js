@@ -11,6 +11,7 @@ Page({
         loading: true,
         cats: [],
         scrollIntoView: '',
+        t0: null,
         postId: null,
     },
 
@@ -39,8 +40,6 @@ Page({
         }, (res) => {
             _this.loadData()
         })
-
-
     },
 
 
@@ -139,14 +138,17 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        var t = new Date().getTime()
+        this.setData({ t0: t, })
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
     onHide: function () {
-
+        var t1 = new Date().getTime()
+        var t = t1 - this.data.t0
+        app.markVisitorAction('view_album', null, t)
     },
 
     /**

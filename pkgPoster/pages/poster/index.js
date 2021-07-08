@@ -231,9 +231,9 @@ Page({
                 title: '生成二维码',
                 mask: true,
             });
-
-            var path = 'pages/post/post?contact=' + this.data.post.id + '_' + info.name + '_' + info.mobile + '_' + uid
-            app.genQr(path, function (data) {
+            var path = '/pkgPost/pages/show/index'
+            var query = {id: this.data.post.id, broker_id: uid, sceneName: 'poster'}
+            app.genQr(path, query, function (data) {
                 var url = data.qr
                 console.log('生成专属唯一二维码', url)
                 cb(url)

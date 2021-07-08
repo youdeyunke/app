@@ -115,27 +115,26 @@ Page({
         if (options.qrdata) {
             // 分享海报进入
             // 解析海报url中的数据
-            // 隐藏home
-
+            // TODO 设置sceneName，sourceUid
             var qrdata = options.qrdata
             qrdata = decodeURIComponent(qrdata)
             qrdata = JSON.parse(qrdata)
             console.log('decode qrdata is', qrdata, typeof qrdata)
             options = qrdata
+        }else{
+            // 其他方式进入
+            
         }
         var postId = options.id || options.post_id
         var brokerId = options.broker_id || ''
+        this.globalData.sourceUid = brokerId
+        this.globalData.sceneName = options.sceneName || 'default'
 
         _this.setData({ postId: postId, brokerId: brokerId  }, () => {
             _this.loadData()
 
         })
-        app.markVisitor(null, postId, 'post', function (vid) {
-            // TODO 优化统计功能
-            return
-            _this.setData({ 'visitorLogId': vid })
-            _this.setInterval()
-        })
+        app.markVisitor('post', postId)
         wx.hideShareMenu({
             menus: ['shareAppMessage', 'shareTimeline']
         })
@@ -356,7 +355,7 @@ Page({
         var _this = this
         return {
             title: _this.data.pageTitle,
-            path: 'pages/post/post?' + _this.data.pageQuery,
+            path: 'pages/post/post?' + _this.data.pageQuery + '&sceneName=wechat',
             imageUrl: _this.data.pageCover,
         }
     },
@@ -365,7 +364,7 @@ Page({
         var _this = this
         return {
             title: _this.data.pageTitle,
-            query:  _this.data.pageQuery ,
+            query:  _this.data.pageQuery + '&sceneName=timeline',
             imageUrl: _this.data.pageCover
         }
     }
