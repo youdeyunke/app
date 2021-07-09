@@ -413,9 +413,10 @@ App({
                 source_uid: _this.globalData.sourceUid,
             },
             success: function (resp) {
-                var data = resp.data.data
+                var data = resp.data
                 if(data.status == 0){
                     _this.globalData.visitorId = data.data
+                    console.log('set vid is', _this.globalData.visitorId)
                 }
 
                 typeof cb == 'function' && cb(resp.data.data)
@@ -424,18 +425,20 @@ App({
     },
 
 
-    markVisitorAction: function (actionName, value, time, cb) {
+    markVisitorAction: function (actionName, value, seconds, cb) {
         // TODO 未登录情况下产生一个唯一身份id
         var _this = this
+        seconds = seconds / 1000
+        console.log('get vid is', _this.globalData.visitorId)
         this.request({
             url: '/api/v1/visitor_actions',
             hideLoading: true,
             method: 'POST',
             data: {
-                visiton_id: _this.globalData.visitorId, 
+                visitor_id: _this.globalData.visitorId, 
                 action_name: actionName, 
                 value: value, 
-                time: time
+                seconds: seconds,
             },
             success: function (resp) {
                 var data = resp.data.data

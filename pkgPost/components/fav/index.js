@@ -43,9 +43,9 @@ Component({
             var _this = this
 
             app.request({
-                url: '/api/v2/favs/',
+                url: '/api/v1/favs/',
                 hideLoading: true,
-                data: { post_id: _this.data.pid },
+                data: { target_id: _this.data.pid, target_type: 'post' },
                 success: function (resp) {
                     _this.setData(resp.data.data)
                 },
@@ -70,13 +70,13 @@ Component({
             // 先修改状态，再提交api 
             this.setData({ status: !this.data.status })
             app.request({
-                url: '/api/v2/favs/',
+                url: '/api/v1/favs/',
                 hideLoading: true,
                 method: 'POST',
-                data: { post_id: pid },
+                data: { target_id: pid, target_type: 'post' },
                 success: function (resp) {
                     _this.setData(resp.data.data) // {{ count:0, status: 1}}
-                    if (resp.data.status == 1) {
+                    if (resp.data.data.status == 1) {
                         var t = '已收藏'
                     } else {
                         var t = '已取消'

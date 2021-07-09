@@ -110,7 +110,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        this.setData({ t0: new Date().getTime(), })
     },
 
     /**
@@ -124,7 +124,9 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
-
+        var t1 = new Date().getTime()
+        var t = t1 - this.data.t0
+        app.markVisitorAction('view_type', this.data.tid, t)
     },
 
     /**

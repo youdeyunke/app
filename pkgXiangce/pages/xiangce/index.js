@@ -146,16 +146,16 @@ Page({
      * 生命周期函数--监听页面隐藏
      */
     onHide: function () {
-        var t1 = new Date().getTime()
-        var t = t1 - this.data.t0
-        app.markVisitorAction('view_album', null, t)
+
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
-
+        var t1 = new Date().getTime()
+        var t = t1 - this.data.t0
+        app.markVisitorAction('view_albums', null, t)
     },
 
     /**

@@ -126,15 +126,17 @@ Page({
             
         }
         var postId = options.id || options.post_id
+        console.log('to mark visitor ', postId )
+        app.markVisitor('post', postId)
         var brokerId = options.broker_id || ''
-        this.globalData.sourceUid = brokerId
-        this.globalData.sceneName = options.sceneName || 'default'
+        app.globalData.sourceUid = brokerId
+        app.globalData.sceneName = options.sceneName || 'default'
 
         _this.setData({ postId: postId, brokerId: brokerId  }, () => {
             _this.loadData()
 
         })
-        app.markVisitor('post', postId)
+   
         wx.hideShareMenu({
             menus: ['shareAppMessage', 'shareTimeline']
         })
