@@ -17,6 +17,7 @@
     border-top-right-radius: 28rpx;
     border-bottom-right-radius: 28rpx;
     padding: 12rpx 28rpx 12rpx 12rpx;
+    margin-left:-16rpx;
 }
 
 .subtitle {

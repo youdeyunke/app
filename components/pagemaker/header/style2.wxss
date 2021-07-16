@@ -11,7 +11,7 @@
 }
 
 .title {
-    font-size: 28rpx;
+    font-size: 40rpx;
     color: #000;
     display: flex;
     justify-content: center;

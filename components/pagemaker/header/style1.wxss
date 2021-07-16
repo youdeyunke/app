@@ -11,7 +11,7 @@
 }
 
 .title {
-    font-size: 28rpx;
+    font-size: 40rpx;
     color: #000;
     border-bottom: 8rpx solid #1989fa;
     padding-bottom: 6rpx;

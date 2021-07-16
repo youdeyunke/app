@@ -11,7 +11,7 @@
 
 .title {
     height: 30rpx;
-    font-size: 38rpx;
+    font-size: 40rpx;
     color: #000;
     display: flex;
     font-weight: bold;
