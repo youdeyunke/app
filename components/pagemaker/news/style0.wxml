@@ -1,14 +1,15 @@
 <view class="style1 item-list">
-    <view class="item" wx:for="{{items}}">
+    <navigator url="/pkgNews/pages/news/show?id={{item.id}}"  class="item" wx:for="{{items}}">
+        <view class="cover">
+            <image mode="fill" src="{{item.cover}}" />
+        </view>
         <view class="left">
             <view class="title">{{item.title}}</view>
             <view class="footer">
                 <view class="author">{{item.author}}</view>
-                <view class="date">2021-12-12</view>
+                <view class="date">{{item.date }} </view>
             </view>
         </view>
-        <view class="cover">
-            <image mode="fill" src="{{item.cover}}" />
-        </view>
-    </view>
+
+    </navigator>
 </view>

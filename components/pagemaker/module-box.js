@@ -8,17 +8,49 @@ Component({
     },
 
     observers: {
-        "config.height": function (height) {
-            if (!height) {
+        "config.marginTop": function(v){
+            if(v == false){
+                this.setData({'marginTopValue': '0rpx'})
+            }
+        },
+
+        "config.marginBottom": function(v){
+            if(v == false){
+                this.setData({'marginBottomValue': '0rpx'})
+            }
+        },        
+        "config.shadow": function(v){
+            if(v == 'off'){
+                this.setData({shadowEnalbe: false})
+          
+            }
+    
+        },
+        "config.width": function(w){
+            if(!w || !w.size){
                 return
             }
-            var h = height.cat == 'default' ? height.default : height.value
-            if (h != 'auto' && typeof h == 'number') {
-                // conver px to rpx
-                h = h * 2 + 'rpx'
+    
+            var value = '750rpx' // full
+            switch(w.size){
+                case 'large':
+                    value = '710rpx'
+                    break; 
+                case 'small':  
+                    value = '690rpx'
+                    break; 
             }
-            this.setData({ height: h })
+            this.setData({widthValue: value})
         },
+
+        "config.radius": function(r){
+            if(!r){
+                return 
+            }
+            var val = r.value * 2 + 'rpx'
+            this.setData({radiusValue: val})
+        },
+
         "config.background": function (bg) {
             if (!bg) {
                 return
@@ -43,23 +75,7 @@ Component({
 
             this.setData({ bgColor: bgColor, bgImage: bgImage })
         },
-        "config.padding": function (padding) {
-            if (!padding) {
-                return false
-            }
-            var v = 20
-            var items = [0, 0, 0, 0] // top,right,bottom,left
-            padding.right = padding.left // right == left
-            items[0] = padding.top == true ? v : 0
-            items[1] = padding.right == true ? v : 0
-            items[2] = padding.bottom == true ? v : 0
-            items[3] = padding.left == true ? v : 0
-            items = items.map((n, i) => {
-                return n + 'rpx'
-            })
-            var s = items.join(" ")
-            this.setData({ padding: s })
-        },
+      
 
     },
 
@@ -70,6 +86,11 @@ Component({
         bgColor: '',
         bgImage: '',
         height: 'auto',
+        shadowEnable: true, 
+        widthSize: '750rpx',
+        radiusValue: '2rpx',
+        marginTopValue: '16rpx', 
+        marginBottomValue: '16rpx',
     },
 
     /**

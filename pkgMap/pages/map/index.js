@@ -51,7 +51,7 @@ Page({
         wx.setNavigationBarTitle({ title: '地图找房' })
         var _this = this
         app.ensureConfigs((configs) => {
-            var currentPostGroup = q.group || configs['post_groups'][0].value
+            var currentPostGroup = 'new'
             _this.setData({
                 groupItems: configs['post_groups'],
                 currentPostGroup: currentPostGroup

@@ -1,3 +1,3 @@
 <!-- components/pagemaker/header/module-box.wxml -->
-<view class="module-box" style="background-color: {{bgColor}}; background-image: {{bgImage }};">
+<view class="module-box {{ shadowEnable ? 'shadow' : '' }} " style="background-color: {{bgColor}}; background-image: {{bgImage }};width:{{widthValue}};border-radius:{{radiusValue}};margin-top:{{marginTopValue}};margin-bottom:{{marginBottomValue}}">
     <module-header wx:if="{{config.header.hidden != true}}" config="{{config.header}}"></module-header><slot></slot></view>

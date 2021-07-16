@@ -2,16 +2,29 @@ module.exports = {
 
 
     functionHandle: function (config) {
-        var phone = config.phone
-        if(!phone){
-            return
+        
+        switch(config.function){
+            case 'call': 
+                var phone = config.phone
+                if(!phone){
+                    return
+                }
+                wx.makePhoneCall({
+                    phoneNumber: phone,
+                    fail: function(res){
+                        // pass
+                    }
+                });            
+                break;
+            case 'modal': 
+                wx.showModal({
+                    title: config.modalTitle || '提示', 
+                    content: config.modalContent, 
+                    showCancel: false,  
+                })
+                break;
         }
-        wx.makePhoneCall({
-            phoneNumber: phone,
-            fail: function(res){
-                // pass
-            }
-        });
+
     },
 
     weappHandle: function (config) {

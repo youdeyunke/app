@@ -1,7 +1,7 @@
 /* components/pagemaker/banners/index.wxss */
 
 .outer{
-    margin:16rpx auto;
+    margin:0rpx auto;
 }
 
 .link {

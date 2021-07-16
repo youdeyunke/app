@@ -1,9 +1,15 @@
 /* components/pagemaker/header/module-box.wxss */
 .module-box{
-  width:750rpx;
+  max-width:750rpx;
+  min-width:690rpx; 
+  overflow: hidden;
   margin:0; 
   height: auto;
   padding:0;
   border:none;
   
+}
+
+.shadow {
+  box-shadow: 4rpx 8rpx 20rpx rgba(0,0,0, 0.20);
 }

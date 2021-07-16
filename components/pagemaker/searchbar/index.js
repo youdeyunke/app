@@ -19,6 +19,14 @@ Component({
             var textColor = v.cat == 'default' ? v.defaultColor : v.color
             this.setData({ text: text, textColor: textColor })
         },
+        "config.height": function(h){
+            if(!h || !h.value){
+                return
+            }
+            var val = h.value * 2 + 'rpx'
+            this.setData({heightValue: val})
+
+        },
 
         "config.style": function (style) {
             var bg = 'none'
@@ -41,7 +49,8 @@ Component({
         text: '',
         textColor: '',
         bodyBgColor: '',
-        radiusValue: 'none'
+        heightValue: '80rpx',
+     
     },
 
     /**

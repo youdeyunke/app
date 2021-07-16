@@ -7,10 +7,10 @@
     justify-content: flex-start;
     align-items: flex-start;
     font-size: 28rpx;
-    padding-bottom:30rpx;
+    margin-bottom:30rpx;
     border-bottom:2rpx solid #f0f0f0;
     position: relative;
-    padding-top: 30rpx;
+    
 }
 .position{
     height: 165rpx;

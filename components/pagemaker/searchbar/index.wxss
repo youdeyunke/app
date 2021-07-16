@@ -1,9 +1,8 @@
 /* components/pagemaker/searchbar/index.wxss */
 
 .searchbar {
-    height: 88rpx;
-    width:710rpx;
-    margin:16rpx auto;
+    width:100%;
+    margin:0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;

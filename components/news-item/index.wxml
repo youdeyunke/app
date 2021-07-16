@@ -7,7 +7,7 @@
             <view class="title">{{item.title}}</view>
             <view class="meta">
                 <view class="author">{{item.author}}</view>
-                <view class="date">{{item.created_at_pretty}}</view>
+                <view class="date">{{item.date}}</view>
             </view>
         </view>
     </navigator>
@@ -17,7 +17,7 @@
         <view class="video-title">{{item.title}}</view>
         <view class="video-message">
             <text>{{item.author}}</text>
-            <text>{{item.created_at_pretty}}</text>
+            <text>{{item.date}}</text>
         </view>
         <view class="video-image-box">
             <image class="video-image" src="{{item.cover}}?imageView2/2/w/250"></image>

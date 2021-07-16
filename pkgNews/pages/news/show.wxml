@@ -4,8 +4,8 @@
             <view class="header">
                 <view class="h1">{{item.title}}</view>
                 <view class="date">
-                    <text class="author" wx:if="{{item.author}}">{{item.authro}}</text>
-                    发布于：{{item.created_at_pretty}} / 浏览量：{{ item.view_nums}}
+                    <text class="author" wx:if="{{item.author}}">{{item.author}}</text>
+                    <text wx:if="{{item.date}}">发布于：{{item.date}} /  </text> 浏览量：{{ item.view_nums}}
                 </view>
             </view>
             <view class="raw">

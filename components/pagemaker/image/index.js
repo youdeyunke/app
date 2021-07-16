@@ -27,28 +27,20 @@ Component({
 
       "config.height": function(v){
           // 图片的高度值
-  
-          if(v && v.value != 'auto'){
-            value = v.value * 2
-            this.setData({heightValue: value + 'rpx'})
-            return
+          if(!v || !v.value){
+              return false
           }
-       
-          this.setData({heightValue: 'auto'})
+        
+        var  value = v.value * 2
+        this.setData({heightValue: value + 'rpx'})
+        return
+          
       },
 
-      "config.radius": function(v){
-          // 是否开启图片圆角效果
-          var value = v ?  v.value * 2 + 'rpx' : '0rpx'
-          this.setData({borderRadiusValue: value}) 
-      },
+  
 
-      "config.width": function(v){
-          // 根据不同的宽度，设置具体的值
-          var value = v ?  v.value * 2 + 'rpx' : '710rpx'
-          this.setData({widthValue: value})
-          console.log('计算图片宽度指', value)
-      }
+
+    
   },
 
 
@@ -57,7 +49,6 @@ Component({
    */
   data: {
       imageRadius: 'none', 
-      widthValue: '710rpx',
       heightValue: 'auto',
       borderRadiusValue: '0',
       blocks: [],

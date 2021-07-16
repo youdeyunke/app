@@ -4,9 +4,9 @@
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    width:710rpx;
-    margin:10rpx auto;
-    padding: 0 20rpx;
+    width:100%;
+    margin:0rpx auto;
+    padding: 16rpx;
 }
 
 .list .item .icon {
