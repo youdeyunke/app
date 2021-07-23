@@ -13,7 +13,7 @@ Page({
     hideBtn: false,
     cats: [
      { label: '求购客源', value: 'buy'  },
-      { label: '求租客源', value: 'rent' },
+    //  { label: '求租客源', value: 'rent' },
       { label: '我的客源', value: 'myself'},
     ],    
     page: 1,

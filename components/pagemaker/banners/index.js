@@ -25,11 +25,7 @@ Component({
             this.setData({borderRadiusValue: value}) 
         },
 
-        "config.widthSize": function(v){
-            // 根据不同的宽度，设置具体的值
-            var value = v ?  v.value * 2 + 'rpx' : '710rpx'
-            this.setData({widthValue: value})
-        }
+
     },
 
 

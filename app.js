@@ -6,6 +6,7 @@ const EXT = wx.getExtConfigSync()
 
 App({
     globalData: {
+        backToReload: false, // 通过naviate back 返回页面后，是否需要刷新页面数据？ 在onShow函数总判断，如果为true，就刷新页面数据
         cityId: null, // 全局城市过滤
         EXT: EXT,
         myconfigs: null,
@@ -577,7 +578,9 @@ App({
 
                 if (res.data.status == 404) {
                     var error = res.data.error;
-                    
+                    wx.redirectTo({
+                        url: "/pages/404/index?error=" + error
+                    });
                     return false;
                 }              
 

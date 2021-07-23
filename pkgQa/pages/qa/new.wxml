@@ -1,6 +1,6 @@
 <box padding="30">
 
-  <mytextarea value="{{content}}" bind:input="contentChange" max-length="500" min-length="5" placeholder="请输入问题" />
+  <ud-textarea value="{{content}}" bind:input="contentChange" max-length="500" min-length="5" placeholder="请输入问题" />
   <view class="actions">
     <van-button   disabled="{{ content.length < minLength || loading }}" loading="{{loading}}" bindtap="submitHandle" type="info" block  >我要提问</van-button>
     <view style="height:20rpx;display:block;"></view>

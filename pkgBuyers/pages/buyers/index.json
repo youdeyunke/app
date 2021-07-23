@@ -5,6 +5,6 @@
         "safe-tips": "/components/safe-tips",
         "recoms": "/components/recom-posts",
         "add-new": "/components/add-new",
-        "box": "/components/box"
+        "box": "/components/ud/box/index"
     }
 }

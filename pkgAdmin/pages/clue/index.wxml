@@ -1,0 +1,26 @@
+<header title="{{status.name}}" color="{{status.color || '#1989fa'}}">
+  {{ status.desc }}
+</header>
+
+
+<view class="item" wx:for="{{items}}" wx:for-key="id">
+
+  <van-cell  is-link center border="{{false}}" url="/pkgAdmin/pages/clue/show?id={{item.id}}">
+    <view slot="title">
+
+    <view class="header">
+        <view class="name">
+        <image class="sex" src="../../images/sex-{{item.sex}}.png" /> 
+        <text>{{ item.name }}</text>
+        </view>
+      <view class="date"> {{item.updated_at }} </view>
+    </view>
+    <view class="content">
+      {{item.content }}
+
+    </view>
+    </view>
+  </van-cell>
+
+
+</view>

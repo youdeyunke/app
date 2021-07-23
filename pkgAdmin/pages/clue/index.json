@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "线索列表",
+  "usingComponents": {
+    "header": "./header"
+  }
+}

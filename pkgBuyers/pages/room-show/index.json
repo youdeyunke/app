@@ -6,6 +6,6 @@
         "safe-tips": "/components/safe-tips",
         "van-action-sheet": "/vant/action-sheet/index",
         "recoms": "/components/recom-posts",
-        "box": "/components/box"
+        "box": "/components/ud/box/index"
     }
 }

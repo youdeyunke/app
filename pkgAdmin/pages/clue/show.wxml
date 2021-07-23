@@ -1,0 +1,40 @@
+<view class="customer">
+
+  <view clss="header">
+
+    <image class="sex" src="../../images/sex-{{clue.sex}}.png" />
+    <text class="name">{{ clue.name }}</text>
+  </view>
+
+  <view class="footer">
+    <image class="btn wechat" src="../../images/btn-wechat.png" />
+
+    <image class="btn" src="../../images/btn-phone.png" />
+  </view>
+
+</view>
+
+
+<view class="logs">
+
+  <view class="log" wx:for="{{follows}}">
+
+    <view class="dot"></view>
+    <view class="header">
+      <view>{{ item.created_at }}
+        {{ item.author || '系统' }}</view>
+      <view>
+        <van-tag size="mini" color="{{item.color}}">{{item.status.name}}</van-tag>
+      </view>
+
+    </view>
+    <view class="body"> {{ item.content }}</view>
+    <view class="footer"></view>
+
+  </view>
+
+</view>
+
+<navigator url="/pkgAdmin/pages/clue/form?id={{clue.id}}" class="action">
+  <van-button icon="/assets/icons/edit-btn.png" color="#1989fa" size="large" block custom-style="height:100rpx;width:710rpx;">写跟进日志</van-button>
+</navigator>

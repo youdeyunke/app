@@ -4,15 +4,14 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        padding: { type: Boolean, value: true, },
-        bodySize: { type: Number, value: '28' },
 
         width: { type: Number, value: 750, },
         title: { type: String, value: '标题' },
+        titleSize: {type: Number, value: 32},
+        titleColor: {type: String, value: '#333333'},
         subTitle: { type: String, value: '' },
         url: { type: String, value: null },
-        border: { type: Boolean, value: true, },
-        headBorder: { type: Boolean, value: false },
+        hat: {type: Boolean, value: false, },
         opentype: { type: String, value: 'navigateTo' }
     },
 

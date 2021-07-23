@@ -2,6 +2,6 @@
   "component": true,
   "enablePullDownRefresh": true,
   "usingComponents": {
-    "box": "/components/box"
+    "box": "/components/ud/box/index"
   }
 }

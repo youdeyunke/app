@@ -20,7 +20,7 @@
         "comments-block": "./comments-block",
         "van-transition": "/vant/transition/index",
         "page-loading": "./page-loading",
-        "box": "/components/box",
+        "box": "/components/ud/box/index",
         "default-contact": "../../components/default-contact/index",
         "broker-contact": "/components/broker-contact/index",
         "visitors": "/components/visitors/index",

@@ -1,5 +1,10 @@
 /* components/textarea.wxss */
 
+
+.outer{
+    margin:0 auto;
+}
+
 textarea {
     padding: 20rpx;
     width: 100%;

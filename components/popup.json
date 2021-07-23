@@ -2,6 +2,6 @@
   "component": true,
   "usingComponents": {
     "van-popup": "/vant/popup/index",
-    "box": "/components/box"
+    "box": "/components/ud/box/index"
   }
 }

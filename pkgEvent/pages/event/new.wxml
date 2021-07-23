@@ -11,7 +11,7 @@
     <van-field disabled="{{true}}" value="{{author}}" data-name="author" label="动态作者" />
 </box>
 <mycard title="动态内容" title-size="28" hat="{{false}}">
-    <mytextarea bind:input="contentHandle" value="{{content}}" max-length="300" />
+    <ud-textarea bind:input="contentHandle" value="{{content}}" max-length="300" />
     <view class="images-uploader">
         <images-uploader bind:success="imagesHandle" max="10" images-str="{{images}}" bind:change="imagesHandle" />
     </view>

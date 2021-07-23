@@ -11,5 +11,5 @@
 }
 
 .shadow {
-  box-shadow: 4rpx 8rpx 20rpx rgba(0,0,0, 0.20);
+  box-shadow: 2rpx 8rpx 30rpx 10rpx rgba(0,0,0, 0.15);
 }

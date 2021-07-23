@@ -1,7 +1,7 @@
 {
   "usingComponents": {
       "post": "/components/post-item/cell/index",
-      "box": "/components/box",
+      "box": "/components/ud/box/index",
       "myslider": "/components/slider"
   }
 }

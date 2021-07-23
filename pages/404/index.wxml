@@ -3,7 +3,7 @@
   <view class="lose-text">
     <text>页面丢失</text>
     <text>\n</text>
-    <text>呜呼！页面走丢了</text>
+    <text>{{ error }}</text>
   </view>
   <navigator open-type="switchTab" class="lose-back" url="/pages/home/home">
     <text>返回主页</text>

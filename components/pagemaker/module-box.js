@@ -8,20 +8,20 @@ Component({
     },
 
     observers: {
-        "config.marginTop": function(v){
+        "config.margin.top": function(v){
             if(v == false){
                 this.setData({'marginTopValue': '0rpx'})
             }
         },
 
-        "config.marginBottom": function(v){
+        "config.margin.bottom": function(v){
             if(v == false){
                 this.setData({'marginBottomValue': '0rpx'})
             }
         },        
         "config.shadow": function(v){
             if(v == 'off'){
-                this.setData({shadowEnalbe: false})
+                this.setData({shadowEnable: false})
           
             }
     

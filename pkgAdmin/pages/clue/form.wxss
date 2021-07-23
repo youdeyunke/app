@@ -1,0 +1,28 @@
+/* pkgAdmin/pages/clue/form.wxss */
+page{
+  padding-top:20rpx !important;
+  background:#f2f2f2;
+}
+
+.footer {
+  margin-top:20rpx;
+}
+
+.status-items{ 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.status-item{
+  width:200rpx;
+  text-align-last: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:60rpx;
+  border-radius: 10rpx;
+
+  margin-bottom:20rpx;
+}

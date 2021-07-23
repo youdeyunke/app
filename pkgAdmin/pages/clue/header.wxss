@@ -1,0 +1,37 @@
+.outer{
+  height:200rpx; 
+  width:710rpx;
+  border-radius: 15rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 30rpx;
+  margin:20rpx auto ;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  
+}
+
+.outer .title{
+  font-size:36rpx;
+  color:#fff; 
+  font-weight: bolder;
+  margin-bottom:20rpx;
+}
+
+.outer .body{
+  font-size: 24rpx;
+  color:#fff;
+}
+
+.outer .mask{
+  width:710rpx; 
+  height:200rpx;
+  z-index:1rpx; 
+  position: absolute;
+  top:0; 
+  left:0;
+  line-height: 1.4;
+}

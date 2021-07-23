@@ -2,6 +2,7 @@
 
 .outer{
     margin:0rpx auto;
+    width:100%;
 }
 
 .link {

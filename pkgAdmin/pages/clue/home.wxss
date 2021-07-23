@@ -1,0 +1,51 @@
+/* pkgAdmin/pages/clue/home.wxss */
+
+.blank{
+  height:10rpx; 
+  display: block;
+}
+
+.counters{
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  margin:0 auto 20rpx auto;
+  width:710rpx;
+  
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height:160rpx; 
+  width:220rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  background: #fff;
+  padding:20rpx 0;
+
+}
+
+.counter .num{ 
+  font-size:40rpx; 
+  font-weight: bolder; 
+}
+
+.counter .name {
+  color:#999; 
+  font-size:24rpx;
+}
+
+ .today .num{ 
+  color:red; 
+}
+
+.total .num{ 
+  color: #0971EB; 
+}
+
+.logs .num { 
+  color: #F6C207; 
+}

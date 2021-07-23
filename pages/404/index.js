@@ -11,8 +11,8 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function (q) {
+    this.setData({error: q.error || '页面不存在或者已被删除'})
   },
 
   /**

@@ -3,7 +3,7 @@
   "usingComponents": {
     "van-radio-group": "/vant/radio-group/index",
     "van-radio": "/vant/radio/index",
-    "box": "/components/box",
+    "box": "/components/ud/box/index",
     "van-panel": "/vant/panel/index",
     "van-cell": "/vant/cell/index",
     "howlong": "/components/howlong"

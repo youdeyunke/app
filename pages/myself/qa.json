@@ -1,6 +1,6 @@
 {
   "usingComponents":{
-    "box": "/components/box",
+    "box": "/components/ud/box/index",
     "qa": "/components/qa"
   }
 }

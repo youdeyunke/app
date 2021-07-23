@@ -4,6 +4,11 @@
       "root": "pkgAdmin",
       "name": "pkgadmin",
       "pages": [
+        "pages/clue/home",
+        "pages/clue/index",
+        "pages/clue/show",
+        "pages/clue/form",
+
         "pages/admin/index",
         "pages/admin/posts",
         "pages/admin/booking",
@@ -12,6 +17,8 @@
         "pages/admin/xiangce/index"
       ]
     },
+
+
     {
       "root": "pkgPost",
       "name": "pkgpost",
@@ -321,7 +328,7 @@
   "usingComponents": {
     "cr": "/components/copyright",
     "navigation-bar": "/components/navBar/navBar",
-    "mytextarea": "/components/textarea",
+   
     "no-result": "/components/no-result",
     "van-panel": "/vant/panel/index",
     "van-rate": "/vant/rate/index",
@@ -332,6 +339,7 @@
     "van-popup": "/vant/popup/index",
     "van-search": "/vant/search/index",
     "van-loading": "/vant/loading/index",
+    "van-notify": "/vant/notify/index",
     "van-tabs": "/vant/tabs/index",
     "van-tab": "/vant/tab/index",
     "van-divider": "/vant/divider/index",
@@ -344,9 +352,13 @@
     "van-cell-group": "/vant/cell-group/index",
     "cell-radio": "/components/cell-radio",
     "mycard": "/components/card",
+
+    "ud-card": "/components/ud/card/index",
+    "ud-box": "/components/ud/box/index",
     "ud-checkbox": "/components/ud/checkbox/index",
     "ud-image": "/components/ud/image/index",
-    "box": "/components/box"
+    "ud-textarea": "/components/ud/textarea/index"
+
   },
   "networkTimeout": {
     "request": 100000,

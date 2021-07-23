@@ -229,9 +229,10 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        var _this = this 
         setTimeout(() => {
             if(!this.data.brokerProfile){
-                _this.loadBrokerProfile()
+                this.loadBrokerProfile()
             }
            
         }, 1000)

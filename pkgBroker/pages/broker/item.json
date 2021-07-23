@@ -3,7 +3,7 @@
   "usingComponents": {
 
     "badge": "/components/badge",
-    "box": "/components/box"
+    "box": "/components/ud/box/index"
   }
 }
 

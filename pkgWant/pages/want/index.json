@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "box": "/components/box",
+    "box": "/components/ud/box/index",
     "card": "/components/card",
     "van-field": "/vant/field/index",
     "van-radio-group": "/vant/radio-group/index",

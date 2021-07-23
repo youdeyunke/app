@@ -1,6 +1,6 @@
 /* components/pagemaker/header/index.wxss */
 
 .header-container {
-    padding:0 16rpx;
+    padding:0 20rpx;
     margin:0 auto;
 }

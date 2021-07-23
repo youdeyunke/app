@@ -4,6 +4,6 @@
         "mypicker": "/components/picker",
         "post": "/components/post-panel",
         "van-search": "/vant/search/index",
-        "box": "/components/box"
+        "box": "/components/ud/box/index"
     }
 }

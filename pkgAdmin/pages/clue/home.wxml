@@ -1,0 +1,28 @@
+
+<header custom-style="margin-top:20rpx;"  title="线索中心">客户线索由系统自动分配，及时跟进将优先分配线索。
+</header>
+
+<view class="counters">
+
+  <view class="counter today">
+    <view class="num">{{ summary.today }} </view>
+    <view class="name">今日线索</view>
+  </view>
+
+  <view class="counter total">
+    <view class="num">{{ summary.total }} </view>
+    <view class="name">总计线索</view>
+  </view>
+
+  <view class="counter logs">
+    <view class="num">{{ summary.logs }} </view>
+    <view class="name">跟进次数</view>
+  </view>
+</view>
+
+<ud-card width="710" hat="{{false}}" title="">
+  <van-cell center  wx:for-key="id" disabled="{{item.count ==0 }}" size="large" wx:for="{{items}}"  url="/pkgAdmin/pages/clue/index?status_id={{item.id}}" is-link >
+    <view style="color:{{item.color || '#333333' }};width:100%;text-align:left;">{{ item.title }} ({{item.count}})</view>
+  </van-cell>
+  <view class="blank"></view>
+</ud-card>

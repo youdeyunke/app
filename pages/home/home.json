@@ -14,7 +14,7 @@
         "myslider": "/components/slider",
         "items": "/components/post-items/index",
         "van-action-sheet": "/vant/action-sheet/index",
-        "box": "/components/box",
+     
         "copyright":"/components/copyright/index"
     }
 }

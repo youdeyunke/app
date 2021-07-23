@@ -1,32 +1,44 @@
 <!-- components/pagemaker/posts/post-item0.wxml -->
-<navigator data-hello="{{url}}" hover-class="none" class="post" url="{{url || defaultUrl }}{{ source ? '&source=' + source : '' }}">
-    <view class="left">
-        <image class="cover" src="{{post.cover}}" />
-    </view>
-    <view class="position">
-        <block wx:if="{{post.has_live==true}}">
-            <image src="/assets/icons/post/live.png"></image>
-        </block>
-        <block wx:if="{{post.has_video==true}}">
-            <image src="/assets/icons/post/video.png"></image>
-        </block>
-        <block wx:if="{{post.has_vr==true}}">
-            <image src="/assets/icons/post/VR.png"></image>
-        </block>
-    </view>
-    <view class="right">
-        <view class="title">
-            <text>{{post.title}}</text>
+<view class="outer">
+    <navigator data-hello="{{url}}" hover-class="none" class="post" url="{{url || defaultUrl }}{{ source ? '&source=' + source : '' }}">
+        <view class="cover">
+            <image class="main" src="{{post.cover}}" />
+            <view class="eye-icon" wx:if="{{post.view_nums >= 100}}">
+                <image src="/assets/icons/post/eye.png"></image>
+                <text class="num">{{post.view_nums}}</text>
+            </view>
+            <view class="video-icon">
+                <block wx:if="{{post.has_live==true }}">
+                    <image src="/assets/icons/post/live.png"></image>
+                </block>
+                <block wx:if="{{post.has_video==true }}">
+                    <image src="/assets/icons/post/video.png"></image>
+                </block>
+                <block wx:if="{{post.has_vr==true}}">
+                    <image src="/assets/icons/post/VR.png"></image>
+                </block>
+            </view>
         </view>
-        <view class="price">
-            <text class="red">{{post.average_price_info.text}}{{post.average_price_info.px}}</text>
-        </view>       
-        <view class="address">{{post.street}}</view>
-        <view class="tags">
-            <van-tag color="#ECEFF6" text-color="#848CA1" size="mini"  wx:for="{{post.tags}}" wx:key="item.id" wx:if="{{index<=2}}">{{item.name}}</van-tag>
+        <view class="right">
+            <view class="title">
+            {{post.title}}
+            </view>
+            <view class="price">
+                <text class="red">{{post.average_price_info.text}}{{post.average_price_info.px}}</text>
+            </view>       
+            <view class="address">{{post.street}}</view>
+            <view class="tags">
+                <van-tag color="#ECEFF6" text-color="#848CA1" size="mini"  wx:for="{{post.tags}}" wx:key="item.id" wx:if="{{index<=2}}">{{item.name}}</van-tag>
+            </view>
         </view>
+        <view class="status">
+            <van-tag plain color="{{post.sale_status_item.color}}"  size="mini">{{post.sale_status_item.name}}</van-tag>
+        </view>
+    </navigator>
+
+    <view class="point" wx:if="{{post.point && post.point.content }}">
+        <image src="/assets/icons/post/point.png"></image>
+        <text class="title">{{ post.point.title || '项目亮点' }} </text>
+        <text class="content">{{ post.point.content }}</text>
     </view>
-    <view class="status">
-        <van-tag plain color="{{post.sale_status_item.color}}"  size="mini">{{post.sale_status_item.name}}</van-tag>
-    </view>
-</navigator>
+</view>
