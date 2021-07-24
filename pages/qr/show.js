@@ -8,7 +8,8 @@ Page({
    */
   data: {
     qid: null,
-
+    loading: true, 
+    error: false, 
   },
 
   /**
@@ -18,9 +19,14 @@ Page({
     wx.showLoading({
       title: '正在解析二维码，请稍后',
     })
-
     this.loadData(q.id)
 
+  },
+
+  goHome: function(){
+    wx.switchTab({
+      url: '/pages/home/home',
+    })
   },
 
   loadData: function(qid){
@@ -30,8 +36,17 @@ Page({
       hideLoaindg: true, 
       success: function(resp){
         if(resp.data.status != 0){
+          _this.setData({
+            loading: false, 
+            error: true, 
+          })
           return 
         }
+        _this.setData({
+          loading: false, 
+          error: false, 
+        })
+
         var qr = resp.data.data 
         // 跳转到页面 
         app.globalData.qrdata = qr.data  

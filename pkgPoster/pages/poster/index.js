@@ -34,9 +34,10 @@ Page({
             // 加载模板
             _this.loadTpls((tpls) => {
                 _this.genQr(userInfo, (url) => {
+                    var qr = url || post.qr
                     var data = {
                         post: post,
-                        qrUrl: url,
+                        qrUrl: qr,
                         tpls: tpls,
                     }
                     _this.setData(data, () => {
@@ -153,11 +154,20 @@ Page({
 
     genQr: function (uinfo, cb) {
         // 根据数据生成房源的二维码信息
+        // 如果是普通股用户，就直接返回默认二维码 
+        if(!uinfo){
+            return cb(null)
+        }
+        if(!uinfo.is_broker){
+            return cb(null)
+        }
 
         var path = '/pkgPost/pages/show/index?id=' + this.data.postId  
         // 二维码携带的额外参数
         var qrdata = {
-            uid: uinfo.id,
+            id: this.data.postId, 
+            scene_key: 'poster',
+            source_uid: uinfo.id,  
         }
         app.genQr(path, qrdata, function (data) {
             var url = data.url

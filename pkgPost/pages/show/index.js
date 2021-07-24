@@ -18,9 +18,9 @@ Page({
         pageUrl: '/pkgPost/pages/show/index?post_id=',
         postInfo: null,
     
-        brokerId: null,
 
         loading: true,
+        broker: null, // 联系人卡片
         visitorLogId: null,
         contactInfo: {},
         debug: false,
@@ -49,6 +49,11 @@ Page({
     loadPostBlocks: function () {
         var _this = this
         var query = {}
+        if(app.globalData.sourceUid){
+            query.source_uid = app.globalData.sourceUid
+            query.source_scene = app.globalData.source_scene || 'default'
+        } 
+
         app.request({
             hideLoading: true,
             url: '/api/v5/posts/' + _this.data.postId,
@@ -76,10 +81,11 @@ Page({
                 var data = {}
                 data.pageQuery = 'id=' + _this.data.postId 
                 if(user.is_broker){
-                    data.pageQuery  += '&broker_id=' + user.id
+                    data.pageQuery  += '&broker_uid=' + user.id
                 }
                 data.blocks = resp.data.data  
                 data.navs = resp.data.navs 
+                data.broker = resp.data.broker
                 data.loading = false 
                 _this._setPostInfo(resp.data.post)
                 _this.setData(data, () => {
@@ -112,22 +118,21 @@ Page({
     onLoad: function (options) {
         var _this = this
         var qrdata = app.globalData.qrdata 
-        app.globalData.qrdata = null 
-        if (qrdata) {
-            // 分享海报进入
-            app.globalData.sceneName = 'qr'
-            app.globalData.sourceUid = qrdata.uid
-            // 读取后清空，防止数据污染 
+        // 将二维码携带的额外参数和options合并
+        // 原因是options的参数长度有限，防止参数失效
+        if(qrdata){
+            options = Object.assign(qrdata)
+            app.globalData.qrdata = null 
         }
 
-        var postId = options.id || options.post_id
-        console.log('to mark visitor ', postId )
-        app.markVisitor('post', postId)
-        var brokerId = options.broker_id || ''
-        app.globalData.sourceUid = brokerId
-        app.globalData.sceneName = options.sceneName || 'default'
+        var postId = options.id || options.post_id 
+        var sourceUid = options.source_uid
+        var sceneKey = options.scene_key || 'default'
+        app.globalData.sourceUid = sourceUid
+        app.globalData.sceneKey = sceneKey
 
-        _this.setData({ postId: postId, brokerId: brokerId  }, () => {
+        app.markVisitor('post', postId)
+        _this.setData({ postId: postId }, () => {
             _this.loadData()
 
         })
@@ -357,7 +362,7 @@ Page({
         var _this = this
         return {
             title: _this.data.pageTitle,
-            path: 'pages/post/post?' + _this.data.pageQuery + '&sceneName=wechat',
+            path: 'pages/post/post?' + _this.data.pageQuery + '&scene_key=wechat',
             imageUrl: _this.data.pageCover,
         }
     },
@@ -366,7 +371,7 @@ Page({
         var _this = this
         return {
             title: _this.data.pageTitle,
-            query:  _this.data.pageQuery + '&sceneName=timeline',
+            query:  _this.data.pageQuery + '&scene_key=timeline',
             imageUrl: _this.data.pageCover
         }
     }

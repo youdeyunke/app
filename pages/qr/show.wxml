@@ -1,13 +1,12 @@
 <view class="outer">
 
-  <view class="loading">
+  <view wx:if="{{loading}}" class="loading">
     正在解析二维码...
   </view>
   
-  <view class="error">
+  <view  wx:elif="{{error}}" class="error">
      <view class="text">二维码解析失败</view>
-     <van-empty image="error" description="描述文字" />
-     <van-button block custom-style="margin-top:20px;" bindtap="goHome" >回到首页</van-button>
+     <van-button size="midume" block round custom-style="margin-top:20px;" bindtap="goHome" >回到首页</van-button>
   </view>
 
 

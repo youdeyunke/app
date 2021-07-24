@@ -331,7 +331,7 @@
    
     "no-result": "/components/no-result",
     "van-panel": "/vant/panel/index",
-    "van-empty": "/vant/empty/index",
+
     "van-rate": "/vant/rate/index",
     "van-icon": "/vant/icon/index",
     "van-image": "/vant/image/index",

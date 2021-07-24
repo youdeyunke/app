@@ -1,4 +1,4 @@
-<block wx:if="{{bid && broker}}">
+<block wx:if="{{broker}}">
     <view class="blank-{{mode}}"></view>
     <view hidden="{{mode != 'full' }}" class="full">
         <image bindtap="gotoProfile" src="{{broker.avatar}}" class="avatar" />
@@ -10,8 +10,8 @@
         <image src="/assets/icons/broker/{{broker.level}}.png" class="badge" />
     </view>
     <view hidden="{{mode != 'mini' }}" class="mini">
-        <image src="{{broker.avatar}}" class="avatar" />
-        <view class="name" bindtap="gotoProfile" >
+        <image bindtap="gotoProfile" src="{{broker.avatar}}" class="avatar" />
+        <view bindtap="gotoProfile" class="name" bindtap="gotoProfile" >
             <view class="text">{{broker.name}}</view>
             <image src="/assets/icons/broker/{{broker.level}}.png" class="badge" />
         </view>

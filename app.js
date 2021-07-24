@@ -13,7 +13,7 @@ App({
         qrdata: null, // 解析二维码ID后得到的额外数据，扫码后设置到这里，用完之后需要清空，防止污染
 
         sourceUid: null,  // 分享者user id
-        sceneName: 'default',  // 内部约定场景值
+        sceneKey: 'default',  // 内部约定场景值
         visitorId: null, // 访客行为id
 
         reddotIntervalId: null,
@@ -409,7 +409,7 @@ App({
             data: {
                 target_id: targetId,
                 target_type: targetType,
-                scene_name: _this.globalData.sceneName, 
+                scene_key: _this.globalData.sceneKey, 
                 source_uid: _this.globalData.sourceUid,
             },
             success: function (resp) {
