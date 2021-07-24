@@ -1,9 +1,0 @@
-<view style="width:100%;margin-bottom:20rpx">
-    <van-tabs active="{{statusIndex}}" animated swipeable type="line" color="#1989fa" bind:change="tabChange">
-        <van-tab wx:for="{{statusItems}}" wx:for-item="tab" title="{{tab.name}}"></van-tab>
-    </van-tabs>
-</view>
-<no-result wx:if="{{noResult}}" />
-<block wx:for="{{items}}" wx:for-key="{{item.id}}">
-    <customer-item bind:change="loadData" isAdmin="{{true}}" item="{{item}}"></customer-item>
-</block>

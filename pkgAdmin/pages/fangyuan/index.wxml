@@ -1,13 +1,31 @@
-<view class="topbar">
-    <view class="post-group" bindtap="popShowHandle">
-        {{ groups[groupIndex].name}}
-        <van-icon name="arrow-down" />
-    </view>
-    <van-search value="{{ value }}" placeholder="请输入搜索关键词" use-action-slot bind:clear="clearSearch" bind:search="loadPosts" custom-class="search-box" bind:change="searchTextInput">
-        <view slot="action" bind:tap="loadPosts">搜索</view>
-    </van-search>
+<view class="topbar" wx:if="{{showmodules}}">
+    <ud-tabs data='{{modules}}' model:active-index='{{moduleIndex}}' bind:change='tabChangeHandle'></ud-tabs>
 </view>
-<mypicker options="{{groups}}" show="{{popShow}}" bind:change="groupChange" bind:close="popCloseHandle" />
+
+<view class="result" wx:if="{{modules[moduleIndex].key == 'post' }}">
+  <box width="710" >
+  
+    <van-cell size="large" is-link title="{{ item.title }}" url="/pkgAdmin/pages/fangyuan/post?id={{item.id}}" wx:for="{{postItems}}" wx:for-key="id">
+    </van-cell>
+  </box>
+</view>
+
+<view class="result" wx:if="{{modules[moduleIndex].key == 'house' }}">
+ TODO 二手房
+</view>
+
+<view class="result" wx:if="{{modules[moduleIndex].key == 'rental' }}">
+ TODO 租房
+</view>
+
+<view class="result" wx:if="{{modules[moduleIndex].key == 'shop' }}">
+ TODO 商铺
+</view>
+
+
+
+
+
 <view class="list">
     <navigator url="/pkgAdmin/pages/admin/post?id={{item.id}}" class="post-item" wx:for="{{posts}}">
         <view class="title">#{{item.id}} {{item.title}}</view>
@@ -29,4 +47,6 @@
         </view>
     </navigator>
 </view>
+
+
 <no-result wx:if="{{posts.length == 0 && loading == false}}" />

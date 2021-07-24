@@ -7,24 +7,24 @@
       <view>我的访客</view>
     </navigator> -->
 
-    <navigator class="broker-operation-class" url="/pkgBuyers/pages/buyers/index">
+    <navigator class="broker-operation-class" url="/pkgClue/pages/clue/home">
       <image class="broker-image7" src="../../images/b4.png"></image>
-      <view>求购客户</view>
+      <view>线索中心</view>
     </navigator>
-    <navigator url="/pkgAdmin/pages/admin/booking" class="broker-operation-class">
+    <navigator url="/pkgBroker/pages/broker/profile?id={{broker.id}}" class="broker-operation-class">
       <image class="broker-image7" src="../../images/b5.png"></image>
-      <view>客户预约</view>
+      <view>我的微店</view>
     </navigator>
 
-    <navigator url="/pkgBroker/pages/broker/profile?id={{broker.id}}" class="broker-operation-class">
+    <navigator url="/pkgAdmin/pages/fangyuan/index" class="broker-operation-class">
       <image class="broker-image7" src="../../images/b2.png"></image>
+      <view>主营楼盘</view>
+    </navigator>
+
+    <navigator url="/pkgPoster/pages/poster/broker" class="broker-operation-class" >
+      <image class="broker-image7" src="/assets/icons/question.png"></image>
       <view>我的名片</view>
     </navigator>
-
-    <view bindtap="Goprofile" class="broker-operation-class">
-      <image class="broker-image7" src="/assets/icons/question.png"></image>
-      <view>楼盘管理</view>
-    </view>
   </view>
   <!-- view class="broker-operation">
     <view class="broker-operation-class">

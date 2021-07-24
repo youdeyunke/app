@@ -111,20 +111,15 @@ Page({
      */
     onLoad: function (options) {
         var _this = this
-
-        if (options.qrdata) {
+        var qrdata = app.globalData.qrdata 
+        app.globalData.qrdata = null 
+        if (qrdata) {
             // 分享海报进入
-            // 解析海报url中的数据
-            // TODO 设置sceneName，sourceUid
-            var qrdata = options.qrdata
-            qrdata = decodeURIComponent(qrdata)
-            qrdata = JSON.parse(qrdata)
-            console.log('decode qrdata is', qrdata, typeof qrdata)
-            options = qrdata
-        }else{
-            // 其他方式进入
-            
+            app.globalData.sceneName = 'qr'
+            app.globalData.sourceUid = qrdata.uid
+            // 读取后清空，防止数据污染 
         }
+
         var postId = options.id || options.post_id
         console.log('to mark visitor ', postId )
         app.markVisitor('post', postId)
@@ -265,6 +260,11 @@ Page({
             setTimeout(() => {
                 wx.hideLoading();
             }, 3000);
+        }
+
+        if(app.globalData.backToReload){
+            this.loadData() 
+            app.globalData.backToReload = false 
         }
     },
 

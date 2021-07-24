@@ -1,4 +1,4 @@
-// pages/myself/posts.js
+/// pages/myself/posts.js
 const app = getApp()
 var auth = require('../../../utils/auth.js');
 
@@ -9,11 +9,16 @@ Page({
      */
     data: {
         loading: false,
-        groups: [],
-        groupIndex: 0,
+        modulees: [],
+        showModules: false,
+        moduleIndex: 0,
         popShow: false,
         userInfo: null,
         searchText: '',
+        postItems: [], // 新房返回结果 
+        houseItems: [],  
+        rentalItems: [],
+        shopItems: [] ,
     },
 
     /**
@@ -22,36 +27,20 @@ Page({
 
     onLoad: function (q) {
         var _this = this
-        
-    
-
-        auth.ensureUser((userInfo) => {
-            _this.setData({ userInfo: userInfo })
-            _this.loadPosts()
+        var modules = app.globalData.myconfigs['module_configs'].map((g, i) => {
+            g.value = g.key
+            return g
         })
+        var data = {showmodules: modules.length >= 2, modules: modules }
+        this.setData(data)
+        this.loadData() 
 
     },
 
-    popShowHandle: function () {
-        this.setData({ popShow: true })
-    },
-    popCloseHandle: function () {
-        this.setData({ popShow: false })
-    },
-    groupChange: function (e) {
-        const { index } = e.detail
-        this.setData({ groupIndex: index, popShow: false, posts: [] })
-        this.loadPosts()
-    },
-
-
-    searchTextInput: function (e) {
-        this.setData({ searchText: e.detail })
-    },
-
-    clearSearch: function (e) {
-        this.setData({ searchText: '' })
-        this.loadPosts()
+    loadData: function(){
+        this.loadPosts() 
+        // TODO loadHouses()
+        
     },
 
 
@@ -72,14 +61,10 @@ Page({
                     return false
                 }
                 var posts = resp.data.data.map((p, i) => {
-                    p.counter_1 = p.count_info[1].value
-                    p.counter_2 = p.count_info[2].value
-                    p.counter_3 = p.count_info[5].value
                     return p
-
                 })
                 _this.setData({
-                    posts: resp.data.data,
+                    postItems: resp.data.data,
                 })
             }
         })
@@ -99,6 +84,14 @@ Page({
         wx.setNavigationBarTitle({
             title: '我的房源',
         })
+        var _this = this 
+        auth.ensureUser((userInfo) => {
+            _this.setData({userInfo: userInfo})
+        })  
+        if(app.globalData.backToReload){
+            this.loadData()  
+            app.globalData.backToReload = false
+        }  
     },
 
     /**
@@ -120,9 +113,7 @@ Page({
      */
     onPullDownRefresh: function () {
         var _this = this
-        this.setData({ post: [] }, () => {
-            _this.loadPosts()
-        })
+        this.loadData() 
     },
 
     /**

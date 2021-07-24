@@ -1,0 +1,18 @@
+
+<mycard width="710" title="{{post.title}}" sub-title="{{post.sale_status_item.name}}">
+    <image class="cover" src="{{post.cover}}" />
+
+ 
+</mycard>
+<view class="actions">
+        <van-button size="large" block  bindtap="newEventHandle" type="default">
+            发动态
+        </van-button>    
+        <van-button size="large" block  bindtap="newEventHandle" type="default">
+            写点评
+        </van-button>    
+
+        <van-button size="large" block bindtap="gotoPoster" type="default">做海报</van-button>
+        <van-button  size="large" block bindtap="gotoXiang" type="default">传照片</van-button>
+        <van-button size="large"  block bindtap="gotoPost" type="default">预览</van-button>
+    </view>

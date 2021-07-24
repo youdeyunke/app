@@ -3,9 +3,9 @@ Component({
   /**
    * 组件的属性列表
    */
-  externalClasses:['mytabs','myborder'],
+  externalClasses:[],
   properties: {
-    tabs:{type:Array},
+    data:{type:Array},
     activeIndex:{type:Number ,value:0}
   },
 

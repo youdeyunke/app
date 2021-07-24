@@ -1,5 +1,9 @@
 /* pkgEvent/pages/event/new.wxss */
 
+page{
+    padding-top:20rpx;
+}
+
 .ecats {
     display: flex;
     justify-content: flex-start;
@@ -30,22 +34,12 @@
     display: block;
 }
 
-.confirm {
-    margin-top: 30rpx;
-    margin-bottom: 60rpx;
-    font-size: 24rpx;
-    color: #cecece;
-}
-
-.confirm text {
-    margin-left: 20rpx;
-}
-
-.confirm checkbox, .confirm checkbox .wx-checkbox-input {
-    width: 24rpx;
-    height: 24rpx;
-}
 
 .images-uploader {
     margin-top: 20rpx;
+}
+
+.footer {
+    width:710rpx; 
+    margin:auto; 
 }

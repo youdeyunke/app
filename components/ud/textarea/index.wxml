@@ -1,5 +1,5 @@
 
-<view class="outer" style="width:{{width}}rpx;">
+<view class="outer" style="width:{{width ? width + 'rpx' : '100%' }}">
 
 <textarea value="{{content}}" maxlength="{{maxLength}}"  bindinput="onInput"  placeholder='{{placeholder}}'>
       <view class="counter">

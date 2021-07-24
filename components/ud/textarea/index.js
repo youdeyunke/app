@@ -5,7 +5,7 @@ Component({
      */
     properties: {
         maxLength: { type: Number, value: 300 },
-        width: { type: Number, value: 690 },
+        width: { type: Number, value: null },
         minLength: { type: Number, value: 5 },
         value: { type: String, value: '' },
 

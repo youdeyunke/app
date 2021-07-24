@@ -16,21 +16,8 @@ Page({
         user: {},
         posterConfig: {},
         posterUrl: '',
-        coverUrl: '',
-        showEditForm: false,
         showTpls: false,
         qrUrl: '',
-        label_1: '',
-        label_2: '',
-        label_3: '',
-        label_4: '',
-        label_5: '',
-        label_6: '',
-        text_1: '',
-        text_2: '',
-        text_3: '',
-        text_4: '',
-        text_5: '',
 
     },
 
@@ -39,80 +26,22 @@ Page({
      */
     onLoad: function (q) {
         // 先加载post数据，再自动生成海报
-        var label_1 = '楼盘海报'
-        var label_2 = '足不出户在线看新房'
-        var label_3 = ''
-        var label_4 = '价格'
-        var label_5 = '地址:'
-        var label_6 = '建面'
-        var label_7 = '均价'
-        var label_8 = '装修'
-        var text_1 = '未知'
-        var text_2 = '未知'
-        var text_3 = '未知'
-        var text_4 = '未知'
-        var text_5 = '未知'
-        var text_6 = '未知'
-        var qrUrl = ''
-        var coverUrl = ''
-
-        wx.setNavigationBarTitle({ title: '制作房源海报' })
         var _this = this
-        this.setData({ postId: q.id || q.post_id })
         let pid = q.id || q.post_id
+        var userInfo = app.globalData.userInfo 
+        this.setData({ postId: pid })
         this.loadPost(pid, (post) => {
-            // 根据房源信息生成对应的海报需要的字段
-            qrUrl = post.qr
-            coverUrl = post.cover || ''
-            text_1 = ''
-            text_2 = post.street || post.address
-            var _max = 13
-            //  处理地址字符串超过19个情况
-            if (text_2.length > _max) {
-                text_2 = text_2.slice(0, _max) + '...'
-            }
-
-            // 有面积字段
-            text_6 = post.area_info.text + ' 平'
-            text_3 = '' // TODO 
-          
-            text_4 = post.average_price_info.text + post.average_price_info.px
-            text_5 = post.phone + ' ' + post.phone_sub
-
-            switch (post.group) {
-                case 'new':
-                    label_1 = '楼盘'
-                    label_4 = '均价'
-                    break
-                case 'rental':
-                    label_4 = '租金'
-            }
-
             // 加载模板
             _this.loadTpls((tpls) => {
-                var data = {
-                    post: post,
-                    qrUrl: qrUrl,
-                    label_1: label_1,
-                    label_2: label_2,
-                    label_3: label_3,
-                    label_4: label_4,
-                    label_5: label_5,
-                    label_6: label_6,
-                    label_7: label_7,
-                    label_8: label_8,
-                    text_1: text_1,
-                    text_2: text_2,
-                    text_3: text_3,
-                    text_4: text_4,
-                    text_5: text_5,
-                    text_6: text_6,
-                    tplIndex: 0,
-                    coverUrl: coverUrl,
-                    tpls: tpls,
-                }
-                _this.setData(data, (res) => {
-                    _this.genPoster()
+                _this.genQr(userInfo, (url) => {
+                    var data = {
+                        post: post,
+                        qrUrl: url,
+                        tpls: tpls,
+                    }
+                    _this.setData(data, () => {
+                        _this.genPoster()
+                    })
                 })
             })
         })
@@ -147,7 +76,7 @@ Page({
     loadPost: function (postId, cb) {
         app.request({
             hideLoading: true,
-            url: '/api/v1/poster_info?id=' + postId,
+            url: '/api/v1/post_base_info/' + postId,
             methods:'GET',
             success: function (resp) {
                 var post = resp.data.data
@@ -222,68 +151,22 @@ Page({
         this.setData({ newTplIndex: i })
     },
 
-    genPostQrUrl: function (info, cb) {
+    genQr: function (uinfo, cb) {
         // 根据数据生成房源的二维码信息
-        console.log('生成绑定唯一联系人的二维码', info)
-        var uid = this.data.user.id || '0'
-        if (info.mobile) {
-            wx.showLoading({
-                title: '生成二维码',
-                mask: true,
-            });
-            var path = '/pkgPost/pages/show/index'
-            var query = {id: this.data.post.id, broker_id: uid, sceneName: 'poster'}
-            app.genQr(path, query, function (data) {
-                var url = data.qr
-                console.log('生成专属唯一二维码', url)
-                cb(url)
-            })
+
+        var path = '/pkgPost/pages/show/index?id=' + this.data.postId  
+        // 二维码携带的额外参数
+        var qrdata = {
+            uid: uinfo.id,
         }
-    },
-
-    editHandle: function (e) {
-        // 保存修改后的联系人
-        this.setData({ showEditForm: true })
-    },
-
-    cancleHandle: function (e) {
-        this.setData({ showEditForm: false })
-    },
-
-    submitHandle: function (e) {
-        /* 提交修改联系人信息 */
-        var info = e.detail.value
-        if (info.name.length < 2 || info.name.includes('_')) {
-            wx.showToast({
-                title: '请输入正确的联系人姓名',
-                icon: 'none',
-                duration: 2000
-            })
-            return false
-        }
-
-
-        if (info.mobile.length <= 8 || info.mobile.includes('_')) {
-            wx.showToast({
-                title: '请输入正确的联系号码',
-                icon: 'none',
-                duration: 2000
-            })
-            return false
-        }
-
-        this.setData({
-            showEditForm: false,
+        app.genQr(path, qrdata, function (data) {
+            var url = data.url
+            console.log('生成专属唯一二维码', url)
+            cb(url)
         })
-
-        var text_5 = info.mobile + ' (' + info.name + ')'
-        // 生成唯一二维码
-        var _this = this
-        this.genPostQrUrl(info, (qrUrl) => {
-            _this.setData({ text_5: text_5, loading: true, qrUrl: qrUrl, posterUrl: '' })
-            _this.genPoster()
-        })
+    
     },
+
 
     showTips: function () {
         wx.showModal({
@@ -303,23 +186,21 @@ Page({
 
 
     genPoster: function () {
-        wx.showLoading({
-            title: '制作海报中...',
-            mask: true,
-        });
+        // 生成海报数据结构
+        var post = this.data.post
+        var address = post.street || post.address
+        var max = 13
+        //  处理地址字符串超过19个情况
+        if (address.length > max) {
+            address = address.slice(0, _max) + '...'
+        }
 
-        this.setData({
-            showEditForm: false,
-            loading: true,
-        })
-        var _this = this
         var qrUrl = this.data.qrUrl
-        console.log('生成海报时，携带的二维码图片为', qrUrl)
         var post = this.data.post
         var tpl = this.data.tpls[this.data.tplIndex]
         var bgImage = tpl.bg
-        var Image = '../../image/icon//address.png'
-        console.log('tpl is',tpl)
+        var addressIcon = '../../image/icon//address.png'
+
         var userInfo = app.globalData.userInfo
         var fontColor = tpl.font_color || '#ffffff'
         var config = {
@@ -378,7 +259,7 @@ Page({
                     x: 15,
                     y: 145,
                     borderRadius: 0,
-                    url: _this.data.coverUrl,
+                    url: post.cover,
                     zIndex: 19,
                 },
                 {
@@ -407,7 +288,7 @@ Page({
                     x: 34,
                     y: 464,
                     borderRadius: 0,
-                    url: Image,
+                    url: addressIcon,
                     zIndex: 19,
                 },
             ],
@@ -416,7 +297,7 @@ Page({
                     x: 17,
                     y: 49,
                     baseLine: 'top',
-                    text: _this.data.label_1,
+                    text: '楼盘海报',
                     fontSize: 30,
                     fontWeight:'bold',
                     color:'white',
@@ -426,7 +307,7 @@ Page({
                     x: 17,
                     y: 92,
                     baseLine: 'top',
-                    text: _this.data.label_2,
+                    text: '足不出户在线看新房',
                     fontSize: 20,
                     color:'white',
                     zIndex: 100,
@@ -435,7 +316,7 @@ Page({
                     x:302 ,
                     y: 350,
                     baseLine: 'top',
-                    text: _this.data.label_3,
+                    text: 'sale status',
                     fontSize: 20,
                     color: fontColor,
                     zIndex: 100,
@@ -464,7 +345,7 @@ Page({
                     x: 50,
                     y: 464,
                     baseLine: 'top',
-                    text: _this.data.label_5,
+                    text: '地址',
                     fontSize: 16,
                     color: fontColor,
                     zIndex: 100,
@@ -473,7 +354,7 @@ Page({
                     x: 37,
                     y: 500,
                     baseLine: 'top',
-                    text: _this.data.label_6,
+                    text: '建面',
                     fontSize: 16,
                     color: fontColor,
                     zIndex: 100,
@@ -482,7 +363,7 @@ Page({
                     x: 147,
                     y: 500,
                     baseLine: 'top',
-                    text: _this.data.label_7,
+                    text: '均价',
                     fontSize: 16,
                     color: fontColor,
                     zIndex: 100,
@@ -491,7 +372,7 @@ Page({
                     x: 267,
                     y: 500,
                     baseLine: 'top',
-                    text: _this.data.label_8,
+                    text: '装修',
                     fontSize: 16,
                     color: fontColor,
                     zIndex: 100,
@@ -500,7 +381,7 @@ Page({
                     x: 100,
                     y: 466,
                     baseLine: 'top',
-                    text: _this.data.text_2,
+                    text: address,
                     fontSize: 16,
                     color: fontColor,
                     zIndex: 100,
@@ -536,7 +417,7 @@ Page({
                     x: 267,
                     y: 530,
                     baseLine: 'top',
-                    text: _this.data.label_8,
+                    text: post.fitment,
                     fontSize: 14,
                     color: fontColor,
                     zIndex: 100,
@@ -562,6 +443,8 @@ Page({
             ],
 
         }
+
+        // 计算标签
         let x=34
         let keys = 0
         let width = 0
@@ -624,12 +507,13 @@ Page({
             config.texts.push(arr)
             config.blocks.push(arrs)
         }
-        var _this = this
         this.setData({ posterConfig: config }, () => {
             console.log('config is', config)
             Poster.create(true)
         })
     },
+
+
 
     previewPoster: function () {
         wx.previewImage({ urls: [this.data.posterUrl] })

@@ -56,6 +56,15 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        // 自动生成pub time 
+        var d = new Date() 
+        var y = d.getFullYear()  
+        var m = d.getMonth()   + 1
+        var d = d.getDate()
+        var date = y + '-' + m + '-' + d  
+        this.setData({
+            pub_time: date, 
+        })
 
     },
 
@@ -158,8 +167,9 @@ Page({
                 if (resp.data.status != 0) {
                     return false
                 }
+
                 wx.showToast({
-                    title: '发布成功',
+                    title: '提交成功，等待管理员审核',
                     icon: 'success',
                     mask: true,
                     duration: 1500,

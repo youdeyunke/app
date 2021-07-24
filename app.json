@@ -8,12 +8,11 @@
         "pages/clue/index",
         "pages/clue/show",
         "pages/clue/form",
+        "pages/fangyuan/index",
+        "pages/fangyuan/show",
 
         "pages/admin/index",
-        "pages/admin/posts",
         "pages/admin/booking",
-        "pages/admin/post",
-        "pages/admin/customers",
         "pages/admin/xiangce/index"
       ]
     },
@@ -281,6 +280,7 @@
     "pages/myself/profile",
     "pages/visitors/index",
     "pages/faxian/index",
+    "pages/qr/show",
     "pages/404/index"
   ],
   "tabBar": {
@@ -331,6 +331,7 @@
    
     "no-result": "/components/no-result",
     "van-panel": "/vant/panel/index",
+    "van-empty": "/vant/empty/index",
     "van-rate": "/vant/rate/index",
     "van-icon": "/vant/icon/index",
     "van-image": "/vant/image/index",
@@ -351,12 +352,14 @@
     "van-switch": "/vant/switch/index",
     "van-cell-group": "/vant/cell-group/index",
     "cell-radio": "/components/cell-radio",
-    "mycard": "/components/card",
+    "mycard": "/components/ud/card/index",
 
     "ud-card": "/components/ud/card/index",
     "ud-box": "/components/ud/box/index",
     "ud-checkbox": "/components/ud/checkbox/index",
     "ud-image": "/components/ud/image/index",
+    "ud-tabs": "/components/ud/tabs/index",
+
     "ud-textarea": "/components/ud/textarea/index"
 
   },

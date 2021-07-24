@@ -1,0 +1,13 @@
+/* pages/myself/posts.wxss */
+
+.topbar {
+    position: sticky;
+    top:0; 
+    left:0;
+}
+
+.result{
+    margin:20rpx auto;
+    width:100%;
+    
+}

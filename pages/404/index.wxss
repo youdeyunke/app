@@ -1,6 +1,6 @@
 /* pages/404/page/index.wxss */
 page{
-  background-color: #F0F0F0 !important;
+  background-color: #ffffff !important;
 }
 .lose-box{
   height: 1385rpx;

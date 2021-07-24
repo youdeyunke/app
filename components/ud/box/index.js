@@ -11,7 +11,7 @@ Component({
     },
 
     radius: {
-      type: Number, value: 2,
+      type: Number, value: 8,
     },
 
     shadow: {

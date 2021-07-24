@@ -1,0 +1,14 @@
+page{
+    padding-top:20rpx;
+}
+
+.cover{
+    width:100%;
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+
+.actions{
+    width:710rpx;
+    margin:auto;
+}

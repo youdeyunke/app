@@ -10,6 +10,7 @@ App({
         cityId: null, // 全局城市过滤
         EXT: EXT,
         myconfigs: null,
+        qrdata: null, // 解析二维码ID后得到的额外数据，扫码后设置到这里，用完之后需要清空，防止污染
 
         sourceUid: null,  // 分享者user id
         sceneName: 'default',  // 内部约定场景值
@@ -93,17 +94,16 @@ App({
         return this.loadConfigs(cb)
     },
 
-    genQr: function (path, query, cb) {
+    genQr: function (path, extData, cb) {
         /*  统一的生成二维码图片的方法  */
-        var qrdata = JSON.stringify(query)
-        path = path + '?qrdata=' + qrdata
-        console.log('qr path', path, 'qdata ', query)
+        console.log('生成二维码携带的数据:', path, extData)
+        extData = JSON.stringify(extData)
         var _this = this
         this.request({
-            url: '/api/v1/qr/',
+            url: '/api/v1/qrs/',
             method: 'POST',
             hideLoading: false,
-            data: { path: path },
+            data: { path: path, qr_data: extData  },
             success: function (resp) {
                 if (resp.data.status == 0) {
                     return typeof cb == 'function' ** cb(resp.data.data)
@@ -111,7 +111,6 @@ App({
             },
         })
     },
-
 
 
     loadConfigs: function (cb) {
@@ -578,10 +577,10 @@ App({
 
                 if (res.data.status == 404) {
                     var error = res.data.error;
-                    wx.redirectTo({
-                        url: "/pages/404/index?error=" + error
-                    });
-                    return false;
+                    //wx.redirectTo({
+                    //    url: "/pages/404/index?error=" + error
+                    //});
+                    //return false;
                 }              
 
                 if ([2000, 2001].includes(res.data.status)) {

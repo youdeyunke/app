@@ -20,19 +20,5 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    Goprofile(){
-      var userinfo = app.globalData.userInfo.post_id
-      if(userinfo != null){
-        wx.navigateTo({
-          url: '/pkgAdmin/pages/admin/post?id='+userinfo,
-        })
-      }else{
-        wx.showToast({
-          title: '您还没有绑定楼盘，请联系系统管理员',
-          icon:'none'
-        })
-      }
-
-    }
   }
 })

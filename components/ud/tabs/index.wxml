@@ -1,6 +1,10 @@
-<scroll-view class="mytabs" scroll-x>
-    <view class="tab {{activeIndex == index? 'active' : ''}} " wx:for="{{tabs}}" data-index='{{index}}' bind:tap="tabChange">
-        <text>{{item.name}}</text>
-        <view wx:if="{{activeIndex == index}}" class="myborder"></view>
+<scroll-view class="outer" scroll-x>
+
+  <view class="tabs">
+
+        <view class="tab {{activeIndex == index ? 'active' : ''}} " wx:for="{{data}}" data-index='{{index}}' bind:tap="tabChange">
+            <view class="name">{{item.name}}</view>
+            <view wx:if="{{activeIndex === index }}" class="border" ></view>
+        </view>
     </view>
 </scroll-view>

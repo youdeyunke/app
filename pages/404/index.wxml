@@ -1,5 +1,5 @@
 <view class="lose-box">
-  <image src="../images/0.png"></image>
+  <image src="images/0.png"></image>
   <view class="lose-text">
     <text>页面丢失</text>
     <text>\n</text>

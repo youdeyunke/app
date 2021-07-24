@@ -1,6 +1,6 @@
 /* components/ud/ud-tabs/index.wxss */
 
-.mytabs {
+.tabs {
     width: 100%;
     height: 124rpx;
     line-height: 124rpx;
@@ -10,29 +10,39 @@
     background-color: #fff;
     padding: 0 26rpx;
     z-index: -4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .tab {
-    display: inline-block;
-    margin-right: 76rpx;
+    display:flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 60rpx;
     color: #333333;
     font-size: 30rpx;
     position: relative;
     /* padding-top: 10rpx; */
 }
 
-.active {
+.tab .name{
+    color:#333;
+    font-size:26rpx;
+}
+.tab.active .name{
     font-size: 36rpx;
     font-weight: bold;
 }
 
-.myborder {
-    width: 48rpx;
+.border {
+    width: 100%;
     height: 8rpx;
     border-radius: 10rpx;
     background: #1989FA;
     position: absolute;
-    top: 116rpx;
-    left: 14rpx;
+    bottom:2rpx; 
+    left:0;
     z-index: 1;
 }

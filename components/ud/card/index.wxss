@@ -3,7 +3,7 @@
 .box{
     background: #fff;
     margin:0 auto 20rpx auto;
-    border-radius: 15rpx;
+    border-radius: 8rpx;
 
 }
 
@@ -57,6 +57,7 @@
 .name {
     color: #333333;
     position: relative;
+    font-weight: bolder;
 }
 
 .card-header-action {

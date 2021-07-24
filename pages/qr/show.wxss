@@ -1,0 +1,21 @@
+/* pages/qr/show.wxss */
+page{
+  height:100%;
+}
+
+.outer{
+  width:690rpx; 
+  margin:0 auto; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height:100%; 
+  font-size:28rpx; 
+  letter-spacing: 2rpx;
+  line-height: 1.6;
+}
+
+.error{
+  
+}
