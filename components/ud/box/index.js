@@ -6,12 +6,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    borderRadius: {type: Number, value: 8},
     width: {
       type: Number, value: 750,
-    },
-
-    radius: {
-      type: Number, value: 8,
     },
 
     shadow: {

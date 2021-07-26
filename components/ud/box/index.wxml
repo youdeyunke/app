@@ -1,2 +1,2 @@
 <!--components/box.wxml-->
-<view style="width:{{width}}rpx; padding:{{padding}}rpx; border-radius:{{radius}}rpx;" class="mybox {{ shadow ? 'shadow' : '' }} {{ padding ? 'padding' : ''}}"> <slot></slot> </view>
+<view style="width:{{width}}rpx; padding:{{padding}}rpx; border-radius:{{borderRadius}}rpx;" class="mybox {{ shadow ? 'shadow' : '' }} {{ padding ? 'padding' : ''}}"> <slot></slot> </view>

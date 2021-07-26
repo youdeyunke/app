@@ -241,13 +241,6 @@
       ]
     },
     {
-      "root": "pkgWant",
-      "name": "want",
-      "pages": [
-        "pages/want/index"
-      ]
-    },
-    {
       "root": "pkgBuyers",
       "name": "buyers",
       "pages": [
@@ -264,6 +257,7 @@
   ],
   "pages": [
     "pages/home/home",
+    "pages/want/index",
     "pages/qa/index",
     "pages/post/index",
     "pages/myself/index",
@@ -292,26 +286,32 @@
     "list": [
       {
         "pagePath": "pages/home/home",
-        "iconPath": "/assets/tabs/home.0.png",
-        "selectedIconPath": "/assets/tabs/home.1.png",
+        "iconPath": "/assets/tabs-1/home.0.png",
+        "selectedIconPath": "/assets/tabs-1/home.1.png",
         "text": "首页"
       },
       {
+        "pagePath": "pages/want/index",
+        "iconPath": "/assets/tabs-1/post.0.png",
+        "selectedIconPath": "/assets/tabs-1/post.1.png",
+        "text": "找房"
+      },
+      {
         "pagePath": "pages/messages/index",
-        "iconPath": "/assets/tabs/message.0.png",
-        "selectedIconPath": "/assets/tabs/message.1.png",
+        "iconPath": "/assets/tabs-1/message.0.png",
+        "selectedIconPath": "/assets/tabs-1/message.1.png",
         "text": "消息"
       },
       {
         "pagePath": "pages/faxian/index",
-        "iconPath": "/assets/tabs/faxian.0.png",
-        "selectedIconPath": "/assets/tabs/faxian.1.png",
+        "iconPath": "/assets/tabs-1/faxian.0.png",
+        "selectedIconPath": "/assets/tabs-1/faxian.1.png",
         "text": "发现"
       },
       {
         "pagePath": "pages/myself/index",
-        "iconPath": "/assets/tabs/myself.0.png",
-        "selectedIconPath": "/assets/tabs/myself.1.png",
+        "iconPath": "/assets/tabs-1/myself.0.png",
+        "selectedIconPath": "/assets/tabs-1/myself.1.png",
         "text": "我的"
       }
     ],
@@ -341,6 +341,7 @@
     "van-search": "/vant/search/index",
     "van-loading": "/vant/loading/index",
     "van-notify": "/vant/notify/index",
+    "van-notice-bar": "/vant/notice-bar/index",
     "van-tabs": "/vant/tabs/index",
     "van-tab": "/vant/tab/index",
     "van-divider": "/vant/divider/index",

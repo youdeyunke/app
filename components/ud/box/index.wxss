@@ -2,6 +2,7 @@
 
 .mybox {
     margin: 0 auto 20rpx auto;
+    overflow: hidden;
     background: #fff;
     box-sizing: border-box;
     -moz-box-sizing: border-box;

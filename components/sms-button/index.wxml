@@ -1,0 +1,5 @@
+<view class="outer {{size}}  {{ seconds > 0 ? 'disabled' : ''}} color:{{color}};border-color:{{color}}"  bindtap="sendSms" >
+
+                {{ seconds > 0 ? '重发(' + seconds + ')' : '发验证码' }}
+
+</view>

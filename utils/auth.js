@@ -2,10 +2,26 @@ const util = require("util.js");
 
 module.exports = {
 
+    setUserInfo: function(token, user){
+        // 用户账户登陆成功后，刷新全局用户资料信息
+        // 保存下服务器返回的token
+        const app = getApp()
+        // 设置本地缓存
+        wx.setStorageSync('token', token)
+        wx.setStorageSync('userInfo', user)
+        // 在globalData中标记登录状态
+        app.globalData.token = token
+        app.globalData.userInfo = user
+        // 设置回退刷新数据 
+        app.globalData.backToReload = true
+                   
+    },
+
+
     ensureUser: function (cb) {
         const app = getApp()
         var _this = this
-        var token = app.globalData.token
+        var token = app.globalData.tokensm
         var user = app.globalData.userInfo
         // 去登录页面
         if (!token) {

@@ -1,6 +1,6 @@
 page {
-    padding-top: 0rpx;
-    padding-bottom: 20rpx;
+
+    padding-bottom:20rpx;
 }
 
 .mycats {
@@ -94,11 +94,6 @@ page {
     padding: 0;
 }
 
-button {
-    margin-top: 20rpx;
-    width: 100%;
-}
-
 .res {
     width: 690rpx;
     margin: 0 auto;
@@ -128,15 +123,23 @@ button {
 }
 
 .res .btns {
-    margin-top: 60rpx;
+    margin: 60rpx auto;
     display: flex;
+    width:710rpx;
     flex-direction: column;
 }
 
-.res .btns button {
-    width: 100%;
+.banner image{
+    width:710rpx;
+    border-radius: 10rpx; 
+    overflow: hidden;
+    height:280rpx;
+
 }
 
-.radio-value-class {
-    flex: none !important;
+.banner {
+    margin:20rpx auto; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
