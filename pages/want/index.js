@@ -9,7 +9,12 @@ Page({
      * 页面的初始数据
      */
     data: {
-        isDone: true,
+        tabIndex:0, 
+        tabs: [
+            {value: 'form', title: "定制找房"},
+            {value: 'form', title: "自助找房"},
+        ],
+        isDone: false,
 
         contact_name: '',
         contact_mobile: '',

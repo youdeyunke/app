@@ -360,7 +360,7 @@
     "ud-checkbox": "/components/ud/checkbox/index",
     "ud-image": "/components/ud/image/index",
     "ud-tabs": "/components/ud/tabs/index",
-
+    "ud-header": "/components/ud/header/index",
     "ud-textarea": "/components/ud/textarea/index"
 
   },

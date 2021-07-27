@@ -3,7 +3,7 @@
   <view class="tabs">
 
         <view class="tab {{activeIndex == index ? 'active' : ''}} " wx:for="{{data}}" data-index='{{index}}' bind:tap="tabChange">
-            <view class="name">{{item.name}}</view>
+            <view class="name">{{item.name || item.title || item.label}}</view>
             <view wx:if="{{activeIndex === index }}" class="border" ></view>
         </view>
     </view>

@@ -1,6 +1,6 @@
-<header title="{{status.name}}" color="{{status.color || '#1989fa'}}">
+<ud-header title="{{status.name}}" color="{{status.color || '#1989fa'}}">
   {{ status.desc }}
-</header>
+</ud-header>
 
 
 <view class="item" wx:for="{{items}}" wx:for-key="id">

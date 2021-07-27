@@ -9,6 +9,7 @@ Page({
   data: {
     items: null,
     isLogin: false,
+    userInfo: {},
     sleepTime: 1000,
     iid: null,
   },
@@ -46,6 +47,12 @@ Page({
       hideLoading: true,
       success: function (res) {
         if (res.data.status == 0) {
+          // 如果列表没有变化就不更新 
+          var old = _this.data.items  
+          var n = res.data.data  
+          if(JSON.stringify(n) == JSON.stringify(old)){
+            return
+          }
           _this.setData({ items: res.data.data, sleepTime: res.data.sleep, })
         }
       },
@@ -66,19 +73,16 @@ Page({
    */
   onShow: function () {
     var userInfo = app.globalData.userInfo
-    console.log('app.globalData.userInfo messages/index.js', app.globalData.userInfo)
     if(userInfo){
-      var ext = app.globalData.EXT
       this.loadData()
       this.stopInterval()
       this.startInterval()
-
     }
     this.setData({userInfo: userInfo})
     wx.removeTabBarBadge({
       index: 1,
       fail: function(res){
-        
+
       }
     })  
   },

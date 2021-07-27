@@ -17,7 +17,7 @@
         <view class="video-title">{{item.title}}</view>
         <view class="video-message">
             <text>{{item.author}}</text>
-            <text>{{item.date}}</text>
+            <text>{{item.date || '' }}</text>
         </view>
         <view class="video-image-box">
             <image class="video-image" src="{{item.cover}}?imageView2/2/w/250"></image>

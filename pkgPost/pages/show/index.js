@@ -80,7 +80,7 @@ Page({
                 var user = app.globalData.userInfo 
                 var data = {}
                 data.pageQuery = 'id=' + _this.data.postId 
-                if(user.is_broker){
+                if(user && user.is_broker){
                     data.pageQuery  += '&broker_uid=' + user.id
                 }
                 data.blocks = resp.data.data  

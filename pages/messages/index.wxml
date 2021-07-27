@@ -1,5 +1,5 @@
 <block wx:if="{{userInfo.id}}">
-<box padding="30" >
+<ud-box padding="30" >
   <navigator wx:key="{{item.id}}" hover-class='none' open-type='navigate' url="/pages/messages/show?target_user_id={{item.sender_id}}" wx:for="{{items}}" class="item">
   <view class="tip" wx:if="{{item.unread == true}}"> </view>
   <image class="avatar" src="{{item.sender_info.avatar}}"></image>
@@ -11,7 +11,7 @@
     <view class="line-limit">{{item.last_content}}</view>
   </view>
   </navigator>
-</box>
+</ud-box>
 <view wx:if="{{items.length == 0}}" class="empty">没有收到任何消息</view>
 
 </block>

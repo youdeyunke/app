@@ -1,12 +1,19 @@
+<view class="tabs">
+
+<ud-tabs module:activeIndex="{{tabIndex}}" data="{{tabs}}"></ud-tabs>
+</view>
+
 <van-notify id="van-notify" />
 
 <block wx:if="{{!isDone}}">
 
+    <ud-header width="710" height="200" title="定制找房">
+        平台置业顾问帮您全城找好房
+    </ud-header>
 
-      <view class="banner"> <image  src="./images/banner.jpg" /></view>
 
     <card width="710" hat="{{false}}"  title="预算范围">
-        <van-field label="最低"  placeholder="最低预算，必填" required bind:change="inputChange" value="{{budget_min}}" data-name="budget_min"  required />
+        <van-field  label="最低"  placeholder="最低预算，必填" required bind:change="inputChange" value="{{budget_min}}" data-name="budget_min"  required />
         <van-field label="最高"  placeholder="最高预算，可留空" autosize bind:change="inputChange" type="textarea" value="{{budget_max}}" data-name="budget_max"  />    
     </card>
 

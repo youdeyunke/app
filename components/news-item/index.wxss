@@ -48,8 +48,9 @@
 }
 
 .item .title {
-    font-size: 26rpx;
+    font-size: 28rpx;
     color: #333;
+    font-weight: bolder;
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;

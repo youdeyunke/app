@@ -1,6 +1,6 @@
 
-<header custom-style="margin-top:20rpx;"  title="线索中心">客户线索由系统自动分配，及时跟进将优先分配线索。
-</header>
+<ud-header custom-style="margin-top:20rpx;"  title="线索中心">客户线索由系统自动分配，及时跟进将优先分配线索。
+</ud-header>
 
 <view class="counters">
 

@@ -199,9 +199,9 @@ Page({
         // 生成海报数据结构
         var post = this.data.post
         var address = post.street || post.address
-        var max = 13
+        var _max = 13
         //  处理地址字符串超过19个情况
-        if (address.length > max) {
+        if (address.length > _max) {
             address = address.slice(0, _max) + '...'
         }
 
@@ -272,16 +272,7 @@ Page({
                     url: post.cover,
                     zIndex: 19,
                 },
-                {
-                    _desc: '用户头像',
-                    width: 40,
-                    height:40,
-                    x: 34,
-                    y: 596,
-                    borderRadius: 40,
-                    url: userInfo.avatar,
-                    zIndex: 19,
-                },
+
                 {
                     width: 90,
                     height: 90,
@@ -326,9 +317,9 @@ Page({
                     x:302 ,
                     y: 350,
                     baseLine: 'top',
-                    text: 'sale status',
+                    text: post.sale_status_item.name,
                     fontSize: 20,
-                    color: fontColor,
+                    color: post.sale_status_item.color,
                     zIndex: 100,
                 },
                 {
@@ -414,15 +405,7 @@ Page({
                     color: '#E46C69',
                     zIndex: 100,
                 },
-                {
-                    x: 90,
-                    y: 610,
-                    baseLine: 'top',
-                    text: userInfo.name,
-                    fontSize: 20,
-                    color: 'white',
-                    zIndex: 100,
-                },
+
                 {
                     x: 267,
                     y: 530,
@@ -452,6 +435,39 @@ Page({
                 },
             ],
 
+        }
+
+        // 如果是置业顾问，显示头像和姓名
+        if(userInfo && userInfo.is_broker){
+           config.texts.push({
+                x: 90,
+                y: 610,
+                baseLine: 'top',
+                text:   userInfo.name ,
+                fontSize: 20,
+                color: 'white',
+                zIndex: 100,
+            })
+            config.images.push(  {
+                    _desc: '用户头像',
+                    width: 40,
+                    height:40,
+                    x: 34,
+                    y: 596,
+                    borderRadius: 40,
+                    url: userInfo.avatar ,
+                    zIndex: 19,
+                },)
+        }else{
+            config.texts.push({
+                x: 36,
+                y: 610,
+                baseLine: 'top',
+                text:  app.globalData.myconfigs.xcx_name ,
+                fontSize: 20,
+                color: 'white',
+                zIndex: 100,
+            })           
         }
 
         // 计算标签

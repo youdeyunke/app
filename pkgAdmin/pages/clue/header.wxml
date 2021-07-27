@@ -1,7 +1,0 @@
-<view class="outer" style="background-color:{{color}}; ">
-  <view class="title">{{ title }}</view>
-  <view class="body">
-    <slot></slot>
-  </view>
-  <image src="../../images/bg-mask.png" class="mask" />
-</view> 

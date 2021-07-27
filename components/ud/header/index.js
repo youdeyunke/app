@@ -6,6 +6,11 @@ Component({
   properties: {
     title: {type: String, value: '未知标题'}, 
     color: { type: String, value: '#1989fa'},
+    size: { type: String, value: 'large'},
+    image: {type: String, value: null},
+    width: { type: Number, value: 710}, 
+    height: { type: Number, value: 300}, 
+    borderRadius: { type: Number, value: 10},
   },
 
   externalClasses: ['custom-class', 'custom-style'],
