@@ -41,4 +41,6 @@
         <text class="title">{{ post.point.title || '项目亮点' }} </text>
         <text class="content">{{ post.point.content }}</text>
     </view>
+
+    <view class="border" wx:if="{{border}}"></view>
 </view>

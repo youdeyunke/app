@@ -51,13 +51,6 @@ Component({
       this.setData({
         userInfo: null
       })
-      this.setData({
-        userInfo: null
-      })  
-      app.globalData.userInfo = null
-      app.globalData.token = null
-
-
 
       this.triggerEvent('quitHandle',{userInfo:null})
 

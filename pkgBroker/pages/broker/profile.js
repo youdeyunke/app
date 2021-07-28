@@ -155,6 +155,17 @@ Page({
         }, function () {
             _this.loadBrokerProfile()
         })
+        var qrdata= app.globalData.qrdata 
+        if(qrdata){
+            app.globalData.qrdata = null 
+            if(qrdata.referrer_id){
+                wx.setStorage({
+                    key: 'referrer_id', 
+                    data: qrdata.referrer_id
+                })
+            }
+        }
+        
         app.markVisitor(null, q.id, 'user')
         this.viewHandle()
     },

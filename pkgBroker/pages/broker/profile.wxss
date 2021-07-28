@@ -15,7 +15,7 @@ page{
 .profile-card{
     width: 710rpx;
     margin: 0 auto;
-    margin-top: 250rpx;
+    margin-top: 120rpx;
 }
 .profile-image2{
     width:163rpx ;
@@ -96,7 +96,7 @@ page{
     flex-direction: column;
     justify-content: space-between;
     position: absolute;
-    top: 145rpx;
+    top: 165rpx;
     right: 40rpx;
     /* background-color: chocolate; */
 }

@@ -24,7 +24,3 @@
   margin-right: 10rpx;
   margin-left: 20rpx;
 }
-.history-items{
-  padding:0rpx 20rpx 0rpx 20rpx;
-  background-color: #fff;
-}

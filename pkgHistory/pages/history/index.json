@@ -1,5 +1,7 @@
 {
+  
+    "navigationBarTitleText": "我的历史浏览记录",
   "usingComponents": {
-    "items": "/components/post-item/cell/index"
+    "post-item": "/components/post-item/cell/index"
   }
 }

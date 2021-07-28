@@ -1,11 +1,33 @@
 // pkgHistory/pages/history/index.js
+const app = getApp() 
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    history:''
+    page: 1, 
+    perPage: 10, 
+    total: 0, 
+    logs: [],
+  },
+
+  loadData: function(){
+    var _this = this 
+    var query = {
+      page: this.data.page, 
+      per_page: this.data.perPage, 
+    }
+   app.request({
+      url: '/api/v1/history',
+      data:query , 
+      success: function(resp){
+        var logs =_this.data.logs.concat(resp.data.data.items)
+        _this.setData({logs: logs}) 
+        
+      }
+    })
   },
 
   getHistory:function(){
@@ -24,6 +46,7 @@ Page({
     wx.setNavigationBarTitle({
       title: '访问足迹',
     })
+    this.loadData()
   },
 
   /**
@@ -37,7 +60,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getHistory()
+    if(app.globalData.backToReload){
+      this.loadData()
+      app.globalData.backToReload = false 
+    }
   },
 
   /**
@@ -65,6 +91,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    this.setData({
+      page: this.data.page + 1,  
+    }, () => {
+      this.loadData() 
+    })
+
 
   },
 

@@ -21,9 +21,9 @@
       <view>主营楼盘</view>
     </navigator>
 
-    <navigator url="/pkgPoster/pages/poster/broker" class="broker-operation-class" >
+    <navigator url="/pkgBroker/pages/broker/qr" class="broker-operation-class" >
       <image class="broker-image7" src="../../images/b2.png"></image>
-      <view>我的名片</view>
+      <view>拓客名片</view>
     </navigator>
   </view>
   <!-- view class="broker-operation">

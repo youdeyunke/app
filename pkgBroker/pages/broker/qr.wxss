@@ -1,6 +1,8 @@
 /* pkgBroker/pages/broker/qr.wxss */
 page{
     margin-bottom: 20rpx;
+    padding-top:20rpx;
+    background:#f2f2f2;
 }
 .card-wrapper {
     width: 750rpx;
@@ -45,14 +47,16 @@ page{
     .footer{
         box-sizing: border-box;
         padding: 10rpx;
-        position: fixed;
         bottom: 0;
         left: 0;
-        width: 100%;
+        width:710rpx;
+        margin: 20rpx auto;
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
     }
     .poster-image{
-        width: 750rpx;
+        width: 710rpx;
+        margin:0rpx auto;
         height: 1110rpx;
     }

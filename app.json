@@ -105,6 +105,7 @@
         "pages/broker/join",
         "pages/broker/membership",
         "pages/broker/profile",
+        "pages/broker/qr",
         "pages/broker/audit/index"
       ]
     },

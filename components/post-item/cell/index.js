@@ -6,6 +6,7 @@ Component({
   properties: {
     post: { type: Object, value: {} },
     albumKey: {type: String, value: null},
+    border: {type: Boolean, value: true, },
     source: {type: String, value: null} 
   },
 

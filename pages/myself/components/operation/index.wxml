@@ -13,6 +13,14 @@
     <van-button custom-style="border-radius:8rpx;" size="mini" plain type="info">申请入驻</van-button>
   </van-cell>
 
+  <van-cell title-style="cell-title"   is-link url="/pkgHistory/pages/history/index" size="large">
+    <view slot="title" class="cell-title">
+      <van-icon size="40rpx" name="/assets/icons/myself/23.png" />
+      <text>历史浏览</text>
+    </view>
+  </van-cell>
+
+
   <van-cell title-style="cell-title"  bindtap="callHandle" size="large">
     <view slot="title" class="cell-title">
       <van-icon size="40rpx" name="/assets/icons/myself/6.png" />
@@ -50,6 +58,14 @@
       <text>关于我们</text>
     </view>
   </van-cell>
+
+  <van-cell bindtap="logoutHandle" size="large" is-link >
+    <view slot="title" class="cell-title">
+      <van-icon size="40rpx" name="/assets/icons/myself/9.png" />
+      <text>安全退出</text>
+    </view>
+  </van-cell>
+
 </box>
 
 </block>

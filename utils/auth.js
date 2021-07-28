@@ -13,8 +13,16 @@ module.exports = {
         app.globalData.token = token
         app.globalData.userInfo = user
         // 设置回退刷新数据 
-        app.globalData.backToReload = true
-                   
+        app.globalData.backToReload = true         
+    },
+
+    logout: function(){
+        // 退出登陆，清空token和缓存信息 
+        const app = getApp()  
+        app.globalData.userInfo = null 
+        app.globalData.token = null 
+        wx.setStorage({key: 'userInfo', data: null})
+        wx.setStorage({key: 'token', data: null })
     },
 
 
