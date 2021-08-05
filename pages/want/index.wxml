@@ -1,7 +1,7 @@
-<view class="tabs">
+<!-- view class="tabs">
 
 <ud-tabs module:activeIndex="{{tabIndex}}" data="{{tabs}}"></ud-tabs>
-</view>
+</view -->
 
 <van-notify id="van-notify" />
 

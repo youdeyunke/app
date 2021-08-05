@@ -8,9 +8,9 @@ Page({
      */
     data: {
         tabs: [
-            { name: '资讯', id: 'news' },
-            { name: '问答', id: 'qa' },
-            { name: '活动', id: 'tour' },
+            { name: '楼市资讯', id: 'news' },
+            { name: '买房问答', id: 'qa' },
+           // { name: '活动', id: 'tour' },
         ],
         newsCats: [], //  资讯分类
         page: 1,

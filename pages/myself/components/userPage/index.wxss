@@ -1,9 +1,23 @@
+.outer{
+  position: relative;
+}
+
 .user-image1{
   width:750rpx ;
   height:400rpx ;
-  position: fixed;
-  z-index: -1;
+  position: absolute;
+  z-index:1;
 }
+
+.main{
+  z-index:2;
+  position: absolute;
+  width:750rpx; 
+  overflow: hidden;
+
+}
+
+
 .user-image2{
   width: 41rpx;
   height: 41rpx;
@@ -13,8 +27,8 @@
   position: absolute;
 }
 .user-box{
-  background-color: #fff;
-  height: 1135rpx;
+  
+
   margin: 0 auto;
 }
 .person-fn{

@@ -11,7 +11,7 @@
     width: 100%;
     white-space: nowrap;
     border-radius:20rpx ;
-    padding-bottom: 30rpx;
+
 }
 .cell-image{
     width: 500rpx;

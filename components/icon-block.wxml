@@ -1,4 +1,0 @@
-
-<view class="block" style="width:{{width}}rpx;height:{{width}}rpx;border-radius:{{width}}rpx;background:{{color}}">
-  <van-icon name="{{name}}" />
-</view>

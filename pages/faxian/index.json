@@ -4,8 +4,7 @@
         "news-cats": "./news-cats",
         "search-bar": "./news-search",
         "hot-news": "./hot-news/index",
-        "ud-tabs": "/components/ud/tabs/index",
-        "ud-card": "/components/ud/card/index",
+
         "news":"./news-list/index",
         "qa":"./qa-list/index",
         "hd":"./tour-list/index"

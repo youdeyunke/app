@@ -51,16 +51,19 @@ page {
 }
 
 .back {
-    padding: 10rpx;
+  
     font-size: 22rpx;
     color: #1989fa;
-    height: 40rpx;
-    line-height: 40rpx;
+    height:60rpx;
+    width:130rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
-    bottom: 50rpx;
+    bottom: 100rpx;
     right: 40rpx;
-    background: #fff;
-    border-radius: 10rpx;
+    background: rgba(255,255,255, 0.8);
+    border-radius: 30rpx;
 }
 
 .filter {

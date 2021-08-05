@@ -1,7 +1,10 @@
+
+
 image{
   vertical-align: top;
 }
 .person-box{
+  z-index:10;
   width:710rpx ;
   height: 200rpx;
   margin: 0 auto;

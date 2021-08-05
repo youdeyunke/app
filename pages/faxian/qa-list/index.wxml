@@ -1,6 +1,6 @@
 <view class="res qa-list">
-  <view style="margin-top:20rpx;">
-    <qa-item wx:for="{{qaItems}}" item="{{item}}"></qa-item>
+  <view wx:for="{{qaItems}}">
+    <qa-item item="{{item}}"></qa-item>
   </view>
 </view>
 <navigator url="/pkgQa/pages/qa/new" class="qa-new">我要提问</navigator>

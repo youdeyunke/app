@@ -4,3 +4,8 @@
   align-items: center;
 }
 
+.outer{
+  width:710rpx;
+
+}
+

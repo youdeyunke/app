@@ -1,3 +1,11 @@
+.topbar{
+    position: sticky;
+    top:0; 
+    left:0;
+    width:100%;
+    z-index:100;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -6,11 +14,7 @@
     width: 100%;
     padding: 0rpx 30rpx;
     box-sizing: border-box;
-    position: fixed;
-    left: 0rpx;
-    right: 0rpx;
-    top: 0rpx;
-    z-index: 99;
+
     border-bottom: 2rpx solid #f4f4f4;
 }
 
@@ -50,16 +54,12 @@
     height: 80rpx;
     display: flex;
     width: 100rpx;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
 }
 
 .filter {
-    position: fixed;
-    left: 0rpx;
-    right: 0rpx;
-    top: 110rpx;
-    z-index: 9999;
+
     width: 100%;
     box-sizing: border-box;
     margin: 0 auto;
@@ -72,11 +72,15 @@
 }
 
 .res {
-    padding-top: 200rpx;
+    margin: 20rpx auto;
+    padding-top:20rpx;
+    width:750rpx;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    background:#fff;
 }
 
 .subinfo {

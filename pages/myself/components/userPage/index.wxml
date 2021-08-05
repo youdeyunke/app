@@ -1,25 +1,31 @@
-<image class="user-image1" src="../../images/1.png"></image>
-<!-- <image class="user-image2" src="../../images/4.png"></image> -->
+<view class="outer">
 
-<person class="person" myuser="{{user}}" ></person>
-<view class="user-box">
-  <view class="person-fn">
-    <view class="person-fn-class"  bindtap="navigatetTo" data-url="/pages/myself/favposts">
-      <image class="user-image3" src="../../images/11.png"></image>
-      <view>我的收藏</view>
+  <image class="user-image1" src="../../images/1.png"></image>
+  <!-- <image class="user-image2" src="../../images/4.png"></image> -->
+
+  <view class="main">
+
+    <person class="person" myuser="{{user}}"></person>
+    <view class="user-box">
+      <view class="person-fn">
+        <view class="person-fn-class" bindtap="navigatetTo" data-url="/pages/myself/favposts">
+          <image class="user-image3" src="../../images/11.png"></image>
+          <view>我的收藏</view>
+        </view>
+        <navigator url="/pkgEventPosts/pages/posts/index" class="person-fn-class">
+          <image class="user-image3" src="../../images/10.png"></image>
+          <view>我的订阅</view>
+        </navigator>
+        <navigator class="person-fn-class" url="/pkgQa/pages/qa/mine">
+          <image class="user-image3" src="../../images/12.png"></image>
+          <view>我的问答</view>
+        </navigator>
+        <navigator class="person-fn-class" url="/pkgBooking/pages/booking/index">
+          <image class="user-image3" src="../../images/13.png"></image>
+          <view>我的预约</view>
+        </navigator>
+      </view>
+      <operation bindquitHandle="myquit" myuser="{{user}}"></operation>
     </view>
-    <navigator url="/pkgEventPosts/pages/posts/index" class="person-fn-class">
-      <image class="user-image3" src="../../images/10.png"></image>
-      <view>我的订阅</view>
-    </navigator>
-    <navigator class="person-fn-class" url="/pkgQa/pages/qa/mine" >
-      <image class="user-image3" src="../../images/12.png"></image>
-      <view>我的问答</view>
-    </navigator>
-    <navigator class="person-fn-class" url="/pkgBooking/pages/booking/index">
-      <image class="user-image3" src="../../images/13.png"></image>
-      <view>我的预约</view>
-    </navigator>
   </view>
-  <operation bindquitHandle="myquit" myuser="{{user}}"></operation>
 </view>

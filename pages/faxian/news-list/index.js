@@ -19,6 +19,7 @@ Component({
   data: {
     topNewsItems:[],
     newsItems: [],
+    end: false, 
   },
 
   /**

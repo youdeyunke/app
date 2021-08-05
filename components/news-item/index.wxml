@@ -1,27 +1,20 @@
-<block wx:if="{{item.content_type=='html'}}">
-    <navigator hover-class="none" class="item" bindtap="itemClick">
-        <view class="cover" hover-class="none" hover-stop-propagation="false">
-            <image src="{{item.cover }}?imageView2/2/w/250"></image>
-        </view>
-        <view class="item-title-block">
-            <view class="title">{{item.title}}</view>
-            <view class="meta">
-                <view class="author">{{item.author}}</view>
-                <view class="date">{{item.date}}</view>
+
+
+<navigator hover-class="none" class="{{className}}" url="/pkgNews/pages/news/show?id={{item.id}}">
+    <view class="cover" hover-class="none" hover-stop-propagation="false">
+        <image class="cover" src="{{item.cover }}?imageView2/2/w/250"></image>
+        <image src="/assets/icons/bofang.png" class="play"></image>
+    </view>
+    <view class="title-block">
+        <view class="title">{{item.title}}</view>
+        <view class="summary an-multi-ellipsis--l3">{{ item.summary }} </view>
+        <view class="meta">
+            <view>
+                <text class="author">{{item.author || ''}}</text>
+                <text class="date">{{item.date || ''}}</text>
             </view>
+            <view class="views"> <van-icon name="eye" size="28rpx" /> <text style="margin-left:10rpx;">{{ item.view_nums }}</text></view>
         </view>
-    </navigator>
-</block>
-<block wx:if="{{item.content_type=='video'}}">
-    <navigator class="video-box"  bindtap="itemClick">
-        <view class="video-title">{{item.title}}</view>
-        <view class="video-message">
-            <text>{{item.author}}</text>
-            <text>{{item.date || '' }}</text>
-        </view>
-        <view class="video-image-box">
-            <image class="video-image" src="{{item.cover}}?imageView2/2/w/250"></image>
-            <image  src="/assets/icons/bofang.png" class="video-position-image"></image>
-        </view>
-    </navigator>
-</block>
+    </view>
+</navigator>
+

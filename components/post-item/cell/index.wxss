@@ -8,7 +8,6 @@
     align-items: flex-start;
     font-size: 28rpx;
     position: relative;
-    
 }
 
 .eye-icon{
@@ -176,4 +175,10 @@
     height:20rpx; 
     border-bottom:2rpx solid #f0f0f0;
     display: block;
+}
+
+.outer .margin{
+    height:20rpx;
+    display: block;
+    width:100%;
 }

@@ -9,13 +9,24 @@ Page({
     data: {
         kw: '',
         kwInput: '',
-        pageTitle: '房源列表',
+        mode: 'list', // or map
+        pageTitle: '楼盘列表',
         pageCover: '',
         album: null,
         albumId: null,
         filter: {},
-        filterConfigs: [
-        ],
+    },
+
+    gotoMap: function(){
+        wx.navigateTo({
+            url: '/pkgMap/pages/map/index'
+        })
+    },
+
+    modeToggle: function(){
+        this.setData({
+            mode:  this.data.mode == 'list' ? 'map' : 'list'
+        })
     },
 
     /**
@@ -52,24 +63,7 @@ Page({
         }
 
         var g = this.data.filter.group || this.data.filter.group_v2
-        var title = '房源列表'
-        switch (g) {
-            case 'new':
-                title = '楼盘'
-                break;
-            case 'old':
-                title = '二手房'
-                break;
-            case 'auction':
-                title = '法拍房'
-                break;
-            case 'shop':
-                title = '商铺'
-                break;
-            case 'rental':
-                title = '租房'
-                break;
-        }
+        var title = '楼盘列表'
         this.setData({ pageTitle: title })
         wx.setNavigationBarTitle({
             title: title,
@@ -104,54 +98,6 @@ Page({
     },
 
 
-    configFilter: function (q) {
-        var items = [{ name: '位置', type: 'citypicker', },
-        app.globalData.filterAreaItem,
-        app.globalData.filterRentPriceItem,
-        app.globalData.filterOrderItem2,
-        ]
-        var g = q.group || q.group_v2 || 'new'
-
-        if (g == 'rental') {
-            items = [{ name: '位置', type: 'citypicker', },
-            app.globalData.filterTypeItem,
-            app.globalData.filterRentPriceItem,
-            app.globalData.filterAreaItem,
-            app.globalData.filterOrderItem1,
-            ]
-        }
-
-        if (g == 'shop') {
-            items = [{ name: '位置', type: 'citypicker', },
-            app.globalData.filterAreaItem,
-            app.globalData.filterRenttypeItem,
-            ]
-        }
-
-        if (g == 'old') {
-            items = [{ name: '位置', type: 'citypicker', },
-            app.globalData.filterTypeItem,
-            app.globalData.filterTotalPriceItem,
-            app.globalData.filterAreaItem,
-            app.globalData.filterOrderItem2,
-            ]
-        }
-        if (g == 'auction') {
-            items = [{ name: '位置', type: 'citypicker', },
-            app.globalData.filterTypeItem,
-            app.globalData.filterTotalPriceItem,
-            app.globalData.filterAreaItem,
-            app.globalData.filterOrderItem2,
-            ]
-        }
-
-        if (g == 'new') {
-            items[2] = app.globalData.filterTotalPriceItem
-        }
-        this.setData({ filterConfigs: items })
-
-
-    },
 
     kwChange: function (e) {
         this.setData({ kwInput: e.detail })
@@ -246,9 +192,7 @@ Page({
         if (this.data.albumId) {
             qs.push('album_id=' + this.data.albumId)
         }
-        if (this.data.filter.group_v2) {
-            qs.push('group_v2=' + this.data.filter.group_v2)
-        }
+
         if (this.data.filter.city_id) {
             qs.push('city_id=' + this.data.filter.city_id)
         }

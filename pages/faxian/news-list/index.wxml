@@ -1,22 +1,7 @@
 <!--pages/faxian/news/index.wxml-->
-<view class="box">
-    <view class="res news-list">
-    <block wx:if="{{false}}">
-
-        <scroll-view scroll-x class="news-cats-scroll">
-            <navigator url="/pkgNews/pages/news/index?cat_id={{cat.id}}" class="news-cat-item" wx:for="{{newsCats}}" wx:for-item="cat" wx:key="id" hover-class="none">
-                <image src="{{cat.icon}}" style="width:80rpx;height:80rpx;margin-bottom:10rpx" />
-                <text>{{cat.name || '' }}</text>
-            </navigator>
-        </scroll-view>
-        <ud-card class="card" title='热门推荐' sub-title='查看更多'>
-            <scroll-news items="{{topNewsItems}}" />
-            <image class="jiantou" src="../image/6.png"></image>
-        </ud-card>
-
-    </block>
-        <ud-card title='楼市资讯'>
-            <news-item wx:for="{{newsItems}}" item="{{item}}"></news-item>
-        </ud-card>
+<view class="outer">
+    <view class="item"  wx:for="{{newsItems}}" wx:for-key="id">
+        <news-item item="{{item}}"></news-item>
     </view>
+
 </view>

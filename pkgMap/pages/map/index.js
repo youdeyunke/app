@@ -19,24 +19,19 @@ Page({
         level: 'city',
         scale: 8,
         map: null,
-
         filter: {},
-        searchText: '',
 
-        filterConfigs: [],
-        groupV2: 'new',
         cityId: null,
         districtId: null,
         postId: null,
         markers: [],
-        groupItems: [],
+
         tabShow: true,
         post: null,
         center: {},
         sid: null,
         mapViewHeight: app.globalData.system.windowHeight,
         loading: true,
-        postGroup: 'old',
         resultViewState: 0,
     },
 
@@ -46,21 +41,12 @@ Page({
     onLoad: function (q) {
         app.checkForceLogin()
         const map = wx.createMapContext('map', this)
-        var filter = { group_v2: q.group }
-        this.setData({ map: map, groupV2: q.group, filter: filter })
+        var filter = {  }
+        this.setData({ map: map,  filter: filter })
         wx.setNavigationBarTitle({ title: '地图找房' })
         var _this = this
         app.ensureConfigs((configs) => {
-            var currentPostGroup = 'new'
-            _this.setData({
-                groupItems: configs['post_groups'],
-                currentPostGroup: currentPostGroup
-            })
-            _this.initMap(currentPostGroup)
-            // 如果只开启了一个房源模块，或者带有参数进入，那就不显示房源类型切换标签
-            if (_this.data.groupItems.length == 1 || q.group) {
-                _this.setData({ tabShow: false })
-            }
+            _this.initMap()
 
         })
     },
@@ -97,15 +83,12 @@ Page({
 
     },
 
-    searchHandle: function (e) {
-        this.loadMarkers('post')
-    },
 
     renderPost: function (pid) {
         // 显示所选房源
         var _this = this
         app.request({
-            url: '/api/v4/posts/' + pid,
+            url: '/api/v1/post_base_info/' + pid,
             success: function (resp) {
                 if (resp.data.status != 0) {
                     return false
@@ -138,9 +121,9 @@ Page({
     },
 
 
-    initMap: function (group) {
+    initMap: function (level='district') {
         // 初始化，第一次进入地图时候
-        this.loadMarkers('post')
+        this.loadMarkers(level)
     },
 
     renderMarkers: function (markers) {
@@ -230,16 +213,13 @@ Page({
 
     loadMarkers: function (level) {
         wx.showLoading({
-            title: '加载中',
+            title: '加载地图...',
             mask: true,
         });
         this.setData({ loading: true })
 
         var _level = level || 'district'
         var data = {
-            group_v2: this.data.groupV2 || 'new',
-            city_id: this.data.cityId,
-            kw: this.data.searchText || '',
             district_id: this.data.districtId,
             level: _level,
         }
@@ -363,6 +343,7 @@ Page({
 
                 if (res.scale <= 16 && _this.data.level == 'post') {
                     _this.loadMarkers('district')
+
                     return
                 }
 
@@ -371,13 +352,6 @@ Page({
 
     },
 
-
-
-    groupClick: function (e) {
-        var g = e.currentTarget.dataset.group
-        this.setData({ currentPostGroup: g })
-        this.popClose()
-    },
 
 
     moveTo: function (latitude, longitude) {
