@@ -39,12 +39,12 @@ Page({
       if (searchRecord.indexOf(inputvalue) === -1) {
         searchRecord.unshift(inputvalue)
         wx.navigateTo({
-          url: '/pages/post/index?text=' + inputvalue
+          url: '/pkgPost/pages/index/index?text=' + inputvalue
         })
         wx.setStorageSync('searchRecord', searchRecord)
       } else {
         wx.navigateTo({
-          url: '/pages/post/index?text=' + inputvalue
+          url: '/pkgPost/pages/index/index?text=' + inputvalue
         })
       }
     }
@@ -86,7 +86,7 @@ Page({
     var index = e.currentTarget.dataset.index
     var myvalue = searchRecord[index].value
     wx.navigateTo({
-      url: '/pages/post/index?text=' + myvalue
+      url: '/pkgPost/pages/index/index?text=' + myvalue
     })
   },
   /**

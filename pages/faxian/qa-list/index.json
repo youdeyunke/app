@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "qa-item": "../qa-item"
+    "qa-item": "/components/qa-item/index"
   }
 }

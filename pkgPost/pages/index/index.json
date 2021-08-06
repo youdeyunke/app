@@ -3,9 +3,6 @@
     "usingComponents": {
         "items": "/components/post-items/index",
         "post-filter": "/components/post-filter/index",
-        "album-info": "./album-info",
-        "myslider": "/components/slider",
-        "navs": "/components/navs",
-        "base-filter": "/components/base-filter"
+        "album-info": "./album-info"
     }
 }

@@ -1,4 +1,6 @@
-
+page{
+    background:#fff !important;
+}
 
 .mybox {
     width: 710rpx;

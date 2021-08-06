@@ -1,16 +1,13 @@
 <page-loading loading="{{loading}}" />
-<box width="750" padding="20" hidden="{{loading && !item.id}}">
+<box width="710" padding="20" hidden="{{loading && !item.id}}">
     <view class="float-btn">
         <van-button bindtap="addHandle" type="info" block>我要回答</van-button>
     </view>
     <view class="question">
         <q-icon />
         <view class="body">
-            <view class="content">
-                <text wx:if="{{item.target_name}}" class="target" bindtap="gotoTarget">
-                    #{{item.target_name}}#
-                </text>
-                {{ item.content }}
+            <view class="content"><text wx:if="{{item.target_name}}" class="target" bindtap="gotoTarget">#{{item.target_name}}#</text>
+                <text>{{ item.content }}</text>
             </view>
             <view class="actions">
                 <view class="count">{{ item.answers_count}}条回答</view>

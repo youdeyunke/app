@@ -4,7 +4,6 @@ var util = require('../../../utils/util.js');
 var auth = require('../../../utils/auth.js');
 
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -34,11 +33,8 @@ Page({
         _this.setData({pageTitle: '我的提问'})
       })
     }
-    wx.setNavigationBarTitle({
-      title: '有问必答',
-    })
+    wx.setNavigationBarTitle({  title: '问答'})
   },
-
 
   loadItems: function(){
     this.setData({loading: true})

@@ -1,7 +1,0 @@
-/* pages/need/room.wxss */
-.mycats{
-  width: 750rpx;
-  box-sizing: border-box;
-  background:none;
-  margin-bottom:20rpx;
-}

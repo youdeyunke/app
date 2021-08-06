@@ -11,7 +11,6 @@
         "pages/fangyuan/index",
         "pages/fangyuan/show",
 
-        "pages/admin/index",
         "pages/admin/booking",
         "pages/admin/xiangce/index"
       ]
@@ -22,6 +21,7 @@
       "root": "pkgPost",
       "name": "pkgpost",
       "pages": [
+        "pages/index/index",
         "pages/show/index",
         "pages/desc/index",
         "pages/type/index",
@@ -77,15 +77,10 @@
       "root": "pkgFenxiao",
       "name": "fenxiao",
       "pages": [
-        "pages/fenxiao/index",
+  
         "pages/fenxiao/report",
-        "pages/fenxiao/balance",
-        "pages/fenxiao/referrers",
-        "pages/fenxiao/customers",
-        "pages/fenxiao/withdraw",
-        "pages/fenxiao/qr",
-        "pages/fenxiao/customer-detail",
         "pages/fenxiao/report-detail"
+  
       ]
     },
     {
@@ -150,13 +145,7 @@
         "pages/comment/new"
       ]
     },
-    {
-      "root": "pkgDoc",
-      "name": "pkgDoc",
-      "pages": [
-        "pages/doc/index"
-      ]
-    },
+  
     {
       "root": "pkgVr",
       "name": "pkgVr",
@@ -241,13 +230,7 @@
         "pages/brokers/index"
       ]
     },
-    {
-      "root": "pkgBuyers",
-      "name": "buyers",
-      "pages": [
-        "pages/buyers/index"
-      ]
-    },
+
     {
       "root": "pkgEventPosts",
       "name": "posts",
@@ -256,25 +239,26 @@
       ]
     }
   ],
+
+
   "pages": [
     "pages/home/home",
     "pages/want/index",
-    "pages/qa/index",
-    "pages/post/index",
+    "pages/faxian/index",
     "pages/myself/index",
+    "pages/messages/index",
+
+
     "pages/home/debug",
     "pages/myself/favposts",
     "pages/messages/show",
-    "pages/messages/index",
     "pages/444/index",
     "pages/cities/select",
     "pages/districts/select",
     "pages/static/terms",
     "pages/udeve/index",
-    "pages/myself/orders",
     "pages/myself/profile",
     "pages/visitors/index",
-    "pages/faxian/index",
     "pages/qr/show",
     "pages/404/index"
   ],

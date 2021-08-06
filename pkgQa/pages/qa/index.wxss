@@ -2,7 +2,7 @@
 
 
 page{
-  padding-top:0rpx !important; 
+  padding-top:20rpx !important; 
   padding-bottom:100rpx;
 }
 
@@ -16,4 +16,9 @@ page{
     bottom: 0rpx;
     left: 0rpx;
     right: 0rpx;
+}
+
+.items{
+  width:710rpx; 
+  margin:0 auto 20rpx auto;
 }
