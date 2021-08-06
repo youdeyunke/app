@@ -198,7 +198,9 @@
       "name": "auth",
       "pages": [
         "pages/auth/index",
+        "pages/auth/terms",
         "pages/auth/sms"
+        
       ]
     },
     {
@@ -259,7 +261,7 @@
     "pages/messages/show",
     "pages/cities/select",
     "pages/districts/select",
-    "pages/static/terms",
+
     "pages/udeve/index",
     "pages/visitors/index",
     "pages/qr/show"

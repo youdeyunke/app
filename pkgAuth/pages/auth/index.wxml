@@ -24,7 +24,7 @@
         </view>
         <view class="terms">
         <text>同意</text>
-        <navigator style="color:#1989fa" url="/pages/static/terms">《用户协议》</navigator>
+        <navigator style="color:#1989fa" url="/pkgAuth/pages/auth/terms">《用户协议》</navigator>
         </view>
     </view>
     <image class="bg" src="../../images/login-bg.png" />
