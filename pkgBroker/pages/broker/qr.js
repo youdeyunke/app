@@ -60,7 +60,7 @@ Page({
   },
   userEdit() {
     wx.navigateTo({
-      url: '/pages/myself/profile'
+      url: '/pkgMyself/pages/profile/index'
     })
   },
   onCreatePoster() {

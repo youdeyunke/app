@@ -4,3 +4,7 @@
   background:#ffffff;
   margin-bottom:20rpx;
 }
+.items{
+  width:710rpx;
+  margin:auto;
+}

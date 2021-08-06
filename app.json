@@ -16,6 +16,27 @@
       ]
     },
 
+    {
+      "root": "pkgMyself", 
+      "name": "pkgmyself",
+      "pages": [
+        "pages/profile/index",
+        "pages/favposts/index",
+        "pages/booking/index",
+        "pages/comments/index",
+        "pages/qa/index",
+        "pages/history/index"
+      ]
+    },
+  
+    {
+      "root": "pkgError", 
+      "name": "pkgerror",
+      "pages": [
+        "pages/404/index",
+        "pages/444/index"
+      ]
+    },
 
     {
       "root": "pkgPost",
@@ -168,7 +189,6 @@
       "pages": [
         "pages/qa/index",
         "pages/qa/qa",
-        "pages/qa/mine",
         "pages/qa/reply",
         "pages/qa/new"
       ]
@@ -195,20 +215,7 @@
         "page/search/index"
       ]
     },
-    {
-      "root": "pkgBooking",
-      "name": "booking",
-      "pages": [
-        "pages/booking/index"
-      ]
-    },
-    {
-      "root": "pkgHistory",
-      "name": "history",
-      "pages": [
-        "pages/history/index"
-      ]
-    },
+
     {
       "root": "pkgLicense",
       "name": "license",
@@ -248,19 +255,15 @@
     "pages/myself/index",
     "pages/messages/index",
 
-
     "pages/home/debug",
-    "pages/myself/favposts",
     "pages/messages/show",
-    "pages/444/index",
     "pages/cities/select",
     "pages/districts/select",
     "pages/static/terms",
     "pages/udeve/index",
-    "pages/myself/profile",
     "pages/visitors/index",
-    "pages/qr/show",
-    "pages/404/index"
+    "pages/qr/show"
+
   ],
   "tabBar": {
     "custom": false,

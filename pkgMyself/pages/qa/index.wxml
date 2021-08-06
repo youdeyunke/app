@@ -5,10 +5,9 @@
     </van-tabs> 
 </view>
 
-<box padding="30" wx:if="{{items.length >0}}">
-    <view class="items">
-      <item style="width:690rpx;" item="{{item}}" wx:for="{{items}}" />
+
+    <view class="items"  wx:if="{{items.length >0}}">
+      <item item="{{item}}" wx:for="{{items}}" />
     </view>
-</box>
 
 <no-result wx:if="{{!loading && items.length == 0}}" />

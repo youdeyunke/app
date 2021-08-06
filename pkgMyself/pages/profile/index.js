@@ -1,7 +1,7 @@
 // pages/myself/profile.js
 const app = getApp()
-var auth = require('../../utils/auth.js');
-var qiniu = require('../../utils/qiniu.js');
+var auth = require('../../../utils/auth.js');
+var qiniu = require('../../../utils/qiniu.js');
 
 Page({
 

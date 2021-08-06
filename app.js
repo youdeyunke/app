@@ -570,7 +570,7 @@ App({
                 if (res.data.status == 444) {
                     var error = res.data.error;
                     wx.redirectTo({
-                        url: "/pages/444/index?error=" + error
+                        url: "/pkgError/pages/444/index?error=" + error
                     });
                     return false;
                 }

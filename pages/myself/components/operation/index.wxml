@@ -13,7 +13,7 @@
     <van-button custom-style="border-radius:8rpx;" size="mini" plain type="info">申请入驻</van-button>
   </van-cell>
 
-  <van-cell title-style="cell-title"   is-link url="/pkgHistory/pages/history/index" size="large">
+  <van-cell title-style="cell-title"   is-link url="/pkgMyself/pages/history/index" size="large">
     <view slot="title" class="cell-title">
       <van-icon size="40rpx" name="/assets/icons/myself/23.png" />
       <text>历史浏览</text>

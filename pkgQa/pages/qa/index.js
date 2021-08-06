@@ -26,14 +26,7 @@ Page({
       user_id: q.user_id || '',
     })
     this.loadItems()
-    var _this = this
-    // 加载我的问答
-    if(q.user_id == 'myself'){
-      auth.ensureUser((user) => {
-        _this.setData({pageTitle: '我的提问'})
-      })
-    }
-    wx.setNavigationBarTitle({  title: '问答'})
+
   },
 
   loadItems: function(){
