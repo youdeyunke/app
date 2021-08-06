@@ -14,6 +14,7 @@ image{
   margin-top: 35rpx;
   margin-left: 675rpx;
   margin-bottom: 6rpx;
+  opacity: 0;
 }
 .broker-box{
   width:710rpx ;
@@ -179,4 +180,5 @@ image{
   height: 88rpx;
   margin-left: 50rpx;
   margin-top: 22rpx;
+
 }

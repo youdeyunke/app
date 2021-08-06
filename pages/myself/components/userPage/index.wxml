@@ -24,6 +24,7 @@
           <view>我的预约</view>
         </navigator>
       </view>
-      <operation bindquitHandle="myquit" myuser="{{user}}"></operation>
+
+      <operation bindquitHandle="myquit" user="{{user}}"></operation>
     </view>
  

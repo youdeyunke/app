@@ -32,7 +32,7 @@
   </block>
 
 
-  <navigator url="/pages/myself/profile" class="broker-right">
+  <navigator url="/pkgMyself/pages/profile/index" class="broker-right">
     <text>修改资料</text>
     <image class="broker-image6" src="/assets/icons/myself/3.png"></image>
   </navigator>
@@ -55,4 +55,4 @@
 <view style="margin-top:100rpx;">
 <brokeroperation  broker="{{user}}"></brokeroperation>
 </view>
-<operation myuser="{{user}}" bindquitHandle="myquit"></operation>
+<operation user="{{user}}" bindquitHandle="myquit"></operation>

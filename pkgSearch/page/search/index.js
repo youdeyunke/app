@@ -1,4 +1,5 @@
 // pkgSearch/page/search/index.js
+const app = getApp()
 Page({
 
   /**
@@ -49,8 +50,22 @@ Page({
       }
     }
   },
+
+  searchNumPlus: function(pid){
+    app.request({
+      url: '/api/v1/hot_search', 
+      method: 'POST', 
+      hideLoading: true, 
+      data: {post_id: pid}, 
+      success: function(resp){
+        // pass
+      }
+    })
+  },
   valueHandle: function (e) {
-    console.log("eeeee",e)
+      // 点击了搜索结果之后
+      // 搜索次数加一
+      this.searchNumPlus(e.detail.id)
       wx.navigateTo({
         url: '/pkgPost/pages/show/index?id='+e.detail.id,
       })

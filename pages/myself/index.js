@@ -238,21 +238,6 @@ Page({
     },
 
 
-    gotoMembership: function (e) {
-        // 开通经纪人身份
-        // 如果是免费入驻，就去个人资料页面
-        // 如果是付费入驻，就去套餐页面
-        app.loadConfigs(function (conf) {
-            if (conf['broker_join_type'] == 'free') {
-                var url = '/pages/myself/broker'
-            } else {
-                var url = '/pages/broker/membership'
-            }
-            wx.navigateTo({ url: url })
-        })
-    },
-
-
     loginHandle: function (e) {
         var _this = this
         auth.loginHandle(this, e, function (u) {
@@ -263,14 +248,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
-        T.hello()
         var _this = this
-        wx.setNavigationBarTitle({ title: '我的' })
         app.ensureConfigs(function (configs) {
             _this.setData({ configs: configs })
         })
         var token = app.globalData.token
-
         // 如果是别人邀请注册的，就记录下referrer_id，注册时携带referrer_id
         if (q.referrer_id && q.referrer_id.length > 0) {
             console.log("推荐人的id 为", q.referrer_id)
@@ -336,9 +318,9 @@ Page({
     },
     myQuit:function(e){
         this.setData({
-            userInfo:e.detail
+            userInfo:null
         })
-        console.log("eninini",e.detail.userinfo)
+        auth.logout()
 
     },
 

@@ -4,7 +4,7 @@
 <box width="710">
 
 
-  <van-cell url="/pkgBroker/pages/broker/join"   wx:if="{{!myuser.is_broker}}"   size="large"  >
+  <van-cell url="/pkgBroker/pages/broker/join"   wx:if="{{user && !user.is_broker}}"   size="large"  >
     <view slot="title" class="cell-title join">
       <van-icon size="40rpx" name="/assets/icons/myself/22.png" />
       <text>置业顾问免费入驻</text>
@@ -21,7 +21,7 @@
   </van-cell>
 
 
-  <van-cell title-style="cell-title"  bindtap="callHandle" size="large">
+  <!-- van-cell title-style="cell-title"  bindtap="callHandle" size="large">
     <view slot="title" class="cell-title">
       <van-icon size="40rpx" name="/assets/icons/myself/6.png" />
       <text>客服微信</text>
@@ -33,14 +33,12 @@
       <van-icon size="40rpx" name="/assets/icons/myself/5.png" />
       <text>客服微信</text>
     </view>
-  </van-cell>
- 
-
+  </van-cell -->
 
   <van-cell  bindtap="copyHandle"  size="large" is-link>{{cache.currentSize}}kb
     <view slot="title" class="cell-title">
       <van-icon size="40rpx" name="/assets/icons/myself/7.png" />
-      <text>清空缓存</text>
+      <text>清理缓存</text>
     </view>
   
   </van-cell>
@@ -59,7 +57,7 @@
     </view>
   </van-cell>
 
-  <van-cell bindtap="logoutHandle" size="large" is-link >
+  <van-cell wx:if="{{user}}" bindtap="logoutHandle" size="large" is-link >
     <view slot="title" class="cell-title">
       <van-icon size="40rpx" name="/assets/icons/myself/9.png" />
       <text>安全退出</text>

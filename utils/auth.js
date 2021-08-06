@@ -29,7 +29,7 @@ module.exports = {
     ensureUser: function (cb) {
         const app = getApp()
         var _this = this
-        var token = app.globalData.tokensm
+        var token = app.globalData.token
         var user = app.globalData.userInfo
         // 去登录页面
         if (!token) {
