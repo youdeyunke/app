@@ -1,6 +1,6 @@
 {
   "enablePullDownRefresh": true,
   "usingComponents": {
-    "vr-item":"./vr-item"
+    "vr-item":"/components/vr-item/index"
   }
 }

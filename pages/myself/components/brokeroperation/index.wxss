@@ -5,11 +5,13 @@
   background-color: #fff;
   border-radius: 15rpx;
   margin-bottom: 20rpx;
+  box-shadow: 2rpx 4rpx 10rpx rgba(0,0,0, 0.12);
 }
 .broker-operation{
   display: flex;
   width: 710rpx;
   justify-content: space-evenly;
+
 }
 .broker-operation-class{
   width: 174rpx;

@@ -1,4 +1,4 @@
-<ud-header title="{{status.name}}" color="{{status.color || '#1989fa'}}">
+<ud-header height="160" title="{{status.name}}" color="{{status.color || '#1989fa'}}">
   {{ status.desc }}
 </ud-header>
 
