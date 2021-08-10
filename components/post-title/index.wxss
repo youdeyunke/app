@@ -3,15 +3,23 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    height: 200rpx;
+    align-items: center;
+    justify-content: center;
 }
 
 .mask {
-    line-height: 200rpx;
     text-align: center;
-    font-size: 40rpx;
+    font-size: 32rpx;
     font-weight: bold;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.25);
+    width:600rpx;
+    color: #333;
+    padding:20rpx; 
+    background:rgba(255,255,255, 0.95);
+    position: relative;
+}
+
+.arrow{ 
+    position:absolute; 
+    right:8rpx; 
+    top:calc(50% - 16rpx);
 }

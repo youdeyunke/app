@@ -1,176 +1,67 @@
-image {
-  vertical-align: top;
+/* pkgYfyj/pages/yfyj/index.wxss */
+
+.header {
+    width: 100%;
+    background: #fff;
+    margin-bottom: 1px;
 }
 
-.image1 {
-  width: 100%;
-  /* height: 400rpx; */
-  position: relative;
-  top: 0;
-  left: 0;
-  z-index: -4;
-}
-.image-box{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.box{
-  position: absolute;
-  margin: auto;
-}
-.text1 {
-  height: 90rpx;
-  background-color: #FFFFFF;
-  box-sizing: border-box;
-  padding: 20rpx 50rpx 20rpx 50rpx;
-  opacity: .75;
-  font-size: 40rpx;
-  font-weight: bold;
-  color: #333333;
-  margin: 0 auto;
-  text-align: center;
-  z-index: 555;
-  /* position: absolute; */
+.header .title {
+    padding: 0 20rpx;
+    margin-top: 20rpx;
+    margin-bottom: 10rpx;
+    font-size: 28rpx;
+    color: 000;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
 }
 
-.building {
-  position: relative;
+.header .title .more {
+    font-size: 22rpx;
+    color: #333;
+    font-weight: normal;
+    background: #f4f4f4;
+    padding:6rpx;
+    
 }
 
-.building-message {
-  display: flex;
-  justify-content: space-between;
-  color: #999999;
-  font-size: 26rpx;
-  padding: 0 30rpx 0 30rpx;
-  border-bottom: 1rpx solid #DEDEDE;
-
+.floor-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-.building-message-nav {
-  padding: 20rpx;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.nav-top{
-  display: flex;
-  align-items: center;
+.floor-list .floors {
+    width: 60rpx;
 }
 
-.nav-bottom{
-  font-size: 28rpx;
-  color:#333333 ;
+.floor-list .floors .floor-item {
+    width: 100%;
+    height: 180rpx;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border:1px solid #fff;
 }
 
-.image2 {
-  width: 18rpx;
-  height: 18rpx;
-  margin-left: 15rpx;
+.floor-list .rooms {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-.search-box {
-  width: 750rpx;
-  z-index: 54;
+.scroll-views {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-.search-price {
-  padding: 50rpx 30rpx 0 50rpx;
-}
-
-.search-top {
-  display: flex;
-  justify-content: space-between;
-  font-size: 32rpx;
-  margin-right: 14rpx;
-}
-
-.search-top text:nth-of-type(2) {
-  color: #1989FA;
-}
-
-.search-price_between {
-  margin-bottom: 35rpx;
-  margin-top: 30rpx;
-}
-
-/* .price_between-class{
-  background-color: blue;
-} */
-
-.search-price_between text:nth-of-type(2) {
-  color: #666666;
-  margin-left: 5rpx;
-}
-
-.select {
-  height: 80rpx;
-  border-radius: 6rpx;
-  display: inline-block;
-  text-align: center;
-  line-height: 80rpx;
-  margin-right: 16rpx;
-  margin-bottom: 16rpx;
-  width: 151rpx;
-  background-color: #1989FA;
-  color: #fff;
-  font-size: 20rpx;
-}
-
-.notselect {
-  height: 80rpx;
-  border-radius: 6rpx;
-  display: inline-block;
-  text-align: center;
-  line-height: 80rpx;
-  margin-right: 16rpx;
-  margin-bottom: 15rpx;
-  width: 153rpx;
-  background-color: #fff;
-  color: #1989FA;
-  border: 1rpx solid #1989FA;
-  font-size: 20rpx;
-}
-
-.search-confirm,
-.search-cancel {
-  width: 710rpx;
-  height: 90rpx;
-  background-color: #1989FA;
-  line-height: 90rpx;
-  text-align: center;
-  color: #fff;
-  font-size: 30rpx;
-  border-radius: 6rpx;
-  margin: 0 auto;
-  margin-top: 35rpx;
-  margin-bottom: 30rpx;
-}
-
-.search-cancel {
-  background-color: #fff;
-  color: #A0A0A0;
-  border: 1rpx solid #A0A0A0;
-  margin-top: 0;
-}
-
-.newtabs {
-  width: 100%;
-  height: 88rpx;
-  line-height: 88rpx;
-  box-sizing: border-box;
-  white-space: nowrap;
-  background-color: #F0F0F0;
-  padding: 0 26rpx;
-  z-index: -4;
-}
-.newborder{
-  width: 48rpx;
-  height: 8rpx;
-  background-color: #1989FA;
-  z-index: 1;
-  position: absolute;
-  top: 80rpx;
-  left: 0rpx;
+.room-floor-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: scroll;
+    width: calc(100% - 70rpx);
 }

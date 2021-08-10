@@ -1,75 +1,25 @@
-<view class="image-box">
-  <image class="image1" src="{{buildingdata.post.cover}}" mode="widthFix"></image>
-  <view class="box">
-    <view class="text1">{{buildingdata.post.title}}</view>
-  </view>
+<post-title post="{{post}}"></post-title>
+
+<view class="header">
+    <van-tabs animated type="line" color="#1989FA" bind:change="tabChange" sticky>
+        <van-tab wx:for="{{buildings}}" wx:for-item="b" title="{{b.name}}号楼"></van-tab>
+    </van-tabs>
 </view>
-<view class="building-box">
-  <view class="building-message" bindtap="unfoldSearch">
-    <view class="building-message-nav">
-      <view class="nav-top">
-        <text>总价格区间</text>
-        <image class="image2" src="../../images/4.png"></image>
-      </view>
-      <view class="nav-bottom">{{formdata.price}}</view>
+
+<box width="750" padding="10">
+    <view class="floor-list">
+        <view class="floors">
+            <view class="floor-item" wx:for="{{floorRooms}}" wx:for-item="floor">
+                <view>{{ floor.floor }}</view>
+                <view>层</view>
+            </view>
+        </view>
+        <view class="scroll-views">
+            <scroll-view scroll-x="{{true}}" wx:for="{{floorRooms}}" wx:for-item="floor" style="width:690rpx;">
+                <view class="rooms">
+                    <room-item wx:for="{{floor.rooms}}" wx:for-item="room" room="{{room}}" />
+                </view>
+            </scroll-view>
+        </view>
     </view>
-    <view class="building-message-nav">
-      <view class="nav-top">
-        <text>均价</text>
-      <image class="image2" src="../../images/4.png"></image>
-      </view>
-      <view class="nav-bottom">{{formdata.areaprice}}</view>
-    </view>
-    <view class="building-message-nav">
-      <view class="nav-top">
-        <text>总面积</text>
-      <image class="image2" src="../../images/4.png"></image>
-      </view>
-      <view class="nav-bottom">{{formdata.area}}</view>
-    </view>
-  </view>
-  <van-popup show="{{searchShow}}" position="top">
-    <view class="search-box">
-      <view class="search-price">
-        <view class="search-top">
-          <text>筛选</text>
-          <text bindtap="resetHandle">重置</text>
-        </view>
-        <view class="search-price_between">
-          <text>总价格区间</text>
-          <text>(万元)</text>
-        </view>
-        <view class="price_between-class">
-          <block wx:for="{{price_between}}" >
-            <view class="{{item.select===true?'select':'notselect'}}" bindtap="priceHandle" data-index="{{index}}" data-key="price">{{item.value}}</view>
-          </block>
-        </view>
-        <view class="search-price_between">
-          <text>单位面积价格</text>
-          <text>(元/平)</text>
-        </view>
-        <view class="price_between-class">
-          <block wx:for="{{area_price}}">
-            <view class="{{item.select===true?'select':'notselect'}}" data-key="areaprice" bindtap="areapriceHandle" data-index="{{index}}">{{item.value}}</view>
-          </block>
-        </view>
-        <view class="search-price_between">
-          <text>总面积</text>
-          <text>(平)</text>
-        </view>
-        <view class="price_between-class">
-          <block wx:for="{{area}}">
-            <view class="{{item.select===true?'select':'notselect'}}" data-key="area" data-index="{{index}}" bindtap="areaHandle">{{item.value}}</view>
-          </block>
-        </view>
-      </view>
-      <view class="search-confirm"  bindtap="submitHanle">确定</view>
-      <view class="search-cancel"  bindtap="closeSearch">取消</view>
-    </view>
-  </van-popup>
-  <ud-tabs tabs="{{tabs}}" bind:change='tabChangeHandle' model:active-index='{{tabIndex}}' mytabs="newtabs" myborder="newborder"></ud-tabs>
-  <view class="building">
-    <building wx:if="{{buildingShow==true}}" bindchangestatus="mystatus" wx:for="{{floorRooms}}" value="{{item}}"
-      num="{{building_num}}" average="{{average}}" formdata="{{formdata}}" result="{{resultShow}}" ></building>
-  </view>
-</view>
+</box>

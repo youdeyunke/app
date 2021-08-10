@@ -1,3 +1,8 @@
-<view class="header" style="background-image:url('{{cover}}')">
-    <view class="mask">{{ name }}</view>
+<view class="header" style="background-image:url('{{post.cover}}');height:{{height}}rpx;width:{{width}}rpx;">
+    <view bindtap="clickHandle" class="mask">{{ post.title }}
+        <view class="arrow">
+            <van-icon size="32rpx" name="arrow" />
+        </view>
+    </view>
+
 </view>

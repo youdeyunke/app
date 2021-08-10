@@ -37,7 +37,7 @@ Page({
             url: '/api/v1/building_rooms/' + _this.data.roomId,
             success: function (resp) {
                 if (resp.data.status != 0) {
-                    return false
+                    return flase
                 }
                 var room = resp.data.data.room
                 // 计算首付不同情况下的价格
@@ -58,8 +58,9 @@ Page({
                 room.total_price = t
                 var typeImage = 'https://qiniucdn.udeve.cn/wefang-sass/type-image-none.jpg'
                 var rt = resp.data.data.room_type
-                if (rt && rt.images.split(',').length > 0) {
-                    typeImage = rt.images.split(',')[0]
+                var imgs = rt.images || ''
+                if (imgs.split(',').length > 0) {
+                    typeImage = imgs.split(',')[0]
                 }
                 _this.setData({
                     room: room,

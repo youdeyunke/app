@@ -10,4 +10,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size:24rpx;
+}
+
+.name { 
+    font-size:28rpx;
+    margin-bottom:8rpx;
 }
