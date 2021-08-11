@@ -13,7 +13,7 @@
                 <text class="author">{{item.author || ''}}</text>
                 <text class="date">{{item.date || ''}}</text>
             </view>
-            <view class="views"> <van-icon name="eye" size="28rpx" /> <text style="margin-left:10rpx;">{{ item.view_nums }}</text></view>
+            <view wx:if="{{item.view_nums}}" class="views"> <van-icon name="eye" size="28rpx" /> <text style="margin-left:10rpx;">{{ item.view_nums }}</text></view>
         </view>
     </view>
 </view>
