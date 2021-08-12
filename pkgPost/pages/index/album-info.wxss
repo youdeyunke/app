@@ -1,7 +1,7 @@
 /* pages/post/album-info.wxss */
 
 .album {
-    width: 730rpx;
+    width: 750rpx;
     height: 300rpx;
     display: flex;
     justify-content: center;
@@ -10,28 +10,14 @@
     box-sizing: border-box;
     padding: 0rpx;
     position: relative;
-    margin:0 auto 10rpx 0;
+    margin:10rpx auto 10rpx 0;
 }
 
 .bg{
-    position: absolute;
+
     width:730rpx;
     height:300rpx;
-    margin:0 auto;
-    top:0;
-    left:0;
+  
     border-radius: 8rpx;
-    overflow: hidden;
-}
-
-.album .name {
-    font-size: 36rpx;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20rpx;
-}
-
-.album .content {
-    color: #666;
-    line-height: 1.5;
+ 
 }

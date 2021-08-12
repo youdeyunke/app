@@ -1,6 +1,4 @@
 <!-- pages/post/album-info.wxml -->
 <view class="album" >
     <image src="{{album.cover}}" class="bg" />
-    <view class="name">{{album.name}}</view>
-    <view class="content">{{album.content}}</view>
 </view>

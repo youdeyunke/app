@@ -8,13 +8,20 @@ Page({
      */
     data: {
         postId: null,
-        loading: false,
+        loading: true,
         buildings: [],
         rooms: [],
+        currentRoomId: null,
         floors: [], // 楼层数
         post: null,
         currentBuildingIndex: null,
+    },
 
+
+    itemClick: function(e){
+        var item = e.detail 
+        this.setData({currentRoomId: item.id })
+        this.selectComponent('#room-detail').onShow(item)
     },
 
     tabChange: function (e) {
@@ -86,14 +93,7 @@ Page({
                 }
                 // 先将rooms信息格式化
                 // TODO 
-                var rooms = resp.data.data.map((r, i) => {
-                    // 格式化价格
-                    r.average_price += '元/㎡'
-                    var t = r.total_price / 10000
-                    t = t.toFixed(2) + '万'
-                    r.total_price = t
-                    return r
-                })
+                var rooms = resp.data.data
                 // 分组
                 var floors = rooms.map((r, i) => { return r.floor })
                 floors = floors.sort((a, b) => {
@@ -122,7 +122,7 @@ Page({
 
                 })
                 console.log('groups', groups)
-                _this.setData({ floorRooms: groups })
+                _this.setData({ floorRooms: groups, loading: false })
 
             }
         })

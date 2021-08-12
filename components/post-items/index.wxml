@@ -1,7 +1,7 @@
 <view class="outer">
   <view class="empty" wx:if="{{meta.total_entries == 0 }}" style="text-align:center;color:#cecece;">没有结果</view>
   <block wx:key="{{index}}" wx:for="{{items}}" wx:for-item="posts">
-    <item album-key="{{albumKey}}"  wx:key="{{post.id}}" wx:for="{{posts}}" wx:for-item="post" post="{{post}}" />
+    <item  wx:key="{{post.id}}" wx:for="{{posts}}" wx:for-item="post" post="{{post}}" />
       
   </block>
   <view class="loading">

@@ -1,0 +1,59 @@
+.outer{
+  padding:80rpx 40rpx 20rpx 40rpx;
+}
+
+.header {
+  margin-bottom:40rpx;
+}
+.title{ 
+  font-size:40rpx; 
+  color:#000;
+}
+
+
+.body { 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+ .cell{
+  width:33.33%;
+  margin-bottom:40rpx;
+}
+
+.cell .value{
+  font-size:32rpx; 
+  color:#333; 
+  display: flex; 
+  align-items: center;
+  margin-bottom:15rpx;
+  position: relative;
+}
+
+.cell .unit{
+  color:#999;
+  font-size:24rpx;
+  margin-left:8rpx;
+}
+
+.cell .label{
+  color:#999; 
+  font-size:24rpx;
+}
+
+.cell .icon { 
+  margin-left:20rpx;
+  font-size:24rpx;
+
+}
+.cell .icon.up{ 
+  rotate: -90deg;
+  color: red;
+}
+
+.cell .icon.down{ 
+  rotate: 90deg;
+  color:green;
+}

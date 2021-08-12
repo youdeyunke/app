@@ -5,6 +5,7 @@ Component({
      */
     properties: {
         room: { type: Object, },
+        selected: {type: Boolean, value: false},
 
     },
 
@@ -19,6 +20,9 @@ Component({
      * 组件的方法列表
      */
     methods: {
+        itemClick: function(e){
+            this.triggerEvent('click', this.data.room)
+        },
 
     }
 })

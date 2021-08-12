@@ -1,5 +1,6 @@
-<post-title post="{{post}}"></post-title>
+<block wx:if="{{!loading}}">
 
+<post-title post="{{post}}"></post-title>
 <view class="header">
     <van-tabs animated type="line" color="#1989FA" bind:change="tabChange" sticky>
         <van-tab wx:for="{{buildings}}" wx:for-item="b" title="{{b.name}}号楼"></van-tab>
@@ -10,16 +11,33 @@
     <view class="floor-list">
         <view class="floors">
             <view class="floor-item" wx:for="{{floorRooms}}" wx:for-item="floor">
-                <view>{{ floor.floor }}</view>
-                <view>层</view>
+                <view>{{ floor.floor }}F</view>
             </view>
         </view>
         <view class="scroll-views">
             <scroll-view scroll-x="{{true}}" wx:for="{{floorRooms}}" wx:for-item="floor" style="width:690rpx;">
                 <view class="rooms">
-                    <room-item wx:for="{{floor.rooms}}" wx:for-item="room" room="{{room}}" />
+                    <room-item selected="{{room.id == currentRoomId }}" bind:click="itemClick" wx:for="{{floor.rooms}}" wx:for-item="room" room="{{room}}" />
                 </view>
             </scroll-view>
         </view>
     </view>
 </box>
+
+<room-detail post="{{post}}" id="room-detail" />
+</block>
+<block wx:else>
+    <view  style="width:750rpx;margin-bottom:70rpx;margin-top:30rpx;">
+        <van-skeleton  style="width:100%;"   row="5"  loading="{{true}}" avatar="{{false}}" > </van-skeleton>
+    </view>
+
+    <view  style="width:750rpx;margin-bottom:70rpx;margin-top:20rpx;">
+        <van-skeleton  style="width:100%;"   row="3"  loading="{{true}}" avatar="{{false}}" > </van-skeleton>
+    </view>
+    
+    <view  style="width:750rpx;margin-bottom:70rpx;margin-top:20rpx;">
+        <van-skeleton  style="width:100%;"   row="6"  loading="{{true}}" avatar="{{false}}" > </van-skeleton>
+    </view>
+
+ 
+</block>

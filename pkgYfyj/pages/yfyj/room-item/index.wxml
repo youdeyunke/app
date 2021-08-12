@@ -1,0 +1,7 @@
+<!-- pkgYfyj/pages/yfyj/room-item.wxml -->
+<view  bindtap="itemClick" class="room-item {{ selected == true ? 'selected' : '' }} " >
+    <view class="name">{{ room.name }}</view>
+    <view class="area">{{ room.area  }}㎡</view>
+    <view class="average-price">{{ room.average_price || '-' }}</view>
+    <view class="total-price">{{room.total_price || '-'}}</view>
+</view>

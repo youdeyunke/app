@@ -1,0 +1,72 @@
+<van-popup
+  show="{{ show }}"
+  round
+  position="bottom"
+  closeable
+  bind:close="onClose"
+>
+  <view class="outer">
+      <view class="header">
+        <text class="title">{{post.title}}</text>
+      </view>
+
+      <view class="body">
+        
+        <view class="cell">
+          <view class="value">
+            <text>{{item.average_price || '-'}}</text><text class="unit">元/㎡</text>
+          </view>
+          <view class="label"><text>均价</text></view>
+        </view>
+
+        <view class="cell">
+          <view class="value">
+            <text>{{post.average_price || '-'}}</text><text class="unit">元/㎡</text> 
+
+          </view>
+          <view class="label"><text>参考均价</text></view>
+        </view>
+
+        <view class="cell" wx:if="{{item.hasDelta}}">
+          <view class="value">
+            <text>{{item.delta != 0 ?  item.delta : '持平'}}</text>
+            <text  wx:if="{{item.delta != 0}}" class="unit">%</text> 
+            <view wx:if="{{item.delta != 0}}" class="icon {{ item.delta > 0 ? 'up' : 'down'}}}}">
+              <van-icon name="play"  />
+            </view>
+          </view>
+          <view class="label"><text>比均价</text></view>
+        </view>
+
+        <view class="cell" wx:else>
+          <view class="value">
+            <text>未知</text>
+          </view>
+          <view class="label"><text>比均价</text></view>
+        </view>
+
+        <view class="cell">
+          <view class="value">
+            <text> {{item.typename}}</text>
+          </view>
+          <view class="label"><text>户型</text></view>
+        </view>
+
+        <view class="cell">
+          <view class="value">
+            <text>{{item.area}}</text><text class="unit">㎡</text>
+          </view>
+          <view class="label"><text>面积</text></view>
+        </view>
+
+        <view class="cell">
+          <view class="value">
+            <text>{{item.total_price}}</text><text class="unit">万套</text>
+          </view>
+          <view class="label"><text>总价</text></view>
+        </view>
+
+      </view>
+  </view>
+
+</van-popup>

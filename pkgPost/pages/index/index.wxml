@@ -21,10 +21,11 @@
         <post-filter filter="{{filter}}" bind:change="filterChange" />
     </view>
 </view>
+<album-info wx:if="{{ mode == 'list' &&  albumId}}" album="{{album}}"></album-info>
 <view wx:if="{{mode == 'list'}}" class="res">
-    <album-info wx:if="{{ albumId}}" album="{{album}}"></album-info>
+
     <items album-key="{{ album ? album.key : ''}}" show-total-count="{{true}}" wx:if="{{filter}}" filter="{{filter}}" />
-    <van-divider hairline contentPosition="center">END</van-divider>
+
 </view>
 <block wx:else>
     map block

@@ -4,10 +4,10 @@
     display: flex;
     justify-content: flex-start;
     width:750rpx;
-    height:314rpx;
+    height:334rpx;
     padding: 0rpx 20rpx;
     box-sizing: border-box;
-    margin:0rpx auto;
+
  
 }
 
