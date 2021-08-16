@@ -1,15 +1,3 @@
 <view class="style1 item-list">
-    <navigator url="/pkgNews/pages/news/show?id={{item.id}}"  class="item" wx:for="{{items}}">
-        <view class="cover">
-            <image mode="fill" src="{{item.cover}}" />
-        </view>
-        <view class="left">
-            <view class="title">{{item.title}}</view>
-            <view class="footer">
-                <view class="author">{{item.author}}</view>
-                <view class="date">{{item.date }} </view>
-            </view>
-        </view>
-
-    </navigator>
+    <news-item width="690" wx:for="{{items}}" item="{{item}}" />
 </view>

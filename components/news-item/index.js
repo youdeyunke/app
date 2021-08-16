@@ -11,6 +11,7 @@ Component({
      */
     properties: {
         item: { type: Object, value: {} }, 
+        width: {type: Number, value: 710},
         styleName: {type: Object, value: 'default'}, 
     },
 
