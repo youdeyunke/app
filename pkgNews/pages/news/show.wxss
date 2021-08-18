@@ -1,19 +1,21 @@
 page {
     font-size: 24rpx;
-    background: #fff !important;
+    background: #f2f2f2 !important;
     min-height: 100%;
+    padding-top:20rpx;
 }
 
 .header {
     background: #fff;
     box-sizing: border-box;
-    margin-bottom: 80rpx;
+    margin-bottom: 20rpx;
 }
 
 .header .h1 {
-    font-size: var(--font-xl);
+    font-size: 32rpx;
     font-weight: bold;
     line-height: 1.6;
+    color:#333;
     letter-spacing: 2rpx;
     margin-bottom: 18rpx;
 }
@@ -23,9 +25,17 @@ page {
     margin-right:8rpx;
 }
 
-.header .date {
-    font-size: 22rpx;
+.header .meta {
+    font-size: 24rpx;
     color: #666;
+}
+
+.header .meta text{
+    margin-left:20rpx;
+}
+
+.header .meta text:first-child{
+    margin-left:0;
 }
 
 myfav {
@@ -58,4 +68,11 @@ myfav image {
 .video video {
     width: 750rpx;
     height: 750rpx;
+}
+
+
+.end{
+    font-size:24rpx; 
+    scale: 0.8;
+    color: #cecece;
 }

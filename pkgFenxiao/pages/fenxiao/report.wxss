@@ -108,3 +108,11 @@ input::-webkit-input-placeholder{
     border-bottom: 1rpx solid #B4B4B4;
     padding-bottom: 25rpx;
 }
+
+.empty-post{ 
+    font-size:24rpx; 
+    color:#999; 
+    text-align: center; 
+    line-height: 24rpx;
+    margin:50rpx auto;
+}

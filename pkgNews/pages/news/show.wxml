@@ -1,16 +1,18 @@
-<block >
+<block wx:if="{{!loading}}">
     <view wx:if="{{item.content_type == 'html'}}">
-        <box padding="20" margin-bottom="2" >
+        <box padding="20" margin-bottom="20" width="710" >
             <view class="header">
                 <view class="h1">{{item.title}}</view>
-                <view class="date">
+                <view class="meta">
                     <text class="author" wx:if="{{item.author}}">{{item.author}}</text>
-                    <text wx:if="{{item.date}}">发布于：{{item.date}} /  </text> 浏览量：{{ item.view_nums}}
+                    <text class="date"  wx:if="{{item.date}}">发布于：{{item.date}} /  </text>
+                    <text class="views">浏览量：{{ item.view_nums}}</text>
                 </view>
             </view>
             <view class="raw">
                 <raw-html html="{{item.content}}"></raw-html>
-                <van-divider contentPosition="center">END</van-divider>
+                <van-divider contentPosition="center">
+                <text class="end">END</text></van-divider>
             </view>
         </box>
     </view>
@@ -18,4 +20,7 @@
     <view class="video" wx:if="{{item.content_type == 'video'}}">
         <video  controls id="video"  src="{{item.url}}" bindended="endAction" bindplay="startAciton" custom-cache="{{false}}"></video>
     </view>
+</block>
+<block wx:else>
+loading
 </block>

@@ -1,99 +1,99 @@
-
 <view class="forms">
-        <view class="form form-margin">
-            <view class="form-title">
-                <text><text style="color:red;padding-right:5rpx">*</text>客户姓名</text>    
-            </view>
-            <view class="form-flex">
-                <input class="form-input" placeholder="请输入姓名" model:value="{{name}}" minlength="11" maxlength="11"  />
-                <choose-block class="form-choose" options="{{sexOptions}}" model:value="{{sex}}" bindchangeStatus="sexChange" />
-            </view>
+    <view class="form form-margin">
+        <view class="form-title">
+            <text><text style="color:red;padding-right:5rpx">*</text>客户姓名</text>
         </view>
-        <view class="form">
-            <view class="form-title">
+        <view class="form-flex">
+            <input class="form-input" placeholder="请输入姓名" model:value="{{name}}" minlength="11" maxlength="11" />
+            <choose-block class="form-choose" options="{{sexOptions}}" model:value="{{sex}}"
+                bindchangeStatus="sexChange" />
+        </view>
+    </view>
+    <view class="form">
+        <view class="form-title">
 
-                <text><text style="color:red;padding-right:5rpx">*</text>手机号码</text>
-                    <choose-block class="form-choose" options="{{tabs}}" model:value="{{mobileType}}"  bindchangeStatus="chooseHandle"/>
-            </view>
-            <view class="form-content">
-                <view class="form-flex" wx:if="{{!chooseShow}}">
-                <input  class="form-input "  placeholder="请输入11位手机全号" model:value="{{mobile}}" minlength="11" maxlength="11" />
-                </view>
-                <protected-mobile-input value="{{mobile}}" bind:change="changeMobile" wx:else />
-            </view>
+            <text><text style="color:red;padding-right:5rpx">*</text>手机号码</text>
+            <choose-block class="form-choose" options="{{tabs}}" model:value="{{mobileType}}"
+                bindchangeStatus="chooseHandle" />
         </view>
-        <view class="form">
-            <view class="form-title">
-                <text>身份证后六位</text>
+        <view class="form-content">
+            <view class="form-flex" wx:if="{{!chooseShow}}">
+                <input class="form-input " placeholder="请输入11位手机全号" model:value="{{mobile}}" minlength="11"
+                    maxlength="11" />
             </view>
-            <view class="form-flex">
-                <input class="form-input" placeholder="推荐填写，更好保障权益！" model:value="{{id_number}}" minlength="6" maxlength="6"  />
-            </view>
+            <protected-mobile-input value="{{mobile}}" bind:change="changeMobile" wx:else />
         </view>
+    </view>
+    <view class="form">
+        <view class="form-title">
+            <text>身份证后六位</text>
+        </view>
+        <view class="form-flex">
+            <input class="form-input" placeholder="推荐填写，更好保障权益！" model:value="{{id_number}}" minlength="6"
+                maxlength="6" />
+        </view>
+    </view>
 </view>
 <view class="forms">
     <view class="form form-margin">
         <view class="form-title">
-                <text style="margin:15rpx 0rpx"><text style="color:red;padding-right:5rpx">*</text>意向楼盘</text>   
-                <view class="fangText" bind:tap="fangChange">
-        <image src="../../images/search.png" />
-    </view> 
+            <text style="margin:15rpx 0rpx"><text style="color:red;padding-right:5rpx">*</text>意向楼盘</text>
+            <view class="fangText" bind:tap="fangChange">
+                <image src="../../images/search.png" />
+            </view>
         </view>
-        <post-item post="{{post}}"></post-item>
-    <post-selector bind:change='pidChange' class="post-selector" show="{{popupShow}}"></post-selector>
+        <post-item wx:if="{{post}}" post="{{post}}"></post-item>
+        <view class="empty-post" wx:else>请点击右上角搜搜按钮，搜索楼盘</view>
+        <post-selector bind:change='pidChange' class="post-selector" show="{{popupShow}}"></post-selector>
     </view>
     <view class="form">
         <view class="form-title" style="margin-bottom:27rpx">
-            <text>意向户型</text>    
+            <text>意向户型</text>
         </view>
-        <view 
-            wx:for="{{houses}}" 
-            wx:for-item="item" 
-            wx:key="item.index"  
-            bindtap="checkboxChange" 
-            data-value="{{item.value}}" 
-            data-index="{{index}}"  
-            checked="{{item.selected}}"
-            class="btn {{item.selected ? 'btn-selected' : ''}}" >
+        <view wx:for="{{houses}}" wx:for-item="item" wx:key="item.index" bindtap="checkboxChange"
+            data-value="{{item.value}}" data-index="{{index}}" checked="{{item.selected}}"
+            class="btn {{item.selected ? 'btn-selected' : ''}}">
             {{item.value}}
         </view>
     </view>
     <view class="form">
         <view class="form-title form-margin">
-            <text>意向面积</text>    
+            <text>意向面积</text>
         </view>
         <view class="form-flex">
-            <input class="form-input" placeholder="填写面积大小" model:value="{{post_area}}" minlength="11" maxlength="11"  />
+            <input class="form-input" placeholder="填写面积大小" model:value="{{post_area}}" minlength="11" maxlength="11" />
             <view class="form-area">平方米</view>
         </view>
     </view>
 </view>
 <view class="forms">
     <view class="form form-margin">
-            <view class="form-title">
-                <text>案场接待 姓名</text>    
-            </view>
-            <view class="form-flex">
-                <input class="form-input" placeholder="填写接待人姓名" model:value="{{receiver_name}}" minlength="11" maxlength="11"  />
-            </view>
+        <view class="form-title">
+            <text>案场接待 姓名</text>
         </view>
-        <view class="form">
-            <view class="form-title">
-                <text>案场接待 手机号码</text>    
-            </view>
-            <view class="form-flex">
-                <input class="form-input" placeholder="填写接待人手机号码" model:value="{{receiver_mobile}}" minlength="11" maxlength="11"  />
-            </view>
+        <view class="form-flex">
+            <input class="form-input" placeholder="填写接待人姓名" model:value="{{receiver_name}}" minlength="11"
+                maxlength="11" />
         </view>
+    </view>
+    <view class="form">
+        <view class="form-title">
+            <text>案场接待 手机号码</text>
+        </view>
+        <view class="form-flex">
+            <input class="form-input" placeholder="填写接待人手机号码" model:value="{{receiver_mobile}}" minlength="11"
+                maxlength="11" />
+        </view>
+    </view>
 </view>
 <view class="forms">
-<view class="form form-margin">
-            <view class="form-title">
-                <text>备注</text>    
-            </view>
-            <view class="form-flex">
-                <input class="form-input" placeholder="填写备注信息" model:value="{{remark}}"/>
-            </view>
+    <view class="form form-margin">
+        <view class="form-title">
+            <text>备注</text>
+        </view>
+        <view class="form-flex">
+            <input class="form-input" placeholder="填写备注信息" model:value="{{remark}}" />
+        </view>
     </view>
 </view>
 <view class="actions">
