@@ -86,6 +86,13 @@ App({
         })
     },
 
+
+    setUserInfo: function(){
+        // 重新启动后，需要重新设置userinfo到globaldata
+        this.globalData.token = wx.getStorageSync('token')
+        this.globalData.userInfo = wx.getStorageSync('userInfo')
+    },
+
     ensureConfigs: function (cb) {
         var conf = this.globalData.myconfigs
         if (conf) {
@@ -369,14 +376,6 @@ App({
     },
 
 
-    setUserInfo: function () {
-        // 从本地缓存中加载用户信息
-        var user = wx.getStorageSync('userInfo')
-        var token = wx.getStorageSync('token')
-        this.globalData.userInfo = user
-        this.globalData.token = token
-        console.log('global user info is', user)
-    },
 
     setSystemInfo: function () {
 
@@ -523,7 +522,7 @@ App({
             method: obj.method || "GET",
             header: header,
             success: function (res) {
-                if (res.data.statusCode == 500) {
+                if (res.data.status == 500) {
                     wx.showModal({ title: "服务器错误", content: "服务器出错了，请稍后重试" });
                     return false;
                 }
@@ -566,6 +565,8 @@ App({
                     });
                     return false;
                 }
+
+           
 
                 if (res.data.status == 444) {
                     var error = res.data.error;
