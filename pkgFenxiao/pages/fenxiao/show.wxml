@@ -1,26 +1,28 @@
-<wxs src='./customer-detail.wxs' module="filter"></wxs>
-<view class="box">
-<view class="title-bg">
-    <image src="../../images/detail-{{value.deal_status_item.value}}.png" />
+
+<view class="header">
+    <image src="../../images/detail-{{value.deal_status_item.value}}.png"></image>
 </view>
 
-<view class="detail">
-    <view class="detail-title">
-    <image src="../../images/{{sex}}.png" class="title-icon"/>
-    {{value.name}} {{value.mobile}}
-    </view>
-    <view class="detail-content">
-        <view class="contents" wx:for="{{value.logs}}">
-            <view class="content-data">{{filter.format(item.created_at, 'MM-DD')}}</view>
-            <view class="content-circle {{index===0?'active ':''}}"></view>
-            <view class="content-border"></view>
-            <view class="content-desc">
-                <view class="desc-title">{{filter.format(item.created_at, 'hh-mm')}}</view>
-                <view class="desc-detail">{{item.content}}</view>
-                <view class="desc-operator">{{item.operator}}</view>
-            </view>
-        </view>
+<ud-card title="状态" width="710" >
+    <van-steps steps="{{logs}}" active="0"  direction="vertical"
+  active-color="#1989fa" ></van-steps>
+</ud-card>
 
-    </view>
-</view>
-</view>
+
+<ud-card title="客户资料" width="710">
+    <van-cell-group>
+        <van-cell size="large" title="姓名" value="{{value.name}}"></van-cell>
+        <van-cell size="large" title="手机号" value="{{value.mobile}}"></van-cell>
+        <van-cell size="large" title="身份证尾号" value="{{value.id_number}}"></van-cell>
+        <van-cell size="large" title="意向楼盘" value="{{value.post_name}}"></van-cell>
+        <van-cell size="large" title="意向户型" value="{{value.area_name}}"></van-cell>
+    </van-cell-group>
+</ud-card>
+
+<ud-card title="案场接待" width="710">
+    <van-cell-group>
+        <van-cell size="large" title="姓名" value="{{value.receiver_name || '-'}}"></van-cell>
+        <van-cell size="large" title="手机号" value="{{value.receiver_mobile || '-'}}"></van-cell>
+    </van-cell-group>
+</ud-card>
+

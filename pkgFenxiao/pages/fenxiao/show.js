@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    sex:''
+    loading: true, 
+
   },
   /**
    * 生命周期函数--监听页面加载
@@ -25,19 +26,22 @@ Page({
       url:'/api/v1/customers/'+_this.data.id,
       methods:"GET",
       success:function(res){
-        _this.setData({
-          value:res.data.data
+        var logs = res.data.data.logs.map((log) => {
+          var ds = log.created_at.split('T')
+          var date = ds[0]
+          var time = ds[1].split('.')[0]
+          var dt = date + ' ' + time
+          return {
+            text: log.content + ' 【' + log.operator + '】', 
+            desc:  dt, 
+          }
         })
-        if(_this.data.value.sex===0){
-          _this.setData({
-            sex:'girl'
-          })
-        }
-        else{
-          _this.setData({
-            sex:'boy'
-          })
-        }
+        _this.setData({
+          value:res.data.data, 
+          logs: logs ,
+          loading: false, 
+        })
+
       }
     })
   },

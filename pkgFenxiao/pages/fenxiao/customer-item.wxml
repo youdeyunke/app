@@ -6,6 +6,7 @@
                     <view class="label">客户意向：</view>
                     <view class="value">{{item.post_name || '未知' }}</view>
                 </view>
+
                 <view class="attr">
                     <view class="label">报备时间：</view>
                     <view class="value">{{ createdAt }}</view>
@@ -15,22 +16,14 @@
                     <view class="label">无效原因：</view>
                     <view class="value">{{ item.status_remark }}</view>
                 </view>
-                <view class="deal-status" wx:if="{{ item.status == 2 }}">
-                    <van-steps steps="{{ steps }}" active="{{ item.deal_status }}" active-icon="success" active-color="#38f" />
-                </view>
+                <view class="attr" wx:if="{{item.status == 2}}">
+                    <view class="label">交易状态:</view>
+                    <view class="value">{{ item.deal_status_item.name }}</view>
+                </view>               
+          
             </view>
         </view>
-        <view slot="footer">
-            <van-button wx:if="{{item.status === 1}}" size="small" bindtap="validHandle">
-                有效
-            </van-button>
-            <van-button wx:if="{{item.status === 0}}" size="small" type="danger" bindtap="invalidHandle">
-                无效
-            </van-button>
-            <van-button wx:if="{{item.status === 2}}" size="small" bindtap="showPopHandle">
-                管理
-            </van-button>
-        </view>
+
     </van-panel>
     <mypicker current="{{currentDealStatusIndex}}" options="{{dealStatusItems}}" show="{{showPop}}" bind:close="closePopHandle" bind:change="changeDealStatusHandle"></mypicker>
 </navigator>
