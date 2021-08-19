@@ -1,4 +1,4 @@
-<view class="outer">
+<navigator url="/pkgFenxiao/pages/fenxiao/show?id={{item.id}}" class="outer">
     <van-panel title="客户：{{item.name}} ({{ item.mobile}})" header-class="header" use-footer-slot="{{isAdmin}}" footer-class="myfooter">
         <view class="content">
             <view class="attrs">
@@ -10,10 +10,7 @@
                     <view class="label">报备时间：</view>
                     <view class="value">{{ createdAt }}</view>
                 </view>
-                <view class="attr" wx:if="{{isAdmin}}">
-                    <view class="label">报备自：</view>
-                    <view class="value">{{ item.broker.name }}</view>
-                </view>
+
                 <view class="attr" wx:if="{{item.status == 0}}">
                     <view class="label">无效原因：</view>
                     <view class="value">{{ item.status_remark }}</view>
@@ -27,7 +24,7 @@
             <van-button wx:if="{{item.status === 1}}" size="small" bindtap="validHandle">
                 有效
             </van-button>
-            <van-button wx:if="{{item.status === 1}}" size="small" type="danger" bindtap="invalidHandle">
+            <van-button wx:if="{{item.status === 0}}" size="small" type="danger" bindtap="invalidHandle">
                 无效
             </van-button>
             <van-button wx:if="{{item.status === 2}}" size="small" bindtap="showPopHandle">
@@ -36,4 +33,4 @@
         </view>
     </van-panel>
     <mypicker current="{{currentDealStatusIndex}}" options="{{dealStatusItems}}" show="{{showPop}}" bind:close="closePopHandle" bind:change="changeDealStatusHandle"></mypicker>
-</view>
+</navigator>

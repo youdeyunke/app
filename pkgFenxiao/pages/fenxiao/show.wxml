@@ -1,0 +1,26 @@
+<wxs src='./customer-detail.wxs' module="filter"></wxs>
+<view class="box">
+<view class="title-bg">
+    <image src="../../images/detail-{{value.deal_status_item.value}}.png" />
+</view>
+
+<view class="detail">
+    <view class="detail-title">
+    <image src="../../images/{{sex}}.png" class="title-icon"/>
+    {{value.name}} {{value.mobile}}
+    </view>
+    <view class="detail-content">
+        <view class="contents" wx:for="{{value.logs}}">
+            <view class="content-data">{{filter.format(item.created_at, 'MM-DD')}}</view>
+            <view class="content-circle {{index===0?'active ':''}}"></view>
+            <view class="content-border"></view>
+            <view class="content-desc">
+                <view class="desc-title">{{filter.format(item.created_at, 'hh-mm')}}</view>
+                <view class="desc-detail">{{item.content}}</view>
+                <view class="desc-operator">{{item.operator}}</view>
+            </view>
+        </view>
+
+    </view>
+</view>
+</view>

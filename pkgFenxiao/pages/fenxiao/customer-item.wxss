@@ -32,6 +32,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    width: 426rpx;
 }
 
 .content .deal-status {

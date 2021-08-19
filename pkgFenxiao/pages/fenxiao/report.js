@@ -261,7 +261,7 @@ Page({
                             value:resp.data.data.id
                         })
                         wx.navigateTo({
-                            url: '/pkgFenxiao/pages/fenxiao/customer-detail?id='+_this.data.value,
+                            url: '/pkgFenxiao/pages/fenxiao/show?id='+_this.data.value,
                         })
 
                     }
