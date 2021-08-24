@@ -31,7 +31,7 @@ Page({
         this.setData({ loading: true })
         var _this = this
         app.request({
-            url: '/api/v1/post_detail_info/' + _this.data.postId,
+            url: '/api/v1/post_detail/' + _this.data.postId,
             success: function (resp) {
                 var post = resp.data.data
                 var meta = post.meta.replaceAll("：", ":")
