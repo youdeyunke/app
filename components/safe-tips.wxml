@@ -11,7 +11,7 @@
 
   </view>
    <view class="content" >
-   <text selectable="true">{{statement}}</text>
+   <text class="text" selectable="true">{{statement}}</text>
 
    </view>
 </view>

@@ -40,13 +40,13 @@
 }
 
 .safe-tips .content {
-    line-height: 1.4;
+    line-height: 1.2;
     margin-top:10rpx;
     margin-left: 10rpx;
     color: #999;
 }
 
-.safe-tips .content {
+.safe-tips .content .text {
     scale: 0.5;
     font-size: 24rpx;
 }
