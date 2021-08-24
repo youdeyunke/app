@@ -57,6 +57,7 @@ Page({
             page: 1,
             news: [],
         })
+        console.log('cat chage')
         this.loadNews()
     },
 

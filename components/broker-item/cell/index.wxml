@@ -21,10 +21,10 @@
     </view>
     <view class="actions">
         <view class="btn" bindtap="chatHandle">
-            <image src="/assets/icons/broker/chat.png" />
+            <image class="img" src="/assets/icons/broker/chat.png" />
         </view>
         <view class="btn" bindtap="phoneHandle">
-            <image src="/assets/icons/broker/phone.png" />
+            <image class="img" src="/assets/icons/broker/phone.png" />
         </view>
     </view>
 </view>

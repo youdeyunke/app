@@ -13,7 +13,7 @@
     margin-bottom: 10rpx;
 }
 
-.safe-tips .title text {
+.safe-tips .title .text  {
     margin-left: 10rpx;
 }
 
@@ -34,7 +34,7 @@
     align-items: center;
 }
 
-.safe-tips .title .left image {
+.safe-tips .title .left .img {
     width: 28rpx;
     height: 28rpx;
 }
@@ -46,7 +46,7 @@
     color: #999;
 }
 
-.safe-tips .content text{
+.safe-tips .content {
     scale: 0.5;
     font-size: 24rpx;
 }

@@ -97,7 +97,7 @@
     height: 92rpx;
 }
 
-.icon button {
+.icon .btn {
     background: none;
     border: 0;
     position: absolute;
@@ -114,7 +114,7 @@
     text-align: center;
 }
 
-.tips image {
+.tips .img {
     width: 120rpx;
     height: 120rpx;
     position: absolute;

@@ -3,7 +3,7 @@
         <view class="first-left">
             <view class="left-title">{{post.title}}</view>
             <view class="left-tags">
-                <view class="left-tag" wx:for="{{post.tags}}" wx:for-item="tag" wx:for-key="tag.id">
+                <view class="left-tag" wx:for="{{post.tags}}" wx:for-item="tag" wx:key="id">
                     {{tag.name}}
                 </view>
             </view>
@@ -20,7 +20,7 @@
         <cell wx:if="{{post.license_info.show}}"  custom-style="cell-item" icon="yu" title="{{post.license_info.label}}" url="/pkgLicense/pages/license/index?kw={{post.title}}"></cell>
     </view>
     <view class="navs">
-        <navigator url="{{nav.path}}" hover-class="none" class="nav-item" wx:for="{{navs}}" wx:for-item="nav">
+        <navigator url="{{nav.path}}" hover-class="none" class="nav-item" wx:key="index" wx:for="{{navs}}" wx:for-item="nav">
             <image src="../../icons/navs/{{nav.id}}.png" />
             <view>{{nav.name}}</view>
         </navigator>

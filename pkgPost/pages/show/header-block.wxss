@@ -84,24 +84,7 @@
     margin-bottom: 10rpx;
 }
 
-.block-third {
-    border-top: 1rpx solid #f0f0f0;
-    display: flex;
-    justify-content: space-between;
-    padding: 22rpx 20rpx;
-    align-items: center;
-}
 
-.thrid-left {
-    display: flex;
-    justify-content: flex-start;
-}
-
-.thrid-left image {
-    width: 32rpx;
-    height: 32rpx;
-    margin-right: 10rpx;
-}
 
 .cell-group{
     margin-top:15rpx;

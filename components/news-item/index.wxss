@@ -45,7 +45,7 @@
     position: relative;
     margin-right:20rpx;
 }
-.item .cover image{
+.item .cover .img{
     width: 100%;
     height: 100%;
     border-radius: 10rpx;
@@ -163,7 +163,7 @@
     align-items: center;
 }
 
-.video-item image.play{
+.video-item  .play{
     width:70rpx; 
     height:70rpx;
     position: absolute;

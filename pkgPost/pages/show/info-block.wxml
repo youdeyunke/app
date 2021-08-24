@@ -1,7 +1,7 @@
 <block-box title="楼盘详情信息" sub-title='查看更多信息' url='{{value.more_url}}' padding="{{false}}" title-size="36">
     <scroll-view scroll-x="{{true}}" class="xiangce" scroll-with-animation="{{true}}" wx:if="{{albums.length >= 1}}">
         <navigator url="/pkgXiangce/pages/xiangce/index?post_id={{value.post_id}}" hover-class="none"
-            class="xiangce-item" wx:for="{{albums}}" wx:for-item="album">
+            class="xiangce-item" wx:for="{{albums}}" wx:key="id" wx:for-item="album">
             <image class="image" src="{{album.cover || '../../images/image-none.png'}}" />
             <view class="title">{{album.name}}({{album.items_count}})</view>
         </navigator>
@@ -20,7 +20,7 @@
             <view class="maohao" style="margin-left:4rpx"></view>
             <view class="content-desc">{{value.cats }}</view>
         </view>
-        <view class="block-content" wx:for="{{metaItems}}" wx:for-item="meta">
+        <view wx:key="index" class="block-content" wx:for="{{metaItems}}" wx:for-item="meta">
             <view class="content-title" space='nbsp'>{{meta.label}}</view>
             <view class="maohao" style="margin-left:4rpx"></view>
             <view class="content-desc">{{meta.text}}</view>

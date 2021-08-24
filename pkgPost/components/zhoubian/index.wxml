@@ -11,7 +11,7 @@
     <view class="tabs_content">
         <view hidden="{{isShow == 0}}" class="null">无数据</view>
         <view hidden="{{isShow ==1}}">
-            <van-cell center wx:if="{{ index+1 <= maxLength || type == 'big' }}" title="{{item.title}}" label="{{item.address}}" name='{{item}}' wx:for="{{resp}}" title-class='title' label-class='label'>
+            <van-cell center wx:if="{{ index+1 <= maxLength || type == 'big' }}" title="{{item.title}}" label="{{item.address}}" name='{{item}}' wx:for="{{resp}}" wx:key="id" title-class='title' label-class='label'>
                 <view class="value" slot=''>
                     <image class="images" src="/assets/icons/location.3x.png"></image>
                     <text class="" style="font-size:26rpx">{{item._distance}}</text>

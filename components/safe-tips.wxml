@@ -2,7 +2,7 @@
 <view class="safe-tips">
   <view class="title"> 
     <view class="left">
-      <image mode="widthFix" src="/assets/icons/safe-tips-icon.png" />  <text>免责声明</text> 
+      <image class="img" mode="widthFix" src="/assets/icons/safe-tips-icon.png" />  <text class="text">免责声明</text> 
     </view>
 
     <view class="right">

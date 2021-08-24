@@ -11,6 +11,7 @@
         <types-block id="types" wx:if="{{block.name == 'types'}}" value="{{block.value}}" />
         <brokers-block wx:if="{{block.name == 'brokers'}}" value="{{block.value}}" />
         <qas-block wx:if="{{block.name == 'qas' }}" value="{{block.value}}" />
+        <news-block wx:if="{{block.name == 'news' }}" value="{{block.value}}" />
         <comments-block wx:if="{{block.name == 'comments' }}" value="{{block.value}}" />
         <events-block wx:if="{{block.name == 'events' }}" value="{{block.value}}" />
         <tours-block wx:if="{{block.name == 'tours' }}" value="{{block.value}}" />

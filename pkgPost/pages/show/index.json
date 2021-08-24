@@ -14,6 +14,7 @@
         "events-block": "./events-block",
         "tours-block": "./tours-block",
         "safe-block": "./safe-block",
+        "news-block": "./news-block",
         "types-block": "./types-block",
         "contact-block": "./contact-block",
         "qas-block": "./qas-block",

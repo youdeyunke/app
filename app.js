@@ -19,7 +19,7 @@ App({
         reddotIntervalId: null,
         system: {},
         apiHost: 'http://192.168.31.66:20210',
-        //apiHost: 'https://zzgd.udeve.cn',
+        //apiHost: 'https://weapp.udeve.cn/9000',
         userInfo: null,
         token: null,
         cities: [],
