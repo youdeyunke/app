@@ -12,14 +12,14 @@ App({
         myconfigs: null,
         qrdata: null, // 解析二维码ID后得到的额外数据，扫码后设置到这里，用完之后需要清空，防止污染
 
-        sourceUid: null,  // 分享者user id
-        sceneKey: 'default',  // 内部约定场景值
+        sourceUid: null, // 分享者user id
+        sceneKey: 'default', // 内部约定场景值
         visitorId: null, // 访客行为id
 
         reddotIntervalId: null,
         system: {},
-        apiHost: 'http://192.168.31.66:20210',
-        //apiHost: 'https://weapp.udeve.cn/9000',
+        //apiHost: 'http://192.168.31.66:20210',
+        apiHost: 'https://weapp.udeve.cn/9000',
         userInfo: null,
         token: null,
         cities: [],
@@ -51,7 +51,7 @@ App({
                 title: "请允许获取位置信息",
                 icon: "none",
                 duration: 2000,
-                success: function () { }
+                success: function () {}
             });
         }
 
@@ -61,17 +61,17 @@ App({
     },
 
 
-    createSubTpl: function(tplIds, cb){
+    createSubTpl: function (tplIds, cb) {
         // 调用模板消息
         wx.requestSubscribeMessage({
             tmplIds: tplIds,
-            success: function(res){
+            success: function (res) {
                 // TODO 
-                console.log('create sub tpl res',res)
+                console.log('create sub tpl res', res)
                 typeof cb === 'function' && cb(res)
             }
-        })    
-    },      
+        })
+    },
 
     checkForceLogin: function () {
         // 检查是否强制登录
@@ -87,7 +87,7 @@ App({
     },
 
 
-    setUserInfo: function(){
+    setUserInfo: function () {
         // 重新启动后，需要重新设置userinfo到globaldata
         this.globalData.token = wx.getStorageSync('token')
         this.globalData.userInfo = wx.getStorageSync('userInfo')
@@ -110,7 +110,10 @@ App({
             url: '/api/v1/qrs/',
             method: 'POST',
             hideLoading: false,
-            data: { path: path, qr_data: extData  },
+            data: {
+                path: path,
+                qr_data: extData
+            },
             success: function (resp) {
                 if (resp.data.status == 0) {
                     return typeof cb == 'function' ** cb(resp.data.data)
@@ -122,7 +125,7 @@ App({
 
     loadConfigs: function (cb) {
         /* 从服务器加载系统配置嘻嘻 */
-        var _this = this; 
+        var _this = this;
         this.request({
             url: "/api/v1/myconfigs",
             hideLoading: true,
@@ -134,7 +137,7 @@ App({
         });
     },
 
-    downloadImage: function(url, cb){
+    downloadImage: function (url, cb) {
         this._ensureAlbumScope((res) => {
             return this._downloadImage(url, cb)
         })
@@ -154,7 +157,7 @@ App({
             url: url,
             success: (res) => {
                 console.log('donwload success', res)
-                _this.saveImage(res.tempFilePath,cb)
+                _this.saveImage(res.tempFilePath, cb)
             },
             fail: () => {
                 wx.showToast({
@@ -168,41 +171,39 @@ App({
         });
     },
 
-    _ensureAlbumScope: function(cb){
+    _ensureAlbumScope: function (cb) {
         // 检查用户相册权限，如果没有相册权限，引导开启
         wx.getSetting({
-            success:function(res){
-                if(!res.authSetting['scope.writePhotosAlbum']){
+            success: function (res) {
+                if (!res.authSetting['scope.writePhotosAlbum']) {
                     wx.showModal({
-                      cancelColor: 'cancelColor',
-                      title: '权限',
-                      content: '请先允许小程序访问相册权限',
-                      success: function(r){
-                        wx.openSetting({
-                            fail: function(err){
-                                console.log('fail', err)
-                            },
-                            success: function (res) {
-                                
-                                if (res.authSetting['scope.writePhotosAlbum']) {
-                                    wx.showModal({
-                                        title: '提示',
-                                        content: '获取权限成功,再次点击图片即可保存',
-                                        showCancel: false,
-                                    })
-                                }
-                                else
-                                {
-                                    wx.showToast({
-                                        title: '请先在“权限设置”中打开相册权限',
-                                        icon: 'none',
-                                        duration: 3000,
-                                    })
-                                }
-                            },
-                        })                         
+                        cancelColor: 'cancelColor',
+                        title: '权限',
+                        content: '请先允许小程序访问相册权限',
+                        success: function (r) {
+                            wx.openSetting({
+                                fail: function (err) {
+                                    console.log('fail', err)
+                                },
+                                success: function (res) {
 
-                      }
+                                    if (res.authSetting['scope.writePhotosAlbum']) {
+                                        wx.showModal({
+                                            title: '提示',
+                                            content: '获取权限成功,再次点击图片即可保存',
+                                            showCancel: false,
+                                        })
+                                    } else {
+                                        wx.showToast({
+                                            title: '请先在“权限设置”中打开相册权限',
+                                            icon: 'none',
+                                            duration: 3000,
+                                        })
+                                    }
+                                },
+                            })
+
+                        }
                     })
                     return
                 }
@@ -214,7 +215,7 @@ App({
     saveImage: function (path, cb) {
         wx.saveImageToPhotosAlbum({
             filePath: path,
-            success:function(){
+            success: function () {
                 wx.showToast({
                     icon: 'none',
                     title: '已保存，请前往手机相册查看',
@@ -222,8 +223,8 @@ App({
                 return typeof cb == 'function' && cb()
             }
         })
-        
-    
+
+
     },
 
     getLocation: function () {
@@ -237,7 +238,7 @@ App({
                 var locationStr = lat + "," + lng;
                 wx.setStorageSync("location", locationStr);
             },
-            complete: function () { }
+            complete: function () {}
         });
     },
 
@@ -267,8 +268,7 @@ App({
     },
 
 
-    onHide: function () {
-    },
+    onHide: function () {},
 
     initTim: function () {
         return
@@ -282,7 +282,7 @@ App({
     },
 
 
-    timLogin: function () { },
+    timLogin: function () {},
 
     onLaunch: function () {
 
@@ -304,12 +304,9 @@ App({
 
     startReddotInterval: function () {
         // 开始小红点轮训
-        this.reddotHandle() // 先执行一次，免得要等待10秒之后才会执行
-        
+        this.heartbeat() // 先执行一次，免得要等待10秒之后才会执行
         this.clearReddotInterval()
-        // 如果没有开启聊天功能，那么就不用轮训
-
-        var iid = setInterval(this.reddotHandle, 10000)
+        var iid = setInterval(this.heartbeat, 10000)
         this.globalData['reddotIntervalId'] = iid
         console.log('新的小红点轮训开始', iid)
     },
@@ -322,7 +319,7 @@ App({
         }
     },
 
-    reddotHandle: function () {
+    heartbeat: function () {
         // 如果没有登录，就不检查
         if (!this.globalData.token) {
             console.log('未登录，不检查未读')
@@ -331,25 +328,52 @@ App({
 
         var _this = this;
         this.request({
-            url: "/api/v1/chat_lists/reddot",
+            url: "/api/v1/heartbeat",
+            method: 'POST',
             hideLoading: true,
             success: function (resp) {
-                var text = resp.data.data && resp.data.data >= 1 ?  resp.data.data.toString() : ''
-                var c= resp.data.data || 0 
-                if(c >= 1){
-                    wx.setTabBarBadge({
-                      index: 1,
-                      text: c.toString(),
-                    })
-                }else{
-                    wx.removeTabBarBadge({
-                      index: 1,
-                      fail: function(){}
-                    })
+                if (!resp.data.data) {
+                    return
                 }
-              
+
+                var data = resp.data.data
+                // 未读消息 
+                var c = data.unread_message_count 
+                var bindex = 2 
+                if(c == 0){
+                    wx.removeTabBarBadge({ index: bindex })
+                }else{
+                    wx.setTabBarBadge({
+                        index: bindex,
+                        text: c.toString(),
+                      })
+                }
+
+                if (data.cmd) {
+                    return
+                    // 执行一些内置的服务端命令
+                    _this.cmdHandle(data.cmd, data.cmd_args)
+                }
             }
         });
+    },
+
+    cmdHandle: function (cmd, title) {
+        // 防止同一个命令短时间重复执行 
+        var d = 10 * 1000
+        var now = new Date().getTime() 
+        if(this.globalData.lasCmdAt && this.globalData.lasCmdAt + d  >= now){
+            console.log('不重复执行cmd',)
+            return false 
+        }
+        this.globalData.lasCmdAt = now
+        switch (cmd) {
+            case 'toast':
+                wx.showToast({
+                    icon: 'none',
+                    title: title,
+                }) 
+        }
     },
 
 
@@ -374,7 +398,6 @@ App({
             }
         })
     },
-
 
 
     setSystemInfo: function () {
@@ -408,12 +431,12 @@ App({
             data: {
                 target_id: targetId,
                 target_type: targetType,
-                scene_key: _this.globalData.sceneKey, 
+                scene_key: _this.globalData.sceneKey,
                 source_uid: _this.globalData.sourceUid,
             },
             success: function (resp) {
                 var data = resp.data
-                if(data.status == 0){
+                if (data.status == 0) {
                     _this.globalData.visitorId = data.data
                     console.log('set vid is', _this.globalData.visitorId)
                 }
@@ -434,9 +457,9 @@ App({
             hideLoading: true,
             method: 'POST',
             data: {
-                visitor_id: _this.globalData.visitorId, 
-                action_name: actionName, 
-                value: value, 
+                visitor_id: _this.globalData.visitorId,
+                action_name: actionName,
+                value: value,
                 seconds: seconds,
             },
             success: function (resp) {
@@ -453,8 +476,7 @@ App({
             data: {
                 mobile: mobile
             },
-            success: function (resp) {
-            }
+            success: function (resp) {}
         });
     },
 
@@ -492,7 +514,10 @@ App({
         var _this = this;
         var token = this.globalData.token;
         if (!obj.hideLoading) {
-            wx.showLoading({ title: "加载中", mask: true });
+            wx.showLoading({
+                title: "加载中",
+                mask: true
+            });
         }
 
         var header = obj.header || {};
@@ -505,7 +530,7 @@ App({
         }
 
         header['Content-MD5'] = '18a8cf43bad24635aae501bb13a7157d'
-        var d = new Date() 
+        var d = new Date()
         header['Accept-Datetime'] = d.toLocaleDateString()
 
         // This must be wx.request !
@@ -523,7 +548,10 @@ App({
             header: header,
             success: function (res) {
                 if (res.data.status == 500) {
-                    wx.showModal({ title: "服务器错误", content: "服务器出错了，请稍后重试" });
+                    wx.showModal({
+                        title: "服务器错误",
+                        content: "服务器出错了，请稍后重试"
+                    });
                     return false;
                 }
 
@@ -538,7 +566,10 @@ App({
                         success: function (wxpay_res) {
                             if (wxpay_res['errMsg'] == "requestPayment:ok") {
                                 // 支付成功了
-                                wx.showToast({ title: "支付成功", icon: "success" });
+                                wx.showToast({
+                                    title: "支付成功",
+                                    icon: "success"
+                                });
                                 return typeof obj.success == "function" && obj.success(res);
                             } else {
                                 wx.showModal({
@@ -550,7 +581,10 @@ App({
 
                         },
                         fail: function (wxpay_res) {
-                            wx.showModal({ title: "支付失败", content: "支付失败，请重试" });
+                            wx.showModal({
+                                title: "支付失败",
+                                content: "支付失败，请重试"
+                            });
                             return typeof obj.fail == "function" && obj.success(res);
                         }
                     });
@@ -566,7 +600,7 @@ App({
                     return false;
                 }
 
-           
+
 
                 if (res.data.status == 444) {
                     var error = res.data.error;
@@ -582,7 +616,7 @@ App({
                     //    url: "/pages/404/index?error=" + error
                     //});
                     //return false;
-                }              
+                }
 
                 if ([2000, 2001].includes(res.data.status)) {
                     // token 过期,清空当前登录状态

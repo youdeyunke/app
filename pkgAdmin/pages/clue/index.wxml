@@ -16,7 +16,7 @@
       <view class="date"> {{item.updated_at }} </view>
     </view>
     <view class="content">
-      {{item.content }}
+      {{item.content || '-' }}
 
     </view>
     </view>
