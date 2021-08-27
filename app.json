@@ -101,6 +101,7 @@
         "pages/fenxiao/home",
         "pages/fenxiao/index",
         "pages/fenxiao/report",
+        "pages/fenxiao/report-detail",
         "pages/fenxiao/show"
   
       ]

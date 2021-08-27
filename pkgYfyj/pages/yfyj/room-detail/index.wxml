@@ -8,6 +8,7 @@
   <view class="outer">
       <view class="header">
         <text class="title">{{post.title}}</text>
+        <van-tag size="mini" color="{{item.status.color}}">{{item.status.name}}</van-tag>
       </view>
 
       <view class="body">

@@ -39,7 +39,7 @@ Page({
         var postId = q.id || q.post_id
         var _this = this
         this.setData({ postId: postId }, function () {
-            _this.loadBuildings()
+            _this.loadData()
         })
         var floors = []
         wx.setNavigationBarTitle({
@@ -48,41 +48,15 @@ Page({
 
     },
 
-    loadBuildings: function () {
-        var _this = this
-        var query = { post_id: this.data.postId }
-        app.request({
-            url: '/api/v1/buildings',
-            data: query,
-            success: function (resp) {
-                if (resp.data.status != 0) {
-                    return false
-                }
-                var buildings = resp.data.data.items
-                var post = resp.data.data.post
-                _this.setData({ buildings: buildings, post: post })
 
-                // 第一次进入页面，自动加载第一个楼栋信息
-                if (_this.data.currentBuildingIndex == null) {
-                    _this.setData({ currentBuildingIndex: 0 }, function () {
-                        _this.loadBuildingRooms()
-                    })
-                }
 
-            }
-        })
-    },
-
-    loadBuildingRooms: function () {
+    loadData: function () {
         // 加载置顶楼层下的房间信息
         var _this = this
-        var b = this.data.buildings[this.data.currentBuildingIndex]
-        if (!b) {
-            console.log('buildings ', this.data.buildings, 'index', this.data.currentBuildingIndex)
-            return false
-        }
-        var query = { building_id: b.id }
-        console.log("b",b)
+
+    
+        var query = { post_id: this.data.postId }
+  
         app.request({
             url: '/api/v1/building_rooms',
             data: query,
@@ -91,9 +65,15 @@ Page({
                 if (resp.data.status != 0) {
                     return false
                 }
-                // 先将rooms信息格式化
-                // TODO 
+                
+
                 var rooms = resp.data.data
+
+                var buildings = rooms.map((r,i) => { 
+                    return r.building 
+                })
+                buildings = Array.from(new Set(buildings))
+
                 // 分组
                 var floors = rooms.map((r, i) => { return r.floor })
                 floors = floors.sort((a, b) => {
@@ -103,7 +83,7 @@ Page({
                         return -1
                     }
                 })
-                console.log('floors is')
+          
                 var groups = []
                 floors = Array.from(new Set(floors))
                 // 对rooms按照floor分组
@@ -122,7 +102,7 @@ Page({
 
                 })
                 console.log('groups', groups)
-                _this.setData({ floorRooms: groups, loading: false })
+                _this.setData({ floorRooms: groups, loading: false, buildings: buildings, post: resp.data.post })
 
             }
         })

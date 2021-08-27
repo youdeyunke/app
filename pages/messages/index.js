@@ -80,7 +80,7 @@ Page({
     }
     this.setData({userInfo: userInfo})
     wx.removeTabBarBadge({
-      index: 1,
+      index: 2,
       fail: function(res){
 
       }
