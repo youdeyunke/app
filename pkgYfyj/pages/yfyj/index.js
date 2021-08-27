@@ -14,7 +14,7 @@ Page({
         currentRoomId: null,
         floors: [], // 楼层数
         post: null,
-        currentBuildingIndex: null,
+        currentBuildingIndex: 0,
     },
 
 
@@ -25,11 +25,10 @@ Page({
     },
 
     tabChange: function (e) {
-        console.log('e', e)
         // 点击顶部标签切换，滚动到指定未知
         var index = e.detail.index
-        this.setData({ currentBuildingIndex: index })
-        this.loadBuildingRooms()
+        this.setData({  currentBuildingIndex: index })
+        this.formatRoomsData()
     },
 
     /**
@@ -49,12 +48,53 @@ Page({
     },
 
 
+    formatRoomsData: function(){
+    var rooms = this.data.rooms
+      // 去重
+        // 取出buildings
+        var buildings = rooms.map((room) => {
+        return room.building;
+        });     
+      buildings = Array.from(new Set(buildings)).sort();
+
+      // 取出floors
+      var floors = rooms.map((room) => {
+        return room.floor;
+      });
+      floors = Array.from(new Set(floors)).sort().reverse();
+
+      // 以floor分组
+      var groupsData = [];
+      buildings.forEach((building) => {
+        var bitem = { building: building, floors: [] };
+        floors.forEach((floor, i) => {
+          var g = { floor: floor, rooms: [] };
+          g.rooms = rooms.filter((r, i) => {
+            return r.floor == floor && r.building === building;
+          });
+          g.rooms = g.rooms.sort((a, b) => {
+            if (a.number < b.number) {
+              return -1;
+            } else {
+              return 1;
+            }
+          });
+          if (g.rooms.length > 0) {
+            bitem.floors.push(g);
+          }
+        });
+        groupsData.push(bitem);
+      });    
+      this.setData({
+          buildings: buildings, 
+          groupsData: groupsData, 
+      })   
+    },
+
 
     loadData: function () {
         // 加载置顶楼层下的房间信息
         var _this = this
-
-    
         var query = { post_id: this.data.postId }
   
         app.request({
@@ -66,43 +106,11 @@ Page({
                     return false
                 }
                 
-
                 var rooms = resp.data.data
 
-                var buildings = rooms.map((r,i) => { 
-                    return r.building 
+                _this.setData({ loading: false, post: resp.data.post, rooms: rooms }, () => {
+                    _this.formatRoomsData()
                 })
-                buildings = Array.from(new Set(buildings))
-
-                // 分组
-                var floors = rooms.map((r, i) => { return r.floor })
-                floors = floors.sort((a, b) => {
-                    if (a.floor < b.floor) {
-                        return 1
-                    } else {
-                        return -1
-                    }
-                })
-          
-                var groups = []
-                floors = Array.from(new Set(floors))
-                // 对rooms按照floor分组
-                floors.forEach((floor, i) => {
-                    var g = { floor: floor, rooms: [] }
-                    g.rooms = rooms.filter((r, i) => { return r.floor == floor })
-                    g.rooms = g.rooms.sort((a, b) => {
-                        if (a.number < b.number) {
-                            return -1
-                        } else {
-                            return 1
-                        }
-
-                    })
-                    groups.push(g)
-
-                })
-                console.log('groups', groups)
-                _this.setData({ floorRooms: groups, loading: false, buildings: buildings, post: resp.data.post })
 
             }
         })

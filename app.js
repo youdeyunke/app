@@ -342,7 +342,8 @@ App({
                 var bindex = 2 
                 if(c == 0){
                     wx.removeTabBarBadge({ index: bindex })
-                }else{
+                }
+                if(c > 0 ){
                     wx.setTabBarBadge({
                         index: bindex,
                         text: c.toString(),

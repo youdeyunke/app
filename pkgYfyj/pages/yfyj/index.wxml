@@ -3,19 +3,19 @@
 <post-title post="{{post}}"></post-title>
 <view class="header">
     <van-tabs animated type="line" color="#1989FA" bind:change="tabChange" sticky>
-        <van-tab wx:for="{{buildings}}" wx:for-item="b" title="{{b.name}}号楼"></van-tab>
+        <van-tab wx:for="{{buildings}}" wx:if="{{b}}" wx:for-item="b" title="{{b}}"></van-tab>
     </van-tabs>
 </view>
 
 <box width="750" padding="10">
     <view class="floor-list">
         <view class="floors">
-            <view class="floor-item" wx:for="{{floorRooms}}" wx:for-item="floor">
+            <view class="floor-item" wx:for="{{groupsData[currentBuildingIndex].floors}}" wx:for-item="floor">
                 <view>{{ floor.floor }}F</view>
             </view>
         </view>
         <view class="scroll-views">
-            <scroll-view scroll-x="{{true}}" wx:for="{{floorRooms}}" wx:for-item="floor" style="width:690rpx;">
+            <scroll-view scroll-x="{{true}}" wx:for="{{groupsData[currentBuildingIndex].floors}}" wx:for-item="floor" style="width:690rpx;">
                 <view class="rooms">
                     <room-item selected="{{room.id == currentRoomId }}" bind:click="itemClick" wx:for="{{floor.rooms}}" wx:for-item="room" room="{{room}}" />
                 </view>
