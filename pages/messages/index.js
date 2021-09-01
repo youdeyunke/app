@@ -82,7 +82,6 @@ Page({
     wx.removeTabBarBadge({
       index: 2,
       fail: function(res){
-
       }
     })  
   },

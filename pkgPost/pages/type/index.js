@@ -59,6 +59,7 @@ Page({
                     return false
                 }
                 var items = resp.data.data
+
                 // 标签
                 var tags = [{ name: '全部', group: 0 }]
                 var tagDict = {}
@@ -78,6 +79,20 @@ Page({
                     tags.push(tag)
                 })
                 _this.setData({ items: items, tags: tags, loading: false })
+
+                if(items.length == 0){
+                    wx.showToast({
+                        icon: 'none',
+                      title: '没有上传户型数据,无法显示',
+                    })
+                    setTimeout(() => {
+                        wx.navigateBack({
+                          delta: -1,
+                        })
+                        
+                    }, 1500)
+      
+                }
             }
         })
     },

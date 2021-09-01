@@ -268,7 +268,9 @@ App({
     },
 
 
-    onHide: function () {},
+    onHide: function () {
+ 
+    },
 
     initTim: function () {
         return
@@ -386,6 +388,7 @@ App({
     onAppHide: function () {
         console.log('小程序切换到后台')
         this.markUserOnlineStatus('offline')
+        this.markVisitorAction('app_hide', null, 0)
     },
 
     markUserOnlineStatus: function (status) {
