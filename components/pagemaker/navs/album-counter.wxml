@@ -1,0 +1,2 @@
+<!--components/pagemaker/navs/album-counter.wxml-->
+<text>{{count > 0 ? count : ''}}</text>

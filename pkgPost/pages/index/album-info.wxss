@@ -2,7 +2,7 @@
 
 .album {
     width: 750rpx;
-    height: 300rpx;
+
     display: flex;
     justify-content: center;
     flex-direction: column;

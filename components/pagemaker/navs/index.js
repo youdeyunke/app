@@ -13,11 +13,14 @@ Component({
     observers: {
         "config.items": function (items) {
             var navs = items.map((item, i) => {
-                if (item.title.includes('-')) {
-                    var r = item.title.split('-')
+                console.log('nav item', item)
+                if (item.showCount && item.link && item.link.path.includes('album_id')) {
+                    var r = item.link.path.split('album_id=')
                     item.showCount = true
-                    item.count = r[1]
-                    item.title = r[0]
+                    item.albumId  = r[1]
+              
+                }else{
+                    item.showCount = false 
                 }
                 return item
             })

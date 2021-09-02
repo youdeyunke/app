@@ -1,4 +1,7 @@
 <!-- pages/post/album-info.wxml -->
-<view class="album" >
-    <image src="{{album.cover}}" class="bg" />
+<view class="album">
+    <image wx:if="{{album.cover}}" width="750rpx" height="300rpx" src="{{album.cover}}" class="bg" />
+
+    <van-notice-bar wx:elif="{{album.content}}" wrapable scrollable="{{ false }}" text="{{album.content}}" />
+
 </view>

@@ -3,7 +3,10 @@
         <view data-index="{{index}}" config="{{item.link}}" class="link" hover-class="none" bindtap="clickHandle">
             <view class="icon">
                 <image src="{{item.url}}" />
-                <view wx:if="{{item.showCount}}" class="count">{{item.count}}</view>
+                <view  class="count">
+         
+                    <counter album-id="{{item.albumId}}"></counter>
+                </view>
             </view>
             <view class="name" style="color: {{ item.color || '#333333' }}">{{item.title}}</view>
         </view>

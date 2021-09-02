@@ -2,7 +2,7 @@
 <view class="outer">
     <navigator  hover-class="none" class="post" url="{{url }}">
         <view class="cover">
-            <image class="main" src="{{post.cover}}" />
+            <image class="main" src="{{post.cover}}?imageView2/2/w/100" />
             <view class="eye-icon" wx:if="{{post.view_nums >= 100}}">
                 <image src="/assets/icons/post/eye.png"></image>
                 <text class="num">{{post.view_nums}}</text>
