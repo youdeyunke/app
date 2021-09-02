@@ -1,4 +1,5 @@
 {
+
   "usingComponents": {
     "item": "/components/post-item/cell/index"
   }

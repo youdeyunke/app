@@ -26,7 +26,7 @@ page{
     padding: 20rpx ;
 }
 .item{
-    padding: 0 20rpx;
+    padding: 20rpx 20rpx;
     margin-top: 400rpx;
     z-index: 2;
     background:#fff;
