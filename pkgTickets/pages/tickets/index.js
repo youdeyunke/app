@@ -6,10 +6,15 @@ Page({
      * 页面的初始数据
      */
     data: {
-        cats: [],
+        cats: [
+            {name: "摇号结果", id: 1}, 
+            {name: '意向登记', id: -1},
+        ],
+
         items: [],
         postId: null,
         posts: [],
+
         kw: '',
         tabIndex: 0,
         page: 1,
@@ -44,33 +49,44 @@ Page({
             items: [],
             page: 1
         })
-        this.loadData(this.data.cats[e.detail.index].id)
-        // TODO 切换cat
+        this.loadData()
+
     },
     loadPostData: function () {
         var _this = this
         app.request({
             url: '/api/v1/post_base_info/' + this.data.postId,
             success: function (resp) {
+                var s = resp.data.data.ticket_summary 
+                var tips = '暂无摇号结果，或数据还未录入'
+                if(s.enable){
+                    tips = s.content + ' ' + "仅显示部分摇号数据，需要查询具体数据，请根据意向登记号或身份证尾号查询。"
+                }
+
                 _this.setData({
-                    post: resp.data.data
+                    post: resp.data.data,
+                    tips: tips,
                 })
                 wx.setNavigationBarTitle({
                     title: resp.data.data.title + '摇号结果',
                 })
+
             }
         })
     },
     loadData() {
         var _this = this
-        var id = id || 10
+        var scope = 'all'
+        if(this.data.tabIndex==0){
+            scope  = 'hit'
+        }
+   
         var params = {
             post_id: this.data.postId,
             page: this.data.page,
-            cat_id: id,
-
             per_page: this.data.pageSize,
-            kw: this.data.kw
+            kw: this.data.kw,
+            scope: scope, 
         }
         app.request({
             url: '/api/v1/post_tickets',
@@ -87,15 +103,16 @@ Page({
     },
     onChange(e) {
         this.setData({
-            kw: e.detail.value
+            kw: e.detail
         })
+        console.log('e',e)
     },
     onSearch() {
         this.setData({
             items: [],
             page: 1
         })
-        this.loadData(this.data.cats[this.data.tabIndex].id)
+        this.loadData()
     },
     /**
      * 页面相关事件处理函数--监听用户下拉动作
@@ -105,7 +122,7 @@ Page({
             items: [],
             page: 1
         })
-        this.loadData(this.data.cats[this.data.tabIndex].id)
+        this.loadData()
     },
 
     /**

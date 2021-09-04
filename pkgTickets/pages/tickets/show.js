@@ -7,8 +7,9 @@ Page({
    */
   data: {
     ticketId:'',
-    post:[],
+    post:{},
     ticket:{},
+    summary: {},
     postId:'',
     title:''
   },
@@ -24,50 +25,41 @@ Page({
       postId:postId
     })
     this.loadData()
+    wx.setNavigationBarTitle({
+      title: '恭喜中签！',
+    })
    
   },
 
   loadData(){
-    // var _this = this
-    // app.request({
-    //   url:'/api/v1/post_tickets/'+_this.data.ticketId,
-    //   success: function(res) {
-    //     var allD = parseInt(res.data.post.meta_yaohao_d1) +  parseInt(res.data.post.meta_yaohao_d2)
-    //     var allP = parseInt(res.data.post.meta_yaohao_d3) + parseInt(res.data.post.meta_yaohao_d4)
-    //     res.data.post.meta_yaohao_allD = allD
-    //     res.data.post.meta_yaohao_allP = allP
-    //     var allGai = allD/allP*100
-    //     res.data.post.meta_yaohao_allGai = allGai.toFixed(1)+'%'
-    //     console.log(res.data.post)
-    //     _this.setData({
-    //       post:res.data.post,
-    //       ticket:res.data.data
-    //     })
-    //   }
-    // })
+
     var _this = this
     //获取个人信息接口
     app.request({
       url:'/api/v1/post_tickets/'+this.data.ticketId,
       success:function(res){
-        var date = res.data.data.created_at
-        date = date.split('T')[0]
         _this.setData({
-          post:res.data.data,
-          date:date
+          ticket: res.data.data, 
+    
         })
+        _this.loadPostInfo(res.data.data.post_id)
       }
     })
     //获取楼盘信息接口
+
+  },
+
+  loadPostInfo: function(postId){
+    var _this = this 
     app.request({
-      url:'/api/v1/post_base_info/'+_this.data.postId,
+      url:'/api/v1/post_base_info/'+ postId,
       success:function(res){
+        var post = res.data.data
         _this.setData({
-          title:res.data.data.title
+          
+          post: post 
         })
-        wx.setNavigationBarTitle({
-          title: _this.data.post.name+'的摇号结果',
-        })
+
       }
     })
   },
@@ -90,12 +82,12 @@ Page({
    */
   onShareAppMessage: function () {
     return{
-      title:this.data.post.name+'摇号结果'
+      title:this.data.post.title+'摇号结果'
     }
   },
   onShareTimeline:function(){
     return{
-        title:this.data.post.name+'摇号结果'
+        title:this.data.post.title+'摇号结果'
     }
   },
 })

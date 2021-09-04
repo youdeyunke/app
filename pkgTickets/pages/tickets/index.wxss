@@ -1,89 +1,31 @@
-.none{
-    width: 100%;
+
+
+.res{
+    width:100%; 
+    margin: 20rpx auto;
+}
+.tips{
+    width:750rpx; 
+    margin:0 auto 0rpx auto;
+}
+
+.none{ 
+    margin:40rpx auto;
+    width:100%; 
+    color: #666;
     text-align: center;
-    padding: 20rpx 0;
 }
-.bgimage{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height:300rpx ;
-    z-index: 2;
+
+.search-bar{
+    width:750rpx; 
+    padding:10rpx 10rpx;
+    background:#fff;
 }
-.title{
-    font-size:36rpx ;
-    color: #fff;
-    padding: 31rpx 30rpx 20rpx 30rpx;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 2;
-}
-.title image{
-    width:15rpx ;
-    height: 28rpx;
-}
-.van-tabs--line .van-tabs__wrap{
-    width: 100%;
-    height: 200rpx;
-    position: fixed;
-    top: 110rpx;
-    left: 0;
-    z-index: 5;
-}
-.van-tabs__scroll--line{
-    background-color: rgb(242, 242, 242,0) !important ;
-}
-.search{
-    width: 100%;
-    padding: 0rpx 20rpx;
-    font-size: 26rpx;
-    color: #1989FA;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    top: 210rpx;
-    left: 0;
-    z-index: 5;
-}
-.sousuo{
-    color: #fff;
-}
-input{
-    width:500rpx ;
-    background-color: #fff;
-    display: inline-block;
-    margin-left: 15rpx;
-    color: #333333;
-}
-.input-box{
-    width:624rpx ;
-    height: 70rpx;
-    background-color: #fff;
-    border-radius: 50rpx;
-    line-height: 70rpx;
-    padding-left: 40rpx;
-    font-size: 24rpx;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-.input-box image{
-    width:26rpx ;
-    height: 26rpx;
-}
-.image-box{
-    width: 100rpx;
-    height: 100rpx;
-    position: absolute;
-    top: -20rpx;
-    right: -10rpx;
-}
-.position{
-    margin-top: 320rpx;
+
+.tools{
+    position:sticky; 
+    top:0; 
+    left:0; 
+    width:100%;
+    z-index:100;
 }

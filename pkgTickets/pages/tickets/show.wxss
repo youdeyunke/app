@@ -1,99 +1,66 @@
-image:nth-of-type(1){
-    width: 750rpx;
-    height: 840rpx;
-    position: relative;
-}
-.title{
-    position: absolute;
-    top: 150rpx;
-    font-size: 36rpx;
-    color: #fff;
-    width: 100%;
-    text-align: center;
-}
-.name{
-    position: absolute;
-    top: 247rpx;
-    left: 0;
-    font-size:48rpx ;
-    color: #fff;
-    width:100% ;
-    height: 92rpx;
-    text-align: center;
-    line-height: 92rpx;
-}
-.ranking{
-    position: absolute;
-    top: 638rpx;
-    left:0rpx ;
-    font-size:48rpx ;
-    color: #846B3D;
-    width: 100%;
-    text-align: center;
-}
-.table{
-    width: 690rpx;
-    height: 282rpx;
-    background-color: #fff;
-    margin: 0 auto;
-    margin-top: 20rpx;
+.main{
+    width:100%;
+    height:860rpx;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    border: 1rpx solid #C4C4C4;
-    font-size: 22rpx;
-    color:#717171 ;
-    margin-bottom:50rpx ;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
 }
-.header,.number,.person,.probability{
-    display: flex;
-    justify-content: space-evenly;
+
+.main .bg{
+    width:750rpx;
+    position: absolute; 
+    top:0; 
+    left:0;
+    z-index:1;
+    height: 100%;
 }
-.header view,.number view,.person view,.probability view{
-    display: inline-block;
-    height: 70rpx;
-    width: 172rpx;
+
+.main .info{ 
+    z-index:10;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: #fff; 
     text-align: center;
-    line-height: 70rpx;
-    border-right:1rpx solid  #C4C4C4;
-    border-bottom: 1rpx solid #C4C4C4;
 }
-.header view:nth-last-child(1),.number view:nth-last-child(1),.person view:nth-last-child(1),.probability view:nth-last-child(1){
-    border-right: none;
+
+.main .info .title{
+    padding-top:160rpx;
+    font-size: 36rpx;
 }
-.probability view{
-    border-bottom: none;
+
+.main .info .ranking{
+    font-size: 48rpx; 
+    color: #846B3D;
+    padding-top:330rpx;
 }
-.font{
-    color: #333333;
-    font-weight: bold;
+
+.main .info .name{
+    font-size:48rpx;
+    padding-top:54rpx;
 }
-.color{
-    color: #5B9FC6;
+
+
+.footer{ 
+    width:750rpx;
 }
-image:nth-of-type(2){
-    width: 100%;
-    height: 300rpx;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: -5;
-}
+
+
+
+
+
 .bottom{
     display: flex;
     justify-content: space-evenly;
     font-size: 24rpx;
     align-items: center;
     font-weight: bold;
-    margin-top: 150rpx;
+    margin:0 auto;
+    width:100%;
     z-index: 55;
-}
-.bottom-nav{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.bottom-font{
-    color: #717171;
-    font-weight: normal;
+    position: fixed; 
+    left:0;
+    bottom: 80rpx;
 }

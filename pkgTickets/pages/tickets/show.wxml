@@ -1,45 +1,20 @@
-<view class="show-box">
-    <!-- post: {{ post }}, {{ post.name }} -->
-    <image src="../../images/4.png"></image>
-    <view class="title">{{title}}</view>
-    <view class="name">{{post.name}}</view>
-    <view class="ranking">第{{post.number}}名</view>
-    <view class="table">
-        <view class="header">
-            <view>房源类型</view>   
-            <view>全部</view>   
-            <view>无房</view>   
-            <view>有房</view>   
-        </view>
-        <view class="number">
-            <view>房源套数</view>   
-            <view class="font">970</view>   
-            <view class="font">455</view>   
-            <view class="font">455</view>   
-        </view>
-        <view class="person">
-            <view>名人数</view>   
-            <view class="font">3510</view>   
-            <view class="font">970</view>   
-            <view class="font">3006</view>   
-        </view>
-        <view class="probability">
-            <view>中概率</view>   
-            <view class="color">25.9%</view>   
-            <view class="color">56.9%</view>   
-            <view class="color">15.1%</view>   
-        </view>
-    </view>
-    <image src="../../images/5.png"></image>
-    <view class="bottom">
-        <view>{{date}}</view>
-        <view class="bottom-nav">
-            <text>910</text>
-            <text class="bottom-font">本次房源套数</text>
-        </view>
-        <view class="bottom-nav">
-            <text>25.9%</text>
-            <text class="bottom-font">中率</text>
-        </view>
-    </view>
+
+<view class="main">
+    <image class="bg" src="../../images/4.png"></image>
+    <view class="info">
+
+    <navigator url="/pkgPost/pages/show/index?id={{post.id}}" class="title">{{post.title}}</navigator>
+    <view class="name">{{ticket.code}}</view>
+    <view class="ranking">第{{ticket.number}}号</view>
 </view>
+</view>
+
+  
+<post-ticket-summary summary="{{post.ticket_summary}}" width="710" />
+
+
+ 
+
+    <view class="bottom">
+        <van-button round type="info" color="#1989fa" style="width:400rpx;" open-type='share' block >转发分享</van-button>
+    </view>

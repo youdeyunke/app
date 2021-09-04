@@ -13,17 +13,19 @@
 }
 .card-content{
     color: #7B7A7A;
-    font-size: 24rpx;
+    font-size: 28rpx;
 }
-.card-content view{
-    margin-bottom: 15rpx;
-}
-.card-content text{
+
+.card-content .title{
     color: #2F2F2F;
     margin: 10rpx;
-}
-.title{
-    color: #7B7A7A !important;
+    display: inline-block;
+
     width: 150rpx;
     ruby-align: center;
+}
+
+.hit{
+    color:red !important; 
+    font-weight: bolder;
 }

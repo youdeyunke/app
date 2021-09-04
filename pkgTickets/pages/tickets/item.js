@@ -19,5 +19,15 @@ Component({
    */
   methods: {
 
+    gotoDetail: function(){
+      if(this.data.item.status != 1){
+        return
+      }
+      var path = '/pkgTickets/pages/tickets/show?id=' + this.data.item.id 
+      wx.navigateTo({
+        url: path, 
+      })
+    },
+
   },
 })

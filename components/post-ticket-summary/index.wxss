@@ -1,0 +1,34 @@
+/* components/post-ticket-summary/index.wxss */
+
+.table{
+  width: 100%;
+  height: 282rpx;
+  background-color: #fff;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-top: 1rpx solid #c4c4c4;
+  border-left: 1rpx solid #c4c4c4;
+
+  font-size: 22rpx;
+  color:#717171 ;
+
+}
+
+.header{
+  display: flex;
+  justify-content: space-evenly;
+  color: #333;
+}
+
+.cell{
+  display: inline-block;
+  height: 70rpx;
+  width: 25%;
+  text-align: center;
+  line-height: 70rpx;
+  border-right:1rpx solid  #C4C4C4;
+  border-bottom: 1rpx solid #C4C4C4;
+}
