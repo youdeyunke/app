@@ -1,11 +1,9 @@
 
-
 .item {
     box-sizing: border-box;
- 
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     box-sizing: border-box;
     position: relative;
     border-bottom: 1rpx solid #f2f2f2;
@@ -39,7 +37,7 @@
 }
 .item .cover {
     width: 214rpx;
-    height: 136rpx;
+    height: 156rpx;
     border-radius: 0rpx;
     overflow: hidden;
     position: relative;
@@ -62,16 +60,17 @@
     word-break: break-all;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-    width: 448rpx;
+    max-width: 448rpx;
 }
 
 .item .title-block {
     height: 100%;
     display: flex;
-    width: 450rpx;
+    max-width: 450rpx;
+    width: calc(100% - 214rpx - 20rpx);
     flex-direction: column;
     justify-content: space-between;
-    padding: 10rpx 20rpx 10rpx 0;
+    padding: 0rpx 20rpx 10rpx 0;
     box-sizing: border-box;
 }
 

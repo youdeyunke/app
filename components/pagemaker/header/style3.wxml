@@ -1,5 +1,5 @@
 <div class="header">
-    <div class="title">{{title}}</div>
+    <div style="background-color: {{ themeColor }} " class="title">{{title}}</div>
     <div class="subtitle" bindtap="clickHandle">
         {{subtitle}}
         <div class="arrow" wx:if="{{link}}">

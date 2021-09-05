@@ -7,6 +7,7 @@ Component({
         title: { type: String, value: '' },
         subtitle: { type: String, value: '' },
         link: { type: Object, value: null },
+        themeColor: {type: String, value: "#fff"},
 
     },
 

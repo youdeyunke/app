@@ -10,6 +10,24 @@
   
 }
 
+.module-box.full{
+  width:750rpx;
+}
+
+.module-box.small{
+  width: 690rpx;
+}
+
+.module-box.large{
+  width: 710rpx;
+}
+
 .shadow {
   box-shadow: 2rpx 8rpx 30rpx 10rpx rgba(0,0,0, 0.15);
+}
+
+
+.padding-blank{
+  height: 20rpx; 
+  display: block;
 }

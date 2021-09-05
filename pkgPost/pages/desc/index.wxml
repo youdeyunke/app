@@ -18,7 +18,7 @@
         </van-cell>
     </mycard>
     <mycard title="楼盘参数" wx:if="{{metaItems.length > 0}}">
-        <van-cell size="mini" title="开发商" value="万科集团"></van-cell>
+
         <van-cell size="mini" wx:for="{{metaItems}}" wx:for-item="meta" title="{{meta.label}}" value="{{meta.text}}"></van-cell>
     </mycard>
     <mycard title="详细介绍" wx:if="{{post.content}}">

@@ -2,7 +2,7 @@
 <view class="pagemaker">
 
     <block wx:for="{{modules}}">
-        <module-box config="{{item}}" width="{{moduleWidth}}">
+        <module-box config="{{item}}" width="{{pageConfig.width}}">
             <header-module config="{{item}}" wx:if="{{item.name === 'header'}}"></header-module>
             <image-module config="{{item}}" wx:elif="{{item.name === 'image'}}"></image-module>
             <brokers-module config="{{item}}" wx:elif="{{item.name === 'brokers'}}"></brokers-module>

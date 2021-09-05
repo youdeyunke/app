@@ -1,6 +1,6 @@
 <!-- pkgType/pages/type/index.wxml -->
 <post-title post="{{post}}" ></post-title>
-<box width="750" padding="20" wx:if="{{!loading}}">
+<ud-box width="750" padding="20" wx:if="{{!loading}}">
     <view class="filter" wx:if="{{tags.length > 1}}">
         <view class="item {{ group == tag.group ? 'active' : '' }}" data-group="{{tag.group}}" bindtap="groupClick" wx:key="id" wx:for="{{tags}}" wx:for-item="tag">
             {{tag.name}}
@@ -32,6 +32,6 @@
             </view>
         </view>
     </navigator>
-</box>
+</ud-box>
 
 <broker-contact bid="{{brokerId}}" />

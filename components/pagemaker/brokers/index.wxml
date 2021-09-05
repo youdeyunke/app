@@ -10,9 +10,9 @@
       </navigator>
 
 
-      <navigator url="/pkgBroker/pages/broker/index?" hover-class="none" class="broker-item more" >
+      <!-- navigator url="/pkgBroker/pages/broker/index?" hover-class="none" class="broker-item more" >
           <text>查看更多</text>
-      </navigator>
+      </navigator -->
 
   </view>
 </scroll-view>

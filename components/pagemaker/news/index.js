@@ -10,8 +10,28 @@ Component({
     },
 
     observers: {
-        "config.ids": function (ids) {
-            this.loadNews(ids)
+        "config": function (config) {
+            if(!config){
+                return 
+            }
+            if(!config.ids){
+                return 
+            }
+            var idsStr = config.ids.map((i) => {return i.toString()}).join(',')
+            var query = {}
+    
+            switch(config.news_from){
+                case 'news_ids': 
+                    query.ids  = idsStr
+                    break;
+                case 'cat_ids':
+                    break;  
+            }
+
+            this.setData({query: query }, () => {
+                this.loadNews()
+            })
+            
         }
     },
 
@@ -19,7 +39,7 @@ Component({
      * 组件的初始数据
      */
     data: {
-
+        query: {},
         items: []
     },
 
@@ -27,14 +47,9 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        loadNews: function (ids) {
-            if (!ids) {
-                return
-            }
-            if (ids.length == 0) {
-                return
-            }
-            var query = ids.join(',')
+        loadNews: function () {
+            var query = this.data.query 
+            console.log('query is', query)
             var _this = this
             app.request({
                 url: '/api/v1/news',
@@ -43,7 +58,6 @@ Component({
                 success: function (resp) {
                     if (resp.data.status == 0) {
                         var items = resp.data.data
-                        console.log('load items is', items)
                         _this.setData({ items: items })
                     }
                 }

@@ -1,3 +1,7 @@
 <!-- components/pagemaker/header/module-box.wxml -->
-<view class="module-box {{ shadowEnable ? 'shadow' : '' }} " style="background-color: {{bgColor}}; background-image: {{bgImage }};width:{{widthValue}};border-radius:{{radiusValue}};margin-top:{{marginTopValue}};margin-bottom:{{marginBottomValue}}">
-    <module-header wx:if="{{config.header.hidden != true}}" config="{{config.header}}"></module-header><slot></slot></view>
+<view class="module-box {{ width }} {{ shadowEnable ? 'shadow' : '' }} " style="background-color: {{bgColor}}; background-image: {{bgImage }};border-radius:{{radiusValue}};margin-top:{{marginTopValue}};margin-bottom:{{marginBottomValue}}">
+    <view wx:if="{{config.padding.top}}" class="padding-blank"></view>
+    <module-header wx:if="{{config.header.hidden != true}}" config="{{config.header}}"></module-header>
+    <slot></slot>
+    <view wx:if="{{config.padding.bottom}}" class="padding-blank"></view>
+</view>

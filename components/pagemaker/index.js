@@ -7,8 +7,14 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        pageId: { type: Number, default: 1 },
-        pageKey: { type: String, default: null },
+        pageId: {
+            type: Number,
+            default: 1
+        },
+        pageKey: {
+            type: String,
+            default: null
+        },
     },
 
     /**
@@ -19,6 +25,8 @@ Component({
         paddingSmall: 10,
         paddingLarge: 20,
         paddingValue: 0,
+
+        widthValue: '750rpx',
         loading: true,
         config: null,
     },
@@ -28,18 +36,44 @@ Component({
             if (!v) {
                 return
             }
-            this.setData({ loading: true })
+            this.setData({
+                loading: true
+            })
             this.loadData()
         },
         'pageKey': function (v) {
             if (!v) {
                 return
             }
-            this.setData({ loading: true })
+            this.setData({
+                loading: true
+            })
             this.loadData()
         },
+
         "config.padding": function (v) {
             console.log('observers.padding', v)
+        },
+        "config.width": function (w) {
+
+            if (!w || !w.size) {
+                return
+            }
+
+            var value = '750rpx' // full
+            switch (w.size) {
+                case 'large':
+                    value = '710rpx'
+                    break;
+                case 'small':
+                    value = '690rpx'
+                    break;
+            }
+            this.setData({
+                widthValue: value
+            })
+
+
         },
     },
 
@@ -52,7 +86,9 @@ Component({
 
         reload: function () {
             // 用于父组件调用，刷新页面
-            this.setData({ loading: true })
+            this.setData({
+                loading: true
+            })
             this.loadData()
         },
 
@@ -73,34 +109,12 @@ Component({
                         pageConfig: data.config,
                     })
                     _this.setNavbar(data.config)
-                    _this.setPadding(data.config)
                     _this.triggerEvent('ready', data.config)
                 }
             })
 
         },
 
-        // 设置页面的边距
-        setPadding: function (config) {
-            // TODO move to observers 
-            var padding = this.data.paddingValue
-            var moduleWidth = 750 // rpx
-            switch (config.padding) {
-                case "small":
-                    padding = this.data.paddingSmall
-                    break;
-                case "large":
-                    padding = this.data.paddingLarge
-                    break;
-            }
-            moduleWidth -= padding * 2
-
-            this.setData({
-                paddingValue: padding,
-                moduleWidth: moduleWidth,
-            })
-
-        },
 
 
         // 设置导航栏颜色、文字、背景
@@ -112,8 +126,7 @@ Component({
             wx.setNavigationBarColor({
                 frontColor: fontColor,
                 backgroundColor: bgColor,
-                success: (err) => {
-                },
+                success: (err) => {},
             });
             wx.setNavigationBarTitle({
                 title: title,

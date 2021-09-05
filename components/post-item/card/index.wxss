@@ -1,3 +1,4 @@
+
 /* components/pagemaker/posts/post-item2/post-item2.wxss */
 
 .post {
@@ -27,6 +28,7 @@
     /* position: absolute; */
     top: 0;
     left: 0;
+    border-radius:6rpx;
 }
 
 .post .tags {

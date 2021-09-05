@@ -5,6 +5,7 @@ Component({
      */
     properties: {
         config: { type: Object, default: null },
+        width: {type: String, default: 'full'},
     },
 
     observers: {
@@ -26,22 +27,7 @@ Component({
             }
     
         },
-        "config.width": function(w){
-            if(!w || !w.size){
-                return
-            }
-    
-            var value = '750rpx' // full
-            switch(w.size){
-                case 'large':
-                    value = '710rpx'
-                    break; 
-                case 'small':  
-                    value = '690rpx'
-                    break; 
-            }
-            this.setData({widthValue: value})
-        },
+ 
 
         "config.radius": function(r){
             if(!r){

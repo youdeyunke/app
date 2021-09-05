@@ -1,6 +1,6 @@
 
 
-<navigator style="width:{{width}}rpx;" hover-class="none" class="{{className}}" url="/pkgNews/pages/news/show?id={{item.id}}">
+<navigator  hover-class="none" class="{{className}}" url="/pkgNews/pages/news/show?id={{item.id}}">
     <view class="cover" hover-class="none" hover-stop-propagation="false">
         <image class="cover img" src="{{item.cover }}?imageView2/2/w/250"></image>
         <image src="/assets/icons/bofang.png" class="play"></image>

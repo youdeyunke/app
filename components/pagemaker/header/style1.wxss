@@ -13,7 +13,9 @@
 .title {
     font-size: 40rpx;
     color: #000;
-    border-bottom: 8rpx solid #1989fa;
+
+    border-bottom-width: 8rpx;
+    border-bottom-style: solid;
     padding-bottom: 6rpx;
     margin-bottom: 6rpx;
 }
@@ -21,6 +23,7 @@
 .subtitle {
     font-size: 24rpx;
     color: #999;
+    height: 24rpx;
 }
 
 .subtitle .arrow {

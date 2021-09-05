@@ -1,5 +1,5 @@
 <!-- components/pagemaker/header/style1.wxml -->
 <view class="header">
-    <view class="title">{{title}}</view>
+    <view style="border-color:{{themeColor}}" class="title">{{title}}</view>
     <view class="subtitle">{{subtitle}}</view>
 </view>

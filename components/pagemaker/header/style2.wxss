@@ -32,6 +32,7 @@
     font-size: 24rpx;
     color: #999;
     margin-top: 6rpx;
+    height: 24rpx;
 }
 
 .subtitle .arrow {
