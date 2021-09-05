@@ -346,6 +346,7 @@
     "van-cell-group": "/vant/cell-group/index",
     "cell-radio": "/components/cell-radio",
     "mycard": "/components/ud/card/index",
+    "box": "/components/ud/box/index",
 
     "ud-card": "/components/ud/card/index",
     "ud-box": "/components/ud/box/index",

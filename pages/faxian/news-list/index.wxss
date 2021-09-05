@@ -1,5 +1,7 @@
 .outer{
   width:750rpx; 
+  padding:0 20rpx;
+  box-sizing: border-box;
   overflow: hidden;
   background:#fff;
 }
