@@ -3,89 +3,24 @@
 .brokers {
     display: flex;
     justify-content: flex-start;
-    width:750rpx;
+    width:100%;
     height:334rpx;
     padding: 0rpx 20rpx;
     box-sizing: border-box;
 
- 
 }
 
-.avatar{
-    border:4rpx solid #fff;
-    background:#fff;
-}
-
-.line-limit {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-
-}
-
-.broker-item {
-    background: #F9F9F9;
-    width: 217rpx;
-    height: 314rpx;
-    padding: 20rpx;
-    box-sizing: border-box;
-    margin-right: 20rpx;
-    box-sizing: border-box;
-    border-radius: 10rpx;
-    font-size: 28rpx;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    
-}
-
-.broker-item.more  {
-    width: 80rpx;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.broker-item .right {
+.broker-cells  {
     width: 100%;
-    height: 314rpx;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 10;
+    padding:0 20rpx; 
+    box-sizing: border-box;
 }
 
-.bgcolor {
-    width: 217rpx;
-    height: 314rpx;
-    position: absolute;
-    top: 0;
-    left: -20rpx;
-    z-index: -1;
+.broker-cells .item{
+    margin-bottom:20rpx;
 }
 
-.broker-name {
-    color: #76550D;
-    font-weight: 800;
-    z-index: 10;
-}
-
-.broker-company {
-    color: #8B723B;
-    font-size: 24rpx;
-    height:24rpx;
-    margin-bottom: 50rpx;
-    scale: 0.7;
-    overflow: hidden;
-    width:200rpx;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    text-align:center;
-}
-
-.broker-mobile {
-    color: #053357;
+.blank{
+    height: 20rpx; 
+    display: block;
 }

@@ -5,18 +5,13 @@
         <image src="/assets/icons/broker/{{item.level}}.png" class="badge" />
     </view>
     <view class="name">
-        <view>{{ item.name}}</view>
-        <block wx:if="{{item.desc != null}}">
-            <view>{{item.desc}}</view>
-        </block>
-        <block wx:else>
-            <view>专业售楼顾问，倾城为你服务！</view>
-        </block>
+        <view class="fullname">{{ item.name}}</view>
+
         <view class="name-nav">
             <image class="image1" src="/assets/icons/broker/4.png"></image>
-            <text>{{item.like_nums}}</text>
+            <view class="n">{{item.like_nums}}</view>
             <image class="image1" src="/assets/icons/broker/5.png"></image>
-            <text>{{item.view_nums}}</text>
+            <view class="n">{{item.view_nums}}</view>
         </view>
     </view>
     <view class="actions">
