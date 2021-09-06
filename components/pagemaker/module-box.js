@@ -5,6 +5,7 @@ Component({
      */
     properties: {
         config: { type: Object, default: null },
+        radius: {type: Number, default:0},
         width: {type: String, default: 'full'},
     },
 
@@ -29,11 +30,11 @@ Component({
         },
  
 
-        "config.radius": function(r){
+        "radius": function(r){
             if(!r){
                 return 
             }
-            var val = r.value * 2 + 'rpx'
+            var val = r * 2 + 'rpx'
             this.setData({radiusValue: val})
         },
 
