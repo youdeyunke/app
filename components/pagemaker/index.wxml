@@ -5,6 +5,7 @@
         <module-box config="{{item}}" radius="{{pageConfig.radius}}" width="{{pageConfig.width}}">
             <header-module config="{{item}}" wx:if="{{item.name === 'header'}}"></header-module>
             <image-module config="{{item}}" wx:elif="{{item.name === 'image'}}"></image-module>
+            <video-module config="{{item}}" wx:elif="{{item.name === 'video'}}"></video-module>
             <brokers-module config="{{item}}" wx:elif="{{item.name === 'brokers'}}"></brokers-module>
             <searchbar-module config="{{item}}" wx:elif="{{item.name === 'searchbar'}}"></searchbar-module>
             <banners-module config="{{item}}" wx:elif="{{item.name === 'banners'}}"></banners-module>

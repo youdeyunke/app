@@ -10,6 +10,7 @@
         "searchbar-module": "./searchbar/index",
         "header-module": "./header/index",
         "image-module": "./image/index",
+        "video-module": "./video/index",
         "posts-module": "./posts/index",
         "unknow-module": "unknow-module",
         "notice-module": "./notice/index",

@@ -1,0 +1,17 @@
+image{
+  vertical-align: middle; /* 必须有，否则图片底部会出现白边 */
+}
+
+.outer{
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  width:100%;
+}
+
+.outer .block{
+  position: absolute;
+  background:red;
+  opacity: 0;
+}
+
