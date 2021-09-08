@@ -64,9 +64,9 @@
       </view>
     </view>
   </view>
-  <block wx:if="{{house != null}}">
+  <block wx:if="{{mainPost != null}}">
     <view class="profile-house">主营楼盘</view>
-    <cell post="{{house}}"></cell>
+    <cell post="{{mainPost}}"></cell>
     <post-navs post="{{house}}"></post-navs>
   </block>
   <view class="profile-fun">

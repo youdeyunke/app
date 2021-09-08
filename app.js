@@ -18,8 +18,9 @@ App({
 
         reddotIntervalId: null,
         system: {},
-        apiHost: 'http://192.168.31.66:20210',
+        //apiHost: 'http://192.168.31.66:20210',
         //apiHost: 'https://weapp.udeve.cn/9000',
+        apiHost: 'http://weapp1.udeve.cn/39076',
         userInfo: null,
         token: null,
         cities: [],

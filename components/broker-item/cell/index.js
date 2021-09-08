@@ -23,9 +23,9 @@ Component({
         gotoProfile: function(){
             
             // 经纪人主页
-            var uid = this.data.item.user_id 
+            var bid = this.data.item.id 
             console.log('item',this.data.item)
-            var  path = '/pkgBroker/pages/broker/profile?id=' + uid 
+            var  path = '/pkgBroker/pages/broker/profile?id=' + bid 
             wx.navigateTo({
               url: path,
             })

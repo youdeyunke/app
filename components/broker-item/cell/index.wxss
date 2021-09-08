@@ -57,8 +57,6 @@
 }
 
 .avatar image.user {
-    width: 95rpx;
-    height: 95rpx;
     border: 2rpx solid #fff;
     border-radius: 95rpx;
     width: 95rpx;

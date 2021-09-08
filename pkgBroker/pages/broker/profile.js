@@ -7,7 +7,7 @@ Page({
      */
     data: {
         brokerProfile: null,
-        house: null,
+        mainPost: null,
         userId: null,
         likeNumber: '',
         browses: '',
@@ -182,11 +182,9 @@ Page({
                     return
                 }
                 var u = resp.data.data
-                var p = resp.data.post
-
                 _this.setData({
                     brokerProfile: u,
-                    house: p,
+                    mainPost: u.post, 
                     likeNumber: u.like_nums,
                     browses: u.view_nums,
                     level: u.level,
@@ -198,6 +196,7 @@ Page({
                 wx.setNavigationBarTitle({
                     title: title
                 })
+
             }
         })
     },

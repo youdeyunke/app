@@ -15,9 +15,10 @@
 .cover {
     width: 220rpx;
     height: 165rpx;
-    border-radius: 10rpx;
+
     overflow: hidden;
     margin-bottom: 10rpx;
+
 }
 
 .title {

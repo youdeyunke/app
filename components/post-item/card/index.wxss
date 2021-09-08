@@ -28,7 +28,7 @@
     /* position: absolute; */
     top: 0;
     left: 0;
-    border-radius:6rpx;
+    border-radius:8rpx;
 }
 
 .post .tags {
@@ -60,6 +60,8 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    border-bottom-right-radius: 10rpx;
+    border-bottom-left-radius: 10rpx;
 }
 
 
