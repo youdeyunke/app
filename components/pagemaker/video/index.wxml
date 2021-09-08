@@ -1,5 +1,5 @@
 
 <view class="outer" style="height:{{heightValue}};">
-  <video object-fit="fill" wx:if="{{config.url}}" poster="{{config.poster}}" controls="{{config.controls}}" muted="{{config.muted}}" autoplay="{{config.autoplay}}" loop="{{config.loop}}" src="{{config.url}}" style="margin:0 auto; padding:0;width:100%;height:{{heightValue}}" />
+  <video object-fit="fill" title="{{config.title}}" wx:if="{{config.url}}" poster="{{config.poster}}" controls="{{config.controls}}" muted="{{config.muted}}" autoplay="{{config.autoplay}}" loop="{{config.loop}}" src="{{config.url}}" style="margin:0 auto; padding:0;width:100%;height:{{heightValue}}" />
 
 </view>
