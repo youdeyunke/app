@@ -26,15 +26,19 @@ Component({
     },
 
       "config.height": function(v){
+        console.log('config.height', v)
           // 图片的高度值
           if(!v || !v.value){
               return false
           }
-        
+          
+          if(v.value == 'auto'){
+            return false
+          }
         var  value = v.value * 2
         this.setData({heightValue: value + 'rpx'})
         return
-          
+    
       },
 
   
@@ -49,7 +53,7 @@ Component({
    */
   data: {
       imageRadius: 'none', 
-      heightValue: 'auto',
+      heightValue: '100%',
       borderRadiusValue: '0',
       blocks: [],
 

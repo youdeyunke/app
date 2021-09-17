@@ -4,6 +4,14 @@ module.exports = {
     functionHandle: function (config) {
         
         switch(config.function){
+            case 'location': 
+            // 导航到位置
+            wx.openLocation({
+              name: config.locationName, 
+              latitude: config.locationLat,
+              longitude: config.locationLng,
+            })
+            break;
             case 'call': 
                 var phone = config.phone
                 if(!phone){

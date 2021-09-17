@@ -14,6 +14,9 @@ Component({
   observers: {
 
     "config.blocks": function(blocks){
+        if(!blocks){
+          return
+        }
         var val = blocks.map((block,index) => {
             block.width = block.width*2 + 'rpx'
             block.height = block.height*2 + 'rpx'

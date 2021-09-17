@@ -537,7 +537,9 @@ App({
         header['Accept-Datetime'] = d.toLocaleDateString()
 
         // This must be wx.request !
-        var url = this.globalData.apiHost + obj.url;
+        var host = EXT.apihost || this.globalData.apiHost 
+        console.log('ext is', EXT)
+        var url = host + obj.url;
         var _method = obj.method || 'GET'
         var _Methods = ['GET', 'POST', 'PUT', 'DELETE']
         if (!_Methods.includes(_method)) {
