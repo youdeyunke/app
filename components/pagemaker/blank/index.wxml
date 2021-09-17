@@ -1,1 +1,4 @@
-<view class="blank"></view>
+<view style="height:{{heightValue}}" class="blank">
+
+  <view class="line" style="border-bottom-color:{{config.color}};border-bottom-style:{{config.styleName}}"></view>
+</view>

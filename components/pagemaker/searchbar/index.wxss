@@ -1,12 +1,15 @@
 /* components/pagemaker/searchbar/index.wxss */
 
 .searchbar {
-    width:100%;
-    margin:0 auto;
+ 
+    margin:20rpx;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 24rpx;
+    padding: 20rpx; 
+    border: 1rpx solid #cecece;
+    box-sizing: border-box;
 }
 
 .searchbar .body {
@@ -14,20 +17,17 @@
     justify-content: flex-start;
     align-items: center;
     height: 100%;
-    width: 500rpx;
+
     padding: 0 20rpx;
 }
 
-.body-style-0 {
-    border-radius: 8rpx;
+.body-style-normal {
+    border-radius: 4rpx;
     background: #F4F4F4;
 
 }
-.body-style-1 {
-    border-radius: 8rpx;
-    border:2rpx solid #f0f0f0;
-    box-shadow: 0 0 20rpx rgba(0,0,0, 0.15);
-    background:#fff;
+.body-style-round {
+    border-radius: 100rpx;
 }
 
 

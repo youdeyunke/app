@@ -1,4 +1,4 @@
-<view data-name="{{loading}}" hidden="{{loading == false}}">
+<view style="background:#ffffff;">
     <view  style="width:750rpx;margin-bottom:70rpx;margin-top:30rpx;">
         <van-skeleton  style="width:100%;"   row="5"  loading="{{true}}" avatar="{{false}}" > </van-skeleton>
     </view>

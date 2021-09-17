@@ -1,8 +1,20 @@
 /* components/pagemaker/blank/index.wxss */
 
-.bkank {
+.blank {
     width: 100%;
     display: block;
-    height: 20rpx;
+    min-height: 20rpx;
+
     background: none;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.line{
+    width: calc(100% - 40rpx);
+    border-bottom-width: 2rpx;
+    display: block;
+
 }

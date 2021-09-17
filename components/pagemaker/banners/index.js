@@ -19,11 +19,6 @@ Component({
             this.setData({heightValue: value})
         },
 
-        "config.radius": function(v){
-            // 是否开启图片圆角效果
-            var value = v ?  v.value * 2 + 'rpx' : '0rpx'
-            this.setData({borderRadiusValue: value}) 
-        },
 
 
     },
@@ -33,10 +28,9 @@ Component({
      * 组件的初始数据
      */
     data: {
-        imageRadius: 'none', 
         widthValue: '710rpx',
         heightValue: 'auto',
-        borderRadiusValue: '0'
+
 
     },
 
