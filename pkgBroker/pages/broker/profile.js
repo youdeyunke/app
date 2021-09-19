@@ -37,21 +37,11 @@ Page({
         })
         return
     },
-    callphone: function (e) {
-        var mobile = this.data.brokerProfile.mobile
-        if (!mobile) {
-            return false
-        }
-        wx.makePhoneCall({
-            phoneNumber: mobile
-        })
-    },
-
 
 
 
     callMe: function (e) {
-        var mobile = this.data.brokerProfile.mobile
+        var mobile = this.data.broker.mobile
         if (!mobile) {
             return false
         }
@@ -72,7 +62,7 @@ Page({
         _this.setData({
             userId: q.id,
         }, function () {
-            _this.loadBrokerProfile()
+            _this.loadbroker()
         })
         var qrdata= app.globalData.qrdata 
         if(qrdata){
@@ -112,7 +102,7 @@ Page({
   
     },
 
-    loadBrokerProfile: function () {
+    loadbroker: function () {
         var uid = this.data.userId
         var _this = this
         app.request({
@@ -154,8 +144,8 @@ Page({
     onShow: function () {
         var _this = this 
         setTimeout(() => {
-            if(!this.data.brokerProfile){
-                this.loadBrokerProfile()
+            if(!this.data.broker){
+                this.loadbroker()
             }
            
         }, 1000)
@@ -191,26 +181,18 @@ Page({
     onShareAppMessage: function () {
         var _this = this
         return {
-            title: _this.data.brokerProfile.name + '的名片',
+            title: _this.data.broker.name + '的名片',
             desc: '帮你找好房',
-            path: 'pkgBroker/pages/broker/profile?id=' + _this.data.userId,
-            imageUrl: _this.data.brokerProfile.avatar,
+            imageUrl: _this.data.broker.avatar,
         }
     },
     onShareTimeline() {
         var _this = this
         return {
-            title: _this.data.brokerProfile.name + '的名片',
-            path: 'pkgBroker/pages/broker/profile?id=' + _this.data.userId,
-            imageUrl: _this.data.brokerProfile.avatar
+            title: _this.data.broker.name + '的名片',
+          
+            imageUrl: _this.data.broker.avatar
         }
     },
-    lookphoto:function(e){
-        var myavatar = e.currentTarget.dataset.src
-        var imgList = [e.currentTarget.dataset.src]
-        wx.previewImage({
-            current: 'myavatar',
-            urls:imgList
-        })
-    }
+   
 })

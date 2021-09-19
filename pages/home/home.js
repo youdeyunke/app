@@ -27,13 +27,6 @@ Page({
     },
 
 
-    onShareAppMessage: function () {
-        return {
-            title: '',
-            desc: '',
-            path: 'pages/index/index'
-        }
-    },
 
 
     /** 下拉刷新

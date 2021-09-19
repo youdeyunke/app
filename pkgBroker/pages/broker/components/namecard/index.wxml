@@ -41,11 +41,13 @@
         <image bindtap="avatarHandle" class="avatar-img" src="{{broker.avatar}}"></image>
       </view>
       <view class="btns">
+        <button open-type="share" class="share"></button>
 
         <view class="btn">
           <image class="icon" src="../../../../icons/share.png"></image>
           <view>转发分享</view>
         </view>
+
         <view bindtap="likeHandle" class="btn">
           <image class="icon" src="../../../../icons/like.png"></image>
           <view>点赞（{{likeNums}}）</view>
