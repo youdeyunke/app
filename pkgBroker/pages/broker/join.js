@@ -312,7 +312,7 @@ Page({
                     var tplid = ['1B_NsYpER2LW7Kbymr_iS9xqG7kUwtl_sNP1ja1GTVs']
                     app.createSubTpl(tplid, (r) => {
                         wx.navigateTo({
-                            url: '/pkgBroker/pages/broker/audit/index?status=0',
+                            url: '/pkgBroker/pages/broker/audit/index?status=pending',
                         })
                     })
                 }
@@ -382,15 +382,16 @@ Page({
                 }) 
                 var join_status = resp.data.data.join_status  
                 // 审核中
+
                 if(join_status==1){
                     wx.redirectTo({
-                         url: '/pkgBroker/pages/broker/audit/index?status='+resp.data.data.join_status,
+                         url: '/pkgBroker/pages/broker/audit/index?status=pending',
                     })
                 }
                 // 已入驻
                 if(join_status==2){
                     wx.redirectTo({
-                      url: '/pkgBroker/pages/broker/audit/index?status='+resp.data.data.join_status,
+                      url: '/pkgBroker/pages/broker/audit/index?status=ok',
                     })
                 }
             }

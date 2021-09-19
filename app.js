@@ -6,6 +6,7 @@ const EXT = wx.getExtConfigSync()
 
 App({
     globalData: {
+        tabIndex: 0,
         backToReload: false, // 通过naviate back 返回页面后，是否需要刷新页面数据？ 在onShow函数总判断，如果为true，就刷新页面数据
         cityId: null, // 全局城市过滤
         EXT: EXT,
@@ -342,7 +343,11 @@ App({
                 var c = data.unread_message_count 
                 var bindex = 2 
                 if(c == 0){
-                    wx.removeTabBarBadge({ index: bindex })
+                    wx.removeTabBarBadge({ index: bindex , 
+                        fail: function(){
+                            // pass
+                        }
+                })
                 }
                 if(c > 0 ){
                     wx.setTabBarBadge({

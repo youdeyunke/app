@@ -6,20 +6,21 @@
       <image class="broker-image7" src="/assets/icons/myself/b1.png"></image>
       <view>我的访客</view>
     </navigator> -->
+    <navigator url="/pkgAdmin/pages/fangyuan/show?post_id={{broker.post_id}}" class="broker-operation-class">
+      <image class="broker-image7" src="/assets/icons/myself/b7.png"></image>
+      <view>主营楼盘</view>
+    </navigator>
+
+    <navigator url="/pkgBroker/pages/broker/profile?id={{broker.id}}" class="broker-operation-class">
+      <image class="broker-image7" src="/assets/icons/myself/b6.png"></image>
+      <view>我的主页</view>
+    </navigator>
 
     <navigator class="broker-operation-class" url="/pkgAdmin/pages/clue/home">
       <image class="broker-image7" src="/assets/icons/myself/b5.png"></image>
       <view>线索中心</view>
     </navigator>
-    <navigator url="/pkgBroker/pages/broker/profile?id={{broker.id}}" class="broker-operation-class">
-      <image class="broker-image7" src="/assets/icons/myself/b6.png"></image>
-      <view>我的微店</view>
-    </navigator>
 
-    <navigator url="/pkgAdmin/pages/fangyuan/index" class="broker-operation-class">
-      <image class="broker-image7" src="/assets/icons/myself/b7.png"></image>
-      <view>主营楼盘</view>
-    </navigator>
 
     <navigator url="/pkgBroker/pages/broker/qr" class="broker-operation-class" >
       <image class="broker-image7" src="/assets/icons/myself/b2.png"></image>

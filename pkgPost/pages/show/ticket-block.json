@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "block-box": "./block-box/index",
+    "block-button": "../../components/block-button",
+    "ticket-summary": "/components/post-ticket-summary"
+  }
+}

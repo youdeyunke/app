@@ -2,8 +2,11 @@
 <view class="tips">
     <van-notice-bar left-icon="info-o" wrapable scrollable="{{ false }}" text="{{tips}}" />
 </view>
-<post-ticket-summary summary="{{post.ticket_summary}}"></post-ticket-summary>
+<view class="summary-block">
 
+<post-ticket-summary width="710" summary="{{post.ticket_summary}}"></post-ticket-summary>
+
+</view>
 <block wx:if="{{post.ticket_summary.enable}}">
     <view class="tools">
         <van-tabs wx:if="{{post.ticket_summary.enable}}" color="#1989fa" bind:change="tabChange" animated>

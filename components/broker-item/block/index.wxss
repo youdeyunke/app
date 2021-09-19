@@ -8,7 +8,8 @@
 }
 
 .broker-item {
-    background: #fff;
+
+    background: linear-gradient(to right bottom, #FDE7AE , #f3f2f0); /* 标准的语法 */
     width: 220rpx;
     height: 320rpx;
     padding: 20rpx;
@@ -20,7 +21,7 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    box-shadow: 0 0 15rpx rgba(0,0,0, 0.15);
+    box-shadow: 2rpx 6rpx 15rpx rgba(0,0,0, 0.15);
     border:2rpx solid #cecece;
 }
 
@@ -49,7 +50,8 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   transform: scale(0.8);
-  margin-bottom:40rpx;
+  margin-bottom:30rpx;
+  margin-top:10rpx;
 }
 
 

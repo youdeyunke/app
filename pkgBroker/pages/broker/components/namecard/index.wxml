@@ -1,0 +1,64 @@
+<view wx:if="{{broker}}">
+
+  <van-popup
+  show="{{ showQr }}"
+  position="bottom"
+  closeable
+  round
+  bind:close="closeQrHandle"
+  >
+
+    <view class="qr-outer">
+  
+      <image class="qr" src="{{broker.wechat_qr}}"></image>
+    </view>
+    <view class="tips">这是我的微信二维码，请用微信扫码加好友，或者保存到相册</view>
+    <van-button block color="#1989fa" custom-style="width: 700rpx; margin:20rpx auto 20rpx auto;" bindtap="saveQrHandle">保存二维码</van-button>
+  </van-popup>
+
+  <view class="outer" >
+    <image class="bg" src="../../../../images/broker-bg.png"></image>
+    <view class="main">
+      <view class="info">
+        <view class="name cell">
+          {{broker.name}} <image class="level" src="/assets/icons/medal/{{broker.level}}.png"></image>
+        </view>
+        <view class="cell">
+          微信：{{ broker.wechat || '未填写微信号码' }} <image wx:if="{{!broker.wechat}}" bindtap="copyWechatHandle" class="copy" src="/assets/icons/copy.png">
+          </image>
+        </view>
+
+        <view class="cell">
+          简介：{{ broker.desc || '-' }}
+        </view>
+
+        <view class="cell">
+          浏览：{{ broker.view_nums }}
+        </view>
+
+      </view>
+      <view class="avatar">
+        <image bindtap="avatarHandle" class="avatar-img" src="{{broker.avatar}}"></image>
+      </view>
+      <view class="btns">
+
+        <view class="btn">
+          <image class="icon" src="../../../../icons/share.png"></image>
+          <view>转发分享</view>
+        </view>
+        <view bindtap="likeHandle" class="btn">
+          <image class="icon" src="../../../../icons/like.png"></image>
+          <view>点赞（{{likeNums}}）</view>
+        </view>
+        <view bindtap="qrHandle" class="btn">
+          <image class="icon" src="../../../../icons/wechat.png"></image>
+          <view>加好友</view>
+        </view>
+
+      </view>
+
+    </view>
+
+  </view>
+
+</view>

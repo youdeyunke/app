@@ -1,3 +1,6 @@
+<view class="tips">
+    <van-notice-bar left-icon="info-o" wrapable scrollable="{{ false }}" text="发布最新楼盘动态可以增加账号活跃度" />
+</view>
 <mycard width="710" title="动态分类" title-size="28" hat="{{false}}">
     <view class="ecats">
         <view bindtap="catClickHandle" data-index="{{index}}" class="cat-item {{ currentCatIndex == index ? 'active': '' }}" wx:for="{{cats}}" wx:for-item="cat">
@@ -7,10 +10,8 @@
 </mycard>
 <ud-box width="710">
     <van-field value="{{title}}" data-name="title" bindinput="textInput" placeholder="请输入标题" label="动态标题" />
-    <van-field value="{{pub_time}}" data-name="pub_time" bindinput="textInput" placeholder="格式如：2021-12-12" label="发布时间" />
-    <van-field disabled="{{true}}" value="{{author}}" data-name="author" label="动态作者" />
+    <van-field value="{{pub_time}}" data-name="pub_time" bindinput="textInput" placeholder="格式如：2021-12-12" label="发布时间" />  
 </ud-box>
-
 
 <mycard width="710" title="详细内容" title-size="28" hat="{{false}}">
     <ud-textarea  bind:input="contentHandle" value="{{content}}" max-length="300" />

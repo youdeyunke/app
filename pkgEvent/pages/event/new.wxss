@@ -1,8 +1,9 @@
 /* pkgEvent/pages/event/new.wxss */
 
-page{
-    padding-top:20rpx;
+.tips{
+    margin-bottom:20rpx;
 }
+   
 
 .ecats {
     display: flex;

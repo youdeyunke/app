@@ -36,10 +36,10 @@
         </view>
     </navigator>
 
-    <view class="point" wx:if="{{post.point && post.point.content }}">
+    <view class="point" wx:if="{{point  }}">
         <image src="/assets/icons/post/point.png"></image>
-        <text class="title">{{ post.point.title || '项目亮点' }} </text>
-        <text class="content">{{ post.point.content }}</text>
+        <text class="title">{{ point.title || '项目亮点' }} </text>
+        <text class="content">{{ point.content }}</text>
     </view>
 
     <view class="border" wx:if="{{border}}"></view>

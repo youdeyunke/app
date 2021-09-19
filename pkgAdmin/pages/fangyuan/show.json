@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "post-item": "/components/post-item/card/index"
+  }
 }

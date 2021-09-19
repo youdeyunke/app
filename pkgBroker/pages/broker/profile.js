@@ -6,16 +6,9 @@ Page({
      * 页面的初始数据
      */
     data: {
-        brokerProfile: null,
-        mainPost: null,
+        broker: null,
         userId: null,
-        likeNumber: '',
-        browses: '',
-        level: '',
-        housetags: null,
-        show: false,
-        qrurl: '',
-        avatar:''
+ 
     },
     showPopup() {
         this.setData({
@@ -54,62 +47,9 @@ Page({
         })
     },
 
-    viewHandle: function () {
-        var id = this.data.userId
-        var _this = this
-        app.request({
-            method: 'POST',
-            hideLoading: true,
-            data: {
-                broker_id: id
-            },
-            url: '/api/v1/brokers/view',
-            success: function (res) {
-                if (res.data.status != 0) {
-                    return
-                }
-            }
-        })
 
-    },
 
-    likeHandle: function () {
-        var id = this.data.userId
-        var _this = this
-        var d = new Date()
-        var y = d.getFullYear() 
-        var m = d.getMonth() + 1
-        var d = d.getDate()  
-        var today = y + '-' + m + '-' + d
-        var key = 'broker_be_liked.' + today + '.' + id
-        if (wx.getStorageSync(key) == true) {
-            wx.showToast({
-                title: '你今天已经点过赞了，明天再来吧',
-                icon: 'none',
-            })
-        } else {
-            app.request({
-                method: 'POST',
-                data: {
-                    broker_id: id
-                },
-                url: '/api/v1/brokers/like',
-                success: function (res) {
-                    if (res.data.status != 0) {
-                        return
-                    }
-                    wx.showToast({
-                        icon: 'none',
-                        title: "点赞+1",
-                    })
-                    _this.setData({
-                        likeNumber: res.data.data,
-                    })
-                    wx.setStorageSync(key, true)
-                }
-            })
-        }
-    },
+
     callMe: function (e) {
         var mobile = this.data.brokerProfile.mobile
         if (!mobile) {
@@ -121,28 +61,7 @@ Page({
         })
     },
 
-    copyWechat: function (e) {
-        var wechat = this.data.brokerProfile.wechat
-        wx.setClipboardData({
-            data: wechat,
-            success: (result) => {
-                wx.showToast({
-                    title: '微信号已复制',
-                    icon: 'success',
-                    image: '',
-                    duration: 1500,
-                    mask: false,
-                    success: (result) => {
 
-                    },
-                    fail: () => {},
-                    complete: () => {}
-                });
-            },
-            fail: () => {},
-            complete: () => {}
-        });
-    },
 
 
     /**
@@ -165,16 +84,40 @@ Page({
                 })
             }
         }
+        this.viewHandle()
         
         app.markVisitor(null, q.id, 'user')
-        this.viewHandle()
+     
+    },
+
+    viewHandle: function () {
+        var bid = this.data.userId
+        var _this = this
+        app.request({
+            method: 'POST',
+            hideLoading: true,
+            data: {
+                user_id: bid
+            },
+            url: '/api/v1/brokers/view',
+            success: function (res) {
+                if (res.data.status != 0) {
+                    return
+                }
+                _this.setData({
+                  viewNums: res.data.data
+                })
+            }
+        })
+  
     },
 
     loadBrokerProfile: function () {
         var uid = this.data.userId
         var _this = this
         app.request({
-            url: '/api/v1/brokers/' + uid,
+            url: '/api/v1/brokers/show' ,
+            data: {user_id: uid},
             success: function (resp) {
                 // 有可能没有开通个人主页
                 if (resp.data.status != 0) {
@@ -183,13 +126,7 @@ Page({
                 }
                 var u = resp.data.data
                 _this.setData({
-                    brokerProfile: u,
-                    mainPost: u.post, 
-                    likeNumber: u.like_nums,
-                    browses: u.view_nums,
-                    level: u.level,
-                    // housetags:p.tags,
-                    qrurl: u.wechat_qr
+                    broker: u,
                 })
                 // _this.viewHandle()
                 var title = u.name + "的主页"
@@ -200,31 +137,7 @@ Page({
             }
         })
     },
-    qrHandle: function () {
-        var code = this.data.brokerProfile.wechat_qr
-        var _this = this
-        console.log("二维码路径:", code)
-        if (code == null) {
-            wx.showToast({
-                title: '对方还没有上传二维码',
-                icon: 'none'
-            })
-        } else {
-            wx.downloadFile({
-                url: code,
-                success(res) {
-                    wx.saveImageToPhotosAlbum({
-                        filePath: res.tempFilePath,
-                        success(res) {
-                            wx.showToast({
-                                title: '保存二维码成功',
-                            })
-                        }
-                    })
-                }
-            })
-        }
-    },
+ 
 
 
 

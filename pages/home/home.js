@@ -9,6 +9,9 @@ Page({
 
     data: {
         loading: true,
+        pageTitle: '', 
+        shareTitle: '', 
+        shareCover: '',
         rowWidth: rowWidthItem,
         system: {},
         configs: null,
@@ -85,18 +88,29 @@ Page({
     onReady: function () {
     },
 
-    pageReadyHandle: function () {
-        this.setData({ loading: false })
+    pageReadyHandle: function (e) {
+        var config = e.detail
+        console.log('page ready config', config)
+        // 页面加载完成
+        var pageTitle = config.title.value || app.globalData.myconfig.xcx_name 
+        var shareCover = config.shareCover  
+        var shareTitle = config.shareTitle || pageTitle 
+
+        this.setData({
+            shareCover: shareCover, 
+            shareTitle: shareTitle,
+            loading: false
+        })
+        wx.setNavigationBarTitle({
+          title: pageTitle,
+        })
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-      var title = app.globalData.myconfigs.xcx_name  
-      wx.setNavigationBarTitle({
-        title: title,
-      })
+
     },
 
 
@@ -126,9 +140,17 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
+        return { 
+            title: this.data.shareTitle, 
+            imageUrl: this.data.shareCover,
+        }
 
     },
     onShareTimeline: function () {
+        return {
+            title: this.data.shareTitle, 
+            imageUrl: this.data.shareCover,
+        }
 
     }
 })

@@ -9,6 +9,7 @@
     border-bottom: 1rpx solid #f2f2f2;
     padding:0 ; 
     margin:0 auto 20rpx auto;
+    width:100%;
 }
 
 .item .summary{
@@ -67,6 +68,7 @@
     height: 100%;
     display: flex;
     max-width: 450rpx;
+    min-width:440rpx;
     width: calc(100% - 214rpx - 20rpx);
     flex-direction: column;
     justify-content: space-between;

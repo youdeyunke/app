@@ -1,9 +1,9 @@
 
-<mycard width="710" title="{{post.title}}" sub-title="{{post.sale_status_item.name}}">
-    <image class="cover" src="{{post.cover}}" />
-
+<mycard width="710" title="我的主营楼盘" >
+  <post-item :item="{{post}}"></post-item>
  
 </mycard>
+
 <view class="actions">
         <van-button size="large" block  bindtap="newEventHandle" type="default">
             发动态

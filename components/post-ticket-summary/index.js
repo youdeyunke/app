@@ -14,6 +14,7 @@ Component({
       if(!v){
         return
       }
+      console.log('summary ',v)
       var s =   v
       s.total = s.youfang_total + s.wufang_total + s.rencai_total   
       if(s.total == 0){
@@ -24,14 +25,15 @@ Component({
       s.total_rate = s.total_rate.toFixed(2)
 
       s.rencai_rate = 100 * s.rencai_hit / s.rencai_total  
-      s.rencai_rate = s.rencai_hit.toFixed(2)
+      s.rencai_rate = s.rencai_rate.toFixed(2)
 
-      s.wufang_rate = 100 * s.wufang_hit / s.wufangi_total  
-      s.wufang_rate = s.wufang_hit.toFixed(2)
+      s.wufang_rate = 100 * s.wufang_hit / s.wufang_total  
+      s.wufang_rate = s.wufang_rate.toFixed(2)
 
-      s.youfang_rate = 100 * s.youfufang_hit / s.youfufangi_total  
-      s.wyouffang_rate = s.youfang_hit.toFixed(2)
+      s.youfang_rate = 100 * s.youfufang_hit / s.youfang_total  
+      s.youffang_rate = s.youfang_rate.toFixed(2)
       this.setData({res: s})
+      console.log('res', s)
     },
   },
 

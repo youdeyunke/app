@@ -1,76 +1,16 @@
+<namecard broker="{{broker}}" ></namecard>
 
-<image class="profile-image1" src="../../images/1.png"></image>
-<view class="profile-card">
-  <view class="image-box" >
-    <image class="profile-image3" src="../../images/ranking/{{level}}.png"></image>
-    <image class="profile-image2" src="{{brokerProfile.avatar}}" bindtap="lookphoto"
-      data-src="{{brokerProfile.avatar}}"></image>
-    <view class="card-message">
-      <view class="card-message-top">
-        <view class="card-name">
-          <text>{{brokerProfile.name}}</text>
-          <image class="profile-image4" src="/assets/icons/medal/{{level}}.png"></image>
-        </view>
-        <block wx:if="{{brokerProfile.wechat!=null}}">
-          <view class="card-wechat">
-            <text>微信：{{brokerProfile.wechat}}</text>
-            <image src="../../images/3.png" bindtap="copyWechat"></image>
-          </view>
-        </block>
-      </view>
-      <block wx:if="{{brokerProfile.desc!=null}}">
-        <view class="card-message-bottom">{{brokerProfile.desc}}</view>
-      </block>
-    </view>
-    <text class="profile-text1">{{browses || 0}}</text>
-    <view class="profile-position">
-      <view class="profile-position-top">
-        <view bindtap="showPopup" class="button"></view>
-        <button open-type="share" class="profile-button1"></button>
-        <text bindtap="likeHandle" class="profile-like"></text>
-      </view>
-      <block wx:if="{{brokerProfile.wechat_qr != null}}">
-        <van-popup show="{{ show }}" bind:close="onClose" round position="bottom" closeable>
-          <view class="profile-wechatqr">
-            <view class="profile-wechatqr-nav">
-              <view class="profile-wechatr-nav-qr">
-                <view>
-                  <image src="{{qrurl}}"></image>
-                </view>
-              </view>
-            </view>
-            <view class="profile-wechatqr-text">这是我的微信二维码，请用微信扫码加好友，或者保存到相册</view>
-            <view class="profile-wechatqr-save" bindtap="qrHandle">
-              保存到相册
-            </view>
-          </view>
-        </van-popup>
-      </block>
-    </view>
-    <block wx:if="{{brokerProfile.wechat_qr === null}}">
-      <van-popup show="{{ show }}" bind:close="onClose" round position="bottom" closeable>
-        <view class="profile-wechatqr-else">
-          该账号还没有上传二维码
-        </view>
-      </van-popup>
-    </block>
-    <!-- 事件绑定 -->
-    <view class="profile-position-bottom">
-      <text>加好友</text>
-      <text>转发</text>
-      <view class="profile-position-bottom-nav">
-        <text>赞</text>
-        <text class="profile-text2">{{likeNumber || 0}}</text>
-      </view>
-    </view>
-  </view>
-  <block wx:if="{{mainPost != null}}">
-    <view class="profile-house">主营楼盘</view>
-    <cell post="{{mainPost}}"></cell>
-    <post-navs post="{{house}}"></post-navs>
-  </block>
+
+
+  <ud-card title="主营楼盘" width="750" wx:if="{{broker.post != null}}">
+    
+    <cell post="{{broker.post}}"></cell>
+    <post-navs post="{{broker.post}}"></post-navs>
+  </ud-card>
+
   <view class="profile-fun">
     <image src="../../images/10.png" bindtap="chatHandle"></image>
     <image src="../../images/9.png" bindtap="callphone"></image>
   </view>
-</view>
+
+

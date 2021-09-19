@@ -1,0 +1,10 @@
+<block-box  title="摇号信息" >
+    <view class="summary-block">
+      <ticket-summary width="700" summary="{{value.summary }}"></ticket-summary>
+    </view>
+
+    <navigator style="margin-top:20rpx;" url="/pkgTickets/pages/tickets/index?post_id={{value.post_id}}">
+     <van-button icon="search" custom-style="color:#1989fa;" color="#EBF5FF" block  > 摇号查询 </van-button>
+    </navigator>
+
+</block-box>

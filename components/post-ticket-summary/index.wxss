@@ -9,8 +9,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  border-top: 1rpx solid #c4c4c4;
-  border-left: 1rpx solid #c4c4c4;
+  border-top: 1rpx solid #e4e4e4;
+  border-left: 1rpx solid #e4e4e4;
 
   font-size: 22rpx;
   color:#717171 ;
@@ -21,6 +21,7 @@
   display: flex;
   justify-content: space-evenly;
   color: #333;
+  background:#f4f4f4; 
 }
 
 .cell{
@@ -29,6 +30,6 @@
   width: 25%;
   text-align: center;
   line-height: 70rpx;
-  border-right:1rpx solid  #C4C4C4;
-  border-bottom: 1rpx solid #C4C4C4;
+  border-right:1rpx solid  #e4e4e4;
+  border-bottom: 1rpx solid #e4e4e4;
 }

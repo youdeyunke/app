@@ -9,6 +9,10 @@
     margin:0 auto 0rpx auto;
 }
 
+.summary-block{
+    margin-bottom:20rpx;
+}
+
 .none{ 
     margin:40rpx auto;
     width:100%; 
