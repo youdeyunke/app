@@ -1,19 +1,35 @@
-<view class="ranking" wx:if="{{rank}}">
-    <image class="image" src="{{rank.cover}}" />
-    <view class="content">
-    {{rank.district}}{{ rank.cat}}
+<view class="header">
+    <image class="bg" src="../../images/cover.png" />
+    <view class="tips">
+        排行榜由系统根据楼盘的流量数据、搜索数据自动计算得出，不代实际表市场热度，仅供参考
     </view>
-    <view class="item"  >
-        <view class="p" wx:for="{{rank.posts}}" wx:for-item="post" wx:for-key="id" index='{{index}}'>
-         <item post="{{post}}" ></item>  
-         <view class="rank">
-            <image wx:if="{{index <= 2}}"  src="../../images/Subtract{{index}}.png"  style="width:55rpx;height:67rpx" />
-            <image wx:else src="../../images/Subtract3.png"  style="width:55rpx;height:67rpx" />
-            <text class="subtract">{{index+1}}</text>
-        </view>
-           
+</view>
+
+<view class="bar">
+    <image  src="../../images/bar.png" class="bg"></image>
+
+    <view data-index="{{index}}" bindtap="tabClick" wx:for="{{tabs}}" wx:key="index"  class="bar-item {{ index == currentTabIndex ? 'active' : ''}}">
+        <image wx:if="{{ index == currentTabIndex }}" class="item-bg" src="../../images/bar.png"></image>
+        <view class="name">{{item.name}}</view>
+    </view>
+
+
+</view>
+
+
+<view class="ranking">
+    <view class="item"  wx:for="{{items}}" wx:for-item="post" wx:key="id" index='{{index}}'>
+        <view class="p">
+            <item border="{{false}}" post="{{post}}"></item>
+            <view class="rank">
+                <image wx:if="{{index <= 2}}" src="../../images/Subtract{{index}}.png"
+                    style="width:55rpx;height:67rpx" />
+                <image wx:else src="../../images/Subtract3.png" style="width:55rpx;height:67rpx" />
+                <text class="subtract">{{index+1}}</text>
+            </view>
+
         </view>
     </view>
-</view> 
+</view>
 
 <button open-type="share" class="buttons" bindtap="shareHandle">分享楼盘给更多好友</button>

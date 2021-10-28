@@ -22,3 +22,4 @@
         <image style="width:100%;" mode="widthFix" wx:if="{{pageConfig.bg.image}}" src="{{pageConfig.bg.image }}" />
     </view>
 </view>
+

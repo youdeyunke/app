@@ -6,7 +6,7 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        myid: {type: Number,value:null},
+        postId: {type: Number,value:null},
         booked: { type: Boolean, value: false },
         currentTimeIndex: null,
     },
@@ -31,9 +31,7 @@ Component({
     },
 
     ready: function () {
-        console.log("this.propo.post",this.properties.myid)
         var user = app.globalData.userInfo
-        console.log("user",user)
         this.setData({ 
             user: user ,
             mobile:  user ?  user.mobile : '',
@@ -201,7 +199,7 @@ Component({
 
             var _this = this
             var log = {
-                post_id: this.properties.myid,
+                post_id: this.properties.postId,
                 name: this.data.name, 
                 remark: this.data.remark, 
                 mobile: this.data.mobile, 

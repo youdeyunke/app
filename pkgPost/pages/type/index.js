@@ -64,7 +64,7 @@ Page({
                 var tags = [{ name: '全部', group: 0 }]
                 var tagDict = {}
                 items.forEach((item, i) => {
-                    item.cover = '../../images/image-none.png'
+                    item.cover = 'https://qiniucdn.udeve.net/fang/pkgPost/image-none.png'
                     if (item.images && item.images_list.length >= 1) {
                         item.cover = item.images_list[0]
                     }

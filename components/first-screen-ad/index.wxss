@@ -1,8 +1,9 @@
 .new-version-window {
   width: 600rpx;
-  height: 796rpx;
+  height: 900rpx;
   background: none;
   position: relative;
+  border-radius: 15rpx;
 }
 
 .new-version-window image.bg {
@@ -35,12 +36,15 @@
   height: 40rpx;
   line-height: 40rpx;
   border-radius: 0rpx;
+  font-size: 24rpx;
   right: 39rpx;
-  padding: 4rpx;
+  padding:0 4rpx;
   text-align: center;
   top: 36rpx;
   color: #fff;
   background: rgba(0, 0, 0, 0.5);
+  border: 2rpx solid #ffffff;
+  border-radius: 4rpx;
 
 }
 

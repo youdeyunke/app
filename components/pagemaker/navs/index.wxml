@@ -1,14 +1,13 @@
 <view class="list mode-{{config.styleName}}">
     <view wx:for="{{navs}}" class="item">
         <view data-index="{{index}}" config="{{item.link}}" class="link" hover-class="none" bindtap="clickHandle">
-            <view class="icon">
-                <image src="{{item.url}}" />
+            <view class="icon" style="background-image:url('{{item.icon}}');">
                 <view  class="count">
-         
-                    <counter album-id="{{item.albumId}}"></counter>
+                    {{item.inner_text}}
                 </view>
+                <view wx:if="{{item.badge_text}}" class="badge"><view class="text">{{item.badge_text}}</view></view>
             </view>
-            <view class="name" style="color: {{ item.color || '#333333' }}">{{item.title}}</view>
+            <view class="name" style="color: {{ item.color || '#333333' }}">{{item.name}}</view>
         </view>
     </view>
 </view>

@@ -1,6 +1,6 @@
 <navigator hover-class="none" class="cell custom-style" url="{{url}}">
     <view class="icon">
-        <image src="../../../icons/{{icon}}.png" />
+        <image class="img" src="https://qiniucdn.udeve.net/fang/pkgPost/{{icon}}.png" />
     </view>
     <view class="body">
         <text>{{title}}</text>

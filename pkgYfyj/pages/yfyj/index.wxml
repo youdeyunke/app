@@ -2,8 +2,8 @@
 
 <post-title post="{{post}}"></post-title>
 <view class="header">
-    <van-tabs animated type="line" color="#1989FA" bind:change="tabChange" sticky>
-        <van-tab wx:for="{{buildings}}" wx:if="{{b}}" wx:for-item="b" title="{{b}}"></van-tab>
+    <van-tabs animated type="line" color="#1989FA" ellipsis="{{false}}" bind:change="tabChange" sticky>
+        <van-tab wx:for="{{buildings}}" wx:if="{{b}}"  wx:for-item="b" title="{{b}}"></van-tab>
     </van-tabs>
 </view>
 

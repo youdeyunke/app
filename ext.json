@@ -5,7 +5,8 @@
     "ext": {
         "name": "开发版",
         "is_dev": true,
-        "apihos_dmeo": "https://fang.udeve.cn",
+        "apihost": "https://fang.udeve.cn",
+        "apihost_": "https://weapp1.udeve.cn/39079",
         "apihost": "http://192.168.31.66:20211",
         "version_desc": "这里是版本介绍信息",
 

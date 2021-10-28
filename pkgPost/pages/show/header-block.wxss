@@ -78,13 +78,15 @@
     margin-bottom: 30rpx;
 }
 
-.nav-item image {
+.nav-item .img {
     width: 80rpx;
     height: 80rpx;
     margin-bottom: 10rpx;
 }
 
-
+.nav-item.disable .img{
+    filter: grayscale(1);
+}
 
 .cell-group{
     margin-top:15rpx;

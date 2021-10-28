@@ -1,4 +1,6 @@
 const link = require("../link")
+const app = getApp()
+
 
 
 // components/pagemaker/navs/index.js
@@ -11,21 +13,24 @@ Component({
     },
 
     observers: {
-        "config.items": function (items) {
-            var navs = items.map((item, i) => {
-                console.log('nav item', item)
-                if (item.showCount && item.link && item.link.path.includes('album_id')) {
-                    var r = item.link.path.split('album_id=')
-                    item.showCount = true
-                    item.albumId  = r[1]
-              
-                }else{
-                    item.showCount = false 
+        "config.positionId": function (pid) {
+            if(!pid){
+                return false 
+            }
+            var _this = this 
+            // 根据position id 查询导航按钮
+            app.request({
+                url: '/api/v1/navs?position_id=' + pid, 
+                hideLoading: true, 
+                success: function(res){
+                    if(res.data.status != 0){
+                        return 
+                    }
+                    _this.setData({navs: res.data.data})
                 }
-                return item
             })
-            console.log('navs is', navs)
-            this.setData({ navs: navs })
+
+            
         },
     },
 
@@ -42,10 +47,15 @@ Component({
      */
     methods: {
         clickHandle: function (e) {
-            console.log('nav click', e)
             const { index } = e.currentTarget.dataset
             var item = this.data.navs[index]
-            link.clickHandle(item.link)
+            var obj = {} 
+            try{
+                obj = JSON.parse(item.link) 
+            }catch(error){
+                console.log(error)
+            }
+            link.clickHandle(obj)
 
         }
 

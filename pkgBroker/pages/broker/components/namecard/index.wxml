@@ -17,7 +17,7 @@
   </van-popup>
 
   <view class="outer" >
-    <image class="bg" src="../../../../images/broker-bg.png"></image>
+    <image class="bg" src="https://qiniucdn.udeve.net/fang/broker-page-bg.png"></image>
     <view class="main">
       <view class="info">
         <view class="name cell">
@@ -44,17 +44,17 @@
         <button open-type="share" class="share"></button>
 
         <view class="btn">
-          <image class="icon" src="../../../../icons/share.png"></image>
+          <image class="icon" src="https://qiniucdn.udeve.net/fang/pkgBroker/share.png"></image>
           <view>转发分享</view>
         </view>
 
         <view bindtap="likeHandle" class="btn">
-          <image class="icon" src="../../../../icons/like.png"></image>
-          <view>点赞（{{likeNums}}）</view>
+          <image class="icon" src="https://qiniucdn.udeve.net/fang/pkgBroker/like.png"></image>
+          <view>点赞({{likeNums}})</view>
         </view>
         <view bindtap="qrHandle" class="btn">
-          <image class="icon" src="../../../../icons/wechat.png"></image>
-          <view>加好友</view>
+          <image class="icon" src="https://qiniucdn.udeve.net/fang/pkgBroker/wechat.png"></image>
+          <view style="margin-left:10rpx;">加好友</view>
         </view>
 
       </view>

@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "brokeroperation":"../../components/brokeroperation/index",
-    "operation":"../../components/operation/index"
-  }
-}

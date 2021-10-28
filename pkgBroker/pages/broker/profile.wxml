@@ -9,8 +9,8 @@
   </ud-card>
 
   <view class="profile-fun">
-    <image src="../../images/10.png" bindtap="chatHandle"></image>
-    <image src="../../images/9.png" bindtap="callphone"></image>
+    <image src="https://qiniucdn.udeve.net/fang/pkgBroker/10.png" bindtap="chatHandle"></image>
+    <image src="https://qiniucdn.udeve.net/fang/pkgBroker/9.png" bindtap="callphone"></image>
   </view>
 
 

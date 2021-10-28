@@ -5,10 +5,10 @@
             <fav pid="{{post.id}}"></fav>
         </div>
         <div class="share" bindtap="shareHandle">
-            <image src="../../icons/contact/share.png" />
+            <image src="https://qiniucdn.udeve.net/fang/pkgPost/share.png" />
             <view>转发</view>
         </div>
-        <block wx:if="{{post.brokers_count > 0}}">
+        <block wx:if="{{post.brokers_count > 0}}">1
             <div class="btn btn1" bindtap="bookingHandle">
                 <view class="name">预约看房</view>
                 <view class="desc">置业顾问免费带看</view>
@@ -25,5 +25,5 @@
     </view>
     <share-box wx:if="{{post}}" post-info="{{post}}" model:show="{{showShareBox}}" />
 
-    <post-booking bind:change="bookingChange" booked="{{bookingStatus}}"myid="{{post.id}}" id="booking"/>
+    <post-booking bind:change="bookingChange" booked="{{bookingStatus}}"post-id="{{post.id}}" id="booking"/>
 </block>

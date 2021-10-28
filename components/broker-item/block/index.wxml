@@ -2,10 +2,10 @@
 
           <van-image round width="100rpx" height="100rpx"  src="{{item.avatar}}?imageView2/5/h/100/w/100" lazy-load />
           <view class="broker-name line-limit">{{ item.name }}
-            <image class="level" src="/assets/icons/medal/{{item.level}}.png" ></image>
+            <image class="level" src="https://qiniucdn.udeve.net/fang/medal.{{item.level}}.png" ></image>
           
           </view>
           <view class="broker-company line-limit">{{ item.post_title || '' }}</view>
-          <view class="btn">咨询TA</view>
+          <view class="btn">咨询</view>
 
       </navigator>

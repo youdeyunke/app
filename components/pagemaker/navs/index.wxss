@@ -12,24 +12,44 @@
 .list .item .icon {
     width: 100rpx;
     height: 100rpx;
+    background-size: 100rpx 100rpx; 
+    background-repeat: no-repeat;
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;    
     align-items: center;
 }
 
-.list .item .icon image {
-    width: 90rpx;
-    height: 90rpx;
+.list .item .icon .badge{
+    position: absolute;
+    top:-20rpx; 
+    left: -20rpx;
+
+    z-index:11;
+    font-size: 36rpx; 
+    min-width: 200rpx;
+    max-width: 240rpx;
+    overflow: hidden;
+    height: 72rpx;
+    background:#F43535; 
+    color:#fff; 
+    border-radius: 16rpx;
+    padding:4rpx 8rpx;
+    border: 2rpx solid #fff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.5);
 }
+
 
 .list .item .count {
     position: absolute;
     top: 0rpx;
-    left: 5rpx;
-    height: 90rpx;
-    width: 90rpx;
+    left: 0rpx;
+    height: 100rpx;
+    width: 100rpx;
     display: flex;
     justify-content: center;
     align-items: center;

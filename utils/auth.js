@@ -42,6 +42,7 @@ module.exports = {
 
     gotoAuth: util.throttle(function (e) {
         console.log('由截流函数执行')
+        wx.hideLoading()
         wx.navigateTo({ url: '/pkgAuth/pages/auth/index' })
     }, 1000),
 

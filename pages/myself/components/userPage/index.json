@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "person":"../person/index",
-    "operation":"../operation/index"
-  }
-}

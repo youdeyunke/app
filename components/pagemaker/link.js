@@ -42,7 +42,9 @@ module.exports = {
 
     pageHandle: function (config) {
         var path = config.path
-        switch (config.opentype) {
+        var ot = config.opentype || 'navigateTo'
+  
+        switch (ot) {
             case 'switchTab':
                 wx.switchTab({
                 url: path,

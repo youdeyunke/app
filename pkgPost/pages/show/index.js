@@ -45,6 +45,28 @@ Page({
         });
     },
 
+    gotoSubpage: function(name){
+        // 跳转进入子页面
+        var pid = this.data.postId 
+        var url = null
+        switch(name){
+            case 'xiangce':
+                 url = '/pkgXiangce/pages/xiangce/index?post_id=' + pid  
+            break;
+            case 'yfyj': 
+             url = '/pkgYfyj/pages/yfyj/index?post_id=' + pid 
+            break; 
+            case 'vr': 
+             url = '/pkgVr/pages/vr/index?post_id=' + pid  
+            break; 
+        }
+
+        if(!url){
+            return 
+        }
+        wx.navigateTo(url)
+    },
+
 
     loadPostBlocks: function () {
         var _this = this
@@ -130,11 +152,10 @@ Page({
         var sceneKey = options.scene_key || 'default'
         app.globalData.sourceUid = sourceUid
         app.globalData.sceneKey = sceneKey
-
         app.markVisitor('post', postId)
         _this.setData({ postId: postId }, () => {
             _this.loadData()
-
+            _this.gotoSubpage(options.subpage)
         })
    
         wx.hideShareMenu({

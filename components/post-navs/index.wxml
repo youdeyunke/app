@@ -1,23 +1,23 @@
 <!--components/post-navs/index.wxml-->
 <view class="house-bottom">
   <navigator class="house-bottom-class" url="/pkgPost/pages/type/index?post_id={{post.id}}">
-      <image class="house-image4" src="/assets/icons/navs/huxin.png"></image>
+      <image class="house-image4" src="https://qiniucdn.udeve.net/fang/post-nav-huxin.png"></image>
       <text>户型图</text>
     </navigator>
     <navigator class="house-bottom-class" url="/pkgEvent/pages/event/index?post_id={{post.id}}">
-      <image class="house-image4" src="/assets/icons/navs/dongtai.png"></image>
+      <image class="house-image4" src="https://qiniucdn.udeve.net/fang/post-nav-dongtai.png"></image>
       <text>楼盘动态</text>
     </navigator>
     <navigator class="house-bottom-class" url="/pkgPost/pages/desc/index?post_id={{post.id}}">
-      <image class="house-image4" src="/assets/icons/navs/xiangqin.png"></image>
+      <image class="house-image4" src="https://qiniucdn.udeve.net/fang/post-nav-xiangqin.png"></image>
       <text>楼盘详情</text>
     </navigator>
     <navigator class="house-bottom-class" url="/pkgPost/pages/zhoubian/index?post_id={{post.id}}">
-      <image class="house-image4" src="/assets/icons/navs/zhoubian.png"></image>
+      <image class="house-image4" src="https://qiniucdn.udeve.net/fang/post-nav-zhoubian.png"></image>
       <text>周边配套</text>
     </navigator>
     <navigator class="house-bottom-class" url="/pkgYfyj/pages/yfyj/index?post_id={{post.id}}">
-      <image class="house-image4" src="/assets/icons/navs/yfyj.png"></image>
+      <image class="house-image4" src="https://qiniucdn.udeve.net/fang/post-nav-yfyj.png"></image>
       <text>一房一价</text>
     </navigator>
   </view>

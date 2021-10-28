@@ -10,40 +10,38 @@
         "pages/clue/form",
         "pages/fangyuan/index",
         "pages/fangyuan/show",
-
         "pages/admin/booking",
         "pages/admin/xiangce/index"
       ]
     },
-
     {
-      "root": "pkgMyself", 
+      "root": "pkgMyself",
       "name": "pkgmyself",
       "pages": [
         "pages/profile/index",
         "pages/favposts/index",
+        "pages/eventposts/index",
         "pages/booking/index",
         "pages/comments/index",
         "pages/qa/index",
         "pages/history/index"
       ]
     },
-  
     {
-      "root": "pkgError", 
+      "root": "pkgError",
       "name": "pkgerror",
       "pages": [
         "pages/404/index",
         "pages/444/index"
       ]
     },
-
     {
       "root": "pkgPost",
       "name": "pkgpost",
       "pages": [
         "pages/index/index",
         "pages/show/index",
+        "pages/booking/index",
         "pages/desc/index",
         "pages/type/index",
         "pages/zhoubian/index"
@@ -103,7 +101,6 @@
         "pages/fenxiao/report",
         "pages/fenxiao/report-detail",
         "pages/fenxiao/show"
-  
       ]
     },
     {
@@ -168,7 +165,6 @@
         "pages/comment/new"
       ]
     },
-  
     {
       "root": "pkgVr",
       "name": "pkgVr",
@@ -202,7 +198,6 @@
         "pages/auth/index",
         "pages/auth/terms",
         "pages/auth/sms"
-        
       ]
     },
     {
@@ -219,7 +214,6 @@
         "page/search/index"
       ]
     },
-
     {
       "root": "pkgLicense",
       "name": "license",
@@ -240,34 +234,23 @@
       "pages": [
         "pages/brokers/index"
       ]
-    },
-
-    {
-      "root": "pkgEventPosts",
-      "name": "posts",
-      "pages": [
-        "pages/posts/index"
-      ]
     }
+
   ],
-
-
   "pages": [
     "pages/home/home",
+    "pages/post/post",
     "pages/want/index",
     "pages/faxian/index",
     "pages/myself/index",
     "pages/messages/index",
-
     "pages/home/debug",
     "pages/messages/show",
     "pages/cities/select",
     "pages/districts/select",
-
     "pages/udeve/index",
     "pages/visitors/index",
     "pages/qr/show"
-
   ],
   "tabBar": {
     "custom": false,
@@ -281,12 +264,6 @@
         "iconPath": "/assets/tabs-1/home.0.png",
         "selectedIconPath": "/assets/tabs-1/home.1.png",
         "text": "首页"
-      },
-      {
-        "pagePath": "pages/want/index",
-        "iconPath": "/assets/tabs-1/post.0.png",
-        "selectedIconPath": "/assets/tabs-1/post.1.png",
-        "text": "找房"
       },
       {
         "pagePath": "pages/messages/index",
@@ -318,12 +295,10 @@
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {
-    "cr": "/components/copyright",
+    "copyright": "/components/copyright",
     "navigation-bar": "/components/navBar/navBar",
-   
     "no-result": "/components/no-result",
     "van-panel": "/vant/panel/index",
-
     "van-rate": "/vant/rate/index",
     "van-icon": "/vant/icon/index",
     "van-image": "/vant/image/index",
@@ -347,7 +322,6 @@
     "cell-radio": "/components/cell-radio",
     "mycard": "/components/ud/card/index",
     "box": "/components/ud/box/index",
-
     "ud-card": "/components/ud/card/index",
     "ud-box": "/components/ud/box/index",
     "ud-checkbox": "/components/ud/checkbox/index",
@@ -355,7 +329,6 @@
     "ud-tabs": "/components/ud/tabs/index",
     "ud-header": "/components/ud/header/index",
     "ud-textarea": "/components/ud/textarea/index"
-
   },
   "networkTimeout": {
     "request": 100000,

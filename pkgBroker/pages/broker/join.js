@@ -17,69 +17,69 @@ Page({
             name: '',
             id: ''
         },
-        sex:'1',
-        sexOptions:[{
-            label:'男',
-            value:'1'
-        },
-        {
-            label:'女',
-            value:'0'
-        }
-    ],
+        sex: '1',
+        sexOptions: [{
+                label: '男',
+                value: '1'
+            },
+            {
+                label: '女',
+                value: '0'
+            }
+        ],
         state: '',
         phonenumber: '',
-        imageurl1: "../../images/join/7.png",
-        imageurl2: "../../images/join/8.png",
-        imageurl3: "../../images/join/9.png",
+        imageurl1: "https://qiniucdn.udeve.net/fang/broker-join-upload-avatar.png",
+        imageurl2: "https://qiniucdn.udeve.net/fang/broker-join-upload-qr.png",
+        imageurl3: "https://qiniucdn.udeve.net/fang/broker-join-upload-namecard.png",
         formData: {
             name: '',
             wechat: '',
             wechat_qr: '',
             namecard: '',
             avatar: '',
-            post_title:'',
-            post_id:'',
-            sex:1
+            post_title: '',
+            post_id: '',
+            sex: 1
         },
         keyword: '',
         showkw: false,
         userstate: '',
-        join_status:'',
-        building_length:''
+        join_status: '',
+        building_length: ''
     },
     //接受子组件传过来的数据
-    valueHandle:function(e){
-        console.log("e",e)
+    valueHandle: function (e) {
+        console.log("e", e)
         var formdata = this.data.formData;
         formdata['post_title'] = e.detail.title;
-        formdata['post_id']=e.detail.id
+        formdata['post_id'] = e.detail.id
         this.setData({
-            keyword:e.detail.title,
-            showkw:false,
-            formData:formdata
+            keyword: e.detail.title,
+            showkw: false,
+            formData: formdata
         })
     },
-    changeSex:function(e){
+    changeSex: function (e) {
         var value = e.detail.item.value
         var sex = this.data.sex
-        if(value==0){
-            sex=0
+        if (value == 0) {
+            sex = 0
         }
-        if(value==1){
-            sex=1
+        if (value == 1) {
+            sex = 1
         }
         this.setData({
-            sex:sex,
+            sex: sex,
         })
         var formdata = this.data.formData
-        formdata['sex']=sex
+        formdata['sex'] = sex
     },
-    showHandle:function(e){
-        console.log("e",e)
-        if(e.detail==0){
+    showHandle: function (e) {
+        console.log("e", e)
+        if (e.detail == 0) {
             this.setData({
-                showkw:false
+                showkw: false
             })
         }
     },
@@ -87,13 +87,13 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    
+
 
 
     serachHandle: function (e) {
         var value = e.detail.value;
         var formdata = this.data.formData
-        formdata['post_title']=value
+        formdata['post_title'] = value
         console.log("经纪人页面eeee", value)
         this.setData({
             keyword: value,
@@ -119,7 +119,7 @@ Page({
         var _this = this
         wx.showLoading()
         this.setData({
-            loading: true, 
+            loading: true,
         })
         auth.ensureUser(function (userInfo) {
             var mobile = _this.data.userInfo.mobile
@@ -127,28 +127,28 @@ Page({
                 phonenumber: mobile,
             })
         })
-        if(q.post_id){
+        if (q.post_id) {
             this.setDefaultPost(q.post_id)
         }
         wx.setNavigationBarTitle({
-          title: '申请入驻',
+            title: '申请入驻',
         })
     },
 
 
-    setDefaultPost: function(pid){
+    setDefaultPost: function (pid) {
         // 默认选中的楼盘 
-        var _this = this  
+        var _this = this
         var fdata = this.data.formData
         app.request({
-            url: '/api/v1/post_base_info/' + pid, 
-            success: function(resp){
-                var p = resp.data.data 
-               fdata.post_id = pid  
-               fdata.post_title = p.title
-               _this.setData({
-                   formData: fdata,
-                   keyword: p.title,
+            url: '/api/v1/post_base_info/' + pid,
+            success: function (resp) {
+                var p = resp.data.data
+                fdata.post_id = pid
+                fdata.post_title = p.title
+                _this.setData({
+                    formData: fdata,
+                    keyword: p.title,
                 })
             }
         })
@@ -304,24 +304,31 @@ Page({
             },
             method: "POST",
             success: function (resp) {
-                if (resp.data.status == 0) {
-                    wx.showToast({
-                        icon: 'success',
-                        title: '提交成功'
-                    })
-                    var tplid = ['1B_NsYpER2LW7Kbymr_iS9xqG7kUwtl_sNP1ja1GTVs']
-                    app.createSubTpl(tplid, (r) => {
-                        wx.navigateTo({
-                            url: '/pkgBroker/pages/broker/audit/index?status=pending',
-                        })
-                    })
+                if (resp.data.status != 0) {
+                    return
                 }
+
+                wx.showToast({
+                    icon: 'success',
+                    title: '提交成功'
+                })
+                var tplid = ['1B_NsYpER2LW7Kbymr_iS9xqG7kUwtl_sNP1ja1GTVs']
+                app.createSubTpl(tplid, (r) => {
+
+                })
+         
+                setTimeout( function(){
+                    wx.navigateTo({
+                        url: '/pkgBroker/pages/broker/audit/index?status=pending',
+                    })
+                },1000)
+
             },
         })
     },
 
     submitHandle: function (e) {
-  
+
         var _this = this
         var data = e.detail.value
         //data['company_id'] = this.data.company.id
@@ -356,7 +363,7 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-   
+
     },
 
     /**
@@ -369,29 +376,29 @@ Page({
         this.checkBrokerStatus()
     },
 
-    checkBrokerStatus: function(){
-        var _this=this
+    checkBrokerStatus: function () {
+        var _this = this
         app.request({
-            url: '/api/v1/brokers/check_status', 
+            url: '/api/v1/brokers/check_status',
             method: 'POST',
             data: {},
-            success: function(resp){
-                console.log("res",resp)
+            success: function (resp) {
+                console.log("res", resp)
                 _this.setData({
-                    userstate:resp.data.data
-                }) 
-                var join_status = resp.data.data.join_status  
+                    userstate: resp.data.data
+                })
+                var join_status = resp.data.data.join_status
                 // 审核中
 
-                if(join_status==1){
+                if (join_status == 1) {
                     wx.redirectTo({
-                         url: '/pkgBroker/pages/broker/audit/index?status=pending',
+                        url: '/pkgBroker/pages/broker/audit/index?status=pending',
                     })
                 }
                 // 已入驻
-                if(join_status==2){
+                if (join_status == 2) {
                     wx.redirectTo({
-                      url: '/pkgBroker/pages/broker/audit/index?status=ok',
+                        url: '/pkgBroker/pages/broker/audit/index?status=ok',
                     })
                 }
             }

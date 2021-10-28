@@ -12,17 +12,17 @@
     background: linear-gradient(to right bottom, #FDE7AE , #f3f2f0); /* 标准的语法 */
     width: 220rpx;
     height: 320rpx;
-    padding: 20rpx;
+    padding:30rpx 20rpx;
     margin: 10rpx 20rpx 10rpx 0;
     box-sizing: border-box;
     border-radius: 10rpx;
     font-size: 28rpx;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     box-shadow: 2rpx 6rpx 15rpx rgba(0,0,0, 0.15);
-    border:2rpx solid #cecece;
+    border:2rpx solid #f4f4f4;
 }
 
 .broker-item .level{
@@ -35,11 +35,14 @@
 
 .broker-item .btn{
   font-size:24rpx; 
-  color:#333; 
-  border:2rpx solid #333;
-  border-radius: 4rpx;
+  color:#7b5d04; 
+  border:2rpx solid #7b5d04;
+  border-radius: 6rpx;
   padding:2rpx 10rpx;
   letter-spacing: 2rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .broker-company{

@@ -9,12 +9,43 @@ Page({
      */
     data: {
         userInfo: {},
-        configs: {},
+        userIcons: [
+           
+            {name: '我的收藏', icon: 'myself-11.png', url: '/pkgMyself/pages/favposts/index'},
+            {name: '我的订阅', icon: 'myself-10.png', url: '/pkgMyself/pages/eventposts/index'},
+            {name: '我的预约', icon: 'myself-13.png', url: '/pkgMyself/pages/booking/index'},
+            {name: '我的问答', icon: 'myself-12.png',url: '/pkgMyself/pages/qa/index'},
+        ],
+
+        brokerIcons: [
+            {name: '主营楼盘', icon: 'myself-b7.png', handle: "gotoPost", },
+            {name: '我的主页', icon: 'myself-b6.png', handle:"gotoProfile"},
+            {name: '客户管理', icon: 'myself-b4.png', url: '/pkgAdmin/pages/clue/home'},
+            {name: '拓客名片', icon: 'myself-b4.png', url: '/pkgBroker/pages/broker/qr'},
+            {name: '报备客户', icon: 'myself-b3.png', url: '/pkgFenxiao/pages/fenxiao/report'},
+            {name: '历史报备', icon: 'myself-b2.png', url: '/pkgFenxiao/pages/fenxiao/index'},
+        ],
+        cache: '0 kb', // cache value
+
         n: 0
     },
 
     gotoLoginPage: function (e) {
         wx.navigateTo({ url: '/pkgAuth/pages/auth/index', })
+    },
+
+    gotoPost: function(){
+        var url = '/pkgAdmin/pages/fangyuan/show?id=' + this.data.userInfo.post_id  
+        wx.navigateTo({
+            url: url 
+        })
+    },
+
+    gotoProfile: function(){
+        var url = '/pkgBroker/pages/broker/profile?id=' + this.data.userInfo.id 
+        wx.navigateTo({
+            url: url 
+        })
     },
 
     doUpdate: function (userInfo) {
@@ -81,6 +112,7 @@ Page({
         var _this = this
         wx.getStorageInfo({
             success(res) {
+                console.log('cache', res)
                 _this.setData({ cache: res })
             }
         })

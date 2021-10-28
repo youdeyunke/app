@@ -1,9 +1,9 @@
-<image class="join-image1" src="../../images/join/1.png"></image>
+<image class="join-image1" src="https://qiniucdn.udeve.net/fang/broker-join-bg.png"></image>
 <view class="join-box">
     <view class="join-nav-box">
         <block wx:if="{{userstate.join_status==-1}}">
             <view class="join-warn">
-                <image src="../../images/15.png"></image>
+                <image src="https://qiniucdn.udeve.net/fang/pkgBroker/15.png"></image>
                 <view>
                     <view>审核状态：暂未通过！请修改资料重新提交</view>
                     <view>拒绝原因：{{userstate.info}}!</view>
@@ -28,7 +28,7 @@
                         <text>主营楼盘</text>
                         <input data-key="post_title" bindinput="serachHandle" type="text" placeholder="请输入楼盘名称全称"
                             value="{{keyword}}" />
-                        <image class="image3" src="../../images/join/6.png"></image>
+                        <image class="image3" src="https://qiniucdn.udeve.net/fang/pkgBroker/join/6.png"></image>
                     </view>
                     <block wx:if="{{showkw===true}}">
                         <scroll-view class="mysearch-box" scroll-y="true">

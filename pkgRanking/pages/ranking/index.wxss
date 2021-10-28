@@ -1,35 +1,108 @@
 /* pkgRanking/pages/ranking/index.wxss */
 page{
     margin-bottom: 200rpx;
-    background:#fff;
+    background:#9F4856;
 }
-.ranking{
-    width: 750rpx;
+
+.header {
+    width:750rpx;
+    height: 722rpx; 
+    position: relative;
+}
+
+.header .bg{
+    width:100%;
+    height:722rpx ;
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+.bar{
+    width: 710rpx; 
+    height:100rpx;
+    position: relative;
+    margin:40rpx auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bar .bg{
+    width:710rpx; 
+    height:100rpx; 
+    z-index:2;
+    position:absolute;
+}
+
+.bar-item{
+    position: relative;
+    height: 100rpx;
+    width: 25%;
 
 }
-.image{
-    width:750rpx;
-    height: 500rpx; 
-    position: absolute;
-    top: 0; left: 0; 
-    z-index: -1;
+
+.bar-item  .name{
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#fff; 
+    font-weight: bolder ;
+    font-size:32rpx;
+    z-index:4;
+    position:absolute;
+    top:0;
+    left:0;
 }
-.content{
+
+.bar-item.active{
+    height:120rpx;
+}
+
+.bar-item.active .item-bg{
+    bottom:10rpx;
+}
+
+.bar-item.active .name{
+    padding-bottom:20rpx;
+    color: #FFDCB2;
+    font-size: 38rpx;
+}
+
+
+.bar-item .item-bg{
+    position:absolute;
+    height: 120rpx;
+    width: 100%;
+    z-index:3;
+    bottom:0rpx;
+    left:0rpx;
+    border-radius: 10rpx;
+}
+
+
+.header .tips{
     width: 710rpx;
     height: 108rpx;
     font-size: 24rpx;
     position: absolute;
-    top: 273rpx;left: 20rpx;
+    bottom: 30rpx;
+    left: 20rpx;
     color: #fff;
     background: rgba(24,24,24,.35);
     box-sizing: border-box;
     padding: 20rpx ;
+
 }
 .item{
-    padding: 20rpx 20rpx;
-    margin-top: 400rpx;
+    padding: 20rpx;
+    margin:0 auto 20rpx auto;
     z-index: 2;
     background:#fff;
+    width:710rpx;
+    border-radius: 20rpx;
 }
 .buttons{
     width: 710rpx;

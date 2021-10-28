@@ -1,6 +1,6 @@
 <van-popup show="{{show}}" duration="800" custom-style="background:none;">
     <view class="new-version-window">
-        <view class="close-text" data-skip_nums="{{skip_nums}}" bindtap="closeHandle">关闭({{second}}s)</view>
+        <view class="close-text" data-skip_nums="{{skip_nums}}" bindtap="closeHandle">{{second}} s</view>
         <image src="{{url}}" class="bg" data-click_nums="{{click_nums}}" bindtap="adClick" />
     </view>
     <view class="fork">

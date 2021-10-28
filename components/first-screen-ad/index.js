@@ -36,7 +36,7 @@ Component({
 		loadData() {
 			var _this = this
 			app.request({
-				url: '/api/v1/first_screen_ads',
+				url: '/api/v1/first_screen_adds',
 				method: 'get',
 				success: function (res) {
 					console.log(res)
@@ -56,7 +56,7 @@ Component({
 			for(var key in keys){
 			}
 			app.request({
-				url: '/api/v1/first_screen_ads/' + this.data.id,
+				url: '/api/v1/first_screen_adds/' + this.data.id,
 				method: 'PUT',
 				data: {
 					[key]:keys[key]

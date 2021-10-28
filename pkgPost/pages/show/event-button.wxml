@@ -2,7 +2,7 @@
     <van-popup closeable round bind:close="closeHandle" duration="400" show="{{showDialog}}">
         <view class="dialog">
             <view class="title">
-                <image src="../../icons/dingyue-{{status}}.png" />
+                <image src="https://qiniucdn.udeve.net/fang/pkgPost/dingyue-{{status}}.png" />
                 {{ nameDict['title'][status] }}
             </view>
             <view class="desc">{{ nameDict['desc'][status] }}</view>
@@ -23,7 +23,7 @@
         </view>
     </van-popup>
     <view class="action {{ status == 1 ? 'dark' : '' }}" bindtap="openHandle">
-        <image src="../../icons/dingyue-{{status}}.png" />
+        <image src="https://qiniucdn.udeve.net/fang/pkgPost/dingyue-{{status}}.png" />
         <view class="status-text">{{ nameDict['btn'][status] }}</view>
     </view>
 </block>

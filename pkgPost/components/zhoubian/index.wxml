@@ -2,7 +2,7 @@
     <scroll-view class="tabs_title" scroll-x='{{true}}'>
         <view wx:for='{{tabs}}' wx:key='id' class="title_item  {{ index === active ? 'current-active' : ''}}" bindtap="handleItemTap" data-index='{{index}}'>
             <view class="content">
-                <image class="icon" src="../../icons/zhoubian/{{item.icon}}" />
+                <image class="icon" src="https://qiniucdn.udeve.net/fang/{{item.icon}}" />
                 <view class="name">{{item.name}}</view>
                 <view class="active" hidden="{{index != active}}"></view>
             </view>

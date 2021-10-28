@@ -8,32 +8,55 @@ Page({
    * 页面的初始数据
    */
   data: {
-    rank: null,
+    items: [], 
+    currentTabIndex:0,
+    tabs: [
+      {name: '综合榜', value: 'all'},
+      {name: '搜索榜', value: 'search'},
+      {name: '人气榜', value: 'hot'},
+      {name: '关注榜', value: 'like'},
+    ],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
-    var _this = this
-    this.setData({
-      rankId: q.id || q.rank_id
-    }, function(){
-      _this.loadData()
-    })
+      this.loadData()
   },
 
   loadData: function(){
-    var _this = this   
+    var query = {
+      cat: this.data.tabs[this.data.currentTabIndex].value, 
+    }
+    var _this = this  
     app.request({
-      url: '/api/v1/post_rank/' + this.data.rankId, 
-      success: function(resp){
-        _this.setData({
-          rank: resp.data.data
-        })
+      url: '/api/v1/post_rank', 
+      data: query, 
+      success: function(res){
+        if(res.data.status != 0){
+          return
+        }
+        _this.setData({items: res.data.data})
       }
     })
   },
+
+  
+  tabClick: function(e){
+    var i = e.currentTarget.dataset.index
+    if(i == this.data.currentTabIndex){
+      return
+    }
+    this.setData({
+      currentTabIndex: i
+    }, () => {
+      this.loadData() 
+    })
+
+  },
+
+
 
   shareHandle(){
     

@@ -2,7 +2,7 @@
     <scroll-view scroll-x="{{true}}" class="xiangce" scroll-with-animation="{{true}}" wx:if="{{albums.length >= 1}}">
         <navigator url="/pkgXiangce/pages/xiangce/index?post_id={{value.post_id}}" hover-class="none"
             class="xiangce-item" wx:for="{{albums}}" wx:key="id" wx:for-item="album">
-            <image class="image" src="{{album.cover || '../../images/image-none.png'}}" />
+            <image class="image" src="{{album.cover || 'https://qiniucdn.udeve.net/fang/pkgPost/image-none.png'}}" />
             <view class="title">{{album.name}}({{album.items_count}})</view>
         </navigator>
     </scroll-view>

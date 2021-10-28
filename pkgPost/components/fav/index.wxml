@@ -1,4 +1,4 @@
 <view report-submit class="myfav" bindtap="clickHandle">
-    <image class="icon" src="../../icons/fav/{{status}}.png" />
+    <image class="icon" src="https://qiniucdn.udeve.cn/fang/pkgPost/fav.{{status}}.png" />
     <text>{{ status == 1 ? '已收藏' : '收藏' }}</text>
 </view>

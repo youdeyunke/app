@@ -1,8 +1,9 @@
+<navigation-bar   background="none" background-color-top="none"></navigation-bar>
 
 <first-screen-ad />
 
 <van-transition wx:if="{{system.systemName}}" show="{{showInstallTips == 1}}" duration="500" name="fade-down" custom-class="install-tips" bindtap="closeInstallTips">
-    <image src="/assets/images/install-tips-{{system.systemName}}.png" />
+    <image src="https://qiniucd.udeve.net/fang/install-tips-{{system.systemName}}.png" />
 </van-transition>
 
 <page-loading wx:if="{{loading}}" />

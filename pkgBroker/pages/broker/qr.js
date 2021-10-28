@@ -72,7 +72,7 @@ Page({
       loading: true
     })
     var _this = this
-    var bgImg = '../../images/poster-bg.jpg'
+    var bgImg = 'https://qiniucdn.udeve.net/fang/pkgBroker/poster-bg.jpg'
 
     var desc = ''
     if (this.data.userInfo.desc) {

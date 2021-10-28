@@ -22,6 +22,8 @@ Page({
         var item = e.detail 
         this.setData({currentRoomId: item.id })
         this.selectComponent('#room-detail').onShow(item)
+        // 点击了一房一价中的具体房间
+        app.markVisitorAction('click_room', item.id, 0)
     },
 
     tabChange: function (e) {

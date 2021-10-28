@@ -15,7 +15,7 @@ Component({
                     item.cover = item.images_list[0]
                 } else {
                     item.hasImage = false
-                    item.cover = '../../images/image-none.png'
+                    item.cover = 'https://qiniucdn.udeve.net/fang/pkgPost/image-none.png'
                 }
                 return item
             })

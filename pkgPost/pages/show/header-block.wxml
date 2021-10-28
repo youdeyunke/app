@@ -20,8 +20,8 @@
         <cell wx:if="{{post.license_info.show}}"  custom-style="cell-item" icon="yu" title="{{post.license_info.label}}" url="/pkgLicense/pages/license/index?kw={{post.title}}"></cell>
     </view>
     <view class="navs">
-        <navigator url="{{nav.path}}" hover-class="none" class="nav-item" wx:key="index" wx:for="{{navs}}" wx:for-item="nav">
-            <image src="../../icons/navs/{{nav.id}}.png" />
+        <navigator url="{{nav.path}}" hover-class="none" class="nav-item {{ nav.disable == true ? 'disable': ''}}" wx:key="index" wx:for="{{navs}}" wx:for-item="nav">
+            <image class="img" src="https://qiniucdn.udeve.net/fang/post-nav-{{nav.id}}.png" />
             <view>{{nav.name}}</view>
         </navigator>
     </view>

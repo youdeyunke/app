@@ -9,13 +9,13 @@
             </view>
             <view class="video-icon">
                 <block wx:if="{{post.has_live==true }}">
-                    <image src="/assets/icons/post/live.png"></image>
+                    <image src="https://qiniucdn.udeve.net/fang/post-cover-icon-live.png"></image>
                 </block>
                 <block wx:if="{{post.has_video==true }}">
-                    <image src="/assets/icons/post/video.png"></image>
+                    <image src="https://qiniucdn.udeve.net/fang/post-cover-icon-video.png"></image>
                 </block>
                 <block wx:if="{{post.has_vr==true}}">
-                    <image src="/assets/icons/post/VR.png"></image>
+                    <image src="https://qiniucdn.udeve.net/fang/post-cover-icon-vr.png"></image>
                 </block>
             </view>
         </view>
@@ -37,7 +37,7 @@
     </navigator>
 
     <view class="point" wx:if="{{point  }}">
-        <image src="/assets/icons/post/point.png"></image>
+        <image src="https://qiniucdn.udeve.net/post-item-point.png"></image>
         <text class="title">{{ point.title || '项目亮点' }} </text>
         <text class="content">{{ point.content }}</text>
     </view>
