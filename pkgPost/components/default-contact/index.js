@@ -62,6 +62,7 @@ Component({
                 content: t, 
                 success:(res) => {
                     if(res.confirm){
+                        app.markVisitorAction('click_phone', null, 0)
                         wx.makePhoneCall({
                             phoneNumber: phone,
                             success: (result) => {

@@ -15,6 +15,13 @@
       ]
     },
     {
+      "root": "pkgHandwriting", 
+      "name": "pkghandwriting",
+      "pages": [
+        "pages/handwriting/index"
+      ]
+    },
+    {
       "root": "pkgMyself",
       "name": "pkgmyself",
       "pages": [

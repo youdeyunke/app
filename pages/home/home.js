@@ -37,7 +37,7 @@ Page({
         this.setData({ loading: true })
         var _this = this
         app.loadConfigs(function (configs) {
-            _this.selectComponent('#pm').reload()
+            _this.selectComponent('.pm').reload()
             _this.setData({ configs: configs })
             wx.stopPullDownRefresh()
             wx.hideNavigationBarLoading()
@@ -92,10 +92,8 @@ Page({
         this.setData({
             shareCover: shareCover, 
             shareTitle: shareTitle,
+            pageTitle: pageTitle,
             loading: false
-        })
-        wx.setNavigationBarTitle({
-          title: pageTitle,
         })
     },
 
@@ -144,6 +142,5 @@ Page({
             title: this.data.shareTitle, 
             imageUrl: this.data.shareCover,
         }
-
     }
 })

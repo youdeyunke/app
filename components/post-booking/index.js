@@ -151,7 +151,6 @@ Component({
         },
 
         timeClick: function (e) {
-            console.log('e', e)
             var i = e.currentTarget.dataset['index']
             this.setData({ currentTimeIndex: i })
         },
@@ -160,8 +159,9 @@ Component({
         },
 
         submitHandle: function(){
+            this._submitHandle()
             this.createSubTpl((res) => {
-                this._submitHandle()
+    
             })
         },
 

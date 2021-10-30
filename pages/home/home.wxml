@@ -1,4 +1,4 @@
-<navigation-bar   background="none" background-color-top="none"></navigation-bar>
+<navigation-bar   background="rgba(0,0,0, 0.14)" color="#ffffff" background-color-top="none" title="{{pageTitle}}" title-font-color="#ffffff"></navigation-bar>
 
 <first-screen-ad />
 
@@ -7,6 +7,6 @@
 </van-transition>
 
 <page-loading wx:if="{{loading}}" />
-<pagemaker bind:ready="pageReadyHandle" ref="pagemaker" id="pm" page-key="home" />
+<pagemaker bind:ready="pageReadyHandle" ref="pagemaker" class="pm" page-key="home" />
 
 

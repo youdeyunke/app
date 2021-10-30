@@ -1,0 +1,18 @@
+<view class="wrapper">
+
+  <view class="main">
+    <canvas type="2d" class="paper" disable-scroll="true" bindtouchstart="uploadScaleStart" bindtouchmove="uploadScaleMove"
+      bindtouchend="uploadScaleEnd" bindtap="mouseDown" id="paper">
+    </canvas>
+  </view>
+
+  <view class="footer">
+    <image src="./title.png" class="mytitle">
+    </image>
+    <view class="btns">
+      <image src="./btn-reset.png" catchtap="retDraw" class="btn delBtn"></image>
+      <image src="./btn-done.png" catchtap="submitHandle" class="btn subBtn"></image>
+    </view>
+  </view>
+
+</view>

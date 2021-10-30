@@ -1,0 +1,73 @@
+page {
+  background: #f2f2f2;
+  height: auto;
+  overflow: hidden;
+}
+
+.wrapper {
+  width: 100%;
+  height: 95vh;
+  margin: 30rpx 0;
+  overflow: hidden;
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 28rpx;
+  position: relative;
+}
+
+.paper {
+
+  width: 100%;
+  height: 95vh;
+}
+
+.main {
+  border: 4rpx dashed #e9e9e9;
+  height: calc(100% - 0rpx);
+  width: 600rpx;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.footer {
+  width: 100rpx;
+  height: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer .mytitle{
+  width: 100rpx;
+}
+
+.footer .btns{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+
+.footer .btn {
+  font-size: 28rpx;
+  width: 100rpx; 
+  height: 182rpx;
+
+  text-align: center;
+  justify-content: center;
+
+}
+.delBtn {
+  color: #666;
+
+}
+
+.subBtn {
+  background: #008ef6;
+  color: #fff;
+
+}

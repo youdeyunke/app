@@ -39,6 +39,7 @@ Page({
             height: app.globalData.system.windowHeight,
         }, (res) => {
             _this.loadData()
+            _this.loadPostInfo()
         })
     },
 
@@ -58,15 +59,23 @@ Page({
             success: function (resp) {
                 _this.setData({
                     cats: resp.data.data,
-                    post: resp.data.post,
                 })
                 wx.hideLoading();
-                wx.setNavigationBarTitle({
-                    title: resp.data.post.title + '的相册',
-                })
             }
         })
 
+    },
+
+    loadPostInfo: function(){
+        var _this = this  
+        app.request({
+            url: '/api/v1/post_base_info/' + this.data.postId, 
+            success: function(resp){ 
+                var post = resp.data.data 
+                var pageTitle = post.title + '的相册'
+                _this.setData({post: post , pageTitle: pageTitle })
+            }
+        })
     },
 
     bookingHandle: function (e) {
@@ -181,14 +190,23 @@ Page({
 
     },
 
+    onShareTimeline: function () {
+        return {
+            title: this.data.pageTitle, 
+            imageUrl: this.data.post.cover,
+        }
+    },
+
     /**
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
         var path = 'pkgXiangce/pages/xiangce/index?id=' + this.data.postId
-        var title = this.data.post.title + ' 的相册 -  房小牛'
+        var title = this.data.pageTitle
         return {
-            path: path, title: title
+            imageUrl: this.data.post.cover, 
+            path: path, 
+            title: title, 
         }
 
     }

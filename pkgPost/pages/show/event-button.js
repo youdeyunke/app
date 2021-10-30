@@ -69,6 +69,7 @@ Component({
         },
 
         openHandle: function () {
+            console.log('open handle')
             wx.showLoading({
                 title: '处理中',
                 mask: true,
@@ -79,9 +80,10 @@ Component({
 
                 // 如果是新订阅
                 if (_this.data.status == 0) {
+                    _this.setData({ showDialog: true })
                     var ids = ['ut-jnNer2qYToPJ6EGQddWcRI87UWYqEIIRdQOGlBHs']
                     app.createSubTpl(ids, (res) => {                    
-                        _this.setData({ showDialog: true })
+
                     })
                     return
                 }

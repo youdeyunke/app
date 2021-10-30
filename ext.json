@@ -1,11 +1,11 @@
 {
     "extEnable": true,
     "extAppid": "wx175508800f405090",
-    "directCommit": false,
+    "directCommit": true,
     "ext": {
         "name": "开发版",
         "is_dev": true,
-        "apihost": "https://fang.udeve.cn",
+        "apihost_": "https://fang.udeve.cn",
         "apihost_": "https://weapp1.udeve.cn/39079",
         "apihost": "http://192.168.31.66:20211",
         "version_desc": "这里是版本介绍信息",

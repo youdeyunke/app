@@ -8,7 +8,7 @@
             <image src="https://qiniucdn.udeve.net/fang/pkgPost/share.png" />
             <view>转发</view>
         </div>
-        <block wx:if="{{post.brokers_count > 0}}">1
+        <block wx:if="{{post.brokers_count > 0}}">
             <div class="btn btn1" bindtap="bookingHandle">
                 <view class="name">预约看房</view>
                 <view class="desc">置业顾问免费带看</view>
