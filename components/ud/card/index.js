@@ -12,6 +12,7 @@ Component({
         subTitle: { type: String, value: '' },
         url: { type: String, value: null },
         hat: {type: Boolean, value: false, },
+        radius: {type: Number, value: 2},
         opentype: { type: String, value: 'navigateTo' }
     },
 

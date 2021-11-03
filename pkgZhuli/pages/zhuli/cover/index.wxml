@@ -1,0 +1,3 @@
+<view class="cover">
+  <image class="img" src="{{item.cover}}"></image>
+</view>

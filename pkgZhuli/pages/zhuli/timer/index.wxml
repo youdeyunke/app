@@ -1,0 +1,12 @@
+<!--pkgZhuli/pages/zhuli/timer/index.wxml-->
+<view class="outer">
+<view class="text">剩余时间</view>
+<view class="box">{{days}}</view>
+<view class="text">天</view>
+<view class="box">{{hours}}</view>
+<view class="text">小时</view>
+<view class="box">{{minutes}}</view>
+<view class="text">分</view>
+<view class="box">{{seconds}}</view>
+<view class="text">秒</view>
+</view>

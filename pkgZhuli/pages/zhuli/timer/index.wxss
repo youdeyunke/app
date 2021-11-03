@@ -1,0 +1,22 @@
+.outer{
+  width: 100%; 
+  box-sizing: border-box;
+  padding:0 30rpx;
+  height: 90rpx;
+  background: #FF7E07;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color:#fff; 
+  font-size: 28rpx; 
+}
+
+.outer .box{
+  width:60rpx; 
+  height: 60rpx; 
+  border-radius: 8rpx;
+  background:rgba(0,0,0, 0.3); 
+  line-height: 60rpx; 
+  text-align: center;
+}
+

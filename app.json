@@ -14,11 +14,31 @@
         "pages/admin/xiangce/index"
       ]
     },
+
+    {
+      "root": "pkgZhuli", 
+      "name": "pkgzhuli",
+      "pages": [
+        "pages/zhuli/index",
+        "pages/zhuli/mine"
+      ]
+    },
+
     {
       "root": "pkgHandwriting", 
       "name": "pkghandwriting",
       "pages": [
         "pages/handwriting/index"
+      ]
+    },
+    {
+      "root": "pkgRengou", 
+      "name": "pkgRengou",
+      "pages": [
+        "pages/rengou/index", 
+        "pages/rengou/pay", 
+        "pages/rengou/sign", 
+        "pages/rengou/done"
       ]
     },
     {

@@ -1,4 +1,4 @@
-<view class="box" style="width:{{width}}rpx;">
+<view class="box" style="width:{{width}}rpx;border-radius:{{radius}}rpx">
     <view class="card ">
         <view wx:if="{{title}}" class="card-header">
             <view class="card-header-title">

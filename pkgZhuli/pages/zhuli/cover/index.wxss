@@ -1,0 +1,12 @@
+.cover{
+  height: 600rpx; 
+  width: 750rpx;
+  position: relative;
+}
+
+
+
+.cover .img{
+  width: 750rpx; 
+  height: 600rpx;
+}
