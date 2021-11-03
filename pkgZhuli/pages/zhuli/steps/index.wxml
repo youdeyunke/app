@@ -1,1 +1,25 @@
-<mycard width="710" radius="15" title-size="31" title="好友助力步骤"></mycard>
+<mycard width="710" radius="15" title-size="31" title="好友助力步骤">
+  <view class="steps">
+    <view class="step">
+      <view class="number">1</view>
+      <view class="name">发起我的助力</view>
+    </view>
+
+    <image class="arrow" src="./arrow.png"></image>
+    <view class="step">
+      <view class="number">2</view>
+      <view class="name">转发给好友</view>
+    </view>
+    <image class="arrow" src="./arrow.png"></image>
+    <view class="step">
+      <view class="number">3</view>
+      <view class="name">好友助力</view>
+    </view>
+    <image class="arrow" src="./arrow.png"></image>
+    <view class="step">
+      <view class="number">4</view>
+      <view class="name">助力完成</view>
+    </view>
+
+  </view>
+</mycard>

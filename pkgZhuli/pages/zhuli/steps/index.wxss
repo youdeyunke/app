@@ -1,1 +1,37 @@
 /* pkgZhuli/pages/zhuli/steps/index.wxss */
+
+.steps{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.step {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.step .number{
+  width: 80rpx; 
+  height: 80rpx; 
+  box-sizing: border-box;
+  border-radius: 40rpx;
+  background: #C82C2C;
+  border:8rpx solid #FAE6E6;
+  color:#fff; 
+  line-height:64rpx; 
+  text-align: center;
+  font-weight: 600;
+  font-size: 28rpx;
+}
+.step .name{
+  font-size: 24rpx; 
+  color:#333;
+}
+
+.arrow{
+  width: 45rpx; 
+  height: 32rpx;
+  margin-bottom:30rpx;
+}

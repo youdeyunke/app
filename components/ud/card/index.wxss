@@ -46,13 +46,14 @@
     position: absolute;
     bottom: 6rpx;
     left: 0;
+    margin-right:8rpx;
 }
 
 .card-header-title {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-left:8rpx;
+
 }
 
 .name {

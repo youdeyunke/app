@@ -1,3 +1,12 @@
 {
-  "usingComponents": {}
+  "navigationBarBackgroundColor": "#A84343",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    
+    "raw-html": "/components/raw-html/index",
+    "steps": "./steps/index",
+    "progress": "./progress/index",
+    "timer":"./timer/index",
+    "cover": "./cover/index"
+  }
 }

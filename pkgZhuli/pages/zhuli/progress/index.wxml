@@ -1,0 +1,3 @@
+<view class="outer">
+  <view style="width:{{rate}}%;" class="main"></view>
+</view>

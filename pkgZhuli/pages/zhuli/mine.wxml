@@ -1,2 +1,35 @@
-<!--pkgZhuli/pages/zhuli/mine.wxml-->
-<text>pkgZhuli/pages/zhuli/mine.wxml</text>
+<view class="tm">
+  <timer date="{{huodong.ends_at}}"></timer>
+</view>
+
+<cover item="{{huodong}}"></cover>
+
+<view class="body">
+  <mycard title="我的助力" title-size="32" width="710">
+      <view class="tips">已有<text class="red">0</text>人助力，还差<text class="red">50</text>人即可助力成功，加油吧！</view>
+      <progress total="50" value="49"></progress>
+      <view bindtap="helpHandle" class="help">马上助力！</view>
+      <view class="help done">我已助力</view>
+  
+  </mycard>
+
+
+  <mycard title="好友助力记录" title-size="32" width="710">
+    <van-cell-group>
+      <van-cell wx:for="{{haoyouItems}}" title="{{item.name}}" value="{{item.created_at}}" size="large"></van-cell>
+    </van-cell-group>
+  </mycard>
+
+  <steps></steps>
+</view>
+
+<view class="footer">
+  <view class="btn share">
+    <button class="fake" open-type="share"></button>
+    转发告诉好友
+  </view>
+
+  <navigator hover-class="none" url="/pkgZhuli/pages/zhuli/index?id={{huodong.id}}" class="btn join">
+    回到活动页面
+  </navigator>
+</view>

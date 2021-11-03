@@ -26,7 +26,7 @@ Page({
   loadData: function(){
     var _this = this  
     app.request({
-      url: '/api/v1/zhuli/' + this.data.hid, 
+      url: '/api/v1/huodong/' + this.data.hid, 
       success: function(res){ 
         if(res.data.status != 0){
           return 
@@ -56,7 +56,7 @@ Page({
     var hid = this.data.hid 
     // 发起助力 
     app.request({
-      url: '/api/v1/zhuli', 
+      url: '/api/v1/huodong', 
       method: 'POST', 
       data: {id: hid}, 
       success: function(res){ 
@@ -65,7 +65,9 @@ Page({
         }
         var myid = res.data.data  
         var url = '/pkgZhuli/pages/zhuli/mine?id=' + myid  
-        wx.navigateTo(url)
+        wx.navigateTo({
+          url: url
+        })
       }
     })
   },
