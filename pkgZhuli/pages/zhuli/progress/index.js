@@ -4,17 +4,28 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    total: {type: Number, value: 0}, 
-    value: {type: Number, value: 0},
+    total: {
+      type: Number,
+      value: 0
+    },
+    value: {
+      type: Number,
+      value: 0
+    },
   },
 
-  ready: function(){
-    // 计算百分比 
-    if(!this.data.total){
-      return 
+
+  observers: {
+    "value": function (value) {
+      // 计算百分比 
+      if (!this.data.total) {
+        return
+      }
+      var r = 100 * value / this.data.total
+      this.setData({
+        rate: r
+      })
     }
-    var r  = 100 * this.data.value/ this.data.total
-    this.setData({rate: r})
   },
 
   /**

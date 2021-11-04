@@ -1,0 +1,6 @@
+
+  <van-popup round show="{{ show }}" bind:close="onClose">
+    <view class="window">
+      <view class="btn" bindtap="onClose">btn</view>
+    </view>
+  </van-popup>

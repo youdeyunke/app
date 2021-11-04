@@ -8,6 +8,7 @@ Page({
    */
   data: {
     item: {},
+    pageCover: 'https://qiniucdn.udeve.net/zhuli-cover.png'
 
   },
 
@@ -38,7 +39,6 @@ Page({
         _this.setData({
           item: item, 
           pageTitle: item.title, 
-          pageCover: item.cover, 
         })
       }
     })

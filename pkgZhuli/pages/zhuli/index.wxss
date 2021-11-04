@@ -1,7 +1,13 @@
 /* pkgZhuli/pages/zhuli/index.wxss */
 
 page {
-  background: linear-gradient(180deg, #A84343 0%, #8C3434 100%);
+  background-color: linear-gradient(180deg, #A84343 0%, #8C3434 100%);
+
+  padding-bottom:120rpx;
+  padding-top:300rpx;
+  height: 100%;
+  background-image: url('https://qiniucdn.udeve.net/fang/zhuli-bg.png?t=2');
+  background-size: 100% 100%;
 }
 
 .tm{

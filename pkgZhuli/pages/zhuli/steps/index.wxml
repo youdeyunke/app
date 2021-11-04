@@ -1,4 +1,4 @@
-<mycard width="710" radius="15" title-size="31" title="好友助力步骤">
+<mycard width="710" radius="20" title-size="31" title="好友助力步骤">
   <view class="steps">
     <view class="step">
       <view class="number">1</view>

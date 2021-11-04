@@ -1,4 +1,5 @@
 {
+  "navigationStyle": "custom",
   "navigationBarBackgroundColor": "#A84343",
   "navigationBarTextStyle": "white",
   "usingComponents": {
@@ -6,6 +7,7 @@
     "raw-html": "/components/raw-html/index",
     "steps": "./steps/index",
     "progress": "./progress/index",
+    "thanks": "./thanks/index",
     "timer":"./timer/index",
     "cover": "./cover/index"
   }

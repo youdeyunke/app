@@ -1,0 +1,19 @@
+/* pkgZhuli/pages/zhuli/thanks/index.wxss */
+.window{
+  width: 580rpx; 
+  height: 506rpx; 
+  background-image:url('https://qiniucdn.udeve.net/fang/zhuli-thx.png'); 
+  background-size:100% 100%;
+  background-color:none;
+  position: relative;
+}
+
+.window .btn{
+  position: absolute;
+  bottom:40rpx;
+  width: 407rpx;
+  left:90rpx; 
+  height: 90rpx;
+  background: yellow;
+  opacity: 0;
+}

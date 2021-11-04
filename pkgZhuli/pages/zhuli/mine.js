@@ -8,6 +8,10 @@ Page({
   data: {
     mid: null, 
     haoyouItems: [],
+    huodong: null, 
+    coupon_config: null,  
+    pageCover: 'https://qiniucdn.udeve.net/zhuli-cover.png',
+    zhuli: null, 
     item: null, // 活动信息
 
   },
@@ -21,8 +25,20 @@ Page({
       mid: q.id, 
     }, () => {
       _this.loadData() 
+      _this.loadHaoyou()
     })
    
+  },
+
+  backHandle: function(){
+    var url = '/pkgZhuli/pages/zhuli/index?id=' + this.data.zhuli.id 
+    wx.redirectTo({url: url })
+  }, 
+
+  homeHandle: function(){
+    wx.switchTab({
+      url: '/pages/home/home',
+    })
   },
 
   helpHandle: function(){
@@ -40,10 +56,13 @@ Page({
           return 
         }
         // show dialog 
-        _this.selectComponent('thanks').openDialog()
+        _this.selectComponent('.thanks').openDialog()
+        _this.loadData() 
+        _this.loadHaoyou()
       }
     })
   },
+
 
 
   loadData: function(){
@@ -53,42 +72,90 @@ Page({
       success: function(res){ 
         var pageTitle = "帮我助力 " + res.data.data.huodong.title 
         var pageCover = res.data.data.huodong.cover  
+        _this.loadHuodong(res.data.data.huodong_id)
         _this.setData({ 
           zhuli: res.data.data, 
-          huodong: res.data.data.huodong, 
           owner: res.data.data.user,
           pageTitle: pageTitle, 
-          pageCover: pageCover, 
         })
 
-
- 
       }
     })
   },
 
-  loadHuodong: function(hid){ 
+  couponHandle: function(e){
 
+    var zhuli = this.data.zhuli  
+    if(zhuli.coupon_send){
+      wx.showToast({
+        icon: 'none',
+        title: '优惠券已领取，不能重复领取',
+      })
+      return false 
+    }
     var _this = this  
+    var data = {
+      id: zhuli.id, 
+    }
     app.request({
-      url: '/api/v1/huodong/' + hid, 
-      success: function(res){ 
+      url: '/api/v1/zhuli', 
+      method: 'POST', 
+      data: data , 
+      success: function(res) { 
         if(res.data.status != 0){
           return 
         }
-        var item = res.data.data 
-        // TODO 设置title 
-        wx.setNavigationBarTitle({
-          title: item.title,
+        wx.showToast({
+          title: '领取成功',
         })
-        _this.setData({
-          item: item, 
-          pageTitle: item.title, 
-          pageCover: item.cover, 
+        _this.loadData()
+      }
+    })
+  },
+
+  loadHuodong: function(hid){
+    var _this  = this  
+    app.request({ 
+      url: '/api/v1/huodong/' + hid, 
+      success: function(res){ 
+        if(res.data.status != 0){ 
+          return false  
+        }
+        var cf = res.data.data.coupon_config  
+        var r = cf.expired_at.split('T')
+        cf.expired_at  = r[0]  + ' ' +  r[1].split('.')[0]
+
+        _this.setData({ 
+          huodong: res.data.data, 
+          pageTitle: res.data.data.title, 
+          pageCover: res.data.data.cover, 
+          coupon_config: cf,
         })
       }
     })
   },
+
+  loadHaoyou: function(){
+    var _this  = this  
+    var query = { 
+      zhuli_id: this.data.mid 
+    }
+    app.request({ 
+      url: '/api/v1/zhuli_haoyou/', 
+      data: query, 
+      success: function(res){ 
+        if(res.data.status != 0){ 
+          return false  
+        }
+      
+        _this.setData({ 
+          haoyouItems: res.data.data , 
+          haoyouCount: res.data.data.length, 
+        })
+      }
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -101,7 +168,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**

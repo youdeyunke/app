@@ -1,4 +1,12 @@
 /* pkgZhuli/pages/zhuli/mine.wxss */
+page{
+  padding-bottom:120rpx;
+  padding-top:200rpx;
+  height: 100%;
+  background-image: url('https://qiniucdn.udeve.net/fang/zhuli-bg.png?t=2');
+  background-size: 100% 100%;
+
+}
 
 .tips{
   color:#333333;
@@ -69,4 +77,96 @@
 .footer .btn.join{
   background: linear-gradient(180deg, #FF7373 0%, #F97373 49.27%, #D84848 100%);
 
+}
+
+.haoyou-list{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%; 
+}
+
+.haoyou-item{
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  padding:10rpx 10rpx;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2rpx solid #f2f2f2;
+  font-size: 24rpx;
+}
+
+.haoyou-item .name{
+  color:#333;
+}
+
+.haoyou-item .time{
+  color:#999;
+}
+
+.haoyou-item .fqr{
+  width: 98rpx; 
+  height: 28rpx;
+  vertical-align: middle;
+}
+.haoyou-item:last-child{
+  border:none;
+}
+
+.success .btn {
+  line-height: 90rpx;
+  text-align: center;
+  width: 100%;
+  height: 90rpx;
+  font-size: 28rpx;
+  color: #fff; 
+  border-radius: 45rpx;
+
+  position:relative;
+  background: linear-gradient(180deg, #FFAC70 0%, #FEA05B 49.27%, #FE9243 100%);
+ 
+}
+
+.success {
+  padding:20rpx 20rpx;
+}
+
+.success .coupon{
+  width: 643rpx;
+  height: 194rpx;
+  background-image:url('https://qiniucdn.udeve.net/fang/coupon-bg.png'); 
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  color: #fff;
+
+  font-size: 24rpx; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom:30rpx;
+  box-sizing: border-box;
+  padding:20rpx 0 20rpx 190rpx;
+}
+
+.success .coupon .name{
+  font-size: 46rpx; 
+  font-weight: bold;
+}
+
+.success .title{
+  font-size:38rpx; 
+  color: #A68900;
+  line-height: 38rpx;
+  text-align: center;
+  margin-bottom:40rpx;
+  margin-top:30rpx;
+
+}
+
+.success .desc{
+  font-size: 24rpx; 
+  color: #666;
+  margin-bottom:30rpx;
 }

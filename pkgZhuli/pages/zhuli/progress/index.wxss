@@ -11,5 +11,6 @@
 .main{
   height: 100%; 
   background: #FFAD0E; 
+  transition: width 1s ease-out;
   
 }

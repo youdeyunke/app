@@ -2,17 +2,16 @@
   <timer date="{{item.ends_at}}"></timer>
 </view>
 
-<cover item="{{item}}"></cover>
 
 <view class="body">
 
   <steps></steps>
 
-  <mycard width="710" radius="15" title="活动介绍" title-size="32">
+  <mycard width="710" radius="20" title="活动介绍" title-size="32">
     <raw-html html="{{item.content}}"></raw-html>
   </mycard>
 
-  <mycard width="710" radius="15" title="使用规则" title-size="32">
+  <mycard width="710" radius="20" title="使用规则" title-size="32">
     {{ item.rule }}
   </mycard>
 
