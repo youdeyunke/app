@@ -1,0 +1,10 @@
+<ud-tabs data="{{items}}" model:active-index="{{currentIndex}}">
+
+</ud-tabs>
+
+<view class="res">
+  <view class="item tab-{{currentIndex}}" wx:for="{{items[currentIndex].items}}">
+    <coupon-item item="{{item}}"></coupon-item>
+    <view wx:if="{{currentIndex == 0}}" class="use" bindtap="useHandle">去使用</view>
+  </view>
+</view>

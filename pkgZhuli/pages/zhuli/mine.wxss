@@ -131,28 +131,10 @@ page{
 
 .success {
   padding:20rpx 20rpx;
-}
-
-.success .coupon{
-  width: 643rpx;
-  height: 194rpx;
-  background-image:url('https://qiniucdn.udeve.net/fang/coupon-bg.png'); 
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  color: #fff;
-
-  font-size: 24rpx; 
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  margin-bottom:30rpx;
-  box-sizing: border-box;
-  padding:20rpx 0 20rpx 190rpx;
-}
-
-.success .coupon .name{
-  font-size: 46rpx; 
-  font-weight: bold;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .success .title{
@@ -169,4 +151,5 @@ page{
   font-size: 24rpx; 
   color: #666;
   margin-bottom:30rpx;
+  margin-top:20rpx;
 }

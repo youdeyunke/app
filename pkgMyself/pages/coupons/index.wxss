@@ -1,0 +1,29 @@
+
+.res{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-top:20rpx;
+}
+
+.res .item{
+  width: 750rpx; 
+  background:#fff; 
+  margin-bottom:20rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:10rpx 10rpx;
+  border-radius: 10rpx;
+}
+
+.res .item .use{
+  font-size: 24rpx;
+  text-align: right;
+  color:#333; 
+  font-weight: bold;
+
+}

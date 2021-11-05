@@ -2,29 +2,30 @@
   title-font-color="#ffffff"></navigation-bar>
 
 <view class="body">
-  <mycard wx:if="{{zhuli.coupon_ready == false }}" radius="20" title="我的助力" title-size="32" width="710">
-    <view class="tips">已有<text class="red">{{haoyouCount}}</text>人助力，还差<text class="red">{{ huodong.haoyou_count -
+  <mycard wx:if="{{showSuccess}}" radius="20" title="" title-size="32" width="710">
+    <view class="success">
+      <view class="title">恭喜您，助力任务已成功！</view>
+      <coupon wx:if="{{coupon_config}}" item="{{coupon_config}}"></coupon>
+      <view class="desc">获得优惠券一张，领取成功后，可进入“我的”-“优惠券”页面中查看”并使用</view>
+      <view class="btn" bindtap="couponHandle">
+        {{ zhuli.coupon_send === true ? '已领取,查看我的优惠券' : '领取优惠券' }}
+      </view>
+    </view>
+  </mycard>
+
+
+  <mycard  wx:if="{{showProgress}}"  radius="20" title="{{sectionTitle}}" title-size="32" width="710">
+    <view wx:if="{{ huodong.haoyou_count - haoyouCount > 0 }}" class="tips">已有<text class="red">{{haoyouCount}}</text>人助力，还差<text class="red">{{ huodong.haoyou_count -
         haoyouCount }}</text>人即可助力成功，加油吧！</view>
+    <view wx:else class="tips">
+      助力人数已达标，助力完成！
+    </view>
+
     <progress wx:if="{{huodong && zhuli}}" total="{{huodong.haoyou_count}}" value="{{haoyouCount}}"></progress>
     <view wx:if="{{zhuli.has_zhuli == false }}" bindtap="helpHandle" class="help">马上助力！</view>
     <view wx:else class="help done">我已助力</view>
   </mycard>
 
-  <mycard  radius="20" title="" title-size="32" width="710">
-    <view class="success">
-      <view class="title">恭喜您，助力任务已成功！</view>
-      <view class="coupon">
-        <view class="name">{{coupon_config.name || '-'}}</view>
-        <view class="content">{{coupon_config.desc || ''}}</view>
-        <view class="time">有效期至：{{coupon_config.expired_at}}</view>
-      </view>
-      <view class="desc">获得优惠券一张，领取成功后，可进入“我的”-“优惠券”页面中查看”并使用</view>
-      <view class="btn" bindtap="couponHandle">
-        {{ zhuli.coupon_send === true ? '已领取' : '领取优惠券' }}
-      </view>
-    </view>
-
-  </mycard>
 
   <mycard radius="20" title="好友助力记录" title-size="32" width="710">
     <view class="haoyou-list">
@@ -40,7 +41,7 @@
   <steps></steps>
 </view>
 
-<view class="footer">
+<view class="footer" wx:if="{{showFooter}}">
   <view class="btn share">
     <button class="fake" open-type="share"></button>
     转发告诉好友

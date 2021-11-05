@@ -8,6 +8,9 @@ Page({
   data: {
     mid: null, 
     haoyouItems: [],
+    sectionTitle: '帮TA助力',
+    showProgress: false, 
+    showSuccess: false,
     huodong: null, 
     coupon_config: null,  
     pageCover: 'https://qiniucdn.udeve.net/zhuli-cover.png',
@@ -67,32 +70,62 @@ Page({
 
   loadData: function(){
     var _this = this  
+    var user = this.data.user 
+
     app.request({ 
       url: '/api/v1/zhuli/' + _this.data.mid,
       success: function(res){ 
         var pageTitle = "帮我助力 " + res.data.data.huodong.title 
         var pageCover = res.data.data.huodong.cover  
+
         _this.loadHuodong(res.data.data.huodong_id)
         _this.setData({ 
           zhuli: res.data.data, 
           owner: res.data.data.user,
           pageTitle: pageTitle, 
+        }, () => {
+          _this.refreshStatus()
         })
-
       }
     })
+  },
+
+  refreshStatus: function(){
+    // 切换页面显示状态
+    var showFooter = false 
+    var showSuccess = false 
+    var showProgress = true  
+    var sectionTitle = '帮TA助力'
+    var user = app.globalData.userInfo
+    // 如果是我自己，并且已经成功 
+    if(user && user.id == this.data.zhuli.user_id && this.data.zhuli.coupon_ready){
+      showSuccess = true 
+      showProgress = false 
+    }
+    if(user && user.id === this.data.zhuli.user_id ){
+      sectionTitle = '我的助力'
+      showFooter = true 
+    }
+
+    this.setData({
+      showSuccess: showSuccess, 
+      sectionTitle: sectionTitle, 
+      showFooter: showFooter, 
+      showProgress: showProgress
+    })
+
   },
 
   couponHandle: function(e){
 
     var zhuli = this.data.zhuli  
     if(zhuli.coupon_send){
-      wx.showToast({
-        icon: 'none',
-        title: '优惠券已领取，不能重复领取',
-      })
+      var url = '/pkgMyself/pages/coupons/index'
+      wx.navigateTo({url: url})
       return false 
     }
+
+    
     var _this = this  
     var data = {
       id: zhuli.id, 
@@ -122,8 +155,7 @@ Page({
           return false  
         }
         var cf = res.data.data.coupon_config  
-        var r = cf.expired_at.split('T')
-        cf.expired_at  = r[0]  + ' ' +  r[1].split('.')[0]
+
 
         _this.setData({ 
           huodong: res.data.data, 
@@ -168,6 +200,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if(this.data.zhuli && this.data.zhuli.id){
+      this.loadData()
+    }
   },
 
   /**

@@ -46,6 +46,7 @@
       "name": "pkgmyself",
       "pages": [
         "pages/profile/index",
+        "pages/coupons/index",
         "pages/favposts/index",
         "pages/eventposts/index",
         "pages/booking/index",

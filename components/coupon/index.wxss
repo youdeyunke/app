@@ -1,0 +1,22 @@
+
+ .coupon{
+  width: 643rpx;
+  height: 194rpx;
+  background-image:url('https://qiniucdn.udeve.net/fang/coupon-bg.png'); 
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  color: #fff;
+
+  font-size: 24rpx; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  box-sizing: border-box;
+  padding:20rpx 0 20rpx 190rpx;
+}
+
+ .coupon .name{
+  font-size: 46rpx; 
+  font-weight: bold;
+}
