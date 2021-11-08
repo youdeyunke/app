@@ -70,7 +70,7 @@
 .header .name-info .name{
     font-size: 40rpx; 
     line-height: 40rpx;
-    margin-bottom:20rpx;
+    margin-bottom:10rpx;
 }
 
 .header .name-info .name .img{

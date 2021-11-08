@@ -1,7 +1,22 @@
 <!--pages/faxian/news/index.wxml-->
-<view class="outer">
+
+<view>
+    <mycard  title="热门内容">
+
+    <scroll-news items="{{topNewsItems}}"></scroll-news>
+
+    <hot-news></hot-news>
+</mycard>
+
+
+<mycard  title="全部资讯">
+
     <view class="item"  wx:for="{{newsItems}}" wx:for-key="id">
         <news-item item="{{item}}"></news-item>
     </view>
+
+</mycard>
+
+
 
 </view>

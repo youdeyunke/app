@@ -1,4 +1,4 @@
-<navigation-bar   background="rgba(0,0,0, 0.14)" color="#ffffff" background-color-top="none" title="{{pageTitle}}" title-font-color="#ffffff"></navigation-bar>
+<navigation-bar   background="{{titleBgColor}}"  background-color-top="none" title="{{pageTitle}}" color="{{titleFontColor}}"></navigation-bar>
 
 <first-screen-ad />
 

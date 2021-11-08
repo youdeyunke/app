@@ -1,10 +1,12 @@
 /* pages/faxian/scroll-news/index.wxss */
 .scroll-cell{
-    width: 75%;
+    width: 500rpx;
+    height: 312rpx;
     color: #333;
     font-size: 24rpx;
     display: inline-flex;
     position: relative;
+    margin-right:20rpx;
     z-index: 2;
 }
 .scroll{
@@ -40,12 +42,30 @@
     text-align: center;
     line-height: 40rpx;
 }
-.cell-text{
-    width: 454rpx;
+.footer-text{
+    width: 100%;
     color: #fff;
     font-size: 28rpx;
     position: absolute;
-    top:  214rpx; left: 26rpx;
+    background:rgba(0,0,0, 0.20);
+    height: 100rpx;
+    box-sizing: border-box;
+    padding:8rpx 15rpx;
+    left:0; 
+    bottom:0;
+
+
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-text .title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.footer-text .summary{
+    font-size: 24rpx;
     overflow: hidden;
     text-overflow: ellipsis;
 }

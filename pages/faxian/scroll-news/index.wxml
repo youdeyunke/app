@@ -1,10 +1,14 @@
 <scroll-view class="scroll" scroll-x>
     <view class="scroll-cell" wx:for="{{items}}" wx:key="id">
         <image src="{{item.cover}}" class="cell-image" />
-        <view class="cell-tag">{{item.news_cat.name}}</view>
-        <view class="cell-text">{{item.title}} {{item.author}}</view>
+        <view class="cell-tag">{{item.author}}</view>
+        <view class="footer-text">
+            <text class="title">{{item.title}}</text>
+            <text class="summary">{{item.summary}}</text>
+        
+        </view>
         <view class="image-box">
-            <image class="position-image" src="../image/7.png"></image>
+            <image class="position-image" wx:if="{{item.content_type == 'video'}}" src="../image/7.png"></image>
         </view>
     </view>
 </scroll-view>

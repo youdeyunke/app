@@ -12,7 +12,8 @@
                 <view class="name">{{ userInfo.name }}
                     <image class="img" src="https://qiniucdn.udeve.net/fang/broker-level-{{ userInfo.level}}.png"></image>
                 </view>
-                <view class="desc">{{ userInfo.desc || '未填写个人介绍' }}</view>
+                <view wx:if="{{userInfo.is_broker}}" class="desc">个性签名：{{ userInfo.desc || '未填写个人介绍' }}</view>
+                <navigator url="/pkgMyself/pages/score/index" hover-class="none" class="score">我的积分：{{ userInfo.score  }}</navigator>
             </view>
             <navigator url="/pkgMyself/pages/profile/index" class="edit">修改资料
                 <image class="img" src="https://qiniucdn.udeve.net/fang/myself-edit.png"></image>

@@ -52,6 +52,7 @@
         "pages/booking/index",
         "pages/comments/index",
         "pages/qa/index",
+        "pages/score/index",
         "pages/history/index"
       ]
     },

@@ -3,7 +3,7 @@
     "usingComponents": {
         "news-cats": "./news-cats",
         "search-bar": "./news-search",
-        "hot-news": "./hot-news/index",
+        "scroll-news": "./scroll-news/index",
 
         "news":"./news-list/index",
         "qa":"./qa-list/index",

@@ -12,6 +12,8 @@ Page({
         pageTitle: '', 
         shareTitle: '', 
         shareCover: '',
+        titleBgColor: 'rgba(0,0,0, 0.15)', 
+        titleFontColor: '#ffffff',
         rowWidth: rowWidthItem,
         system: {},
         configs: null,
@@ -88,10 +90,14 @@ Page({
         var pageTitle = config.title.value || app.globalData.myconfig.xcx_name 
         var shareCover = config.shareCover  
         var shareTitle = config.shareTitle || pageTitle 
+        var titleBgColor = config.title.bgColor  
+        var titleFontColor = config.title.color 
 
         this.setData({
             shareCover: shareCover, 
             shareTitle: shareTitle,
+            titleBgColor: titleBgColor, 
+            titleFontColor: titleFontColor,
             pageTitle: pageTitle,
             loading: false
         })

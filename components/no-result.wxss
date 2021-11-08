@@ -8,14 +8,14 @@
 }
 
 .wrapper .img{
-  width:500rpx;
-  height:500rpx;
+  width:479rpx;
+  height:300rpx;
   opacity: 0.3;
 }
 
 .wrapper .text{
   font-size:28rpx;
-  color:#999999;
+  color:#cecece;
   width:500rpx;
   text-align:center;
 }

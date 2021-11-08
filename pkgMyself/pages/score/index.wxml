@@ -1,0 +1,10 @@
+<view class="header">
+  <view class="score">{{score}}</view>
+</view>
+
+<view class="res">
+  <item item="{{item}}" wx:for="{{items}}"></item>
+
+  <no-result wx:if="{{score == 0}}"></no-result>
+</view>
+

@@ -1,0 +1,16 @@
+.header{
+  background-image:url('https://qiniucdn.udeve.net/fang/score-header.png'); 
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 750rpx;
+  height: 256rpx;
+  position: relative;
+}
+
+.header .score{
+  color:#fff; 
+  font-size: 65rpx;
+  position: absolute; 
+  right: 50rpx;
+  bottom: 38rpx;
+}

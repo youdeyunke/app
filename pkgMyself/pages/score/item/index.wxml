@@ -1,0 +1,11 @@
+<view class="outer">
+  <view class="name">
+    <view class="title">{{ item.title }}</view>
+    <view class="date">{{item.created_at }}</view>
+  </view>
+  <view class="value {{ style }}">
+    <text class="icon">{{icon}}</text>
+
+    {{ amount }}
+  </view>
+</view>
