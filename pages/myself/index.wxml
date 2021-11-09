@@ -1,5 +1,5 @@
 <view class="outer">
-    <view class="header {{ userInfo.is_broker == true ? 'broker' : 'default' }}">
+    <view style="background-image:url('{{configs.ui.ui_myself_bg}}')" class="header {{ userInfo.is_broker == true ? 'broker' : 'default' }}">
 
         <block wx:if="{{userInfo.id}}">
 
@@ -64,7 +64,7 @@
 
                 <navigator hover-class="none" wx:for="{{userIcons}}" url="{{item.url}}" open-type="navigateTo"
                     class="icon-item">
-                    <image class="img" src="https://qiniucdn.udeve.net/fang/{{item.icon}}"></image>
+                    <image class="img" src="{{configs.ui[item.iconKey]}}"></image>
                     <view class="name">{{item.name}}</view>
                 </navigator>
             </view>

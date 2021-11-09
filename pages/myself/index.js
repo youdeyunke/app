@@ -12,10 +12,10 @@ Page({
         score: 0, 
         userIcons: [
            
-            {name: '我的收藏', icon: 'myself-11.png', url: '/pkgMyself/pages/favposts/index'},
-            {name: '我的订阅', icon: 'myself-10.png', url: '/pkgMyself/pages/eventposts/index'},
-            {name: '我的预约', icon: 'myself-13.png', url: '/pkgMyself/pages/booking/index'},
-            {name: '我的问答', icon: 'myself-12.png',url: '/pkgMyself/pages/qa/index'},
+            {name: '我的收藏', iconKey: 'ui_myself_fav', url: '/pkgMyself/pages/favposts/index'},
+            {name: '我的订阅', iconKey: 'ui_myself_dingyue', url: '/pkgMyself/pages/eventposts/index'},
+            {name: '我的预约', iconKey: 'ui_myself_booking', url: '/pkgMyself/pages/booking/index'},
+            {name: '我的问答', iconKey: 'ui_myself_qa',url: '/pkgMyself/pages/qa/index'},
         ],
 
         brokerIcons: [
@@ -285,6 +285,7 @@ Page({
         app.ensureConfigs(function (configs) {
             _this.setData({ configs: configs })
         })
+
         var token = app.globalData.token
         // 如果是别人邀请注册的，就记录下referrer_id，注册时携带referrer_id
         if (q.referrer_id && q.referrer_id.length > 0) {

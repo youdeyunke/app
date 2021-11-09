@@ -11,7 +11,6 @@
     width: 750rpx; 
     height: 410rpx;
 
-    background-image: url('https://qiniucdn.udeve.net/fang/myself-2.png'); 
     box-sizing: border-box;
     padding: 120rpx 30rpx 0 30rpx;
     display: flex;
