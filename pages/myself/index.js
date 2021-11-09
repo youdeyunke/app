@@ -9,6 +9,7 @@ Page({
      */
     data: {
         userInfo: {},
+        score: 0, 
         userIcons: [
            
             {name: '我的收藏', icon: 'myself-11.png', url: '/pkgMyself/pages/favposts/index'},

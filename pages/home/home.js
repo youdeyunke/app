@@ -2,6 +2,7 @@
 const app = getApp()
 const rowWidthItem = ['60%', "100%", "30%", "40%", "100%"]
 
+
 Page({
     /**
      * 页面的初始数据
@@ -9,15 +10,15 @@ Page({
 
     data: {
         loading: true,
-        pageTitle: '', 
-        shareTitle: '', 
+        pageTitle: '',
+        shareTitle: '',
         shareCover: '',
-        titleBgColor: 'rgba(0,0,0, 0.15)', 
+        titleBgColor: 'rgba(0,0,0, 0.15)',
         titleFontColor: '#ffffff',
         rowWidth: rowWidthItem,
         system: {},
         configs: null,
-        showInstallTips: 0,  // 1:正常显示，2：自动关闭，3：手动关闭
+        showInstallTips: 0, // 1:正常显示，2：自动关闭，3：手动关闭
         city_id: null,
     },
 
@@ -33,14 +34,18 @@ Page({
 
     /** 下拉刷新
      * 
-    */
+     */
     onPullDownRefresh: function () {
         wx.showNavigationBarLoading() //在标题栏中显示加载
-        this.setData({ loading: true })
+        this.setData({
+            loading: true
+        })
         var _this = this
         app.loadConfigs(function (configs) {
             _this.selectComponent('.pm').reload()
-            _this.setData({ configs: configs })
+            _this.setData({
+                configs: configs
+            })
             wx.stopPullDownRefresh()
             wx.hideNavigationBarLoading()
             wx.stopPullDownRefresh() //停止下拉刷新    
@@ -53,7 +58,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.setData({ system: app.globalData.system }, () => {
+        this.setData({
+            system: app.globalData.system
+        }, () => {
             this.checkInstallTips()
         })
         app.markVisitor('home', null)
@@ -64,15 +71,25 @@ Page({
         var _v = wx.getStorageSync('closeInstallTips') || false
         // 没有手动关闭提示，就正常显示
         if (!_v) {
-            setTimeout(function () { _this.setData({ showInstallTips: 1 }) }, 4000)
+            setTimeout(function () {
+                _this.setData({
+                    showInstallTips: 1
+                })
+            }, 4000)
             // 延时自动关闭
-            setTimeout(function () { _this.setData({ showInstallTips: 0 }) }, 8000)
+            setTimeout(function () {
+                _this.setData({
+                    showInstallTips: 0
+                })
+            }, 8000)
         }
     },
 
     closeInstallTips: function (e) {
         // 点击关闭安装提示
-        this.setData({ 'showInstallTips': 0 })
+        this.setData({
+            'showInstallTips': 0
+        })
         wx.setStorageSync('closeInstallTips', true)
     },
 
@@ -80,23 +97,22 @@ Page({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function () {
-    },
+    onReady: function () {},
 
     pageReadyHandle: function (e) {
         var config = e.detail
         console.log('page ready config', config)
         // 页面加载完成
-        var pageTitle = config.title.value || app.globalData.myconfig.xcx_name 
-        var shareCover = config.shareCover  
-        var shareTitle = config.shareTitle || pageTitle 
-        var titleBgColor = config.title.bgColor  
-        var titleFontColor = config.title.color 
+        var pageTitle = config.title.value || app.globalData.myconfig.xcx_name
+        var shareCover = config.shareCover
+        var shareTitle = config.shareTitle || pageTitle
+        var titleBgColor = config.title.bgColor
+        var titleFontColor = config.title.color
 
         this.setData({
-            shareCover: shareCover, 
+            shareCover: shareCover,
             shareTitle: shareTitle,
-            titleBgColor: titleBgColor, 
+            titleBgColor: titleBgColor,
             titleFontColor: titleFontColor,
             pageTitle: pageTitle,
             loading: false
@@ -114,8 +130,7 @@ Page({
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function () {
-    },
+    onHide: function () {},
 
     /**
      * 生命周期函数--监听页面卸载
@@ -130,23 +145,58 @@ Page({
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () {
-    },
+    onReachBottom: function () {},
 
     /**
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-        return { 
-            title: this.data.shareTitle, 
-            imageUrl: this.data.shareCover,
-        }
+        var _this = this
+        const promise = new Promise(resolve => {
+            app.request({
+                url: '/api/v1/scores/',
+                method: 'POST',
+                data: {
+                    key: 'share_home'
+                },
+                success: function (res) {
+                    if (res.data.status == 0 && res.data.data == 'ok') {
+                        wx.showToast({
+                            icon: 'none',
+                            title: '积分已增加',
+                        })
+                    }
+                    return {
+                        title: _this.data.shareTitle,
+                        imageUrl: _this.data.shareCover,
+                    }
+                }
+            })
+        })
+
 
     },
     onShareTimeline: function () {
-        return {
-            title: this.data.shareTitle, 
-            imageUrl: this.data.shareCover,
-        }
+        const promise = new Promise(resolve => {
+            app.request({
+                url: '/api/v1/scores/',
+                method: 'POST',
+                data: {
+                    key: 'share_home'
+                },
+                success: function (res) {
+                    if (res.data.status == 0 && res.data.data == 'ok') {
+                        wx.showToast({
+                            icon: 'none',
+                            title: '积分已增加',
+                        })
+                    }
+                    return {
+                        title: _this.data.shareTitle,
+                        imageUrl: _this.data.shareCover,
+                    }
+                }
+            })
+        })
     }
 })

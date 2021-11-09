@@ -1,5 +1,5 @@
 <!--pkgZhuli/pages/zhuli/timer/index.wxml-->
-<view class="outer">
+<view class="outer" wx:if="{{timestamp >= 0}}">
 <view class="text">剩余时间</view>
 <view class="box">{{days}}</view>
 <view class="text">天</view>

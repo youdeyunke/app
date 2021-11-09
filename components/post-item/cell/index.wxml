@@ -37,7 +37,7 @@
     </navigator>
 
     <view class="point" wx:if="{{point  }}">
-        <image src="https://qiniucdn.udeve.net/post-item-point.png"></image>
+        <image src="https://qiniucdn.udeve.net/fang/post-item-point.png"></image>
         <text class="title">{{ point.title || '项目亮点' }} </text>
         <text class="content">{{ point.content }}</text>
     </view>

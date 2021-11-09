@@ -381,19 +381,55 @@ Page({
 
     onShareAppMessage: function () {
         var _this = this
-        return {
-            title: _this.data.pageTitle,
-            path: 'pages/post/post?' + _this.data.pageQuery + '&scene_key=wechat',
-            imageUrl: _this.data.pageCover,
-        }
+        const promise = new Promise(resolve => {
+            app.request({
+                url: '/api/v1/scores/',
+                method: 'POST',
+                data: {
+                    key: 'share_post'
+                },
+                success: function (res) {
+                    if (res.data.status == 0 && res.data.data == 'ok') {
+                        wx.showToast({
+                            icon: 'none',
+                            title: '积分已增加',
+                        })
+                    }
+                    return {
+                        title: _this.data.pageTitle,
+                        path: 'pages/post/post?' + _this.data.pageQuery + '&scene_key=wechat',
+                        imageUrl: _this.data.pageCover,
+                    }
+                }
+            })
+        })        
+
     },
 
     onShareTimeline: function () {
         var _this = this
-        return {
-            title: _this.data.pageTitle,
-            query:  _this.data.pageQuery + '&scene_key=timeline',
-            imageUrl: _this.data.pageCover
-        }
+        const promise = new Promise(resolve => {
+            app.request({
+                url: '/api/v1/scores/',
+                method: 'POST',
+                data: {
+                    key: 'share_post'
+                },
+                success: function (res) {
+                    if (res.data.status == 0 && res.data.data == 'ok') {
+                        wx.showToast({
+                            icon: 'none',
+                            title: '积分已增加',
+                        })
+                    }
+                    return {
+                        title: _this.data.pageTitle,
+                        query:  _this.data.pageQuery + '&scene_key=timeline',
+                        imageUrl: _this.data.pageCover
+                    }
+                }
+            })
+        })  
+
     }
 })
