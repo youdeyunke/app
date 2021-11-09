@@ -48,7 +48,7 @@
             <view class="icons">
                 <navigator bindtap="{{item.handle}}" hover-class="none" wx:for="{{brokerIcons}}"
                     url="{{item.url}}{{userInfo.broker_id}}" open-type="navigateTo" class="icon-item">
-                    <image class="img" src="https://qiniucdn.udeve.net/fang/{{item.icon}}"></image>
+                    <image class="img" src="{{configs.ui[item.iconKey]}}"></image>
                     <view class="name">{{item.name}}</view>
                 </navigator>
             </view>

@@ -19,12 +19,12 @@ Page({
         ],
 
         brokerIcons: [
-            {name: '主营楼盘', icon: 'myself-b7.png', handle: "gotoPost", },
-            {name: '我的主页', icon: 'myself-b6.png', handle:"gotoProfile"},
-            {name: '客户管理', icon: 'myself-b4.png', url: '/pkgAdmin/pages/clue/home'},
-            {name: '拓客名片', icon: 'myself-b4.png', url: '/pkgBroker/pages/broker/qr'},
-            {name: '报备客户', icon: 'myself-b3.png', url: '/pkgFenxiao/pages/fenxiao/report'},
-            {name: '历史报备', icon: 'myself-b2.png', url: '/pkgFenxiao/pages/fenxiao/index'},
+            {name: '主营楼盘', iconKey: 'ui_myself_zhuyin', handle: "gotoPost", },
+            {name: '我的主页', iconKey: 'ui_myself_zhuye', handle:"gotoProfile"},
+            {name: '客户管理', iconKey: 'ui_myself_kehu', url: '/pkgAdmin/pages/clue/home'},
+            {name: '拓客名片', iconKey: 'ui_myself_minpian', url: '/pkgBroker/pages/broker/qr'},
+            {name: '报备客户', iconKey: 'ui_myself_baobei', url: '/pkgFenxiao/pages/fenxiao/report'},
+            {name: '历史报备', iconKey: 'ui_myself_baobei_lishi', url: '/pkgFenxiao/pages/fenxiao/index'},
         ],
         cache: '0 kb', // cache value
 
