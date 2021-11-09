@@ -24,23 +24,23 @@
 .list .item .icon .badge{
     position: absolute;
     top:-20rpx; 
-    left: -20rpx;
-
+    right: -20rpx;
     z-index:11;
     font-size: 36rpx; 
-    min-width: 200rpx;
     max-width: 240rpx;
     overflow: hidden;
     height: 72rpx;
+    line-height: 72rpx;
     background:#F43535; 
     color:#fff; 
     border-radius: 16rpx;
-    padding:4rpx 8rpx;
+    padding:6rpx 16rpx;
     border: 2rpx solid #fff; 
     display: flex;
     justify-content: center;
     align-items: center;
     transform: scale(0.5);
+    -webkit-transform: scale(0.5);
 }
 
 
@@ -62,7 +62,6 @@
 .list .item .name {
     font-size: 24rpx;
     color: #333;
-    font-weight: bold;
     min-width: 100rpx;
     text-align: center;
     text-overflow: ellipsis;
@@ -70,7 +69,7 @@
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
-    margin-top: 11rpx;
+    margin-top: 0rpx;
 }
 
 .list .item {

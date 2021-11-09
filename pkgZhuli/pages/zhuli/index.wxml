@@ -11,8 +11,23 @@
     <raw-html html="{{item.content}}"></raw-html>
   </mycard>
 
-  <mycard width="710" radius="30" title="使用规则" title-size="32">
-    {{ item.rule }}
+  <mycard width="710" radius="30" title="活动规则" title-size="32">
+    <view class="rule">
+      <view class="rule-item">
+        活动开始时间：{{item.starts_at_pretty}}
+      </view>
+
+      <view class="rule-item">
+        活动截止时间：{{item.ends_at_pretty}}
+      </view>
+
+      <view class="rule-item">
+        助力数量要求：{{item.haoyou_count}} 人助力
+      </view>
+
+      本活动最终解释权归活动主办方所有
+
+    </view>
   </mycard>
 
 

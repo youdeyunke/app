@@ -25,6 +25,15 @@ page {
   margin-bottom:120rpx;
 }
 
+.rule{
+  font-size: 24rpx; 
+  color:#666;
+}
+
+.rule-item{
+  padding:4rpx 6rpx;
+}
+
 .footer {
   height: 90rpx;
   position: fixed;

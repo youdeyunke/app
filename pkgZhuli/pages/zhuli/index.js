@@ -8,7 +8,7 @@ Page({
    */
   data: {
     item: {},
-    pageCover: 'https://qiniucdn.udeve.net/zhuli-cover.png'
+    pageCover: 'https://qiniucdn.udeve.net/fang/zhuli-cover.png'
 
   },
 
@@ -36,6 +36,7 @@ Page({
         wx.setNavigationBarTitle({
           title: item.title,
         })
+
         _this.setData({
           item: item, 
           pageTitle: item.title, 
