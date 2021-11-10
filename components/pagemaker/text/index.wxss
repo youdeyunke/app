@@ -1,6 +1,6 @@
 /* components/pagemaker/text/index.wxss */
 
-text {
+.text {
    
     display: block;
     margin:0 auto;

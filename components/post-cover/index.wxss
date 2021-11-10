@@ -1,0 +1,44 @@
+ .cover {
+
+  border-radius: 20rpx;
+  position: relative;
+}
+
+.cover .img{
+
+  border-radius: 7rpx;
+}
+
+
+.cover .icons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: column;
+  width: 32rpx;
+  height: 120rpx;
+  position: absolute;
+  right:10rpx;
+  bottom:10rpx;
+
+}
+
+.cover .views{
+  position: absolute; 
+  left:10rpx; 
+  bottom:10rpx;
+  color:#fff;
+  font-size:24rpx;
+  display: flex; 
+  align-items: center;
+}
+.cover .views image{
+  width:33rpx; 
+  height: 33rpx;
+  margin-right:4rpx;
+}
+
+.cover .icons image {
+  width: 32rpx;
+  height: 32rpx;
+}

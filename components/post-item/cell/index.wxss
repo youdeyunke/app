@@ -10,6 +10,10 @@
     position: relative;
 }
 
+.post .right{
+    margin-left:20rpx;
+}
+
 .eye-icon{
     position: absolute;
     left:20rpx; 
@@ -148,21 +152,27 @@
     margin-bottom:10rpx;
 }
 
-.point .title{
+.point .ptitle{
     color:#000;
     font-weight: bolder;
     margin-left:10rpx;
     margin-right:10rpx;
-    border-right: 1rpx solid #cecece;
-    width:110rpx;
+    white-space: nowrap;
+}
+.point .blank{
+    height: 60%; 
+    width:10rpx; 
+    border-right:2rpx solid #cecece;
+
+    margin-right: 10rpx;
 }
 
 .point .content{
     color:#666;
-    width:calc(100% - 160rpx);
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    text-align: left;
 }
 
 .outer .point image{

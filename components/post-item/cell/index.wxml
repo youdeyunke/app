@@ -1,47 +1,32 @@
 <!-- components/pagemaker/posts/post-item0.wxml -->
 <view class="outer">
-    <navigator  hover-class="none" class="post" url="{{url }}">
-        <view class="cover">
-            <image class="main" src="{{post.cover}}?imageView2/2/w/100" />
-            <view class="eye-icon" wx:if="{{post.view_nums >= 100}}">
-                <image src="/assets/icons/post/eye.png"></image>
-                <text class="num">{{post.view_nums}}</text>
-            </view>
-            <view class="video-icon">
-                <block wx:if="{{post.has_live==true }}">
-                    <image src="https://qiniucdn.udeve.net/fang/post-cover-icon-live.png"></image>
-                </block>
-                <block wx:if="{{post.has_video==true }}">
-                    <image src="https://qiniucdn.udeve.net/fang/post-cover-icon-video.png"></image>
-                </block>
-                <block wx:if="{{post.has_vr==true}}">
-                    <image src="https://qiniucdn.udeve.net/fang/post-cover-icon-vr.png"></image>
-                </block>
-            </view>
-        </view>
+    <navigator hover-class="none" class="post" url="{{url }}">
+        <post-cover wx:if="{{post}}" item="{{post}}"></post-cover>
         <view class="right">
             <view class="title">
-            {{post.title}}
+                {{post.title}}
             </view>
             <view class="price">
                 <text class="red">{{post.average_price_info.text}}{{post.average_price_info.px}}</text>
-            </view>       
+            </view>
             <view class="address">{{post.street}}</view>
             <view class="tags">
-                <van-tag color="#ECEFF6" text-color="#848CA1" size="mini"  wx:for="{{post.tags}}" wx:key="item.id" wx:if="{{index<=2}}">{{item.name}}</van-tag>
+                <van-tag color="#ECEFF6" text-color="#848CA1" size="mini" wx:for="{{post.tags}}" wx:key="item.id"
+                    wx:if="{{index<=2}}">{{item.name}}</van-tag>
             </view>
+
         </view>
         <view class="status" wx:if="{{post.sale_status_item}}">
-            <van-tag plain color="{{post.sale_status_item.color}}"  size="mini">{{post.sale_status_item.name}}</van-tag>
+            <van-tag plain color="{{post.sale_status_item.color}}" size="mini">{{post.sale_status_item.name}}</van-tag>
         </view>
     </navigator>
 
     <view class="point" wx:if="{{point  }}">
-        <image src="https://qiniucdn.udeve.net/fang/post-item-point.png"></image>
-        <text class="title">{{ point.title || '项目亮点' }} </text>
-        <text class="content">{{ point.content }}</text>
-    </view>
+                <image src="https://qiniucdn.udeve.net/fang/post-item-point.png"></image>
+                <text class="ptitle">{{ point.title || '项目亮点' }} </text>
+                <view class="blank"></view>
+                <text class="content">{{ point.content }}</text>
+            </view>
 
-    <view class="border" wx:if="{{border}}"></view>
-    <view class="margin" ></view>
+
 </view>

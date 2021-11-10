@@ -18,9 +18,12 @@
         <cell wx:if="{{post.rank_info.show}}"  custom-style="cell-item" icon="bang" title="{{post.rank_info.text}}" url="{{post.rank_info.url}}"></cell>
         <cell wx:if="{{post.brokage_info.show}}"  custom-style="cell-item" icon="yong" title="{{post.brokage_info.text}}" url="/pkgFenxiao/pages/fenxiao/report-detail?id={{post.id}}"></cell>
         <cell wx:if="{{post.license_info.show}}"  custom-style="cell-item" icon="yu" title="{{post.license_info.label}}" url="/pkgLicense/pages/license/index?kw={{post.title}}"></cell>
+        <cell wx:if="{{point}}" custom-style="cell-item"   icon="point" title="{{point.title}}:{{point.content}}" ></cell>
+
+
     </view>
     <view class="navs">
-        <navigator url="{{nav.path}}" hover-class="none" class="nav-item {{ nav.disable == true ? 'disable': ''}}" wx:key="index" wx:for="{{navs}}" wx:for-item="nav">
+        <navigator url="{{nav.path}}" hover-class="none" class="nav-item {{ nav.disabled == true ? 'disable': ''}}" wx:key="index" wx:for="{{navs}}" wx:for-item="nav">
             <image class="img" src="https://qiniucdn.udeve.net/fang/post-nav-{{nav.id}}.png" />
             <view>{{nav.name}}</view>
         </navigator>

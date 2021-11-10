@@ -1,19 +1,22 @@
 <view class="outer">
-    <view style="background-image:url('{{configs.ui.ui_myself_bg}}')" class="header {{ userInfo.is_broker == true ? 'broker' : 'default' }}">
+    <view style="background-image:url('{{ userInfo.is_broker === true ?  configs.ui.myself_broker_bg : configs.ui.myself_bg }}')"
+        class="header {{ userInfo.is_broker == true ? 'broker' : 'default' }}">
 
         <block wx:if="{{userInfo.id}}">
 
             <view class="avatar">
-            <view class="border"></view>
+                <view class="border"></view>
                 <image class="img" src="{{userInfo.avatar}}"></image>
             </view>
 
             <view class="name-info">
                 <view class="name">{{ userInfo.name }}
-                    <image class="img" src="https://qiniucdn.udeve.net/fang/broker-level-{{ userInfo.level}}.png"></image>
+                    <image class="img" src="https://qiniucdn.udeve.net/fang/broker-level-{{ userInfo.level}}.png">
+                    </image>
                 </view>
                 <view wx:if="{{userInfo.is_broker}}" class="desc">个性签名：{{ userInfo.desc || '未填写个人介绍' }}</view>
-                <navigator url="/pkgMyself/pages/score/index" hover-class="none" class="score">我的积分：{{ userInfo.score  }}</navigator>
+                <navigator url="/pkgMyself/pages/score/index" hover-class="none" class="score">我的积分：{{ userInfo.score }}
+                </navigator>
             </view>
             <navigator url="/pkgMyself/pages/profile/index" class="edit">修改资料
                 <image class="img" src="https://qiniucdn.udeve.net/fang/myself-edit.png"></image>
@@ -27,7 +30,7 @@
 
             <view class="name-info">
                 <view class="name">访客，您好
-                  
+
                 </view>
                 <view class="desc">登陆或注册账号，体验更多服务</view>
             </view>
@@ -42,7 +45,7 @@
 
 
     <view class="body">
-  
+
         <block wx:if="{{userInfo.is_broker}}">
             <view class="title">工作台</view>
             <view class="icons">
@@ -57,31 +60,71 @@
 
         <view class="title">我的服务</view>
         <view class="icons">
-            <navigator wx:if="{{!userInfo.is_broker}}" hover-class="none"  open-type="navigateTo"url="/pkgBroker/pages/broker/join"    class="icon-item">
-                    <image class="img" src="https://qiniucdn.udeve.net/fang/myself-10.png"></image>
-                    <view class="name">顾问入驻</view>
-                </navigator>
+            <navigator wx:if="{{!userInfo.is_broker}}" hover-class="none" open-type="navigateTo"
+                url="/pkgBroker/pages/broker/join" class="icon-item">
+                <image class="img" src="{{configs.ui.myself_join}}"></image>
+                <view class="name">顾问入驻</view>
+            </navigator>
 
-                <navigator hover-class="none" wx:for="{{userIcons}}" url="{{item.url}}" open-type="navigateTo"
-                    class="icon-item">
-                    <image class="img" src="{{configs.ui[item.iconKey]}}"></image>
-                    <view class="name">{{item.name}}</view>
-                </navigator>
-            </view>
+            <navigator hover-class="none" wx:for="{{userIcons}}" url="{{item.url}}" open-type="navigateTo"
+                class="icon-item">
+                <image class="img" src="{{configs.ui[item.iconKey]}}"></image>
+                <view class="name">{{item.name}}</view>
+            </navigator>
+        </view>
 
 
 
 
         <view class="blank"></view>
         <view class="title">更多操作</view>
-            <van-cell-group inset>
-                <van-cell center  is-link url="/pkgMyself/pages/history/index" title="历史浏览"  />
-                <van-cell is-link bindtap="clearCache" title="清理缓存" value="{{cache.currentSize}} kb" />
-                <van-cell is-link bindtap="openAuthSetting" title="微信权限"  />
-                <van-cell is-link url="/pkgAbout/page/about/index" title="关于我们" value="" />
-                <van-cell is-link bindtap="logoutHandle" border="{{false}}" title="退出登陆" value="" />
-            </van-cell-group>
-      
+
+        <van-cell-group inset>
+            <van-cell center is-link url="/pkgMyself/pages/history/index">
+                <view slot="title">
+                    <view class="van-cell-title">
+                        <image class="van-cell-icon" src="{{configs.ui.myself_history}}"></image>
+                        <view class="van-cell-text">历史浏览</view>
+                    </view>
+                </view>
+            </van-cell>
+            <van-cell is-link bindtap="clearCache" value="{{cache.currentSize}} kb" >
+                <view slot="title">
+                    <view class="van-cell-title">
+                        <image class="van-cell-icon" src="{{configs.ui.myself_cache}}"></image>
+                        <view class="van-cell-text">清理缓存</view>
+                    </view>
+                </view>
+            </van-cell>
+            <van-cell is-link bindtap="openAuthSetting" >
+                <view slot="title">
+                    <view class="van-cell-title">
+                        <image class="van-cell-icon" src="{{configs.ui.myself_quanxian}}"></image>
+                        <view class="van-cell-text">微信权限</view>
+                    </view>
+                </view>
+            </van-cell>
+            <van-cell is-link url="/pkgAbout/page/about/index"  value="" >
+                <view slot="title">
+                    <view class="van-cell-title">
+                        <image class="van-cell-icon" src="{{configs.ui.myself_about}}"></image>
+                        <view class="van-cell-text">关于我们</view>
+                    </view>
+                </view>
+            </van-cell>
+            <van-cell is-link bindtap="logoutHandle" border="{{false}}" value="" >
+                <view slot="title">
+                    <view class="van-cell-title">
+                        <image class="van-cell-icon" src="{{configs.ui.myself_logout}}"></image>
+                        <view class="van-cell-text">退出登陆</view>
+                    </view>
+                </view>
+            </van-cell>
+
+        </van-cell-group>
+
+
+
 
 
     </view>

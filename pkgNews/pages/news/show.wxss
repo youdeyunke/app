@@ -2,7 +2,7 @@ page {
     font-size: 24rpx;
     background: #f2f2f2 !important;
     min-height: 100%;
-    padding-top:20rpx;
+    padding-top:0rpx;
 }
 
 .header {
@@ -28,6 +28,11 @@ page {
 .header .meta {
     font-size: 24rpx;
     color: #666;
+    border-bottom: 2rpx solid #f2f2f2;
+    padding-bottom: 10rpx;
+    margin-bottom:20rpx;
+
+
 }
 
 .header .meta text{
@@ -75,4 +80,15 @@ myfav image {
     font-size:24rpx; 
     scale: 0.8;
     color: #cecece;
+}
+
+.news-content{
+    padding-top:20rpx;
+}
+
+.news-content .cover{
+    height: 416rpx;
+    background-size: 100% auto; 
+    background-repeat: no-repeat;
+    margin-bottom:-40rpx;
 }

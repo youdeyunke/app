@@ -25,14 +25,8 @@
 }
 
 .cell .icon {
-    width: 30rpx;
-    height: 28rpx;
-    margin-right: 0rpx;
-}
-
-.cell .icon .img {
     width: 28rpx;
     height: 28rpx;
-    vertical-align: baseline;
-
+    margin-right: 0rpx;
+    vertical-align: middle;
 }

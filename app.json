@@ -269,6 +269,7 @@
   "pages": [
     "pages/home/home",
     "pages/post/post",
+    "pages/pagemaker/show",
     "pages/want/index",
     "pages/faxian/index",
     "pages/myself/index",

@@ -4,7 +4,7 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        post: { type: Object, default: null },
+        post: { type: Object, value: {} },
         navs: { type: Array, default: null }
     },
 
@@ -12,7 +12,31 @@ Component({
      * 组件的初始数据
      */
     data: {
+        point: null,
     },
+
+    observers: {
+        "post": function(p){
+            if(!p){
+                return
+            }
+            var pt = p.point_title 
+            
+            if(pt && pt.length >= 3){
+              var p = {title: '项目亮点', content: ''} 
+              pt = pt.replaceAll('：', ':')
+              var res = pt.split(':')
+              if(res.length == 1){
+                p.content = pt 
+              }else{
+                p.title = res.splice(0, 1)
+                p.content = res.join(':')
+              }
+              this.setData({point: p})
+            }
+        }
+    },
+
 
     /**
      * 组件的方法列表

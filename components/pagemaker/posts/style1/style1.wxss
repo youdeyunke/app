@@ -17,3 +17,7 @@
 .post {
     margin-right: 20rpx;
 }
+
+.posts .top{
+    margin-bottom:20rpx;
+}

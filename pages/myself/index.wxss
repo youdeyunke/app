@@ -148,3 +148,19 @@
     height: 2rpx;
     margin: 30rpx 0;
 }
+
+
+.van-cell-title{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color:#333333;
+    font-size: 25rpx;
+}
+
+.van-cell-icon{
+    width: 30rpx;
+    height:30rpx;
+    margin-right:8rpx;
+}
+

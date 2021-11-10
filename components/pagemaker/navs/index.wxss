@@ -26,15 +26,21 @@
     top:-20rpx; 
     right: -20rpx;
     z-index:11;
-    font-size: 36rpx; 
+    font-size: 30rpx;
+    letter-spacing: 2rpx; 
+    white-space: nowrap;
     max-width: 240rpx;
     overflow: hidden;
-    height: 72rpx;
-    line-height: 72rpx;
+    height: 58rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+
     background:#F43535; 
     color:#fff; 
     border-radius: 16rpx;
-    padding:6rpx 16rpx;
+    padding:4rpx 10rpx;
     border: 2rpx solid #fff; 
     display: flex;
     justify-content: center;

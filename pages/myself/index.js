@@ -9,22 +9,23 @@ Page({
      */
     data: {
         userInfo: {},
+        headerBg: "",
         score: 0, 
         userIcons: [
            
-            {name: '我的收藏', iconKey: 'ui_myself_fav', url: '/pkgMyself/pages/favposts/index'},
-            {name: '我的订阅', iconKey: 'ui_myself_dingyue', url: '/pkgMyself/pages/eventposts/index'},
-            {name: '我的预约', iconKey: 'ui_myself_booking', url: '/pkgMyself/pages/booking/index'},
-            {name: '我的问答', iconKey: 'ui_myself_qa',url: '/pkgMyself/pages/qa/index'},
+            {name: '我的收藏', iconKey: 'myself_fav', url: '/pkgMyself/pages/favposts/index'},
+            {name: '我的订阅', iconKey: 'myself_dingyue', url: '/pkgMyself/pages/eventposts/index'},
+            {name: '我的预约', iconKey: 'myself_booking', url: '/pkgMyself/pages/booking/index'},
+            {name: '我的问答', iconKey: 'myself_qa',url: '/pkgMyself/pages/qa/index'},
         ],
 
         brokerIcons: [
-            {name: '主营楼盘', iconKey: 'ui_myself_zhuyin', handle: "gotoPost", },
-            {name: '我的主页', iconKey: 'ui_myself_zhuye', handle:"gotoProfile"},
-            {name: '客户管理', iconKey: 'ui_myself_kehu', url: '/pkgAdmin/pages/clue/home'},
-            {name: '拓客名片', iconKey: 'ui_myself_minpian', url: '/pkgBroker/pages/broker/qr'},
-            {name: '报备客户', iconKey: 'ui_myself_baobei', url: '/pkgFenxiao/pages/fenxiao/report'},
-            {name: '历史报备', iconKey: 'ui_myself_baobei_lishi', url: '/pkgFenxiao/pages/fenxiao/index'},
+            {name: '主营楼盘', iconKey: 'myself_zhuyin', handle: "gotoPost", },
+            {name: '我的主页', iconKey: 'myself_zhuye', handle:"gotoProfile"},
+            {name: '客户管理', iconKey: 'myself_kehu', url: '/pkgAdmin/pages/clue/home'},
+            {name: '拓客名片', iconKey: 'myself_minpian', url: '/pkgBroker/pages/broker/qr'},
+            {name: '报备客户', iconKey: 'myself_baobei', url: '/pkgFenxiao/pages/fenxiao/report'},
+            {name: '历史报备', iconKey: 'myself_baobei_lishi', url: '/pkgFenxiao/pages/fenxiao/index'},
         ],
         cache: '0 kb', // cache value
 
