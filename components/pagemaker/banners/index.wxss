@@ -3,6 +3,9 @@
 .outer{
     margin:0rpx auto;
     width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .link {

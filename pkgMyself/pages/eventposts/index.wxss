@@ -1,15 +1,13 @@
 
-
-
 .outer{
   background:#fff;
-  width:730rpx; 
-  margin:0 auto;
+  width:710rpx; 
+  margin:20rpx auto 0 auto;
 }
 
 .item-outer{
   background:#fff;
-  padding:20rpx 20rpx 0 20rpx;
+  padding:20rpx 20rpx 20rpx 20rpx;
   box-sizing: border-box;
 
 }

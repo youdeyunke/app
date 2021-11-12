@@ -15,6 +15,7 @@ Page({
            
             {name: '我的收藏', iconKey: 'myself_fav', url: '/pkgMyself/pages/favposts/index'},
             {name: '我的订阅', iconKey: 'myself_dingyue', url: '/pkgMyself/pages/eventposts/index'},
+            {name: '浏览历史', iconKey: 'myself_history', url: '/pkgMyself/pages/history/index'},
             {name: '我的预约', iconKey: 'myself_booking', url: '/pkgMyself/pages/booking/index'},
             {name: '我的问答', iconKey: 'myself_qa',url: '/pkgMyself/pages/qa/index'},
         ],

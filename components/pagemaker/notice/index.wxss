@@ -8,11 +8,14 @@
     align-items: center;
     border-radius: 4px;
     margin:0 auto;
-    width:710rpx;
+    width:100%; 
+    box-sizing: border-box;
 }
-.notice .title {
-    font-size: 24rpx;
-    line-height: 80rpx;
+.notice .news-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height:100%;
 }
 .notice .icon {
     height: 76rpx;

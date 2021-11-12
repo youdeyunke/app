@@ -9,24 +9,24 @@
             <view class="price">
                 <text class="red">{{post.average_price_info.text}}{{post.average_price_info.px}}</text>
             </view>
-            <view class="address">{{post.street}}</view>
+            <view class="address">{{post.address}}</view>
             <view class="tags">
+                <van-tag text-color="#ffffff"  color="{{post.sale_status_item.color}}" size="mini">{{post.sale_status_item.name}}
+                </van-tag>
                 <van-tag color="#ECEFF6" text-color="#848CA1" size="mini" wx:for="{{post.tags}}" wx:key="item.id"
-                    wx:if="{{index<=2}}">{{item.name}}</van-tag>
+                    wx:if="{{index<=1}}">{{item.name}}</van-tag>
             </view>
 
-        </view>
-        <view class="status" wx:if="{{post.sale_status_item}}">
-            <van-tag plain color="{{post.sale_status_item.color}}" size="mini">{{post.sale_status_item.name}}</van-tag>
-        </view>
-    </navigator>
-
-    <view class="point" wx:if="{{point  }}">
-                <image src="https://qiniucdn.udeve.net/fang/post-item-point.png"></image>
+            <view class="point" wx:if="{{point }}">
                 <text class="ptitle">{{ point.title || '项目亮点' }} </text>
                 <view class="blank"></view>
                 <text class="content">{{ point.content }}</text>
             </view>
+        </view>
+
+    </navigator>
+
+
 
 
 </view>

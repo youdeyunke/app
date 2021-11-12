@@ -45,6 +45,9 @@ Component({
             // 设置背景
             var bgColor = '#ffffff'
             var bgImage = 'none'
+            var bgWidth = '100%'
+            var bgHeight = 'auto'
+
             switch (bg.cat) {
                 case 'none':
                     bgColor = 'none'
@@ -57,10 +60,37 @@ Component({
                 case 'custom':
                     bgColor = bg.color
                     bgImage = "url('" + bg.image + "')"
+                    // bg size 
+                 
+                    if(bg.width == 'auto' || bg.width == '100%'){ 
+                        // 不是像素单位，不需要转换
+                        bgWidth = bg.width 
+                    }else{ 
+                        // 像素单位转为rpx
+                        bgWidth = parseInt(bg.width)*2 + 'rpx'
+                    }
+
+                        
+                    if(bg.height == 'auto' || bg.height == '100%'){ 
+                        // 不是像素单位，不需要转换
+                        bgHeight = bg.height 
+                    }else{ 
+                        // 像素单位转为rpx
+                        bgHeight = parseInt(bg.height)*2 + 'rpx'
+                    }
+                    var bgSize = bgWidth + ' ' + bgHeight
+
+                    var bgPosition = ''
+                    var x = bg.positionX || 0 
+                    var y = bg.positionY ||  0
+                    x = parseInt(x) * 2 
+                    y = parseInt(y) * 2 
+                    bgPosition = x + 'rpx ' + y + 'rpx'
+
                     break;
             }
 
-            this.setData({ bgColor: bgColor, bgImage: bgImage })
+            this.setData({ bgColor: bgColor, bgImage: bgImage, bgSize: bgSize, bgPosition: bgPosition })
         },
       
 
@@ -73,6 +103,8 @@ Component({
         bgColor: '',
         bgImage: '',
         height: 'auto',
+        bgSize: '100% auto',
+        bgPosition: '0 0',
         shadowEnable: true, 
         widthSize: '750rpx',
         radiusValue: '2rpx',

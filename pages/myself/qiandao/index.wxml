@@ -1,0 +1,26 @@
+<view class="outer" wx:if="{{user && user.id}}">
+  
+  <view bindtap="qiandaoHandle" wx:if="{{checked == false }}" style="background-image:url('{{qiandaoImg}}')" class="btn"></view>
+  <view bindtap="jifenHandle" wx:else  style="background-image:url('{{yiqiandaoImg}}')" class="btn"></view>
+
+  <van-popup safe-area-inset-top="{{true}}" custom-style="background:none;" show="{{showDialog}}">
+  <view class="dialog">
+
+
+    <view class="result">
+      <view class="score">+{{today.score}}</view>
+      <view class="px">积分</view>
+    </view>
+
+    <view class="days">
+      <view class="day" wx:for="{{days}}">
+        <view class="circle {{item.checked == true ? 'checked': ''}}">{{ item.checked === true ? '' : item.score}}</view>
+        <view class="week">{{weeks[item.week]}}</view>
+      </view>
+    </view>
+
+    <view class="close" bindtap="closeHandle">我知道了</view>
+  </view>
+  
+  </van-popup>
+</view>

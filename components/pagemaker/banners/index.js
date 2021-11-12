@@ -20,6 +20,26 @@ Component({
             this.setData({heightValue: value})
         },
 
+        "config.imageWidth": function(v){
+            if(!v){ 
+                return
+            }
+            else{
+                v = parseInt(v) * 2  
+            }
+            v = v + 'rpx'
+            this.setData({imageWidth: v})
+        },
+        "config.imageRadius": function(v){
+            if(!v){ 
+                v = '0'
+            }
+            else{
+                v = parseInt(v) * 2  
+            }
+            v = v + 'rpx'
+            this.setData({imageRadius: v})
+        }
 
 
     },
@@ -29,9 +49,10 @@ Component({
      * 组件的初始数据
      */
     data: {
-        widthValue: '710rpx',
+        widthValue: '710rpx', // 盒子宽度
         heightValue: 'auto',
-
+        imageWidth: '100%',  // 图片宽度
+        imageRadius: '0rpx', 
 
     },
 

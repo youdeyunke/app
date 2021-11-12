@@ -17,8 +17,6 @@
     justify-content: flex-start;
     align-items: center;
     height: 100%;
-
-    padding: 0 20rpx;
 }
 
 .body-style-normal {

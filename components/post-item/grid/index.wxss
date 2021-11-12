@@ -22,15 +22,16 @@
 }
 
 .title {
-    color: #000;
-    margin-bottom: 10rpx;
+    color: #333;
+    margin-bottom: 6rpx;
+    margin-top:6rpx;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
     width: 100%;
-    font-size: 30rpx;
+    font-size: 32rpx;
     font-weight: bold;
 }
 
@@ -45,7 +46,7 @@
 }
 
 .red {
-    color: red;
+    color: #EF3C51;
     font-weight: bold;
 }
 .position{

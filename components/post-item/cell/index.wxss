@@ -12,6 +12,8 @@
 
 .post .right{
     margin-left:20rpx;
+    box-sizing: border-box;
+    width: calc(100% - 20rpx - 214rpx);
 }
 
 .eye-icon{
@@ -69,9 +71,9 @@
 
 
 .post .title  {
-    color: #000;
+    color: #333;
     margin-bottom: 0rpx;
-    font-size: 34rpx;
+    font-size: 32rpx;
     font-weight: bolder;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -79,7 +81,7 @@
     overflow-x: hidden;
     overflow-y: hidden;
     margin-bottom:6rpx;
-    width: calc(100% - 110rpx);
+    width:100%;
 }
 
 
@@ -118,7 +120,7 @@
     margin-right: 10rpx;
     color: #EF3C51;
     font-weight: bold;
-    font-size:30rpx; 
+    font-size:26rpx; 
 }
 
 .post .status{
@@ -140,6 +142,8 @@
 }
 
 .outer .point {
+    width: 100%; 
+    box-sizing: border-box;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -150,14 +154,21 @@
     padding:0rpx 10rpx;
     margin-top:10rpx;
     margin-bottom:10rpx;
+    background-image:url('https://qiniucdn.udeve.net/fang/post-item-point.png'); 
+    background-size: 28rpx 28rpx;
+    background-repeat: no-repeat;
+    background-position: 8rpx 7rpx;
+    width: 
 }
 
 .point .ptitle{
-    color:#000;
+    color:#333;
     font-weight: bolder;
     margin-left:10rpx;
     margin-right:10rpx;
     white-space: nowrap;
+    padding-left:28rpx;
+
 }
 .point .blank{
     height: 60%; 

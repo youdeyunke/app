@@ -18,9 +18,10 @@
                 <navigator url="/pkgMyself/pages/score/index" hover-class="none" class="score">我的积分：{{ userInfo.score }}
                 </navigator>
             </view>
-            <navigator url="/pkgMyself/pages/profile/index" class="edit">修改资料
-                <image class="img" src="https://qiniucdn.udeve.net/fang/myself-edit.png"></image>
-            </navigator>
+            <view class="qiandao-outer">
+                <qiandao user="{{userInfo}}"></qiandao>
+            </view>
+          
         </block>
         <block wx:else>
             <view class="avatar">
@@ -78,13 +79,15 @@
 
         <view class="blank"></view>
         <view class="title">更多操作</view>
+    
 
         <van-cell-group inset>
-            <van-cell center is-link url="/pkgMyself/pages/history/index">
+
+            <van-cell center is-link url="/pkgMyself/pages/profile/index">
                 <view slot="title">
                     <view class="van-cell-title">
-                        <image class="van-cell-icon" src="{{configs.ui.myself_history}}"></image>
-                        <view class="van-cell-text">历史浏览</view>
+                        <image class="van-cell-icon" src="{{configs.ui.myself_edit}}"></image>
+                        <view class="van-cell-text">修改资料</view>
                     </view>
                 </view>
             </van-cell>

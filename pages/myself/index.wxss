@@ -155,7 +155,7 @@
     justify-content: flex-start;
     align-items: center;
     color:#333333;
-    font-size: 25rpx;
+    font-size: 28rpx;
 }
 
 .van-cell-icon{

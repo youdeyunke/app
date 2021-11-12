@@ -64,11 +64,9 @@
     border-bottom-left-radius: 10rpx;
 }
 
-
-
 .post .title {
-    color: #000;
-    font-size: 30rpx;
+    color: #333;
+    font-size: 32rpx;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -100,5 +98,5 @@
 .right
 {
     float:right;
-    color: red;
+    color: #EF3C51;
 }

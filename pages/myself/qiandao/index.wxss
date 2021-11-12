@@ -1,0 +1,104 @@
+.btn {
+
+  /* Rectangle 292 */
+
+  width: 128rpx;
+  height: 50rpx;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+}
+
+.dialog {
+  width: 464rpx;
+  height: 719rpx;
+  background-color: none;
+  background-image: url('https://qiniucdn.udeve.net/fang/qiandao-dialog-bg.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+
+.days {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 425rpx;
+
+}
+
+.days .day {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.days .day .circle {
+  /* Rectangle 283 */
+
+  width: 50rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 24rpx;
+
+  background: #F6F3DB;
+  border-radius: 25rpx;
+  color: #FE801F;
+  margin-bottom: 8rpx;
+
+}
+
+.days .day .week {
+  color: #fff;
+  font-size: 24rpx;
+  transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+}
+
+.days .day .circle.checked {
+  background-image: url('https://qiniucdn.udeve.net/fang/qiandao-checked.png');
+  background-size: 100% 100%;
+}
+
+.dialog .close {
+  /* Rectangle 291 */
+
+  width: 360rpx;
+  height: 70rpx;
+  font-size: 26rpx;
+  color: #333;
+  line-height: 70rpx; 
+  text-align: center;
+  background: #FFFFFF;
+  border-radius: 35rpx;
+  margin-bottom:40rpx; 
+  margin-top:50rpx;
+
+}
+
+.dialog .result{
+  color:#fff; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:40rpx;
+}
+
+.dialog .result .score{
+  font-size: 38rpx; 
+  font-weight: bold; 
+}
+
+.dialog .result .px{
+  font-size: 24rpx; 
+  margin-left:10rpx;
+}

@@ -3,10 +3,14 @@
     <view class="icon">
         <image mode="aspectFit" src="{{iconUrl}}" />
     </view>
-    <view class="items" style="color: {{ config.fontColor }}">
-        <swiper autoplay="true" circular="true" interval="3000" vertical="true">
-            <swiper-item item-id="{{index}}" data-index="{{index}}" wx:key="{{item.id}}" wx:for="{{items}}" bindtap="itemClick">
-                <navigator url="/pkgNews/pages/news/show?id={{item.id}}" hover-class='none' class="title line-limit">{{item.title}}</navigator>
+    <view class="items">
+        <swiper autoplay="true" circular="true" interval="3000" vertical="true" style="width:100%;height:100%;">
+            <swiper-item item-id="{{index}}" data-index="{{index}}" wx:key="{{item.id}}" wx:for="{{items}}" 
+                bindtap="itemClick">
+                <navigator style="color:{{config.fontColor }};font-size:{{fontSize}}" class="news-title" url="/pkgNews/pages/news/show?id={{item.id}}" hover-class='none' >
+                    {{item.title}}
+                </navigator>
+
             </swiper-item>
         </swiper>
     </view>

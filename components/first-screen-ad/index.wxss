@@ -123,3 +123,23 @@
   width: 80rpx;
   height: 80rpx;
 }
+
+
+.new-version-window .ad {
+  display: block;
+  z-index: 999;
+  position: absolute;
+  line-height: 40rpx;
+  border-radius: 0rpx;
+  font-size: 24rpx;
+  right: 2rpx;
+  padding:0 8rpx;
+  transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+  text-align: center;
+  bottom: 2rpx;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.2);
+  border: 2rpx solid #ffffff;
+  border-radius: 4rpx;
+}
