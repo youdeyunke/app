@@ -32,6 +32,7 @@
     max-width: 240rpx;
     overflow: hidden;
     height: 58rpx;
+    line-height: 58rpx;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,7 +41,7 @@
     background:#F43535; 
     color:#fff; 
     border-radius: 16rpx;
-    padding:4rpx 10rpx;
+    padding:8rpx 18rpx;
     border: 2rpx solid #fff; 
     display: flex;
     justify-content: center;

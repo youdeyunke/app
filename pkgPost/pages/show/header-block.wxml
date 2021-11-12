@@ -24,7 +24,7 @@
     </view>
     <view class="navs">
         <navigator url="{{nav.path}}" hover-class="none" class="nav-item {{ nav.disabled == true ? 'disable': ''}}" wx:key="index" wx:for="{{navs}}" wx:for-item="nav">
-            <image class="img" src="https://qiniucdn.udeve.net/fang/post-nav-{{nav.id}}.png" />
+            <image class="img" src="{{nav.icon}}" />
             <view>{{nav.name}}</view>
         </navigator>
     </view>

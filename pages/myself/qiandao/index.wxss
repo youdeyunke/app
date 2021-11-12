@@ -53,6 +53,7 @@
   background: #F6F3DB;
   border-radius: 25rpx;
   color: #FE801F;
+  font-weight: bold;
   margin-bottom: 8rpx;
 
 }
