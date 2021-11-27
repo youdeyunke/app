@@ -73,7 +73,6 @@ Page({
         var query = {}
         if(app.globalData.sourceUid){
             query.source_uid = app.globalData.sourceUid
-            query.source_scene = app.globalData.source_scene || 'default'
         } 
 
         app.request({
@@ -149,11 +148,12 @@ Page({
 
         var postId = options.id || options.post_id 
         var sourceUid = options.source_uid
-        var sceneKey = options.scene_key || 'default'
         app.globalData.sourceUid = sourceUid
-        app.globalData.sceneKey = sceneKey
-        app.markVisitor('post', postId)
-        _this.setData({ postId: postId }, () => {
+    
+        _this.setData({ 
+            postId: postId,
+            t0: new Date().getTime()
+        }, () => {
             _this.loadData()
             _this.gotoSubpage(options.subpage)
         })
@@ -205,38 +205,6 @@ Page({
 
 
 
-    setInterval: function () {
-
-        // 如果没有登录，直接退出
-        if (!app.globalData.token) {
-            console.log('未登录，不记录浏览时长')
-            return false
-        }
-
-        var step = 2
-        // 开始前，将旧的清楚，否则会导致跳转页面后也在执行
-        this.clearInterval()
-        var _this = this
-        var iid = setInterval(_this.intervalHandle, 1000 * step);
-        this.setData({ intervalId: iid })
-        console.log('页面停留统计初始化设置', iid)
-    },
-
-
-    intervalHandle: function () {
-        // 每秒钟执行
-        var _this = this
-        // 更新最后在线时间戳
-        app.markVisitor(this.data.visitorLogId, this.data.postId, 'post')
-    },
-
-    clearInterval: function () {
-        var iid = this.data.intervalId
-        if (iid) {
-            console.log('停止页停留时长统计, iid')
-            clearInterval(iid)
-        }
-    },
 
     drawRadar() {
         let windowWidth = 320;
@@ -353,14 +321,16 @@ Page({
      * 生命周期函数--监听页面隐藏
      */
     onHide: function () {
-        this.clearInterval()
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
-        this.clearInterval()
+        var t1 = new Date().getTime()
+        var t = t1 - this.data.t0
+        var name = '浏览楼盘：' + this.data.post.title
+        app.markVisitorAction(name, t)
     },
 
     /**

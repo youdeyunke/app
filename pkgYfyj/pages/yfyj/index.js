@@ -23,7 +23,8 @@ Page({
         this.setData({currentRoomId: item.id })
         this.selectComponent('#room-detail').onShow(item)
         // 点击了一房一价中的具体房间
-        app.markVisitorAction('click_room', item.id, 0)
+        var t = '点击:' + this.data.post.title + '房间：' + item.name + '的一房一价' 
+        app.markVisitorAction(t, item.id, 0)
     },
 
     tabChange: function (e) {
@@ -144,6 +145,10 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
+      var t1 = new Date().getTime()
+      var t = t1 - this.data.t0
+      var name = "浏览：" +  this.data.post.title + '的一房一价 '
+      app.markVisitorAction(name, null, t)
 
     },
 

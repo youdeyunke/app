@@ -60,6 +60,7 @@ Page({
     onLoad: function (q) {
         var _this = this
         _this.setData({
+            t0: new Date().getTime() ,
             userId: q.id,
         }, function () {
             _this.loadbroker()
@@ -75,8 +76,7 @@ Page({
             }
         }
         this.viewHandle()
-        
-        app.markVisitor(null, q.id, 'user')
+
      
     },
 
@@ -163,6 +163,9 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
+        var t = new Date().getTime() - this.data.t0 
+        var name = "访问：置业顾问" + this.data.broker.name + "的个人主页"
+        app.markVisitorAction(name, t)
 
     },
 

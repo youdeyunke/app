@@ -16,6 +16,14 @@
     },
 
     {
+      "root": "pkgDzp", 
+      "name": "pkgdzp",
+      "pages": [
+        "pages/dzp/index"
+      ]
+    },
+
+    {
       "root": "pkgZhuli", 
       "name": "pkgzhuli",
       "pages": [

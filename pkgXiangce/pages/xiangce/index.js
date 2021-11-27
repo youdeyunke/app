@@ -164,7 +164,7 @@ Page({
     onUnload: function () {
         var t1 = new Date().getTime()
         var t = t1 - this.data.t0
-        app.markVisitorAction('view_albums', null, t)
+        app.markVisitorAction('浏览:' + this.data.pageTitle , null, t)
     },
 
     /**

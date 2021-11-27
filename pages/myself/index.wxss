@@ -92,12 +92,11 @@
 }
 
 .body{
-    width:750rpx;
     box-sizing: border-box;
-    padding:30rpx 0;
-    margin:-40rpx auto 0 auto;
+    padding:0;
+    margin:-50rpx auto 0 auto;
     min-height: 400rpx;
-    background:#fff; 
+    background:#fff;
     border-top-left-radius: 20rpx;
     border-top-right-radius: 20rpx;
 

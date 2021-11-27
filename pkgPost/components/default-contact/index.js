@@ -39,6 +39,18 @@ Component({
             
         },
 
+        favChangeHandle: function(e){
+            console.log('fav change 222', e)
+            var s = e.detail.status 
+            var name = "收藏了楼盘:"
+            if(s == 0){
+                name = "取消收藏楼盘:"
+            }
+            name += this.data.post.title 
+            app.markVisitorAction(name, 0)
+
+        },
+
         bookingChange: function (e) {
             this.setData({ bookingStatus: 1 })
         },
@@ -62,7 +74,7 @@ Component({
                 content: t, 
                 success:(res) => {
                     if(res.confirm){
-                        app.markVisitorAction('click_phone', null, 0)
+                        app.markVisitorAction('点击拨打楼盘联系电话:' + phone, 0)
                         wx.makePhoneCall({
                             phoneNumber: phone,
                             success: (result) => {

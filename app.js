@@ -283,12 +283,11 @@ App({
         }, 1000)
     },
 
-
     timLogin: function () {},
 
     onLaunch: function () {
-
         var _this = this;
+        this.markVisitor() // 记录用户来源
         this.setUserInfo()
         this.setSystemInfo()
         this.startReddotInterval()
@@ -392,7 +391,7 @@ App({
     onAppHide: function () {
         console.log('小程序切换到后台')
         this.markUserOnlineStatus('offline')
-        this.markVisitorAction('app_hide', null, 0)
+        this.markVisitorAction('关闭了小程序', 0)
     },
 
     markUserOnlineStatus: function (status) {
@@ -429,18 +428,19 @@ App({
         }
     },
 
-    markVisitor: function (targetType, targetId, cb) {
+    markVisitor: function (cb) {
         // TODO 未登录情况下产生一个唯一身份id
         var _this = this
+        var sceneObj =  wx.getLaunchOptionsSync()
+        var sourceUid = sceneObj.query.source_uid || ''
+        _this.globalData.sourceUid = sourceUid
         this.request({
             url: '/api/v1/visitors',
             hideLoading: true,
             method: 'POST',
             data: {
-                target_id: targetId,
-                target_type: targetType,
-                scene_key: _this.globalData.sceneKey,
-                source_uid: _this.globalData.sourceUid,
+                scene_key: sceneObj.scene,
+                source_uid: sourceUid,
             },
             success: function (resp) {
                 var data = resp.data
@@ -455,19 +455,23 @@ App({
     },
 
 
-    markVisitorAction: function (actionName, value, seconds, cb) {
+    markVisitorAction: function (actionName, seconds, cb) {
         // TODO 未登录情况下产生一个唯一身份id
         var _this = this
         seconds = seconds / 1000
-        console.log('get vid is', _this.globalData.visitorId)
+        var uid = this.globalData.visitorId 
+        if(!uid){
+            console.log('没有visitor uid，无法上报事件 ' + actionName)
+            return
+        }
+
         this.request({
             url: '/api/v1/visitor_actions',
             hideLoading: true,
             method: 'POST',
             data: {
-                visitor_id: _this.globalData.visitorId,
-                action_name: actionName,
-                value: value,
+                visitor_uid: _this.globalData.visitorId,
+                name: actionName,
                 seconds: seconds,
             },
             success: function (resp) {

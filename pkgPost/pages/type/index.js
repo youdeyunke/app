@@ -132,7 +132,8 @@ Page({
     onUnload: function () {
         var t1 = new Date().getTime()
         var t = t1 - this.data.t0
-        app.markVisitorAction('view_types', null, t)
+        var name = "浏览：" + this.data.post.title + '的户型列表'
+        app.markVisitorAction(name, t)
     },
 
     /**

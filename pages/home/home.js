@@ -63,7 +63,7 @@ Page({
         }, () => {
             this.checkInstallTips()
         })
-        app.markVisitor('home', null)
+      
     },
 
     checkInstallTips: function () {
@@ -123,6 +123,13 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        var path = '/pages/home/home'
+        if(app.globalData.userInfo){ 
+            path = path + '?source_uid=' + app.globalData.userInfo.id 
+        }
+        this.setData({
+            pagePath: path 
+        })
 
     },
 

@@ -2,7 +2,7 @@
     <view style="width:100%;height:150rpx;"></view>
     <view class="outer">
         <div class="fav">
-            <fav pid="{{post.id}}"></fav>
+            <fav bind:change="favChangeHandle" pid="{{post.id}}"></fav>
         </div>
         <div class="share" bindtap="shareHandle">
             <image src="https://qiniucdn.udeve.net/fang/pkgPost/share.png" />

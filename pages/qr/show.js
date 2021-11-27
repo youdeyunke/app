@@ -48,12 +48,11 @@ Page({
         })
 
         var qr = resp.data.data 
-        // 跳转到页面 
-        app.globalData.qrdata = qr.data  
-        console.log('response ', qr)
-        wx.redirectTo({
+        // 更多参数  qr.data
+        wx.reLaunch({
           url: qr.path,
-        })
+        }) 
+
       }
     })
   },

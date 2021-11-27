@@ -18,7 +18,7 @@ Page({
     })
   },
   inputHandle: function (e) {
-    console.log("e.detali",e.detail.value)
+    console.log("e.detali", e.detail.value)
     this.setData({
       inputvalue: e.detail.value,
       delshow: true,
@@ -36,49 +36,54 @@ Page({
     var inputvalue = this.data.inputvalue
     if (inputvalue == '') {
       return
-    } else {
-      if (searchRecord.indexOf(inputvalue) === -1) {
-        searchRecord.unshift(inputvalue)
-        wx.navigateTo({
-          url: '/pkgPost/pages/index/index?text=' + inputvalue
-        })
-        wx.setStorageSync('searchRecord', searchRecord)
-      } else {
-        wx.navigateTo({
-          url: '/pkgPost/pages/index/index?text=' + inputvalue
-        })
-      }
     }
+
+    app.markVisitorAction("搜索关键词：" + inputvalue, 0)
+
+    if (searchRecord.indexOf(inputvalue) === -1) {
+      searchRecord.unshift(inputvalue)
+      wx.setStorageSync('searchRecord', searchRecord)
+      wx.navigateTo({
+        url: '/pkgPost/pages/index/index?text=' + inputvalue
+      })
+      return
+    }
+
+    wx.navigateTo({
+      url: '/pkgPost/pages/index/index?text=' + inputvalue
+    })
   },
 
-  searchNumPlus: function(pid){
+  searchNumPlus: function (pid) {
     app.request({
-      url: '/api/v1/hot_search', 
-      method: 'POST', 
-      hideLoading: true, 
-      data: {post_id: pid}, 
-      success: function(resp){
+      url: '/api/v1/hot_search',
+      method: 'POST',
+      hideLoading: true,
+      data: {
+        post_id: pid
+      },
+      success: function (resp) {
         // pass
       }
     })
   },
   valueHandle: function (e) {
-      // 点击了搜索结果之后
-      // 搜索次数加一
-      this.searchNumPlus(e.detail.id)
-      wx.navigateTo({
-        url: '/pkgPost/pages/show/index?id='+e.detail.id,
-      })
-      this.setData({
-        inputvalue:e.detail.title,
-        resultshow:false
-      })
+    // 点击了搜索结果之后
+    // 搜索次数加一
+    this.searchNumPlus(e.detail.id)
+    wx.navigateTo({
+      url: '/pkgPost/pages/show/index?id=' + e.detail.id,
+    })
+    this.setData({
+      inputvalue: e.detail.title,
+      resultshow: false
+    })
   },
   delvalue: function () {
     this.setData({
       inputvalue: '',
       resultshow: false,
-      delshow:false
+      delshow: false
     })
   },
   clearHandle: function () {

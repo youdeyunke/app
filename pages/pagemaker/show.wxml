@@ -1,0 +1,4 @@
+
+<navigation-bar bindhome="homeHandle" bindback="backHandle" back  home background="none" background-color-top="none"  title="{{pageTitle}}"  background-color-top="none" background="{{titleBgColor}}" color="{{titleFontColor}}"></navigation-bar>
+<page-loading wx:if="{{loading}}" />
+<pagemaker bind:ready="pageReadyHandle" ref="pagemaker" class="pm" page-id="{{pageId}}" />

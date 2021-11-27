@@ -1,0 +1,7 @@
+{
+    "navigationStyle": "custom",
+    "enablePullDownRefresh": true,
+  "usingComponents": {
+    "pagemaker": "/components/pagemaker/index"
+  }
+}

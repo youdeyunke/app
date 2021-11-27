@@ -81,6 +81,8 @@ Component({
                     } else {
                         var t = '已取消'
                     }
+                    console.log('fav change ')
+                    _this.triggerEvent('change', {status: resp.data.data.status, title: t})
                     wx.showToast({
                         title: t,
                         icon: 'none',
