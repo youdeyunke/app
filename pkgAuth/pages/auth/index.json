@@ -1,6 +1,7 @@
 {
-    "navigationBarBackgroundColor": "#f4f4f4",
+    "navigationBarTitleText": "微信授权登陆",
     "enablePullDownRefresh": false,
+
     "disableScroll": true,
     "usingComponents": {
         "card": "/components/card",

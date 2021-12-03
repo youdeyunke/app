@@ -1,31 +1,34 @@
-<view class="sms">
-    <view class="bg-1"></view>
-    <image class="sms-bg" src="/pkgAuth/images/Group-68@1x.png" mode="widthFix"></image>
-    <view class="title">
-        <view>手机验证码登录</view>
-        <view class="sub-title">未注册过的手机号将自动创建账号</view>
+<view class="auth">
+
+    <view class="header"  style="background-image:url('{{ui.login_header}}')">
+
     </view>
-</view>
-<view class="body">
-    <view class="input">
-        <text class="desc">+86</text>
-        <input type="number" model:value='{{phone}}' placeholder="请输入手机号" maxlength="11" />
+
+    <view class="body">
+        <view class="input">
+            <text class="desc">+86</text>
+            <input class="input-ele" type="number" model:value='{{phone}}' placeholder="请输入手机号" maxlength="11" />
+        </view>
+        <view class="input">
+            <text class="desc">验证码:</text>
+            <input class="input-ele" type="text" model:value='{{yanzheng}}' placeholder="请输入验证码" maxlength="4"
+                class="yanzheng" />
+            <text wx:if="{{!yanzhengShow}}" class="fsyzm" bind:tap="sendYanzheng">发送验证码</text>
+            <text wx:else class="fsyzm-f">{{time}}s后重新获取</text>
+        </view>
+
     </view>
-    <view class="input">
-        <text class="desc">验证码:</text>
-        <input type="text" model:value='{{yanzheng}}' placeholder="请输入验证码" maxlength="4" class="yanzheng" />
-        <text wx:if="{{!yanzhengShow}}" class="fsyzm" bind:tap="sendYanzheng">发送验证码</text>
-        <text wx:else class="fsyzm-f">{{time}}s后重新获取</text>
-    </view>
-    <button class="button" disabled="{{!phone || !yanzheng}}" bind:tap="loginHandle">立即登录</button>
-</view>
-<view class="footer" hover-class="none">
-    <view bind:tap="toggleShow">
-        <image class="icons" wx:if='{{alowTerms}}' src="/pkgAuth/images/Group-69@1x.png"></image>
-        <image class="icons" wx:else src="/pkgAuth/images/Rectangle-4@1x.png"></image>
-    </view>
-    <view class="terms">
-        <text>同意</text>
-        <navigator style="color:#1989fa" url="/pkgAuth/pages/terms">《用户协议》</navigator>
+
+    <view class="footer" hover-class="none">
+        <van-button type="info" style="width:100%;font-size:32rpx;" block disabled="{{!phone || !yanzheng}}"
+            bind:tap="loginHandle">立即登录</van-button>
+            <view class="terms-block" hover-class="none">
+            <ud-checkbox model:value="{{allowTerms}}"></ud-checkbox>
+            <view class="terms" bindtap="termsHandle">
+                <text>同意</text>
+                <navigator style="color:#1989fa" url="/pkgAuth/pages/auth/terms">《用户协议》</navigator>
+            </view>
+        </view>
+
     </view>
 </view>

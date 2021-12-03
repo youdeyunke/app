@@ -1,5 +1,6 @@
 page {
     height: 100% !important;
+    background:#fff !important;
     width: 100%;
     padding: 0;
 }
@@ -7,108 +8,50 @@ page {
 .auth {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
     height: 100%;
-    position: relative;
+    
 }
 
 .header {
-    padding-top: 230rpx;
-    text-align: center;
+    width: 100%; 
+    height: 425rpx; 
+    background-size: 750rpx 425rpx;
+    background-repeat: no-repeat;
 }
 
-.header .title {
-    font-size: 60rpx;
-    color: #fff;
-}
-
-.header .subtitle {
-    font-size: 24rpx;
-    color: #fff;
-    margin-top: 20rpx;
-}
 
 .body {
-    padding-top: 300rpx;
-    width: 650rpx;
+    width: 100%; 
+    height: 636rpx; 
+    background-size: 750rpx 636rpx;
+    background-repeat: no-repeat;
+}
+
+.footer{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    color: #fff;
+    width: 690rpx;
 }
 
-.body .tips {
-    color: #fff;
-    font-size: 24rpx;
-    margin-top: 20rpx;
-}
-
-.footer {
+.terms-block {
     display: flex;
     justify-content: center;
     align-items: center;
     color: #f4f4f4;
     font-size: 24prx;
-    padding-bottom: 60rpx;
+    margin-top:20rpx;
+    margin-bottom:50rpx;
 }
 
-.auth .mask {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.1);
-}
 
-.auth .bg {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: -10;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    filter: blur(2px);
-}
-
-.icon{
-    width: 34rpx;
-    height:34rpx;
-    padding-top: 7rpx;
-}
-.nav{
-    background: #fff;
-    color: #333333;
-    width: 100%;
-    height: 88rpx;
-    line-height: 88rpx;
-    margin-top: 20rpx;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.nav text{
-    font-size: 32rpx;
-    margin-left: 10rpx;
-    font-weight: medium
-}
-.icons{
-    width: 20rpx;
-    height: 20rpx;
-}
 .terms{
     font-size: 24rpx;
     margin-left: 10rpx;
     display: flex;
-}
-.van-button--normal{
-    font-size: 32rpx !important;
+    color:#333333;
 }

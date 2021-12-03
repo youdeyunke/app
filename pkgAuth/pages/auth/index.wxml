@@ -1,32 +1,33 @@
 <view class="auth" wx:if="{{!userInfo}}">
-    <view class="header">
-        <view class="title">登陆账号</view>
-        <view class="subtitle">可体验更多服务</view>
+    <view class="header" style="background-image:url('{{ui.login_header}}')">
     </view>
-    <view class="body">
-        <van-button style="width:100%;font-size:32rpx;" block  icon="/pkgAuth/images/Frame.png"  loading="{{loading}}" disabled="{{loading}}" type="info" open-type='getPhoneNumber' bindgetphonenumber='loginHandle'>
+
+    <view class="body" style="background-image:url('{{ui.login_body}}')">
+    </view>
+
+    <view class="footer">
+        <van-button style="width:100%;font-size:32rpx;" block icon="wechat" loading="{{loading}}"
+            disabled="{{loading}}" type="info" open-type='getPhoneNumber' bindgetphonenumber='loginHandle'>
             微信登录
         </van-button>
-        <!-- <button class='button' loading="{{loading}}" disabled="{{loading}}"   open-type='getPhoneNumber' bindgetphonenumber='loginHandle'>
-            <image class="icon" src="/assets/icons/Frame.png"></image>
-            {{ loading == true ? '正在登录...'  : '微信登录' }}
-        </button> -->
-        <navigator class="nav"  url="/pkgAuth/pages/auth/sms"    open-type="navigate">
-            <image class="icon" src="../../images/Frame-1.png"></image>
-            <text class="">短信登录</text>
+
+        <navigator style="width:100%;margin-top:20rpx;"  url="/pkgAuth/pages/auth/sms">
+            <van-button plain style="width:100%;font-size:32rpx;" block icon="comment"
+                loading="{{loading}}" disabled="{{loading}}" type="info">
+                短信登陆
+            </van-button>
         </navigator>
-        <navigator url="/pages/home/home" open-type="switchTab" class="tips">不登录，先逛逛</navigator>
-    </view>
-    <view class="footer"  hover-class="none">
-        <view bind:tap="toggleShow">
-            <image  class="icons" wx:if='{{show}}' src="../../images/Group-69@1x.png" ></image>
-            <image class="icons"  wx:else src="../../images/Rectangle-4@1x.png" ></image>
+
+        <view class="terms-block" hover-class="none">
+            <ud-checkbox model:value="{{allowTerms}}"></ud-checkbox>
+            <view class="terms" bindtap="termsHandle">
+                <text>同意</text>
+                <navigator style="color:#1989fa" url="/pkgAuth/pages/auth/terms">《用户协议》</navigator>
+            </view>
         </view>
-        <view class="terms">
-        <text>同意</text>
-        <navigator style="color:#1989fa" url="/pkgAuth/pages/auth/terms">《用户协议》</navigator>
-        </view>
+
     </view>
-    <image class="bg" src="../../images/login-bg.png" />
-    <view class="mask"></view>
+
+
+
 </view>

@@ -329,7 +329,7 @@ Page({
     onUnload: function () {
         var t1 = new Date().getTime()
         var t = t1 - this.data.t0
-        var name = '浏览楼盘：' + this.data.post.title
+        var name = '浏览楼盘：' + this.data.postInfo.title
         app.markVisitorAction(name, t)
     },
 

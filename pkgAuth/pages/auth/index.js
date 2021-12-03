@@ -8,7 +8,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        loginMethod: '',
+        ui: {},
+        allowTerms: false, 
         code: null,
         loading: false,
         show:true
@@ -82,6 +83,13 @@ Page({
     },
 
 
+    termsHandle: function(){
+        this.setData({
+            allowTerms: !this.data.allowTerms,
+        })
+    },
+
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -91,10 +99,7 @@ Page({
         app.globalData.token = null
         wx.setStorageSync("userInfo", null);
         wx.setStorageSync("token", null);
-        this.setData({
-            loginMethod: app.globalData.myconfigs['login_method'] || 'v1',
-        })
-        console.log('app.globalData.userInfo auth/index.js', app.globalData.userInfo)
+      
     },
 
     toggleShow(){
@@ -119,6 +124,9 @@ Page({
     onShow: function () {
         var _this = this
         this.setData({ loading: false })
+        app.ensureConfigs(function (configs) {
+            _this.setData({ ui: configs.ui })
+        })
 
         wx.login({
             success: function (res) {

@@ -1,41 +1,34 @@
 /* pages/auth/sms.wxss */
 
-.sms {
-    width: 750rpx;
-    position: relative;
-}
-
-.sms .bg-1 {
-    background: #1989fa;
+page {
+    height: 100% !important;
+    background:#fff !important;
     width: 100%;
-    display: block;
-    height: 176rpx;
+    padding: 0;
 }
 
-.sms-bg {
-    position: absolute;
+.auth {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
-    height: 300rpx!important;
-    top: 176rpx;
-    left: 0;
-    z-index: -1;
+    height: 100%;
+    
 }
 
-.title {
-    color: #FFFFFF;
-    padding-top: 80rpx;
-    padding-left: 40rpx;
-    font-size: 38rpx;
+.header {
+    width: 100%; 
+    height: 425rpx; 
+    background-size: 750rpx 425rpx;
+    background-repeat: no-repeat;
 }
 
-.sub-title {
-    font-size: 24rpx;
-    margin-top: 20rpx;
-}
+
 
 .body {
     width: 670rpx;
-    margin: 300rpx auto 250rpx auto;
+    margin: 40rpx auto 40rpx auto;
 }
 
 .input {
@@ -52,7 +45,7 @@
     color: #666666;
 }
 
-.input input {
+.input .input-ele {
     width: 80%;
     height: 100%;
     color: #B4B4B4;
@@ -73,38 +66,35 @@
     color: #1989F9!important;
 }
 
-.button {
-    width: 100%;
-    height: 87rpx;
-    background-color: #1989F9;
-    color: #fff;
-    font-size: 32rpx;
-    line-height: 87rpx;
-    text-align: center;
-}
-
-.footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #333333;
-    font-size: 24prx;
-    padding-bottom: 57rpx;
-}
-
-.icons {
-    width: 20rpx;
-    height: 20rpx;
-}
-
-.terms {
-    font-size: 24rpx;
-    margin-left: 10rpx;
-    display: flex;
-}
 
 .fsyzm-f {
     width: 30%;
     color: #AEAEAE !important;
     font-size: 28rpx!important;
+}
+
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 690rpx;
+}
+
+.terms-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f4f4f4;
+    font-size: 24prx;
+    margin-top:20rpx;
+    margin-bottom:50rpx;
+}
+
+.terms{
+    font-size: 24rpx;
+    margin-left: 10rpx;
+    display: flex;
+    color:#333333;
 }
