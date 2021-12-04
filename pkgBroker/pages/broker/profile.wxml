@@ -1,5 +1,7 @@
+
 <namecard broker="{{broker}}" ></namecard>
 
+<login-window class="loginwindow"></login-window>
 
 
   <ud-card title="主营楼盘" width="750" wx:if="{{broker.post != null}}">

@@ -6,8 +6,8 @@
     </view>
 
     <view class="footer">
-        <van-button style="width:100%;font-size:32rpx;" block icon="wechat" loading="{{loading}}"
-            disabled="{{loading}}" type="info" open-type='getPhoneNumber' bindgetphonenumber='loginHandle'>
+        <van-button color="linear-gradient(90deg, #6AAEF2 0%, #1989F9 100%)" style="width:100%;font-size:32rpx;" block icon="wechat" loading="{{loading}}"
+            disabled="{{loading}}"  open-type='getPhoneNumber' bindgetphonenumber='loginHandle'>
             微信登录
         </van-button>
 

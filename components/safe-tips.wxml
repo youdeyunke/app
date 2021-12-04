@@ -6,7 +6,7 @@
     </view>
 
     <view class="right">
-      <button plain open-type="contact" bindcontact="handleContact">报告数据错误</button>
+      <button class="btn" plain open-type="contact" bindcontact="handleContact">报告数据错误</button>
     </view>
 
   </view>

@@ -38,6 +38,7 @@ Page({
         // 换取服务器的token
         this.setData({ loading: true })
         this.getSessionToken(code, encryptedData, iv, function (userInfo) {
+            console.log('code is', code)
             var pages = getCurrentPages()
             if (pages.length == 1) {
                 wx.switchTab({ url: '/pages/myself/index' })
@@ -102,15 +103,7 @@ Page({
       
     },
 
-    toggleShow(){
-        var show = this.data.show
-        if(!show){
-            show = true
-        }else{
-            show = false
-        }
-        this.setData({show:show})
-    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -130,7 +123,6 @@ Page({
 
         wx.login({
             success: function (res) {
-                console.log('login code', res.code)
                 _this.setData({ code: res.code })
             },
             complete: function (res) {

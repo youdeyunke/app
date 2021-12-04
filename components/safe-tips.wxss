@@ -17,13 +17,12 @@
     margin-left: 10rpx;
 }
 
-.safe-tips .title .right button {
+.safe-tips .title .right .btn {
     border: none;
     background: none;
     color: #5D77AB;
-    font-size: 28rpx;
+    font-size: 24rpx;
     line-height: 28rpx;
-    opacity: 0.8;
 }
 
 .safe-tips .title .left {

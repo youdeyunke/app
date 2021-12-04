@@ -8,7 +8,7 @@ Page({
     data: {
         broker: null,
         userId: null,
- 
+
     },
     showPopup() {
         this.setData({
@@ -22,6 +22,12 @@ Page({
         });
     },
     chatHandle: function () {
+        // 如果没有登陆，则弹窗登陆窗口 
+        if (!app.globalData.token) {
+            this.selectComponent('.loginwindow').openWindow()
+            return
+        }
+
         // 先调用打招呼接口
         wx.showLoading({
             title: '正在打开',
@@ -60,24 +66,24 @@ Page({
     onLoad: function (q) {
         var _this = this
         _this.setData({
-            t0: new Date().getTime() ,
+            t0: new Date().getTime(),
             userId: q.id,
         }, function () {
             _this.loadbroker()
         })
-        var qrdata= app.globalData.qrdata 
-        if(qrdata){
-            app.globalData.qrdata = null 
-            if(qrdata.referrer_id){
+        var qrdata = app.globalData.qrdata
+        if (qrdata) {
+            app.globalData.qrdata = null
+            if (qrdata.referrer_id) {
                 wx.setStorage({
-                    key: 'referrer_id', 
+                    key: 'referrer_id',
                     data: qrdata.referrer_id
                 })
             }
         }
         this.viewHandle()
 
-     
+
     },
 
     viewHandle: function () {
@@ -95,19 +101,21 @@ Page({
                     return
                 }
                 _this.setData({
-                  viewNums: res.data.data
+                    viewNums: res.data.data
                 })
             }
         })
-  
+
     },
 
     loadbroker: function () {
         var uid = this.data.userId
         var _this = this
         app.request({
-            url: '/api/v1/brokers/show' ,
-            data: {user_id: uid},
+            url: '/api/v1/brokers/show',
+            data: {
+                user_id: uid
+            },
             success: function (resp) {
                 // 有可能没有开通个人主页
                 if (resp.data.status != 0) {
@@ -127,7 +135,7 @@ Page({
             }
         })
     },
- 
+
 
 
 
@@ -142,12 +150,12 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        var _this = this 
+        var _this = this
         setTimeout(() => {
-            if(!this.data.broker){
+            if (!this.data.broker) {
                 this.loadbroker()
             }
-           
+
         }, 1000)
 
     },
@@ -163,7 +171,7 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
-        var t = new Date().getTime() - this.data.t0 
+        var t = new Date().getTime() - this.data.t0
         var name = "访问：置业顾问" + this.data.broker.name + "的个人主页"
         app.markVisitorAction(name, t)
 
@@ -193,9 +201,9 @@ Page({
         var _this = this
         return {
             title: _this.data.broker.name + '的名片',
-          
+
             imageUrl: _this.data.broker.avatar
         }
     },
-   
+
 })

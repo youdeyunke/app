@@ -7,7 +7,9 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        pid: { type: Number },
+        pid: {
+            type: Number
+        },
     },
 
 
@@ -26,7 +28,9 @@ Component({
             open: {
                 name: 'clock-o'
             },
-            price: { name: 'chart-trending-o' },
+            price: {
+                name: 'chart-trending-o'
+            },
         },
         nameDict: {
             title: ['订阅楼盘动态提醒', '已订阅!'],
@@ -51,25 +55,32 @@ Component({
         },
 
         closeHandle: function () {
-            this.setData({ showDialog: false })
+            this.setData({
+                showDialog: false
+            })
         },
 
 
-        createSubTpl: function(cb){
+        createSubTpl: function (cb) {
             // 调用模板消息
             var tpl1 = 'ut-jnNer2qYToPJ6EGQddWcRI87UWYqEIIRdQOGlBHs' // 楼盘动态提醒
             wx.requestSubscribeMessage({
-                tmplIds: [tpl1 ],
-                success: function(res){
+                tmplIds: [tpl1],
+                success: function (res) {
                     // TODO 
-                    console.log('create sub tpl res',res)
+                    console.log('create sub tpl res', res)
                     typeof cb === 'function' && cb(res)
                 }
-            })    
+            })
         },
 
         openHandle: function () {
-            console.log('open handle')
+            // 如果没有登陆，则弹窗登陆窗口 
+            if (!app.globalData.token) {
+                this.selectComponent('.loginwindow').openWindow()
+                return
+            }
+
             wx.showLoading({
                 title: '处理中',
                 mask: true,
@@ -80,9 +91,11 @@ Component({
 
                 // 如果是新订阅
                 if (_this.data.status == 0) {
-                    _this.setData({ showDialog: true })
+                    _this.setData({
+                        showDialog: true
+                    })
                     var ids = ['ut-jnNer2qYToPJ6EGQddWcRI87UWYqEIIRdQOGlBHs']
-                    app.createSubTpl(ids, (res) => {                    
+                    app.createSubTpl(ids, (res) => {
 
                     })
                     return
@@ -91,14 +104,16 @@ Component({
             })
         },
 
-        cancleSub: function(){
-            var _this = this 
-            var fid = this.data.fid 
-            var pid = this.data.pid 
+        cancleSub: function () {
+            var _this = this
+            var fid = this.data.fid
+            var pid = this.data.pid
             app.request({
-                url: '/api/v1/event_followers/' + fid ,
+                url: '/api/v1/event_followers/' + fid,
                 method: 'DELETE',
-                data:  { post_id: pid },
+                data: {
+                    post_id: pid
+                },
                 success: function (resp) {
                     // 提交后刷新状态
                     _this.loadStatus()
@@ -110,15 +125,17 @@ Component({
                         mask: true,
                     });
                 }
-            })            
+            })
         },
 
-        createSub: function(){
-            var _this = this 
+        createSub: function () {
+            var _this = this
             app.request({
                 url: '/api/v1/event_followers',
                 method: 'POST',
-                data:  { post_id: _this.data.pid },
+                data: {
+                    post_id: _this.data.pid
+                },
                 success: function (resp) {
                     // 提交后刷新状态
                     _this.loadStatus()
@@ -127,8 +144,9 @@ Component({
         },
 
         subHandle: function () {
+
             var _this = this
-  
+
             if (this.data.status == 1) {
                 // 取消订阅
                 this.cancleSub()

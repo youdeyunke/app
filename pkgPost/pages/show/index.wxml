@@ -42,3 +42,6 @@
 
 
 
+
+
+<login-window class="loginwindow" ref="loginwindow"></login-window>

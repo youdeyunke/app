@@ -1,25 +1,29 @@
 <!-- components/broker-item/index.wxml -->
-<view class="outer">
-    <view class="avatar" bindtap="gotoProfile">
-        <image src="{{item.avatar}}?imageView2/2/w/80" class="user" />
-        <image src="https://qiniucdn.udeve.net/fang/broker-level-{{item.level}}.png" class="badge" />
-    </view>
-    <view class="name">
-        <view class="fullname">{{ item.name}}</view>
+<block>
+    <login-window class="loginwindow"></login-window>
+    <view class="outer">
+        <view class="avatar" bindtap="gotoProfile">
+            <image src="{{item.avatar}}?imageView2/2/w/80" class="user" />
+            <image src="https://qiniucdn.udeve.net/fang/broker-level-{{item.level}}.png" class="badge" />
+        </view>
+        <view class="name">
+            <view class="fullname">{{ item.name}}</view>
 
-        <view class="name-nav">
-            <image class="image1" src="https://qiniucdn.udeve.net/fang/broker-item-like.png"></image>
-            <view class="n">{{item.like_nums}}</view>
-            <image class="image1" src="https://qiniucdn.udeve.net/fang/broker-vitem-iew.png"></image>
-            <view class="n">{{item.view_nums}}</view>
+            <view class="name-nav">
+                <image class="image1" src="https://qiniucdn.udeve.net/fang/broker-item-like.png"></image>
+                <view class="n">{{item.like_nums}}</view>
+                <image class="image1" src="https://qiniucdn.udeve.net/fang/broker-vitem-iew.png"></image>
+                <view class="n">{{item.view_nums}}</view>
+            </view>
+        </view>
+        <view class="actions">
+            <view class="btn" bindtap="chatHandle">
+                <image class="img" src="https://qiniucdn.udeve.net/fang/broker-item-chat.png" />
+            </view>
+            <view class="btn" bindtap="phoneHandle">
+                <image class="img" src="https://qiniucdn.udeve.net/fang/broker-item-phone.png" />
+            </view>
         </view>
     </view>
-    <view class="actions">
-        <view class="btn" bindtap="chatHandle">
-            <image class="img" src="https://qiniucdn.udeve.net/fang/broker-item-chat.png" />
-        </view>
-        <view class="btn" bindtap="phoneHandle">
-            <image class="img" src="https://qiniucdn.udeve.net/fang/broker-item-phone.png" />
-        </view>
-    </view>
-</view>
+
+</block>

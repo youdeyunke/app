@@ -11,6 +11,12 @@
     width: 120rpx;
 }
 
+.action .icon {
+    width: 46rpx;
+    height: 52rpx;
+    margin-bottom: 10rpx;
+}
+
 .action .status-text {
     font-size: 24rpx;
     font-weight: bold;

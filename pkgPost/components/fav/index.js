@@ -7,9 +7,18 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        pid: { type: Number, value: null },
-        showcount: { type: Boolean, value: false },
-        showstatus: { type: Boolean, value: false, }
+        pid: {
+            type: Number,
+            value: null
+        },
+        showcount: {
+            type: Boolean,
+            value: false
+        },
+        showstatus: {
+            type: Boolean,
+            value: false,
+        }
     },
 
     observers: {
@@ -29,8 +38,7 @@ Component({
         status: 0,
     },
 
-    ready: function () {
-    },
+    ready: function () {},
 
 
     /**
@@ -45,7 +53,10 @@ Component({
             app.request({
                 url: '/api/v1/favs/',
                 hideLoading: true,
-                data: { target_id: _this.data.pid, target_type: 'post' },
+                data: {
+                    target_id: _this.data.pid,
+                    target_type: 'post'
+                },
                 success: function (resp) {
                     _this.setData(resp.data.data)
                 },
@@ -53,27 +64,32 @@ Component({
         },
 
         clickHandle: function (e) {
+            // 如果没有登陆，则弹窗登陆窗口 
+            if (!app.globalData.token) {
+                this.selectComponent('.loginwindow').openWindow()
+                return
+            }
 
             var pid = this.data.pid
             var _this = this
-            auth.ensureUser(function (userInfo) {
-                _this.doSubmit(pid)
-            })
-        },
-
-        doSubmit: function (pid) {
+            
             if (!pid) {
                 console.error('pid 不存在', pid)
                 return
             }
             var _this = this
             // 先修改状态，再提交api 
-            this.setData({ status: !this.data.status })
+            this.setData({
+                status: !this.data.status
+            })
             app.request({
                 url: '/api/v1/favs/',
                 hideLoading: true,
                 method: 'POST',
-                data: { target_id: pid, target_type: 'post' },
+                data: {
+                    target_id: pid,
+                    target_type: 'post'
+                },
                 success: function (resp) {
                     _this.setData(resp.data.data) // {{ count:0, status: 1}}
                     if (resp.data.data.status == 1) {
@@ -82,7 +98,10 @@ Component({
                         var t = '已取消'
                     }
                     console.log('fav change ')
-                    _this.triggerEvent('change', {status: resp.data.data.status, title: t})
+                    _this.triggerEvent('change', {
+                        status: resp.data.data.status,
+                        title: t
+                    })
                     wx.showToast({
                         title: t,
                         icon: 'none',

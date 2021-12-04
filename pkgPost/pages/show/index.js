@@ -98,7 +98,7 @@ Page({
                 wx.hideNavigationBarLoading()
                 wx.stopPullDownRefresh() //停止下拉刷新    
     
-                var user = app.globalData.userInfo 
+                var user = _this.data.user
                 var data = {}
                 data.pageQuery = 'id=' + _this.data.postId 
                 if(user && user.is_broker){
@@ -161,6 +161,8 @@ Page({
         wx.hideShareMenu({
             menus: ['shareAppMessage', 'shareTimeline']
         })
+
+        
     },
 
 
@@ -239,15 +241,16 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        app.checkForceLogin()
+       
         var pages = getCurrentPages()
         console.log('pages', pages)
         var showNavBack = false
         if (pages.length > 1) {
             showNavBack = true
         }
+        var user = app.globalData.userInfo 
 
-        this.setData({ userInfo: app.globalData.userInfo, showNavBack: showNavBack })
+        this.setData({ userInfo: app.globalData.userInfo, showNavBack: showNavBack, user: user  })
         if (!this.data.loading) {
             this.loadData()
 

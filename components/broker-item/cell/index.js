@@ -1,11 +1,19 @@
 // components/broker-item/index.js
+const app = getApp() 
+
 Component({
     /**
      * 组件的属性列表
      */
     properties: {
-        item: { type: Object, value: null },
-        postId: {type: Number, value: null},
+        item: {
+            type: Object,
+            value: null
+        },
+        postId: {
+            type: Number,
+            value: null
+        },
     },
 
     /**
@@ -20,27 +28,31 @@ Component({
      */
     methods: {
 
-        gotoProfile: function(){
-            
+        gotoProfile: function () {
+
             // 经纪人主页
-            var bid = this.data.item.id 
-            console.log('item',this.data.item)
-            var  path = '/pkgBroker/pages/broker/profile?id=' + bid 
+            var bid = this.data.item.id
+            console.log('item', this.data.item)
+            var path = '/pkgBroker/pages/broker/profile?id=' + bid
             wx.navigateTo({
-              url: path,
+                url: path,
             })
 
         },
         chatHandle: function () {
-            // TODO 
+            // 如果没有登陆，则弹窗登陆窗口 
+            if (!app.globalData.token) {
+                this.selectComponent('.loginwindow').openWindow()
+                return
+            }
 
             var uid = this.data.item.id
             var path = '/pages/messages/show?target_user_id=' + uid
-            if(this.data.postId){
+            if (this.data.postId) {
                 path += '&target_post_id=' + this.data.postId
             }
             wx.navigateTo({
-              url: path,
+                url: path,
             })
 
         },
@@ -48,8 +60,7 @@ Component({
             var _this = this
             wx.makePhoneCall({
                 phoneNumber: _this.data.item.mobile,
-                success: (result) => {
-                },
+                success: (result) => {},
             });
         },
     }

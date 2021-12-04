@@ -20,7 +20,7 @@
     </view>
 
     <view class="footer" hover-class="none">
-        <van-button type="info" style="width:100%;font-size:32rpx;" block disabled="{{!phone || !yanzheng}}"
+        <van-button  color="linear-gradient(90deg, #6AAEF2 0%, #1989F9 100%)"  style="width:100%;font-size:32rpx;" block disabled="{{!phone || !yanzheng}}"
             bind:tap="loginHandle">立即登录</van-button>
             <view class="terms-block" hover-class="none">
             <ud-checkbox model:value="{{allowTerms}}"></ud-checkbox>

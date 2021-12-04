@@ -1,0 +1,24 @@
+/* components/login-window/index.wxss */
+
+.window{ 
+  width: 600rpx; 
+  height: 711rpx; 
+  background-size: 600rpx 711rpx; 
+  background-repeat: no-repeat;
+  background-color:#f2f2f2;
+  border-radius: 15rpx;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  position:relative;
+}
+
+.window .close{
+  position: absolute; 
+  top:20rpx; 
+  right: 20rpx;
+  color:#666;
+}

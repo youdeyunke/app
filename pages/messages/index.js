@@ -77,6 +77,9 @@ Page({
       this.loadData()
       this.stopInterval()
       this.startInterval()
+    }else{
+      // 未登陆
+      this.selectComponent('.loginwindow').openWindow()
     }
     this.setData({userInfo: userInfo})
     wx.removeTabBarBadge({
@@ -84,6 +87,14 @@ Page({
       fail: function(res){
       }
     })  
+  },
+
+  loginSuccess: function(data){
+    console.log('login success', data)
+    this.setData({userInfo: data.detail})
+    this.loadData()
+    this.stopInterval()
+    this.startInterval()
   },
 
   /**

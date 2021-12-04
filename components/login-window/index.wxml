@@ -1,0 +1,14 @@
+<van-popup lock-scrol="{{true}}" show="{{show}}" duration="800" custom-style="background:none;">
+  <view style="background-image:url('{{bg}}')" class="window">
+
+    <view class="close" bindtap="closeWindow">
+      <van-icon name="cross" size="24"></van-icon>
+    </view>
+    <van-button loading-text="登陆中" loading="{{loading}}" icon="wechat" open-type="getPhoneNumber" bind:getphonenumber="loginHandle"
+      custom-style="width:519rpx;height:90rpx;border-raidus:10rpx;"
+      color="linear-gradient(270deg, #1989FA 0%, rgba(25, 137, 250, 0.6) 100%)" block>微信登陆</van-button>
+    <van-button  loading-text="登陆中" loading="{{loading}}"  icon="comment" custom-style="width:519rpx;height:90rpx;border-raidus:10rpx;margin:20rpx 0 30rpx 0;" color="#1989fa"
+      plain>短信登陆</van-button>
+
+  </view>
+</van-popup>

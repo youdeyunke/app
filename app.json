@@ -333,6 +333,7 @@
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {
+    "login-window": "/components/login-window/index",
     "copyright": "/components/copyright",
     "navigation-bar": "/components/navBar/navBar",
     "no-result": "/components/no-result",

@@ -50,11 +50,6 @@
     align-items: center;
 }
 
-.event-button image {
-    width: 52rpx;
-    height: 52rpx;
-    margin-bottom: 10rpx;
-}
 
 .navs {
     background-color: #fff;
