@@ -2,8 +2,13 @@ page{
     background-color: #fff !important;
 }
 
-.namecard{
-    
+.header{ 
+    background-size: 750rpx 270rpx; 
+    width: 750rpx; 
+    height: 390rpx;
+    padding-top:20rpx;
+    background-repeat: no-repeat;
+
 }
 
 .profile-fun{
@@ -14,6 +19,9 @@ page{
     left: 0;
     background-color: #fff;
     padding-left: 30rpx;
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
 }
 .profile-fun image{
     width:327rpx ;

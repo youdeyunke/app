@@ -38,8 +38,8 @@
             </view>
           </view>
           <view class="booking-handle">
-            <image class="image6" src="../../image/3.png" bindtap="chatHandle" data-myid="{{item.broker_profile.id}}"></image>
-            <image class="image6" src="../../image/4.png" bindtap="callHandle" data-mobile="{{item.broker_profile.mobile}}">
+            <image class="image6" src="https://qiniucdn.udeve.net/fang/broker-item-chat.png" bindtap="chatHandle" data-myid="{{item.broker_profile.id}}"></image>
+            <image class="image6" src="https://qiniucdn.udeve.net/fang/broker-item-phone.png" bindtap="callHandle" data-mobile="{{item.broker_profile.mobile}}">
             </image>
           </view>
         </view>

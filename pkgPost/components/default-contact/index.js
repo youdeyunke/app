@@ -17,6 +17,14 @@ Component({
         showShareBox: false,
     },
 
+    ready: function(){
+        var color = app.globalData.myconfigs.color
+        this.setData({ 
+            primaryBtnColor: color.primary_btn, 
+            secondaryBtnColor: color.secondary_btn,
+        })
+    },
+
     /**
      * 组件的方法列表
      */

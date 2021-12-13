@@ -23,7 +23,7 @@ Component({
       var _this = this
       console.log("子组件value", myvalue)
       app.request({
-        url: '/api/v2/posts/quicksearch',
+        url: '/api/v1/quicksearch',
         method: 'GET',
         data: {
           kw: myvalue

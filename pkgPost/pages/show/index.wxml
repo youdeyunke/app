@@ -1,8 +1,9 @@
 
-<navigation-bar bindhome="homeHandle" bindback="backHandle" back="{{showNavBack}}" home background="none" background-color-top="none"></navigation-bar>
 <page-loading loading="{{loading}}" />
-<cover-block value="{{postInfo}}" />
-<view class="outer" hidden="{{loading}}">
+
+
+<view class="outer" hidden="{{loading}}" style="background-image:url('{{postInfo.cover}}')">
+    <cover-block value="{{postInfo}}" />
     <header-block navs="{{navs}}" post="{{postInfo}}" />
 
     <block wx:for="{{blocks}}" wx:for-item="block" wx:for-key="index" wx:key="name">

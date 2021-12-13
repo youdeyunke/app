@@ -169,6 +169,11 @@ Page({
      */
     onShow: function () {
         this.loadData()
+        var color = app.globalData.myconfigs.color
+        this.setData({ 
+            primaryColor: color.primary,
+            primaryBtnColor: color.primary_btn,
+        })
     },
 
     deleteHandle: function (e) {

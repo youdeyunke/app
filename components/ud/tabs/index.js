@@ -1,4 +1,7 @@
 // components/ud/ud-tabs/index.js
+const app = getApp() 
+
+
 Component({
   /**
    * 组件的属性列表
@@ -14,6 +17,13 @@ Component({
    */
   data: {
     
+  },
+
+  ready: function(){
+    var color = app.globalData.myconfigs.color
+    this.setData({ 
+        primaryColor: color.primary, 
+    })
   },
 
   /**

@@ -92,6 +92,7 @@
 }
 
 .body{
+    width: 100%;
     box-sizing: border-box;
     padding:0;
     margin:-50rpx auto 0 auto;

@@ -18,14 +18,13 @@ Page({
         pageUrl: '/pkgPost/pages/show/index?post_id=',
         postInfo: null,
     
-
         loading: true,
         broker: null, // 联系人卡片
         visitorLogId: null,
         contactInfo: {},
         debug: false,
         user: {},
-        showViewCount: false,
+    
         showShareBox: false,
         title: '',
         imageUrl: ''
@@ -120,17 +119,7 @@ Page({
         })
     },
 
-    checkViewsCount: function (c) {
-        // 延时显示有多少人看过房源
-        var _this = this
-        if (c && c >= 5) {
-            // 如果满足条件，就执行动画
-            setTimeout(function () {
-                _this.setData({ showViewCount: true })
-                setTimeout(function () { _this.setData({ showViewCount: false }) }, 4000)
-            }, 1000)
-        }
-    },
+
 
 
     /**
@@ -161,10 +150,7 @@ Page({
         wx.hideShareMenu({
             menus: ['shareAppMessage', 'shareTimeline']
         })
-
-        
     },
-
 
     markHistory: function(){
         // 记录访问历史
@@ -268,7 +254,7 @@ Page({
     loadData: function(){
         //this.loadPostInfo()
         this.loadPostBlocks()
-        this.markHistory()
+        //this.markHistory()  TODO remove this
     },
 
     _setPostInfo: function(post, cb){

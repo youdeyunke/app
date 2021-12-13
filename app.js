@@ -11,11 +11,12 @@ App({
         cityId: null, // 全局城市过滤
         EXT: EXT,
         myconfigs: null,
+        ui: {}, 
+        color: {primary: '#1989fa'},
         qrdata: null, // 解析二维码ID后得到的额外数据，扫码后设置到这里，用完之后需要清空，防止污染
 
         sourceUid: null, // 分享者user id
-        sceneKey: 'default', // 内部约定场景值
-        visitorId: null, // 访客行为id
+        visitorId: null, // 访客行为uid
 
         reddotIntervalId: null,
         system: {},
@@ -61,17 +62,6 @@ App({
     },
 
 
-    createSubTpl: function (tplIds, cb) {
-        // 调用模板消息
-        wx.requestSubscribeMessage({
-            tmplIds: tplIds,
-            success: function (res) {
-                // TODO 
-                console.log('create sub tpl res', res)
-                typeof cb === 'function' && cb(res)
-            }
-        })
-    },
 
     checkForceLogin: function () {
         // 检查是否强制登录
@@ -132,6 +122,8 @@ App({
             success: function (resp) {
                 var conf = resp.data.data;
                 _this.globalData.myconfigs = conf
+                _this.globalData.ui = conf.ui // ui assets 
+                _this.globalData.color = conf.color
                 return typeof cb == "function" && cb(conf);
             }
         });

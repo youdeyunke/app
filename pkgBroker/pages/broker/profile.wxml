@@ -1,8 +1,6 @@
-
-<namecard broker="{{broker}}" ></namecard>
-
-<login-window class="loginwindow"></login-window>
-
+<view class="header" style="background-image:url('{{bg}}')">
+  <namecard  broker="{{broker}}" ></namecard>
+</view>
 
   <ud-card title="主营楼盘" width="750" wx:if="{{broker.post != null}}">
     
@@ -10,9 +8,14 @@
     <post-navs post="{{broker.post}}"></post-navs>
   </ud-card>
 
+
   <view class="profile-fun">
-    <image src="https://qiniucdn.udeve.net/fang/pkgBroker/10.png" bindtap="chatHandle"></image>
-    <image src="https://qiniucdn.udeve.net/fang/pkgBroker/9.png" bindtap="callphone"></image>
+
+    <van-button color="{{secondaryBtnColor}}" bindtap="chatHandle" block custom-style="width:330rpx" icon="comment">在线咨询</van-button>
+    <van-button color="{{primaryBtnColor}}" bindtap="callphone" block custom-style="width:330rpx" icon="phone">电话咨询</van-button>
+
+
   </view>
 
 
+  <login-window class="loginwindow"></login-window>

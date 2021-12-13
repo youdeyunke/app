@@ -16,15 +16,14 @@
     <van-button block color="#1989fa" custom-style="width: 700rpx; margin:20rpx auto 20rpx auto;" bindtap="saveQrHandle">保存二维码</van-button>
   </van-popup>
 
-  <view class="outer" >
-    <image class="bg" src="https://qiniucdn.udeve.net/fang/broker-page-bg.png"></image>
-    <view class="main">
+  <view class="outer"  >
+    <view class="main" style="background-image:url('{{bg}}')">
       <view class="info">
         <view class="name cell">
           {{broker.name}} <image class="level" src="/assets/icons/medal/{{broker.level}}.png"></image>
         </view>
-        <view class="cell">
-          微信：{{ broker.wechat || '未填写微信号码' }} <image wx:if="{{!broker.wechat}}" bindtap="copyWechatHandle" class="copy" src="/assets/icons/copy.png">
+        <view  class="cell"  bindtap="copyHandle">
+          微信：{{ broker.wechat || '未填写微信号码' }} <image wx:if="{{broker.wechat}}" class="copy" src="/assets/icons/copy.png">
           </image>
         </view>
 
@@ -42,20 +41,23 @@
       </view>
       <view class="btns">
         <button open-type="share" class="share"></button>
+        <view bindtap="likeHandle" class="btn">
+          <image class="icon" src="https://qiniucdn.udeve.net/fang/pkgBroker/like.png"></image>
+          <view>点赞({{likeNums}})</view>
+        </view>
+
+        <view bindtap="qrHandle" class="btn">
+          <image class="icon" src="https://qiniucdn.udeve.net/fang/pkgBroker/wechat.png"></image>
+          <view style="margin-left:10rpx;">加好友</view>
+        </view>
 
         <view class="btn">
           <image class="icon" src="https://qiniucdn.udeve.net/fang/pkgBroker/share.png"></image>
           <view>转发分享</view>
         </view>
 
-        <view bindtap="likeHandle" class="btn">
-          <image class="icon" src="https://qiniucdn.udeve.net/fang/pkgBroker/like.png"></image>
-          <view>点赞({{likeNums}})</view>
-        </view>
-        <view bindtap="qrHandle" class="btn">
-          <image class="icon" src="https://qiniucdn.udeve.net/fang/pkgBroker/wechat.png"></image>
-          <view style="margin-left:10rpx;">加好友</view>
-        </view>
+
+
 
       </view>
 

@@ -1,4 +1,6 @@
 // components/post-cover/index.js
+const app = getApp()  
+
 Component({
   /**
    * 组件的属性列表
@@ -8,6 +10,16 @@ Component({
     width: {type: Number, value: 215},
     height: { type: Number, value: 156},
 
+  },
+
+  ready: function(){
+    var ui = app.globalData.ui 
+    console.log('ui data', ui)
+    this.setData({
+      vrIcon: ui.post_cover_icon_vr, 
+      videoIcon: ui.post_cover_icon_video, 
+      eyeIcon: ui.post_cover_icon_eye,
+    })
   },
 
   observers: {
@@ -32,6 +44,9 @@ Component({
    */
   data: {
     views: 0,
+    vrIcon: '', 
+    videoIcon: '', 
+    eyeIcon: '',
 
   },
 

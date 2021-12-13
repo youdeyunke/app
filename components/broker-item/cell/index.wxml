@@ -4,24 +4,18 @@
     <view class="outer">
         <view class="avatar" bindtap="gotoProfile">
             <image src="{{item.avatar}}?imageView2/2/w/80" class="user" />
-            <image src="https://qiniucdn.udeve.net/fang/broker-level-{{item.level}}.png" class="badge" />
+         
         </view>
         <view class="name">
             <view class="fullname">{{ item.name}}</view>
-
-            <view class="name-nav">
-                <image class="image1" src="https://qiniucdn.udeve.net/fang/broker-item-like.png"></image>
-                <view class="n">{{item.like_nums}}</view>
-                <image class="image1" src="https://qiniucdn.udeve.net/fang/broker-vitem-iew.png"></image>
-                <view class="n">{{item.view_nums}}</view>
-            </view>
         </view>
         <view class="actions">
-            <view class="btn" bindtap="chatHandle">
-                <image class="img" src="https://qiniucdn.udeve.net/fang/broker-item-chat.png" />
+            <view style="background:{{secondaryBtnColor}}" class="btn chat" bindtap="chatHandle">
+              <van-icon name="comment"></van-icon> 聊天
             </view>
-            <view class="btn" bindtap="phoneHandle">
-                <image class="img" src="https://qiniucdn.udeve.net/fang/broker-item-phone.png" />
+            
+            <view style="background:{{primaryBtnColor}}" class="btn phone" bindtap="phoneHandle">
+                <van-icon name="phone"></van-icon> 电话
             </view>
         </view>
     </view>

@@ -118,7 +118,14 @@ Page({
         var _this = this
         this.setData({ loading: false })
         app.ensureConfigs(function (configs) {
-            _this.setData({ ui: configs.ui })
+            var ui = configs.ui
+            var color = configs.color 
+            _this.setData({ 
+                headerImg:  ui.login_header,
+                bodyImg: ui.login_body ,  
+                primaryBtnColor:  color.primary_btn, 
+                primaryColor: color.primary,
+            })
         })
 
         wx.login({

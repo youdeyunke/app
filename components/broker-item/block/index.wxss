@@ -9,7 +9,7 @@
 
 .broker-item {
 
-    background: linear-gradient(to right bottom, #FDE7AE , #f3f2f0); /* 标准的语法 */
+    background-color: linear-gradient(to right bottom, #FDE7AE , #f3f2f0); /* 标准的语法 */
     width: 220rpx;
     height: 320rpx;
     padding:30rpx 20rpx;
@@ -18,16 +18,24 @@
     border-radius: 10rpx;
     font-size: 28rpx;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     box-shadow: 2rpx 2rpx 24rpx rgba(0,0,0, 0.1);
-    border:2rpx solid #efcb6f;
+}
+
+.broker-item{
+  background-size: 220rpx 320rpx;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
 .broker-item .level{
-  width:28rpx;
-  height:28rpx;
+  width:48rpx;
+  height:48rpx;
+  position: absolute;
+  top:-2rpx; 
+  left:15rpx;
   vertical-align: baseline;
 }
 
@@ -35,8 +43,8 @@
 
 .broker-item .btn{
   font-size:24rpx; 
-  color:#7b5d04; 
-  border:2rpx solid #7b5d04;
+  color:#666; 
+  border:2rpx solid #666;
   border-radius: 6rpx;
   padding:2rpx 10rpx;
   letter-spacing: 2rpx;

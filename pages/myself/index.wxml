@@ -58,7 +58,6 @@
             </view>
         </ud-card>
 
-
         <ud-card radius="20" width="730"  title="我的服务">
             <view class="icons">
                 <navigator wx:if="{{!userInfo.is_broker}}" hover-class="none" open-type="navigateTo"
@@ -74,7 +73,7 @@
                 </navigator>
             </view>
         </ud-card>
-        <ud-card radius="20" width="730"  title="">
+        <ud-card radius="20" width="730"  title="其它操作">
 
 
 
@@ -88,14 +87,7 @@
                         </view>
                     </view>
                 </van-cell>
-                <van-cell is-link bindtap="clearCache" value="{{cache.currentSize}} kb">
-                    <view slot="title">
-                        <view class="van-cell-title">
-                            <image class="van-cell-icon" src="{{configs.ui.myself_cache}}"></image>
-                            <view class="van-cell-text">清理缓存</view>
-                        </view>
-                    </view>
-                </van-cell>
+   
                 <van-cell is-link bindtap="openAuthSetting">
                     <view slot="title">
                         <view class="van-cell-title">

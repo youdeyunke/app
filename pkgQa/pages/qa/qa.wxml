@@ -1,7 +1,7 @@
 <page-loading loading="{{loading}}" />
 <box width="710" padding="20" hidden="{{loading && !item.id}}">
     <view class="float-btn">
-        <van-button bindtap="addHandle" type="info" block>我要回答</van-button>
+        <van-button bindtap="addHandle" color="{{primaryBtnColor}}" type="info" block>我要回答</van-button>
     </view>
     <view class="question">
         <q-icon />
@@ -15,7 +15,7 @@
                     <van-button style="margin-right:10rpx;" wx:if="{{user.id == item.user_id }}" plain icon="delete" type="danger" size="mini" bindtap="deleteHandle">
                         删除
                     </van-button>
-                    <van-button plain="{{item.followed}}" type="info" name="eye" size="mini" class="follow" hover-class="none" bindtap="followHandle">
+                    <van-button plain="{{item.followed}}"  name="eye" color="{{primaryColor}}" size="mini" class="follow" hover-class="none" bindtap="followHandle">
                         {{ item.followed ? '已关注' : '关注' }} ({{ item.followers_count }})
                     </van-button>
                 </view>

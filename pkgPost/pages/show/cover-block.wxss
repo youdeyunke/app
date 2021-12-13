@@ -2,7 +2,21 @@
 
 .block {
     width: 100%;
-    height: 300rpx;
+    height: 410rpx;
+    position: relative;
+}
+
+.views{
+    position: absolute; 
+    bottom:40rpx; 
+    left: 20rpx;
+    color:#fff; 
+    font-size: 26rpx;
+}
+
+.views .eye{
+    width: 28rpx; 
+    height: 28rpx;
 }
 
 .bg {
@@ -22,16 +36,15 @@
     width: 80rpx;
     height: 80rpx;
     position: absolute;
-    top: 182rpx;
-    left: 648rpx;
-    z-index: 10;
+    bottom:100rpx;
+    right: 20rpx;
 }
 
 .vr {
     width: 80rpx;
     height: 80rpx;
     position: absolute;
-    top: 290rpx;
-    left: 648rpx;
+    bottom: 20rpx;
+    right: 20rpx;
     z-index: 10;
 }

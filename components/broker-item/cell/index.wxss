@@ -73,13 +73,25 @@
 }
 
 .actions {
-    width: 260rpx;
+    width: 400rpx;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
 }
 
-.btn .img {
-    width: 120rpx;
-    height: 50rpx;
+.btn  {
+    width: 150rpx;
+    padding:0 20rpx;
+    color:#fff;
+    font-size: 24rpx;
+    height: 55rpx;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 2rpx 8rpx 20rpx rgba(0,0,0, 0.2);
+    border-radius: 30rpx;
+}
+
+.btn.chat{
+    margin-right:20rpx;
 }

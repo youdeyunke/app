@@ -32,13 +32,14 @@
 
 .btn {
     height: 90rpx;
-    border-radius: 5rpx;
+    border-radius: 8rpx;
     width: 255rpx;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
+    letter-spacing: 2rpx;
 }
 
 .btn .name {
@@ -47,18 +48,11 @@
 }
 
 .btn .desc {
-    font-size: 20rpx;
+    font-size: 24rpx;
     width: 100%;
     text-align: center;
     color: rgba(255, 255, 255, 0.67);
-}
-
-.btn1 {
-    background: linear-gradient(270deg, #0FC19A 0%, #36D8C0 100%);
-}
-
-.btn2 {
-    background: linear-gradient(270.65deg, #1972E7 0.49%, #4794EF 99.43%);
+    transform:scale(0.6)
 }
 
 .btn3{

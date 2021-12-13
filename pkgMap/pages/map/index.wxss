@@ -53,7 +53,6 @@ page {
 .back {
   
     font-size: 22rpx;
-    color: #1989fa;
     height:60rpx;
     width:130rpx;
     display: flex;

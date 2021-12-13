@@ -5,11 +5,9 @@
 }
 
 .outer {
-    background: #f0f0f0;
-    border-top-left-radius: 30rpx;
-    border-top-right-radius: 30rpx;
-    z-index: 2;
-    overflow: hidden;
+    background-size: 750rpx auto; 
+    background-repeat: no-repeat;
+ 
 }
 
 .margin {

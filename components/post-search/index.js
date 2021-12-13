@@ -31,7 +31,7 @@ Component({
       var _this = this
       var myvalue = v
       app.request({
-        url: '/api/v2/posts/quicksearch',
+        url: '/api/v1/quicksearch',
         method: 'GET',
         hideLoading: true,
         data: {

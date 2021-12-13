@@ -20,9 +20,11 @@
         </view>
         <view class="right">
             <navigator wx:if="{{!item.is_done}}" url="/pkgQa/pages/qa/reply?qid={{item.id}}" class="btn1">
-                我要回答
+                <van-button color="{{primaryColor}}" plain size="mini">我要回答</van-button>
             </navigator>
-            <navigator wx:else url="/pkgQa/pages/qa/qa?id={{item.id}}" class="btn2">查看回答</navigator>
+            <navigator wx:else url="/pkgQa/pages/qa/qa?id={{item.id}}" class="btn2">
+                <van-button color="{{primaryColor}}" plain size="mini">查看回答</van-button>
+            </navigator>
         </view>
     </view>
 </view>

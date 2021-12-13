@@ -1,4 +1,6 @@
 // pages/post/cover-block.js
+const app = getApp()
+
 Component({
     /**
      * 组件的属性列表
@@ -13,7 +15,20 @@ Component({
      */
     data: {
         showShareBox: false,
+        shareIcon: '', 
+        vrIcon: '', 
+        videoIcon: '', 
+        eyeIcon: '', 
 
+    },
+
+    ready: function(){
+        var ui = app.globalData.ui  
+        this.setData({ 
+            vrIcon: ui.post_cover_icon_vr, 
+            videoIcon: ui.post_cover_icon_video, 
+            eyeIcon: ui.post_covver_icon_eye,
+        })
     },
 
     /**

@@ -3,13 +3,6 @@
   padding: 20rpx;
 }
 .qa-new {
-  height: 80rpx;
-  line-height: 80rpx;
-  background: #1989fa;
-  color: #fff;
-  border-radius: 80rpx;
-  font-size: 28rpx;
-  text-align: center;
   position: fixed;
   bottom: 20rpx;
   width: 200rpx;

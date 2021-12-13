@@ -2,12 +2,12 @@
 
 <image style="width:{{width}}rpx;height:{{height}}rpx;" class="img" src="{{item.cover}}?imageView2/2/w/400" mode="aspectFill" lazy-load="{{true}}" />
 <view class="views" wx:if="{{views}}">
-    <image class="vr" src="https://qiniucdn.udeve.net/fang/post-cover-icon-eye.png"></image>
+    <image class="vr" src="{{eyeIcon}}"></image>
     {{views}}
 </view>
 <view class="icons">
-    <image wx:if="{{item.has_hangpai}}" class="hangpai" src="https://qiniucdn.udeve.cn/yaohao/hangpai.png"></image>
-    <image wx:if="{{item.has_vr}}" class="vr" src="https://qiniucdn.udeve.net/fang/post-cover-icon-vr.png"></image>
-    <image wx:if="{{item.has_video}}" class="video" src="https://qiniucdn.udeve.net/fang/post-cover-icon=video.png"></image>
+
+    <image wx:if="{{item.has_vr}}" class="vr" src="{{vrIcon}}"></image>
+    <image wx:if="{{item.has_video}}" class="video" src="{{videoIcon}}"></image>
 </view>
 </view>

@@ -40,7 +40,6 @@
     width: 100%;
     height: 8rpx;
     border-radius: 10rpx;
-    background: #1989FA;
     position: absolute;
     bottom:2rpx; 
     left:0;

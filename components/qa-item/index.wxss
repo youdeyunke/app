@@ -81,22 +81,7 @@
     font-size: 24rpx;
 }
 
-.question .btn1 {
-    color: #1989fa;
-    border-radius: 5rpx;
-    border: 1rpx solid #1989FA;
-    width: 122rpx;
-    height: 42rpx;
-    line-height: 42rpx;
-    text-align: center;
-}
 
-.question .btn2 {
-    padding: 4rpx 8rpx;
-    border: 1px solid #1989fa;
-    color: #1989fa;
-    font-size: 24rpx;
-}
 
 .jiejue {
     border-radius: 6rpx;

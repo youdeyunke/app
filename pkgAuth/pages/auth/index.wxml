@@ -1,18 +1,18 @@
 <view class="auth" wx:if="{{!userInfo}}">
-    <view class="header" style="background-image:url('{{ui.login_header}}')">
+    <view class="header" style="background-image:url('{{headerImg}}')">
     </view>
 
-    <view class="body" style="background-image:url('{{ui.login_body}}')">
+    <view class="body" style="background-image:url('{{bodyImg}}')">
     </view>
 
     <view class="footer">
-        <van-button color="linear-gradient(90deg, #6AAEF2 0%, #1989F9 100%)" style="width:100%;font-size:32rpx;" block icon="wechat" loading="{{loading}}"
+        <van-button color="{{primaryBtnColor}}" style="width:100%;font-size:32rpx;" block icon="wechat" loading="{{loading}}"
             disabled="{{loading}}"  open-type='getPhoneNumber' bindgetphonenumber='loginHandle'>
             微信登录
         </van-button>
 
         <navigator style="width:100%;margin-top:20rpx;"  url="/pkgAuth/pages/auth/sms">
-            <van-button plain style="width:100%;font-size:32rpx;" block icon="comment"
+            <van-button color="{{primaryColor}}" plain style="width:100%;font-size:32rpx;" block icon="comment"
                 loading="{{loading}}" disabled="{{loading}}" type="info">
                 短信登陆
             </van-button>

@@ -1,10 +1,14 @@
 <block>
-    <view class="block">
-        <image mode="aspectFill" class="bg" src="{{value.cover}}" />
-        <image bindtap="shareHandle" class="fenxiang" src="https://qiniucdn.udeve.net/fang/pkgPost/fenxiang.png" />
+    <view class="block"  >
+    
+        <image bindtap="shareHandle" class="fenxiang" src="{{shareIcon}}" />
         <block wx:if="{{value.has_vr==true}}">
-            <image bindtap="vrHandle" class="vr" src="https://qiniucdn.udeve.net/fang/pkgPost/vr.png" />
+            <image bindtap="vrHandle" class="vr" src="{{vrIcon}}" />
         </block>
+
+        <view class="views">
+        <image src="{{eyeIcon}}" class="eye"> </image>
+        1.34w</view>
     </view>
     <share-box post-info="{{value}}" model:show="{{showShareBox}}" />
 </block>

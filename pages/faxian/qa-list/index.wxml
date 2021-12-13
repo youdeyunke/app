@@ -3,4 +3,7 @@
     <qa-item item="{{item}}"></qa-item>
   </view>
 </view>
-<navigator url="/pkgQa/pages/qa/new" class="qa-new">我要提问</navigator>
+
+<navigator url="/pkgQa/pages/qa/new" class="qa-new">
+  <van-button custom-style="width:200rpx;" round color="{{primaryBtnColor}}">我要提问</van-button>
+</navigator>

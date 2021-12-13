@@ -10,15 +10,17 @@
 }
 
 .cell .body {
+    flex:1;
     font-size: 28rpx;
     line-height: 28rpx;
     color: #333333;
-    width: 640rpx;
+    
 }
 
 .body text{
-    width: 610rpx;
+    width: 100%;
     overflow: hidden;
+    margin-left:10rpx;
     white-space: nowrap;
     display: inline-block;
     text-overflow: ellipsis;

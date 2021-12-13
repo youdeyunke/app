@@ -42,7 +42,10 @@ Page({
         app.checkForceLogin()
         const map = wx.createMapContext('map', this)
         var filter = {  }
-        this.setData({ map: map,  filter: filter })
+        this.setData({ 
+            map: map,  filter: filter,
+            bgColor: app.globalData.myconfigs.color.primary,
+         })
         wx.setNavigationBarTitle({ title: '地图找房' })
         var _this = this
         app.ensureConfigs((configs) => {

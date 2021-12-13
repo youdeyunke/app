@@ -49,9 +49,13 @@ Component({
     },
 
     ready: function () {
-        this.setData({
-            user: app.globalData.userInfo
+        var color = app.globalData.myconfigs.color
+        this.setData({ 
+            primaryColor: color.primary, 
+            user: app.globalData.userInfo,
         })
+
+        
 
     },
 

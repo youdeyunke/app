@@ -16,6 +16,15 @@ Component({
         },
     },
 
+    ready: function(){
+        var color = app.globalData.myconfigs.color  
+        this.setData({ 
+            primaryBtnColor: color.primary_btn, 
+            brokerCellBg: color.broker_cell, 
+            secondaryBtnColor: color.secondary_btn,
+        })
+    },
+
     /**
      * 组件的初始数据
      */

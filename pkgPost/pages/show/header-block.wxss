@@ -2,9 +2,11 @@
     background-color: #fff;
     color: #333;
     font-size: 24rpx;
-    border-top-left-radius: 20rpx;
     border-top-right-radius: 20rpx;
-    margin-bottom: 20rpx;
+    border-top-left-radius: 20rpx;
+    overflow: hidden;
+    margin-bottom:20rpx;
+
 }
 
 .first-left {
@@ -12,7 +14,7 @@
 }
 
 .title-block {
-    background: linear-gradient(180deg, #FEEB85 0%, #FEFEFE 100%);
+   
     padding: 25rpx 20rpx 0 20rpx;
     display: flex;
     justify-content: space-between;
@@ -84,5 +86,6 @@
 }
 
 .cell-group{
-    margin-top:15rpx;
+
+    margin:15rpx auto 0 auto;
 }

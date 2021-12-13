@@ -13,6 +13,15 @@ Component({
     }
   },
 
+  ready: function(){
+    this.loadQas()
+    var color = app.globalData.myconfigs.color
+    this.setData({ 
+        primaryBtnColor: color.primary_btn, 
+        secondaryBtnColor: color.secondary_btn,
+    })
+  },
+
   /**
    * 组件的初始数据
    */
@@ -56,9 +65,7 @@ Component({
       })
     },
   },
-  ready:function(){
-    this.loadQas()
-  },
+
   observers:{
     'kw':function(){
       this.loadQas()

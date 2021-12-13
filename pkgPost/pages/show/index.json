@@ -1,6 +1,5 @@
 {
     "enablePullDownRefresh": false,
-    "navigationStyle": "custom",
     "navigationBarTitleText": "楼盘详情",
     "navigationBarTextStyle": "black",
     "usingComponents": {

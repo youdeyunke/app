@@ -1,31 +1,24 @@
 .outer{
-  width:100%;
-  height: 426rpx;
+  width:710rpx;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  position: relative;
-}
-
-.bg{
-  width:100%;
-  height:100%;
-  position: absolute;
-  top:0; 
-  left:0;
-  z-index:1;
+  margin:0rpx auto 0 auto;
 }
 
 .main{
+  background-color:#FDE7AE;
+  background-size: 710rpx 354rpx; 
+  background-repeat: no-repeat;
   width: 710rpx;
   height: 354rpx;
-
-  z-index:2;
-  margin-top:39rpx;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
+  border-radius: 15rpx;
+  overflow: hidden;
+  position: relative;
 
 }
 
@@ -48,12 +41,10 @@
 }
 
 
-
-
 .btn{
   height: 64rpx; 
   width: 177rpx; 
-  background: #FEF8E1; 
+  background-color: #FEF8E1; 
   box-shadow: 2rpx 4rpx 8rpx rgba(201,146,7,0.07);
   display: flex;
   justify-content: flex-start;

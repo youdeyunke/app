@@ -7,6 +7,7 @@ Page({
      */
     data: {
         broker: null,
+        bg: null,
         userId: null,
 
     },
@@ -157,6 +158,14 @@ Page({
             }
 
         }, 1000)
+
+        var color = app.globalData.myconfigs.color 
+        this.setData({
+            bg: app.globalData.ui.broker_profile_bg,
+            primaryBtnColor: color.primary_btn, 
+            secondaryBtnColor: color.secondary_btn,
+        })
+        
 
     },
 

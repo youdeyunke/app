@@ -10,6 +10,13 @@ Component({
 
   },
 
+
+  ready: function(){
+    this.setData({ 
+      bg: app.globalData.ui.broker_namecard_bg, 
+    })
+  },
+
   observers: {
     "broker": function(broker){
       if(!broker){
@@ -28,6 +35,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    bg: '',
     showQr: false, 
     likeNums: 0,
     viewNums:0,
@@ -109,6 +117,14 @@ Component({
     });
 },
     qrHandle: function(){
+      var qr = this.data.broker.wechat_qr  
+      if(!qr || qr.length <= 10){ 
+        wx.showToast({
+          icon: 'error',
+          title: '未上传微信二维码',
+        })
+        return false
+      }
       this.setData({
         showQr: true, 
       })
