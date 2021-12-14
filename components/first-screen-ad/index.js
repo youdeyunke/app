@@ -12,7 +12,6 @@ Component({
 	ready: function () {
 		var _this = this
 		_this.loadData()
-
 	},
 
 	/**
@@ -35,28 +34,31 @@ Component({
 			app.request({
 				url: '/api/v1/first_screen_adds',
 				method: 'get',
+				hideLoading: true,
 				success: function (res) {
-					console.log(res)
-					let value = res.data.data
-					if (value) {
-						var link = {}
-						if (value.link) {
-							JSON.parse(value.link)
-						}
 
-						_this.setData({
-							id: value.id,
-							link: link,
-							image: value.image,
-							show: true
-						})
-						_this.Timeout()
+					let value = res.data.data
+					if (!value) {
+						return false
 					}
+
+					var link = {}
+					if (value.link) {
+						JSON.parse(value.link)
+					}
+
+					_this.setData({
+						id: value.id,
+						link: link,
+						image: value.image,
+						show: true
+					})
+					_this.timeoutHandle()
 				}
 			})
 		},
-		uploadData(data) {
 
+		uploadData(data) {
 			app.request({
 				url: '/api/v1/first_screen_adds/' + this.data.id,
 				method: 'PUT',
@@ -81,25 +83,33 @@ Component({
 				})
 			}
 		},
-		Timeout() {
+
+		timeoutHandle: function () {
+			// 开启倒计时 
+
 			var _this = this
-			var second = _this.data.second - 1
-			setTimeout(() => {
-				_this.setData({
-					second: second
+			var second = this.data.second - 1
+			this.setData({
+				second: second
+			})
+
+			// 倒计时结束，关闭
+			if (second == 0) {
+				this.setData({
+					show: false
 				})
-				if (_this.data.second <= 0) {
-					this.uploadData({
-						view_nums: 1
-					})
-					this.setData({
-						show: false
-					})
-					return
-				} else {
-					this.Timeout()
-				}
-			}, 1000);
+				this.uploadData({
+					view_nums: 1
+				})
+				return
+			}
+
+
+			setTimeout(() => {
+				_this.timeoutHandle()
+			}, 1000)
+
+
 		},
 	}
 })
