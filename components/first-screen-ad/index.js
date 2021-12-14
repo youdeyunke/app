@@ -1,4 +1,5 @@
 const app = getApp()
+const link = require('../pagemaker/link')
 
 Component({
 	/**
@@ -18,15 +19,11 @@ Component({
 	 * 组件的初始数据
 	 */
 	data: {
-		show: true,
-		second:5,
-		url: '',
+		show: false,
+		second: 5,
+		link: {},
+		image: '',
 		id: '',
-		click_nums: 1,
-		skip_nums: 1,
-		view: {
-			view_nums: 1
-		},
 	},
 
 	/**
@@ -42,9 +39,15 @@ Component({
 					console.log(res)
 					let value = res.data.data
 					if (value) {
+						var link = {}
+						if (value.link) {
+							JSON.parse(value.link)
+						}
+
 						_this.setData({
 							id: value.id,
-							url: value.image,
+							link: link,
+							image: value.image,
 							show: true
 						})
 						_this.Timeout()
@@ -52,24 +55,20 @@ Component({
 				}
 			})
 		},
-		uploadData(keys) {
-			for(var key in keys){
-			}
+		uploadData(data) {
+
 			app.request({
 				url: '/api/v1/first_screen_adds/' + this.data.id,
 				method: 'PUT',
-				data: {
-					[key]:keys[key]
-				},
+				hideLoading: true,
+				data: data,
 			})
 		},
 		adClick: function (e) {
-			// 点击广告图片后
-			// TODO 
-			wx.navigateTo({
-				url: 'url',
+			link.clickHandle(this.data.link)
+			this.uploadData({
+				click_nums: 1
 			})
-			this.uploadData(e.currentTarget.dataset)
 		},
 
 		closeHandle: function (e) {
@@ -77,7 +76,9 @@ Component({
 				show: false
 			})
 			if (this.data.second >= 0) {
-				this.uploadData(e.currentTarget.dataset)
+				this.uploadData({
+					skip_nums: 1
+				})
 			}
 		},
 		Timeout() {
@@ -88,7 +89,9 @@ Component({
 					second: second
 				})
 				if (_this.data.second <= 0) {
-					this.uploadData(_this.data.view)
+					this.uploadData({
+						view_nums: 1
+					})
 					this.setData({
 						show: false
 					})
