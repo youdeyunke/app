@@ -22,6 +22,7 @@ Page({
         broker: null, // 联系人卡片
         visitorLogId: null,
         contactInfo: {},
+        imagesInfo: {},
         debug: false,
         user: {},
     
@@ -105,6 +106,7 @@ Page({
                 }
                 data.blocks = resp.data.data  
                 data.navs = resp.data.navs 
+                data.imagesInfo = resp.data.images
                 data.broker = resp.data.broker
                 data.loading = false 
                 _this._setPostInfo(resp.data.post)

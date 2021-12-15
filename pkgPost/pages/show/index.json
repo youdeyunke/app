@@ -3,7 +3,8 @@
     "navigationBarTitleText": "楼盘详情",
     "navigationBarTextStyle": "black",
     "usingComponents": {
-        "cover-block": "./cover-block",
+      
+        "images-block": "./images-block",
         "header-block": "./header-block",
         "joingroup-block": "./joingroup-block",
         "info-block": "./info-block",

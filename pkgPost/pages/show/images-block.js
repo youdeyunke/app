@@ -5,51 +5,102 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        value: { type: Object }
+        value: { type: Object }, 
     },
+
+    observers: {
+        "value.images": function(items){ 
+            if(!items || items.length == 0){
+                return 
+            }
+            var data = { }
+            data.currentTab = items[0].tab
+            data.images = items 
+            var tabs = this.data.tabs  
+            items.forEach((img,i ) => { 
+
+                tabs.forEach((tab,j) => { 
+                    if(img.tab == tab.value ){ 
+                        tabs[j].show = true 
+                    }
+                })
+            })
+            data.tabs = tabs
+            console.log('tabs', tabs)
+            this.setData(data)   
+        }
+    },
+
 
     /**
      * 组件的初始数据
      */
     data: {
+        images:[],
+        vrIcon: '', 
+        videoIcon: '',
+        currentTab: 'album',
+        currentIndex: 0, 
+        tabs:[
+            {name: "VR", value: 'vr', show: false, },
+            {name: "视频", value: 'video', show: false},
+            {name: "户型", value: 'type', show: false, },
+            {name: "相册", value: 'album', show: false},
+        ],
+    },
 
+    ready: function(){
+        var ui = app.globalData.myconfigs.ui  
+        var color = app.globalData.myconfigs.color 
+        this.setData({ 
+            vrIcon: ui.post_cover_icon_vr, 
+            videoIcon: ui.post_cover_icon_video,
+            primaryColor: color.primary, 
+            primaryBtnColor: color.primary_btn, 
+        })
     },
 
     /**
      * 组件的方法列表
      */
     methods: {
-        gotoVideo: function () {
-            var url = this.data.value.video_url
-            if (!url) {
-                return false
-            }
-            app.gotoVideo(url, '视频看房')
-        },
 
-        viewImage: function (e) {
-
-
-            var urls = this.data.value.images
-            var index = e.currentTarget.dataset.index
-            var url = urls[index]
-            wx.previewImage({
-                current: url,
-                urls: urls,
+        itemClick: function(e){
+            var i = this.data.currentIndex 
+            var img = this.data.images[i] 
+            var url = img.url  
+            wx.navigateTo({ 
+                url: url 
             })
-            return
-            // goto default albumt 
-            var cid = this.data.value.default_media_cat_id
-            var path = ''
-
         },
 
-        gotoVr: function () {
-            // VR PAGE 
-            var vr = this.data.value.vr_url
-            if (!vr) {
-                return false
+        itemChange: function(e){
+            console.log('item change',e)
+            var source = e.detail.source 
+            var i = e.detail.current   
+            var item = this.data.images[i]
+            if(source == ""){
+                // 点击切换tab 不处理
+                return false 
             }
+
+            this.setData({ 
+                currentTab: item.tab, 
+                currentIndex: i, 
+            })
+        },
+
+        tabChange: function(e){
+            console.log('tab change',e )
+            var tab = e.currentTarget.dataset.tab  
+            this.setData({currentTab: tab })
+            var _this = this 
+            this.data.images.forEach((item,index) => {
+                if(item.tab === tab){
+                    _this.setData({currentIndex: index })
+                    return 
+                }
+            })        
         },
 
     }

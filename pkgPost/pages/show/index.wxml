@@ -1,8 +1,9 @@
 
 <page-loading loading="{{loading}}" />
+<images-block value="{{imagesInfo}}"></images-block>
 
+<view class="outer" hidden="{{loading}}">
 
-<view class="outer" hidden="{{loading}}" style="background-image:url('{{postInfo.cover}}')">
     <cover-block value="{{postInfo}}" />
     <header-block navs="{{navs}}" post="{{postInfo}}" />
 

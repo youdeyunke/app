@@ -1,11 +1,26 @@
 <view class="post-cover">
-    <swiper class="swiper" indicator-dots="true" autoplay="{{value.images.length > 1}}" interval="5000" duration="500"  circular="true" easing-function="linear" indicator-color="rgba(255,255,255,0.7)" indicator-active-color="#fff">
-        <swiper-item bindtap="viewImage" data-index="{{index}}" wx:key="{{index}}" wx:for="{{value.images}}">
-            <view class="first">
-                <image wx:if="{{ index ==0 && value.vr_url}}" catchtap='gotoVr' class="play vr" src="/assets/icons/vr.png"></image>
-                <image wx:if="{{ index == 1 && value.video_url}}" catchtap='gotoVideo' class="play video" src="/assets/icons/bofang.png"></image>
-                <image mode="widthFix" wx:if="{{item}}" class="item" src="{{item}}?imageView2/2/h/420"></image>
-            </view>
+    <swiper current="{{currentIndex}}" bindchange="itemChange" style="width:100%;height:100%;" class="swiper"
+        indicator-dots="{{false}}" autoplay="{{false}}" interval="5000" duration="500" circular="true"
+        easing-function="linear">
+        <swiper-item wx:key="index" data-index="{{index}}" class="swiper-item" style="background-image:url('{{item.image}}')"
+            bindtap="itemClick" data-index="{{index}}"  wx:for="{{images}}">
+            <image wx:if="{{item.tab  === 'vr'}}" class="icon vr" src="{{vrIcon}}"></image>
+            <image wx:if="{{item.tab === 'video'}}" class="icon video" src="{{videoIcon}}"></image>
         </swiper-item>
     </swiper>
+
+    <view class="tabs-outer">
+        <view class="tabs">
+            <view wx:key="tab.value" wx:if="{{tab.show}}" style="background:{{ currentTab ===  tab.value ? primaryBtnColor : 'none' }}"
+                wx:for-item="tab" wx:for="{{tabs}}" bindtap="tabChange" data-tab="{{tab.value}}"
+                class="tab-item {{ currentTab === tab.value ? 'active' : '' }}" wx:for="{{tabs}}">
+                {{ tab.name }}
+            </view>
+        </view>
+    </view>
+
+    <view class="counter">
+    
+    </view>
+
 </view>

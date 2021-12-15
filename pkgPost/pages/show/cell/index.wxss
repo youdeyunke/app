@@ -15,15 +15,17 @@
     line-height: 28rpx;
     color: #333333;
     
-}
-
-.body text{
-    width: 100%;
     overflow: hidden;
     margin-left:10rpx;
     white-space: nowrap;
     display: inline-block;
     text-overflow: ellipsis;
+    
+}
+
+.body text{
+
+ 
 }
 
 .cell .icon {
