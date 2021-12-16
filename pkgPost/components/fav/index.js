@@ -80,7 +80,7 @@ Component({
             var _this = this
             // 先修改状态，再提交api 
             this.setData({
-                status: !this.data.status
+                status: this.data.status == 1 ? 0 : 1
             })
             app.request({
                 url: '/api/v1/favs/',

@@ -20,7 +20,7 @@
     </view>
 
     <view class="counter">
-    
+        {{ images[currentIndex].number}}/{{counters[images[currentIndex].tab] }}
     </view>
 
 </view>

@@ -34,11 +34,11 @@
     </block>
     <ad-link />
     <safe-tips  />
-    <cr />
+    <copyright></copyright>
 
     <broker-contact wx:if="{{postId && postInfo && broker}}" broker="{{broker}}" post-id="{{postId}}" ></broker-contact>
     <default-contact wx:else post="{{postInfo}}"></default-contact>
-
+  
 </view>
 
 

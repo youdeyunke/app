@@ -1,4 +1,9 @@
-.image1{
-  width: 100%;
-  height: 84rpx;
+.cr{
+  width: 100%; 
+  text-align: center;
+  font-size:24rpx; 
+  color:#cecece;
+  margin:20rpx auto 10rpx auto;
+  transform: scale(0.9);
+  letter-spacing: 1rpx;
 }

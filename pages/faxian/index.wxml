@@ -16,3 +16,5 @@
     <hd kw="{{kw}}" page="{{page}}"></hd>
 </block>
 <no-result wx:if="{{isEmpty}}" />
+
+<copyright></copyright>

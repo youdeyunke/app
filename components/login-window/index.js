@@ -17,19 +17,7 @@ Component({
       primaryBtnColor: app.globalData.myconfigs.color.primary_btn || 'linear-gradient(270deg, #1989FA 0%, rgba(25, 137, 250, 0.6) 100%)',
     })
     var _this = this
-    wx.login({
-      success: function (res) {
-        _this.setData({
-          code: res.code
-        })
-      },
-      complete: function (res) {
-        // 用户拒绝,跳转到设置界面
-        if (res.errMsg == 'getUserInfo:fail auth deny') {
-          wx.openSetting({})
-        }
-      }
-    })
+
   },
 
   /**
@@ -51,7 +39,7 @@ Component({
         return
       }
       wx.navigateTo({
-       url: '/pkgAuth/pages/auth/sms'
+        url: '/pkgAuth/pages/auth/sms'
       })
     },
     loginHandle: function (e) {
@@ -91,6 +79,21 @@ Component({
         show: true,
         loading: false,
       })
+      var _this = this 
+      wx.login({
+        success: function (res) {
+          _this.setData({
+            code: res.code
+          })
+        },
+        complete: function (res) {
+          // 用户拒绝,跳转到设置界面
+          if (res.errMsg == 'getUserInfo:fail auth deny') {
+            wx.openSetting({})
+          }
+        }
+      })
+
     },
 
   }

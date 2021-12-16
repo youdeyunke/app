@@ -82,4 +82,7 @@
     position: absolute; 
     bottom:20rpx;
     right:20rpx;
+    background:rgba(0,0,0, 0.2);
+    padding:4rpx 10rpx;
+    border-radius: 10rpx;
 }

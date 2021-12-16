@@ -14,10 +14,16 @@ Component({
                 return 
             }
             var data = { }
+            var counters = {}
             data.currentTab = items[0].tab
             data.images = items 
             var tabs = this.data.tabs  
             items.forEach((img,i ) => { 
+                if(!counters[img.tab]){
+                    counters[img.tab] = 0
+                }
+                counters[img.tab] += 1 
+                img.number = counters[img.tab]
 
                 tabs.forEach((tab,j) => { 
                     if(img.tab == tab.value ){ 
@@ -26,7 +32,8 @@ Component({
                 })
             })
             data.tabs = tabs
-            console.log('tabs', tabs)
+            data.counters = counters 
+            console.log('data.', data)
             this.setData(data)   
         }
     },
@@ -46,6 +53,7 @@ Component({
             {name: "视频", value: 'video', show: false},
             {name: "户型", value: 'type', show: false, },
             {name: "相册", value: 'album', show: false},
+            {name: "资讯", value: 'news', show: false, },
         ],
     },
 

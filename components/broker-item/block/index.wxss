@@ -63,6 +63,9 @@
   transform: scale(0.8);
   margin-bottom:30rpx;
   margin-top:10rpx;
+  width: 100%;
+  text-align: center;
+
 }
 
 

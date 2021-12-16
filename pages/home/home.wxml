@@ -9,4 +9,4 @@
 <page-loading wx:if="{{loading}}" />
 <pagemaker bind:ready="pageReadyHandle" ref="pagemaker" class="pm" page-key="home" />
 
-
+<copyright></copyright>

@@ -1,7 +1,6 @@
 <block>
 
-  <view class="cr">
+  <view class="cr" bindtap="sayHello">
     <text  wx:if="{{text}}" class="copyright">{{text}}</text>
-    <image class="image1" src="/assets/images/footer.png"></image>
   </view>
 </block>
