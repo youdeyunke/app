@@ -44,7 +44,7 @@
 
 .btn .name {
     color: #fdfdfd;
-    font-size: 30rpx;
+    font-size: 28rpx;
 }
 
 .btn .desc {
@@ -52,7 +52,7 @@
     width: 100%;
     text-align: center;
     color: rgba(255, 255, 255, 0.67);
-    transform:scale(0.6)
+    transform:scale(0.8)
 }
 
 .btn3{

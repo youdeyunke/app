@@ -103,6 +103,11 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
+        var color = app.globalData.myconfigs.color  
+        this.setData({  
+            primaryBtnColor: color.primary_btn,  
+            secondaryBtnColor: color.secondary_btn, 
+        })
 
     },
 

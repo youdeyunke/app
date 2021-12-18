@@ -1,7 +1,7 @@
 <!-- components/broker-item/index.wxml -->
 <block>
     <login-window class="loginwindow"></login-window>
-    <view class="outer">
+    <view class="outer" style="background:{{bg}}">
         <view class="avatar" bindtap="gotoProfile">
             <image src="{{item.avatar}}?imageView2/2/w/80" class="user" />
          

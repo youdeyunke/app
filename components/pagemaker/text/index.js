@@ -11,7 +11,6 @@ Component({
 
     observers: {
         "config.fontSize": function (v) {
-            v = v * 2
             v = v + 'rpx'
             this.setData({ fontSize: v })
         },

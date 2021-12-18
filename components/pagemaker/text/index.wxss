@@ -8,7 +8,7 @@
 
 .outer{
     width:710rpx;
-    padding:20rpx 10rpx;
+    padding:0rpx 20rpx;
 
-    margin:0 auto 16rpx auto;
+    margin:0 auto 0rpx auto;
 }

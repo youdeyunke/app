@@ -14,7 +14,7 @@ Component({
           return false
       }
     
-    var  value = v.value * 2
+    var  value = v.value 
     this.setData({heightValue: value + 'rpx'})
     return
     }

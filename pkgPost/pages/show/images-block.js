@@ -22,6 +22,7 @@ Component({
                 if(!counters[img.tab]){
                     counters[img.tab] = 0
                 }
+                img.image = img.image + '?imageView2/5/h/400/w/750'
                 counters[img.tab] += 1 
                 img.number = counters[img.tab]
 
@@ -103,12 +104,14 @@ Component({
             var tab = e.currentTarget.dataset.tab  
             this.setData({currentTab: tab })
             var _this = this 
-            this.data.images.forEach((item,index) => {
+            // 注意，不能使用forEach，因为异步问题
+            for(var index=0;index<= _this.data.images.length-1;index++) {
+                var item = _this.data.images[index]
                 if(item.tab === tab){
                     _this.setData({currentIndex: index })
                     return 
                 }
-            })        
+            }
         },
 
     }

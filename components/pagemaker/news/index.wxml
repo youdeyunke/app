@@ -1,3 +1,11 @@
 <block>
-    <style0 items="{{items}}"></style0>
+    <view class="outer">
+
+        <van-tabs border swipeable animated color="{{primaryColor}}" active="{{ active }}" bind:change="onChange">
+            <van-tab title-style="font-size:26rpx;color:#333;" wx:for="{{cats}}" wx:for-item="cat" title="{{cat.name}}">
+                <style0 items="{{cat.items}}"></style0>
+            </van-tab>
+        </van-tabs>
+
+    </view>
 </block>

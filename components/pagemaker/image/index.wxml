@@ -1,5 +1,5 @@
 
-<view class="outer" style="height:{{heightValue}};">
-  <image mode="scaleToFill" wx:if="{{config.url}}"  src="{{config.url}}" style="margin:0 auto; padding:0;width:100%;height:{{heightValue}};" />
+<view class="outer">
+  <image mode="widthFix" wx:if="{{config.url}}"  src="{{config.url}}" style="margin:0 auto; padding:0;width:100%;height:auto;" />
   <view bindtap="linkHandle" class="block" data-index="{{index}}" wx:for="{{blocks}}" wx:for-item="block" style="left:{{block.left}};top:{{block.top}};width:{{block.width}};height:{{block.height}}"></view>
 </view>

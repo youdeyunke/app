@@ -16,7 +16,7 @@ Component({
 
         "config.height": function(v){
             // 图片的高度值
-            var value = v ?  v.value * 2 + 'rpx' : 'auto'
+            var value = v ?  v.value  + 'rpx' : 'auto'
             this.setData({heightValue: value})
         },
 
@@ -25,7 +25,7 @@ Component({
                 return
             }
             else{
-                v = parseInt(v) * 2  
+                v = parseInt(v) 
             }
             v = v + 'rpx'
             this.setData({imageWidth: v})
@@ -35,7 +35,7 @@ Component({
                 v = '0'
             }
             else{
-                v = parseInt(v) * 2  
+                v = parseInt(v) 
             }
             v = v + 'rpx'
             this.setData({imageRadius: v})

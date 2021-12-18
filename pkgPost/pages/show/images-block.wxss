@@ -8,8 +8,10 @@
     position: relative;
 }
 
-
-
+.cover{
+    width: 100%; 
+    height: 100%;
+}
 
 .post-cover .swiper-item {
     display: flex;
@@ -59,8 +61,8 @@
     font-size: 24rpx;
     text-align:center;
     line-height: 40rpx;
-
-    transition: background 0.5s  ease-out;
+    border-radius: 23rpx;
+    transition: background 0.3s  ease-out;
 }
 
  .tabs .tab-item.active{
@@ -70,7 +72,7 @@
     border:2rpx solid #fff;
     font-size: 24rpx;
     text-align:center;
-    border-radius: 23rpx;
+
     line-height: 40rpx;
 
 }

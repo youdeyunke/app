@@ -1,5 +1,5 @@
 
-<view class="safe-tips">
+<view class="safe-tips" wx:if="{{statement}}">
   <view class="title"> 
     <view class="left">
       <image class="img" mode="widthFix" src="/assets/icons/safe-tips-icon.png" />  <text class="text">免责声明</text> 

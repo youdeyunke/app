@@ -2,10 +2,11 @@
     <swiper current="{{currentIndex}}" bindchange="itemChange" style="width:100%;height:100%;" class="swiper"
         indicator-dots="{{false}}" autoplay="{{false}}" interval="5000" duration="500" circular="true"
         easing-function="linear">
-        <swiper-item wx:key="index" data-index="{{index}}" class="swiper-item" style="background-image:url('{{item.image}}')"
+        <swiper-item wx:key="index" data-index="{{index}}" class="swiper-item"
             bindtap="itemClick" data-index="{{index}}"  wx:for="{{images}}">
             <image wx:if="{{item.tab  === 'vr'}}" class="icon vr" src="{{vrIcon}}"></image>
             <image wx:if="{{item.tab === 'video'}}" class="icon video" src="{{videoIcon}}"></image>
+            <image src="{{item.image}}" mode="aspectFill" class="cover"></image>
         </swiper-item>
     </swiper>
 

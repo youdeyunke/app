@@ -1,12 +1,6 @@
 <block-box title="楼盘详情信息" sub-title='查看更多信息' url='{{value.more_url}}' padding="{{false}}" title-size="36">
-    <scroll-view scroll-x="{{true}}" class="xiangce" scroll-with-animation="{{true}}" wx:if="{{albums.length >= 1}}">
-        <navigator url="/pkgXiangce/pages/xiangce/index?post_id={{value.post_id}}" hover-class="none"
-            class="xiangce-item" wx:for="{{albums}}" wx:key="id" wx:for-item="album">
-            <image class="image" src="{{album.cover || 'https://qiniucdn.udeve.net/fang/pkgPost/image-none.png'}}" />
-            <view class="title">{{album.name}}({{album.items_count}})</view>
-        </navigator>
-    </scroll-view>
-    <view class="block-title">
+
+  
         <view class="block-content">
             <view class="content-title">参考价格</view>
             <view style="margin-left:4rpx"></view>
@@ -25,5 +19,5 @@
             <view class="maohao" style="margin-left:4rpx"></view>
             <view class="content-desc">{{meta.text}}</view>
         </view>
-    </view>
+
 </block-box>

@@ -44,22 +44,18 @@
     align-items: center;
 }
 
-.block-title {
-    border-top: 1rpx solid #F0F0F0;
-    padding: 0 0rpx 20rpx 0rpx;
-    width: 710rpx;
-    /* background-color: chartreuse; */
-}
 
 
 
 .content-title {
-    width: 146rpx;
-    font-size: 28rpx;
-    color: #777777;
-    text-align: justify;
-    text-justify: distribute-all-lines;
+    width: 156rpx;
+    font-size: 26rpx;
+    color: #666666;
+
     text-align-last: justify;
+    white-space: nowrap;
+    display: inline-block;
+    text-overflow: ellipsis;
 }
 
 .block-content {

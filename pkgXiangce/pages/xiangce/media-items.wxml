@@ -5,7 +5,7 @@
         <view class="video" wx:if="{{item.filetype == 'video' && showVideo == true }}">
             <video object-fit='fill' class="video" controls='{{false}}' custom-cache='{{false}}' show-center-play-btn='{{false}}' page-gesture="{{false}}" id="myvideo" catchtap='' autoplay='{{false}}' src="{{item.url}}"></video>
             <view class="mask">
-                <image src="/assets/icons/bofang.png" mode="widthFix" lazy-load="false"></image>
+                <image class= src="/assets/icons/bofang.png" mode="widthFix" lazy-load="false"></image>
             </view>
         </view>
     </view>

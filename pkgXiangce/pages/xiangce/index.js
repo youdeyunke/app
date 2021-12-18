@@ -16,13 +16,11 @@ Page({
     },
 
     tabChange: function (e) {
-        console.log('e', e)
         // 点击顶部标签切换，滚动到指定未知
         var index = e.detail.index
         var cat = this.data.cats[index]
-        var loc = 'loc-' + cat.id
-        this.setData({
-            scrollIntoView: loc
+        wx.setNavigationBarTitle({
+          title: cat.name,
         })
     },
 
@@ -50,15 +48,23 @@ Page({
             mask: true,
         });
 
-
         var query = { post_id: this.data.postId }
         var _this = this
         app.request({
             url: '/api/v1/media_cats',
             data: query,
             success: function (resp) {
+                var cats = resp.data.data.filter((cat) => { 
+                    if(cat.media_items.length == 0){
+                        return false 
+                    }
+                    return true 
+                }).map((cat) => { 
+                    cat.name = cat.name + '(' + cat.media_items.length + ')'
+                    return cat
+                })
                 _this.setData({
-                    cats: resp.data.data,
+                    cats: cats, 
                 })
                 wx.hideLoading();
             }

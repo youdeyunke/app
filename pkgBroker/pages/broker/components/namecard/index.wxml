@@ -37,7 +37,7 @@
 
       </view>
       <view class="avatar">
-        <image bindtap="avatarHandle" class="avatar-img" src="{{broker.avatar}}"></image>
+        <image bindtap="avatarHandle" class="avatar-img" src="{{broker.avatar}}?imageView2/5/h/200/w/200"></image>
       </view>
       <view class="btns">
         <button open-type="share" class="share"></button>

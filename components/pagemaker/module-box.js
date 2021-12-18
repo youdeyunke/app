@@ -34,7 +34,7 @@ Component({
             if(!r){
                 return 
             }
-            var val = r * 2 + 'rpx'
+            var val = r + 'rpx'
             this.setData({radiusValue: val})
         },
 
@@ -67,7 +67,7 @@ Component({
                         bgWidth = bg.width 
                     }else{ 
                         // 像素单位转为rpx
-                        bgWidth = parseInt(bg.width)*2 + 'rpx'
+                        bgWidth = parseInt(bg.width) + 'rpx'
                     }
 
                         
@@ -76,15 +76,15 @@ Component({
                         bgHeight = bg.height 
                     }else{ 
                         // 像素单位转为rpx
-                        bgHeight = parseInt(bg.height)*2 + 'rpx'
+                        bgHeight = parseInt(bg.height) + 'rpx'
                     }
                     var bgSize = bgWidth + ' ' + bgHeight
 
                     var bgPosition = ''
                     var x = bg.positionX || 0 
                     var y = bg.positionY ||  0
-                    x = parseInt(x) * 2 
-                    y = parseInt(y) * 2 
+                    x = parseInt(x) 
+                    y = parseInt(y) 
                     bgPosition = x + 'rpx ' + y + 'rpx'
 
                     break;

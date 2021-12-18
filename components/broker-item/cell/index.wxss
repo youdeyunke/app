@@ -5,7 +5,7 @@
     height: 130rpx;
     width: 100%;
     padding: 0 20rpx;
-    background: linear-gradient(111.48deg, #F7F7F7 17.42%, #F2FAFF 88.05%);
+
     border-radius: 10rpx;
     overflow: hidden;
     position: relative;
@@ -29,7 +29,6 @@
     font-weight: bold;
     margin-bottom:8rpx;
 }
-
 
 
 .image1 {

@@ -1,7 +1,7 @@
 <!--pages/faxian/news/index.wxml-->
 
 <view>
-    <mycard  title="热门内容">
+    <mycard wx:if="{{topNewsItems.length > 0}}" title="热门内容">
 
     <scroll-news items="{{topNewsItems}}"></scroll-news>
 

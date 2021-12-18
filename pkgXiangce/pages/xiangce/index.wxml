@@ -1,21 +1,15 @@
 <!-- pkgXiangce/pages/xiangce/index.wxml -->
-<scroll-view scroll-with-animation="{{true}}" scroll-into-view="{{scrollIntoView}}" id="body" style="height:{{height}}px;width:100%;padding:0rpx 20rpx  0rpx 20rpx;" scroll-y="{{true}}">
-<viwe class="header" wx:if="{{cats.length >=  5}}">
+<viwe class="header" >
     <van-tabs animated type="line" color="#1989FA" bind:change="tabChange" sticky>
-        <van-tab wx:for="{{cats}}" wx:for-item="tab" title="{{tab.name}}"></van-tab>
+        <van-tab wx:key="id" wx:for="{{cats}}" wx:for-item="cat" title="{{cat.name}}">
+            <view class="tab-outer"><media-items items="{{cat.media_items}}" /></view>
+        </van-tab>
     </van-tabs>
 </viwe>
 
-    <view class="media-cats">
-        <mycard padding="{{false}}" hat="{{false}}" title="{{cat.name}}" title-size="28" wx:for="{{cats}}" wx:for-item="cat" wx:for-key="id">
-            <media-items items="{{cat.media_items}}"  />
-            <view id="loc-{{cat.id}}"></view>
-        </mycard>
-    </view>
+
 <view class="footer">
     <van-button bindtap="bookingHandle" icon="chat-o" type="primary" block>预约看房</van-button>
     <van-button bindtap="callHandle" icon="phone-o" type="info" block>电话咨询</van-button>
 </view>
 <booking bind:change="bookingChange" booked="{{bookingStatus}}" post-id="{{postId}}" id="booking" />
-
-</scroll-view>

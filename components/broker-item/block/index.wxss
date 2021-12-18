@@ -8,8 +8,6 @@
 }
 
 .broker-item {
-
-    background-color: linear-gradient(to right bottom, #FDE7AE , #f3f2f0); /* 标准的语法 */
     width: 220rpx;
     height: 320rpx;
     padding:30rpx 20rpx;
@@ -39,12 +37,12 @@
   vertical-align: baseline;
 }
 
-
-
 .broker-item .btn{
   font-size:24rpx; 
   color:#666; 
-  border:2rpx solid #666;
+
+  border-width: 2rpx;
+  border-style: solid;
   border-radius: 6rpx;
   padding:2rpx 10rpx;
   letter-spacing: 2rpx;

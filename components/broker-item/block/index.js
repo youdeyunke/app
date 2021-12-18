@@ -46,11 +46,10 @@ Component({
 
   ready: function () {
 
-
+    var color = app.globalData.color
     this.setData({
-      bg: app.globalData.ui.broker_bg || '',
-
-
+      bg: color.broker_block_bg ,
+      primaryColor: color.primary,
     })
 
   },

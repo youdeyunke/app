@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "相册",
   "enablePullDownRefresh": true,
   "usingComponents": {
       "booking": "/components/post-booking/index",

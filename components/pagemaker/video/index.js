@@ -18,10 +18,10 @@ Component({
           return
         }
         var val = blocks.map((block,index) => {
-            block.width = block.width*2 + 'rpx'
-            block.height = block.height*2 + 'rpx'
-            block.left = block.left*2 + 'rpx'
-            block.top = block.top*2 + 'rpx'
+            block.width = block.width + 'rpx'
+            block.height = block.height + 'rpx'
+            block.left = block.left + 'rpx'
+            block.top = block.top + 'rpx'
             block.index = index + 1
             return block
         })
@@ -34,7 +34,7 @@ Component({
               return false
           }
         
-        var  value = v.value * 2
+        var  value = v.value
         this.setData({heightValue: value + 'rpx'})
         return
           

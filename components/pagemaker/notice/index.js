@@ -28,7 +28,7 @@ Component({
             if(!v){
                 return 
             }
-            v = parseInt(v) * 2  
+            v = parseInt(v) 
             this.setData({
                 fontSize: v + 'rpx'
             })

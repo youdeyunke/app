@@ -20,7 +20,7 @@ Component({
         var color = app.globalData.myconfigs.color  
         this.setData({ 
             primaryBtnColor: color.primary_btn, 
-            brokerCellBg: color.broker_cell, 
+            bg: color.broker_cell_bg, 
             secondaryBtnColor: color.secondary_btn,
         })
     },

@@ -44,13 +44,14 @@
 .btn{
   height: 64rpx; 
   width: 177rpx; 
-  background-color: #FEF8E1; 
+  background-color: rgba(255,255,255, 0.5); 
   box-shadow: 2rpx 4rpx 8rpx rgba(201,146,7,0.07);
   display: flex;
   justify-content: flex-start;
   border-radius:32rpx;
   font-size: 24rpx;
-  color: #59420F;
+  color: #333;
+  padding:0 7rpx;
   align-items: center;
 }
 

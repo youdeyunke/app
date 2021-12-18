@@ -159,8 +159,8 @@
 }
 
 .van-cell-icon{
-    width: 30rpx;
-    height:30rpx;
-    margin-right:8rpx;
+    width: 40rpx;
+    height:40rpx;
+    margin-right:10rpx;
 }
 

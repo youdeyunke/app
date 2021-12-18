@@ -22,6 +22,10 @@ page {
     width:100%;
 }
 
+.tab-outer{
+    padding:20rpx 30rpx 120rpx 30rpx;
+}
+
 .footer {
     padding: 30rpx;
     width: 100%;
@@ -32,6 +36,7 @@ page {
     position: fixed;
     bottom: 0rpx;
     left: 0rpx;
+    z-index:100;
     border-top: 2rpx solid #f9f9f9;
 }
 
