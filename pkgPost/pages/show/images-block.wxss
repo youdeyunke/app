@@ -48,20 +48,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    border:5rpx solid #ffffff;
-    background:#fff;
+    background:rgba(0,0,0, 0.3);
     border-radius: 23rpx;
 }
 
  .tabs .tab-item{
     width: 90rpx;
     height: 40rpx;
-    color:#333;
+    color:#f4f4f4;
     font-size: 24rpx;
     text-align:center;
     line-height: 40rpx;
     border-radius: 23rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: background 0.3s  ease-out;
 }
 

@@ -1,7 +1,7 @@
 <scroll-view class="scroll" scroll-x>
     <view class="scroll-cell" wx:for="{{items}}" wx:key="id">
         <image src="{{item.cover}}" class="cell-image" />
-        <view class="cell-tag">{{item.author}}</view>
+        <view style="background-color:{{primaryColor}}" class="cell-tag">{{item.author}}</view>
         <view class="footer-text">
             <text class="title">{{item.title}}</text>
             <text class="summary">{{item.summary}}</text>

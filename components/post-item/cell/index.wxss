@@ -148,17 +148,30 @@
     justify-content: flex-start;
     align-items: center;
     font-size:24rpx; 
-    background: rgba(255, 176,64,0.17);
+
     height: 40rpx;
     border-radius: 3rpx;
     padding:0rpx 10rpx;
     margin-top:10rpx;
     margin-bottom:10rpx;
+
+
+}
+
+.outer .point.default{
+    background: rgba(255, 176,64,0.17);
     background-image:url('https://qiniucdn.udeve.net/fang/post-item-point.png'); 
     background-size: 28rpx 28rpx;
     background-repeat: no-repeat;
     background-position: 8rpx 7rpx;
-    width: 
+}
+
+.outer .point.time{
+    background: rgba(255, 176,64,0.17);
+    background-image:url('https://qiniucdn.udeve.net/fang/post-item-point.png'); 
+    background-size: 28rpx 28rpx;
+    background-repeat: no-repeat;
+    background-position: 8rpx 7rpx;
 }
 
 .point .ptitle{

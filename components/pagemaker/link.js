@@ -40,6 +40,11 @@ module.exports = {
         //  打开另外一个小程序
     },
 
+    webHandle: function(config){
+        var url = config.url 
+        app.gotoWebview(url)
+    },
+
     pageHandle: function (config) {
         var path = config.path
         var ot = config.opentype || 'navigateTo'
@@ -102,6 +107,7 @@ module.exports = {
                 break;
         }
 
-    }
+    },
+
 
 }

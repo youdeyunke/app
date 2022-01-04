@@ -14,7 +14,6 @@
     font-size: 28rpx;
     line-height: 28rpx;
     color: #333333;
-    
     overflow: hidden;
     margin-left:10rpx;
     white-space: nowrap;
@@ -24,8 +23,6 @@
 }
 
 .body text{
-
- 
 }
 
 .cell .icon {

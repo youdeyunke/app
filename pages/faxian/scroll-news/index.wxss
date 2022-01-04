@@ -22,13 +22,13 @@
     border-radius: 20rpx;
 }
 .position-image,.image-box{
-    width:70rpx ;
-    height: 70rpx;
+    width:100rpx ;
+    height: 100rpx;
 }
 .image-box{
     position: absolute;
-    top: 121rpx;
-    left: 215rpx;
+    top: 116rpx;
+    left: 200rpx;
 }
 .cell-tag{
     border-radius: 0rpx 10rpx 10rpx 0rpx;
@@ -47,14 +47,14 @@
     color: #fff;
     font-size: 28rpx;
     position: absolute;
-    background:rgba(0,0,0, 0.20);
+    background:linear-gradient(0deg, rgba(0,0,0, 0.5), rgba(0,0,0, 0.1));
     height: 100rpx;
     box-sizing: border-box;
     padding:8rpx 15rpx;
     left:0; 
     bottom:0;
-
-
+    border-bottom-left-radius: 20rpx;
+    border-bottom-right-radius: 20rpx;
     display: flex;
     flex-direction: column;
 }

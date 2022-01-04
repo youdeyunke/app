@@ -10,15 +10,11 @@ Page({
             {name: "摇号结果", id: 1}, 
             {name: '意向登记', id: -1},
         ],
-
         items: [],
         postId: null,
         posts: [],
-
         kw: '',
         tabIndex: 0,
-        page: 1,
-        pageSize: 10,
         catId: null,
         loading: false,
     },
@@ -83,8 +79,7 @@ Page({
    
         var params = {
             post_id: this.data.postId,
-            page: this.data.page,
-            per_page: this.data.pageSize,
+            page: 1,
             kw: this.data.kw,
             scope: scope, 
         }
@@ -92,11 +87,9 @@ Page({
             url: '/api/v1/post_tickets',
             data: params,
             success: function (res) {
-                var items = _this.data.items
-                var arr = [...items, ...res.data.data]
+                var items = res.data.data
                 _this.setData({
-                    items: arr,
-                    cats: res.data.cats,
+                    items: items,
                 })
             }
         })
@@ -129,12 +122,7 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-        var page = this.data.page
-        page = page + 1
-        this.setData({
-            page: page
-        })
-        this.loadData()
+        // 不加载更多
     },
 
     /**

@@ -1,12 +1,12 @@
 {
     "extEnable": true,
-    "extAppid": "wx175508800f405090",
-    "directCommit": false,
+    "extAppid": "wx2b29cf6333febb49",
+    "directCommit": true,
     "ext": {
         "name": "开发版",
-
         "apihost1": "https://weapp1.udeve.cn/20210",
-        "apihost": "http://192.168.31.66:20210",
+        "apihost2": "http://192.168.31.66:20210",
+        "apihost":"https://f.housenotes.cn",
         "version_desc": "这里是版本介绍信息",
         "test": "hello"
     }

@@ -24,21 +24,29 @@
 }
 
 .cover .views{
-  position: absolute; 
-  left:10rpx; 
-  bottom:10rpx;
   color:#fff;
   font-size:24rpx;
   display: flex; 
   align-items: center;
 }
-.cover .views image{
-  width:33rpx; 
-  height: 33rpx;
-  margin-right:4rpx;
-}
 
-.cover .icons image {
+.cover .footer .icon  {
   width: 32rpx;
   height: 32rpx;
+}
+
+.cover .footer .eye{
+  margin-right:8rpx;
+}
+
+.cover .footer{
+  position:absolute; 
+  bottom:0rpx; 
+  left:0rpx; 
+  width: 100%;
+  background: linear-gradient(0deg, rgba(0,0,0, 0.7), rgba(0,0,0, 0.2));
+  box-sizing: border-box;
+  padding:0 10rpx;
+  height: 40rpx;
+  color:#fff;
 }

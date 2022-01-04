@@ -1,4 +1,6 @@
 // pages/faxian/scroll-news/index.js
+const app = getApp() 
+
 Component({
     /**
      * 组件的属性列表
@@ -8,10 +10,18 @@ Component({
 
     },
 
+    ready: function(){
+        var color = app.globalData.myconfigs.color  
+        this.setData({ 
+            primaryColor: color.primary, 
+        })
+    },
+
     /**
      * 组件的初始数据
      */
     data: {
+    
 
     },
 

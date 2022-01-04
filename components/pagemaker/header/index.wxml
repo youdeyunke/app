@@ -1,9 +1,9 @@
 <!-- components/pagemaker/header/index.wxml -->
 <block wx:if="{{config}}">
     <view class="header-container">
-        <style1 themeColor="{{config.themeColor}}" title="{{title}}" subtitle="{{subtitle}}" link="{{link}}" wx:if="{{config.styleName === 1}}" />
-        <style2 themeColor="{{config.themeColor}}" title="{{title}}" subtitle="{{subtitle}}" link="{{link}}" wx:elif="{{config.styleName === 2}}" />
-        <style3 themeColor="{{config.themeColor}}" title="{{title}}" subtitle="{{subtitle}}" link="{{link}}" wx:elif="{{config.styleName === 3}}" />
-        <style0 themeColor="{{config.themeColor}}" title="{{title}}" subtitle="{{subtitle}}" link="{{link}}" wx:else="{{config.styleName === 0}}" />
+        <style1 themeColor="{{themeColor}}" title="{{title}}" subtitle="{{subtitle}}" link="{{link}}" wx:if="{{config.styleName === 1}}" />
+        <style2 themeColor="{{themeColor}}" title="{{title}}" subtitle="{{subtitle}}" link="{{link}}" wx:elif="{{config.styleName === 2}}" />
+        <style3 themeColor="{{themeColor}}" title="{{title}}" subtitle="{{subtitle}}" link="{{link}}" wx:elif="{{config.styleName === 3}}" />
+        <style0 themeColor="{{themeColor}}" title="{{title}}" subtitle="{{subtitle}}" link="{{link}}" wx:else="{{config.styleName === 0}}" />
     </view>
 </block>

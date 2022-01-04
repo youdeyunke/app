@@ -23,20 +23,6 @@ Component({
         
       }
       this.setData({url: post.url})
-      var pt = post.point_title
-      if(pt && pt.length >= 3){
-        var p = {title: '项目亮点', content: ''} 
-        pt = pt.replaceAll('：', ':')
-        var res = pt.split(':')
-        if(res.length == 1){
-          p.content = pt 
-        }else{
-          p.title = res.splice(0, 1)
-          p.content = res.join(':')
-        }
-        this.setData({point: p})
-
-      }
 
     },
   },

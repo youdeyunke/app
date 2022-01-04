@@ -1,4 +1,6 @@
 // components/pagemaker/header/index.js
+const app = getApp() 
+
 Component({
     /**
      * 组件的属性列表
@@ -25,6 +27,9 @@ Component({
     },
 
     ready: function () {
+        this.setData({ 
+            themeColor: app.globalData.myconfigs.color.primary,
+        })
     },
 
     /**

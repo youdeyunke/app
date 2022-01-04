@@ -17,11 +17,12 @@
                     wx:if="{{index<=1}}">{{item.name}}</van-tag>
             </view>
 
-            <view class="point" wx:if="{{point }}">
+            <view class="point {{ point.cat}}" wx:for="{{post.points_info}}" wx:for-item="point">
                 <text class="ptitle">{{ point.title || '项目亮点' }} </text>
                 <view class="blank"></view>
                 <text class="content">{{ point.content }}</text>
             </view>
+
         </view>
 
     </navigator>

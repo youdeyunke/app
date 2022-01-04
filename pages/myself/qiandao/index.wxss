@@ -1,11 +1,9 @@
 .btn {
 
   /* Rectangle 292 */
-
   width: 128rpx;
   height: 50rpx;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+
 
 }
 

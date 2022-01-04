@@ -68,7 +68,7 @@ Page({
         var _this = this
         _this.setData({
             t0: new Date().getTime(),
-            userId: q.id,
+            userId: q.id || q.user_id,
         }, function () {
             _this.loadbroker()
         })
@@ -88,13 +88,13 @@ Page({
     },
 
     viewHandle: function () {
-        var bid = this.data.userId
+        var uid = this.data.userId
         var _this = this
         app.request({
             method: 'POST',
             hideLoading: true,
             data: {
-                user_id: bid
+                user_id: uid
             },
             url: '/api/v1/brokers/view',
             success: function (res) {

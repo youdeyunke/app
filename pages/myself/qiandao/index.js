@@ -13,7 +13,8 @@ Component({
   ready: function(){
     var _this = this  
     var ui = app.globalData.myconfigs.ui
-    console.log('ready.ui',ui)
+    var color = app.globalData.myconfigs.color 
+
     var day = new Date() 
     var y = day.getFullYear() 
     var m = day.getMonth() +1 
@@ -24,6 +25,7 @@ Component({
     _this.setData({ 
       key: key, 
       checked: checked, 
+      primaryColor: color.primary, 
       qiandaoImg: ui.myself_qiandao, 
       yiqiandaoImg: ui.myself_yiqiandao,
     })

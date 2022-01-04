@@ -1,26 +1,30 @@
 <view class="outer" wx:if="{{user && user.id}}">
-  
-  <view bindtap="qiandaoHandle" wx:if="{{checked == false }}" style="background-image:url('{{qiandaoImg}}')" class="btn"></view>
-  <view bindtap="jifenHandle" wx:else  style="background-image:url('{{yiqiandaoImg}}')" class="btn"></view>
+
+  <view class="btn">
+
+    <van-button icon="sign" custom-style="border-radius:40rpx;width:120rpx;" size="mini"  color="{{primaryColor}}" bindtap="qiandaoHandle" wx:if="{{checked == false }}">签到</van-button>
+    <van-button icon="success" custom-style="border-radius:40rpx;background:none;width:120rpx;"  size="mini" plain color="#ffffff" bindtap="jifenHandle" wx:else >已签到</van-button>
+  </view>
 
   <van-popup safe-area-inset-top="{{true}}" custom-style="background:none;" show="{{showDialog}}">
-  <view class="dialog">
+    <view class="dialog">
 
 
-    <view class="result">
-      <view class="score">+{{today.score}}</view>
-      <view class="px">积分</view>
-    </view>
-
-    <view class="days">
-      <view class="day" wx:for="{{days}}">
-        <view class="circle {{item.checked == true ? 'checked': ''}}">{{ item.checked === true ? '' : item.score}}</view>
-        <view class="week">{{weeks[item.week]}}</view>
+      <view class="result">
+        <view class="score">+{{today.score}}</view>
+        <view class="px">积分</view>
       </view>
+
+      <view class="days">
+        <view class="day" wx:for="{{days}}">
+          <view class="circle {{item.checked == true ? 'checked': ''}}">{{ item.checked === true ? '' : item.score}}
+          </view>
+          <view class="week">{{weeks[item.week]}}</view>
+        </view>
+      </view>
+
+      <view class="close" bindtap="closeHandle">我知道了</view>
     </view>
 
-    <view class="close" bindtap="closeHandle">我知道了</view>
-  </view>
-  
   </van-popup>
 </view>

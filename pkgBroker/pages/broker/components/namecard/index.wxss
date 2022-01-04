@@ -96,8 +96,9 @@
   z-index:3;
   height: 64rpx; 
   width: 177rpx; 
-  left:30rpx;
+  right:30rpx;
   opacity: 0;
+
 }
 
 
