@@ -1,0 +1,203 @@
+/* newHoseNum/pages/nhLogger.wxss */
+.housecontainer {
+  background-color: #f0f2f5;
+  background-image: url(https://qiniucdn.udeve.net/fang2021/sh-jf-index-bg.png);
+  background-repeat: no-repeat;
+}
+
+.container1 {
+  height: 30rpx;
+}
+
+/* 框框 */
+.small {
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  background-color: #FFFFFF;
+  border-radius: 12rpx;
+}
+
+.big {
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  background-color: #FFFFFF;
+  border-radius: 12rpx;
+}
+
+/*状况列*/
+.directon-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.direction-column-top {
+  display: flex;
+  flex-direction: row;
+  margin-top: 27rpx;
+}
+
+/* 控制内容排列方式为行排列 */
+.direction-column-bottomrow {
+  width: 100%;
+  margin-top: 27rpx;
+  margin-bottom: 41rpx;
+}
+
+/* 控制内容排列方式为列排列 */
+.direction-column-bottomcolumn {
+  display: flex;
+  flex-direction: column;
+  margin-top: 22rpx;
+  margin-bottom: 41rpx;
+}
+
+/* 状况行 */
+.direction-row-top-left {
+  display: flex;
+  flex-direction: row;
+}
+
+.shuxian {
+  margin-left: 30rpx;
+  margin-top: 6rpx;
+  width: 6rpx;
+  height: 30rpx;
+  background: #1989FA;
+  border-radius: 3rpx;
+}
+
+.page-section-title {
+  margin-left: 19rpx;
+  font-size: 32rpx;
+  font-family: Source Han Sans CN;
+  font-weight: bold;
+  color: #333333;
+  line-height: 44rpx;
+}
+/* radio横向排列 */
+.direction-row-bottom-itemradiorow {
+  width: 340rpx;
+  float: left;
+  margin-top: 32rpx;
+}
+
+/* radio纵向排列 */
+.direction-row-bottom-itemradiocolumn {
+  margin-top: 32rpx;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+/* radio图片 */
+.imageinit {
+  float: left;
+  margin-left: 28rpx;
+  height: 42rpx;
+  width: 42rpx;
+  border-radius: 50%;
+  border: 2rpx solid #999;
+  background: transparent;
+}
+
+.imageclick {
+  float: left;
+  margin-left: 28rpx;
+  position: relative;
+  height: 42rpx;
+  width: 42rpx;
+  border-radius: 50%;
+  border: 2rpx solid #2792ff;
+  background: transparent;
+}
+
+.imageclick::before {
+  content: '';
+  position: absolute;
+  left: 7.9rpx;
+  top: 7.9rpx;
+  height: 25rpx;
+  width: 25rpx;
+  border-radius: 50%;
+  border: 2rpx solid #999;
+  background: transparent;
+  border-color: #2792ff;
+  background-color: #2792ff;
+}
+
+.radiofont {
+  float: left;
+  margin-left: 24rpx;
+  font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #666666;
+  line-height: 44rpx;
+}
+
+.radiofontcolor {
+  float: left;
+  margin-left: 24rpx;
+  font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #1989FA;
+  line-height: 44rpx;
+}
+
+/* 动态社保积分 */
+.dsscore {
+  position: relative;
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  width: 690rpx;
+  height: 360rpx;
+  background-color: #FFFFFF;
+  border-radius: 12rpx;
+}
+
+.shuxian-bottom{
+  float: left;
+  margin-top: 34rpx;
+  margin-left: 30rpx;
+  width: 6rpx;
+  height: 30rpx;
+  background: #1989FA;
+  border-radius: 3rpx;
+}
+
+.page-section-title-bottom{
+  float: left;
+  margin-top: 28rpx;
+  margin-left: 14rpx;
+  font-size: 32rpx;
+  font-family: Source Han Sans CN;
+  font-weight: bold;
+  color: #333333;
+  line-height: 44rpx;
+}
+
+.vant-fieif1 {
+  margin-top: 45rpx;
+}
+
+.van-field__label {
+  font-weight: 400;
+  color: #666666;
+}
+
+van-cell {
+  border-bottom: 5rpx solid black;
+}
+
+.shebao {
+  float: left;
+  margin-left: 70rpx;
+  font-size: 24rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #999999;
+  line-height: 44rpx;
+}

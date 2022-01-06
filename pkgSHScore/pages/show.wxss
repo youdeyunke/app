@@ -1,0 +1,62 @@
+/* newHoseNum/pages/test.wxss */
+.container{
+  width: 750rpx;
+  height: 1384rpx;
+  position: relative;
+}
+.container1{
+  width: 750rpx;
+  height: 1106rpx;
+  background-image: url(https://qiniucdn.udeve.net/fang2021/sh-jf-show-bg.png);
+  background-size: 100% 100%;
+}
+page{
+  width: 750rpx;
+  height: 1384rpx;
+}
+.bac1{
+  width: 543rpx;
+  height: 543rpx;
+  position: absolute;
+  top: 183rpx;
+  left: 103rpx;
+}
+.image1{
+  position: absolute;
+  top: -16rpx;
+  width: 543rpx;
+  height: 543rpx;
+}
+.result{
+  width: 141rpx;
+  height: 56rpx;
+  position: absolute;
+  top: 239rpx;
+  left: 176rpx;
+  font-size: 70rpx;
+font-family: Source Han Sans CN;
+font-weight: bold;
+color: #FFFFFF;
+line-height: 44rpx;
+}
+.describe{
+  width: 256rpx;
+  height: 35rpx;
+  position: absolute;
+  top: 768rpx;
+  left: 251rpx;
+  font-size: 36rpx;
+font-family: Source Han Sans CN;
+font-weight: bold;
+color: #FFFFFF;
+line-height: 35rpx;
+}
+.button-1{
+  width: 691rpx;
+  margin-left: 30rpx;
+}
+.button-2{
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  width: 691rpx;
+}

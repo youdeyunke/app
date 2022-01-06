@@ -1,0 +1,22 @@
+<!--newHoseNum/pages/test.wxml-->
+<view class="container">
+<view class="container1">
+  <view class="bac1">
+  <image class="image1" src="https://qiniucdn.udeve.net/fang2021/sh-jf-circle.png"></image>
+    <view class="result">
+    {{result}}
+    </view>
+  </view>
+  <!-- 你的测试分数 -->
+  <view class="describe">你的测试分数为</view>
+</view>
+  <!-- 按钮 -->
+  <view class="button-1">
+    <navigator url="../../pkgSHScore/pages/index">
+    <van-button size="large" type="info" class="button1">重新计算</van-button>
+  </navigator>
+  </view>
+  <view class="button-2">
+    <van-button plain custom-style size="large" type="info" class="button2" open-type="share">立即分享</van-button>
+  </view>
+</view>

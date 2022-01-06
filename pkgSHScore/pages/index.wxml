@@ -1,0 +1,39 @@
+<!--newHoseNum/pages/nhLogger.wxml-->
+<view class="housecontainer">
+  <view class="container1"></view>
+  <!-- 状况 -->
+  <view class="{{item.styleName}}" wx:for="{{questionItems}}" wx:key="index" wx:for-index="index">
+    <view class="directon-column">
+      <view class="direction-column-top">
+        <view class="direction-row-top-left">
+          <view class="shuxian"></view>
+          <view class="page-section-title">{{item.title}}</view>
+        </view>
+      </view>
+      <view class="direction-column-bottom{{item.flexStyle}}">
+        <view class="page-section page-section-gap" wx:for="{{item.options}}" wx:for-index="childindex" wx:key="j">
+          <view class="direction-row-bottom-item{{item.style}}" bindtap="changephoto" data-i="{{index}}" data-j="{{childindex}}">
+            <view class="{{item.selected==true?'imageclick':'imageinit'}}" data-i="{{index}}" data-j="{{childindex}}"></view>
+            <view class="{{item.selected==true?'radiofontcolor':'radiofont'}}" data-i="{{index}}" data-j="{{childindex}}">
+              {{item.label}}({{item.score}}分)
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 动态社保积分 -->
+  <view class="dsscore">
+    <view class="shuxian-bottom"></view>
+    <view class="page-section-title-bottom">动态社保积分</view>
+    <view class="vant-fieif1">
+      <van-cell-group>
+        <van-field model:value="{{ shebaoxishu }}" label="社保系数" placeholder="0.1" input-align="right" />
+        <van-field model:value="{{ shebaoyueshu }}" label="社保月数" placeholder="12" input-align="right" />
+      </van-cell-group>
+      <view class="shebao">社保计算周期和社保系数请参考各项工示认购规则
+      </view>
+    </view>
+  </view>
+  <van-button type="info" size="large" bindtap="submit">计算结果</van-button>
+</view>

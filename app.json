@@ -1,6 +1,14 @@
 {
   "subpackages": [
     {
+      "root":"pkgSHScore",
+      "pages": [
+        "pages/index",
+        "pages/show"
+      ]
+    },
+
+    {
       "root": "pkgAdmin",
       "name": "pkgadmin",
       "pages": [
