@@ -51,8 +51,8 @@ Component({
         currentIndex: 0, 
         tabs:[
             {name: "VR", value: 'vr', show: false, },
-            {name: "视频", value: 'video', show: false},
             {name: "户型", value: 'type', show: false, },
+            {name: "视频", value: 'video', show: false},
             {name: "照片", value: 'album', show: false},
             {name: "资讯", value: 'news', show: false, },
         ],

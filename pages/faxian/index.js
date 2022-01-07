@@ -61,6 +61,7 @@ Page({
         this.setData({
             tabs: app.globalData.myconfigs.faxian_tabs
         })
+        console.log('tabs', app.globalData.myconfigs.faxian_tabs)
     },
 
     /**
