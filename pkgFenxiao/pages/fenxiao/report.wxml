@@ -66,6 +66,7 @@
         </view>
     </view>
 </view>
+
 <view class="forms">
     <view class="form form-margin">
         <view class="form-title">
@@ -86,6 +87,29 @@
         </view>
     </view>
 </view>
+
+<view class="forms">
+    <view class="form form-margin">
+        <view class="form-title">
+            <text>推荐者姓名</text>
+        </view>
+        <view class="form-flex">
+            <input class="form-input" placeholder="填写推荐人姓名" model:value="{{introducer_name}}" minlength="11"
+                maxlength="11" />
+        </view>
+    </view>
+    <view class="form">
+        <view class="form-title">
+            <text>推荐者手机号</text>
+        </view>
+        <view class="form-flex">
+            <input class="form-input" placeholder="填写推荐人手机号码" model:value="{{introducer_mobile}}" minlength="11"
+                maxlength="11" />
+        </view>
+    </view>
+</view>
+
+
 <view class="forms">
     <view class="form form-margin">
         <view class="form-title">
@@ -96,6 +120,9 @@
         </view>
     </view>
 </view>
+
+
+
 <view class="actions">
     <van-button bindtap="submitHandle" type="info" block>提交报备</van-button>
     <van-button custom-style="margin-top:10rpx;" type="default" block bindtap="backHandle">
