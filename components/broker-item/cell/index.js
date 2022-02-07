@@ -40,9 +40,9 @@ Component({
         gotoProfile: function () {
 
             // 经纪人主页
-            var bid = this.data.item.id
+            var uid = this.data.item.user_id
             console.log('item', this.data.item)
-            var path = '/pkgBroker/pages/broker/profile?id=' + bid
+            var path = '/pkgBroker/pages/broker/profile?user_id=' + uid
             wx.navigateTo({
                 url: path,
             })
