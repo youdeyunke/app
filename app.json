@@ -89,6 +89,7 @@
         "pages/booking/index",
         "pages/desc/index",
         "pages/type/index",
+        "pages/type/show",
         "pages/zhoubian/index"
       ]
     },
