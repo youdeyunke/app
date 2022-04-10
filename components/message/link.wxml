@@ -1,0 +1,12 @@
+  
+<view class="msg-{{position}}">  
+  <view  class="text-wrapper" bindtap="gotoDetail">
+    <view class="header">
+      <view>系统通知 </view>
+     <view bindta>查看详情 <van-icon name="arrow"></van-icon></view>
+    </view>
+    <view class="text">
+      [{{ message.time }}] {{message.content}}
+    </view>
+  </view>
+</view>

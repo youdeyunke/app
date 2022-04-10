@@ -19,7 +19,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;   
-    width:400rpx;
+    /* width:400rpx; */
     background:#fff;
     padding:10rpx 20rpx;
     border-radius:10rpx;

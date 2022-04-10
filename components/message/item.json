@@ -3,6 +3,7 @@
   "usingComponents": {
     "text-content": "/components/message/text",
     "post-content": "/components/message/post",
+    "link-content": "/components/message/link",
     "image-content": "/components/message/image"
   }
 }

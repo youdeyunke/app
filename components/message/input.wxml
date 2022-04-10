@@ -1,4 +1,4 @@
-<view class="input-wrapper">
+<view class="input-wrapper" wx:if="{{receiverId > 0}}">
   <input 
     value="{{content}}"
     bindconfirm="confirmHandle"

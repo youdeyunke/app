@@ -38,11 +38,7 @@ Component({
           var pid = this.data.message.content
           var _this = this
           var key = 'post_base_info.' + pid
-          var post = wx.getStorageSync(key)
-          if(post && post.id){
-            this.setData({post: post})
-            return 
-          }
+   
           app.request({
               url: '/api/v1/post_base_info/' + pid,
               hideLoading: true,
