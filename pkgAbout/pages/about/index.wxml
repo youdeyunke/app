@@ -23,11 +23,11 @@
   </view>
   <view class="bottom">
     <view class="about-way" >
-    <view class="way-nav" bindtap="showWechat">
+    <view class="way-nav" bindtap="showWechat" wx:if="{{xcx_wechat_qr}}">
       <image src="../../image/3.png"></image>
       <view>客服微信</view>
     </view>
-    <view class="way-nav" bindtap="callHandle">
+    <view class="way-nav" bindtap="callHandle" wx:if="{{service_mobile}}">
       <image src="../../image/2.png"></image>
       <view>客服电话</view>
     </view>

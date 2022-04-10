@@ -7,9 +7,9 @@
   </view>
 
   <view class="footer">
-    <image class="btn wechat" src="../../images/btn-wechat.png" />
+    <!-- image class="btn wechat" src="../../images/btn-wechat.png" / -->
 
-    <image class="btn" src="../../images/btn-phone.png" />
+    <image bindtap="callHandle" class="btn" src="../../images/btn-phone.png" />
   </view>
 
 </view>
@@ -35,6 +35,8 @@
 
 </view>
 
-<navigator url="/pkgAdmin/pages/clue/form?id={{clue.id}}" class="action">
+<navigator url="/pkgAdmin/pages/clue/form?id={{clue.id}}&status_id={{clue.status_id}}" class="action">
   <van-button icon="/assets/icons/edit-btn.png" color="#1989fa" size="large" block custom-style="height:100rpx;width:710rpx;">写跟进日志</van-button>
 </navigator>
+
+<view style="display: block;height:120rpx;"></view>

@@ -8,6 +8,7 @@ Page({
    */
   data: {
     pageItems: [],
+    loading: false,
     page: 1,
     per_page: 10,
     order: 'id desc'
@@ -20,7 +21,19 @@ Page({
     this.loadData()
   },
 
-  loadData: function(){
+  reload: function () {
+    this.setData({
+      page: 1,
+      pageItems: [],
+    }, () => {
+      this.loadData()
+    })
+  },
+
+  loadData: function () {
+    this.setData({
+      loading: true
+    })
     var _this = this
     var query = {
       page: _this.data.page,
@@ -31,14 +44,36 @@ Page({
     app.request({
       url: '/api/v1/mycomments/mine',
       data: query,
-      success: function(resp){
-        if(resp.data.status != 0){
+      success: function (resp) {
+        _this.setData({
+          loading: false, 
+          end: resp.data.end, 
+        })
+        if (resp.data.status != 0) {
           return false
         }
-        var i = _this.data.page -1
+        var i = _this.data.page - 1
         var data = {}
-        var key = 'pageItems[' + i  + ']'
-        data[key] = resp.data.data
+        var key = 'pageItems[' + i + ']'
+        data[key] = resp.data.data.map((c) => {
+          // 计算跳转路径
+          var url = ''
+          var tid = c.target_id
+          switch (c.target_type) {
+            case 'post':
+              url = '/pkgPost/pages/show/index?id=' + tid
+              break
+
+            case 'event':
+              url = '/pkgEvent/pages/event/show?id=' + tid
+              break
+            case 'mycomment': 
+              url = '/pkgComment/pages/comment/show?id=' + tid
+              break
+          }
+          c.target_url = url
+          return c
+        })
         _this.setData(data)
       }
     })
@@ -57,6 +92,37 @@ Page({
   onShow: function () {
 
   },
+
+  doDelete: function(cid){
+    var _this = this
+    app.request({
+      url: '/api/v1/mycomments/' + cid,
+      method:'DELETE',
+      success: function(resp){
+        _this.reload()
+      }
+    })
+  },
+
+  deleteHandle: function(e){
+
+    const {cid } = e.currentTarget.dataset
+    var _this = this
+
+    // 删除评论
+    wx.showModal({
+      title: '删除',
+      content: '确定要删除这条评论吗？',
+      success: function(res){
+        if(!res.confirm){
+          return
+        }
+        _this.doDelete(cid)
+      }
+    })
+
+  },
+
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -84,8 +150,12 @@ Page({
    */
   onReachBottom: function () {
     var page = this.data.page + 1
-    this.setData({page: page})
-    this.loadData()
+    this.setData({
+      page: page
+    }, () => {
+      this.loadData()
+    })
+
   },
 
   /**

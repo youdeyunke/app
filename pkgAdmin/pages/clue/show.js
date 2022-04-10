@@ -22,6 +22,13 @@ Page({
   },
 
 
+  callHandle: function(){
+    wx.makePhoneCall({
+      phoneNumber: this.data.clue.phone,
+    })
+  },
+
+
   loadData: function(){
     var _this = this  
     app.request({

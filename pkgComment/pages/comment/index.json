@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "评论列表",
   "usingComponents": {
     "comment-item": "/components/comments/comment-item"
   }

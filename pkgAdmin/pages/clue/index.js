@@ -25,6 +25,7 @@ Page({
 
   },
 
+
   loadData: function(){
     var _this = this  
     app.request({

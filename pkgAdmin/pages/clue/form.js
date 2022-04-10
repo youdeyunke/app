@@ -23,7 +23,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
-    this.setData({clueId: q.id})
+    if(q.status_id){
+      var sid = parseInt(q.status_id)
+    }
+    this.setData({clueId: q.id, statusId: sid,})
     this.loadData()
   },
   

@@ -15,7 +15,6 @@ Component({
      */
     data: {
         tabs: [
-         
             { name: '幼儿园', value: '学校:幼儿园', icon: 'map-i-yey.png', isActive: false },
             { name: '小学', value: '学校:小学', icon: 'map-i-xx.png', isActive: false },
             { name: '中学', value: '学校:中学', icon: 'map-i-zx.png', isActive: false },
@@ -31,7 +30,9 @@ Component({
         maxLength: 2,
     },
     ready: function () {
-        setTimeout(this.getContent, 500)
+        setTimeout(() => { 
+          this.getContent()
+        }, 500)
     },
     /**
      * 组件的方法列表

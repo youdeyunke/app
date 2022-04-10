@@ -11,7 +11,7 @@ Page({
         scope: 'all_items',
         target_id: '',
         target_type: '',
-        myself: false,
+      
         loading: true,
     },
 
@@ -22,9 +22,7 @@ Page({
         this.setData(q)
         this.loadData()
         var _this = this
-        wx.setNavigationBarTitle({
-            title: _this.data.myself == false ? '全部评论' : '我的评论',
-        })
+  
     },
 
 
@@ -49,7 +47,6 @@ Page({
         app.request({
             url: '/api/v1/mycomments',
             data: {
-                myself: _this.data.myself,
                 target_id: _this.data.target_id,
                 target_type: _this.data.target_type,
                 scope: _this.data.scope,

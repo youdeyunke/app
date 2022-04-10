@@ -13,20 +13,21 @@ Page({
         score: 0, 
         userIcons: [
            
-            {name: '我的收藏', iconKey: 'myself_fav', url: '/pkgMyself/pages/favposts/index'},
-            {name: '我的订阅', iconKey: 'myself_dingyue', url: '/pkgMyself/pages/eventposts/index'},
-            {name: '浏览历史', iconKey: 'myself_history', url: '/pkgMyself/pages/history/index'},
-            {name: '我的预约', iconKey: 'myself_booking', url: '/pkgMyself/pages/booking/index'},
-            {name: '我的问答', iconKey: 'myself_qa',url: '/pkgMyself/pages/qa/index'},
+            {name: '我的收藏', iconKey: '18', url: '/pkgMyself/pages/favposts/index'},
+            {name: '我的订阅', iconKey: '4', url: '/pkgMyself/pages/eventposts/index'},
+            {name: '浏览历史', iconKey: '12', url: '/pkgMyself/pages/history/index'},
+            {name: '我的预约', iconKey: '20', url: '/pkgMyself/pages/booking/index'},
+            {name: '我的问答', iconKey: '19',url: '/pkgMyself/pages/qa/index'},
+            {name: '我的评论', iconKey: '19',url: '/pkgMyself/pages/comments/index'},
         ],
 
         brokerIcons: [
-            {name: '主营楼盘', iconKey: 'myself_zhuyin', handle: "gotoPost", },
-            {name: '我的主页', iconKey: 'myself_zhuye', handle:"gotoProfile"},
-            {name: '客户管理', iconKey: 'myself_kehu', url: '/pkgAdmin/pages/clue/home'},
-            {name: '我的海报', iconKey: 'myself_minpian', url: '/pkgBroker/pages/broker/qr'},
-            {name: '报备客户', iconKey: 'myself_baobei', url: '/pkgFenxiao/pages/fenxiao/report'},
-            {name: '历史报备', iconKey: 'myself_baobei_lishi', url: '/pkgFenxiao/pages/fenxiao/index'},
+            {name: '主营楼盘', iconKey: '2', handle: "gotoPost", },
+            {name: '我的主页', iconKey: '13', handle:"gotoProfile"},
+            {name: '客户线索', iconKey: '27', url: '/pkgAdmin/pages/clue/home'},
+            {name: '我的海报', iconKey: '24', url: '/pkgBroker/pages/broker/qr'},
+            {name: '报备客户', iconKey: '23', url: '/pkgFenxiao/pages/fenxiao/report'},
+            {name: '历史报备', iconKey: '22', url: '/pkgFenxiao/pages/fenxiao/index'},
         ],
         cache: '0 kb', // cache value
 

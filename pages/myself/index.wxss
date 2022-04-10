@@ -92,12 +92,13 @@
 }
 
 .body{
-    width: 100%;
+ 
+
     box-sizing: border-box;
     padding:0;
     margin:-50rpx auto 0 auto;
     min-height: 400rpx;
-    background:#fff;
+
     border-top-left-radius: 20rpx;
     border-top-right-radius: 20rpx;
 
@@ -113,17 +114,18 @@
     display: flex;
     flex-direction: column;
     align-items:center;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
     width: 20%; 
     font-size: 24rpx; 
     color:#444;
-    height: 120rpx;
+    height: 90rpx;
+    margin-bottom:20rpx;
 
 }
 .icons .icon-item .img{
-    width: 70rpx; 
-    height: 70rpx; 
+    width: 50rpx; 
+    height: 50rpx; 
     margin-bottom:8rpx;
 }
 

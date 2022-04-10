@@ -1,6 +1,38 @@
-<view style="width:710rpx;">
+<view style="width:710rpx;margin:auto;">
 
-<block wx:for="{{pageItems}}" wx:for-item="comments" >
-<comments items="{{comments}}"></comments>
+<block wx:for="{{pageItems}}" wx:for-item="items" >
+  <view class="comments full">
+        <view class="item box" wx:if="{{items.length > 0}}" wx:for="{{items}}" wx:for-item="comment">
+
+            <view class="meta">
+
+                <view class="content"  bindtap="gotoDetail" data-url="{{comment.target_url}}">
+                    <van-cell title="{{comment.target_title}}" is-link size="small" border url="{{comment.target_url}}"></van-cell>
+                    <view>{{comment.content}}</view>
+                </view>
+                <view class="footer">
+                    <text class="time">{{comment.created_at}}</text>
+                    <view class="actions">
+                        <view class="like" data-index="{{index}}">
+                            赞 ({{comment.like_nums || 0}}）
+                        </view>
+                        <view bindtap="deleteHandle" data-cid="{{comment.id}}" class="del">
+                            <van-icon name="trash"></van-icon>删除
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
 </block>
 </view>
+
+<no-result wx:if="{{pageItems.length == 0}}"></no-result>
+
+
+<view wx:if="{{loading}}" style="margin:0 auto;width:100%;display: flex;justify-content: center;">
+  <van-loading size="24px">加载中...</van-loading>
+</view>
+
+<van-divider wx:if="{{ pageItems.length > 0 && end}}" contentPosition="center">没有更多了</van-divider>
