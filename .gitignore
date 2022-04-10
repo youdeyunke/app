@@ -7,6 +7,7 @@ project.private.config.json
 *.bac
 *.log
 *.pyc
+ext.json
 *.DS_Store
 app.json
 project.config.json

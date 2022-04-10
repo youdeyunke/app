@@ -2,7 +2,7 @@
 
 .other {
     white-space: nowrap;
-    margin-right: 20rpx;
+    margin-right: 0rpx;
     width: 100%;
 }
 .others{

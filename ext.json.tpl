@@ -1,7 +1,7 @@
 {
     "extEnable": true,
     "extAppid": "wx175508800f405090",
-    "directCommit": true,
+    "directCommit": false,
     "ext": {
         "name": "开发版",
         "apihost": "https://weapp1.udeve.net/39085",
