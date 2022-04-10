@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "我的拓客海报",
+  "navigationBarTitleText": "我的专属海报",
   "usingComponents": {
 
     "van-button": "/vant/button/index",

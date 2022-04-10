@@ -176,6 +176,7 @@ Page({
                     return {
                         title: _this.data.shareTitle,
                         imageUrl: _this.data.shareCover,
+                        promise, 
                     }
                 }
             })
@@ -201,6 +202,7 @@ Page({
                     return {
                         title: _this.data.shareTitle,
                         imageUrl: _this.data.shareCover,
+                        promise, 
                     }
                 }
             })

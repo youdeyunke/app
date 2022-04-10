@@ -118,12 +118,16 @@ Page({
     },
 
     submitHandle: function (e) {
+        var extData = {
+          tags: this.genTagsStr(),  
+          cat: this.data.cat,  
+          score: this.data.score, 
+        }
+
         var comment = {
+            ext_data: JSON.stringify(extData),
             content: this.data.content,
-            tags: this.genTagsStr(),
-            cat: this.data.cat,
             images: this.data.imagesStr,
-            score: this.data.score,
             target_id: this.data.target_id,
             target_type: this.data.target_type
 
@@ -164,8 +168,10 @@ Page({
                 // 发布成功后，就清空
                 _this.setData({ comment: '' })
                 if (resp.data.status === 0) {
-                    wx.setStorageSync('eventBus', { key: 'reloadComments', value: comment.target_id })
                     wx.showToast({ icon: 'none', title: '提交成功。您的评论审核通过后将对外展示', duration: 2000, mask: true })
+                    // 用于返回后刷新页面
+                    var key = 'reload_' + this.data.target_type  + '_comments'
+                    app.globalData[key] = true
                     setTimeout(function () {
                         wx.navigateBack({ delta: -1 })
                     }, 2000)

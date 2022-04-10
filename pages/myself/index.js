@@ -24,7 +24,7 @@ Page({
             {name: '主营楼盘', iconKey: 'myself_zhuyin', handle: "gotoPost", },
             {name: '我的主页', iconKey: 'myself_zhuye', handle:"gotoProfile"},
             {name: '客户管理', iconKey: 'myself_kehu', url: '/pkgAdmin/pages/clue/home'},
-            {name: '拓客名片', iconKey: 'myself_minpian', url: '/pkgBroker/pages/broker/qr'},
+            {name: '我的海报', iconKey: 'myself_minpian', url: '/pkgBroker/pages/broker/qr'},
             {name: '报备客户', iconKey: 'myself_baobei', url: '/pkgFenxiao/pages/fenxiao/report'},
             {name: '历史报备', iconKey: 'myself_baobei_lishi', url: '/pkgFenxiao/pages/fenxiao/index'},
         ],

@@ -104,7 +104,7 @@ Page({
   checkvalueHandle: function (e) {
     var searchRecord = this.data.searchRecord
     var index = e.currentTarget.dataset.index
-    var myvalue = searchRecord[index].value
+    var myvalue = searchRecord[index]
     wx.navigateTo({
       url: '/pkgPost/pages/index/index?text=' + myvalue
     })

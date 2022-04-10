@@ -58,5 +58,5 @@ page{
     .poster-image{
         width: 710rpx;
         margin:0rpx auto;
-        height: 1110rpx;
+        height: 1000rpx;
     }

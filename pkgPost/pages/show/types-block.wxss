@@ -9,13 +9,16 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 300rpx;
+    width: 280rpx;
     margin-right: 30rpx;
+    border:2rpx solid #dddddd;
+    border-radius:6rpx;
+    padding:10rpx;
 }
 
 .type .cover image {
     width: 260rpx;
-    height: 260rpx;
+    height: 200rpx;
     border-radius: 4rpx;
     overflow: hidden;
 }

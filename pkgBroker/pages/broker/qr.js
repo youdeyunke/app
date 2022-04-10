@@ -163,7 +163,7 @@ Page({
           height: 189,
           x: 119,
           y: 159,
-          url: _this.data.userInfo.avatar,
+          url: _this.data.userInfo.avatar + "?imageView2/5/w/200/h/200",
           borderRadius: 178,
           zIndex: 19
         },

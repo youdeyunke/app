@@ -3,7 +3,7 @@
 <view class="cover">
     <swiper class="swiper" indicator-dots="true" autoplay="{{type.images_list.length > 1}}" interval="5000" duration="500" bindchange="swiperChange" circular="true" easing-function="linear" indicator-color="rgba(255,255,255,0.7)" indicator-active-color="#fff">
         <swiper-item  bindtap="viewImage" data-index="{{index}}" wx:key="{{index}}" wx:for="{{type.images_list}}">
-            <van-image width="750rpx" height="500rpx"  custom-class="item" src="{{item}}"></van-image> 
+            <van-image width="750rpx" height="500rpx" fit="contain"  custom-class="item" src="{{item}}"></van-image> 
         </swiper-item>
     </swiper>
 </view>

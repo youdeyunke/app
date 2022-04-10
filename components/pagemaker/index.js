@@ -122,6 +122,9 @@ Component({
             if(!config || !config.title){
                 return
             }
+            if(config.mode == 'component'){
+              return 
+            }
             var bgColor = config.title.bgColor || '#F0F0F0'
             var fontColor = config.title.color || '#333333'
             var title = config.title.value || ''

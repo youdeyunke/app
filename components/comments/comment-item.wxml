@@ -2,15 +2,15 @@
 <view class="comment-item {{ border == true ? 'border' : 'border-none' }}">
     <view class="comment-header" bindtap="gotoDetail">
         <view class="avatar">
-            <image src="{{item.user.avatar}}?imageView2/2/w/100" lazy-load="{{true}}" />
+            <image src="{{item.author.avatar}}?imageView2/5/w/100/h/100" lazy-load="{{true}}" />
         </view>
         <view class="title">
             <view class="name">
                 {{ item.user.name || item.user.nickname }}
-                <van-tag type="warning" wx:if="{{item.cat == 1}}">实看用户</van-tag>
+                <van-tag type="warning" wx:if="{{item.ext_data.cat == 1}}">实看用户</van-tag>
             </view>
             <view class="stars" wx:if="{{showStars}}">
-                <van-rate value="{{item.score}}" size="10" readonly="{{true}}" void-color="#eee" void-icon="star" />
+                <van-rate value="{{item.ext_data.score}}" size="10" readonly="{{true}}" void-color="#eee" void-icon="star" />
             </view>
         </view>
     </view>
