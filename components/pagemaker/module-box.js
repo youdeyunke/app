@@ -12,10 +12,6 @@ Component({
       type: String, 
       default: 'none',
     },
-    width: {
-      type: String,
-      default: 'full'
-    },
   },
 
   observers: {

@@ -1,5 +1,5 @@
 <!-- components/pagemaker/header/module-box.wxml -->
-<view class="module-box {{ width }} " style="box-shadow:{{ shadowEnable ?  shadowValue : 'none' }};background-position: {{bgPosition}}; background-repeat: no-repeat;;background-size:{{bgSize}};background-color: {{bgColor}}; background-image: {{bgImage }};border-radius:{{radiusValue}};margin-top:{{marginTopValue}};margin-bottom:{{marginBottomValue}}">
+<view class="module-box {{ config.width.size }} " style="box-shadow:{{ shadowEnable ?  shadowValue : 'none' }};background-position: {{bgPosition}}; background-repeat: no-repeat;;background-size:{{bgSize}};background-color: {{bgColor}}; background-image: {{bgImage }};border-radius:{{radiusValue}};margin-top:{{marginTopValue}};margin-bottom:{{marginBottomValue}}">
     <view wx:if="{{config.padding.top}}" class="padding-blank"></view>
     <module-header wx:if="{{config.header.hidden != true}}" config="{{config.header}}"></module-header>
     <slot></slot>
