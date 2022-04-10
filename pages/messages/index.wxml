@@ -1,19 +1,27 @@
 <block wx:if="{{userInfo.id}}">
-<ud-box padding="30" >
-  <navigator wx:key="{{item.id}}" hover-class='none' open-type='navigate' url="/pages/messages/show?target_user_id={{item.sender_id}}" wx:for="{{items}}" class="item">
-  <view class="tip" wx:if="{{item.unread == true}}"> </view>
-  <image class="avatar" src="{{item.sender_info.avatar}}"></image>
-  <view class="info">
-    <view class="name">
-      <text class="nickname">{{item.sender_info.name}}</text>
-      <howlong wx:if="{{item}}" date="{{item.updated_at}}" />
-    </view>
-    <view class="line-limit">{{item.last_content}}</view>
+  <view class="tools">
+    <view class=""></view>
+    <view wx:if="{{count > 0}}" bindtap="readAll" class="read-all">全部已读</view>
   </view>
-  </navigator>
-</ud-box>
-<view wx:if="{{items.length == 0}}" class="empty">没有收到任何消息</view>
+
+  <view class="outer" padding="30">
+    <navigator data-index="{{index}}" bindlongpress="deleteHandle" wx:key="{{item.id}}" hover-class='none' open-type='navigate'
+      url="/pages/messages/show?target_user_id={{item.sender_id}}" wx:for="{{items}}" class="item">
+      <view class="tip" wx:if="{{item.unread == true}}"> </view>
+      <image mode="aspectFill" class="avatar" src="{{item.sender_info.avatar}}?imageView2/5/w/200/h/200"></image>
+      <view class="info">
+        <view class="name">
+          <text class="nickname">{{item.sender_info.name}}</text>
+          <text class="date">{{item.time}}</text>
+        </view>
+        <view class="line-limit">{{item.last_content}}</view>
+      </view>
+      <view wx:if="{{item.unread > 0}}" class="count">{{item.unread}}</view>
+    </navigator>
+  </view>
+  <view wx:if="{{items.length == 0}}" class="empty">没有收到任何消息</view>
+  <van-divider wx:else  contentPosition="center">没有更多了</van-divider>
 
 </block>
 
-  <login-window bind:success="loginSuccess" class="loginwindow"></login-window>
+<login-window bind:success="loginSuccess" class="loginwindow"></login-window>

@@ -3,6 +3,37 @@ page{
   height: 100vh;
 }
 
+.outer{
+  width:710rpx;
+  margin:0 20rpx;
+}
+
+.item .count{
+  background:red;
+  color:#fff;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60rpx;
+  width:60rpx;
+  border-radius: 50%;
+  position: absolute;
+  left:70rpx;
+  top:0rpx;
+  transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+}
+
+.tools{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:10rpx 20rpx;
+  font-size:24rpx;
+  color:#333333;
+}
+
 .item{
   display: flex;
   justify-content: space-between;
@@ -26,10 +57,11 @@ page{
 }
 
 .item .avatar{
-  height:100rpx;
-  width: 100rpx;
-  border-radius: 50%;
+  height:110rpx;
+  width: 110rpx;
+  border-radius: 10rpx;
   margin-right:35rpx ;
+  border: 1px solid #dddddd;
 }
 
 .item .info{

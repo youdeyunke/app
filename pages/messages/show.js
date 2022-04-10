@@ -31,6 +31,7 @@ Page({
 
 
         auth.ensureUser(function (user) {
+          console.log('user.id', user.id , 'target id', q.target_user_id)
             if (user.id.toString() == q.target_user_id.toString()) {
                 // 不能和自己聊天
                 wx.showModal({
@@ -39,7 +40,8 @@ Page({
                     showCancel: false,
                     confirmText: '知道了',
                     success: (result) => {
-                        wx.navigateBack({ delta: -1 })
+                      wx.navigateBack({ delta: 1 })
+                      console.log('back')
                     },
                 });
                 return false
@@ -55,7 +57,7 @@ Page({
                     var title = t.name
                     if(t.is_broker){
                         var title = '置业顾问：' + t.name
-                        var titleColor = '#1989fa'
+                        var titleColor = '#EC0101'
                         var fontColor = '#ffffff'
                     }else{
                         var title = t.name 
@@ -231,7 +233,10 @@ Page({
      */
     onShow: function () {
         this.setData({ polling: true })
-        this.loadData()
+        //this.loadData()
+        wx.removeTabBarBadge({
+          index: 1,
+        })
     },
 
     /**

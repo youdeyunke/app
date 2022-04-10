@@ -11,4 +11,4 @@
 
 </block>
 
-<message-input receiverId="{{ targetUserId }}" bind:success="sendHandle"></message-input>
+<message-input  receiverId="{{ targetUserId }}" bind:success="sendHandle"></message-input>

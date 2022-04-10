@@ -21,6 +21,19 @@ Page({
     wx.setNavigationBarTitle({title: '消息'})
   },
 
+  readAll: function(){
+    var _this = this  
+    app.request({
+      url: '/api/v1/chat_lists/readall', 
+      method: 'POST', 
+      success: function(){
+        wx.showToast({
+          title: '已将全部消息标记为已读',
+        })
+      },
+    })
+  },
+
   stopInterval: function(){
     // 退出后要关闭定时器
     var iid = this.data.iid
@@ -34,10 +47,46 @@ Page({
   startInterval: function(){
     // 开启定时器，并防止重复
     var _this = this
-    var t =  0.5 * 1000
+    var t =  5 * 1000
     var iid = setInterval(_this.loadData, t)
     this.setData({iid: iid})
     console.log('开启定时器，刷新聊天列表', t)
+  },
+
+  deleteHandle: function(e) {
+      const {index} = e.currentTarget.dataset  
+      var item = this.data.items[index]
+      if(item.sender_id == 0){
+        return 
+      }
+      var _this = this 
+      wx.showModal({
+        title: '删除对话',
+        content: "确定要删除和" + item.sender_info.name + '的对话吗？聊天记录不会被删除。',
+        success: function(res){ 
+          if(!res.confirm){
+            return 
+          }
+          _this.deleteChat(item.id)
+        }
+      })
+  },
+
+  deleteChat: function(chatId){
+    var _this = this  
+    app.request({ 
+      url: '/api/v1/chat_lists/' + chatId, 
+      method: 'DELETE',
+      success: function(resp) {
+        if(resp.data.status == 0){
+          wx.showToast({
+            icon: 'none',
+            title: '已删除',
+          })
+          setTimeout(_this.loadData, 1000)
+        }
+      }
+    })
   },
 
   loadData: function(){
@@ -53,7 +102,17 @@ Page({
           if(JSON.stringify(n) == JSON.stringify(old)){
             return
           }
-          _this.setData({ items: res.data.data, sleepTime: res.data.sleep, })
+          var items = res.data.data.map((item) => { 
+            if(item.last_content_type == 'post'){
+              item.last_content = '[楼盘]'
+            }
+            return item
+          })
+          _this.setData({ 
+            items: items, 
+            sleepTime: res.data.sleep, 
+            count: res.data.count || 0,
+          })
         }
       },
       complete: function(res){

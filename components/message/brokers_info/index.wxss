@@ -9,12 +9,18 @@
   background-color: #fff;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position:sticky;
   top:0;
   left:0;
   right:0;
   z-index:100;
 }
+
+.info-box .name{
+
+}
+
 .info-box .avatar{
   width: 80rpx;
   height: 80rpx;
@@ -29,7 +35,6 @@
   width: 120rpx;
   height: 34rpx;
   margin-left: 12rpx;
-  margin-right: 252rpx;
 }
 .wechat,.mobile{
   width: 58rpx;
