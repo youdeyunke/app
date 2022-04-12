@@ -7,7 +7,7 @@
 <block wx:else>
     <block wx:for="{{items}}" wx:for-item="brokers">
         <view class="broker-item" wx:for="{{brokers}}" wx:for-item="broker">
-            <broker-item item="{{broker}}" class="broker"></broker-item>
+            <broker-item style="width:690rpx;" item="{{broker}}" class="broker"></broker-item>
         </view>
     </block>
     <navigator class="footer" url="/pkgBroker/pages/broker/join">+申请入驻置业顾问</navigator>

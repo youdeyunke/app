@@ -77,7 +77,7 @@ Page({
 
         app.request({
             hideLoading: true,
-            url: '/api/v6/posts/' + _this.data.postId,
+            url: '/api/v5/posts/' + _this.data.postId,
             data: query,
             fail: function (resp) {
                 wx.showToast({

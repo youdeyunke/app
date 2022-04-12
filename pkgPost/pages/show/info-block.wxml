@@ -1,23 +1,36 @@
 <block-box title="楼盘详情信息" sub-title='查看更多信息' url='{{value.more_url}}' padding="{{false}}" title-size="36">
 
-  
-        <view class="block-content">
-            <view class="content-title">参考价格</view>
-            <view style="margin-left:4rpx"></view>
-            <view class="content-desc red">
-                <view>参考均价：{{value.average_price_info.text}} {{value.average_price_info.px}}</view>
-                <view>参考总价：{{value.total_price_info.text}} {{value.total_price_info.px}}</view>
-            </view>
-        </view>
-        <view class="block-content">
-            <view class="content-title">物业类型</view>
-            <view class="maohao" style="margin-left:4rpx"></view>
-            <view class="content-desc">{{value.cats }}</view>
-        </view>
-        <view wx:key="index" class="block-content" wx:for="{{metaItems}}" wx:for-item="meta">
-            <view class="content-title" space='nbsp'>{{meta.label}}</view>
-            <view class="maohao" style="margin-left:4rpx"></view>
-            <view class="content-desc">{{meta.text}}</view>
-        </view>
+  <view class="block-content">
+
+    <view class="content-title">参考均价</view>
+    <view class="maohao" style="margin-left:4rpx"></view>
+    <view class="content-desc">{{value.average_price_info.text}} {{value.average_price_info.px}}</view>
+  </view>
+
+  <view class="block-content">
+    <view class="content-title">参考总价</view>
+    <view class="maohao" style="margin-left:4rpx"></view>
+    <view class="content-desc">{{value.total_price_info.text}} {{value.total_price_info.px}}</view>
+  </view>
+
+
+
+  <view class="block-content">
+    <view class="content-title">面积区间</view>
+    <view class="maohao" style="margin-left:4rpx"></view>
+    <view class="content-desc"> {{value.area_info.text}}{{value.area_info.px}}</view>
+  </view>
+
+
+  <view class="block-content">
+    <view class="content-title">物业类型</view>
+    <view class="maohao" style="margin-left:4rpx"></view>
+    <view class="content-desc">{{value.cats }}</view>
+  </view>
+  <view wx:key="index" class="block-content" wx:for="{{metaItems}}" wx:for-item="meta">
+    <view class="content-title" space='nbsp'>{{meta.label}}</view>
+    <view class="maohao" style="margin-left:4rpx"></view>
+    <view class="content-desc">{{meta.text}}</view>
+  </view>
 
 </block-box>
