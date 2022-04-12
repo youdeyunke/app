@@ -115,14 +115,25 @@
     flex-direction: column;
     align-items:center;
     justify-content: space-between;
-    flex-wrap: wrap;
-    width: 20%; 
+    width: 100rpx;
     font-size: 24rpx; 
     color:#444;
     height: 90rpx;
     margin-bottom:20rpx;
-
+    margin-right:42rpx;
 }
+
+.icons .icon-item:nth-child(5n){
+  margin-right:0rpx;
+}
+
+.icons .icon-item .name{
+  width: 100%; 
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .icons .icon-item .img{
     width: 50rpx; 
     height: 50rpx; 
