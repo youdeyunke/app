@@ -1,5 +1,5 @@
 <scroll-view class="scroll" scroll-x>
-    <view class="scroll-cell" wx:for="{{items}}" wx:key="id">
+    <navigator url="/pkgNews/pages/news/show?id={{item.id}}" class="scroll-cell" wx:for="{{items}}" wx:key="id">
         <image src="{{item.cover}}" class="cell-image" />
         <view style="background-color:{{primaryColor}}" class="cell-tag">{{item.author}}</view>
         <view class="footer-text">
@@ -10,5 +10,5 @@
         <view class="image-box">
             <image class="position-image" wx:if="{{item.content_type == 'video'}}" src="../image/7.png"></image>
         </view>
-    </view>
+    </navigator>
 </scroll-view>
