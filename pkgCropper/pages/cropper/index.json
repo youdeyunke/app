@@ -1,0 +1,10 @@
+{
+    "navigationBarTitleText": "图片剪裁",
+    "disableScroll": true,
+    "navigationBarBackgroundColor": "#292929",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#292929",
+    "usingComponents": {
+        "image-cropper": "../../components/image-cropper"
+    }
+}
