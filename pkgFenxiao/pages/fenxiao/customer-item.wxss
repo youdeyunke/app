@@ -7,7 +7,7 @@
 }
 
 .outer .content {
-    padding: 30rpx;
+    padding: 0 30rpx 30rpx 30rpx;
 }
 
 .header {

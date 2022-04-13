@@ -12,6 +12,11 @@
                     <view class="value">{{ createdAt }}</view>
                 </view>
 
+                <view class="attr">
+                    <view class="label">推荐人：</view>
+                    <view class="value">{{ item.broker.name }} {{ item.broker.mobile }}</view>
+                </view>
+
                 <view class="attr" wx:if="{{item.status == 0}}">
                     <view class="label">无效原因：</view>
                     <view class="value">{{ item.status_remark }}</view>

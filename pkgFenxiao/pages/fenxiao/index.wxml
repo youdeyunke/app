@@ -1,20 +1,24 @@
 <view class="tabs">
-    <van-tabs animated swipeable  type="line" color="#1989fa" bind:change="tabChange">
-      <van-tab wx:for="{{tabs}}" wx:for-item="tab" title="{{tab.name}}">
-      </van-tab>
-    </van-tabs> 
+  <van-tabs animated swipeable type="line" color="#1989fa" bind:change="tabChange">
+    <van-tab wx:for="{{tabs}}" wx:for-item="tab" title="{{tab.name}}">
+    </van-tab>
+  </van-tabs>
+  <van-search bind:change="onSearch" style="width:690rpx;margin:0 auto;" use-action-slot bind:search="onSearch" clearable bind:clear="onSearch" placeholder="输入姓名、手机号搜索" model:value="{{searchKw}}">
+  <view bindtap="onSearch" slot="action">搜索</view>
+</van-search>
 </view>
 
+<view wx:if="{{searchKw && searchKw.length > 0}}" class="search-res">关键词<text class="kw">{{searchKw}}</text>的搜索结果</view>
 
-<view class="empty" wx:if="{{!loading && items[0].length == 0 }}" style="text-align:center;color:#cecece;margin-top:100rpx;">没有报备记录</view>
+<no-result wx:if="{{!loading && items[0].length == 0 }}" style="text-align:center;color:#cecece;margin-top:100rpx;"></no-result>
 
-  <block wx:for="{{items}}" wx:for-item="customers">
-    <customer deal-status="{{dealStatus}}" item="{{item}}"  wx:for="{{customers}}"  wx:for-key="item.id"/>
-  </block>
+<block wx:for="{{items}}" wx:for-item="customers">
+  <customer deal-status="{{dealStatus}}" item="{{item}}" wx:for="{{customers}}" wx:for-key="item.id" />
+</block>
 
 
 <view class="footer">
- <navigator url="/pkgFenxiao/pages/fenxiao/report">
-  <van-button color="#1989fa" icon="plus" round  block type="primary">报备客户</van-button>
+  <navigator url="/pkgFenxiao/pages/fenxiao/report">
+    <van-button color="#1989fa" icon="plus" round block type="primary">报备客户</van-button>
   </navigator>
 </view>

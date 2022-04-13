@@ -29,6 +29,7 @@ Page({
             {name: '报备客户', iconKey: '23', url: '/pkgFenxiao/pages/fenxiao/report'},
             {name: '历史报备', iconKey: '22', url: '/pkgFenxiao/pages/fenxiao/index'},
         ],
+
         cache: '0 kb', // cache value
 
         n: 0

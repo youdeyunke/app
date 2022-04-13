@@ -5,6 +5,7 @@
     "usingComponents": {
         "new-version": "/components/new-version",
         "posts-block": "/pages/home/posts",
+        "city": "/components/city-picker",
         "page-loading": "/pages/home/page-loading",
         "news-swiper": "/components/news-swiper",
         "pagemaker": "/components/pagemaker/index",

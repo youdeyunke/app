@@ -7,6 +7,7 @@ Page({
    */
   data: {
       page: 1,
+      searchKw: '',
       per_page: 50,
       dealStatus: [],
       items: [],
@@ -30,12 +31,22 @@ Page({
      this.loadData()
   },
 
+  onSearch: function(){
+    this.setData({ 
+      page:1, 
+      items: [],
+    }, () => { 
+      this.loadData()
+    })
+  },
+
   loadData: function(){
       this.setData({loading: true})
       var _this  = this
       var status = this.data.tabs[this.data.currentTabIndex].value
       var query = {
           order: 'id desc',
+          kw: this.data.searchKw, 
           status: status,
           page: _this.data.page,
           per_page: _this.data.per_page,

@@ -1,4 +1,8 @@
-<navigation-bar   background="{{titleBgColor}}"  background-color-top="none" title="{{pageTitle}}" color="{{titleFontColor}}"></navigation-bar>
+<navigation-bar   background="{{titleBgColor}}"  background-color-top="none" title="{{pageTitle}}" color="{{titleFontColor}}">
+  <view style="color:#cecece;" slot="left">
+    
+  </view>
+</navigation-bar>
 
 <first-screen-ad />
 

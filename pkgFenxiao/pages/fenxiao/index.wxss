@@ -1,6 +1,6 @@
 /* pages/fenxiao/balance.wxss */
 page{
- padding-top:100rpx !important;
+ padding-top:220rpx !important;
 }
 
 .tabs{
@@ -20,4 +20,16 @@ page{
   bottom:0; 
   box-sizing: border-box;
   padding:0 210rpx
+}
+
+.search-res{
+  width:690rpx;
+  color:#666;
+  font-size:26rpx;
+  margin:0 auto 10rpx auto;
+  text-align: center;
+}
+
+.search-res .kw{
+  color:#333;
 }

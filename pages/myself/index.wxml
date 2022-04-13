@@ -12,6 +12,7 @@
 
             <view class="name-info">
                 <view class="name">{{ userInfo.name }}
+                <text wx:if="{{userInfo.is_admin}}">（管理员）</text>
                     <image class="img" src="https://qiniucdn.udeve.net/fang/broker-level-{{ userInfo.level}}.png">
                     </image>
                 </view>
