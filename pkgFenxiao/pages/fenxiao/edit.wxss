@@ -1,0 +1,16 @@
+/* pkgFenxiao/pages/fenxiao/edit.wxss */
+.actions {
+    margin: auto 20rpx;
+    margin-top: 20rpx;
+    width: 710rpx;
+}
+.wuxiao-select{
+    height: 80rpx;
+    padding: 0 15rpx;
+    margin: 0 20rpx;
+    margin-top: 20rpx;
+    line-height: 80rpx; 
+    text-align: center;
+    background-color: #fff; 
+    border-radius: 40rpx;
+}

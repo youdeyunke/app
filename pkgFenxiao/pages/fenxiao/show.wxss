@@ -11,3 +11,11 @@ page{
 .header {
     margin-bottom:20rpx;
 }
+.button{
+    width:100%;
+    margin:0 auto 20rpx auto; 
+    position: fixed;
+    bottom:0; 
+    box-sizing: border-box;
+    padding:0 210rpx
+}

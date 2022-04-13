@@ -1,394 +1,389 @@
 {
-  "subpackages": [
-    {
-      "root":"pkgSHScore",
-      "pages": [
-        "pages/index",
-        "pages/show"
-      ]
+    "subpackages": [
+        {
+            "root": "pkgSHScore",
+            "pages": [
+                "pages/index",
+                "pages/show"
+            ]
+        },
+        {
+            "root": "pkgAdmin",
+            "name": "pkgadmin",
+            "pages": [
+                "pages/clue/home",
+                "pages/clue/index",
+                "pages/clue/show",
+                "pages/clue/form",
+                "pages/fangyuan/index",
+                "pages/fangyuan/show",
+                "pages/admin/booking",
+                "pages/admin/xiangce/index"
+            ]
+        },
+        {
+            "root": "pkgDzp",
+            "name": "pkgdzp",
+            "pages": [
+                "pages/dzp/index"
+            ]
+        },
+        {
+            "root": "pkgZhuli",
+            "name": "pkgzhuli",
+            "pages": [
+                "pages/zhuli/index",
+                "pages/zhuli/mine"
+            ]
+        },
+        {
+            "root": "pkgHandwriting",
+            "name": "pkghandwriting",
+            "pages": [
+                "pages/handwriting/index"
+            ]
+        },
+        {
+            "root": "pkgRengou",
+            "name": "pkgRengou",
+            "pages": [
+                "pages/rengou/index",
+                "pages/rengou/pay",
+                "pages/rengou/sign",
+                "pages/rengou/done"
+            ]
+        },
+        {
+            "root": "pkgMyself",
+            "name": "pkgmyself",
+            "pages": [
+                "pages/profile/index",
+                "pages/coupons/index",
+                "pages/favposts/index",
+                "pages/eventposts/index",
+                "pages/booking/index",
+                "pages/comments/index",
+                "pages/qa/index",
+                "pages/score/index",
+                "pages/history/index"
+            ]
+        },
+        {
+            "root": "pkgError",
+            "name": "pkgerror",
+            "pages": [
+                "pages/404/index",
+                "pages/444/index"
+            ]
+        },
+        {
+            "root": "pkgPost",
+            "name": "pkgpost",
+            "pages": [
+                "pages/index/index",
+                "pages/show/index",
+                "pages/booking/index",
+                "pages/desc/index",
+                "pages/type/index",
+                "pages/type/show",
+                "pages/zhoubian/index"
+            ]
+        },
+        {
+            "root": "pkgTickets",
+            "name": "pkgtickets",
+            "pages": [
+                "pages/tickets/index"
+            ]
+        },
+        {
+            "root": "pkgMap",
+            "name": "pkgmap",
+            "pages": [
+                "pages/map/index"
+            ]
+        },
+        {
+            "root": "pkgRanking",
+            "name": "pkgranking",
+            "pages": [
+                "pages/ranking/index"
+            ]
+        },
+        {
+            "root": "pkgPoster",
+            "name": "poster",
+            "pages": [
+                "pages/poster/index"
+            ]
+        },
+        {
+            "root": "pkgWallet",
+            "name": "wallet",
+            "pages": [
+                "pages/wallet/index",
+                "pages/wallet/withdraw",
+                "pages/wallet/recharge"
+            ]
+        },
+        {
+            "root": "pkgYfyj",
+            "name": "yfyj",
+            "pages": [
+                "pages/yfyj/index",
+                "pages/yfyj/show"
+            ]
+        },
+        {
+            "root": "pkgFenxiao",
+            "name": "fenxiao",
+            "pages": [
+                "pages/fenxiao/home",
+                "pages/fenxiao/index",
+                "pages/fenxiao/report",
+                "pages/fenxiao/report-detail",
+                "pages/fenxiao/show",
+                "pages/fenxiao/edit"
+            ]
+        },
+        {
+            "root": "pkgEvent",
+            "name": "event",
+            "pages": [
+                "pages/event/index",
+                "pages/event/show",
+                "pages/event/new"
+            ]
+        },
+        {
+            "root": "pkgBroker",
+            "name": "broker",
+            "pages": [
+                "pages/broker/index",
+                "pages/broker/join",
+                "pages/broker/membership",
+                "pages/broker/profile",
+                "pages/broker/qr",
+                "pages/broker/audit/index"
+            ]
+        },
+        {
+            "root": "pkgJisuanqi",
+            "name": "jisuanqi",
+            "pages": [
+                "pages/daikuan/index",
+                "pages/daikuan/detail"
+            ]
+        },
+        {
+            "root": "pkgNews",
+            "name": "news",
+            "pages": [
+                "pages/news/index",
+                "pages/news/show"
+            ]
+        },
+        {
+            "root": "pkgXiangce",
+            "name": "xiangce",
+            "pages": [
+                "pages/xiangce/index"
+            ]
+        },
+        {
+            "root": "pkgTour",
+            "name": "tour",
+            "pages": [
+                "pages/tour/index",
+                "pages/tour/show"
+            ]
+        },
+        {
+            "root": "pkgComment",
+            "name": "comment",
+            "pages": [
+                "pages/comment/index",
+                "pages/comment/show",
+                "pages/comment/mine",
+                "pages/comment/new"
+            ]
+        },
+        {
+            "root": "pkgVr",
+            "name": "pkgVr",
+            "pages": [
+                "pages/vr/index",
+                "pages/vr/show"
+            ]
+        },
+        {
+            "root": "pkgCompany",
+            "name": "company",
+            "pages": [
+                "pages/company/index",
+                "pages/company/show"
+            ]
+        },
+        {
+            "root": "pkgQa",
+            "name": "qa",
+            "pages": [
+                "pages/qa/index",
+                "pages/qa/qa",
+                "pages/qa/reply",
+                "pages/qa/new"
+            ]
+        },
+        {
+            "root": "pkgAuth",
+            "name": "auth",
+            "pages": [
+                "pages/auth/index",
+                "pages/auth/terms",
+                "pages/auth/sms"
+            ]
+        },
+        {
+            "root": "pkgDebug",
+            "name": "debug",
+            "pages": [
+                "pages/debug/index"
+            ]
+        },
+        {
+            "root": "pkgSearch",
+            "name": "search",
+            "pages": [
+                "page/search/index"
+            ]
+        },
+        {
+            "root": "pkgLicense",
+            "name": "license",
+            "pages": [
+                "pages/license/index"
+            ]
+        },
+        {
+            "root": "pkgAbout",
+            "name": "about",
+            "pages": [
+                "pages/about/index"
+            ]
+        },
+        {
+            "root": "pkgBrokers",
+            "name": "brokers",
+            "pages": [
+                "pages/brokers/index"
+            ]
+        }
+    ],
+    "pages": [
+        "pages/home/home",
+        "pages/pagemaker/show",
+        "pages/want/index",
+        "pages/faxian/index",
+        "pages/myself/index",
+        "pages/messages/index",
+        "pages/home/debug",
+        "pages/messages/show",
+        "pages/cities/select",
+        "pages/districts/select",
+        "pages/udeve/index",
+        "pages/visitors/index",
+        "pages/qr/show"
+    ],
+    "tabBar": {
+        "custom": false,
+        "selectedColor": "#333",
+        "backgroundColor": "#fff",
+        "color": "#999",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "iconPath": "/assets/tabs/home.0.png",
+                "selectedIconPath": "/assets/tabs/home.1.png",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/messages/index",
+                "iconPath": "/assets/tabs/message.0.png",
+                "selectedIconPath": "/assets/tabs/message.1.png",
+                "text": "消息"
+            },
+            {
+                "pagePath": "pages/faxian/index",
+                "iconPath": "/assets/tabs/faxian.0.png",
+                "selectedIconPath": "/assets/tabs/faxian.1.png",
+                "text": "发现"
+            },
+            {
+                "pagePath": "pages/myself/index",
+                "iconPath": "/assets/tabs/myself.0.png",
+                "selectedIconPath": "/assets/tabs/myself.1.png",
+                "text": "我的"
+            }
+        ]
     },
-
-    {
-      "root": "pkgAdmin",
-      "name": "pkgadmin",
-      "pages": [
-        "pages/clue/home",
-        "pages/clue/index",
-        "pages/clue/show",
-        "pages/clue/form",
-        "pages/fangyuan/index",
-        "pages/fangyuan/show",
-        "pages/admin/booking",
-        "pages/admin/xiangce/index"
-      ]
+    "window": {
+        "enablePullDownRefresh": false,
+        "backgroundTextStyle": "dark",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationStyle": "default",
+        "backgroundColor": "#fff",
+        "navigationBarTextStyle": "black"
     },
-
-    {
-      "root": "pkgDzp", 
-      "name": "pkgdzp",
-      "pages": [
-        "pages/dzp/index"
-      ]
+    "usingComponents": {
+        "login-window": "/components/login-window/index",
+        "copyright": "/components/copyright",
+        "navigation-bar": "/components/navBar/navBar",
+        "no-result": "/components/no-result",
+        "van-panel": "/vant/panel/index",
+        "van-rate": "/vant/rate/index",
+        "van-icon": "/vant/icon/index",
+        "van-image": "/vant/image/index",
+        "van-tag": "/vant/tag/index",
+        "van-skeleton": "/vant/skeleton/index",
+        "van-popup": "/vant/popup/index",
+        "van-search": "/vant/search/index",
+        "van-loading": "/vant/loading/index",
+        "van-notify": "/vant/notify/index",
+        "van-notice-bar": "/vant/notice-bar/index",
+        "van-tabs": "/vant/tabs/index",
+        "van-tab": "/vant/tab/index",
+        "van-divider": "/vant/divider/index",
+        "van-button": "/vant/button/index",
+        "van-field": "/vant/field/index",
+        "van-radio-group": "/vant/radio-group/index",
+        "van-radio": "/vant/radio/index",
+        "van-cell": "/vant/cell/index",
+        "van-switch": "/vant/switch/index",
+        "van-cell-group": "/vant/cell-group/index",
+        "cell-radio": "/components/cell-radio",
+        "mycard": "/components/ud/card/index",
+        "box": "/components/ud/box/index",
+        "ud-card": "/components/ud/card/index",
+        "ud-box": "/components/ud/box/index",
+        "ud-checkbox": "/components/ud/checkbox/index",
+        "ud-image": "/components/ud/image/index",
+        "ud-tabs": "/components/ud/tabs/index",
+        "ud-header": "/components/ud/header/index",
+        "ud-textarea": "/components/ud/textarea/index"
     },
-
-    {
-      "root": "pkgZhuli", 
-      "name": "pkgzhuli",
-      "pages": [
-        "pages/zhuli/index",
-        "pages/zhuli/mine"
-      ]
+    "networkTimeout": {
+        "request": 100000,
+        "connectSocket": 10000,
+        "uploadFile": 100000,
+        "downloadFile": 100000
     },
-
-    {
-      "root": "pkgHandwriting", 
-      "name": "pkghandwriting",
-      "pages": [
-        "pages/handwriting/index"
-      ]
+    "serviceProviderTicket": "",
+    "permission": {
+        "scope.userLocation": {
+            "desc": "位置信息用于房源查询"
+        }
     },
-    {
-      "root": "pkgRengou", 
-      "name": "pkgRengou",
-      "pages": [
-        "pages/rengou/index", 
-        "pages/rengou/pay", 
-        "pages/rengou/sign", 
-        "pages/rengou/done"
-      ]
-    },
-    {
-      "root": "pkgMyself",
-      "name": "pkgmyself",
-      "pages": [
-        "pages/profile/index",
-        "pages/coupons/index",
-        "pages/favposts/index",
-        "pages/eventposts/index",
-        "pages/booking/index",
-        "pages/comments/index",
-        "pages/qa/index",
-        "pages/score/index",
-        "pages/history/index"
-      ]
-    },
-    {
-      "root": "pkgError",
-      "name": "pkgerror",
-      "pages": [
-        "pages/404/index",
-        "pages/444/index"
-      ]
-    },
-    {
-      "root": "pkgPost",
-      "name": "pkgpost",
-      "pages": [
-        "pages/index/index",
-        "pages/show/index",
-        "pages/booking/index",
-        "pages/desc/index",
-        "pages/type/index",
-        "pages/type/show",
-        "pages/zhoubian/index"
-      ]
-    },
-    {
-      "root": "pkgTickets",
-      "name": "pkgtickets",
-      "pages": [
-        "pages/tickets/index"
-      ]
-    },
-    {
-      "root": "pkgMap",
-      "name": "pkgmap",
-      "pages": [
-        "pages/map/index"
-      ]
-    },
-    {
-      "root": "pkgRanking",
-      "name": "pkgranking",
-      "pages": [
-        "pages/ranking/index"
-      ]
-    },
-    {
-      "root": "pkgPoster",
-      "name": "poster",
-      "pages": [
-        "pages/poster/index"
-      ]
-    },
-    {
-      "root": "pkgWallet",
-      "name": "wallet",
-      "pages": [
-        "pages/wallet/index",
-        "pages/wallet/withdraw",
-        "pages/wallet/recharge"
-      ]
-    },
-    {
-      "root": "pkgYfyj",
-      "name": "yfyj",
-      "pages": [
-        "pages/yfyj/index",
-        "pages/yfyj/show"
-      ]
-    },
-    {
-      "root": "pkgFenxiao",
-      "name": "fenxiao",
-      "pages": [
-        "pages/fenxiao/home",
-        "pages/fenxiao/index",
-        "pages/fenxiao/report",
-        "pages/fenxiao/report-detail",
-        "pages/fenxiao/show"
-      ]
-    },
-    {
-      "root": "pkgEvent",
-      "name": "event",
-      "pages": [
-        "pages/event/index",
-        "pages/event/show",
-        "pages/event/new"
-      ]
-    },
-    {
-      "root": "pkgBroker",
-      "name": "broker",
-      "pages": [
-        "pages/broker/index",
-        "pages/broker/join",
-        "pages/broker/membership",
-        "pages/broker/profile",
-        "pages/broker/qr",
-        "pages/broker/audit/index"
-      ]
-    },
-    {
-      "root": "pkgJisuanqi",
-      "name": "jisuanqi",
-      "pages": [
-        "pages/daikuan/index",
-        "pages/daikuan/detail"
-      ]
-    },
-    {
-      "root": "pkgNews",
-      "name": "news",
-      "pages": [
-        "pages/news/index",
-        "pages/news/show"
-      ]
-    },
-    {
-      "root": "pkgXiangce",
-      "name": "xiangce",
-      "pages": [
-        "pages/xiangce/index"
-      ]
-    },
-    {
-      "root": "pkgTour",
-      "name": "tour",
-      "pages": [
-        "pages/tour/index",
-        "pages/tour/show"
-      ]
-    },
-    {
-      "root": "pkgComment",
-      "name": "comment",
-      "pages": [
-        "pages/comment/index",
-        "pages/comment/show",
-        "pages/comment/mine",
-        "pages/comment/new"
-      ]
-    },
-    {
-      "root": "pkgVr",
-      "name": "pkgVr",
-      "pages": [
-        "pages/vr/index",
-        "pages/vr/show"
-      ]
-    },
-    {
-      "root": "pkgCompany",
-      "name": "company",
-      "pages": [
-        "pages/company/index",
-        "pages/company/show"
-      ]
-    },
-    {
-      "root": "pkgQa",
-      "name": "qa",
-      "pages": [
-        "pages/qa/index",
-        "pages/qa/qa",
-        "pages/qa/reply",
-        "pages/qa/new"
-      ]
-    },
-    {
-      "root": "pkgAuth",
-      "name": "auth",
-      "pages": [
-        "pages/auth/index",
-        "pages/auth/terms",
-        "pages/auth/sms"
-      ]
-    },
-    {
-      "root": "pkgDebug",
-      "name": "debug",
-      "pages": [
-        "pages/debug/index"
-      ]
-    },
-    {
-      "root": "pkgSearch",
-      "name": "search",
-      "pages": [
-        "page/search/index"
-      ]
-    },
-    {
-      "root": "pkgLicense",
-      "name": "license",
-      "pages": [
-        "pages/license/index"
-      ]
-    },
-    {
-      "root": "pkgAbout",
-      "name": "about",
-      "pages": [
-        "pages/about/index"
-      ]
-    },
-    {
-      "root": "pkgBrokers",
-      "name": "brokers",
-      "pages": [
-        "pages/brokers/index"
-      ]
-    }
-
-  ],
-  "pages": [
-    "pages/home/home",
-    "pages/post/post",
-    "pages/pagemaker/show",
-    "pages/want/index",
-    "pages/faxian/index",
-    "pages/myself/index",
-    "pages/messages/index",
-    "pages/home/debug",
-    "pages/messages/show",
-    "pages/cities/select",
-    "pages/districts/select",
-    "pages/udeve/index",
-    "pages/visitors/index",
-    "pages/qr/show"
-  ],
-  "tabBar": {
-    "custom": false,
-    "selectedColor": "#333",
-    "backgroundColor": "#fff",
-    "color": "#999",
-    "borderStyle": "black",
-    "list": [
-      {
-        "pagePath": "pages/home/home",
-        "iconPath": "/assets/tabs/home.0.png",
-        "selectedIconPath": "/assets/tabs/home.1.png",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/messages/index",
-        "iconPath": "/assets/tabs/message.0.png",
-        "selectedIconPath": "/assets/tabs/message.1.png",
-        "text": "消息"
-      },
-      {
-        "pagePath": "pages/faxian/index",
-        "iconPath": "/assets/tabs/faxian.0.png",
-        "selectedIconPath": "/assets/tabs/faxian.1.png",
-        "text": "发现"
-      },
-      {
-        "pagePath": "pages/myself/index",
-        "iconPath": "/assets/tabs/myself.0.png",
-        "selectedIconPath": "/assets/tabs/myself.1.png",
-        "text": "我的"
-      }
-    ]
-  },
-  "window": {
-    "enablePullDownRefresh": false,
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationStyle": "default",
-    "backgroundColor": "#fff",
-    "navigationBarTextStyle": "black"
-  },
-  "usingComponents": {
-    "login-window": "/components/login-window/index",
-    "copyright": "/components/copyright",
-    "navigation-bar": "/components/navBar/navBar",
-    "no-result": "/components/no-result",
-    "van-panel": "/vant/panel/index",
-    "van-rate": "/vant/rate/index",
-    "van-icon": "/vant/icon/index",
-    "van-image": "/vant/image/index",
-    "van-tag": "/vant/tag/index",
-    "van-skeleton": "/vant/skeleton/index",
-    "van-popup": "/vant/popup/index",
-    "van-search": "/vant/search/index",
-    "van-loading": "/vant/loading/index",
-    "van-notify": "/vant/notify/index",
-    "van-notice-bar": "/vant/notice-bar/index",
-    "van-tabs": "/vant/tabs/index",
-    "van-tab": "/vant/tab/index",
-    "van-divider": "/vant/divider/index",
-    "van-button": "/vant/button/index",
-    "van-field": "/vant/field/index",
-    "van-radio-group": "/vant/radio-group/index",
-    "van-radio": "/vant/radio/index",
-    "van-cell": "/vant/cell/index",
-    "van-switch": "/vant/switch/index",
-    "van-cell-group": "/vant/cell-group/index",
-    "cell-radio": "/components/cell-radio",
-    "mycard": "/components/ud/card/index",
-    "box": "/components/ud/box/index",
-    "ud-card": "/components/ud/card/index",
-    "ud-box": "/components/ud/box/index",
-    "ud-checkbox": "/components/ud/checkbox/index",
-    "ud-image": "/components/ud/image/index",
-    "ud-tabs": "/components/ud/tabs/index",
-    "ud-header": "/components/ud/header/index",
-    "ud-textarea": "/components/ud/textarea/index"
-  },
-  "networkTimeout": {
-    "request": 100000,
-    "connectSocket": 10000,
-    "uploadFile": 100000,
-    "downloadFile": 100000
-  },
-  "serviceProviderTicket": "",
-  "permission": {
-    "scope.userLocation": {
-      "desc": "位置信息用于房源查询"
-    }
-  },
-  "debug": false,
-  "sitemapLocation": "sitemap.json"
+    "debug": false,
+    "sitemapLocation": "sitemap.json"
 }

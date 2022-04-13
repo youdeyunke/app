@@ -27,3 +27,9 @@
     </van-cell-group>
 </ud-card>
 
+<view class="button" >
+    <navigator url="/pkgFenxiao/pages/fenxiao/edit?id={{id}}">
+        <van-button round type="info" block>维护报备信息</van-button>
+    </navigator>
+</view>
+<view style="height: 110rpx;"></view>
