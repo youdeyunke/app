@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "报备记录管理",
+  "usingComponents": {
+    "van-radio": "/vant/radio/index",
+    "van-radio-group": "/vant/radio-group/index",
+    "van-field": "/vant/field/index",
+    "van-cell-group": "/vant/cell-group/index",
+    "van-cell": "/vant/cell/index",
+    "van-button": "/vant/button/index"
+  }
+}

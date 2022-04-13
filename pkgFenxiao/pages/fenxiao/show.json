@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "报备详情",
   "usingComponents": {
-    "van-steps": "/vant/steps/index"
+    "van-steps": "/vant/steps/index",
+    "van-button": "/vant/button/index"
   }
 }

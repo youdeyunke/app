@@ -1,5 +1,5 @@
 // pkgFenxiao/pages/fenxiao/customer-detail.js
-const app=getApp()
+const app = getApp()
 Page({
 
   /**
@@ -7,7 +7,7 @@ Page({
    */
   data: {
     loading: true, 
-
+    is_admin: false
   },
   /**
    * 生命周期函数--监听页面加载
@@ -22,6 +22,7 @@ Page({
   },
   loadPost:function(){
     var _this=this
+    console.log('xxyyzz',app.globalData.userInfo.is_admin)
     app.request({
       url:'/api/v1/customers/'+_this.data.id,
       methods:"GET",
@@ -40,6 +41,7 @@ Page({
           value:res.data.data, 
           logs: logs ,
           loading: false, 
+          is_admin: app.globalData.userInfo.is_admin,
         })
 
       }

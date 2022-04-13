@@ -1,0 +1,41 @@
+<!--pkgFenxiao/pages/fenxiao/edit.wxml-->
+
+<van-cell-group>
+    <van-cell title="审核">
+        <van-radio-group direction="horizontal" value="{{ radio }}" bind:change="radioChange">
+            <view style="display: flex;justify-content: space-between;">
+                <view><van-radio name="wuxiao">无效</van-radio></view>
+                <view><van-radio name="youxiao">有效</van-radio></view>
+            </view>
+        </van-radio-group>
+    </van-cell>
+    <view wx:if="{{radio == 'wuxiao'}}">
+        <van-field model:value="{{status_remark}}" label="报备无效原因"/>
+        <van-cell-group title="无效原因选择">
+        </van-cell-group>
+        <view class="wuxiao-select" wx:for="{{status_remark_items}}" data-i="{{index}}" bindtap="wuxiaoClick">{{item}}</view>
+    </view>
+    <view wx:else>
+        <van-radio-group value="{{ jiaoyiRadio }}" bind:change="jiaoyiChange">
+            <van-cell-group title="交易状态">
+                <van-cell wx:for="{{deal_status_items}}" title="{{item.name}}" clickable data-i="{{index}}" data-name="{{item.name}}"  bind:click="onClick">
+                    <van-radio slot="right-icon" name="{{item.name}}" />
+                </van-cell>
+            </van-cell-group>
+        </van-radio-group>
+        <van-cell-group title="案场接待">
+            <van-field model:value="{{receiver_name}}" label="案场(姓名)"/>
+            <van-field model:value="{{receiver_mobile}}" label="案场(手机号)"/>
+        </van-cell-group>
+        <van-cell-group title="管理员备注">
+            <van-field model:value="{{admin_remark}}"/>
+        </van-cell-group>
+    </view>
+</van-cell-group>
+
+<view class="actions">
+    <van-button bind:click="submitData" type="info" block>提交保存</van-button>
+    <van-button custom-style="margin-top:10rpx;" type="default" block bind:click="cancel">
+        取消
+    </van-button>
+</view>
