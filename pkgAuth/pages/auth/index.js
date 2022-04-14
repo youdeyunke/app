@@ -18,6 +18,13 @@ Page({
 
     loginHandle: function (e) {
         var _this = this
+        if(!this.data.allowTerms){
+            wx.showToast({
+              title: '请同意用户协议，才能正常登陆账号哦',
+              icon: 'none'
+            })
+            return
+        }
         // 注意，code 需要在getUserInfo之前获取到，否则会导致登录失败
         // 2中登录方式，api/v1 : 账号授权登录    api/v2： 手机号授权登录
         var code = _this.data.code
