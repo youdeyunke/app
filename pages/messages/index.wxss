@@ -43,6 +43,10 @@ page{
   position: relative;
 }
 
+.item .tip{
+  display: none;
+}
+
 .item .tip::after{
   content: '未读';
   color:#fff;

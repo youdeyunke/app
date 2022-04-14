@@ -332,7 +332,7 @@ App({
                 var data = resp.data.data
                 // 未读消息 
                 var c = data.unread_message_count 
-                var bindex = 2 
+                var bindex = 1
                 if(c == 0){
                     wx.removeTabBarBadge({ index: bindex , 
                         fail: function(){
