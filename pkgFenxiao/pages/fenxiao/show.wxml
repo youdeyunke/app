@@ -27,7 +27,7 @@
     </van-cell-group>
 </ud-card>
 
-<view class="button" >
+<view class="button"  wx:if="{{user.is_admin}}">
     <navigator url="/pkgFenxiao/pages/fenxiao/edit?id={{id}}">
         <van-button round type="info" block>维护报备信息</van-button>
     </navigator>

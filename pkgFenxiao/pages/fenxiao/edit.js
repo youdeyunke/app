@@ -76,6 +76,7 @@ Page({
             method: 'PUT',
             data: data,
             success(res){
+                app.globalData.reloadCustomer = true
                 console.log(res)
             }
         })

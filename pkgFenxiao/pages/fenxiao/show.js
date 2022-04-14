@@ -16,11 +16,20 @@ Page({
     this.setData({
       id:options.id
     },()=>{
-      this.loadPost()
+      this.loadData()
     })
 
   },
-  loadPost:function(){
+
+  onShow: function(){
+    this.setData({user: app.globalData.userInfo })
+    if(app.globalData.reloadCustomer){
+      this.loadData()
+      app.globalData.reloadCustomer = true
+    }
+  },
+
+  loadData:function(){
     var _this=this
     console.log('xxyyzz',app.globalData.userInfo.is_admin)
     app.request({
@@ -43,7 +52,6 @@ Page({
           loading: false, 
           is_admin: app.globalData.userInfo.is_admin,
         })
-
       }
     })
   },
