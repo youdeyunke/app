@@ -102,6 +102,13 @@ Page({
 
 
   loginHandle() {
+    if(!this.data.allowTerms){
+      wx.showToast({
+        title: '请同意用户协议，才能正常登陆账号哦',
+        icon: 'none'
+      })
+      return
+    }
     var phone = this.data.phone
     var yanzheng = this.data.yanzheng
     if (!(/^1[3456789]\d{9}$/.test(phone))) {
