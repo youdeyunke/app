@@ -44,13 +44,14 @@ Component({
 
 					var link = {}
 					if (value.link) {
-						JSON.parse(value.link)
+						 link = JSON.parse(value.link)
 					}
 
 					_this.setData({
 						id: value.id,
 						link: link,
-						image: value.image,
+            image: value.image,
+            second: value.time || 10,
 						show: true
 					})
 					_this.timeoutHandle()

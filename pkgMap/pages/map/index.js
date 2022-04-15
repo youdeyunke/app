@@ -138,6 +138,7 @@ Page({
         var fontSize = app.globalData.system.fontSizeSetting * 0.8
         var padding = this.data.level == 'post' ? fontSize * 0.5 : fontSize * 2
         markers.map((m, i) => {
+          var sub = m.sub_name || ''
             m._id = m.level + '.' + m.id // real id
             m.id = i // index 
             m.iconPath = '/assets/images/none.png',
@@ -145,8 +146,9 @@ Page({
                 m.width = 1,
                 m.zIndex = 10,
                 m.height = 1,
+           
                 m.callout = {
-                    content: m.name,
+                    content: m.name + '\n' + sub   ,
                     display: 'ALWAYS',
                     borderRadius: fontSize,
                     borderColor: whiteColor,

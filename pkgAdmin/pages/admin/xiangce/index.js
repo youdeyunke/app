@@ -7,7 +7,7 @@ Page({
    */
   data: {
     mediaCatId:null,
-    postId:null,
+ 
     images:[],
     cats:[],
     show:false,
@@ -22,16 +22,18 @@ Page({
   onLoad:function(q){
     this.setData({
       mediaCatId:q.media_cat_id,
-      postId:q.post_id
+      targetType: q.target_type, 
+      targetId: q.target_id, 
     })
     this.getXiangce()
     this.loadData()
   },
+
   loadData:function(){
     var _this = this
     var id = this.data.mediaCatId
     app.request({
-      url:'/api/v1/media_cats/'+id,
+      url:'/api/v1/media_cats/',
       success: function(res) {
         console.log(res);
         _this.setData({
@@ -44,14 +46,17 @@ Page({
   },
   getXiangce(){
     var _this = this
-    var post_id = this.data.postId
+    var query = {
+      target_type: this.data.targetType, 
+      target_id: this.data.targetId, 
+    }
     app.request({
-      url:'/api/v1/media_cats?post_id='+post_id,
+      url:'/api/v1/media_cats',
+      data: query, 
       success:function(res){
-        console.log(res.data.post.title);
+  
         _this.setData({
           cats:res.data.data,
-          homeName:res.data.post.title
         })
       }
     })
@@ -74,7 +79,10 @@ Page({
   createAlbum(){
     this.setData({
       albumShow:true,
-      albumVal:{post_id:this.data.postId}
+      albumVal:{
+        target_type: this.data.targetType, 
+        target_id: this.data.targetId, 
+      }
     })
   },
   updateAlbum(){
@@ -119,16 +127,5 @@ Page({
       },
     });
   },
-  onShareAppMessage(){
-    return {
-      title:this.data.title,
-      path:'/pkgAdmin/pages/admin/xiangce/index/media_cat_id='+this.data.mediaCatId+'&post_id='+this.data.postId
-    }
-  },
-  onShareTimeline(){
-    return{
-      title:this.data.title,
-      path:'/pkgAdmin/pages/admin/xiangce/index/media_cat_id='+this.data.mediaCatId+'&post_id='+this.data.postId
-    }
-  }
+
 })

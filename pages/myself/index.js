@@ -40,6 +40,13 @@ Page({
     },
 
     gotoPost: function(){
+      if(!this.data.userInfo.post_id){
+        wx.showToast({
+          icon: 'none',
+          title: '当前账号未绑定主营楼盘，请联系管理员绑定',
+        })
+        return 
+      }
         var url = '/pkgAdmin/pages/fangyuan/show?id=' + this.data.userInfo.post_id  
         wx.navigateTo({
             url: url 
