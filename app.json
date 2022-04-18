@@ -284,6 +284,7 @@
         "pages/pagemaker/show",
         "pages/want/index",
         "pages/faxian/index",
+        "pages/webview/show",
         "pages/myself/index",
         "pages/messages/index",
         "pages/home/debug",
