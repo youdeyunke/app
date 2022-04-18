@@ -42,6 +42,7 @@ module.exports = {
 
     webHandle: function(config){
         var url = config.url 
+        const app = getApp() 
         app.gotoWebview(url)
     },
 

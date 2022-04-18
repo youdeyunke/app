@@ -356,6 +356,13 @@ App({
         });
     },
 
+    gotoWebview: function(url, title=""){
+      this.globalData.webviewUrl = url  
+      wx.navigateTo({
+        url: '/pages/webview/show',
+      })
+    },
+
     cmdHandle: function (cmd, title) {
         // 防止同一个命令短时间重复执行 
         var d = 10 * 1000
