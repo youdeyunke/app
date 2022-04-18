@@ -37,6 +37,13 @@ Page({
         if(res.data.status != 0){
           return
         }
+        
+        if(res.data.data.length == 0){ 
+          wx.showToast({
+            icon:'none',
+            title: '数据暂未生成',
+          })
+        }
         _this.setData({items: res.data.data})
       }
     })

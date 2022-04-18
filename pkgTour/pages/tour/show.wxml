@@ -1,38 +1,61 @@
-<image wx:if="{{item.cover }}"  
-class="cover" src="{{item.cover }}?imageView2/2/w/750"></image>
-<box width="710" padding="20" margin-bottom="2" >
+<image wx:if="{{item.cover }}" class="cover" src="{{item.cover }}?imageView2/2/w/750"></image>
+<box width="710" padding="20" margin-bottom="2">
   <view class="header">
     <view class="h1">{{item.title}}</view>
     <van-cell icon="clock-o" label="集合时间" size="mini" value-class="mycell-value" value="{{item.starts_at_pretty}}" />
-    <van-cell icon="location" label="集合地点" value="{{item.address  }}" value-class="mycell-value"  />
-    <van-cell icon="sign" label="报名截止" value="{{item.ends_at_pretty   }}" value-class="mycell-value"  />
-    <van-cell border="{{false}}" icon="friends-o" label="已报人数" value="{{item.join_nums   }}" value-class="mycell-value"  />
+    <van-cell icon="location" label="活动地点" value="{{item.address  }}" value-class="mycell-value" />
+    <van-cell icon="sign" label="报名截止" value="{{item.ends_at_pretty   }}" value-class="mycell-value" />
+    <van-cell border="{{false}}" icon="friends-o" label="已报人数" value="{{item.join_nums   }}" value-class="mycell-value" />
   </view>
 </box>
 
 <box width="710" padding="20">
-<view class="server">
+  <view class="server">
     <text>快速了解活动进展、活动答疑</text>
     <view>
-    <van-button custom-class="call-btn" size="small" type="info" bindtap="callHandle" icon="service-o" >联系客服</van-button>
+      <van-button custom-class="call-btn" size="small" type="info" bindtap="callHandle" icon="service-o">联系客服</van-button>
     </view>
-</view>
+  </view>
 </box>
 
 <mycard title-size="28" width="710" title="活动介绍" hat="{{false}}">
   <view class="raw">
-      <rich-text  nodes="{{html}}" />
+    <rich-text nodes="{{html}}" />
   </view>
 </mycard>
 
+<block wx:if="{{!showForm}}">
 <view class="footer" hidden="{{item.status.value != 1 }}">
-    <van-button open-type="share" icon="good-job" type="primary" block >转发分享</van-button>
-    <van-button  plain="{{joined}}" bindtap="joinHandle" icon="{{ joined == true ? 'passed' : 'add-o' }}" type="info" block >{{ joined == true ? '我已报名' : '我要报名' }}</van-button>
+  <van-button style="width:100%;" open-type="share" icon="good-job" type="primary" block>转发分享</van-button>
+
+  <van-button style="width:100%;" wx:if="{{joined == false}}" plain="{{false}}" bindtap="joinHandle" icon="passed" type="info" block>我要报名</van-button>
+  <van-button  style="width:100%;" wx:else  plain="{{true}}" block bindtap="cancleJoin">取消报名</van-button>
 </view>
 
 <view class="footer" hidden="{{item.status.value != 2 }}">
-    <van-button open-type="share" icon="good-job" type="primary" block >转发分享</van-button>
-    <van-button  plain  icon="close" type="info" block >报名已截止</van-button>
+  <van-button open-type="share" icon="good-job" type="primary" block>转发分享</van-button>
+  <van-button plain icon="close" type="info" block>报名已截止</van-button>
 </view>
+</block>  
+
+<!-- 报名弹窗 -->
+<van-popup closeable bind:close="formClose" position="bottom" round title="活动报名" show="{{showForm}}">
+  <view class="form">
+    <van-cell-group title="填写报名信息">
+
+    <van-field label="联系人" model:value="{{name}}" placeholder="请输入联系人姓名"></van-field>
+    <van-field disabled="{{true}}" label="手机号" placeholder="" value="{{user.mobile}}"></van-field>
+    <van-field label="人数" model:value="{{numbers}}" placeholder="您有几人参加"></van-field>
+    <van-field label="留言" model:value="{{remark}}" placeholder="其它备注信息"></van-field>
+
+  </van-cell-group>
+    <view class="form-footer">
+      <van-button custom-style="margin-bottom:10rpx;" block bindtap="formClose">取消</van-button>
+      <van-button block disabled="{{loading}}" type="primary" bindtap="formSubmit">确定报名</van-button>
+    </view>
+
+  </view>
+</van-popup>
+
 
 <cr />

@@ -12,6 +12,6 @@
         <text>楼盘资讯</text>
         <text class="b">免责声明</text>
     </view>
-    <event event="{{event}}" can-delete="{{user.id == broker.id}}" wx:key="id" class="event" wx:for="{{items}}" wx:for-item="event"></event>
+    <event event="{{event}}" can-delete="{{user && user.id == broker.id}}" wx:key="id" class="event" wx:for="{{items}}" wx:for-item="event"></event>
 </box>
 <no-result wx:if="{{!loading && items.length == 0}}" />

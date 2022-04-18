@@ -1,4 +1,5 @@
 {
+  "navigationBarTitleText": "相册管理",
   "usingComponents": {
     "media-item":"./media-item",
     "upload-btn":"./upload-btn",

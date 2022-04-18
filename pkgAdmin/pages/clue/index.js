@@ -61,6 +61,7 @@ Page({
     if(app.globalData.backToReload){
       this.loadData()
     }
+
   },
 
   /**

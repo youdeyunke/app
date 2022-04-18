@@ -22,4 +22,4 @@
         <upload-btn  bindchange='loadData' mediaid="{{mediaCatId}}" fileType='video'></upload-btn>
     </view>
 </view>
-<view class="createAlbum" bindtap="createAlbum"><van-icon name="plus" color="#FFF" size="50px"/></view>
+<view class="createAlbum" bindtap="createAlbum"><van-icon name="plus" color="#FFF" size="30px"/></view>

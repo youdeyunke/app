@@ -4,9 +4,14 @@
     </van-tab>
   </van-tabs>
   <van-search bind:change="onSearch" style="width:690rpx;margin:0 auto;" use-action-slot bind:search="onSearch" clearable bind:clear="onSearch" placeholder="输入姓名、手机号搜索" model:value="{{searchKw}}">
-  <view bindtap="onSearch" slot="action">搜索</view>
-</van-search>
+    <view bindtap="onSearch" slot="action">搜索</view>
+  </van-search>
 </view>
+
+<view wx:if="{{user.is_admin}}" style="margin-top:-20rpx;margin-bottom:20rpx;">
+  <van-notice-bar left-icon="volume-o" mode="closeable" text="您当前是管理员身份，已为您显示系统中全部报备记录" />
+</view>
+
 
 <view wx:if="{{searchKw && searchKw.length > 0}}" class="search-res">关键词<text class="kw">{{searchKw}}</text>的搜索结果</view>
 

@@ -17,7 +17,7 @@
                 bindchangeStatus="chooseHandle" />
         </view>
         <view class="form-content">
-            <view class="form-flex" wx:if="{{!chooseShow}}">
+            <view class="form-flex" wx:if="{{mobileType == 'full'}}">
                 <input class="form-input " placeholder="请输入11位手机全号" model:value="{{mobile}}" minlength="11"
                     maxlength="11" />
             </view>

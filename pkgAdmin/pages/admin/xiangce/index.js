@@ -6,8 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    mediaCatId: 0,
-    postId:null,
+    mediaCatId:null,
+ 
     images:[],
     cats:[],
     show:false,
@@ -19,15 +19,40 @@ Page({
   },
   onLoad:function(q){
     this.setData({
-      postId:q.target_id
+      mediaCatId:q.media_cat_id,
+      targetType: q.target_type, 
+      targetId: q.target_id, 
     })
     this.loadData()
   },
+<<<<<<< HEAD
+=======
+ /* loadData:function(){
+    var _this = this
+    var id = this.data.mediaCatId
+    console.log('66666',this.data.mediaCatId,this.data.cats,this.data)
+    app.request({
+      url:'/api/v1/media_cats/',
+      success: function(res) {
+        console.log('6987',res);
+        _this.setData({
+          images:res.data.data.media_items,
+          title:res.data.data.name
+        })
+        wx.setNavigationBarTitle({title: _this.data.title,});
+      }
+    })
+  },*/
+>>>>>>> dac3f2f86d195b4d1d9bd006778b3428375cb038
   loadData(){
     var _this = this
-    var post_id = this.data.postId
+    var query = {
+      target_type: this.data.targetType, 
+      target_id: this.data.targetId, 
+    }
     app.request({
-      url:'/api/v1/media_cats?post_id='+post_id,
+      url:'/api/v1/media_cats',
+      data: query, 
       success:function(res){
         if(res.data.data.length == 0){
           wx.showModal({
@@ -78,7 +103,10 @@ Page({
   createAlbum(){
     this.setData({
       albumShow:true,
-      albumVal:{post_id:this.data.postId}
+      albumVal:{
+        target_type: this.data.targetType, 
+        target_id: this.data.targetId, 
+      }
     })
   },
   updateAlbum(){
@@ -122,16 +150,5 @@ Page({
       },
     });
   },
-  onShareAppMessage(){
-    return {
-      title:this.data.title,
-      path:'/pkgAdmin/pages/admin/xiangce/index/media_cat_id='+this.data.mediaCatId+'&post_id='+this.data.postId
-    }
-  },
-  onShareTimeline(){
-    return{
-      title:this.data.title,
-      path:'/pkgAdmin/pages/admin/xiangce/index/media_cat_id='+this.data.mediaCatId+'&post_id='+this.data.postId
-    }
-  }
+
 })
