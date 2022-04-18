@@ -82,3 +82,8 @@ page {
 .server .call-btn{
     padding:0 10rpx;
 }
+
+.form{
+  width:690rpx;
+  margin:50rpx auto 20rpx auto;
+}
