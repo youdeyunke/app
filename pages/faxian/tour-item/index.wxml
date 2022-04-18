@@ -16,7 +16,7 @@
             <view>活动时间：{{item.starts_at_pretty}}</view>
           </view>
           <view class="text-right">
-            <view class="renshu">报名人数:  125</view>
+            <!-- view class="renshu">报名人数:  125</view -->
             <view class="text-btn"  wx:if="{{item.status.value != 2 }}">立即报名</view>
           </view>
         </view>
