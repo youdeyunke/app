@@ -5,6 +5,8 @@
     "van-picker":"/vant/picker/index",
     "van-popup": "/vant/popup/index",
     "van-icon": "/vant/icon/index",
-    "update-popup":"./update-popup"
+    "update-popup":"./update-popup",
+    "van-tab": "/vant/tab/index",
+    "van-tabs": "/vant/tabs/index"
   }
 }

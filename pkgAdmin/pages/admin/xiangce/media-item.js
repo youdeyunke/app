@@ -37,11 +37,10 @@ Component({
                                     title: '删除成功',
                                     icon: 'success'
                                 })
+                                _this.triggerEvent('events')
                             }
                         })
-                        _this.setData({
-                            show: 1
-                        })
+                        
                     }
                 }
             })
