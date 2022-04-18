@@ -2,6 +2,8 @@
     "navigationStyle": "custom",
 
     "usingComponents": {
-        "qiandao": "./qiandao/index"
+        "qiandao": "./qiandao/index",
+        "van-grid": "/vant/grid/index",
+        "van-grid-item": "/vant/grid-item/index"
     }
 }
