@@ -56,7 +56,9 @@ Component({
         method:'POST',
         data:{
           name:_this.data.cat.name,
-          post_id:_this.data.cat.post_id
+          target_id: _this.data.cat.post_id,
+          target_type: "post"
+          // post_id:_this.data.cat.post_id
         },
         success: function() {
           _this.triggerEvent('update')

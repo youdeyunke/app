@@ -1,9 +1,9 @@
 
-<van-popup show="{{ show }}" bind:close="onClose"  position="bottom" around  >
+<!-- <van-popup show="{{ show }}" bind:close="onClose"  position="bottom" around  >
     <van-picker columns="{{ cats }}" value-key='name' custom-class='choose' round default-index="{{ 0 }}" show-toolbar title="相册列表"  bind:cancel="onClose" bind:confirm="onConfirm" default-index='{{albumIndex}}'/>
-</van-popup>
-<update-popup show='{{albumShow}}'  cat='{{albumVal}}'   bind:update='getXiangce'></update-popup>
-<box width='750'>
+</van-popup> -->
+<update-popup show='{{albumShow}}'  cat='{{albumVal}}'   bind:update='loadData'></update-popup>
+<!-- <box width='750'>
     <view class="choose-all" >
         <view class="choose-content" bind:tap="showPopup">
             <view>选择相册</view>
@@ -17,7 +17,13 @@
     <view class="items"  >
         <media-item item="{{item}}" custom-class="{{(index+1)%4 ==0? 'item' : ''}}" wx:for="{{images}}"></media-item>
     </view>
-</box>
+</box> -->
+<van-tabs active="{{ albumIndex }}" bind:change="onChange">
+  <van-tab wx:for="{{cats}}" title="{{item.name}}"></van-tab>
+</van-tabs>
+<view class="items"  >
+    <media-item item="{{item}}" bind:events="loadData" custom-class="{{(index+1)%4 ==0? 'item' : ''}}" wx:for="{{images}}"></media-item>
+</view>
 <view class="footer">
     <view class="footer-content">
         <view class="footer-c-btn" bind:tap="updateAlbum">
@@ -34,3 +40,4 @@
         <upload-btn  bindchange='loadData' mediaid="{{mediaCatId}}" fileType='video'></upload-btn>
     </view>
 </view>
+<view class="createAlbum" bindtap="createAlbum"><van-icon name="plus" color="#FFF" size="30px"/></view>

@@ -14,7 +14,7 @@
 }
 .footer {
     padding:20rpx 30rpx;
-    width: 690rpx;
+    width: 100%;
     background: #fff;
     display: flex;
     justify-content: space-between;
@@ -64,4 +64,18 @@
 }
 .pinpai-color{
     color: #1989fa !important;
+}
+.createAlbum{
+    position: fixed;
+    width: 100rpx;
+    height: 100rpx;
+    right: 60rpx;
+    bottom: 150rpx;
+    background-color: #1989fa;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

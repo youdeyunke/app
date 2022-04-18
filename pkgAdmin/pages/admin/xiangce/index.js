@@ -17,7 +17,7 @@ Page({
     albumIndex:0,
     albumVal:{},
     homeName:'',
-    title:''
+    title:'' ,
   },
   onLoad:function(q){
     this.setData({
@@ -25,26 +25,26 @@ Page({
       targetType: q.target_type, 
       targetId: q.target_id, 
     })
-    this.getXiangce()
+    // this.getXiangce()
     this.loadData()
   },
-
-  loadData:function(){
+ /* loadData:function(){
     var _this = this
     var id = this.data.mediaCatId
+    console.log('66666',this.data.mediaCatId,this.data.cats,this.data)
     app.request({
       url:'/api/v1/media_cats/',
       success: function(res) {
-        console.log(res);
+        console.log('6987',res);
         _this.setData({
           images:res.data.data.media_items,
-          title:_this.data.homeName +'的'+res.data.data.name
+          title:res.data.data.name
         })
         wx.setNavigationBarTitle({title: _this.data.title,});
       }
     })
-  },
-  getXiangce(){
+  },*/
+  loadData(){
     var _this = this
     var query = {
       target_type: this.data.targetType, 
@@ -54,13 +54,31 @@ Page({
       url:'/api/v1/media_cats',
       data: query, 
       success:function(res){
-  
+        console.log('147258',res)
         _this.setData({
           cats:res.data.data,
+          mediaCatId: res.data.data[0].id,
+          images: res.data.data[0].media_items,
+          title: res.data.data[0].name,
+          albumIndex:0,
+          // homeName:res.data.post.title
         })
+        console.log('78910',_this.data.mediaCatId)
       }
     })
   },
+
+  onChange(event) {
+    var cats = this.data.cats
+    var i = event.detail.index
+    this.setData({
+      mediaCatId:cats[i].id,
+      albumIndex:event.detail.index,
+      images: cats[i].media_items,
+      title: cats[i].name,
+    })
+  },
+
   showPopup() {
     this.setData({ show: true });
   },
@@ -116,7 +134,7 @@ Page({
                       albumIndex:0,
                       mediaCatId:_this.data.cats[0].id
                     })
-                    _this.getXiangce()
+                    // _this.getXiangce()
                     _this.loadData()
                   }
                 })
