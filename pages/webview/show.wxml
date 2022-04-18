@@ -1,6 +1,1 @@
-<<<<<<< HEAD
 <web-view src="{{url}}"></web-view>
-=======
-<!--pages/webview/show.wxml-->
-<text>pages/webview/show.wxml</text>
->>>>>>> 99c23eef6d22447039034faa90dd65474d3dc26e
