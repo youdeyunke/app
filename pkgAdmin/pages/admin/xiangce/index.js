@@ -16,48 +16,35 @@ Page({
     //相册数组下标
     albumIndex:0,
     albumVal:{},
-    homeName:'',
-    title:'' ,
   },
   onLoad:function(q){
     this.setData({
       postId:q.target_id
     })
-    // this.getXiangce()
     this.loadData()
   },
- /* loadData:function(){
-    var _this = this
-    var id = this.data.mediaCatId
-    console.log('66666',this.data.mediaCatId,this.data.cats,this.data)
-    app.request({
-      url:'/api/v1/media_cats/'+id,
-      success: function(res) {
-        console.log('6987',res);
-        _this.setData({
-          images:res.data.data.media_items,
-          title:res.data.data.name
-        })
-        wx.setNavigationBarTitle({title: _this.data.title,});
-      }
-    })
-  },*/
   loadData(){
     var _this = this
     var post_id = this.data.postId
     app.request({
       url:'/api/v1/media_cats?post_id='+post_id,
       success:function(res){
-        console.log('147258',res)
+        if(res.data.data.length == 0){
+          wx.showModal({
+            title: '该楼盘已被删除', 
+            showCancel: false
+          })
+          wx.navigateBack({
+            delta: 1,
+          })
+        }
         _this.setData({
           cats:res.data.data,
           mediaCatId: res.data.data[0].id,
           images: res.data.data[0].media_items,
           title: res.data.data[0].name,
           albumIndex:0,
-          // homeName:res.data.post.title
         })
-        console.log('78910',_this.data.mediaCatId)
       }
     })
   },
@@ -125,7 +112,6 @@ Page({
                       albumIndex:0,
                       mediaCatId:_this.data.cats[0].id
                     })
-                    // _this.getXiangce()
                     _this.loadData()
                   }
                 })

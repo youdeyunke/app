@@ -1,28 +1,10 @@
 
-<!-- <van-popup show="{{ show }}" bind:close="onClose"  position="bottom" around  >
-    <van-picker columns="{{ cats }}" value-key='name' custom-class='choose' round default-index="{{ 0 }}" show-toolbar title="相册列表"  bind:cancel="onClose" bind:confirm="onConfirm" default-index='{{albumIndex}}'/>
-</van-popup> -->
 <update-popup show='{{albumShow}}'  cat='{{albumVal}}'   bind:update='loadData'></update-popup>
-<!-- <box width='750'>
-    <view class="choose-all" >
-        <view class="choose-content" bind:tap="showPopup">
-            <view>选择相册</view>
-            <van-icon name="arrow-down"></van-icon>
-        </view>
-        <view class="choose-content pinpai-color" bind:tap="createAlbum">
-            <van-icon name="plus"></van-icon>
-            <view>新建相册</view>
-        </view>
-    </view>
-    <view class="items"  >
-        <media-item item="{{item}}" custom-class="{{(index+1)%4 ==0? 'item' : ''}}" wx:for="{{images}}"></media-item>
-    </view>
-</box> -->
 <van-tabs active="{{ albumIndex }}" bind:change="onChange">
   <van-tab wx:for="{{cats}}" title="{{item.name}}"></van-tab>
 </van-tabs>
 <view class="items"  >
-    <media-item item="{{item}}" bind:events="loadData" custom-class="{{(index+1)%4 ==0? 'item' : ''}}" wx:for="{{images}}"></media-item>
+    <media-item item="{{item}}" bind:change="loadData" custom-class="{{(index+1)%4 ==0? 'item' : ''}}" wx:for="{{images}}"></media-item>
 </view>
 <view class="footer">
     <view class="footer-content">
