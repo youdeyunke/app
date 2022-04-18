@@ -25,25 +25,6 @@ Page({
     })
     this.loadData()
   },
-<<<<<<< HEAD
-=======
- /* loadData:function(){
-    var _this = this
-    var id = this.data.mediaCatId
-    console.log('66666',this.data.mediaCatId,this.data.cats,this.data)
-    app.request({
-      url:'/api/v1/media_cats/',
-      success: function(res) {
-        console.log('6987',res);
-        _this.setData({
-          images:res.data.data.media_items,
-          title:res.data.data.name
-        })
-        wx.setNavigationBarTitle({title: _this.data.title,});
-      }
-    })
-  },*/
->>>>>>> dac3f2f86d195b4d1d9bd006778b3428375cb038
   loadData(){
     var _this = this
     var query = {
