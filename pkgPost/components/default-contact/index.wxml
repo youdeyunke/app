@@ -5,7 +5,7 @@
             <fav bind:change="favChangeHandle" pid="{{post.id}}"></fav>
         </div>
         <div class="share" bindtap="shareHandle">
-            <image src="https://qiniucdn.udeve.net/fang/pkgPost/share.png" />
+            <ud-icon name="share"/>
             <view>转发</view>
         </div>
  

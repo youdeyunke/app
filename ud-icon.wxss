@@ -1,8 +1,8 @@
 .udicon
 {
  display:block;
- background:url('https://qiniucdn.udeve.cn/fang2021/9af06e79-9420-4356-88f1-7165447cfde1.png')  no-repeat;
- zoom: 0.3;
+ background:url('https://qiniucdn.udeve.cn/fang2021/7209b77a-b45e-4fb7-84c2-6db366025823.png')  no-repeat;
+ zoom: 0.33;
 }
 .udicon-1{
     width:80px;
@@ -167,36 +167,156 @@
    .udicon-broker-level-1{
     width:165px;
     height:48px;
-    background-position:-162px -486px;
+    background-position:-397px -374px;
    }
    .udicon-broker-level-2{
     width:165px;
     height:48px;
-    background-position:-328px -486px;
+    background-position:-563px -374px;
    }
    .udicon-broker-level-3{
     width:165px;
     height:48px;
-    background-position:-494px -486px;
+    background-position:-729px -374px;
+   }
+   .udicon-map-i-dt{
+    width:105px;
+    height:105px;
+    background-position:-408px 0px;
+   }
+   .udicon-map-i-gj{
+    width:105px;
+    height:105px;
+    background-position:-514px 0px;
+   }
+   .udicon-map-i-gw{
+    width:105px;
+    height:105px;
+    background-position:-620px 0px;
+   }
+   .udicon-map-i-ms{
+    width:105px;
+    height:105px;
+    background-position:-726px 0px;
+   }
+   .udicon-map-i-xx{
+    width:105px;
+    height:105px;
+    background-position:-832px 0px;
+   }
+   .udicon-map-i-yey{
+    width:105px;
+    height:105px;
+    background-position:-408px -106px;
+   }
+   .udicon-map-i-yh{
+    width:105px;
+    height:105px;
+    background-position:-514px -106px;
+   }
+   .udicon-map-i-zx{
+    width:105px;
+    height:105px;
+    background-position:-620px -106px;
+   }
+   .udicon-dingyue-0{
+    width:70px;
+    height:70px;
+    background-position:-408px -218px;
+   }
+   .udicon-dingyue-1{
+    width:70px;
+    height:70px;
+    background-position:-479px -218px;
+   }
+   .udicon-fav-0{
+    width:70px;
+    height:70px;
+    background-position:-550px -218px;
+   }
+   .udicon-fav-1{
+    width:70px;
+    height:70px;
+    background-position:-621px -218px;
    }
    .udicon-medal-1{
     width:75px;
     height:75px;
-    background-position:-408px -6px;
+    background-position:-692px -218px;
    }
    .udicon-medal-2{
     width:75px;
     height:75px;
-    background-position:-484px -6px;
+    background-position:-768px -218px;
    }
    .udicon-medal-3{
     width:75px;
     height:75px;
-    background-position:-560px -6px;
+    background-position:-844px -218px;
    }
    .udicon-post-cover-icon-eye{
     width:50px;
     height:50px;
-    background-position:-636px -6px;
+    background-position:-408px -294px;
+   }
+   .udicon-post-header-cell-location{
+    width:40px;
+    height:40px;
+    background-position:-459px -294px;
+   }
+   .udicon-share{
+    width:70px;
+    height:70px;
+    background-position:-500px -294px;
+   }
+   .udicon-post-nav-dongtai{
+    width:120px;
+    height:120px;
+    background-position:-169px -498px;
+   }
+   .udicon-post-nav-guwen{
+    width:120px;
+    height:120px;
+    background-position:-290px -498px;
+   }
+   .udicon-post-nav-huxin{
+    width:120px;
+    height:120px;
+    background-position:-411px -498px;
+   }
+   .udicon-post-nav-jisuan{
+    width:120px;
+    height:120px;
+    background-position:-532px -498px;
+   }
+   .udicon-post-nav-vr{
+    width:120px;
+    height:120px;
+    background-position:-653px -498px;
+   }
+   .udicon-post-nav-wenda{
+    width:120px;
+    height:120px;
+    background-position:-169px -619px;
+   }
+   .udicon-post-nav-xiangqin{
+    width:120px;
+    height:120px;
+    background-position:-290px -619px;
+   }
+   .udicon-post-nav-yaohao{
+    width:120px;
+    height:120px;
+    background-position:-411px -619px;
+   }
+   .udicon-post-nav-yfyj{
+    width:120px;
+    height:120px;
+    background-position:-532px -619px;
+   }
+   .udicon-post-nav-zhoubian{
+    width:120px;
+    height:120px;
+    background-position:-653px -619px;
    }
    

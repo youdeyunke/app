@@ -1,7 +1,7 @@
 <block>
     <login-window bind:success="clickHandle" class="loginwindow"></login-window>
     <view report-submit class="myfav" bindtap="clickHandle">
-        <image class="icon" src="https://qiniucdn.udeve.cn/fang/pkgPost/fav.{{status}}.png" />
+        <ud-icon name="fav-{{status}}"/>
         <text>{{ status == 1 ? '已收藏' : '收藏' }}</text>
     </view>
 </block>

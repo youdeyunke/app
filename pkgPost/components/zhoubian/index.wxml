@@ -2,7 +2,7 @@
     <scroll-view class="tabs_title" scroll-x='{{true}}'>
         <view wx:for='{{tabs}}' wx:key='id' class="title_item  {{ index === active ? 'current-active' : ''}}" bindtap="handleItemTap" data-index='{{index}}'>
             <view class="content">
-                <image class="icon" src="https://qiniucdn.udeve.net/fang/{{item.icon}}" />
+                <ud-icon name="{{item.icon}}" customStyle="margin-bottom:20rpx;margin-left:90rpx;"/>
                 <view class="name">{{item.name}}</view>
                 <view class="active" hidden="{{index != active}}"></view>
             </view>
