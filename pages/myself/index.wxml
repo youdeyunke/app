@@ -51,9 +51,15 @@
 
         <ud-card radius="20" width="750" title="工作台" wx:if="{{userInfo.is_broker}}">
             <view class="icons">
-                <van-grid clickable column-num="5" direction="horizontal">
+                <!-- <van-grid clickable column-num="5" direction="horizontal">
                     <van-grid-item wx:for="{{brokerIcons}}" text="{{item.name}}" bindtap="{{item.handle}}" icon="/assets/icons/{{item.iconKey}}.png" url="{{item.url}}{{userInfo.broker_id}}" link-type="navigateTo">
                     </van-grid-item>        
+                </van-grid> -->
+                <van-grid column-num="5">
+                    <van-grid-item use-slot wx:for="{{brokerIcons}}" bindtap="{{item.handle}}" url="{{item.url}}{{userInfo.broker_id}}" link-type="navigateTo">
+                        <ud-icon address="udicon-{{item.iconKey}}"></ud-icon>
+                        <text style="font-size: 24rpx;line-height: 60rpx;">{{item.name}}</text>
+                    </van-grid-item>
                 </van-grid>
             </view>
         </ud-card>   
@@ -66,8 +72,10 @@
                     <view class="name">顾问入驻</view>
                 </navigator>
 
-                <van-grid clickable column-num="5" direction="horizontal">
-                    <van-grid-item wx:for="{{userIcons}}" text="{{item.name}}" bindtap="{{item.handle}}" icon="/assets/icons/{{item.iconKey}}.png" url="{{item.url}}" link-type="navigateTo">
+                <van-grid column-num="5">
+                    <van-grid-item use-slot wx:for="{{userIcons}}" bindtap="{{item.handle}}" url="{{item.url}}" link-type="navigateTo">
+                        <ud-icon address="udicon-{{item.iconKey}}"></ud-icon>
+                        <text style="font-size: 24rpx;line-height: 60rpx;">{{item.name}}</text>
                     </van-grid-item>        
                 </van-grid>
             </view>

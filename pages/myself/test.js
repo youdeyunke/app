@@ -1,5 +1,4 @@
-
-// pages/webview/show.js
+// pages/myself/test.js
 Page({
 
     /**

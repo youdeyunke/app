@@ -1,0 +1,166 @@
+.udicon
+{
+ display:block;
+ background:url('https://qiniucdn.udeve.net/icons_v1.png')  no-repeat;
+ zoom: 0.3;
+}
+.udicon-1{
+ width:80px;
+ height:80px;
+ background-position:0px 0px;
+}
+.udicon-2{
+ width:80px;
+ height:80px;
+ background-position:-81px 0px;
+}
+.udicon-3{
+ width:80px;
+ height:80px;
+ background-position:-162px 0px;
+}
+.udicon-4{
+ width:80px;
+ height:80px;
+ background-position:-243px 0px;
+}
+.udicon-5{
+ width:80px;
+ height:80px;
+ background-position:-324px 0px;
+}
+.udicon-6{
+ width:80px;
+ height:80px;
+ background-position:-405px 0px;
+}
+.udicon-7{
+ width:80px;
+ height:80px;
+ background-position:-486px 0px;
+}
+.udicon-8{
+ width:80px;
+ height:80px;
+ background-position:-567px 0px;
+}
+.udicon-9{
+ width:80px;
+ height:80px;
+ background-position:-648px 0px;
+}
+.udicon-10{
+ width:80px;
+ height:80px;
+ background-position:-729px 0px;
+}
+.udicon-11{
+ width:80px;
+ height:80px;
+ background-position:0px -81px;
+}
+.udicon-12{
+ width:80px;
+ height:80px;
+ background-position:-81px -81px;
+}
+.udicon-13{
+ width:80px;
+ height:80px;
+ background-position:-162px -81px;
+}
+.udicon-14{
+ width:80px;
+ height:80px;
+ background-position:-243px -81px;
+}
+.udicon-15{
+ width:80px;
+ height:80px;
+ background-position:-324px -81px;
+}
+.udicon-16{
+ width:80px;
+ height:80px;
+ background-position:-405px -81px;
+}
+.udicon-17{
+ width:80px;
+ height:80px;
+ background-position:-486px -81px;
+}
+.udicon-18{
+ width:80px;
+ height:80px;
+ background-position:-567px -81px;
+}
+.udicon-19{
+ width:80px;
+ height:80px;
+ background-position:-648px -81px;
+}
+.udicon-20{
+ width:80px;
+ height:80px;
+ background-position:-729px -81px;
+}
+.udicon-21{
+ width:80px;
+ height:80px;
+ background-position:0px -162px;
+}
+.udicon-22{
+ width:80px;
+ height:80px;
+ background-position:-81px -162px;
+}
+.udicon-23{
+ width:80px;
+ height:80px;
+ background-position:-162px -162px;
+}
+.udicon-24{
+ width:80px;
+ height:80px;
+ background-position:-243px -162px;
+}
+.udicon-25{
+ width:80px;
+ height:80px;
+ background-position:-324px -162px;
+}
+.udicon-26{
+ width:80px;
+ height:80px;
+ background-position:-405px -162px;
+}
+.udicon-27{
+ width:80px;
+ height:80px;
+ background-position:-486px -162px;
+}
+.udicon-28{
+ width:80px;
+ height:80px;
+ background-position:-567px -162px;
+}
+.udicon-29{
+ width:80px;
+ height:80px;
+ background-position:-648px -162px;
+}
+.udicon-30{
+ width:80px;
+ height:80px;
+ background-position:-729px -162px;
+}
+.udicon-31{
+ width:80px;
+ height:80px;
+ background-position:0px -243px;
+}
+.udicon-32{
+ width:80px;
+ height:80px;
+ background-position:-81px -243px;
+}
