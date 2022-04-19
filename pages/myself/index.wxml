@@ -13,8 +13,8 @@
             <view class="name-info">
                 <view class="name">{{ userInfo.name }}
                 <text wx:if="{{userInfo.is_admin}}">（管理员）</text>
-                    <image class="img" src="https://qiniucdn.udeve.net/fang/broker-level-{{ userInfo.level}}.png">
-                    </image>
+                    
+                    <ud-icon customStyle='display:inline-block' name="broker-level-{{ userInfo.level}}"/>
                 </view>
                 <view wx:if="{{userInfo.is_broker}}" class="desc">个性签名：{{ userInfo.desc || '未填写个人介绍' }}</view>
                 <navigator url="/pkgMyself/pages/score/index" hover-class="none" class="score">我的积分：{{ userInfo.score }}
@@ -57,7 +57,7 @@
                 </van-grid> -->
                 <van-grid column-num="5">
                     <van-grid-item use-slot wx:for="{{brokerIcons}}" bindtap="{{item.handle}}" url="{{item.url}}{{userInfo.broker_id}}" link-type="navigateTo">
-                        <ud-icon address="udicon-{{item.iconKey}}"></ud-icon>
+                        <ud-icon name="{{item.iconKey}}"></ud-icon>
                         <text style="font-size: 24rpx;line-height: 60rpx;">{{item.name}}</text>
                     </van-grid-item>
                 </van-grid>
@@ -74,7 +74,7 @@
 
                 <van-grid column-num="5">
                     <van-grid-item use-slot wx:for="{{userIcons}}" bindtap="{{item.handle}}" url="{{item.url}}" link-type="navigateTo">
-                        <ud-icon address="udicon-{{item.iconKey}}"></ud-icon>
+                        <ud-icon name="{{item.iconKey}}"></ud-icon>
                         <text style="font-size: 24rpx;line-height: 60rpx;">{{item.name}}</text>
                     </van-grid-item>        
                 </van-grid>

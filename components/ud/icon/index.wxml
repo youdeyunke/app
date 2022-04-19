@@ -1,2 +1,2 @@
 <!--components/ud/icon/index.wxml-->
-<view class="udicon {{address}}"/>
+<view class="udicon udicon-{{name}}" style="{{customStyle}}"/>
