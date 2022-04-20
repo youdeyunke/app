@@ -8,7 +8,9 @@
         
         </view>
         <view class="image-box">
-            <image class="position-image" wx:if="{{item.content_type == 'video'}}" src="../image/7.png"></image>
+            <view class="position-image" wx:if="{{item.content_type == 'video'}}">
+                <ud-icon name="bofang"/>
+            </view>
         </view>
     </navigator>
 </scroll-view>

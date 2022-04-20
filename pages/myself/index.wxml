@@ -66,13 +66,11 @@
 
         <ud-card radius="20" width="750" title="我的服务">
             <view class="icons">
-                <navigator wx:if="{{!userInfo.is_broker}}" hover-class="none" open-type="navigateTo"
-                    url="/pkgBroker/pages/broker/join" class="icon-item">
-                    <image class="img" src="/assets/icons/13.png"></image>
-                    <view class="name">顾问入驻</view>
-                </navigator>
-
                 <van-grid column-num="5">
+                    <van-grid-item use-slot wx:if="{{!userInfo.is_broker}}" link-type="navigateTo" url="/pkgBroker/pages/broker/join">
+                        <ud-icon name="13"></ud-icon>
+                        <text style="font-size: 24rpx;line-height: 60rpx;">顾问入驻</text>
+                    </van-grid-item>
                     <van-grid-item use-slot wx:for="{{userIcons}}" bindtap="{{item.handle}}" url="{{item.url}}" link-type="navigateTo">
                         <ud-icon name="{{item.iconKey}}"></ud-icon>
                         <text style="font-size: 24rpx;line-height: 60rpx;">{{item.name}}</text>
