@@ -1,4 +1,6 @@
+
 const app = getApp() 
+
 
 // pages/webview/show.js
 Page({
@@ -68,4 +70,5 @@ Page({
   onShareAppMessage() {
 
   }
+
 })

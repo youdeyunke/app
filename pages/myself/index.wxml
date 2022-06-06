@@ -13,8 +13,8 @@
             <view class="name-info">
                 <view class="name">{{ userInfo.name }}
                 <text wx:if="{{userInfo.is_admin}}">（管理员）</text>
-                    <image class="img" src="https://qiniucdn.udeve.net/fang/broker-level-{{ userInfo.level}}.png">
-                    </image>
+                    
+                    <ud-icon customStyle='display:inline-block' name="broker-level-{{ userInfo.level}}"/>
                 </view>
                 <view wx:if="{{userInfo.is_broker}}" class="desc">个性签名：{{ userInfo.desc || '未填写个人介绍' }}</view>
                 <navigator url="/pkgMyself/pages/score/index" hover-class="none" class="score">我的积分：{{ userInfo.score }}
@@ -51,23 +51,29 @@
 
         <ud-card radius="20" width="750" title="工作台" wx:if="{{userInfo.is_broker}}">
             <view class="icons">
-                <van-grid clickable column-num="5" direction="horizontal">
+                <!-- <van-grid clickable column-num="5" direction="horizontal">
                     <van-grid-item wx:for="{{brokerIcons}}" text="{{item.name}}" bindtap="{{item.handle}}" icon="/assets/icons/{{item.iconKey}}.png" url="{{item.url}}{{userInfo.broker_id}}" link-type="navigateTo">
                     </van-grid-item>        
+                </van-grid> -->
+                <van-grid column-num="5">
+                    <van-grid-item use-slot wx:for="{{brokerIcons}}" bindtap="{{item.handle}}" url="{{item.url}}{{userInfo.broker_id}}" link-type="navigateTo">
+                        <ud-icon name="{{item.iconKey}}"></ud-icon>
+                        <text style="font-size: 24rpx;line-height: 60rpx;">{{item.name}}</text>
+                    </van-grid-item>
                 </van-grid>
             </view>
         </ud-card>   
 
         <ud-card radius="20" width="750" title="我的服务">
             <view class="icons">
-                <navigator wx:if="{{!userInfo.is_broker}}" hover-class="none" open-type="navigateTo"
-                    url="/pkgBroker/pages/broker/join" class="icon-item">
-                    <image class="img" src="/assets/icons/13.png"></image>
-                    <view class="name">顾问入驻</view>
-                </navigator>
-
-                <van-grid clickable column-num="5" direction="horizontal">
-                    <van-grid-item wx:for="{{userIcons}}" text="{{item.name}}" bindtap="{{item.handle}}" icon="/assets/icons/{{item.iconKey}}.png" url="{{item.url}}" link-type="navigateTo">
+                <van-grid column-num="5">
+                    <van-grid-item use-slot wx:if="{{!userInfo.is_broker}}" link-type="navigateTo" url="/pkgBroker/pages/broker/join">
+                        <ud-icon name="13"></ud-icon>
+                        <text style="font-size: 24rpx;line-height: 60rpx;">顾问入驻</text>
+                    </van-grid-item>
+                    <van-grid-item use-slot wx:for="{{userIcons}}" bindtap="{{item.handle}}" url="{{item.url}}" link-type="navigateTo">
+                        <ud-icon name="{{item.iconKey}}"></ud-icon>
+                        <text style="font-size: 24rpx;line-height: 60rpx;">{{item.name}}</text>
                     </van-grid-item>        
                 </van-grid>
             </view>

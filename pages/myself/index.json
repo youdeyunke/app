@@ -4,6 +4,7 @@
     "usingComponents": {
         "qiandao": "./qiandao/index",
         "van-grid": "/vant/grid/index",
-        "van-grid-item": "/vant/grid-item/index"
+        "van-grid-item": "/vant/grid-item/index",
+        "ud-icon": "/components/ud/icon/index"
     }
 }

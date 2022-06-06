@@ -81,7 +81,7 @@
     margin-bottom: 10rpx;
 }
 
-.nav-item.disable .img{
+.nav-item.disable {
     filter: grayscale(1);
 }
 
