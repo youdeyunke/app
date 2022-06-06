@@ -61,18 +61,7 @@ Component({
         },
 
 
-        createSubTpl: function (cb) {
-            // 调用模板消息
-            var tpl1 = 'ut-jnNer2qYToPJ6EGQddWcRI87UWYqEIIRdQOGlBHs' // 楼盘动态提醒
-            wx.requestSubscribeMessage({
-                tmplIds: [tpl1],
-                success: function (res) {
-                    // TODO 
-                    console.log('create sub tpl res', res)
-                    typeof cb === 'function' && cb(res)
-                }
-            })
-        },
+   
 
         openHandle: function () {
             // 如果没有登陆，则弹窗登陆窗口 
@@ -94,10 +83,7 @@ Component({
                     _this.setData({
                         showDialog: true
                     })
-                    var ids = ['ut-jnNer2qYToPJ6EGQddWcRI87UWYqEIIRdQOGlBHs']
-                    app.createSubTpl(ids, (res) => {
-
-                    })
+  
                     return
                 }
                 _this.subHandle()
