@@ -44,19 +44,7 @@ Component({
      * 组件的方法列表
      */
     methods: {
-
-        createSubTpl: function(cb){
-            // 调用模板消息
-            var tpl1 = 'Zr2THtwKDCnwDn_caZfAVvtWUoTTLIkKTnaKe57iXio'
-            wx.requestSubscribeMessage({
-                tmplIds: [tpl1 ],
-                success: function(res){
-                    // TODO 
-                    console.log('create sub tpl res',res)
-                    typeof cb === 'function' && cb(res)
-                }
-            })    
-        },        
+       
 
         closeHandle: function () {
             this.setData({ show: false })
@@ -160,9 +148,7 @@ Component({
 
         submitHandle: function(){
             this._submitHandle()
-            this.createSubTpl((res) => {
-    
-            })
+  
         },
 
         _submitHandle: function () {
