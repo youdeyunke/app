@@ -249,6 +249,14 @@ Page({
                     sms_code: null,
                     contact_mobile_lock: true,  
                 })
+                wx.showToast({
+                  title: '提交成功，我们的专业顾问将尽快与您联系',
+                })
+                setTimeout(() => {
+                  wx.navigateBack({
+                    delta: 1,
+                  })
+                },1500)
             }
         })        
     },
