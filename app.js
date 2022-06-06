@@ -20,7 +20,7 @@ App({
 
         reddotIntervalId: null,
         system: {},
-        apiHost: 'http://192.168.31.66:20210',
+        apiHost: 'https://weapp1.udeve.net/20210',
         userInfo: null,
         token: null,
         cities: [],
@@ -545,7 +545,7 @@ App({
         header['Accept-Datetime'] = d.toLocaleDateString()
 
         // This must be wx.request !
-        var host = EXT.apihost || this.globalData.apiHost 
+        var host = EXT.apihost 
         console.log('ext is', EXT)
         var url = host + obj.url;
         var _method = obj.method || 'GET'

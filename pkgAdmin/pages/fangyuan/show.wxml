@@ -8,9 +8,9 @@
         <van-button size="large" block  bindtap="newEventHandle" type="default">
             发动态
         </van-button>    
-        <van-button size="large" block  bindtap="newEventHandle" type="default">
+        <!-- van-button size="large" block  bindtap="newCommentHandle" type="default">
             写点评
-        </van-button>    
+        </van-button -->    
 
         <van-button size="large" block bindtap="gotoPoster" type="default">做海报</van-button>
         <van-button  size="large" block bindtap="gotoXiang" type="default">传照片</van-button>

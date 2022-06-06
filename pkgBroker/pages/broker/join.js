@@ -312,10 +312,7 @@ Page({
                     icon: 'success',
                     title: '提交成功'
                 })
-                var tplid = ['1B_NsYpER2LW7Kbymr_iS9xqG7kUwtl_sNP1ja1GTVs']
-                app.createSubTpl(tplid, (r) => {
-
-                })
+      
          
                 setTimeout( function(){
                     wx.navigateTo({
