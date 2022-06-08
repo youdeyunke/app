@@ -277,6 +277,13 @@
             "pages": [
                 "pages/brokers/index"
             ]
+        },
+        {
+            "root": "pkgXiangou",
+            "name": "xiangou",
+            "pages": [
+                "pages/xiangou/index"
+            ]
         }
     ],
     "pages": [

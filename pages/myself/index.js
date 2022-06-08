@@ -325,6 +325,14 @@ Page({
         this.loadCacheInfo()
     },
 
+    saomaHandle: function(){
+        wx.scanCode({
+            success (res) {
+              console.log(res)
+            }
+          })
+    },
+
     getRemoteUserInfo: function () {
         var _this = this
         auth.getRemoteUserInfo(function (user) {

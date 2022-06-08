@@ -1,0 +1,67 @@
+
+<view class="container">
+  <view style="height: 140rpx;"></view>
+  <!-- <view class="home-btn-item" bindtap="goBack">
+    <van-icon name="arrow-left"></van-icon>
+  </view> -->
+  <!-- 问题区域 -->
+  <view class="questions">
+    <view class="title">
+      <view>{{questions.title}}</view>
+    </view>
+    <view class="flex-column" wx:if="{{show==true}}">
+      <view wx:for="{{questions.options}}" wx:index="index" >
+        <view class="flex-column-item" bindtap="tapOption" data-index="{{index}}">
+          <view data-index="{{index}}">{{item.option}}</view>
+        </view>
+      </view>
+    </view>
+    <!-- 结果 -->
+    <view class="result-flex-column" wx:if="{{show==false}}">
+      <view class="result-column-top">
+        <view></view>
+      </view>
+      <view class="result-column-middle">
+      <view>{{questions.options}}</view>
+      </view>
+      <view class="result-column-bottom">
+      <view bindtap="recount">重新计算</view>
+      </view>
+    </view>
+    <view class="flex-bottom-row"></view>
+  </view>
+  <!-- 答案区域 -->
+  <view class="answer-flex-column" wx:if="{{show==true}}">
+    <view class="answer-flex-top-row" wx:if="{{active==true}}">所选答案</view>
+    <view class="{{show==true?'answer-flex-middle-row':'show'}}">
+      <view class="answer" wx:for="{{answer}}">
+        <view class="answer-item-left"><view>{{item.title}}</view></view>
+        <view class="answer-item-right">
+        <view>{{item.option}}</view>
+        <image class="answer-image" src="../../images/icon_shancu_01.png" bindtap="displayMessage" data-index="{{index}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 答案区域2 -->
+  <view class="answer-flex-column" wx:if="{{show==false}}">
+    <view class="answer-flex-top-row" wx:if="{{active==true}}">所选答案</view>
+    <view class="answer-flex-middle-row">
+      <view class="answer" wx:for="{{answer}}">
+        <view class="answertwo-item-left"><view>{{item.title}}</view></view>
+        <view class="answertwo-item-right">
+        <view>答:{{item.option}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="tips">
+    提示：购房政策是根据政府公开信息整理而来，由于政策可能会变动而本页面没有实时更新，此查询结果仅供参考，具体情况以政府发布的最新购房政策为准。
+  </view>
+  <view class="tips">
+    郑州市户口范围：中原区、二七区、金水区、郑东新区、惠济区、管城区、高新区、经济技术开发区、航空经济综合实验区、上街区、巩义市、新郑市、登封市、新密市、荥阳市、中牟县
+  </view>
+
+</view>
