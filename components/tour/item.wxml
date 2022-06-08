@@ -12,10 +12,10 @@
         <view class="text">
           <view class="text-title">
           <view >{{ item.address }}</view>
+          <view>主办方：{{ item.master }}</view>
           <view>活动时间：{{item.starts_at_pretty}}</view>
-          <view>已报名人数：{{ item.join_nums }}</view>
           </view>
-          <van-button class="text-btn" type="info" size="mini" wx:if="{{item.status.value != 2 }}">立即报名</van-button>
+          <van-button class="text-btn" type="info" size="mini" wx:if="{{item.status_value == 'active' }}">立即参与</van-button>
         </view>
       </view>
   </navigator>

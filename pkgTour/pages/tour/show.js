@@ -10,9 +10,10 @@ Page({
     tourId: null,
     homebtn: null,
     joined: false,
+    brokerName: "",
+    brokerPhone: "",
     showForm: false,
     user: null,
-
     name: '',
     numbers: '',
     remark: '',
@@ -21,6 +22,11 @@ Page({
     item: null,
   },
 
+  moveHome() {
+    wx.switchTab({
+      url: '../../../pages/home/home'
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -28,10 +34,13 @@ Page({
   onLoad: function (q) {
     app.checkForceLogin()
     this.setData({
-      tourId: q.id
+      tourId: q.id,
+      brokerId: q.broker_id || '',
+    }, () => {
+      this.loadData()
     })
-    this.loadData()
   },
+
 
   formClose: function () {
     this.setData({
@@ -55,66 +64,69 @@ Page({
             icon: 'none',
             title: '已取消报名',
           })
-          _this.setData({
-            joined: false,
-            joinLoading: false
-          })
+          _this.loadData()
+
         }
       }
     })
   },
 
   formSubmit: function () {
-    if(this.data.loading){
-      return 
+    if (this.data.loading) {
+      return
     }
     // 提交报名
     var data = {
       tour_id: this.data.item.id,
       name: this.data.name,
-      mobile: this.data.mobile, 
+      broker_name: this.data.brokerName, 
+      broker_phone: this.data.brokerPhone,
       numbers: this.data.numbers,
       remark: this.data.remark,
     }
-    if(!data.name){
+    if (!data.name) {
       wx.showToast({
         icon: 'none',
         title: '请填写联系人',
       })
-      return false 
+      return false
     }
-    if(!data.numbers){
+    if (!data.numbers) {
       wx.showToast({
         icon: 'none',
         title: '请填写人数',
       })
-      return 
+      return
     }
 
     var _this = this
-    this.setData({loading: true})
+    this.setData({
+      loading: true
+    })
     this.formClose()
     app.request({
       url: '/api/v1/tour_members/',
       method: 'POST',
       data: data,
       success: function (resp) {
-        _this.setData({loading: false})
+        _this.setData({
+          loading: false
+        })
         if (resp.data.status == 0) {
-            wx.showModal({
-              title: '报名成功',
-              content: '您已成功报名此次活动。',
-              showCancel: false,
-              confirmText: '知道了',
-              confirmColor: '#EC0101',
-              success: (result) => {
-                if (result.confirm) {
-                  _this.loadData()
-                }
-              },
-              fail: () => {},
-              complete: () => {}
-            });
+          wx.showModal({
+            title: '报名成功',
+            content: '您已成功报名此次活动。',
+            showCancel: false,
+            confirmText: '知道了',
+            confirmColor: '#B20700',
+            success: (result) => {
+              if (result.confirm) {
+                _this.loadData()
+              }
+            },
+            fail: () => {},
+            complete: () => {}
+          });
 
         }
       }
@@ -131,8 +143,9 @@ Page({
 
   loadData: function (cb) {
     var _this = this
+    var bid = this.data.brokerId || ''
     app.request({
-      url: '/api/v1/tours/' + _this.data.tourId,
+      url: '/api/v1/tours/' + _this.data.tourId + '?broker_id=' + bid,
       success: function (resp) {
         var tour = resp.data.data.tour
         var joined = resp.data.data.joined
@@ -143,8 +156,12 @@ Page({
           html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
           html = html.replace(/\<p/gi, '<p class="rich-text-p" ')
         }
+
+        var b = resp.data.broker || {}
         _this.setData({
           item: tour,
+          brokerName: b.name || '', 
+          brokerPhone: b.phone || '',
           html: html,
           loading: false,
           post: post,
@@ -182,14 +199,10 @@ Page({
     setTimeout(function () {
       wx.hideLoading()
     }, 500)
-    var user =  app.globalData.userInfo
-    var mobile = null 
-    if(user && user.mobile){
-      mobile = user.mobile
-    }
+    var  u = app.globalData.userInfo 
     this.setData({
-      user:user, 
-      mobile: mobile, 
+      user:u,
+      loading: false, 
     })
   },
 
@@ -218,31 +231,53 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
   },
 
-  
-  onShareTimeline(){
 
+  onShareTimeline() {
     var _this = this
-    var title =  this.data.video.title
-  
-    var image = this.data.item.cover
-    return {
-        title: title,
-        imageUrl: image
+    var  u = app.globalData.userInfo 
+    var shareQuery = 'id=' + this.data.tourId 
+    if(u && u.is_broker){ 
+      // 如果当前账号已经是置业顾问了
+      // 那么转发分享的时候，是带上我的标记
+      shareQuery += '&broker_id='  + u.id 
+    }else{
+      // 如果当前账号是客户
+      // 那么转发额时候，复制上一个置业顾问的标记
+      shareQuery += '&broker_id='  + this.data.brokerId || ''
     }
- 
-},
+
+    var title = this.data.item.title
+    var image = this.data.item.cover
+
+    return {
+      title: title,
+      query: shareQuery,
+      imageUrl: image
+    }
+  },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    var  u = app.globalData.userInfo 
+    var sharePath =  '/pkgTour/pages/tour/show?id=' + this.data.tourId
+    if(u && u.is_broker){ 
+      // 如果当前账号已经是置业顾问了
+      // 那么转发分享的时候，是带上我的标记
+      sharePath += '&broker_id=' + u.id
+    }else{
+      // 如果当前账号是客户
+      // 那么转发额时候，复制上一个置业顾问的标记
+      sharePath += '&broker_id=' + this.data.brokerId || ''
+    }
+
     return {
       title: this.data.item.title,
       imageUrl: this.data.item.cover + "?imageView2/1/w/500/h/400",
-      path: '/pkgTour/pages/tour/show?id=' + this.data.tourId
+      path: sharePath, 
     }
   }
 })
