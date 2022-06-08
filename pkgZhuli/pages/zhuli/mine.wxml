@@ -13,15 +13,14 @@
     </view>
   </mycard>
 
-
   <mycard  wx:if="{{showProgress}}"  radius="20" title="{{sectionTitle}}" title-size="32" width="710">
-    <view wx:if="{{ huodong.haoyou_count - haoyouCount > 0 }}" class="tips">已有<text class="red">{{haoyouCount}}</text>人助力，还差<text class="red">{{ huodong.haoyou_count -
+    <view wx:if="{{ huodong.members_max - haoyouCount > 0 }}" class="tips">已有<text class="red">{{haoyouCount}}</text>人助力，还差<text class="red">{{ huodong.members_max -
         haoyouCount }}</text>人即可助力成功，加油吧！</view>
     <view wx:else class="tips">
       助力人数已达标，助力完成！
     </view>
 
-    <progress wx:if="{{huodong && zhuli}}" total="{{huodong.haoyou_count}}" value="{{haoyouCount}}"></progress>
+    <progress wx:if="{{huodong && zhuli}}" total="{{huodong.members_max}}" value="{{haoyouCount}}"></progress>
     <view wx:if="{{zhuli.has_zhuli == false }}" bindtap="helpHandle" class="help">马上助力！</view>
     <view wx:else class="help done">我已助力</view>
   </mycard>
@@ -33,7 +32,7 @@
         <view class="name">{{item.name}}
           <image wx:if="{{item.id == zhuli.user_id }}" src="./fqr.png" class="fqr"></image>
         </view>
-        <view class="time">{{item.created_at}}助力1次</view>
+        <view class="time">{{item.created_at}}助力成功</view>
       </view>
     </view>
   </mycard>

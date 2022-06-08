@@ -27,7 +27,7 @@ Page({
   loadData: function(){
     var _this = this  
     app.request({
-      url: '/api/v1/huodong/' + this.data.hid, 
+      url: '/api/v1/tours/' + this.data.hid, 
       success: function(res){ 
         if(res.data.status != 0){
           return 
@@ -57,7 +57,7 @@ Page({
     var hid = this.data.hid 
     // 发起助力 
     app.request({
-      url: '/api/v1/huodong', 
+      url: '/api/v1/zhuli/join', 
       method: 'POST', 
       data: {id: hid}, 
       success: function(res){ 

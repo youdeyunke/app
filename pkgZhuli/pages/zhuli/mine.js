@@ -117,6 +117,7 @@ Page({
   },
 
   couponHandle: function(e){
+    // 领取助力优惠券
 
     var zhuli = this.data.zhuli  
     if(zhuli.coupon_send){
@@ -149,7 +150,7 @@ Page({
   loadHuodong: function(hid){
     var _this  = this  
     app.request({ 
-      url: '/api/v1/huodong/' + hid, 
+      url: '/api/v1/tours/' + hid, 
       success: function(res){ 
         if(res.data.status != 0){ 
           return false  
