@@ -109,6 +109,14 @@
                         </view>
                     </view>
                 </van-cell>
+                <van-cell is-link bindtap="saomaHandle" value="">
+                    <view slot="title">
+                        <view class="van-cell-title">
+                            <image class="van-cell-icon" src="/assets/icons/7.png"></image>
+                            <view class="van-cell-text">扫一扫</view>
+                        </view>
+                    </view>
+                </van-cell>
                 <van-cell is-link bindtap="logoutHandle" border="{{false}}" value="">
                     <view slot="title">
                         <view class="van-cell-title">

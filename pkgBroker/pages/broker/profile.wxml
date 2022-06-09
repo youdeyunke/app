@@ -10,8 +10,12 @@
 
 
   <view class="profile-fun">
-
-    <van-button color="{{secondaryBtnColor}}" bindtap="chatHandle" block custom-style="width:330rpx" icon="comment">在线咨询</van-button>
+    <!-- <view style="position: relative;"> -->
+        <van-button color="{{secondaryBtnColor}}" block bindtap="chatHandle" custom-style="width:330rpx" icon="comment">在线咨询</van-button>
+        <view style="position: absolute;bottom: 6rpx;zoom: 2;opacity: 0;left: 50rpx;">
+            <cell-t styleType='2' blockStyle='button' plugid='{{broker.plugid}}'></cell-t>
+        </view>
+    <!-- </view> -->
     <van-button color="{{primaryBtnColor}}" bindtap="callphone" block custom-style="width:330rpx" icon="phone">电话咨询</van-button>
 
 

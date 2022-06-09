@@ -325,6 +325,26 @@ Page({
         this.loadCacheInfo()
     },
 
+    saomaHandle: function(){
+        wx.scanCode({
+            
+            success (res) {
+              console.log('2333',res)
+              console.log('24444',res.path)
+              if(res.path != undefined){
+                  wx.navigateTo({
+                    url: res.path,
+                  })
+              }else{
+                  wx.showToast({
+                    title: '二维码无效',
+                    icon: 'none'
+                  })
+              }
+            }
+          })
+    },
+
     getRemoteUserInfo: function () {
         var _this = this
         auth.getRemoteUserInfo(function (user) {

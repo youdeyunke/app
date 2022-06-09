@@ -1,0 +1,235 @@
+/* pkgCDScore/pages/index.wxss */
+.container {
+    width: 750rpx;
+    height: 2000rpx;
+    /* background: linear-gradient(0deg, rgba(255, 255, 255, 0.97), rgba(236, 1, 1, 0.97)); */
+    background-image: url('https://qiniucdn.udeve.cn/fang2021/ab57870a-dc1e-4ff5-a1e7-d75169a7342e.png');
+  }
+  
+  .questions {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .title {
+    display: flex;
+    margin: 30rpx 30rpx 0 30rpx;
+    width: 690rpx;
+    height: 130rpx;
+    background-color: rgb(255, 197, 42);
+    border-top-right-radius: 20rpx;
+    border-top-left-radius: 20rpx;
+  }
+  
+  .title view {
+    height: 130rpx;
+    margin-left: 40rpx;
+    font-size: 32rpx;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #FFFFFF;
+    line-height: 130rpx;
+  }
+  
+  .flex-column {
+    width: 690rpx;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    background-color: #FFFFFF;
+  }
+  
+  .flex-column-item {
+    margin-left: 33rpx;
+    margin-top: 30rpx;
+    width: 630rpx;
+    border: 1px solid #DDDDDD;
+    border-radius: 8px;
+  }
+  
+  .flex-column-item {
+    margin-left: 30rpx;
+    line-height: 100rpx;
+  }
+  
+  .flex-column-item view {
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+  }
+  
+  .flex-bottom-row {
+    width: 690rpx;
+    margin: 0 30rpx 0 30rpx;
+    height: 60rpx;
+    background-color: #FFFFFF;
+    border-bottom-right-radius: 12rpx;
+    border-bottom-left-radius: 12rpx;
+  }
+  
+  .answer-flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .answer-flex-top-row {
+    margin-top: 54rpx;
+    margin-left: 30rpx;
+    font-size: 30rpx;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #333333;
+  }
+  
+  .answer-flex-middle-row{
+    margin: 12rpx 30rpx 0 16rpx;
+    display: flex;
+    flex-direction: row;
+  
+    flex-wrap: wrap;
+  }
+  
+  
+  .answer-item-left{
+    margin-left: 14rpx;
+  }
+  
+  .answer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .answer-item-left{
+    margin-top: 42rpx;
+    margin-left: 14rpx;
+    font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #333333;
+  }
+  
+  .answer-item-right{
+    margin-left: 38rpx;
+    display: flex;
+    margin-top: 28rpx;
+    height: 62rpx;
+    background: #FFFFFF;
+    border-radius: 31rpx;
+  }
+  
+  .answer-item-right view{
+    margin-left: 27rpx;
+    /* width: 250rpx; */
+    font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #333333;
+  line-height: 62rpx;
+  word-wrap:break-word; /*链接字母强制换行*/
+    -webkit-box-orient: vertical; /*伸缩盒子的子元素垂直排列*/
+    text-overflow: ellipsis;  /*文本溢出时,显示省略号 IE, WebKit (Safari, Chrome), Firefox 7, Opera 11*/
+    overflow: hidden; /*内容超出,隐藏元素 */
+  }
+  
+  .answer-image{
+    display: flex;
+    margin-right: 14rpx;
+    margin-left: 14rpx;
+    top: 0rpx;
+    width: 38rpx;
+    height: 38rpx;
+    margin-top: 12rpx;
+  }
+  
+  /* 结果 */
+  .result-flex-column{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .result-column-top{
+    margin-left: 30rpx;
+    width: 690rpx;
+    background-color: #FFFFFF;
+  }
+  
+  .result-column-top view{
+    margin:77rpx 0 42rpx 192rpx;
+    font-size: 30rpx;
+  font-family: Source Han Sans CN;
+  font-weight: bold;
+  color: #333333;
+  }
+  
+  .result-column-middle{
+    margin-left: 30rpx;
+    width: 690rpx;
+    background-color: #FFFFFF;
+  }
+  
+  .result-column-middle view{
+    margin-left: 31rpx;
+    margin-bottom: 98rpx;
+    font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #666666;
+  }
+  
+  .result-column-bottom{
+    margin-left: 30rpx;
+    width: 690rpx;
+    background-color: #FFFFFF;
+  }
+  
+  .result-column-bottom view{
+    margin-left: 33rpx;
+    display: flex;
+    width: 630rpx;
+  height: 90rpx;
+  background: linear-gradient(90deg, #FF3A3A, #B20700);
+  border-radius: 45px;
+  font-size: 32rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #FFFFFF;
+  align-items: center;
+  justify-content: center;
+  }
+  
+  /* 答案2 */
+  .answertwo-item-left{
+    margin-left: 14rpx;
+    font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #333333;
+  }
+  
+  .answertwo-item-right{
+    font-size: 28rpx;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #333333;
+  }
+  
+  
+  .tips{
+    width:690rpx;
+    margin:0 auto; 
+    font-size:24rpx; 
+    color:#333;
+  
+    margin-top:30rpx;
+  }
+  .home-btn-item{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 80rpx;
+    font-size:200%;
+    color:#000;
+    width: 14%;
+  
+  }
