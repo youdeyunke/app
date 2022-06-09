@@ -1,0 +1,47 @@
+<view class="outer">
+  <view class="title">{{coupon.name}}</view>
+  <view class="desc">{{coupon.desc}}</view>
+
+  <view class="footer" wx:if="{{coupon.cat == 'coupon'}}">
+    <van-button wx:if="{{coupon.used == false }}" block bindtap="useHandle" round type="primary" color="red">立即使用</van-button>
+    <van-button wx:else block  round type="primary" plain color="red">已使用</van-button>
+  </view>
+
+  <view class="cell">
+    <view class="cell-title">有效期</view>
+    <view class="cell-value">{{coupon.starts_at}} ~ {{ coupon.expired_at}}</view>
+  </view>
+  <view class="cell" bindtap="callHandle">
+    <view class="cell-title">发放人</view>
+    <view class="cell-value">{{coupon.shop || '-'}} {{ coupon.shop_phone || ''}}
+    <van-icon wx:if="{{coupon.phone}}" name="phone"></van-icon>
+    </view>
+  </view>
+
+  <view class="cell">
+    <view class="cell-title">卡券码</view>
+    <view class="cell-value">{{coupon.code }}</view>
+  </view>
+
+  <view class="cell" >
+    <view class="cell-title">使用说明</view>
+    <view class="cell-value">{{coupon.content}}</view>
+  </view>
+
+
+</view>
+
+<!-- 弹窗 -->
+<van-popup closeable bind:close="formClose"  round title="活动报名" show="{{showForm}}">
+  <view class="form">
+
+    <van-field maxlength="4"  label="核销口令" model:value="{{password}}" placeholder="请输入核销口令"></van-field>
+
+    <view class="footer">
+      <van-button round custom-style="margin-bottom:20rpx;" block bindtap="formClose">取消</van-button>
+      <van-button round block disabled="{{loading}}" type="primary" color="red" bindtap="submitHandle">确定核销</van-button>
+ 
+    </view>
+    <view class="tips">请联系现场工作人员进行核销</view>
+  </view>
+</van-popup>

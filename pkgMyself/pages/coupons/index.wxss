@@ -9,15 +9,30 @@
 }
 
 .res .item{
-  width: 750rpx; 
-  background:#fff; 
+  width: 710rpx; 
+  background:none; 
   margin-bottom:20rpx;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding:10rpx 10rpx;
-  border-radius: 10rpx;
+  padding:20rpx 30rpx;
+  border-radius: 20rpx;
+  background:#fff;
+  min-height:180rpx;
+}
+
+.res .item .name{
+  color:#333; 
+  font-weight: bold;
+  margin-bottom:10rpx;
+
+  width:500rpx;
+}
+
+.res .item .desc{
+  color:#999;
+  width:500rpx;
 }
 
 .res .item .use{
@@ -26,4 +41,9 @@
   color:#333; 
   font-weight: bold;
 
+}
+
+.res .item .right .icon{
+  width:100rpx;
+  height: 100rpx;
 }

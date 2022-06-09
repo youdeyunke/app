@@ -34,6 +34,27 @@ Page({
     })
   },
 
+  deteleyhq(e){
+    var _this = this
+    var id = e.currentTarget.dataset.i
+    wx.showModal({
+      title : '删除确认',
+      content : '确定要删除该卡券吗？删除后无法恢复',
+      confirmText : '删除',
+      success(resp){
+        if(resp.confirm){
+          app.request({
+            url : '/api/v1/coupons/'+id,
+            method : 'DELETE',
+            success:function(res){
+              _this.loadData()
+            }
+          })
+        }
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -49,6 +70,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    setTimeout(() => {
+      if(!this.data.items){
+        this.loadData()
+      }
+    }, 1500)
+
+    if(app.globalData.reloadCoupons){
+      this.loadData()
+      app.reloadCoupons = false 
+    }
 
   },
 

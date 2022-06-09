@@ -1,10 +1,17 @@
-<ud-tabs data="{{items}}" model:active-index="{{currentIndex}}">
+<van-tabs>
+  <van-tab title="{{res.name}}" wx:for-item="res" wx:for="{{items}}">
+    <view class="res">
+      <navigator url="/pkgMyself/pages/coupons/show?id={{item.id}}" bindlongpress="deteleyhq" data-i="{{item.id}}" hover-class="none"  class="item" wx:for-key="{{item.id}}" wx:for="{{res.items}}">
+        <view class="left">
+          <view class="name">{{ item.name }}</view> 
+          <view class="desc">{{item.desc}}</view>
+        </view>
+        <view class="right">
+          <image class="icon" src="/assets/icons/coupon-icon.png"></image>
+        </view>
+        
+      </navigator>
+    </view>
+  </van-tab>
 
-</ud-tabs>
-
-<view class="res">
-  <view class="item tab-{{currentIndex}}" wx:for="{{items[currentIndex].items}}">
-    <coupon-item item="{{item}}"></coupon-item>
-    <view wx:if="{{currentIndex == 0}}" class="use" bindtap="useHandle">去使用</view>
-  </view>
-</view>
+</van-tabs>

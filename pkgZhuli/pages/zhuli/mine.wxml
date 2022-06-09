@@ -4,8 +4,8 @@
 <view class="body">
   <mycard wx:if="{{showSuccess}}" radius="20" title="" title-size="32" width="710">
     <view class="success">
-      <view class="title">恭喜您，助力任务已成功！</view>
-      <coupon wx:if="{{coupon_config}}" item="{{coupon_config}}"></coupon>
+      <view class="title">恭喜您，助力任务完成！</view>
+      <coupon wx:if="{{couponConfig}}" item="{{couponConfig}}"></coupon>
       <view class="desc">获得优惠券一张，领取成功后，可进入“我的”-“优惠券”页面中查看”并使用</view>
       <view class="btn" bindtap="couponHandle">
         {{ zhuli.coupon_send === true ? '已领取,查看我的优惠券' : '领取优惠券' }}

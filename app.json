@@ -32,7 +32,7 @@
             "root": "pkgZhuli",
             "name": "pkgzhuli",
             "pages": [
-                "pages/zhuli/index",
+                "pages/zhuli/show",
                 "pages/zhuli/mine"
             ]
         },
@@ -59,6 +59,7 @@
             "pages": [
                 "pages/profile/index",
                 "pages/coupons/index",
+                "pages/coupons/show",
                 "pages/favposts/index",
                 "pages/eventposts/index",
                 "pages/booking/index",

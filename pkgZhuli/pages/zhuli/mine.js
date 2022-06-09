@@ -75,13 +75,17 @@ Page({
     app.request({ 
       url: '/api/v1/zhuli/' + _this.data.mid,
       success: function(res){ 
-        var pageTitle = "帮我助力 " + res.data.data.huodong.title 
-        var pageCover = res.data.data.huodong.cover  
+        var zhuli = res.data.data.zhuli  
+        var tour =   res.data.data.tour  
+        var couponConfig = res.data.data.coupon_config
 
-        _this.loadHuodong(res.data.data.huodong_id)
+        var pageTitle = "帮我助力 " + tour.title 
+        var pageCover = tour.cover  
+
         _this.setData({ 
-          zhuli: res.data.data, 
-          owner: res.data.data.user,
+          zhuli: zhuli, 
+          huodong: tour,  
+          couponConfig: couponConfig,
           pageTitle: pageTitle, 
         }, () => {
           _this.refreshStatus()

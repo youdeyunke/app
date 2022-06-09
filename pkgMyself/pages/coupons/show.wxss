@@ -1,0 +1,64 @@
+/* pkgMyself/pages/coupons/show.wxss */
+
+.outer{
+  width: 690rpx; 
+  box-sizing: border-box;
+  padding:30rpx; 
+  margin:20rpx auto ;
+  border-radius: 20rpx;
+  background:#fff;
+}
+
+.outer .title{
+  width:100%; 
+  text-align: center;
+  font-size:32rpx; 
+  color:#333;
+  font-weight: bold;
+}
+
+.outer .desc{
+  width:100%; 
+  text-align: center;
+  font-size:28rpx; 
+  color:#666;
+  margin:20rpx auto;
+}
+
+.outer .footer{
+  width:500rpx;
+  margin:20rpx auto;
+}
+
+.cell {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  min-height:60rpx;
+}
+
+.cell-title{
+  color:#999; 
+  margin-right:10rpx;
+  width:110rpx;
+}
+
+.cell-value{
+  width: calc(100% - 120rpx);
+}
+.form{
+  padding:40rpx 30rpx 30rpx 30rpx;
+  margin:0 auto;
+  width: 600rpx;
+}
+
+.form .footer{
+  margin-top:80rpx;
+}
+
+.form .tips{
+  text-align: center;
+  color:#666;
+  margin:30rpx auto 0 auto;
+}
