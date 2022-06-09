@@ -1,8 +1,8 @@
 page{
-  background: #ebebeb !important;
-  padding-bottom:140rpx;
-}
-
-page::after{
-  content: "" !important;
-}
+    background: #ebebeb !important;
+    padding-bottom:140rpx;
+  }
+  
+  page::after{
+    content: "" !important;
+  }

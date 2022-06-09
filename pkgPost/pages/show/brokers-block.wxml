@@ -30,7 +30,7 @@
 <block wx:else>
     <scroll-view scroll-with-animation="{{true}}" scroll-x style="710rpx;margin-bottom:20rpx;">
         <view style="display:flex;">
-            <broker-block wx:key="id" item="{{item}}" wx:for="{{value.brokers}}" />
+            <broker-block wx:key="id" item="{{item}}" postId="{{value.post_id}}" wx:for="{{value.brokers}}" />
         </view>
     </scroll-view>
 </block>

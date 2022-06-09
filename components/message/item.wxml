@@ -1,13 +1,11 @@
 <!--components/message/item.wxml-->
 <text-message current-user-id="{{currentUserId}}"  message="{{message}}"  />
-
-<view class="msg msg-{{ position }}">
+<view class="msg msg-{{ message && message.sender_id == currentUserId ? 'right' : 'left' }}">
   <view wx:if="{{message.sender_id > 0}}" class="avatar"> <image src="{{message.sender_info.avatar}}?imageView2/5/w/200/h/200"></image> </view>
-
   <view class="message-content-block">
-    <text-content wx:if="{{message.content_type == 'text' }}" position="{{position}}" message="{{message}}" />
-    <link-content wx:if="{{message.content_type == 'link' }}" position="{{position}}" message="{{message}}" />
-    <post-content wx:if="{{message.content_type == 'post' }}" position="{{position}}" message="{{message}}" />
+    <text-content wx:if="{{message.content_type == 'text' }}" position="{{ message && message.sender_id == currentUserId ? 'right' : 'left' }}" message="{{message}}" />
+    <link-content wx:if="{{message.content_type == 'link' }}" position="{{ message && message.sender_id == currentUserId ? 'right' : 'left' }}" message="{{message}}" />
+    <post-content wx:if="{{message.content_type == 'post' }}" position="{{ message && message.sender_id == currentUserId ? 'right' : 'left' }}" message="{{message}}" />
   </view>
 
 </view>

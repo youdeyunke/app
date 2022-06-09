@@ -127,10 +127,21 @@ Page({
 
   },
 
+   dingyue: function(){
+    wx.requestSubscribeMessage({
+      tmplIds: ['mhBvzlOW-NuYCC_IZ22GlF5AuBzWja0OHT0_4KRKZCY'],
+      fail: function(res){
+        console.log('msg',res)
+      }
+    })
+   },
+
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
+
     var userInfo = app.globalData.userInfo
     if(userInfo){
       this.loadData()
@@ -141,9 +152,11 @@ Page({
       this.selectComponent('.loginwindow').openWindow()
     }
     this.setData({userInfo: userInfo})
+    console.log('message on show')
     wx.removeTabBarBadge({
-      index: 2,
+      index: 3,
       fail: function(res){
+        console.log('清空未读数失败',res)
       }
     })  
   },

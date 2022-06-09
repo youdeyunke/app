@@ -1,123 +1,120 @@
 page{
-  background: #fff !important;
-  height: 100vh;
-}
-
-.outer{
-  width:710rpx;
-  margin:0 20rpx;
-}
-
-.item .count{
-  background:red;
-  color:#fff;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60rpx;
-  width:60rpx;
-  border-radius: 50%;
-  position: absolute;
-  left:70rpx;
-  top:0rpx;
-  transform: scale(0.5);
-  -webkit-transform: scale(0.5);
-}
-
-.tools{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding:10rpx 20rpx;
-  font-size:24rpx;
-  color:#333333;
-}
-
-.item{
-  display: flex;
-  justify-content: space-between;
-  align-items:  center;
-  height: 160rpx;
-  border-bottom: 1rpx solid #E1E1E1;
-  position: relative;
-}
-
-.item .tip{
-  display: none;
-}
-
-.item .tip::after{
-  content: '未读';
-  color:#fff;
-  display: flex;
-  border-radius: 30rpx;
-  background: red;
-  padding:8rpx 18rpx;
-  position: absolute;
-  right: 12rpx;
-  transform: scale(0.8);
-  top: 80rpx;
-}
-
-.item .avatar{
-  height:110rpx;
-  width: 110rpx;
-  border-radius: 10rpx;
-  margin-right:35rpx ;
-  border: 1px solid #dddddd;
-}
-
-.item .info{
-  height: 100rpx;
-  width: calc(750rpx - 60rpx - 92rpx - 20rpx);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.line-limit{
-  width: 427rpx;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  color: #777777;
-  font-size: 24rpx;
-}
-
-.item .name{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.item  .nickname{
-  color: #000;
-  font-size: 36rpx;
-}
-
-.item .info .text{
-  color: #cecece;
-}
-
-
-
-.empty{
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-}
-
-
-.unlogin .title{
-  font-size:30rpx;
-}
-.unlogin .desc{
-  font-size:28rpx;
-  margin-top:20rpx;
-  margin-bottom:40rpx;
-}
-
-
+    background: #fff !important;
+    height: 100vh;
+  }
+  
+  .outer{
+    width:710rpx;
+    margin:0 20rpx;
+  }
+  
+  .item .count{
+    background:red;
+    color:#fff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60rpx;
+    width:60rpx;
+    border-radius: 50%;
+    position: absolute;
+    left:70rpx;
+    top:0rpx;
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+  }
+  
+  .tools{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:10rpx 20rpx;
+    font-size:24rpx;
+    color:#333333;
+  }
+  
+  .item{
+    display: flex;
+    justify-content: space-between;
+    align-items:  center;
+    height: 160rpx;
+    border-bottom: 1rpx solid #E1E1E1;
+    position: relative;
+  }
+  
+  .item .tip::after{
+    content: '未读';
+    color:#fff;
+    display: flex;
+    border-radius: 30rpx;
+    background: red;
+    padding:8rpx 18rpx;
+    position: absolute;
+    right: 12rpx;
+    transform: scale(0.8);
+    top: 80rpx;
+  }
+  
+  .item .avatar{
+    height:110rpx;
+    width: 110rpx;
+    border-radius: 10rpx;
+    margin-right:35rpx ;
+    border: 1px solid #dddddd;
+  }
+  
+  .item .info{
+    height: 100rpx;
+    width: calc(750rpx - 60rpx - 92rpx - 20rpx);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .line-limit{
+    width: 427rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #777777;
+    font-size: 24rpx;
+  }
+  
+  .item .name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .item  .nickname{
+    color: #000;
+    font-size: 36rpx;
+  }
+  
+  .item .info .text{
+    color: #cecece;
+  }
+  
+  
+  
+  .empty{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+  }
+  
+  
+  .unlogin .title{
+    font-size:30rpx;
+  }
+  .unlogin .desc{
+    font-size:28rpx;
+    margin-top:20rpx;
+    margin-bottom:40rpx;
+  }
+  
+  
+  

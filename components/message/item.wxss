@@ -1,26 +1,27 @@
 .msg{
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding: 0 20rpx;
-  margin-top:20rpx;
-  margin-bottom:40rpx;
-}
-
-.msg-right{
-  flex-direction: row-reverse;
-}
-
-.msg-right .avatar{
-  margin-left:22rpx;
-}
-
-.msg-left .avatar{
-  margin-right:22rpx;
-}
-
-.msg .avatar, .msg .avatar image{
-  width:80rpx;
-  height: 80rpx;
-  border-radius: 50%;
-}
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0 20rpx;
+    margin-top:20rpx;
+    margin-bottom:40rpx;
+  }
+  
+  .msg-right{
+    flex-direction: row-reverse;
+  }
+  
+  .msg-right .avatar{
+    margin-left:22rpx;
+  }
+  
+  .msg-left .avatar{
+    margin-right:22rpx;
+  }
+  
+  .msg .avatar, .msg .avatar image{
+    width:80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+  }
+  
