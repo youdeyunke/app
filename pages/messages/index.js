@@ -154,7 +154,7 @@ Page({
     this.setData({userInfo: userInfo})
     console.log('message on show')
     wx.removeTabBarBadge({
-      index: 3,
+      index: 2,
       fail: function(res){
         console.log('清空未读数失败',res)
       }

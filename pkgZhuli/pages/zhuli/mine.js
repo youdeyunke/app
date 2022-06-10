@@ -34,8 +34,9 @@ Page({
   },
 
   backHandle: function(){
-    var url = '/pkgZhuli/pages/zhuli/index?id=' + this.data.zhuli.id 
-    wx.redirectTo({url: url })
+    wx.navigateBack({
+      delta: 1,
+    })
   }, 
 
   homeHandle: function(){
