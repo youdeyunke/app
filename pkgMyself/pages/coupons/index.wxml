@@ -5,6 +5,7 @@
         <view class="left">
           <view class="name">{{ item.name }}</view> 
           <view class="desc">{{item.desc}}</view>
+          <view class="desc time">有效期至 {{item.expired_at}}</view>
         </view>
         <view class="right">
           <image class="icon" src="/assets/icons/coupon-icon.png"></image>

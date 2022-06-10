@@ -41,7 +41,7 @@
 .cell-title{
   color:#999; 
   margin-right:10rpx;
-  width:110rpx;
+  width:120rpx;
 }
 
 .cell-value{

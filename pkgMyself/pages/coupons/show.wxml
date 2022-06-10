@@ -11,12 +11,13 @@
     <view class="cell-title">有效期</view>
     <view class="cell-value">{{coupon.starts_at}} ~ {{ coupon.expired_at}}</view>
   </view>
-  <view class="cell" bindtap="callHandle">
+
+  <!-- view class="cell" bindtap="callHandle">
     <view class="cell-title">发放人</view>
     <view class="cell-value">{{coupon.shop || '-'}} {{ coupon.shop_phone || ''}}
     <van-icon wx:if="{{coupon.phone}}" name="phone"></van-icon>
     </view>
-  </view>
+  </view -->
 
   <view class="cell">
     <view class="cell-title">卡券码</view>
