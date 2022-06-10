@@ -35,7 +35,7 @@
 }
 
 .input-wrapper .btn-sent.default{
-  background:#EC0101;
+  background:#1989fa;
   color:#fff;
 }
 

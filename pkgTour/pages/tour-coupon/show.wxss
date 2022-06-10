@@ -1,3 +1,4 @@
+/* pkgTour/pages/tour-coupon/show.wxss */
 .container {
     background-color: #EEEEEE;
   }

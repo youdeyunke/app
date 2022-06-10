@@ -1,61 +1,101 @@
-<image wx:if="{{item.cover }}" class="cover" src="{{item.cover }}?imageView2/2/w/750"></image>
-<box width="710" padding="20" margin-bottom="2">
-  <view class="header">
-    <view class="h1">{{item.title}}</view>
-    <van-cell icon="clock-o" label="集合时间" size="mini" value-class="mycell-value" value="{{item.starts_at_pretty}}" />
-    <van-cell icon="location" label="活动地点" value="{{item.address  }}" value-class="mycell-value" />
-    <van-cell icon="sign" label="报名截止" value="{{item.ends_at_pretty   }}" value-class="mycell-value" />
-    <van-cell border="{{false}}" icon="friends-o" label="已报人数" value="{{item.join_nums   }}" value-class="mycell-value" />
+
+<view class="container">
+
+
+<view class="box">
+  <view class="title">{{ item.title }}</view>
+  <view class="main-flex-column-bottom">
+    <view class="main-bottom">活动时间: {{item.starts_at_pretty}} ~ {{ item.ends_at_pretty}}</view>
+    <view class="main-bottom">活动地点: {{ item.address }} </view>
+    <view wx:if="{{item.master}}" class="main-bottom">主办方: {{ item.master || '' }} </view>
   </view>
-</box>
 
-<box width="710" padding="20">
-  <view class="server">
-    <text>快速了解活动进展、活动答疑</text>
-    <view>
-      <van-button custom-class="call-btn" size="small" type="info" bindtap="callHandle" icon="service-o">联系客服</van-button>
-    </view>
-  </view>
-</box>
-
-<mycard title-size="28" width="710" title="活动介绍" hat="{{false}}">
-  <view class="raw">
-    <rich-text nodes="{{html}}" />
-  </view>
-</mycard>
-
-<block wx:if="{{!showForm}}">
-<view class="footer" hidden="{{item.status.value != 1 }}">
-  <van-button style="width:100%;" open-type="share" icon="good-job" type="primary" block>转发分享</van-button>
-
-  <van-button style="width:100%;" wx:if="{{joined == false}}" plain="{{false}}" bindtap="joinHandle" icon="passed" type="info" block>我要报名</van-button>
-  <van-button  style="width:100%;" wx:else  plain="{{true}}" block bindtap="cancleJoin">取消报名</van-button>
+  <raw-html class="introduce-flex-column-middle" html="{{item.content}}"></raw-html>
 </view>
 
-<view class="footer" hidden="{{item.status.value != 2 }}">
-  <van-button open-type="share" icon="good-job" type="primary" block>转发分享</van-button>
-  <van-button plain icon="close" type="info" block>报名已截止</van-button>
-</view>
-</block>  
+<ud-card title="关联项目" wx:if="{{post}}">
+  <post-item post="{{post}}"></post-item>
+</ud-card>
+
+<!-- 底部分享 -->
+
+
 
 <!-- 报名弹窗 -->
 <van-popup closeable bind:close="formClose" position="bottom" round title="活动报名" show="{{showForm}}">
   <view class="form">
-    <van-cell-group title="填写报名信息">
 
     <van-field label="联系人" model:value="{{name}}" placeholder="请输入联系人姓名"></van-field>
-    <van-field disabled="{{true}}" label="手机号" placeholder="" value="{{user.mobile}}"></van-field>
-    <van-field label="人数" model:value="{{numbers}}" placeholder="您有几人参加"></van-field>
-    <van-field label="留言" model:value="{{remark}}" placeholder="其它备注信息"></van-field>
-
-  </van-cell-group>
-    <view class="form-footer">
+    <!-- <van-field label="人数" model:value="{{numbers}}" placeholder="您有几人参加"></van-field> -->
+    <van-field disabled="{{user && user.mobile}}" label="手机号" placeholder="" value="{{user.mobile}}"></van-field>
+    <!-- <van-field label="备注" model:value="{{remark}}" placeholder="其它备注信息"></van-field> -->
+    <block wx:if="{{brokerId && brokerPhone}}">
+      <van-field label="邀约顾问" disabled="true" value="{{brokerName}} {{ brokerPhone}}" ></van-field>
+    </block>
+    <view class="footer">
       <van-button custom-style="margin-bottom:10rpx;" block bindtap="formClose">取消</van-button>
-      <van-button block disabled="{{loading}}" type="primary" bindtap="formSubmit">确定报名</van-button>
+      <van-button block disabled="{{loading}}" type="primary" color="red" bindtap="formSubmit">确定报名</van-button>
     </view>
 
   </view>
 </van-popup>
 
+<!-- 底部分享 -->
+<view class="content-bottom" wx:if="{{item.status_value == 'full'}}">
+  <view class="bacconttent-bottom">
+    <view class="bottom-collection" bindtap="moveHome">
+      <van-icon class="font-top" name="wap-home-o" />
+      <view class="font-bottom">首页</view>
+    </view>
+    <view class="bottom-share bottom-collection">
+      <van-icon class="font-top" name="share" />
+      <view class="font-bottom" open-type="share">分享</view>
+      <button class="bottom-share-two" open-type="share"></button>
+    </view>
+    <view class="bottom-button-right bottom-button-common">
+      <view wx:if="{{joined}}" bindtap="cancleJoin">已满员(取消报名)</view>
+      <view wx:else>已满员</view>
+    </view>
+  </view>
+</view>
 
-<cr />
+<!-- 底部分享 -->
+<view class="content-bottom" wx:if="{{item.status_value == 'active' || item.status_value == 'comming'}}">
+  <view class="bacconttent-bottom">
+    <view class="bottom-collection" bindtap="moveHome">
+      <van-icon class="font-top" name="wap-home-o" />
+      <view class="font-bottom">首页</view>
+    </view>
+    <view class="bottom-share bottom-collection">
+      <van-icon class="font-top" name="share" />
+      <view class="font-bottom" open-type="share">分享</view>
+      <button class="bottom-share-two" open-type="share"></button>
+    </view>
+    <view class="bottom-button-right bottom-button-common">
+      <view wx:if="{{joined}}" bindtap="cancleJoin">取消报名</view>
+      <view wx:else bindtap="joinHandle">我要报名</view>
+    </view>
+  </view>
+</view>
+
+
+<!-- 底部分享 -->
+<view class="content-bottom" wx:if="{{item.status_value == 'end' }}">
+  <view class="bacconttent-bottom">
+    <view class="bottom-collection" bindtap="moveHome">
+      <van-icon class="font-top" name="wap-home-o" />
+      <view class="font-bottom">首页</view>
+    </view>
+    <view class="bottom-share bottom-collection">
+      <van-icon class="font-top" name="share" />
+      <view class="font-bottom" open-type="share">分享</view>
+      <button class="bottom-share-two" open-type="share"></button>
+    </view>
+    <view class="bottom-button-right bottom-button-common">
+      <view>报名已截止</view>
+    </view>
+  </view>
+</view>
+
+<view class="container-bottom"></view>
+</view>

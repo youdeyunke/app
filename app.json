@@ -196,7 +196,8 @@
             "name": "tour",
             "pages": [
                 "pages/tour/index",
-                "pages/tour/show"
+                "pages/tour/show",
+                "pages/tour-coupon/show"
             ]
         },
         {

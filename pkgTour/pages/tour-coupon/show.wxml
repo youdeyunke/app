@@ -1,0 +1,94 @@
+
+  <!-- 弹窗 -->
+  <van-popup closeable bind:close="formClose" position="bottom" round title="活动报名" show="{{showForm}}">
+    <view class="form">
+
+      <van-field label="口令"  minlength="2" model:value="{{password}}" placeholder="请输入领取口令"></van-field>
+     
+      <view class="footer">
+        <van-button custom-style="margin-bottom:10rpx;" block bindtap="formClose">取消</van-button>
+        <van-button block disabled="{{loading}}" type="primary" color="red" bindtap="submitHandle">确定</van-button>
+      </view>
+
+    </view>
+  </van-popup>
+
+<view class="container">
+
+  <view class="box">
+    <view class="title">{{ item.title }}</view>
+    <view class="main-flex-column-bottom">
+      <view class="main-bottom">活动时间: {{item.starts_at_pretty}} ~ {{ item.ends_at_pretty}}</view>
+      <view class="main-bottom">活动地点: {{ item.address }} </view>
+      <view wx:if="{{item.master}}" class="main-bottom">主办方: {{ item.master || '' }} </view>
+    </view>
+
+    <raw-html class="introduce-flex-column-middle" html="{{item.content}}"></raw-html>
+  </view>
+
+  <ud-card title="关联项目" wx:if="{{post}}">
+    <post-item post="{{post}}"></post-item>
+  </ud-card>
+
+  <!-- 底部分享 -->
+
+  <!-- 底部分享 -->
+  <view class="content-bottom" wx:if="{{item.status_value == 'full'}}">
+    <view class="bacconttent-bottom">
+      <view class="bottom-collection" bindtap="moveHome">
+        <van-icon class="font-top" name="wap-home-o" />
+        <view class="font-bottom">首页</view>
+      </view>
+      <view class="bottom-share bottom-collection">
+        <van-icon class="font-top" name="share" />
+        <view class="font-bottom" open-type="share">分享</view>
+        <button class="bottom-share-two" open-type="share"></button>
+      </view>
+      <view class="bottom-button-right bottom-button-common">
+        <view >已领完</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部 -->
+
+  <view class="content-bottom" wx:if="{{item.status_value == 'active' || item.status_value == 'comming'}}">
+    <view class="bacconttent-bottom">
+      <view class="bottom-collection" bindtap="moveHome">
+        <van-icon class="font-top" name="wap-home-o" />
+        <view class="font-bottom">首页</view>
+      </view>
+      <view class="bottom-share bottom-collection">
+        <van-icon class="font-top" name="share" />
+        <view class="font-bottom" open-type="share">分享</view>
+        <button class="bottom-share-two" open-type="share"></button>
+      </view>
+      <view class="bottom-button-right bottom-button-common">
+        <view wx:if="{{joined}}" >已领取</view>
+        <view wx:else bindtap="joinHandle">领取</view>
+      </view>
+    </view>
+  </view>
+
+
+
+  <view class="content-bottom" wx:if="{{item.status_value == 'end' }}">
+    <view class="bacconttent-bottom">
+      <view class="bottom-collection" bindtap="moveHome">
+        <van-icon class="font-top" name="wap-home-o" />
+        <view class="font-bottom">首页</view>
+      </view>
+      <view class="bottom-share bottom-collection">
+        <van-icon class="font-top" name="share" />
+        <view class="font-bottom" open-type="share">分享</view>
+        <button class="bottom-share-two" open-type="share"></button>
+      </view>
+      <view class="bottom-button-right bottom-button-common">
+        <view>活动已结束</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="container-bottom"></view>
+</view>
+
