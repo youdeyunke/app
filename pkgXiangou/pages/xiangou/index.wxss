@@ -1,9 +1,9 @@
 /* pkgCDScore/pages/index.wxss */
 .container {
     width: 750rpx;
-    height: 2000rpx;
-    /* background: linear-gradient(0deg, rgba(255, 255, 255, 0.97), rgba(236, 1, 1, 0.97)); */
-    background-image: url('https://qiniucdn.udeve.cn/fang2021/ab57870a-dc1e-4ff5-a1e7-d75169a7342e.png');
+    height: 100vh;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.97), rgba(236, 1, 1, 0.97));
+    /* background-image: url('https://qiniucdn.udeve.cn/fang2021/ab57870a-dc1e-4ff5-a1e7-d75169a7342e.png'); */
   }
   
   .questions {
@@ -12,13 +12,14 @@
   }
   
   .title {
-    display: flex;
+    /* display: flex; */
+    position: relative;
     margin: 30rpx 30rpx 0 30rpx;
     width: 690rpx;
     height: 130rpx;
-    background-color: rgb(255, 197, 42);
+    /* background-color: rgb(255, 197, 42);
     border-top-right-radius: 20rpx;
-    border-top-left-radius: 20rpx;
+    border-top-left-radius: 20rpx; */
   }
   
   .title view {
