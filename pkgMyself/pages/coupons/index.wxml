@@ -2,15 +2,18 @@
   <van-tab title="{{res.name}}" wx:for-item="res" wx:for="{{items}}">
     <view class="res">
       <navigator url="/pkgMyself/pages/coupons/show?id={{item.id}}" bindlongpress="deteleyhq" data-i="{{item.id}}" hover-class="none"  class="item" wx:for-key="{{item.id}}" wx:for="{{res.items}}">
-        <view class="left">
+        <view class="header">
+          <image class="icon" src="/assets/icons/coupon-icon.png"></image>
+        </view>
+        <view class="boody">
           <view class="name">{{ item.name }}</view> 
           <view class="desc">{{item.desc}}</view>
           <view class="desc time">有效期至 {{item.expired_at}}</view>
+          <view class="desc time">券码:{{item.code}}</view>
         </view>
-        <view class="right">
-          <image class="icon" src="/assets/icons/coupon-icon.png"></image>
+        <view class="footer">
+          <van-button color="red" round size="mini">查看</van-button>
         </view>
-        
       </navigator>
     </view>
   </van-tab>

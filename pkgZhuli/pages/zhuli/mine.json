@@ -7,6 +7,7 @@
     "raw-html": "/components/raw-html/index",
     "steps": "./steps/index",
     "progress": "./progress/index",
+    "post-item": "/components/post-item/cell/index",
     "coupon": "/components/coupon/index",
     "thanks": "./thanks/index",
     "timer":"./timer/index",

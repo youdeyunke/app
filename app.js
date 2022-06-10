@@ -135,7 +135,6 @@ App({
         })
     },
 
-
     _downloadImage: function (url, cb) {
 
         // 先下载，再保存

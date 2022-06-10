@@ -1,10 +1,13 @@
 /* pkgZhuli/pages/zhuli/mine.wxss */
 page{
-  padding-bottom:120rpx;
+  padding-bottom:120rpx !important;
   padding-top:200rpx;
-  height: 100%;
+
   background-image: url('https://qiniucdn.udeve.net/fang/zhuli-bg.png?t=2');
   background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+
 
 }
 

@@ -27,12 +27,10 @@
   font-weight: bold;
   margin-bottom:10rpx;
 
-  width:500rpx;
 }
 
 .res .item .desc{
   color:#999;
-  width:500rpx;
 }
 
 .res .item .use{
@@ -43,7 +41,9 @@
 
 }
 
-.res .item .right .icon{
+.res .item .header .icon{
   width:100rpx;
   height: 100rpx;
 }
+
+

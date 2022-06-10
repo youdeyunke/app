@@ -25,8 +25,13 @@
     <view wx:else class="help done">我已助力</view>
   </mycard>
 
+  <mycard radius="20" title="相关项目" title-size="32" width="710">
+      <post-item post="{{post}}"></post-item>
+  </mycard>
+  
+  <steps wx:if="{{haoyouCount == 0}}"></steps>
 
-  <mycard radius="20" title="好友助力记录" title-size="32" width="710">
+  <mycard wx:else radius="20" title="好友助力记录" title-size="32" width="710">
     <view class="haoyou-list">
       <view class="haoyou-item" wx:for="{{haoyouItems}}">
         <view class="name">{{item.name}}
@@ -37,7 +42,15 @@
     </view>
   </mycard>
 
-  <steps></steps>
+  
+
+
+
+  <mycard radius="20" title="活动介绍" title-size="32" width="710">
+    <raw-html html="{{huodong.content}}"></raw-html>
+  </mycard>
+
+
 </view>
 
 <view class="footer" wx:if="{{showFooter}}">
@@ -46,9 +59,10 @@
     转发告诉好友
   </view>
 
-  <navigator hover-class="none" url="/pkgZhuli/pages/zhuli/index?id={{huodong.id}}" class="btn join">
-    回到活动页面
+  <navigator hover-class="none" url="/pkgMyself/pages/coupons/index" class="btn join">
+    查看我的卡券
   </navigator>
+
 </view>
 
 <thanks class="thanks"></thanks>

@@ -77,6 +77,7 @@ Page({
       success: function(res){ 
         var zhuli = res.data.data.zhuli  
         var tour =   res.data.data.tour  
+        var post = res.data.data.post 
         var couponConfig = res.data.data.coupon_config
 
         var pageTitle = "帮我助力 " + tour.title 
@@ -85,6 +86,7 @@ Page({
         _this.setData({ 
           zhuli: zhuli, 
           huodong: tour,  
+          post: post,
           couponConfig: couponConfig,
           pageTitle: pageTitle, 
         }, () => {
