@@ -7,7 +7,7 @@
      
       <view class="footer">
         <van-button custom-style="margin-bottom:10rpx;" block bindtap="formClose">取消</van-button>
-        <van-button block disabled="{{loading}}" type="primary" color="red" bindtap="submitHandle">确定</van-button>
+        <van-button block disabled="{{loading}}" type="primary" color="{{primaryBtnColor}}" bindtap="submitHandle">确定</van-button>
       </view>
 
     </view>
@@ -64,8 +64,8 @@
         <button class="bottom-share-two" open-type="share"></button>
       </view>
       <view class="bottom-button-right bottom-button-common">
-        <view wx:if="{{joined}}" >已领取</view>
-        <view wx:else bindtap="joinHandle">领取</view>
+        <view wx:if="{{joined}}" style="background: {{primaryBtnColor}};">已领取</view>
+        <view wx:else bindtap="joinHandle" style="background: {{primaryBtnColor}};">领取</view>
       </view>
     </view>
   </view>

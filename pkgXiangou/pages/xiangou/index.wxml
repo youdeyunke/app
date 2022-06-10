@@ -25,7 +25,7 @@
       <view>{{questions.options}}</view>
       </view>
       <view class="result-column-bottom">
-      <view bindtap="recount">重新计算</view>
+      <view bindtap="recount" style="background: {{primaryBtnColor}};">重新计算</view>
       </view>
     </view>
     <view class="flex-bottom-row"></view>

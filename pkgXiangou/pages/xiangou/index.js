@@ -2,6 +2,8 @@
 import zhengzhou from "./zhengzhou"
 import xian from "./xian"
 
+const app = getApp()
+
 Page({
 
     /**
@@ -150,7 +152,17 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        var _this = this
+        app.ensureConfigs(function (configs) {
+            var ui = configs.ui
+            var color = configs.color 
+            _this.setData({ 
+                headerImg:  ui.login_header,
+                bodyImg: ui.login_body ,  
+                primaryBtnColor:  color.primary_btn, 
+                primaryColor: color.primary,
+            })
+        })
     },
 
     /**

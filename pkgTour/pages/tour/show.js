@@ -204,6 +204,17 @@ Page({
       user:u,
       loading: false, 
     })
+    var _this = this
+    app.ensureConfigs(function (configs) {
+        var ui = configs.ui
+        var color = configs.color 
+        _this.setData({ 
+            headerImg:  ui.login_header,
+            bodyImg: ui.login_body ,  
+            primaryBtnColor:  color.primary_btn, 
+            primaryColor: color.primary,
+        })
+    })
   },
 
   /**
