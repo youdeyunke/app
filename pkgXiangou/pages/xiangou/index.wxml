@@ -6,9 +6,9 @@
   </view> -->
   <!-- 问题区域 -->
   <view class="questions">
-    <view class="title">
-      <view>{{questions.title}}</view>
-    </view>
+    <image src="../../images/img_grhjszd_01.png" class="title">
+      <view style="position: absolute;top: 0rpx;">{{questions.title}}</view>
+    </image>
     <view class="flex-column" wx:if="{{show==true}}">
       <view wx:for="{{questions.options}}" wx:index="index" >
         <view class="flex-column-item" bindtap="tapOption" data-index="{{index}}">
