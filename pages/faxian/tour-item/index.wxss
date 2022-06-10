@@ -13,13 +13,11 @@
 }
 .img{
     width: 710rpx;
-    height: 430rpx;
+    height: 355rpx;
     position: relative;
+    overflow: hidden;
 }
-.img image{
-    width: 100%;
-    height: 100%;
-}
+
 .img .title{
     width: 184rpx;
     height: 60rpx;

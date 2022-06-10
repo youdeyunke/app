@@ -13,7 +13,7 @@
           <view class="text-title">
           <view >{{ item.address }}</view>
           <view>主办方：{{ item.master }}</view>
-          <view>活动时间：{{item.starts_at_pretty}}</view>
+          <view>截止时间：{{item.ends_at_pretty}}</view>
           </view>
           <van-button class="text-btn" type="info" size="mini" wx:if="{{item.status_value == 'active' }}">立即参与</van-button>
         </view>

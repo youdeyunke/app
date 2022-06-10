@@ -35,7 +35,13 @@ Component({
         } else if (this.data.item.is_hot) {
             badgeImg = this.data.hotImg
         }
-        this.setData({ badgeImg: badgeImg })
+        this.setData({ 
+          badgeImg: badgeImg,
+          btnColor: app.globalData.myconfigs.color.primary_btn
+        
+        })
+
+
     },
 
     /**

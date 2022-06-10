@@ -268,7 +268,7 @@ Page({
     })
     //this.loadData()
     wx.removeTabBarBadge({
-      index: 3,
+      index: 2,
     })
     // 开始轮询
     setTimeout(() => {

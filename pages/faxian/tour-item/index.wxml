@@ -1,21 +1,20 @@
-<navigator hover-class="none"  url="/pkgTour/pages/tour/show?id={{item.id}}" style="">
+<navigator hover-class="none"  url="{{item.url}}" >
       <view class="cover">
         <view class="img">
           <view class="title success" >
             <text>{{ item.status_name }}</text>
           </view>
-
-          <image style="border-top-left-radius:20rpx;border-top-right-radius:20rpx;" src="{{item.cover}}?imageView2" />
+          <image mode="aspectFill" style="border-top-left-radius:20rpx;border-top-right-radius:20rpx;width:100%;height:100%;" src="{{item.cover}}?imageView2/5/w/600/h/150" />
         </view>
         <view class="text">
           <view class="text-title">
             <view class="title">{{item.title}}</view>
             <view class="address" style="margin:20rpx 0;">主办方：{{ item.master || '-' }}</view>
-            <view>活动时间：{{item.starts_at_pretty}}</view>
+            <view>截止时间：{{item.ends_at_pretty}}</view>
           </view>
           <view class="text-right">
             <!-- view class="renshu">报名人数:  125</view -->
-            <view class="text-btn"  wx:if="{{item.status.value != 2 }}">立即报名</view>
+            <van-button size="small" color="{{btnColor}}" round  wx:if="{{item.status.value != 2 }}">{{item.join_btn || '立即报名'}}</van-button>
           </view>
         </view>
       </view>
