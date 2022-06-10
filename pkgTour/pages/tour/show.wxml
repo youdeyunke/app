@@ -33,7 +33,7 @@
       <van-field label="邀约顾问" disabled="true" value="{{brokerName}} {{ brokerPhone}}" ></van-field>
     </block>
     <view class="footer">
-      <van-button custom-style="margin-bottom:10rpx;" block bindtap="formClose">取消</van-button>
+      <van-button custom-style="margin-bottom:10rpx;" block bindtap="formClose" color="{{primaryBtnColor}}">取消</van-button>
       <van-button block disabled="{{loading}}" color="{{primaryBtnColor}}" type="primary" bindtap="formSubmit">确定报名</van-button>
     </view>
 
@@ -53,8 +53,8 @@
       <button class="bottom-share-two" open-type="share"></button>
     </view>
     <view class="bottom-button-right bottom-button-common">
-      <view wx:if="{{joined}}" bindtap="cancleJoin">已满员(取消报名)</view>
-      <view wx:else>已满员</view>
+      <view style="background: {{primaryBtnColor}};" wx:if="{{joined}}" bindtap="cancleJoin">已满员(取消报名)</view>
+      <view style="background: {{primaryBtnColor}};" wx:else>已满员</view>
     </view>
   </view>
 </view>
@@ -92,7 +92,7 @@
       <button class="bottom-share-two" open-type="share"></button>
     </view>
     <view class="bottom-button-right bottom-button-common">
-      <view>报名已截止</view>
+      <view style="background: {{primaryBtnColor}};">报名已截止</view>
     </view>
   </view>
 </view>

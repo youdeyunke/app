@@ -45,7 +45,7 @@
         <button class="bottom-share-two" open-type="share"></button>
       </view>
       <view class="bottom-button-right bottom-button-common">
-        <view >已领完</view>
+        <view style="background: {{primaryBtnColor}};">已领完</view>
       </view>
     </view>
   </view>
@@ -84,7 +84,7 @@
         <button class="bottom-share-two" open-type="share"></button>
       </view>
       <view class="bottom-button-right bottom-button-common">
-        <view>活动已结束</view>
+        <view style="background: {{primaryBtnColor}};">活动已结束</view>
       </view>
     </view>
   </view>
