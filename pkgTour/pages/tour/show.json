@@ -3,6 +3,7 @@
         "raw-html": "/components/raw-html/index",
         "box": "/components/ud/box/index",
         "post-item": "/components/post-item/cell/index",
+        "sms-button": "/components/sms-button/index",
         "mystars": "/components/stars"
     }
 }

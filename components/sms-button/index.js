@@ -55,11 +55,11 @@ Component({
       var phone = this.data.mobile
       if(!phone ){
         wx.showModal({title: '请先填写手机号码',icon: 'none'})
-        //return false
+        return false
       }
       if( !(/^1[3456789]\d{9}$/.test(phone))){
         wx.showModal({title: '手机号格式错误',icon: 'none'})
-        //return false
+        return false
       }
       app.request({
         url:'/api/v1/sms',

@@ -27,7 +27,11 @@
 
     <van-field label="联系人" model:value="{{name}}" placeholder="请输入联系人姓名"></van-field>
     <!-- <van-field label="人数" model:value="{{numbers}}" placeholder="您有几人参加"></van-field> -->
-    <van-field disabled="{{user && user.mobile}}" label="手机号" placeholder="" value="{{user.mobile}}"></van-field>
+    <van-field disabled="{{mobile_lock}}" label="手机号" placeholder="" model:value="{{mobile}}" use-button-slot>
+        <sms-button wx:if="{{!mobile_lock}}"  slot="button" mobile="{{mobile}}" />
+        <van-button wx:if="{{mobile_lock}}" slot="button" size="small" type="primary" bindtap="mobileChange" plain>修改号码</van-button>
+    </van-field>
+    <van-field wx:if="{{!mobile_lock}}" label="验证码" model:value="{{ sms_code }}" placeholder="短信验证码"></van-field>
     <!-- <van-field label="备注" model:value="{{remark}}" placeholder="其它备注信息"></van-field> -->
     <block wx:if="{{brokerId && brokerPhone}}">
       <van-field label="邀约顾问" disabled="true" value="{{brokerName}} {{ brokerPhone}}" ></van-field>

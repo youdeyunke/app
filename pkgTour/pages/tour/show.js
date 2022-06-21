@@ -1,5 +1,6 @@
 // pages/news/show.js
 const app = getApp()
+var auth = require('../../../utils/auth');
 
 Page({
 
@@ -17,14 +18,21 @@ Page({
     name: '',
     numbers: '',
     remark: '',
-
+    sms_code: '',
     html: '',
     item: null,
+    mobile_lock: false
   },
 
   moveHome() {
     wx.switchTab({
       url: '../../../pages/home/home'
+    })
+  },
+
+  mobileChange(){
+    this.setData({
+        mobile_lock:false
     })
   },
 
@@ -81,8 +89,7 @@ Page({
       name: this.data.name,
       broker_name: this.data.brokerName, 
       broker_phone: this.data.brokerPhone,
-    //   numbers: this.data.numbers,
-    //   remark: this.data.remark,
+      mobile: this.data.mobile
     }
     if (!data.name) {
       wx.showToast({
@@ -91,47 +98,94 @@ Page({
       })
       return false
     }
-    // if (!data.numbers) {
-    //   wx.showToast({
-    //     icon: 'none',
-    //     title: '请填写人数',
-    //   })
-    //   return
-    // }
-
+    if (!data.mobile) {
+        wx.showToast({
+          icon: 'none',
+          title: '请填写手机号',
+        })
+        return false
+    }
     var _this = this
     this.setData({
       loading: true
     })
-    this.formClose()
-    app.request({
-      url: '/api/v1/tour_members/',
-      method: 'POST',
-      data: data,
-      success: function (resp) {
-        _this.setData({
-          loading: false
+    _this.formClose()
+    if(this.data.mobile_lock){
+        _this.postData(data)
+    }else{
+        _this.smsLoginHandle(() => {
+            _this.postData(data)
         })
-        if (resp.data.status == 0) {
-          wx.showModal({
-            title: '报名成功',
-            content: '您已成功报名此次活动。',
-            showCancel: false,
-            confirmText: '知道了',
-            confirmColor: '#B20700',
-            success: (result) => {
-              if (result.confirm) {
-                _this.loadData()
-              }
-            },
-            fail: () => {},
-            complete: () => {}
-          });
-
-        }
-      }
-    })
+    }
   },
+
+  postData(data){
+    var _this = this
+    app.request({
+        url: '/api/v1/tour_members/',
+        method: 'POST',
+        data: data,
+        success: function (resp) {
+          _this.setData({
+            loading: false
+          })
+          if (resp.data.status == 0) {
+            wx.showModal({
+              title: '报名成功',
+              content: '您已成功报名此次活动。',
+              showCancel: false,
+              confirmText: '知道了',
+              confirmColor: '#B20700',
+              success: (result) => {
+                if (result.confirm) {
+                  _this.loadData()
+                }
+              },
+              fail: () => {},
+              complete: () => {}
+            });
+          }
+        }
+      })
+  },
+
+  smsLoginHandle(cb) {
+    // 通过短信验证码登陆账号
+    var phone = this.data.mobile
+    var code = this.data.sms_code
+    if (!(/^1[3456789]\d{9}$/.test(phone))) {
+        wx.showModal({
+            title: '手机号格式错误',
+            icon: 'none'
+        })
+        return false
+    }
+    if (code.length != 4) {
+        wx.showModal({
+            title: '验证码输入错误',
+            icon: 'none'
+        })
+        return false
+    }
+    app.request({
+        url: '/api/v1/sms/auth',
+        method: 'POST',
+        data: {
+            mobile: phone,
+            code: code
+        },
+        success: function (res) {
+            var data = res.data
+            if (data.status == 0) {
+                // 保存下服务器返回的token
+                var token = data.data.token
+                var user = data.data.user
+                auth.setUserInfo(token, user) 
+                return cb()
+            }
+        }
+        })
+    },
 
   joinHandle: function (e) {
     console.log('join handle')
@@ -200,8 +254,14 @@ Page({
       wx.hideLoading()
     }, 500)
     var  u = app.globalData.userInfo 
+    if(u && u.mobile){
+        this.setData({
+            mobile_lock:true
+        })
+    }
     this.setData({
       user:u,
+      mobile: u.mobile,
       loading: false, 
     })
     var _this = this

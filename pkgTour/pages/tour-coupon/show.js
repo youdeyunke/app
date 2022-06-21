@@ -45,13 +45,13 @@ Page({
 
   joinHandle: function () {
     // 如果是需要输入口令领取
-    if (this.data.item.password_enable) {
+    // if (this.data.item.password_enable) {
       this.setData({
         showForm: true,
       })
       return
-    }
-    this.submitHandle()
+    // }
+    // this.submitHandle()
   },
 
   formClose: function(){
@@ -82,13 +82,20 @@ Page({
     var data = {
       password: this.data.password,
       tour_id: this.data.item.id,
-      name: this.data.user.name,
+      name: this.data.name,
       broker_name: this.data.brokerName,
       broker_phone: this.data.brokerPhone,
+      mobile: this.data.user.mobile,
       numbers: 1,
       remark: '点击领取卡券',
     }
-
+    if (!data.name) {
+        wx.showToast({
+          icon: 'none',
+          title: '请填写联系人',
+        })
+        return false
+      }
     var _this = this
     this.setData({
       loading: true,
