@@ -2,7 +2,6 @@
   <view class="title">{{coupon.name}}</view>
   <view class="desc">{{coupon.desc}}</view>
 
-
   <view class="cell">
     <view class="cell-title">有效期</view>
     <view class="cell-value">{{coupon.starts_at}} ~ {{ coupon.expired_at}}</view>
@@ -30,7 +29,6 @@
     <view class="cell-title">核销码</view>
     <view class="cell-value"></view>
   </view>
-
 
   <view class="qr">
     <van-image width="600rpx" height="600rpx" src="{{coupon.qr}}"></van-image>
