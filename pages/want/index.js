@@ -199,6 +199,7 @@ Page({
         var _this = this
         _this.validate(function (data){
             // 如果需要提交验证码
+            // 应该改为，判断点击了修改按钮之后
             var _token = app.globalData.token 
             if(!_token){
                 _this.smsLoginHandle(() => {
@@ -213,6 +214,7 @@ Page({
     },
 
     postData: function(data){
+        var _this = this 
         // 将表单数据处理成线索表所需要的数据格式 
         var clueData = { 
             name: data.name,  

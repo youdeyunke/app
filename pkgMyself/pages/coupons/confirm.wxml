@@ -1,0 +1,18 @@
+<view class="coupon" wx:if="{{coupon && !error }}">
+  <van-cell title="券名" value="{{coupon.name}}"></van-cell>
+  <van-cell title="有效期" value="{{coupon.starts_at}}~{{coupon.expired_at}}"></van-cell>
+  <van-cell title="使用说明" value="{{coupon.content}}"></van-cell>
+  <van-cell title="券码" value="{{coupon.code}}"></van-cell>
+</view>
+
+
+<view class="outer">
+
+  <view class="msg" wx:if="{{!coupon}}">加载数据中...</view>
+  <block wx:else>
+    <view wx:if="{{error}}" class="msg error">{{error}}</view>
+    <view wx:if="{{message}}" class="msg success">{{message}}</view>
+    <van-button style="width:100%;" bindtap="saomaHandle" type="info" block>继续扫码</van-button>
+    <van-button style="width:100%;" type="default" block bindtap="goHome">回到首页</van-button>
+  </block>
+</view>

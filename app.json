@@ -60,6 +60,7 @@
                 "pages/profile/index",
                 "pages/coupons/index",
                 "pages/coupons/show",
+                "pages/coupons/confirm",
                 "pages/favposts/index",
                 "pages/eventposts/index",
                 "pages/booking/index",

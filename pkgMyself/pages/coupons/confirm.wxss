@@ -1,0 +1,35 @@
+.outer{
+  width:690rpx; 
+
+  padding:30rpx; 
+  box-sizing: border-box;
+  border-radius: 15rpx;
+  font-size:28rpx; 
+  color:#fff; 
+  margin:20rpx auto 0 auto;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.outer .msg{
+  font-size:28rpx;
+  color:#333;
+  font-weight: bold;
+  height:100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.outer .error{
+  color:red; 
+}
+
+.outer .success{
+  color: green;
+}

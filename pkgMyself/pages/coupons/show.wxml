@@ -2,10 +2,6 @@
   <view class="title">{{coupon.name}}</view>
   <view class="desc">{{coupon.desc}}</view>
 
-  <view class="footer" wx:if="{{coupon.cat == 'coupon'}}">
-    <van-button wx:if="{{coupon.used == false }}" block bindtap="useHandle" round type="primary" color="red">立即使用</van-button>
-    <van-button wx:else block  round type="primary" plain color="red">已使用</van-button>
-  </view>
 
   <view class="cell">
     <view class="cell-title">有效期</view>
@@ -24,24 +20,40 @@
     <view class="cell-value">{{coupon.code }}</view>
   </view>
 
-  <view class="cell" >
+
+  <view class="cell">
     <view class="cell-title">使用说明</view>
     <view class="cell-value">{{coupon.content}}</view>
+  </view>
+
+  <view class="cell">
+    <view class="cell-title">核销码</view>
+    <view class="cell-value"></view>
+  </view>
+
+
+  <view class="qr">
+    <van-image width="600rpx" height="600rpx" src="{{coupon.qr}}"></van-image>
   </view>
 
 
 </view>
 
+<view class="footer" wx:if="{{coupon && coupon.cat == 'coupon' && coupon.confirm_method == 'password'}}">
+  <van-button wx:if="{{coupon.used == false }}" block bindtap="useHandle" round  type="primary" color="red">立即使用</van-button>
+</view>
+
+
 <!-- 弹窗 -->
-<van-popup closeable bind:close="formClose"  round title="活动报名" show="{{showForm}}">
+<van-popup closeable bind:close="formClose" round title="卡券核销" show="{{showForm}}">
   <view class="form">
 
-    <van-field maxlength="4"  label="核销口令" model:value="{{password}}" placeholder="请输入核销口令"></van-field>
+    <van-field maxlength="4" label="核销口令" model:value="{{password}}" placeholder="请输入核销口令"></van-field>
 
     <view class="footer">
       <van-button round custom-style="margin-bottom:20rpx;" block bindtap="formClose">取消</van-button>
       <van-button round block disabled="{{loading}}" type="primary" color="red" bindtap="submitHandle">确定核销</van-button>
- 
+
     </view>
     <view class="tips">请联系现场工作人员进行核销</view>
   </view>

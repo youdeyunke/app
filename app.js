@@ -1,6 +1,7 @@
 //app.js
 const auth = require("utils/auth.js");
 const EXT = wx.getExtConfigSync()
+const city = require("utils/city.js");
 //const T = require("utils/test.js");
 //const TIM = require('tim/index.js');
 
@@ -285,7 +286,7 @@ App({
         this.ensureConfigs(function (config) {
             _this.loadCities(function (cities) {
                 _this.globalData.cities = cities;
-                _this.getLocation();
+                city.setCity()
             });
             //setTimeout(_this.initTim, 2000)
         })
@@ -545,7 +546,7 @@ App({
 
         // This must be wx.request !
         var host = EXT.apihost 
-        console.log('ext is', EXT)
+        //console.log('ext is', EXT)
         var url = host + obj.url;
         var _method = obj.method || 'GET'
         var _Methods = ['GET', 'POST', 'PUT', 'DELETE']
