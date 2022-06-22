@@ -30,16 +30,16 @@
     <view class="cell-value"></view>
   </view>
 
-  <view class="qr">
+  <view class="qr" bindtap="qrPreview">
     <van-image width="600rpx" height="600rpx" src="{{coupon.qr}}"></van-image>
   </view>
 
 
 </view>
 
-<view class="footer" wx:if="{{coupon && coupon.cat == 'coupon' && coupon.confirm_method == 'password'}}">
+<!-- view class="footer" wx:if="{{coupon && coupon.cat == 'coupon' && coupon.confirm_method == 'password'}}">
   <van-button wx:if="{{coupon.used == false }}" block bindtap="useHandle" round  type="primary" color="red">立即使用</van-button>
-</view>
+</view -->
 
 
 <!-- 弹窗 -->
