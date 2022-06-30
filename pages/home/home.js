@@ -1,5 +1,6 @@
 // pages/home/home.js
 const app = getApp()
+import utils from '../../utils/util'
 const rowWidthItem = ['60%', "100%", "30%", "40%", "100%"]
 
 
@@ -20,6 +21,23 @@ Page({
         configs: null,
         showInstallTips: 0, // 1:正常显示，2：自动关闭，3：手动关闭
         city_id: null,
+        bgOpacity:0
+    },
+
+    onPageScroll: function (e) {
+        var scrollTop = e.scrollTop
+        this.setOpacity(scrollTop,500)
+    },
+    setOpacity:function(scrollTop,maxTop){
+        var opacity = 0
+        if(scrollTop<=maxTop){
+            opacity = scrollTop/maxTop
+        }else{
+            opacity = 1
+        }
+        this.setData({
+            bgOpacity:opacity
+        })
     },
 
     comming: function (e) {
@@ -108,7 +126,8 @@ Page({
         var shareTitle = config.shareTitle || pageTitle
         var titleBgColor = config.title.bgColor
         var titleFontColor = config.title.color
-
+        titleBgColor = utils.set16ToRgb(titleBgColor)
+        
         this.setData({
             shareCover: shareCover,
             shareTitle: shareTitle,

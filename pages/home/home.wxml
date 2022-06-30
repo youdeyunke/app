@@ -1,6 +1,14 @@
-<navigation-bar   background="{{titleBgColor}}"  background-color-top="none" title="{{pageTitle}}" color="{{titleFontColor}}">
-  <view style="color:#cecece;" slot="left">
-    
+<navigation-bar  bgOpacity="{{bgOpacity}}" background="{{titleBgColor}}"  background-color-top="none" title="{{pageTitle}}" color="{{titleFontColor}}">
+  <view class="topLeftBtn" slot="left">
+    <view class="topLeftBtn-address">
+    {{shareTitle}}
+    </view>
+    <view style="text-align: center;display: flex;align-items: center;justify-content: center;margin:0 11rpx;">
+        <van-icon name="arrow-down" />
+    </view>
+    <view style="text-align: center;display: flex;align-items: center;justify-content: center;border-left: 1rpx solid #FFF;padding:0 11rpx;">
+        <van-icon name="search" />
+    </view>
   </view>
 </navigation-bar>
 
@@ -11,6 +19,6 @@
 </van-transition>
 
 <page-loading wx:if="{{loading}}" />
-<pagemaker bind:ready="pageReadyHandle" ref="pagemaker" class="pm" page-key="home" />
+<pagemaker bind:ready="pageReadyHandle" ref="pagemaker" style="position: absolute;top: 0;" class="pm" page-key="home" />
 
 <copyright></copyright>
