@@ -7,7 +7,7 @@ Component({
    */
   properties: {
     color: { 
-      type: String, value: '#1989fa',
+      type: String, value: '#333333',
     },
     mobile: {
       type: Number, value: null 

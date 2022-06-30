@@ -33,7 +33,6 @@ Page({
       method: 'PUT', 
       data: data, 
       success: function(resp){
-        _this.formClose()
         if(resp.data.status != 0){
           return 
         }
@@ -41,9 +40,7 @@ Page({
         _this.setData({ 
           message: '已核销!',
         })
-        setTimeout(() => { 
-            wx.navigateBack({dleta:1})
-        }, 1500)
+ 
        }
     })
   },
@@ -92,8 +89,15 @@ Page({
     })
     app.request({  
       url: '/api/v1/coupons/' + cid, 
+      method: 'GET',
       success: function(resp){ 
         if(resp.data.status != 0){
+          // 回退 
+          setTimeout(() => {
+            wx.navigateBack({
+              delta: 1,
+            })
+          }, 1500)
           return 
         }
         var coupon = resp.data.data  
@@ -110,8 +114,23 @@ Page({
             }, 1500)
             return
         }
+
         // 进入核销流程
-        this.submitHandle(coupon.id)
+        wx.showModal({
+          title: '确认核销', 
+          content: '确认核销卡券：【' + coupon.name + '】吗？',
+          confirmText: '确认核销', 
+          cancelText: '取消', 
+          success: function(res){
+            if(res.confirm){
+              _this.submitHandle(coupon.id)
+              return 
+            }
+            wx.navigateBack({
+              delta: 1,
+            })
+          },
+        })
       }
     })
   },

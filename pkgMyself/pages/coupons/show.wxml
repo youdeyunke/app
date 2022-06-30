@@ -25,7 +25,14 @@
     <view class="cell-value">{{coupon.content}}</view>
   </view>
 
-  <view class="cell">
+  <view class="cell" >
+    <view class="cell-title">使用状态</view>
+    <view class="cell-value">{{ coupon.used == true  ? '已使用' : '未使用'}}</view>
+  </view>
+
+<block wx:if="{{coupon.used != true }}">
+
+  <view class="cell" >
     <view class="cell-title">核销码</view>
     <view class="cell-value"></view>
   </view>
@@ -33,6 +40,9 @@
   <view class="qr" bindtap="qrPreview">
     <van-image width="600rpx" height="600rpx" src="{{coupon.qr}}"></van-image>
   </view>
+</block>
+
+
 
 
 </view>

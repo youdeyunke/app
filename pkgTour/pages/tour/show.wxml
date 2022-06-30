@@ -33,12 +33,13 @@
     </van-field>
     <van-field wx:if="{{!mobile_lock}}" label="验证码" model:value="{{ sms_code }}" placeholder="短信验证码"></van-field>
     <!-- <van-field label="备注" model:value="{{remark}}" placeholder="其它备注信息"></van-field> -->
-    <block wx:if="{{brokerId && brokerPhone}}">
+    <!-- block wx:if="{{brokerId && brokerPhone}}">
       <van-field label="邀约顾问" disabled="true" value="{{brokerName}} {{ brokerPhone}}" ></van-field>
-    </block>
+    </block -->
     <view class="footer">
-      <van-button custom-style="margin-bottom:10rpx;" block bindtap="formClose" color="{{primaryBtnColor}}">取消</van-button>
+
       <van-button block disabled="{{loading}}" color="{{primaryBtnColor}}" type="primary" bindtap="formSubmit">确定报名</van-button>
+      <van-button custom-style="margin-top:10rpx;" block bindtap="formClose" type="default">取消</van-button>
     </view>
 
   </view>

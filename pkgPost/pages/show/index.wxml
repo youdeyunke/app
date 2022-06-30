@@ -33,7 +33,7 @@
         </view>
     </block>
     <ad-link />
-    <safe-tips  />
+    <!-- safe-tips  / -->
     <copyright></copyright>
 
     <broker-contact wx:if="{{postId && postInfo && broker}}" broker="{{broker}}" post-id="{{postId}}" ></broker-contact>

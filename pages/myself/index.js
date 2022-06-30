@@ -18,7 +18,12 @@ Page({
             {name: '浏览历史', iconKey: '12', url: '/pkgMyself/pages/history/index'},
             {name: '我的预约', iconKey: '20', url: '/pkgMyself/pages/booking/index'},
             {name: '我的问答', iconKey: '19',url: '/pkgMyself/pages/qa/index'},
-            {name: '我的评论', iconKey: '19',url: '/pkgMyself/pages/comments/index'},
+            //{name: '我的评论', iconKey: '19',url: '/pkgMyself/pages/comments/index'},
+            {
+              name: '我的卡券',
+              iconKey: '22',
+              url: '/pkgMyself/pages/coupons/index'
+            },
         ],
 
         brokerIcons: [
@@ -332,6 +337,11 @@ Page({
               console.log('2333',res)
               console.log('24444',res.path)
               if(res.path != undefined){
+                var path = res.path  
+                if(!path.startsWith('/')){
+                  path = '/' + path 
+                }
+                console.log('qr path is', path)
                   wx.navigateTo({
                     url: res.path,
                   })

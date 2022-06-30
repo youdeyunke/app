@@ -38,14 +38,14 @@ Page({
     kwChange: function (e) {
         var kw = e.detail
         this.setData({
-            kw:kw
+            kw:kw,
+            page:1,
         })
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
-        wx.setNavigationBarTitle({ title: '发现', });
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -61,7 +61,7 @@ Page({
         this.setData({
             tabs: app.globalData.myconfigs.faxian_tabs
         })
-        console.log('tabs', app.globalData.myconfigs.faxian_tabs)
+        wx.setNavigationBarTitle({ title: '发现', });
     },
 
     /**
