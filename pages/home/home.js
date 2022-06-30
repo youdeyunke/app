@@ -40,6 +40,39 @@ Page({
         })
     },
 
+    citySelect: function(){
+        wx.navigateTo({
+          url: '/pages/cities/select',
+        })
+    },
+
+    loadSelectCity: function(){
+        var adcode = wx.getStorageSync('cityCode')
+        console.log('2323232',adcode)
+        var _this = this
+        var url = '/api/v1/cities/'
+        app.request({
+            url: url,
+            success(resp){
+                var cities = resp.data.data
+                if (!adcode) {
+                    _this.setData({
+                        city: cities[0].name
+                    })
+                    wx.setStorageSync('cityCode', cities[0].adcode)
+                    return
+                }
+                cities.forEach((item) => {
+                    if(item.adcode == adcode){
+                        _this.setData({
+                            city: item.name
+                        })
+                    }
+                })
+            }
+        })        
+    },
+
     comming: function (e) {
         wx.showToast({
             title: '功能正在调试中',
@@ -81,6 +114,7 @@ Page({
         }, () => {
             this.checkInstallTips()
         })
+        this.loadSelectCity()
       
     },
 

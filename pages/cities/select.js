@@ -1,4 +1,6 @@
 // pages/cities/select.js
+const app = getApp()
+
 Page({
 
   /**
@@ -8,11 +10,33 @@ Page({
 
   },
 
+  loadData(){
+      var _this = this
+      var url = '/api/v1/cities/'
+      app.request({
+          url: url,
+          success(resp){
+            _this.setData({
+                cities: resp.data.data
+            })
+          }
+      })
+  },
+
+  citySelect(e){
+    console.log(e.currentTarget.dataset.adcode)
+    var adcode = e.currentTarget.dataset.adcode
+    wx.setStorageSync('cityCode', adcode)
+    wx.reLaunch({
+      url: '/pages/home/home',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.loadData()
   },
 
   /**
