@@ -1,7 +1,5 @@
 {
   "enablePullDownRefresh": true,
-  
-  "navigationBarBackgroundColor": "#EC0101",
   "navigationBarTextStyle":"white",
   "usingComponents": {
     "van-tag": "/vant/tag/index",
