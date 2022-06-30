@@ -13,6 +13,11 @@ Component({
       value: 'rgba(255, 255, 255, 1)',
       observer: '_showChange'
     },
+    bgOpacity: {
+        type: Number,
+        value: 0,
+        observer: 'setOpacity'
+    },
     backgroundColorTop: {
       type: String,
       value: 'rgba(255, 255, 255, 1)',
@@ -65,6 +70,7 @@ Component({
   },
   attached: function() {
     this.setStyle(); //设置样式
+    this.setOpacity()
   },
   data: {},
   pageLifetimes: {
@@ -223,6 +229,23 @@ Component({
         //console.log('systemInfo', systemInfo);
         return systemInfo;
       }
+    },
+     //拼接rgb
+    setOpacity() {
+        var bgcolor = this.data.background
+        var bg = bgcolor.split(',')
+        if(bg.length == 3){
+            let x = bg[2].split(')')
+            x[0] = x[0] + `,${this.data.bgOpacity})`
+            bg[2] = x[0]
+        }
+        if(bg.length == 4){
+            bg[3] = `${this.data.bgOpacity})`
+        }
+        this.setData({
+            background: bg.toString()
+        })
+        console.log(bg.toString())
     }
   }
 });
