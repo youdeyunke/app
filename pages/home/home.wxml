@@ -1,9 +1,9 @@
 <navigation-bar  bgOpacity="{{bgOpacity}}" background="{{titleBgColor}}"  background-color-top="none" title="{{pageTitle}}" color="{{titleFontColor}}">
   <view class="topLeftBtn" slot="left">
-    <view class="topLeftBtn-address">
-    {{shareTitle}}
+    <view bindtap="citySelect" class="topLeftBtn-address">
+    {{city}}
     </view>
-    <view style="text-align: center;display: flex;align-items: center;justify-content: center;margin:0 11rpx;">
+    <view bindtap="citySelect" style="text-align: center;display: flex;align-items: center;justify-content: center;margin:0 11rpx;">
         <van-icon name="arrow-down" />
     </view>
     <view style="text-align: center;display: flex;align-items: center;justify-content: center;border-left: 1rpx solid #FFF;padding:0 11rpx;">
