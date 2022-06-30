@@ -65,9 +65,7 @@ Component({
     },
 
     closeWindow: function () {
-      if (!this.data.closable) {
-          return
-      }
+
       this.setData({
         show: false,
         loading: false,
