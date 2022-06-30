@@ -1,7 +1,7 @@
 <van-popup lock-scrol="{{true}}" show="{{show}}" duration="800" custom-style="background:none;">
   <view style="background-image:url('{{bg}}')" class="window">
 
-    <view class="close" bindtap="closeWindow">
+    <view wx:if="{{closable}}" class="close" bindtap="closeWindow">
       <van-icon name="cross" size="24"></van-icon>
     </view>
 

@@ -28,6 +28,7 @@ Component({
     show: false,
     bg: null,
     primaryColor: '#1989fa',
+    closable: false
   },
 
   /**
@@ -50,7 +51,8 @@ Component({
       var _this = this
       setTimeout(() => {
         _this.setData({
-          loading: false
+          loading: false,
+          closable: true
         })
       }, 5000)
 
@@ -63,6 +65,9 @@ Component({
     },
 
     closeWindow: function () {
+      if (!this.data.closable) {
+          return
+      }
       this.setData({
         show: false,
         loading: false,
