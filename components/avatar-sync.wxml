@@ -1,1 +1,3 @@
-<van-button hover-class="none" size="normal" lang="zh_CN" type="default" round  plain open-type="getUserInfo" bindgetuserinfo="syncAvatar"> <van-icon name="exchange" /> </van-button>
+<van-button bind:change="loadUser" block type="primary" hover-class="none" lang="zh_CN"    bindtap="syncAvatar">
+同步微信头像
+</van-button>

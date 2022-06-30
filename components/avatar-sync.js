@@ -1,3 +1,5 @@
+const qiniu = require("../utils/qiniu")
+
 // components/avatar-sync.js
 const app = getApp()
 
@@ -20,14 +22,64 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    doUpdate: function(userInfo){
-      var url = userInfo.avatarUrl
+    syncAvatar(e) {
+      console.log("e",e)
+      // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
+      // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
+      var _this = this 
+      wx.getUserProfile({
+        desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+        success: (res) => {
+          var info = res.userInfo 
+          console.log('userinfo', info)
+          var avatar = info.avatarUrl 
+          // 上传到自己cdn，防止制作海报时候无法生成图片
+          var _this  = this 
+          wx.downloadFile({
+            url: avatar,
+            success: function(res) {
+              //  上传到自己服务器
+              console.log('头像下载到本地',res)
+              qiniu.upload(res.tempFilePath, function(url){
+                info.avatarUrl = url
+                console.log('头像已上传到cdn ', url)  
+                _this.doUpdate(info)
+              })
+
+              
+            }
+          })
+      
+
+        }
+      })
+    },
+
+    
+
+    doUpdate: function (userInfo) {
+      var user = app.globalData.userInfo
+      if (user.is_broker) {
+        var url = '/api/v1/brokers/' + user.id
+      } else {
+        var url = '/api/v1/users/' + user.id
+
+      }
+      console.log('user info is ', userInfo)
+      var data = {
+        profile: {
+          avatar: userInfo.avatarUrl,
+          name: userInfo.nickName,
+        }
+      }
+      var _this = this 
       app.request({
-        url: '/api/v1/users/update_avatar', 
-        data: {avatar: url},
-        method: 'POST',
-        success: function(resp){
-          if(resp.data.status == 0){
+        url: url,
+        data: data,
+        method: 'PUT',
+        success: function (resp) {
+          if (resp.data.status == 0) {
+            _this.triggerEvent('change', {})
             wx.showToast({
               icon: 'none',
               title: '微信头像同步成功',
@@ -38,24 +90,24 @@ Component({
       })
     },
 
-    syncAvatar: function(e){
+    _syncAvatar: function (e) {
       var _this = this
-			wx.showModal({
-				title: '提示',
+      wx.showModal({
+        title: '提示',
         cancelText: "取消",
         confirmText: "同步",
-				content: '确认要同步微信头像吗？',
-				success(res) {
-					if (res.confirm) {
-						console.log('用户点击确定')
-						_this._syncAvatar(e)
+        content: '确认要同步微信头像和昵称吗？',
+        success(res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+            _this._syncAvatar(e)
 
-					} 
-				}
-			})
+          }
+        }
+      })
     },
 
-    _syncAvatar: function(e){
+    _syncAvatar: function (e) {
       var _this = this
       wx.getSetting({
         success(res) {
@@ -67,19 +119,19 @@ Component({
                 _this.doUpdate(res.userInfo)
               }
             })
-          }else{
+          } else {
             wx.showToast({
               title: '请先允许授权',
               duration: 2000,
               icon: 'none',
               mask: true,
-              success: function(){
+              success: function () {
                 wx.openSetting()
               },
             })
           }
         }
-      })      
+      })
     },
 
   }
