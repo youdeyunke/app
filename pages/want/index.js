@@ -234,7 +234,7 @@ Page({
 
         app.request({
             url: '/api/v1/clues/',
-            data: data,
+            data: clueData,
             method: 'POST',
             success: function (resp) {
                 if (resp.data.status != 0) {
