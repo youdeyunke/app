@@ -36,7 +36,7 @@
     </card>
     <card width="710" hat="{{false}}"  title="联系方式">
         <van-cell-group>
-            <van-notice-bar wrapable wx:if="{{!contact_mobile_lock}}" scrollable="{{ false }}" text=" 您的手机号会经过技术加密，并仅用作本平台置业顾问与您联系，请放心填写，" left-icon='info' />
+            <!-- van-notice-bar wrapable wx:if="{{!contact_mobile_lock}}" scrollable="{{ false }}" text=" 您的手机号会经过技术加密，并仅用作本平台置业顾问与您联系，请放心填写，" left-icon='info' / -->
 
             <van-field  bindchange="inputChange" center required label="手机号" value="{{ contact_mobile }}" readonly="{{contact_mobile_lock}}" disabled="{{contact_mobile_lock}}" placeholder="用于专属顾问联系您" data-name="contact_mobile">
                     <sms-button wx:if="{{!contact_mobile_lock}}"  slot="button" mobile="{{contact_mobile}}" />
@@ -69,3 +69,4 @@
             <van-button custom-style="margin-top:20rpx;"  block type="default" form-type="submit" bindtap="reWrite">重新填写</van-button>
     </view>
 </view>
+<login-window bind:success="loginSuccess" class="loginwindow"></login-window>

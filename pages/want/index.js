@@ -307,11 +307,13 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+
         var user = app.globalData.userInfo
         if (!user) {
             this.setData({
                 contact_mobile_lock: false,
             })
+            this.selectComponent('.loginwindow').openWindow()
             return
         }
         var contact_mobile_lock = false
