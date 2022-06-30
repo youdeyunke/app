@@ -15,7 +15,7 @@ Component({
     },
     bgOpacity: {
         type: Number,
-        value: 0,
+        value: 1,
         observer: 'setOpacity'
     },
     backgroundColorTop: {
@@ -70,6 +70,8 @@ Component({
   },
   attached: function() {
     this.setStyle(); //设置样式
+  },
+  ready: function(){
     this.setOpacity()
   },
   data: {},
@@ -109,10 +111,16 @@ Component({
         navBarLeft = [`width:${capsulePosition.width}px`, `height:${capsulePosition.height}px`].join(';');
       } else if ((back && home) || title) {
         navBarLeft = [
-          `width:${capsulePosition.width}px`,
+          `width:${1.45 * capsulePosition.width}px`,
           `height:${capsulePosition.height}px`,
           `margin-left:${rightDistance}px`
         ].join(';');
+        var x = getApp().globalSystemInfo.screenWidth/2 - (1.45 * capsulePosition.width + rightDistance)
+        var y = getApp().globalSystemInfo.screenWidth - 2.45*capsulePosition.width
+        var z = y/2 - x
+        this.setData({
+            titleStyle: `padding-right: ${z}px;`
+        })
       } else {
         navBarLeft = [`width:auto`, `margin-left:0px`].join(';');
       }

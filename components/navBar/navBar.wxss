@@ -107,16 +107,19 @@ page {
 
 .lxy-nav-bar__inner .lxy-nav-bar__center {
     font-size: 17px;
-    line-height: 17px;
+    line-height: 19px;
     text-align: center;
     position: relative;
     flex: 1;
-    display: -webkit-box;
+    /* display: -webkit-box;
     display: -webkit-flex;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding-left: 10px;
+    justify-content: center; */
+    /* padding-left: 10px; */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .lxy-nav-bar__inner .lxy-nav-bar__center .lxy-nav-bar__center-title {
