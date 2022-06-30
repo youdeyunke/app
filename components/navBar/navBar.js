@@ -253,7 +253,7 @@ Component({
         this.setData({
             background: bg.toString()
         })
-        console.log(bg.toString())
+        console.log(bg)
     }
   }
 });
