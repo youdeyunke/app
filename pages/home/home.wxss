@@ -17,7 +17,7 @@ page {
 }
 .topLeftBtn{
     font-size: 24rpx;
-    color:#cecece;
+
     height: 32px;
     background-color: rgb(0, 0, 0, 0.16);
     border-radius: 16px;
@@ -33,4 +33,19 @@ page {
     white-space: nowrap;
     line-height: 50rpx;
     /* padding-right: 6px; */
+}
+.topLeftBtn-center{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:0 11rpx;
+}
+.topLeftBtn-right{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1rpx solid #FFF;
+    padding:0 20rpx;
 }

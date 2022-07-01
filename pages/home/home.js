@@ -72,6 +72,11 @@ Page({
             }
         })        
     },
+    gotoSearch: function(){
+        wx.navigateTo({
+          url: '/pkgSearch/page/search/index',
+        })
+    },
 
     comming: function (e) {
         wx.showToast({
