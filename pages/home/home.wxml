@@ -22,4 +22,3 @@
 <pagemaker bind:ready="pageReadyHandle" ref="pagemaker" style="position: absolute;top: 0;" class="pm" page-key="home" />
 
 <copyright></copyright>
-<navigator url="/pages/want/index" style="width: 200rpx;height: 200rpx;background-color: blue;position: absolute;bottom: 0;"></navigator>
