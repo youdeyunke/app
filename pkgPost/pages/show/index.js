@@ -28,11 +28,35 @@ Page({
     
         showShareBox: false,
         title: '',
-        imageUrl: ''
+        imageUrl: '',
+        bgOpacity:0
     },
     backHandle: function () {
         wx.navigateBack({
             delta: 1
+        });
+    },
+
+    onPageScroll: function (e) {
+        var scrollTop = e.scrollTop
+        this.setOpacity(scrollTop,500)
+    },
+    setOpacity:function(scrollTop,maxTop){
+        var opacity = 0
+        if(scrollTop<=maxTop){
+            opacity = scrollTop/maxTop
+        }else{
+            opacity = 1
+        }
+        this.setData({
+            bgOpacity:opacity
+        })
+    },
+
+    backTo(e){
+        console.log(e.detail.delta)
+        wx.navigateBack({
+            delta: e.detail.delta
         });
     },
 

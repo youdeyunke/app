@@ -27,7 +27,7 @@
     <card width="710" hat="{{false}}"  title="买房用途" sub-title="至少选择一项">
         <view class="tags-list">
             <view class="tag-item">
-                <van-tag size="large" custom-style="height:50rpx;" bindtap="purposeHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? false : true}}" wx:for="{{purposeList}}">
+                <van-tag size="large" color="{{primaryColor}}" custom-style="height:50rpx;" bindtap="purposeHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? false : true}}" wx:for="{{purposeList}}">
                    <view class="tags-list-name">{{item.name}}</view>
                 
                 </van-tag>
@@ -47,15 +47,15 @@
             <van-field  label="性别" readonly  required value="{{ contact_sex == 1 ? '先生' : '女士' }}" placeholder="怎么称呼您"  >
                 <view slot="button">
           
-                    <van-button bindtap="sexToggle" size="mini" type="info" plain="{{ contact_sex != 1 }}"  >先生</van-button>
+                    <van-button bindtap="sexToggle"  color="{{primaryColor}}" size="mini" type="info" plain="{{ contact_sex != 1 }}"  >先生</van-button>
                     
-                    <van-button bindtap="sexToggle"  size="mini" type="info" plain="{{ contact_sex != 0 }}"  >女士</van-button>
+                    <van-button bindtap="sexToggle"  color="{{primaryColor}}" size="mini" type="info" plain="{{ contact_sex != 0 }}"  >女士</van-button>
                 </view>
             </van-field>
         </van-cell-group>
     </card>
     <view style="width:90%;margin:auto;">
-        <van-button bindtap="submitHandle"  block color="#1989fa" >提交需求，帮我找房</van-button>
+        <van-button bindtap="submitHandle"  block color="{{primaryBtnColor || '#1989fa'}}" >提交需求，帮我找房</van-button>
     </view>
 
 </block>

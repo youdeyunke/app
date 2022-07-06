@@ -3,7 +3,7 @@
     <login-window class="loginwindow"></login-window>
     <view class="outer" style="background:{{bg}}">
         <view class="avatar" bindtap="gotoProfile">
-            <image src="{{item.avatar}}?imageView2/2/w/80" class="user" />
+            <image src="{{item.avatar}}?imageView2/5/w/200/h/200" class="user" />
          
         </view>
         <view class="name">

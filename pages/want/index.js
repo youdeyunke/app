@@ -56,7 +56,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
-
+        console.log('7788',app.globalData.myconfigs)
+        this.setData({
+            primaryColor: app.globalData.myconfigs.color.primary,
+            primaryBtnColor: app.globalData.myconfigs.color.primary_btn
+        })
     },
 
 

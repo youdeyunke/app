@@ -1,2 +1,2 @@
 <!--pages/cities/select.wxml-->
-<van-cell wx:for="{{cities}}" title="{{item.name}}" data-adcode="{{item.adcode}}" bindtap="citySelect" />
+<van-cell wx:for="{{cities}}" title="{{item.name}}" data-adcode="{{item.adcode}}" bindtap="citySelect" is-link />

@@ -1,9 +1,9 @@
-
+<navigation-bar bgOpacity="{{bgOpacity}}" back="true" bindback="backTo" background="rgb(255 ,255 ,255)" background-color-top="none" title="{{pageTitle}}"></navigation-bar>
 <page-loading loading="{{loading}}" />
-<images-block value="{{imagesInfo}}"></images-block>
+<!-- <images-block value="{{imagesInfo}}"></images-block> -->
 
-<view class="outer" hidden="{{loading}}">
-
+<view style="position: absolute;top: 0;" class="outer" hidden="{{loading}}">
+    <images-block value="{{imagesInfo}}"></images-block>
     <cover-block value="{{postInfo}}" />
     <header-block navs="{{navs}}" post="{{postInfo}}" />
 
