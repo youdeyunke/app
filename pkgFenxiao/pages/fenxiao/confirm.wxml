@@ -1,0 +1,27 @@
+
+
+
+<ud-card title="客户资料" width="710">
+    <van-cell-group>
+        <van-cell size="large" title="姓名" value="{{value.name}}"></van-cell>
+        <van-cell size="large" title="手机号" value="{{value.mobile}}"></van-cell>
+        <van-cell size="large" title="身份证尾号" value="{{value.id_number}}"></van-cell>
+        <van-cell size="large" title="意向楼盘" value="{{value.post_name}}"></van-cell>
+        <van-cell size="large" title="意向户型" value="{{value.post_area}}"></van-cell>
+        <van-cell size="large" title="备注" value="{{value.user_remark}}"></van-cell>
+    </van-cell-group>
+</ud-card>
+
+<view class="tips">
+  <view class="title">操作提示</view>
+  <view class="desc">xxx</view>
+</view>
+
+<ud-card title="状态" width="710" >
+    <van-steps steps="{{logs}}" active="0"  direction="vertical"
+  active-color="#1989fa" ></van-steps>
+</ud-card>
+
+<view class="footer">
+  <van-button block bindtap="confirmHandle" type="primary">确认带看</van-button>
+</view>  

@@ -20,16 +20,25 @@
     </van-cell-group>
 </ud-card>
 
-<ud-card title="案场接待" width="710">
+<ud-card wx:if="{{!value.confirm_at}}" title="确认带看二维码" width="710">
+  <view class="qr-outer">
+    <van-image width="600rpx" height="600rpx" class="qr-img" src="{{value.confirm_qr}}"></van-image>
+  </view>
+</ud-card>
+
+<ud-card wx:if="{{value.receiver_mobile}}" title="案场接待" width="710">
     <van-cell-group>
         <van-cell size="large" title="姓名" value="{{value.receiver_name || '-'}}"></van-cell>
         <van-cell size="large" title="手机号" value="{{value.receiver_mobile || '-'}}"></van-cell>
     </van-cell-group>
 </ud-card>
 
+
+
 <view class="button"  wx:if="{{user.is_admin}}">
     <navigator url="/pkgFenxiao/pages/fenxiao/edit?id={{id}}">
         <van-button round type="info" block>维护报备信息</van-button>
     </navigator>
 </view>
+
 <view style="height: 110rpx;"></view>

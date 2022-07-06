@@ -19,3 +19,10 @@ page{
     box-sizing: border-box;
     padding:0 210rpx
 }
+
+.qr-outer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

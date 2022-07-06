@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "确认带看",
+  "usingComponents": {
+    "van-steps": "/vant/steps/index"
+  }
+}

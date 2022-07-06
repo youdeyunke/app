@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "post-item":"/components/post-item/mini-card/index"
+  }
+}

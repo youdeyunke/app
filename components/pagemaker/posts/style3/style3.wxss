@@ -1,0 +1,18 @@
+/* components/pagemaker/posts/style2.wxss */
+
+.posts {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  min-width:690rpx;
+  max-width:710rpx;
+  margin:0 auto;
+}
+.posts .item {
+    margin-right: 20rpx;
+    width: calc(50% - 10rpx);
+}
+
+.posts .item:nth-child(2n) {
+    margin-right: 0;
+}

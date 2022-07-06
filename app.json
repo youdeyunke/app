@@ -143,6 +143,7 @@
                 "pages/fenxiao/home",
                 "pages/fenxiao/index",
                 "pages/fenxiao/report",
+                "pages/fenxiao/confirm",
                 "pages/fenxiao/report-detail",
                 "pages/fenxiao/show",
                 "pages/fenxiao/edit"

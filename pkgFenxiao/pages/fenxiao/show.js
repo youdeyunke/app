@@ -31,7 +31,6 @@ Page({
 
   loadData:function(){
     var _this=this
-    console.log('xxyyzz',app.globalData.userInfo.is_admin)
     app.request({
       url:'/api/v1/customers/'+_this.data.id,
       methods:"GET",
