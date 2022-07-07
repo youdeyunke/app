@@ -9,20 +9,19 @@ page {
     align-items: flex-start;
 }
 
-.tag-item {
-    margin-right: 10rpx;
+
+.van-tag--plain,.van-tag--primary{
     margin-bottom: 10rpx;
-}
-.van-tag--primary.van-tag--plain,.van-tag--primary{
-    margin-bottom: 10rpx;
-    margin-right: 10rpx;
+    margin-right: 20rpx;
     border-radius: 10rpx;
 }
+
+
 .tags-list-name{
-    width: 180rpx;
+    width: 120rpx;
+    font-size:24rpx;
     text-align: center;
 }
-
 
 .res {
     width: 690rpx;

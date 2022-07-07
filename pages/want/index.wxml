@@ -7,7 +7,7 @@
 
 <block wx:if="{{!isDone}}">
 
-    <ud-header width="710" height="200" title="定制找房">
+    <ud-header color="{{primaryColor}}" width="710" height="200" title="帮我找房">
         平台置业顾问帮您全城找好房
     </ud-header>
 
@@ -48,11 +48,7 @@
         </view>
     </card>
 
-    <card width="710" hat="{{false}}"  title="详细要求">
-        <van-field label="户型"  placeholder="意向户型，必填" autosize bind:change="inputChange" type="textarea" value="{{housetype}}" data-name="housetype" required />
-        <van-field label="面积"  placeholder="面积要求，必填" autosize bind:change="inputChange" type="textarea" value="{{area}}" data-name="area" required />
-        <van-field label="其他" placeholder="有其他需要可补充说明，没有可留空" autosize bind:change="inputChange" type="textarea" value="{{intent}}" data-name="intent" />        
-    </card>
+
 
     <card width="710" hat="{{false}}"  title="买房用途" sub-title="至少选择一项">
         <view class="tags-list">
@@ -64,12 +60,20 @@
             </view>
         </view>
     </card>
+
+    <card width="710" hat="{{false}}"  title="其它要求">
+      <textarea placeholder="填写其它要求说明，可留空"></textarea>  
+    </card>
+
     <card width="710" hat="{{false}}"  title="联系方式">
         <van-cell-group>
             <!-- van-notice-bar wrapable wx:if="{{!contact_mobile_lock}}" scrollable="{{ false }}" text=" 您的手机号会经过技术加密，并仅用作本平台置业顾问与您联系，请放心填写，" left-icon='info' / -->
 
             <van-field  bindchange="inputChange" center required label="手机号" value="{{ contact_mobile }}" readonly="{{contact_mobile_lock}}" disabled="{{contact_mobile_lock}}" placeholder="用于专属顾问联系您" data-name="contact_mobile">
-                    <sms-button wx:if="{{!contact_mobile_lock}}"  slot="button" mobile="{{contact_mobile}}" />
+                    <sms-button wx:if="{{!contact_mobile_lock}}"   slot="button" mobile="{{contact_mobile}}" />
+                    <view style="color:{{primaryColor}};" wx:else slot="button">
+                    <van-icon bindtap="changeMobile" name="edit"></van-icon>
+                    修改</view>
             </van-field>
 
             <van-field wx:if="{{!contact_mobile_lock}}" bindchange="inputChange" label="验证码" required value="{{ sms_code }}" placeholder="短信验证码" data-name="sms_code" />
@@ -99,4 +103,4 @@
             <van-button custom-style="margin-top:20rpx;"  block type="default" form-type="submit" bindtap="reWrite">重新填写</van-button>
     </view>
 </view>
-<login-window bind:success="loginSuccess" class="loginwindow"></login-window>
+<!-- login-window bind:success="loginSuccess" class="loginwindow"></login-window -->

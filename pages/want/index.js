@@ -9,18 +9,10 @@ Page({
      * 页面的初始数据
      */
     data: {
-        tabIndex:0, 
-        tabs: [
-            {value: 'form', title: "定制找房"},
-            {value: 'form', title: "自助找房"},
-        ],
         isDone: false,
-
         contact_name: '',
         contact_mobile: '',
         contact_sex: 1, 
-
-
         area: '', // 期望面积,
 
         purpose: '', // 关注点
@@ -75,13 +67,25 @@ Page({
           if(resp.data.status != 0){
             return 
           }
+          var rdata = resp.data.data 
+          
+          
+          if(rdata.area && rdata.area.length > 0){ 
+            _this.setData({areaList: rdata.area })
+          }
+
+          if(rdata.purpose && rdata.purpose.length > 0){ 
+            _this.setData({purposeList: resp.data.data.purpose })
+          }
+          if(rdata.housetype && rdata.housetype.length > 0){ 
+            _this.setData({housetypeList: rdata.housetype })
+          }
+          if(rdata.budget && rdata.budget.length > 0){ 
+            _this.setData({budgetList: rdata.budget })
+          }
 
           _this.setData({ 
-            positionList: resp.data.data.districts,
-            areaList: resp.data.data.area,  
-            //purposeList: resp.data.data.purpose, 
-            housetypeList: resp.data.data.housetype, 
-            budgetList: resp.data.data.budget, 
+            positionList: rdata.districts,
           })
         }
       })
@@ -150,13 +154,13 @@ Page({
 
         var data = {
             cat: this.data.cat,
-            budget: this.data.budget_min + ',' + this.data.budget_max || ' ',
+            budget_min: this.data.budget_min,  
+            budget_max: this.data.budget_max, 
             position: this.data.position,
-            intent: this.data.intent,
+            content: this.data.intent,
             housetype: this.data.housetype,  
             area: this.data.area, 
             points: this.data.purpose, 
-
             name: this.data.contact_name,
             mobile: this.data.contact_mobile,
             sex: this.data.contact_sex, 
@@ -252,25 +256,11 @@ Page({
     postData: function(data){
         var _this = this 
         // 将表单数据处理成线索表所需要的数据格式 
-        var clueData = { 
-            name: data.name,  
-            phone: data.mobile,  
-            sex: data.sex, 
-            content: ''
-        }
-        var res = [
-            '预算：' + data.budget ,
-            '区域:' + data.position , 
-            '户型:' + data.housetype,  
-            '面积:' +  data.area,
-            '其他:' + data.intent, 
-            '用途:' +  data.points,  
-        ]
-        clueData.content = res.join('\n')
+
 
         app.request({
-            url: '/api/v1/clues/',
-            data: clueData,
+            url: '/api/v1/needs/',
+            data: data,
             method: 'POST',
             success: function (resp) {
                 if (resp.data.status != 0) {
@@ -399,18 +389,15 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        this.setData({
-          primaryColor: app.globalData.myconfigs.color.primary,
-          primaryBtnColor: app.globalData.myconfigs.color.primary_btn
+      var _this  = this  
+      app.ensureConfigs((myconfigs) => { 
+        _this.setData({
+          primaryColor: myconfigs.color.primary,
+          primaryBtnColor: myconfigs.color.primary_btn
         })
+      })
+
         var user = app.globalData.userInfo
-        if (!user) {
-            this.setData({
-                contact_mobile_lock: false,
-            })
-            this.selectComponent('.loginwindow').openWindow()
-            return
-        }
         var contact_mobile_lock = false
         if (user.mobile && user.mobile.length == 11) {
             contact_mobile_lock = true
@@ -427,6 +414,13 @@ Page({
      */
     onHide: function () {
 
+    },
+
+    changeMobile: function(e){
+      this.setData({ 
+        contact_mobile: '', 
+        contact_mobile_lock:false,
+      })
     },
 
     /**
