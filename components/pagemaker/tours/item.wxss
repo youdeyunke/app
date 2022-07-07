@@ -1,0 +1,27 @@
+.tour{
+  background:#fff;
+  width:280rpx; 
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 2rpx 6rpx 20rpx rgba(0,0,0, 0.05);
+}
+
+.tour .cover{
+  width: 280rpx; 
+  height: 250rpx;
+}
+
+.tour .footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:30rpx; 
+  color:#333;
+  font-weight: bold;
+  padding:20rpx;
+  border-bottom-left-radius: 16rpx;
+  border-bottom-right-radius: 16rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

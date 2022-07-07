@@ -21,7 +21,6 @@ Component({
         },
         "config.ids": function (ids) {
             this.loadNews(ids)
-
         },
 
         "config.fontSize": function(v){

@@ -14,9 +14,9 @@ Page({
       loading: true,
       currentTabIndex: 0,
       tabs: [
-          {name: '有效', value:2, count:0},
-          {name: '待审核', value:1, count:0},
-          {name: '无效', value:0, count:0},
+          {name: '有效客户', value:2, count:0},
+          {name: '待确客', value:1, count:0},
+          {name: '无效客户', value:0, count:0},
       ],
 
   },

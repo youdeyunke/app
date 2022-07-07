@@ -30,6 +30,20 @@ Page({
         contact: '',
         sms_code: '',
 
+        positionList: [],
+        housetypeList: [
+          {name: '1居', value: 1,},
+          {name: '2居', value: 2,},
+          {name: '3居', value:3,},
+          {name: '4居', value:4},
+          {name: '5居', value:5},
+          {name: '5居+', value:6},
+        ],
+
+        areaList: [
+          {name: '80㎡以下'},
+        ],
+
         purposeList: [{
                 name: '刚需'
             },
@@ -52,15 +66,33 @@ Page({
         ]
     },
 
+    loadData: function(){
+      var _this = this  
+      app.request({
+        url: '/api/v1/needs/', 
+        method: 'GET', 
+        success: function(resp){ 
+          if(resp.data.status != 0){
+            return 
+          }
+
+          _this.setData({ 
+            positionList: resp.data.data.districts,
+            areaList: resp.data.data.area,  
+            //purposeList: resp.data.data.purpose, 
+            housetypeList: resp.data.data.housetype, 
+            budgetList: resp.data.data.budget, 
+          })
+        }
+      })
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
-        console.log('7788',app.globalData.myconfigs)
-        this.setData({
-            primaryColor: app.globalData.myconfigs.color.primary,
-            primaryBtnColor: app.globalData.myconfigs.color.primary_btn
-        })
+ 
+        this.loadData()
     },
 
 
@@ -275,6 +307,62 @@ Page({
         this.setData(d)
     },
 
+    positionHandle: function (e) {
+      var i = e.currentTarget.dataset.index
+      var ps = this.data.positionList
+      var p = ps[i]
+      var position = []
+
+      p.selected = !p.selected
+      ps[i] = p
+      this.data.positionList.forEach(function (item, i) {
+          if (item.selected) {
+              position.push(item.text)
+          }
+      })
+      this.setData({
+          positionList: ps,
+          position: position.join(',')
+      })
+  },
+
+  housetypeHandle: function (e) {
+    var i = e.currentTarget.dataset.index
+    var ps = this.data.housetypeList
+    var p = ps[i]
+    var housetype = []
+
+    p.selected = !p.selected
+    ps[i] = p
+    this.data.housetypeList.forEach(function (item, i) {
+        if (item.selected) {
+          housetype.push(item.name)
+        }
+    })      
+      this.setData({
+        housetypeList: ps,
+        housetype: housetype.join(',')
+    })
+  },
+
+  areaHandle: function (e) {
+    var i = e.currentTarget.dataset.index
+    var ps = this.data.areaList
+    var p = ps[i]
+    var area = []
+
+    p.selected = !p.selected
+    ps[i] = p
+    this.data.areaList.forEach(function (item, i) {
+        if (item.selected) {
+          area.push(item.name)
+        }
+    })      
+      this.setData({
+        areaList: ps,
+        area: area.join(',')
+    })
+  },
 
     purposeHandle: function (e) {
         var i = e.currentTarget.dataset.index
@@ -311,7 +399,10 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        this.setData({
+          primaryColor: app.globalData.myconfigs.color.primary,
+          primaryBtnColor: app.globalData.myconfigs.color.primary_btn
+        })
         var user = app.globalData.userInfo
         if (!user) {
             this.setData({

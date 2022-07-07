@@ -1,0 +1,7 @@
+<block>
+  <scroll-view scroll-x="true" class="outer" scroll-with-animation="true">
+            <view class="tours" >
+                <tour-item item="{{item}}" wx:for="{{items}}"  style="margin-right:20rpx"></tour-item>
+            </view>
+    </scroll-view>
+</block>

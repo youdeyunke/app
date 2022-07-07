@@ -14,6 +14,7 @@
             <text-module config="{{item}}" wx:elif="{{item.name === 'text'}}"></text-module>
             <notice-module config="{{item}}" wx:elif="{{item.name === 'notice'}}"></notice-module>
             <blocknavs-module config="{{item}}" wx:elif="{{item.name === 'blocknavs'}}"></blocknavs-module>
+            <tours-module config="{{item}}" wx:elif="{{item.name === 'tours'}}"></tours-module>
             <news-module config="{{item}}" wx:elif="{{item.name === 'news'}}"></news-module>
         </module-box>
     </block>

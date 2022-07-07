@@ -17,8 +17,38 @@
         <van-field label="最高"  placeholder="最高预算，可留空" autosize bind:change="inputChange" type="textarea" value="{{budget_max}}" data-name="budget_max"  />    
     </card>
 
+    
+    <card width="710" hat="{{false}}"  title="区域">
+      <view class="tags-list">
+            <view class="tag-item">
+                <van-tag size="large" color="{{primaryColor}}" custom-style="height:50rpx;" bindtap="positionHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? false : true}}" wx:for="{{positionList}}">
+                   <view class="tags-list-name">{{item.text}}</view>
+                </van-tag>
+            </view>
+        </view>
+    </card>
+
+    <card width="710" hat="{{false}}"  title="户型">
+      <view class="tags-list">
+            <view class="tag-item">
+                <van-tag size="large" color="{{primaryColor}}" custom-style="height:50rpx;" bindtap="housetypeHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? false : true}}" wx:for="{{housetypeList}}">
+                   <view class="tags-list-name">{{item.name}}</view>
+                </van-tag>
+            </view>
+        </view>
+    </card>
+
+    <card width="710" hat="{{false}}"  title="面积">
+      <view class="tags-list">
+            <view class="tag-item">
+                <van-tag size="large" color="{{primaryColor}}" custom-style="height:50rpx;" bindtap="areaHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? false : true}}" wx:for="{{areaList}}">
+                   <view class="tags-list-name">{{item.name}}</view>
+                </van-tag>
+            </view>
+        </view>
+    </card>
+
     <card width="710" hat="{{false}}"  title="详细要求">
-        <van-field label="区域" placeholder="意向区域，必填" required bind:change="inputChange" value="{{position}}" data-name="position" />
         <van-field label="户型"  placeholder="意向户型，必填" autosize bind:change="inputChange" type="textarea" value="{{housetype}}" data-name="housetype" required />
         <van-field label="面积"  placeholder="面积要求，必填" autosize bind:change="inputChange" type="textarea" value="{{area}}" data-name="area" required />
         <van-field label="其他" placeholder="有其他需要可补充说明，没有可留空" autosize bind:change="inputChange" type="textarea" value="{{intent}}" data-name="intent" />        

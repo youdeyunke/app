@@ -1,0 +1,6 @@
+<navigator url="{{item.url}}" class="tour">
+  <image class="cover" src="{{item.cover}}?imageView2/5/w/280/h/250"></image>
+  <view class="footer">
+    <view class="title">{{ item.title }}</view>
+  </view>
+</navigator>
