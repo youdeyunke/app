@@ -231,16 +231,18 @@ Page({
                             title: '积分已增加',
                         })
                     }
-                    return {
+                    resolve( {
                         title: _this.data.shareTitle,
                         imageUrl: _this.data.shareCover,
-                        promise, 
-                    }
+                    })
                 }
             })
         })
-
-
+        return {
+            title: _this.data.shareTitle,
+            imageUrl: _this.data.shareCover,
+            promise, 
+        }
     },
     onShareTimeline: function () {
         const promise = new Promise(resolve => {
@@ -257,13 +259,17 @@ Page({
                             title: '积分已增加',
                         })
                     }
-                    return {
+                    resolve( {
                         title: _this.data.shareTitle,
                         imageUrl: _this.data.shareCover,
-                        promise, 
-                    }
+                    })
                 }
             })
         })
+        return {
+            title: _this.data.shareTitle,
+            imageUrl: _this.data.shareCover,
+            promise, 
+        }
     }
 })
