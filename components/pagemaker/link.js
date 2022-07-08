@@ -31,6 +31,11 @@ module.exports = {
                     showCancel: false,  
                 })
                 break;
+            case 'openChannelsLive': 
+                wx.openChannelsLive({
+                    finderUserName: config.sph,
+                })
+                break;
         }
 
     },
