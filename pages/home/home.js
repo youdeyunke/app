@@ -21,6 +21,7 @@ Page({
         configs: null,
         showInstallTips: 0, // 1:正常显示，2：自动关闭，3：手动关闭
         city_id: null,
+        city: '',
         bgOpacity:0
     },
 
@@ -55,20 +56,28 @@ Page({
             url: url,
             success(resp){
                 var cities = resp.data.data
+                console.log('2323232,adc',cities)
                 if (!adcode) {
+                    console.log('2323232,adcode=null')
                     _this.setData({
                         city: cities[0].name
                     })
-                    wx.setStorageSync('cityCode', cities[0].adcode)
-                    return
+
+                }else{
+                    cities.forEach((item) => {
+                        if(item.adcode == adcode){
+                            console.log('2323232,adcode知道了')
+                            _this.setData({
+                                city: item.name
+                            })
+                        }
+                    })
                 }
-                cities.forEach((item) => {
-                    if(item.adcode == adcode){
-                        _this.setData({
-                            city: item.name
-                        })
-                    }
-                })
+                if(_this.data.city == ''){
+                    _this.setData({
+                        city: cities[0].name
+                    })
+                }
             }
         })        
     },
@@ -119,8 +128,8 @@ Page({
         }, () => {
             this.checkInstallTips()
         })
-        this.loadSelectCity()
-      
+        // this.loadSelectCity()
+        this.loadCityCode()
     },
 
     checkInstallTips: function () {
@@ -188,7 +197,7 @@ Page({
         this.setData({
             pagePath: path 
         })
-
+        this.loadSelectCity()
     },
 
 
