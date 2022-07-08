@@ -4,7 +4,9 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    message: {
+        type: Object,
+    }
   },
 
   /**
@@ -18,6 +20,14 @@ Component({
    * 组件的方法列表
    */
   methods: {
+
+    previewHandle: function(e){
+        var url = this.data.message.content 
+        wx.previewImage({
+          urls: [url],
+            current: url,
+        })
+    },
 
   }
 })

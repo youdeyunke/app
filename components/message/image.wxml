@@ -1,2 +1,8 @@
-<!--components/message/image.wxml-->
-<text>components/message/image.wxml</text>
+  
+<view class="msg-{{position}}">  
+  <view  class="image-wrapper">
+
+    <image bindtap="previewHandle" class="image"  src="{{message.content}}" />
+
+  </view>
+</view>

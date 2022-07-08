@@ -4,6 +4,7 @@
   <view wx:if="{{message.sender_id > 0}}" class="avatar"> <image src="{{message.sender_info.avatar}}?imageView2/5/w/200/h/200"></image> </view>
   <view class="message-content-block">
     <text-content wx:if="{{message.content_type == 'text' }}" position="{{ message && message.sender_id == currentUserId ? 'right' : 'left' }}" message="{{message}}" />
+    <image-content wx:if="{{message.content_type == 'image' }}" position="{{ message && message.sender_id == currentUserId ? 'right' : 'left' }}" message="{{message}}" />
     <link-content wx:if="{{message.content_type == 'link' }}" position="{{ message && message.sender_id == currentUserId ? 'right' : 'left' }}" message="{{message}}" />
     <post-content wx:if="{{message.content_type == 'post' }}" position="{{ message && message.sender_id == currentUserId ? 'right' : 'left' }}" message="{{message}}" />
   </view>

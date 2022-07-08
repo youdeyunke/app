@@ -1,1 +1,12 @@
-/* components/message/image.wxss */
+
+.image-wrapper{
+    border-radius: 8rpx;
+    padding:22rpx 18rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:500rpx;
+    height:500rpx;
+  }
+
+
