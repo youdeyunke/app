@@ -42,30 +42,30 @@ Component({
         name:this.data.value.name,
         address:this.data.value.address
       })
-  },
-  openSetting(){
-    var _this = this
-    wx.showModal({
-      title: '权限不足',
-      showCancel:false,
-      content: "请先打开“使用我的地理位置”开关",
-      confirmText:"去授权",
-      success (res) {
-        if (res.confirm) {
-          wx.openSetting({
-            success: (res)=>{
-              _this.openLocation()
-            },
-          });
-        } 
-      }
-    })
-  },
-  getMyevent(e) { //e为子组件传过来的值
-    //console.log(e.detail)
-    this.setData({
-      pois: e.detail //这里是改变Page中data上的值
-    })
-  }
+    },
+    openSetting(){
+        var _this = this
+        wx.showModal({
+        title: '权限不足',
+        showCancel:false,
+        content: "请先打开“使用我的地理位置”开关",
+        confirmText:"去授权",
+        success (res) {
+            if (res.confirm) {
+            wx.openSetting({
+                success: (res)=>{
+                _this.openLocation()
+                },
+            });
+            } 
+        }
+        })
+    },
+    getMyevent(e) { //e为子组件传过来的值
+        //console.log(e.detail)
+        this.setData({
+        pois: e.detail //这里是改变Page中data上的值
+        })
+    }
   }
 })

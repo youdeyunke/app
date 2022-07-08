@@ -128,8 +128,8 @@ Page({
         }, () => {
             this.checkInstallTips()
         })
-        // this.loadSelectCity()
-        this.loadCityCode()
+        this.loadSelectCity()
+        // this.loadCityCode()
     },
 
     checkInstallTips: function () {
