@@ -52,50 +52,55 @@ Component({
             this.setData({ center: { longitude: _this.data.longitude, latitude: _this.data.latitude } })
         },
         setMarker: function () {
+            this.setData({markers: []})
             var pois = this.data.pois
             var markers = []
             var _this = this
-            const bgColor = '#1989fa'
+            const bgColor = '#ff0000'
             const whiteColor = '#ffffff'
             var R = app.globalData.system.pixelRatio / 2.0
             var fontSize = app.globalData.system.fontSizeSetting * 0.8
             var padding = fontSize * 1
             var marker = {
-                iconPath: '',
+                iconPath: '/assets/icons/marker.png',
                 alpha: '0.5',
                 latitude: _this.data.latitude,
                 longitude: _this.data.longitude,
                 width: "40rpx",
-                height: "50rpx",
+                height: "40rpx",
                 zIndex: 10,
-                callout: {
-                    content: _this.data.name,
-                    display: 'ALWAYS',
-                    borderRadius: fontSize,
-                    borderColor: whiteColor,
-                    bgColor: bgColor,
-                    color: whiteColor,
-                    borderWidth: R,
-                    fontSize: fontSize,
-                    padding: padding,
-                    textAlign: 'center',
-                }
+
             }
             markers.push(marker)
-            pois.forEach(v => {
-                var marker = {
-                    iconPath: '/assets/icons/zhoubian.png',
-                    alpha: '0.5',
+            pois.forEach((v,i) => {
+                var m = {
+                    id: v.id, 
+                    iconPath: '/assets/icons/marker.png',
                     latitude: v.location.lat,
+                    width:'40rpx',
+                    height:'40rpx',
                     longitude: v.location.lng,
-                    width: "50rpx",
-                    height: "50rpx",
-                    zIndex: 10
+
+                    
+      
                 }
-                markers.push(marker)
+                m.alpha = '0.6',
+                m.width = 1,
+                m.zIndex = 10,
+                m.height = 1,
+                m.callout = {
+                    content: v.title, 
+                    bgColor: '#ffffff', 
+                    borderRadius: 4,
+                    display: 'ALWAYS',
+                    color: '#333333', 
+                    padding:6,
+                    textAlign: 'center'
+                }
+                markers.push(m)
             })
             this.setData({ markers: markers })
-            //console.log('markers', this.data.markers)
+            console.log('markers', this.data.markers)
         },
 
         clickHandle: function () {
