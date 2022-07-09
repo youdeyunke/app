@@ -56,7 +56,7 @@ Component({
             }
 
             var uid = this.data.item.user_id
-            var pid = this.data.postId
+            var pid = this.data.postId || ''
             var path = `/pages/messages/show?target_user_id=${uid}&post_id=${pid}`
             if (this.data.postId) {
                 path += '&target_post_id=' + this.data.postId

@@ -5,6 +5,6 @@
     "image-content": "/components/message/image",
     "post-content": "/components/message/post",
     "link-content": "/components/message/link",
-    "image-content": "/components/message/image"
+    "namecard-content": "/components/message/namecard"
   }
 }

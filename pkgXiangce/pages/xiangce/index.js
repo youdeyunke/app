@@ -141,7 +141,7 @@ Page({
     var brokerId = this.data.broker.id
     var _this = this
     app.request({
-      url: '/api/v1/posts/hello?id=' + pid + '&receiver_id=' + brokerId,
+      url: '/api/v2/posts/hello?id=' + pid + '&receiver_id=' + brokerId,
       success: function (resp) {
         if (resp.data.status == 0) {
           // 跳转到消息列表

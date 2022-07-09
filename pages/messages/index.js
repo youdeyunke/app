@@ -106,6 +106,15 @@ Page({
             if(item.last_content_type == 'post'){
               item.last_content = '[楼盘]'
             }
+            if(item.last_content_type == 'namecard'){
+                item.last_content = '[名片]'
+            }
+            if(item.last_content_type == 'image'){
+                item.last_content == '[图片]'
+            }
+            if(item.last_content_type == 'location'){
+                item.last_content = '[定位]'
+            }
             return item
           })
           _this.setData({ 

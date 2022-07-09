@@ -7,6 +7,8 @@
     <image-content wx:if="{{message.content_type == 'image' }}" position="{{ message && message.sender_id == currentUserId ? 'right' : 'left' }}" message="{{message}}" />
     <link-content wx:if="{{message.content_type == 'link' }}" position="{{ message && message.sender_id == currentUserId ? 'right' : 'left' }}" message="{{message}}" />
     <post-content wx:if="{{message.content_type == 'post' }}" position="{{ message && message.sender_id == currentUserId ? 'right' : 'left' }}" message="{{message}}" />
+
+    <namecard-content wx:if="{{message.content_type == 'namecard' }}" position="{{ message && message.sender_id == currentUserId ? 'right' : 'left' }}" message="{{message}}" />
   </view>
 
 </view>

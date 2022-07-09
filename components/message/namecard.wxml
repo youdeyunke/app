@@ -1,0 +1,13 @@
+<view class="outer">
+
+<view class="title">我的名片</view>
+<view class="body">
+您好，为了给您提供更好的服务，可以点击下方按钮拨打电话，或复制微信添加好友。
+</view>
+<view class="footer">
+    <view bindtap="callHandle" class="btn">拨打电话</view>
+    <view bindtap="copyHandle" class="btn">复制微信</view>
+
+</view>
+
+</view>

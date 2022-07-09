@@ -1,0 +1,36 @@
+.outer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background: #fff;
+    padding: 10rpx 20rpx;
+    border-radius: 10rpx;
+    width:450rpx;
+    box-sizing: border-box;
+    font-size:24rpx;
+}
+
+.outer .title{
+    font-size:26rpx;
+    margin-top:10rpx;
+ 
+    width:100%;
+    text-align: center;
+   
+}
+
+.outer .body{
+    margin:20rpx 0;
+    padding:20rpx 0;
+    border-bottom:2rpx solid #f4f4f4;
+    border-top:2rpx solid #f4f4f4;
+}
+
+.outer .footer{
+    display: flex; 
+    justify-content: space-around;
+    color:#1989fa;
+    width:100%;
+    margin-bottom:10rpx;
+}
