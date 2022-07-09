@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "avatar-sync": "/components/avatar-sync"
+    "avatar-sync": "/components/avatar-sync",
+    "card": "/components/ud/card/index"
   }
 }

@@ -4,3 +4,18 @@
     width: 710rpx;
     margin: auto;
 }
+.tags-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.van-tag--plain,.van-tag--primary{
+    margin-bottom: 10rpx;
+    margin-right: 20rpx;
+    border-radius: 10rpx;
+}
+.tags-list-name{
+    width: 120rpx;
+    font-size:24rpx;
+    text-align: center;
+}
