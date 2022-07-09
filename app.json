@@ -199,6 +199,7 @@
             "pages": [
                 "pages/tour/index",
                 "pages/tour/show",
+                "pages/tour/sign",
                 "pages/tour-coupon/show"
             ]
         },

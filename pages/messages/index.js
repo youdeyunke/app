@@ -162,7 +162,7 @@ Page({
   },
 
   loginSuccess: function(data){
-    console.log('login success', data)
+
     this.setData({userInfo: data.detail})
     this.loadData()
     this.stopInterval()

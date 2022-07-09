@@ -1,0 +1,6 @@
+/* pkgTour/pages/tour/sign.wxss */
+
+.footer{
+    width:710rpx;
+    margin:20rpx auto;
+}
