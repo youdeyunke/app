@@ -1,9 +1,21 @@
 <!--components/pagemaker/posts/index.wxml-->
 <view class="posts-items">
+  <view class="filters" wx:if="{{config.filterable && filters}}">
+    <common-filter bind:open="filterOpen" bind:close="filterClose" configs="{{filters}}" bind:change="filterChange"></common-filter>
+  </view>
+
   <style0 items="{{items}}" wx:if="{{config.styleName == 0 }}" />
   <style1 items="{{items}}" wx:if="{{config.styleName == 1 }}" />
   <style2 items="{{items}}" wx:if="{{config.styleName == 2 }}" />
   <style3 items="{{items}}" wx:if="{{config.styleName == 3 }}" />
 
-</view>
 
+  <block wx:if="{{config.styleName == 0}}">
+
+    <view wx:if="{{loading}}" style="margin:0 auto;width:100%;display: flex;justify-content: center;">
+      <van-loading size="24px">加载中...</van-loading>
+    </view>
+
+    <van-divider wx:if="{{end}}" contentPosition="center">没有更多了</van-divider>
+  </block>
+</view>

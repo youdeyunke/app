@@ -1,0 +1,118 @@
+.root{
+}
+
+.outer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding:0 25rpx;
+  height: 80rpx;
+  position: relative;
+}
+
+.outer .hover{
+}
+
+.body{
+  
+}
+
+/* components/common-filter/index.wxss 
+
+.outer{
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.myitem{
+  color:red;
+  height: 20rpx;
+}
+
+.myitem .van-dropdown-menu__item{
+  height:20rpx;
+}
+
+.more-outer{
+  display: flex;
+  flex-direction: column;
+  padding:20rpx;
+}
+
+.more-title{
+  font-size:32rpx;
+  color:#333;
+  font-weight: bolder;
+  margin-bottom:10rpx;
+}
+
+.more-options{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.more-option-item{
+  width:160rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:#333;
+  height:60rpx;
+  border-radius: 6rpx;
+  background:#f4f4f4;
+  margin-right:20rpx;
+  margin-bottom:20rpx;
+}
+.more-option-item:nth-child(4n){
+  margin-right:0rpx;
+}
+
+.more-option-item.active{
+  border:1rpx solid red; 
+  color:red;
+}
+
+.more-footer{
+  display: flex;
+  padding:20rpx;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.custom-options{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin:20rpx 20rpx;
+}
+
+.custom-option-item{
+  width:160rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:#333;
+  height:60rpx;
+  border-radius: 6rpx;
+ border:1rpx solid #dddddd;
+  margin-right:20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom:20rpx;
+}
+.custom-option-item:nth-child(4n){
+  margin-right:0rpx;
+}
+
+.custom-option-item.active{
+  border:1rpx solid red; 
+  color:red;
+}
+
+*/

@@ -1,0 +1,51 @@
+/* components/common-filter-v2/menu-body.wxss */
+.body{
+  width:100%;
+  box-sizing: border-box;
+  padding:0rpx;
+  transition: all 0.5s ease-in;
+  border-bottom:2rpx  solid #f4f4f4;
+}
+
+.body.show{
+  display: flex;
+}
+
+.body.hidden{
+  display: none;
+
+}
+
+
+.custom-options{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  margin:20rpx 20rpx;
+}
+
+.custom-option-item{
+  width:160rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:#333;
+  height:60rpx;
+  border-radius: 6rpx;
+ border:1rpx solid #dddddd;
+  margin-right:20rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom:20rpx;
+}
+.custom-option-item:nth-child(4n){
+  margin-right:0rpx;
+}
+
+.custom-option-item.active{
+
+  border-width:1rpx; 
+  border-style: solid;
+}

@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "more-menu": "./more-menu",
+    "menu-body": "./menu-body"
+  }
+}

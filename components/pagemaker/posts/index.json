@@ -3,8 +3,8 @@
   "usingComponents": {
     "style0": "./style0/style0",
     "style1": "./style1/style1",
+    "common-filter": "/components/common-filter/index",
     "style2": "./style2/style2",
-    "style3": "./style3/style3",
-    "more-button":"./morebutton/more-button"
+    "style3": "./style3/style3"
   }
 }

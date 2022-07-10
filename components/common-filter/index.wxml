@@ -1,0 +1,20 @@
+<view class="root">
+
+
+
+  <view class="outer">
+    <view bindtap="itemClick" data-index="{{index}}" style="{{ index == menuIndex ? 'color:' + color : '' }}" class="{{ index == menuIndex ? 'hover' : '' }}" wx:for="{{configs}}">
+      <text>{{ item.title || item.label }}</text>
+      <van-icon name="arrow-down"></van-icon>
+    </view>
+  </view>
+
+<view class="body">
+
+  <block wx:for="{{configs}}">
+    <menu-body bind:change="onChange" wx:if="{{item.key != 'more'}}" show="{{menuIndex == index }}" item="{{item}}" id="menuBody-{{index}}"></menu-body>
+    <more-menu bind:change="onChange" wx:else show="{{menuIndex == index }}"  item="{{item}}"></more-menu>
+  </block>
+</view>
+
+</view>

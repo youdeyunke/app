@@ -1,0 +1,7 @@
+{
+
+  "navigationBarTitleText": "找房",
+  "usingComponents": {
+    "pagemaker": "/components/pagemaker/index"
+  }
+}

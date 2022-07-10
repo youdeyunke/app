@@ -1,0 +1,12 @@
+<view class="more" hidden="{{!show}}">
+
+  <view class="more-section" wx:for-item="chil" wx:for="{{item.options}}">
+    <view class="more-title">{{chil.name || chil.label }}</view>
+    <menu-body bind:change="changeHandle" show="{{true}}" item="{{chil}}"></menu-body>
+  </view>
+
+  <view class="footer">
+    <van-button block plan color="{{btnColor}}" bindtap="confirmHandle">确定</van-button>
+  </view>
+
+</view>

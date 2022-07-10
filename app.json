@@ -294,6 +294,7 @@
     "pages": [
         "pages/home/home",
         "pages/pagemaker/show",
+        "pages/zhaofang/index",  
         "pages/want/index",
         "pages/faxian/index",
         "pages/webview/show",

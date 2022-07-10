@@ -1,0 +1,7 @@
+<view  class="body show {{ show == true ? 'show' : 'hidden' }} custom-options">
+
+<view style="{{ index == currentIndex ? 'color:' + color +';border-color:' + color : ''}}" class="custom-option-item {{ index == currentIndex ? 'active' : '' }}" data-index="{{index}}" bindtap="itemClick" wx:for="{{item.options }}" wx:for-item="opt"  >
+{{ opt.text }}
+</view>
+
+</view>

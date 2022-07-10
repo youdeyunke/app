@@ -2,7 +2,7 @@
 
 
 .post-item{
- 
+  padding:0 15rpx;
 }
 
 .post-item .border{

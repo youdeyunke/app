@@ -1,0 +1,13 @@
+/* components/common-filter-v2/more-menu.wxss */
+
+.footer{
+  margin:0 auto 20rpx auto;
+  width:90%;
+}
+
+.more-title{
+  font-size:26rpx; 
+  color:#333; 
+  font-weight: bold;
+  margin-left:20rpx;
+}

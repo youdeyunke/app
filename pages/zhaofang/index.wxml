@@ -1,0 +1,2 @@
+
+<pagemaker bind:ready="pageReadyHandle" ref="pagemaker" style="position: absolute;top: 0;" class="pm" page-key="zhaofang" />
