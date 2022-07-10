@@ -8,6 +8,7 @@ Component({
      */
     properties: {
         title: { type: String, value: '' },
+        icon: {type: String, value: null},
         subtitle: { type: String, value: '' },
         link: { type: Object, value: null },
 

@@ -1,6 +1,7 @@
 <!-- components/pagemaker/header/style0.wxml -->
 <view class="header">
     <view class="title">
+        <image wx:if="{{icon}}" class="icon" src="{{icon}}?imageView2/5/h/120/w/120"></image>
         <text>{{title}}</text>
         <!-- view class="hat"></view  -->
     </view>

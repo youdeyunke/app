@@ -18,6 +18,7 @@ Component({
             console.log('link is', link)
             var data = {
                 title: c.title.text,
+                icon: c.title.icon,
                 subtitle: c.subtitle.text,
                 link: link
             }
