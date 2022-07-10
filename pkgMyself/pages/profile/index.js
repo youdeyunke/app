@@ -11,7 +11,54 @@ Page({
     data: {
         loading: true,
         userInfo: {},
+        tagList: [
+            {name: '标签1', value: 1,},
+            {name: '标签2', value: 2,},
+            {name: '标签3', value:3,},
+            {name: '标签4', value:4},
+            {name: '标签5', value:5},
+            {name: '标签6', value:6},
+          ],
     },
+
+    tagsHandle: function (e) {
+        var i = e.currentTarget.dataset.index
+        var userInfo = this.data.userInfo
+        var ps = this.data.tagList
+        var p = ps[i]
+        var tags = []
+    
+        p.selected = !p.selected
+        ps[i] = p
+        this.data.tagList.forEach(function (item, i) {
+            if (item.selected) {
+              tags.push(item.name)
+            }
+        })      
+        userInfo.tags = tags.join(',')
+        this.setData({
+            tagList: ps,
+            tags: tags.join(','),
+            userInfo: userInfo
+        })
+      },
+
+      loadTags(){
+          var tags = this.data.userInfo.tags.split(',')
+          var tagList = this.data.tagList
+          tagList.forEach((item) => {
+              tags.forEach((tag) => {
+                if(item.name == tag){
+                    item.selected = true
+                }
+              })
+          })
+          this.setData({
+              tagList: tagList
+          })
+          console.log('22234',tags)
+          
+      },
 
     /**
      * 生命周期函数--监听页面加载
@@ -89,6 +136,7 @@ Page({
         auth.getRemoteUserInfo(function (user) {
 
             _this.setData({ userInfo: user, loading: false })
+            _this.loadTags()
         })
     },
 
