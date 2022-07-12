@@ -1,11 +1,16 @@
+page{
+       background: linear-gradient(180deg, #FF3900, #FF6300, #F83F4A);
+}
 .container {
-    background-color: #EEEEEE;
+    background-size: 750rpx 840rpx;
+    background-image: url('https://qiniucdn.udeve.cn/fang2021/f6099ade-e061-4fac-9105-623b88ea7030.png');
+    background-repeat: no-repeat;
   }
   
   .box{
     width:750rpx; 
-    padding:20rpx;
-    background:#fff;
+    padding:30rpx;
+    /* background:#fff; */
     box-sizing: border-box;
   }
   
@@ -243,30 +248,32 @@
     position: fixed;
     bottom: 0rpx;
     width: 100%;
-    height: 110rpx;
+    height: 140rpx;
     margin-top: 17rpx;
-    background-color: #FFFFFF;
+    background-color: #F83F4A;
   }
   
   .bacconttent-bottom {
     display: flex;
     flex-direction: row;
     margin: 0 30rpx 0 30rpx;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .bottom-collection {
     margin-top: 11rpx;
-    width: 56rpx;
-    height: 80rpx;
+    /* width: 94rpx; */
+    /* height: 100rpx; */
   }
   
-  .bottom-share {
+  /* .bottom-share {
     margin-top: 11rpx;
     margin-left: 54rpx;
     margin-right: 32rpx;
-    width: 56rpx;
-    height: 80rpx;
-  }
+    width: 76rpx;
+    height: 100rpx;
+  } */
   
   .font-top {
     width: 52rpx;
@@ -286,10 +293,10 @@
   }
   
   .bottom-button-common {
-    margin-top: 17rpx;
-    margin-left: 24rpx;
-    width: 470rpx;
-    height: 74rpx;
+    /* margin-top: 17rpx;
+    margin-left: 24rpx; */
+    width: 420rpx;
+    height: 96rpx;
   }
   
   .bottom-button-left {
@@ -304,9 +311,9 @@
     text-align: center;
   }
   
-  .bottom-button-right {
+  /* .bottom-button-right {
     background-color: #B20700;
-  }
+  } */
   
   .bottom-button-right view {
     font-size: 30rpx;
@@ -339,4 +346,10 @@
   
   .form .footer{
     margin-top:20rpx;
+  }
+  .huodong-card{
+    width: 690rpx;border-radius: 20rpx;margin-bottom: 30rpx;background-color: #FFF;padding: 35rpx;
+  }
+  .huodong-card-title{
+    width: 286rpx;height: 56rpx;background-image: url('https://qiniucdn.udeve.cn/fang2021/3c505d6f-5e49-420b-9aa5-f82aa7b8006d.png');background-size: 286rpx 56rpx;text-align: center;font-size: 40rpx;font-weight: bold;margin: 0 auto;margin-bottom: 30rpx;
   }
