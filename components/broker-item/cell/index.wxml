@@ -3,20 +3,24 @@
     <login-window class="loginwindow"></login-window>
     <view class="outer" style="background:{{bg}}">
         <view class="avatar" bindtap="gotoProfile">
-            <image src="{{item.avatar}}?imageView2/5/w/200/h/200" class="user" />
-         
+            <image src="{{item.avatar}}?imageView2/5/w/200/h/200" style="border: 3px solid {{avatarColors[item.level-1]}};" class="user" />
         </view>
         <view class="name">
             <view class="fullname">{{ item.name}}</view>
+            <view wx:if="{{item.level == 1}}" style="font-size: 26rpx;color: #999999;">金牌顾问</view>
+            <view wx:if="{{item.level == 2}}" style="font-size: 26rpx;color: #999999;">银牌顾问</view>
+            <view wx:if="{{item.level == 3}}" style="font-size: 26rpx;color: #999999;">铜牌顾问</view>
         </view>
+        <image style="width: 62rpx;height: 62rpx;" src="/assets/icons/broker/jiangpai{{item.level}}.png"></image>
         <view class="actions">
-            <view style="background:{{secondaryBtnColor}}" class="btn chat" bindtap="chatHandle">
+            <!-- <view style="background:{{secondaryBtnColor}}" class="btn chat" bindtap="chatHandle">
               <van-icon name="comment"></van-icon> 聊天
-            </view>
-            
-            <view style="background:{{primaryBtnColor}}" class="btn phone" bindtap="phoneHandle">
+            </view> -->
+            <image style="width: 80rpx;height: 80rpx;" bindtap="chatHandle" src="/assets/icons/broker/message.png"></image>
+            <!-- <view style="background:{{primaryBtnColor}}" class="btn phone" bindtap="phoneHandle">
                 <van-icon name="phone"></van-icon> 电话
-            </view>
+            </view> -->
+            <image style="width: 80rpx;height: 80rpx;" bindtap="phoneHandle" src="/assets/icons/broker/phone.png"></image>
         </view>
     </view>
 
