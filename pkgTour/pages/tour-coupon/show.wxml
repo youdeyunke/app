@@ -117,7 +117,7 @@
             <image class="font-top" src="../../image/kaquan.png"></image>
             <view class="font-bottom">我的卡券</view>
         </view>
-        <view class="bottom-button-right bottom-button-common">
+        <view class="bottom-button-common">
             <view>活动已结束</view>
         </view>
     </view>

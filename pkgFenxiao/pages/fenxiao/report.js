@@ -10,6 +10,8 @@ Page({
    */
   data: {
     pid: null,
+    post_ids: [],
+    postIds: '',
     sex: 1,
     name: '',
     receiver_mobile: '',
@@ -127,6 +129,38 @@ Page({
     })
     this.loadPost(p.id)
   },
+  loadPostIds(){
+    var post_ids = this.data.post_ids
+    var postIdList = []
+    post_ids.forEach((item) => {
+        postIdList.push(item.id)
+    })
+    console.log(postIdList.toString(','))
+    this.setData({
+        postIds: postIdList.toString(',')
+    })
+  },
+  pidAdd(e) {
+      console.log(e)
+      var post_ids = this.data.post_ids
+      console.log(post_ids)
+      post_ids.push(e.detail)
+      console.log(post_ids)
+      this.setData({
+        post_ids: post_ids,
+        popupShow: false
+      })
+      this.loadPostIds()
+  },
+  onClose(e) {
+      var i = e.currentTarget.dataset.i
+      var post_ids = this.data.post_ids
+      post_ids.splice(i,1)
+      this.setData({
+        post_ids: post_ids,
+      })
+      this.loadPostIds()
+  },
   loadPost: function (pid) {
     if (!pid) {
       return false;
@@ -179,6 +213,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var _this = this
+    app.ensureConfigs((myconfigs) =>{
+        _this.setData({
+            color: myconfigs.color.primary,
+            btnColor: myconfigs.color.primary_btn
+        })
+    })
     wx.setNavigationBarTitle({
       title: '报备客户',
     })
@@ -239,7 +280,7 @@ Page({
       name: _this.data.name,
       post_name: _this.data.post_name,
       sex: _this.data.sex,
-      post_id: _this.data.pid,
+      post_ids: _this.data.postIds,
       user_remark: _this.data.remark,
       id_number: _this.data.id_number,
       post_type: _this.data.post_type,
