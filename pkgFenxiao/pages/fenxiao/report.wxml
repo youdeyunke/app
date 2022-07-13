@@ -63,10 +63,15 @@
         <view class="form-title" style="margin-bottom:27rpx">
             <text>意向户型</text>
         </view>
-        <view wx:for="{{houses}}" wx:for-item="item" wx:key="item.index" bindtap="checkboxChange"
+        <!-- <view wx:for="{{houses}}" wx:for-item="item" wx:key="item.index" bindtap="checkboxChange"
             data-value="{{item.value}}" data-index="{{index}}" checked="{{item.selected}}" style="color: {{color}};"
             class="btn {{item.selected ? 'btn-selected' : ''}}">
             {{item.value}}
+        </view> -->
+        <view style="display: flex;flex-wrap: wrap;">
+            <view wx:for="{{houses}}" wx:key="item.index" style="margin: 7rpx;">
+                <van-tag  bindtap="checkboxChange" size="large" data-value="{{item.value}}" data-index="{{index}}" checked="{{item.selected}}" color="{{color}}" plain="{{item.selected ? false : true}}">{{item.value}}</van-tag>
+            </view>
         </view>
     </view>
     <view class="form">
