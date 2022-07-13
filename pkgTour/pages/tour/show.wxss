@@ -74,19 +74,6 @@ page{
     line-height: 52rpx;
   }
   
-  .main-flex-column-bottom {
-    display: flex;
-    margin-bottom:30rpx;
-    flex-direction: column;
-  }
-  
-  .main-bottom {
-    margin-top: 8rpx;
-    font-size: 28rpx;
-    font-family: Source Han Sans CN;
-    font-weight: 400;
-    color: #666666;
-  }
   
   /* 活动介绍 */
   .introduce-flex-column {
@@ -103,15 +90,6 @@ page{
     font-weight: bold;
     color: #333333;
   }
-  
-  .introduce-flex-column-middle {
-    margin-top: 37rpx;
-    font-size: 28rpx;
-    font-family: Source Han Sans CN;
-    font-weight: 400;
-    color: #333333;
-  }
-  
   
   /* 关联项目 */
   .content-flex-column {

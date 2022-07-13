@@ -24,12 +24,6 @@ Page({
     mobile_lock: false
   },
 
-  moveHome() {
-    wx.switchTab({
-      url: '../../../pages/home/home'
-    })
-  },
-
   mobileChange(){
     this.setData({
         mobile_lock:false

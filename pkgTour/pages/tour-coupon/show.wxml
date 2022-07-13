@@ -15,45 +15,62 @@
   </van-popup>
 
 <view class="container">
-
-  <view class="box">
-    <view class="title">{{ item.title }}</view>
-    <view class="main-flex-column-bottom">
-      <view class="main-bottom">活动时间: {{item.starts_at_pretty}} ~ {{ item.ends_at_pretty}}</view>
-      <view class="main-bottom">活动地点: {{ item.address }} </view>
-      <view wx:if="{{item.master}}" class="main-bottom">主办方: {{ item.master || '' }} </view>
-    </view>
-
-    <raw-html class="introduce-flex-column-middle" html="{{item.content}}"></raw-html>
+  <view class="box" >
+  <!-- <view class="title">{{ item.title }}</view> -->
+  <view style="font-size: 52rpx;font-weight: 800;line-height: 70rpx;text-align: center;margin: 60rpx;color: #FFF;">
+    <!-- <view>活动名称</view> -->
+    <view>{{ item.title }}</view>
   </view>
-
-  <ud-card title="关联项目" wx:if="{{post}}">
+  <view class="huodong-card">
+    <view class="huodong-card-title">活动介绍</view>
+    <view style="margin-bottom: 10rpx;">
+        <view style="font-size: 28rpx;display: flex;">
+            <text style="color: #999999;margin-right: 20rpx;width: 120rpx;">活动时间:</text>
+            <view style="width: 480rpx;">{{item.starts_at_pretty}}~{{ item.ends_at_pretty}}</view>
+        </view>
+        <view style="font-size: 28rpx;margin-top: 30rpx;display: flex;">
+            <text style="color: #999999;margin-right: 20rpx;width: 120rpx;">主办单位:</text>
+            <view style="width: 480rpx;">{{ item.master || '' }}</view>
+            
+        </view>
+        <view style="font-size: 28rpx;margin-top: 30rpx;display: flex;">
+            <text style="color: #999999;margin-right: 20rpx;width: 120rpx;">活动地点:</text>
+            <view style="width: 480rpx;">{{ item.address }} </view>
+        </view>
+    </view>
+  </view>
+  <view class="huodong-card">
+    <view class="huodong-card-title">活动详情</view>
+    <raw-html html="{{item.content}}"></raw-html>
+  </view>
+  <view class="huodong-card">
+    <view class="huodong-card-title">了解项目</view>
     <post-item post="{{post}}"></post-item>
-  </ud-card>
+  </view>
+  </view>
 
   <!-- 底部分享 -->
 
   <!-- 底部分享 -->
   <view class="content-bottom" wx:if="{{item.status_value == 'full'}}">
     <view class="bacconttent-bottom">
-      <view class="bottom-collection" bindtap="moveHome">
-        <van-icon class="font-top" name="wap-home-o" />
-        <view class="font-bottom">首页</view>
-      </view>
-      <view class="bottom-share bottom-collection">
-        <van-icon class="font-top" name="share" />
-        <view class="font-bottom" open-type="share">分享</view>
-        <button class="bottom-share-two" open-type="share"></button>
-      </view>
-      <view class="bottom-button-right bottom-button-common">
-        <view style="background: {{primaryBtnColor}};">已领完</view>
-      </view>
+        <view class="bottom-collection" bindtap="createHaibao" >
+            <image class="font-top" src="../../image/haibao.png"></image>
+            <view class="font-bottom">生成海报</view>
+        </view>
+        <view class="bottom-collection" bindtap="gotoKaquan">
+            <image class="font-top" src="../../image/kaquan.png"></image>
+            <view class="font-bottom">我的卡券</view>
+        </view>
+        <view class="bottom-button-common">
+            <view>已领完</view>
+        </view>
     </view>
   </view>
 
   <!-- 底部 -->
 
-  <view class="content-bottom" wx:if="{{item.status_value == 'active' || item.status_value == 'comming'}}">
+  <!-- <view class="content-bottom" wx:if="{{item.status_value == 'active' || item.status_value == 'comming'}}">
     <view class="bacconttent-bottom">
       <view class="bottom-collection" bindtap="moveHome">
         <van-icon class="font-top" name="wap-home-o" />
@@ -69,27 +86,44 @@
         <view wx:else bindtap="joinHandle" style="background: {{primaryBtnColor}};">领取</view>
       </view>
     </view>
+  </view> -->
+  <view class="content-bottom" wx:if="{{item.status_value == 'active' || item.status_value == 'comming'}}">
+  <view class="bacconttent-bottom">
+    <view class="bottom-collection" bindtap="createHaibao" >
+      <image class="font-top" src="../../image/haibao.png"></image>
+      <view class="font-bottom">生成海报</view>
+    </view>
+    <view class="bottom-collection" bindtap="gotoKaquan">
+      <image class="font-top" src="../../image/kaquan.png"></image>
+      <view class="font-bottom">我的卡券</view>
+    </view>
+    <!-- <view class="bottom-button-right bottom-button-common"> -->
+    <view class="bottom-button-common">
+      <view wx:if="{{joined}}"  bindtap="cancleJoin">已领取</view>
+      <view wx:else bindtap="joinHandle">{{item.join_btn}}</view>
+    </view>
+  </view>
   </view>
 
 
 
   <view class="content-bottom" wx:if="{{item.status_value == 'end' }}">
     <view class="bacconttent-bottom">
-      <view class="bottom-collection" bindtap="moveHome">
-        <van-icon class="font-top" name="wap-home-o" />
-        <view class="font-bottom">首页</view>
-      </view>
-      <view class="bottom-share bottom-collection">
-        <van-icon class="font-top" name="share" />
-        <view class="font-bottom" open-type="share">分享</view>
-        <button class="bottom-share-two" open-type="share"></button>
-      </view>
-      <view class="bottom-button-right bottom-button-common">
-        <view style="background: {{primaryBtnColor}};">活动已结束</view>
-      </view>
+        <view class="bottom-collection" bindtap="createHaibao" >
+            <image class="font-top" src="../../image/haibao.png"></image>
+            <view class="font-bottom">生成海报</view>
+        </view>
+        <view class="bottom-collection" bindtap="gotoKaquan">
+            <image class="font-top" src="../../image/kaquan.png"></image>
+            <view class="font-bottom">我的卡券</view>
+        </view>
+        <view class="bottom-button-right bottom-button-common">
+            <view>活动已结束</view>
+        </view>
     </view>
   </view>
 
   <view class="container-bottom"></view>
 </view>
 
+<poster-window id="poster"></poster-window>

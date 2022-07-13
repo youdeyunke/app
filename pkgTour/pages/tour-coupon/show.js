@@ -29,6 +29,17 @@ Page({
     })
   },
 
+  createHaibao(){
+    var tour = this.data.item
+    this.selectComponent("#poster").showPopup(tour)
+  },
+
+  gotoKaquan(){
+    wx.navigateTo({
+      url: '/pkgMyself/pages/coupons/index',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
