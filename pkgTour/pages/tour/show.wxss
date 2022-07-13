@@ -263,64 +263,18 @@ page{
   
   .bottom-collection {
     margin-top: 11rpx;
-    /* width: 94rpx; */
-    /* height: 100rpx; */
   }
-  
-  /* .bottom-share {
-    margin-top: 11rpx;
-    margin-left: 54rpx;
-    margin-right: 32rpx;
-    width: 76rpx;
-    height: 100rpx;
-  } */
-  
+
   .font-top {
-    width: 52rpx;
-    height: 52rpx;
+    width: 76rpx;height: 76rpx;margin: 0 auto;display: block;
   }
   
   .font-bottom {
-    margin-left: 8rpx;
-    float: left;
-    width: 50rpx;
-    height: 19rpx;
-    font-size: 20rpx;
-    font-family: Source Han Sans CN;
-    font-weight: 400;
-    color: #666666;
-    line-height: 30rpx;
+    font-size: 24rpx;color: #FFF;margin-top: 10rpx;
   }
   
   .bottom-button-common {
-    /* margin-top: 17rpx;
-    margin-left: 24rpx; */
-    width: 420rpx;
-    height: 96rpx;
-  }
-  
-  .bottom-button-left {
-    background-color: #FF9834;
-  }
-  
-  .bottom-button-left view {
-    font-size: 30rpx;
-    font-weight: 400;
-    color: #FFFFFF;
-    line-height: 74rpx;
-    text-align: center;
-  }
-  
-  /* .bottom-button-right {
-    background-color: #B20700;
-  } */
-  
-  .bottom-button-right view {
-    font-size: 30rpx;
-    font-weight: 400;
-    color: #FFFFFF;
-    line-height: 74rpx;
-    text-align: center;
+    width: 420rpx;height: 96rpx;border-radius: 48rpx;background: linear-gradient(0deg, #FF9600, #FFD513);font-size: 36rpx;color: #FFF;font-weight: bold;line-height: 96rpx;text-align: center;
   }
   
   .bottom-share-two {
