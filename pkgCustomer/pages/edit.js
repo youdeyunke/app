@@ -44,7 +44,13 @@ Page({
       this.loadData()
     })
 
-
+    var _this = this 
+    app.ensureConfigs((myconfigs) => { 
+        _this.setData({
+          color: myconfigs.color.primary,
+          btnColor: myconfigs.color.primary_btn
+        })
+      })
   },
 
   gotoColumn: function(e){

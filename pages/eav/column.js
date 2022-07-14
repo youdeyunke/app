@@ -28,6 +28,15 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad(q) {
+        var _this = this 
+        app.ensureConfigs((myconfigs) => { 
+            _this.setData({
+              color: myconfigs.color.primary,
+              btnColor: myconfigs.color.primary_btn
+            })
+          })
+
+
         const ac = this.getOpenerEventChannel()  
         ac.once('setColumn', (data) => { 
             this.setData({column: data })
@@ -47,7 +56,7 @@ Page({
                 }
             }
             if(data.value_type == 'string'){
-                this.setData({mode: 'input'})
+                this.setData({mode: 'string'})
             }
 
             if(data.value_type == 'text'){
@@ -59,7 +68,7 @@ Page({
             }
 
             if(data.value_type == 'integer'){
-                this.setData({mode: 'switch'})
+                this.setData({mode: 'number'})
             }
 
         })
@@ -100,6 +109,12 @@ Page({
      */
     onShow() {
 
+    },
+
+    cancleHandle: function(){
+        wx.navigateBack({
+          delta: 1,
+        })
     },
 
     /**

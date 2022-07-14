@@ -1,12 +1,12 @@
 <van-cell-group title="基本资料">
-  <van-field disabled="{{true}}" label="手机号" value="{{customer.mobile}}"></van-field>
-  <van-field label="姓名" model:value="{{name}}"></van-field>
+    <van-field disabled="{{true}}" label="手机号" value="{{customer.mobile}}"></van-field>
+    <van-field label="姓名" model:value="{{name}}"></van-field>
 </van-cell-group>
 
 <van-cell-group title="详细资料">
-    <van-cell required="{{item.required}}" wx:key="id" data-index="{{index}}" is-link bindtap="gotoColumn" wx:for="{{eavAttributes}}" title="{{item.label}}" value="{{customer[item.name]}}" ></van-cell>
+    <van-cell required="{{item.required}}" wx:key="id" data-index="{{index}}" is-link bindtap="gotoColumn" wx:for="{{eavAttributes}}" title="{{item.label}}" value="{{customer[item.name]}}"></van-cell>
 </van-cell-group>
 
 <view class="footer">
-  <van-button block type="primary" bindtap="submitHandle">保存修改</van-button>
+    <van-button color="{{btnColor}}" block type="primary" bindtap="submitHandle">保存修改</van-button>
 </view>

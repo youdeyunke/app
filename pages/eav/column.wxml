@@ -1,6 +1,14 @@
 <view class="outer">
 
-    <van-field wx:if="{{mode == 'input'}}" label="{{column.label}}" placeholder="{{column.placeholder}}" model:value="{{value}}"></van-field>
+    <van-field wx:if="{{mode == 'string'}}" label="{{column.label}}" placeholder="{{column.placeholder}}" model:value="{{value}}"></van-field>
+
+    <textarea wx:if="{{mode == 'textarea'}}" placeholder="{{column.placeholder}}" model:value="{{value}}"></textarea>
+
+    <van-field wx:if="{{mode == 'number'}}" label="{{column.label}}" placeholder="{{column.placeholder}}" model:value="{{value}}"></van-field>
+
+    <van-cell wx:if="{{mode == 'switch'}}" title="{{column.label}}">
+        <van-switch slot="right-icon" model:checked="{{ value }}" bind:change="onChange" />
+    </van-cell>
 
 
     <van-radio-group wx:if="{{mode == 'radio'}}" value="{{ value }}" bind:change="radioChange">
@@ -13,6 +21,6 @@
 </view>
 <view class="footer">
 
-    <van-button bindtap="confirmHandle" block type="primary">确定</van-button>
-    <van-button block type="default">取消</van-button>
+    <van-button color="{{btnColor}}" bindtap="confirmHandle" block type="primary">确定</van-button>
+    <van-button block bindtap="cancleHandle" type="default">取消</van-button>
 </view>

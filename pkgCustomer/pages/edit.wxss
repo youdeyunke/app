@@ -2,8 +2,10 @@
 
 .footer{
   width:750rpx; 
+  box-sizing: border-box;
+  padding:20rpx;
   margin:0 auto;
   position: fixed;
   bottom:0rpx;
-
+  border-top:2rpx solid #cecece;
 }
