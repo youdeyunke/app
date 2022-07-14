@@ -1,11 +1,16 @@
+page{
+       background: linear-gradient(180deg, #FF3900, #FF6300, #F83F4A);
+}
 .container {
-    background-color: #EEEEEE;
+    background-size: 750rpx 840rpx;
+    background-image: url('https://qiniucdn.udeve.cn/fang2021/f6099ade-e061-4fac-9105-623b88ea7030.png');
+    background-repeat: no-repeat;
   }
   
   .box{
     width:750rpx; 
-    padding:20rpx;
-    background:#fff;
+    padding:30rpx;
+    /* background:#fff; */
     box-sizing: border-box;
   }
   
@@ -69,19 +74,6 @@
     line-height: 52rpx;
   }
   
-  .main-flex-column-bottom {
-    display: flex;
-    margin-bottom:30rpx;
-    flex-direction: column;
-  }
-  
-  .main-bottom {
-    margin-top: 8rpx;
-    font-size: 28rpx;
-    font-family: Source Han Sans CN;
-    font-weight: 400;
-    color: #666666;
-  }
   
   /* 活动介绍 */
   .introduce-flex-column {
@@ -98,15 +90,6 @@
     font-weight: bold;
     color: #333333;
   }
-  
-  .introduce-flex-column-middle {
-    margin-top: 37rpx;
-    font-size: 28rpx;
-    font-family: Source Han Sans CN;
-    font-weight: 400;
-    color: #333333;
-  }
-  
   
   /* 关联项目 */
   .content-flex-column {
@@ -243,77 +226,33 @@
     position: fixed;
     bottom: 0rpx;
     width: 100%;
-    height: 110rpx;
+    height: 140rpx;
     margin-top: 17rpx;
-    background-color: #FFFFFF;
+    background-color: #F83F4A;
   }
   
   .bacconttent-bottom {
     display: flex;
     flex-direction: row;
     margin: 0 30rpx 0 30rpx;
+    justify-content: space-between;
+    align-items: center;
   }
   
   .bottom-collection {
     margin-top: 11rpx;
-    width: 56rpx;
-    height: 80rpx;
   }
-  
-  .bottom-share {
-    margin-top: 11rpx;
-    margin-left: 54rpx;
-    margin-right: 32rpx;
-    width: 56rpx;
-    height: 80rpx;
-  }
-  
+
   .font-top {
-    width: 52rpx;
-    height: 52rpx;
+    width: 76rpx;height: 76rpx;margin: 0 auto;display: block;
   }
   
   .font-bottom {
-    margin-left: 8rpx;
-    float: left;
-    width: 50rpx;
-    height: 19rpx;
-    font-size: 20rpx;
-    font-family: Source Han Sans CN;
-    font-weight: 400;
-    color: #666666;
-    line-height: 30rpx;
+    font-size: 24rpx;color: #FFF;margin-top: 10rpx;
   }
   
   .bottom-button-common {
-    margin-top: 17rpx;
-    margin-left: 24rpx;
-    width: 470rpx;
-    height: 74rpx;
-  }
-  
-  .bottom-button-left {
-    background-color: #FF9834;
-  }
-  
-  .bottom-button-left view {
-    font-size: 30rpx;
-    font-weight: 400;
-    color: #FFFFFF;
-    line-height: 74rpx;
-    text-align: center;
-  }
-  
-  .bottom-button-right {
-    background-color: #B20700;
-  }
-  
-  .bottom-button-right view {
-    font-size: 30rpx;
-    font-weight: 400;
-    color: #FFFFFF;
-    line-height: 74rpx;
-    text-align: center;
+    width: 420rpx;height: 96rpx;border-radius: 48rpx;background: linear-gradient(0deg, #FF9600, #FFD513);font-size: 36rpx;color: #FFF;font-weight: bold;line-height: 96rpx;text-align: center;
   }
   
   .bottom-share-two {
@@ -339,4 +278,10 @@
   
   .form .footer{
     margin-top:20rpx;
+  }
+  .huodong-card{
+    width: 690rpx;border-radius: 20rpx;margin-bottom: 30rpx;background-color: #FFF;padding: 35rpx;
+  }
+  .huodong-card-title{
+    width: 286rpx;height: 56rpx;background-image: url('https://qiniucdn.udeve.cn/fang2021/3c505d6f-5e49-420b-9aa5-f82aa7b8006d.png');background-size: 286rpx 56rpx;text-align: center;font-size: 40rpx;font-weight: bold;margin: 0 auto;margin-bottom: 30rpx;
   }

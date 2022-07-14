@@ -42,18 +42,36 @@
                 <image src="../../images/search.png" />
             </view>
         </view>
-        <post-item wx:if="{{post}}" post="{{post}}"></post-item>
-        <view class="empty-post" wx:else>请点击右上角搜搜按钮，搜索楼盘</view>
-        <post-selector bind:change='pidChange' class="post-selector" show="{{popupShow}}"></post-selector>
+        <!-- <post-item wx:if="{{post}}" post="{{post}}"></post-item> -->
+        <view style="display: flex;flex-wrap: wrap;">
+            <view style="margin: 10rpx;" wx:for="{{post_ids}}">
+                <van-tag
+                    color="{{color}}"
+                    closeable
+                    size="medium"
+                    type="primary"
+                    id="primary"
+                    bind:close="onClose"
+                    data-i="{{index}}"
+                >{{item.title}}</van-tag>
+            </view>
+        </view>
+        <view class="empty-post" wx:if="{{!post_ids.length}}">请点击右上角搜搜按钮，搜索楼盘</view>
+        <post-selector bind:change='pidAdd' class="post-selector" show="{{popupShow}}"></post-selector>
     </view>
     <view class="form">
         <view class="form-title" style="margin-bottom:27rpx">
             <text>意向户型</text>
         </view>
-        <view wx:for="{{houses}}" wx:for-item="item" wx:key="item.index" bindtap="checkboxChange"
-            data-value="{{item.value}}" data-index="{{index}}" checked="{{item.selected}}"
+        <!-- <view wx:for="{{houses}}" wx:for-item="item" wx:key="item.index" bindtap="checkboxChange"
+            data-value="{{item.value}}" data-index="{{index}}" checked="{{item.selected}}" style="color: {{color}};"
             class="btn {{item.selected ? 'btn-selected' : ''}}">
             {{item.value}}
+        </view> -->
+        <view style="display: flex;flex-wrap: wrap;">
+            <view wx:for="{{houses}}" wx:key="item.index" style="margin: 7rpx;">
+                <van-tag  bindtap="checkboxChange" size="large" data-value="{{item.value}}" data-index="{{index}}" checked="{{item.selected}}" color="{{color}}" plain="{{item.selected ? false : true}}">{{item.value}}</van-tag>
+            </view>
         </view>
     </view>
     <view class="form">
@@ -124,7 +142,7 @@
 
 
 <view class="actions">
-    <van-button bindtap="submitHandle" type="info" block>提交报备</van-button>
+    <van-button bindtap="submitHandle" type="info" color="{{btnColor}}" block>提交报备</van-button>
     <van-button custom-style="margin-top:10rpx;" type="default" block bindtap="backHandle">
         取消
     </van-button>

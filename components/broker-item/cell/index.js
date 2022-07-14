@@ -29,7 +29,7 @@ Component({
      * 组件的初始数据
      */
     data: {
-
+        avatarColors: ['#FFCB45','#A9CDFF','#FFC28C']
     },
 
     /**

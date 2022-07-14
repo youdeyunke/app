@@ -7,6 +7,8 @@ Component({
         subTitle: { type: String, value: '' },
         url: { type: String, value: null },
         opentype: { type: String, value: 'navigateto' },
+        leftHat: { type: Boolean, value: false},
+        leftHatColor: {type: String, value: '#000000'}
     },
 
     /**

@@ -44,6 +44,9 @@ Page({
       },
 
       loadTags(){
+        if (!this.data.userInfo.tags) {
+            return
+        }
           var tags = this.data.userInfo.tags.split(',')
           var tagList = this.data.tagList
           tagList.forEach((item) => {

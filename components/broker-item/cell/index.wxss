@@ -15,7 +15,7 @@
 }
 
 .name {
-    width: 206rpx;
+    width: 150rpx;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -51,12 +51,12 @@
 
 
 .avatar {
-    margin-right: 40rpx;
+    margin-right: 24rpx;
     position: relative;
 }
 
 .avatar image.user {
-    border: 2rpx solid #fff;
+    /* border: 2rpx solid #fff; */
     border-radius: 95rpx;
     width: 95rpx;
     height: 95rpx;
@@ -72,14 +72,14 @@
 }
 
 .actions {
-    width: 400rpx;
+    width: 240rpx;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
     align-items: center;
 }
 
 .btn  {
-    width: 150rpx;
+    width: 100rpx;
     padding:0 20rpx;
     color:#fff;
     font-size: 24rpx;
