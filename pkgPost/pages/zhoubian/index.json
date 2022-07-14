@@ -1,6 +1,5 @@
 {
     "usingComponents": {
-        "zhoubian": "../../components/zhoubian/index",
-        "mapimage": "/components/map"
+        "zhoubian": "../../components/zhoubian/index"
     }
 }
