@@ -55,12 +55,14 @@
     position: relative;
 }
 
-.avatar image.user {
+.avatar .user {
     /* border: 2rpx solid #fff; */
     border-radius: 95rpx;
     width: 95rpx;
     height: 95rpx;
     overflow: hidden;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
 }
 
 .avatar image.badge {

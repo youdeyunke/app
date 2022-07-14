@@ -3,7 +3,7 @@
     <login-window class="loginwindow"></login-window>
     <view class="outer" style="background:{{bg}}">
         <view class="avatar" bindtap="gotoProfile">
-            <image src="{{item.avatar}}?imageView2/5/w/200/h/200" style="border: 3px solid {{avatarColors[item.level-1]}};" class="user" />
+            <view  style="border: 3px solid {{avatarColors[item.level-1]}};background-image:url('{{item.avatar}}?imageView2/0/w/200/')" class="user" ></view>
         </view>
         <view class="name">
             <view class="fullname">{{ item.name}}</view>
