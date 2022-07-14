@@ -4,6 +4,8 @@ const EXT = wx.getExtConfigSync()
 const city = require("utils/city.js");
 //const T = require("utils/test.js");
 //const TIM = require('tim/index.js');
+var onfire = require('/utils/onfire.min.js');
+wx.onfire = onfire 
 
 App({
     globalData: {

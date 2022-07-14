@@ -1,13 +1,5 @@
 <view class="column">
 
-    <van-cell bindtap="cellClick" is-link title="{{config.label}}" value="{{value}}"></van-cell>
-
-type: {{ config.value_type }}
-
-    <value-dialog wx:if="{{options && options.length > 0 && config.multiple == false}}" id="{{config.value_type}}-input">
-        <van-picker show-toolbar title="标题" columns="{{ options }}" bind:cancel="onCancel" bind:confirm="onConfirm" />
-    </value-dialog>
-
-
+    <van-cell url="/pages/eav/column?id={{config.id}}" bindtap="cellClick" is-link title="{{config.label}}" value="{{value}}"></van-cell>
 
 </view>

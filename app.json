@@ -8,6 +8,13 @@
             ]
         },
         {
+            "root": "pkgCustomer", 
+            "pages": [
+                "pages/edit",
+                "pages/show"
+            ]
+        },
+        {
             "root": "pkgAdmin",
             "name": "pkgadmin",
             "pages": [
@@ -293,6 +300,7 @@
     ],
     "pages": [
         "pages/home/home",
+        "pages/eav/column",
         "pages/pagemaker/show",
         "pages/zhaofang/index",  
         "pages/want/index",
@@ -351,6 +359,7 @@
         "navigationBarTextStyle": "black"
     },
     "usingComponents": {
+        "avatar": "/components/avatar/index",
         "login-window": "/components/login-window/index",
         "copyright": "/components/copyright",
         "navigation-bar": "/components/navBar/navBar",

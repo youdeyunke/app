@@ -41,9 +41,8 @@ Component({
     methods: {
 
         cellClick: function(){
-            var el = '#' + this.data.config.value_type + '-input'
-            console.log('el',el)
-            this.selectComponent(el).open()
+            
+            this.selectComponent('#dialog').open()
 
         },
 

@@ -1,5 +1,5 @@
-// pkgCustomer/pages/edit.js
 const app = getApp() 
+
 
 Page({
 
