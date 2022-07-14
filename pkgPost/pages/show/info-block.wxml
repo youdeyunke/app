@@ -1,4 +1,4 @@
-<block-box title="楼盘详情信息" sub-title='查看更多信息' url='{{value.more_url}}' padding="{{false}}" title-size="36">
+<block-box leftHat='true' title="楼盘详情信息" sub-title='查看更多信息' url='{{value.more_url}}' padding="{{false}}" title-size="36">
 
   <view class="block-content">
 
