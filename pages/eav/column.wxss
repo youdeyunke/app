@@ -1,1 +1,9 @@
-/* pages/eav/column.wxss */
+.outer{
+    width:710rpx; 
+    margin:20rpx auto;
+}
+
+.footer{
+    width:710rpx; 
+    margin:0 auto;
+}

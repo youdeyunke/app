@@ -1,2 +1,18 @@
-<!--pages/eav/column.wxml-->
-<text>pages/eav/column.wxml</text>
+<view class="outer">
+
+    <van-field wx:if="{{mode == 'input'}}" label="{{column.label}}" placeholder="{{column.placeholder}}" model:value="{{value}}"></van-field>
+
+
+    <van-radio-group wx:if="{{mode == 'radio'}}" value="{{ value }}" bind:change="radioChange">
+        <van-cell-group>
+            <van-cell wx:for="{{options}}" title="{{item}}" clickable data-name="{{item}}" bind:click="optionClick">
+                <van-radio slot="right-icon" name="{{item}}" />
+            </van-cell>
+        </van-cell-group>
+    </van-radio-group>
+</view>
+<view class="footer">
+
+    <van-button bindtap="confirmHandle" block type="primary">确定</van-button>
+    <van-button block type="default">取消</van-button>
+</view>

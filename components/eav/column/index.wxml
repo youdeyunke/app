@@ -1,5 +1,5 @@
 <view class="column">
 
-    <van-cell url="/pages/eav/column?id={{config.id}}" bindtap="cellClick" is-link title="{{config.label}}" value="{{value}}"></van-cell>
+    <van-cell url="/pages/eav/column?id={{config.id}}" is-link title="{{config.label}}" value="{{value}}"></van-cell>
 
 </view>
