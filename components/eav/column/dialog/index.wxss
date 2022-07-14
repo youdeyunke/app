@@ -1,0 +1,23 @@
+/* components/eav/column/options/index.wxss */
+
+.outer{
+    padding:20rpx;
+}
+
+.outer .title{
+    height:60rpx; 
+    text-align: center;
+    line-height: 60rpx;
+
+    border-bottom:1rpx solid #cecece;
+    margin-bottom:10rpx;
+}
+
+.outer .footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top:20rpx;
+
+    
+}

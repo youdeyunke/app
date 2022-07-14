@@ -1,0 +1,6 @@
+{
+    "component": true,
+    "usingComponents": {
+        "value-dialog": "./dialog/index"
+    }
+}

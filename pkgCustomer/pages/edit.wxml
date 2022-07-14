@@ -1,0 +1,13 @@
+<van-cell-group title="基本资料">
+  <van-cell disabled="{{true}}" title="手机号" value="{{customer.mobile}}"></van-cell>
+  <van-cell title="姓名" value="{{customer.name}}"></van-cell>
+  <van-cell title="性别" value="{{customer.sex}}"></van-cell>
+</van-cell-group>
+
+<van-cell-group title="详细资料">
+    <eav-column wx:for="{{eavAttributes}}" config="{{item}}" value="{{customer[item.name]}}" ></eav-column>
+</van-cell-group>
+
+<view class="footer">
+  <van-button block type="primary" bindtap="submitHandle">保存修改</van-button>
+</view>

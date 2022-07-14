@@ -1,0 +1,9 @@
+/* pkgCustomer/pages/edit.wxss */
+
+.footer{
+  width:750rpx; 
+  margin:0 auto;
+  position: fixed;
+  bottom:0rpx;
+
+}
