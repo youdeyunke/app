@@ -46,7 +46,8 @@ Page({
             this.setOptions(data.options)
 
             // 判断输入框类型
-            if(data.options && data.options.length > 0){ 
+            if(data.selectable == true ){ 
+                // 可选项
                 if(data.multiple){
                     this.setData({mode: 'checkbox'})
                     return 
