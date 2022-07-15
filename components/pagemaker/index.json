@@ -5,6 +5,7 @@
         "brokers-module": "./brokers/index",
         "text-module": "./text/index",
         "blank-module": "./blank/index",
+        "follow-module": "./follow/index",
         "news-module": "./news/index",
         "tours-module": "./tours/index",
         "navs-module": "./navs/index",
