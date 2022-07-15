@@ -2,8 +2,34 @@
 
 .footer{
   width:750rpx; 
+  box-sizing: border-box;
+  padding:20rpx;
   margin:0 auto;
   position: fixed;
   bottom:0rpx;
+  border-top:2rpx solid #cecece;
+  background:#fff;
+}
 
+page{
+    padding-bottom:120rpx;
+}
+
+.progress{
+    width:750rpx;
+    margin:0rpx ;
+    padding:20rpx;
+    background:#fff;
+    position: sticky;
+    top:0;
+    left:0;
+    z-index:100;
+    height:120rpx;
+    border-bottom:2rpx solid #cecece;
+}
+
+.progress .title{
+    color:#999999; 
+    font-size:26rpx; 
+    margin-bottom:20rpx;
 }

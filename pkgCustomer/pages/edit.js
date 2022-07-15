@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+      customer: null, 
+      name: null, 
 
   },
 
@@ -20,8 +22,14 @@ Page({
           return 
         }
         _this.setData({  
+            rValue: resp.data.data.r,
           customer: resp.data.data.customer,  
+          name: resp.data.data.customer.name,  
+          mobile: resp.data.data.customer.mobile, 
           eavAttributes: resp.data.data.eav_attributes,
+        })
+        wx.setNavigationBarTitle({
+          title: '客户：' + resp.data.data.customer.name ,
         })
       }
     })
@@ -37,6 +45,38 @@ Page({
       this.loadData()
     })
 
+    var _this = this 
+    app.ensureConfigs((myconfigs) => { 
+        _this.setData({
+          color: myconfigs.color.primary,
+          btnColor: myconfigs.color.primary_btn
+        })
+      })
+  },
+
+  gotoColumn: function(e){
+      const {index}  = e.target.dataset 
+      var column = this.data.eavAttributes[index]
+      var value = this.data.customer[column.name]
+
+      var _this = this 
+      // 打开编辑字段界面，并传值 
+      wx.navigateTo({
+        url: '/pages/eav/column',
+        events: {
+            change: function(result){
+                console.log('值被修改了', result)
+                var customer = _this.data.customer 
+                customer[result.key] = result.value  
+                _this.setData({customer: customer})
+            }
+        },
+        success: function(res){
+            res.eventChannel.emit('setColumn', column)
+            res.eventChannel.emit('setValue', value)
+
+        }
+      })
   },
 
   /**
@@ -58,6 +98,40 @@ Page({
    */
   onHide() {
 
+  },
+
+  submitHandle: function(){
+      var _this = this  
+      var data = this.data.customer 
+      data.name = this.data.name 
+      // 检查必填字段
+      this.data.eavAttributes.forEach((att, index) => {  
+          var value = data[att.name]
+          if(!value){
+              wx.showToast({
+                title: att.label + '是必填项，不能为空',
+              })
+              return false 
+          }
+      })
+
+      app.request({ 
+          url: '/api/v1/user_profiles/' + this.data.upId, 
+          method: 'PUT', 
+          data: {user_profile: data},
+          success: function(resp){ 
+              if(resp.data.status != 0){
+                  console.log('error', resp.data.status)
+                  return 
+              }
+              _this.loadData()
+
+              wx.showToast({
+                title: '已保存',
+              })
+ 
+          }
+      })
   },
 
   /**

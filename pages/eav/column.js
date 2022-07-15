@@ -1,34 +1,102 @@
 // pages/eav/column.js
+const app = getApp() 
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        column: null,
+        value: "",
+        mode: null, 
+        options: null,
+    },
 
+
+    radioChange: function(e){
+        console.log('radio change',e )
+    },
+    
+    optionClick: function(e){
+
+        var value = e.currentTarget.dataset.name  
+        this.setData({value: value })
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(q) {
-        this.setData({  
-            aid: q.id, 
-        }, () => { 
-            this.loadData() 
-        })
+        var _this = this 
+        app.ensureConfigs((myconfigs) => { 
+            _this.setData({
+              color: myconfigs.color.primary,
+              btnColor: myconfigs.color.primary_btn
+            })
+          })
 
-    },
 
-    loadData: function(){
-        var _this = this  
-        app.request({ 
-            url: '/api/v1/eav_attributes/' + this.data.aid, 
-            success: function(resp){ 
-                if(resp.data.status == 0)
+        const ac = this.getOpenerEventChannel()  
+        ac.once('setColumn', (data) => { 
+            this.setData({column: data })
+            wx.setNavigationBarTitle({
+              title: '请填写' + data.label,
+            })
+            this.setOptions(data.options)
+
+            // 判断输入框类型
+            if(data.selectable == true ){ 
+                // 可选项
+                if(data.multiple){
+                    this.setData({mode: 'checkbox'})
+                    return 
+                }else{ 
+                    this.setData({mode: 'radio'})
+                    return 
+                }
             }
+            if(data.value_type == 'string'){
+                this.setData({mode: 'string'})
+            }
+
+            if(data.value_type == 'text'){
+                this.setData({mode: 'textarea'})
+            }
+
+            if(data.value_type == 'boolean'){
+                this.setData({mode: 'switch'})
+            }
+
+            if(data.value_type == 'integer'){
+                this.setData({mode: 'number'})
+            }
+
+        })
+        ac.once('setValue', (value) => { 
+            this.setData({value: value })
+        })
+
+    },
+    confirmHandle: function(e){
+        var data = {
+            key: this.data.column.name,  
+            value: this.data.value, 
+        }
+        wx.navigateBack({
+            delta:1,
+        })
+        this.getOpenerEventChannel().emit("change", data)
+    },
+    setOptions: function(strVal){
+        // 将字符串格式的选项转换成数组 
+        var items = strVal.split('\n')
+        this.setData({ 
+            options: items, 
         })
     },
+
+
 
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -42,6 +110,12 @@ Page({
      */
     onShow() {
 
+    },
+
+    cancleHandle: function(){
+        wx.navigateBack({
+          delta: 1,
+        })
     },
 
     /**

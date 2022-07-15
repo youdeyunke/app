@@ -11,6 +11,7 @@
             <navs-module config="{{item}}" wx:elif="{{item.name === 'navs'}}"></navs-module>
             <posts-module config="{{item}}" wx:elif="{{item.name === 'posts'}}"></posts-module>
             <blank-module config="{{item}}" wx:elif="{{item.name === 'blank'}}"></blank-module>
+            <follow-module config="{{item}}" wx:elif="{{item.name === 'follow'}}"></follow-module>
             <text-module config="{{item}}" wx:elif="{{item.name === 'text'}}"></text-module>
             <notice-module config="{{item}}" wx:elif="{{item.name === 'notice'}}"></notice-module>
             <blocknavs-module config="{{item}}" wx:elif="{{item.name === 'blocknavs'}}"></blocknavs-module>

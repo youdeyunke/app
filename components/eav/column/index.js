@@ -40,11 +40,7 @@ Component({
      */
     methods: {
 
-        cellClick: function(){
-            
-            this.selectComponent('#dialog').open()
 
-        },
 
     }
 })
