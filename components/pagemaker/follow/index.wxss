@@ -7,7 +7,7 @@
     position: relative;
   }
   .outer .title {
-    font-size: 30rpx;
+    font-size: 32rpx;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -15,13 +15,13 @@
   }
   
   .outer .title .icon{
-    height: 75rpx; 
-    width:75rpx;
+    height: 80rpx; 
+    width:80rpx;
     margin-right:20rpx;
   }
   
   .outer .btn {
-    height: 56rpx;
+    height: 52rpx;
     line-height: 100%;
     display: flex;
     justify-content: center;
@@ -30,8 +30,8 @@
     padding:0 20rpx;
     border-radius: 4rpx;
     border-style: solid;
-    border-width: 1rpx;
-    font-size: 24rpx;
+    border-width: 2rpx;
+    font-size: 26rpx;
   }
   
   .outer .hand{
