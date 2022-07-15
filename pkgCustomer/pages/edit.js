@@ -22,6 +22,7 @@ Page({
           return 
         }
         _this.setData({  
+            rValue: resp.data.data.r,
           customer: resp.data.data.customer,  
           name: resp.data.data.customer.name,  
           mobile: resp.data.data.customer.mobile, 

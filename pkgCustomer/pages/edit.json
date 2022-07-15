@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+      "van-progress": "/vant/progress/index",
       "eav-column": "/components/eav/column/index"
   }
 }
