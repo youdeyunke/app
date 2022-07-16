@@ -1,6 +1,6 @@
 <block-box title="{{value.title}}" padding="{{false}}" title-size="36" sub-title="查看详情" url="/pkgPost/pages/zhoubian/index?id={{value.post_id}}">
     <!-- <mapimage width="710" pois='{{pois}}' image="{{value.map_image_url}}" latitude="{{value.latitude}}" longitude="{{value.longitude}}" name="{{value.name}}"></mapimage> -->
-    <map enable-zoom enable-scroll="{{false}}" enable-rotate="{{false}}" longitude="{{value.longitude}}" show-scale="{{false}}" latitude="{{value.latitude}}" markers="{{markers}}" include-points="{{points}}" bindcallouttap="markertap" bindmarkertap="markertap" style="width:710rpx; height:320rpx;"></map>
+    <map enable-zoom enable-scroll="{{false}}" enable-rotate="{{false}}" longitude="{{value.longitude}}" show-scale="{{false}}" latitude="{{value.latitude}}" markers="{{markers}}" include-points="{{points}}" bindcallouttap="markertap" bindmarkertap="markertap" style="width:695rpx; height:320rpx;"></map>
     <view class="location" bindtap="getLocation">
         <view class="location-left">
             <text class="label">位置：</text>
