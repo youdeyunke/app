@@ -1,6 +1,6 @@
 <view class="progress">
     <view class="title">客户资料完成度</view>
-    <van-progress color="{{color}}" pivot-color="{{color}}" stroke-width="8" show-pivot  percentage="{{rValue * 100}}" />
+    <van-progress style="width:710rpx;margin:auto;" color="{{color}}" pivot-color="{{color}}" stroke-width="8" show-pivot  percentage="{{rValue * 100}}" />
 </view>
 
 <van-cell-group title="基本资料">

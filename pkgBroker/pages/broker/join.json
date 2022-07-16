@@ -3,6 +3,8 @@
     "usingComponents": {
         "van-field": "/vant/field/index",
         "van-picker": "/vant/picker/index",
+           "sms-button": "/components/sms-button/index",
+           "broker-group-selector": "./components/broker-group-selector/index",
         "mbutton": "/components/bind-mobile-button",
         "van-button": "/vant/button/index",
         "flow-tips": "/components/flow-tips",

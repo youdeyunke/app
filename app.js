@@ -568,6 +568,7 @@ App({
                         title: "服务器错误",
                         content: "服务器出错了，请稍后重试"
                     });
+                    wx.hideLoading()
                     return false;
                 }
 

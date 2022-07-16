@@ -90,9 +90,23 @@ Page({
     },
     setOptions: function(strVal){
         // 将字符串格式的选项转换成数组 
-        var items = strVal.split('\n')
+        var options = strVal.split('\n').map((opt) => { 
+            var res = opt.split('|')
+            var label = '' 
+            var value = ''
+            if(res.length == 1){
+                label = opt  
+                value = opt 
+            }else{ 
+                label = res[0]
+                value = res[1]
+            }
+            console.log('label', label, 'value', value)
+            return {label: label, value: value}
+        })
+        
         this.setData({ 
-            options: items, 
+            options: options, 
         })
     },
 

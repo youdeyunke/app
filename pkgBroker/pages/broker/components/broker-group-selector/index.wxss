@@ -1,0 +1,6 @@
+/* pkgBroker/pages/broker/components/broker-group-selector/index.wxss */
+
+.outer{
+    width:690rpx; 
+    padding:30rpx;
+}

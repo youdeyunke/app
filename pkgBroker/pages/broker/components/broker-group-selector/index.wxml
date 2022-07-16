@@ -1,0 +1,9 @@
+<van-popup show="{{show}}" closeable bind:close="close">
+    <view class="outer">
+        <van-cell-group title="请选择">
+            <van-cell wx:for="{{groups}}" label="{{item.name}}" is-link data-index="{{index}}" bindtap="selectHandle" ></van-cell>
+        </van-cell-group>
+    
+    </view>
+
+</van-popup>

@@ -7,17 +7,15 @@ Page({
      * 页面的初始数据
      */
     data: {
-        userInfo: {},
-        uploading: false,
-        companiesLoading: true,
-        companyPickerShow: false,
+        userInfo: null,
+        mobile: '',
+        name: '',
+        smsCode: '',
+        sex: 1,
+        userGroupName: '点击选择',
+        userGrupId: null,
         loading: true,
-        companies: [],
-        company: {
-            name: '',
-            id: ''
-        },
-        sex: '1',
+
         sexOptions: [{
                 label: '男',
                 value: '1'
@@ -27,26 +25,7 @@ Page({
                 value: '0'
             }
         ],
-        state: '',
-        phonenumber: '',
-        imageurl1: "https://qiniucdn.udeve.net/fang/broker-join-upload-avatar.png",
-        imageurl2: "https://qiniucdn.udeve.net/fang/broker-join-upload-qr.png",
-        imageurl3: "https://qiniucdn.udeve.net/fang/broker-join-upload-namecard.png",
-        formData: {
-            name: '',
-            wechat: '',
-            wechat_qr: '',
-            namecard: '',
-            avatar: '',
-            post_title: '',
-            post_id: '',
-            sex: 1
-        },
-        keyword: '',
-        showkw: false,
-        userstate: '',
         join_status: '',
-        building_length: ''
     },
     //接受子组件传过来的数据
     valueHandle: function (e) {
@@ -72,22 +51,12 @@ Page({
         this.setData({
             sex: sex,
         })
-        var formdata = this.data.formData
-        formdata['sex'] = sex
     },
-    showHandle: function (e) {
-        console.log("e", e)
-        if (e.detail == 0) {
-            this.setData({
-                showkw: false
-            })
-        }
-    },
+
 
     /**
      * 生命周期函数--监听页面加载
      */
-
 
 
     serachHandle: function (e) {
@@ -105,33 +74,28 @@ Page({
             })
         }
     },
-    inputHandle: function (e) {
-        var value = e.detail.value;
-        var key = e.currentTarget.dataset.key;
-        var formdata = this.data.formData;
-        formdata[key] = value;
-        this.setData({
-            formData: formdata,
-        })
-        console.log("formdata", formdata)
-    },
+
     onLoad: function (q) {
         var _this = this
         wx.showLoading()
         this.setData({
             loading: true,
         })
-        auth.ensureUser(function (userInfo) {
-            var mobile = _this.data.userInfo.mobile
-            _this.setData({
-                phonenumber: mobile,
-            })
-        })
+
         if (q.post_id) {
             this.setDefaultPost(q.post_id)
         }
+
         wx.setNavigationBarTitle({
             title: '申请入驻',
+        })
+    },
+
+
+    changeMobile: function(){
+        this.setData({ 
+            mobile: '', 
+            mobileLock: false, 
         })
     },
 
@@ -144,66 +108,14 @@ Page({
             url: '/api/v1/post_base_info/' + pid,
             success: function (resp) {
                 var p = resp.data.data
-                fdata.post_id = pid
-                fdata.post_title = p.title
                 _this.setData({
-                    formData: fdata,
-                    keyword: p.title,
+                    postId: p.id,
+                    postTitle: p.title,
                 })
             }
         })
     },
 
-    closeCompanyPicker: function () {
-        this.setData({
-            companyPickerShow: false
-        })
-    },
-
-    showCompanyPicker: function () {
-        this.setData({
-            companyPickerShow: true
-        })
-    },
-
-    companyChange: function (e) {
-        var c = e.detail.value
-        if (c.id == this.data.company.id) {
-            return false
-        }
-        this.setData({
-            company: c
-        })
-        console.log('set company', c)
-    },
-
-    loadCompanies: function () {
-        var _this = this
-        app.request({
-            url: '/api/v1/companies/',
-            data: {
-                per_page: 99999,
-                page: 1
-            },
-            success: function (resp) {
-                var first = [{
-                    name: '没有可选的企业/团队',
-                    id: ''
-                }]
-                var items = first.concat(resp.data.data)
-                items = items.map((item, i) => {
-                    return {
-                        text: item.name,
-                        id: item.id
-                    }
-                })
-                _this.setData({
-                    companiesLoading: false,
-                    companies: items
-                })
-            }
-        })
-    },
 
     chooseImage: function (e) {
         if (this.data.uploading == true) {
@@ -246,9 +158,26 @@ Page({
             }
         })
     },
+
+
     validate: function () {
-        var data = this.data.formData
-        console.log("data", data)
+        var data = this.data
+        if (data.mobile.length != 11) {
+            wx.showToast({
+                icon: 'none',
+                title: '手机号错误',
+            })
+            return false
+        }
+
+        if(data.mobileLock == false && !data.smsCode){
+            wx.showToast({
+                icon: 'none',
+                title: '请填写短信验证码',
+            })
+            return false 
+        }
+
         if (!data.name) {
             wx.showToast({
                 icon: 'none',
@@ -270,37 +199,18 @@ Page({
             })
             return false
         }
-        if (!data.avatar) {
-            wx.showToast({
-                icon: 'none',
-                title: '请先上传头像',
-            })
-            return false
-        }
-        if (!data.wechat_qr) {
-            wx.showToast({
-                icon: 'none',
-                title: '请先上传二维码',
-            })
-            return false
-        }
-        if (!data.namecard) {
-            wx.showToast({
-                icon: 'none',
-                title: '请先上传名片',
-            })
-            return false
-        }
+
 
         return true
     },
+
     doPost: function (data) {
         var _this = this
-        var joinSubmit = this.data.formData
+
         app.request({
             url: '/api/v1/brokers/',
             data: {
-                profile: joinSubmit
+                profile: data
             },
             method: "POST",
             success: function (resp) {
@@ -312,50 +222,101 @@ Page({
                     icon: 'success',
                     title: '提交成功'
                 })
-      
-         
-                setTimeout( function(){
+
+                setTimeout(function () {
                     wx.navigateTo({
                         url: '/pkgBroker/pages/broker/audit/index?status=pending',
                     })
-                },1000)
+                }, 1000)
 
             },
         })
     },
 
-    submitHandle: function (e) {
+    showUserGroupSelector: function(){
+        var el = this.selectComponent('#broker-group-selector')
+        el.open()
+    },
 
+    groupChange: function(e){
+        console.log('e', e)
+        var v = e.detail  
+        this.setData({ 
+            groupName: v.name,  
+            groupValue: v.value, 
+        })
+    },
+
+    submitHandle: function (e) {
         var _this = this
-        var data = e.detail.value
-        //data['company_id'] = this.data.company.id
+
         var isok = this.validate()
         if (!isok) {
             return
         }
+        var data = { 
+            name: this.data.name, 
+            mobile: this.data.mobile, 
+            sex: this.data.sex,  
+            wechat: this.data.wechat, 
+            post_id: this.data.postId, 
+            group_value: this.data.groupValue, 
+            group_name: this.data.groupName,
+        }
         this.setData({
             loading: true
         })
-        this.doPost(data)
+        var _token = app.globalData.token 
+        if(!_token){
+            _this.smsLoginHandle(() => {
+                _this.doPost(data)
+            })
+            return
+        }else{ 
+            _this.doPost(data)
+        }
+
+        return 
     },
 
-    mobileBind: function (e) {
-        console.log('用户授权获取手机号成功', e.detail)
-        var mobile = e.detail
-        if (!mobile) {
-            wx.showToast({
-                title: '手机号授权失败，请重试',
-                icon: 'error',
+
+    smsLoginHandle(cb) {
+        // 通过短信验证码登陆账号
+        var mobile = this.data.mobile
+        var code = this.data.smsCode
+        if (!(/^1[3456789]\d{9}$/.test(mobile))) {
+            wx.showModal({
+                title: '手机号格式错误',
+                icon: 'none'
             })
             return false
         }
-        var broker = this.data.broker || {}
-        broker['mobile'] = mobile
-        this.setData({
-            broker: broker
+        if (code.length != 4) {
+            wx.showModal({
+                title: '验证码输入错误',
+                icon: 'none'
+            })
+            return false
+        }
+        app.request({
+            url: '/api/v1/sms/auth',
+            method: 'POST',
+            data: {
+                mobile: mobile,
+                code: code
+            },
+            success: function (res) {
+                var data = res.data
+                if (data.status == 0) {
+                    // 保存下服务器返回的token
+                    var token = data.data.token
+                    var user = data.data.user
+                    auth.setUserInfo(token, user) 
+                    return cb()
+                }
+            }
         })
     },
-
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -367,10 +328,15 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        this.setData({
-            userInfo: app.globalData.userInfo
-        })
+        var u = app.globalData.userInfo
         this.checkBrokerStatus()
+        if (u && u.id) {
+            this.setData({
+      
+                mobile: u.mobile,
+                mobileLock: true,
+            })
+        }
     },
 
     checkBrokerStatus: function () {
