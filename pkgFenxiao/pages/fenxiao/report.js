@@ -144,7 +144,20 @@ Page({
       console.log(e)
       var post_ids = this.data.post_ids
       console.log(post_ids)
-      post_ids.push(e.detail)
+      if (post_ids.length == 0) {
+          post_ids.push(e.detail)
+      }else{
+          var yijiaru = false
+        post_ids.forEach((item) => {
+            if (item.id == e.detail.id) {
+                yijiaru = true
+            }
+        })
+        if (!yijiaru) {
+            post_ids.push(e.detail)
+        }
+      }
+    //   post_ids.push(e.detail)
       console.log(post_ids)
       this.setData({
         post_ids: post_ids,
