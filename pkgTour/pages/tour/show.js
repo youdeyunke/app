@@ -261,14 +261,16 @@ Page({
     var  u = app.globalData.userInfo 
     if(u && u.mobile){
         this.setData({
+	    mobile: u.mobile, 
+	    user: u,
             mobile_lock:true
         })
     }
+
     this.setData({
-      user:u,
-      mobile: u.mobile,
       loading: false, 
     })
+
     var _this = this
     app.ensureConfigs(function (configs) {
         var ui = configs.ui
