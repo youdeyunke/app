@@ -71,13 +71,9 @@
 <view class="outer">
     <image class="banner" src="https://qiniucdn.udeve.net/fang/broker-join-bg.png"></image>
     <block wx:if="{{userstate.join_status==-1}}">
-        <view class="join-warn">
-
-        </view>
-    </block>
-
-    <van-notice-bar wrapable scrollable="{{ false }}" text="审核状态：暂未通过！请修改资料重新提交\n拒绝原因：{{userstate.info}}">
+      <van-notice-bar wrapable scrollable="{{ false }}" text="审核状态：暂未通过！请修改资料重新提交\n拒绝原因：{{userstate.info}}">
     </van-notice-bar>
+    </block>
 
     <view class="body">
 

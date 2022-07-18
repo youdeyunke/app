@@ -1,9 +1,11 @@
 <view class="customer">
 
-  <view clss="header">
-
+  <view class="header">
     <image class="sex" src="../../images/sex-{{clue.sex}}.png" />
     <text class="name">{{ clue.name }}</text>
+    <navigator hover-class="none" url="/pkgCustomer/pages/edit?id={{clue.customer_id}}" class="edit">
+    <van-icon name="edit"></van-icon>
+    编辑资料</navigator>
   </view>
 
   <view class="footer">

@@ -12,6 +12,17 @@
   align-items: center;
 }
 
+.customer .header{
+  display: flex;
+  align-items: center;
+}
+
+.customer .header .edit{
+  color:#1989fa; 
+  font-size:26rpx;
+  margin-left:20rpx;
+}
+
 .customer .sex{
   width:29rpx; 
   height: 29rpx; 
