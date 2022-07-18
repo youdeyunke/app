@@ -104,7 +104,7 @@
 
 </view>
 <view class="footer">
-    <van-button block type="primary" bindtap="submitHandle">申请入驻</van-button>
+    <van-button block type="primary" color="{{btnColor}} bindtap="submitHandle">申请入驻</van-button>
 </view>
 
 
