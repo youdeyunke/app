@@ -45,9 +45,11 @@ Component({
           // TODO 根据id查询
           var _this = this
           var query = {}
-          var ids = this.data.config.ids 
-          if(ids){
-              query.ids = ids.join(',')
+          if(this.data.config.data.dataFrom === 'ids'){ 
+              query.ids = this.data.config.data.ids.join(',')
+          }else{ 
+              query = this.data.config.data.filter 
+
           }
           var _this = this
           this.setData({loading: true})

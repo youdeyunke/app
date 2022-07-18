@@ -3,7 +3,7 @@
       <image wx:if="{{config.data.icon}}" class="icon" src="{{config.data.icon}}"/>
       {{ config.data.titleText }}
     </view> 
-    <view bindtap="linkHandle" style="color:{{config.data.btnColor}}, border-radius-color: {{config.data.btnColor}}" class="btn">{{config.data.btnText}}</view>
+    <view bindtap="linkHandle" style="color:{{config.data.btnColor}};border-radius-color:{{config.data.btnColor}}" class="btn">{{config.data.btnText}}</view>
 
     <image class="hand" src="/assets/icons/hand.png" />
     
