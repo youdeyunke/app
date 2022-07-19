@@ -19,6 +19,4 @@
 </van-transition>
 
 <page-loading wx:if="{{loading}}" />
-<pagemaker bind:ready="pageReadyHandle" ref="pagemaker" style="position: absolute;top: 0;" class="pm" page-key="home" />
-
-<copyright></copyright>
+<pagemaker wx:else  bind:ready="pageReadyHandle" ref="pagemaker" style="position: absolute;top: 0;" class="pm" page-key="home" />
