@@ -1,150 +1,129 @@
 import { VantComponent } from '../common/component';
 import { touch } from '../mixins/touch';
-import { isDef, addUnit } from '../common/utils';
+import { getAllRect, getRect, groupSetData, nextTick, requestAnimationFrame, } from '../common/utils';
+import { isDef } from '../common/validator';
+import { useChildren } from '../common/relation';
 VantComponent({
     mixins: [touch],
     classes: ['nav-class', 'tab-class', 'tab-active-class', 'line-class'],
-    relation: {
-        name: 'tab',
-        type: 'descendant',
-        linked(target) {
-            target.index = this.children.length;
-            this.children.push(target);
-            this.updateTabs();
-        },
-        unlinked(target) {
-            this.children = this.children
-                .filter((child) => child !== target)
-                .map((child, index) => {
-                child.index = index;
-                return child;
-            });
-            this.updateTabs();
-        }
-    },
+    relation: useChildren('tab', function () {
+        this.updateTabs();
+    }),
     props: {
-        color: {
-            type: String,
-            observer: 'setLine'
-        },
         sticky: Boolean,
+        border: Boolean,
+        swipeable: Boolean,
+        titleActiveColor: String,
+        titleInactiveColor: String,
+        color: String,
         animated: {
             type: Boolean,
             observer() {
-                this.setTrack();
-                this.children.forEach((child) => child.updateRender());
-            }
+                this.children.forEach((child, index) => child.updateRender(index === this.data.currentIndex, this));
+            },
         },
-        swipeable: Boolean,
         lineWidth: {
-            type: [String, Number],
-            value: -1,
-            observer: 'setLine'
+            type: null,
+            value: 40,
+            observer: 'resize',
         },
         lineHeight: {
-            type: [String, Number],
+            type: null,
             value: -1,
-            observer: 'setLine'
         },
-        titleActiveColor: String,
-        titleInactiveColor: String,
         active: {
-            type: [String, Number],
+            type: null,
             value: 0,
             observer(name) {
                 if (name !== this.getCurrentName()) {
                     this.setCurrentIndexByName(name);
                 }
-            }
+            },
         },
         type: {
             type: String,
-            value: 'line'
-        },
-        border: {
-            type: Boolean,
-            value: true
+            value: 'line',
         },
         ellipsis: {
             type: Boolean,
-            value: true
+            value: true,
         },
         duration: {
             type: Number,
-            value: 0.3
+            value: 0.3,
         },
         zIndex: {
             type: Number,
-            value: 1
+            value: 1,
         },
         swipeThreshold: {
             type: Number,
-            value: 4,
+            value: 5,
             observer(value) {
                 this.setData({
-                    scrollable: this.children.length > value || !this.data.ellipsis
+                    scrollable: this.children.length > value || !this.data.ellipsis,
                 });
-            }
+            },
         },
         offsetTop: {
             type: Number,
-            value: 0
+            value: 0,
         },
         lazyRender: {
             type: Boolean,
-            value: true
+            value: true,
         },
     },
     data: {
         tabs: [],
-        lineStyle: '',
         scrollLeft: 0,
         scrollable: false,
-        trackStyle: '',
-        currentIndex: null,
-        container: null
-    },
-    beforeCreate() {
-        this.children = [];
+        currentIndex: 0,
+        container: null,
+        skipTransition: true,
+        scrollWithAnimation: false,
+        lineOffsetLeft: 0,
     },
     mounted() {
-        this.setData({
-            container: () => this.createSelectorQuery().select('.van-tabs')
+        requestAnimationFrame(() => {
+            this.swiping = true;
+            this.setData({
+                container: () => this.createSelectorQuery().select('.van-tabs'),
+            });
+            this.resize();
+            this.scrollIntoView();
         });
-        this.setLine(true);
-        this.setTrack();
-        this.scrollIntoView();
     },
     methods: {
         updateTabs() {
             const { children = [], data } = this;
             this.setData({
                 tabs: children.map((child) => child.data),
-                scrollable: this.children.length > data.swipeThreshold || !data.ellipsis
+                scrollable: this.children.length > data.swipeThreshold || !data.ellipsis,
             });
-            this.setCurrentIndexByName(this.getCurrentName() || data.active);
+            this.setCurrentIndexByName(data.active || this.getCurrentName());
         },
-        trigger(eventName) {
+        trigger(eventName, child) {
             const { currentIndex } = this.data;
-            const child = this.children[currentIndex];
-            if (!isDef(child)) {
+            const currentChild = child || this.children[currentIndex];
+            if (!isDef(currentChild)) {
                 return;
             }
             this.$emit(eventName, {
-                index: currentIndex,
-                name: child.getComputedName(),
-                title: child.data.title
+                index: currentChild.index,
+                name: currentChild.getComputedName(),
+                title: currentChild.data.title,
             });
         },
         onTap(event) {
             const { index } = event.currentTarget.dataset;
             const child = this.children[index];
             if (child.data.disabled) {
-                this.trigger('disabled');
+                this.trigger('disabled', child);
             }
             else {
                 this.setCurrentIndex(index);
-                wx.nextTick(() => {
+                nextTick(() => {
                     this.trigger('click');
                 });
             }
@@ -164,21 +143,24 @@ VantComponent({
                 currentIndex < 0) {
                 return;
             }
-            children.forEach((item, index) => {
-                const active = index === currentIndex;
-                if (active !== item.data.active || !item.inited) {
-                    item.updateRender(active, this);
-                }
+            groupSetData(this, () => {
+                children.forEach((item, index) => {
+                    const active = index === currentIndex;
+                    if (active !== item.data.active || !item.inited) {
+                        item.updateRender(active, this);
+                    }
+                });
             });
             if (currentIndex === data.currentIndex) {
                 return;
             }
             const shouldEmitChange = data.currentIndex !== null;
             this.setData({ currentIndex });
-            wx.nextTick(() => {
-                this.setLine();
-                this.setTrack();
+            requestAnimationFrame(() => {
+                this.resize();
                 this.scrollIntoView();
+            });
+            nextTick(() => {
                 this.trigger('input');
                 if (shouldEmitChange) {
                     this.trigger('change');
@@ -191,69 +173,55 @@ VantComponent({
                 return activeTab.getComputedName();
             }
         },
-        setLine(skipTransition) {
+        resize() {
             if (this.data.type !== 'line') {
                 return;
             }
-            const { color, duration, currentIndex, lineWidth, lineHeight } = this.data;
-            this.getRect('.van-tab', true).then((rects = []) => {
+            const { currentIndex, ellipsis, skipTransition } = this.data;
+            Promise.all([
+                getAllRect(this, '.van-tab'),
+                getRect(this, '.van-tabs__line'),
+            ]).then(([rects = [], lineRect]) => {
                 const rect = rects[currentIndex];
                 if (rect == null) {
                     return;
                 }
-                const width = lineWidth !== -1 ? lineWidth : rect.width / 2;
-                const height = lineHeight !== -1
-                    ? `height: ${addUnit(lineHeight)}; border-radius: ${addUnit(lineHeight)};`
-                    : '';
-                let left = rects
+                let lineOffsetLeft = rects
                     .slice(0, currentIndex)
                     .reduce((prev, curr) => prev + curr.width, 0);
-                left += (rect.width - width) / 2;
-                const transition = skipTransition
-                    ? ''
-                    : `transition-duration: ${duration}s; -webkit-transition-duration: ${duration}s;`;
-                this.setData({
-                    lineStyle: `
-            ${height}
-            width: ${addUnit(width)};
-            background-color: ${color};
-            -webkit-transform: translateX(${left}px);
-            transform: translateX(${left}px);
-            ${transition}
-          `
-                });
-            });
-        },
-        setTrack() {
-            const { animated, duration, currentIndex } = this.data;
-            if (!animated) {
-                return;
-            }
-            this.setData({
-                trackStyle: `
-          transform: translate3d(${-100 * currentIndex}%, 0, 0);
-          -webkit-transition-duration: ${duration}s;
-          transition-duration: ${duration}s;
-        `
+                lineOffsetLeft +=
+                    (rect.width - lineRect.width) / 2 + (ellipsis ? 0 : 8);
+                this.setData({ lineOffsetLeft });
+                this.swiping = true;
+                if (skipTransition) {
+                    nextTick(() => {
+                        this.setData({ skipTransition: false });
+                    });
+                }
             });
         },
         // scroll active tab into view
         scrollIntoView() {
-            const { currentIndex, scrollable } = this.data;
+            const { currentIndex, scrollable, scrollWithAnimation } = this.data;
             if (!scrollable) {
                 return;
             }
             Promise.all([
-                this.getRect('.van-tab', true),
-                this.getRect('.van-tabs__nav')
+                getAllRect(this, '.van-tab'),
+                getRect(this, '.van-tabs__nav'),
             ]).then(([tabRects, navRect]) => {
                 const tabRect = tabRects[currentIndex];
                 const offsetLeft = tabRects
                     .slice(0, currentIndex)
                     .reduce((prev, curr) => prev + curr.width, 0);
                 this.setData({
-                    scrollLeft: offsetLeft - (navRect.width - tabRect.width) / 2
+                    scrollLeft: offsetLeft - (navRect.width - tabRect.width) / 2,
                 });
+                if (!scrollWithAnimation) {
+                    nextTick(() => {
+                        this.setData({ scrollWithAnimation: true });
+                    });
+                }
             });
         },
         onTouchScroll(event) {
@@ -262,28 +230,41 @@ VantComponent({
         onTouchStart(event) {
             if (!this.data.swipeable)
                 return;
+            this.swiping = true;
             this.touchStart(event);
         },
         onTouchMove(event) {
-            if (!this.data.swipeable)
+            if (!this.data.swipeable || !this.swiping)
                 return;
             this.touchMove(event);
         },
         // watch swipe touch end
         onTouchEnd() {
-            if (!this.data.swipeable)
+            if (!this.data.swipeable || !this.swiping)
                 return;
-            const { tabs, currentIndex } = this.data;
             const { direction, deltaX, offsetX } = this;
             const minSwipeDistance = 50;
             if (direction === 'horizontal' && offsetX >= minSwipeDistance) {
-                if (deltaX > 0 && currentIndex !== 0) {
-                    this.setCurrentIndex(currentIndex - 1);
-                }
-                else if (deltaX < 0 && currentIndex !== tabs.length - 1) {
-                    this.setCurrentIndex(currentIndex + 1);
+                const index = this.getAvaiableTab(deltaX);
+                if (index !== -1) {
+                    this.setCurrentIndex(index);
                 }
             }
-        }
-    }
+            this.swiping = false;
+        },
+        getAvaiableTab(direction) {
+            const { tabs, currentIndex } = this.data;
+            const step = direction > 0 ? -1 : 1;
+            for (let i = step; currentIndex + i < tabs.length && currentIndex + i >= 0; i += step) {
+                const index = currentIndex + i;
+                if (index >= 0 &&
+                    index < tabs.length &&
+                    tabs[index] &&
+                    !tabs[index].disabled) {
+                    return index;
+                }
+            }
+            return -1;
+        },
+    },
 });

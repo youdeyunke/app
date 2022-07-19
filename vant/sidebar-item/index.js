@@ -1,21 +1,14 @@
 import { VantComponent } from '../common/component';
+import { useParent } from '../common/relation';
 VantComponent({
-    classes: [
-        'active-class',
-        'disabled-class',
-    ],
-    relation: {
-        type: 'ancestor',
-        name: 'sidebar',
-        linked(target) {
-            this.parent = target;
-        }
-    },
+    classes: ['active-class', 'disabled-class'],
+    relation: useParent('sidebar'),
     props: {
         dot: Boolean,
+        badge: null,
         info: null,
         title: String,
-        disabled: Boolean
+        disabled: Boolean,
     },
     methods: {
         onClick() {
@@ -31,6 +24,6 @@ VantComponent({
         },
         setActive(selected) {
             return this.setData({ selected });
-        }
-    }
+        },
+    },
 });

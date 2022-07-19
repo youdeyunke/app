@@ -9,13 +9,13 @@ VantComponent({
         textColor: String,
         type: {
             type: String,
-            value: 'default'
+            value: 'default',
         },
-        closeable: Boolean
+        closeable: Boolean,
     },
     methods: {
         onClose() {
             this.$emit('close');
-        }
-    }
+        },
+    },
 });

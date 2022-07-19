@@ -1,3 +1,4 @@
+import { useParent } from '../common/relation';
 import { VantComponent } from '../common/component';
 function emit(target, value) {
     target.$emit('input', value);
@@ -5,32 +6,30 @@ function emit(target, value) {
 }
 VantComponent({
     field: true,
-    relation: {
-        name: 'checkbox-group',
-        type: 'ancestor',
-        linked(target) {
-            this.parent = target;
-        },
-        unlinked() {
-            this.parent = null;
-        }
-    },
+    relation: useParent('checkbox-group'),
     classes: ['icon-class', 'label-class'],
     props: {
         value: Boolean,
         disabled: Boolean,
         useIconSlot: Boolean,
         checkedColor: String,
-        labelPosition: String,
+        labelPosition: {
+            type: String,
+            value: 'right',
+        },
         labelDisabled: Boolean,
         shape: {
             type: String,
-            value: 'round'
+            value: 'round',
         },
         iconSize: {
             type: null,
-            value: 20
-        }
+            value: 20,
+        },
+    },
+    data: {
+        parentDisabled: false,
+        direction: 'vertical',
     },
     methods: {
         emitChange(value) {
@@ -42,14 +41,14 @@ VantComponent({
             }
         },
         toggle() {
-            const { disabled, value } = this.data;
-            if (!disabled) {
+            const { parentDisabled, disabled, value } = this.data;
+            if (!disabled && !parentDisabled) {
                 this.emitChange(!value);
             }
         },
         onClickLabel() {
-            const { labelDisabled, disabled, value } = this.data;
-            if (!disabled && !labelDisabled) {
+            const { labelDisabled, parentDisabled, disabled, value } = this.data;
+            if (!disabled && !labelDisabled && !parentDisabled) {
                 this.emitChange(!value);
             }
         },
@@ -73,6 +72,6 @@ VantComponent({
                     emit(parent, parentValue);
                 }
             }
-        }
-    }
+        },
+    },
 });

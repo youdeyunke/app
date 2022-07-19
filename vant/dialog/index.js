@@ -1,18 +1,28 @@
 import { VantComponent } from '../common/component';
 import { button } from '../mixins/button';
-import { openType } from '../mixins/open-type';
-import { GRAY, BLUE } from '../common/color';
+import { GRAY, RED } from '../common/color';
+import { toPromise } from '../common/utils';
 VantComponent({
-    mixins: [button, openType],
+    mixins: [button],
     props: {
-        show: Boolean,
+        show: {
+            type: Boolean,
+            observer(show) {
+                !show && this.stopLoading();
+            },
+        },
         title: String,
         message: String,
+        theme: {
+            type: String,
+            value: 'default',
+        },
         useSlot: Boolean,
         className: String,
         customStyle: String,
         asyncClose: Boolean,
         messageAlign: String,
+        beforeClose: null,
         overlayStyle: String,
         useTitleSlot: Boolean,
         showCancelButton: Boolean,
@@ -21,47 +31,43 @@ VantComponent({
         width: null,
         zIndex: {
             type: Number,
-            value: 2000
+            value: 2000,
         },
         confirmButtonText: {
             type: String,
-            value: '确认'
+            value: '确认',
         },
         cancelButtonText: {
             type: String,
-            value: '取消'
+            value: '取消',
         },
         confirmButtonColor: {
             type: String,
-            value: BLUE
+            value: RED,
         },
         cancelButtonColor: {
             type: String,
-            value: GRAY
+            value: GRAY,
         },
         showConfirmButton: {
             type: Boolean,
-            value: true
+            value: true,
         },
         overlay: {
             type: Boolean,
-            value: true
+            value: true,
         },
         transition: {
             type: String,
-            value: 'scale'
-        }
+            value: 'scale',
+        },
     },
     data: {
         loading: {
             confirm: false,
-            cancel: false
-        }
-    },
-    watch: {
-        show(show) {
-            !show && this.stopLoading();
-        }
+            cancel: false,
+        },
+        callback: (() => { }),
     },
     methods: {
         onConfirm() {
@@ -71,40 +77,46 @@ VantComponent({
             this.handleAction('cancel');
         },
         onClickOverlay() {
-            this.onClose('overlay');
+            this.close('overlay');
         },
-        handleAction(action) {
-            if (this.data.asyncClose) {
-                this.setData({
-                    [`loading.${action}`]: true
-                });
-            }
-            this.onClose(action);
-        },
-        close() {
-            this.setData({
-                show: false
+        close(action) {
+            this.setData({ show: false });
+            wx.nextTick(() => {
+                this.$emit('close', action);
+                const { callback } = this.data;
+                if (callback) {
+                    callback(action, this);
+                }
             });
         },
         stopLoading() {
             this.setData({
                 loading: {
                     confirm: false,
-                    cancel: false
-                }
+                    cancel: false,
+                },
             });
         },
-        onClose(action) {
-            if (!this.data.asyncClose) {
-                this.close();
-            }
-            this.$emit('close', action);
-            // 把 dialog 实例传递出去，可以通过 stopLoading() 在外部关闭按钮的 loading
+        handleAction(action) {
             this.$emit(action, { dialog: this });
-            const callback = this.data[action === 'confirm' ? 'onConfirm' : 'onCancel'];
-            if (callback) {
-                callback(this);
+            const { asyncClose, beforeClose } = this.data;
+            if (!asyncClose && !beforeClose) {
+                this.close(action);
+                return;
             }
-        }
-    }
+            this.setData({
+                [`loading.${action}`]: true,
+            });
+            if (beforeClose) {
+                toPromise(beforeClose(action)).then((value) => {
+                    if (value) {
+                        this.close(action);
+                    }
+                    else {
+                        this.stopLoading();
+                    }
+                });
+            }
+        },
+    },
 });

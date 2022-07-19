@@ -1,4 +1,4 @@
-import { isObj } from '../common/utils';
+import { isObj } from '../common/validator';
 const defaultOptions = {
     type: 'text',
     mask: false,
@@ -9,7 +9,7 @@ const defaultOptions = {
     position: 'middle',
     forbidClick: false,
     loadingType: 'circular',
-    selector: '#van-toast'
+    selector: '#van-toast',
 };
 let queue = [];
 let currentOptions = Object.assign({}, defaultOptions);
@@ -39,10 +39,10 @@ function Toast(toastOptions) {
     queue.push(toast);
     toast.setData(options);
     clearTimeout(toast.timer);
-    if (options.duration > 0) {
+    if (options.duration != null && options.duration > 0) {
         toast.timer = setTimeout(() => {
             toast.clear();
-            queue = queue.filter(item => item !== toast);
+            queue = queue.filter((item) => item !== toast);
         }, options.duration);
     }
     return toast;
@@ -52,7 +52,7 @@ Toast.loading = createMethod('loading');
 Toast.success = createMethod('success');
 Toast.fail = createMethod('fail');
 Toast.clear = () => {
-    queue.forEach(toast => {
+    queue.forEach((toast) => {
         toast.clear();
     });
     queue = [];

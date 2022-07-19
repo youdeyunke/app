@@ -1,23 +1,9 @@
+import { useParent } from '../common/relation';
 import { VantComponent } from '../common/component';
 VantComponent({
-    relation: {
-        name: 'row',
-        type: 'ancestor'
-    },
+    relation: useParent('row'),
     props: {
         span: Number,
-        offset: Number
+        offset: Number,
     },
-    data: {
-        style: ''
-    },
-    methods: {
-        setGutter(gutter) {
-            const padding = `${gutter / 2}px`;
-            const style = gutter ? `padding-left: ${padding}; padding-right: ${padding};` : '';
-            if (style !== this.data.style) {
-                this.setData({ style });
-            }
-        }
-    }
 });

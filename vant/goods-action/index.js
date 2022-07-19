@@ -1,22 +1,15 @@
 import { VantComponent } from '../common/component';
+import { useChildren } from '../common/relation';
 VantComponent({
-    relation: {
-        type: 'descendant',
-        name: 'goods-action-button',
-        linked(child) {
-            this.children.push(child);
-        },
-        unlinked(child) {
-            this.children = this.children.filter((item) => item !== child);
-        }
-    },
-    beforeCreate() {
-        this.children = [];
-    },
+    relation: useChildren('goods-action-button', function () {
+        this.children.forEach((item) => {
+            item.updateStyle();
+        });
+    }),
     props: {
         safeAreaInsetBottom: {
             type: Boolean,
-            value: true
-        }
-    }
+            value: true,
+        },
+    },
 });

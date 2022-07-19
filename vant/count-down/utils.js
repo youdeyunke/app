@@ -20,7 +20,7 @@ export function parseTimeData(time) {
         hours,
         minutes,
         seconds,
-        milliseconds
+        milliseconds,
     };
 }
 export function parseFormat(format, timeData) {

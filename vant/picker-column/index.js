@@ -1,5 +1,6 @@
 import { VantComponent } from '../common/component';
-import { isObj, range } from '../common/utils';
+import { range } from '../common/utils';
+import { isObj } from '../common/validator';
 const DEFAULT_DURATION = 200;
 VantComponent({
     classes: ['active-class'],
@@ -10,12 +11,15 @@ VantComponent({
         visibleItemCount: Number,
         initialOptions: {
             type: Array,
-            value: []
+            value: [],
         },
         defaultIndex: {
             type: Number,
-            value: 0
-        }
+            value: 0,
+            observer(value) {
+                this.setIndex(value);
+            },
+        },
     },
     data: {
         startY: 0,
@@ -23,21 +27,16 @@ VantComponent({
         duration: 0,
         startOffset: 0,
         options: [],
-        currentIndex: 0
+        currentIndex: 0,
     },
     created() {
         const { defaultIndex, initialOptions } = this.data;
         this.set({
             currentIndex: defaultIndex,
-            options: initialOptions
+            options: initialOptions,
         }).then(() => {
             this.setIndex(defaultIndex);
         });
-    },
-    watch: {
-        defaultIndex(value) {
-            this.setIndex(value);
-        }
     },
     methods: {
         getCount() {
@@ -47,14 +46,14 @@ VantComponent({
             this.setData({
                 startY: event.touches[0].clientY,
                 startOffset: this.data.offset,
-                duration: 0
+                duration: 0,
             });
         },
         onTouchMove(event) {
             const { data } = this;
             const deltaY = event.touches[0].clientY - data.startY;
             this.setData({
-                offset: range(data.startOffset + deltaY, -(this.getCount() * data.itemHeight), data.itemHeight)
+                offset: range(data.startOffset + deltaY, -(this.getCount() * data.itemHeight), data.itemHeight),
             });
         },
         onTouchEnd() {
@@ -114,6 +113,6 @@ VantComponent({
         getValue() {
             const { data } = this;
             return data.options[data.currentIndex];
-        }
-    }
+        },
+    },
 });

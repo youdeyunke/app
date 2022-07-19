@@ -1,26 +1,17 @@
 import { VantComponent } from '../common/component';
+import { useChildren } from '../common/relation';
 VantComponent({
-    relation: {
-        name: 'sidebar-item',
-        type: 'descendant',
-        linked(target) {
-            this.children.push(target);
-            this.setActive(this.data.activeKey);
-        },
-        unlinked(target) {
-            this.children = this.children.filter((item) => item !== target);
-            this.setActive(this.data.activeKey);
-        }
-    },
+    relation: useChildren('sidebar-item', function () {
+        this.setActive(this.data.activeKey);
+    }),
     props: {
         activeKey: {
             type: Number,
             value: 0,
-            observer: 'setActive'
-        }
+            observer: 'setActive',
+        },
     },
     beforeCreate() {
-        this.children = [];
         this.currentActive = -1;
     },
     methods: {
@@ -38,6 +29,6 @@ VantComponent({
                 stack.push(children[activeKey].setActive(true));
             }
             return Promise.all(stack);
-        }
-    }
+        },
+    },
 });

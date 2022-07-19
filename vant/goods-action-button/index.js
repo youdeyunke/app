@@ -1,16 +1,10 @@
 import { VantComponent } from '../common/component';
-import { link } from '../mixins/link';
+import { useParent } from '../common/relation';
 import { button } from '../mixins/button';
-import { openType } from '../mixins/open-type';
+import { link } from '../mixins/link';
 VantComponent({
-    mixins: [link, button, openType],
-    relation: {
-        type: 'ancestor',
-        name: 'goods-action',
-        linked(parent) {
-            this.parent = parent;
-        }
-    },
+    mixins: [link, button],
+    relation: useParent('goods-action'),
     props: {
         text: String,
         color: String,
@@ -19,11 +13,8 @@ VantComponent({
         plain: Boolean,
         type: {
             type: String,
-            value: 'danger'
-        }
-    },
-    mounted() {
-        this.updateStyle();
+            value: 'danger',
+        },
     },
     methods: {
         onClick(event) {
@@ -31,18 +22,15 @@ VantComponent({
             this.jumpLink();
         },
         updateStyle() {
-            const { children = [] } = this.parent;
-            const { length } = children;
-            const index = children.indexOf(this);
-            let rightBorderLess = false;
-            if (length > 1) {
-                rightBorderLess = index !== length - 1;
+            if (this.parent == null) {
+                return;
             }
+            const { index } = this;
+            const { children = [] } = this.parent;
             this.setData({
                 isFirst: index === 0,
-                rightBorderLess,
-                isLast: index === length - 1
+                isLast: index === children.length - 1,
             });
-        }
-    }
+        },
+    },
 });

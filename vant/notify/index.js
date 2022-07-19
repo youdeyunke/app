@@ -1,32 +1,40 @@
 import { VantComponent } from '../common/component';
 import { WHITE } from '../common/color';
+import { getSystemInfoSync } from '../common/utils';
 VantComponent({
     props: {
         message: String,
         background: String,
         type: {
             type: String,
-            value: 'danger'
+            value: 'danger',
         },
         color: {
             type: String,
-            value: WHITE
+            value: WHITE,
         },
         duration: {
             type: Number,
-            value: 3000
+            value: 3000,
         },
         zIndex: {
             type: Number,
-            value: 110
+            value: 110,
         },
         safeAreaInsetTop: {
             type: Boolean,
-            value: false
-        }
+            value: false,
+        },
+        top: null,
+    },
+    data: {
+        show: false,
+        onOpened: null,
+        onClose: null,
+        onClick: null,
     },
     created() {
-        const { statusBarHeight } = wx.getSystemInfoSync();
+        const { statusBarHeight } = getSystemInfoSync();
         this.setData({ statusBarHeight });
     },
     methods: {
@@ -52,6 +60,6 @@ VantComponent({
             if (onClick) {
                 onClick(event.detail);
             }
-        }
-    }
+        },
+    },
 });

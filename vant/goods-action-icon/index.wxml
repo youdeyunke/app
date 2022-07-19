@@ -15,24 +15,22 @@
   show-message-card="{{ showMessageCard }}"
   send-message-title="{{ sendMessageTitle }}"
   bind:click="onClick"
-  binderror="bindError"
-  bindcontact="bindContact"
-  bindopensetting="bindOpenSetting"
-  bindgetuserinfo="bindGetUserInfo"
-  bindgetphonenumber="bindGetPhoneNumber"
-  bindlaunchapp="bindLaunchApp"
+  binderror="onError"
+  bindcontact="onContact"
+  bindopensetting="onOpenSetting"
+  bindgetuserinfo="onGetUserInfo"
+  bindgetphonenumber="onGetPhoneNumber"
+  bindlaunchapp="onLaunchApp"
 >
-  <view class="van-goods-action-icon__content">
-    <van-icon
-      wx:if="{{ icon }}"
-      size="20px"
-      name="{{ icon }}"
-      dot="{{ dot }}"
-      info="{{ info }}"
-      class="van-goods-action-icon__icon"
-      custom-class="icon-class"
-    />
-    <slot name="icon" />
-    <text class="text-class">{{ text }}</text>
-  </view>
+  <van-icon
+    wx:if="{{ icon }}"
+    name="{{ icon }}"
+    dot="{{ dot }}"
+    info="{{ info }}"
+    class-prefix="{{ classPrefix }}"
+    class="van-goods-action-icon__icon"
+    custom-class="icon-class"
+  />
+  <slot wx:else name="icon" />
+  <text class="text-class">{{ text }}</text>
 </van-button>

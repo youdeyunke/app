@@ -1,126 +1,120 @@
 import { VantComponent } from '../common/component';
-const FONT_COLOR = '#ed6a0c';
-const BG_COLOR = '#fffbe8';
+import { getRect, requestAnimationFrame } from '../common/utils';
 VantComponent({
     props: {
         text: {
             type: String,
-            value: ''
+            value: '',
+            observer: 'init',
         },
         mode: {
             type: String,
-            value: ''
+            value: '',
         },
         url: {
             type: String,
-            value: ''
+            value: '',
         },
         openType: {
             type: String,
-            value: 'navigate'
+            value: 'navigate',
         },
         delay: {
             type: Number,
-            value: 1
+            value: 1,
         },
         speed: {
             type: Number,
-            value: 50
+            value: 60,
+            observer: 'init',
         },
-        scrollable: {
-            type: Boolean,
-            value: true
-        },
+        scrollable: null,
         leftIcon: {
             type: String,
-            value: ''
+            value: '',
         },
-        color: {
-            type: String,
-            value: FONT_COLOR
-        },
-        backgroundColor: {
-            type: String,
-            value: BG_COLOR
-        },
-        wrapable: Boolean
+        color: String,
+        backgroundColor: String,
+        background: String,
+        wrapable: Boolean,
     },
     data: {
-        show: true
-    },
-    watch: {
-        text() {
-            this.setData({}, this.init);
-        },
-        speed() {
-            this.setData({}, this.init);
-        }
+        show: true,
     },
     created() {
         this.resetAnimation = wx.createAnimation({
             duration: 0,
-            timingFunction: 'linear'
+            timingFunction: 'linear',
         });
     },
     destroyed() {
         this.timer && clearTimeout(this.timer);
     },
+    mounted() {
+        this.init();
+    },
     methods: {
         init() {
-            Promise.all([
-                this.getRect('.van-notice-bar__content'),
-                this.getRect('.van-notice-bar__wrap')
-            ]).then((rects) => {
-                const [contentRect, wrapRect] = rects;
-                if (contentRect == null ||
-                    wrapRect == null ||
-                    !contentRect.width ||
-                    !wrapRect.width) {
-                    return;
-                }
-                const { speed, scrollable, delay } = this.data;
-                if (scrollable && wrapRect.width < contentRect.width) {
-                    const duration = (contentRect.width / speed) * 1000;
-                    this.wrapWidth = wrapRect.width;
-                    this.contentWidth = contentRect.width;
-                    this.duration = duration;
-                    this.animation = wx.createAnimation({
-                        duration,
-                        timingFunction: 'linear',
-                        delay
-                    });
-                    this.scroll();
-                }
+            requestAnimationFrame(() => {
+                Promise.all([
+                    getRect(this, '.van-notice-bar__content'),
+                    getRect(this, '.van-notice-bar__wrap'),
+                ]).then((rects) => {
+                    const [contentRect, wrapRect] = rects;
+                    const { speed, scrollable, delay } = this.data;
+                    if (contentRect == null ||
+                        wrapRect == null ||
+                        !contentRect.width ||
+                        !wrapRect.width ||
+                        scrollable === false) {
+                        return;
+                    }
+                    if (scrollable || wrapRect.width < contentRect.width) {
+                        const duration = ((wrapRect.width + contentRect.width) / speed) * 1000;
+                        this.wrapWidth = wrapRect.width;
+                        this.contentWidth = contentRect.width;
+                        this.duration = duration;
+                        this.animation = wx.createAnimation({
+                            duration,
+                            timingFunction: 'linear',
+                            delay,
+                        });
+                        this.scroll(true);
+                    }
+                });
             });
         },
-        scroll() {
+        scroll(isInit = false) {
             this.timer && clearTimeout(this.timer);
             this.timer = null;
             this.setData({
                 animationData: this.resetAnimation
-                    .translateX(this.wrapWidth)
+                    .translateX(isInit ? 0 : this.wrapWidth)
                     .step()
-                    .export()
+                    .export(),
             });
-            setTimeout(() => {
+            requestAnimationFrame(() => {
                 this.setData({
                     animationData: this.animation
                         .translateX(-this.contentWidth)
                         .step()
-                        .export()
+                        .export(),
                 });
-            }, 20);
+            });
             this.timer = setTimeout(() => {
                 this.scroll();
             }, this.duration);
         },
-        onClickIcon() {
-            this.timer && clearTimeout(this.timer);
-            this.timer = null;
-            this.setData({ show: false });
+        onClickIcon(event) {
+            if (this.data.mode === 'closeable') {
+                this.timer && clearTimeout(this.timer);
+                this.timer = null;
+                this.setData({ show: false });
+                this.$emit('close', event.detail);
+            }
         },
         onClick(event) {
             this.$emit('click', event);
-        }
-    }
+        },
+    },
 });
