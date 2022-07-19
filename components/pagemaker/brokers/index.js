@@ -46,7 +46,12 @@ Component({
           var _this = this
           var query = {}
           if(this.data.config.data.dataFrom === 'ids'){ 
-              query.ids = this.data.config.data.ids.join(',')
+              if(this.data.config.data.ids){
+                  query.ids = this.data.config.data.ids.join(',')
+              }else{
+                query.ids = this.data.config.ids.join(',')
+              }
+      
           }else{ 
               query = this.data.config.data.filter 
 
