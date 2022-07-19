@@ -1,6 +1,5 @@
-<!--components/zhaofang/index.wxml-->
-<view style="width: 690rpx;margin: 0 auto;">
-<view style="width: 100%;padding-bottom: 40rpx;background-color: #FFF;border-radius: 10rpx;">
+
+<view style="width: 100%;padding-bottom: 20rpx;">
     <view wx:if="{{ status == 1 }}">
         <view class="jiage-1" style="color: {{primaryColor}};">{{budget_min}}-{{budget_max}}万{{budget_max == 300 ? '+' : ''}}</view>
         <view class="slider-1">
@@ -96,5 +95,4 @@
         <view class="item-body">我们已经收到您的找房要求，系统正在为您分配置业顾问，2个工作日内会有专属置业顾问与您电话联系，请注意接听</view>
         <view class="zhaof-btn-1" style="background: {{primaryBtnColor}};" bindtap="reWrite">重新填写</view>
     </view>
-</view>
 </view>
