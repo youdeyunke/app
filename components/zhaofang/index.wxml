@@ -1,0 +1,70 @@
+<!--components/zhaofang/index.wxml-->
+<view style="width: 690rpx;margin: 0 auto;">
+<view style="width: 100%;padding-bottom: 40rpx;background-color: #FFF;border-radius: 10rpx;">
+    <view wx:if="{{ status == 1 }}">
+        <view class="jiage-1" style="color: {{color}};">{{budget_min}}-{{budget_max}}万{{budget_max == 300 ? '+' : ''}}</view>
+        <view class="slider-1">
+            <van-slider min="30" max="300" value="{{value}}" range='true' bar-height="6rpx" active-color="{{color}}" bind:change="onChange"  use-button-slot>
+                <view slot="left-button" class="slider-button-1" style="border: 5rpx solid {{color}};"></view>
+                <view slot="right-button" class="slider-button-1" style="border: 5rpx solid {{color}};"></view>
+            </van-slider>
+        </view>
+        <view class="slider-ruler-1">
+            <view wx:for="{{valueRuler}}">{{item}}万</view>
+        </view>
+        <view class="zhaof-btn-1" style="background-color: {{color}};" bindtap="nextPage">一键找房</view>
+    </view>
+    <view wx:if="{{ status == 2 }}">
+        <view class="item-header">区域</view>
+        <view class="item-body">
+            <view class="tags-list">
+                <view class="tag-item" wx:for="{{positionList}}">
+                    <van-tag size="large" color="{{color}}" custom-style="height:50rpx;" bindtap="positionHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? false : true}}">
+                        <view class="tags-list-name">{{item.text}}</view>
+                    </van-tag>
+                </view>
+            </view>
+        </view>
+        <view class="zhaof-btn-1" style="background-color: {{color}};" bindtap="quyuNextPage">下一步</view>
+    </view>
+    <view wx:if="{{ status == 3 }}">
+        <view class="item-header">户型</view>
+        <view class="item-body">
+            <view class="tags-list">
+                <view class="tag-item" wx:for="{{housetypeList}}">
+                    <van-tag size="large" color="{{color}}" custom-style="height:50rpx;" bindtap="housetypeHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? false : true}}">
+                        <view class="tags-list-name">{{item.name}}</view>
+                    </van-tag>
+                </view>
+            </view>
+        </view>
+        <view class="zhaof-btn-1" style="background-color: {{color}};" bindtap="huxinNextPage">下一步</view>
+    </view>
+    <view wx:if="{{ status == 4 }}">
+        <view class="item-header">面积</view>
+        <view class="item-body">
+            <view class="tags-list">
+                <view class="tag-item" wx:for="{{areaList}}">
+                    <van-tag size="large" color="{{color}}" custom-style="height:50rpx;" bindtap="areaHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? false : true}}">
+                        <view class="tags-list-name">{{item.name}}</view>
+                    </van-tag>
+                </view>
+            </view>
+        </view>
+        <view class="zhaof-btn-1" style="background-color: {{color}};" bindtap="mianjiNextPage">下一步</view>
+    </view>
+    <view wx:if="{{ status == 5 }}">
+        <view class="item-header">买房用途</view>
+        <view class="item-body">
+            <view class="tags-list">
+                <view class="tag-item" wx:for="{{purposeList}}">
+                    <van-tag size="large" color="{{color}}" custom-style="height:50rpx;" bindtap="purposeHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? false : true}}">
+                        <view class="tags-list-name">{{item.name}}</view>
+                    </van-tag>
+                </view>
+            </view>
+        </view>
+        <view class="zhaof-btn-1" style="background-color: {{color}};" bindtap="yongtuNextPage">下一步</view>
+    </view>
+</view>
+</view>

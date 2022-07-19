@@ -8,7 +8,7 @@
             ]
         },
         {
-            "root": "pkgCustomer", 
+            "root": "pkgCustomer",
             "pages": [
                 "pages/edit",
                 "pages/show"
@@ -302,7 +302,7 @@
         "pages/home/home",
         "pages/eav/column",
         "pages/pagemaker/show",
-        "pages/zhaofang/index",  
+        "pages/zhaofang/index",
         "pages/want/index",
         "pages/faxian/index",
         "pages/webview/show",
@@ -315,7 +315,8 @@
         "pages/udeve/index",
         "pages/visitors/index",
         "pages/qr/show",
-        "pages/myself/test"
+        "pages/myself/test",
+        "pages/test"
     ],
     "tabBar": {
         "custom": false,

@@ -1,0 +1,65 @@
+/* components/zhaofang/index.wxss */
+.jiage-1 {
+    height: 100rpx;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 28rpx;
+    font-weight: bold;
+}
+
+.slider-1 {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.slider-button-1 {
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 20rpx;
+    background-color: #FFF;
+}
+
+.slider-ruler-1 {
+    width: 95%;
+    height: 30rpx;
+    margin: 40rpx auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.zhaof-btn-1 {
+    width: 90%;
+    height: 70rpx;
+    border-radius: 10rpx;
+    margin: 0 auto;
+    color: #FFF;
+    text-align: center;
+    line-height: 70rpx;
+    font-size: 28rpx;
+}
+
+.tags-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.tag-item{
+    margin-bottom: 10rpx;
+    margin-right: 20rpx;
+    border-radius: 10rpx;
+}
+
+.tags-list-name{
+    width: 120rpx;
+    font-size:24rpx;
+    text-align: center;
+}
+
+.item-header{
+    font-size: 36rpx;font-weight: bold;height: 100rpx;line-height: 100rpx;padding-left: 40rpx;
+}
+.item-body{
+    width: 90%;margin: 0 auto;margin-bottom: 30rpx;
+}
