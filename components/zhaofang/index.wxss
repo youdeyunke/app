@@ -62,7 +62,6 @@
 
 .tags-list-name {
     width: 120rpx;
-    /* width: calc(100% - 60rpx); */
     font-size: 24rpx;
     text-align: center;
 }
