@@ -1,5 +1,5 @@
 
-<view style="width: 100%;padding-bottom: 20rpx;">
+<view class="outer">
     <view wx:if="{{ status == 1 }}">
         <view class="jiage-1" style="color: {{primaryColor}};">{{budget_min}}-{{budget_max}}万{{budget_max == 300 ? '+' : ''}}</view>
         <view class="slider-1">
@@ -11,7 +11,9 @@
         <view class="slider-ruler-1">
             <view wx:for="{{valueRuler}}">{{item}}万</view>
         </view>
-        <view class="zhaof-btn-1" style="background: {{primaryBtnColor}};" bindtap="nextPage">一键找房</view>
+        <view class="zhaof-btn-1">
+            <van-button block color="{{primaryBtnColor}}" bindtap="nextPage">一键找房</van-button>
+        </view>
     </view>
     <view wx:if="{{ status == 2 }}">
         <view class="item-header">区域</view>
@@ -24,7 +26,9 @@
                 </view>
             </view>
         </view>
-        <view class="zhaof-btn-1" style="background: {{primaryBtnColor}};" bindtap="quyuNextPage">下一步</view>
+        <view class="zhaof-btn-1">
+            <van-button block color="{{primaryBtnColor}}" bindtap="quyuNextPage">下一步</van-button>
+        </view>
     </view>
     <view wx:if="{{ status == 3 }}">
         <view class="item-header">户型</view>
@@ -37,7 +41,9 @@
                 </view>
             </view>
         </view>
-        <view class="zhaof-btn-1" style="background: {{primaryBtnColor}};" bindtap="huxinNextPage">下一步</view>
+        <view class="zhaof-btn-1">
+            <van-button block color="{{primaryBtnColor}}" bindtap="huxinNextPage">下一步</van-button>
+        </view>
     </view>
     <view wx:if="{{ status == 4 }}">
         <view class="item-header">面积</view>
@@ -50,7 +56,9 @@
                 </view>
             </view>
         </view>
-        <view class="zhaof-btn-1" style="background: {{primaryBtnColor}};" bindtap="mianjiNextPage">下一步</view>
+        <view class="zhaof-btn-1">
+            <van-button block color="{{primaryBtnColor}}" bindtap="mianjiNextPage">下一步</van-button>
+        </view>
     </view>
     <view wx:if="{{ status == 5 }}">
         <view class="item-header">买房用途</view>
@@ -63,7 +71,9 @@
                 </view>
             </view>
         </view>
-        <view class="zhaof-btn-1" style="background: {{primaryBtnColor}};" bindtap="yongtuNextPage">下一步</view>
+        <view class="zhaof-btn-1">
+            <van-button block color="{{primaryBtnColor}}" bindtap="yongtuNextPage">下一步</van-button>
+        </view>
     </view>
     <view wx:if="{{ status == 6 && !isDone}}">
         <view class="item-header">联系方式</view>
@@ -88,11 +98,15 @@
                 </van-field>
             </van-cell-group>
         </view>
-        <view class="zhaof-btn-1" style="background: {{primaryBtnColor}};" bindtap="submitHandle">提交需求，帮我找房</view>
+        <view class="zhaof-btn-1">
+            <van-button block color="{{primaryBtnColor}}" bindtap="submitHandle">提交需求,帮我找房</van-button>
+        </view>
     </view>
     <view wx:if="{{isDone}}">
         <view class="item-header">提交成功</view>
         <view class="item-body">我们已经收到您的找房要求，系统正在为您分配置业顾问，2个工作日内会有专属置业顾问与您电话联系，请注意接听</view>
-        <view class="zhaof-btn-1" style="background: {{primaryBtnColor}};" bindtap="reWrite">重新填写</view>
+        <view class="zhaof-btn-1">
+            <van-button block color="{{primaryBtnColor}}" bindtap="reWrite">重新填写</van-button>
+        </view>
     </view>
 </view>

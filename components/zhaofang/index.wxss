@@ -1,4 +1,9 @@
 /* components/zhaofang/index.wxss */
+.outer {
+    width: 100%;
+    padding-bottom: 20rpx;
+}
+
 .jiage-1 {
     height: 100rpx;
     text-align: center;
@@ -29,13 +34,13 @@
 
 .zhaof-btn-1 {
     width: 90%;
-    height: 70rpx;
-    border-radius: 10rpx;
+    /* height: 70rpx; */
+    /* border-radius: 10rpx; */
     margin: 0 auto;
-    color: #FFF;
+    /* color: #FFF;
     text-align: center;
     line-height: 70rpx;
-    font-size: 28rpx;
+    font-size: 28rpx; */
 }
 
 .tags-list {
@@ -45,21 +50,33 @@
     flex-wrap: wrap;
 }
 
-.tag-item{
+.tag-item {
     margin-bottom: 10rpx;
     margin-right: 20rpx;
     border-radius: 10rpx;
+    width: calc((100% - 60rpx)/4);
+}
+.tag-item:nth-child(4n + 4){
+    margin-right: 0;
 }
 
-.tags-list-name{
+.tags-list-name {
     width: 120rpx;
-    font-size:24rpx;
+    /* width: calc(100% - 60rpx); */
+    font-size: 24rpx;
     text-align: center;
 }
 
-.item-header{
-    font-size: 36rpx;font-weight: bold;height: 100rpx;line-height: 100rpx;padding-left: 40rpx;
+.item-header {
+    font-size: 36rpx;
+    font-weight: bold;
+    height: 100rpx;
+    line-height: 100rpx;
+    padding-left: 40rpx;
 }
-.item-body{
-    width: 90%;margin: 0 auto;margin-bottom: 30rpx;
+
+.item-body {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 30rpx;
 }
