@@ -14,6 +14,7 @@
         "image-module": "./image/index",
         "video-module": "./video/index",
         "posts-module": "./posts/index",
+        "zhaofang-module": "./zhaofang/index",
         "unknow-module": "unknow-module",
         "notice-module": "./notice/index",
         "blocknavs-module": "./blocknavs/index",
