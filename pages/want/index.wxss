@@ -7,14 +7,23 @@ page {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+    flex-wrap: wrap;
 }
 
-
-.van-tag--plain,.van-tag--primary{
+.tag-item{
     margin-bottom: 10rpx;
     margin-right: 20rpx;
     border-radius: 10rpx;
+    width: calc((100% - 60rpx)/4);
 }
+.tag-item:nth-child(4n + 4){
+    margin-right: 0;
+}
+/* .van-tag--plain,.van-tag--primary{
+    margin-bottom: 10rpx;
+    margin-right: 20rpx;
+    border-radius: 10rpx;
+} */
 
 
 .tags-list-name{

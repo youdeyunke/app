@@ -20,8 +20,8 @@
 
     <card width="710" hat="{{false}}" title="区域">
         <view class="tags-list">
-            <view class="tag-item">
-                <van-tag size="large" color="{{item.selected ? primaryColor : '#FAFAFA'}}" text-color="{{item.selected ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="positionHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? true : false}}" wx:for="{{positionList}}">
+            <view class="tag-item" wx:for="{{positionList}}">
+                <van-tag size="large" color="{{item.selected ? primaryColor : '#FAFAFA'}}" text-color="{{item.selected ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="positionHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? true : false}}">
                     <view class="tags-list-name">{{item.text}}</view>
                 </van-tag>
             </view>
@@ -30,8 +30,8 @@
 
     <card width="710" hat="{{false}}" title="户型">
         <view class="tags-list">
-            <view class="tag-item">
-                <van-tag size="large" color="{{item.selected ? primaryColor : '#FAFAFA'}}" text-color="{{item.selected ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="housetypeHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? true : false}}" wx:for="{{housetypeList}}">
+            <view class="tag-item"  wx:for="{{housetypeList}}">
+                <van-tag size="large" color="{{item.selected ? primaryColor : '#FAFAFA'}}" text-color="{{item.selected ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="housetypeHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? true : false}}">
                     <view class="tags-list-name">{{item.name}}</view>
                 </van-tag>
             </view>
@@ -40,8 +40,8 @@
 
     <card width="710" hat="{{false}}" title="面积">
         <view class="tags-list">
-            <view class="tag-item">
-                <van-tag size="large" color="{{item.selected ? primaryColor : '#FAFAFA'}}" text-color="{{item.selected ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="areaHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? true : false}}" wx:for="{{areaList}}">
+            <view class="tag-item" wx:for="{{areaList}}">
+                <van-tag size="large" color="{{item.selected ? primaryColor : '#FAFAFA'}}" text-color="{{item.selected ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="areaHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? true : false}}">
                     <view class="tags-list-name">{{item.name}}</view>
                 </van-tag>
             </view>
@@ -52,8 +52,8 @@
 
     <card width="710" hat="{{false}}" title="买房用途" sub-title="至少选择一项">
         <view class="tags-list">
-            <view class="tag-item">
-                <van-tag size="large" color="{{item.selected ? primaryColor : '#FAFAFA'}}" text-color="{{item.selected ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="purposeHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? true : false}}" wx:for="{{purposeList}}">
+            <view class="tag-item" wx:for="{{purposeList}}">
+                <van-tag size="large" color="{{item.selected ? primaryColor : '#FAFAFA'}}" text-color="{{item.selected ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="purposeHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? true : false}}">
                     <view class="tags-list-name">{{item.name}}</view>
 
                 </van-tag>
