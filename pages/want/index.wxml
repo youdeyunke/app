@@ -13,8 +13,18 @@
 
 
     <card width="710" hat="{{false}}" title="预算范围">
-        <van-field label="最低" placeholder="最低预算，必填" required bind:change="inputChange" value="{{budget_min}}" data-name="budget_min" required />
-        <van-field label="最高" placeholder="最高预算，可留空" autosize bind:change="inputChange" type="textarea" value="{{budget_max}}" data-name="budget_max" />
+        <!-- <van-field label="最低" placeholder="最低预算，必填" required bind:change="inputChange" value="{{budget_min}}" data-name="budget_min" required />
+        <van-field label="最高" placeholder="最高预算，可留空" autosize bind:change="inputChange" type="textarea" value="{{budget_max}}" data-name="budget_max" /> -->
+        <view class="jiage-1" style="color: {{primaryColor}};">{{budget_min}}-{{budget_max}}万{{budget_max == 500 ? '+' : ''}}</view>
+        <view class="slider-1">
+            <van-slider min="30" max="500" value="{{value}}" range='true' bar-height="6rpx" active-color="{{primaryColor}}" bind:change="onChange"  use-button-slot>
+                <view slot="left-button" class="slider-button-1" style="border: 5rpx solid {{primaryColor}};"></view>
+                <view slot="right-button" class="slider-button-1" style="border: 5rpx solid {{primaryColor}};"></view>
+            </van-slider>
+        </view>
+        <view class="slider-ruler-1">
+            <view wx:for="{{valueRuler}}">{{item}}万</view>
+        </view>
     </card>
 
 

@@ -14,7 +14,10 @@ Page({
         contact_mobile: '',
         contact_sex: 1, 
         area: '', // 期望面积,
-
+        value: [100, 200],
+        valueRuler: [30, 80, 150, 200, 300, 500],
+        budget_min: 100,
+        budget_max: 200,
         purpose: '', // 关注点
         position: '', // 期望区域
         housetype: '', // 期望户型 
@@ -164,6 +167,10 @@ Page({
             name: this.data.contact_name,
             mobile: this.data.contact_mobile,
             sex: this.data.contact_sex, 
+        }
+        var budget_max = this.data.budget_max
+        if (budget_max == 500) {
+            delete data.budget_max
         }
         return cb(data)
     },
@@ -373,6 +380,15 @@ Page({
         this.setData({
             purposeList: ps,
             purpose: purpose.join(',')
+        })
+    },
+
+    onChange(e) {
+        console.log(e.detail)
+        this.setData({
+            budget_min: e.detail[0],
+            budget_max: e.detail[1],
+            value: e.detail
         })
     },
 

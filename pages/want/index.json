@@ -8,7 +8,7 @@
     "van-radio": "/vant/radio/index",
     "mbutton": "/components/bind-mobile-button",
     "choose-block":"/components/choose-block/index",
-
+    "van-slider": "/vant/slider/index",
     "van-stepper": "/vant/stepper/index",
     "van-cell": "/vant/cell/index",
     "van-popup": "/vant/popup/index",
