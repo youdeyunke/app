@@ -278,7 +278,7 @@ Page({
    */
   onShareAppMessage: function () {
     var u = app.globalData.userInfo
-    var sharePath = '/pkgTour/pages/tour-v2/show?id=' + this.data.tourId
+    var sharePath = '/pkgTour/pages/tour-coupon/show?id=' + this.data.tourId
     if (u && u.is_broker) {
       // 如果当前账号已经是置业顾问了
       // 那么转发分享的时候，是带上我的标记
