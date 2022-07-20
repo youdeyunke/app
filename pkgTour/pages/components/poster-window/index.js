@@ -55,12 +55,19 @@ Component({
      */
     methods: {
         showPopup(e) {
+            var _this = this
             var palette = this.data.palette
             var views = this.data.palette.views
             views[0].url = e.poster
             views[2].url = e.qr
             palette.views = views
-            this.setData({ show: true, palette: palette });
+            this.setData({  palette: palette },
+                setTimeout(() => {
+                    _this.setData({
+                        show: true
+                    })
+                },500)
+            );
         },
         onClose() {
             this.setData({ show: false });
