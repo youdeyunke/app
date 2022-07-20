@@ -56,9 +56,9 @@ Page({
             url: url,
             success(resp){
                 var cities = resp.data.data
-                console.log('2323232,adc',cities)
+     
                 if (!adcode) {
-                    console.log('2323232,adcode=null')
+           
                     _this.setData({
                         city: cities[0].name
                     })
@@ -66,7 +66,7 @@ Page({
                 }else{
                     cities.forEach((item) => {
                         if(item.adcode == adcode){
-                            console.log('2323232,adcode知道了')
+                        
                             _this.setData({
                                 city: item.name
                             })
@@ -107,13 +107,17 @@ Page({
         })
         var _this = this
         app.loadConfigs(function (configs) {
-            _this.selectComponent('.pm').reload()
+           
             _this.setData({
-                configs: configs
+                configs: configs, 
+                loading: false, 
             })
             wx.stopPullDownRefresh()
             wx.hideNavigationBarLoading()
-            wx.stopPullDownRefresh() //停止下拉刷新    
+            wx.stopPullDownRefresh() //停止下拉刷新  
+            setTimeout(() => {
+                _this.selectComponent('.pm').reload()
+            }, 800)  
 
         })
 
@@ -129,7 +133,10 @@ Page({
             this.checkInstallTips()
         })
         this.loadSelectCity()
-        // this.loadCityCode()
+        setTimeout(() => {
+            this.setData({loading: false })
+        }, 500)
+ 
     },
 
     checkInstallTips: function () {
