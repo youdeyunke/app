@@ -1,0 +1,5 @@
+
+<van-search bind:change="kwChange" model:value="{{kw}}"></van-search>
+<van-cell-group title="请选择">
+    <van-cell is-link bindtap="itemClick" data-index="{{index}}" title="{{item.title}}" wx:for="{{items}}"></van-cell>
+</van-cell-group>

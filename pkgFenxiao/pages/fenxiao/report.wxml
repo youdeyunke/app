@@ -38,7 +38,7 @@
     <view class="form form-margin">
         <view class="form-title">
             <text style="margin:15rpx 0rpx"><text style="color:red;padding-right:5rpx">*</text>意向楼盘</text>
-            <view class="fangText" bind:tap="fangChange">
+            <view class="fangText" bind:tap="gotoPost">
                 <image src="../../images/search.png" />
             </view>
         </view>
@@ -57,7 +57,9 @@
             </view>
         </view>
         <view class="empty-post" wx:if="{{!post_ids.length}}">请点击右上角搜搜按钮，搜索楼盘</view>
-        <post-selector bind:change='pidAdd' class="post-selector" show="{{popupShow}}"></post-selector>
+        
+
+
     </view>
     <view class="form">
         <view class="form-title" style="margin-bottom:27rpx">
@@ -85,7 +87,7 @@
     </view>
 </view>
 
-<view class="forms">
+<!-- view class="forms">
     <view class="form form-margin">
         <view class="form-title">
             <text>案场接待 姓名</text>
@@ -104,7 +106,7 @@
                 maxlength="11" />
         </view>
     </view>
-</view>
+</view -->
 
 <view class="forms">
     <view class="form form-margin">

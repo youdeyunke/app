@@ -94,6 +94,7 @@
                 "pages/booking/index",
                 "pages/desc/index",
                 "pages/type/index",
+                "pages/selector/index",
                 "pages/type/show",
                 "pages/zhoubian/index"
             ]

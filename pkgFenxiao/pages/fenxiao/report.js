@@ -116,11 +116,20 @@ Page({
       post_type: detailValue.join(',')
     })
   },
-  fangChange() {
-    this.setData({
-      popupShow: true
-    })
+  
+  gotoPost: function(){
+      var _this = this 
+      wx.navigateTo({ 
+          url: '/pkgPost/pages/selector/index',  
+          events: {
+              change: function(post){ 
+                  // TODO 选中了一个楼盘
+                  _this.pidAdd(post)
+              }
+          },
+      })
   },
+
   pidChange(e) {
     var p = e.detail
     this.setData({
@@ -140,21 +149,21 @@ Page({
         postIds: postIdList.toString(',')
     })
   },
-  pidAdd(e) {
-      console.log(e)
+
+  pidAdd(post) {
       var post_ids = this.data.post_ids
-      console.log(post_ids)
+
       if (post_ids.length == 0) {
-          post_ids.push(e.detail)
+          post_ids.push(post)
       }else{
           var yijiaru = false
         post_ids.forEach((item) => {
-            if (item.id == e.detail.id) {
+            if (item.id == post.id) {
                 yijiaru = true
             }
         })
         if (!yijiaru) {
-            post_ids.push(e.detail)
+            post_ids.push(post)
         }
       }
     //   post_ids.push(e.detail)
