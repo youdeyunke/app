@@ -194,7 +194,6 @@ Page({
     },
 
 
-
     /**
      * 用户点击右上角分享
      */
@@ -210,7 +209,6 @@ Page({
         var _this = this
         return {
             title: _this.data.broker.name + '的名片',
-
             imageUrl: _this.data.broker.avatar
         }
     },

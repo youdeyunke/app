@@ -30,9 +30,9 @@ Page({
     if(!userInfo){
       return 
     }
-    
+    // 生成二维码
     var path = '/pkgBroker/pages/broker/profile?id=' + userInfo.id 
-    var qrdata = {referrer_id: userInfo.id}
+    var qrdata = {bindBrokerId: userInfo.id}
     app.genQr(path, qrdata, (data) => {
       var url = data.url  
       this.setData({

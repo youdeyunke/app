@@ -322,8 +322,13 @@ App({
         }
 
         var _this = this;
+        var data = {
+            bindBrokerId: wx.getStorageSync('bindBrokerId'), 
+            bindPostId: wx.getStorageSync('bindPostId'),
+        }
         this.request({
             url: "/api/v1/heartbeat",
+            data: data, 
             method: 'POST',
             hideLoading: true,
             success: function (resp) {

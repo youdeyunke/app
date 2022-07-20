@@ -83,7 +83,7 @@ Page({
     var _this = this 
 
     app.request({
-      url: '/api/v1/clues/status_items', 
+      url: '/api/v1/clue_status', 
       success: function(resp){
         if(resp.data.status != 0){
           return
