@@ -27,7 +27,7 @@
     font-size: 28rpx;
     color: #333;
     font-weight: bold;
-    margin-bottom:8rpx;
+    margin-bottom: 8rpx;
 }
 
 
@@ -37,8 +37,8 @@
     margin-right: 5rpx;
 }
 
-.name-nav .n{
-    margin:0 20rpx 0 6rpx;
+.name-nav .n {
+    margin: 0 20rpx 0 6rpx;
 }
 
 .name-nav {
@@ -80,19 +80,35 @@
     align-items: center;
 }
 
-.btn  {
+.actions image {
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.btn {
     width: 100rpx;
-    padding:0 20rpx;
-    color:#fff;
+    padding: 0 20rpx;
+    color: #fff;
     font-size: 24rpx;
     height: 55rpx;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    box-shadow: 2rpx 8rpx 20rpx rgba(0,0,0, 0.2);
+    box-shadow: 2rpx 8rpx 20rpx rgba(0, 0, 0, 0.2);
     border-radius: 30rpx;
 }
 
-.btn.chat{
-    margin-right:20rpx;
+.btn.chat {
+    margin-right: 20rpx;
+}
+
+.broker-level {
+    font-size: 26rpx;
+    color: #999999;
+}
+
+.broker-level-icon {
+    width: 62rpx;
+    height: 62rpx;
+    margin-left: 37rpx;
 }

@@ -16,6 +16,25 @@ Component({
         },
     },
 
+    observers: {
+        'item.level': function(level){
+            var _this = this
+            var item = this.data.item
+            if (level == 1) {
+                item.levelName = '金牌顾问'
+            }
+            if (level == 2) {
+                item.levelName = '银牌顾问'
+            }
+            if (level == 3) {
+                item.levelName = '铜牌顾问'
+            }
+            this.setData({
+                brokerItem: item
+            })
+        }
+    },
+
     ready: function(){
         var color = app.globalData.myconfigs.color  
         this.setData({ 
@@ -29,7 +48,8 @@ Component({
      * 组件的初始数据
      */
     data: {
-        avatarColors: ['#FFCB45','#A9CDFF','#FFC28C']
+        avatarColors: ['#FFCB45','#A9CDFF','#FFC28C'],
+        brokerItem: {}
     },
 
     /**
