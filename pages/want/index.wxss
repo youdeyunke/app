@@ -3,6 +3,34 @@ page {
     padding-bottom:20rpx;
 }
 
+.jiage-1 {
+    height: 100rpx;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 28rpx;
+    font-weight: bold;
+}
+
+.slider-1 {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.slider-button-1 {
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 20rpx;
+    background-color: #FFF;
+}
+
+.slider-ruler-1 {
+    width: 95%;
+    height: 30rpx;
+    margin: 40rpx auto;
+    display: flex;
+    justify-content: space-between;
+}
+
 .tags-list {
     display: flex;
     justify-content: flex-start;

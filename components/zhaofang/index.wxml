@@ -1,9 +1,9 @@
 
 <view class="outer">
     <view wx:if="{{ status == 1 }}">
-        <view class="jiage-1" style="color: {{primaryColor}};">{{budget_min}}-{{budget_max}}万{{budget_max == 300 ? '+' : ''}}</view>
+        <view class="jiage-1" style="color: {{primaryColor}};">{{budget_min}}-{{budget_max}}万{{budget_max == 500 ? '+' : ''}}</view>
         <view class="slider-1">
-            <van-slider min="30" max="300" value="{{value}}" range='true' bar-height="6rpx" active-color="{{primaryColor}}" bind:change="onChange"  use-button-slot>
+            <van-slider min="30" max="500" value="{{value}}" range='true' bar-height="6rpx" active-color="{{primaryColor}}" bind:change="onChange"  use-button-slot>
                 <view slot="left-button" class="slider-button-1" style="border: 5rpx solid {{primaryColor}};"></view>
                 <view slot="right-button" class="slider-button-1" style="border: 5rpx solid {{primaryColor}};"></view>
             </van-slider>

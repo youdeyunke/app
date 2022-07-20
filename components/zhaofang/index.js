@@ -15,7 +15,7 @@ Component({
     data: {
         isDone: false,
         value: [100, 200],
-        valueRuler: [30, 84, 138, 192, 246, 300],
+        valueRuler: [30, 80, 150, 200, 300, 500],
         status: 1,
         budget_min: 100,
         budget_max: 200,
@@ -417,7 +417,7 @@ Component({
                 sex: this.data.contact_sex,
             }
             var budget_max = this.data.budget_max
-            if (budget_max == 300) {
+            if (budget_max == 500) {
                 delete data.budget_max
             }
             return cb(data)
