@@ -124,7 +124,7 @@ Page({
           events: {
               change: function(post){ 
                   // TODO 选中了一个楼盘
-                  _this.pidAdd(post)
+                  _this.postAdd(post)
               }
           },
       })
@@ -150,24 +150,13 @@ Page({
     })
   },
 
-  pidAdd(post) {
+  postAdd(post) {
       var post_ids = this.data.post_ids
-
-      if (post_ids.length == 0) {
-          post_ids.push(post)
-      }else{
-          var yijiaru = false
-        post_ids.forEach((item) => {
-            if (item.id == post.id) {
-                yijiaru = true
-            }
-        })
-        if (!yijiaru) {
-            post_ids.push(post)
-        }
+      var res = post_ids.filter((p) => p.id == post.id)
+      if (res.length != 0) {
+        return
       }
-    //   post_ids.push(e.detail)
-      console.log(post_ids)
+      post_ids.push(post)
       this.setData({
         post_ids: post_ids,
         popupShow: false
