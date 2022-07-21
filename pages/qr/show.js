@@ -49,7 +49,7 @@ Page({
 
         var qr = resp.data.data 
         // 更多参数  qr.data
-        if(qr.data.bindBrokerId){
+        if(qr && qr.data && qr.data.bindBrokerId){
             var _id = wx.getStorageSync('bindBrokerId') 
             if(!_id){
                 console.log('通过二维码获取到了拓客参数，bindBrokerId', qr.data)

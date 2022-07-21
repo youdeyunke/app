@@ -24,7 +24,7 @@
             <protected-mobile-input value="{{mobile}}" bind:change="changeMobile" wx:else />
         </view>
     </view>
-    <view class="form">
+    <!-- view class="form">
         <view class="form-title">
             <text>身份证后六位</text>
         </view>
@@ -32,7 +32,8 @@
             <input class="form-input" placeholder="推荐填写，更好保障权益！" model:value="{{id_number}}" minlength="6"
                 maxlength="6" />
         </view>
-    </view>
+    </view -->
+    
 </view>
 <view class="forms">
     <view class="form form-margin">
