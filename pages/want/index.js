@@ -63,8 +63,12 @@ Page({
 
     loadData: function(){
       var _this = this  
+      var query = { 
+          cityCode: wx.getStorageSync('cityCode') || ''
+      }
       app.request({
         url: '/api/v1/needs/', 
+        data: query, 
         method: 'GET', 
         success: function(resp){ 
           if(resp.data.status != 0){
