@@ -11,6 +11,12 @@ Page({
 
   },
 
+  observers: {
+      "config.data.message": function(v){ 
+          this.setData({message: v})
+      }
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

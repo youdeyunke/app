@@ -1,9 +1,7 @@
 {
-  "navigationBarTitleText": "我的专属海报",
+  "navigationBarTitleText": "我的二维码",
   "usingComponents": {
 
-    "van-button": "/vant/button/index",
-    "poster":"../../utils/poster/index"
   }
   
 }

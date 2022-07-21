@@ -159,19 +159,11 @@ Page({
       post_ids.push(post)
       this.setData({
         post_ids: post_ids,
-        popupShow: false
       })
       this.loadPostIds()
   },
-  onClose(e) {
-      var i = e.currentTarget.dataset.i
-      var post_ids = this.data.post_ids
-      post_ids.splice(i,1)
-      this.setData({
-        post_ids: post_ids,
-      })
-      this.loadPostIds()
-  },
+
+
   loadPost: function (pid) {
     if (!pid) {
       return false;

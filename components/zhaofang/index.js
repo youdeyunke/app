@@ -6,13 +6,24 @@ Component({
      * 组件的属性列表
      */
     properties: {
-
+        config: {
+            type: Object,
+        }
     },
 
+    observers: {
+
+        "config.data.message": function (v) {
+            this.setData({
+                message: v
+            })
+        },
+    },
     /**
      * 组件的初始数据
      */
     data: {
+        message: '我们已经收到您的找房要求，系统正在为您分配置业顾问，2个工作日内会有专属置业顾问与您电话联系，请注意接听',
         isDone: false,
         value: [100, 200],
         valueRuler: [30, 80, 150, 200, 300, 500],
@@ -422,8 +433,11 @@ Component({
             }
             return cb(data)
         },
-        reWrite: function(e){
-            this.setData({isDone: false,status: 1})
+        reWrite: function (e) {
+            this.setData({
+                isDone: false,
+                status: 1
+            })
         },
     }
 })
