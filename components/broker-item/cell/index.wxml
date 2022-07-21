@@ -5,14 +5,14 @@
         <view style="display: flex;align-items: center;">
             <view class="avatar" bindtap="gotoProfile">
             
-                    <avatar border="{{avatarColors[brokerItem.level-1]}}" size="92" src="{{brokerItem.avatar}}"/>
+                    <avatar border="{{avatarColors[item.level-1]}}" size="92" src="{{item.avatar}}"/>
     
             </view>
             <view class="name">
-                <view class="fullname">{{ brokerItem.name}}</view>
-                <view class="broker-level">{{brokerItem.levelName}}</view>
+                <view class="fullname">{{ item.name}}</view>
+                <view class="broker-level">{{levelName}}</view>
             </view>
-            <image class="broker-level-icon" src="/assets/icons/broker/jiangpai{{brokerItem.level}}.png"></image>
+            <image class="broker-level-icon" src="/assets/icons/broker/jiangpai{{item.level}}.png"></image>
         </view>
         <view class="actions">
             <image bindtap="chatHandle" src="/assets/icons/broker/message.png"></image>

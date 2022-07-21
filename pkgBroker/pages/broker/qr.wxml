@@ -4,7 +4,7 @@
     <image class="poster-image" src="{{posterUrl}}"></image>
     </poster>
 </ud-box>
-    <!-- view class="footer">
+    <view class="footer">
        
         
         <van-notice-bar
@@ -15,6 +15,6 @@
         />
         <van-button type="info" custom-style="margin-top:20rpx;" block bind:click='saveFile'>保存到相册</van-button>
     
-    </view -->
+    </view>
     
 

@@ -44,7 +44,7 @@
         </view>
         <!-- <post-item wx:if="{{post}}" post="{{post}}"></post-item> -->
         <view style="display: flex;flex-wrap: wrap;">
-            <view style="margin: 10rpx;" wx:for="{{post_ids}}">
+            <view style="margin: 10rpx;" wx:for="{{posts}}">
                 <van-tag
                     color="{{color}}"
                     closeable
@@ -56,7 +56,7 @@
                 >{{item.title}}</van-tag>
             </view>
         </view>
-        <view class="empty-post" wx:if="{{!post_ids.length}}">请点击右上角搜搜按钮，搜索楼盘</view>
+        <view class="empty-post" wx:if="{{!posts.length}}">请点击右上角搜搜按钮，搜索楼盘</view>
         
 
 
