@@ -1,8 +1,9 @@
 <ud-box padding="0" width="710">
 
-    <poster  id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
-    <image class="poster-image" src="{{posterUrl}}"></image>
-    </poster>
+    <!-- <poster  id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail"> -->
+    <painter palette="{{palette}}" scaleRatio='3' bind:imgOK="onImgOK" bind:imgErr="onImgErr" />
+    <image class="poster-image" src="{{posterUrl}}" show-menu-by-longpress='true'></image>
+    <!-- </poster> -->
 </ud-box>
     <view class="footer">
        
