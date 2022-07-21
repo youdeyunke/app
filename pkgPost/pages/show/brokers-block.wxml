@@ -36,5 +36,5 @@
 </block>
 
 
-<block-button url="/pkgBroker/pages/broker/join?post_id={{value.post_id}}" buttonVal='+申请免费入驻' />
+<!-- block-button url="/pkgBroker/pages/broker/join?post_id={{value.post_id}}" buttonVal='+申请免费入驻' / -->
 </block-box>
