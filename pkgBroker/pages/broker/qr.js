@@ -1,5 +1,92 @@
 const app = getApp()
 import Poster from '../../utils/poster/poster';
+var userAvatar = {
+    type: 'image',
+    url: '',
+    css: {
+      width: '180rpx',
+      height: '190rpx',
+      top: '160rpx',
+      left: '120rpx',
+      borderRadius: '95rpx'
+    },
+}
+var userName = {
+    type: 'text',
+    text: "",
+    css: {
+        width: '290rpx',
+        height: '64rpx',
+        fontSize: "48rpx",
+        top: "185rpx",
+        left: "330rpx",
+        color: "#3E290C"
+    }
+}
+var userMobile = {
+    type: 'text',
+    text: "",
+    css: {
+        width: '290rpx',
+        height: '40rpx',
+        fontSize: "30rpx",
+        top: "250rpx",
+        left: "330rpx",
+        color: "#3E290C"
+    }
+}
+var userGroupName = {
+    type: 'text',
+    text: "置业顾问",
+    css: {
+        width: '290rpx',
+        height: '64rpx',
+        fontSize: "28rpx",
+        top: "296rpx",
+        left: "330rpx",
+        color: "#3E290C"
+    }
+}
+var userDesc = {
+    type: 'text',
+    text: "",
+    css: {
+        width: '480rpx',
+        height: '84rpx',
+        fontSize: "32rpx",
+        top: "435rpx",
+        left: "135rpx",
+        color: "#3E290C",
+        lineHeight: "36rpx",
+        maxLines: 2
+    }
+}
+var userQr = {
+    type: 'image',
+    url: '',
+    css: {
+        width: '203rpx',
+        height: '203rpx',
+        bottom: '271rpx',
+        left: '275rpx',
+        borderRadius: '72rpx',
+    },
+}
+var tip = {
+    type: 'text',
+    text: "长按识别二维码查看我的主页",
+    css: {
+        width: '196rpx',
+        height: '74rpx',
+        fontSize: "28rpx",
+        bottom: "150rpx",
+        left: "277rpx",
+        color: "#3E290C",
+        lineHeight: "34rpx",
+        textAlign: "center"
+    }
+}
+
 Page({
 
   /**
@@ -8,120 +95,37 @@ Page({
   data: {
     loading: true,
     userInfo: {},
-    userId: '',
-    qrUrl: '',
 
-    posterConfig: {},
     posterUrl: "",
-    palette:{
+    palette:{}
+  },
+
+  genUserCard(){
+    var userInfo = app.globalData.userInfo 
+    var palette = {
         background: 'https://qiniucdn.udeve.cn/fang2021/8e160ce1-6eb7-48d4-969c-e8f08ac12f05.jpg',
         width: '750rpx',
         height: '1110rpx',
-        views: [
-        {
-          type: 'image',
-          url: '',
-          css: {
-            width: '180rpx',
-            height: '190rpx',
-            top: '160rpx',
-            left: '120rpx',
-            borderRadius: '95rpx'
-          },
-        },
-        {
-            type: 'text',
-            text: "",
-            css: {
-                width: '290rpx',
-                height: '64rpx',
-                fontSize: "48rpx",
-                top: "185rpx",
-                left: "330rpx",
-                color: "#3E290C"
-            }
-        },
-        {
-            type: 'text',
-            text: "",
-            css: {
-                width: '290rpx',
-                height: '40rpx',
-                fontSize: "30rpx",
-                top: "250rpx",
-                left: "330rpx",
-                color: "#3E290C"
-            }
-        },
-        {
-            type: 'text',
-            text: "特变e享家",
-            css: {
-                width: '290rpx',
-                height: '64rpx',
-                fontSize: "28rpx",
-                top: "296rpx",
-                left: "330rpx",
-                color: "#3E290C"
-            }
-        },
-        {
-            type: 'text',
-            text: "",
-            css: {
-                width: '480rpx',
-                height: '84rpx',
-                fontSize: "32rpx",
-                top: "435rpx",
-                left: "135rpx",
-                color: "#3E290C",
-                lineHeight: "36rpx",
-                maxLines: 2
-            }
-        },
-        {
-            type: 'image',
-            url: '',
-            css: {
-                width: '203rpx',
-                height: '203rpx',
-                bottom: '271rpx',
-                left: '275rpx',
-                borderRadius: '72rpx',
-            },
-        },
-        {
-            type: 'text',
-            text: "长按识别二维码查看我的房源",
-            css: {
-                width: '196rpx',
-                height: '74rpx',
-                fontSize: "28rpx",
-                bottom: "150rpx",
-                left: "277rpx",
-                color: "#3E290C",
-                lineHeight: "34rpx",
-                textAlign: "center"
-            }
-        },
-        ],
+        views: [],
     }
+    userAvatar.url = userInfo.avatar
+    userName.text = userInfo.name
+    userMobile.text = userInfo.mobile
+    userDesc.text = userInfo.desc
+    userQr.url = userInfo.qr
+    if (userInfo.group_name != null) {
+        userGroupName.text = userInfo.group_name
+    }
+    var views = [userAvatar, userName, userMobile, userDesc, userQr, tip, userGroupName]
+    palette.views = views
+    this.setData({  palette: palette })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
-    var userInfo = app.globalData.userInfo 
-    var palette = this.data.palette
-    var views = this.data.palette.views
-    views[0].url = userInfo.avatar
-    views[1].text = userInfo.name
-    views[2].text = userInfo.mobile
-    views[4].text = userInfo.desc
-    views[5].url = userInfo.qr
-    palette.views = views
-    this.setData({  palette: palette })
+    this.genUserCard()
     wx.showLoading({
         title: '加载中',
     })
