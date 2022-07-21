@@ -99,6 +99,12 @@ Component({
 
         var user = app.globalData.userInfo
         var contact_mobile_lock = false
+        if (user == null ) {
+            this.setData({
+                contact_mobile_lock: contact_mobile_lock
+            })
+            return
+        }
         if (user.mobile && user.mobile.length == 11) {
             contact_mobile_lock = true
         }
