@@ -19,18 +19,18 @@ Component({
     observers: {
         'item.level': function(level){
             var _this = this
-            var item = this.data.item
+            var levelName = this.data.levelName
             if (level == 1) {
-                item.levelName = '金牌顾问'
+                levelName = '金牌顾问'
             }
             if (level == 2) {
-                item.levelName = '银牌顾问'
+                levelName = '银牌顾问'
             }
             if (level == 3) {
-                item.levelName = '铜牌顾问'
+                levelName = '铜牌顾问'
             }
             this.setData({
-                brokerItem: item
+                levelName: levelName
             })
         }
     },
@@ -49,7 +49,7 @@ Component({
      */
     data: {
         avatarColors: ['#FFCB45','#A9CDFF','#FFC28C'],
-        brokerItem: {}
+        levelName: ''
     },
 
     /**

@@ -10,7 +10,7 @@ Page({
    */
   data: {
     pid: null,
-    post_ids: [],
+    posts: [],
     postIds: '',
     sex: 1,
     name: '',
@@ -139,9 +139,9 @@ Page({
     this.loadPost(p.id)
   },
   loadPostIds(){
-    var post_ids = this.data.post_ids
+    var posts = this.data.posts
     var postIdList = []
-    post_ids.forEach((item) => {
+    posts.forEach((item) => {
         postIdList.push(item.id)
     })
     console.log(postIdList.toString(','))
@@ -151,24 +151,24 @@ Page({
   },
 
   postAdd(post) {
-      var post_ids = this.data.post_ids
-      var res = post_ids.filter((p) => p.id == post.id)
+      var posts = this.data.posts
+      var res = posts.filter((p) => p.id == post.id)
       if (res.length != 0) {
         return
       }
-      post_ids.push(post)
+      posts.push(post)
       this.setData({
-        post_ids: post_ids,
+        posts: posts,
         popupShow: false
       })
       this.loadPostIds()
   },
   onClose(e) {
       var i = e.currentTarget.dataset.i
-      var post_ids = this.data.post_ids
-      post_ids.splice(i,1)
+      var posts = this.data.posts
+      posts.splice(i,1)
       this.setData({
-        post_ids: post_ids,
+        posts: posts,
       })
       this.loadPostIds()
   },
