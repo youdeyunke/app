@@ -14,11 +14,10 @@ Page({
         tplIndex: 0,
         newTplIndex: 0,
         user: {},
-        posterConfig: {},
-        posterUrl: '',
         showTpls: false,
         qrUrl: '',
-
+        imagePath: '',
+        palette: {}
     },
 
     /**
@@ -86,36 +85,9 @@ Page({
         })
     },
 
-    onPosterFail: function (e) {
-        console.log('生成海报失败', e)
-        wx.hideLoading();
-        this.setData({ loading: false })
-    },
-
-    onPosterSuccess: function (e) {
-        console.log('on poster success', e)
-        var _this = this
-        const { detail } = e;
-        this.setData({
-            posterUrl: detail,
-        })
-        setTimeout(function () {
-            wx.hideLoading();
-            _this.setData({ loading: false })
-            wx.showToast({
-                title: '已生成',
-                icon: 'success',
-                image: '',
-                duration: 1000,
-                mask: false,
-            });
-
-        }, 1000)
-    },
-
     onSavePoster: function (e) {
         var _this = this
-        var path = this.data.posterUrl
+        var path = this.data.imagePath
         var _this = this
         app.saveImage(path, function (res) {
             _this.setData({ showPoster: false })
@@ -189,360 +161,346 @@ Page({
 
     },
 
-    onCreatePoster: function () {
-        // 根据配置生成海报图片
-        Poster.create()
-    },
-
-
     genPoster: function () {
         // 生成海报数据结构
         var post = this.data.post
-        var address = post.street || post.address
-        var _max = 13
-        //  处理地址字符串超过19个情况
-        if (address.length > _max) {
-            address = address.slice(0, _max) + '...'
-        }
 
         var qrUrl = this.data.qrUrl
         var post = this.data.post
         var tpl = this.data.tpls[this.data.tplIndex]
+        var averagePrice = this.data.post.average_price.split('~')[0]
         var bgImage = tpl.bg
-        var addressIcon = '../../image/icon//address.png'
+        var addressIcon = '/assets/icons/haibao-address.png'
 
         var userInfo = app.globalData.userInfo
         var fontColor = tpl.font_color || '#ffffff'
-        var config = {
-            debug: false,
-            backgroundColor: '#ffffff',
-            width: 370,
-            pixelRatio: 2,
-            preload: false,
-            height: 658,
-            blocks: [
-                {
-                    width: 100,
-                    height: 100,
-                    x: 250,
-                    y: 592,
-                    borderRadius: 100,
-                    backgroundColor: '#ffffff',
-                    zIndex: 1,
-                },
 
-                {
-                    width: 340,
-                    height: 413,
-                    x: 15,
-                    y: 145,
-                    borderRadius: 0,
-                    backgroundColor: '#ffffff',
-                    zIndex: 1,
+        var palette = {
+            background: bgImage,
+            width: '750rpx',
+            height: '1550rpx',
+            views: [
+            {
+                type: 'text',
+                text: "楼盘海报",
+                css: {
+                    width: '300rpx',
+                    height: '80rpx',
+                    fontSize: "60rpx",
+                    top: "97rpx",
+                    left: "30rpx",
+                    color: "#FFFFFF",
+                    fontWeight: "bold"
+                }
+            },
+            {
+                type: 'text',
+                text: "足不出户在线看新房",
+                css: {
+                    width: '300rpx',
+                    height: '40rpx',
+                    fontSize: "30rpx",
+                    top: "185rpx",
+                    left: "30rpx",
+                    color: "#FFFFFF"
+                }
+            },
+            {
+              type: 'image',
+              url: post.cover,
+              css: {
+                width: '690rpx',
+                height: '465rpx',
+                top: '290rpx',
+                left: '30rpx',
+              },
+            },
+            {
+                type: 'rect',
+                css: {
+                  width: '690rpx',
+                  height: '361rpx',
+                  color: '#FFFFFF',
+                  top: '755rpx',
+                  left: '30rpx',
                 },
-                {
-                    width: 32,
-                    height: 17,
-                    x: 317,
-                    y: 350,
-                    borderRadius: 5,
-                    backgroundColor: 'white',
-                    zIndex: 50,
+            },
+            {
+                type: 'text',
+                text: post.title,
+                css: {
+                    width: '580rpx',
+                    height: '53rpx',
+                    fontSize: "40rpx",
+                    top: "788rpx",
+                    left: "68rpx",
+                    fontWeight: "bold",
+                    maxLines: 1
+                }
+            },
+            {
+                type: 'image',
+                url: addressIcon,
+                css: {
+                  width: '20rpx',
+                  height: '24rpx',
+                  top: '937rpx',
+                  left: '70rpx',
                 },
+            },
+            {
+                type: 'text',
+                text: '地址：' + post.address,
+                css: {
+                    width: '550rpx',
+                    height: '34rpx',
+                    fontSize: "26rpx",
+                    top: "932rpx",
+                    left: "110rpx",
+                    maxLines: 1
+                }
+            },
+            {
+                type: 'text',
+                text: '建面',
+                css: {
+                    width: '68rpx',
+                    height: '32rpx',
+                    fontSize: "24rpx",
+                    color: "#AFAFAF",
+                    top: "996rpx",
+                    left: "68rpx",
+                }
+            },
+            {
+                type: 'text',
+                text: post.area_info.text + post.area_info.px,
+                css: {
+                    width: '220rpx',
+                    height: '40rpx',
+                    fontSize: "30rpx",
+                    fontWeight: "bold",
+                    top: "1037rpx",
+                    left: "68rpx",
+                }
+            },
+            {
+                type: 'text',
+                text: '均价',
+                css: {
+                    width: '68rpx',
+                    height: '32rpx',
+                    fontSize: "24rpx",
+                    color: "#AFAFAF",
+                    top: "996rpx",
+                    left: "297rpx",
+                }
+            },
+            {
+                type: 'text',
+                text: averagePrice + post.average_price_info.px,
+                css: {
+                    width: '220rpx',
+                    height: '40rpx',
+                    fontSize: "30rpx",
+                    fontWeight: "bold",
+                    color: "#E46C69",
+                    top: "1037rpx",
+                    left: "297rpx",
+                }
+            },
+            {
+                type: 'text',
+                text: '装修',
+                css: {
+                    width: '68rpx',
+                    height: '32rpx',
+                    fontSize: "24rpx",
+                    color: "#AFAFAF",
+                    top: "996rpx",
+                    left: "556rpx",
+                }
+            },
+            {
+                type: 'text',
+                text: post.fitment,
+                css: {
+                    width: '220rpx',
+                    height: '40rpx',
+                    fontSize: "30rpx",
+                    fontWeight: "bold",
+                    top: "1037rpx",
+                    left: "556rpx",
+                }
+            },
+            {
+                type: 'rect',
+                css: {
+                  width: '143rpx',
+                  height: '143rpx',
+                  color: '#FFFFFF',
+                  borderRadius: '72rpx',
+                  top: '1176rpx',
+                  left: '552rpx',
+                },
+            },
+            {
+                type: 'image',
+                url: qrUrl,
+                css: {
+                  width: '127rpx',
+                  height: '127rpx',
+                  top: '1184rpx',
+                  left: '560rpx',
+                },
+            },
             ],
-            images: [
-                {
-                    _desc: '背景底图',
-                    width: 375,
-                    height: 790,
-                    x: 0,
-                    y: 0,
-                    borderRadius: 0,
-                    url: bgImage,
-                    zIndex: 0,
-                },
-
-                {
-                    _desc: '封面图',
-                    width: 340,
-                    height: 232,
-                    x: 15,
-                    y: 145,
-                    borderRadius: 0,
-                    url: post.cover,
-                    zIndex: 19,
-                },
-
-                {
-                    width: 90,
-                    height: 90,
-                    x: 255,
-                    y: 597,
-                    borderRadius: 0,
-                    zIndex: 90,
-                    url: qrUrl,
-                },
-                {
-                    _desc: '地址图标',
-                    width: 15,
-                    height: 15,
-                    x: 34,
-                    y: 464,
-                    borderRadius: 0,
-                    url: addressIcon,
-                    zIndex: 19,
-                },
-            ],
-            texts: [
-                {
-                    x: 17,
-                    y: 49,
-                    baseLine: 'top',
-                    text: '楼盘海报',
-                    fontSize: 30,
-                    fontWeight:'bold',
-                    color:'white',
-                    zIndex: 100,
-                },
-                {
-                    x: 17,
-                    y: 92,
-                    baseLine: 'top',
-                    text: '足不出户在线看新房',
-                    fontSize: 20,
-                    color:'white',
-                    zIndex: 100,
-                },
-                {
-                    x:302 ,
-                    y: 350,
-                    baseLine: 'top',
-                    text: post.sale_status_item.name,
-                    fontSize: 20,
-                    color: post.sale_status_item.color,
-                    zIndex: 100,
-                },
-                {
-                    x: 320,
-                    y: 353,
-                    baseLine: 'top',
-                    text: "",
-                    fontSize: 14,
-                    fontWeight:'bold',
-                    color: fontColor,
-                    zIndex: 100,
-                },
-                {
-                    x: 34,
-                    y: 394,
-                    baseLine: 'top',
-                    text: post.title,
-                    fontSize: 20,
-                    fontWeight:'bold',
-                    color: fontColor,
-                    zIndex: 100,
-                },
-                {
-                    x: 50,
-                    y: 464,
-                    baseLine: 'top',
-                    text: '地址',
-                    fontSize: 16,
-                    color: fontColor,
-                    zIndex: 100,
-                },
-                {
-                    x: 37,
-                    y: 500,
-                    baseLine: 'top',
-                    text: '建面',
-                    fontSize: 16,
-                    color: fontColor,
-                    zIndex: 100,
-                },
-                {
-                    x: 147,
-                    y: 500,
-                    baseLine: 'top',
-                    text: '均价',
-                    fontSize: 16,
-                    color: fontColor,
-                    zIndex: 100,
-                },
-                {
-                    x: 267,
-                    y: 500,
-                    baseLine: 'top',
-                    text: '装修',
-                    fontSize: 16,
-                    color: fontColor,
-                    zIndex: 100,
-                },
-                {
-                    x: 100,
-                    y: 466,
-                    baseLine: 'top',
-                    text: address,
-                    fontSize: 16,
-                    color: fontColor,
-                    zIndex: 100,
-                },
-                {
-                    x: 37,
-                    y: 530,
-                    baseLine: 'top',
-                    text: post.area_info.text+post.area_info.px,
-                    fontSize: 14,
-                    color: fontColor,
-                    zIndex: 100,
-                },
-                {
-                    x: 147,
-                    y: 530,
-                    baseLine: 'top',
-                    text: post.average_price_info.text+post.average_price_info.px,
-                    fontSize: 14,
-                    color: '#E46C69',
-                    zIndex: 100,
-                },
-
-                {
-                    x: 267,
-                    y: 530,
-                    baseLine: 'top',
-                    text: post.fitment,
-                    fontSize: 14,
-                    color: fontColor,
-                    zIndex: 100,
-                },
-                {
-                    x: 36,
-                    y: 650,
-                    baseLine: 'top',
-                    text: "专业、优质服务",
-                    fontSize: 16,
-                    color: 'white',
-                    zIndex: 100,
-                },
-                {
-                    x: 36,
-                    y: 680,
-                    baseLine: 'top',
-                    text: "长安识别小程序码查看详情",
-                    fontSize: 16,
-                    color: 'white',
-                    zIndex: 100,
-                },
-            ],
-
         }
+        var haibaoTags =[
+            {
+                type: 'text',
+                id: 'tag1',
+                text: post.tags[0].name,
+                css: {
+                    height: '36rpx',
+                    lineHeight: '30rpx',
+                    padding: '10rpx',
+                    // background: "#000000",
+                    fontSize: "24rpx",
+                    color: "#AFAFAF",
+                    borderRadius: "5rpx",
+                    borderWidth: "1rpx",
+                    borderColor: "#AFAFAF",
+                    top: "866rpx",
+                    left: "70rpx",
+                }
+            }
+        ]
+        for (let i = 1 ; i < 3 ; i++){
+            haibaoTags.push({
+                type: 'text',
+                id: 'tag' + (i + 1),
+                text: post.tags[i].name,
+                css: {
+                    height: '36rpx',
+                    lineHeight: '30rpx',
+                    padding: '5rpx',
+                    fontSize: "24rpx",
+                    color: "#AFAFAF",
+                    borderRadius: "5rpx",
+                    borderWidth: "1rpx",
+                    borderColor: "#AFAFAF",
+                    top: "866rpx",
+                    left: "70rpx",
+                    left: 'calc(tag' + i + '.right + 10rpx)'
+                }
+            })
+        }
+        haibaoTags.forEach((item) => {
+            palette.views.push(item)
+        })
 
         // 如果是置业顾问，显示头像和姓名
         if(userInfo && userInfo.is_broker){
-           config.texts.push({
-                x: 90,
-                y: 610,
-                baseLine: 'top',
-                text:   userInfo.name ,
-                fontSize: 20,
-                color: 'white',
-                zIndex: 100,
-            })
-            config.images.push(  {
-                    _desc: '用户头像',
-                    width: 40,
-                    height:40,
-                    x: 34,
-                    y: 596,
-                    borderRadius: 40,
-                    url: userInfo.avatar ,
-                    zIndex: 19,
-                },)
+           palette.views.push(
+            {
+                type: 'image',
+                url: userInfo.avatar,
+                css: {
+                  width: '47rpx',
+                  height: '47rpx',
+                  borderRadius: '23rpx',
+                  top: '1187rpx',
+                  left: '55rpx',
+                },
+            },
+            {
+                type: 'text',
+                text: userInfo.name,
+                css: {
+                    width: '300rpx',
+                    height: '48rpx',
+                    fontSize: "36rpx",
+                    top: "1187rpx",
+                    left: "122rpx",
+                    color: "#FFFFFF",
+                }
+            },
+            {
+                type: 'text',
+                text: '专业、优质服务',
+                css: {
+                    width: '394rpx',
+                    height: '32rpx',
+                    fontSize: "24rpx",
+                    top: "1245rpx",
+                    left: "57rpx",
+                    color: "#FFFFFF",
+                }
+            },
+            {
+                type: 'text',
+                text: '长按识别小程序码查看详情',
+                css: {
+                    width: '394rpx',
+                    height: '32rpx',
+                    fontSize: "24rpx",
+                    top: "1282rpx",
+                    left: "57rpx",
+                    color: "#FFFFFF",
+                }
+            },
+           )
         }else{
-            config.texts.push({
-                x: 36,
-                y: 610,
-                baseLine: 'top',
-                text:  app.globalData.myconfigs.xcx_name ,
-                fontSize: 20,
-                color: 'white',
-                zIndex: 100,
-            })           
+            palette.views.push(
+                {
+                    type: 'text',
+                    text: '长按识别小程序码查看详情',
+                    css: {
+                        width: '394rpx',
+                        height: '32rpx',
+                        fontSize: "24rpx",
+                        top: "1245rpx",
+                        left: "57rpx",
+                        color: "#FFFFFF",
+                    }
+                },
+               )        
         }
 
-        // 计算标签
-        let x=34
-        let keys = 0
-        let width = 0
-        for(let key of post.tags.slice(0,3)){
-            if(keys>5&&key.name.length>1){
-                x=x+95
-            }
-            if(keys==5&&key.name.length>1){
-                x=x+80
-            }
-            if(keys==4&&key.name.length>1)
-            {
-                x=x+68
-            }
-            if(keys==3&&key.name.length>1){
-                x=x+55
-            }
-            if(keys==2&&key.name.length>1){
-                x=x+38
-            }
-            keys=key.name.length
-            var arr = {
-                x:x,
-                y: 433,
-                baseLine: 'top',
-                text: key.name,
-                fontSize: 13,
-                color: key.color,
-                borderWidth:1,
-                borderColor:'#A0A0A0',
-                borderRadius:5,
-                zIndex: 100,
-            }
-            if(key.name.length==2){
-                width = 32 
-            }
-            if(key.name.length==3){
-                width = 46
-            }
-            if(key.name.length==4){
-                width = 60
-            }
-            if(key.name.length==5){
-                width = 74
-            }
-            if(key.name.length==6){
-                width = 88
-            }
-            var arrs={
-                    width: width,
-                    height: 24,
-                    x: x-4,
-                    y: 427,
-                    borderWidth:1,
-                    borderColor:key.color,
-                    borderRadius: 3,
-                    backgroundColor: '#ffffff',
-                    zIndex: 99,
-            }
-            config.texts.push(arr)
-            config.blocks.push(arrs)
-        }
-        this.setData({ posterConfig: config }, () => {
-            console.log('config is', config)
-            Poster.create(true)
-        })
+        this.setData({ palette: palette})
     },
 
+    onImgOK(e) {
+        var imagePath = e.detail.path;
+        wx.showToast({
+            title: '已生成',
+            icon: 'success',
+            image: '',
+            duration: 1000,
+            mask: false,
+        });
+        this.setData({
+            imagePath: imagePath,
+            loading: false,
+        });
+    },
 
+    onImgErr(e) {
+        wx.showToast({
+            title: '生成海报失败',
+            icon: "error",
+            image: '',
+            duration: 1000,
+            mask: false,
+        });
+        this.setData({
+            loading: false,
+        });
+    },
 
     previewPoster: function () {
-        wx.previewImage({ urls: [this.data.posterUrl] })
+        wx.previewImage({ urls: [this.data.imagePath] })
     },
 
     /**

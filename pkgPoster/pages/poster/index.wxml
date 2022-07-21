@@ -1,7 +1,8 @@
 <!-- pages/poster/index.wxml -->
 <page-loading loading="{{loading}}" />
 <view style="margin-left:30rpx" hidden="{{loading}}">
-    <image style="margin-top:30rpx;width:690rpx;height:1580rpx;" mode="modeFix" bindtap='previewPoster' wx:if="{{posterUrl}}" src="{{posterUrl}}"></image>
+    <!-- <image style="margin-top:30rpx;width:690rpx;height:1580rpx;" mode="modeFix" bindtap='previewPoster' wx:if="{{posterUrl}}" src="{{posterUrl}}"></image> -->
+    <image style="margin-top:30rpx;width:690rpx;height:1426rpx;" mode="modeFix" bindtap='previewPoster' wx:if="{{imagePath}}" src="{{imagePath}}"></image>
     <view class="tips" bindtap="showTips">
         <van-icon name="question-o" />
         <text>房源海报有什么用途？</text>
@@ -19,7 +20,8 @@
         </view>
     </view>
 </view>
-<poster wx:if="{{posterConfig}}" id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail" hide-loading="{{true}}"></poster>
+<!-- <poster wx:if="{{posterConfig}}" id="poster" config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail" hide-loading="{{true}}"></poster> -->
+<painter palette="{{palette}}" scaleRatio='3' bind:imgOK="onImgOK" bind:imgErr="onImgErr" />
 <van-popup show="{{ showEditForm  }}" bind:close="cancleHandle" position="bottom">
     <form class="editor" bindsubmit="submitHandle" bindreset="cancleHandle">
         <van-field name="name" value="{{ contactInfo.name  }}" placeholder="请输入联系人姓名" />

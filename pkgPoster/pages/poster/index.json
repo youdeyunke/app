@@ -1,6 +1,7 @@
 {
   "usingComponents": {
       "page-loading": "./page-loading",
-    "poster":"../../utils/poster/index"
+    "poster":"../../utils/poster/index",
+    "painter":"/components/painter/painter"
   }
 }
