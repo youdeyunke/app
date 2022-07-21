@@ -49,8 +49,13 @@ Component({
                     if(resp.data.status != 0){ 
                         return 
                     }
+                    var gs = resp.data.data.filter((g) => { 
+                        return g.value != 'broker'
+                    })
+                    // 只显示全民经纪人身份列表
+
                     _this.setData({ 
-                        groups: resp.data.data, 
+                        groups: gs, 
                     })
                 }
             })

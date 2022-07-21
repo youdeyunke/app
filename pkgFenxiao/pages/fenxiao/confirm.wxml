@@ -12,10 +12,6 @@
     </van-cell-group>
 </ud-card>
 
-<view class="tips">
-  <view class="title">操作提示</view>
-  <view class="desc">xxx</view>
-</view>
 
 <ud-card title="状态" width="710" >
     <van-steps steps="{{logs}}" active="0"  direction="vertical"
