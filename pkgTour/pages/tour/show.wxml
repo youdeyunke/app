@@ -119,10 +119,10 @@
       <image class="font-top" src="../../image/haibao.png"></image>
       <view class="font-bottom">生成海报</view>
     </view>
-    <view class="bottom-collection" bindtap="gotoKaquan">
+    <!-- view class="bottom-collection" bindtap="gotoKaquan">
       <image class="font-top" src="../../image/kaquan.png"></image>
       <view class="font-bottom">我的卡券</view>
-    </view>
+    </view -->
     <!-- <view class="bottom-button-right bottom-button-common"> -->
     <view class="bottom-button-common">
       <view wx:if="{{joined}}"  bindtap="cancleJoin">取消报名</view>

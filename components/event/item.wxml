@@ -1,7 +1,7 @@
 <!-- components/event/item.wxml -->
 <view class="event">
     <view class="title">
-        <view class="circle"></view>
+        <view style="border-color:{{color}}" class="circle"></view>
         <view class="time">
             {{ event.author || '管理员'}} 在 {{ event.pub_time || '未知时间'}}发布
             <van-button wx:if="{{canDelete}}" plain round data-id="{{event.id}}" bindtap="deleteHandle" size="mini" icon="delete" type="danger" />

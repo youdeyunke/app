@@ -21,7 +21,11 @@
   padding:20rpx;
   border-bottom-left-radius: 16rpx;
   border-bottom-right-radius: 16rpx;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+
+}
+
+.tour .footer .title{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

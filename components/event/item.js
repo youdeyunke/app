@@ -19,6 +19,12 @@ Component({
         }
     },
 
+    ready: function(){
+        this.setData({ 
+            color: app.globalData.myconfigs.color.primary,
+        })
+    },
+
     /**
      * 组件的初始数据
      */

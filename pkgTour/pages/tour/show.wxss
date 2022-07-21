@@ -252,7 +252,14 @@ page{
   }
   
   .bottom-button-common {
-    width: 420rpx;height: 96rpx;border-radius: 48rpx;background: linear-gradient(0deg, #FF9600, #FFD513);font-size: 36rpx;color: #FFF;font-weight: bold;line-height: 96rpx;text-align: center;
+    width: 520rpx;
+    height: 96rpx;
+    border-radius: 48rpx;
+    background: linear-gradient(0deg, #FF9600, #FFD513);font-size: 36rpx;
+    color: #FFF;
+    font-weight: bold;
+    line-height: 96rpx;
+    text-align: center;
   }
   
   .bottom-share-two {
