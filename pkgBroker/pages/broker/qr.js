@@ -108,7 +108,7 @@ Page({
         height: '1110rpx',
         views: [],
     }
-    userAvatar.url = userInfo.avatar
+    userAvatar.url = userInfo.avatar.replace('http://', 'https://')
     userName.text = userInfo.name
     userMobile.text = userInfo.mobile
     userDesc.text = userInfo.desc

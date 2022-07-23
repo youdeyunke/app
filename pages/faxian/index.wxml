@@ -1,20 +1,25 @@
 <view class="top-box">
-    <view style="width:100%">
-        <ud-tabs data='{{tabs}}' model:active-index='{{tabIndex}}' bind:change='tabChangeHandle' mytabs="newtabs"
-            ></ud-tabs>
-    </view>
-    <search-bar bind:change="kwChange" kw="{{value}}" />
+    <van-search round bind:clear="clearHandle" model:value="{{ kw }}" placeholder="输入关键词进行搜索" custom-class="search-box" bind:confirm="kwChange" bind:search='kwChange' bind:change="kwChange" bind:clear="kwChange" bind:blur="kwChange" input-class='search' />
+
+    <van-tabs animated active="{{ active }}" bind:change="tabChange">
+        <van-tab name="news" title="资讯">
+
+            <news id="news-list" kw="{{kw}}" page="{{page}}"></news>
+        </van-tab>
+        <van-tab name="qa" title="问答">
+
+            <qa id="qa-list" kw="{{kw}}" page="{{page}}"></qa>
+        </van-tab>
+        <van-tab name="tour" title="活动">
+
+            <hd id="tour-list" kw="{{kw}}" page="{{page}}"></hd>
+        </van-tab>
+    </van-tabs>
+
+
 </view>
 
-<block wx:if="{{tabIndex==0}}">
-    <news kw="{{kw}}" page="{{page}}"></news>
-</block>
-<block wx:if="{{tabIndex==1}}">
-    <qa kw="{{kw}}" page="{{page}}"></qa>
-</block>
-<block wx:if="{{tabIndex==2}}">
-    <hd kw="{{kw}}" page="{{page}}"></hd>
-</block>
+
 <no-result wx:if="{{isEmpty}}" />
 
 <copyright></copyright>

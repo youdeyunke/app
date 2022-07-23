@@ -7,46 +7,49 @@ Page({
      * 页面的初始数据
      */
     data: {
-        tabs: [
-            { name: '楼市资讯', id: 'news' },
-            { name: '买房问答', id: 'qa' },
-           // { name: '活动', id: 'tour' },
+        tabs: [{
+                name: '楼市资讯',
+                id: 'news'
+            },
+            {
+                name: '买房问答',
+                id: 'qa'
+            },
+            // { name: '活动', id: 'tour' },
         ],
-        newsCats: [], //  资讯分类
-        page: 1,
+
         kw: '',
         loading: true,
-        tabIndex: 0,
-        value:''
+        active: 'news',
     },
 
-    tabChangeHandle: function (e) {
-        var tabs = this.data.tabs
-        var index = this.data.tabIndex
-        var name = tabs[index].id
-        // 防止重复点击 
-        if (name == this.data.tab) {
-            return
+    kwChange: function (e) {
+        var kw = this.data.kw
+        var ele = this.selectComponent('#' + this.data.active + '-list')
+        console.log('ele', this.data.active)
+        ele.search(kw)
+    },
+
+    tabChange: function (e) {
+        console.log('e', e)
+        var tab = e.detail.name
+        if(tab == this.data.active){ 
+            return false 
         }
         this.setData({
-             tab: name,
-             kw:'',
-             page:1,
-             value:''
+            active:tab,
+            kw: '',
+        }, () => {
+            var ele = this.selectComponent('#' + tab + '-list')
+            console.log('tab ', tab)
+            ele.reloadData()
         })
-    },
-    kwChange: function (e) {
-        var kw = e.detail
-        this.setData({
-            kw:kw,
-            page:1,
-        })
+
     },
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (q) {
-    },
+    onLoad: function (q) {},
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -61,7 +64,9 @@ Page({
         this.setData({
             tabs: app.globalData.myconfigs.faxian_tabs
         })
-        wx.setNavigationBarTitle({ title: '发现', });
+        wx.setNavigationBarTitle({
+            title: '发现',
+        });
     },
 
     /**
@@ -90,12 +95,8 @@ Page({
      */
     onReachBottom: function () {
         // 触底加载更多
-        var page = this.data.page
-        page = page + 1
-        this.setData({
-            loading:true,
-            page:page
-        })
+        var ele = this.selectComponent('#' + tab + '-list')
+        ele.loadMore()
         // console.log("page",this.data.page)
     },
 

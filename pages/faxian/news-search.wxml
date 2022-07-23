@@ -2,9 +2,10 @@
     <van-search 
     round bind:clear="clearHandle" 
     value="{{ kw }}" 
-    placeholder="重磅福利！6月程度买房优惠全在这了"  
+    placeholder="输入关键词进行搜索"  
     custom-class="search-box" 
     bind:change="searchTextInput" 
     bind:search='submitHandle' 
+    bind:blur="submitHandle"
     input-class='search'/>
 </view>

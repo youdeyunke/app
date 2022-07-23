@@ -5,12 +5,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    kw:{
-      type:String
-    },
-    page:{
-      type:Number
-    }
+
   },
 
   /**
@@ -18,17 +13,50 @@ Component({
    */
   data: {
     tourItems: [],
+    kw: '', 
+    page:1,
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    loadTours: function () {
+
+    reloadData: function(){
+        this.setData({ 
+            page:1, 
+            tourItems: [],
+        }, () => {  
+            this.loadData()
+        })
+    },
+
+    search: function(kw){
+        console.log('search tour',kw)
+        this.setData({ 
+            kw: kw, 
+            page:1, 
+            tourItems: []
+
+        }, () => { 
+            this.loadData()
+        })
+    },
+
+    loadMore: function(){
+        var page = this.data.page +1  
+        this.setData({ 
+            page: page, 
+        }, () => {  
+            this.loadData()
+        })
+    },
+      
+    loadData: function () {
       var _this = this
       var query = {
-        kw:this.properties.kw,
-        page:this.properties.page,
+        kw:this.data.kw,
+        page:this.data.page,
       }
       app.request({
         url: '/api/v1/tours/',
@@ -60,15 +88,8 @@ Component({
     },
   },
   ready: function () {
-    this.loadTours()
+
   },
-  observers:{
-    'kw':function(){
-      this.loadTours()
-    },
-    'page':function(){
-      this.loadTours()
-      console.log("dhiiiiii")
-    },
-  }
+
+
 })
