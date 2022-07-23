@@ -11,3 +11,11 @@
     width: 750rpx;
     box-sizing: border-box;
 }
+
+.qa-new {
+    position: fixed;
+    bottom: 20rpx;
+    width: 200rpx;
+    left: calc(50% - 100rpx);
+    z-index: 10;
+  }

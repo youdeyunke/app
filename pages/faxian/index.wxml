@@ -7,7 +7,6 @@
             <news id="news-list" kw="{{kw}}" page="{{page}}"></news>
         </van-tab>
         <van-tab name="qa" title="问答">
-
             <qa id="qa-list" kw="{{kw}}" page="{{page}}"></qa>
         </van-tab>
         <van-tab name="tour" title="活动">
@@ -19,6 +18,9 @@
 
 </view>
 
+<navigator wx:if="{{active == 'qa'}}" url="/pkgQa/pages/qa/new" class="qa-new">
+    <van-button custom-style="width:200rpx;" round color="{{btnColor}}">我要提问</van-button>
+</navigator>
 
 <no-result wx:if="{{isEmpty}}" />
 

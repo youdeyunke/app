@@ -8,11 +8,6 @@ Component({
 
   ready: function(){
   
-    var color = app.globalData.myconfigs.color
-    this.setData({ 
-        primaryBtnColor: color.primary_btn, 
-        secondaryBtnColor: color.secondary_btn,
-    })
   },
 
   /**
@@ -36,7 +31,7 @@ Component({
             this.loadData()
         })
     },
-    
+
     reloadData: function(){
         this.setData({ 
             kw: '', 

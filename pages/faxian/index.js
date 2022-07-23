@@ -64,9 +64,11 @@ Page({
         this.setData({
             tabs: app.globalData.myconfigs.faxian_tabs
         })
-        wx.setNavigationBarTitle({
-            title: '发现',
-        });
+
+   
+        this.setData({ 
+            btnColor:  app.globalData.myconfigs.color.primary_btn, 
+        })
     },
 
     /**
@@ -87,7 +89,10 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-
+        var tab = this.data.active
+        var ele = this.selectComponent('#' + tab + '-list')
+        console.log('tab ', tab)
+        ele.reloadData()
     },
 
     /**

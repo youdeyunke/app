@@ -1,4 +1,5 @@
 {
+    "navigationBarTitleText": "发现",
     "enablePullDownRefresh": true,
     "usingComponents": {
         "news-cats": "./news-cats",

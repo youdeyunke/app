@@ -2,10 +2,3 @@
 .qa-list{
   padding: 20rpx;
 }
-.qa-new {
-  position: fixed;
-  bottom: 20rpx;
-  width: 200rpx;
-  left: calc(50% - 100rpx);
-  z-index: 10;
-}
