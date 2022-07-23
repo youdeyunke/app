@@ -4,7 +4,7 @@
     </view>
     <scroll-view scroll-x="true" class="other" scroll-with-animation="true">
             <view class="others" >
-                <post-item1 post="{{item}}" wx:for="{{items}}" wx:if="{{index != 0}}" style="margin-right:10rpx"></post-item1>
+                <post-item1 wx:key="id" post="{{item}}" wx:for="{{items}}" wx:if="{{index != 0}}" style="margin-right:10rpx"></post-item1>
             </view>
     </scroll-view>
 </view>

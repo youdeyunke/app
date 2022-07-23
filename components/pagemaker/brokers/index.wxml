@@ -1,7 +1,7 @@
 <block>
   <scroll-view  wx:if="{{config.styleName == '0'}}" scroll-x="{{true}}">
     <view class="brokers">
-      <broker-block-item item="{{item}}" wx:for="{{items}}" wx:key="id"></broker-block-item>
+      <broker-block-item item="{{item}}" wx:key="id" wx:for="{{items}}" wx:key="id"></broker-block-item>
 
       <!-- navigator url="/pkgBroker/pages/broker/index?" hover-class="none" class="broker-item more" >
           <text>查看更多</text>

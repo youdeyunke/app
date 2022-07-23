@@ -1,5 +1,5 @@
 <view class="list mode-{{config.styleName}}">
-    <view wx:for="{{navs}}" class="item">
+    <view wx:key="id" wx:for="{{navs}}" class="item">
         <view data-index="{{index}}" config="{{item.link}}" class="link" hover-class="none" bindtap="clickHandle">
             <view class="icon">
                 <view  class="count">
