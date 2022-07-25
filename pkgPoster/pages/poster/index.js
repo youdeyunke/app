@@ -2,7 +2,180 @@
 const app = getApp()
 import Poster from '../../utils/poster/poster';
 var auth = require('../../../utils/auth.js');
-
+var title = {
+    type: 'text',
+    text: "楼盘海报",
+    css: {
+        width: '300rpx',
+        height: '80rpx',
+        fontSize: "60rpx",
+        top: "97rpx",
+        left: "30rpx",
+        color: "#FFFFFF",
+        fontWeight: "bold"
+    }
+}
+var subTitle = {
+    type: 'text',
+    text: "足不出户在线看新房",
+    css: {
+        width: '300rpx',
+        height: '40rpx',
+        fontSize: "30rpx",
+        top: "185rpx",
+        left: "30rpx",
+        color: "#FFFFFF"
+    }
+}
+var postCover = {
+  type: 'image',
+  url: '',
+  css: {
+    width: '690rpx',
+    height: '465rpx',
+    top: '290rpx',
+    left: '30rpx',
+  },
+}
+var messageBg = {
+    type: 'rect',
+    css: {
+      width: '690rpx',
+      height: '361rpx',
+      color: '#FFFFFF',
+      top: '755rpx',
+      left: '30rpx',
+    },
+}
+var postTitle = {
+    type: 'text',
+    text: '',
+    css: {
+        width: '580rpx',
+        height: '53rpx',
+        fontSize: "40rpx",
+        top: "788rpx",
+        left: "68rpx",
+        fontWeight: "bold",
+        maxLines: 1
+    }
+}
+var addressIcon = {
+    type: 'image',
+    url: '/assets/icons/haibao-address.png',
+    css: {
+      width: '20rpx',
+      height: '24rpx',
+      top: '937rpx',
+      left: '70rpx',
+    },
+}
+var address = {
+    type: 'text',
+    text: '',
+    css: {
+        width: '550rpx',
+        height: '34rpx',
+        fontSize: "26rpx",
+        top: "932rpx",
+        left: "110rpx",
+        maxLines: 1
+    }
+}
+var jianmian = {
+    type: 'text',
+    text: '建面',
+    css: {
+        width: '68rpx',
+        height: '32rpx',
+        fontSize: "24rpx",
+        color: "#AFAFAF",
+        top: "996rpx",
+        left: "68rpx",
+    }
+}
+var jianmianData = {
+    type: 'text',
+    text: '',
+    css: {
+        width: '220rpx',
+        height: '40rpx',
+        fontSize: "30rpx",
+        fontWeight: "bold",
+        top: "1037rpx",
+        left: "68rpx",
+    }
+}
+var junjia = {
+    type: 'text',
+    text: '均价',
+    css: {
+        width: '68rpx',
+        height: '32rpx',
+        fontSize: "24rpx",
+        color: "#AFAFAF",
+        top: "996rpx",
+        left: "297rpx",
+    }
+}
+var junjiaData = {
+    type: 'text',
+    text: '',
+    css: {
+        width: '220rpx',
+        height: '40rpx',
+        fontSize: "30rpx",
+        fontWeight: "bold",
+        color: "#E46C69",
+        top: "1037rpx",
+        left: "297rpx",
+    }
+}
+var zhuangxiu = {
+    type: 'text',
+    text: '装修',
+    css: {
+        width: '68rpx',
+        height: '32rpx',
+        fontSize: "24rpx",
+        color: "#AFAFAF",
+        top: "996rpx",
+        left: "556rpx",
+    }
+}
+var zhuangxiuData = {
+    type: 'text',
+    text: '',
+    css: {
+        width: '220rpx',
+        height: '40rpx',
+        fontSize: "30rpx",
+        fontWeight: "bold",
+        top: "1037rpx",
+        left: "556rpx",
+    }
+}
+var qrBg = {
+    type: 'rect',
+    css: {
+      width: '143rpx',
+      height: '143rpx',
+      color: '#FFFFFF',
+      borderRadius: '72rpx',
+      top: '1176rpx',
+      left: '552rpx',
+    },
+}
+var qr = {
+    type: 'image',
+    url: '',
+    css: {
+      width: '127rpx',
+      height: '127rpx',
+      top: '1184rpx',
+      left: '560rpx',
+    },
+}
 Page({
 
     /**
@@ -167,309 +340,146 @@ Page({
         var post = this.data.post
 
         var qrUrl = this.data.qrUrl
-        var post = this.data.post
         var tpl = this.data.tpls[this.data.tplIndex]
-        var averagePrice = this.data.post.average_price.split('~')[0]
+        if(post.average_price){
+            var averagePrice = post.average_price.split('~')[0]
+        }
         var bgImage = tpl.bg
-        var addressIcon = '/assets/icons/haibao-address.png'
 
         var userInfo = app.globalData.userInfo
         var fontColor = tpl.font_color || '#ffffff'
+        if(post.cover){
+            postCover.url = post.cover
+        }
+        if(post.title){
+            postTitle.text = post.title
+        }
+        if(post.address){
+            address.text = '地址：' + post.address
+        }
+        if(post.fitment){
+            zhuangxiuData.text = post.fitment
+        }
+        if(post.area_info.text && post.area_info.px){
+            jianmianData.text = post.area_info.text + post.area_info.px
+            junjiaData.text = averagePrice + post.average_price_info.px
+        }
+        qr.url = qrUrl
 
         var palette = {
             background: bgImage,
             width: '750rpx',
             height: '1550rpx',
-            views: [
-            {
-                type: 'text',
-                text: "楼盘海报",
-                css: {
-                    width: '300rpx',
-                    height: '80rpx',
-                    fontSize: "60rpx",
-                    top: "97rpx",
-                    left: "30rpx",
-                    color: "#FFFFFF",
-                    fontWeight: "bold"
-                }
-            },
-            {
-                type: 'text',
-                text: "足不出户在线看新房",
-                css: {
-                    width: '300rpx',
-                    height: '40rpx',
-                    fontSize: "30rpx",
-                    top: "185rpx",
-                    left: "30rpx",
-                    color: "#FFFFFF"
-                }
-            },
-            {
-              type: 'image',
-              url: post.cover,
-              css: {
-                width: '690rpx',
-                height: '465rpx',
-                top: '290rpx',
-                left: '30rpx',
-              },
-            },
-            {
-                type: 'rect',
-                css: {
-                  width: '690rpx',
-                  height: '361rpx',
-                  color: '#FFFFFF',
-                  top: '755rpx',
-                  left: '30rpx',
-                },
-            },
-            {
-                type: 'text',
-                text: post.title,
-                css: {
-                    width: '580rpx',
-                    height: '53rpx',
-                    fontSize: "40rpx",
-                    top: "788rpx",
-                    left: "68rpx",
-                    fontWeight: "bold",
-                    maxLines: 1
-                }
-            },
-            {
-                type: 'image',
-                url: addressIcon,
-                css: {
-                  width: '20rpx',
-                  height: '24rpx',
-                  top: '937rpx',
-                  left: '70rpx',
-                },
-            },
-            {
-                type: 'text',
-                text: '地址：' + post.address,
-                css: {
-                    width: '550rpx',
-                    height: '34rpx',
-                    fontSize: "26rpx",
-                    top: "932rpx",
-                    left: "110rpx",
-                    maxLines: 1
-                }
-            },
-            {
-                type: 'text',
-                text: '建面',
-                css: {
-                    width: '68rpx',
-                    height: '32rpx',
-                    fontSize: "24rpx",
-                    color: "#AFAFAF",
-                    top: "996rpx",
-                    left: "68rpx",
-                }
-            },
-            {
-                type: 'text',
-                text: post.area_info.text + post.area_info.px,
-                css: {
-                    width: '220rpx',
-                    height: '40rpx',
-                    fontSize: "30rpx",
-                    fontWeight: "bold",
-                    top: "1037rpx",
-                    left: "68rpx",
-                }
-            },
-            {
-                type: 'text',
-                text: '均价',
-                css: {
-                    width: '68rpx',
-                    height: '32rpx',
-                    fontSize: "24rpx",
-                    color: "#AFAFAF",
-                    top: "996rpx",
-                    left: "297rpx",
-                }
-            },
-            {
-                type: 'text',
-                text: averagePrice + post.average_price_info.px,
-                css: {
-                    width: '220rpx',
-                    height: '40rpx',
-                    fontSize: "30rpx",
-                    fontWeight: "bold",
-                    color: "#E46C69",
-                    top: "1037rpx",
-                    left: "297rpx",
-                }
-            },
-            {
-                type: 'text',
-                text: '装修',
-                css: {
-                    width: '68rpx',
-                    height: '32rpx',
-                    fontSize: "24rpx",
-                    color: "#AFAFAF",
-                    top: "996rpx",
-                    left: "556rpx",
-                }
-            },
-            {
-                type: 'text',
-                text: post.fitment,
-                css: {
-                    width: '220rpx',
-                    height: '40rpx',
-                    fontSize: "30rpx",
-                    fontWeight: "bold",
-                    top: "1037rpx",
-                    left: "556rpx",
-                }
-            },
-            {
-                type: 'rect',
-                css: {
-                  width: '143rpx',
-                  height: '143rpx',
-                  color: '#FFFFFF',
-                  borderRadius: '72rpx',
-                  top: '1176rpx',
-                  left: '552rpx',
-                },
-            },
-            {
-                type: 'image',
-                url: qrUrl,
-                css: {
-                  width: '127rpx',
-                  height: '127rpx',
-                  top: '1184rpx',
-                  left: '560rpx',
-                },
-            },
-            ],
+            views: [title,subTitle ,postCover,messageBg ,postTitle,addressIcon ,address,jianmian,jianmianData,junjia,junjiaData,zhuangxiu,zhuangxiuData,qrBg ,qr],
         }
-        var haibaoTags =[
-            {
-                type: 'text',
-                id: 'tag1',
-                text: post.tags[0].name,
-                css: {
-                    height: '36rpx',
-                    lineHeight: '30rpx',
-                    padding: '10rpx',
-                    // background: "#000000",
-                    fontSize: "24rpx",
-                    color: "#AFAFAF",
-                    borderRadius: "5rpx",
-                    borderWidth: "1rpx",
-                    borderColor: "#AFAFAF",
-                    top: "866rpx",
-                    left: "70rpx",
-                }
-            }
-        ]
-        for (let i = 1 ; i < 3 ; i++){
-            haibaoTags.push({
-                type: 'text',
-                id: 'tag' + (i + 1),
-                text: post.tags[i].name,
-                css: {
-                    height: '36rpx',
-                    lineHeight: '30rpx',
-                    padding: '5rpx',
-                    fontSize: "24rpx",
-                    color: "#AFAFAF",
-                    borderRadius: "5rpx",
-                    borderWidth: "1rpx",
-                    borderColor: "#AFAFAF",
-                    top: "866rpx",
-                    left: "70rpx",
-                    left: 'calc(tag' + i + '.right + 10rpx)'
-                }
+
+        var haibaoTags = this.genTags()
+        if(haibaoTags){
+            haibaoTags.forEach((item) => {
+                palette.views.push(item)
             })
         }
-        haibaoTags.forEach((item) => {
-            palette.views.push(item)
-        })
 
         // 如果是置业顾问，显示头像和姓名
-        if(userInfo && userInfo.is_broker){
-           palette.views.push(
-            {
-                type: 'image',
-                url: userInfo.avatar,
-                css: {
-                  width: '47rpx',
-                  height: '47rpx',
-                  borderRadius: '23rpx',
-                  top: '1187rpx',
-                  left: '55rpx',
-                },
-            },
-            {
-                type: 'text',
-                text: userInfo.name,
-                css: {
-                    width: '300rpx',
-                    height: '48rpx',
-                    fontSize: "36rpx",
-                    top: "1187rpx",
-                    left: "122rpx",
-                    color: "#FFFFFF",
-                }
-            },
-            {
-                type: 'text',
-                text: '专业、优质服务',
-                css: {
-                    width: '394rpx',
-                    height: '32rpx',
-                    fontSize: "24rpx",
-                    top: "1245rpx",
-                    left: "57rpx",
-                    color: "#FFFFFF",
-                }
-            },
-            {
-                type: 'text',
-                text: '长按识别小程序码查看详情',
-                css: {
-                    width: '394rpx',
-                    height: '32rpx',
-                    fontSize: "24rpx",
-                    top: "1282rpx",
-                    left: "57rpx",
-                    color: "#FFFFFF",
-                }
-            },
-           )
-        }else{
-            palette.views.push(
-                {
-                    type: 'text',
-                    text: '长按识别小程序码查看详情',
-                    css: {
-                        width: '394rpx',
-                        height: '32rpx',
-                        fontSize: "24rpx",
-                        top: "1245rpx",
-                        left: "57rpx",
-                        color: "#FFFFFF",
-                    }
-                },
-               )        
-        }
-
+        var broker = this.genBrokerName()
+        broker.forEach((item) => {
+            palette.views.push(item)
+        })
         this.setData({ palette: palette})
+    },
+
+    genBrokerName(){
+        var userInfo = app.globalData.userInfo
+        if(userInfo && userInfo.is_broker){
+            return [{
+                 type: 'image',
+                 url: userInfo.avatar,
+                 css: {
+                   width: '47rpx',
+                   height: '47rpx',
+                   borderRadius: '23rpx',
+                   top: '1187rpx',
+                   left: '55rpx',
+                 },
+             },
+             {
+                 type: 'text',
+                 text: userInfo.name,
+                 css: {
+                     width: '300rpx',
+                     height: '48rpx',
+                     fontSize: "36rpx",
+                     top: "1187rpx",
+                     left: "122rpx",
+                     color: "#FFFFFF",
+                 }
+             },
+             {
+                 type: 'text',
+                 text: '专业、优质服务',
+                 css: {
+                     width: '394rpx',
+                     height: '32rpx',
+                     fontSize: "24rpx",
+                     top: "1245rpx",
+                     left: "57rpx",
+                     color: "#FFFFFF",
+                 }
+             },
+             {
+                 type: 'text',
+                 text: '长按识别小程序码查看详情',
+                 css: {
+                     width: '394rpx',
+                     height: '32rpx',
+                     fontSize: "24rpx",
+                     top: "1282rpx",
+                     left: "57rpx",
+                     color: "#FFFFFF",
+                 }
+            }]
+            
+         }else{
+            return [{
+                     type: 'text',
+                     text: '长按识别小程序码查看详情',
+                     css: {
+                         width: '394rpx',
+                         height: '32rpx',
+                         fontSize: "24rpx",
+                         top: "1245rpx",
+                         left: "57rpx",
+                         color: "#FFFFFF",
+                     }
+            }]        
+         }
+    },
+
+    genTags(){
+        var post = this.data.post
+        var haibaoTags = post.tags.filter((q,i) => i < 3).map((q,i) => {
+            var tag = {
+                type: 'text',
+                id: 'tag' + (i+1),
+                text: q.name,
+                css: {
+                    height: '36rpx',
+                    lineHeight: '30rpx',
+                    fontSize: "24rpx",
+                    color: "#AFAFAF",
+                    borderRadius: "5rpx",
+                    borderWidth: "1rpx",
+                    borderColor: "#AFAFAF",
+                    top: "866rpx",
+                    left: 'calc(tag' + i + '.right + 10rpx)',
+                }
+            }
+            if(i == 0){
+                tag.css.left = "70rpx"
+            }
+            return tag
+        })
+        return haibaoTags
     },
 
     onImgOK(e) {
