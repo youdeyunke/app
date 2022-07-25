@@ -1,0 +1,5 @@
+<van-popup style="width:100%;" show="{{show}}" position="middle">
+    <view class="outer" style="width:710rpx;margin:0 auto;" >
+        <video wx:if="{{show}}" style="width:100%;" src="{{url}}" autoplay="{{true}}" ></video>
+    </view>
+</van-popup>
