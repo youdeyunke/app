@@ -134,7 +134,7 @@ Page({
                 data.broker = resp.data.broker
                 data.loading = false 
                 _this._setPostInfo(resp.data.post)
-                _this._setTheme(resp.data.post.theme)
+                // _this._setTheme(resp.data.post.theme)
                 _this.setData(data, () => {
                     wx.showShareMenu({
                         withShareTicket: true,
