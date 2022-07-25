@@ -4,22 +4,10 @@ Component({
   /**
    * 组件的属性列表
    */
-  properties: {
-    kw:{
-      type:String
-    },
-    page:{
-      type:Number
-    }
-  },
+
 
   ready: function(){
-    this.loadQas()
-    var color = app.globalData.myconfigs.color
-    this.setData({ 
-        primaryBtnColor: color.primary_btn, 
-        secondaryBtnColor: color.secondary_btn,
-    })
+  
   },
 
   /**
@@ -27,13 +15,45 @@ Component({
    */
   data: {
     qaItems: [],
+    page:1, 
+    kw: '',
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    loadQas: function () {
+    loadMore: function(){
+        var page = this.data.page +1  
+        this.setData({ 
+            page: page, 
+        }, () => {  
+            this.loadData()
+        })
+    },
+
+    reloadData: function(){
+        this.setData({ 
+            kw: '', 
+            page: 1, 
+            qaItems: [],
+        }, () => {  
+            this.loadData()
+        })
+    },
+
+    search: function(kw){
+        this.setData({ 
+            kw: kw, 
+            page: 1, 
+            qaItems: [],
+        }, () => {  
+            this.loadData()
+        })
+    },
+
+
+    loadData: function () {
       var _this = this
       var query = {
         kw:this.properties.kw,
@@ -66,12 +86,5 @@ Component({
     },
   },
 
-  observers:{
-    'kw':function(){
-      this.loadQas()
-    },
-    'page':function(){
-      this.loadQas()
-    }
-  }
+
 })

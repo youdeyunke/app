@@ -176,7 +176,6 @@ var qr = {
       left: '560rpx',
     },
 }
-
 Page({
 
     /**
@@ -313,6 +312,7 @@ Page({
         var qrdata = {
             id: this.data.postId, 
             scene_key: 'poster',
+	    bindBrokerId: uinfo.id,
             source_uid: uinfo.id,  
         }
         app.genQr(path, qrdata, function (data) {
@@ -364,16 +364,15 @@ Page({
             jianmianData.text = post.area_info.text + post.area_info.px
             junjiaData.text = averagePrice + post.average_price_info.px
         }
-        
         qr.url = qrUrl
+
         var palette = {
             background: bgImage,
             width: '750rpx',
             height: '1550rpx',
-            views: [
-                title,subTitle,postCover,messageBg,postTitle,addressIcon,address,jianmian,jianmianData,junjia,junjiaData,zhuangxiu,zhuangxiuData, qrBg, qr,
-            ],
+            views: [title,subTitle ,postCover,messageBg ,postTitle,addressIcon ,address,jianmian,jianmianData,junjia,junjiaData,zhuangxiu,zhuangxiuData,qrBg ,qr],
         }
+
         var haibaoTags = this.genTags()
         if(haibaoTags){
             haibaoTags.forEach((item) => {
@@ -458,9 +457,6 @@ Page({
 
     genTags(){
         var post = this.data.post
-        if(post.tags.length == 0){
-            return
-        }
         var haibaoTags = post.tags.filter((q,i) => i < 3).map((q,i) => {
             var tag = {
                 type: 'text',

@@ -1,5 +1,0 @@
-/* pages/faxian/news-search.wxss */
-.search{
-    color: #CDCDCD;
-    font-size: 24rpx;
-}

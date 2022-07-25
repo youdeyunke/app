@@ -4,14 +4,6 @@ Component({
   /**
    * 组件的属性列表
    */
-  properties: {
-    kw:{
-      type:String
-    },
-    page:{
-      type:Number
-    }
-  },
 
   /**
    * 组件的初始数据
@@ -19,6 +11,8 @@ Component({
   data: {
     topNewsItems:[],
     newsItems: [],
+    page:1,
+    kw: '',
     end: false, 
   },
 
@@ -38,6 +32,41 @@ Component({
         }
       })
     },
+
+    loadData: function(){
+        this.loadNews()
+    },
+
+    search: function(kw){
+        this.setData({ 
+            kw: kw, 
+            page:1, 
+            newsItems: []
+
+        }, () => { 
+            this.loadData
+        })
+    },
+
+    loadMore: function(){
+        var page = this.data.page +1  
+        this.setData({ 
+            page: page, 
+        }, () => {  
+            this.loadData()
+        })
+    },
+
+    reloadData: function(){
+        this.setData({ 
+            page:1, 
+            kw: '', 
+            newsItems: [],
+        }, () => {  
+            this.loadData()
+        })
+    },
+
     loadTopNews: function () {
       // 热门推荐
       var query = {
@@ -93,6 +122,7 @@ Component({
     this.loadTopNews()
     this.loadNews()
   },
+
   'observers':{
     "kw":function(){
       this.loadNews()

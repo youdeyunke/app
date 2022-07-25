@@ -1,8 +1,9 @@
 {
+    "navigationBarTitleText": "发现",
     "enablePullDownRefresh": true,
     "usingComponents": {
         "news-cats": "./news-cats",
-        "search-bar": "./news-search",
+     
         "scroll-news": "./scroll-news/index",
 
         "news":"./news-list/index",
