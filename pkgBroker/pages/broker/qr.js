@@ -108,11 +108,17 @@ Page({
         height: '1110rpx',
         views: [],
     }
-    userAvatar.url = userInfo.avatar.replace('http://', 'https://')
+    if(userInfo.avatar){
+        userAvatar.url = userInfo.avatar.replace('http://', 'https://')
+    }
+    if(userInfo.qr){
+        userQr.url = userInfo.qr
+    }
+
     userName.text = userInfo.name
     userMobile.text = userInfo.mobile
     userDesc.text = userInfo.desc
-    userQr.url = userInfo.qr
+    
     if (userInfo.group_name != null) {
         userGroupName.text = userInfo.group_name
     }
