@@ -21,9 +21,11 @@ Component({
             data.images = items
             var tabs = this.data.tabs
             items.forEach((img, i) => {
+                img.tab = img.tab.replace('album', 'image')
                 if (!counters[img.tab]) {
                     counters[img.tab] = 0
                 }
+  
                 img.image = img.image + '?imageView2/5/h/400/w/750'
                 counters[img.tab] += 1
                 img.number = counters[img.tab]
@@ -34,7 +36,8 @@ Component({
                     }
                 })
             })
-            data.tabs = tabs
+            tabs = tabs.filter((t) => { return t.show })
+            data.tabs = tabs 
             data.currentTab = tabs[0].value || 'image'
             data.currentIndex = -1
             items.forEach((img, index) => {  
