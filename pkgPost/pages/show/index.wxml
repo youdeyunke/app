@@ -19,6 +19,7 @@
         <comments-block wx:if="{{block.name == 'comments' }}" value="{{block.value}}" />
         <events-block wx:if="{{block.name == 'events' }}" value="{{block.value}}" />
         <tours-block wx:if="{{block.name == 'tours' }}" value="{{block.value}}" />
+        <html-block wx:if="{{block.name == 'html' }}" value="{{block.value}}" />
         <recoms-block wx:if="{{block.name == 'recoms'}}" value="{{block.value}}" />
         <view class="radar" wx:if="{{block.name == 'score'}}">
             <block-box title='楼盘综合得分'>
