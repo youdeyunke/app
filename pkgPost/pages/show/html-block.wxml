@@ -1,0 +1,5 @@
+<block-box leftHat='true' title="{{value.label}}"  padding="{{false}}" title-size="36">
+
+<raw-html html="{{value.html}}"></raw-html>
+
+</block-box>
