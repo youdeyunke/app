@@ -1,6 +1,7 @@
 {
     "component": true,
     "usingComponents": {
+        "block-box": "./block-box/index",
         "raw-html": "/components/raw-html/index"
     }
 }
