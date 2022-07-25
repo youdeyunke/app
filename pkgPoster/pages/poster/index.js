@@ -62,7 +62,7 @@ var postTitle = {
 }
 var addressIcon = {
     type: 'image',
-    url: '',
+    url: '/assets/icons/haibao-address.png',
     css: {
       width: '20rpx',
       height: '24rpx',
@@ -340,21 +340,31 @@ Page({
         var post = this.data.post
 
         var qrUrl = this.data.qrUrl
-        var post = this.data.post
         var tpl = this.data.tpls[this.data.tplIndex]
-        var averagePrice = this.data.post.average_price.split('~')[0]
+        if(post.average_price){
+            var averagePrice = post.average_price.split('~')[0]
+        }
         var bgImage = tpl.bg
-        var addressIcons = '/assets/icons/haibao-address.png'
 
         var userInfo = app.globalData.userInfo
         var fontColor = tpl.font_color || '#ffffff'
-        postCover.url = post.cover
-        postTitle.text = post.title
-        addressIcon.url = addressIcons
-        address.text = '地址：' + post.address
-        jianmianData.text = post.area_info.text + post.area_info.px
-        junjiaData.text = averagePrice + post.average_price_info.px
-        zhuangxiuData.text = post.fitment
+        if(post.cover){
+            postCover.url = post.cover
+        }
+        if(post.title){
+            postTitle.text = post.title
+        }
+        if(post.address){
+            address.text = '地址：' + post.address
+        }
+        if(post.fitment){
+            zhuangxiuData.text = post.fitment
+        }
+        if(post.area_info.text && post.area_info.px){
+            jianmianData.text = post.area_info.text + post.area_info.px
+            junjiaData.text = averagePrice + post.average_price_info.px
+        }
+        
         qr.url = qrUrl
         var palette = {
             background: bgImage,
@@ -365,9 +375,11 @@ Page({
             ],
         }
         var haibaoTags = this.genTags()
-        haibaoTags.forEach((item) => {
-            palette.views.push(item)
-        })
+        if(haibaoTags){
+            haibaoTags.forEach((item) => {
+                palette.views.push(item)
+            })
+        }
 
         // 如果是置业顾问，显示头像和姓名
         var broker = this.genBrokerName()
@@ -446,6 +458,9 @@ Page({
 
     genTags(){
         var post = this.data.post
+        if(post.tags.length == 0){
+            return
+        }
         var haibaoTags = post.tags.filter((q,i) => i < 3).map((q,i) => {
             var tag = {
                 type: 'text',
