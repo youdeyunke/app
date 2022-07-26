@@ -276,7 +276,7 @@ Page({
       return false;
     }
 
-    if (!fdata['post_id']) {
+    if (!fdata['post_ids']) {
       wx.showToast({
         title: '请选择楼盘',
         icon: 'none'
