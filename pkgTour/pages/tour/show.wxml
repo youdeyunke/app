@@ -101,10 +101,10 @@
       <image class="font-top" src="../../image/haibao.png"></image>
       <view class="font-bottom">生成海报</view>
     </view>
-    <view class="bottom-collection" bindtap="gotoKaquan">
+    <!-- <view class="bottom-collection" bindtap="gotoKaquan">
       <image class="font-top" src="../../image/kaquan.png"></image>
       <view class="font-bottom">我的卡券</view>
-    </view>
+    </view> -->
     <view class="bottom-button-common">
         <view wx:if="{{joined}}" bindtap="cancleJoin">已满员(取消报名)</view>
         <view wx:else>已满员</view>
@@ -139,10 +139,10 @@
       <image class="font-top" src="../../image/haibao.png"></image>
       <view class="font-bottom">生成海报</view>
     </view>
-    <view class="bottom-collection" bindtap="gotoKaquan">
+    <!-- <view class="bottom-collection" bindtap="gotoKaquan">
       <image class="font-top" src="../../image/kaquan.png"></image>
       <view class="font-bottom">我的卡券</view>
-    </view>
+    </view> -->
     <view class="bottom-button-common">
       <view >报名已截止</view>
     </view>

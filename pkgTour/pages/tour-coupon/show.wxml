@@ -3,7 +3,11 @@
   <van-popup closeable bind:close="formClose" position="bottom" round title="活动报名" show="{{showForm}}">
     <view class="form">
         <van-field label="联系人" model:value="{{name}}" placeholder="请输入联系人姓名"></van-field>
-        <van-field disabled="{{user && user.mobile}}" label="手机号" placeholder="" value="{{user.mobile}}"></van-field>
+        <van-field disabled="{{mobile_lock}}" label="手机号" placeholder="" model:value="{{mobile}}" use-button-slot>
+            <sms-button wx:if="{{!mobile_lock}}"  slot="button" mobile="{{mobile}}" />
+            <van-button wx:if="{{mobile_lock}}" slot="button" size="small" type="primary" bindtap="mobileChange" plain>修改号码</van-button>
+        </van-field>
+        <van-field wx:if="{{!mobile_lock}}" label="验证码" model:value="{{ sms_code }}" placeholder="短信验证码"></van-field>
       <van-field label="口令" wx:if="{{item.password_enable}}"  minlength="2" model:value="{{password}}" placeholder="请输入领取口令"></van-field>
      
       <view class="footer">
