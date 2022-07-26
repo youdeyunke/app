@@ -445,13 +445,14 @@ App({
             hideLoading: true,
             method: 'POST',
             data: {
-                scene_key: sceneObj.scene,
+                visitor_id: wx.getStorageSync('key') || '',
                 source_uid: sourceUid,
             },
             success: function (resp) {
                 var data = resp.data
                 if (data.status == 0) {
                     _this.globalData.visitorId = data.data
+                    wx.setStorage({key: 'visitorId', data: data.data})
                     console.log('set vid is', _this.globalData.visitorId)
                 }
 
@@ -549,6 +550,10 @@ App({
     request: function (obj) {
         var _this = this;
         var token = this.globalData.token;
+        if(!token){
+            // 重要。初次启动的时候，无法从globaldata忠拿到token，要本地读取
+            token = wx.getStorageSync('token')
+        }
         if (!obj.hideLoading) {
             wx.showLoading({
                 title: "加载中",
@@ -564,6 +569,7 @@ App({
             // 判断token有值才传递，防止传递null obj给后端
             header["Authorization"] = token;
         }
+        //console.log('api：', obj.url, 'token', token)
 
         header['Content-MD5'] = '18a8cf43bad24635aae501bb13a7157d'
         var d = new Date()

@@ -6,7 +6,7 @@ module.exports = {
         // 根据获取到的位置信息自动判断用户所在城市
         // 如果无法获取位置信息，或者关闭了权限，则设置默认位置
         var _this = this 
-        console.log('set city')
+  
         wx.getLocation({
             type: 'gcj02 ',
             altitude: false,
