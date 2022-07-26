@@ -2,7 +2,7 @@ module.exports = {
 
 
     functionHandle: function (config) {
-        
+        console.log('config.function',config.function)
         switch(config.function){
             case 'location': 
             // 导航到位置
@@ -32,10 +32,32 @@ module.exports = {
                 })
                 break;
             case 'openChannelsLive': 
+                // 打开直播需要获取
                 wx.openChannelsLive({
                     finderUserName: config.sph,
+                    complete: function(){
+                        wx.hideLoading()
+                    },
+                    fail: function(err){
+                        // 直播没有开始
+                        wx.showModal({
+                          title: '温馨提醒',
+                          content: '直播还未开始，敬请期待', 
+                          confirmText: '知道了',
+                        })
+                      console.log('打开直播失败：',err) 
+                    }
                 })
                 break;
+            case 'openChannelsUserProfile': 
+                wx.openChannelsUserProfile({ 
+                  finderUserName: config.sph,
+                  complete: function(err){
+                    console.log('complete',err)
+                  }
+                })
+            break; 
+            
         }
 
     },
@@ -97,9 +119,11 @@ module.exports = {
 
     clickHandle: function (config) {
         // 点击按钮后，根据link对象，决定做和操作
+        console.log('link handle', config)
         if (!config) {
             return
         }
+ 
 
         switch (config.cat) {
             case 'page':
@@ -109,6 +133,7 @@ module.exports = {
                 this.webHandle(config)
                 break;
             case 'function':
+                console.log('222')
                 this.functionHandle(config)
                 break;
         }

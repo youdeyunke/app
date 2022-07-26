@@ -10,5 +10,9 @@
    background:#fff;
    padding:20rpx 20rpx 20rpx 20rpx;
    box-sizing: border-box;
+   margin-bottom:20rpx;
+}
 
+.item-outer:last-child{ 
+    margin-bottom:0;
 }
