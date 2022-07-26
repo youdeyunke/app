@@ -14,7 +14,7 @@ Component({
 
   ready: function(){
     var ui = app.globalData.ui 
-    console.log('ui data', ui)
+
     this.setData({
       vrIcon: ui.post_cover_icon_vr, 
       videoIcon: ui.post_cover_icon_video, 

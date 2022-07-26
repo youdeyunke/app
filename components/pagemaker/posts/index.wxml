@@ -1,17 +1,27 @@
 <!--components/pagemaker/posts/index.wxml-->
+<template name="style-0">
+    <style0 items="{{items}}" />
+</template>
+
+<template name="style-1">
+    <style1 items="{{items}}" />
+</template>
+<template name="style-2">
+    <style2 items="{{items}}" />
+</template>
+<template name="style-3">
+    <style3 items="{{items}}" />
+</template>
+
+
 <view class="posts-items">
   <view class="filters" wx:if="{{config.filterable && filters}}">
     <common-filter bind:open="filterOpen" bind:close="filterClose" configs="{{filters}}" bind:change="filterChange"></common-filter>
   </view>
 
-  <style0 items="{{items}}" wx:if="{{config.styleName == 0 }}" />
-  <style1 items="{{items}}" wx:if="{{config.styleName == 1 }}" />
-  <style2 items="{{items}}" wx:if="{{config.styleName == 2 }}" />
-  <style3 items="{{items}}" wx:if="{{config.styleName == 3 }}" />
-
+  <template is="style-{{config.styleName}}" data="{{items:items}}"></template>
 
   <block wx:if="{{config.styleName == 0}}">
-
     <view wx:if="{{loading}}" style="margin:0 auto;width:100%;display: flex;justify-content: center;">
       <van-loading size="24px">加载中...</van-loading>
     </view>
