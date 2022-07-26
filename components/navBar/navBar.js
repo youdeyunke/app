@@ -1,7 +1,7 @@
 Component({
   options: {
     multipleSlots: true,
-    addGlobalClass: true
+    addGlobalClass: false
   },
   properties: {
     extClass: {

@@ -95,8 +95,8 @@ Page({
       hideLoading: true,
       data: data,
       success: function (resp) {},
-
     })
+    app.bindPostCustomer(postId, '向楼盘置业顾问发起了在线聊天咨询')
 
 
   },

@@ -498,6 +498,24 @@ App({
         });
     },
 
+    bindPostCustomer: function(postId, remark) {
+        // 将客户和楼盘进行绑定关联 
+        var _this = this  
+        var data = { 
+          post_id: postId, 
+          remark: remark || '未知'
+        }
+        this.request({ 
+          url: '/api/v1/post_customers/', 
+          method: 'POST',  
+          hideLoading: true, 
+          data: data,  
+          success: function(resp){ 
+            // pass
+          }
+        })
+    },
+
     bindPhoneNumber: function (e, cb) {
         if (!e.detail.iv || !e.detail.encryptedData) {
             console.log('获取用户手机号错误')

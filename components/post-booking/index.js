@@ -197,7 +197,7 @@ Component({
             log['time'] = t.value
             log['date'] = d.value
     
-
+            app.bindPostCustomer(log.post_id, '点击了预约看房')
             this.setData({ loging: true })
             app.request({
                 url: '/api/v1/booking_logs/',

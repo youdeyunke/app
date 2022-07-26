@@ -32,9 +32,7 @@ Component({
         bookingHandle: function (e) {
             var _this = this
             auth.ensureUser(function (user) {
-
                     _this.selectComponent('#booking').openHandle()
-                
             })
         },
 
@@ -69,6 +67,7 @@ Component({
         phoneHandle: function () {
             var phone = this.data.post.phone
             var sub = this.data.post.sub_phone
+            var postId = this.data.post.id 
             if(sub){
                 phone = phone + ',' + sub
             }
@@ -82,6 +81,7 @@ Component({
                 content: t, 
                 success:(res) => {
                     if(res.confirm){
+                        app.bindPostCustomer(postId, '拨打了楼盘资讯电话')
                         app.markVisitorAction('点击拨打楼盘联系电话:' + phone, 0)
                         wx.makePhoneCall({
                             phoneNumber: phone,
