@@ -38,7 +38,7 @@
     margin: 20rpx 0;
 }
 
-.post .tags van-tag:last-child {
+.post .tags .tag-item:last-child {
     margin-right: 0;
 }
 

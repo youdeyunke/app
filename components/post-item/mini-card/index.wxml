@@ -4,26 +4,28 @@
 
         <view class="position">
             <block wx:if="{{post.has_live==true}}">
-            <image src="/assets/icons/post/live.png"></image>
-        </block>
-        <block wx:if="{{post.has_video==true}}">
-            <image src="/assets/icons/post/video.png"></image>
-        </block>
-        <block wx:if="{{post.has_vr==true}}">
-            <image src="/assets/icons/post/VR.png"></image>
-        </block>
+                <image src="/assets/icons/post/live.png"></image>
+            </block>
+            <block wx:if="{{post.has_video==true}}">
+                <image src="/assets/icons/post/video.png"></image>
+            </block>
+            <block wx:if="{{post.has_vr==true}}">
+                <image src="/assets/icons/post/VR.png"></image>
+            </block>
         </view>
     </view>
     <view class="footer">
         <view class="title">{{post.title}}</view>
         <view class="top">
             <view class="tags">
-                <van-tag wx:if="{{index <= 1}}" text-color="{{item.text_color }}" size="mini" plain wx:for="{{post.tags}}" wx:key="item.id">
-                    {{item.name}}
-                </van-tag>
+                <view wx:if="{{index <= 1}}" wx:for="{{post.tags}}" wx:key="item.id" class="tag-item">
+                    <van-tag text-color="{{item.text_color }}" size="mini" plain>
+                        {{item.name}}
+                    </van-tag>
+                </view>
             </view>
             <view class="area">
-              {{ post.area_info.label}} {{ post.area_info.text}}
+                {{ post.area_info.label}} {{ post.area_info.text}}
             </view>
             <view class="price">
                 {{post.average_price_info.text}}{{post.average_price_info.px}}
