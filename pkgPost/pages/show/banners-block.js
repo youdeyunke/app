@@ -32,7 +32,7 @@ Component({
                     counters[img.cat] = 0
                 }
 
-                img.image = img.image + '?imageView2/5/h/400/w/750'
+                img.image = img.image + '?imageView2/5/h/520/w/750'
                 counters[img.cat] += 1
                 img.number = counters[img.cat]
 
