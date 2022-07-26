@@ -1,4 +1,5 @@
 <navigator hover-class="none"  url="{{item.url}}" >
+
       <view class="cover">
         <view class="img">
           <view class="title success" >

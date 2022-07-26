@@ -11,43 +11,35 @@ Component({
     },
 
     observers: {
-        "value.images": function (items) {
+        "value.cats": function (cats) {
+            if (cats && cats.length > 0) {
+                this.setData({
+                    tabs: cats,
+                    currentTab: cats[0].value,
+                })
+            }
+        },
+        "value.banners": function (items) {
             if (!items || items.length == 0) {
                 return
             }
             var data = {}
             var counters = {}
-            data.currentTab = items[0].tab
             data.images = items
-            var tabs = this.data.tabs
             items.forEach((img, i) => {
-                img.tab = img.tab.replace('album', 'image')
-                if (!counters[img.tab]) {
-                    counters[img.tab] = 0
-                }
-  
-                img.image = img.image + '?imageView2/5/h/400/w/750'
-                counters[img.tab] += 1
-                img.number = counters[img.tab]
 
-                tabs.forEach((tab, j) => {
-                    if (img.tab == tab.value) {
-                        tabs[j].show = true
-                    }
-                })
-            })
-            tabs = tabs.filter((t) => { return t.show })
-            data.tabs = tabs 
-            data.currentTab = tabs[0].value || 'image'
-            data.currentIndex = -1
-            items.forEach((img, index) => {  
-                if(img.tab == tabs[0].value && data.currentIndex == -1){ 
-                    data.currentIndex = index
+                if (!counters[img.cat]) {
+                    counters[img.cat] = 0
                 }
+
+                img.image = img.image + '?imageView2/5/h/400/w/750'
+                counters[img.cat] += 1
+                img.number = counters[img.cat]
+
             })
+
 
             data.counters = counters
-            console.log('data.', data)
             this.setData(data)
         }
     },
@@ -62,32 +54,7 @@ Component({
         videoIcon: '',
         currentTab: '',
         currentIndex: 0,
-        tabs: [{
-                name: "VR",
-                value: 'vr',
-                show: false,
-            },
-            {
-                name: "户型",
-                value: 'type',
-                show: false,
-            },
-            {
-                name: "视频",
-                value: 'video',
-                show: false
-            },
-            {
-                name: "照片",
-                value: 'image',
-                show: false
-            },
-            {
-                name: "资讯",
-                value: 'news',
-                show: false,
-            },
-        ],
+        tabs: [],
     },
 
     ready: function () {
@@ -123,14 +90,14 @@ Component({
             }
 
             if (img.cat == 'video') {
-                var urls =[ {
-                    url: img.url, 
-                    poster: img.image, 
+                var urls = [{
+                    url: img.url,
+                    poster: img.image,
                     type: 'video',
                 }]
                 wx.previewMedia({
-                  sources: urls,
-                  current:0, 
+                    sources: urls,
+                    current: 0,
                 })
                 return
             }
@@ -139,7 +106,7 @@ Component({
                 app.gotoWebview('vr', img.url)
             }
 
-     
+
 
             var url = img.url
             wx.navigateTo({
@@ -158,7 +125,7 @@ Component({
             }
 
             this.setData({
-                currentTab: item.tab,
+                currentTab: item.cat,
                 currentIndex: i,
             })
         },
@@ -173,7 +140,7 @@ Component({
             // 注意，不能使用forEach，因为异步问题
             for (var index = 0; index <= _this.data.images.length - 1; index++) {
                 var item = _this.data.images[index]
-                if (item.tab === tab) {
+                if (item.cat === tab) {
                     _this.setData({
                         currentIndex: index
                     })

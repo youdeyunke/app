@@ -100,7 +100,7 @@ Page({
      */
     onReachBottom: function () {
         // 触底加载更多
-        var ele = this.selectComponent('#' + tab + '-list')
+        var ele = this.selectComponent('#' + this.data.active + '-list')
         ele.loadMore()
         // console.log("page",this.data.page)
     },

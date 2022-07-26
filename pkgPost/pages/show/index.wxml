@@ -3,7 +3,7 @@
 <!-- <images-block value="{{imagesInfo}}"></images-block> -->
 
 <view style="position: absolute;top: 0;" class="outer" hidden="{{loading}}">
-    <images-block value="{{imagesInfo}}"></images-block>
+    <banners-block value="{{bannersInfo}}"></banners-block>
     <cover-block value="{{postInfo}}" />
     <header-block navs="{{navs}}" post="{{postInfo}}" />
 

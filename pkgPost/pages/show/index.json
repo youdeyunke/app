@@ -5,7 +5,7 @@
     "navigationStyle": "custom",
     "usingComponents": {
       
-        "images-block": "./images-block",
+        "banners-block": "./banners-block",
         "header-block": "./header-block",
         "joingroup-block": "./joingroup-block",
         "info-block": "./info-block",

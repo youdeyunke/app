@@ -35,9 +35,15 @@ Page({
                 }
                 var type = resp.data.data.type
                 var post = resp.data.data.post
+                var tags = []
+                if(type.tags){ 
+                  tags = type.tags.split(',')
+                }
+
                 _this.setData({
                     loading: false,
                     post: resp.data.data.post,
+                    tags: tags, 
                     broker: resp.data.data.broker,
                     type: resp.data.data.type,
                 })

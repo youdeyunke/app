@@ -6,9 +6,9 @@
 
             <news id="news-list" kw="{{kw}}" page="{{page}}"></news>
         </van-tab>
-        <van-tab name="qa" title="问答">
+        <!-- van-tab name="qa" title="问答">
             <qa id="qa-list" kw="{{kw}}" page="{{page}}"></qa>
-        </van-tab>
+        </van-tab -->
         <van-tab name="tour" title="活动">
 
             <hd id="tour-list" kw="{{kw}}" page="{{page}}"></hd>

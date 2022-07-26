@@ -1,38 +1,46 @@
-
 <view hidden="{{loading}}">
-<view class="cover">
+  <view class="cover">
     <swiper class="swiper" indicator-dots="true" autoplay="{{type.images_list.length > 1}}" interval="5000" duration="500" bindchange="swiperChange" circular="true" easing-function="linear" indicator-color="rgba(255,255,255,0.7)" indicator-active-color="#fff">
-        <swiper-item  bindtap="viewImage" data-index="{{index}}" wx:key="{{index}}" wx:for="{{type.images_list}}">
-            <van-image width="750rpx" height="500rpx" fit="contain"  custom-class="item" src="{{item}}"></van-image> 
-        </swiper-item>
+      <swiper-item bindtap="viewImage" data-index="{{index}}" wx:key="{{index}}" wx:for="{{type.images_list}}">
+        <van-image width="750rpx" height="500rpx" fit="contain" custom-class="item" src="{{item}}"></van-image>
+      </swiper-item>
     </swiper>
-</view>
+  </view>
 
-<ud-box padding="30">
-        <view class="title-block">
-            <view class=" post-title">{{type.name}} </view>
-            <van-tag plain size="mini" type="primary">{{ type.sale_status_name }}</van-tag>
-        </view >
+  <ud-box padding="30">
+    <view class="title-block">
+      <view class=" post-title">{{type.name}} </view>
+      <van-tag plain size="mini" type="primary">{{ type.sale_status_name }}</van-tag>
+    </view>
+    
+    <view class="tags">
+      <view  wx:for="{{tags}}"  style="margin-right:8rpx;">
+        <van-tag plain>{{item}}</van-tag>
+      </view>
+    </view>
 
-        <view class="detail-meta">
-            <view class="meta {{ meta.url ? 'link lg' : '' }} {{ meta.large ? 'lg' : '' }}" wx:key="label" wx:if="{{meta}}" wx:for="{{type.meta_list}}" wx:for-item="meta">
-                <text class="label">{{meta.label}}</text>
-                <navigator class="value" hover-class="none" wx:if="{{meta.url}}" url="{{meta.url}}">{{meta.value}}</navigator>
-                <text wx:else style="color:{{meta.color}}"  class="value">{{meta.value}}</text>
-            </view>
-        </view>
-</ud-box>
+    <view class="detail-meta">
+      <view class="meta {{ meta.url ? 'link lg' : '' }} {{ meta.large ? 'lg' : '' }}" wx:key="label" wx:if="{{meta}}" wx:for="{{type.meta_list}}" wx:for-item="meta">
+        <text class="label">{{meta.label}}</text>
+        <navigator class="value" hover-class="none" wx:if="{{meta.url}}" url="{{meta.url}}">{{meta.value}}</navigator>
+        <text wx:else style="color:{{meta.color}}" class="value">{{meta.value}}</text>
+      </view>
 
-<mycard title="户型分析" wx:if="{{type.desc}}">
-      <view class="desc"> {{ type.desc }} </view>
-</mycard>
+    </view>
 
 
-<view class="footer">
-    <van-button color="{{secondaryBtnColor}}" bindtap="chatHandle" icon="chat-o" type="primary" block >在线咨询</van-button>
-    <van-button color="{{primaryBtnColor}}" bindtap="callHandle" icon="phone-o" type="info" block >电话咨询</van-button>
-</view>
+  </ud-box>
 
-    <safe-tips />
-    <cr />
+  <mycard title="户型亮点" wx:if="{{type.desc}}">
+    <view class="desc"> {{ type.desc }} </view>
+  </mycard>
+
+
+  <view class="footer">
+    <van-button color="{{secondaryBtnColor}}" bindtap="chatHandle" icon="chat-o" type="primary" block>在线咨询</van-button>
+    <van-button color="{{primaryBtnColor}}" bindtap="callHandle" icon="phone-o" type="info" block>电话咨询</van-button>
+  </view>
+
+  <safe-tips />
+  <cr />
 </view>

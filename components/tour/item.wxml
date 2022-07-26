@@ -1,11 +1,9 @@
 <navigator hover-class="none"  url="/pkgTour/pages/tour/show?id={{item.id}}">
       <view class="cover">
         <view class="img">
-          <view class="title {{item.status.value == 2 }}? fail:''" wx:if="{{item.status.value == 2 }}">
-            <text>{{ item.status.name }}</text>
-          </view>
-          <view class="title {{item.status.value == 2 }}? '':success" wx:else>
-            <text>{{ item.status.name }}</text>
+
+          <view class="title success">
+            <text>{{ item.status_name }}</text>
           </view>
           <image src="{{item.cover}}?imageView2" />
         </view>
