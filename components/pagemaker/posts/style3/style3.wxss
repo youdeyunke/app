@@ -4,12 +4,12 @@
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  width:690rpx;
   margin:0 auto;
+  padding:0 15rpx;
 }
 .posts .item {
-    margin-right: 20rpx;
-    width: 335rpx;
+    margin-right: 16rpx;
+    width: calc(50% - 8rpx);
 }
 
 .posts .item:nth-child(2n) {

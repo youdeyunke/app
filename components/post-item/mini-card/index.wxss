@@ -4,11 +4,11 @@
 .post {
     font-size: 24rpx;
     border-radius: 16rpx;
-    width:330rpx;
     overflow: hidden;
     margin-bottom:20rpx;
     background:#fff;
     box-shadow: 2rpx 6rpx 10rpx rgba(0,0,0,0.08);
+    border:1rpx solid #f4f4f4;
 }
 
 
