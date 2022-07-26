@@ -96,6 +96,7 @@ Component({
 
       if (img.cat == 'vr') {
         app.gotoWebview('vr', img.url)
+        return 
       }
 
       var urls = this.data.images.filter((im, i) => {

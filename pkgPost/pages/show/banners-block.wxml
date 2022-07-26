@@ -1,5 +1,4 @@
 <block>
-banners block 
 <view class="post-cover">
     <swiper current="{{currentIndex}}" bindchange="itemChange" style="width:100%;height:100%;" class="swiper"
         indicator-dots="{{false}}" autoplay="{{false}}" interval="5000" duration="500" circular="true"
