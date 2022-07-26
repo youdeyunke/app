@@ -4,6 +4,7 @@
         "box": "/components/ud/box/index",
         "post-item": "/components/post-item/cell/index",
         "mystars": "/components/stars",
+        "sms-button": "/components/sms-button/index",
         "poster-window": "../components/poster-window/index"
     }
 }

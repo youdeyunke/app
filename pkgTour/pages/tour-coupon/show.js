@@ -1,6 +1,6 @@
 // pkgTour/pages/tour-coupon/show.js
 const app = getApp()
-
+var auth = require('../../../utils/auth');
 Page({
 
   /**
@@ -21,6 +21,9 @@ Page({
 
     html: '',
     item: null,
+    mobile_lock: false,
+    sms_code: '',
+    mobile: null
   },
 
   moveHome() {
@@ -39,6 +42,56 @@ Page({
       url: '/pkgMyself/pages/coupons/index',
     })
   },
+
+  mobileChange(){
+    this.setData({
+        mobile_lock:false
+    })
+  },
+
+  smsLoginHandle(cb) {
+    // 通过短信验证码登陆账号
+    var phone = this.data.mobile
+    var code = this.data.sms_code
+    if (!(/^1[3456789]\d{9}$/.test(phone))) {
+        wx.showModal({
+            title: '手机号格式错误',
+            icon: 'none'
+        })
+        this.setData({
+            loading: false,
+          })
+        return false
+    }
+    if (code.length != 4) {
+        wx.showModal({
+            title: '验证码输入错误',
+            icon: 'none'
+        })
+        this.setData({
+            loading: false,
+          })
+        return false
+    }
+    app.request({
+        url: '/api/v1/sms/auth',
+        method: 'POST',
+        data: {
+            mobile: phone,
+            code: code
+        },
+        success: function (res) {
+            var data = res.data
+            if (data.status == 0) {
+                // 保存下服务器返回的token
+                var token = data.data.token
+                var user = data.data.user
+                auth.setUserInfo(token, user) 
+                return cb()
+            }
+        }
+        })
+    },
 
   /**
    * 生命周期函数--监听页面加载
@@ -96,55 +149,104 @@ Page({
       name: this.data.name,
       broker_name: this.data.brokerName,
       broker_phone: this.data.brokerPhone,
-      mobile: this.data.user.mobile,
+      mobile: this.data.mobile,
       numbers: 1,
       remark: '点击领取卡券',
     }
     if (!data.name) {
         wx.showToast({
-          icon: 'none',
-          title: '请填写联系人',
+            icon: 'none',
+            title: '请填写联系人',
         })
         return false
-      }
+    }
+    if (!data.mobile) {
+        wx.showToast({
+            icon: 'none',
+            title: '请填写手机号',
+        })
+        return false
+    }
     var _this = this
     this.setData({
       loading: true,
       showForm: false,
     })
 
-    app.request({
-      url: '/api/v1/tour_coupons/',
-      method: 'POST',
-      data: data,
-      success: function (resp) {
-        _this.setData({
-          loading: false
+    _this.formClose()
+    if(this.data.mobile_lock){
+        _this.postData(data)
+    }else{
+        _this.smsLoginHandle(() => {
+            _this.postData(data)
         })
-        if (resp.data.status == 0) {
-          wx.showModal({
-            title: '领取成功',
-            content: '卡券已发送到您的账号中，进入：我的-我的卡券查看',
-            showCancel: false,
-            confirmText: '去查看',
-            confirmColor: '#B20700',
-            success: (result) => {
-              if (result.confirm) {
-                var url = '/pkgMyself/pages/coupons/index'
-                wx.redirectTo({
-                  url: url,
-                })
-              }
-            },
-            fail: () => {},
-            complete: () => {}
-          });
+    }
 
-        }
-      }
-    })
+    // app.request({
+    //   url: '/api/v1/tour_coupons/',
+    //   method: 'POST',
+    //   data: data,
+    //   success: function (resp) {
+    //     _this.setData({
+    //       loading: false
+    //     })
+    //     if (resp.data.status == 0) {
+    //       wx.showModal({
+    //         title: '领取成功',
+    //         content: '卡券已发送到您的账号中，进入：我的-我的卡券查看',
+    //         showCancel: false,
+    //         confirmText: '去查看',
+    //         confirmColor: '#B20700',
+    //         success: (result) => {
+    //           if (result.confirm) {
+    //             var url = '/pkgMyself/pages/coupons/index'
+    //             wx.redirectTo({
+    //               url: url,
+    //             })
+    //           }
+    //         },
+    //         fail: () => {},
+    //         complete: () => {}
+    //       });
+
+    //     }
+    //   }
+    // })
   },
 
+  postData(data){
+    var _this = this
+    app.request({
+        url: '/api/v1/tour_coupons/',
+        method: 'POST',
+        data: data,
+        success: function (resp) {
+          _this.setData({
+            loading: false
+          })
+          if (resp.data.status == 0) {
+            wx.showModal({
+              title: '领取成功',
+              content: '卡券已发送到您的账号中，进入：我的-我的卡券查看',
+              showCancel: false,
+              confirmText: '去查看',
+              confirmColor: '#B20700',
+              success: (result) => {
+                if (result.confirm) {
+                  var url = '/pkgMyself/pages/coupons/index'
+                  wx.redirectTo({
+                    url: url,
+                  })
+                }
+              },
+              fail: () => {},
+              complete: () => {}
+            });
+  
+          }
+        }
+      })
+  },
 
   loadData: function (cb) {
     var _this = this
@@ -205,8 +307,15 @@ Page({
       wx.hideLoading()
     }, 500)
     var u = app.globalData.userInfo
+    if(u && u.mobile){
+        this.setData({
+            mobile: u.mobile, 
+            user: u,
+            mobile_lock:true
+        })
+    }
+
     this.setData({
-      user: u,
       loading: false, 
     })
     var _this = this
