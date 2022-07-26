@@ -1,23 +1,56 @@
 <!-- components/pagemaker/index.wxml -->
+<!-- 性能优化 -->
+
+<template name="banners">
+    <banners-module config="{{item}}"></banners-module>
+</template>
+<template name="image">
+    <image-module config="{{item}}" ></image-module>
+</template>
+<template name="video">
+    <video-module config="{{item}}"></video-module>
+</template>
+<template name="brokers">
+    <brokers-module config="{{item}}" ></brokers-module>
+</template>
+<template name="searchbar">
+    <searchbar-module config="{{item}}" ></searchbar-module>
+</template>
+<template name="banners">
+    <banners-module config="{{item}}" ></banners-module>
+</template>
+<template name="navs">
+    <navs-module config="{{item}}"></navs-module>
+</template>
+<template name="posts">
+    <posts-module config="{{item}}" ></posts-module>
+</template>
+<template name="blank">
+    <blank-module config="{{item}}" ></blank-module>
+</template>
+<template name="follow">
+    <follow-module config="{{item}}" ></follow-module>
+</template>
+<template name="zhaofang">
+    <zhaofang-module config="{{item}}" ></zhaofang-module>
+</template>
+<template name="text">
+    <text-module config="{{item}}"></text-module>
+</template>
+<template name="notice">
+    <notice-module config="{{item}}" ></notice-module>
+</template>
+<template name="tours">
+    <tours-module config="{{item}}" ></tours-module>
+</template>
+<template name="news">
+    <news-module config="{{item}}" ></news-module>
+</template>
+
 <view class="pagemaker">
     <block wx:key="id" wx:for="{{modules}}">
         <module-box config="{{item}}" shadow="{{pageConfig.shadowValue }}" radius="{{pageConfig.radius}}" width="{{pageConfig.width}}">
-            <header-module config="{{item}}" wx:if="{{item.name === 'header'}}"></header-module>
-            <image-module config="{{item}}" wx:elif="{{item.name === 'image'}}"></image-module>
-            <video-module config="{{item}}" wx:elif="{{item.name === 'video'}}"></video-module>
-            <brokers-module config="{{item}}" wx:elif="{{item.name === 'brokers'}}"></brokers-module>
-            <searchbar-module config="{{item}}" wx:elif="{{item.name === 'searchbar'}}"></searchbar-module>
-            <banners-module config="{{item}}" wx:elif="{{item.name === 'banners'}}"></banners-module>
-            <navs-module config="{{item}}" wx:elif="{{item.name === 'navs'}}"></navs-module>
-            <posts-module config="{{item}}" wx:elif="{{item.name === 'posts'}}"></posts-module>
-            <blank-module config="{{item}}" wx:elif="{{item.name === 'blank'}}"></blank-module>
-            <follow-module config="{{item}}" wx:elif="{{item.name === 'follow'}}"></follow-module>
-            <zhaofang-module config="{{item}}" wx:elif="{{item.name === 'zhaofang'}}"></zhaofang-module>
-            <text-module config="{{item}}" wx:elif="{{item.name === 'text'}}"></text-module>
-            <notice-module config="{{item}}" wx:elif="{{item.name === 'notice'}}"></notice-module>
-            <blocknavs-module config="{{item}}" wx:elif="{{item.name === 'blocknavs'}}"></blocknavs-module>
-            <tours-module config="{{item}}" wx:elif="{{item.name === 'tours'}}"></tours-module>
-            <news-module config="{{item}}" wx:elif="{{item.name === 'news'}}"></news-module>
+                <template is="{{item.name}}" data="{{item: item}}" ></template>
         </module-box>
     </block>
     <view class="pagemaker-bg" style="background-color: {{pageConfig.bg.color}}">
