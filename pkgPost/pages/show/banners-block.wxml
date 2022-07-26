@@ -8,7 +8,7 @@ banners block
             bindtap="itemClick" data-index="{{index}}"  wx:for="{{images}}">
             <image wx:if="{{item.cat  === 'vr'}}" class="icon vr" src="{{vrIcon}}"></image>
             <image wx:if="{{item.cat === 'video'}}" class="icon video" src="{{videoIcon}}"></image>
-            <image src="{{item.image}}" mode="aspectFill" class="cover"></image>
+            <image src="{{item.image}}?imageView2/5/h/520/w/750" mode="aspectFill" class="cover"></image>
         </swiper-item>
     </swiper>
 
