@@ -192,13 +192,13 @@ Page({
             })
             return false
         }
-        if (!data.wechat) {
-            wx.showToast({
-                title: '微信号不能为空',
-                icon: 'none'
-            })
-            return false
-        }
+        // if (!data.wechat) {
+        //     wx.showToast({
+        //         title: '微信号不能为空',
+        //         icon: 'none'
+        //     })
+        //     return false
+        // }
 
 
         return true
@@ -258,7 +258,7 @@ Page({
             name: this.data.name, 
             mobile: this.data.mobile, 
             sex: this.data.sex,  
-            wechat: this.data.wechat, 
+            // wechat: this.data.wechat, 
             post_id: this.data.postId, 
             group_value: this.data.groupValue, 
             group_name: this.data.groupName,
