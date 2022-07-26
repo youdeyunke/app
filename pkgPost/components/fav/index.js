@@ -92,14 +92,14 @@ Component({
                 },
                 success: function (resp) {
                     _this.setData(resp.data.data) // {{ count:0, status: 1}}
-                    if (resp.data.data.status == 1) {
+                    if (resp.data.data == true) {
                         var t = '已收藏'
                     } else {
                         var t = '已取消'
                     }
                     console.log('fav change ')
                     _this.triggerEvent('change', {
-                        status: resp.data.data.status,
+                        status: resp.data.data,
                         title: t
                     })
                     wx.showToast({
