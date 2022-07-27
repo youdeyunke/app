@@ -13,7 +13,7 @@ Component({
 
   ready() {
     //console.log('posts.module.config is', this.data.config)
-    //this.loadPosts()
+    this.loadPosts()
   },
 
   /**
@@ -144,8 +144,11 @@ Component({
   },
 
   observers: {
-    "config.ids": function () {
-      this.loadPosts()
+    "config.ids": function (v) {
+      return
+      if(v){
+        this.loadPosts()
+      }
     }
   }
 })
