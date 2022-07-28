@@ -70,6 +70,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var _this = this
+    app.ensureConfigs((myconfigs) => { 
+        _this.setData({
+            primaryColor: myconfigs.color.primary,
+            primaryBtnColor: myconfigs.color.primary_btn
+        })
+    })
+
     setTimeout(() => {
       if(!this.data.items){
         this.loadData()

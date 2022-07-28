@@ -1,4 +1,4 @@
-<van-tabs>
+<van-tabs color="{{primaryColor}}">
   <van-tab title="{{res.name}}" wx:for-item="res" wx:for="{{items}}">
     <view class="res">
       <navigator url="/pkgMyself/pages/coupons/show?id={{item.id}}" bindlongpress="deteleyhq" data-i="{{item.id}}" hover-class="none"  class="item" wx:for-key="{{item.id}}" wx:for="{{res.items}}">
@@ -12,7 +12,7 @@
           <view class="desc time">券码:{{item.code}}</view>
         </view>
         <view class="footer">
-          <van-button color="red" round size="mini">查看</van-button>
+          <van-button color="{{primaryBtnColor}}" round size="mini">查看</van-button>
         </view>
       </navigator>
     </view>
