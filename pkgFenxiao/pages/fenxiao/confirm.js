@@ -58,10 +58,15 @@ Page({
             desc:  dt, 
           }
         })
+        var posts = []
+        res.data.data.posts.map((m) => {
+            posts.push(m.title)
+        })
         _this.setData({
           value:res.data.data, 
           logs: logs ,
           loading: false, 
+          posts: posts.toString(',')
         })
       }
     })
