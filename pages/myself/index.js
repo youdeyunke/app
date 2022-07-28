@@ -336,6 +336,16 @@ Page({
             success (res) {
               console.log('2333',res)
               console.log('24444',res.path)
+              if(res.result != undefined){
+                  var res = res.result
+                  var paths = res.split('.')
+                  if(paths[0] == 'coupon'){
+                      wx.navigateTo({
+                        url: '/pkgMyself/pages/coupons/confirm?id='+paths[1],
+                      })
+                      return
+                  }
+              }
               if(res.path != undefined){
                 var path = res.path  
                 if(!path.startsWith('/')){
