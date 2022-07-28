@@ -45,11 +45,16 @@ Page({
             desc:  dt, 
           }
         })
+        var posts = []
+        res.data.data.posts.map((m) => {
+            posts.push(m.title)
+        })
         _this.setData({
           value:res.data.data, 
           logs: logs ,
           loading: false, 
           is_admin: app.globalData.userInfo.is_admin,
+          posts: posts.toString(',')
         })
       }
     })
