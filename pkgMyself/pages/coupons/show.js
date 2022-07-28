@@ -9,20 +9,45 @@ Page({
   data: {
     showForm: false, 
     password: '',
-
+    localQr: '',
+    palette:{
+        background: '#f4f4f4',
+        width: '600rpx',
+        height: '600rpx',
+        views: [
+            {
+            type: 'qrcode',
+            content: 'coupon.1',
+            css: {
+                width: '600rpx',
+                height: '600rpx',
+            },
+            }
+        ],
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(q) {
+    var palette = this.data.palette
+    palette.views[0].content = 'coupon.'+q.id
     this.setData({
       cid: q.id,
+      palette: palette
     }, () => {
       this.loadData()
     })
     app.globalData.reloadCoupons = true
 
+  },
+
+  onImgOK: function(e){
+      var localQr = e.detail.path;
+      this.setData({
+          localQr: localQr
+      })
   },
 
   qrPreview: function(){

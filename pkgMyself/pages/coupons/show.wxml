@@ -38,7 +38,7 @@
   </view>
 
   <view class="qr" bindtap="qrPreview">
-    <van-image width="600rpx" height="600rpx" src="{{coupon.qr}}"></van-image>
+    <van-image width="600rpx" height="600rpx" src="{{localQr}}"></van-image>
   </view>
 </block>
 
@@ -46,6 +46,8 @@
 
 
 </view>
+
+<painter palette="{{palette}}" scaleRatio='3' bind:imgOK="onImgOK" bind:imgErr="onImgErr" />
 
 <!-- view class="footer" wx:if="{{coupon && coupon.cat == 'coupon' && coupon.confirm_method == 'password'}}">
   <van-button wx:if="{{coupon.used == false }}" block bindtap="useHandle" round  type="primary" color="red">立即使用</van-button>
