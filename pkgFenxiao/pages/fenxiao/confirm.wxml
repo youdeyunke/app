@@ -5,8 +5,8 @@
     <van-cell-group>
         <van-cell size="large" title="姓名" value="{{value.name}}"></van-cell>
         <van-cell size="large" title="手机号" value="{{value.mobile}}"></van-cell>
-        <van-cell size="large" title="身份证尾号" value="{{value.id_number}}"></van-cell>
-        <van-cell size="large" title="意向楼盘" value="{{value.post_name}}"></van-cell>
+        <!-- <van-cell size="large" title="身份证尾号" value="{{value.id_number}}"></van-cell> -->
+        <van-cell size="large" title="意向楼盘" value="{{posts}}"></van-cell>
         <van-cell size="large" title="意向户型" value="{{value.post_area}}"></van-cell>
         <van-cell size="large" title="备注" value="{{value.user_remark}}"></van-cell>
     </van-cell-group>
@@ -18,6 +18,6 @@
   active-color="#1989fa" ></van-steps>
 </ud-card>
 
-<view class="footer">
+<view class="footer" wx:if="{{value.deal_status_item.value == 0}}">
   <van-button block bindtap="confirmHandle" type="primary">确认带看</van-button>
 </view>  
