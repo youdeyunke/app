@@ -45,6 +45,8 @@
     <ud-box padding="30" width="710">
         <view class="qrImage">
             <van-image width="540rpx" height="540rpx" src="{{localQr}}"></van-image>
+            <image wx:if="{{coupon.used}}" class="qrTip" src="../../images/shiyong.png"></image>
+            <image wx:elif="{{coupon.expired}}" class="qrTip" src="../../images/guoqi.png"></image>
         </view>
         <view class="couponCode">{{coupon.code }}</view>
         <view class="time">使用时间：{{coupon.starts_at}} ~ {{ coupon.expired_at}}</view>

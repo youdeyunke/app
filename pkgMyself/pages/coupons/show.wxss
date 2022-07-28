@@ -93,6 +93,15 @@ page {
     margin-top: 50rpx;
 }
 
+.qrTip {
+    width: 240rpx;
+    height: 200rpx;
+    position: absolute;
+    right: 30rpx;
+    top: 120rpx;
+    transform: rotate(0.9turn);
+}
+
 .couponCode {
     text-align: center;
     margin-top: 20rpx;
