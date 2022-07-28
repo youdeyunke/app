@@ -35,9 +35,12 @@ Component({
 
         loadData: function () {
             var _this = this
-            var query = {
-              ids: this.data.config.ids.join(',')
-            }
+            var query = { }
+	    if(this.data.config.dataFrom === 'ids'){
+              query.ids = this.data.config.ids.join(',')
+	    }
+	    query.limit = this.data.config.limit || 10
+
             app.request({
                 url: '/api/v1/tours',
                 data: query, 
