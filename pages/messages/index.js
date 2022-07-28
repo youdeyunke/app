@@ -137,12 +137,7 @@ Page({
   },
 
    dingyue: function(){
-    wx.requestSubscribeMessage({
-      tmplIds: ['mhBvzlOW-NuYCC_IZ22GlF5AuBzWja0OHT0_4KRKZCY'],
-      fail: function(res){
-        console.log('msg',res)
-      }
-    })
+    app.dingyueHandle()
    },
 
   /**

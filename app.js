@@ -5,7 +5,7 @@ const city = require("utils/city.js");
 //const T = require("utils/test.js");
 //const TIM = require('tim/index.js');
 var onfire = require('/utils/onfire.min.js');
-wx.onfire = onfire 
+wx.onfire = onfire
 
 App({
     globalData: {
@@ -14,8 +14,10 @@ App({
         cityId: null, // 全局城市过滤
         EXT: EXT,
         myconfigs: null,
-        ui: {}, 
-        color: {primary: '#1989fa'},
+        ui: {},
+        color: {
+            primary: '#1989fa'
+        },
         qrdata: null, // 解析二维码ID后得到的额外数据，扫码后设置到这里，用完之后需要清空，防止污染
 
         sourceUid: null, // 分享者user id
@@ -263,7 +265,7 @@ App({
 
 
     onHide: function () {
- 
+
     },
 
     initTim: function () {
@@ -323,12 +325,12 @@ App({
 
         var _this = this;
         var data = {
-            bindBrokerId: wx.getStorageSync('bindBrokerId'), 
+            bindBrokerId: wx.getStorageSync('bindBrokerId'),
             bindPostId: wx.getStorageSync('bindPostId'),
         }
         this.request({
             url: "/api/v1/heartbeat",
-            data: data, 
+            data: data,
             method: 'POST',
             hideLoading: true,
             success: function (resp) {
@@ -338,20 +340,21 @@ App({
 
                 var data = resp.data.data
                 // 未读消息 
-                var c = data.unread_message_count 
+                var c = data.unread_message_count
                 var bindex = 1
-                if(c == 0){
-                    wx.removeTabBarBadge({ index: bindex , 
-                        fail: function(){
+                if (c == 0) {
+                    wx.removeTabBarBadge({
+                        index: bindex,
+                        fail: function () {
                             // pass
                         }
-                })
+                    })
                 }
-                if(c > 0 ){
+                if (c > 0) {
                     wx.setTabBarBadge({
                         index: bindex,
                         text: c.toString(),
-                      })
+                    })
                 }
 
                 if (data.cmd) {
@@ -363,20 +366,20 @@ App({
         });
     },
 
-    gotoWebview: function(url, title=""){
-      this.globalData.webviewUrl = url  
-      wx.navigateTo({
-        url: '/pages/webview/show',
-      })
+    gotoWebview: function (url, title = "") {
+        this.globalData.webviewUrl = url
+        wx.navigateTo({
+            url: '/pages/webview/show',
+        })
     },
 
     cmdHandle: function (cmd, title) {
         // 防止同一个命令短时间重复执行 
         var d = 10 * 1000
-        var now = new Date().getTime() 
-        if(this.globalData.lasCmdAt && this.globalData.lasCmdAt + d  >= now){
-            console.log('不重复执行cmd',)
-            return false 
+        var now = new Date().getTime()
+        if (this.globalData.lasCmdAt && this.globalData.lasCmdAt + d >= now) {
+            console.log('不重复执行cmd', )
+            return false
         }
         this.globalData.lasCmdAt = now
         switch (cmd) {
@@ -384,7 +387,7 @@ App({
                 wx.showToast({
                     icon: 'none',
                     title: title,
-                }) 
+                })
         }
     },
 
@@ -437,7 +440,7 @@ App({
     markVisitor: function (cb) {
         // TODO 未登录情况下产生一个唯一身份id
         var _this = this
-        var sceneObj =  wx.getLaunchOptionsSync()
+        var sceneObj = wx.getLaunchOptionsSync()
         var sourceUid = sceneObj.query.source_uid || ''
         _this.globalData.sourceUid = sourceUid
         this.request({
@@ -452,7 +455,10 @@ App({
                 var data = resp.data
                 if (data.status == 0) {
                     _this.globalData.visitorId = data.data
-                    wx.setStorage({key: 'visitorId', data: data.data})
+                    wx.setStorage({
+                        key: 'visitorId',
+                        data: data.data
+                    })
                     console.log('set vid is', _this.globalData.visitorId)
                 }
 
@@ -466,8 +472,8 @@ App({
         // TODO 未登录情况下产生一个唯一身份id
         var _this = this
         seconds = seconds / 1000
-        var uid = this.globalData.visitorId 
-        if(!uid){
+        var uid = this.globalData.visitorId
+        if (!uid) {
             console.log('没有visitor uid，无法上报事件 ' + actionName)
             return
         }
@@ -499,21 +505,21 @@ App({
         });
     },
 
-    bindPostCustomer: function(postId, remark) {
+    bindPostCustomer: function (postId, remark) {
         // 将客户和楼盘进行绑定关联 
-        var _this = this  
-        var data = { 
-          post_id: postId, 
-          remark: remark || '未知'
+        var _this = this
+        var data = {
+            post_id: postId,
+            remark: remark || '未知'
         }
-        this.request({ 
-          url: '/api/v1/post_customers/', 
-          method: 'POST',  
-          hideLoading: true, 
-          data: data,  
-          success: function(resp){ 
-            // pass
-          }
+        this.request({
+            url: '/api/v1/post_customers/',
+            method: 'POST',
+            hideLoading: true,
+            data: data,
+            success: function (resp) {
+                // pass
+            }
         })
     },
 
@@ -546,11 +552,22 @@ App({
         })
     },
 
+    dingyueHandle: function () {
+        // 订阅消息
+        var tplId = this.globalData.myconfigs.msg_tpl_id || ''
+        wx.requestSubscribeMessage({
+            tmplIds: [tplId],
+            fail: function (res) {
+                console.log('订阅消息失败:', res)
+            }
+        })
+    },
+
 
     request: function (obj) {
         var _this = this;
         var token = this.globalData.token;
-        if(!token){
+        if (!token) {
             // 重要。初次启动的时候，无法从globaldata忠拿到token，要本地读取
             token = wx.getStorageSync('token')
         }
@@ -576,7 +593,7 @@ App({
         header['Accept-Datetime'] = d.toLocaleDateString()
 
         // This must be wx.request !
-        var host = EXT.apihost 
+        var host = EXT.apihost
         //console.log('ext is', EXT)
         var url = host + obj.url;
         var _method = obj.method || 'GET'

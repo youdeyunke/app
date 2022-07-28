@@ -29,6 +29,10 @@ Page({
   },
 
 
+  dingyue: function(){
+      app.dingyueHandle()
+  },
+
   loadData: function(){
     var _this = this  
     app.request({

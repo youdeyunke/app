@@ -35,6 +35,7 @@ Page({
     if(this.data.loading){
       return
     }
+
     // validate
     var content = this.data.content  
     if(!content || content.length < 5){
@@ -48,6 +49,7 @@ Page({
     }
     var data = { content: content, status_id:  this.data.statusId , clue_id: this.data.clueId }
     this.setData({loading: true })
+    app.dingyueHandle()
     var _this = this 
     app.request({
       url: '/api/v1/clue_follows/', 
