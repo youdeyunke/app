@@ -1,4 +1,4 @@
-<view class="outer">
+<!-- <view class="outer">
   <view class="title">{{coupon.name}}</view>
   <view class="desc">{{coupon.desc}}</view>
 
@@ -6,13 +6,6 @@
     <view class="cell-title">有效期</view>
     <view class="cell-value">{{coupon.starts_at}} ~ {{ coupon.expired_at}}</view>
   </view>
-
-  <!-- view class="cell" bindtap="callHandle">
-    <view class="cell-title">发放人</view>
-    <view class="cell-value">{{coupon.shop || '-'}} {{ coupon.shop_phone || ''}}
-    <van-icon wx:if="{{coupon.phone}}" name="phone"></van-icon>
-    </view>
-  </view -->
 
   <view class="cell">
     <view class="cell-title">卡券码</view>
@@ -45,26 +38,20 @@
 
 
 
+</view> -->
+<view class="outer" >
+    <view class="title">{{coupon.name}}</view>
+    <view class="desc">{{coupon.desc}}</view>
+    <ud-box padding="30" width="710">
+        <view class="qrImage">
+            <van-image width="540rpx" height="540rpx" src="{{localQr}}"></van-image>
+        </view>
+        <view class="couponCode">{{coupon.code }}</view>
+        <view class="time">使用时间：{{coupon.starts_at}} ~ {{ coupon.expired_at}}</view>
+    </ud-box>
+    <ud-box padding="50" width="710">
+        <view style="font-size: 32rpx;">使用说明:</view>
+        <view style="margin-top: 30rpx;">{{coupon.content}}</view>
+    </ud-box>
 </view>
-
 <painter palette="{{palette}}" scaleRatio='3' bind:imgOK="onImgOK" bind:imgErr="onImgErr" />
-
-<!-- view class="footer" wx:if="{{coupon && coupon.cat == 'coupon' && coupon.confirm_method == 'password'}}">
-  <van-button wx:if="{{coupon.used == false }}" block bindtap="useHandle" round  type="primary" color="red">立即使用</van-button>
-</view -->
-
-
-<!-- 弹窗 -->
-<van-popup closeable bind:close="formClose" round title="卡券核销" show="{{showForm}}">
-  <view class="form">
-
-    <van-field maxlength="4" label="核销口令" model:value="{{password}}" placeholder="请输入核销口令"></van-field>
-
-    <view class="footer">
-      <van-button round custom-style="margin-bottom:20rpx;" block bindtap="formClose">取消</van-button>
-      <van-button round block disabled="{{loading}}" type="primary" color="red" bindtap="submitHandle">确定核销</van-button>
-
-    </view>
-    <view class="tips">请联系现场工作人员进行核销</view>
-  </view>
-</van-popup>

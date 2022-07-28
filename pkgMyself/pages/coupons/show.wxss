@@ -1,6 +1,8 @@
 /* pkgMyself/pages/coupons/show.wxss */
-
-.outer{
+page{
+    background: linear-gradient(180deg, #FF3900, #FF6300, #F83F4A);
+}
+/* .outer{
   width: 690rpx; 
   box-sizing: border-box;
   padding:30rpx; 
@@ -61,4 +63,22 @@
   text-align: center;
   color:#666;
   margin:30rpx auto 0 auto;
+} */
+.outer{
+    background-size: 750rpx 840rpx;background-image: url('https://qiniucdn.udeve.cn/fang2021/f6099ade-e061-4fac-9105-623b88ea7030.png');background-repeat: no-repeat;
+}
+.title{
+    padding-top: 32rpx;font-size: 36rpx;margin-left: 50rpx;color: #FFF;
+}
+.desc{
+    margin-top: 22rpx;font-size: 26rpx;margin-left: 50rpx;margin-bottom: 40rpx;color: #FFF;
+}
+.qrImage{
+    margin: 0 auto;width: 540rpx;height: 540rpx;margin-top: 50rpx;
+}
+.couponCode{
+    text-align: center;margin-top: 20rpx;font-size: 28rpx;
+}
+.time{
+    text-align: center;font-size: 28rpx;color: #999999;margin-top: 10rpx;
 }

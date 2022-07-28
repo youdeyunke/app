@@ -17,7 +17,7 @@ Page({
         views: [
             {
             type: 'qrcode',
-            content: 'coupon.1',
+            content: '',
             css: {
                 width: '600rpx',
                 height: '600rpx',

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "painter":"/components/painter/painter"
+    "painter":"/components/painter/painter",
+    "ud-box":"/components/ud/box/index"
   }
 }
