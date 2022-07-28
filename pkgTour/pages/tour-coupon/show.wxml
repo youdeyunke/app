@@ -60,11 +60,16 @@
     <view class="bacconttent-bottom">
         <view class="bottom-collection" bindtap="createHaibao" >
             <image class="font-top" src="../../image/haibao.png"></image>
-            <view class="font-bottom">生成海报</view>
+            <view class="font-bottom">海报</view>
         </view>
         <view class="bottom-collection" bindtap="gotoKaquan">
             <image class="font-top" src="../../image/kaquan.png"></image>
             <view class="font-bottom">我的卡券</view>
+        </view>
+        <view class="bottom-collection">
+            <image class="font-top" src="../../image/haibao.png"></image>
+            <button open-type="share" class="share-btn"></button>
+            <view class="font-bottom">分享</view>
         </view>
         <view class="bottom-button-common">
             <view>已领完</view>
@@ -74,32 +79,20 @@
 
   <!-- 底部 -->
 
-  <!-- <view class="content-bottom" wx:if="{{item.status_value == 'active' || item.status_value == 'comming'}}">
-    <view class="bacconttent-bottom">
-      <view class="bottom-collection" bindtap="moveHome">
-        <van-icon class="font-top" name="wap-home-o" />
-        <view class="font-bottom">首页</view>
-      </view>
-      <view class="bottom-share bottom-collection">
-        <van-icon class="font-top" name="share" />
-        <view class="font-bottom" open-type="share">分享</view>
-        <button class="bottom-share-two" open-type="share"></button>
-      </view>
-      <view class="bottom-button-right bottom-button-common">
-        <view wx:if="{{joined}}" style="background: {{primaryBtnColor}};">已领取</view>
-        <view wx:else bindtap="joinHandle" style="background: {{primaryBtnColor}};">领取</view>
-      </view>
-    </view>
-  </view> -->
   <view class="content-bottom" wx:if="{{item.status_value == 'active' || item.status_value == 'comming'}}">
   <view class="bacconttent-bottom">
     <view class="bottom-collection" bindtap="createHaibao" >
       <image class="font-top" src="../../image/haibao.png"></image>
-      <view class="font-bottom">生成海报</view>
+      <view class="font-bottom">海报</view>
     </view>
     <view class="bottom-collection" bindtap="gotoKaquan">
       <image class="font-top" src="../../image/kaquan.png"></image>
       <view class="font-bottom">我的卡券</view>
+    </view>
+    <view class="bottom-collection" >
+      <image class="font-top" src="../../image/haibao.png"></image>
+      <button open-type="share" class="share-btn"></button>
+      <view class="font-bottom">分享</view>
     </view>
     <!-- <view class="bottom-button-right bottom-button-common"> -->
     <view class="bottom-button-common">
@@ -115,11 +108,16 @@
     <view class="bacconttent-bottom">
         <view class="bottom-collection" bindtap="createHaibao" >
             <image class="font-top" src="../../image/haibao.png"></image>
-            <view class="font-bottom">生成海报</view>
+            <view class="font-bottom">海报</view>
         </view>
         <view class="bottom-collection" bindtap="gotoKaquan">
             <image class="font-top" src="../../image/kaquan.png"></image>
             <view class="font-bottom">我的卡券</view>
+        </view>
+        <view class="bottom-collection" >
+            <image class="font-top" src="../../image/haibao.png"></image>
+            <button open-type="share" class="share-btn" ></button>
+            <view class="font-bottom">分享</view>
         </view>
         <view class="bottom-button-common">
             <view>活动已结束</view>

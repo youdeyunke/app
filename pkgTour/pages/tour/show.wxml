@@ -34,21 +34,9 @@
     <view class="huodong-card-title">了解项目</view>
     <post-item post="{{post}}"></post-item>
   </view>
-  <!-- <view class="main-flex-column-bottom">
-    <view class="main-bottom">活动时间: {{item.starts_at_pretty}} ~ {{ item.ends_at_pretty}}</view>
-    <view class="main-bottom">活动地点: {{ item.address }} </view>
-    <view wx:if="{{item.master}}" class="main-bottom">主办方: {{ item.master || '' }} </view>
-  </view>
-
-  <raw-html class="introduce-flex-column-middle" html="{{item.content}}"></raw-html> -->
 </view>
 <view style="width: 750rpx;height: 110rpx;display: flex;">
-
 </view>
-<!-- <ud-card title="关联项目" wx:if="{{post}}">
-  <post-item post="{{post}}"></post-item>
-</ud-card> -->
-
 <!-- 底部分享 -->
 
 
@@ -78,33 +66,18 @@
 </van-popup>
 
 <!-- 底部分享 -->
-<!-- <view class="content-bottom" wx:if="{{item.status_value == 'full'}}">
-  <view class="bacconttent-bottom">
-    <view class="bottom-collection" bindtap="moveHome">
-      <van-icon class="font-top" name="wap-home-o" />
-      <view class="font-bottom">首页</view>
-    </view>
-    <view class="bottom-share bottom-collection">
-      <van-icon class="font-top" name="share" />
-      <view class="font-bottom" open-type="share">分享</view>
-      <button class="bottom-share-two" open-type="share"></button>
-    </view>
-    <view class="bottom-button-right bottom-button-common">
-      <view style="background: {{primaryBtnColor}};" wx:if="{{joined}}" bindtap="cancleJoin">已满员(取消报名)</view>
-      <view style="background: {{primaryBtnColor}};" wx:else>已满员</view>
-    </view>
-  </view>
-</view> -->
+
 <view class="content-bottom" wx:if="{{item.status_value == 'full'}}">
   <view class="bacconttent-bottom">
     <view class="bottom-collection" bindtap="createHaibao" >
       <image class="font-top" src="../../image/haibao.png"></image>
-      <view class="font-bottom">生成海报</view>
+      <view class="font-bottom">海报</view>
     </view>
-    <!-- <view class="bottom-collection" bindtap="gotoKaquan">
-      <image class="font-top" src="../../image/kaquan.png"></image>
-      <view class="font-bottom">我的卡券</view>
-    </view> -->
+    <view class="bottom-collection">
+        <image class="font-top" src="../../image/haibao.png"></image>
+        <button open-type="share" class="share-btn"></button>
+        <view class="font-bottom">分享</view>
+    </view>
     <view class="bottom-button-common">
         <view wx:if="{{joined}}" bindtap="cancleJoin">已满员(取消报名)</view>
         <view wx:else>已满员</view>
@@ -117,12 +90,13 @@
   <view class="bacconttent-bottom">
     <view class="bottom-collection" bindtap="createHaibao" >
       <image class="font-top" src="../../image/haibao.png"></image>
-      <view class="font-bottom">生成海报</view>
+      <view class="font-bottom">海报</view>
     </view>
-    <!-- view class="bottom-collection" bindtap="gotoKaquan">
-      <image class="font-top" src="../../image/kaquan.png"></image>
-      <view class="font-bottom">我的卡券</view>
-    </view -->
+    <view class="bottom-collection">
+        <image class="font-top" src="../../image/haibao.png"></image>
+        <button open-type="share" class="share-btn"></button>
+        <view class="font-bottom">分享</view>
+    </view>
     <!-- <view class="bottom-button-right bottom-button-common"> -->
     <view class="bottom-button-common">
       <view wx:if="{{joined}}"  bindtap="cancleJoin">取消报名</view>
@@ -137,12 +111,13 @@
   <view class="bacconttent-bottom">
     <view class="bottom-collection" bindtap="createHaibao" >
       <image class="font-top" src="../../image/haibao.png"></image>
-      <view class="font-bottom">生成海报</view>
+      <view class="font-bottom">海报</view>
     </view>
-    <!-- <view class="bottom-collection" bindtap="gotoKaquan">
-      <image class="font-top" src="../../image/kaquan.png"></image>
-      <view class="font-bottom">我的卡券</view>
-    </view> -->
+    <view class="bottom-collection">
+        <image class="font-top" src="../../image/haibao.png"></image>
+        <button open-type="share" class="share-btn"></button>
+        <view class="font-bottom">分享</view>
+    </view>
     <view class="bottom-button-common">
       <view >报名已截止</view>
     </view>
