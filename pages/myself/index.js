@@ -338,13 +338,10 @@ Page({
               console.log('24444',res.path)
               if(res.result != undefined){
                   var res = res.result
-                  var paths = res.split('.')
-                  if(paths[0] == 'coupon'){
-                      wx.navigateTo({
-                        url: '/pkgMyself/pages/coupons/confirm?id='+paths[1],
-                      })
-                      return
-                  }
+                    wx.navigateTo({
+                    url: res,
+                    })
+                    return
               }
               if(res.path != undefined){
                 var path = res.path  
