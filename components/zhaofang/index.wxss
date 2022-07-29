@@ -56,7 +56,8 @@
     border-radius: 10rpx;
     width: calc((100% - 60rpx)/4);
 }
-.tag-item:nth-child(4n + 4){
+
+.tag-item:nth-child(4n + 4) {
     margin-right: 0;
 }
 
@@ -78,4 +79,11 @@
     width: 90%;
     margin: 0 auto;
     margin-bottom: 30rpx;
+}
+
+.reWriteBtn {
+    text-align: center;
+    width: 200rpx;
+    height: 50rpx;
+    margin: 0 auto;
 }

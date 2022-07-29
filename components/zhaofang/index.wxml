@@ -98,8 +98,8 @@
     </view>
     <view wx:if="{{isDone}}">
         <view class="item-body">{{message}}</view>
-        <view class="zhaof-btn-1">
-            <van-button block color="{{primaryBtnColor}}" bindtap="reWrite">重新填写</van-button>
+        <view bindtap="reWrite" class="reWriteBtn" style="color: {{primaryColor}};">
+            <van-icon name="edit" />重新填写
         </view>
     </view>
 </view>
