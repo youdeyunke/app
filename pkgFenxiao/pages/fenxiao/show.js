@@ -7,7 +7,22 @@ Page({
    */
   data: {
     loading: true, 
-    is_admin: false
+    is_admin: false,
+    palette:{
+        background: '#f4f4f4',
+        width: '600rpx',
+        height: '600rpx',
+        views: [
+            {
+            type: 'qrcode',
+            content: '',
+            css: {
+                width: '600rpx',
+                height: '600rpx',
+            },
+            }
+        ],
+    }
   },
   /**
    * 生命周期函数--监听页面加载
@@ -49,14 +64,23 @@ Page({
         res.data.data.posts.map((m) => {
             posts.push(m.title)
         })
+        var palette = _this.data.palette
+        palette.views[0].content = '/pkgFenxiao/pages/fenxiao/confirm?id='+res.data.data.id
         _this.setData({
           value:res.data.data, 
           logs: logs ,
           loading: false, 
           is_admin: app.globalData.userInfo.is_admin,
+          palette: palette,
           posts: posts.toString(',')
         })
       }
+    })
+  },
+  onImgOK: function(e){
+    var localQr = e.detail.path;
+    this.setData({
+        localQr: localQr
     })
   },
 })

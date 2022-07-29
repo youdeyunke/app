@@ -32,7 +32,7 @@ Page({
    */
   onLoad(q) {
     var palette = this.data.palette
-    palette.views[0].content = 'coupon.'+q.id
+    palette.views[0].content = '/pkgMyself/pages/coupons/confirm?id='+q.id
     this.setData({
       cid: q.id,
       palette: palette

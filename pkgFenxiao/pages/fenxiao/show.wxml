@@ -22,7 +22,7 @@
 
 <ud-card wx:if="{{!value.confirm_at}}" title="确认带看二维码" width="710">
   <view class="qr-outer">
-    <van-image width="600rpx" height="600rpx" class="qr-img" src="{{value.confirm_qr}}"></van-image>
+    <van-image width="540rpx" height="540rpx" class="qr-img" src="{{localQr}}"></van-image>
   </view>
 </ud-card>
 
@@ -42,3 +42,4 @@
 </view>
 
 <view style="height: 110rpx;"></view>
+<painter palette="{{palette}}" scaleRatio='3' bind:imgOK="onImgOK" bind:imgErr="onImgErr" />
