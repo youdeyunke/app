@@ -49,8 +49,14 @@
 
 }
 
-.post .tags van-tag {
+.post .tags .tag-item {
     margin-right: 10rpx;
+    zoom:0.9;
+    border:1rpx solid #999999;
+    color:#999999;
+    padding:2rpx 6rpx;
+    font-size:24rpx;
+    border-radius: 6rpx;
 }
 
 

@@ -19,9 +19,9 @@
         <view class="top">
             <view class="tags">
                 <view wx:if="{{index <= 1}}" wx:for="{{post.tags}}" wx:key="item.id" class="tag-item">
-                    <van-tag text-color="{{item.text_color }}" size="mini" plain>
+                  
                         {{item.name}}
-                    </van-tag>
+        
                 </view>
             </view>
             <view class="area">

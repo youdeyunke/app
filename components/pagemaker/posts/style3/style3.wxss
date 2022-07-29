@@ -9,7 +9,7 @@
 }
 .posts .item {
     margin-right: 16rpx;
-    width: calc(50% - 8rpx);
+    width: calc(50% - 9rpx);
 }
 
 .posts .item:nth-child(2n) {
