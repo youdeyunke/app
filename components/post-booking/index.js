@@ -51,8 +51,13 @@ Component({
             this.triggerEvent('close', {})
         },
 
-        openHandle: function () {
+        openHandle: function (user) {
             this.setData({ show: true })
+            this.setData({ 
+                user: user ,
+                mobile:  user ?  user.mobile : '',
+                mobileLocked: user ?  true : false, 
+            })
             this.triggerEvent('open', {})
         },
 

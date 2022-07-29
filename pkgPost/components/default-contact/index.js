@@ -32,7 +32,7 @@ Component({
         bookingHandle: function (e) {
             var _this = this
             auth.ensureUser(function (user) {
-                    _this.selectComponent('#booking').openHandle()
+                    _this.selectComponent('#booking').openHandle(user)
             })
         },
 
