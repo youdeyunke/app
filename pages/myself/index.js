@@ -332,32 +332,21 @@ Page({
 
     saomaHandle: function(){
         wx.scanCode({
-            
             success (res) {
-              console.log('2333',res)
-              console.log('24444',res.path)
-              if(res.result != undefined){
-                  var res = res.result
-                    wx.navigateTo({
-                    url: res,
-                    })
-                    return
-              }
-              if(res.path != undefined){
-                var path = res.path  
-                if(!path.startsWith('/')){
-                  path = '/' + path 
-                }
-                console.log('qr path is', path)
-                  wx.navigateTo({
-                    url: res.path,
-                  })
-              }else{
-                  wx.showToast({
+              var path = res.result || res.path
+              if(path == undefined){
+                wx.showToast({
                     title: '二维码无效',
                     icon: 'none'
-                  })
+                })
+                return
               }
+              if(!path.startsWith('/')){
+                path = '/' + path 
+              }
+              wx.navigateTo({
+                url: path,
+              })
             }
           })
     },
