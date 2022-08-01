@@ -348,7 +348,7 @@ Page({
                 url: path,
               })
             }
-          })
+        })
     },
 
     getRemoteUserInfo: function () {
