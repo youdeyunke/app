@@ -4,6 +4,6 @@
 </view>
 <box width="750">
     <view class="tab" hover-class="none" hover-stop-propagation="false">
-        <zhoubian wx:if='{{post.id}}' latitude="{{post.latitude}}" longitude="{{post.longitude}}" bind:myevent="getMyevent" type='big' />
+        <zhoubian mode="mini" active-item-index="{{activeMarkerIndex}}" wx:if='{{post.id}}' latitude="{{post.latitude}}" longitude="{{post.longitude}}" bind:myevent="getMyevent" type='big' />
     </view>
 </box>

@@ -1,22 +1,29 @@
 <view class="tabs">
+
     <scroll-view class="tabs_title" scroll-x='{{true}}'>
         <view wx:for='{{tabs}}' wx:key='id' class="title_item  {{ index === active ? 'current-active' : ''}}" bindtap="handleItemTap" data-index='{{index}}'>
             <view class="content">
-                <ud-icon name="{{item.icon}}" customStyle="margin-bottom:20rpx;margin-left:90rpx;"/>
+                <!-- ud-icon name="{{item.icon}}" customStyle="margin-bottom:20rpx;margin-left:90rpx;" / -->
                 <view class="name">{{item.name}}</view>
                 <view class="active" hidden="{{index != active}}"></view>
             </view>
         </view>
     </scroll-view>
+    index:{{activeItemIndex}}
     <view class="tabs_content">
         <view hidden="{{isShow == 0}}" class="null">无数据</view>
         <view hidden="{{isShow ==1}}">
-            <van-cell center wx:if="{{ index+1 <= maxLength || type == 'big' }}" title="{{item.title}}" label="{{item.address}}" name='{{item}}' wx:for="{{resp}}" wx:key="id" title-class='title' label-class='label'>
-                <view class="value" slot=''>
-                    <image class="images" src="/assets/icons/location.3x.png"></image>
-                    <text class="" style="font-size:26rpx">{{item._distance}}</text>
-                </view>
-            </van-cell>
+            <view class="cell-outer {{ index == activeItemIndex ? 'active' : ''}}" wx:if="{{ index+1 <= maxLength || type == 'big' }}" label="{{item.address}}" name='{{item}}' wx:for="{{resp}}" wx:key="{{item.id}}">
+                <van-cell center title-class='title' label-class='label'>
+                    <view class="cell-title" slot="title">
+                        <view class="index">{{index+1}}</view>{{ item.title}}
+                    </view>
+                    <view class="value">
+                        <image class="images" src="/assets/icons/location.3x.png"></image>
+                        <text class="" style="font-size:26rpx">{{item._distance}}</text>
+                    </view>
+                </van-cell>
+            </view>
         </view>
         <!-- <view wx:if="{{buttonShow}}">
             <view hidden="{{isShow ==1 || type == 'big'}}" class="more-btn" bind:tap="moreHandle">{{buttonVal}}</view>

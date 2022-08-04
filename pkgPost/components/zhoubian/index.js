@@ -7,6 +7,7 @@ Component({
      */
     properties: {
         longitude: { type: Number },
+        activeItemIndex: {type: Number, value: null},
         latitude: { type: Number },
         type: { type: String }
     },
@@ -15,14 +16,14 @@ Component({
      */
     data: {
         tabs: [
-            { name: '幼儿园', value: '学校:幼儿园', icon: 'map-i-yey.png', isActive: false },
-            { name: '小学', value: '学校:小学', icon: 'map-i-xx.png', isActive: false },
-            { name: '中学', value: '学校:中学', icon: 'map-i-zx.png', isActive: false },
-            { name: '美食', value: '美食', icon: 'map-i-ms.png', isActive: false },
-            { name: '购物', value: '购物', icon: 'map-i-gw.png', isActive: false },
-            { name: '公交', value: '公交', icon: 'map-i-gj.png', isActive: false },
-            { name: '地铁', value: '地铁', icon: 'map-i-dt.png', isActive: true },
-            { name: '银行', value: '银行', icon: 'map-i-yh.png', isActive: false },
+            {id: 'youeryuan', name: '幼儿园', value: '学校:幼儿园', icon: 'map-i-yey.png', isActive: false },
+            {id:'xiaoxue', name: '小学', value: '学校:小学', icon: 'map-i-xx.png', isActive: false },
+            {id:'zhongxue', name: '中学', value: '学校:中学', icon: 'map-i-zx.png', isActive: false },
+            {id:'meishi', name: '美食', value: '美食', icon: 'map-i-ms.png', isActive: false },
+            {id:'gouwu', name: '购物', value: '购物', icon: 'map-i-gw.png', isActive: false },
+            {id:'gongjiao', name: '公交', value: '公交', icon: 'map-i-gj.png', isActive: false },
+            {id:'ditie', name: '地铁', value: '地铁', icon: 'map-i-dt.png', isActive: true },
+            {id:'yinhang', name: '银行', value: '银行', icon: 'map-i-yh.png', isActive: false },
         ],
         resp: [],
         active: 0,

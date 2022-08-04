@@ -141,26 +141,27 @@ Component({
             }
         }
         markers.push(marker)
+
+        // 以下是周边配套的定位点
         pois.forEach((v,i) => {
             var m = {
                 id: v.id, 
-                iconPath: '/assets/icons/marker.png',
+                //iconPath: '/assets/icons/marker.png',
                 latitude: v.location.lat,
                 width:'40rpx',
                 height:'40rpx',
                 longitude: v.location.lng,
-
-                
-  
             }
             m.alpha = '0.6',
             m.width = 1,
             m.zIndex = 10,
             m.height = 1,
             m.callout = {
-                content: v.title, 
+                content: i+1, 
                 bgColor: '#ffffff', 
-                borderRadius: 4,
+                borderRadius: 20,
+                borderWidth: 2,
+                borderColor:'#333333',
                 display: 'ALWAYS',
                 color: '#333333', 
                 padding:6,

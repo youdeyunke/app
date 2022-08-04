@@ -10,29 +10,72 @@ Page({
     data: {
         userInfo: {},
         headerBg: "",
-        score: 0, 
+        score: 0,
         userIcons: [
-           
-            {name: '我的收藏', iconKey: '18', url: '/pkgMyself/pages/favposts/index'},
-            {name: '我的订阅', iconKey: '4', url: '/pkgMyself/pages/eventposts/index'},
-            {name: '浏览历史', iconKey: '12', url: '/pkgMyself/pages/history/index'},
-            {name: '我的预约', iconKey: '20', url: '/pkgMyself/pages/booking/index'},
-            {name: '我的问答', iconKey: '19',url: '/pkgMyself/pages/qa/index'},
+
+            {
+                name: '我的收藏',
+                iconKey: '18',
+                url: '/pkgMyself/pages/favposts/index'
+            },
+            {
+                name: '我的订阅',
+                iconKey: '4',
+                url: '/pkgMyself/pages/eventposts/index'
+            },
+            {
+                name: '浏览历史',
+                iconKey: '12',
+                url: '/pkgMyself/pages/history/index'
+            },
+            {
+                name: '我的预约',
+                iconKey: '20',
+                url: '/pkgMyself/pages/booking/index'
+            },
+            {
+                name: '我的问答',
+                iconKey: '19',
+                url: '/pkgMyself/pages/qa/index'
+            },
             //{name: '我的评论', iconKey: '19',url: '/pkgMyself/pages/comments/index'},
             {
-              name: '我的卡券',
-              iconKey: '22',
-              url: '/pkgMyself/pages/coupons/index'
+                name: '我的卡券',
+                iconKey: '22',
+                url: '/pkgMyself/pages/coupons/index'
             },
         ],
 
-        brokerIcons: [
-            {name: '主营楼盘', iconKey: '2', handle: "gotoPost", },
-            {name: '我的主页', iconKey: '13', handle:"gotoProfile"},
-            {name: '客户线索', iconKey: '27', url: '/pkgAdmin/pages/clue/home'},
-            {name: '我的海报', iconKey: '24', url: '/pkgBroker/pages/broker/qr'},
-            {name: '报备客户', iconKey: '23', url: '/pkgFenxiao/pages/fenxiao/report'},
-            {name: '历史报备', iconKey: '22', url: '/pkgFenxiao/pages/fenxiao/index'},
+        brokerIcons: [{
+                name: '主营楼盘',
+                iconKey: '2',
+                handle: "gotoPost",
+            },
+            {
+                name: '我的主页',
+                iconKey: '13',
+                handle: "gotoProfile"
+            },
+            {
+                name: '客户线索',
+                iconKey: '27',
+                url: '/pkgAdmin/pages/clue/home'
+            },
+            {
+                name: '我的海报',
+                iconKey: '24',
+                url: '/pkgBroker/pages/broker/qr'
+            },
+            {
+                name: '报备客户',
+                iconKey: '23',
+                url: '/pkgFenxiao/pages/fenxiao/report'
+            },
+            {
+                name: '历史报备',
+                iconKey: '22',
+                url: '/pkgFenxiao/pages/fenxiao/index'
+            },
         ],
 
         cache: '0 kb', // cache value
@@ -41,27 +84,29 @@ Page({
     },
 
     gotoLoginPage: function (e) {
-        wx.navigateTo({ url: '/pkgAuth/pages/auth/index', })
-    },
-
-    gotoPost: function(){
-      if(!this.data.userInfo.post_id){
-        wx.showToast({
-          icon: 'none',
-          title: '当前账号未绑定主营楼盘，请联系管理员绑定',
-        })
-        return 
-      }
-        var url = '/pkgAdmin/pages/fangyuan/show?id=' + this.data.userInfo.post_id  
         wx.navigateTo({
-            url: url 
+            url: '/pkgAuth/pages/auth/index',
         })
     },
 
-    gotoProfile: function(){
-        var url = '/pkgBroker/pages/broker/profile?id=' + this.data.userInfo.id 
+    gotoPost: function () {
+        if (!this.data.userInfo.post_id) {
+            wx.showToast({
+                icon: 'none',
+                title: '当前账号未绑定主营楼盘，请联系管理员绑定',
+            })
+            return
+        }
+        var url = '/pkgAdmin/pages/fangyuan/show?id=' + this.data.userInfo.post_id
         wx.navigateTo({
-            url: url 
+            url: url
+        })
+    },
+
+    gotoProfile: function () {
+        var url = '/pkgBroker/pages/broker/profile?id=' + this.data.userInfo.id
+        wx.navigateTo({
+            url: url
         })
     },
 
@@ -69,7 +114,9 @@ Page({
         var url = userInfo.avatarUrl
         app.request({
             url: '/api/v1/users/update_avatar',
-            data: { avatar: url },
+            data: {
+                avatar: url
+            },
             method: 'POST',
             success: function (resp) {
                 if (resp.data.status == 0) {
@@ -91,8 +138,7 @@ Page({
             success(res) {
                 if (res.confirm) {
                     _this._clearCache(e)
-                } else if (res.cancel) {
-                }
+                } else if (res.cancel) {}
             }
         })
     },
@@ -110,7 +156,9 @@ Page({
                 }
             })
             if (remove) {
-                wx.removeStorage({ key: key })
+                wx.removeStorage({
+                    key: key
+                })
                 console.log('remove', key, remove)
             }
         })
@@ -119,7 +167,9 @@ Page({
             icon: 'none',
             duration: 2000,
             success: function () {
-                wx.reLaunch({ url: '/pages/home/home' })
+                wx.reLaunch({
+                    url: '/pages/home/home'
+                })
             },
         })
     },
@@ -130,7 +180,9 @@ Page({
         wx.getStorageInfo({
             success(res) {
                 console.log('cache', res)
-                _this.setData({ cache: res })
+                _this.setData({
+                    cache: res
+                })
             }
         })
     },
@@ -176,8 +228,12 @@ Page({
     _logoutHandle: function () {
         wx.setStorageSync('userInfo', null)
         wx.setStorageSync('token', null)
-        this.setData({ userInfo: null })
-        this.setData({ userInfo: null })
+        this.setData({
+            userInfo: null
+        })
+        this.setData({
+            userInfo: null
+        })
         app.globalData.userInfo = null
         app.globalData.token = null
     },
@@ -283,14 +339,15 @@ Page({
     },
 
     gotoSetting: function (e) {
-        wx.navigateTo({ url: '/pages/myself/setting' })
+        wx.navigateTo({
+            url: '/pages/myself/setting'
+        })
     },
 
 
     loginHandle: function (e) {
         var _this = this
-        auth.loginHandle(this, e, function (u) {
-        })
+        auth.loginHandle(this, e, function (u) {})
     },
 
     /**
@@ -299,7 +356,9 @@ Page({
     onLoad: function (q) {
         var _this = this
         app.ensureConfigs(function (configs) {
-            _this.setData({ configs: configs })
+            _this.setData({
+                configs: configs
+            })
         })
 
         var token = app.globalData.token
@@ -322,44 +381,30 @@ Page({
                             _this.gotoLoginPage()
                         }
                     },
-                    fail: () => { },
-                    complete: () => { }
+                    fail: () => {},
+                    complete: () => {}
                 });
             }
         }
         this.loadCacheInfo()
     },
 
-    saomaHandle: function(){
+    saomaHandle: function () {
         wx.scanCode({
-            
-            success (res) {
-              console.log('2333',res)
-              console.log('24444',res.path)
-              if(res.result != undefined){
-                  var res = res.result
-                    wx.navigateTo({
-                    url: res,
+            success(res) {
+                var path  = res.result || res.path 
+                if (path == undefined) {
+                    wx.showToast({
+                        title: '二维码无效',
+                        icon: 'none'
                     })
                     return
-              }
-              if(res.path != undefined){
-                var path = res.path  
-                if(!path.startsWith('/')){
-                  path = '/' + path 
                 }
-                console.log('qr path is', path)
-                  wx.navigateTo({
-                    url: res.path,
-                  })
-              }else{
-                  wx.showToast({
-                    title: '二维码无效',
-                    icon: 'none'
-                  })
-              }
+                wx.navigateTo({
+                    url: path,
+                })
             }
-          })
+        })
     },
 
     getRemoteUserInfo: function () {
@@ -392,15 +437,17 @@ Page({
         var user = app.globalData.userInfo
         var token = app.globalData.token
         console.log(' app.globalData.userInfo', app.globalData.userInfo)
-        this.setData({ userInfo: app.globalData.userInfo })
+        this.setData({
+            userInfo: app.globalData.userInfo
+        })
         if (token) {
             this.getRemoteUserInfo()
         }
 
     },
-    myQuit:function(e){
+    myQuit: function (e) {
         this.setData({
-            userInfo:null
+            userInfo: null
         })
         auth.logout()
 

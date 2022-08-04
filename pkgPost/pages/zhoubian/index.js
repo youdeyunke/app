@@ -7,6 +7,7 @@ Page({
      */
     data: {
         postId: null,
+        activeMarkerIndex: null,
         pois: [],
         post: null,
     },
@@ -52,7 +53,7 @@ Page({
             longitude: _this.data.post.longitude,
             width: "40rpx",
             height: "40rpx",
-            zIndex: 10,
+            zIndex: 10000,
             callout : {
                 content: _this.data.post.title, 
                 bgColor: '#1989F9', 
@@ -66,8 +67,8 @@ Page({
         markers.push(marker)
         pois.forEach((v,i) => {
             var m = {
-                id: v.id, 
-                iconPath: '/assets/icons/marker.png',
+                id: i, 
+                //iconPath: '/assets/icons/marker.png',
                 latitude: v.location.lat,
                 width:'40rpx',
                 height:'40rpx',
@@ -78,12 +79,14 @@ Page({
             }
             m.alpha = '0.6',
             m.width = 1,
-            m.zIndex = 10,
+            m.zIndex = i,
             m.height = 1,
             m.callout = {
-                content: v.title, 
+                content: i+1, 
                 bgColor: '#ffffff', 
-                borderRadius: 4,
+                borderRadius: 20,
+                borderWidth: 2,
+                borderColor:'#333333',
                 display: 'ALWAYS',
                 color: '#333333', 
                 padding:6,
@@ -108,6 +111,32 @@ Page({
         })
         this.setMarker()
     },
+
+
+    markertap: function(e){
+
+        var mid = e.detail.markerId 
+        console.log('markertap',e, 'marker id is', mid )
+        // 高亮
+        var markers = this.data.markers.map((m,i) => { 
+            if(i == 0){
+                return m
+            }
+            if(m.id == mid){
+                // 点击了这个,高亮显示 
+                m.callout.bgColor = '#1989fa'
+                m.zIndex = 1000
+                console.log('mid hit', mid)
+            }else{
+                m.zIndex = i
+                m.callout.bgColor = '#ffffff'
+            }
+            return m
+        })
+        this.setData({markers:markers, activeMarkerIndex: mid})
+
+    },
+
     loadData() {
         var _this = this
         // 拉取楼盘的基本信息：坐标、名称、id
