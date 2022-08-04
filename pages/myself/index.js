@@ -391,18 +391,21 @@ Page({
 
     saomaHandle: function () {
         wx.scanCode({
-            success(res) {
-                var path  = res.result || res.path 
-                if (path == undefined) {
-                    wx.showToast({
-                        title: '二维码无效',
-                        icon: 'none'
-                    })
-                    return
-                }
-                wx.navigateTo({
-                    url: path,
+            success (res) {
+              var path = res.result || res.path
+              if(path == undefined){
+                wx.showToast({
+                    title: '二维码无效',
+                    icon: 'none'
                 })
+                return
+              }
+              if(!path.startsWith('/')){
+                path = '/' + path 
+              }
+              wx.navigateTo({
+                url: path,
+              })
             }
         })
     },
