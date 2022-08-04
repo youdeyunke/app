@@ -1,3 +1,5 @@
+<map enable-zoom enable-scroll="{{true}}" enable-rotate="{{true}}" longitude="{{value.longitude}}" show-scale="{{false}}" latitude="{{value.latitude}}" markers="{{markers}}" include-points="{{points}}" bindcallouttap="markertap" bindmarkertap="markertap" style="width:{{mapW}}rpx; height:{{mapH}}rpx;"></map>
+
 <view class="tabs">
 
     <scroll-view class="tabs_title" scroll-x='{{true}}'>
@@ -9,16 +11,15 @@
             </view>
         </view>
     </scroll-view>
-    index:{{activeItemIndex}}
     <view class="tabs_content">
         <view hidden="{{isShow == 0}}" class="null">无数据</view>
         <view hidden="{{isShow ==1}}">
-            <view class="cell-outer {{ index == activeItemIndex ? 'active' : ''}}" wx:if="{{ index+1 <= maxLength || type == 'big' }}" label="{{item.address}}" name='{{item}}' wx:for="{{resp}}" wx:key="{{item.id}}">
+            <view class="cell-outer" wx:if="{{ index+1 <= maxLength || type == 'big' }}" label="{{item.address}}" name='{{item}}' wx:for="{{resp}}" wx:key="{{item.id}}">
                 <van-cell center title-class='title' label-class='label'>
-                    <view class="cell-title" slot="title">
+                    <view class="cell-title {{ index == activeItemIndex ? 'active' : ''}}" slot="title">
                         <view class="index">{{index+1}}</view>{{ item.title}}
                     </view>
-                    <view class="value">
+                    <view class="value {{ index == activeItemIndex ? 'active' : ''}}">
                         <image class="images" src="/assets/icons/location.3x.png"></image>
                         <text class="" style="font-size:26rpx">{{item._distance}}</text>
                     </view>

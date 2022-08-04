@@ -1,9 +1,9 @@
-<view class="map">
+<!-- <view class="map"> -->
     <!-- <mapimage enable-scroll="{{true}}" wx:if="{{post.longitude && pois.length >= 0}}" pois='{{pois}}' latitude="{{post.latitude}}" longitude="{{post.longitude}}" name="{{post.title}}" height='750'></mapimage> -->
-    <map enable-zoom enable-scroll="{{false}}" wx:if="{{post.longitude && pois.length >= 0}}" enable-rotate="{{false}}" longitude="{{post.longitude}}" show-scale="{{false}}" latitude="{{post.latitude}}" markers="{{markers}}" include-points="{{points}}" bindcallouttap="markertap" bindmarkertap="markertap" style="width:750rpx; height:750rpx;"></map>
-</view>
+    <!-- <map enable-zoom enable-scroll="{{false}}" wx:if="{{post.longitude && pois.length >= 0}}" enable-rotate="{{false}}" longitude="{{post.longitude}}" show-scale="{{false}}" latitude="{{post.latitude}}" markers="{{markers}}" include-points="{{points}}" bindcallouttap="markertap" bindmarkertap="markertap" style="width:750rpx; height:750rpx;"></map>
+</view> -->
 <box width="750">
     <view class="tab" hover-class="none" hover-stop-propagation="false">
-        <zhoubian mode="mini" active-item-index="{{activeMarkerIndex}}" wx:if='{{post.id}}' latitude="{{post.latitude}}" longitude="{{post.longitude}}" bind:myevent="getMyevent" type='big' />
+        <zhoubian mode="full" postId="{{postId}}" wx:if='{{post.id}}' latitude="{{post.latitude}}" longitude="{{post.longitude}}" type='big' />
     </view>
 </box>
