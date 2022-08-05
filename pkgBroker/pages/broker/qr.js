@@ -1,14 +1,37 @@
 const app = getApp()
 import Poster from '../../utils/poster/poster';
+var userCard = {
+    type: 'rect',
+    css: {
+        width: '690rpx',
+        height: '386rpx',
+        color: '#FFFFFF',
+        top: '60rpx',
+        left: '30rpx',
+        borderRadius: '10rpx',
+        shadow: "0rpx 0rpx 25rpx #000000",
+    },
+}
 var userAvatar = {
     type: 'image',
     url: '',
     css: {
+      width: '330rpx',
+      height: '386rpx',
+      top: '60rpx',
+      left: '30rpx',
+      borderRadius: '10rpx'
+    },
+}
+var userBg = {
+    type: 'image',
+    url: '/assets/images/broker-card-bg.png',
+    css: {
       width: '180rpx',
-      height: '190rpx',
-      top: '160rpx',
-      left: '120rpx',
-      borderRadius: '95rpx'
+      height: '386rpx',
+      top: '60rpx',
+      left: '212rpx',
+    //   borderRadius: '10rpx'
     },
 }
 var userName = {
@@ -18,10 +41,48 @@ var userName = {
         width: '290rpx',
         height: '64rpx',
         fontSize: "48rpx",
-        top: "185rpx",
-        left: "330rpx",
+        top: "110rpx",
+        left: "340rpx",
         color: "#3E290C"
     }
+}
+var userLevel = {
+    type: 'text',
+    text: "",
+    css: {
+        width: '120rpx',
+        // height: '40rpx',
+        lineHeight: '25rpx',
+        fontSize: "20rpx",
+        top: "200rpx",
+        left: "340rpx",
+        textAlign: "center",
+        color: "#FFFFFF",
+        background: "blue",
+        borderRadius: '20rpx'
+    }
+}
+var userPhoneIcon = {
+    type: 'image',
+    url: '/assets/images/broker-card-phone.png',
+    css: {
+      width: '36rpx',
+      height: '36rpx',
+      top: '270rpx',
+      left: '340rpx',
+    //   borderRadius: '10rpx'
+    },
+}
+var userweixinIcon = {
+    type: 'image',
+    url: '/assets/images/broker-card-weixin.png',
+    css: {
+      width: '36rpx',
+      height: '36rpx',
+      top: '320rpx',
+      left: '340rpx',
+    //   borderRadius: '10rpx'
+    },
 }
 var userMobile = {
     type: 'text',
@@ -30,8 +91,20 @@ var userMobile = {
         width: '290rpx',
         height: '40rpx',
         fontSize: "30rpx",
-        top: "250rpx",
-        left: "330rpx",
+        top: "270rpx",
+        left: "390rpx",
+        color: "#3E290C"
+    }
+}
+var userWeixin = {
+    type: 'text',
+    text: "",
+    css: {
+        width: '290rpx',
+        height: '40rpx',
+        fontSize: "30rpx",
+        top: "320rpx",
+        left: "390rpx",
         color: "#3E290C"
     }
 }
@@ -42,24 +115,118 @@ var userGroupName = {
         width: '290rpx',
         height: '64rpx',
         fontSize: "28rpx",
-        top: "296rpx",
-        left: "330rpx",
+        top: "130rpx",
+        left: "550rpx",
         color: "#3E290C"
     }
 }
-var userDesc = {
+
+var xiangmu = {
+    type: 'text',
+    text: "项目",
+    css: {
+        fontSize: "28rpx",
+        top: "490rpx",
+        left: "80rpx",
+        color: "#999999"
+    }
+}
+var line1 = {
+    type: 'rect',
+    css: {
+        width: "600rpx",
+        top: "540rpx",
+        left: "80rpx",
+        height: "1rpx",
+        color: "#999999"
+    }
+}
+var line2 = {
+    type: 'rect',
+    css: {
+        width: "600rpx",
+        top: "610rpx",
+        left: "80rpx",
+        height: "1rpx",
+        color: "#999999"
+    }
+}
+var weixin = {
+    type: 'text',
+    text: "微信",
+    css: {
+        fontSize: "28rpx",
+        top: "560rpx",
+        left: "80rpx",
+        color: "#999999"
+    }
+}
+var userWeixinTwo = {
     type: 'text',
     text: "",
     css: {
-        width: '480rpx',
-        height: '84rpx',
-        fontSize: "32rpx",
-        top: "435rpx",
-        left: "135rpx",
-        color: "#3E290C",
-        lineHeight: "36rpx",
-        maxLines: 2
+        fontSize: "28rpx",
+        top: "560rpx",
+        left: "180rpx",
+        maxLines: 1
     }
+}
+
+var jianjie = {
+    type: 'text',
+    text: "个人简介",
+    css: {
+        fontSize: "28rpx",
+        top: "630rpx",
+        left: "80rpx",
+        color: "#999999"
+    }
+}
+var userXiangmu = {
+    type: 'text',
+    text: "",
+    css: {
+        width: "500rpx",
+        fontSize: "28rpx",
+        top: "490rpx",
+        left: "180rpx",
+        maxLines: 1
+    }
+}
+var userJianjie = {
+    type: 'text',
+    id: 'jianjie',
+    text: "",
+    css: {
+        width: "600rpx",
+        fontSize: "28rpx",
+        lineHeight: "40rpx",
+        top: "690rpx",
+        left: "80rpx",
+        maxLines: 3
+    }
+}
+
+var xiangmuImg = {
+    type: 'text',
+    text: "销售项目精彩图",
+    css: {
+        fontSize: "28rpx",
+        top: 'calc(jianjie.bottom + 100rpx)',
+        left: "80rpx",
+        color: "#999999"
+    }
+}
+var userxiangmuImg = {
+    type: 'image',
+    url: '',
+    css: {
+        width: '690rpx',
+        height: '386rpx',
+        top: 'calc(jianjie.bottom + 170rpx)',
+        left: '30rpx',
+        borderRadius: '10rpx',
+    },
 }
 var userQr = {
     type: 'image',
@@ -67,7 +234,7 @@ var userQr = {
     css: {
         width: '203rpx',
         height: '203rpx',
-        bottom: '271rpx',
+        top: 'calc(jianjie.bottom + 620rpx)',
         left: '275rpx',
         borderRadius: '72rpx',
     },
@@ -79,9 +246,9 @@ var tip = {
         width: '196rpx',
         height: '74rpx',
         fontSize: "28rpx",
-        bottom: "150rpx",
+        top: 'calc(jianjie.bottom + 850rpx)',
         left: "277rpx",
-        color: "#3E290C",
+        // color: "#3E290C",
         lineHeight: "34rpx",
         textAlign: "center"
     }
@@ -103,9 +270,9 @@ Page({
   genUserCard(){
     var userInfo = app.globalData.userInfo 
     var palette = {
-        background: 'https://qiniucdn.udeve.cn/fang2021/8e160ce1-6eb7-48d4-969c-e8f08ac12f05.jpg',
+        background: '#FFFFFF',
         width: '750rpx',
-        height: '1110rpx',
+        height: '1770rpx',
         views: [],
     }
     if(userInfo.avatar){
@@ -114,24 +281,81 @@ Page({
     if(userInfo.qr){
         userQr.url = userInfo.qr
     }
-
+    if(userInfo.level == 1){ userLevel.text = '金牌顾问' }
+    if(userInfo.level == 2){ userLevel.text = '银牌顾问' }
+    if(userInfo.level == 3){ userLevel.text = '铜牌顾问' }
     userName.text = userInfo.name
     userMobile.text = userInfo.mobile
-    userDesc.text = userInfo.desc
+    userWeixin.text = userInfo.wechat == '' ? '该用户未填写微信' : userInfo.wechat
+    userWeixinTwo.text = userInfo.wechat == '' ? '该用户未填写微信' : userInfo.wechat
+    userXiangmu.text = userInfo.post_title
+    userxiangmuImg.url = this.data.post.cover
+    userJianjie.text = userInfo.desc == '' ? '该用户还没有填写简介' : userInfo.desc
     
     if (userInfo.group_name != null) {
         userGroupName.text = userInfo.group_name
     }
-    var views = [userAvatar, userName, userMobile, userDesc, userQr, tip, userGroupName]
+    var views = [userCard, userAvatar, userBg, userName, userLevel, userPhoneIcon, userweixinIcon, userMobile, userJianjie, userWeixin, xiangmu, userXiangmu, userWeixinTwo, weixin, jianjie, xiangmuImg, userxiangmuImg, userQr, tip, userGroupName, line1, line2]
     palette.views = views
+    var haibaoTags = this.genTags()
+    if(haibaoTags.length){
+        haibaoTags.forEach((item) => {
+            palette.views.push(item)
+        })
+    }
     this.setData({  palette: palette })
+  },
+
+  genTags(){
+    // var userInfo = app.globalData.userInfo
+    var tags = app.globalData.userInfo.tags.split(',')
+    var haibaoTags = tags.filter((q,i) => i < 3).map((q,i) => {
+        var tag = {
+            type: 'text',
+            id: 'tag' + (i+1),
+            text: q,
+            css: {
+                height: '36rpx',
+                lineHeight: '30rpx',
+                fontSize: "24rpx",
+                color: "#AFAFAF",
+                borderRadius: "5rpx",
+                borderWidth: "1rpx",
+                borderColor: "#AFAFAF",
+                top: 'calc(jianjie.bottom + 30rpx)',
+                left: 'calc(tag' + i + '.right + 10rpx)',
+            }
+        }
+        if(i == 0){
+            tag.css.left = "80rpx"
+        }
+        return tag
+    })
+    return haibaoTags
+  },
+
+  loadData(){
+    var _this = this
+    var userInfo = app.globalData.userInfo
+    var url = '/api/v1/post_base_info/' + userInfo.post_id
+    app.request({
+        url: url,
+        success(resp){
+            _this.setData({
+                post: resp.data.data
+            },() => {
+                _this.genUserCard()
+            })
+        }
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (q) {
-    this.genUserCard()
+    this.loadData()
+    // this.genUserCard()
     wx.showLoading({
         title: '加载中',
     })
