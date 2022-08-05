@@ -313,7 +313,7 @@ Page({
         var tag = {
             type: 'text',
             id: 'tag' + (i+1),
-            text: q,
+            text: ' '+q+' ',
             css: {
                 height: '36rpx',
                 lineHeight: '30rpx',
