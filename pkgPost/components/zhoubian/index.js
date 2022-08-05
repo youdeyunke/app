@@ -52,9 +52,7 @@ Component({
         this.loadData()
     },
     ready: function () {
-        // setTimeout(() => { 
-          this.getContent()
-        // }, 500)
+        this.getContent()
     },
     /**
      * 组件的方法列表
@@ -82,33 +80,24 @@ Component({
                     }
                     if (res.data && res.data.data.length == 0) {
                         _this.setData({
-                            resp: '',
+                            resp: [],
                             isShow: 1
                         })
                     } else {
-                        res.data.data.map(v => {
+                        var resp = res.data.data.map(v => {
                             if (v._distance >= 1000) {
                                 var d = v._distance / 1000
                                 v._distance =  d.toFixed(1) + 'km'
                             } else {
                                 v._distance = parseInt(v._distance) + 'm'
                             }
+                            return v
                         })
                         _this.setData({
-                            resp: res.data.data,
+                            resp: resp,
                             isShow: 0
                         })
                     }
-                    if (res.data.data.length <= 2) {
-                        _this.setData({
-                            buttonShow: false
-                        })
-                    } else {
-                        _this.setData({
-                            buttonShow: true
-                        })
-                    }
-                    // _this.triggerEvent('myevent', res.data.data)
                     _this.setData({ 
                         pois: res.data.data 
                     },() => {
@@ -259,8 +248,5 @@ Component({
             })
             this.getContent()
         },
-        lengthChange(e) {
-            this.setData({ maxLength: e.detail })
-        }
     }
 })
