@@ -1,15 +1,6 @@
 <block-box title="{{value.title}}" padding="{{false}}" title-size="36" sub-title="查看详情" url="/pkgPost/pages/zhoubian/index?id={{value.post_id}}">
-
-    <!-- <map enable-zoom enable-scroll="{{true}}" enable-rotate="{{true}}" longitude="{{value.longitude}}" show-scale="{{false}}" latitude="{{value.latitude}}" markers="{{markers}}" include-points="{{points}}" bindcallouttap="markertap" bindmarkertap="markertap" style="width:695rpx; height:320rpx;"></map>
-    <view class="location" bindtap="getLocation">
-        <view class="location-left">
-            <text class="label">位置：</text>
-            <text class="value">{{value.address}}</text>
-        </view>
-        <view class="location-right">
-            导航
-            <van-icon name="arrow" />
-        </view>
-    </view> -->
     <zhoubian latitude="{{value.latitude}}" mode="mini" longitude="{{value.longitude}}" postId="{{value.post_id}}" />
+    <view style="padding:30rpx">
+        <block-button maxLength='2' allLength='{{resp.length}}' url="/pkgPost/pages/zhoubian/index?id={{value.post_id}}" buttonVal='查看更多' />
+    </view>
 </block-box>

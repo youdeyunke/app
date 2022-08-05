@@ -29,8 +29,8 @@
         <!-- <view wx:if="{{buttonShow}}">
             <view hidden="{{isShow ==1 || type == 'big'}}" class="more-btn" bind:tap="moreHandle">{{buttonVal}}</view>
         </view> -->
-        <view style="padding:30rpx" wx:if="{{buttonShow}}">
+        <!-- <view style="padding:30rpx" wx:if="{{buttonShow}}">
             <block-button maxLength='2' allLength='{{resp.length}}' buttonVal='展开全部' bind:change='lengthChange' />
-        </view>
+        </view> -->
     </view>
 </view>
