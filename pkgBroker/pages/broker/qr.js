@@ -9,7 +9,7 @@ var userCard = {
         top: '60rpx',
         left: '30rpx',
         borderRadius: '10rpx',
-        shadow: "0rpx 0rpx 25rpx #000000",
+        shadow: "0rpx 0rpx 25rpx #F3F5FB",
     },
 }
 var userAvatar = {
@@ -117,7 +117,6 @@ var userGroupName = {
         fontSize: "28rpx",
         top: "130rpx",
         left: "550rpx",
-        color: "#3E290C"
     }
 }
 
@@ -127,16 +126,16 @@ var xiangmu = {
     css: {
         fontSize: "28rpx",
         top: "490rpx",
-        left: "80rpx",
+        left: "30rpx",
         color: "#999999"
     }
 }
 var line1 = {
     type: 'rect',
     css: {
-        width: "600rpx",
+        width: "690rpx",
         top: "540rpx",
-        left: "80rpx",
+        left: "30rpx",
         height: "1rpx",
         color: "#999999"
     }
@@ -144,9 +143,9 @@ var line1 = {
 var line2 = {
     type: 'rect',
     css: {
-        width: "600rpx",
+        width: "690rpx",
         top: "610rpx",
-        left: "80rpx",
+        left: "30rpx",
         height: "1rpx",
         color: "#999999"
     }
@@ -157,7 +156,7 @@ var weixin = {
     css: {
         fontSize: "28rpx",
         top: "560rpx",
-        left: "80rpx",
+        left: "30rpx",
         color: "#999999"
     }
 }
@@ -178,7 +177,7 @@ var jianjie = {
     css: {
         fontSize: "28rpx",
         top: "630rpx",
-        left: "80rpx",
+        left: "30rpx",
         color: "#999999"
     }
 }
@@ -202,7 +201,7 @@ var userJianjie = {
         fontSize: "28rpx",
         lineHeight: "40rpx",
         top: "690rpx",
-        left: "80rpx",
+        left: "30rpx",
         maxLines: 3
     }
 }
@@ -213,7 +212,7 @@ var xiangmuImg = {
     css: {
         fontSize: "28rpx",
         top: 'calc(jianjie.bottom + 100rpx)',
-        left: "80rpx",
+        left: "30rpx",
         color: "#999999"
     }
 }
@@ -327,7 +326,7 @@ Page({
             }
         }
         if(i == 0){
-            tag.css.left = "80rpx"
+            tag.css.left = "30rpx"
         }
         return tag
     })
@@ -337,6 +336,18 @@ Page({
   loadData(){
     var _this = this
     var userInfo = app.globalData.userInfo
+    if(userInfo.post_id == null || userInfo.post_id == '' || userInfo.post_id == undefined){
+        wx.showModal({
+            content: '未绑定主营楼盘，无法生成海报',
+            showCancel: false,
+            success (res) {
+                wx.navigateBack({
+                    delta:1
+                })
+            }  
+        })
+        return
+    }
     var url = '/api/v1/post_base_info/' + userInfo.post_id
     app.request({
         url: url,
