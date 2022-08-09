@@ -76,7 +76,8 @@ Page({
     setpsText: ["报备客户", "核实成交", "发放佣金"],
     popupShow: false,
     chooseShow: true,
-    tags: []
+    tags: [],
+    broker: {}
   },
   /**
    * 生命周期函数--监听页面加载
@@ -128,6 +129,27 @@ Page({
               }
           },
       })
+  },
+
+  gotoBroker: function() {
+    var _this = this
+    if(this.data.postIds == ''){
+        wx.showToast({
+          title: '请选择意向楼盘',
+          icon: 'none'
+        })
+        return
+    }
+    wx.navigateTo({
+      url: `/pkgBroker/pages/broker/selector?pid=${this.data.postIds}`,
+      events: {
+        change: function(b){ 
+            _this.setData({
+                broker: b
+            })
+        }
+      }
+    })
   },
 
   pidChange(e) {
@@ -299,6 +321,7 @@ Page({
       post_type: _this.data.post_type,
       post_area: _this.data.post_area,
       receiver_mobile: _this.data.receiver_mobile,
+      broker_id: _this.data.broker.id,
       receiver_name: _this.data.receiver_name
     }
     var isok = this.validateFormData(fdata)

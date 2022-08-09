@@ -1,0 +1,4 @@
+<van-search bind:change="kwChange" model:value="{{kw}}"></van-search>
+<van-cell-group title="请选择置业顾问">
+    <van-cell is-link bindtap="itemClick" data-index="{{index}}" title="{{item.name ? item.name+'('+item.mobile+')' : ''}}" value="选择" wx:for="{{brokers}}"></van-cell>
+</van-cell-group>

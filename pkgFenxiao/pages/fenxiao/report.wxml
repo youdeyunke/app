@@ -109,7 +109,7 @@
     </view>
 </view -->
 
-<view class="forms">
+<!-- <view class="forms">
     <view class="form form-margin">
         <view class="form-title">
             <text>推荐者姓名</text>
@@ -128,8 +128,16 @@
                 maxlength="11" />
         </view>
     </view>
-</view>
+</view> -->
 
+<view class="forms">
+    <view class="form form-margin">
+        <view class="form-title">
+            <text>置业顾问</text>
+        </view>
+        <van-cell title="{{broker.name ? broker.name+'('+broker.mobile+')' : ''}}" value="请选择" is-link bindtap="gotoBroker" />
+    </view>
+</view>
 
 <view class="forms">
     <view class="form form-margin">
