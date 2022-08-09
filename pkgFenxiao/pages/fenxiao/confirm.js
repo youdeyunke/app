@@ -79,6 +79,9 @@ Page({
   },
 
   gotoBroker: function() {
+    if(this.data.value.deal_status_item.value != 0){
+        return
+    }
     var _this = this
     wx.navigateTo({
       url: `/pkgBroker/pages/broker/selector?pid=${this.data.postIds}`,
