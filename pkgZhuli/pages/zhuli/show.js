@@ -49,6 +49,7 @@ Page({
           item: tour,
           post: post,  
           pageTitle: tour.title, 
+          pageCover: tour.cover
         })
       }
     })

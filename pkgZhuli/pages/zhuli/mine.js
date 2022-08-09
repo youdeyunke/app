@@ -90,6 +90,7 @@ Page({
           post: post,
           couponConfig: couponConfig,
           pageTitle: pageTitle, 
+          pageCover: tour.cover
         }, () => {
           _this.refreshStatus()
         })
