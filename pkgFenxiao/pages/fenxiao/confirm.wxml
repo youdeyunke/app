@@ -11,7 +11,9 @@
         <van-cell size="large" title="备注" value="{{value.user_remark}}"></van-cell>
     </van-cell-group>
 </ud-card>
-
+<ud-card title="置业顾问" width="710">
+    <van-cell title="{{assignBroker.name ? assignBroker.name+'('+assignBroker.mobile+')' : ''}}" value="请选择" is-link bindtap="gotoBroker" />
+</ud-card>
 
 <ud-card title="状态" width="710" >
     <van-steps steps="{{logs}}" active="0"  direction="vertical"

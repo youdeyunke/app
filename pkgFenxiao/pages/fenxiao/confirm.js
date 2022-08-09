@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    assignBroker: {}
   },
 
   /**
@@ -24,8 +24,10 @@ Page({
   confirmHandle: function(){
     // 确认带看 
     var _this = this  
+    var brokerId = this.data.assignBroker ? this.data.assignBroker.id : ''
     var data = {
-      id: this.data.id 
+      id: this.data.id ,
+      broker_id: brokerId
     }
     app.request({ 
       url: '/api/v1/customers/confirm', 
@@ -59,15 +61,33 @@ Page({
           }
         })
         var posts = []
+        var postIds = []
         res.data.data.posts.map((m) => {
             posts.push(m.title)
+            postIds.push(m.id)
         })
         _this.setData({
           value:res.data.data, 
+          assignBroker: res.data.data.assign_broker,
           logs: logs ,
           loading: false, 
-          posts: posts.toString(',')
+          posts: posts.toString(','),
+          postIds: postIds.toString(',')
         })
+      }
+    })
+  },
+
+  gotoBroker: function() {
+    var _this = this
+    wx.navigateTo({
+      url: `/pkgBroker/pages/broker/selector?pid=${this.data.postIds}`,
+      events: {
+        change: function(b){ 
+            _this.setData({
+                assignBroker: b
+            })
+        }
       }
     })
   },

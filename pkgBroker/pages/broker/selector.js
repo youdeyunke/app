@@ -29,7 +29,11 @@ Page({
 
     itemClick: function (e) {
         const { index } = e.currentTarget.dataset
-        var broker = this.data.brokers[index]
+        var broker = {
+            id: this.data.brokers[index].user_id,
+            name: this.data.brokers[index].name,
+            mobile: this.data.brokers[index].mobile
+        }
         var ch =  this.getOpenerEventChannel() 
         if(ch){
             ch.emit("change", broker)
