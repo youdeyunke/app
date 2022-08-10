@@ -7,7 +7,7 @@
 .outer {
     background-size: 750rpx auto; 
     background-repeat: no-repeat;
- 
+    width: 750rpx;
 }
 
 .margin {
