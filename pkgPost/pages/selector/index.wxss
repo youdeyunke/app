@@ -1,1 +1,9 @@
 /* pkgPost/pages/selector/index.wxss */
+
+.top{
+    position: sticky;
+    top:0; 
+    left:0;
+    z-index:100;
+    border-bottom:2rpx solid #cecece;
+}

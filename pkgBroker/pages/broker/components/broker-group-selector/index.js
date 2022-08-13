@@ -18,16 +18,13 @@ Component({
 
     },
 
-    attached: function(){
-        this.loadData() 
-    },
-
     /**
      * 组件的方法列表
      */
     methods: {
 
-        open: function(){
+        open: function(cat){
+            this.loadData(cat)
             this.setData({ show: true })
         },
         close: function(){
@@ -41,19 +38,23 @@ Component({
             this.close()
          },
 
-        loadData: function(){
+        loadData: function(cat){
             var _this  = this  
+            var query = {
+                cat: cat
+            }
             app.request({ 
                 url: '/api/v1/broker_groups',  
+                data: query, 
                 success: function(resp){ 
                     if(resp.data.status != 0){ 
                         return 
                     }
                     var gs = resp.data.data.filter((g) => { 
-                        return g.value != 'broker'
+                        return  true
                     })
+                    
                     // 只显示全民经纪人身份列表
-
                     _this.setData({ 
                         groups: gs, 
                     })

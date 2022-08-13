@@ -1,13 +1,35 @@
 .outer{
-    background:#fff;
+
     box-sizing: border-box;
-    padding:20rpx 0;
+    padding:0rpx 0 20rpx 0;
     
+}
+
+.outer .title{
+    position: absolute;
+    left:40rpx; 
+    top:200rpx;
+    font-size:32rpx;
+    font-weight: bold;
+    color:#fff;
+}
+.outer .desc{
+    position: absolute;
+    left:40rpx; 
+    top:260rpx;
+    font-size:26rpx;
+    color:#fff;
+    width: 300rpx;
 }
 
 .banner{
     width:750rpx;
     height:500rpx;
+}
+
+.blank{
+    height:20rpx; 
+    width:100%;
 }
 
 .footer{

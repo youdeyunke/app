@@ -1,4 +1,5 @@
 {
+    "backgroundColor": "#cecece",
     "enablePullDownRefresh": false,
     "usingComponents": {
         "van-field": "/vant/field/index",

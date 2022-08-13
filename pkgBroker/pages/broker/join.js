@@ -11,11 +11,10 @@ Page({
         mobile: '',
         name: '',
         smsCode: '',
+        postTitle: '请选择', 
+        postId: '',
         sex: 1,
-        userGroupName: '点击选择',
-        userGrupId: null,
         loading: true,
-
         sexOptions: [{
                 label: '男',
                 value: '1'
@@ -27,18 +26,7 @@ Page({
         ],
         join_status: '',
     },
-    //接受子组件传过来的数据
-    valueHandle: function (e) {
-        console.log("e", e)
-        var formdata = this.data.formData;
-        formdata['post_title'] = e.detail.title;
-        formdata['post_id'] = e.detail.id
-        this.setData({
-            keyword: e.detail.title,
-            showkw: false,
-            formData: formdata
-        })
-    },
+
     changeSex: function (e) {
         var value = e.detail.item.value
         var sex = this.data.sex
@@ -58,33 +46,18 @@ Page({
      * 生命周期函数--监听页面加载
      */
 
-
-    serachHandle: function (e) {
-        var value = e.detail.value;
-        var formdata = this.data.formData
-        formdata['post_title'] = value
-        console.log("经纪人页面eeee", value)
-        this.setData({
-            keyword: value,
-            showkw: true,
-        })
-        if (this.data.keyword === '') {
-            this.setData({
-                showkw: false
-            })
-        }
-    },
-
     onLoad: function (q) {
         var _this = this
         wx.showLoading()
         this.setData({
             loading: true,
+            groupValue: q.group_value, // jinji,broker  用于区分全民经纪人和置业顾问
         })
 
         if (q.post_id) {
             this.setDefaultPost(q.post_id)
         }
+
 
         wx.setNavigationBarTitle({
             title: '申请入驻',
@@ -132,28 +105,11 @@ Page({
                 const path = res.tempFilePaths[0]
                 qiniu.upload(path, (url) => {
                     var key = e.currentTarget.dataset.key;
-                    var formdata = _this.data.formData;
-                    formdata[key] = url
+                    var data = {}
+                    data[key] = url
                     console.log("key", key)
-                    // _this.updateAvatar(url)
-                    if (key == 'avatar') {
-                        _this.setData({
-                            imageurl1: url,
-                        })
-                    } else if (key == 'namecard') {
-                        _this.setData({
-                            imageurl3: url
-                        })
-                    } else if (key == 'wechat_qr') {
-                        _this.setData({
-                            imageurl2: url
-                        })
-                    }
-                    _this.setData({
-                        uploading: false,
-                        formData: formdata,
-                    })
-                    console.log("111fomrdata", formdata)
+                    
+                    _this.setData(data)
                 })
             }
         })
@@ -199,6 +155,37 @@ Page({
         //     })
         //     return false
         // }
+        if (!data.groupName) {
+            wx.showToast({
+                icon: 'none',
+                title: '请选择身份',
+            })
+            return false
+        } 
+
+
+        if (!data.postId) {
+            wx.showToast({
+                icon: 'none',
+                title: '请绑定主营楼盘',
+            })
+            return false
+        } 
+
+        if (!data.avatar) {
+            wx.showToast({
+                icon: 'none',
+                title: '请上传个人头像',
+            })
+            return false
+        } 
+        if (!data.wechat) {
+            wx.showToast({
+                icon: 'none',
+                title: '请填写微信号码',
+            })
+            return false
+        } 
 
 
         return true
@@ -235,15 +222,13 @@ Page({
 
     showUserGroupSelector: function(){
         var el = this.selectComponent('#broker-group-selector')
-        el.open()
+        el.open(this.data.groupValue)
     },
 
     groupChange: function(e){
-        console.log('e', e)
         var v = e.detail  
         this.setData({ 
-            groupName: v.name,  
-            groupValue: v.value, 
+            groupName: v.name,  // 这里只选择身份显示名称，例如：渠道经纪人、全民经纪人、业主
         })
     },
 
@@ -254,11 +239,17 @@ Page({
         if (!isok) {
             return
         }
+      
         var data = { 
             name: this.data.name, 
             mobile: this.data.mobile, 
             sex: this.data.sex,  
-            // wechat: this.data.wechat, 
+            wechat: this.data.wechat, 
+            post_title: this.data.postTitle, 
+            post_id: this.data.postId, 
+            wechat_qr: this.data.wechat_qr,  
+            avatar: this.data.avatar, 
+            namecard: this.data.namecard, 
             post_id: this.data.postId, 
             group_value: this.data.groupValue, 
             group_name: this.data.groupName,
@@ -277,6 +268,22 @@ Page({
         }
 
         return 
+    },
+
+
+    gotoPostSelector: function(){
+        var _this = this  
+        wx.navigateTo({
+          url: '/pkgPost/pages/selector/index',
+          events: {
+              'change': function(post){
+                  _this.setData({ 
+                      postTitle: post.title, 
+                      postId: post.id,
+                  })
+              }
+          },
+        })
     },
 
 
