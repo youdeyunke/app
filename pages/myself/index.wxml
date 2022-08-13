@@ -69,7 +69,7 @@
                 <van-grid column-num="5">
                     <van-grid-item use-slot wx:if="{{!userInfo.is_broker}}" link-type="navigateTo" url="/pkgBroker/pages/broker/join">
                         <ud-icon name="13"></ud-icon>
-                        <text style="font-size: 24rpx;line-height: 60rpx;">顾问入驻</text>
+                        <text style="font-size: 24rpx;line-height: 60rpx;">申请入驻</text>
                     </van-grid-item>
                     <van-grid-item use-slot wx:for="{{userIcons}}" bindtap="{{item.handle}}" url="{{item.url}}" link-type="navigateTo">
                         <ud-icon name="{{item.iconKey}}"></ud-icon>
