@@ -51,7 +51,7 @@ Page({
         wx.showLoading()
         this.setData({
             loading: true,
-            groupValue: q.group_value, // jinji,broker  用于区分全民经纪人和置业顾问
+            groupValue: q.group_value || 'jingji', // jinji,broker  用于区分全民经纪人和置业顾问
         })
 
         if (q.post_id) {
@@ -155,7 +155,7 @@ Page({
         //     })
         //     return false
         // }
-        if (!data.groupName) {
+        if (data.groupValue == 'jingji' &&  !data.groupName) {
             wx.showToast({
                 icon: 'none',
                 title: '请选择身份',
