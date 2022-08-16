@@ -18,9 +18,11 @@
         <view class="title">{{post.title}}</view>
         <view class="top">
             <view class="tags">
-                <van-tag wx:key="id" wx:if="{{index <= 2}}" text-color="{{item.text_color }}" size="mini" plain wx:for="{{post.tags}}" wx:key="item.id">
-                    {{item.name}}
-                </van-tag>
+                <view wx:for="{{post.tags}}" style="zoom: 0.8;margin-right: 10rpx;" >
+                    <van-tag wx:key="id" wx:if="{{index <= 2}}" text-color="{{item.text_color }}" size="mini" plain wx:key="item.id">
+                        {{item.name}}
+                    </van-tag>
+                </view>
             </view>
             <view class="price">
                 <view class="left">{{post.average_price_info.label}}:</view>

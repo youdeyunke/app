@@ -38,12 +38,13 @@
     margin-bottom: 0rpx;
 }
 
-.post .tags van-tag:last-child {
+.post .tags .tag:last-child {
     margin-right: 0;
 }
 
-.post .tags van-tag {
+.post .tags .tag {
     margin-right: 10rpx;
+    zoom: 0.8;
 }
 
 .post .cover .address {
