@@ -3,7 +3,7 @@
 <view class="tabs">
 
     <scroll-view class="tabs_title" scroll-x='{{true}}'>
-        <view wx:for='{{tabs}}' wx:key='id' class="title_item  {{ index === active ? 'current-active' : ''}}" bindtap="handleItemTap" data-index='{{index}}'>
+        <view wx:for='{{resTabs}}' wx:key='id' class="title_item  {{ index === active ? 'current-active' : ''}}" bindtap="handleItemTap" data-index='{{index}}'>
             <view class="content">
                 <!-- ud-icon name="{{item.icon}}" customStyle="margin-bottom:20rpx;margin-left:90rpx;" / -->
                 <view class="name">{{item.name}}</view>

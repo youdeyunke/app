@@ -1,5 +1,5 @@
 <block-box title="{{value.title}}" padding="{{false}}" title-size="36" sub-title="查看详情" url="/pkgPost/pages/zhoubian/index?id={{value.post_id}}">
-    <zhoubian latitude="{{value.latitude}}" mode="mini" longitude="{{value.longitude}}" postId="{{value.post_id}}" />
+    <zhoubian latitude="{{value.latitude}}" mode="mini" longitude="{{value.longitude}}" postId="{{value.post_id}}" haveTabs="{{tabs}}" />
     <view style="padding:30rpx">
         <block-button maxLength='2' allLength='{{resp.length}}' url="/pkgPost/pages/zhoubian/index?id={{value.post_id}}" buttonVal='查看更多' />
     </view>

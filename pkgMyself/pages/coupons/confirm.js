@@ -105,15 +105,15 @@ Page({
         wx.setNavigationBarTitle({ title:  "正在核销：" + coupon.name, })
         // 检查当前用户是否可以核销
         var mobile = app.globalData.userInfo.mobile
-        if(mobile.toString() != coupon.confirm_mobile.toString()){
-            var error = '当前账号' + mobile + '无核销权限'
-            wx.showToast({ icon: 'none', title: error, })
-            _this.setData({error: error})
-            setTimeout(() => { 
-                wx.navigateBack({dleta:1})
-            }, 1500)
-            return
-        }
+        // if(mobile.toString() != coupon.confirm_mobile.toString()){
+        //     var error = '当前账号' + mobile + '无核销权限'
+        //     wx.showToast({ icon: 'none', title: error, })
+        //     _this.setData({error: error})
+        //     setTimeout(() => { 
+        //         wx.navigateBack({dleta:1})
+        //     }, 1500)
+        //     return
+        // }
 
         // 进入核销流程
         wx.showModal({

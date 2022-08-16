@@ -12,6 +12,26 @@ Component({
         type: { type: String },
         mode: { type: String },
         postId: { type:Number },
+        haveTabs: { type:String }
+    },
+    observers: {
+        'haveTabs': function(){
+            var tabs = this.data.haveTabs.split(',')
+            if(tabs == ''){
+                this.setData({ resTabs: this.data.tabs })
+                return
+            }
+            var resTabs = this.data.tabs.filter((t) => {
+                for(let i = 0; i < tabs.length; i++){
+                    if(t.id == tabs[i]){
+                        return t
+                    }
+                }
+            })
+            this.setData({
+                resTabs: resTabs
+            })
+        }
     },
     /**
      * 组件的初始数据

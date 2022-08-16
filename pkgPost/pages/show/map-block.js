@@ -5,8 +5,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-      value: {type: Object, default: {}}
-
+      value: {type: Object, default: {}},
+      tabs: {type: String}
   },
 
   /**

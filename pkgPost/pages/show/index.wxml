@@ -11,7 +11,7 @@
     <block wx:for="{{blocks}}" wx:for-item="block" wx:for-key="index" wx:key="name">
         <joingroup-block wx:if="{{block.name == 'joingroup'}}" value="{{block.value}}" />
         <info-block wx:if="{{block.name == 'info'}}" value="{{block.value}}" />
-        <map-block wx:if="{{block.name == 'map'}}" value="{{block.value}}" />
+        <map-block wx:if="{{block.name == 'map'}}" value="{{block.value}}" tabs="{{postInfo.map_tabs}}"/>
         <types-block id="types" wx:if="{{block.name == 'types'}}" value="{{block.value}}" />
         <brokers-block wx:if="{{block.name == 'brokers'}}" value="{{block.value}}" />
         <qas-block wx:if="{{block.name == 'qas' }}" value="{{block.value}}" />
