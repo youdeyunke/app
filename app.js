@@ -552,13 +552,16 @@ App({
         })
     },
 
-    dingyueHandle: function () {
+    dingyueHandle: function (cb) {
         // 订阅消息
         var tplId = this.globalData.myconfigs.msg_tpl_id || ''
         wx.requestSubscribeMessage({
             tmplIds: [tplId],
             fail: function (res) {
                 console.log('订阅消息失败:', res)
+            },
+            complete: function(e){ 
+                typeof cb == 'function' && cb()
             }
         })
     },

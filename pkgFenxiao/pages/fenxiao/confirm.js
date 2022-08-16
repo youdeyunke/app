@@ -29,6 +29,7 @@ Page({
       id: this.data.id ,
       broker_id: brokerId
     }
+    app.dingyueHandle()
     app.request({ 
       url: '/api/v1/customers/confirm', 
       data: data, 
