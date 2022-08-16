@@ -328,6 +328,7 @@ Page({
     if (!isok) {
       return false;
     }
+    app.dingyueHandle()
 
     app.request({
       url: '/api/v1/customers',
