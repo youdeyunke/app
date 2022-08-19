@@ -25,7 +25,8 @@ App({
 
         reddotIntervalId: null,
         system: {},
-        apiHost: 'https://weapp1.udeve.net/20210',
+        //apiHost: 'http://82.157.35.247:9000',
+        apiHost: 'https://weapp1.udeve.net/39086',
         userInfo: null,
         token: null,
         cities: [],
@@ -325,8 +326,9 @@ App({
 
         var _this = this;
         var data = {
-            bindBrokerId: wx.getStorageSync('bindBrokerId'),
-            bindPostId: wx.getStorageSync('bindPostId'),
+            bindBrokerId: wx.getStorageSync('bindBrokerId') || '',
+            bindPostId: wx.getStorageSync('bindPostId') || '',
+            bindSource: wx.getStorageSync('bindSource') || '',
         }
         this.request({
             url: "/api/v1/heartbeat",
@@ -340,12 +342,11 @@ App({
 
                 var data = resp.data.data
                 // 未读消息 
-                var c = data.unread_message_count
+                var c = data.unread_message_count 
                 var bindex = 1
-                if (c == 0) {
-                    wx.removeTabBarBadge({
-                        index: bindex,
-                        fail: function () {
+                if(c == 0){
+                    wx.removeTabBarBadge({ index: bindex , 
+                        fail: function(){
                             // pass
                         }
                     })

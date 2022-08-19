@@ -58,6 +58,9 @@ Page({
       const {index}  = e.target.dataset 
       var column = this.data.eavAttributes[index]
       var value = this.data.customer[column.name]
+      if(column.editable == false){
+	      return
+      }
 
       var _this = this 
       // 打开编辑字段界面，并传值 
