@@ -43,7 +43,6 @@ var userName = {
         fontSize: "48rpx",
         top: "110rpx",
         left: "340rpx",
-        color: "#3E290C"
     }
 }
 var userLevel = {
@@ -93,7 +92,6 @@ var userMobile = {
         fontSize: "30rpx",
         top: "270rpx",
         left: "390rpx",
-        color: "#3E290C"
     }
 }
 var userWeixin = {
@@ -105,7 +103,6 @@ var userWeixin = {
         fontSize: "30rpx",
         top: "320rpx",
         left: "390rpx",
-        color: "#3E290C"
     }
 }
 var userGroupName = {
@@ -285,11 +282,12 @@ Page({
     if(userInfo.level == 3){ userLevel.text = '铜牌顾问' }
     userName.text = userInfo.name
     userMobile.text = userInfo.mobile
-    userWeixin.text = userInfo.wechat == '' ? '该用户未填写微信' : userInfo.wechat
-    userWeixinTwo.text = userInfo.wechat == '' ? '该用户未填写微信' : userInfo.wechat
+    userWeixin.text =( userInfo.wechat == '' || userInfo.wechat == null ? '该用户未填写微信' : userInfo.wechat)
+    userWeixinTwo.text =( userInfo.wechat == '' || userInfo.wechat == null ? '该用户未填写微信' : userInfo.wechat)
     userXiangmu.text = userInfo.post_title
     userxiangmuImg.url = this.data.post.cover
-    userJianjie.text = userInfo.desc == '' ? '该用户还没有填写简介' : userInfo.desc
+    
+    userJianjie.text =( userInfo.desc == '' || userInfo.desc == null ? '该用户还没有填写简介' : userInfo.desc)
     
     if (userInfo.group_name != null) {
         userGroupName.text = userInfo.group_name
@@ -307,6 +305,7 @@ Page({
 
   genTags(){
     // var userInfo = app.globalData.userInfo
+    if(app.globalData.userInfo.tags == ''){ return [] }
     var tags = app.globalData.userInfo.tags.split(',')
     var haibaoTags = tags.filter((q,i) => i < 3).map((q,i) => {
         var tag = {
