@@ -1,5 +1,15 @@
 const app = getApp()
 import Poster from '../../utils/poster/poster';
+var haibaoBg = {
+    type: 'image',
+    url: 'https://qiniucdn.udeve.cn/fang2021/ef878289-5fda-4241-a117-2422d0609a96.png',
+    css: {
+      width: '750rpx',
+      height: '280rpx',
+      top: '0rpx',
+      left: '0rpx',
+    },
+}
 var userCard = {
     type: 'rect',
     css: {
@@ -9,7 +19,7 @@ var userCard = {
         top: '60rpx',
         left: '30rpx',
         borderRadius: '10rpx',
-        shadow: "0rpx 0rpx 25rpx #F3F5FB",
+        shadow: "0rpx 0rpx 25rpx #202EBB14",
     },
 }
 var userAvatar = {
@@ -274,7 +284,7 @@ Page({
     if(userInfo.avatar){
         userAvatar.url = userInfo.avatar.replace('http://', 'https://')
     }
-    if(userInfo.qr){
+    if(userInfo.qr != null || userInfo.qr != undefined){
         userQr.url = userInfo.qr
     }
     if(userInfo.level == 1){ userLevel.text = '金牌顾问' }
@@ -282,17 +292,17 @@ Page({
     if(userInfo.level == 3){ userLevel.text = '铜牌顾问' }
     userName.text = userInfo.name
     userMobile.text = userInfo.mobile
-    userWeixin.text =( userInfo.wechat == '' || userInfo.wechat == null ? '该用户未填写微信' : userInfo.wechat)
-    userWeixinTwo.text =( userInfo.wechat == '' || userInfo.wechat == null ? '该用户未填写微信' : userInfo.wechat)
+    userWeixin.text = ( userInfo.wechat == '' || userInfo.wechat == null || userInfo.wechat == undefined ? '该用户未填写微信' : userInfo.wechat)
+    userWeixinTwo.text = ( userInfo.wechat == '' || userInfo.wechat == null || userInfo.wechat == undefined ? '该用户未填写微信' : userInfo.wechat)
     userXiangmu.text = userInfo.post_title
     userxiangmuImg.url = this.data.post.cover
     
     userJianjie.text =( userInfo.desc == '' || userInfo.desc == null ? '该用户还没有填写简介' : userInfo.desc)
     
-    if (userInfo.group_name != null) {
+    if (userInfo.group_name != null || userInfo.group_name != '' || userInfo.group_name != undefined) {
         userGroupName.text = userInfo.group_name
     }
-    var views = [userCard, userAvatar, userBg, userName, userLevel, userPhoneIcon, userweixinIcon, userMobile, userJianjie, userWeixin, xiangmu, userXiangmu, userWeixinTwo, weixin, jianjie, xiangmuImg, userxiangmuImg, userQr, tip, userGroupName, line1, line2]
+    var views = [haibaoBg, userCard, userAvatar, userBg, userName, userLevel, userPhoneIcon, userweixinIcon, userMobile, userJianjie, userWeixin, xiangmu, userXiangmu, userWeixinTwo, weixin, jianjie, xiangmuImg, userxiangmuImg, userQr, tip, userGroupName, line1, line2]
     palette.views = views
     var haibaoTags = this.genTags()
     if(haibaoTags.length){
@@ -305,7 +315,7 @@ Page({
 
   genTags(){
     // var userInfo = app.globalData.userInfo
-    if(app.globalData.userInfo.tags == ''){ return [] }
+    if(app.globalData.userInfo.tags == '' || app.globalData.userInfo.tags == null || app.globalData.userInfo.tags == undefined){ return [] }
     var tags = app.globalData.userInfo.tags.split(',')
     var haibaoTags = tags.filter((q,i) => i < 3).map((q,i) => {
         var tag = {
@@ -335,7 +345,8 @@ Page({
   loadData(){
     var _this = this
     var userInfo = app.globalData.userInfo
-    if(userInfo.post_id == null || userInfo.post_id == '' || userInfo.post_id == undefined){
+    console.log('99999',userInfo)
+    if(userInfo == null || userInfo.post_id == null || userInfo.post_id == '' || userInfo.post_id == undefined){
         wx.showModal({
             content: '未绑定主营楼盘，无法生成海报',
             showCancel: false,
