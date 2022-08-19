@@ -297,7 +297,7 @@ Page({
     userXiangmu.text = userInfo.post_title
     userxiangmuImg.url = this.data.post.cover
     
-    userJianjie.text =( userInfo.desc == '' || userInfo.desc == null ? '该用户还没有填写简介' : userInfo.desc)
+    userJianjie.text =( userInfo.desc == '' || userInfo.desc == null || userInfo.desc == undefined ? '该用户还没有填写简介' : userInfo.desc)
     
     if (userInfo.group_name != null || userInfo.group_name != '' || userInfo.group_name != undefined) {
         userGroupName.text = userInfo.group_name
