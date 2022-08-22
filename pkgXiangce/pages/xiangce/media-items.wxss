@@ -34,8 +34,8 @@
 }
 
 .items .item .video-cover-image {
-    width: 100rpx;
-    height: 100rpx;
+    width: 200rpx;
+    height: 200rpx;
 }
 .video{
     position: relative;
@@ -46,8 +46,8 @@
     align-items: center;
     position: absolute;
     z-index: 20;
-    top: 25%;
-    left: 25%;
+    top: 60rpx;
+    left: 60rpx;
 }
 .mask image{
     width: 80rpx;

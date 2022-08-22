@@ -30,6 +30,16 @@ Component({
      */
     methods: {
 
+        viewVideo: function (i) {
+            var _this = this
+            
+            var urls = this.data.items.map((m) => { return {url: m.url , type: 'video'} })
+            console.log(urls)
+            wx.previewMedia({
+                sources: urls,
+                current: i
+            })
+        },
         viewImage: function (item) {
             var _this = this
             var url = item.url + '?' + this.data.mark
@@ -50,7 +60,8 @@ Component({
                     break;
                 case 'video':
                     var url = item.url
-                    app.gotoVideo(url, '视频')
+                    // app.gotoVideo(url, '视频')
+                    _this.viewVideo(index)
                     break;
             }
 
