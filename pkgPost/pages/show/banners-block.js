@@ -1,17 +1,12 @@
 // pages/post/images-block.js
 const app = getApp()
 Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-    value: {
-      type: Object
-    },
-    color: {
-      type: String,
-      value: '#3A6BDD'
-    }
+    /**
+     * 组件的属性列表
+     */
+    properties: {
+        value: { type: Object }, 
+        color: { type: String, value: '#3A6BDD'}
   },
 
   observers: {
@@ -63,12 +58,11 @@ Component({
 
   ready: function () {
     var ui = app.globalData.myconfigs.ui
-    var color = app.globalData.myconfigs.color
+
     this.setData({
       vrIcon: ui.post_cover_icon_vr,
       videoIcon: ui.post_cover_icon_video,
-      primaryColor: color.primary,
-      primaryBtnColor: color.primary_btn,
+
     })
   },
 

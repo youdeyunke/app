@@ -1,0 +1,29 @@
+/* pkgPost/pages/show/points_block.wxss */
+.nav {
+    width: 690rpx;
+    white-space: nowrap;
+    height: 110rpx;
+}
+
+.icon {
+    margin-right: 44rpx;
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-item image {
+    width: 68rpx;
+    height: 68rpx;
+}
+
+.nav-item view {
+    margin-top: 12rpx;
+    font-size: 26rpx;
+    color: #999999;
+}

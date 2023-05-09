@@ -5,7 +5,9 @@ Component({
      */
     properties: {
         post: { type: Object, value: {} },
-        navs: { type: Array, default: null }
+        navs: { type: Array, default: null },
+        color: { type: String, value: '#3A6BDD'},
+        bgImgUrl: { type: String},
     },
 
     /**

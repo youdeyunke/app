@@ -1,4 +1,4 @@
-<block-box  title="摇号信息" >
+<block-box  title="摇号信息"  leftHat="true" leftHatColor="{{color}}">
     <view class="summary-block">
       <ticket-summary width="700" summary="{{value.summary }}"></ticket-summary>
     </view>

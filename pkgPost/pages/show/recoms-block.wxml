@@ -1,4 +1,4 @@
-<block-box title-size="36" title="{{ value.title }}" subtitle="{{ value.more_title }}" url="{{moreUrl}}">
+<block-box title-size="36" leftHat="true" leftHatColor="{{color}}" title="{{ value.title }}" subtitle="{{ value.more_title }}" url="{{moreUrl}}">
     <view class="recoms">
         <scroll-view scroll-with-animation="{{true}}" scroll-x style="width:100%">
             <view class="items">

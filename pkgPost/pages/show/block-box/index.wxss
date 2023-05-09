@@ -78,7 +78,7 @@
 }
 
 .card-body {
-    padding: 0 30rpx 20rpx 20rpx;
+    padding: 0 30rpx 20rpx 30rpx;
 }
 
 .card.padding-none .card-body {

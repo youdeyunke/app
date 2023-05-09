@@ -327,7 +327,6 @@ App({
         var _this = this;
         var data = {
             bindBrokerId: wx.getStorageSync('bindBrokerId') || '',
-            bindPostId: wx.getStorageSync('bindPostId') || '',
             bindSource: wx.getStorageSync('bindSource') || '',
         }
         this.request({
@@ -401,7 +400,6 @@ App({
     onAppHide: function () {
         console.log('小程序切换到后台')
         this.markUserOnlineStatus('offline')
-        this.markVisitorAction('关闭了小程序', 0)
     },
 
     markUserOnlineStatus: function (status) {
@@ -415,7 +413,6 @@ App({
             }
         })
     },
-
 
     setSystemInfo: function () {
 
@@ -439,25 +436,27 @@ App({
     },
 
     markVisitor: function (cb) {
-        // TODO 未登录情况下产生一个唯一身份id
+        // 未登录情况下产生一个唯一身份id
+        // 注意，此方法只负责创建一个新的vid值，不负责处理绑定转发分享等逻辑，相关逻辑由heartbeat负责处理
         var _this = this
-        var sceneObj = wx.getLaunchOptionsSync()
-        var sourceUid = sceneObj.query.source_uid || ''
-        _this.globalData.sourceUid = sourceUid
+        var key = 'visitorUid'
+        var vid = wx.getStorageSync(key); 
+        if(vid && vid.length > 5){
+          // 已经有vid了，不需要重新生成
+          return ;
+        }
+        // 创建一个新的vid
         this.request({
             url: '/api/v1/visitors',
             hideLoading: true,
             method: 'POST',
-            data: {
-                visitor_id: wx.getStorageSync('key') || '',
-                source_uid: sourceUid,
-            },
+            data: { },
             success: function (resp) {
                 var data = resp.data
                 if (data.status == 0) {
                     _this.globalData.visitorId = data.data
                     wx.setStorage({
-                        key: 'visitorId',
+                        key: key,
                         data: data.data
                     })
                     console.log('set vid is', _this.globalData.visitorId)
@@ -473,9 +472,10 @@ App({
         // TODO 未登录情况下产生一个唯一身份id
         var _this = this
         seconds = seconds / 1000
-        var uid = this.globalData.visitorId
+        var key = 'visitorUid'
+        var uid = wx.getStorageSync(key)
         if (!uid) {
-            console.log('没有visitor uid，无法上报事件 ' + actionName)
+            console.log('没有visitor id，无法上报事件 ' + actionName)
             return
         }
 
@@ -484,7 +484,7 @@ App({
             hideLoading: true,
             method: 'POST',
             data: {
-                visitor_uid: _this.globalData.visitorId,
+                visitor_uid: uid,
                 name: actionName,
                 seconds: seconds,
             },

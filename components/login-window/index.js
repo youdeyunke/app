@@ -7,7 +7,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+     closable: {type: Boolean, value: false},
   },
 
   ready: function () {
@@ -28,7 +28,7 @@ Component({
     show: false,
     bg: null,
     primaryColor: '#1989fa',
-    closable: false
+
   },
 
   /**

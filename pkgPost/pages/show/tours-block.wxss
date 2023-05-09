@@ -1,1 +1,44 @@
 /* pages/post/tours-block.wxss */
+.types {
+    display: inline-block;
+    /* justify-content: flex-start;
+    flex-wrap: nowrap;
+    height: 390rpx;
+    align-items: center; */
+}
+
+.tour-item {
+    width: 280rpx;
+    height: 370rpx;
+    box-shadow: 3rpx 3rpx 19rpx 2rpx rgba(30, 62, 104, 0.0800);
+    border-radius: 16rpx;
+    margin-right: 20rpx;
+    flex-shrink: 0;
+}
+
+.tour-item image {
+    width: 280rpx;
+    height: 250rpx;
+    border-radius: 16rpx 16rpx 0 0;
+}
+
+.tour-item view {
+    width: 280rpx;
+    height: 120rpx;
+    border-radius: 0 0 16rpx 16rpx;
+    padding: 20rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #333333;
+}
+
+.tour-title {
+    width: 240rpx;
+    height: 80rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    white-space: normal;
+}

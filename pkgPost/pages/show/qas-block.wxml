@@ -1,4 +1,4 @@
-<block-box title-size="36" title="{{ value.title }}" subtitle="{{ value.more_title }}" url="{{moreUrl}}">
+<block-box title-size="36"  leftHat="true" leftHatColor="{{color}}" title="{{ value.title }}" subtitle="{{ value.more_title }}" url="{{moreUrl}}">
     <view class="qas">
         <view class="empty" wx:if="{{value.items.length == 0}}">还没有人提问</view>
         <view class="item" hover-class="none" wx:key="id" wx:for="{{value.items}}">
@@ -12,6 +12,6 @@
                 </view>
             </view>
         </view>
-        <block-button url="/pkgQa/pages/qa/new?target_id={{value.post_id}}&target_type=post" buttonVal='去提问' />
     </view>
+    <block-button color="{{color}}" url="/pkgQa/pages/qa/new?target_id={{value.post_id}}&target_type=post" buttonVal='去提问' />
 </block-box>

@@ -1,0 +1,24 @@
+/* pkgPost/pages/show/xiangce-block.wxss */
+.xiangce-item {
+    width: 330rpx;
+    height: 240rpx;
+    border-radius: 10rpx;
+    margin-right: 20rpx;
+    margin-top: 15rpx;
+    position: relative;
+    display: inline-block;
+}
+
+.xiangce-item:nth-child(2n+0) {
+    margin-right: 0;
+}
+
+.xiangce-item-cover{
+    width: 330rpx;height: 240rpx;border-radius: 10rpx;
+}
+.xiangce-item-type{
+    position: absolute;width: 100rpx;height: 100rpx;top: 70rpx;right: 115rpx;
+}
+.mask{
+    width:100rpx;height:100rpx;position: absolute;top: 70rpx;left: 115rpx;
+}

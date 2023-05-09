@@ -1,18 +1,18 @@
 <view class="outer">
-    <view class="title-block">
+    <view class="title-block" style="background-image: url({{bgImgUrl}});">
         <view class="first-left">
             <view class="left-title">{{post.title}}</view>
             <view class="left-tags">
-                <view class="left-tag" wx:for="{{post.tags}}" wx:for-item="tag" wx:key="id">
-                    {{tag.name}}
+                <view class="left-tag" style="color: {{color}};border: 1rpx solid {{color}};" wx:for="{{post.tags}}" wx:if="{{index <= 2}}" wx:for-item="tag" wx:key="id">
+                    <text>{{tag.name}}</text>
                 </view>
             </view>
         </view>
         <view class="event-button">
-            <event-button cat="open" pid="{{post.id}}"></event-button>
+            <event-button cat="open" pid="{{post.id}}" color="{{color}}"></event-button>
         </view>
     </view>
-    <view class="cell-group">
+    <!-- <view class="cell-group">
        
         <cell custom-style="cell-item"   icon="location" title="{{post.address}}" bindtap="gotoLocation"></cell>
         <cell wx:if="{{post.rank_info.show}}"  custom-style="cell-item" icon="bang" title="{{post.rank_info.text}}" url="{{post.rank_info.url}}"></cell>
@@ -27,5 +27,5 @@
             <ud-icon name="post-nav-{{nav.id}}"/>
             <view>{{nav.name}}</view>
         </navigator>
-    </view>
+    </view> -->
 </view>

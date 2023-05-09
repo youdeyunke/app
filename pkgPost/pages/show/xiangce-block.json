@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "block-box": "./block-box",
+        "van-popup": "/vant/popup/index"
+    }
+}

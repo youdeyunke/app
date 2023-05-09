@@ -4,6 +4,10 @@ var auth = require('../../../utils/auth.js');
 var util = require('../../../utils/util.js');
 var wxCharts = require('../../../utils/wxcharts-min');
 var radarChart = null;
+const themes = [
+    { color: '#3A6BDD', bgImg: 'https://qiniucdn.udeve.cn/fang2021/6eed67a9-7a5c-4a64-be48-d81221ca3ac0.png' },
+    { color: '#30DFBB', bgImg: 'https://qiniucdn.udeve.cn/fang2021/40f109f6-8ec0-4bb2-8483-8a073fa2a294.png' }
+]
 Page({
 
     /**
@@ -17,6 +21,14 @@ Page({
         pageCover: '',
         pageUrl: '/pkgPost/pages/show/index?post_id=',
         postInfo: null,
+        color: "#3A6BDD",
+        bgImg: "https://qiniucdn.udeve.cn/fang2021/6eed67a9-7a5c-4a64-be48-d81221ca3ac0.png",
+        theme: 'theme1',
+        showTab: false,
+        StatusBarHeight: null,
+        pageDomTop: [],
+        tabActive: 'types',
+        vanTabs: [],
     
         loading: true,
         broker: null, // 联系人卡片
@@ -37,10 +49,70 @@ Page({
         });
     },
 
+    tabChange: function(e) {
+        console.log(e.detail.name)
+        var name = e.detail.name
+        var offsetTop = this.data.StatusBarHeight + 88
+        wx.pageScrollTo({
+            selector: '#'+name,
+            duration: 300,
+            offsetTop: -offsetTop,
+            success(resp){
+                console.log('成功',resp)
+            },
+            fail(resp){
+                console.log('失败',resp)
+            },
+        })
+    },
+    pageTopChange: function(e){
+        var statusBarHeight = this.data.StatusBarHeight
+        var vanTabs = this.data.vanTabs
+        var pageDomTop = this.data.pageDomTop
+        for(let i = 0;i < pageDomTop.length; i++){
+            if((e+88+statusBarHeight) < pageDomTop[i]){
+                this.setData({
+                    tabActive: vanTabs[i]
+                })
+                // console.log('7777',e,i)
+                break
+            }
+        }
+
+    },
+    getVanTabs(blocks){
+        var vanTabs = []
+        blocks.map((p)=>{
+            vanTabs.push(p.name)
+        })
+        this.setData({
+            tabActive: vanTabs[0],
+            vanTabs: vanTabs
+        })
+    },
     onPageScroll: function (e) {
         var scrollTop = e.scrollTop
         this.setOpacity(scrollTop,500)
+        this.setShowTab(scrollTop)
+        this.pageTopChange(scrollTop)
     },
+
+    getPageDom: function(){
+        var _this = this
+        var query = wx.createSelectorQuery();
+        setTimeout(() => {
+        query.selectAll('.block').boundingClientRect().exec(function (res) {
+            var pageDomTop = []
+            // console.log('8888',res)
+            for(let i = 0; i < res[0].length; i++){
+                pageDomTop.push(res[0][i].bottom)
+            }
+            _this.setData({
+                pageDomTop: pageDomTop
+            })
+        })}, 500)
+    },
+
     setOpacity:function(scrollTop,maxTop){
         var opacity = 0
         if(scrollTop<=maxTop){
@@ -52,12 +124,46 @@ Page({
             bgOpacity:opacity
         })
     },
+    getStatusBarHeight(){
+        var _this = this
+        wx.getSystemInfo({
+            success: (result) => {
+                _this.setData({
+                    StatusBarHeight: result.statusBarHeight
+                })
+            }
+        })
+    },
+    setShowTab(st){
+        var _this = this
+        wx.getSystemInfo({
+          success: (result) => {
+              var screenWidth = result.screenWidth
+              var StatusBarHeight = result.statusBarHeight
+              if (parseInt(st+StatusBarHeight+88) > parseInt(screenWidth/750*520)){
+                  this.setData({
+                      showTab: true
+                  })
+              }
+              if (parseInt(st+StatusBarHeight+88) < parseInt(screenWidth/750*520)){
+                this.setData({
+                    showTab: false
+                })
+            }
+          },
+        })
+    },
 
     backTo(e){
         console.log(e.detail.delta)
         wx.navigateBack({
             delta: e.detail.delta
         });
+        if(e.detail.delta == 1){
+            wx.reLaunch({
+              url: '/pages/home/home',
+            })
+        }
     },
 
     homeHandle: function () {
@@ -132,9 +238,10 @@ Page({
                 data.navs = resp.data.navs 
                 data.bannersInfo = resp.data.banners
                 data.broker = resp.data.broker
-                data.loading = false 
+                data.loading = false
+                _this.getVanTabs(resp.data.data)
                 _this._setPostInfo(resp.data.post)
-                // _this._setTheme(resp.data.post.theme)
+                _this._setTheme(resp.data.post.theme, resp.data.post.header_image)
                 _this.setData(data, () => {
                     wx.showShareMenu({
                         withShareTicket: true,
@@ -163,6 +270,7 @@ Page({
         }
 
         var postId = options.id || options.post_id 
+        wx.setStorageSync('bindPostId',postId)
         var sourceUid = options.source_uid
         app.globalData.sourceUid = sourceUid
     
@@ -177,6 +285,21 @@ Page({
         wx.hideShareMenu({
             menus: ['shareAppMessage', 'shareTimeline']
         })
+        _this.getStatusBarHeight()
+        this.showLogin()
+    },
+
+    showLogin: function(){
+      // 弹出登录授权窗口
+      if(app.globalData.token){
+        return 
+      }
+      
+      setTimeout(() => {
+          this.selectComponent('.loginwindow').openWindow()
+          return
+      
+      }, 10000)
     },
 
     markHistory: function(){
@@ -216,6 +339,8 @@ Page({
         // 页面渲染完成后
         this.drawRadar()
         //获取经纬度
+        //setTimeout(this.getPageDom(),500)
+        this.getPageDom()
     },
 
 
@@ -254,6 +379,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+
        
         var pages = getCurrentPages()
         console.log('pages', pages)
@@ -298,40 +424,65 @@ Page({
         })
     },
 
-    loadPostInfo: function(cb){
-        // 加载楼盘的基本信息
-        // 优先从本地缓存中读取
-        var _this = this  
-        var pid = this.data.postId
-        var key = 'post_base_info.' + pid
-        wx.getStorage({
-          key: key,
-          success: function(cache){
-            if(cache.data){
-                _this._setPostInfo(cache.data, cb)
-            }
-           
-          }
-        })
-
-        app.request({
-            url: '/api/v1/post_base_info/' + pid, 
-            hideLoading: true, 
-            success: function(resp){
-                var post = resp.data.data 
-                if(!post){
-                    // TODO 
-                    return 
+    _setTheme: function(q,img){
+        console.log(q);
+        if(q && q.substring(0,1) == "#"){
+            this.setData({
+                color: q
+            })
+        }else{
+            themes.map(( t, i) => {
+                if (q == ('theme'+(i+1))) {
+                    this.setData({
+                        color: t.color,
+                        bgImg: t.bgImg,
+                        theme: q
+                    })
+                    return
                 }
-                _this._setPostInfo(post, cb)
-                wx.setStorage({
-                  data: post,
-                  key: key,
-                })
-   
-            }
-        })
+            })
+        }
+        if(img){
+            this.setData({
+                bgImg: img
+            })
+        }
     },
+
+    // loadPostInfo: function(cb){
+    //     // 加载楼盘的基本信息
+    //     // 优先从本地缓存中读取
+    //     var _this = this  
+    //     var pid = this.data.postId
+    //     var key = 'post_base_info.' + pid
+    //     wx.getStorage({
+    //       key: key,
+    //       success: function(cache){
+    //         if(cache.data){
+    //             _this._setPostInfo(cache.data, cb)
+    //         }
+           
+    //       }
+    //     })
+
+    //     app.request({
+    //         url: '/api/v1/post_base_info/' + pid, 
+    //         hideLoading: true, 
+    //         success: function(resp){
+    //             var post = resp.data.data 
+    //             if(!post){
+    //                 // TODO 
+    //                 return 
+    //             }
+    //             _this._setPostInfo(post, cb)
+    //             wx.setStorage({
+    //               data: post,
+    //               key: key,
+    //             })
+   
+    //         }
+    //     })
+    // },
 
     /**
      * 生命周期函数--监听页面隐藏

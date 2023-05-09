@@ -18,9 +18,13 @@
 }
 
 .action .status-text {
-    font-size: 24rpx;
-    font-weight: bold;
-    margin-top: 8rpx;
+    width: 120rpx;
+    height: 50rpx;
+    background-color: #ffffff;
+    line-height: 50rpx;
+    font-size: 26rpx;
+    /* font-weight: bold; */
+    /* margin-top: 8rpx; */
 }
 
 .action.dark {

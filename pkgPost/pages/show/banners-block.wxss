@@ -1,6 +1,6 @@
 .post-cover {
     width: 750rpx;
-    height: 520rpx;
+    height: 530rpx;
     border-radius: 0rpx;
     overflow: hidden;
     margin: 0 0 0rpx 0;

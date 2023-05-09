@@ -4,7 +4,8 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        value: { type: Object }
+        value: { type: Object },
+        color: { type: String, value: '#3A6BDD'}
     },
 
     observers: {
@@ -16,6 +17,10 @@ Component({
                 } else {
                     item.hasImage = false
                     item.cover = 'https://qiniucdn.udeve.net/fang/pkgPost/image-none.png'
+                }
+                
+                if(item.tags){ 
+                  item.tags = item.tags.split(',')
                 }
                 return item
             })

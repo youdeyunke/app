@@ -5,6 +5,22 @@ Component({
    */
   properties: {
       value: {type: Object, default:{} },
+      color: { type: String, value: '#3A6BDD'},
+      theme: { type: String }
+  },
+
+  observers: {
+    "value.brokers": function(vals){
+      if(!vals){ 
+        return 
+      }
+      var brokers = vals.filter((v) => {  
+        return v.level == 1
+      }).filter((v,i) => { 
+        return i <= 2
+      })
+      this.setData({ brokers: brokers})
+    },
   },
 
   /**

@@ -2,10 +2,10 @@
     background-color: #fff;
     color: #333;
     font-size: 24rpx;
-    border-top-right-radius: 20rpx;
-    border-top-left-radius: 20rpx;
+    /* border-top-right-radius: 20rpx;
+    border-top-left-radius: 20rpx; */
     overflow: hidden;
-    margin-bottom:20rpx;
+    /* margin-bottom:20rpx; */
 
 }
 
@@ -14,11 +14,14 @@
 }
 
 .title-block {
-   
-    padding: 25rpx 20rpx 0 20rpx;
+    background-image: url('https://qiniucdn.udeve.cn/fang2021/6eed67a9-7a5c-4a64-be48-d81221ca3ac0.png');
+    background-size: 100% 100%;
+    padding: 50rpx 30rpx 35rpx 30rpx;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    width: 750rpx;
+    /* height: 190rpx; */
 }
 
 .left-title {
@@ -30,7 +33,7 @@
 .left-tags {
     display: flex;
     flex-wrap: wrap;
-    height: 46rpx;
+    /* height: 46rpx; */
     overflow: hidden;
     margin-top: 20rpx;
     justify-content: flex-start;
@@ -38,11 +41,16 @@
 
 .left-tag {
     color: #666666;
-    padding: 6rpx 14rpx;
-    border-radius: 6rpx;
-    background: #E4E4E4;
+    padding: 0 14rpx;
+    padding-bottom: 8rpx;
+    border-radius: 4rpx;
+    background: #FFFFFF;
     margin-right: 16rpx;
-    font-size: 24rpx;
+    margin-top: 10rpx;
+    font-size: 25rpx;
+}
+.left-tag text{
+    zoom: 0.8;
 }
 
 .event-button {

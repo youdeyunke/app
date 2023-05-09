@@ -1,4 +1,4 @@
-<block-box leftHat='true' title="图文详情"  padding="20" title-size="36">
+<block-box font-size="36" leftHatColor="{{color}}" leftHat='true' title="图文详情"  padding="20" >
 
 <raw-html html="{{value.html}}"></raw-html>
 

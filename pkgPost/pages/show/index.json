@@ -21,6 +21,7 @@
         "contact-block": "./contact-block",
         "qas-block": "./qas-block",
         "comments-block": "./comments-block",
+        "xiangce-block": "./xiangce-block",
         "van-transition": "/vant/transition/index",
         "page-loading": "./page-loading",
         "box": "/components/ud/box/index",
@@ -28,6 +29,10 @@
         "broker-contact": "/components/broker-contact/index",
         "visitors": "/components/visitors/index",
         "safe-tips": "/components/safe-tips",
+
+        "points_block":"./points_block",
+        "van-tabs": "/vant/tabs/index",
+        "van-tab": "/vant/tab/index",
         "html-block": "./html-block",
         "live":"/components/state-item/index"
     }

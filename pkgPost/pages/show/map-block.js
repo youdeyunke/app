@@ -6,6 +6,7 @@ Component({
    */
   properties: {
       value: {type: Object, default: {}},
+      color: { type: String, value: '#3A6BDD'},
       tabs: {type: String}
   },
 

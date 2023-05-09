@@ -10,6 +10,10 @@ Component({
         pid: {
             type: Number
         },
+        color: {
+            type: String,
+            value: '#000000'
+        }
     },
 
 
@@ -35,7 +39,7 @@ Component({
         nameDict: {
             title: ['订阅楼盘动态提醒', '已订阅!'],
             desc: ['一键订阅楼盘动态，开盘、变价、优惠活动等楼盘信息将会通过短信通知您，让您抢占买房先机', '已订阅，楼盘动态将会通过短信通知您'],
-            btn: ['订阅提醒', '已订阅']
+            btn: ['+订阅', '已订阅']
         },
         fid: null,
         status: 0,
@@ -95,7 +99,7 @@ Component({
             var fid = this.data.fid
             var pid = this.data.pid
             app.request({
-                url: '/api/v1/event_followers/' + fid,
+                url: '/v1/event_followers/' + fid,
                 method: 'DELETE',
                 data: {
                     post_id: pid
@@ -117,7 +121,7 @@ Component({
         createSub: function () {
             var _this = this
             app.request({
-                url: '/api/v1/event_followers',
+                url: '/v1/event_followers',
                 method: 'POST',
                 data: {
                     post_id: _this.data.pid
@@ -148,7 +152,7 @@ Component({
             }
             var _this = this
             app.request({
-                url: '/api/v1/event_followers',
+                url: '/v1/event_followers',
                 hideLoading: true,
                 data: {
                     post_id: _this.data.pid,

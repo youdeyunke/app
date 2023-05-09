@@ -1,6 +1,13 @@
 <!-- pages/post/tours-block.wxml -->
 <block>
-    <block-box width="750" title="热门活动" sub-title="{{value.more_title}}" url="{{value.more_url}}">
-        <van-cell url="{{item.url}}" wx:for="{{value.items}}" center title="{{item.title}}" label="活动时间：{{item.starts_at_pretty}}  已报名人数：{{item.join_nums}}" value="{{item.status.name}}" />
+    <block-box width="750" leftHat="true" leftHatColor="{{color}}" title="热门活动" sub-title="{{value.more_title}}" url="{{value.more_url}}">
+        <scroll-view scroll-with-animation="{{true}}" scroll-x style="width:100%;height: 390rpx;white-space: nowrap;">
+            <view class="types" wx:for="{{value.items}}">
+                <navigator url="{{item.url}}" class="tour-item">
+                    <image src="{{item.cover}}"></image>
+                    <view><text class="tour-title">{{item.title}}</text></view>
+                </navigator>
+            </view>
+        </scroll-view>
     </block-box>
 </block>

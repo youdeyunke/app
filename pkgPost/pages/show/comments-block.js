@@ -4,8 +4,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-      value: {type: Object }
-
+      value: {type: Object },
+      color: { type: String, value: '#3A6BDD'}
   },
 
     observers: {
