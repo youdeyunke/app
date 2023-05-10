@@ -289,11 +289,11 @@ App({
         this.setSystemInfo()
         this.startReddotInterval()
         this.ensureConfigs(function (config) {
+            _this.globalData.myconfigs = config;
             _this.loadCities(function (cities) {
                 _this.globalData.cities = cities;
                 city.setCity()
             });
-            //setTimeout(_this.initTim, 2000)
         })
         // 监听小程序前后台切换
         wx.onAppShow(this.onAppShow)
