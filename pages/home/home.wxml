@@ -20,3 +20,4 @@
 
 <page-loading wx:if="{{loading}}" />
 <pagemaker wx:else  bind:ready="pageReadyHandle" ref="pagemaker" style="position: absolute;top: 0;" class="pm" page-key="home" />
+

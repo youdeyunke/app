@@ -16,7 +16,9 @@
         "myslider": "/components/slider",
         "items": "/components/post-items/index",
         "van-action-sheet": "/vant/action-sheet/index",
-     
+        "van-tabbar":"/vant/tabbar/index",
+        "van-tabbar-item":"/vant/tabbar-item/index",
+  
         "copyright":"/components/copyright/index"
     }
 }
