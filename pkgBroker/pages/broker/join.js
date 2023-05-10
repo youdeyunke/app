@@ -48,6 +48,11 @@ Page({
 
     onLoad: function (q) {
         var _this = this
+        app.ensureConfigs(function (configs) {
+            _this.setData({
+                broker_join_bj: configs.ui.broker_join_bj
+            })
+        })
         wx.showLoading()
         this.setData({
             loading: true,
@@ -339,7 +344,6 @@ Page({
         this.checkBrokerStatus()
         if (u && u.id) {
             this.setData({
-      
                 mobile: u.mobile,
                 mobileLock: true,
             })
