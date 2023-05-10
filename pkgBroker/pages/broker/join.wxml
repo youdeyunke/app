@@ -1,11 +1,6 @@
 <view class="outer">
-<<<<<<< HEAD
     <image class="banner" src="{{broker_join_bj}}"></image>
     <block wx:if="{{groupValue == 'broker'}}">
-=======
-    <image class="banner" src="./bg.png"></image>
-    <!-- <block wx:if="{{groupValue == 'broker'}}">
->>>>>>> e0afe336277ad297c305838d6b52d20a0faaa002
 
         <view class="title">
             置业顾问入驻
@@ -22,7 +17,7 @@
         <view class="desc">
            入驻后即可报备客户，赚佣金
         </view>
-    </block> -->
+    </block>
 
     <view style="width: 750rpx;height: 324rpx;"></view>
 
