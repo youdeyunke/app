@@ -326,8 +326,8 @@ App({
 
         var _this = this;
         var data = {
-            bindBrokerId: wx.getStorageSync('bindBrokerId') || '',
-            bindSource: wx.getStorageSync('bindSource') || '',
+            sourceName: wx.getStorageSync('sourceName') || '',
+            parentId: wx.getStorageSync('parentId') || '',
         }
         this.request({
             url: "/api/v1/heartbeat",
@@ -338,29 +338,17 @@ App({
                 if (!resp.data.data) {
                     return
                 }
-
                 var data = resp.data.data
                 // 未读消息 
                 var c = data.unread_message_count 
                 var bindex = 1
                 if(c == 0){
-                    wx.removeTabBarBadge({ index: bindex , 
-                        fail: function(){
-                            // pass
-                        }
-                    })
-                }
-                if (c > 0) {
+                    wx.removeTabBarBadge({ index: bindex  })
+                }else {
                     wx.setTabBarBadge({
                         index: bindex,
                         text: c.toString(),
                     })
-                }
-
-                if (data.cmd) {
-                    return
-                    // 执行一些内置的服务端命令
-                    _this.cmdHandle(data.cmd, data.cmd_args)
                 }
             }
         });
@@ -493,6 +481,28 @@ App({
                 typeof cb == 'function' && cb(resp.data.data)
             }
         })
+    },
+
+    setShareParams:function(query){
+      // 从参数中解析出分享参数并写入local storage
+      let parentId = wx.getStorageSync('parentId');
+      if(query.parentId){
+        if(!parentId){
+            wx.setStorage({
+                key: 'parentId',
+                data: query.parentId
+            })
+        }
+      }
+      let sourceName = query.sourceName
+      if(query.sourceName){
+        if(!sourceName){
+            wx.setStorage({
+                key: 'sourceName',
+                data: query.sourceName,
+            })
+        }
+      }
     },
 
     sendSms: function (mobile, cb) {

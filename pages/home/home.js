@@ -127,6 +127,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        app.setShareParams(options);
         this.setData({
             system: app.globalData.system
         }, () => {
@@ -246,6 +247,11 @@ Page({
                             icon: 'none',
                             title: '积分已增加',
                         })
+                    }
+                    var path = '/pages/home/home'
+                    // 如果是登录用户，需要构建转发分享参数
+                    if(app.globalData.userInfo && app.globalData.userInfo.id){
+                      path = path  +"?sourceUserId=" +app.globalData.userInfo.id +"&sourceName=转发分享小程序首页"
                     }
                     resolve( {
                         title: _this.data.shareTitle,
