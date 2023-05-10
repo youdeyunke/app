@@ -193,6 +193,14 @@ Page({
     },
 
   joinHandle: function (e) {
+    var _this = this
+    if(this.data.item.cat == 'weapp'){
+      wx.navigateToMiniProgram({
+        appId: _this.data.item.weapp_id,
+        path:_this.data.item.weapp_path,
+      })
+    }
+
     console.log('join handle')
     this.setData({
       showForm: true,

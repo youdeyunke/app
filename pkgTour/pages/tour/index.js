@@ -21,7 +21,7 @@ Page({
         app.checkForceLogin()
         var _this = this
         var catId = q.cat_id || ''
-        wx.setNavigationBarTitle({ title: '看房团活动' })
+        wx.setNavigationBarTitle({ title: '线上活动' })
         this.loadData()
     },
 
