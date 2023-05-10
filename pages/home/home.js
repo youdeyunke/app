@@ -22,68 +22,68 @@ Page({
         showInstallTips: 0, // 1:正常显示，2：自动关闭，3：手动关闭
         city_id: null,
         city: '',
-        bgOpacity:0
+        bgOpacity: 0
     },
 
     onPageScroll: function (e) {
         var scrollTop = e.scrollTop
-        this.setOpacity(scrollTop,500)
+        this.setOpacity(scrollTop, 500)
     },
-    setOpacity:function(scrollTop,maxTop){
+    setOpacity: function (scrollTop, maxTop) {
         var opacity = 0
-        if(scrollTop<=maxTop){
-            opacity = scrollTop/maxTop
-        }else{
+        if (scrollTop <= maxTop) {
+            opacity = scrollTop / maxTop
+        } else {
             opacity = 1
         }
         this.setData({
-            bgOpacity:opacity
+            bgOpacity: opacity
         })
     },
 
-    citySelect: function(){
+    citySelect: function () {
         wx.navigateTo({
-          url: '/pages/cities/select',
+            url: '/pages/cities/select',
         })
     },
 
-    loadSelectCity: function(){
+    loadSelectCity: function () {
         var adcode = wx.getStorageSync('cityCode')
-        console.log('2323232',adcode)
+        console.log('2323232', adcode)
         var _this = this
         var url = '/api/v1/cities/'
         app.request({
             url: url,
-            success(resp){
+            success(resp) {
                 var cities = resp.data.data
-     
+
                 if (!adcode) {
-           
+
                     _this.setData({
                         city: cities[0].name
                     })
 
-                }else{
+                } else {
                     cities.forEach((item) => {
-                        if(item.adcode == adcode){
-                        
+                        if (item.adcode == adcode) {
+
                             _this.setData({
                                 city: item.name
                             })
                         }
                     })
                 }
-                if(_this.data.city == ''){
+                if (_this.data.city == '') {
                     _this.setData({
                         city: cities[0].name
                     })
                 }
             }
-        })        
+        })
     },
-    gotoSearch: function(){
+    gotoSearch: function () {
         wx.navigateTo({
-          url: '/pkgSearch/page/search/index',
+            url: '/pkgSearch/page/search/index',
         })
     },
 
@@ -107,17 +107,17 @@ Page({
         })
         var _this = this
         app.loadConfigs(function (configs) {
-           
+
             _this.setData({
-                configs: configs, 
-                loading: false, 
+                configs: configs,
+                loading: false,
             })
             wx.stopPullDownRefresh()
             wx.hideNavigationBarLoading()
             wx.stopPullDownRefresh() //停止下拉刷新  
             setTimeout(() => {
                 _this.selectComponent('.pm').reload()
-            }, 800)  
+            }, 800)
 
         })
 
@@ -135,9 +135,9 @@ Page({
         })
         this.loadSelectCity()
         setTimeout(() => {
-            this.setData({loading: false })
+            this.setData({ loading: false })
         }, 500)
- 
+
     },
 
     checkInstallTips: function () {
@@ -171,7 +171,7 @@ Page({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function () {},
+    onReady: function () { },
 
     pageReadyHandle: function (e) {
         var config = e.detail
@@ -183,7 +183,7 @@ Page({
         var titleBgColor = config.title.bgColor
         var titleFontColor = config.title.color
         titleBgColor = utils.set16ToRgb(titleBgColor)
-        
+
         this.setData({
             shareCover: shareCover,
             shareTitle: shareTitle,
@@ -198,12 +198,17 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        if (typeof this.getTabBar === 'function' &&
+            this.getTabBar()) {
+            this.getTabBar().setPage('/pages/home/home')
+        }
+
         var path = '/pages/home/home'
-        if(app.globalData.userInfo){ 
-            path = path + '?source_uid=' + app.globalData.userInfo.id 
+        if (app.globalData.userInfo) {
+            path = path + '?source_uid=' + app.globalData.userInfo.id
         }
         this.setData({
-            pagePath: path 
+            pagePath: path
         })
         this.loadSelectCity()
     },
@@ -212,7 +217,7 @@ Page({
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function () {},
+    onHide: function () { },
 
     /**
      * 生命周期函数--监听页面卸载
@@ -227,7 +232,7 @@ Page({
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () {},
+    onReachBottom: function () { },
 
     /**
      * 用户点击右上角分享
@@ -250,20 +255,21 @@ Page({
                     }
                     var path = '/pages/home/home'
                     // 如果是登录用户，需要构建转发分享参数
-                    if(app.globalData.userInfo && app.globalData.userInfo.id){
-                      path = path  +"?sourceUserId=" +app.globalData.userInfo.id +"&sourceName=转发分享小程序首页"
+                    if (app.globalData.userInfo && app.globalData.userInfo.id) {
+                        path = path + "?sourceUserId=" + app.globalData.userInfo.id + "&sourceName=转发分享小程序首页"
                     }
-                    resolve( {
+                    resolve({
                         title: _this.data.shareTitle,
                         imageUrl: _this.data.shareCover,
                     })
                 }
             })
         })
+
         return {
             title: _this.data.shareTitle,
             imageUrl: _this.data.shareCover,
-            promise, 
+            promise,
         }
     },
     onShareTimeline: function () {
@@ -281,7 +287,7 @@ Page({
                             title: '积分已增加',
                         })
                     }
-                    resolve( {
+                    resolve({
                         title: _this.data.shareTitle,
                         imageUrl: _this.data.shareCover,
                     })
@@ -291,7 +297,7 @@ Page({
         return {
             title: _this.data.shareTitle,
             imageUrl: _this.data.shareCover,
-            promise, 
+            promise,
         }
     }
 })

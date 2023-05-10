@@ -1,6 +1,4 @@
-view, text, scroll-view, input, button, image, cover-view {
-    box-sizing: border-box;
-}
+
 
 page {
     --height: 44px;

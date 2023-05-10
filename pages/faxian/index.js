@@ -61,6 +61,11 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        if (typeof this.getTabBar === 'function' &&
+            this.getTabBar()) {
+            this.getTabBar().setPage('/pages/faxian/index')
+        }
+
         this.setData({
             tabs: app.globalData.myconfigs.faxian_tabs
         })

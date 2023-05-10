@@ -24,7 +24,10 @@
 
 .banner{
     width:750rpx;
-    height:500rpx;
+    height:412rpx;
+    display: block;
+    position: absolute;
+    z-index: -1;
 }
 
 .blank{
@@ -35,4 +38,8 @@
 .footer{
     width:710rpx; 
     margin:20rpx auto;
+}
+.body{
+    border-radius: 37rpx 37rpx 0 0;
+    background-color: #fff;
 }

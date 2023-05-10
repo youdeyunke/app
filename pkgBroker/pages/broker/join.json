@@ -1,4 +1,5 @@
 {
+    "navigationBarTitleText": "申请开通全民经纪人",
     "backgroundColor": "#cecece",
     "enablePullDownRefresh": false,
     "usingComponents": {
