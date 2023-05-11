@@ -46,7 +46,7 @@
 
 
     <view class="body">
-        <ud-card radius="20" width="750" title="{{item.label}}" wx:if="{{userInfo.is_broker}}" wx:for="{{myselfData}}">
+        <ud-card radius="20" width="750" title="{{item.label}}" wx:if="{{userInfo.is_broker}}" wx:for="{{myselfIcons}}">
             <view class="icons">
                 <!-- <van-grid clickable column-num="5" direction="horizontal">
                     <van-grid-item wx:for="{{brokerIcons}}" text="{{item.name}}" bindtap="{{item.handle}}" icon="/assets/icons/{{item.iconKey}}.png" url="{{item.url}}{{userInfo.broker_id}}" link-type="navigateTo">

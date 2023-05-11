@@ -394,9 +394,8 @@ Page({
         app.request({
             url: '/api/v1/myself/icons',
             success(resp){
-               console.log("长度：",resp.data);
                _this.setData({
-                myselfData: resp.data.data
+                myselfIcons: resp.data.data
             })
             }
         })
