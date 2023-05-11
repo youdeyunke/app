@@ -11,72 +11,71 @@ Page({
         userInfo: {},
         headerBg: "",
         score: 0,
-        userIcons: [
+        // userIcons: [
+        //     {
+        //         name: '我的收藏1',
+        //         iconKey: '18',
+        //         url: '/pkgMyself/pages/favposts/index'
+        //     },
+        //     {
+        //         name: '我的订阅',
+        //         iconKey: '4',
+        //         url: '/pkgMyself/pages/eventposts/index'
+        //     },
+        //     {
+        //         name: '浏览历史',
+        //         iconKey: '12',
+        //         url: '/pkgMyself/pages/history/index'
+        //     },
+        //     {
+        //         name: '我的预约',
+        //         iconKey: '20',
+        //         url: '/pkgMyself/pages/booking/index'
+        //     },
+        //     {
+        //         name: '我的问答',
+        //         iconKey: '19',
+        //         url: '/pkgMyself/pages/qa/index'
+        //     },
+        //     //{name: '我的评论', iconKey: '19',url: '/pkgMyself/pages/comments/index'},
+        //     {
+        //         name: '我的卡券',
+        //         iconKey: '22',
+        //         url: '/pkgMyself/pages/coupons/index'
+        //     },
+        // ],
 
-            {
-                name: '我的收藏',
-                iconKey: '18',
-                url: '/pkgMyself/pages/favposts/index'
-            },
-            {
-                name: '我的订阅',
-                iconKey: '4',
-                url: '/pkgMyself/pages/eventposts/index'
-            },
-            {
-                name: '浏览历史',
-                iconKey: '12',
-                url: '/pkgMyself/pages/history/index'
-            },
-            {
-                name: '我的预约',
-                iconKey: '20',
-                url: '/pkgMyself/pages/booking/index'
-            },
-            {
-                name: '我的问答',
-                iconKey: '19',
-                url: '/pkgMyself/pages/qa/index'
-            },
-            //{name: '我的评论', iconKey: '19',url: '/pkgMyself/pages/comments/index'},
-            {
-                name: '我的卡券',
-                iconKey: '22',
-                url: '/pkgMyself/pages/coupons/index'
-            },
-        ],
-
-        brokerIcons: [{
-                name: '主营楼盘',
-                iconKey: '2',
-                handle: "gotoPost",
-            },
-            {
-                name: '我的主页',
-                iconKey: '13',
-                handle: "gotoProfile"
-            },
-            {
-                name: '客户线索',
-                iconKey: '27',
-                url: '/pkgAdmin/pages/clue/home'
-            },
-            {
-                name: '我的海报',
-                iconKey: '24',
-                url: '/pkgBroker/pages/broker/qr'
-            },
-            {
-                name: '报备客户',
-                iconKey: '23',
-                url: '/pkgFenxiao/pages/fenxiao/report'
-            },
-            {
-                name: '历史报备',
-                iconKey: '22',
-                url: '/pkgFenxiao/pages/fenxiao/index'
-            },
-        ],
+        // brokerIcons: [{
+        //         name: '主营楼盘1',
+        //         iconKey: '2',
+        //         handle: "gotoPost",
+        //     },
+        //     {
+        //         name: '我的主页',
+        //         iconKey: '13',
+        //         handle: "gotoProfile"
+        //     },
+        //     {
+        //         name: '客户线索',
+        //         iconKey: '27',
+        //         url: '/pkgAdmin/pages/clue/home'
+        //     },
+        //     {
+        //         name: '我的海报',
+        //         iconKey: '24',
+        //         url: '/pkgBroker/pages/broker/qr'
+        //     },
+        //     {
+        //         name: '报备客户',
+        //         iconKey: '23',
+        //         url: '/pkgFenxiao/pages/fenxiao/report'
+        //     },
+        //     {
+        //         name: '历史报备',
+        //         iconKey: '22',
+        //         url: '/pkgFenxiao/pages/fenxiao/index'
+        //     },
+        // ],
 
         cache: '0 kb', // cache value
 
@@ -360,7 +359,6 @@ Page({
                 configs: configs
             })
         })
-
         var token = app.globalData.token
         // 如果是别人邀请注册的，就记录下referrer_id，注册时携带referrer_id
         if (q.referrer_id && q.referrer_id.length > 0) {
@@ -387,25 +385,40 @@ Page({
             }
         }
         this.loadCacheInfo()
+
+        this.loadIcons()
+    },
+
+    loadIcons(){
+        var _this = this
+        app.request({
+            url: '/api/v1/myself/icons',
+            success(resp){
+               console.log("长度：",resp.data);
+               _this.setData({
+                myselfData: resp.data.data
+            })
+            }
+        })
     },
 
     saomaHandle: function () {
         wx.scanCode({
-            success (res) {
-              var path = res.result || res.path
-              if(path == undefined){
-                wx.showToast({
-                    title: '二维码无效',
-                    icon: 'none'
+            success(res) {
+                var path = res.result || res.path
+                if (path == undefined) {
+                    wx.showToast({
+                        title: '二维码无效',
+                        icon: 'none'
+                    })
+                    return
+                }
+                if (!path.startsWith('/')) {
+                    path = '/' + path
+                }
+                wx.navigateTo({
+                    url: path,
                 })
-                return
-              }
-              if(!path.startsWith('/')){
-                path = '/' + path 
-              }
-              wx.navigateTo({
-                url: path,
-              })
             }
         })
     },

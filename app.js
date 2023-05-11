@@ -118,7 +118,6 @@ App({
         })
     },
 
-
     loadConfigs: function (cb) {
         /* 从服务器加载系统配置嘻嘻 */
         var _this = this;
