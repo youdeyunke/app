@@ -1,124 +1,129 @@
-.outer{
-  width:710rpx;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  margin:0rpx auto 0 auto;
+.header {
+    width: 750rpx;
+    height: 550rpx;
+    /* background-color: #fff; */
+    padding-top: 30rpx;
+    background-size: 750rpx 270rpx;
 }
 
-.main{
-  background-color:#FDE7AE;
-  background-size: 710rpx 354rpx; 
-  background-repeat: no-repeat;
-  width: 710rpx;
-  height: 354rpx;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  border-radius: 15rpx;
-  overflow: hidden;
-  position: relative;
-
+.zhuye-bg {
+    width: 180rpx;
+    height: 386rpx;
+    position: absolute;
+    left: 182rpx;
 }
 
-.info{
-  width:340rpx;
-  margin:30rpx 0 0 40rpx;
-  font-size: 24rpx; 
-  color: #3F3F3F;
+.user-card {
+    width: 690rpx;
+    height: 386rpx;
+    border-radius: 30rpx;
+    box-shadow: 2rpx 8rpx 27rpx 3rpx rgba(32, 46, 187, 0.0800);
+    margin: 30rpx;
+    position: relative;
+    display: flex;
 }
 
-.info .cell{
-  margin-top:8rpx;
+.user-card-details {
+    z-index: 10;
+    border-radius: 30rpx;
+    background-color: #FFF;
 }
 
-.info .name{
-  font-size: 38rpx; 
-  color: #333; 
-  margin-bottom:20rpx;
-  font-weight: bold;
+.user-card-avatar {
+    width: 300rpx;
+    height: 386rpx;
+    border-radius: 30rpx;
 }
 
-
-.btn{
-  height: 64rpx; 
-  width: 177rpx; 
-  background-color: rgba(255,255,255, 0.5); 
-  box-shadow: 2rpx 4rpx 8rpx rgba(201,146,7,0.07);
-  display: flex;
-  justify-content: flex-start;
-  border-radius:32rpx;
-  font-size: 24rpx;
-  color: #333;
-  padding:0 7rpx;
-  align-items: center;
+.user-card-title {
+    display: flex;
+    width: 390rpx;
+    padding: 0 30rpx;
+    justify-content: space-between;
+    align-items: center;
+    height: 120rpx;
 }
 
-.btn .icon{
-  width: 28rpx; 
-  height: 28rpx;
-  margin:0 12rpx;
+.user-card-title-name {
+    font-size: 36rpx;
+    font-weight: bold;
 }
 
-.level{
-  width: 36rpx; 
-  height: 36rpx; 
+.user-card-status {
+    width: 210rpx;
+    height: 56rpx;
+    font-size: 28rpx;
+    text-align: center;
+    background-color: #1C56DB;
+    color: #FFF;
+    line-height: 56rpx;
+    border-radius: 28rpx;
 }
 
-.copy {
-  width: 26rpx; 
-  height: 26rpx;
+.user-card-company {
+    display: flex;
+    padding-left: 30rpx;
+    justify-content: left;
+    align-items: center;
+    height: 100rpx;
 }
 
-.avatar{
-  margin:70rpx 40rpx 0 0;
+.user-card-image {
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 12rpx;
 }
 
-.avatar-img{
-  width:130rpx; 
-  height: 130rpx; 
-  border-radius: 125rpx;
-  border: 4rpx solid #FDEBBD;
+.user-card-company-name {
+    font-size: 28rpx;
+    color: #666666;
+    font-weight: 400;
 }
 
-.btns{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width:100%; 
-  position: relative;
+.user-card-lxfs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 166rpx;
+    position: absolute;
+    left: 284rpx;
 }
 
-.btns .share{
-  background:red; 
-  position:absolute;
-  z-index:3;
-  height: 64rpx; 
-  width: 177rpx; 
-  right:30rpx;
-  opacity: 0;
-
+.user-card-lxfs-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-
-.qr-outer{
-  width: 534rpx; 
-  height: 534rpx; 
-  background: #ECF5FF;
-  margin:120rpx auto 20rpx auto;
-  
+.user-card-lxfs-item-img {
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 12rpx;
 }
 
-.tips{
-  color: #666666;
-  font-size: 24rpx; 
-  text-align: center;
-  width: 400rpx;
-  margin:40rpx auto; 
+.user-card-lxfs-item-message {
+    font-size: 26rpx;
+    color: #666666;
+    margin-right: 12rpx;
+    width: 180rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.qr{
-  width: 100%; 
+.user-card-lxfs-btn {
+    width: 150rpx;
+    height: 42rpx;
+    background-color: #5099FF;
+    border-radius: 21rpx;
+    text-align: center;
+    line-height: 35rpx;
+}
 
+.user-status-mes {
+    padding: 0 40rpx;
+    width: 750rpx;
+    display: flex;
+    justify-content: space-between;
 }

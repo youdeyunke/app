@@ -7,7 +7,6 @@ Component({
    */
   properties: {
     broker:{type: Object, value: null}
-
   },
 
 
@@ -48,7 +47,36 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    callMe: function (e) {
+        var mobile = this.data.broker.mobile
+        if (!mobile) {
+            return false
+        }
 
+        wx.makePhoneCall({
+            phoneNumber: mobile
+        })
+    },
+
+    copyWeixin(){
+        wx.setClipboardData({
+            data: this.data.broker.wechat,
+            success (res) {
+              wx.getClipboardData({
+                success (res) {
+                  console.log(res.data) // data
+                }
+              })
+            }
+          })
+    },
+
+    saveNumber(){
+        wx.addPhoneContact({
+          firstName: this.data.broker.name,
+          mobilePhoneNumber: this.data.broker.mobile
+        })
+    },
 
     avatarHandle: function(){
       var urls = [this.data.broker.avatar]
