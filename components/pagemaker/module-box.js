@@ -15,6 +15,20 @@ Component({
   },
 
   observers: {
+    "config.position":function(p){
+      if(!p){
+        return
+      }
+      if(p.fixed != true){
+        return ;
+      }
+      p.zIndex = !p.zIndex ? 10 : p.zIndex;
+      // 悬浮定位
+      var value = "position:fixed; left:" +p.left +'rpx; top:' + p.top +'rpx;' +'z-index:' +p.zIndex +';';
+      
+      this.setData({positionValue: value})
+
+    },
     "shadow": function(v){
       if(!v){
         return 
