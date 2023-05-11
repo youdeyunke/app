@@ -7,6 +7,7 @@
     align-items: center;
     padding:0;
     margin:0;
+    padding-bottom: calc(100rpx + env(safe-area-inset-bottom)) ;
     width:750rpx;
 }
 

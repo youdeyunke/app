@@ -3,7 +3,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 80rpx;
+  height: 100rpx;
   
   width:100%;
   background: white;
@@ -26,16 +26,17 @@
   flex: 1;
   text-align: center;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 }
 
 .tab-bar-item image {
-  width: 27px;
-  height: 27px;
+  width: 54rpx;
+  height: 54rpx;
 }
 
 .tab-bar-item view {
-  font-size: 10px;
+  font-size: 20rpx;
+  margin-top:4rpx;
 }
