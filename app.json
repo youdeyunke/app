@@ -316,7 +316,9 @@
         "pages/districts/select",
         "pages/udeve/index",
         "pages/visitors/index",
-        "pages/qr/show"
+        "pages/qr/show",
+        "pages/tab1/index",
+        "pages/tab2/index"
     ],
     "tabBar": {
         "custom": true,
