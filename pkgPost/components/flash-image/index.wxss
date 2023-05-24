@@ -1,0 +1,90 @@
+/* pkgPost/components/flash-image/index.wxss */
+.box {
+    width: 100%;
+    height: 100vh;
+    background-size: 100% 100vh;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+}
+.ceBianLan {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 30rpx;
+    top: 715rpx;
+}
+.image_size {
+    width: 80rpx;
+    height: 80rpx;
+    margin-bottom: 30rpx;
+}
+.blur-bg {
+    width: 100%;
+    height: 548rpx;
+    position: absolute;
+    bottom: 0;
+    backdrop-filter: blur(5px);
+}
+.blur-box {
+    width:690rpx;
+    height: 548rpx;
+    position: absolute;
+    bottom: 0;
+    padding: 0 30rpx 0 30rpx;
+    color: #FFFFFF;
+    font-size: 28rpx;
+    font-weight: 400;
+}
+.mingcheng {
+    height: 100rpx;
+    display: flex;
+   align-items: center;
+   justify-content: space-between;
+    font-size: 34rpx;
+    font-weight: bold;
+    color: #FFFFFF;
+    line-height: 44rpx;
+    border-bottom: 1rpx solid #ffffff;
+}
+.biaoqianbox {
+    margin-left: 17rpx;
+    display: flex;
+}
+
+.biaoqian {
+    font-size: 22rpx;
+    color: #666666;
+    background: #FFFFFF;
+    padding: 0 8rpx 0 8rpx;
+    margin-right: 10rpx;
+    border-radius: 4rpx;
+}
+.jiage {
+    font-size: 22rpx;
+}
+.blur-box_bottom_children {
+    display: flex;
+    align-items: center;
+    height: 100rpx;
+    justify-content: space-between;
+}
+.dizhi_left {
+    width: 503rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.guanbi {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 120rpx;
+}
+.guanbi_btn {
+    padding: 10rpx;
+    border: 1px solid #FFFFFF;
+}

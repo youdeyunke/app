@@ -1,66 +1,66 @@
 <template name="joingroup">
-    <joingroup-block value="{{block.value}}" color="{{color}}" id="{{block.name}}"/>
+    <joingroup-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
 </template>
 <template name="info">
-    <info-block value="{{block.value}}" color="{{color}}" theme="{{theme}}" id="{{block.name}}"/>
+    <info-block value="{{block.value}}" color="{{color}}" theme="{{theme}}" id="{{block.name}}" />
 </template>
 <template name="map">
     <map-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" tabs="{{postInfo.map_tabs}}" />
 </template>
 <template name="types">
-    <types-block value="{{block.value}}" color="{{color}}" id="{{block.name}}"/>
+    <types-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
 </template>
 <template name="brokers">
-    <brokers-block value="{{block.value}}" color="{{color}}" theme="{{theme}}" id="{{block.name}}"/>
+    <brokers-block value="{{block.value}}" color="{{color}}" theme="{{theme}}" id="{{block.name}}" />
 </template>
 <template name="qas">
-    <qas-block value="{{block.value}}" color="{{color}}" id="{{block.name}}"/>
+    <qas-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
 </template>
 <template name="news">
-    <news-block value="{{block.value}}" color="{{color}}" id="{{block.name}}"/>
+    <news-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
 </template>
 <template name="ticket">
-    <ticket-block  value="{{block.value}}" color="{{color}}" id="{{block.name}}"/>
+    <ticket-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
 </template>
 <template name="comments">
-    <comments-block value="{{block.value}}" color="{{color}}" id="{{block.name}}"/>
+    <comments-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
 </template>
 <template name="events">
-    <events-block value="{{block.value}}" color="{{color}}" id="{{block.name}}"/>
+    <events-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
 </template>
 <template name="tours">
-    <tours-block value="{{block.value}}" color="{{color}}" id="{{block.name}}"/>
+    <tours-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
 </template>
 <template name="recoms">
-    <recoms-block value="{{block.value}}" color="{{color}}" id="{{block.name}}"/>
+    <recoms-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
 </template>
 <template name="points">
-    <points_block value="{{block.value}}" color="{{color}}" id="{{block.name}}"/>
+    <points_block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
 </template>
 <template name="xiangce">
-    <xiangce-block value="{{block.value}}" color="{{color}}" id="{{block.name}}"/>
+    <xiangce-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
 </template>
 
 <template name="html">
-    <html-block value="{{block.value}}" color="{{color}}" id="{{block.name}}"/>
+    <html-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
 </template>
 
 <navigation-bar bgOpacity="{{bgOpacity}}" back="true" bindback="backTo" background="rgb(255 ,255 ,255)" background-color-top="none" title=""></navigation-bar>
 <page-loading loading="{{loading}}" />
 <!-- <images-block value="{{imagesInfo}}"></images-block> -->
+    <flash-image postInfo="{{postInfo}}"></flash-image>
 
 <view style="position: absolute;top: 0;" class="outer" hidden="{{loading}}">
     <banners-block color="{{color}}" value="{{bannersInfo}}"></banners-block>
-
     <cover-block value="{{postInfo}}" color="{{color}}" />
     <header-block navs="{{navs}}" post="{{postInfo}}" color="{{color}}" bgImgUrl="{{bgImg}}" />
-    <view  style="position: sticky;top:{{StatusBarHeight + 44}}px;width: 750rpx;z-index: 10;">
+    <view style="position: sticky;top:{{StatusBarHeight + 44}}px;width: 750rpx;z-index: 10;">
         <van-tabs active="{{ tabActive }}" bind:click="tabChange" color="{{color}}">
             <van-tab wx:key="name" wx:for="{{blocks}}" name="{{item.name}}" title="{{item.label_short || item.label || '无标签'}}"></van-tab>
         </van-tabs>
     </view>
     <view class="block" wx:for="{{blocks}}" wx:for-item="block" wx:for-key="index" wx:key="name">
-        <template is="{{block.name}}" data="{{block: block,color: color, theme: theme, postInfo: postInfo}}"/>
+        <template is="{{block.name}}" data="{{block: block,color: color, theme: theme, postInfo: postInfo}}" />
         <!-- <joingroup-block wx:if="{{block.name == 'joingroup'}}" value="{{block.value}}" color="{{color}}" id="{{block.name}}"/>
         <info-block wx:if="{{block.name == 'info'}}" value="{{block.value}}" color="{{color}}" theme="{{theme}}" id="{{block.name}}"/>
         <map-block wx:if="{{block.name == 'map'}}" value="{{block.value}}" color="{{color}}" id="{{block.name}}"/>
@@ -78,13 +78,14 @@
 
     </view>
     <ad-link />
+   
     <!-- safe-tips  / -->
     <copyright></copyright>
-
-    <broker-contact wx:if="{{postId && postInfo && broker}}" broker="{{broker}}" post-id="{{postId}}" ></broker-contact>
+    <broker-contact wx:if="{{postId && postInfo && broker}}" broker="{{broker}}" post-id="{{postId}}"></broker-contact>
     <default-contact wx:else post="{{postInfo}}"></default-contact>
-  
 </view>
 
 
+
+    
 <login-window closable="{{true}}" class="loginwindow" ref="loginwindow"></login-window>
