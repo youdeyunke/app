@@ -318,7 +318,8 @@
         "pages/visitors/index",
         "pages/qr/show",
         "pages/tab1/index",
-        "pages/tab2/index"
+        "pages/tab2/index",
+        "pages/wxpay/demo"
     ],
     "tabBar": {
         "custom": true,

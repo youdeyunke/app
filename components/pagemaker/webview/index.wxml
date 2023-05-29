@@ -1,0 +1,3 @@
+<!--components/pagemaker/webview/index.wxml-->
+<!-- <text>components/pagemaker/webview/index.wxml</text> -->
+<web-view src="{{config.url}}"/>
