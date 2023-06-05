@@ -46,6 +46,9 @@
 <template name="news">
     <news-module config="{{item}}" ></news-module>
 </template>
+<template name="webview">
+    <webview-module config="{{item}}" ></webview-module>
+</template>
 
 <view class="pagemaker">
     <block wx:key="id" wx:for="{{modules}}">

@@ -10,6 +10,40 @@ Page({
 
   },
 
+  wxzhif(){
+    var _this = this
+    wx.request({
+      url: 'https://wxpay.udeve.net/ServerCommand/微信支付统一下单',
+      method: 'POST',
+      data: {
+        //   data: {
+            OrderId: '2023051715290298413053403',
+            OpenId: 'o-65p5KNNe4xp5UDctxMHY2Y68vc',
+            Body: 'asas',
+            Attach: 'dadad'
+        //   }
+      },
+      success(resp){
+          console.log(resp.data);
+          _this.dywxzf(resp.data)
+      }
+    })
+},
+
+dywxzf(data){
+    wx.requestPayment({
+        timeStamp:data.timeStamp,
+        nonceStr:data.nonceStr,
+        package:data.package,
+        signType: data.signType,
+        paySign: data.paySign,
+        success(res){
+            console.log('jieguo',res);
+        },
+        fail(res){}
+    })
+},
+
   /**
    * 生命周期函数--监听页面加载
    */

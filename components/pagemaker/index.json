@@ -18,6 +18,7 @@
         "unknow-module": "unknow-module",
         "notice-module": "./notice/index",
         "blocknavs-module": "./blocknavs/index",
+        "webview-module": "./webview/index",
         "module-box": "./module-box"
     }
 }

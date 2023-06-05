@@ -65,6 +65,7 @@ Component({
             this.setData({ showShareBox: true })
         },
         phoneHandle: function () {
+            // console.log("data:",this.data.post.sub_phone);
             var phone = this.data.post.phone
             var sub = this.data.post.sub_phone
             var postId = this.data.post.id 
