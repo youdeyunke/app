@@ -107,7 +107,7 @@ Component({
             console.log('map click')
             var _this = this
             wx.showLoading({ title: '正在打开地图', mask: true })
-            wx.getLocation({
+            wx.getFuzzyLocation({
                 type: 'wgs84', //返回可以用于wx.openLocation的经纬度
                 success(res) {
                     const latitude = _this.data.latitude

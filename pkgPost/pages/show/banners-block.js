@@ -89,7 +89,7 @@ Component({
       }
 
       if (img.cat == 'vr') {
-        app.gotoWebview('vr', img.url)
+        app.gotoWebview( img.url, 'vr')
         return 
       }
 

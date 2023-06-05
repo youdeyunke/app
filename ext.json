@@ -1,7 +1,7 @@
 {
     "extEnable": true,
     "extAppid": "wx175508800f405090",
-    "directCommit": true,
+    "directCommit": false,
     "ext": {
         "name": "开发版",
         "apihost": "http://192.168.31.66:2021",

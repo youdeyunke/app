@@ -88,8 +88,10 @@ Component({
                 url: 'https://apis.map.qq.com/ws/place/v1/search',
                 data: {
                     keyword: tab.value,
-                    key: app.globalData.qqMapAppKey,
-                    boundary: `nearby(${_this.data.latitude},${_this.data.longitude},5000,0)`,
+                    //key: app.globalData.qqMapAppKey,
+                    //boundary: `nearby(${_this.data.latitude},${_this.data.longitude},5000,0)`,
+                    latitude: _this.data.latitude,
+                    ...
                     page_size: '20'
                 },
                 success: function (res) {

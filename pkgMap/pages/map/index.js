@@ -388,7 +388,7 @@ Page({
 
     _getLocation: function () {
         var _this = this
-        wx.getLocation({
+        wx.getFuzzyLocation({
             success(res) {
                 const latitude = res.latitude
                 const longitude = res.longitude

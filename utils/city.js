@@ -7,7 +7,7 @@ module.exports = {
         // 如果无法获取位置信息，或者关闭了权限，则设置默认位置
         var _this = this 
   
-        wx.getLocation({
+        wx.getFuzzyLocation({
             type: 'gcj02 ',
             altitude: false,
             isHighAccuracy: false,
