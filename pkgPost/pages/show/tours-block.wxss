@@ -1,10 +1,140 @@
 /* pages/post/tours-block.wxss */
-.types {
+
+.huodongBox {
+    width: 602rpx;
+    height: 144rpx;
+    
+    border-radius: 10rpx;
+    padding: 28rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30rpx;
+}
+.huodongBox_0 {
+    background: #edfaff;
+    border:2rpx solid #7ccbfe;
+}
+.huodongBox_1 {
+    background-color: #f8fdf9;
+    border: 2rpx solid #38a37e;
+}
+.huodongBox_2 {
+    background: #edfaff;
+    border:2rpx solid #7ccbfe;
+}
+.huodongBox_3 {
+    background-color: #f8fdf9;
+    border: 2rpx solid #38a37e;
+}
+.huodongBox_4 {
+    background: #edfaff;
+    border:2rpx solid #7ccbfe;
+}
+.huodongBox_5 {
+    background-color: #f8fdf9;
+    border: 2rpx solid #38a37e;
+}
+.huodongBoxleft {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.biaoTi {
+    width: 400rpx;
+    height: 34rpx;
+    line-height: 30rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #333333;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.jianJie {
+    width: 400rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 26rpx;
+    font-weight: bold;
+    color: #666666;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 10rpx;
+    margin-bottom: 10rpx;
+}
+
+.baoming {
+    display: flex;
+    align-items: center;
+}
+
+.xiaotouxiang {
+    width: 32rpx;
+    height: 32rpx;
+    border-radius: 50%;
+}
+
+.baomingrenshu {
+    margin-left: 14rpx;
+    font-size: 22rpx;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #333333;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .types {
     display: inline-block;
-    /* justify-content: flex-start;
-    flex-wrap: nowrap;
-    height: 390rpx;
-    align-items: center; */
 }
 
 .tour-item {
@@ -41,4 +171,4 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     white-space: normal;
-}
+} */

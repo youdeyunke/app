@@ -1,0 +1,14 @@
+<!--pkgPost/pages/show/phone-block.wxml-->
+<block>
+    <!-- leftHatColor="{{color}}" -->
+<view class="image_box">
+    <image style="width: 100%;height: 100%;" src="" mode="" />
+    <view class="phone">
+        电话
+    </view>
+</view>
+    
+
+
+</block>
+

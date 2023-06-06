@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const api = require('../../../utils/request.js')
 Component({
     /**
      * 组件的属性列表
@@ -65,7 +66,7 @@ Component({
         }
         if(this.data.mode == 'mini'){
             this.setData({
-                mapW: 695,
+                mapW: 656,
                 mapH: 320
             })
         }
@@ -84,12 +85,14 @@ Component({
             var app = getApp()
             var tab = this.data.tabs[this.data.active]
             //console.log(this.data.latitude,this.data.longitude);
-            wx.request({
+            app.request({
                 url: 'https://apis.map.qq.com/ws/place/v1/search',
                 data: {
                     keyword: tab.value,
-                    key: app.globalData.qqMapAppKey,
-                    boundary: `nearby(${_this.data.latitude},${_this.data.longitude},5000,0)`,
+                    // key: app.globalData.qqMapAppKey,
+                    // boundary: `nearby(${_this.data.latitude},${_this.data.longitude},5000,0)`,
+                    latitude:_this.data.latitude,
+                    longitude:_this.data.longitude,
                     page_size: '20'
                 },
                 success: function (res) {
@@ -126,6 +129,14 @@ Component({
                     })
                 }
             })
+            console.log("1111",);
+            let qqmap=api.qqmap({
+                keyword: tab.value,
+                latitude:_this.data.latitude,
+                longitude:_this.data.longitude,
+                page_size: '20'
+            })
+            console.log("22222",qqmap);
         },
         getMapContext() {
 

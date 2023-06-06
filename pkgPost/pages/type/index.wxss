@@ -32,7 +32,7 @@
     margin-bottom: 20rpx;
     padding-bottom: 20rpx;
     font-size: var(--font-s);
-    border-bottom: 1rpx solid #f4f4f4;
+    border: 2rpx solid #f4f4f4;
 }
 
 .housetype.border-none {
@@ -45,6 +45,7 @@
     height: 200rpx;
     overflow: hidden;
     background: #cecece;
+    position: relative;
 }
 
 .housetype .meta {
@@ -86,4 +87,18 @@
 
 .housetype .kv .value.price {
     color: #ff0000;
+}
+.huxingbiaoqian {
+    width: 120rpx;
+    height: 42rpx;
+    background: #2B78E4;
+    border-radius: 10rpx 0rpx 20rpx 0rpx;
+    color: #FFFFFF;
+    font-size: 22rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; 
+    top: 0rpx;
+    left: 0rpx;
 }

@@ -9,6 +9,7 @@
     <navigator hover-class="none" url="/pkgPost/pages/type/show?id={{item.id}}" hidden="{{ group > 0 && group != item.s}}" class="housetype {{ item.className}}" wx:for="{{items}}" wx:key="id">
         <view class="poster">
             <image width="165px" height="110px" bindtap="viewImage" data-index="{{index}}" src="{{item.cover }}?imageView2/1/w/165/h/110"></image>
+            <view class="huxingbiaoqian" >主力户型</view>
         </view>
         <view class="meta">
             <view class="name">

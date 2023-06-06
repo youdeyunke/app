@@ -1,13 +1,43 @@
 <!-- pages/post/tours-block.wxml -->
 <block>
     <block-box width="750" leftHat="true" leftHatColor="{{color}}" title="热门活动" sub-title="{{value.more_title}}" url="{{value.more_url}}">
-        <scroll-view scroll-with-animation="{{true}}" scroll-x style="width:100%;height: 390rpx;white-space: nowrap;">
+        <navigator url="{{item.url}}" class="huodongBox huodongBox_{{index}}" wx:for="{{value.items}}">
+            <view class="huodongBoxleft">
+                <view class="biaoTi">
+                    {{item.title}}
+                </view>
+                <view class="jianJie">
+                    {{item.address}}
+                </view>
+                <view class="baoming">
+                    <view style="width: 64rpx;height: 32rpx;">
+                        <view style="position: relative;" wx:if="{{item.members_current > 0}}">
+                            <image class="xiaotouxiang" src="https://profile-avatar.csdnimg.cn/bb9c6b91adee4976af36a71f3d2b7f31_qq_42774501.jpg!1" mode="" />
+                            <image class="xiaotouxiang" style="position: absolute;left: 16rpx;" src="https://profile-avatar.csdnimg.cn/bb9c6b91adee4976af36a71f3d2b7f31_qq_42774501.jpg!1" mode="" />
+                            <image class="xiaotouxiang" style="position: absolute;left: 32rpx;" src="https://profile-avatar.csdnimg.cn/bb9c6b91adee4976af36a71f3d2b7f31_qq_42774501.jpg!1" mode="" />
+                        </view>
+                    </view>
+
+                    <view class="baomingrenshu">
+                        {{item.members_current}}人已报名
+                    </view>
+                    <view style="font-size: 20rpx;margin-left: 16rpx;padding: 0 12rpx 0 12rpx;">
+                        <van-button plain custom-style="padding: 0 12rpx 0 12rpx;" type="primary" color="#7232dd" size="mini" round="true"> {{item.status_name}}</van-button>
+                    </view>
+                </view>
+            </view>
+            <view>
+                <van-button plain type="primary" size="small">{{item.join_btn}}</van-button>
+            </view>
+        </navigator>
+
+        <!-- <scroll-view scroll-with-animation="{{true}}" scroll-x style="width:100%;height: 390rpx;white-space: nowrap;">
             <view class="types" wx:for="{{value.items}}">
                 <navigator url="{{item.url}}" class="tour-item">
                     <image src="{{item.cover}}"></image>
                     <view><text class="tour-title">{{item.title}}</text></view>
                 </navigator>
             </view>
-        </scroll-view>
+        </scroll-view> -->
     </block-box>
 </block>

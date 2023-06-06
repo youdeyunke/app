@@ -1,6 +1,6 @@
 /* pages/post/block-button.wxss */
 .more-btn{
-    width: 690rpx;
+    /* width: 690rpx; */
     height:88rpx;
     border-radius:4rpx;
     font-size:30rpx;

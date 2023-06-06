@@ -1,54 +1,51 @@
-<!-- <broker-contact wx:if="{{postId && postInfo && broker}}" broker="{{broker}}" post-id="{{postId}}"></broker-contact> -->
-
-<!-- wx:if="{{hide}}" -->
-<view class="box" style="background-image: url('{{postInfo.cover}}');" wx:if="{{hide}}">
-<view class="ceBianLan">
-    <image class="image_size" src="https://qiniucdn.udeve.cn/fang2021/596a3f4a-b633-456b-a121-8e75664b2145.png" mode=""/>
-    <image class="image_size" src="https://qiniucdn.udeve.cn/fang2021/d3f93305-42e2-4883-a44f-6874fd8d2ced.png" mode=""/>
-    <image class="image_size" src="https://qiniucdn.udeve.cn/fang2021/da9f6681-7c91-4095-a731-9d37cc80a0a4.png" mode=""/>
-</view>
-<view class="blur-bg"></view>
-<view class="blur-box">
-        <view class="mingcheng"> 
+<view class="box" style="background-image: url('{{postInfo.flash_image}}');" wx:if="{{hide}}">
+    <view class="ceBianLan">
+        <image class="image_size" src="https://qiniucdn.udeve.cn/fang2021/596a3f4a-b633-456b-a121-8e75664b2145.png" mode="" />
+        <image class="image_size" src="https://qiniucdn.udeve.cn/fang2021/d3f93305-42e2-4883-a44f-6874fd8d2ced.png" mode="" />
+        <image class="image_size" src="https://qiniucdn.udeve.cn/fang2021/da9f6681-7c91-4095-a731-9d37cc80a0a4.png" mode="" />
+    </view>
+    <view class="blur-bg"></view>
+    <view class="blur-box">
+        <view class="mingcheng">
             <view style="display: flex;">
-                {{postInfo.title}}  
+                {{postInfo.title}}
                 <view class="biaoqianbox">
                     <view class="biaoqian" wx:for="{{postInfo.tags}}" wx:key="{{index}}" wx:if="{{index<2}}">
                         {{item.name}}
                     </view>
-                </view>   
+                </view>
             </view>
             <!-- 参考总价： -->
-               <view class="jiage">
-                   {{postInfo.total_price_info.text}}{{postInfo.total_price_info.px}}
-               </view>
-        </view>  
-        <view class="blur-box_bottom">
-           <view class="blur-box_bottom_children" bindtap="getLocation">
-               <view class="dizhi_left" >
-                   楼盘地址：{{postInfo.address}}
-               </view>
-               <view>
-                   位置>
-               </view>
-           </view>
-           <view class="shijian">
-               <view>
-                   开盘时间：2022.3.26
-               </view>
-           </view>
-           <view class="blur-box_bottom_children">
-               <view>
-                免费咨询: 开发商直营，无中间商
-               </view>
-               <view bindtap="phone">
-                <image style="width: 50rpx;height: 50rpx;" src="https://qiniucdn.udeve.cn/fang2021/7a2a0a65-8589-46fc-960d-cf2a63490475.png" mode=""/>
-               </view>
-           </view>
+            <view class="jiage">
+                {{postInfo.total_price_info.text}}{{postInfo.total_price_info.px}}
+            </view>
         </view>
-        <view class="guanbi" bindtap="close">   
+        <view class="blur-box_bottom">
+            <view class="blur-box_bottom_children" bindtap="getLocation">
+                <view class="dizhi_left">
+                    楼盘地址：{{postInfo.address}}
+                </view>
+                <view>
+                    位置>
+                </view>
+            </view>
+            <view class="shijian">
+                <view>
+                  {{postInfo.points_info[0].title}}：{{postInfo.points_info[0].content}}
+                </view>
+            </view>
+            <view class="blur-box_bottom_children">
+                <view>
+                    免费咨询: 开发商直营，无中间商
+                </view>
+                <view bindtap="phone">
+                    <image style="width: 50rpx;height: 50rpx;" src="https://qiniucdn.udeve.cn/fang2021/7a2a0a65-8589-46fc-960d-cf2a63490475.png" mode="" />
+                </view>
+            </view>
+        </view>
+        <view class="guanbi" bindtap="close">
             <view class="guanbi_btn">
-            点击进入({{countDownNum}})
+                点击进入({{countDownNum}})
             </view>
         </view>
     </view>

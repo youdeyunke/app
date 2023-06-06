@@ -12,9 +12,21 @@ Component({
      * 组件的初始数据
      */
     data: {
-        hide:true,
+        hide:false,
         countDownNum: 10, // 倒计时初始值
         timer: null // 定义定时器对象
+    },
+    // 监听
+    observers:{
+        'postInfo': function(newVal, oldVal){
+            if(this.data.countDownNum==10) {
+                if(newVal && newVal.flash_enable){
+                    this.setData({
+                        hide: newVal.flash_enable
+                    })
+                }
+            }
+        },
     },
     ready: function() {
         let that = this;
@@ -40,9 +52,10 @@ Component({
     /**
      * 组件的方法列表
      */
+    
     methods: {
         close:function() {
-            console.log("点击进入");
+            // console.log("点击进入",this.data.postInfo.flash_enable);
             this.setData({
                 hide:false
             })

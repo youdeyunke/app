@@ -14,7 +14,7 @@
     </view>
 
   </view>
-  <view class="card-body" style="font-size:{{ bodySize}}rpx;">
+  <view class="card-body" style="font-size:{{bodySize}}rpx;">
     <slot></slot>
   </view>
   <view class="card-footer">

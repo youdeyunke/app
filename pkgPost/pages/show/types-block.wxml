@@ -1,5 +1,5 @@
 <block>
-  <block-box hat="{{false}}" leftHat="true" leftHatColor="{{color}}" width="750" title-size="36" title="户型介绍" url="{{value.more_url}}" sub-title="{{value.more_title}}">
+  <block-box hat="{{false}}"   leftHat="true" leftHatColor="{{color}}" width="750" title-size="36" title="户型介绍" url="{{value.more_url}}" sub-title="{{value.more_title}}">
     <scroll-view scroll-with-animation="{{true}}" scroll-x style="width:100%;white-space: nowrap;">
       <view class="types" wx:for="{{items}}" wx:key="id">
         <navigator hover-class="none" url="/pkgPost/pages/type/show?id={{item.id}}" class="type">
@@ -8,6 +8,7 @@
               <van-icon name="search" />
             </view>
             <image src="{{item.cover}}?imageView2/1/w/165/h/110"></image>
+            <view wx:if="{{item.main_tag}}" class="huxingbiaoqian" style="background-color:{{color}};">主力户型</view>
           </view>
           <view class="meta">
             <view class="name">
@@ -33,6 +34,12 @@
               </view>
               <view wx:else class="value price">待定</view>
             </view>
+            <van-button wx:if="{{item.vr}}" plain type="primary" size="large" color="{{color}}"  custom-style="width: 246rpx;height: 72rpx;border-radius: 10rpx;font-size:24rpx; line-height: 72rpx;margin-top:30rpx">
+            VR带看
+            </van-button>
+            <van-button wx:else plain type="primary" size="large" color="{{color}}"  custom-style="width: 246rpx;height: 72rpx;border-radius: 10rpx;font-size:24rpx; line-height: 72rpx;margin-top:30rpx">
+            咨询首付
+            </van-button>
           </view>
         </navigator>
       </view>

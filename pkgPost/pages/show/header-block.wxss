@@ -2,11 +2,10 @@
     background-color: #fff;
     color: #333;
     font-size: 24rpx;
-    /* border-top-right-radius: 20rpx;
-    border-top-left-radius: 20rpx; */
+    border-top-right-radius: 26rpx;
+    border-top-left-radius: 26rpx;
     overflow: hidden;
     /* margin-bottom:20rpx; */
-
 }
 
 .first-left {
@@ -16,11 +15,10 @@
 .title-block {
     background-image: url('https://qiniucdn.udeve.cn/fang2021/6eed67a9-7a5c-4a64-be48-d81221ca3ac0.png');
     background-size: 100% 100%;
-    padding: 50rpx 30rpx 35rpx 30rpx;
+    padding: 50rpx 16rpx 85rpx 16rpx;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    width: 750rpx;
     /* height: 190rpx; */
 }
 

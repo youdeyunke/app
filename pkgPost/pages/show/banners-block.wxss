@@ -1,6 +1,6 @@
 .post-cover {
     width: 750rpx;
-    height: 530rpx;
+    height: 750rpx;
     border-radius: 0rpx;
     overflow: hidden;
     margin: 0 0 0rpx 0;
@@ -33,7 +33,7 @@
  .tabs-outer{
     position:absolute;
     left:0rpx;
-    bottom:20rpx;
+    bottom:40rpx;
     width: 750rpx;
     height: 46rpx;
     display: flex;
@@ -73,9 +73,7 @@
     border:2rpx solid #fff;
     font-size: 24rpx;
     text-align:center;
-
     line-height: 40rpx;
-
 }
 
 .counter{
@@ -83,7 +81,7 @@
     color:#fff; 
     font-weight: bold;
     position: absolute; 
-    bottom:20rpx;
+    bottom:40rpx;
     right:20rpx;
     background:rgba(0,0,0, 0.2);
     padding:4rpx 10rpx;

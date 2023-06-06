@@ -1,7 +1,7 @@
 /* components/card.wxss */
 
 .card {
-    width: 750rpx;
+    width: 718rpx;
     margin: 0 auto 20rpx auto;
     display: flex;
     flex-direction: column;
@@ -9,6 +9,7 @@
     position: relative;
     box-sizing: border-box;
     background: #fff;
+    border-radius: 20rpx;
 }
 
 .card .sub-title {

@@ -6,8 +6,8 @@
     background-repeat: no-repeat;
     position: relative;
     z-index: 1000;
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: 0px;
 }
 .ceBianLan {
     display: flex;

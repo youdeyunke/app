@@ -1,0 +1,18 @@
+/* pkgPost/pages/show/phone-block.wxss */
+.image_box {
+    width: 690rpx;
+    height: 140rpx;
+    margin-left: 30rpx;
+    background-color: #f2e3c2;
+    border: 2px solid #FFFFFF;
+    border-radius: 10rpx;
+    position: relative;
+}
+.phone {
+    width: 86rpx;
+    height: 86rpx;
+    background-color: azure;
+    position: absolute;
+    right: 27rpx;
+    top: 27rpx;
+}
