@@ -1,7 +1,7 @@
 let request = require('../utils/request.js');
-
+// 替换完成未检测
 export function getPostList(data){
-    return request.get("/api/v2/posts", data);
+    return request.get("/api/v2/posts/hello", data);
 }
 
 // 拉取楼盘详情页模块数据

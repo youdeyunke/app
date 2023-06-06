@@ -1,5 +1,6 @@
 // pages/messages/index.js
 const app = getApp()
+const api=require("../../api/post")
 var auth = require('../../utils/auth.js');
 
 Page({
@@ -90,12 +91,17 @@ Page({
       receiver_id: this.data.targetUserId,
       id: postId
     }
-    app.request({
-      url: '/api/v2/posts/hello',
-      hideLoading: true,
-      data: data,
-      success: function (resp) {},
+   // 有待检验
+    api.getPostList({
+    }).then((res)=>{
+        console.log(" 111res",res);
     })
+    // app.request({
+    //   url: '/api/v2/posts/hello',
+    //   hideLoading: true,
+    //   data: data,
+    //   success: function (resp) {},
+    // })
     app.bindPostCustomer(postId, '向楼盘置业顾问发起了在线聊天咨询')
 
 

@@ -1,5 +1,6 @@
 // components/broker.js const app = getApp()
 const app = getApp()
+const api = require("../../../api/post")
 var auth = require('../../../utils/auth.js');
 
 Component({
@@ -9,18 +10,27 @@ Component({
      */
 
     properties: {
-        value: { type: Object, value: null },
+        value: {
+            type: Object,
+            value: null
+        },
     },
 
     observers: {
         "value.fav_count": function (val) {
-            this.setData({ favCount: val })
+            this.setData({
+                favCount: val
+            })
         },
         "value.fav_status": function (val) {
-            this.setData({ favStatus: val })
+            this.setData({
+                favStatus: val
+            })
         },
         "value.booking_status": function (val) {
-            this.setData({ bookingStatus: val })
+            this.setData({
+                bookingStatus: val
+            })
         },
     },
 
@@ -37,7 +47,9 @@ Component({
     ready: function () {
         var _this = this
         var ext = wx.getExtConfigSync()
-        this.setData({ chatEnable: ext['chat_enable'] != false })
+        this.setData({
+            chatEnable: ext['chat_enable'] != false
+        })
     },
 
 
@@ -48,7 +60,9 @@ Component({
 
         posterHandle: function () {
             var pid = this.data.value.post_id
-            wx.navigateTo({ url: '/pkgPoster/pages/poster/index?id=' + pid })
+            wx.navigateTo({
+                url: '/pkgPoster/pages/poster/index?id=' + pid
+            })
         },
 
         reportHandle: function () {
@@ -64,7 +78,10 @@ Component({
             app.request({
                 url: '/api/1/favs/',
                 hideLoading: true,
-                data: { target_id: _this.data.value.post_id, target_type: 'post' },
+                data: {
+                    target_id: _this.data.value.post_id,
+                    target_type: 'post'
+                },
                 success: function (resp) {
                     _this.setData({
                         favStatus: resp.data.data.status,
@@ -82,7 +99,10 @@ Component({
                     url: '/api/1/favs/',
                     hideLoading: false,
                     method: 'POST',
-                    data: { target_id: pid, target_type: 'post' },
+                    data: {
+                        target_id: pid,
+                        target_type: 'post'
+                    },
                     success: function (resp) {
                         _this.setData({
                             favStatus: resp.data.data.status,
@@ -112,7 +132,10 @@ Component({
             auth.ensureUser(function (user) {
                 // 不能和自己聊天
                 if (user.id == _this.data.value.broker_id) {
-                    wx.showToast({ icon: 'none', title: '不能和自己聊天' })
+                    wx.showToast({
+                        icon: 'none',
+                        title: '不能和自己聊天'
+                    })
                     return false
                 }
                 return _this._chatHandle()
@@ -121,23 +144,40 @@ Component({
 
         _chatHandle: function () {
             // 先调用打招呼接口
-            wx.showLoading({ title: '正在打开', icon: 'none', mask: true })
+            wx.showLoading({
+                title: '正在打开',
+                icon: 'none',
+                mask: true
+            })
             var pid = this.data.value.post_id
             var brokerId = this.data.value.broker_id
             var _this = this
-            app.request({
-                url: '/api/v2/posts/hello?id=' + pid + '&receiver_id=' + brokerId,
-                success: function (resp) {
-                    if (resp.data.status == 0) {
-                        // 跳转到消息列表
-                        wx.navigateTo({
-                            url: '/pages/messages/show?target_user_id=' + brokerId,
-                        })
-                    }
-                },
-                complete: function () {
-                    wx.hideLoading()
-                },
+            // app.request({
+            //     url: '/api/v2/posts/hello?id=' + pid + '&receiver_id=' + brokerId,
+            //     success: function (resp) {
+            //         if (resp.data.status == 0) {
+            //             // 跳转到消息列表
+            //             wx.navigateTo({
+            //                 url: '/pages/messages/show?target_user_id=' + brokerId,
+            //             })
+            //         }
+            //     },
+            //     complete: function () {
+            //         wx.hideLoading()
+            //     },
+            // })
+            // 有待检验
+            api.getPostList({
+                id: pid,
+                receiver_id: brokerId
+            }).then((res) => {
+                console.log("res", res);
+                if (resp.data.status == 0) {
+                    // 跳转到消息列表
+                    wx.navigateTo({
+                        url: '/pages/messages/show?target_user_id=' + brokerId,
+                    })
+                }
             })
         },
 
@@ -160,7 +200,9 @@ Component({
         },
 
         bookingChange: function (e) {
-            this.setData({ bookingStatus: 1 })
+            this.setData({
+                bookingStatus: 1
+            })
         },
 
     }

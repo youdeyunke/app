@@ -1,7 +1,7 @@
 // pkgXiangce/pages/xiangce/index.js
 var auth = require('../../../utils/auth.js');
 const app = getApp()
-
+const api = require("../../../api/post")
 Page({
 
   /**
@@ -140,20 +140,33 @@ Page({
     var pid = this.data.post.id
     var brokerId = this.data.broker.id
     var _this = this
-    app.request({
-      url: '/api/v2/posts/hello?id=' + pid + '&receiver_id=' + brokerId,
-      success: function (resp) {
-        if (resp.data.status == 0) {
-          // 跳转到消息列表
-          wx.navigateTo({
-            url: '/pages/messages/show?target_user_id=' + brokerId,
-          })
-        }
-      },
-      complete: function () {
-        wx.hideLoading()
-      },
-    })
+    // app.request({
+    //   url: '/api/v2/posts/hello?id=' + pid + '&receiver_id=' + brokerId,
+    //   success: function (resp) {
+    //     if (resp.data.status == 0) {
+    //       // 跳转到消息列表
+    //       wx.navigateTo({
+    //         url: '/pages/messages/show?target_user_id=' + brokerId,
+    //       })
+    //     }
+    //   },
+    //   complete: function () {
+    //     wx.hideLoading()
+    //   },
+    // })
+        // 有待检验
+        api.getPostList({
+            id: pid,
+            receiver_id: brokerId
+        }).then((res) => {
+            console.log("res", res);
+            if (resp.data.status == 0) {
+                // 跳转到消息列表
+                wx.navigateTo({
+                    url: '/pages/messages/show?target_user_id=' + brokerId,
+                })
+            }
+        })
   },
 
   /**
