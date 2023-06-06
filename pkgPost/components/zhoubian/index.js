@@ -293,9 +293,8 @@ Component({
             //     }
             // })
             // 有待检验   √
-            api_post.getPostBaseInfo({
-                pid: _this.data.postId
-            }).then((res)=>{
+            api_post.getPostBaseInfo( _this.data.postId
+            ).then((res)=>{
                 // console.log("r1es11",res);   
                var post = res.data.data
                _this.setData({

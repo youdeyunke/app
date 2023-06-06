@@ -93,6 +93,8 @@ Page({
     }
    // 有待检验
     api.getPostList({
+        receiver_id: this.data.targetUserId,
+        id: postId
     }).then((res)=>{
         console.log(" 111res",res);
     })

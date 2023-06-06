@@ -371,9 +371,8 @@ Page({
     //     }
     // })
     // 有待检验
-    api.getPostBaseInfo({
-        pid:userInfo.post_id
-    }).then((resp)=>{
+    api.getPostBaseInfo(userInfo.post_id
+    ).then((resp)=>{
         _this.setData({
             post: resp.data.data
         },() => {

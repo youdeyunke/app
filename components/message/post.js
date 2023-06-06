@@ -49,9 +49,8 @@ Component({
         //       }
         //   })
         // 有待检验
-          api.getPostBaseInfo({
-              pid:pid
-          }).then((resp)=>{
+          api.getPostBaseInfo(pid
+          ).then((resp)=>{
               console.log("resp",resp);
             var post = resp.data.data
             wx.setStorageSync(key, post)

@@ -1,6 +1,8 @@
 // pages/post/index.js
 const app = getApp()
-const api = require("../../../api/post")
+const api_blocks = require("../../../api/post")
+const api_baseInFo = require("../../../api/post")
+const api_score = require("../../../api/score")
 var auth = require('../../../utils/auth.js');
 var util = require('../../../utils/util.js');
 var wxCharts = require('../../../utils/wxcharts-min');
@@ -259,9 +261,8 @@ Page({
         //     }
         // })
         // 有待检验
-        api.getPostBlocks({
-            id: _this.data.postId
-        }).then((resp) => {
+        api_blocks.getPostBlocks( _this.data.postId
+        ).then((resp) => {
             console.log("resp", resp);
             wx.stopPullDownRefresh()
             wx.hideNavigationBarLoading()
@@ -533,10 +534,10 @@ Page({
         //     }
         // })
         // 有待检验
-        api.getPostBaseInfo({
-            pid: pid
-        }).then((resp) => {
-            console.log("resp",resp);
+        api_baseInFo.getPostBaseInfo(
+           pid
+        ).then((resp) => {
+            console.log("resp", resp);
             var post = resp.data.data
             if (!post) {
                 // TODO 
@@ -584,24 +585,38 @@ Page({
     onShareAppMessage: function () {
         var _this = this
         const promise = new Promise(resolve => {
-            app.request({
-                url: '/api/v1/scores/',
-                method: 'POST',
-                data: {
-                    key: 'share_post'
-                },
-                success: function (res) {
-                    if (res.data.status == 0 && res.data.data == 'ok') {
-                        wx.showToast({
-                            icon: 'none',
-                            title: '积分已增加',
-                        })
-                    }
-                    return {
-                        title: _this.data.pageTitle,
-                        path: 'pages/post/post?' + _this.data.pageQuery + '&scene_key=wechat',
-                        imageUrl: _this.data.pageCover,
-                    }
+            // app.request({
+            //     url: '/api/v1/scores/',
+            //     method: 'POST',
+            //     data: {
+            //         key: 'share_post'
+            //     },
+            //     success: function (res) {
+            //         if (res.data.status == 0 && res.data.data == 'ok') {
+            //             wx.showToast({
+            //                 icon: 'none',
+            //                 title: '积分已增加',
+            //             })
+            //         }
+            //         return {
+            //             title: _this.data.pageTitle,
+            //             path: 'pages/post/post?' + _this.data.pageQuery + '&scene_key=wechat',
+            //             imageUrl: _this.data.pageCover,
+            //         }
+            //     }
+            // })
+            // 有待检验  手机测试
+            api_score.createScore('share_post').then((res) => {
+                if (res.data.status == 0 && res.data.data == 'ok') {
+                    wx.showToast({
+                        icon: 'none',
+                        title: '积分已增加',
+                    })
+                }
+                return {
+                    title: _this.data.pageTitle,
+                    path: 'pages/post/post?' + _this.data.pageQuery + '&scene_key=wechat',
+                    imageUrl: _this.data.pageCover,
                 }
             })
         })
@@ -611,24 +626,38 @@ Page({
     onShareTimeline: function () {
         var _this = this
         const promise = new Promise(resolve => {
-            app.request({
-                url: '/api/v1/scores/',
-                method: 'POST',
-                data: {
-                    key: 'share_post'
-                },
-                success: function (res) {
-                    if (res.data.status == 0 && res.data.data == 'ok') {
-                        wx.showToast({
-                            icon: 'none',
-                            title: '积分已增加',
-                        })
-                    }
-                    return {
-                        title: _this.data.pageTitle,
-                        query: _this.data.pageQuery + '&scene_key=timeline',
-                        imageUrl: _this.data.pageCover
-                    }
+            // app.request({
+            //     url: '/api/v1/scores/',
+            //     method: 'POST',
+            //     data: {
+            //         key: 'share_post'
+            //     },
+            //     success: function (res) {
+            //         if (res.data.status == 0 && res.data.data == 'ok') {
+            //             wx.showToast({
+            //                 icon: 'none',
+            //                 title: '积分已增加',
+            //             })
+            //         }
+            //         return {
+            //             title: _this.data.pageTitle,
+            //             query: _this.data.pageQuery + '&scene_key=timeline',
+            //             imageUrl: _this.data.pageCover
+            //         }
+            //     }
+            // })
+            // 有待检验  手机测试
+            api_score.createScore('share_post').then((res) => {
+                if (res.data.status == 0 && res.data.data == 'ok') {
+                    wx.showToast({
+                        icon: 'none',
+                        title: '积分已增加',
+                    })
+                }
+                return {
+                    title: _this.data.pageTitle,
+                    query: _this.data.pageQuery + '&scene_key=timeline',
+                    imageUrl: _this.data.pageCover
                 }
             })
         })

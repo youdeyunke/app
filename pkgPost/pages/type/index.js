@@ -52,9 +52,9 @@ Page({
         //     }
         // })
         // 有待检验  √  
-        api.getPostBaseInfo({
-            pid: pid
-        }).then((res) => {
+        api.getPostBaseInfo(
+            pid
+        ).then((res) => {
             console.log('res',res);   //打印ok
             var post = res.data.data
             var data = {

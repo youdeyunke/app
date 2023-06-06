@@ -64,9 +64,8 @@ Page({
     //   }
     // })
       // 有待检验
-      api.getPostBaseInfo({
-        pid: postId
-    }).then((res)=>{
+      api.getPostBaseInfo(postId
+    ).then((res)=>{
         var post = res.data.data
         _this.setData({
           post: post 

@@ -1,5 +1,6 @@
 // pages/home/home.js
 const app = getApp()
+const api = require("../../api/score")
 import utils from '../../utils/util'
 const rowWidthItem = ['60%', "100%", "30%", "40%", "100%"]
 
@@ -135,7 +136,9 @@ Page({
         })
         this.loadSelectCity()
         setTimeout(() => {
-            this.setData({ loading: false })
+            this.setData({
+                loading: false
+            })
         }, 500)
 
     },
@@ -171,7 +174,7 @@ Page({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function () { },
+    onReady: function () {},
 
     pageReadyHandle: function (e) {
         var config = e.detail
@@ -217,7 +220,7 @@ Page({
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function () { },
+    onHide: function () {},
 
     /**
      * 生命周期函数--监听页面卸载
@@ -232,37 +235,57 @@ Page({
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () { },
+    onReachBottom: function () {},
 
     /**
      * 用户点击右上角分享
      */
+
     onShareAppMessage: function () {
         var _this = this
         const promise = new Promise(resolve => {
-            app.request({
-                url: '/api/v1/scores/',
-                method: 'POST',
-                data: {
-                    key: 'share_home'
-                },
-                success: function (res) {
-                    if (res.data.status == 0 && res.data.data == 'ok') {
-                        wx.showToast({
-                            icon: 'none',
-                            title: '积分已增加',
-                        })
-                    }
-                    var path = '/pages/home/home'
-                    // 如果是登录用户，需要构建转发分享参数
-                    if (app.globalData.userInfo && app.globalData.userInfo.id) {
-                        path = path + "?sourceUserId=" + app.globalData.userInfo.id + "&sourceName=转发分享小程序首页"
-                    }
-                    resolve({
-                        title: _this.data.shareTitle,
-                        imageUrl: _this.data.shareCover,
+            // app.request({
+            //     url: '/api/v1/scores/',
+            //     method: 'POST',
+            //     data: {
+            //         key: 'share_home'
+            //     },
+            //     success: function (res) {
+            //         if (res.data.status == 0 && res.data.data == 'ok') {
+            //             wx.showToast({
+            //                 icon: 'none',
+            //                 title: '积分已增加',
+            //             })
+            //         }
+            //         var path = '/pages/home/home'
+            //         // 如果是登录用户，需要构建转发分享参数
+            //         if (app.globalData.userInfo && app.globalData.userInfo.id) {
+            //             path = path + "?sourceUserId=" + app.globalData.userInfo.id + "&sourceName=转发分享小程序首页"
+            //         }
+            //         resolve({
+            //             title: _this.data.shareTitle,
+            //             imageUrl: _this.data.shareCover,
+            //         })
+            //     }
+            // })
+            // 有待检验  
+            api.createScore('share_home').then((res) => {
+                console.log("re1s1", res);
+                if (res.data.status == 0 && res.data.data == 'ok') {
+                    wx.showToast({
+                        icon: 'none',
+                        title: '积分已增加',
                     })
                 }
+                var path = '/pages/home/home'
+                // 如果是登录用户，需要构建转发分享参数
+                if (app.globalData.userInfo && app.globalData.userInfo.id) {
+                    path = path + "?sourceUserId=" + app.globalData.userInfo.id + "&sourceName=转发分享小程序首页"
+                }
+                resolve({
+                    title: _this.data.shareTitle,
+                    imageUrl: _this.data.shareCover,
+                })
             })
         })
 
@@ -274,24 +297,37 @@ Page({
     },
     onShareTimeline: function () {
         const promise = new Promise(resolve => {
-            app.request({
-                url: '/api/v1/scores/',
-                method: 'POST',
-                data: {
-                    key: 'share_home'
-                },
-                success: function (res) {
-                    if (res.data.status == 0 && res.data.data == 'ok') {
-                        wx.showToast({
-                            icon: 'none',
-                            title: '积分已增加',
-                        })
-                    }
-                    resolve({
-                        title: _this.data.shareTitle,
-                        imageUrl: _this.data.shareCover,
+            // app.request({
+            //     url: '/api/v1/scores/',
+            //     method: 'POST',
+            //     data: {
+            //         key: 'share_home'
+            //     },
+            //     success: function (res) {
+            //         if (res.data.status == 0 && res.data.data == 'ok') {
+            //             wx.showToast({
+            //                 icon: 'none',
+            //                 title: '积分已增加',
+            //             })
+            //         }
+            //         resolve({
+            //             title: _this.data.shareTitle,
+            //             imageUrl: _this.data.shareCover,
+            //         })
+            //     }
+            // })
+            // 有待检验 
+            api.createScore('share_home').then((res) => {
+                if (res.data.status == 0 && res.data.data == 'ok') {
+                    wx.showToast({
+                        icon: 'none',
+                        title: '积分已增加',
                     })
                 }
+                resolve({
+                    title: _this.data.shareTitle,
+                    imageUrl: _this.data.shareCover,
+                })
             })
         })
         return {

@@ -71,9 +71,8 @@ Page({
         //     }
         // })
           // 有待检验
-          api.getPostBaseInfo({
-            pid: this.data.postId
-        }).then((resp)=>{
+          api.getPostBaseInfo(this.data.postId
+        ).then((resp)=>{
             var s = resp.data.data.ticket_summary 
             var tips = '暂无摇号结果，或数据还未录入'
             if(s.enable){

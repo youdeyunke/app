@@ -104,9 +104,8 @@ Page({
         //     }
         // })
         // 有待检验
-        api.getPostBaseInfo({
-            pid:pid
-        }).then((resp)=>{
+        api.getPostBaseInfo(pid
+        ).then((resp)=>{
             if (resp.data.status != 0) {
                 return false
             }

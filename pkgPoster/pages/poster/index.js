@@ -258,9 +258,8 @@ Page({
         //     }
         // })
         // 有待检验
-        api.getPostBaseInfo({
-            pid: postId
-        }).then((resp) => {
+        api.getPostBaseInfo(postId
+        ).then((resp) => {
             var post = resp.data.data
             typeof cb == 'function' && cb(post)
         })

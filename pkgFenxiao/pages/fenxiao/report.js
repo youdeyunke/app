@@ -214,9 +214,8 @@ Page({
     //   }
     // })
     // 有待检验
-    api.getPostBaseInfo({
-        pid:pid
-    }).then((resp)=>{
+    api.getPostBaseInfo(pid
+    ).then((resp)=>{
         var p = resp.data.data
         var post_name = p.title + p.address
         _this.setData({

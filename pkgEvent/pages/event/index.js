@@ -43,9 +43,8 @@ Page({
         //     }
         // })
         // 有待检验
-        api.getPostBaseInfo({
-            pid: this.data.postId
-        }).then((resp)=>{
+        api.getPostBaseInfo( this.data.postId
+        ).then((resp)=>{
             _this.setData({ post: resp.data.data })
             wx.setNavigationBarTitle({
                 title: '楼盘动态：' + resp.data.data.title
