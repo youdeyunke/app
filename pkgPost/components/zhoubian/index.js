@@ -93,7 +93,6 @@ Component({
                     // boundary: `nearby(${_this.data.latitude},${_this.data.longitude},5000,0)`,
                     latitude:_this.data.latitude,
                     longitude:_this.data.longitude,
-                    page_size: '20'
                 },
                 success: function (res) {
                     console.log(res);

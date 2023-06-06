@@ -1,11 +1,12 @@
+
 <navigation-bar  bgOpacity="{{bgOpacity}}" background="{{titleBgColor}}"  background-color-top="none" title="{{pageTitle}}" color="{{titleFontColor}}">
   <view class="topLeftBtn" slot="left">
-    <view bindtap="citySelect" class="topLeftBtn-address">
+    <!-- view bindtap="citySelect" class="topLeftBtn-address">
     {{city}}
-    </view>
+    </view 
     <view class="topLeftBtn-center" bindtap="citySelect">
         <van-icon name="arrow-down" />
-    </view>
+    </view -->
     <view bindtap="gotoSearch" class="topLeftBtn-right">
         <van-icon name="search" />
     </view>
@@ -17,7 +18,5 @@
 <van-transition wx:if="{{system.systemName}}" show="{{showInstallTips == 1}}" duration="500" name="fade-down" custom-class="install-tips" bindtap="closeInstallTips">
     <image src="https://qiniucd.udeve.net/fang/install-tips-{{system.systemName}}.png" />
 </van-transition>
-
 <page-loading wx:if="{{loading}}" />
 <pagemaker wx:else  bind:ready="pageReadyHandle" ref="pagemaker" style="position: absolute;top: 0;" class="pm" page-key="home" />
-

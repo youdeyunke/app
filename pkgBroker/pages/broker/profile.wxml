@@ -1,25 +1,57 @@
-<view class="header" style="background-image:url('{{bg}}')">
-  <namecard  broker="{{broker}}" ></namecard>
+<view class="bg"></view>
+<view class="user-header" style="background-image:url('{{bg}}');">
+    <namecard  broker="{{broker}}" bg="{{bg}}" ></namecard>
+</view>
+<view class="jiange"></view>
+<ud-card title="个人简介:" width="750">
+    
+    <view class="user-jianjie-content">{{broker.desc || '未填写个人简介'}}</view>
+    <view class="user-jianjie-tags" >
+        <view class="user-jianjie-tag" wx:for="{{tagList}}">{{item}}</view>
+    </view>
+</ud-card>
+<!-- <view class="jiange"></view> -->
+<ud-card title="主营楼盘:" width="750">
+    <cell post="{{broker.post}}"></cell>
+</ud-card>
+
+
+<view style="width: 750rpx;height: 24rpx;background-color: #F0F0F0;"></view>
+<ud-card title="推荐楼盘" wx:if="{{broker.recom_posts && broker.recom_posts.length > 0}}" width="750">
+    <view wx:for="{{broker.recom_posts}}">
+    <cell  post="{{item}}"></cell>
+  </view>
+</ud-card>
+<view style="width: 750rpx;height: 24rpx;background-color: #F0F0F0;"></view>
+
+<ud-card title="热门活动"  width="750">
+    <view wx:for="{{tours}}">
+    <tour-item item="{{item}}"></tour-item>
+    </view>
+</ud-card>
+
+
+<view class="bottom-btn">
+  <view class="bottom-btn-fenxiang" style="position: relative;">
+    <image src="../../image/fenxian.png"></image>
+    <view >分享</view>
+    <button open-type="share"></button>
+  </view>
+  <view style="display: flex;">
+    <view class="bottom-btn-lianxi" bindtap="callMe">
+      <view class="text-1" >联系Ta</view>
+      <view class="text-2">你的手机号不会被泄露</view>
+    </view>
+    <view class="bottom-btn-lianxi" bindtap="chatHandle" style="background-color: #FFA320;">
+      <view class="text-1">在线咨询</view>
+      <view class="text-2">实时在线沟通</view>
+    </view>
+  </view>
+</view>
+<!-- <view class="jiange"></view> -->
+<view class="zixun" wx:if="{{false}}">
+  <image src="../../image/zxun.png"></image>
+  <view >咨询</view>
 </view>
 
-  <ud-card title="主营楼盘" width="750" wx:if="{{broker.post != null}}">
-    
-    <cell post="{{broker.post}}"></cell>
-    <post-navs post="{{broker.post}}"></post-navs>
-  </ud-card>
-
-
-  <view class="profile-fun">
-    <!-- <view style="position: relative;"> -->
-        <van-button color="{{secondaryBtnColor}}" block bindtap="chatHandle" custom-style="width:330rpx" icon="comment">在线咨询</van-button>
-        <view style="position: absolute;bottom: 6rpx;zoom: 2;opacity: 0;left: 50rpx;">
-            <cell-t styleType='2' blockStyle='button' plugid='{{broker.plugid}}'></cell-t>
-        </view>
-    <!-- </view> -->
-    <van-button color="{{primaryBtnColor}}" bindtap="callphone" block custom-style="width:330rpx" icon="phone">电话咨询</van-button>
-
-
-  </view>
-
-
-  <login-window class="loginwindow"></login-window>
+<login-window closable="{{true}}" class="loginwindow" ref="loginwindow"></login-window>

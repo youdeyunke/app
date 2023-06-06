@@ -19,13 +19,11 @@ Component({
       if(!p){
         return
       }
-      if(p.fixed != true){
+      if(!p.mode){
         return ;
       }
-      p.zIndex = !p.zIndex ? 10 : p.zIndex;
-      // 悬浮定位
-      var value = "position:fixed; left:" +p.left +'rpx; top:' + p.top +'rpx;' +'z-index:' +p.zIndex +';';
-      
+      var value = 'position:' +p.mode + ';' + p.xMode + ':' + +p.xValue + 'rpx;' +p.yMode + ':' +p.yValue +'rpx;'
+    
       this.setData({positionValue: value})
 
     },

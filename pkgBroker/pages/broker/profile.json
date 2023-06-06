@@ -7,6 +7,7 @@
         "namecard": "./components/namecard/index",
         "van-popup":"/vant/popup/index",
         "post-navs":"/components/post-navs/index",
-        "cell":"/components/post-item/cell/index"
+        "tour-item": "/components/tour/item",
+        "cell":"./components/cell/index"
     }
 }

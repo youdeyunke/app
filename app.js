@@ -49,7 +49,12 @@ App({
                 success: function (setting) {
                     var value = setting.authSetting["scope.userLocation"];
                     if (value) {
-                        _this.getLocation();
+                        _this.wx.getFuzzyLocation({
+                          type: 'type',
+                          success: (result) => {},
+                          fail: (res) => {},
+                          complete: (res) => {},
+                        });
                     }
                 }
             });
@@ -226,7 +231,7 @@ App({
     getLocation: function () {
         // 先获取经纬度
         var _this = this;
-        wx.getLocation({
+        wx.getFuzzyLocation({
             success: function (res) {
                 //保存到data里面的location里面
                 var lng = res.longitude;

@@ -1,6 +1,6 @@
 <view style="background:{{bg}}" class="broker-item">
   <image class="level" src="{{levelImg}}"></image>
-  <navigator url="/pkgBroker/pages/broker/profile?user_id={{item.id}}" hover-class="none">
+  <navigator url="/pkgBroker/pages/broker/profile?user_id={{item.user_id}}" hover-class="none">
     <van-image round width="100rpx" height="100rpx" src="{{item.avatar}}?imageView2/5/h/100/w/100" lazy-load />
   </navigator>
   <view class="broker-name line-limit">{{ item.name }} </view>
