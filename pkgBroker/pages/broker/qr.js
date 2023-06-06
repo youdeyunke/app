@@ -5,10 +5,10 @@ var haibaoBg = {
     type: 'image',
     url: 'https://qiniucdn.udeve.cn/fang2021/ef878289-5fda-4241-a117-2422d0609a96.png',
     css: {
-      width: '750rpx',
-      height: '280rpx',
-      top: '0rpx',
-      left: '0rpx',
+        width: '750rpx',
+        height: '280rpx',
+        top: '0rpx',
+        left: '0rpx',
     },
 }
 var userCard = {
@@ -27,22 +27,22 @@ var userAvatar = {
     type: 'image',
     url: '',
     css: {
-      width: '330rpx',
-      height: '386rpx',
-      top: '60rpx',
-      left: '30rpx',
-      borderRadius: '10rpx'
+        width: '330rpx',
+        height: '386rpx',
+        top: '60rpx',
+        left: '30rpx',
+        borderRadius: '10rpx'
     },
 }
 var userBg = {
     type: 'image',
     url: '/assets/images/broker-card-bg.png',
     css: {
-      width: '180rpx',
-      height: '386rpx',
-      top: '60rpx',
-      left: '212rpx',
-    //   borderRadius: '10rpx'
+        width: '180rpx',
+        height: '386rpx',
+        top: '60rpx',
+        left: '212rpx',
+        //   borderRadius: '10rpx'
     },
 }
 var userName = {
@@ -76,22 +76,22 @@ var userPhoneIcon = {
     type: 'image',
     url: '/assets/images/broker-card-phone.png',
     css: {
-      width: '36rpx',
-      height: '36rpx',
-      top: '270rpx',
-      left: '340rpx',
-    //   borderRadius: '10rpx'
+        width: '36rpx',
+        height: '36rpx',
+        top: '270rpx',
+        left: '340rpx',
+        //   borderRadius: '10rpx'
     },
 }
 var userweixinIcon = {
     type: 'image',
     url: '/assets/images/broker-card-weixin.png',
     css: {
-      width: '36rpx',
-      height: '36rpx',
-      top: '320rpx',
-      left: '340rpx',
-    //   borderRadius: '10rpx'
+        width: '36rpx',
+        height: '36rpx',
+        top: '320rpx',
+        left: '340rpx',
+        //   borderRadius: '10rpx'
     },
 }
 var userMobile = {
@@ -263,187 +263,185 @@ var tip = {
 
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    loading: true,
-    userInfo: {},
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        loading: true,
+        userInfo: {},
 
-    posterUrl: "",
-    palette:{}
-  },
+        posterUrl: "",
+        palette: {}
+    },
 
-  genUserCard(){
-    var userInfo = app.globalData.userInfo 
-    var palette = {
-        background: '#FFFFFF',
-        width: '750rpx',
-        height: '1770rpx',
-        views: [],
-    }
-    if(userInfo.avatar){
-        userAvatar.url = userInfo.avatar.replace('http://', 'https://')
-    }
-    if(userInfo.qr != null || userInfo.qr != undefined){
-        userQr.url = userInfo.qr
-    }
-    if(userInfo.level == 1){ userLevel.text = '金牌顾问' }
-    if(userInfo.level == 2){ userLevel.text = '银牌顾问' }
-    if(userInfo.level == 3){ userLevel.text = '铜牌顾问' }
-    userName.text = userInfo.name
-    userMobile.text = userInfo.mobile
-    userWeixin.text = ( userInfo.wechat == '' || userInfo.wechat == null || userInfo.wechat == undefined ? '该用户未填写微信' : userInfo.wechat)
-    userWeixinTwo.text = ( userInfo.wechat == '' || userInfo.wechat == null || userInfo.wechat == undefined ? '该用户未填写微信' : userInfo.wechat)
-    userXiangmu.text = userInfo.post_title
-    userxiangmuImg.url = this.data.post.cover
-    
-    userJianjie.text =( userInfo.desc == '' || userInfo.desc == null || userInfo.desc == undefined ? '该用户还没有填写简介' : userInfo.desc)
-    
-    if (userInfo.group_name != null || userInfo.group_name != '' || userInfo.group_name != undefined) {
-        userGroupName.text = userInfo.group_name
-    }
-    var views = [haibaoBg, userCard, userAvatar, userBg, userName, userLevel, userPhoneIcon, userweixinIcon, userMobile, userJianjie, userWeixin, xiangmu, userXiangmu, userWeixinTwo, weixin, jianjie, xiangmuImg, userxiangmuImg, userQr, tip, userGroupName, line1, line2]
-    palette.views = views
-    var haibaoTags = this.genTags()
-    if(haibaoTags.length){
-        haibaoTags.forEach((item) => {
-            palette.views.push(item)
+    genUserCard() {
+        var userInfo = app.globalData.userInfo
+        var palette = {
+            background: '#FFFFFF',
+            width: '750rpx',
+            height: '1770rpx',
+            views: [],
+        }
+        if (userInfo.avatar) {
+            userAvatar.url = userInfo.avatar.replace('http://', 'https://')
+        }
+        if (userInfo.qr != null || userInfo.qr != undefined) {
+            userQr.url = userInfo.qr
+        }
+        if (userInfo.level == 1) {
+            userLevel.text = '金牌顾问'
+        }
+        if (userInfo.level == 2) {
+            userLevel.text = '银牌顾问'
+        }
+        if (userInfo.level == 3) {
+            userLevel.text = '铜牌顾问'
+        }
+        userName.text = userInfo.name
+        userMobile.text = userInfo.mobile
+        userWeixin.text = (userInfo.wechat == '' || userInfo.wechat == null || userInfo.wechat == undefined ? '该用户未填写微信' : userInfo.wechat)
+        userWeixinTwo.text = (userInfo.wechat == '' || userInfo.wechat == null || userInfo.wechat == undefined ? '该用户未填写微信' : userInfo.wechat)
+        userXiangmu.text = userInfo.post_title
+        userxiangmuImg.url = this.data.post.cover
+
+        userJianjie.text = (userInfo.desc == '' || userInfo.desc == null || userInfo.desc == undefined ? '该用户还没有填写简介' : userInfo.desc)
+
+        if (userInfo.group_name != null || userInfo.group_name != '' || userInfo.group_name != undefined) {
+            userGroupName.text = userInfo.group_name
+        }
+        var views = [haibaoBg, userCard, userAvatar, userBg, userName, userLevel, userPhoneIcon, userweixinIcon, userMobile, userJianjie, userWeixin, xiangmu, userXiangmu, userWeixinTwo, weixin, jianjie, xiangmuImg, userxiangmuImg, userQr, tip, userGroupName, line1, line2]
+        palette.views = views
+        var haibaoTags = this.genTags()
+        if (haibaoTags.length) {
+            haibaoTags.forEach((item) => {
+                palette.views.push(item)
+            })
+        }
+        this.setData({
+            palette: palette
         })
-    }
-    this.setData({  palette: palette })
-  },
+    },
 
-  genTags(){
-    // var userInfo = app.globalData.userInfo
-    if(app.globalData.userInfo.tags == '' || app.globalData.userInfo.tags == null || app.globalData.userInfo.tags == undefined){ return [] }
-    var tags = app.globalData.userInfo.tags.split(',')
-    var haibaoTags = tags.filter((q,i) => i < 3).map((q,i) => {
-        var tag = {
-            type: 'text',
-            id: 'tag' + (i+1),
-            text: ' '+q+' ',
-            css: {
-                height: '36rpx',
-                lineHeight: '30rpx',
-                fontSize: "24rpx",
-                color: "#AFAFAF",
-                borderRadius: "5rpx",
-                borderWidth: "1rpx",
-                borderColor: "#AFAFAF",
-                top: 'calc(jianjie.bottom + 30rpx)',
-                left: 'calc(tag' + i + '.right + 10rpx)',
+    genTags() {
+        // var userInfo = app.globalData.userInfo
+        if (app.globalData.userInfo.tags == '' || app.globalData.userInfo.tags == null || app.globalData.userInfo.tags == undefined) {
+            return []
+        }
+        var tags = app.globalData.userInfo.tags.split(',')
+        var haibaoTags = tags.filter((q, i) => i < 3).map((q, i) => {
+            var tag = {
+                type: 'text',
+                id: 'tag' + (i + 1),
+                text: ' ' + q + ' ',
+                css: {
+                    height: '36rpx',
+                    lineHeight: '30rpx',
+                    fontSize: "24rpx",
+                    color: "#AFAFAF",
+                    borderRadius: "5rpx",
+                    borderWidth: "1rpx",
+                    borderColor: "#AFAFAF",
+                    top: 'calc(jianjie.bottom + 30rpx)',
+                    left: 'calc(tag' + i + '.right + 10rpx)',
+                }
             }
-        }
-        if(i == 0){
-            tag.css.left = "30rpx"
-        }
-        return tag
-    })
-    return haibaoTags
-  },
-
-  loadData(){
-    var _this = this
-    var userInfo = app.globalData.userInfo
-    console.log('99999',userInfo)
-    if(userInfo == null || userInfo.post_id == null || userInfo.post_id == '' || userInfo.post_id == undefined){
-        wx.showModal({
-            content: '未绑定主营楼盘，无法生成海报',
-            showCancel: false,
-            success (res) {
-                wx.navigateBack({
-                    delta:1
-                })
-            }  
+            if (i == 0) {
+                tag.css.left = "30rpx"
+            }
+            return tag
         })
-        return
-    }
-    // var url = '/api/v1/post_base_info/' + userInfo.post_id
-    // app.request({
-    //     url: url,
-    //     success(resp){
-    //         _this.setData({
-    //             post: resp.data.data
-    //         },() => {
-    //             _this.genUserCard()
-    //         })
-    //     }
-    // })
-    // 有待检验
-    api.getPostBaseInfo(userInfo.post_id
-    ).then((resp)=>{
-        _this.setData({
-            post: resp.data.data
-        },() => {
-            _this.genUserCard()
+        return haibaoTags
+    },
+
+    loadData() {
+        var _this = this
+        var userInfo = app.globalData.userInfo
+        console.log('99999', userInfo)
+        if (userInfo == null || userInfo.post_id == null || userInfo.post_id == '' || userInfo.post_id == undefined) {
+            wx.showModal({
+                content: '未绑定主营楼盘，无法生成海报',
+                showCancel: false,
+                success(res) {
+                    wx.navigateBack({
+                        delta: 1
+                    })
+                }
+            })
+            return
+        }
+        // 有待检验
+        api.getPostBaseInfo(userInfo.post_id).then((resp) => {
+            _this.setData({
+                post: resp.data.data
+            }, () => {
+                _this.genUserCard()
+            })
         })
-    })
-  },
+    },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (q) {
-    this.loadData()
-    // this.genUserCard()
-    wx.showLoading({
-        title: '加载中',
-    })
-    setTimeout(function () {
-        wx.hideLoading()
-    }, 800)
-  },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (q) {
+        this.loadData()
+        // this.genUserCard()
+        wx.showLoading({
+            title: '加载中',
+        })
+        setTimeout(function () {
+            wx.hideLoading()
+        }, 800)
+    },
 
-  onImgOK(e) {
-    this.imagePath = e.detail.path;
-    this.setData({
-        posterUrl: this.imagePath,
-    });
-  },
-
-  onShow: function () {
-    if(this.data.userInfo && this.data.userInfo.id){
-      return
-    }
-    var userInfo = app.globalData.userInfo 
-    if(!userInfo){
-      return 
-    }
-
-  },
-
-  saveFile() {
-    var _this = this
-    wx.saveImageToPhotosAlbum({
-      filePath: _this.data.posterUrl,
-      success() {
-        wx.showToast({
-          title: '保存成功',
-          icon: 'success',
+    onImgOK(e) {
+        this.imagePath = e.detail.path;
+        this.setData({
+            posterUrl: this.imagePath,
         });
-      }
-    })
-  },
-  userEdit() {
-    wx.navigateTo({
-      url: '/pkgMyself/pages/profile/index'
-    })
-  },
+    },
+
+    onShow: function () {
+        if (this.data.userInfo && this.data.userInfo.id) {
+            return
+        }
+        var userInfo = app.globalData.userInfo
+        if (!userInfo) {
+            return
+        }
+
+    },
+
+    saveFile() {
+        var _this = this
+        wx.saveImageToPhotosAlbum({
+            filePath: _this.data.posterUrl,
+            success() {
+                wx.showToast({
+                    title: '保存成功',
+                    icon: 'success',
+                });
+            }
+        })
+    },
+    userEdit() {
+        wx.navigateTo({
+            url: '/pkgMyself/pages/profile/index'
+        })
+    },
 
 
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
 
-  },
+    },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
 
-  }
+    }
 })

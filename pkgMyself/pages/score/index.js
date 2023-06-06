@@ -25,17 +25,6 @@ Page({
     var data = { 
       page: this.data.page,  
     }
-    // app.request({ 
-    //   url: '/api/v1/scores',  
-    //   data: data, 
-    //   success: function(res){ 
-    //     if(res.data.status != 0){ 
-    //       return false 
-    //     }
-    //     var items = _this.data.items.concat(res.data.data)
-    //     _this.setData({ items: items, score: res.data.amount })
-    //   }
-    // })
       // 有待检验  √
       api.getScoreList({
         page: this.data.page

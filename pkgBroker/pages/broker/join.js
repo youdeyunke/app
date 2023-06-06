@@ -9,16 +9,16 @@ Page({
      */
     data: {
         userInfo: null,
-        
-        bank: '', 
-        sub_bank: '', 
-        bank_user: '', 
+
+        bank: '',
+        sub_bank: '',
+        bank_user: '',
         bank_id: '',
 
         mobile: '',
         name: '',
         smsCode: '',
-        postTitle: '请选择', 
+        postTitle: '请选择',
         postId: '',
         sex: 1,
         loading: true,
@@ -77,10 +77,10 @@ Page({
     },
 
 
-    changeMobile: function(){
-        this.setData({ 
-            mobile: '', 
-            mobileLock: false, 
+    changeMobile: function () {
+        this.setData({
+            mobile: '',
+            mobileLock: false,
         })
     },
 
@@ -89,19 +89,8 @@ Page({
         // 默认选中的楼盘 
         var _this = this
         var fdata = this.data.formData
-        // app.request({
-        //     url: '/api/v1/post_base_info/' + pid,
-        //     success: function (resp) {
-        //         var p = resp.data.data
-        //         _this.setData({
-        //             postId: p.id,
-        //             postTitle: p.title,
-        //         })
-        //     }
-        // })
         // 有待检验
-        api.getPostBaseInfo(pid
-        ).then((resp)=>{
+        api.getPostBaseInfo(pid).then((resp) => {
             var p = resp.data.data
             _this.setData({
                 postId: p.id,
@@ -129,7 +118,7 @@ Page({
                     var data = {}
                     data[key] = url
                     console.log("key", key)
-                    
+
                     _this.setData(data)
                 })
             }
@@ -147,12 +136,12 @@ Page({
             return false
         }
 
-        if(data.mobileLock == false && !data.smsCode){
+        if (data.mobileLock == false && !data.smsCode) {
             wx.showToast({
                 icon: 'none',
                 title: '请填写短信验证码',
             })
-            return false 
+            return false
         }
 
         if (!data.name) {
@@ -176,13 +165,13 @@ Page({
         //     })
         //     return false
         // }
-        if (data.groupValue == 'jingji' &&  !data.groupName) {
+        if (data.groupValue == 'jingji' && !data.groupName) {
             wx.showToast({
                 icon: 'none',
                 title: '请选择身份',
             })
             return false
-        } 
+        }
 
 
         if (!data.postId) {
@@ -191,7 +180,7 @@ Page({
                 title: '请绑定主营楼盘',
             })
             return false
-        } 
+        }
 
         if (!data.avatar) {
             wx.showToast({
@@ -199,21 +188,21 @@ Page({
                 title: '请上传个人头像',
             })
             return false
-        } 
+        }
         if (!data.wechat) {
             wx.showToast({
                 icon: 'none',
                 title: '请填写微信号码',
             })
             return false
-        } 
+        }
 
-        if(!data.bank || !data.bank_user || !data.sub_bank || !data.bank_id){
+        if (!data.bank || !data.bank_user || !data.sub_bank || !data.bank_id) {
             wx.showToast({
                 icon: 'none',
-              title: '请填写银行卡信息',
+                title: '请填写银行卡信息',
             })
-            return false 
+            return false
         }
 
 
@@ -249,15 +238,15 @@ Page({
         })
     },
 
-    showUserGroupSelector: function(){
+    showUserGroupSelector: function () {
         var el = this.selectComponent('#broker-group-selector')
         el.open(this.data.groupValue)
     },
 
-    groupChange: function(e){
-        var v = e.detail  
-        this.setData({ 
-            groupName: v.name,  // 这里只选择身份显示名称，例如：渠道经纪人、全民经纪人、业主
+    groupChange: function (e) {
+        var v = e.detail
+        this.setData({
+            groupName: v.name, // 这里只选择身份显示名称，例如：渠道经纪人、全民经纪人、业主
         })
     },
 
@@ -268,54 +257,54 @@ Page({
         if (!isok) {
             return
         }
-      
-        var data = { 
-            name: this.data.name, 
-            mobile: this.data.mobile, 
-            sex: this.data.sex,  
-            wechat: this.data.wechat, 
-            post_title: this.data.postTitle, 
-            post_id: this.data.postId, 
-            wechat_qr: this.data.wechat_qr,  
-            avatar: this.data.avatar, 
-            namecard: this.data.namecard, 
-            post_id: this.data.postId, 
-            group_value: this.data.groupValue, 
+
+        var data = {
+            name: this.data.name,
+            mobile: this.data.mobile,
+            sex: this.data.sex,
+            wechat: this.data.wechat,
+            post_title: this.data.postTitle,
+            post_id: this.data.postId,
+            wechat_qr: this.data.wechat_qr,
+            avatar: this.data.avatar,
+            namecard: this.data.namecard,
+            post_id: this.data.postId,
+            group_value: this.data.groupValue,
             group_name: this.data.groupName,
-            bank:this.data.bank,  
-            sub_bank: this.data.sub_bank, 
-            bank_user: this.data.bank_user, 
+            bank: this.data.bank,
+            sub_bank: this.data.sub_bank,
+            bank_user: this.data.bank_user,
             bank_id: this.data.bank_id,
         }
         this.setData({
             loading: true
         })
-        var _token = app.globalData.token 
-        if(!_token){
+        var _token = app.globalData.token
+        if (!_token) {
             _this.smsLoginHandle(() => {
                 _this.doPost(data)
             })
             return
-        }else{ 
+        } else {
             _this.doPost(data)
         }
 
-        return 
+        return
     },
 
 
-    gotoPostSelector: function(){
-        var _this = this  
+    gotoPostSelector: function () {
+        var _this = this
         wx.navigateTo({
-          url: '/pkgPost/pages/selector/index',
-          events: {
-              'change': function(post){
-                  _this.setData({ 
-                      postTitle: post.title, 
-                      postId: post.id,
-                  })
-              }
-          },
+            url: '/pkgPost/pages/selector/index',
+            events: {
+                'change': function (post) {
+                    _this.setData({
+                        postTitle: post.title,
+                        postId: post.id,
+                    })
+                }
+            },
         })
     },
 
@@ -351,7 +340,7 @@ Page({
                     // 保存下服务器返回的token
                     var token = data.data.token
                     var user = data.data.user
-                    auth.setUserInfo(token, user) 
+                    auth.setUserInfo(token, user)
                     return cb()
                 }
             }
@@ -377,13 +366,13 @@ Page({
             })
         }
 
-      var _this  = this  
-      app.ensureConfigs((myconfigs) => { 
-        _this.setData({
-          color: myconfigs.color.primary,
-          btnColor: myconfigs.color.primary_btn
+        var _this = this
+        app.ensureConfigs((myconfigs) => {
+            _this.setData({
+                color: myconfigs.color.primary,
+                btnColor: myconfigs.color.primary_btn
+            })
         })
-      })
 
     },
 
