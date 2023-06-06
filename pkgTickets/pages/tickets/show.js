@@ -1,5 +1,6 @@
 // pkgTickets/pages/tickets/show.js
 const app = getApp()
+const api = require("../../../api/post")
 Page({
 
   /**
@@ -51,16 +52,25 @@ Page({
 
   loadPostInfo: function(postId){
     var _this = this 
-    app.request({
-      url:'/api/v1/post_base_info/'+ postId,
-      success:function(res){
+    // app.request({
+    //   url:'/api/v1/post_base_info/'+ postId,
+    //   success:function(res){
+    //     var post = res.data.data
+    //     _this.setData({
+          
+    //       post: post 
+    //     })
+
+    //   }
+    // })
+      // 有待检验
+      api.getPostBaseInfo({
+        pid: postId
+    }).then((res)=>{
         var post = res.data.data
         _this.setData({
-          
           post: post 
         })
-
-      }
     })
   },
 

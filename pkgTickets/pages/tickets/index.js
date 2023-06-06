@@ -1,5 +1,6 @@
 // pkgTickets/pages/tickets/index.js
 const app = getApp()
+const api = require("../../../api/post")
 Page({
 
     /**
@@ -50,24 +51,42 @@ Page({
     },
     loadPostData: function () {
         var _this = this
-        app.request({
-            url: '/api/v1/post_base_info/' + this.data.postId,
-            success: function (resp) {
-                var s = resp.data.data.ticket_summary 
-                var tips = '暂无摇号结果，或数据还未录入'
-                if(s.enable){
-                    tips = s.content + ' ' + "仅显示部分摇号数据，需要查询具体数据，请根据意向登记号或身份证尾号查询。"
-                }
+        // app.request({
+        //     url: '/api/v1/post_base_info/' + this.data.postId,
+        //     success: function (resp) {
+        //         var s = resp.data.data.ticket_summary 
+        //         var tips = '暂无摇号结果，或数据还未录入'
+        //         if(s.enable){
+        //             tips = s.content + ' ' + "仅显示部分摇号数据，需要查询具体数据，请根据意向登记号或身份证尾号查询。"
+        //         }
 
-                _this.setData({
-                    post: resp.data.data,
-                    tips: tips,
-                })
-                wx.setNavigationBarTitle({
-                    title: resp.data.data.title + '摇号结果',
-                })
+        //         _this.setData({
+        //             post: resp.data.data,
+        //             tips: tips,
+        //         })
+        //         wx.setNavigationBarTitle({
+        //             title: resp.data.data.title + '摇号结果',
+        //         })
 
+        //     }
+        // })
+          // 有待检验
+          api.getPostBaseInfo({
+            pid: this.data.postId
+        }).then((resp)=>{
+            var s = resp.data.data.ticket_summary 
+            var tips = '暂无摇号结果，或数据还未录入'
+            if(s.enable){
+                tips = s.content + ' ' + "仅显示部分摇号数据，需要查询具体数据，请根据意向登记号或身份证尾号查询。"
             }
+
+            _this.setData({
+                post: resp.data.data,
+                tips: tips,
+            })
+            wx.setNavigationBarTitle({
+                title: resp.data.data.title + '摇号结果',
+            })
         })
     },
     loadData() {

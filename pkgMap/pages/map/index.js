@@ -1,5 +1,6 @@
 // pages/map/index.js
 const app = getApp()
+const api = require("../../../api/post")
 const debug = false
 const bgColor = '#1989fa'
 const whiteColor = '#ffffff'
@@ -90,19 +91,30 @@ Page({
     renderPost: function (pid) {
         // 显示所选房源
         var _this = this
-        app.request({
-            url: '/api/v1/post_base_info/' + pid,
-            success: function (resp) {
-                if (resp.data.status != 0) {
-                    return false
-                }
-                var post = resp.data.data
-                _this.setData({ post: resp.data.data })
-                _this.moveTo(post.latitude, post.longitude)
-                _this.popShow()
+        // app.request({
+        //     url: '/api/v1/post_base_info/' + pid,
+        //     success: function (resp) {
+        //         if (resp.data.status != 0) {
+        //             return false
+        //         }
+        //         var post = resp.data.data
+        //         _this.setData({ post: resp.data.data })
+        //         _this.moveTo(post.latitude, post.longitude)
+        //         _this.popShow()
+        //     }
+        // })
+        // 有待检验
+        api.getPostBaseInfo({
+            pid:pid
+        }).then((resp)=>{
+            if (resp.data.status != 0) {
+                return false
             }
+            var post = resp.data.data
+            _this.setData({ post: resp.data.data })
+            _this.moveTo(post.latitude, post.longitude)
+            _this.popShow()
         })
-
     },
 
 

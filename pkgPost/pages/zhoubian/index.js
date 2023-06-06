@@ -1,5 +1,6 @@
 // pkgAmbitus/pages/ambitus/index.js
 const app = getApp()
+const api = require("../../../api/post")
 Page({
 
     /**
@@ -74,8 +75,8 @@ Page({
     //             height:'40rpx',
     //             longitude: v.location.lng,
 
-                
-  
+
+
     //         }
     //         m.alpha = '0.6',
     //         m.width = 1,
@@ -140,16 +141,29 @@ Page({
     loadData() {
         var _this = this
         // 拉取楼盘的基本信息：坐标、名称、id
-        app.request({
-            url: '/api/v1/post_base_info/' + _this.data.postId,
-            success: function (res) {
-                //console.log(res.data.data);
-                var post = res.data.data
-                _this.setData({
-                    post: post
-                })
-                wx.setNavigationBarTitle({ title: post.title + '的周边配套' });
-            }
+        // app.request({
+        //     url: '/api/v1/post_base_info/' + _this.data.postId,
+        //     success: function (res) {
+        //         //console.log(res.data.data);
+        //         var post = res.data.data
+        //         _this.setData({
+        //             post: post
+        //         })
+        //         wx.setNavigationBarTitle({ title: post.title + '的周边配套' });
+        //     }
+        // })
+        // 有待检验
+        api.getPostBaseInfo({
+            pid: _this.data.postId
+        }).then((res) => {
+            //console.log(res.data.data);
+            var post = res.data.data
+            _this.setData({
+                post: post
+            })
+            wx.setNavigationBarTitle({
+                title: post.title + '的周边配套'
+            });
         })
     },
     // getMyevent(e) { //e为子组件传过来的值

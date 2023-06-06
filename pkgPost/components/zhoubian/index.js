@@ -1,7 +1,8 @@
 //index.js
 //获取应用实例
 const app = getApp()
-const api = require("../../../api/qqmap")
+const api_qqmap = require("../../../api/qqmap")
+const api_post= require("../../../api/post")
 Component({
     /**
      * 组件的属性列表
@@ -148,12 +149,16 @@ Component({
             var _this = this
             var app = getApp()
             var tab = this.data.tabs[this.data.active]
-            api.placeSearch({
+            api_qqmap.placeSearch({
                 keyword: tab.value,
                 latitude: _this.data.latitude,
                 longitude: _this.data.longitude,
                 page_size: '20'
             }).then((res) => {
+                    if(res.data.status == 310){
+                        console.log(res.message)
+                        return
+                    }
                     if (res.data && res.data.data.length == 0) {
                         _this.setData({
                             resp: [],
@@ -183,7 +188,6 @@ Component({
             })
         },
         getMapContext() {
-
             var _this = this
             var arr = []
             arr.push({
@@ -278,15 +282,25 @@ Component({
         loadData() {
             var _this = this
             // 拉取楼盘的基本信息：坐标、名称、id
-            app.request({
-                url: '/api/v1/post_base_info/' + _this.data.postId,
-                success: function (res) {
-                    //console.log(res.data.data);
-                    var post = res.data.data
-                    _this.setData({
-                        post: post
-                    })
-                }
+            // app.request({
+            //     url: '/api/v1/post_base_info/' + _this.data.postId,
+            //     success: function (res) {
+            //         //console.log(res.data.data);
+            //         var post = res.data.data
+            //         _this.setData({
+            //             post: post
+            //         })
+            //     }
+            // })
+            // 有待检验   √
+            api_post.getPostBaseInfo({
+                pid: _this.data.postId
+            }).then((res)=>{
+                // console.log("r1es11",res);   
+               var post = res.data.data
+               _this.setData({
+                   post: post
+               })
             })
         },
         markertap: function (e) {

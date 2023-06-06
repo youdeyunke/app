@@ -1,6 +1,6 @@
 // components/message/post.js
 const app = getApp()
-
+const api = require("../../api/post")
 Component({
   /**
    * 组件的属性列表
@@ -39,14 +39,23 @@ Component({
           var _this = this
           var key = 'post_base_info.' + pid
    
-          app.request({
-              url: '/api/v1/post_base_info/' + pid,
-              hideLoading: true,
-              success: function(resp){
-                  var post = resp.data.data
-                  wx.setStorageSync(key, post)
-                  _this.setData({post: post})
-              }
+        //   app.request({
+        //       url: '/api/v1/post_base_info/' + pid,
+        //       hideLoading: true,
+        //       success: function(resp){
+        //           var post = resp.data.data
+        //           wx.setStorageSync(key, post)
+        //           _this.setData({post: post})
+        //       }
+        //   })
+        // 有待检验
+          api.getPostBaseInfo({
+              pid:pid
+          }).then((resp)=>{
+              console.log("resp",resp);
+            var post = resp.data.data
+            wx.setStorageSync(key, post)
+            _this.setData({post: post})
           })
       },
 

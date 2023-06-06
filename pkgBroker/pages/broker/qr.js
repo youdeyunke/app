@@ -1,4 +1,5 @@
 const app = getApp()
+const api = require("../../../api/post")
 import Poster from '../../utils/poster/poster';
 var haibaoBg = {
     type: 'image',
@@ -358,16 +359,26 @@ Page({
         })
         return
     }
-    var url = '/api/v1/post_base_info/' + userInfo.post_id
-    app.request({
-        url: url,
-        success(resp){
-            _this.setData({
-                post: resp.data.data
-            },() => {
-                _this.genUserCard()
-            })
-        }
+    // var url = '/api/v1/post_base_info/' + userInfo.post_id
+    // app.request({
+    //     url: url,
+    //     success(resp){
+    //         _this.setData({
+    //             post: resp.data.data
+    //         },() => {
+    //             _this.genUserCard()
+    //         })
+    //     }
+    // })
+    // 有待检验
+    api.getPostBaseInfo({
+        pid:userInfo.post_id
+    }).then((resp)=>{
+        _this.setData({
+            post: resp.data.data
+        },() => {
+            _this.genUserCard()
+        })
     })
   },
 

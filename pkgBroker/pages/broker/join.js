@@ -1,4 +1,5 @@
 const app = getApp();
+const api = require("../../../api/post")
 var qiniu = require('../../../utils/qiniu.js');
 var auth = require('../../../utils/auth.js');
 
@@ -88,15 +89,25 @@ Page({
         // 默认选中的楼盘 
         var _this = this
         var fdata = this.data.formData
-        app.request({
-            url: '/api/v1/post_base_info/' + pid,
-            success: function (resp) {
-                var p = resp.data.data
-                _this.setData({
-                    postId: p.id,
-                    postTitle: p.title,
-                })
-            }
+        // app.request({
+        //     url: '/api/v1/post_base_info/' + pid,
+        //     success: function (resp) {
+        //         var p = resp.data.data
+        //         _this.setData({
+        //             postId: p.id,
+        //             postTitle: p.title,
+        //         })
+        //     }
+        // })
+        // 有待检验
+        api.getPostBaseInfo({
+            pid:pid
+        }).then((resp)=>{
+            var p = resp.data.data
+            _this.setData({
+                postId: p.id,
+                postTitle: p.title,
+            })
         })
     },
 

@@ -11,6 +11,6 @@ export function getPostBlocks(postId){
 
 // 拉取楼盘基本信息
 export function getPostBaseInfo(postId){
-    return request.get("/api/v1/post_base_info/", postId);
+    return request.get("/api/v1/post_base_info/"+ postId.pid);
 }
 

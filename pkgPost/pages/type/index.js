@@ -1,5 +1,5 @@
 const app = getApp()
-
+const api = require("../../../api/post")
 Page({
 
     /**
@@ -18,39 +18,65 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
-        wx.setNavigationBarTitle({ title: '全部户型列表' });
+        wx.setNavigationBarTitle({
+            title: '全部户型列表'
+        });
         var pid = q.post_id || q.id
-        var brokerId  = q.broker_id  
-        this.setData({ pid: pid, brokerId: brokerId })
+        var brokerId = q.broker_id
+        this.setData({
+            pid: pid,
+            brokerId: brokerId
+        })
         this.loadTypes(pid)
         this.loadPostInfo(pid)
     },
 
     loadPostInfo: function (pid) {
         var _this = this
-        app.request({
-            url: '/api/v1/post_base_info/' + pid,
-            success: function (res) {
-                //console.log(res.data.data);
-                var post = res.data.data
-                var data = {post: post}
-                var user = app.globalData.userInfo 
-                data.pageQuery = 'id=' + pid
-                if(user && user.is_broker){
-                    data.pageQuery += '&broker_id=' + user.id
-                }                
-                
-                data.pageTitle = post.title + ' 户型介绍'
-                data.pageCover = post.cover 
-                _this.setData(data)     
-                
+        // app.request({
+        //     url: '/api/v1/post_base_info/' + pid,
+        //     success: function (res) {
+        //         //console.log(res.data.data);
+        //         var post = res.data.data
+        //         var data = {post: post}
+        //         var user = app.globalData.userInfo 
+        //         data.pageQuery = 'id=' + pid
+        //         if(user && user.is_broker){
+        //             data.pageQuery += '&broker_id=' + user.id
+        //         }                
+
+        //         data.pageTitle = post.title + ' 户型介绍'
+        //         data.pageCover = post.cover 
+        //         _this.setData(data)     
+
+        //     }
+        // })
+        // 有待检验  √  
+        api.getPostBaseInfo({
+            pid: pid
+        }).then((res) => {
+            console.log('res',res);   //打印ok
+            var post = res.data.data
+            var data = {
+                post: post
             }
+            var user = app.globalData.userInfo
+            data.pageQuery = 'id=' + pid
+            if (user && user.is_broker) {
+                data.pageQuery += '&broker_id=' + user.id
+            }
+
+            data.pageTitle = post.title + ' 户型介绍'
+            data.pageCover = post.cover
+            _this.setData(data)
         })
     },
 
     loadTypes: function (pid) {
         var _this = this
-        var query = { id: pid }
+        var query = {
+            id: pid
+        }
         app.request({
             url: '/api/v1/types',
             data: query,
@@ -61,7 +87,10 @@ Page({
                 var items = resp.data.data
 
                 // 标签
-                var tags = [{ name: '全部', group: 0 }]
+                var tags = [{
+                    name: '全部',
+                    group: 0
+                }]
                 var tagDict = {}
                 items.forEach((item, i) => {
                     item.cover = 'https://qiniucdn.udeve.net/fang/pkgPost/image-none.png'
@@ -75,23 +104,30 @@ Page({
                 })
 
                 Object.keys(tagDict).forEach((key, i) => {
-                    var tag = { name: key + '室', group: key }
+                    var tag = {
+                        name: key + '室',
+                        group: key
+                    }
                     tags.push(tag)
                 })
-                _this.setData({ items: items, tags: tags, loading: false })
+                _this.setData({
+                    items: items,
+                    tags: tags,
+                    loading: false
+                })
 
-                if(items.length == 0){
+                if (items.length == 0) {
                     wx.showToast({
                         icon: 'none',
-                      title: '没有上传户型数据,无法显示',
+                        title: '没有上传户型数据,无法显示',
                     })
                     setTimeout(() => {
                         wx.navigateBack({
-                          delta: -1,
+                            delta: -1,
                         })
-                        
+
                     }, 1500)
-      
+
                 }
             }
         })
@@ -102,7 +138,9 @@ Page({
         if (g == this.data.group) {
             return false
         }
-        this.setData({ group: g })
+        this.setData({
+            group: g
+        })
     },
 
     /**
@@ -116,7 +154,9 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        this.setData({ t0: new Date().getTime(), })
+        this.setData({
+            t0: new Date().getTime(),
+        })
     },
 
     /**
@@ -154,7 +194,7 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-        
+
         return {
             title: this.data.pageTitle,
             path: 'pkgBuilding/pages/type/index?' + this.data.pageQuery,
@@ -162,14 +202,14 @@ Page({
         }
     },
 
-    
+
 
     onShareTimeline: function () {
-    
+
 
         return {
             title: this.data.pageTitle,
-            query:  this.data.pageQuery ,
+            query: this.data.pageQuery,
             imageUrl: this.data.pageCover
         }
     }

@@ -258,7 +258,7 @@ Page({
 
         //     }
         // })
-        // 有待检验  失败回调
+        // 有待检验
         api.getPostBlocks({
             id: _this.data.postId
         }).then((resp) => {
@@ -287,7 +287,7 @@ Page({
                     menus: ['shareAppMessage', 'shareTimeline']
                 })
             })
-        }).fail((resp) => {
+        }).fail((res) => {
             wx.showToast({
                 title: '楼盘页面渲染错误',
                 icon: 'error',
@@ -298,6 +298,7 @@ Page({
                 fail: () => {},
                 complete: () => {}
             });
+
         })
     },
 
@@ -499,41 +500,55 @@ Page({
         }
     },
 
-    // loadPostInfo: function(cb){
-    //     // 加载楼盘的基本信息
-    //     // 优先从本地缓存中读取
-    //     var _this = this  
-    //     var pid = this.data.postId
-    //     var key = 'post_base_info.' + pid
-    //     wx.getStorage({
-    //       key: key,
-    //       success: function(cache){
-    //         if(cache.data){
-    //             _this._setPostInfo(cache.data, cb)
-    //         }
+    loadPostInfo: function (cb) {
+        // 加载楼盘的基本信息
+        // 优先从本地缓存中读取
+        var _this = this
+        var pid = this.data.postId
+        var key = 'post_base_info.' + pid
+        wx.getStorage({
+            key: key,
+            success: function (cache) {
+                if (cache.data) {
+                    _this._setPostInfo(cache.data, cb)
+                }
 
-    //       }
-    //     })
+            }
+        })
+        // app.request({
+        //     url: '/api/v1/post_base_info/' + pid,
+        //     hideLoading: true,
+        //     success: function (resp) {
+        //         var post = resp.data.data
+        //         if (!post) {
+        //             // TODO 
+        //             return
+        //         }
+        //         _this._setPostInfo(post, cb)
+        //         wx.setStorage({
+        //             data: post,
+        //             key: key,
+        //         })
 
-    //     app.request({
-    //         url: '/api/v1/post_base_info/' + pid, 
-    //         hideLoading: true, 
-    //         success: function(resp){
-    //             var post = resp.data.data 
-    //             if(!post){
-    //                 // TODO 
-    //                 return 
-    //             }
-    //             _this._setPostInfo(post, cb)
-    //             wx.setStorage({
-    //               data: post,
-    //               key: key,
-    //             })
-
-    //         }
-    //     })
-    // },
-
+        //     }
+        // })
+        // 有待检验
+        api.getPostBaseInfo({
+            pid: pid
+        }).then((resp) => {
+            console.log("resp",resp);
+            var post = resp.data.data
+            if (!post) {
+                // TODO 
+                return
+            }
+            _this._setPostInfo(post, cb)
+            wx.setStorage({
+                data: post,
+                key: key,
+            })
+        })
+    },
     /**
      * 生命周期函数--监听页面隐藏
      */

@@ -78,16 +78,28 @@ Page({
 
   loadPostInfo: function () {
     var _this = this
-    app.request({
-      url: '/api/v1/post_base_info/' + this.data.postId,
-      success: function (resp) {
+    // app.request({
+    //   url: '/api/v1/post_base_info/' + this.data.postId,
+    //   success: function (resp) {
+    //     var post = resp.data.data
+    //     var pageTitle = post.title + '的相册'
+    //     _this.setData({
+    //       post: post,
+    //       pageTitle: pageTitle
+    //     })
+    //   }
+    // })
+      // 有待检验  此处未调用
+      api.getPostBaseInfo({
+        pid: this.data.postId
+    }).then((resp)=>{
+        console.log("resp",resp);
         var post = resp.data.data
         var pageTitle = post.title + '的相册'
         _this.setData({
           post: post,
           pageTitle: pageTitle
         })
-      }
     })
   },
 

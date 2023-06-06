@@ -1,6 +1,7 @@
 // pages/owner/sale.js
 
 const app = getApp()
+const api = require("../../../api/post")
 var auth = require('../../../utils/auth.js');
 
 Page({
@@ -201,17 +202,27 @@ Page({
       return false;
     }
     var _this = this
-    app.request({
-      url: '/api/v1/post_base_info/' + pid,
-      success: function (resp) {
+    // app.request({
+    //   url: '/api/v1/post_base_info/' + pid,
+    //   success: function (resp) {
+    //     var p = resp.data.data
+    //     var post_name = p.title + p.address
+    //     _this.setData({
+    //       post: p,
+    //       post_name: post_name,
+    //     })
+    //   }
+    // })
+    // 有待检验
+    api.getPostBaseInfo({
+        pid:pid
+    }).then((resp)=>{
         var p = resp.data.data
         var post_name = p.title + p.address
         _this.setData({
           post: p,
           post_name: post_name,
-
         })
-      }
     })
   },
   chooseHandle(e) {

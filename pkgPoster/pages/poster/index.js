@@ -1,5 +1,6 @@
 // pages/poster/index.js
 const app = getApp()
+const api = require("../../../api/post")
 import Poster from '../../utils/poster/poster';
 var auth = require('../../../utils/auth.js');
 var title = {
@@ -28,23 +29,23 @@ var subTitle = {
     }
 }
 var postCover = {
-  type: 'image',
-  url: '',
-  css: {
-    width: '690rpx',
-    height: '465rpx',
-    top: '290rpx',
-    left: '30rpx',
-  },
+    type: 'image',
+    url: '',
+    css: {
+        width: '690rpx',
+        height: '465rpx',
+        top: '290rpx',
+        left: '30rpx',
+    },
 }
 var messageBg = {
     type: 'rect',
     css: {
-      width: '690rpx',
-      height: '361rpx',
-      color: '#FFFFFF',
-      top: '755rpx',
-      left: '30rpx',
+        width: '690rpx',
+        height: '361rpx',
+        color: '#FFFFFF',
+        top: '755rpx',
+        left: '30rpx',
     },
 }
 var postTitle = {
@@ -64,10 +65,10 @@ var addressIcon = {
     type: 'image',
     url: '/assets/icons/haibao-address.png',
     css: {
-      width: '20rpx',
-      height: '24rpx',
-      top: '937rpx',
-      left: '70rpx',
+        width: '20rpx',
+        height: '24rpx',
+        top: '937rpx',
+        left: '70rpx',
     },
 }
 var address = {
@@ -158,22 +159,22 @@ var zhuangxiuData = {
 var qrBg = {
     type: 'rect',
     css: {
-      width: '143rpx',
-      height: '143rpx',
-      color: '#FFFFFF',
-      borderRadius: '72rpx',
-      top: '1176rpx',
-      left: '552rpx',
+        width: '143rpx',
+        height: '143rpx',
+        color: '#FFFFFF',
+        borderRadius: '72rpx',
+        top: '1176rpx',
+        left: '552rpx',
     },
 }
 var qr = {
     type: 'image',
     url: '',
     css: {
-      width: '127rpx',
-      height: '127rpx',
-      top: '1184rpx',
-      left: '560rpx',
+        width: '127rpx',
+        height: '127rpx',
+        top: '1184rpx',
+        left: '560rpx',
     },
 }
 Page({
@@ -200,8 +201,10 @@ Page({
         // 先加载post数据，再自动生成海报
         var _this = this
         let pid = q.id || q.post_id
-        var userInfo = app.globalData.userInfo 
-        this.setData({ postId: pid })
+        var userInfo = app.globalData.userInfo
+        this.setData({
+            postId: pid
+        })
         this.loadPost(pid, (post) => {
             // 加载模板
             _this.loadTpls((tpls) => {
@@ -222,21 +225,19 @@ Page({
 
     loadTpls: function (cb) {
         var _this = this
-        var tpls = [
-            {
-                name: '祥云',
-                bg: 'https://qiniucdn.udeve.cn/poster-templates/6.jpg',
-                font_color: '#fff'
-            }
-        ]
+        var tpls = [{
+            name: '祥云',
+            bg: 'https://qiniucdn.udeve.cn/poster-templates/6.jpg',
+            font_color: '#fff'
+        }]
         app.request({
             url: '/api/v1/poster_templates/',
             success: function (resp) {
                 if (resp.data.status == 0) {
                     // 后端没有录入数据
-                    if(resp.data.data && resp.data.data.length > 0){
+                    if (resp.data.data && resp.data.data.length > 0) {
                         tpls = resp.data.data
-                    } 
+                    }
                     return typeof cb == 'function' && cb(tpls)
                 } else {
                     // 服务器版本不够，降级处理
@@ -247,14 +248,21 @@ Page({
     },
 
     loadPost: function (postId, cb) {
-        app.request({
-            hideLoading: true,
-            url: '/api/v1/post_base_info/' + postId,
-            methods:'GET',
-            success: function (resp) {
-                var post = resp.data.data
-                typeof cb == 'function' && cb(post)
-            }
+        // app.request({
+        //     hideLoading: true,
+        //     url: '/api/v1/post_base_info/' + postId,
+        //     methods:'GET',
+        //     success: function (resp) {
+        //         var post = resp.data.data
+        //         typeof cb == 'function' && cb(post)
+        //     }
+        // })
+        // 有待检验
+        api.getPostBaseInfo({
+            pid: postId
+        }).then((resp) => {
+            var post = resp.data.data
+            typeof cb == 'function' && cb(post)
         })
     },
 
@@ -263,22 +271,32 @@ Page({
         var path = this.data.imagePath
         var _this = this
         app.saveImage(path, function (res) {
-            _this.setData({ showPoster: false })
+            _this.setData({
+                showPoster: false
+            })
         })
     },
 
     tplHandle: function () {
-        this.setData({ showTpls: true })
+        this.setData({
+            showTpls: true
+        })
     },
 
     cancleTplHandle: function () {
-        this.setData({ showTpls: false, tplIndex: 0, newTplIndex: 0 })
+        this.setData({
+            showTpls: false,
+            tplIndex: 0,
+            newTplIndex: 0
+        })
     },
 
     confirmTplHandle: function (e) {
         if (this.data.newTplIndex == this.data.tplIndex) {
             // tpl 没有变化，不重做
-            this.setData({ showTpls: false })
+            this.setData({
+                showTpls: false
+            })
             return false;
         }
         var tplIndex = this.data.newTplIndex
@@ -294,33 +312,35 @@ Page({
     tplChange: function (e) {
         var i = e.currentTarget.dataset.index
         var tpl = this.data.tpls[i]
-        this.setData({ newTplIndex: i })
+        this.setData({
+            newTplIndex: i
+        })
     },
 
     genQr: function (uinfo, cb) {
         // 根据数据生成房源的二维码信息
         // 如果是普通股用户，就直接返回默认二维码 
-        if(!uinfo){
+        if (!uinfo) {
             return cb(null)
         }
-        if(!uinfo.is_broker){
+        if (!uinfo.is_broker) {
             return cb(null)
         }
 
-        var path = '/pkgPost/pages/show/index?id=' + this.data.postId  
+        var path = '/pkgPost/pages/show/index?id=' + this.data.postId
         // 二维码携带的额外参数
         var qrdata = {
-            id: this.data.postId, 
+            id: this.data.postId,
             scene_key: 'poster',
-	    bindBrokerId: uinfo.id,
-            source_uid: uinfo.id,  
+            bindBrokerId: uinfo.id,
+            source_uid: uinfo.id,
         }
         app.genQr(path, qrdata, function (data) {
             var url = data.url
             console.log('生成专属唯一二维码', url)
             cb(url)
         })
-    
+
     },
 
 
@@ -329,8 +349,7 @@ Page({
             title: '房源海报有什么用途?',
             content: '可发布到朋友圈、微信聊天群等，好友长按识别即可打开房源页面',
             confirmText: '知道了',
-            success(res) {
-            }
+            success(res) {}
         })
 
     },
@@ -341,26 +360,26 @@ Page({
 
         var qrUrl = this.data.qrUrl
         var tpl = this.data.tpls[this.data.tplIndex]
-        if(post.average_price){
+        if (post.average_price) {
             var averagePrice = post.average_price.split('~')[0]
         }
         var bgImage = tpl.bg
 
         var userInfo = app.globalData.userInfo
         var fontColor = tpl.font_color || '#ffffff'
-        if(post.cover){
+        if (post.cover) {
             postCover.url = post.cover
         }
-        if(post.title){
+        if (post.title) {
             postTitle.text = post.title
         }
-        if(post.address){
+        if (post.address) {
             address.text = '地址：' + post.address
         }
-        if(post.fitment){
+        if (post.fitment) {
             zhuangxiuData.text = post.fitment
         }
-        if(post.area_info.text && post.area_info.px){
+        if (post.area_info.text && post.area_info.px) {
             jianmianData.text = post.area_info.text + post.area_info.px
             junjiaData.text = averagePrice + post.average_price_info.px
         }
@@ -370,11 +389,11 @@ Page({
             background: bgImage,
             width: '750rpx',
             height: '1550rpx',
-            views: [title,subTitle ,postCover,messageBg ,postTitle,addressIcon ,address,jianmian,jianmianData,junjia,junjiaData,zhuangxiu,zhuangxiuData,qrBg ,qr],
+            views: [title, subTitle, postCover, messageBg, postTitle, addressIcon, address, jianmian, jianmianData, junjia, junjiaData, zhuangxiu, zhuangxiuData, qrBg, qr],
         }
 
         var haibaoTags = this.genTags()
-        if(haibaoTags){
+        if (haibaoTags) {
             haibaoTags.forEach((item) => {
                 palette.views.push(item)
             })
@@ -385,83 +404,86 @@ Page({
         broker.forEach((item) => {
             palette.views.push(item)
         })
-        this.setData({ palette: palette})
+        this.setData({
+            palette: palette
+        })
     },
 
-    genBrokerName(){
+    genBrokerName() {
         var userInfo = app.globalData.userInfo
-        if(userInfo && userInfo.is_broker){
+        if (userInfo && userInfo.is_broker) {
             return [{
-                 type: 'image',
-                 url: userInfo.avatar,
-                 css: {
-                   width: '47rpx',
-                   height: '47rpx',
-                   borderRadius: '23rpx',
-                   top: '1187rpx',
-                   left: '55rpx',
-                 },
-             },
-             {
-                 type: 'text',
-                 text: userInfo.name,
-                 css: {
-                     width: '300rpx',
-                     height: '48rpx',
-                     fontSize: "36rpx",
-                     top: "1187rpx",
-                     left: "122rpx",
-                     color: "#FFFFFF",
-                 }
-             },
-             {
-                 type: 'text',
-                 text: '专业、优质服务',
-                 css: {
-                     width: '394rpx',
-                     height: '32rpx',
-                     fontSize: "24rpx",
-                     top: "1245rpx",
-                     left: "57rpx",
-                     color: "#FFFFFF",
-                 }
-             },
-             {
-                 type: 'text',
-                 text: '长按识别小程序码查看详情',
-                 css: {
-                     width: '394rpx',
-                     height: '32rpx',
-                     fontSize: "24rpx",
-                     top: "1282rpx",
-                     left: "57rpx",
-                     color: "#FFFFFF",
-                 }
+                    type: 'image',
+                    url: userInfo.avatar,
+                    css: {
+                        width: '47rpx',
+                        height: '47rpx',
+                        borderRadius: '23rpx',
+                        top: '1187rpx',
+                        left: '55rpx',
+                    },
+                },
+                {
+                    type: 'text',
+                    text: userInfo.name,
+                    css: {
+                        width: '300rpx',
+                        height: '48rpx',
+                        fontSize: "36rpx",
+                        top: "1187rpx",
+                        left: "122rpx",
+                        color: "#FFFFFF",
+                    }
+                },
+                {
+                    type: 'text',
+                    text: '专业、优质服务',
+                    css: {
+                        width: '394rpx',
+                        height: '32rpx',
+                        fontSize: "24rpx",
+                        top: "1245rpx",
+                        left: "57rpx",
+                        color: "#FFFFFF",
+                    }
+                },
+                {
+                    type: 'text',
+                    text: '长按识别小程序码查看详情',
+                    css: {
+                        width: '394rpx',
+                        height: '32rpx',
+                        fontSize: "24rpx",
+                        top: "1282rpx",
+                        left: "57rpx",
+                        color: "#FFFFFF",
+                    }
+                }
+            ]
+
+        } else {
+            return [{
+                type: 'text',
+                text: '长按识别小程序码查看详情',
+                css: {
+                    width: '394rpx',
+                    height: '32rpx',
+                    fontSize: "24rpx",
+                    top: "1245rpx",
+                    left: "57rpx",
+                    color: "#FFFFFF",
+                }
             }]
-            
-         }else{
-            return [{
-                     type: 'text',
-                     text: '长按识别小程序码查看详情',
-                     css: {
-                         width: '394rpx',
-                         height: '32rpx',
-                         fontSize: "24rpx",
-                         top: "1245rpx",
-                         left: "57rpx",
-                         color: "#FFFFFF",
-                     }
-            }]        
-         }
+        }
     },
 
-    genTags(){
+    genTags() {
         var post = this.data.post
-        var haibaoTags = post.tags.filter((q,i) => i < 3).map((q,i) => {
+        var haibaoTags = post.tags.filter((q, i) => i < 3).map((q, i) => {
             var tag = {
                 type: 'text',
-                id: 'tag' + (i+1),
-                text: ' '+q.name+' ',
+                id: 'tag' + (i + 1),
+                text: ' ' + q.name + ' ',
                 css: {
                     height: '36rpx',
                     lineHeight: '30rpx',
@@ -474,7 +496,7 @@ Page({
                     left: 'calc(tag' + i + '.right + 10rpx)',
                 }
             }
-            if(i == 0){
+            if (i == 0) {
                 tag.css.left = "70rpx"
             }
             return tag
@@ -511,7 +533,9 @@ Page({
     },
 
     previewPoster: function () {
-        wx.previewImage({ urls: [this.data.imagePath] })
+        wx.previewImage({
+            urls: [this.data.imagePath]
+        })
     },
 
     /**
@@ -524,8 +548,7 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
-    },
+    onShow: function () {},
 
     /**
      * 生命周期函数--监听页面隐藏

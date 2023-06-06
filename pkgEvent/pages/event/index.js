@@ -1,5 +1,6 @@
 // pkgEvent/pages/event/index.js
 const app = getApp()
+const api = require("../../../api/post")
 var auth = require('../../../utils/auth.js');
 
 Page({
@@ -32,16 +33,24 @@ Page({
 
     loadPost: function () {
         var _this = this
-        app.request({
-            url: '/api/v1/post_base_info/' + this.data.postId,
-            success: function (resp) {
-                _this.setData({ post: resp.data.data })
-                wx.setNavigationBarTitle({
-                    title: '楼盘动态：' + resp.data.data.title
-                });
-            }
+        // app.request({
+        //     url: '/api/v1/post_base_info/' + this.data.postId,
+        //     success: function (resp) {
+        //         _this.setData({ post: resp.data.data })
+        //         wx.setNavigationBarTitle({
+        //             title: '楼盘动态：' + resp.data.data.title
+        //         });
+        //     }
+        // })
+        // 有待检验
+        api.getPostBaseInfo({
+            pid: this.data.postId
+        }).then((resp)=>{
+            _this.setData({ post: resp.data.data })
+            wx.setNavigationBarTitle({
+                title: '楼盘动态：' + resp.data.data.title
+            });
         })
-
     },
 
     catClickHandle: function (e) {
