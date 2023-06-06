@@ -6,7 +6,7 @@ export function getPostList(data){
 
 // 拉取楼盘详情页模块数据
 export function getPostBlocks(postId){
-    return request.get("/api/v5/posts/", postId);
+    return request.get("/api/v5/posts/"+postId.id);
 }
 
 // 拉取楼盘基本信息
