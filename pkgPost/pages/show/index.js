@@ -513,7 +513,6 @@ Page({
 
     },
 
-
     onShareAppMessage: function () {
         var _this = this
         const promise = new Promise(resolve => {

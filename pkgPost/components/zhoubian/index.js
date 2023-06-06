@@ -154,10 +154,6 @@ Component({
                 longitude: _this.data.longitude,
                 page_size: '20'
             }).then((res) => {
-                    if(res.data.status == 310){
-                        console.log(res.message)
-                        return
-                    }
                     if (res.data && res.data.data.length == 0) {
                         _this.setData({
                             resp: [],
