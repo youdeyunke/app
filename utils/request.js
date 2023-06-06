@@ -20,8 +20,8 @@ const http = ({ url = '', data = {}, ...other } = {}) => {
     wx.request({
       url: getUrl(url),
       data: data,
-      method: obj.method || "GET",
       header: header,
+      ...other,
       success: function (res) {
         if (res.data.status == 500) {
           wx.showModal({
@@ -131,7 +131,7 @@ const http = ({ url = '', data = {}, ...other } = {}) => {
 // 判断是否走封装的请求
 const getUrl = (url) => {
   if (url.indexOf('://') == -1) {
-    url = apiHose + url;
+    url = apiHost + url;
   }
   return url
 }

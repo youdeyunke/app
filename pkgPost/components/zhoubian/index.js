@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
-const api = require('../../../utils/request.js')
+const api=require("../../../api/qqmap")
 Component({
     /**
      * 组件的属性列表
@@ -128,14 +128,19 @@ Component({
                     })
                 }
             })
-            console.log("1111",);
-            let qqmap=api.qqmap({
+            console.log("111","keyword:",tab.value, "latitude:",_this.data.latitude,
+            "longitude:",_this.data.longitude,
+            api.placeSearch
+            );
+            api.placeSearch({
                 keyword: tab.value,
                 latitude:_this.data.latitude,
                 longitude:_this.data.longitude,
                 page_size: '20'
+            }).then((resp)=>{
+                console.log("22222",resp);
             })
-            console.log("22222",qqmap);
+           
         },
         getMapContext() {
 
