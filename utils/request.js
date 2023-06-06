@@ -5,8 +5,9 @@ const apiHost = EXT.host || defaultApiHost;
 const app = getApp()
 
 // 发送http请求
-const http = ({ url = '', data = {}, ...other } = {}) => {
+const http = ({ url = '', data = {},  ...other } = {}) => {
   var header = { 'content-type': 'application/json', }
+  console.log("httpdata",data);
   if (!header["Content-Type"]) {
     header["Content-Type"] = "application/json";
   }
@@ -23,6 +24,7 @@ const http = ({ url = '', data = {}, ...other } = {}) => {
       header: header,
       ...other,
       success: function (res) {
+        //   console.log("res",res);
         if (res.data.status == 500) {
           wx.showModal({
             title: "服务器错误",
@@ -108,7 +110,7 @@ const http = ({ url = '', data = {}, ...other } = {}) => {
         var t = app.globalData.myconfigs && app.globalData.myconfigs.timeout ? app.globalData.myconfigs.timeout : 0
         setTimeout(function () {
           // 加载完成后
-          if (!obj.hideLoading) {
+          if (res.data.errMsg=='request:Ok') {
             wx.hideLoading();
           }
           wx.hideNavigationBarLoading();
@@ -138,32 +140,33 @@ const getUrl = (url) => {
 
 
 // get请求
-const get = (url, param = {}) => {
+const get = (url, data = {}) => {
+    console.log("getdata",data);
   return http({
     url,
-    param
+    data
   })
 }
 //   post请求
-const post = (url, param = {}) => {
+const post = (url, data = {}) => {
   return http({
     url,
-    param,
+    data,
     method: 'post'
   })
 }
-const put = (url, param = {}) => {
+const put = (url, data = {}) => {
   return http({
     url,
-    param,
+    data,
     method: 'put'
   })
 }
 
-const destroy = (url, param = {}) => {
+const destroy = (url, data = {}) => {
   return http({
     url,
-    param,
+    data,
     method: 'put'
   })
 }
