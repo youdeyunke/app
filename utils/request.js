@@ -7,7 +7,7 @@ const app = getApp()
 // 发送http请求
 const http = ({ url = '', data = {},  ...other } = {}) => {
   var header = { 'content-type': 'application/json', }
-  console.log("httpdata",data);
+//   console.log("httpdata",data);
   if (!header["Content-Type"]) {
     header["Content-Type"] = "application/json";
   }
@@ -49,13 +49,15 @@ const http = ({ url = '', data = {},  ...other } = {}) => {
                   title: "支付成功",
                   icon: "success"
                 });
-                return typeof obj.success == "function" && obj.success(res);
+                resolve(res)
+                // return typeof obj.success == "function" && obj.success(res);
               } else {
                 wx.showModal({
                   title: "支付失败",
                   content: wxpay_res['errMsg']
                 });
-                return typeof obj.fail == "function" && obj.success(res);
+                reject(res)
+                // return typeof obj.fail == "function" && obj.success(res);
               }
 
             },
@@ -64,7 +66,8 @@ const http = ({ url = '', data = {},  ...other } = {}) => {
                 title: "支付失败",
                 content: "支付失败，请重试"
               });
-              return typeof obj.fail == "function" && obj.success(res);
+              reject(res)
+            //   return typeof obj.fail == "function" && obj.success(res);
             }
           });
           return
@@ -110,9 +113,8 @@ const http = ({ url = '', data = {},  ...other } = {}) => {
         var t = app.globalData.myconfigs && app.globalData.myconfigs.timeout ? app.globalData.myconfigs.timeout : 0
         setTimeout(function () {
           // 加载完成后
-          if (res.data.errMsg=='request:Ok') {
-            wx.hideLoading();
-          }
+          resolve(res)
+          wx.hideLoading();
           wx.hideNavigationBarLoading();
           wx.stopPullDownRefresh();
         }, t)
@@ -141,7 +143,7 @@ const getUrl = (url) => {
 
 // get请求
 const get = (url, data = {}) => {
-    console.log("getdata",data);
+    // console.log("getdata",data);
   return http({
     url,
     data
