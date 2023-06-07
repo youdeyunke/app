@@ -1,6 +1,6 @@
 // components/broker/hot-brokers.js
 const app = getApp()
-
+const brokerApi= require("../../../api/broker")
 Component({
   /**
    * 组件的属性列表
@@ -58,17 +58,11 @@ Component({
           }
           var _this = this
           this.setData({loading: true})
-          app.request({
-              url: '/api/v1/brokers', 
-              data: query, 
-              hideLoading: true,
-              success: function(resp){
-                  
-                  _this.setData({
-                      loading: false, 
-                      items: resp.data.data,
-                  })
-              }
+          brokerApi.getBrokerList(query).then((resp)=>{
+            _this.setData({
+                loading: false, 
+                items: resp.data.data,
+            })
           })
       },
 

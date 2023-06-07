@@ -211,10 +211,10 @@ Page({
     },
 
     doPost: function (data) {
-        var _this = this
+        //  √
         brokerApi.createBroker({
             profile: data
-        }).then(() => {
+        }).then((resp) => {
             if (resp.data.status != 0) {
                 return
             }
@@ -367,19 +367,16 @@ Page({
         })
 
     },
-
+    // √
     checkBrokerStatus: function () {
         var _this = this
         brokerApi.checkBrokerStatus({
-
         }).then((resp) => {
-            console.log("res", resp)
             _this.setData({
                 userstate: resp.data.data
             })
             var join_status = resp.data.data.join_status
             // 审核中
-
             if (join_status == 1) {
                 wx.redirectTo({
                     url: '/pkgBroker/pages/broker/audit/index?status=pending',

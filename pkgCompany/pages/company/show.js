@@ -56,6 +56,7 @@ Page({
     },
     loadStaff: function () {
         var _this = this
+        // √
         brokerApi.getBrokerList({
             company_id: this.data.cid,
             per_page: 10,

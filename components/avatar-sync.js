@@ -64,7 +64,6 @@ Component({
           name: userInfo.nickName,
       }
       var _this = this 
-      
       userApi.updateUserProfile(user.id,profile).then((resp)=>{
         if (resp.data.status == 0) {
             _this.triggerEvent('change', {})

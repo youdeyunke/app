@@ -72,6 +72,7 @@ Page({
         if (this.data.postId) {
             query.post_id = this.data.postId
         }
+        // √
         brockerApi.getBrokerList(
             query
         ).then((resp) => {

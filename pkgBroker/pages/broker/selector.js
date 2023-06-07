@@ -1,6 +1,7 @@
 // pkgBroker/pages/broker/selector.js
 
 const app = getApp()
+const brokerApi = require("../../../api/broker")
 Page({
 
     /**
@@ -11,7 +12,7 @@ Page({
         pid: ''
     },
 
-    kwChange: function(e){
+    kwChange: function (e) {
         this.loadData()
     },
 
@@ -22,42 +23,40 @@ Page({
         var _this = this
         this.setData({
             pid: options.pid
-        },() => {
+        }, () => {
             _this.loadData()
         })
     },
 
     itemClick: function (e) {
-        const { index } = e.currentTarget.dataset
+        const {
+            index
+        } = e.currentTarget.dataset
         var broker = {
             id: this.data.brokers[index].user_id,
             name: this.data.brokers[index].name,
             mobile: this.data.brokers[index].mobile
         }
-        var ch =  this.getOpenerEventChannel() 
-        if(ch){
+        var ch = this.getOpenerEventChannel()
+        if (ch) {
             ch.emit("change", broker)
         }
         wx.navigateBack({
-          delta: 1,
+            delta: 1,
         })
     },
 
-    loadData(){
+    loadData() {
         var _this = this
-        var url = `/api/v1/brokers`
         var query = {
             post_ids: this.data.pid,
             kw: this.data.kw,
         }
-        app.request({
-            url: url,
-            data: query,
-            success(resp){
-                _this.setData({
-                    brokers: resp.data.data
-                })
-            }
+        // √
+        brokerApi.getBrokerList(query).then((resp) => {
+            _this.setData({
+                brokers: resp.data.data
+            })
         })
     },
 
