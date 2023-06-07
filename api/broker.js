@@ -6,6 +6,11 @@ export function getBrokerList(query){
     return request.get("/api/v1/brokers/", query);
 }
 
+// 拉取置业顾问详情
+export function getBrokerDetail(userId){
+    return request.get("/api/v1/brokers/" + userId);
+}
+
 // 增加置业顾问主页浏览量
 // 注意：这里要传user_id，而不是broker_id
 export function updateBrokerViewsCount(userId){

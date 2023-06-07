@@ -282,6 +282,16 @@ Component({
         loadData() {
             var _this = this
             // 拉取楼盘的基本信息：坐标、名称、id
+            // app.request({
+            //     url: '/api/v1/post_base_info/' + _this.data.postId,
+            //     success: function (res) {
+            //         //console.log(res.data.data);
+            //         var post = res.data.data
+            //         _this.setData({
+            //             post: post
+            //         })
+            //     }
+            // })
             // 有待检验   √
             api_post.getPostBaseInfo( _this.data.postId
             ).then((res)=>{
