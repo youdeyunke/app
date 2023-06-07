@@ -11,6 +11,7 @@ export function getBrokerDetail(userId){
     return request.get("/api/v1/brokers/" + userId);
 }
 
+
 // 增加置业顾问主页浏览量
 // 注意：这里要传user_id，而不是broker_id
 export function updateBrokerViewsCount(userId){
@@ -40,14 +41,13 @@ export function checkBrokerStatus(){
 //     }
 // })
 
+export function getBrokerShowDetail(query){
+    return request.get("/api/v1/brokers/show", query);
+}
 
-// 'brokers/show'
-// app.request({
-//     url: '/api/v1/brokers/show',
-//     data: {
-//         user_id: uid
-//     },
-// )}
+
+
+
 
 
 // 'brokers/like'
@@ -58,3 +58,8 @@ export function checkBrokerStatus(){
 //     },
 //     url: '/api/v1/brokers/like',
 // )}
+
+export function likeBroker(data){
+
+    return request.post("/api/v1/brokers/like", data);
+}
