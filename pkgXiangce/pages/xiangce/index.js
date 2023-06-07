@@ -1,7 +1,7 @@
 // pkgXiangce/pages/xiangce/index.js
 var auth = require('../../../utils/auth.js');
 const app = getApp()
-const api = require("../../../api/post")
+const listApi = require("../../../api/post")
 Page({
 
     /**
@@ -79,7 +79,7 @@ Page({
     loadPostInfo: function () {
         var _this = this
         // 有待检验  此处未调用
-        api.getPostBaseInfo(
+        baseInFoApi.getPostBaseInfo(
             this.data.postId
         ).then((resp) => {
             var post = resp.data.data
@@ -140,22 +140,8 @@ Page({
         var pid = this.data.post.id
         var brokerId = this.data.broker.id
         var _this = this
-        // app.request({
-        //   url: '/api/v2/posts/hello?id=' + pid + '&receiver_id=' + brokerId,
-        //   success: function (resp) {
-        //     if (resp.data.status == 0) {
-        //       // 跳转到消息列表
-        //       wx.navigateTo({
-        //         url: '/pages/messages/show?target_user_id=' + brokerId,
-        //       })
-        //     }
-        //   },
-        //   complete: function () {
-        //     wx.hideLoading()
-        //   },
-        // })
         // 有待检验
-        api.getPostList({
+        listApi.getPostList({
             id: pid,
             receiver_id: brokerId
         }).then((res) => {

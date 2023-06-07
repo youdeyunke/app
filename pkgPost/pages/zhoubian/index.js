@@ -1,6 +1,6 @@
 // pkgAmbitus/pages/ambitus/index.js
 const app = getApp()
-const api = require("../../../api/post")
+const baseInFoApi = require("../../../api/post")
 Page({
 
     /**
@@ -142,7 +142,7 @@ Page({
         var _this = this
         // 拉取楼盘的基本信息：坐标、名称、id
         // 有待检验   √
-        api.getPostBaseInfo(_this.data.postId).then((res) => {
+        baseInFoApi.getPostBaseInfo(_this.data.postId).then((res) => {
             var post = res.data.data
             _this.setData({
                 post: post

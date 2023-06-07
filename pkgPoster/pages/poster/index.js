@@ -1,6 +1,6 @@
 // pages/poster/index.js
 const app = getApp()
-const api = require("../../../api/post")
+const baseInFoApi = require("../../../api/post")
 import Poster from '../../utils/poster/poster';
 var auth = require('../../../utils/auth.js');
 var title = {
@@ -258,7 +258,7 @@ Page({
         //     }
         // })
         // 有待检验
-        api.getPostBaseInfo(postId
+        baseInFoApi.getPostBaseInfo(postId
         ).then((resp) => {
             var post = resp.data.data
             typeof cb == 'function' && cb(post)

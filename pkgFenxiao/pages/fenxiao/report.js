@@ -1,7 +1,7 @@
 // pages/owner/sale.js
 
 const app = getApp()
-const api = require("../../../api/post")
+const baseInFoApi = require("../../../api/post")
 var auth = require('../../../utils/auth.js');
 
 Page({
@@ -213,7 +213,7 @@ Page({
         //   }
         // })
         // 有待检验
-        api.getPostBaseInfo(pid).then((resp) => {
+        baseInFoApi.getPostBaseInfo(pid).then((resp) => {
             var p = resp.data.data
             var post_name = p.title + p.address
             _this.setData({

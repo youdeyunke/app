@@ -1,5 +1,5 @@
 const app = getApp()
-const api = require("../../../api/post")
+const baseInFoApi = require("../../../api/post")
 Page({
 
     /**
@@ -52,7 +52,7 @@ Page({
         //     }
         // })
         // 有待检验  √  
-        api.getPostBaseInfo(
+        baseInFoApi.getPostBaseInfo(
             pid
         ).then((res) => {
             console.log('res',res);   //打印ok

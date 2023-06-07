@@ -1,6 +1,6 @@
 // pages/map/index.js
 const app = getApp()
-const api = require("../../../api/post")
+const baseInFoApi = require("../../../api/post")
 const debug = false
 const bgColor = '#1989fa'
 const whiteColor = '#ffffff'
@@ -101,7 +101,7 @@ Page({
         // 显示所选房源
         var _this = this
         // 有待检验  √
-        api.getPostBaseInfo(pid).then((resp) => {
+        baseInFoApi.getPostBaseInfo(pid).then((resp) => {
             if (resp.data.status != 0) {
                 return false
             }

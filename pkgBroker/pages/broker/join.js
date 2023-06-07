@@ -1,5 +1,5 @@
 const app = getApp();
-const api = require("../../../api/post")
+const baseInFoApi = require("../../../api/post")
 var qiniu = require('../../../utils/qiniu.js');
 var auth = require('../../../utils/auth.js');
 
@@ -90,7 +90,7 @@ Page({
         var _this = this
         var fdata = this.data.formData
         // 有待检验
-        api.getPostBaseInfo(pid).then((resp) => {
+        baseInFoApi.getPostBaseInfo(pid).then((resp) => {
             var p = resp.data.data
             _this.setData({
                 postId: p.id,

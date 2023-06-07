@@ -1,8 +1,8 @@
 // pages/post/index.js
 const app = getApp()
-const api_blocks = require("../../../api/post")
-const api_baseInFo = require("../../../api/post")
-const api_score = require("../../../api/score")
+const blocksApi = require("../../../api/post")
+const baseInFoApi = require("../../../api/post")
+const createScoreApi = require("../../../api/score")
 var auth = require('../../../utils/auth.js');
 var util = require('../../../utils/util.js');
 var wxCharts = require('../../../utils/wxcharts-min');
@@ -213,8 +213,9 @@ Page({
         if (app.globalData.sourceUid) {
             query.source_uid = app.globalData.sourceUid
         }
+
         // 有待检验    √
-        api_blocks.getPostBlocks(_this.data.postId).then((resp) => {
+        blocksApi.getPostBlocks(_this.data.postId).then((resp) => {
             wx.stopPullDownRefresh()
             wx.hideNavigationBarLoading()
             wx.stopPullDownRefresh() //停止下拉刷新    
@@ -485,7 +486,7 @@ Page({
         //     }
         // })
         // 有待检验
-        api_baseInFo.getPostBaseInfo(
+        baseInFoApi.getPostBaseInfo(
             pid
         ).then((resp) => {
             var post = resp.data.data
@@ -536,7 +537,7 @@ Page({
         var _this = this
         const promise = new Promise(resolve => {
             // 有待检验  √
-            api_score.createScore('share_post').then((res) => {
+            createScoreApi.createScore('share_post').then((res) => {
                 if (res.data.status == 0 && res.data.data == 'ok') {
                     wx.showToast({
                         icon: 'none',
@@ -557,7 +558,7 @@ Page({
         var _this = this
         const promise = new Promise(resolve => {
             // 有待检验  
-            api_score.createScore('share_post').then((res) => {
+            createScoreApi.createScore('share_post').then((res) => {
                 if (res.data.status == 0 && res.data.data == 'ok') {
                     wx.showToast({
                         icon: 'none',
