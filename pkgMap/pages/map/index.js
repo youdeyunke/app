@@ -42,12 +42,15 @@ Page({
     onLoad: function (q) {
         app.checkForceLogin()
         const map = wx.createMapContext('map', this)
-        var filter = {  }
-        this.setData({ 
-            map: map,  filter: filter,
+        var filter = {}
+        this.setData({
+            map: map,
+            filter: filter,
             bgColor: app.globalData.myconfigs.color.primary,
-         })
-        wx.setNavigationBarTitle({ title: '地图找房' })
+        })
+        wx.setNavigationBarTitle({
+            title: '地图找房'
+        })
         var _this = this
         app.ensureConfigs((configs) => {
             _this.initMap()
@@ -56,11 +59,15 @@ Page({
     },
 
     searchTextInput: function (e) {
-        this.setData({ searchText: e.detail })
+        this.setData({
+            searchText: e.detail
+        })
     },
 
     clearSearch: function (e) {
-        this.setData({ searchText: '' })
+        this.setData({
+            searchText: ''
+        })
 
     },
 
@@ -81,7 +88,9 @@ Page({
 
         }
         var _this = this
-        this.setData({ filter: filter }, () => {
+        this.setData({
+            filter: filter
+        }, () => {
             _this.loadMarkers('post')
         })
 
@@ -91,26 +100,15 @@ Page({
     renderPost: function (pid) {
         // 显示所选房源
         var _this = this
-        // app.request({
-        //     url: '/api/v1/post_base_info/' + pid,
-        //     success: function (resp) {
-        //         if (resp.data.status != 0) {
-        //             return false
-        //         }
-        //         var post = resp.data.data
-        //         _this.setData({ post: resp.data.data })
-        //         _this.moveTo(post.latitude, post.longitude)
-        //         _this.popShow()
-        //     }
-        // })
-        // 有待检验
-        api.getPostBaseInfo(pid
-        ).then((resp)=>{
+        // 有待检验  √
+        api.getPostBaseInfo(pid).then((resp) => {
             if (resp.data.status != 0) {
                 return false
             }
             var post = resp.data.data
-            _this.setData({ post: resp.data.data })
+            _this.setData({
+                post: resp.data.data
+            })
             _this.moveTo(post.latitude, post.longitude)
             _this.popShow()
         })
@@ -127,7 +125,10 @@ Page({
     popClose: function () {
         var scale = SCALE_DICT['sub_district']
         console.log('pop close, set scale', scale)
-        this.setData({ popState: 0, scale: scale })
+        this.setData({
+            popState: 0,
+            scale: scale
+        })
     },
 
     loadCities: function () {
@@ -135,7 +136,7 @@ Page({
     },
 
 
-    initMap: function (level='district') {
+    initMap: function (level = 'district') {
         // 初始化，第一次进入地图时候
         this.loadMarkers(level)
     },
@@ -149,7 +150,7 @@ Page({
         var fontSize = app.globalData.system.fontSizeSetting * 0.8
         var padding = this.data.level == 'post' ? fontSize * 0.5 : fontSize * 2
         markers.map((m, i) => {
-          var sub = m.sub_name || ''
+            var sub = m.sub_name || ''
             m._id = m.level + '.' + m.id // real id
             m.id = i // index 
             m.iconPath = '/assets/images/none.png',
@@ -157,9 +158,9 @@ Page({
                 m.width = 1,
                 m.zIndex = 10,
                 m.height = 1,
-           
+
                 m.callout = {
-                    content: m.name + '\n' + sub   ,
+                    content: m.name + '\n' + sub,
                     display: 'ALWAYS',
                     borderRadius: fontSize,
                     borderColor: whiteColor,
@@ -175,10 +176,14 @@ Page({
         var k = this.data.level
         var scale = SCALE_DICT[k]
         var _this = this
-        this.setData({ markers: markers }, () => {
+        this.setData({
+            markers: markers
+        }, () => {
             setTimeout(() => {
                 wx.hideLoading();
-                _this.setData({ loading: false })
+                _this.setData({
+                    loading: false
+                })
             }, 3000);
         })
 
@@ -193,8 +198,7 @@ Page({
         this.data.map.includePoints({
             points: markers,
             padding: 20,
-            success: function () {
-            },
+            success: function () {},
         })
     },
 
@@ -224,15 +228,16 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
-    },
+    onShow: function () {},
 
     loadMarkers: function (level) {
         wx.showLoading({
             title: '加载地图...',
             mask: true,
         });
-        this.setData({ loading: true })
+        this.setData({
+            loading: true
+        })
 
         var _level = level || 'district'
         var data = {
@@ -258,11 +263,16 @@ Page({
                     return false
                 }
                 if (resp.data.data && resp.data.data.length > 0) {
-                    _this.setData({ level: _level })
+                    _this.setData({
+                        level: _level
+                    })
                     _this.renderMarkers(resp.data.data)
                     return false
                 }
-                wx.showToast({ title: '没有数据', icon: 'none' });
+                wx.showToast({
+                    title: '没有数据',
+                    icon: 'none'
+                });
             }
         })
     },
@@ -275,7 +285,9 @@ Page({
         var marker = this.data.markers[index]
         var markerId = marker._id
         console.log('marker is', marker)
-        this.setData({ markerId: markerId })
+        this.setData({
+            markerId: markerId
+        })
         var res = markerId.split('.')
         var currentLevel = res[0]
         var nid = res[1]
@@ -284,18 +296,24 @@ Page({
         var nextLevel = ''
         switch (currentLevel) {
             case 'city':
-                this.setData({ cityId: nid })
+                this.setData({
+                    cityId: nid
+                })
                 nextLevel = 'district'
                 break;
             case 'district':
-                this.setData({ districtId: nid })
+                this.setData({
+                    districtId: nid
+                })
                 nextLevel = 'post'
                 break;
             case 'post':
                 // 房源被点击
                 // 改变被点击的marker的背景颜色
                 this.markerColorHandle(markerId)
-                this.setData({ postId: nid })
+                this.setData({
+                    postId: nid
+                })
                 nextLevel = 'post'
                 return this.renderPost(nid)
                 return
@@ -318,7 +336,10 @@ Page({
             marker['callout']['bgColor'] = _bgColor
             marker['callout']['color'] = _color
         })
-        this.setData({ markers: markers, markerId: markerId })
+        this.setData({
+            markers: markers,
+            markerId: markerId
+        })
     },
 
 
@@ -371,11 +392,16 @@ Page({
 
 
     moveTo: function (latitude, longitude) {
-        this.setData({ center: { longitude: longitude, latitude: latitude } })
+        this.setData({
+            center: {
+                longitude: longitude,
+                latitude: latitude
+            }
+        })
         this.data.map.moveToLocation({
             longitude: longitude,
             latitude: latitude,
-            success() { }
+            success() {}
         })
     },
 

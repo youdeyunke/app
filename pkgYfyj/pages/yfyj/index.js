@@ -104,7 +104,6 @@ Page({
             url: '/api/v1/building_rooms',
             data: query,
             success: function (resp) {
-                console.log("resp",resp)
                 if (resp.data.status != 0) {
                     return false
                 }
@@ -131,7 +130,6 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
     },
 
     /**

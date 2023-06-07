@@ -24,7 +24,9 @@ Page({
      */
     onLoad: function (q) {
         var pid = q.id || q.post_id
-        this.setData({ postId: pid }, () => {
+        this.setData({
+            postId: pid
+        }, () => {
             this.loadData()
             this.loadPost()
 
@@ -33,25 +35,16 @@ Page({
 
     loadPost: function () {
         var _this = this
-        // app.request({
-        //     url: '/api/v1/post_base_info/' + this.data.postId,
-        //     success: function (resp) {
-        //         _this.setData({ post: resp.data.data })
-        //         wx.setNavigationBarTitle({
-        //             title: '楼盘动态：' + resp.data.data.title
-        //         });
-        //     }
-        // })
-        // 有待检验
-        api.getPostBaseInfo( this.data.postId
-        ).then((resp)=>{
-            _this.setData({ post: resp.data.data })
+        // 有待检验  √
+        api.getPostBaseInfo(this.data.postId).then((resp) => {
+            _this.setData({
+                post: resp.data.data
+            })
             wx.setNavigationBarTitle({
                 title: '楼盘动态：' + resp.data.data.title
             });
         })
     },
-
     catClickHandle: function (e) {
         var i = e.currentTarget.dataset.index
         this.setData({
@@ -63,7 +56,9 @@ Page({
     },
 
     loadData: function () {
-        this.setData({ loading: true })
+        this.setData({
+            loading: true
+        })
         var _this = this
         var catId = ''
         if (this.data.currentCatIndex >= 1) {
@@ -152,7 +147,9 @@ Page({
             return false
         }
         var user = app.globalData.userInfo
-        this.setData({ user: user })
+        this.setData({
+            user: user
+        })
     },
 
     /**

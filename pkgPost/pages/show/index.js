@@ -213,57 +213,8 @@ Page({
         if (app.globalData.sourceUid) {
             query.source_uid = app.globalData.sourceUid
         }
-
-        // app.request({
-        //     hideLoading: true,
-        //     url: '/api/v5/posts/' + _this.data.postId,
-        //     data: query,
-        //     fail: function (resp) {
-        //         wx.showToast({
-        //             title: '楼盘页面渲染错误',
-        //             icon: 'error',
-        //             image: '',
-        //             duration: 1500,
-        //             mask: true,
-        //             success: (result) => {
-        //             },
-        //             fail: () => { },
-        //             complete: () => { }
-        //         });
-
-        //     },
-        //     success: function (resp) {
-        //         wx.stopPullDownRefresh()
-        //         wx.hideNavigationBarLoading()
-        //         wx.stopPullDownRefresh() //停止下拉刷新    
-
-        //         var user = _this.data.user
-        //         var data = {}
-        //         data.pageQuery = 'id=' + _this.data.postId 
-        //         if(user && user.is_broker){
-        //             data.pageQuery  += '&broker_uid=' + user.id
-        //         }
-        //         data.blocks = resp.data.data  
-        //         data.navs = resp.data.navs 
-        //         data.bannersInfo = resp.data.banners
-        //         data.broker = resp.data.broker
-        //         data.loading = false
-        //         _this.getVanTabs(resp.data.data)
-        //         _this._setPostInfo(resp.data.post)
-        //         _this._setTheme(resp.data.post.theme, resp.data.post.header_image)
-        //         _this.setData(data, () => {
-        //             wx.showShareMenu({
-        //                 withShareTicket: true,
-        //                 menus: ['shareAppMessage', 'shareTimeline']
-        //             })
-        //         })
-
-        //     }
-        // })
-        // 有待检验
-        api_blocks.getPostBlocks( _this.data.postId
-        ).then((resp) => {
-            console.log("resp", resp);
+        // 有待检验    √
+        api_blocks.getPostBlocks(_this.data.postId).then((resp) => {
             wx.stopPullDownRefresh()
             wx.hideNavigationBarLoading()
             wx.stopPullDownRefresh() //停止下拉刷新    
@@ -535,9 +486,8 @@ Page({
         // })
         // 有待检验
         api_baseInFo.getPostBaseInfo(
-           pid
+            pid
         ).then((resp) => {
-            console.log("resp", resp);
             var post = resp.data.data
             if (!post) {
                 // TODO 

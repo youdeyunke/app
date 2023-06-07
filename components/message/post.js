@@ -39,20 +39,9 @@ Component({
     methods: {
         getPost: function () {
             // 拉取post
-            //
             var pid = this.data.message.content
             var _this = this
             var key = 'post_base_info.' + pid
-
-            //   app.request({
-            //       url: '/api/v1/post_base_info/' + pid,
-            //       hideLoading: true,
-            //       success: function(resp){
-            //           var post = resp.data.data
-            //           wx.setStorageSync(key, post)
-            //           _this.setData({post: post})
-            //       }
-            //   })
             // 有待检验
             api.getPostBaseInfo(pid).then((resp) => {
                 var post = resp.data.data
