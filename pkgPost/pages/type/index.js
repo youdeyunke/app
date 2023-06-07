@@ -33,29 +33,10 @@ Page({
 
     loadPostInfo: function (pid) {
         var _this = this
-        // app.request({
-        //     url: '/api/v1/post_base_info/' + pid,
-        //     success: function (res) {
-        //         //console.log(res.data.data);
-        //         var post = res.data.data
-        //         var data = {post: post}
-        //         var user = app.globalData.userInfo 
-        //         data.pageQuery = 'id=' + pid
-        //         if(user && user.is_broker){
-        //             data.pageQuery += '&broker_id=' + user.id
-        //         }                
-
-        //         data.pageTitle = post.title + ' 户型介绍'
-        //         data.pageCover = post.cover 
-        //         _this.setData(data)     
-
-        //     }
-        // })
-        // 有待检验  √  
+        // √  
         postApi.getPostBaseInfo(
             pid
         ).then((res) => {
-            console.log('res',res);   //打印ok
             var post = res.data.data
             var data = {
                 post: post

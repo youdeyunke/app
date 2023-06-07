@@ -132,7 +132,7 @@ Page({
     viewHandle: function () {
         var uid = this.data.userId
         var _this = this
-      //  √ 
+        //  √ 
         brokerApi.updateBrokerViewsCount(
             uid
         ).then((res) => {
@@ -148,34 +148,29 @@ Page({
     loadbroker: function () {
         var uid = this.data.userId
         var _this = this
-        app.request({
-            url: '/api/v1/brokers/show',
-            data: {
-                user_id: uid
-            },
-            success: function (resp) {
-                // 有可能没有开通个人主页
-                if (resp.data.status != 0) {
-                    // TODO 显示未开通主页的情况
-                    return
-                }
-                var u = resp.data.data
-                _this.setData({
-                    broker: u,
-                })
-                if (resp.data.data.tags) {
-                    var tagList = resp.data.data.tags.split(',')
-                    _this.setData({
-                        tagList: tagList
-                    })
-                }
-                // _this.viewHandle()
-                var title = u.name + "的电子名片"
-                wx.setNavigationBarTitle({
-                    title: title
-                })
-
+        brokerApi.getBrokerShowDetail({
+           user_id:uid
+        }).then((resp) => {
+            // 有可能没有开通个人主页
+            if (resp.data.status != 0) {
+                // TODO 显示未开通主页的情况
+                return
             }
+            var u = resp.data.data
+            _this.setData({
+                broker: u,
+            })
+            if (resp.data.data.tags) {
+                var tagList = resp.data.data.tags.split(',')
+                _this.setData({
+                    tagList: tagList
+                })
+            }
+            // _this.viewHandle()
+            var title = u.name + "的电子名片"
+            wx.setNavigationBarTitle({
+                title: title
+            })
         })
     },
 

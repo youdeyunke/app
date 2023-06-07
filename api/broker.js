@@ -30,36 +30,12 @@ export function checkBrokerStatus(){
 }
 
 
-// 'brokers/show?user_id='+uid
-// app.request({ 
-//     url: '/api/v1/brokers/show?user_id=' + uid,  
-//     success: function(resp){ 
-//         if(resp.data.status != 0){
-//             return 
-//         }
-//         _this.setData({broker: resp.data.data})
-//     }
-// })
-
 export function getBrokerShowDetail(query){
     return request.get("/api/v1/brokers/show", query);
 }
 
 
-
-
-
-
-// 'brokers/like'
-// app.request({
-//     method: 'POST',
-//     data: {
-//         broker_id: id
-//     },
-//     url: '/api/v1/brokers/like',
-// )}
-
+// 点赞
 export function likeBroker(data){
-
     return request.post("/api/v1/brokers/like", data);
 }

@@ -35,7 +35,7 @@ Page({
 
     loadPost: function () {
         var _this = this
-        // 有待检验  √
+        //  √
         postApi.getPostBaseInfo(this.data.postId).then((resp) => {
             _this.setData({
                 post: resp.data.data

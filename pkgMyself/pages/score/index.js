@@ -25,7 +25,7 @@ Page({
     var data = { 
       page: this.data.page,  
     }
-      // 有待检验  √
+      //   √
       scoreApi.getScoreList({
         page: this.data.page
     }).then((res) => {

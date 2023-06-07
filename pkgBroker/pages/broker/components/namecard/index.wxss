@@ -123,7 +123,7 @@
 
 .user-status-mes {
     padding: 0 40rpx;
-    width: 750rpx;
+    /* width: 750rpx; */
     display: flex;
     justify-content: space-between;
 }

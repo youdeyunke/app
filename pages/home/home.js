@@ -244,9 +244,8 @@ Page({
     onShareAppMessage: function () {
         var _this = this
         const promise = new Promise(resolve => {
-            // 有待检验  
+            // √
             scoreApi.createScore('share_home').then((res) => {
-                console.log("re1s1", res);
                 if (res.data.status == 0 && res.data.data == 'ok') {
                     wx.showToast({
                         icon: 'none',
@@ -273,7 +272,7 @@ Page({
     },
     onShareTimeline: function () {
         const promise = new Promise(resolve => {
-            // 有待检验 
+            // √
             scoreApi.createScore('share_home').then((res) => {
                 if (res.data.status == 0 && res.data.data == 'ok') {
                     wx.showToast({

@@ -213,7 +213,7 @@ Page({
             query.source_uid = app.globalData.sourceUid
         }
 
-        // 有待检验    √
+        // √
         postApi.getPostBlocks(_this.data.postId).then((resp) => {
             wx.stopPullDownRefresh()
             wx.hideNavigationBarLoading()
@@ -535,7 +535,7 @@ Page({
     onShareAppMessage: function () {
         var _this = this
         const promise = new Promise(resolve => {
-            // 有待检验  √
+            //  √
             scoreApi.createScore('share_post').then((res) => {
                 if (res.data.status == 0 && res.data.data == 'ok') {
                     wx.showToast({

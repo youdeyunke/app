@@ -100,7 +100,7 @@ Page({
     renderPost: function (pid) {
         // 显示所选房源
         var _this = this
-        // 有待检验  √
+        //  √
         postApi.getPostBaseInfo(pid).then((resp) => {
             if (resp.data.status != 0) {
                 return false

@@ -1,17 +1,19 @@
 // components/message/namecard.js
-const app = getApp() 
-
+const app = getApp()
+const brokerApi = require("../../api/broker")
 Component({
     /**
      * 组件的属性列表
      */
     properties: {
-        message: {type: Object},
+        message: {
+            type: Object
+        },
 
     },
 
     observers: {
-        "message.content": function(uid){
+        "message.content": function (uid) {
             this.loadBrokerProfile(uid)
         }
     },
@@ -28,35 +30,38 @@ Component({
      */
     methods: {
 
-        callHandle: function(){
+        callHandle: function () {
             wx.makePhoneCall({
-              phoneNumber: this.data.broker.mobile,
+                phoneNumber: this.data.broker.mobile,
             })
         },
 
-        copyHandle: function(){
-            if(!this.data.broker.wechat){
+        copyHandle: function () {
+            if (!this.data.broker.wechat) {
                 wx.showToast({
                     icon: 'none',
-                  title: '未填写微信号，复制失败',
+                    title: '未填写微信号，复制失败',
                 })
-                return false 
+                return false
             }
             wx.setClipboardData({
-              data: this.data.broker.wechat,
+                data: this.data.broker.wechat,
             })
         },
 
-        loadBrokerProfile: function(uid){
-            var _this = this  
-            app.request({ 
-                url: '/api/v1/brokers/show?user_id=' + uid,  
-                success: function(resp){ 
-                    if(resp.data.status != 0){
-                        return 
-                    }
-                    _this.setData({broker: resp.data.data})
+        loadBrokerProfile: function (uid) {
+            var _this = this
+            // 有待检验
+            brokerApi.getBrokerShowDetail({
+                user_id: uid
+            }).then((resp) => {
+                console.log("121resp",resp);
+                if (resp.data.status != 0) {
+                    return
                 }
+                _this.setData({
+                    broker: resp.data.data
+                })
             })
         }
 
