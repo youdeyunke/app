@@ -1,5 +1,5 @@
 const app = getApp()
-const baseInFoApi = require("../../../api/post")
+const postApi = require("../../../api/post")
 import Poster from '../../utils/poster/poster';
 var haibaoBg = {
     type: 'image',
@@ -370,7 +370,7 @@ Page({
             return
         }
         // 有待检验
-        baseInFoApi.getPostBaseInfo(userInfo.post_id).then((resp) => {
+        postApi.getPostBaseInfo(userInfo.post_id).then((resp) => {
             _this.setData({
                 post: resp.data.data
             }, () => {

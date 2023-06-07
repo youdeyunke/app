@@ -1,5 +1,6 @@
 // pkgPost/components/broker-contact/index.js
 const app = getApp() 
+const brokerApi = require("../../api/broker")
 
 Component({
     /**

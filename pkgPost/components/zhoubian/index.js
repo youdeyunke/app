@@ -1,8 +1,8 @@
 //index.js
 //获取应用实例
 const app = getApp()
-const placeSearchApi = require("../../../api/qqmap")
-const baseInFoApi= require("../../../api/post")
+const qqmapApi = require("../../../api/qqmap")
+const postApi= require("../../../api/post")
 Component({
     /**
      * 组件的属性列表
@@ -149,7 +149,7 @@ Component({
             var _this = this
             var app = getApp()
             var tab = this.data.tabs[this.data.active]
-            placeSearchApi.placeSearch({
+            qqmapApi.placeSearch({
                 keyword: tab.value,
                 latitude: _this.data.latitude,
                 longitude: _this.data.longitude,
@@ -293,7 +293,7 @@ Component({
             //     }
             // })
             // 有待检验   √
-            baseInFoApi.getPostBaseInfo( _this.data.postId
+            postApi.getPostBaseInfo( _this.data.postId
             ).then((res)=>{
                 // console.log("r1es11",res);   
                var post = res.data.data

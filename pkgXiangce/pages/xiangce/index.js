@@ -1,7 +1,7 @@
 // pkgXiangce/pages/xiangce/index.js
 var auth = require('../../../utils/auth.js');
 const app = getApp()
-const listApi = require("../../../api/post")
+const postApi = require("../../../api/post")
 Page({
 
     /**
@@ -79,7 +79,7 @@ Page({
     loadPostInfo: function () {
         var _this = this
         // 有待检验  此处未调用
-        baseInFoApi.getPostBaseInfo(
+        postApi.getPostBaseInfo(
             this.data.postId
         ).then((resp) => {
             var post = resp.data.data
@@ -141,7 +141,7 @@ Page({
         var brokerId = this.data.broker.id
         var _this = this
         // 有待检验
-        listApi.getPostList({
+        postApi.getPostList({
             id: pid,
             receiver_id: brokerId
         }).then((res) => {

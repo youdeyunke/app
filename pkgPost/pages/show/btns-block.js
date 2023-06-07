@@ -1,6 +1,6 @@
 // components/broker.js const app = getApp()
 const app = getApp()
-const listApi = require("../../../api/post")
+const postApi = require("../../../api/post")
 var auth = require('../../../utils/auth.js');
 
 Component({
@@ -153,7 +153,7 @@ Component({
             var brokerId = this.data.value.broker_id
             var _this = this
             // 有待检验
-            listApi.getPostList({
+            postApi.getPostList({
                 id: pid,
                 receiver_id: brokerId
             }).then((res) => {

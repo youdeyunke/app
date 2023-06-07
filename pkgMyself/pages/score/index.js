@@ -1,6 +1,6 @@
 // pkgMyself/pages/score/index.js
 const app = getApp() 
-const getScoreListApi = require("../../../api/score")
+const scoreApi = require("../../../api/score")
 
 Page({
 
@@ -26,7 +26,7 @@ Page({
       page: this.data.page,  
     }
       // 有待检验  √
-      getScoreListApi.getScoreList({
+      scoreApi.getScoreList({
         page: this.data.page
     }).then((res) => {
         if(res.data.status != 0){ 

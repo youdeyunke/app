@@ -59,13 +59,7 @@ Component({
 
     doUpdate: function (userInfo) {
       var user = app.globalData.userInfo
-    //   第一个判断去掉
-      if (user.is_broker) {
-        var url = '/api/v1/brokers/' + user.id
-      } else {
         var url = '/api/v1/users/' + user.id
-
-      }
       console.log('user info is ', userInfo)
       var data = {
         profile: {

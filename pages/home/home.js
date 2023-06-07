@@ -1,6 +1,6 @@
 // pages/home/home.js
 const app = getApp()
-const createScoreApi = require("../../api/score")
+const scoreApi = require("../../api/score")
 import utils from '../../utils/util'
 const rowWidthItem = ['60%', "100%", "30%", "40%", "100%"]
 
@@ -245,7 +245,7 @@ Page({
         var _this = this
         const promise = new Promise(resolve => {
             // 有待检验  
-            createScoreApi.createScore('share_home').then((res) => {
+            scoreApi.createScore('share_home').then((res) => {
                 console.log("re1s1", res);
                 if (res.data.status == 0 && res.data.data == 'ok') {
                     wx.showToast({
@@ -274,7 +274,7 @@ Page({
     onShareTimeline: function () {
         const promise = new Promise(resolve => {
             // 有待检验 
-            createScoreApi.createScore('share_home').then((res) => {
+            scoreApi.createScore('share_home').then((res) => {
                 if (res.data.status == 0 && res.data.data == 'ok') {
                     wx.showToast({
                         icon: 'none',

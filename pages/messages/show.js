@@ -1,6 +1,6 @@
 // pages/messages/index.js
 const app = getApp()
-const listApi=require("../../api/post")
+const postApi=require("../../api/post")
 var auth = require('../../utils/auth.js');
 
 Page({
@@ -92,7 +92,7 @@ Page({
       id: postId
     }
    // 有待检验
-   listApi.getPostList({
+   postApi.getPostList({
         receiver_id: this.data.targetUserId,
         id: postId
     }).then((res)=>{

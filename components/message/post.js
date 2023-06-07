@@ -1,6 +1,6 @@
 // components/message/post.js
 const app = getApp()
-const baseInFoApi = require("../../api/post")
+const postApi = require("../../api/post")
 Component({
     /**
      * 组件的属性列表
@@ -43,7 +43,7 @@ Component({
             var _this = this
             var key = 'post_base_info.' + pid
             // 有待检验
-            baseInFoApi.getPostBaseInfo(pid).then((resp) => {
+            postApi.getPostBaseInfo(pid).then((resp) => {
                 var post = resp.data.data
                 wx.setStorageSync(key, post)
                 _this.setData({

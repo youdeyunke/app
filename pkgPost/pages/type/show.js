@@ -1,6 +1,6 @@
 // pkgType/pages/type/show.js
 const app = getApp()
-const listApi = require("../../../api/post")
+const postApi = require("../../../api/post")
 var auth = require('../../../utils/auth.js');
 
 Page({
@@ -90,7 +90,7 @@ Page({
         var brokerId = this.data.broker.id
         var _this = this
             // 有待检验
-            listApi.getPostList({
+            postApi.getPostList({
                 id: pid,
                 receiver_id: brokerId
             }).then((res) => {

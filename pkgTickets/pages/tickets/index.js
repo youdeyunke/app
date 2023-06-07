@@ -1,6 +1,6 @@
 // pkgTickets/pages/tickets/index.js
 const app = getApp()
-const baseInFoApi = require("../../../api/post")
+const postApi = require("../../../api/post")
 Page({
 
     /**
@@ -52,7 +52,7 @@ Page({
     loadPostData: function () {
         var _this = this
           // 有待检验
-          baseInFoApi.getPostBaseInfo(this.data.postId
+          postApi.getPostBaseInfo(this.data.postId
         ).then((resp)=>{
             var s = resp.data.data.ticket_summary 
             var tips = '暂无摇号结果，或数据还未录入'

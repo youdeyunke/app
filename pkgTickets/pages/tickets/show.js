@@ -1,6 +1,6 @@
 // pkgTickets/pages/tickets/show.js
 const app = getApp()
-const baseInFoApi = require("../../../api/post")
+const postApi = require("../../../api/post")
 Page({
 
     /**
@@ -53,7 +53,7 @@ Page({
     loadPostInfo: function (postId) {
         var _this = this
         // 有待检验
-        baseInFoApi.getPostBaseInfo(postId).then((res) => {
+        postApi.getPostBaseInfo(postId).then((res) => {
             var post = res.data.data
             _this.setData({
                 post: post
