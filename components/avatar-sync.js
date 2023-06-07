@@ -1,5 +1,5 @@
 const qiniu = require("../utils/qiniu")
-
+const userApi= require("../api/user")
 // components/avatar-sync.js
 const app = getApp()
 
@@ -59,21 +59,14 @@ Component({
 
     doUpdate: function (userInfo) {
       var user = app.globalData.userInfo
-        var url = '/api/v1/users/' + user.id
-      console.log('user info is ', userInfo)
-      var data = {
-        profile: {
+      var profile = {
           avatar: userInfo.avatarUrl,
           name: userInfo.nickName,
-        }
       }
       var _this = this 
-      app.request({
-        url: url,
-        data: data,
-        method: 'PUT',
-        success: function (resp) {
-          if (resp.data.status == 0) {
+      
+      userApi.updateUserProfile(user.id,profile).then((resp)=>{
+        if (resp.data.status == 0) {
             _this.triggerEvent('change', {})
             wx.showToast({
               icon: 'none',
@@ -81,7 +74,6 @@ Component({
               duration: 2000,
             })
           }
-        }
       })
     },
 

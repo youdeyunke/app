@@ -1,5 +1,6 @@
 const app = getApp();
-const postApi = require("../../../api/post")
+const postApi = require("../../../api/post");
+const brokerApi = require("../../../api/broker");
 var qiniu = require('../../../utils/qiniu.js');
 var auth = require('../../../utils/auth.js');
 
@@ -211,30 +212,21 @@ Page({
 
     doPost: function (data) {
         var _this = this
-
-        app.request({
-            url: '/api/v1/brokers/',
-            data: {
-                profile: data
-            },
-            method: "POST",
-            success: function (resp) {
-                if (resp.data.status != 0) {
-                    return
-                }
-
-                wx.showToast({
-                    icon: 'success',
-                    title: '提交成功'
+        brokerApi.createBroker({
+            profile: data
+        }).then(() => {
+            if (resp.data.status != 0) {
+                return
+            }
+            wx.showToast({
+                icon: 'success',
+                title: '提交成功'
+            })
+            setTimeout(function () {
+                wx.navigateTo({
+                    url: '/pkgBroker/pages/broker/audit/index?status=pending',
                 })
-
-                setTimeout(function () {
-                    wx.navigateTo({
-                        url: '/pkgBroker/pages/broker/audit/index?status=pending',
-                    })
-                }, 1000)
-
-            },
+            }, 1000)
         })
     },
 
@@ -378,29 +370,26 @@ Page({
 
     checkBrokerStatus: function () {
         var _this = this
-        app.request({
-            url: '/api/v1/brokers/check_status',
-            method: 'POST',
-            data: {},
-            success: function (resp) {
-                console.log("res", resp)
-                _this.setData({
-                    userstate: resp.data.data
-                })
-                var join_status = resp.data.data.join_status
-                // 审核中
+        brokerApi.checkBrokerStatus({
 
-                if (join_status == 1) {
-                    wx.redirectTo({
-                        url: '/pkgBroker/pages/broker/audit/index?status=pending',
-                    })
-                }
-                // 已入驻
-                if (join_status == 2) {
-                    wx.redirectTo({
-                        url: '/pkgBroker/pages/broker/audit/index?status=ok',
-                    })
-                }
+        }).then((resp) => {
+            console.log("res", resp)
+            _this.setData({
+                userstate: resp.data.data
+            })
+            var join_status = resp.data.data.join_status
+            // 审核中
+
+            if (join_status == 1) {
+                wx.redirectTo({
+                    url: '/pkgBroker/pages/broker/audit/index?status=pending',
+                })
+            }
+            // 已入驻
+            if (join_status == 2) {
+                wx.redirectTo({
+                    url: '/pkgBroker/pages/broker/audit/index?status=ok',
+                })
             }
         })
     },

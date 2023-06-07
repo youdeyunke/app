@@ -1,5 +1,5 @@
 // pkgPost/components/broker-contact/index.js
-const app = getApp() 
+const app = getApp()
 const brokerApi = require("../../api/broker")
 
 Component({
@@ -7,8 +7,14 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        broker: {type: Object, value: null}, 
-        postId: {type: Number, value: null},
+        broker: {
+            type: Object,
+            value: null
+        },
+        postId: {
+            type: Number,
+            value: null
+        },
 
     },
 
@@ -16,25 +22,23 @@ Component({
      * 组件的初始数据
      */
     data: {
-    
+
         mode: 'full' // or mini
     },
 
     observers: {
-        "bid": function(bid){
-            if(!bid){
+        "bid": function (bid) {
+            if (!bid) {
                 return
             }
 
             // load broker info 
-            var _this = this  
+            var _this = this
             // TODO get from cache 
-            app.request({
-                url: '/api/v1/brokers/' + bid, 
-                hideLoading: true, 
-                success: function(resp){
-                    _this.setData({broker: resp.data.data})
-                }
+            brokerApi.getBrokerDetail(bid).then((resp) => {
+                _this.setData({
+                    broker: resp.data.data
+                })
             })
         }
     },
@@ -46,21 +50,21 @@ Component({
         chatHandle: function () {
             // TODO 如果咨询的是某个具体楼盘 将楼盘参数携带 
             // 防止自己和自己聊天  
-            var user = app.globalData.userInfo  
-            if(!user){
+            var user = app.globalData.userInfo
+            if (!user) {
                 wx.showToast({
-                  title: '请先登陆',
-                  icon: 'none',
+                    title: '请先登陆',
+                    icon: 'none',
                 })
                 return false
             }
-            var uid1 = user.id 
-            var uid2 = this.data.broker.id   
+            var uid1 = user.id
+            var uid2 = this.data.broker.id
 
-            if(uid1.toString() == uid2.toString() ){
+            if (uid1.toString() == uid2.toString()) {
                 wx.showToast({
-                  title: '不能和自己发起聊天',
-                  icon: 'none',
+                    title: '不能和自己发起聊天',
+                    icon: 'none',
                 })
                 return false
             }
@@ -71,10 +75,10 @@ Component({
 
         },
 
-        gotoProfile: function(){
-            var url = '/pkgBroker/pages/broker/profile?id=' + this.data.broker.id  
+        gotoProfile: function () {
+            var url = '/pkgBroker/pages/broker/profile?id=' + this.data.broker.id
             wx.navigateTo({
-              url: url,
+                url: url,
             })
         },
 
@@ -87,7 +91,9 @@ Component({
         },
 
         closeHandle: function () {
-            this.setData({ mode: 'mini' })
+            this.setData({
+                mode: 'mini'
+            })
         }
 
     }

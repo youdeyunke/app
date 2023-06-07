@@ -1,5 +1,6 @@
 // pages/user/user.js
 const app = getApp()
+const brokerApi= require("../../../api/broker")
 
 Page({
   /**
@@ -131,23 +132,16 @@ Page({
   viewHandle: function () {
     var uid = this.data.userId
     var _this = this
-    app.request({
-      method: 'POST',
-      hideLoading: true,
-      data: {
+    brokerApi.updateBrokerViewsCount({
         user_id: uid
-      },
-      url: '/api/v1/brokers/view',
-      success: function (res) {
+    }).then((res)=>{
         if (res.data.status != 0) {
-          return
-        }
-        _this.setData({
-          viewNums: res.data.data
-        })
-      }
+            return
+          }
+          _this.setData({
+            viewNums: res.data.data
+          })
     })
-
   },
 
   loadbroker: function () {

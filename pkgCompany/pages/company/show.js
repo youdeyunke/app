@@ -1,6 +1,6 @@
 // pkgCompany/pages/company/show.js
 const app = getApp()
-
+const brokerApi = require("../../../api/broker")
 Page({
 
     /**
@@ -9,11 +9,11 @@ Page({
     data: {
         company: {},
         items: [],
-        staff:[],
+        staff: [],
         tab: 'posts',
         page: 1,
         loading: false,
-        val:'',
+        val: '',
     },
 
     /**
@@ -21,7 +21,14 @@ Page({
      */
     onLoad: function (q) {
         var cid = q.id
-        var filter = { company_id: cid, order: 'id desc', per_page: 10, page: 1,city_id:'',group_v2:'new' }
+        var filter = {
+            company_id: cid,
+            order: 'id desc',
+            per_page: 10,
+            page: 1,
+            city_id: '',
+            group_v2: 'new'
+        }
         this.setData({
             filter: filter,
             cid: cid
@@ -47,17 +54,17 @@ Page({
             }
         })
     },
-    loadStaff:function(){
+    loadStaff: function () {
         var _this = this
-        app.request({
-            url:'/api/v1/brokers/',
-            data:{company_id:this.data.cid,per_page: 10, page: _this.data.page},
-            success:function(res){
-                    var staff = [..._this.data.staff,...res.data.data]
-                _this.setData({
-                    staff : staff
-                })
-            }
+        brokerApi.getBrokerList({
+            company_id: this.data.cid,
+            per_page: 10,
+            page: _this.data.page
+        }).then((res) => {
+            var staff = [..._this.data.staff, ...res.data.data]
+            _this.setData({
+                staff: staff
+            })
         })
     },
     tabChange: function (e) {
@@ -68,34 +75,40 @@ Page({
         }
         var filter = this.data.filter
         filter.page = 1
-        this.setData({ tab: e.detail.name,
-                    page:1,
-                    staff:[],
-                    filter: filter})
+        this.setData({
+            tab: e.detail.name,
+            page: 1,
+            staff: [],
+            filter: filter
+        })
         this.loadStaff()
     },
     filterChange: function (e) {
         var filter = e.detail
         filter.page = 1
-        this.setData({ filter: filter })
+        this.setData({
+            filter: filter
+        })
     },
-    loadPosts(){
-        var filter =  this.data.filter
+    loadPosts() {
+        var filter = this.data.filter
         filter['kw'] = this.data.val
         this.setData({
-            filter:filter
+            filter: filter
         })
-        },
-      searchTextInput(e){
-        this.setData({val:e.detail})
-      },
-      clearSearch(){
-        var filter =  this.data.filter
+    },
+    searchTextInput(e) {
+        this.setData({
+            val: e.detail
+        })
+    },
+    clearSearch() {
+        var filter = this.data.filter
         filter['kw'] = ''
         this.setData({
-          filter:filter
+            filter: filter
         })
-      },
+    },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -137,7 +150,9 @@ Page({
      */
     onReachBottom: function () {
         var page = this.data.page + 1
-        this.setData({ page: page })
+        this.setData({
+            page: page
+        })
         this.loadStaff()
     },
 

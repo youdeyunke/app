@@ -27,3 +27,8 @@ export function createBroker(profile){
 export function checkBrokerStatus(){
     return request.post("/api/v1/brokers/check_status", {});
 }
+
+
+// 'brokers/show?user_id='+uid
+// 'brokers/show'
+// 'brokers/like'
