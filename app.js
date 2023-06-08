@@ -2,6 +2,7 @@
 const auth = require("utils/auth.js");
 const EXT = wx.getExtConfigSync()
 const city = require("utils/city.js");
+const userApi= require("./api/user")
 //const T = require("utils/test.js");
 //const TIM = require('tim/index.js');
 var onfire = require('/utils/onfire.min.js');
@@ -536,26 +537,17 @@ App({
             console.log('获取用户手机号错误')
             return false;
         }
-
-        this.request({
-            method: 'POST',
-            url: '/api/v1/users/bind_xcx_mobile',
-            data: {
-                'iv': e.detail.iv,
-                'encryptedData': e.detail.encryptedData
-            },
-
-            success: function (res) {
-                if (res.data.status != 0) {
-                    wx.showModal({
-                        content: '服务器出现错误，请稍后再试',
-                        showCancle: false
-                    })
-                } else {
-                    // 绑定手机号成功
-                    var user = res.data.data
-                    typeof cb == 'function' && cb(user.mobile)
-                }
+// 有待检测
+        userApi.updateUserProfile(e.detail.iv,e.detail.encryptedData).then((res)=>{
+            if (res.data.status != 0) {
+                wx.showModal({
+                    content: '服务器出现错误，请稍后再试',
+                    showCancle: false
+                })
+            } else {
+                // 绑定手机号成功
+                var user = res.data.data
+                typeof cb == 'function' && cb(user.mobile)
             }
         })
     },

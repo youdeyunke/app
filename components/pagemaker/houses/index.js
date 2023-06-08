@@ -108,7 +108,7 @@ Component({
       if (cc) {
         query.cityCode = cc
       }
-    //   有待检测
+    //   √
       houseApi.getHouseList(query).then((resp)=>{
         _this.setData({loading: false })
         var res = resp.data.data.list

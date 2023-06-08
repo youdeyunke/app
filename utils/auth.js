@@ -1,5 +1,5 @@
 const util = require("util.js");
-
+const userApi = require("../api/user")
 module.exports = {
 
     setUserInfo: function (token, user) {
@@ -18,7 +18,7 @@ module.exports = {
 
     smsLoginHandle(phone, code, cb) {
         // 通过短信验证码登陆账号
-        var _this = this 
+        var _this = this
 
         if (!(/^1[3456789]\d{9}$/.test(phone))) {
             wx.showModal({
@@ -47,7 +47,7 @@ module.exports = {
                     // 保存下服务器返回的token
                     var token = data.data.token
                     var user = data.data.user
-                    _this.setUserInfo(token, user) 
+                    _this.setUserInfo(token, user)
                     typeof cb == "function" && cb(user)
                 }
             }
@@ -62,20 +62,24 @@ module.exports = {
         // 注意，code 需要在getUserInfo之前获取到，否则会导致登录失败
         // 2中登录方式，api/v1 : 账号授权登录    api/v2： 手机号授权登录
         if (e.detail.errMsg != 'getUserInfo:ok' && e.detail.errMsg != 'getPhoneNumber:ok') {
-          wx.showModal({
-            title: '操作失败',
-            content: '请允许微信授权，才能正常登陆账号哦',
-            showCancle: false
-          })
-          console.error('授权时候出错', e)
-          return
+            wx.showModal({
+                title: '操作失败',
+                content: '请允许微信授权，才能正常登陆账号哦',
+                showCancle: false
+            })
+            console.error('授权时候出错', e)
+            return
         }
-        
+
         // 换取服务器的token
         var encryptedData = e.detail.encryptedData
         var iv = e.detail.iv
         // 获取token，并刷新 user info
-        var data = {code: code,  encryptedData: encryptedData, iv: iv }
+        var data = {
+            code: code,
+            encryptedData: encryptedData,
+            iv: iv
+        }
         data['referrer_id'] = wx.getStorageSync('referrer_id') || ''
         // 如果有推荐人信息
         if (data['referrer_id']) {
@@ -93,7 +97,7 @@ module.exports = {
                     // 保存下服务器返回的token
                     var token = data.data.token
                     var user = data.data.user
-                    _this.setUserInfo(token, user )
+                    _this.setUserInfo(token, user)
                     // callback
                     typeof cb == "function" && cb(user)
                 }
@@ -146,16 +150,12 @@ module.exports = {
 
     getRemoteUserInfo: function (cb) {
         /* 从服务器获取用户信息 */
-        const that = getApp()
-        that.request({
-            url: '/api/v1/users/myself',
-            hideLoading: true,
-            success: function (resp) {
-                if (resp.data.status == 0) {
-                    var user = resp.data.data
-                    typeof cb == "function" && cb(user)
-                }
-            },
+        // 有待检测
+        userApi.getMyselfInfo().then((resp) => {
+            if (resp.data.status == 0) {
+                var user = resp.data.data
+                typeof cb == "function" && cb(user)
+            }
         })
     },
 

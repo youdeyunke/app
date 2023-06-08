@@ -1,6 +1,8 @@
 const app = getApp()
+const userApi=require("../../api/user")
 var auth = require('../../utils/auth.js');
 const T = require('../../utils/test.js');
+
 
 Page({
 
@@ -111,20 +113,14 @@ Page({
 
     doUpdate: function (userInfo) {
         var url = userInfo.avatarUrl
-        app.request({
-            url: '/api/v1/users/update_avatar',
-            data: {
-                avatar: url
-            },
-            method: 'POST',
-            success: function (resp) {
-                if (resp.data.status == 0) {
-                    wx.showToast({
-                        icon: 'none',
-                        title: '微信头像同步成功',
-                        duration: 2000,
-                    })
-                }
+    //   有待检测
+        userApi.updateAvatar(url).then((resp)=>{
+            if (resp.data.status == 0) {
+                wx.showToast({
+                    icon: 'none',
+                    title: '微信头像同步成功',
+                    duration: 2000,
+                })
             }
         })
     },
@@ -307,32 +303,24 @@ Page({
         })
         var token = wx.getStorageSync('token')
         var that = this
-        app.request({
-            method: 'POST',
-            url: '/api/v1/users/bind_xcx_mobile',
-            data: {
-                'iv': e.detail.iv,
-                'encryptedData': e.detail.encryptedData
-            },
-
-            success: function (res) {
-                if (res.data.status != 0) {
-                    wx.showModal({
-                        content: '服务器出现错误，请稍后再试',
-                        showCancle: false
-                    })
-                } else {
-                    // 绑定手机号成功
-                    that.setData({
-                        userInfo: res.data.data
-                    })
-                    wx.setStorageSync('userInfo', res.data.data)
-                    console.log(that.data.mobile)
-                    wx.showToast({
-                        title: '绑定手机号成功',
-                    })
-                    app.loginBack()
-                }
+// 有待检测
+        userApi.bindXcxMobile(e.detail.iv,e.detail.encryptedData).then((res)=>{
+            if (res.data.status != 0) {
+                wx.showModal({
+                    content: '服务器出现错误，请稍后再试',
+                    showCancle: false
+                })
+            } else {
+                // 绑定手机号成功
+                that.setData({
+                    userInfo: res.data.data
+                })
+                wx.setStorageSync('userInfo', res.data.data)
+                console.log(that.data.mobile)
+                wx.showToast({
+                    title: '绑定手机号成功',
+                })
+                app.loginBack()
             }
         })
     },
