@@ -1,7 +1,14 @@
 let request = require('../utils/request.js');
-// 替换完成
-export function getPostList(data){
+
+
+// 聊天消息中发送楼盘卡片
+export function sendPostCard(data){
     return request.get("/api/v2/posts/hello", data);
+}
+
+// 拉取楼盘列表
+export function getPostList(data){
+  return request.get("/api/v1/posts/", data);
 }
 
 // 拉取楼盘详情页模块数据  替换完成
