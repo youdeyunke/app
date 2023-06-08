@@ -11,6 +11,11 @@ export function getPostList(data){
   return request.get("/api/v1/posts/", data);
 }
 
+// 查询楼盘详情数据
+export function  getPostDetail(pid){
+  return request.get("/api/v1/posts/"+pid);
+}
+
 // app.request({
 //     url: '/api/v1/posts/' + pid,
 //     method: 'GET',
@@ -26,6 +31,13 @@ export function getPostList(data){
 //     url: '/api/v1/posts/myfavs',
 //     data: query,
 //     hideLoading: true,
+
+
+// 拉取我收藏过的楼盘列表
+export function  getFavPosts(query){
+  return request.get("/api/v1/posts/myfavs", query);
+}
+
 
 
 // 拉取楼盘详情页模块数据  替换完成
