@@ -1,0 +1,9 @@
+/* components/pagemaker/posts/more-button.wxss */
+.btn{
+    width: 100%;
+    height:80rpx;
+    text-align: center;
+    font-size: 28rpx;
+    line-height: 80rpx;
+    border: 2rpx solid;
+}

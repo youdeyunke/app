@@ -25,6 +25,9 @@
 <template name="posts">
     <posts-module config="{{item}}" ></posts-module>
 </template>
+<template name="houses">
+    <houses-module config="{{item}}" ></houses-module>
+</template>
 <template name="blank">
     <blank-module config="{{item}}" ></blank-module>
 </template>

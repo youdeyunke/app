@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "post-item0":"/components/post-item/cell/index"
+  }
+}

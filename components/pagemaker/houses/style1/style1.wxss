@@ -1,0 +1,23 @@
+/* components/pagemaker/posts/style1.wxss */
+
+.other {
+    white-space: nowrap;
+    margin-right: 0rpx;
+    width: 100%;
+}
+.others{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.post {
+    margin-right: 20rpx;
+}
+
+.posts .top{
+    margin-bottom:20rpx;
+}

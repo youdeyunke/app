@@ -14,6 +14,7 @@
         "image-module": "./image/index",
         "video-module": "./video/index",
         "posts-module": "./posts/index",
+        "houses-module": "./houses/index",
         "zhaofang-module": "/components/zhaofang/index",
         "unknow-module": "unknow-module",
         "notice-module": "./notice/index",

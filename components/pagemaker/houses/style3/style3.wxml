@@ -1,0 +1,7 @@
+
+<view class="posts" >
+  <view class="item" wx:for="{{items}}">
+    <post-item post="{{item}}"></post-item>
+  </view>
+    
+</view>

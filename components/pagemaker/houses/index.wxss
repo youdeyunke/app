@@ -1,0 +1,7 @@
+/* components/pagemaker/posts/index.wxss */
+
+.posts-items {
+    width:100%;
+    margin:0 auto 20rpx auto;
+    padding: 0rpx 0rpx;
+}

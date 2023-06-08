@@ -1,0 +1,14 @@
+
+
+/* components/pagemaker/posts/style2.wxss */
+
+.posts{
+    padding:0 15rpx;
+}
+.posts .post {
+    margin-bottom: 20rpx;
+}
+
+.posts .post:last-child {
+    margin-bottom: 0;
+}
