@@ -14,3 +14,8 @@ export function getPostBaseInfo(pid){
     return request.get("/api/v1/post_base_info/"+pid);
 }
 
+// 快速搜索楼盘，参数只需要传关键字既可
+export function  quickSearch(kw){
+  return request.get("/api/v1/quicksearch", {kw:kw})
+}
+
