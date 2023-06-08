@@ -396,14 +396,7 @@ App({
 
     markUserOnlineStatus: function (status) {
         // 向服务器端报告用户的在线状态
-        this.request({
-            url: '/api/v1/users/' + status,
-            method: 'POST',
-            hideLoading: true,
-            success: function (resp) {
-                // pass
-            }
-        })
+        // TODO 重新实现此方法
     },
 
     setSystemInfo: function () {
