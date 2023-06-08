@@ -1,7 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "post-item0":"/components/post-item/cell/index",
-    "post-item1":"/components/post-item/grid/index"
+    "house-item0":"/components/house-item/cell/index",
+    "house-item1":"/components/house-item/grid/index"
   }
 }

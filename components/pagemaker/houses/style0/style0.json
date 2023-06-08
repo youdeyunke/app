@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "post-item0":"/components/post-item/cell/index"
+    "house-item0":"/components/house-item/cell/index"
   }
 }

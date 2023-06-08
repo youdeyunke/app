@@ -1,7 +1,7 @@
 
 <view class="posts" >
   <view class="item" wx:for="{{items}}">
-    <post-item post="{{item}}"></post-item>
+    <house-item post="{{item}}"></house-item>
   </view>
     
 </view>

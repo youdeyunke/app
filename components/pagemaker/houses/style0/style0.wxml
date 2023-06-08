@@ -1,5 +1,5 @@
 <!--components/pagemaker/posts/style0.wxml-->
 <view wx:for="{{items}}"  class="post-item">
-  <post-item0 post="{{item}}"></post-item0>
+  <house-item0 post="{{item}}"></house-item0>
   <view class="border"></view>
 </view>

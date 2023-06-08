@@ -1,0 +1,33 @@
+<navigator hover-class="none" class="post" url="/pkgPost/pages/show/index?id={{post.id}}">
+    <view class="cover">
+        <image class="cover-image" src="{{post.cover}}?imageView2/1/w/750/h/400" />
+        <view class="address">{{post.address}}</view>
+        <view class="position">
+            <block wx:if="{{post.has_live==true}}">
+            <image src="/assets/icons/post/live.png"></image>
+        </block>
+        <block wx:if="{{post.has_video==true}}">
+            <image src="/assets/icons/post/video.png"></image>
+        </block>
+        <block wx:if="{{post.has_vr==true}}">
+            <image src="/assets/icons/post/VR.png"></image>
+        </block>
+        </view>
+    </view>
+    <view class="footer">
+        <view class="title">{{post.title}}</view>
+        <view class="top">
+            <view class="tags">
+                <view wx:for="{{post.tags}}" style="zoom: 0.8;margin-right: 10rpx;" >
+                    <van-tag wx:key="id" wx:if="{{index <= 2}}" text-color="{{item.text_color }}" size="mini" plain wx:key="item.id">
+                        {{item.name}}
+                    </van-tag>
+                </view>
+            </view>
+            <view class="price">
+                <view class="left">{{post.average_price_info.label}}:</view>
+                <view class="right">{{post.average_price_info.text}}{{post.average_price_info.px}}</view>
+            </view>
+        </view>
+    </view>
+</navigator>
