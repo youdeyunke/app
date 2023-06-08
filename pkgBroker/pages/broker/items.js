@@ -47,20 +47,10 @@ Component({
 
             _this.setData({ loading: true })
             var query = this.data.query
-            // app.request({
-            //     hideLoading: true,
-            //     data: query,
-            //     complete: function (r) {
-            //         _this.setData({ loading: false })
-            //     },
-            //     success: function (resp) {
-               
-            //     }
-            // })
             // 有待检验
             postApi.getPostList(query).then((resp)=> {
-                _this.setData({ items: resp.data.data })
-                console.log(_this.data.items);
+                _this.setData({ items: resp.data.data,loading: false })
+                console.log("121resp",_this.data.items);
             })
         }
     }

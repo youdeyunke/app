@@ -467,23 +467,7 @@ Page({
 
             }
         })
-        // app.request({
-        //     url: '/api/v1/post_base_info/' + pid,
-        //     hideLoading: true,
-        //     success: function (resp) {
-        //         var post = resp.data.data
-        //         if (!post) {
-        //             // TODO 
-        //             return
-        //         }
-        //         _this._setPostInfo(post, cb)
-        //         wx.setStorage({
-        //             data: post,
-        //             key: key,
-        //         })
 
-        //     }
-        // })
         // 有待检验
         postApi.getPostBaseInfo(
             pid

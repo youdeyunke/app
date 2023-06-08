@@ -50,15 +50,6 @@ Component({
 
             _this.setData({ loading: true })
             var query = this.data.query
-            // app.({
-            //     url: '/api/v1/posts/',
-            //     hideLoading: true,
-            //     data: query,
-            //     complete: function (r) {
-            //         _this.setData({ loading: false })
-            //     }
-            // })
-
             // 有待检测
             postApi.getPostList(query).then((resp)=>{
                 var meta = resp.data.meta

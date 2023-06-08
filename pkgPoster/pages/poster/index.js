@@ -248,15 +248,6 @@ Page({
     },
 
     loadPost: function (postId, cb) {
-        // app.request({
-        //     hideLoading: true,
-        //     url: '/api/v1/post_base_info/' + postId,
-        //     methods:'GET',
-        //     success: function (resp) {
-        //         var post = resp.data.data
-        //         typeof cb == 'function' && cb(post)
-        //     }
-        // })
         // 有待检验
         postApi.getPostBaseInfo(postId
         ).then((resp) => {
