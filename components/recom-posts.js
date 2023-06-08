@@ -1,7 +1,7 @@
 // components/recom-posts.js
 //
 const app = getApp()
-
+const postApi=require("../api/post")
 Component({
     /**
      * 组件的属性列表
@@ -39,20 +39,16 @@ Component({
     methods: {
         loadRecoms: function () {
             var _this = this
-            app.request({
-                hideLoading: true,
-                url: '/api/v1/posts/',
-                data: {
-                    per_page: _this.data.count,
-                    sub_district_id: _this.data.subDistrictId || '',
-                    order: 'id desc',
-                    id_ne: _this.data.idNe || 0,
-                },
-                success: function (resp) {
-                    var posts = resp.data.data
-                    _this.setData({ posts: posts })
-                    app.cachePosts(posts)
-                },
+            // 有待检测   qa页未使用
+            postApi.getPostList({
+                per_page: _this.data.count,
+                sub_district_id: _this.data.subDistrictId || '',
+                order: 'id desc',
+                id_ne: _this.data.idNe || 0,
+            }).then((resp)=>{
+                var posts = resp.data.data
+                _this.setData({ posts: posts })
+                app.cachePosts(posts)
             })
         },
 

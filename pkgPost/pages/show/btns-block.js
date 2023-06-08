@@ -153,7 +153,7 @@ Component({
             var brokerId = this.data.value.broker_id
             var _this = this
             // 有待检验
-            postApi.getPostList({
+            postApi.sendPostCard({
                 id: pid,
                 receiver_id: brokerId
             }).then((res) => {

@@ -1,5 +1,6 @@
 // pkgBroker/pages/broker/items.js
 const app = getApp()
+const postApi= require("../../../api/post")
 Component({
     /**
      * 组件的属性列表
@@ -46,17 +47,20 @@ Component({
 
             _this.setData({ loading: true })
             var query = this.data.query
-            app.request({
-                url: '/api/v1/posts/',
-                hideLoading: true,
-                data: query,
-                complete: function (r) {
-                    _this.setData({ loading: false })
-                },
-                success: function (resp) {
-                    _this.setData({ items: resp.data.data })
-                    console.log(_this.data.items);
-                }
+            // app.request({
+            //     hideLoading: true,
+            //     data: query,
+            //     complete: function (r) {
+            //         _this.setData({ loading: false })
+            //     },
+            //     success: function (resp) {
+               
+            //     }
+            // })
+            // 有待检验
+            postApi.getPostList(query).then((resp)=> {
+                _this.setData({ items: resp.data.data })
+                console.log(_this.data.items);
             })
         }
     }

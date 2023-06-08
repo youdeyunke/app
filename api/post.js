@@ -11,6 +11,23 @@ export function getPostList(data){
   return request.get("/api/v1/posts/", data);
 }
 
+// app.request({
+//     url: '/api/v1/posts/' + pid,
+//     method: 'GET',
+//     success: function (resp) {
+//         _this.setData({
+//             post: resp.data.data
+//         })
+//     }
+// })
+
+
+// app.request({
+//     url: '/api/v1/posts/myfavs',
+//     data: query,
+//     hideLoading: true,
+
+
 // 拉取楼盘详情页模块数据  替换完成
 export function getPostBlocks(pid){
     return request.get("/api/v5/posts/"+pid);

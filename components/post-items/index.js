@@ -1,5 +1,6 @@
 // components/sub-district/items.js
 const app = getApp();
+const postApi= require("../../api/post")
 import Notify from '../../vant/notify/notify.js';
 
 
@@ -49,36 +50,36 @@ Component({
 
             _this.setData({ loading: true })
             var query = this.data.query
-            app.request({
-                url: '/api/v1/posts/',
-                hideLoading: true,
-                data: query,
-                complete: function (r) {
-                    _this.setData({ loading: false })
-                },
+            // app.({
+            //     url: '/api/v1/posts/',
+            //     hideLoading: true,
+            //     data: query,
+            //     complete: function (r) {
+            //         _this.setData({ loading: false })
+            //     }
+            // })
 
-                success: function (resp) {
-                    var meta = resp.data.meta
-                    var p = _this.data.query.page || 1
-                    var i = p - 1
-                    var data = { meta: meta }
-                    if (p > 1) {
-                        var key = 'items[' + i + ']'
-                        data[key] = resp.data.data
-                    } else {
-                        data['items'] = [resp.data.data]
-                    }
-                    _this.setData(data)
+            // 有待检测
+            postApi.getPostList(query).then((resp)=>{
+                var meta = resp.data.meta
+                var p = _this.data.query.page || 1
+                var i = p - 1
+                var data = { meta: meta }
+                if (p > 1) {
+                    var key = 'items[' + i + ']'
+                    data[key] = resp.data.data
+                } else {
+                    data['items'] = [resp.data.data]
+                }
+                _this.setData(data)
 
 
-                    for (var i = 0; i <= resp.data.data.length - 1; i++) {
-                        var post = resp.data.data[i]
-                        wx.setStorage({
-                            key: 'post.' + post.id,
-                            data: post,
-                        })
-                    }
-            
+                for (var i = 0; i <= resp.data.data.length - 1; i++) {
+                    var post = resp.data.data[i]
+                    wx.setStorage({
+                        key: 'post.' + post.id,
+                        data: post,
+                    })
                 }
             })
         }

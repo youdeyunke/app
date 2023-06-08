@@ -369,7 +369,7 @@ Page({
             })
             return
         }
-        // 有待检验
+        // √
         postApi.getPostBaseInfo(userInfo.post_id).then((resp) => {
             _this.setData({
                 post: resp.data.data

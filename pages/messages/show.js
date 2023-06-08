@@ -93,7 +93,7 @@ Page({
             id: postId
         }
         // 有待检验
-        postApi.getPostList(data).then((res) => {
+        postApi.sendPostCard(data).then((res) => {
             console.log("有待检验", res);
         })
         app.bindPostCustomer(postId, '向楼盘置业顾问发起了在线聊天咨询')

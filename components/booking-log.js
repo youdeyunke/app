@@ -1,5 +1,6 @@
 // components/booking-log.js
 const app = getApp()
+const postApi= require("../api/post")
 Component({
     /**
      * 组件的属性列表
@@ -116,6 +117,11 @@ Component({
                     })
                 }
             })
+            // postApi.getPostList({
+
+            // }).then((resp)=>{
+
+            // })
         },
 
         callHandle: function (e) {
