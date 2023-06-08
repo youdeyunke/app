@@ -1,4 +1,5 @@
 const app = getApp()
+const houseApi= require("../../../api/house")
 // components/pagemaker/posts/index.js
 Component({
   /**
@@ -107,38 +108,34 @@ Component({
       if (cc) {
         query.cityCode = cc
       }
+    //   有待检测
+      houseApi.getHouseList(query).then((res)=>{
+        _this.setData({loading: false })
+        var res = resp.data.data.list
+        var filters = resp.data.filters
+        var config = _this.data.config
+        // TODO setData items
+        res = res.sort((p1, p2) => {
+          var index1 = config.ids.findIndex((v) => v === p1.id)
+          var index2 = config.ids.findIndex((v) => v === p2.id)
+          return index1 - index2
+        })
 
-      app.request({
-        url: '/api/v1/houses/',
-        data: query,
-        success: function (resp) {
-          _this.setData({loading: false })
-          var res = resp.data.data.list
-          var filters = resp.data.filters
-          var config = _this.data.config
-          // TODO setData items
-          res = res.sort((p1, p2) => {
-            var index1 = config.ids.findIndex((v) => v === p1.id)
-            var index2 = config.ids.findIndex((v) => v === p2.id)
-            return index1 - index2
-          })
+        var items = _this.data.items 
+        if(res.length > 0){
+          items = items.concat(res)
+          _this.setData({items: items })
+        }
 
-          var items = _this.data.items 
-          if(res.length > 0){
-            items = items.concat(res)
-            _this.setData({items: items })
-          }
+        _this.setData({
+          end: resp.data.end, 
+        })
 
+        if (!_this.data.filters) {
           _this.setData({
-            end: resp.data.end, 
+            filters: filters,
           })
-
-          if (!_this.data.filters) {
-            _this.setData({
-              filters: filters,
-            })
-          }
-        },
+        }
       })
     },
   },
