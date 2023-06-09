@@ -1,5 +1,6 @@
 // components/pagemaker/navs/album-counter.js
 const app = getApp() 
+const albumApi=require("../../../api/album")
 
 Component({
   /**
@@ -35,16 +36,20 @@ Component({
 
     loadData: function(albumId){
       var _this = this  
-      app.request({
-        url: '/api/v1/albums/' + albumId, 
-        success: function(resp){
-          if(resp.data.status != 0){
+    //   有待检测
+    //   app.request({
+    //     url: '/api/v1/albums/ 有待检测' + albumId, 
+    //     success: function(resp){
+       
+    //     }
+    //   })
+      albumApi.getAlbumDetail(albumId).then((resp)=>{
+        if(resp.data.status != 0){
             return 
           }
           _this.setData({
             count: resp.data.data.post_count,
           })
-        }
       })
     },
 

@@ -1,5 +1,6 @@
 // pages/myself/zhao.js
 const app = getApp()
+const needApi = require("../../api/need")
 var auth = require('../../utils/auth.js');
 import Notify from '../../vant/notify/notify';
 
@@ -66,12 +67,17 @@ Page({
       var query = { 
           cityCode: wx.getStorageSync('cityCode') || ''
       }
-      app.request({
-        url: '/api/v1/needs/', 
-        data: query, 
-        method: 'GET', 
-        success: function(resp){ 
-          if(resp.data.status != 0){
+    //   有待检测
+    //   app.request({
+    //     url: '/api/v1/needs/有待检测', 
+    //     data: query, 
+    //     method: 'GET', 
+    //     success: function(resp){ 
+         
+    //     }
+    //   })
+      needApi.getNeedList(query).then((resp)=>{
+        if(resp.data.status != 0){
             return 
           }
           var rdata = resp.data.data 
@@ -94,8 +100,7 @@ Page({
           _this.setData({ 
             positionList: rdata.districts,
           })
-        }
-      })
+    })
     },
 
     /**
@@ -268,36 +273,39 @@ Page({
         var _this = this 
         // 将表单数据处理成线索表所需要的数据格式 
 
-
-        app.request({
-            url: '/api/v1/needs/',
-            data: data,
-            method: 'POST',
-            success: function (resp) {
-                if (resp.data.status != 0) {
-                    wx.showToast({
-                        title: '服务器出现错误，请稍后再试',
-                        icon: 'none',
-                    })
-                    return false
-                }
-
-                // 设置一些重要标志位 
-                _this.setData({
-                    isDone: true, 
-                    sms_code: null,
-                    contact_mobile_lock: true,  
-                })
+// 有待检测
+        // app.request({
+        //     url: '/api/v1/needs/有待检测',
+        //     data: data,
+        //     method: 'POST',
+        //     success: function (resp) {
+               
+        //     }
+        // })     
+        needApi.getNeedList(data).then((resp)=>{
+            if (resp.data.status != 0) {
                 wx.showToast({
-                  title: '提交成功，我们的专业顾问将尽快与您联系',
+                    title: '服务器出现错误，请稍后再试',
+                    icon: 'none',
                 })
-                setTimeout(() => {
-                  wx.navigateBack({
-                    delta: 1,
-                  })
-                },1500)
+                return false
             }
-        })        
+
+            // 设置一些重要标志位 
+            _this.setData({
+                isDone: true, 
+                sms_code: null,
+                contact_mobile_lock: true,  
+            })
+            wx.showToast({
+              title: '提交成功，我们的专业顾问将尽快与您联系',
+            })
+            setTimeout(() => {
+              wx.navigateBack({
+                delta: 1,
+              })
+            },1500)
+        })   
     },
 
     inputChange: function (e) {

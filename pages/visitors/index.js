@@ -1,5 +1,6 @@
 // pages/visitors/index.js
 const app = getApp()
+const myvisitorApi = require("../../api/myvisitor")
 
 Page({
 
@@ -59,19 +60,22 @@ Page({
             target_type: this.data.targetType || 'post',
             target_id: this.data.targetId || '',
         }
-        app.request({
-            url: '/api/v1/myvisitors/',
-            data: query,
-            success: function (resp) {
-                //console.log(resp.data);
-                var data = { loading: false }
-                data.noResult = resp.data.meta.total_visitors === 0
-                _this.setData({
-                    total_pages : resp.data.total_pages,
-                    loading:false
-                })
-                _this.ListData(resp.data.data)
-            },
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/myvisitors/有待检测',
+        //     data: query,
+        //     success: function (resp) {
+    
+        //     },
+        // })
+        myvisitorApi.getMyVisitorList(query).then((resp)=>{
+            var data = { loading: false }
+            data.noResult = resp.data.meta.total_visitors === 0
+            _this.setData({
+                total_pages : resp.data.total_pages,
+                loading:false
+            })
+            _this.ListData(resp.data.data)
         })
     },
     ListData:function(arr){

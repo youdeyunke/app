@@ -34,7 +34,7 @@ Component({
                 })
                 return
             }
-            // 有待检测    该组件未被引用
+            //？？   该组件未被引用
             postApi.quickSearch(kw).then((res)=>{
                 _this.setData({
                     postItems: res.data.data

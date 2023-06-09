@@ -1,5 +1,6 @@
 // components/comments.js
 const app = getApp()
+const mycommentApi= require('../../api/mycomment')
 
 Component({
   /**
@@ -32,19 +33,25 @@ Component({
     }
     this.data.items[i].like_nums +=1 
     this.setData({items: this.data.items})
-
-    app.request({
-      url: '/api/v1/mycomments/like',
-      hideLoading: true,
-      method: 'POST',
-      data: {id: cid},
-      success: function(resp){
-        console.log('resp')
+// 有待检测
+    // app.request({
+    //   url: '/api/v1/mycomments/like有待检测',
+    //   hideLoading: true,
+    //   method: 'POST',
+    //   data: {id: cid},
+    //   success: function(resp){
+    //     console.log('resp')
+    //     wx.setStorage({
+    //       key: key,
+    //       data: true,
+    //     })        
+    //   }
+    // })
+    mycommentApi.likeComment(cid).then((res)=>{
         wx.setStorage({
-          key: key,
-          data: true,
-        })        
-      }
+            key: key,
+            data: true,
+          })        
     })
   },
 

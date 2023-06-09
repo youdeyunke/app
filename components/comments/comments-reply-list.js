@@ -1,5 +1,6 @@
 // components/comments/comments-reply-list.js
 const app = getApp()
+const mycommentApi = require("../../api/mycomment")
 
 Component({
   /**
@@ -25,20 +26,24 @@ Component({
 
     loadData: function(){
       var _this = this
-      app.request({
-        url: '/api/v1/mycomments',
-        data: {
-          mycomment_id: _this.data.mycommentId
-        },
-        success: function(resp){
-          var items = resp.data.data
-          if(items.length == 0){
-            return false
-          }
-          _this.setData({
-            items: items
-          })
+    //   有待检测
+    //   app.request({
+    //     url: '/api/v1/mycomments有待检测',
+    //     data: {
+    //       mycomment_id: 
+    //     },
+    //     success: function(resp){
+       
+    //     }
+    //   })
+      mycommentApi.getAllCommentList(_this.data.mycommentId).then((resp)=>{
+        var items = resp.data.data
+        if(items.length == 0){
+          return false
         }
+        _this.setData({
+          items: items
+        })
       })
     },
 

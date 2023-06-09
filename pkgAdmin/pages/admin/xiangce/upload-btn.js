@@ -1,6 +1,8 @@
 // pkgAdmin/pages/admin/xiangce/upload-btn.js
 const app = getApp()
+const mediaApi= require("../../../../api/media")
 var qiniu = require('../../../../utils/qiniu.js');
+
 Component({
     /**
      * 组件的属性列表
@@ -63,17 +65,26 @@ Component({
             var _this = this
             var id = this.data.mediaid
             var type = this.data.fileType
-            app.request({
-                url: '/api/v1/media_items/',
-                method: 'POST',
-                data: {
-                    filetype: type,
-                    url: url,
-                    media_cat_id: id
-                },
-                success: function (res) {
-                    _this.triggerEvent('change')
-                }
+            var data={
+                filetype: type,
+                url: url,
+                media_cat_id: id
+            }
+            // 有待检测
+            // app.request({
+            //     url: '/api/v1/media_items/有待检测',
+            //     method: 'POST',
+            //     data: {
+            //         filetype: type,
+            //         url: url,
+            //         media_cat_id: id
+            //     },
+            //     success: function (res) {
+            //         _this.triggerEvent('change')
+            //     }
+            // })
+            mediaApi.createMediaItem(data).then((res)=>{
+                _this.triggerEvent('change')
             })
         },
         chooseVideo: function (e) {

@@ -1,6 +1,7 @@
 // components/booking-log.js
 const app = getApp()
 const postApi= require("../api/post")
+const bookingApi=require("../api/booking")
 Component({
     /**
      * 组件的属性列表
@@ -156,21 +157,27 @@ Component({
         },
 
         updateLogStatus: function (status, cb) {
-            var url = '/api/v1/booking_logs/' + this.data.item.id
-            var data = { status: status }
+          
             var _this = this
-            app.request({
-                url: url,
-                method: 'PUT',
-                data: { booking_log: data },
-                success: function (resp) {
-                    console.log('update status resp', resp)
-                    if (resp.data.status == 0) {
-                        var item = _this.data.item
-                        item['status'] = status
-                        _this.setData({ item: item })
-                        return typeof cb == 'function' && cb(resp.data.data)
-                    }
+            // 有待检测
+            // var url = '/api/v1/booking_logs/有待检测' + this.data.item.id
+            // var data = { status: status }
+            // app.request({
+            //     url: url,
+            //     method: 'PUT',
+            //     data: { booking_log: data },
+            //     success: function (resp) {
+            //         console.log('update status resp', resp)
+            //     }
+            // })
+            bookingApi.updateBookingStatus(
+                this.data.item.id,status
+            ).then((resp)=>{
+                if (resp.data.status == 0) {
+                    var item = _this.data.item
+                    item['status'] = status
+                    _this.setData({ item: item })
+                    return typeof cb == 'function' && cb(resp.data.data)
                 }
             })
         },

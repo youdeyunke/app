@@ -1,6 +1,7 @@
 // pages/home/home.js
 const app = getApp()
 const scoreApi = require("../../api/score")
+const cityApi=require("../../api/city")
 import utils from '../../utils/util'
 const rowWidthItem = ['60%', "100%", "30%", "40%", "100%"]
 
@@ -50,35 +51,40 @@ Page({
 
     loadSelectCity: function () {
         var adcode = wx.getStorageSync('cityCode')
-        console.log('2323232', adcode)
         var _this = this
-        var url = '/api/v1/cities/'
-        app.request({
-            url: url,
-            success(resp) {
-                var cities = resp.data.data
+        // 有待检测
+        // var url = '/api/v1/cities/有待检测'
+        // app.request({
+        //     url: url,
+        //     success(resp) {
+             
+        //     }
+        // })
+        cityApi.getCityListV1(
 
-                if (!adcode) {
+        ).then((resp)=>{
+            var cities = resp.data.data
 
-                    _this.setData({
-                        city: cities[0].name
-                    })
+            if (!adcode) {
 
-                } else {
-                    cities.forEach((item) => {
-                        if (item.adcode == adcode) {
+                _this.setData({
+                    city: cities[0].name
+                })
 
-                            _this.setData({
-                                city: item.name
-                            })
-                        }
-                    })
-                }
-                if (_this.data.city == '') {
-                    _this.setData({
-                        city: cities[0].name
-                    })
-                }
+            } else {
+                cities.forEach((item) => {
+                    if (item.adcode == adcode) {
+
+                        _this.setData({
+                            city: item.name
+                        })
+                    }
+                })
+            }
+            if (_this.data.city == '') {
+                _this.setData({
+                    city: cities[0].name
+                })
             }
         })
     },

@@ -1,5 +1,6 @@
 // pages/myself/qiandao/index.js
 const app = getApp() 
+const myselfApi = require("../../../api/myself")
 
 Component({
   /**
@@ -61,19 +62,23 @@ Component({
     qiandaoHandle: function(){
       var _this = this  
       var key = this.data.key 
-      app.request({ 
-        url: '/api/v1/qiandao/', 
-        method: 'POST', 
-        data: {}, 
-        success: function(res){
-          if(res.data.status != 0){ 
+    //   有待检测
+    //   app.request({ 
+    //     url: '/api/v1/qiandao/ 有待检测', 
+    //     method: 'POST', 
+    //     data: {}, 
+    //     success: function(res){
+        
+    //     }
+    //   })
+      myselfApi.markSign().then((res)=>{
+        if(res.data.status != 0){ 
             return false 
           }
           var days = res.data.data
           var today = res.data.today 
           wx.setStorageSync(key, 'ok')
           _this.setData({checked: true, showDialog: true, days: days,  today: today  })
-        }
       })
     }, 
 

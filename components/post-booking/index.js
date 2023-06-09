@@ -1,6 +1,6 @@
 // components/post/booking.js
 const app = getApp()
-
+const bookingApi=require("../../api/booking")
 Component({
     /**
      * 组件的属性列表
@@ -204,16 +204,22 @@ Component({
     
             app.bindPostCustomer(log.post_id, '点击了预约看房')
             this.setData({ loging: true })
-            app.request({
-                url: '/api/v1/booking_logs/',
-                method: 'POST',
-                data: { booking_log: log },
-                success: function (resp) {
-                    _this.setData({ loging: false })
-                    if (resp.data.status == 0) {
-                        _this.triggerEvent('change', { value: true })
-                    }
-                },
+            // 有待检测
+            // app.request({
+            //     url: '/api/v1/booking_logs/有待检测',
+            //     method: 'POST',
+            //     data: { booking_log: log },
+            //     success: function (resp) {
+                  
+            //     },
+            // })
+            bookingApi.createBooking(
+                log
+            ).then((resp)=>{
+                _this.setData({ loging: false })
+                if (resp.data.status == 0) {
+                    _this.triggerEvent('change', { value: true })
+                }
             })
         },
 

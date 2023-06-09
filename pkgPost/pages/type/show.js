@@ -89,12 +89,11 @@ Page({
         var pid = this.data.post.id
         var brokerId = this.data.broker.id
         var _this = this
-            // 有待检验
+            // √
             postApi.sendPostCard({
                 id: pid,
                 receiver_id: brokerId
-            }).then((res) => {
-                console.log("res", res);
+            }).then((resp) => {
                 if (resp.data.status == 0) {
                     // 跳转到消息列表
                     wx.navigateTo({

@@ -1,5 +1,6 @@
 // pages/comments/index.js
 const app = getApp()
+const mycommentApi=require("../../../api/mycomment")
 
 Page({
     /**
@@ -44,21 +45,30 @@ Page({
     loadData: function () {
         var _this = this
         this.setData({loading: true})
-        app.request({
-            url: '/api/v1/mycomments',
-            data: {
-                target_id: _this.data.target_id,
-                target_type: _this.data.target_type,
-                scope: _this.data.scope,
-            },
-            success: function (resp) {
-                _this.setData({
-                    items: resp.data.data.items,
-                    scopes: resp.data.data.scopes,
-                    loading: false,
-                })
-            },
-        })
+        var query={
+            target_id: _this.data.target_id,
+            target_type: _this.data.target_type,
+            scope: _this.data.scope,
+        }
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/mycomments有待检测',
+        //     data: {
+        //         target_id: _this.data.target_id,
+        //         target_type: _this.data.target_type,
+        //         scope: _this.data.scope,
+        //     },
+        //     success: function (resp) {
+              
+        //     },
+        // })
+        mycommentApi.getAllCommentList(query).then((resp)=>{
+            _this.setData({
+                items: resp.data.data.items,
+                scopes: resp.data.data.scopes,
+                loading: false,
+            })
+          })
     },
 
     /**

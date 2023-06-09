@@ -1,5 +1,6 @@
 // components/zhaofang/index.js
 const app = getApp()
+const needApi = require("../../api/need")
 var auth = require('../../utils/auth.js');
 Component({
     /**
@@ -120,42 +121,46 @@ Component({
     methods: {
         loadData: function () {
             var _this = this
-            app.request({
-                url: '/api/v1/needs/',
-                method: 'GET',
-                success: function (resp) {
-                    if (resp.data.status != 0) {
-                        return
-                    }
-                    var rdata = resp.data.data
+            // 有待检测
+            // app.request({
+            //     url: '/api/v1/needs/ 有待检测',
+            //     method: 'GET',
+            //     success: function (resp) {
+                  
+            //     }
+            // })
+            needApi.getNeedList().then((resp)=>{
+                if (resp.data.status != 0) {
+                    return
+                }
+                var rdata = resp.data.data
 
 
-                    if (rdata.area && rdata.area.length > 0) {
-                        _this.setData({
-                            areaList: rdata.area
-                        })
-                    }
-
-                    if (rdata.purpose && rdata.purpose.length > 0) {
-                        _this.setData({
-                            purposeList: resp.data.data.purpose
-                        })
-                    }
-                    if (rdata.housetype && rdata.housetype.length > 0) {
-                        _this.setData({
-                            housetypeList: rdata.housetype
-                        })
-                    }
-                    if (rdata.budget && rdata.budget.length > 0) {
-                        _this.setData({
-                            budgetList: rdata.budget
-                        })
-                    }
-
+                if (rdata.area && rdata.area.length > 0) {
                     _this.setData({
-                        positionList: rdata.districts,
+                        areaList: rdata.area
                     })
                 }
+
+                if (rdata.purpose && rdata.purpose.length > 0) {
+                    _this.setData({
+                        purposeList: resp.data.data.purpose
+                    })
+                }
+                if (rdata.housetype && rdata.housetype.length > 0) {
+                    _this.setData({
+                        housetypeList: rdata.housetype
+                    })
+                }
+                if (rdata.budget && rdata.budget.length > 0) {
+                    _this.setData({
+                        budgetList: rdata.budget
+                    })
+                }
+
+                _this.setData({
+                    positionList: rdata.districts,
+                })
             })
         },
         onChange(e) {
@@ -375,35 +380,29 @@ Component({
             var _this = this
             // 将表单数据处理成线索表所需要的数据格式 
 
-
-            app.request({
-                url: '/api/v1/needs/',
-                data: data,
-                method: 'POST',
-                success: function (resp) {
-                    if (resp.data.status != 0) {
-                        wx.showToast({
-                            title: '服务器出现错误，请稍后再试',
-                            icon: 'none',
-                        })
-                        return false
-                    }
-
-                    // 设置一些重要标志位 
-                    _this.setData({
-                        isDone: true,
-                        sms_code: null,
-                        contact_mobile_lock: true,
+// 有待检测
+            // app.request({
+            //     url: '/api/v1/needs/有待检测',
+            //     data: data,
+            //     method: 'POST',
+            //     success: function (resp) {
+                  
+            //     }
+            // })
+            needApi.getNeedList(data).then((resp)=>{
+                if (resp.data.status != 0) {
+                    wx.showToast({
+                        title: '服务器出现错误，请稍后再试',
+                        icon: 'none',
                     })
-                    // wx.showToast({
-                    //     title: '提交成功，我们的专业顾问将尽快与您联系',
-                    // })
-                    // setTimeout(() => {
-                    //   wx.navigateBack({
-                    //     delta: 1,
-                    //   })
-                    // },1500)
+                    return false
                 }
+                // 设置一些重要标志位 
+                _this.setData({
+                    isDone: true,
+                    sms_code: null,
+                    contact_mobile_lock: true,
+                })
             })
         },
         validate: function (cb) {

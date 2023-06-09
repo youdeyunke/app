@@ -1,5 +1,6 @@
 // pkgComment/pages/comment/show.js
 const app = getApp()
+const mycommentApi= require("../../../api/mycomment")
 var auth = require('../../../utils/auth.js');
 
 Page({
@@ -51,27 +52,40 @@ Page({
             likeNums: this.data.item.like_nums + 1,
             liked: true,
         })
+// 有待检测
+        // app.request({
+        //     url: '/api/v1/mycomments/like有待检测',
+        //     hideLoading: true,
+        //     method: 'POST',
+        //     data: { id: cid },
+        //     success: function (resp) {
+        //         console.log('resp')
+        //         wx.setStorage({
+        //             key: key,
+        //             data: true,
+        //         })
+        //         wx.showToast({
+        //             title: '点赞+1',
+        //             icon: 'none',
+        //             image: '',
+        //             duration: 1500,
+        //             mask: false,
+        //         });
 
-        app.request({
-            url: '/api/v1/mycomments/like',
-            hideLoading: true,
-            method: 'POST',
-            data: { id: cid },
-            success: function (resp) {
-                console.log('resp')
-                wx.setStorage({
-                    key: key,
-                    data: true,
-                })
-                wx.showToast({
-                    title: '点赞+1',
-                    icon: 'none',
-                    image: '',
-                    duration: 1500,
-                    mask: false,
-                });
-
-            }
+        //     }
+        // })
+        mycommentApi.likeComment(cid).then((res)=>{
+            wx.setStorage({
+                key: key,
+                data: true,
+            })
+            wx.showToast({
+                title: '点赞+1',
+                icon: 'none',
+                image: '',
+                duration: 1500,
+                mask: false,
+            });
         })
     },
 
@@ -94,26 +108,29 @@ Page({
                 return false
             }
             var _this = this
-            app.request({
-                url: '/api/v1/mycomments',
-                method: 'POST',
-                data: data,
-                success: function (resp) {
-                    if (resp.data.status == 0) {
-                        _this.closeFormHandle()
-                        wx.showToast({
-                            title: '已回复',
-                            icon: 'success',
-                            image: '',
-                            duration: 1500,
-                            mask: false,
-                            success: (result) => {
-                            },
-                        });
-                        _this.loadData()
-                    }
+            // 有待检测
+            // app.request({
+            //     url: '/api/v1/mycomments有待检测',
+            //     method: 'POST',
+            //     data: data,
+            //     success: function (resp) {
+            //     }
+            // })
+            mycommentApi.createComment(data).then((resp)=>{
+                if (resp.data.status == 0) {
+                    _this.closeFormHandle()
+                    wx.showToast({
+                        title: '已回复',
+                        icon: 'success',
+                        image: '',
+                        duration: 1500,
+                        mask: false,
+                        success: (result) => {
+                        },
+                    });
+                    _this.loadData()
                 }
-            })
+              })
         })
     },
 
@@ -140,21 +157,23 @@ Page({
     loadData: function () {
         // 加载评论，以及回复
         var _this = this
-        app.request({
-            url: '/api/v1/mycomments/' + _this.data.cid,
-            success: function (resp) {
-                var item = resp.data.data.item
-                var reply_items = item.reply_items
-                item.reply_items = []
-                _this.setData({
-                    loading: false,
-                    item: item,
-                    likeNums: resp.data.data.item.like_nums,
-                    reply_items: reply_items
-                })
-
-            }
-        })
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/mycomments/有待检测' + _this.data.cid,
+        //     success: function (resp) {
+        //     }
+        // })
+        mycommentApi.getCommentDetail( _this.data.cid).then((resp)=>{
+            var item = resp.data.data.item
+            var reply_items = item.reply_items
+            item.reply_items = []
+            _this.setData({
+                loading: false,
+                item: item,
+                likeNums: resp.data.data.item.like_nums,
+                reply_items: reply_items
+            })  
+          })
     },
 
     /**

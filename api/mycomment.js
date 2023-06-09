@@ -5,39 +5,39 @@ let request = require('../utils/request.js');
  * **/
 
 
-// 给某一条评论点赞
+// 给某一条评论点赞   完成
 export function likeComment (commentId){
     return request.post("/api/v1/mycomments/like", {id: commentId});
 }
 
 
-// 删除一条评论
+// 删除一条评论  完成
 export function deleteComment (commentId){
     return request.destroy("/api/v1/mycomments/" + commentId);
 }
 
 
-// 拉取评论详情
+// 拉取评论详情  完成
 export function getCommentDetail (commentId){
     return request.get("/api/v1/mycomments/" + commentId);
 }
 
-// 根据条件拉取某个楼盘下的评论列表
+// 根据条件拉取某个楼盘下的评论列表   未使用
 export function getTargetCommentList (targetId, targetType, scope){
     return request.get("/api/v1/mycomments/", {target_id: targetId, target_type: targetType, scope: scope});
 }
 
-// 根据条件拉取全部评论列表
+// 根据条件拉取全部评论列表  完成
 export function getAllCommentList(query){
     return request.get("/api/v1/mycomments/", query);
 }
 
-// 根据条件拉取我发布的评论列表
+// 根据条件拉取我发布的评论列表 完成
 export function getMineCommentList(query){
     return request.get("/api/v1/mycomments/mine", query);
 }
 
-// 发布一条评论
-export function getAllCommentList(data){
+// 发布一条评论   完成
+export function createComment(data){
     return request.post("/api/v1/mycomments/", data);
 }
