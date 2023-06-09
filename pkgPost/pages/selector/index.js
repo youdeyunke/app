@@ -1,6 +1,6 @@
 // pkgPost/pages/selector/index.js
-const app = getApp() 
-
+const app = getApp()
+const postApi = require("../../../api/post")
 Page({
 
     /**
@@ -18,36 +18,31 @@ Page({
         this.loadData()
     },
 
-    kwChange: function(e){
+    kwChange: function (e) {
         this.loadData()
     },
 
     itemClick: function (e) {
-        const { index } = e.currentTarget.dataset
+        const {
+            index
+        } = e.currentTarget.dataset
         var post = this.data.items[index]
-        var ch =  this.getOpenerEventChannel() 
-        if(ch){
+        var ch = this.getOpenerEventChannel()
+        if (ch) {
             ch.emit("change", post)
         }
         wx.navigateBack({
-          delta: 1,
+            delta: 1,
         })
     },
 
     loadData: function () {
         var _this = this
-
-        var query = {
-            kw: this.data.kw,
-        }
-        app.request({
-            url: '/api/v1/quicksearch',
-            data: query,
-            success: function (res) {
-                _this.setData({
-                    items: res.data.data
-                })
-            }
+        //  √
+        postApi.quickSearch(this.data.kw).then((res) => {
+            _this.setData({
+                items: res.data.data
+            })
         })
     },
 

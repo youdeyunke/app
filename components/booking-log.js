@@ -108,20 +108,13 @@ Component({
                 return
             }
             var _this = this
-            app.request({
-                url: '/api/v1/posts/' + pid,
-                method: 'GET',
-                success: function (resp) {
-                    _this.setData({
-                        post: resp.data.data
-                    })
-                }
+        //   有待检测
+            postApi.getPostDetail(pid).then((resp)=>{
+                console.log("121",resp);
+                _this.setData({
+                    post: resp.data.data
+                })
             })
-            // postApi.getPostList({
-
-            // }).then((resp)=>{
-
-            // })
         },
 
         callHandle: function (e) {

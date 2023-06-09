@@ -87,6 +87,7 @@ Page({
         this.setData({
             pid: q.pid || ''
         })
+
         this.loadPost(q.pid)
     },
     sexChange: function (e) {
@@ -201,18 +202,7 @@ Page({
             return false;
         }
         var _this = this
-        // app.request({
-        //   url: '/api/v1/post_base_info/' + pid,
-        //   success: function (resp) {
-        //     var p = resp.data.data
-        //     var post_name = p.title + p.address
-        //     _this.setData({
-        //       post: p,
-        //       post_name: post_name,
-        //     })
-        //   }
-        // })
-        // 有待检验
+        //√
         postApi.getPostBaseInfo(pid).then((resp) => {
             var p = resp.data.data
             var post_name = p.title + p.address

@@ -1,5 +1,6 @@
 // components/post-selector/index.js
 const app = getApp()
+const postApi=require("../../api/post")
 Component({
     /**
      * 组件的属性列表
@@ -33,13 +34,11 @@ Component({
                 })
                 return
             }
-            app.request({
-                url: '/api/v1/quicksearch?kw=' + kw,
-                success: function (res) {
-                    _this.setData({
-                        postItems: res.data.data
-                    })
-                }
+            // 有待检测    该组件未被引用
+            postApi.quickSearch(kw).then((res)=>{
+                _this.setData({
+                    postItems: res.data.data
+                })
             })
         },
         selectHandle(e) {

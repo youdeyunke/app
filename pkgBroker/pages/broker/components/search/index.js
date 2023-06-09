@@ -1,5 +1,6 @@
 // pkgBroker/pages/broker/search/index.js
 const app = getApp()
+const postApi = require("../../../../../api/post")
 
 Component({
   /**
@@ -22,17 +23,12 @@ Component({
       var myvalue = v
       var _this = this
       console.log("子组件value", myvalue)
-      app.request({
-        url: '/api/v1/quicksearch',
-        method: 'GET',
-        data: {
-          kw: myvalue
-        },
-        success: function (res) {
-          _this.setData({
+//  有待检测   未找到引用
+      postApi.quickSearch(myvalue).then((res)=>{
+          console.log("1212");
+        _this.setData({
             serachresule: res.data.data
           })
-        }
       })
     }
   },

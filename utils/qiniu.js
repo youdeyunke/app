@@ -1,6 +1,7 @@
 // 封装七牛云前端直接上传功能
 
 const app = getApp()
+// console.log("121qiniu_app",app);
 var  cdnDomain = 'qiniucdn.udeve.cn'
 var  cdnProtoco = 'http'
 

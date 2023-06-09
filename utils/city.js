@@ -1,5 +1,4 @@
 const app = getApp()
-
 module.exports = {
 
     setCity: function () {

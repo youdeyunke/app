@@ -1,5 +1,6 @@
 // components/bind-mobile-button.js
 const app = getApp()
+const userApi= require("../api/user")
 
 
 Component({
@@ -40,16 +41,9 @@ Component({
 
       var token = wx.getStorageSync('token')
       var that = this
-      app.request({
-        method: 'POST',
-        url: '/api/v1/users/bind_xcx_mobile',
-        data: {
-          'iv': e.detail.iv,
-          'encryptedData': e.detail.encryptedData
-        },
-
-        success: function (res) {
-          if (res.data.status != 0) {
+//  有待检测 组件未被使用
+      userApi.bindXcxMobile(e.detail.iv,e.detail.encryptedData).then((res)=>{
+        if (res.data.status != 0) {
             wx.showModal({
               content: '服务器出现错误，请稍后再试',
               showCancle: false
@@ -61,7 +55,6 @@ Component({
             _this.triggerEvent('change', res.data.data.mobile)
 
           }
-        }
       })
     },
 

@@ -1,6 +1,6 @@
 // pages/myself/favposts.js
 const app = getApp()
-
+const postApi = require("../../../api/post")
 Page({
 
     /**
@@ -17,7 +17,8 @@ Page({
     loadData: function () {
         var _this = this
         this.setData({
-            isEmpty: false, loading: true
+            isEmpty: false,
+            loading: true
         })
 
         if (this.data.isEnd) {
@@ -28,32 +29,27 @@ Page({
             page: _this.data.page || 1,
             per_page: _this.data.per_page || 10,
         }
-
-        app.request({
-            url: '/api/v1/posts/myfavs',
-            data: query,
-            hideLoading: true,
-            success: function (resp) {
-                console.log("数据",resp.data.data)
-                var d = { loading: false }
-                if (resp.data.data.length == 0) {
-                    d.hasMore = false
-                } else {
-                    var i = _this.data.page - 1
-                    var k = "posts[" + i + "]"
-                    d[k] = resp.data.data
-                }
-                if (resp.data.data.length == 0) {
-                    d['isEnd'] = true
-                    if (_this.data.page == 1) {
-                        d['isEmpty'] = true
-                        d['isEnd'] = false
-                    }
-                }
-                console.log('d is ', d)
-                _this.setData(d)
-
+        //   √
+        postApi.getFavPosts(query).then((resp) => {
+            var d = {
+                loading: false
             }
+            if (resp.data.data.length == 0) {
+                d.hasMore = false
+            } else {
+                var i = _this.data.page - 1
+                var k = "posts[" + i + "]"
+                d[k] = resp.data.data
+            }
+            if (resp.data.data.length == 0) {
+                d['isEnd'] = true
+                if (_this.data.page == 1) {
+                    d['isEmpty'] = true
+                    d['isEnd'] = false
+                }
+            }
+            console.log('d is ', d)
+            _this.setData(d)
         })
 
     },
