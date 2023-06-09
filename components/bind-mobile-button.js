@@ -41,7 +41,7 @@ Component({
 
       var token = wx.getStorageSync('token')
       var that = this
-//  有待检测
+//  有待检测 组件未被使用
       userApi.bindXcxMobile(e.detail.iv,e.detail.encryptedData).then((res)=>{
         if (res.data.status != 0) {
             wx.showModal({

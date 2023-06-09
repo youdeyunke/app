@@ -66,7 +66,6 @@ Page({
             loading: true,
             groupValue: q.group_value || 'jingji', // jinji,broker  用于区分全民经纪人和置业顾问
         })
-
         if (q.post_id) {
             this.setDefaultPost(q.post_id)
         }
@@ -89,8 +88,7 @@ Page({
     setDefaultPost: function (pid) {
         // 默认选中的楼盘 
         var _this = this
-        var fdata = this.data.formData
-        // 有待检验
+        //    √
         postApi.getPostBaseInfo(pid).then((resp) => {
             var p = resp.data.data
             _this.setData({

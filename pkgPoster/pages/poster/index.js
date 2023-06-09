@@ -248,9 +248,8 @@ Page({
     },
 
     loadPost: function (postId, cb) {
-        // 有待检验
-        postApi.getPostBaseInfo(postId
-        ).then((resp) => {
+        // √
+        postApi.getPostBaseInfo(postId).then((resp) => {
             var post = resp.data.data
             typeof cb == 'function' && cb(post)
         })

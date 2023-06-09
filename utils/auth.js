@@ -150,8 +150,8 @@ module.exports = {
 
     getRemoteUserInfo: function (cb) {
         /* 从服务器获取用户信息 */
-        // 有待检测
-        userApi.getMyselfInfo().then((resp) => {
+        // 有待检测    请求发送没有返回
+        userApi.getMyselfInfo().then((resp) => { 
             if (resp.data.status == 0) {
                 var user = resp.data.data
                 typeof cb == "function" && cb(user)

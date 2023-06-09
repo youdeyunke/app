@@ -109,7 +109,7 @@ Component({
         query.cityCode = cc
       }
 
-    //   有待检验
+    //   √
       postApi.getPostList(query).then((resp)=>{
         _this.setData({loading: false })
         var res = resp.data.data

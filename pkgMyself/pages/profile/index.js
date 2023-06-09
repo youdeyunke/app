@@ -137,7 +137,6 @@ Page({
         this.setData({ loading: true })
         var _this = this
         auth.getRemoteUserInfo(function (user) {
-
             _this.setData({ userInfo: user, loading: false })
             _this.loadTags()
         })

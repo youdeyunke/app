@@ -110,6 +110,7 @@ Component({
             var _this = this
         //   有待检测
             postApi.getPostDetail(pid).then((resp)=>{
+                console.log("121",resp);
                 _this.setData({
                     post: resp.data.data
                 })

@@ -1,5 +1,5 @@
 const app = getApp()
-const userApi=require("../../api/user")
+const userApi = require("../../api/user")
 var auth = require('../../utils/auth.js');
 const T = require('../../utils/test.js');
 
@@ -113,8 +113,8 @@ Page({
 
     doUpdate: function (userInfo) {
         var url = userInfo.avatarUrl
-    //   有待检测
-        userApi.updateAvatar(url).then((resp)=>{
+        //   有待检测  该方法最终未调用
+        userApi.updateAvatar(url).then((resp) => {
             if (resp.data.status == 0) {
                 wx.showToast({
                     icon: 'none',
@@ -303,8 +303,8 @@ Page({
         })
         var token = wx.getStorageSync('token')
         var that = this
-// 有待检测
-        userApi.bindXcxMobile(e.detail.iv,e.detail.encryptedData).then((res)=>{
+        // 有待检测  该方法未调用
+        userApi.bindXcxMobile(e.detail.iv, e.detail.encryptedData).then((res) => {
             if (res.data.status != 0) {
                 wx.showModal({
                     content: '服务器出现错误，请稍后再试',
@@ -377,14 +377,14 @@ Page({
         this.loadIcons()
     },
 
-    loadIcons(){
+    loadIcons() {
         var _this = this
         app.request({
             url: '/api/v1/myself/icons',
-            success(resp){
-               _this.setData({
-                myselfIcons: resp.data.data
-            })
+            success(resp) {
+                _this.setData({
+                    myselfIcons: resp.data.data
+                })
             }
         })
     },

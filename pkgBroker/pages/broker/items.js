@@ -47,10 +47,9 @@ Component({
 
             _this.setData({ loading: true })
             var query = this.data.query
-            // 有待检验
+            // 有待检验   该组件未找到引用
             postApi.getPostList(query).then((resp)=> {
                 _this.setData({ items: resp.data.data,loading: false })
-                console.log("121resp",_this.data.items);
             })
         }
     }

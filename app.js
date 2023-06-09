@@ -550,6 +550,7 @@ App({
                 typeof cb == 'function' && cb(user.mobile)
             }
         })
+    
     },
 
     dingyueHandle: function (cb) {
