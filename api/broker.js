@@ -39,3 +39,9 @@ export function getBrokerShowDetail(query){
 export function likeBroker(data){
     return request.post("/api/v1/brokers/like", data);
 }
+
+
+// 查询置业顾问分组信息
+export function getBrokerGroup(query){
+    return request.get("/api/v1/broker_groups", query)
+}

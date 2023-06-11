@@ -1,0 +1,10 @@
+let request = require('../utils/request.js');
+
+/** 
+ * 每日签到模块接口
+ * **/
+
+//签到，无需参数
+export function qiandao( ){
+    return request.post("/api/v1/qiandao" , {});
+}

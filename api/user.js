@@ -23,3 +23,13 @@ export function updateAvatar(url){
 export function getMyselfInfo(){
     return request.get("/api/v1/users/myself");
 }
+
+// 查询用户信息
+export function  getUserProfileDetail(upId){
+    return request.get("/api/v1/user_profiles/" + upId);
+}
+
+// 更新用户信息
+export function  updateUserProfileDetail(info){
+    return request.put("/api/v1/user_profiles/" + info.id, info);
+}
