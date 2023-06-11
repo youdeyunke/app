@@ -1,5 +1,6 @@
 const app = getApp()
 const userApi = require("../../api/user")
+const myselfApi = require('../../api/myself')
 var auth = require('../../utils/auth.js');
 const T = require('../../utils/test.js');
 
@@ -113,7 +114,7 @@ Page({
 
     doUpdate: function (userInfo) {
         var url = userInfo.avatarUrl
-        //   有待检测  该方法最终未调用
+        //   ？？  该方法最终未调用
         userApi.updateAvatar(url).then((resp) => {
             if (resp.data.status == 0) {
                 wx.showToast({
@@ -303,7 +304,7 @@ Page({
         })
         var token = wx.getStorageSync('token')
         var that = this
-        // 有待检测  该方法未调用
+        // ？？  该方法未调用
         userApi.bindXcxMobile(e.detail.iv, e.detail.encryptedData).then((res) => {
             if (res.data.status != 0) {
                 wx.showModal({
@@ -379,13 +380,17 @@ Page({
 
     loadIcons() {
         var _this = this
-        app.request({
-            url: '/api/v1/myself/icons',
-            success(resp) {
-                _this.setData({
-                    myselfIcons: resp.data.data
-                })
-            }
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/myself/icons有待检测',
+        //     success(resp) {
+              
+        //     }
+        // })
+        myselfApi.getMyselfIcons().then((resp)=>{
+            _this.setData({
+                myselfIcons: resp.data.data
+            })
         })
     },
 

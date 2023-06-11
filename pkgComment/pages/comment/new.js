@@ -1,5 +1,6 @@
 // pages/comments/new.js
 const app = getApp()
+const mycommentApi= require('../../../api/mycomment')
 var auth = require('../../../utils/auth.js');
 
 Page({
@@ -157,14 +158,19 @@ Page({
             return fasle
         }
 
-        // do submit
+      
         var _this = this
-        app.request({
-            url: '/api/v1/mycomments',
-            method: 'POST',
-            data: comment,
-            success: function (resp) {
-                // 页面卸载的收，会将this.data.comment写入globalData.newComment
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/mycomments有待检测',
+        //     method: 'POST',
+        //     data: comment,
+        //     success: function (resp) {
+             
+        //     }
+        // })
+        mycommentApi.createComment(comment).then((resp)=>{
+             // 页面卸载的收，会将this.data.comment写入globalData.newComment
                 // 发布成功后，就清空
                 _this.setData({ comment: '' })
                 if (resp.data.status === 0) {
@@ -176,9 +182,7 @@ Page({
                         wx.navigateBack({ delta: -1 })
                     }, 2000)
                 }
-            }
-        })
-
+          })
     },
 
     backHandle: function () {

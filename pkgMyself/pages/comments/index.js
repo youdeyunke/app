@@ -1,5 +1,6 @@
 // pages/myself/comments.js
 const app = getApp()
+const mycommentApi = require("../../../api/mycomment")
 
 Page({
 
@@ -40,42 +41,45 @@ Page({
       per_page: _this.data.per_page,
       order: _this.data.order,
     }
-
-    app.request({
-      url: '/api/v1/mycomments/mine',
-      data: query,
-      success: function (resp) {
+// 有待检测
+    // app.request({
+    //   url: '/api/v1/mycomments/mine有待检测',
+    //   data: query,
+    //   success: function (resp) {
+      
+    //   }
+    // })
+    mycommentApi.getMineCommentList(query).then((res)=>{
         _this.setData({
-          loading: false, 
-          end: resp.data.end, 
-        })
-        if (resp.data.status != 0) {
-          return false
-        }
-        var i = _this.data.page - 1
-        var data = {}
-        var key = 'pageItems[' + i + ']'
-        data[key] = resp.data.data.map((c) => {
-          // 计算跳转路径
-          var url = ''
-          var tid = c.target_id
-          switch (c.target_type) {
-            case 'post':
-              url = '/pkgPost/pages/show/index?id=' + tid
-              break
-
-            case 'event':
-              url = '/pkgEvent/pages/event/show?id=' + tid
-              break
-            case 'mycomment': 
-              url = '/pkgComment/pages/comment/show?id=' + tid
-              break
+            loading: false, 
+            end: resp.data.end, 
+          })
+          if (resp.data.status != 0) {
+            return false
           }
-          c.target_url = url
-          return c
-        })
-        _this.setData(data)
-      }
+          var i = _this.data.page - 1
+          var data = {}
+          var key = 'pageItems[' + i + ']'
+          data[key] = resp.data.data.map((c) => {
+            // 计算跳转路径
+            var url = ''
+            var tid = c.target_id
+            switch (c.target_type) {
+              case 'post':
+                url = '/pkgPost/pages/show/index?id=' + tid
+                break
+  
+              case 'event':
+                url = '/pkgEvent/pages/event/show?id=' + tid
+                break
+              case 'mycomment': 
+                url = '/pkgComment/pages/comment/show?id=' + tid
+                break
+            }
+            c.target_url = url
+            return c
+          })
+          _this.setData(data)
     })
   },
 
@@ -95,12 +99,16 @@ Page({
 
   doDelete: function(cid){
     var _this = this
-    app.request({
-      url: '/api/v1/mycomments/' + cid,
-      method:'DELETE',
-      success: function(resp){
+    // 有待检测
+    // app.request({
+    //   url: '/api/v1/mycomments/有待检测' + cid,
+    //   method:'DELETE',
+    //   success: function(resp){
+    //     _this.reload()
+    //   }
+    // })
+    mycommentApi.deleteComment(cid).then((res)=>{
         _this.reload()
-      }
     })
   },
 

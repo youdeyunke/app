@@ -1,6 +1,6 @@
 // components/comments.js
 const app = getApp()
-
+const mycommentApi= require("../../api/mycomment")
 Component({
   /**
    * 组件的属性列表
@@ -36,14 +36,20 @@ Component({
         target_type: _this.data.targetType,
         order: _this.data.order,
         }
-      app.request({
-        url: '/api/v1/mycomments',
-        data: query,
-        success: function(resp){
-          _this.setData({
+        // 有待检测
+    //   app.request({
+    //     url: '/api/v1/mycomments有待检测',
+    //     data: query,
+    //     success: function(resp){
+    //       _this.setData({
+    //         items: resp.data.data
+    //       })
+    //     }
+    //   })
+      mycommentApi.getAllCommentList(query).then((resp)=>{
+        _this.setData({
             items: resp.data.data
           })
-        }
       })
     },
 
@@ -96,18 +102,22 @@ Component({
       var data = this.data.replyData
       data.content = this.data.replyContent
       console.log('data for post', data)
-      app.request({
-        url: '/api/v1/mycomments',
-        data: data,
-        method: 'POST',
-        success: function(resp){
-          if(resp.data.status == 0){
+    //   有待检测
+    //   app.request({
+    //     url: '/api/v1/mycomments有待检测',
+    //     data: data,
+    //     method: 'POST',
+    //     success: function(resp){
+         
+    //     }
+    //   })
+      mycommentApi.createComment(data).then((resp)=>{
+        if(resp.data.status == 0){
             _this.closeReplyForm()
             wx.showToast({
               title: '回复成功',
             })
           }
-        }
       })
     },
 
@@ -122,20 +132,26 @@ Component({
       }
       this.data.items[i].like_nums +=1 
       this.setData({items: this.data.items})
-
-      app.request({
-        url: '/api/v1/mycomments/like',
-        hideLoading: true,
-        method: 'POST',
-        data: {id: cid},
-        success: function(resp){
-          console.log('resp')
-          wx.setStorage({
+// 有待检测
+    //   app.request({
+    //     url: '/api/v1/mycomments/like有待检测',
+    //     hideLoading: true,
+    //     method: 'POST',
+    //     data: {id: cid},
+    //     success: function(resp){
+    //       console.log('resp')
+    //       wx.setStorage({
+    //         key: key,
+    //         data: true,
+    //       })        
+    //     }
+    //   })
+      mycommentApi.likeComment(cid).then((res)=>{
+        wx.setStorage({
             key: key,
             data: true,
           })        
-        }
-      })
+    })
     },
 
   }

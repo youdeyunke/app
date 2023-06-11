@@ -31,7 +31,7 @@ Component({
     'value':function(v){
       var _this = this
       var myvalue = v
-//   有待检测  跳转页面了这个请求没有发 楼盘搜索页
+//   ？？  跳转楼盘搜索页面了  这个请求没有发 
       postApi.quickSearch(myvalue).then((res)=>{
        
         _this.setData({

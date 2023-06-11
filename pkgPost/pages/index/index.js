@@ -1,6 +1,6 @@
 // pages/sub-districts/index.js
 const app = getApp()
-
+const albumApi=require("../../../api/album")
 Page({
 
     /**
@@ -80,20 +80,26 @@ Page({
 
         // 根据专辑Id加载分类信息
         var _this = this
-        app.request({
-            url: '/api/v1/albums/' + albumId,
-            method: 'GET',
-            success: function (resp) {
-                var album = resp.data.data
-                _this.setData({
-                    album: album,
-                    pageTitle: album.name,
-                    pageCover: album.cover
-                })
-                wx.setNavigationBarTitle({
-                    title: album.name,
-                });
-            }
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/albums/有待检测' + albumId,
+        //     method: 'GET',
+        //     success: function (resp) {
+             
+        //     }
+        // })
+        albumApi.getAlbumDetail(
+            albumId
+        ).then((resp)=>{
+            var album = resp.data.data
+            _this.setData({
+                album: album,
+                pageTitle: album.name,
+                pageCover: album.cover
+            })
+            wx.setNavigationBarTitle({
+                title: album.name,
+            });
         })
     },
 

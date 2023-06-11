@@ -1,6 +1,7 @@
 // pages/messages/index.js
 const app = getApp()
 const postApi = require("../../api/post")
+const messageApi = require("../../api/message")
 var auth = require('../../utils/auth.js');
 
 Page({
@@ -50,7 +51,7 @@ Page({
                 return false
             }
             var pid = q.target_post_id || q.post_id
-            
+
             _this.sendPostCard(pid)
             _this.setData({
                 user: user
@@ -84,7 +85,6 @@ Page({
     },
 
     sendPostCard: function (postId) {
-        
         if (!postId) {
             return
         }
@@ -92,9 +92,9 @@ Page({
             receiver_id: this.data.targetUserId,
             id: postId
         }
-        // 有待检验
+        // √
         postApi.sendPostCard(data).then((res) => {
-            console.log("有待检验", res);
+
         })
         app.bindPostCustomer(postId, '向楼盘置业顾问发起了在线聊天咨询')
 
@@ -175,79 +175,97 @@ Page({
     loadOld: function () {
         // 加载旧的聊天列表
         var _this = this
-        app.request({
-            url: '/api/v1/messages',
-            method: 'GET',
-            data: {
-                target_id: _this.data.targetUserId,
-                first_id: _this.data.firstId, // 最顶上一条消息的id
-                ranking: 'older',
-            },
-            success: function (resp) {
-                if (resp.data.status != 0) {
-                    return false
-                }
-                var messages = resp.data.data.sort((a, b) => {
-                    return a.id - b.id
-                })
+        var data = {
+            target_id: _this.data.targetUserId,
+            first_id: _this.data.firstId, // 最顶上一条消息的id
+            ranking: 'older',
+        }
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/messages有待检测',
+        //     method: 'GET',
+        //     data: {
+        //         target_id: _this.data.targetUserId,
+        //         first_id: _this.data.firstId, // 最顶上一条消息的id
+        //         ranking: 'older',
+        //     },
+        //     success: function (resp) {
 
-                resp.data.data.forEach((m) => {
-                    _this.markMessageId(m.id)
-                })
-                if (messages.length == 0) {
-                    wx.showToast({
-                        icon: 'none',
-                        title: '没有更多聊天记录了',
-                    })
-                    return
-                }
+        //     },
+        // })
+        messageApi.getMessageList(data).then((resp) => {
+            if (resp.data.status != 0) {
+                return false
+            }
+            var messages = resp.data.data.sort((a, b) => {
+                return a.id - b.id
+            })
 
-                var items = _this.data.messages
-                items.unshift(messages)
-                _this.setData({
-                    messages: items
+            resp.data.data.forEach((m) => {
+                _this.markMessageId(m.id)
+            })
+            if (messages.length == 0) {
+                wx.showToast({
+                    icon: 'none',
+                    title: '没有更多聊天记录了',
                 })
-            },
+                return
+            }
+
+            var items = _this.data.messages
+            items.unshift(messages)
+            _this.setData({
+                messages: items
+            })
         })
     },
 
     loadData: function (cb) {
         var _this = this
-        app.request({
-            url: '/api/v1/messages',
-            method: 'GET',
-            hideLoading: true,
-            data: {
-                last_id: _this.data.lastId,
-                target_id: _this.data.targetUserId,
-                ranking: 'newer',
-            },
-            success: function (resp) {
-                if (resp.data.status != 0) {
-                    console.log('return false')
-                    return false
-                }
-                var d = {}
-                var items = resp.data.data
+        var data={
+            last_id: _this.data.lastId,
+            target_id: _this.data.targetUserId,
+            ranking: 'newer',
+        }
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/messages有待检测',
+        //     method: 'GET',
+        //     hideLoading: true,
+        //     data: {
+        //         last_id: _this.data.lastId,
+        //         target_id: _this.data.targetUserId,
+        //         ranking: 'newer',
+        //     },
+        //     success: function (resp) {
+               
+        //     }
+        // })
+        messageApi.getMessageList(data).then((resp)=>{
+            if (resp.data.status != 0) {
+                console.log('return false')
+                return false
+            }
+            var d = {}
+            var items = resp.data.data
 
-                items.forEach(function (message, i) {
-                    _this.saveMessage(message)
-                    _this.markMessageId(message.id)
-                })
-                if (items.length > 0) {
-                    var len = _this.data.messages.length
-                    var k = 'messages[' + len + ']'
-                    d[k] = items.reverse()
-                }
-                d['sleepTime'] = resp.data.sleep
-                d.targetUserInfo = resp.data.target_user_info
-                _this.setData(d, () => {
-                    typeof cb == 'function' && cb()
-                })
-                if (items.length > 0) {
-                    console.log('111', len)
-                    _this.scrollToBottom()
-                }
+            items.forEach(function (message, i) {
+                _this.saveMessage(message)
+                _this.markMessageId(message.id)
+            })
+            if (items.length > 0) {
+                var len = _this.data.messages.length
+                var k = 'messages[' + len + ']'
+                d[k] = items.reverse()
+            }
+            d['sleepTime'] = resp.data.sleep
+            d.targetUserInfo = resp.data.target_user_info
+            _this.setData(d, () => {
+                typeof cb == 'function' && cb()
+            })
+            if (items.length > 0) {
+                console.log('111', len)
+                _this.scrollToBottom()
             }
         })
     },

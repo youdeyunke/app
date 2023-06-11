@@ -1,5 +1,6 @@
 // pkgAdmin/pages/admin/xiangce/media-item.js
 const app = getApp()
+const mediaApi= require("../../../../api/media")
 Component({
     /**
      * 组件的属性列表
@@ -29,18 +30,21 @@ Component({
                 content: '确定删除吗',
                 success: function (res) {
                     if (res.confirm) {
-                        app.request({
-                            url: '/api/v1/media_items/' + id,
-                            method: 'DELETE',
-                            success: function () {
-                                wx.showToast({
-                                    title: '删除成功',
-                                    icon: 'success'
-                                })
-                                _this.triggerEvent('change')
-                            }
+                        // 有待检测
+                        // app.request({
+                        //     url: '/api/v1/media_items/有待检测' + id,
+                        //     method: 'DELETE',
+                        //     success: function () {
+                            
+                        //     }
+                        // })
+                        mediaApi.deleteMediaItem(id).then((res)=>{
+                            wx.showToast({
+                                title: '删除成功',
+                                icon: 'success'
+                            })
+                            _this.triggerEvent('change')
                         })
-                        
                     }
                 }
             })

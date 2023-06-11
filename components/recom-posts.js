@@ -39,7 +39,7 @@ Component({
     methods: {
         loadRecoms: function () {
             var _this = this
-            // 有待检测   qa页未使用
+            //？？  qa页未使用
             postApi.getPostList({
                 per_page: _this.data.count,
                 sub_district_id: _this.data.subDistrictId || '',

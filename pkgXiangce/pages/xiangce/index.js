@@ -2,6 +2,7 @@
 var auth = require('../../../utils/auth.js');
 const app = getApp()
 const postApi = require("../../../api/post")
+const mediaApi = require("../../../api/media")
 Page({
 
     /**
@@ -54,31 +55,34 @@ Page({
             target_id: this.data.targetId,
         }
         var _this = this
-        app.request({
-            url: '/api/v1/media_cats',
-            data: query,
-            success: function (resp) {
-                var cats = resp.data.data.filter((cat) => {
-                    if (cat.media_items.length == 0) {
-                        return false
-                    }
-                    return true
-                }).map((cat) => {
-                    cat.name = cat.name + '(' + cat.media_items.length + ')'
-                    return cat
-                })
-                _this.setData({
-                    cats: cats,
-                })
-                wx.hideLoading();
-            }
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/media_cats有待检测',
+        //     data: query,
+        //     success: function (resp) {
+               
+        //     }
+        // })
+        mediaApi.getMediaCatList(query).then((resp)=>{
+            var cats = resp.data.data.filter((cat) => {
+                if (cat.media_items.length == 0) {
+                    return false
+                }
+                return true
+            }).map((cat) => {
+                cat.name = cat.name + '(' + cat.media_items.length + ')'
+                return cat
+            })
+            _this.setData({
+                cats: cats,
+            })
+            wx.hideLoading();
         })
-
     },
 
     loadPostInfo: function () {
         var _this = this
-        // 有待检验  此处未调用
+        // ？？  此处未调用
         postApi.getPostBaseInfo(
             this.data.postId
         ).then((resp) => {
@@ -140,12 +144,12 @@ Page({
         var pid = this.data.post.id
         var brokerId = this.data.broker.id
         var _this = this
-        // 有待检验
+        // √
         postApi.sendPostCard({
             id: pid,
             receiver_id: brokerId
         }).then((res) => {
-            console.log("res", res);
+            console.log("121res", res);
             if (resp.data.status == 0) {
                 // 跳转到消息列表
                 wx.navigateTo({

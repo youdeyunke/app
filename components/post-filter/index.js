@@ -1,5 +1,6 @@
 // pages/post/filter/index.js
 const app = getApp()
+const filter_optionApi=require("../../api/filter_option")
 
 Component({
     /**
@@ -44,17 +45,23 @@ Component({
         loadFilterOptions: function () {
             // 加载销售状态选项
             var _this = this
-            console.log('load filter options start')
-            app.request({
-                url: '/api/v1/filter_options/',
-                data: { group: _this.data.postGroup },
-                success: function (resp) {
-                    console.log('load filter options', resp)
-                    if (resp.data.status != 0) {
-                        return
-                    }
-                    _this.setData({ filterOptions: resp.data.data })
+            // 有待检测
+            // console.log('load filter options start')
+            // app.request({
+            //     url: '/api/v1/filter_options/有待检测',
+            //     data: { group: _this.data.postGroup },
+            //     success: function (resp) {
+                
+            //     }
+            // })
+            filter_optionApi.getFilterOptionList(
+                _this.data.postGroup
+            ).then((resp)=>{
+                console.log('load filter options', resp)
+                if (resp.data.status != 0) {
+                    return
                 }
+                _this.setData({ filterOptions: resp.data.data })
             })
         },
 

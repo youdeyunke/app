@@ -1,5 +1,6 @@
 // pages/cities/select.js
 const app = getApp()
+const cityApi= require("../../api/city")
 
 Page({
 
@@ -12,14 +13,20 @@ Page({
 
   loadData(){
       var _this = this
-      var url = '/api/v1/cities/'
-      app.request({
-          url: url,
-          success(resp){
-            _this.setData({
-                cities: resp.data.data
-            })
-          }
+    //   有待检测
+    //   var url = '/api/v1/cities/有待检测'
+    //   app.request({
+    //       url: url,
+    //       success(resp){
+           
+    //       }
+    //   })
+      cityApi.getCityListV1(
+
+      ).then((resp)=>{
+        _this.setData({
+            cities: resp.data.data
+        })
       })
   },
 

@@ -1,5 +1,6 @@
 // pages/qa/mine.js
 const app = getApp()
+const myselfApi= require("../../../api/myself")
 
 Page({
 
@@ -45,33 +46,42 @@ Page({
       var _this = this
       var scope = _this.data.scope || 'created_by_me'
       var itemsLen = this.data.items.length || 0
-      app.request({
-          url: '/api/v1/myself/questions',
-          hideLoading: true,
-          data: {
-            scope:scope,
-            page: _this.data.page,
-            per_page: _this.data.per_page
-          },
-          success: function(resp){
-              if(resp.data.status != 0){
-                  _this.setData({loading: false})
-                  return false
-              }
-              var data = {
-                  loading: false,
-                  scopes: resp.data.data.scopes,
-              }
-              resp.data.data.items.forEach((item, i) => {
-                  var index = itemsLen + i
-                  var key = 'items[' + index + ']'
-                  data[key] = item
-              })
-              _this.setData(data)
-              wx.stopPullDownRefresh()
-              wx.hideNavigationBarLoading()
-              wx.stopPullDownRefresh() //停止下拉刷新    
-          }
+      var data={
+        scope:scope,
+        page: _this.data.page,
+        per_page: _this.data.per_page
+      }
+    //   有待检测
+    //   app.request({
+    //       url: '/api/v1/myself/questions有待检测',
+    //       hideLoading: true,
+    //       data: {
+    //         scope:scope,
+    //         page: _this.data.page,
+    //         per_page: _this.data.per_page
+    //       },
+    //       success: function(resp){
+           
+    //       }
+    //   })
+      myselfApi.getMyselfQuestionList(data).then((resp)=>{
+        if(resp.data.status != 0){
+            _this.setData({loading: false})
+            return false
+        }
+        var data = {
+            loading: false,
+            scopes: resp.data.data.scopes,
+        }
+        resp.data.data.items.forEach((item, i) => {
+            var index = itemsLen + i
+            var key = 'items[' + index + ']'
+            data[key] = item
+        })
+        _this.setData(data)
+        wx.stopPullDownRefresh()
+        wx.hideNavigationBarLoading()
+        wx.stopPullDownRefresh() //停止下拉刷新    
       })
   },
   

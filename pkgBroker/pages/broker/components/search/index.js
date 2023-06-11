@@ -23,7 +23,7 @@ Component({
       var myvalue = v
       var _this = this
       console.log("子组件value", myvalue)
-//  有待检测   未找到引用
+// ？？  未找到引用
       postApi.quickSearch(myvalue).then((res)=>{
           console.log("1212");
         _this.setData({

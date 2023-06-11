@@ -468,10 +468,8 @@ Page({
             }
         })
 
-        // 有待检验
-        postApi.getPostBaseInfo(
-            pid
-        ).then((resp) => {
+        // ？？ 该方法页面未调用
+        postApi.getPostBaseInfo(pid).then((resp) => {
             var post = resp.data.data
             if (!post) {
                 // TODO 
@@ -540,7 +538,7 @@ Page({
     onShareTimeline: function () {
         var _this = this
         const promise = new Promise(resolve => {
-            // 有待检验  
+            //？？该方法未使用
             scoreApi.createScore('share_post').then((res) => {
                 if (res.data.status == 0 && res.data.data == 'ok') {
                     wx.showToast({

@@ -5,32 +5,32 @@ let request = require('../utils/request.js');
  * **/
 
 
-//  拉取相册
+//  拉取相册   完成
 export function getMediaCatList( query){
     return request.get("/api/v1/media_cats/" ,query );
 }
 
-// 删除相册
+// 删除相册   完成
 export function deleteMediaCat( mediaCatId){
     return request.destroy("/api/v1/media_cats/"  + mediaCatId );
 }
 
-// 新建相册
+// 新建相册  完成
 export function createMediaCat( data ){
     return request.post("/api/v1/media_cats/" , data);
 }
 
-// 修改相册
-export function createMediaCat( catData ){
+// 修改相册   完成
+export function updateMediaCat( catData ){
     return request.put("/api/v1/media_cats/" + catData.id , catData);
 }
 
-// 删除相册下的照片
+// 删除相册下的照片  完成
 export function deleteMediaItem( mediaItemId){
     return request.destroy("/api/v1/media_items/"  + mediaItemId );
 }
 
-// 在相册中增加照片
+// 在相册中增加照片  完成
 export function createMediaItem( mediaType, mediaUrl, mediaCatId){
     var data = {cat_id: mediaCatId, type: mediaType, url: mediaUrl}
     return request.post("/api/v1/media_items/" , data );
