@@ -4,7 +4,7 @@ let request = require('../utils/request.js');
  * 首页开屏广告接口
  * **/
 
-// 拉取开屏广告列表   未找到
+// 拉取开屏广告列表   1
 export function getFirstScreen(){
     return request.get("/api/v1/first_screen_adds/" );
 }

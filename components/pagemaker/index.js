@@ -1,6 +1,6 @@
 // components/pagemaker/index.js
 const app = getApp()
-
+const pageApi = require("../../api/page")
 
 Component({
   /**
@@ -126,16 +126,26 @@ Component({
         hideLoading: true,
         data: q,
         success: function (resp) {
-          var data = resp.data.data
-          _this.setData({
-            loading: false,
-            modules: data.modules,
-            pageConfig: data.config,
-          })
-          _this.setNavbar(data.config)
-          _this.triggerEvent('ready', data.config)
+            var data = resp.data.data
+            _this.setData({
+              loading: false,
+              modules: data.modules,
+              pageConfig: data.config,
+            })
+            _this.setNavbar(data.config)
+            _this.triggerEvent('ready', data.config)
         }
       })
+    //   pageApi.getPageDetail().then((res)=>{
+    //     var data = resp.data.data
+    //     _this.setData({
+    //       loading: false,
+    //       modules: data.modules,
+    //       pageConfig: data.config,
+    //     })
+    //     _this.setNavbar(data.config)
+    //     _this.triggerEvent('ready', data.config)
+    //   })
 
     },
 

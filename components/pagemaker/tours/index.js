@@ -1,5 +1,6 @@
 // components/pagemaker/news/index.js
 const app = getApp()
+const tourApi = require("../../../api/tour")
 Component({
     /**
      * 组件的属性列表
@@ -35,21 +36,26 @@ Component({
 
         loadData: function () {
             var _this = this
-            var query = { }
-	    if(this.data.config.dataFrom === 'ids'){
-              query.ids = this.data.config.ids.join(',')
-	    }
-	    query.limit = this.data.config.limit || 10
+            var query = {}
+            if (this.data.config.dataFrom === 'ids') {
+                query.ids = this.data.config.ids.join(',')
+            }
+            query.limit = this.data.config.limit || 10
+            // 有待检测
+            // app.request({
+            //     url: '/api/v1/tours有待检测',
+            //     data: query, 
+            //     method: 'GET',
+            //     success: function (resp) {
 
-            app.request({
-                url: '/api/v1/tours',
-                data: query, 
-                method: 'GET',
-                success: function (resp) {
-                    if (resp.data.status == 0) {
-                        _this.setData({items: resp.data.data})
-                    }
-                },
+            //     },
+            // })
+            tourApi.getTourList(query).then((resp) => {
+                if (resp.data.status == 0) {
+                    _this.setData({
+                        items: resp.data.data
+                    })
+                }
             })
         },
 

@@ -23,3 +23,15 @@ export function updateAvatar(url){
 export function getMyselfInfo(){
     return request.get("/api/v1/users/myself");
 }
+
+// 缺
+// app.request({
+//     url: '/api/v1/user_profiles/'  + this.data.upId,
+//     success: function(resp){ 
+
+
+    // app.request({ 
+    //     url: '/api/v1/user_profiles/' + this.data.upId, 
+    //     method: 'PUT', 
+    //     data: {user_profile: data},
+    //     success: function(resp){ 

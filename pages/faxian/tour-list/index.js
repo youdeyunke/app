@@ -1,5 +1,6 @@
 // pages/faxian/hd/index.js
 const app = getApp()
+const tourApi = require("../../../api/tour")
 Component({
   /**
    * 组件的属性列表
@@ -58,11 +59,16 @@ Component({
         kw:this.data.kw,
         page:this.data.page,
       }
-      app.request({
-        url: '/api/v1/tours/',
-        data: query,
-        success: function (resp) {
-          if (resp.data.status != 0) {
+    //   有待检测
+    //   app.request({
+    //     url: '/api/v1/tours/有待检测',
+    //     data: query,
+    //     success: function (resp) {
+         
+    //     }
+    //   })
+      tourApi.getTourList(query).then((resp)=>{
+        if (resp.data.status != 0) {
             return
           }
           if(this.data.page==1){
@@ -83,7 +89,6 @@ Component({
               icon: 'none',
             })
           } 
-        }
       })
     },
   },

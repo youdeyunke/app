@@ -1,6 +1,6 @@
 // pages/faxian/news-cats.js
 const app = getApp()
-
+const newsApi = require("../../api/news")
 Component({
     /**
      * 组件的属性列表
@@ -39,15 +39,19 @@ Component({
         },
         loadNewsCats: function () {
             var _this = this
-            app.request({
-                url: '/api/v1/news_cats',
-                success: function (resp) {
-                    if (resp.data.status != 0) {
-                        return
-                    }
-                    var cats = resp.data.data
-                    _this.setData({ cats: cats })
+            // 有待检测
+            // app.request({
+            //     url: '/api/v1/news_cats有待检测',
+            //     success: function (resp) {
+                 
+            //     }
+            // })
+            newsApi.getNewsCatList().then((resp)=>{
+                if (resp.data.status != 0) {
+                    return
                 }
+                var cats = resp.data.data
+                _this.setData({ cats: cats })
             })
         },
 

@@ -8,3 +8,26 @@ let request = require('../utils/request.js');
 export function getVisitorList(query){
     return request.get("/api/v1/visitors/", query);
 }
+
+
+// 缺
+// this.request({
+//     url: '/api/v1/visitors',
+//     hideLoading: true,
+//     method: 'POST',
+//     data: { },
+//     success: function (resp) {
+
+
+
+
+    // this.request({
+    //     url: '/api/v1/visitor_actions',
+    //     hideLoading: true,
+    //     method: 'POST',
+    //     data: {
+    //         visitor_uid: uid,
+    //         name: actionName,
+    //         seconds: seconds,
+    //     },
+    //     success: function (resp) {

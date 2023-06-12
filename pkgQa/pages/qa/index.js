@@ -1,7 +1,9 @@
 // pages/qa/index.js
 const app = getApp()
+const qaApi = require("../../../api/qa")
 var util = require('../../../utils/util.js');
 var auth = require('../../../utils/auth.js');
+
 
 Page({
   /**
@@ -32,16 +34,28 @@ Page({
   loadItems: function(){
     this.setData({loading: true})
     var _this = this
-    app.request({
-      url: '/api/v1/questions/',
-      data: {
+    var data={
         target_id: _this.data.target_id,
         target_type: _this.data.target_type,
         user_id: _this.data.user_id,
         page: _this.data.page,
         per_page: _this.data.per_page,
-      },
-      success: function(res){
+    }
+    // 有待检验
+    // app.request({
+    //   url: '/api/v1/questions/有待检验',
+    //   data: {
+    //     target_id: _this.data.target_id,
+    //     target_type: _this.data.target_type,
+    //     user_id: _this.data.user_id,
+    //     page: _this.data.page,
+    //     per_page: _this.data.per_page,
+    //   },
+    //   success: function(res){
+     
+    //   }
+    // })
+    qaApi.createAnswer(data).then((res)=>{
         var d = {loading: false}
         res.data.data.forEach(function(item, i){
           var index = _this.data.items.length + i
@@ -52,7 +66,6 @@ Page({
         }) 
        
         _this.setData(d)
-      }
     })
   },
 

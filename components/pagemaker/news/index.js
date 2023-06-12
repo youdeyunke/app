@@ -1,5 +1,6 @@
 // components/pagemaker/news/index.js
 const app = getApp()
+const newsApi= require("../../../api/news")
 Component({
     /**
      * 组件的属性列表
@@ -36,19 +37,23 @@ Component({
 
         loadData: function () {
             var _this = this
-            app.request({
-                url: '/api/v1/news_summary',
-                method: 'GET',
-                success: function (resp) {
-                    if (resp.data.status == 0) {
-                        var cats = resp.data.data.filter((cat, i) => {
-                            return cat.items.length > 0
-                        })
-                        _this.setData({
-                            cats: cats,
-                        })
-                    }
-                },
+            // 有待检测
+            // app.request({
+            //     url: '/api/v1/news_summary有待检测',
+            //     method: 'GET',
+            //     success: function (resp) {
+                   
+            //     },
+            // })
+            newsApi.getNewsSummary().then((resp)=>{
+                if (resp.data.status == 0) {
+                    var cats = resp.data.data.filter((cat, i) => {
+                        return cat.items.length > 0
+                    })
+                    _this.setData({
+                        cats: cats,
+                    })
+                }
             })
         },
 

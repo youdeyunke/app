@@ -248,11 +248,15 @@ Component({
                 user_group: 'user',
                 post_id: this.data.postId
             }
-            app.request({
-                url: '/api/v1/booking_logs',
-                data: query,
-                success: function (resp) {
-                }
+            // 有待检测
+            // app.request({
+            //     url: '/api/v1/booking_logs有待检测',
+            //     data: query,
+            //     success: function (resp) {
+            //     }
+            // })
+            bookingApi.getBookingList(query).then((res)=>{
+
             })
         },
 

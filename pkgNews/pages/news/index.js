@@ -1,6 +1,6 @@
 // pages/news/index.js
 const app = getApp()
-
+const newsApi = require("../../../api/news")
 Page({
 
     /**
@@ -76,20 +76,24 @@ Page({
 
     loadCats: function (cb) {
         var _this = this
-        app.request({
-            hideLoading: true,
-            url: '/api/v1/news_cats/',
-            hideLoading: true,
-            success: function (resp) {
-                _this.setData({
-                    cats: resp.data.data,
-                })
-                var key = _this.data.cats_key
-                wx.setStorageSync(key, resp.data.data)
+        // 有待检测
+        // app.request({
+        //     hideLoading: true,
+        //     url: '/api/v1/news_cats/有待检测',
+        //     hideLoading: true,
+        //     success: function (resp) {
+              
+        //     }
+        // })
+        newsApi.getNewsCatList().then((resp)=>{
+            _this.setData({
+                cats: resp.data.data,
+            })
+            var key = _this.data.cats_key
+            wx.setStorageSync(key, resp.data.data)
 
-                if (typeof cb == 'function') {
-                    return cb(resp.data.data)
-                }
+            if (typeof cb == 'function') {
+                return cb(resp.data.data)
             }
         })
     },
@@ -112,29 +116,33 @@ Page({
             page: _this.data.page,
             per_page: _this.data.per_page
         }
-        app.request({
-            url: '/api/v1/news',
-            data: query,
-            hideLoading: true,
-            success: function (resp) {
-                var index = _this.data.page - 1
-                var key = 'news[' + index + ']'
-                var data = {
-                    loading: false,
-                }
-
-                if (resp.data.data.length == 0) {
-                    data['isEnd'] = true
-                    if (_this.data.page == 1) {
-                        data['isEmpty'] = true
-                        data['isEnd'] = false
-                    }
-                }
-
-                data[key] = resp.data.data
-                _this.setData(data)
-                console.log('set data', data)
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/news有待检测',
+        //     data: query,
+        //     hideLoading: true,
+        //     success: function (resp) {
+              
+        //     }
+        // })
+        newsApi.getNewsList(query).then((resp)=>{
+            var index = _this.data.page - 1
+            var key = 'news[' + index + ']'
+            var data = {
+                loading: false,
             }
+
+            if (resp.data.data.length == 0) {
+                data['isEnd'] = true
+                if (_this.data.page == 1) {
+                    data['isEmpty'] = true
+                    data['isEnd'] = false
+                }
+            }
+
+            data[key] = resp.data.data
+            _this.setData(data)
+            console.log('set data', data)
         })
     },
 

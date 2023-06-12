@@ -21,3 +21,9 @@ export function getBookingListFromStatus (tab){
     return request.get("/api/v1/booking_logs/", {status: tab});
 }
 
+// 缺
+// app.request({
+//     url: '/api/v1/booking_logs?status='+tab,
+//     method:'GET',
+//     success:function(res){
+

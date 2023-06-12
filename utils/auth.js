@@ -1,4 +1,5 @@
 const util = require("util.js");
+const smsApi = require("../api/sms")
 const userApi = require("../api/user")
 module.exports = {
 
@@ -34,23 +35,28 @@ module.exports = {
             })
             return false
         }
-        app.request({
-            url: '/api/v1/sms/auth',
-            method: 'POST',
-            data: {
-                mobile: phone,
-                code: code
-            },
-            success: function (res) {
-                var data = res.data
-                if (data.status == 0) {
-                    // 保存下服务器返回的token
-                    var token = data.data.token
-                    var user = data.data.user
-                    _this.setUserInfo(token, user)
-                    typeof cb == "function" && cb(user)
-                }
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/sms/auth有待检测',
+        //     method: 'POST',
+        //     data: {
+        //         mobile: phone,
+        //         code: code
+        //     },
+        //     success: function (res) {
+              
+        //     }
+        // })
+        smsApi.smsAuth(phone,code).then((res)=>{
+            var data = res.data
+            if (data.status == 0) {
+                // 保存下服务器返回的token
+                var token = data.data.token
+                var user = data.data.user
+                _this.setUserInfo(token, user)
+                typeof cb == "function" && cb(user)
             }
+      
         })
     },
 

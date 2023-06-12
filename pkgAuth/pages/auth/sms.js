@@ -1,5 +1,6 @@
 // pages/auth/sms.js
 const app = getApp()
+const smsApi = require("../../../api/sms")
 Page({
 
   /**
@@ -57,21 +58,25 @@ Page({
       })
       return false
     }
-    app.request({
-      url: '/api/v1/sms',
-      method: 'POST',
-      data: {
-        mobile: _this.data.phone
-      },
-      success: function (res) {
+    // 有待检测
+    // app.request({
+    //   url: '/api/v1/sms有待检测',
+    //   method: 'POST',
+    //   data: {
+    //     mobile: _this.data.phone
+    //   },
+    //   success: function (res) {
+      
+    //   }
+    // })
+    smsApi.sendSms(_this.data.phone).then((res)=>{
         wx.showToast({
-          title: '发送成功'
-        })
-        _this.setData({
-          yanzhengShow: true
-        })
-        _this.Timeout()
-      }
+            title: '发送成功'
+          })
+          _this.setData({
+            yanzhengShow: true
+          })
+          _this.Timeout()
     })
   },
   Timeout() {
@@ -125,14 +130,20 @@ Page({
       })
       return false
     }
-    app.request({
-      url: '/api/v1/sms/auth',
-      method: 'POST',
-      data: {
-        mobile: phone,
-        code: yanzheng
-      },
-      success: function (res) {
+    // 有待检测
+    // app.request({
+    //   url: '/api/v1/sms/auth有待检测',
+    //   method: 'POST',
+    //   data: {
+    //     mobile: phone,
+    //     code: yanzheng
+    //   },
+    //   success: function (res) {
+       
+
+    //   }
+    // })
+    smsApi.smsAuth(phone,yanzheng).then((res)=>{
         var data = res.data
         if (data.status == 0) {
           // 保存下服务器返回的token
@@ -147,8 +158,6 @@ Page({
             url: '/pages/myself/index'
           })
         }
-
-      }
     })
   },
   /**

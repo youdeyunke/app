@@ -1,6 +1,6 @@
 // pkgTour/pages/tour/sign.js
 const app = getApp() 
-
+const tourApi = require("../../../api/tour")
 Page({
 
     /**
@@ -34,7 +34,6 @@ Page({
 
     loadData: function(){
         // 加载活动信息
-        var url = '/api/v1/tours/' + this.data.tourId  
         var _this = this  
         app.request({ 
             url: '/api/v1/tours/' + this.data.tourId, 
@@ -50,6 +49,9 @@ Page({
                 })
             }
         })
+        // tourApi.createTourMember().then((res)=>{
+            
+        // })
     },
 
     loginSuccess: function(user){

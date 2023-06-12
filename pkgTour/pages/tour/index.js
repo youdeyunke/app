@@ -1,6 +1,6 @@
 // pages/news/index.js
 const app = getApp()
-
+const tourApi = require("../../../api/tour")
 Page({
 
     /**
@@ -37,28 +37,32 @@ Page({
             page: _this.data.page,
             per_page: _this.data.per_page
         }
-        app.request({
-            url: '/api/v1/tours',
-            data: query,
-            hideLoading: true,
-            success: function (resp) {
-                var index = _this.data.page - 1
-                var key = 'items[' + index + ']'
-                var data = {
-                    loading: false,
-                }
-
-                if (resp.data.data.length == 0) {
-                    data['isEnd'] = true
-                    if (_this.data.page == 1) {
-                        data['isEmpty'] = true
-                        data['isEnd'] = false
-                    }
-                }
-
-                data[key] = resp.data.data
-                _this.setData(data)
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/tours有待检测',
+        //     data: query,
+        //     hideLoading: true,
+        //     success: function (resp) {
+                
+        //     }
+        // })
+        tourApi.getTourList(query).then((resp)=>{
+            var index = _this.data.page - 1
+            var key = 'items[' + index + ']'
+            var data = {
+                loading: false,
             }
+
+            if (resp.data.data.length == 0) {
+                data['isEnd'] = true
+                if (_this.data.page == 1) {
+                    data['isEmpty'] = true
+                    data['isEnd'] = false
+                }
+            }
+
+            data[key] = resp.data.data
+            _this.setData(data)
         })
     },
 

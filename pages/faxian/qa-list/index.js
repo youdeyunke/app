@@ -1,5 +1,6 @@
 // pages/faxian/qa/index.js
 const app = getApp()
+const qaApi = require("../../../api/qa")
 Component({
   /**
    * 组件的属性列表
@@ -59,11 +60,16 @@ Component({
         kw:this.properties.kw,
         page:this.properties.page
       }
-      app.request({
-        url: '/api/v1/questions/',
-        data: query,
-        success: function (resp) {
-          if(query.page==1){
+    //   有待检测
+    //   app.request({
+    //     url: '/api/v1/questions/有待检测',
+    //     data: query,
+    //     success: function (resp) {
+        
+    //     }
+    //   })
+      qaApi.createAnswer(query).then((resp)=>{
+        if(query.page==1){
             _this.setData({
               qaItems:resp.data.data
             })
@@ -81,7 +87,6 @@ Component({
               icon: 'none',
             })
           }
-        }
       })
     },
   },

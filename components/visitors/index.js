@@ -1,6 +1,6 @@
 // components/visitors/index.js
 const app = getApp()
-
+const visitorApi = require("../../api/visitor")
 
 Component({
   /**
@@ -40,20 +40,27 @@ Component({
 
     loadVisitors: function () {
       var _this = this
-      app.request({
-        url: '/api/v1/visitors/',
-        data: {
-          target_id: _this.data.targetId,
-          target_type: _this.data.targetType,
-          per_page: _this.data.limit,
-        },
-        success: function (resp) {
-
-          _this.setData({
+      var query={
+        target_id: _this.data.targetId,
+        target_type: _this.data.targetType,
+        per_page: _this.data.limit,
+      }
+    //   有待检测
+    //   app.request({
+    //     url: '/api/v1/visitors/有待检测',
+    //     data: {
+    //       target_id: _this.data.targetId,
+    //       target_type: _this.data.targetType,
+    //       per_page: _this.data.limit,
+    //     },
+    //     success: function (resp) {
+    //     }
+    //   })
+      visitorApi.getVisitorList(query).then((resp)=>{
+        _this.setData({
             visitors: resp.data.data,
             visitorsMeta: resp.data.meta
           })
-        }
       })
     },    
 

@@ -1,6 +1,7 @@
 // pages/qa/answer-delete.js
 const app = getApp()
 var auth = require('../../utils/auth.js');
+const qaApi = require("../../api/qa")
 
 Component({
   /**
@@ -36,16 +37,20 @@ Component({
 
     doDelete: function(){
         var _this = this
-        app.request({
-            url: '/api/v1/answers/' + _this.data.aid,
-            method: 'DELETE',
-            success: function(resp){
-                if(resp.data.status != 0){
-                    return false
-                }
-                // 已删除
-                _this.triggerEvent('deleted', {})
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/answers/有待检测' + _this.data.aid,
+        //     method: 'DELETE',
+        //     success: function(resp){
+           
+        //     }
+        // })
+        qaApi.deleteAnswer(_this.data.aid).then((resp)=>{
+            if(resp.data.status != 0){
+                return false
             }
+            // 已删除
+            _this.triggerEvent('deleted', {})
         })
     },
 

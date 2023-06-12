@@ -1,5 +1,6 @@
 // pages/qa/new.js
 const app = getApp()
+const qaApi= require("../../../api/qa.js")
 var auth = require('../../../utils/auth.js');
 
 Page({
@@ -86,25 +87,33 @@ Page({
     doSubmit: function () {
         var _this = this
         var content = _this.data.content
-        app.request({
-            method: 'POST',
-            url: '/api/v1/questions/',
-            data: {
-                content: content,
-                target_id: _this.data.target_id, target_type: _this.data.target_type
-            },
-            success: function (resp) {
-                _this.setData({loading: false})
-                //  处理完成
-                if (resp.data.status != 0) {
-                    return false;
-                }
-                var url = '/pkgQa/pages/qa/qa?id=' + resp.data.data.id
-                wx.redirectTo({
-                    url: url
-                });
+        var data={
+            content: content,
+            target_id: _this.data.target_id, target_type: _this.data.target_type
+        }
+        // 有待检测
+        // app.request({
+        //     method: 'POST',
+        //     url: '/api/v1/questions/有待检测',
+        //     data: {
+        //         content: content,
+        //         target_id: _this.data.target_id, target_type: _this.data.target_type
+        //     },
+        //     success: function (resp) {
+             
 
+        //     }
+        // })
+        qaApi.createQuestion(data).then((resp)=>{
+            _this.setData({loading: false})
+            //  处理完成
+            if (resp.data.status != 0) {
+                return false;
             }
+            var url = '/pkgQa/pages/qa/qa?id=' + resp.data.data.id
+            wx.redirectTo({
+                url: url
+            });
         })
     },
 

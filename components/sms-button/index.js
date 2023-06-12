@@ -1,6 +1,6 @@
 // components/sms-button/index.js
 const app = getApp() 
-
+const smsApi = require("../../api/sms")
 Component({
   /**
    * 组件的属性列表
@@ -61,15 +61,18 @@ Component({
         wx.showModal({title: '手机号格式错误',icon: 'none'})
         return false
       }
-      app.request({
-        url:'/api/v1/sms',
-        method:'POST',
-        data:{mobile:phone},
-        success: function(res) {
-          wx.showToast({title:'发送成功'})
-          _this.setData({yanzhengShow:true})
-          _this.startTimer()
-        }
+    //   有待检测
+    //   app.request({
+    //     url:'/api/v1/sms有待检测',
+    //     method:'POST',
+    //     data:{mobile:phone},
+    //     success: function(res) {
+    //     }
+    //   })
+      smsApi.sendSms(phone).then((res)=>{
+        wx.showToast({title:'发送成功'})
+        _this.setData({yanzhengShow:true})
+        _this.startTimer()
       })
     },
 

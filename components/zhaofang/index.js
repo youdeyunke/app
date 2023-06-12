@@ -1,5 +1,6 @@
 // components/zhaofang/index.js
 const app = getApp()
+const smsApi = require("../../api/sms")
 const needApi = require("../../api/need")
 var auth = require('../../utils/auth.js');
 Component({
@@ -357,22 +358,26 @@ Component({
                 })
                 return false
             }
-            app.request({
-                url: '/api/v1/sms/auth',
-                method: 'POST',
-                data: {
-                    mobile: phone,
-                    code: code
-                },
-                success: function (res) {
-                    var data = res.data
-                    if (data.status == 0) {
-                        // 保存下服务器返回的token
-                        var token = data.data.token
-                        var user = data.data.user
-                        auth.setUserInfo(token, user)
-                        return cb()
-                    }
+            // 有待检测
+            // app.request({
+            //     url: '/api/v1/sms/auth有待检测',
+            //     method: 'POST',
+            //     data: {
+            //         mobile: phone,
+            //         code: code
+            //     },
+            //     success: function (res) {
+                  
+            //     }
+            // })
+            smsApi.smsAuth(phone,code).then((res)=>{
+                var data = res.data
+                if (data.status == 0) {
+                    // 保存下服务器返回的token
+                    var token = data.data.token
+                    var user = data.data.user
+                    auth.setUserInfo(token, user)
+                    return cb()
                 }
             })
         },

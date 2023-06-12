@@ -1,5 +1,6 @@
 // pages/qa/new.js
 const app = getApp()
+const qaApi= require("../../../api/qa")
 var auth = require('../../../utils/auth.js');
 
 Page({
@@ -88,7 +89,8 @@ Page({
             })
 		}
 	    }
-	})
+    })
+    qaApi.
   },  
 
   /**

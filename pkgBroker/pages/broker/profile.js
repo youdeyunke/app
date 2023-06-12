@@ -1,5 +1,6 @@
 // pages/user/user.js
 const app = getApp()
+const tourApi = require("../../../api/tour")
 const brokerApi = require("../../../api/broker")
 
 Page({
@@ -115,17 +116,21 @@ Page({
         var _this = this
         var query = {}
         query.cityCode = wx.getStorageSync('cityCode') || ''
-        app.request({
-            url: '/api/v1/tours',
-            data: query,
-            success: function (resp) {
-                if (resp.data.status != 0) {
-                    return
-                }
-                _this.setData({
-                    tours: resp.data.data,
-                })
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/tours有待检测',
+        //     data:query ,
+        //     success: function (resp) {
+             
+        //     }
+        // })
+        tourApi.getTourList(query).then((resp)=>{
+            if (resp.data.status != 0) {
+                return
             }
+            _this.setData({
+                tours: resp.data.data,
+            })
         })
     },
 

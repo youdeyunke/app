@@ -1,5 +1,6 @@
 // pages/qr/show.js
 const app = getApp() 
+const qrApi = require("../../api/qr")
 
 Page({
 
@@ -31,36 +32,40 @@ Page({
 
   loadData: function(qid){
     var _this = this   
-    app.request({
-      url: '/api/v1/qrs/' + qid,  
-      hideLoaindg: true, 
-      success: function(resp){
+    // 有待检测
+    // app.request({
+    //   url: '/api/v1/qrs/有待检测' + qid,  
+    //   hideLoaindg: true, 
+    //   success: function(resp){
+       
+
+    //   }
+    // })
+    qrApi.getQrDetail(qid).then((resp)=>{
         if(resp.data.status != 0){
+            _this.setData({
+              loading: false, 
+              error: true, 
+            })
+            return 
+          }
           _this.setData({
             loading: false, 
-            error: true, 
+            error: false, 
           })
-          return 
-        }
-        _this.setData({
-          loading: false, 
-          error: false, 
-        })
-
-        var qr = resp.data.data 
-        // 更多参数  qr.data
-        if(qr && qr.data && qr.data.bindBrokerId){
-            var _id = wx.getStorageSync('bindBrokerId') 
-            if(!_id){
-                console.log('通过二维码获取到了拓客参数，bindBrokerId', qr.data)
-                wx.setStorageSync('bindBrokerId', qr.data.bindBrokerId)
-            }
-        }
-        wx.reLaunch({
-          url: qr.path,
-        }) 
-
-      }
+  
+          var qr = resp.data.data 
+          // 更多参数  qr.data
+          if(qr && qr.data && qr.data.bindBrokerId){
+              var _id = wx.getStorageSync('bindBrokerId') 
+              if(!_id){
+                  console.log('通过二维码获取到了拓客参数，bindBrokerId', qr.data)
+                  wx.setStorageSync('bindBrokerId', qr.data.bindBrokerId)
+              }
+          }
+          wx.reLaunch({
+            url: qr.path,
+          }) 
     })
   },
 
