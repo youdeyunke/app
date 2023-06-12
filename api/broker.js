@@ -41,6 +41,7 @@ export function likeBroker(data) {
     return request.post("/api/v1/brokers/like", data);
 }
 
+
 // 缺
 // app.request({
 //     url: '/api/v1/broker_memberships',
@@ -57,3 +58,10 @@ export function likeBroker(data) {
     //     url: '/api/v1/broker_groups',  
     //     data: query, 
     //     success: function(resp){ 
+
+
+// 查询置业顾问分组信息
+export function getBrokerGroup(query){
+    return request.get("/api/v1/broker_groups", query)
+}
+

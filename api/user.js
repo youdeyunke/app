@@ -24,14 +24,18 @@ export function getMyselfInfo(){
     return request.get("/api/v1/users/myself");
 }
 
-// 缺
-// app.request({
-//     url: '/api/v1/user_profiles/'  + this.data.upId,
-//     success: function(resp){ 
 
 
-    // app.request({ 
-    //     url: '/api/v1/user_profiles/' + this.data.upId, 
-    //     method: 'PUT', 
-    //     data: {user_profile: data},
-    //     success: function(resp){ 
+
+
+
+// 查询用户信息
+export function  getUserProfileDetail(upId){
+    return request.get("/api/v1/user_profiles/" + upId);
+}
+
+// 更新用户信息
+export function  updateUserProfileDetail(info){
+    return request.put("/api/v1/user_profiles/" + info.id, info);
+}
+
