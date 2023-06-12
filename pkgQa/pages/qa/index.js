@@ -55,7 +55,7 @@ Page({
      
     //   }
     // })
-    qaApi.createAnswer(data).then((res)=>{
+    qaApi.getAnswerList(data).then((res)=>{
         var d = {loading: false}
         res.data.data.forEach(function(item, i){
           var index = _this.data.items.length + i

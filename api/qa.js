@@ -19,7 +19,8 @@ export function likeAnswer(aid) {
 // 发布一个答案
 export function createAnswer(questionId, content) {
     return request.post("/api/v1/answers/", {
-        question_id
+        question_id: questionId,
+        cotent: content
     });
 }
 
@@ -32,7 +33,7 @@ export function createAnswer(questionId, content) {
 //     },
 
 // 拉取问题列表
-export function createAnswer(query) {
+export function getAnswerList(query) {
     return request.get("/api/v1/questions/", query);
 }
 

@@ -68,7 +68,7 @@ Component({
         
     //     }
     //   })
-      qaApi.createAnswer(query).then((resp)=>{
+      qaApi.getAnswerList(query).then((resp)=>{
         if(query.page==1){
             _this.setData({
               qaItems:resp.data.data

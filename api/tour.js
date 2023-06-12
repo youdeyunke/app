@@ -1,4 +1,4 @@
-let request = require('../utils/request.js');
+let request = require('../utils/request');
 
 /** 
  * 活动模块接口
