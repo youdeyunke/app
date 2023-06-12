@@ -26,32 +26,35 @@ Page({
 
   loadData: function(){
     var _this = this  
-    app.request({
-      url: '/api/v1/tours/' + this.data.hid, 
-      success: function(res){ 
+    // 有待检测
+    // app.request({
+    //   url: '/api/v1/tours/有待检测' + this.data.hid, 
+    //   success: function(res){    
+    //   }
+    // })
+    tourApi.getTourDetail(this.data.hid).then((res)=>{
         if(res.data.status != 0){
-          return 
-        }
-        var tour = res.data.data.tour 
-        var post = res.data.data.post 
-        var zhuliId = res.data.data.zhuli_id 
-        if(zhuliId && zhuliId > 0){
-          wx.redirectTo({ 
-            url: '/pkgZhuli/pages/zhuli/mine?id=' + zhuliId, 
+            return 
+          }
+          var tour = res.data.data.tour 
+          var post = res.data.data.post 
+          var zhuliId = res.data.data.zhuli_id 
+          if(zhuliId && zhuliId > 0){
+            wx.redirectTo({ 
+              url: '/pkgZhuli/pages/zhuli/mine?id=' + zhuliId, 
+            })
+            return 
+          }
+          wx.setNavigationBarTitle({
+            title: tour.title,
           })
-          return 
-        }
-        wx.setNavigationBarTitle({
-          title: tour.title,
-        })
-
-        _this.setData({
-          item: tour,
-          post: post,  
-          pageTitle: tour.title, 
-          pageCover: tour.cover
-        })
-      }
+  
+          _this.setData({
+            item: tour,
+            post: post,  
+            pageTitle: tour.title, 
+            pageCover: tour.cover
+          })
     })
   },
 

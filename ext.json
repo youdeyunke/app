@@ -4,8 +4,8 @@
     "directCommit": false,
     "ext": {
         "name": "开发版",
-        "apihost1": "http://192.168.31.66:2021",
-        "apihost": "http://127.0.0.1:8080",
+        "apihost": "http://192.168.31.66:2021",
+        "apihost1": "http://127.0.0.1:8080",
         "version_desc": "这里是版本介绍信息",
         "test": "hello"
     }

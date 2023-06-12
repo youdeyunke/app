@@ -35,23 +35,24 @@ Page({
     loadData: function(){
         // 加载活动信息
         var _this = this  
-        app.request({ 
-            url: '/api/v1/tours/' + this.data.tourId, 
-            success: function(resp){ 
-                if(resp.data.status != 0){
-                    return 
-                }
-                _this.setData({ 
-                    tour: resp.data.data, 
-                })
-                wx.setNavigationBarTitle({
-                  title: resp.data.data.tour.title,
-                })
-            }
-        })
-        // tourApi.createTourMember().then((res)=>{
-            
+        // 有待检测
+        // app.request({ 
+        //     url: '/api/v1/tours/有待检测' + this.data.tourId, 
+        //     success: function(resp){ 
+             
+        //     }
         // })
+        tourApi.getTourDetail(this.data.tourId).then((resp)=>{
+            if(resp.data.status != 0){
+                return 
+            }
+            _this.setData({ 
+                tour: resp.data.data, 
+            })
+            wx.setNavigationBarTitle({
+              title: resp.data.data.tour.title,
+            })
+        })
     },
 
     loginSuccess: function(user){

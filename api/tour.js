@@ -20,8 +20,8 @@ export function createTourMember(data) {
 }
 
 // 拉取活动详情
-export function getTourList(tourId) {
-    return request.post("/api/v1/tours/" + tourId);
+export function getTourDetail(tourId) {
+    return request.get("/api/v1/tours/" + tourId);
 }
 
 
@@ -39,12 +39,6 @@ export function createTourCoupon(data) {
 // app.request({
 //     url: '/api/v1/tours/' + _this.data.tourId + '?broker_id=' + bid,
 //     success: function (resp) {
-
-
-// 缺2
-// app.request({ 
-//     url: '/api/v1/tours/' + hid, 
-//     success: function(res){ 
 
 
 // app.request({

@@ -1,5 +1,6 @@
 // pkgZhuli/pages/zhuli/mine.js
 const app = getApp() 
+const tourApi = require("../../../api/tour")
 Page({
 
   /**
@@ -157,22 +158,25 @@ Page({
 
   loadHuodong: function(hid){
     var _this  = this  
-    app.request({ 
-      url: '/api/v1/tours/' + hid, 
-      success: function(res){ 
+    // 有待检测
+    // app.request({ 
+    //   url: '/api/v1/tours/有待检测' + hid, 
+    //   success: function(res){ 
+       
+    //   }
+    // })
+    tourApi.getTourDetail(hid).then((res)=>{
         if(res.data.status != 0){ 
-          return false  
-        }
-        var cf = res.data.data.coupon_config  
+            return false  
+          }
+          var cf = res.data.data.coupon_config  
 
-
-        _this.setData({ 
-          huodong: res.data.data, 
-          pageTitle: res.data.data.title, 
-          pageCover: res.data.data.cover, 
-          coupon_config: cf,
-        })
-      }
+          _this.setData({ 
+            huodong: res.data.data, 
+            pageTitle: res.data.data.title, 
+            pageCover: res.data.data.cover, 
+            coupon_config: cf,
+          })
     })
   },
 
