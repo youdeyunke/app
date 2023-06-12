@@ -20,7 +20,7 @@ export function createTourMember(data) {
 }
 
 // 拉取活动详情
-export function createTourMember(tourId) {
+export function getTourList(tourId) {
     return request.post("/api/v1/tours/" + tourId);
 }
 
