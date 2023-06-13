@@ -65,13 +65,6 @@ export function quickSearch(kw) {
 
 
 
-
-// app.request({
-//     url:'/api/v1/post_vrs?post_id='+_this.data.postId,
-//     success: function(res) {
-
-
-
 // 查询预售证详情  1
 export function getPostLicenseList(query){
   return request.get("/api/v1/post_licenses", query);
@@ -116,12 +109,12 @@ export function getPostTypeDetail(tid){
   return request.get("/api/v1/types/"+tid);
 }
 
-// 查询一房一价表
+// 查询一房一价表   1
 export function  getBuildingRoomList(query){
   return request.get("/api/v1/building_rooms", query);
 }
 
-// 查询具体房间的详细数据
+// 查询具体房间的详细数据  1
 export function  getBuildingRoomDetail(roomId){
   return request.get("/api/v1/building_rooms/"+roomId);
 }

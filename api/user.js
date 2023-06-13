@@ -29,12 +29,12 @@ export function getMyselfInfo(){
 
 
 
-// 查询用户信息
+// 查询用户信息   1
 export function  getUserProfileDetail(upId){
     return request.get("/api/v1/user_profiles/" + upId);
 }
 
-// 更新用户信息
+// 更新用户信息   1
 export function  updateUserProfileDetail(info){
     return request.put("/api/v1/user_profiles/" + info.id, info);
 }

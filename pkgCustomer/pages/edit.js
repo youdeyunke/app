@@ -1,167 +1,182 @@
-const app = getApp() 
-
+const app = getApp()
+const userApi = require("../../api/user")
 
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-      customer: null, 
-      name: null, 
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        customer: null,
+        name: null,
 
-  },
+    },
 
-  loadData: function(){
-    // 加载数据表结构
-    var _this = this  
-    app.request({
-      url: '/api/v1/user_profiles/'  + this.data.upId,
-      success: function(resp){ 
-        if(resp.data.status != 0){
-          return 
-        }
-        _this.setData({  
-            rValue: resp.data.data.r,
-          customer: resp.data.data.customer,  
-          name: resp.data.data.customer.name,  
-          mobile: resp.data.data.customer.mobile, 
-          eavAttributes: resp.data.data.eav_attributes,
-        })
-        wx.setNavigationBarTitle({
-          title: '客户：' + resp.data.data.customer.name ,
-        })
-      }
-    })
-  },
+    loadData: function () {
+        // 加载数据表结构
+        var _this = this
+        // 有待检验
+        // app.request({
+        //   url: '/api/v1/user_profiles/有待检验'  + this.data.upId,
+        //   success: function(resp){ 
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(q) {
-    this.setData({ 
-       upId: q.id, 
-    }, () => { 
-      this.loadData()
-    })
-
-    var _this = this 
-    app.ensureConfigs((myconfigs) => { 
-        _this.setData({
-          color: myconfigs.color.primary,
-          btnColor: myconfigs.color.primary_btn
-        })
-      })
-  },
-
-  gotoColumn: function(e){
-      const {index}  = e.target.dataset 
-      var column = this.data.eavAttributes[index]
-      var value = this.data.customer[column.name]
-      if(column.editable == false){
-	      return
-      }
-
-      var _this = this 
-      // 打开编辑字段界面，并传值 
-      wx.navigateTo({
-        url: '/pages/eav/column',
-        events: {
-            change: function(result){
-                console.log('值被修改了', result)
-                var customer = _this.data.customer 
-                customer[result.key] = result.value  
-                _this.setData({customer: customer})
+        //   }
+        // })
+        userApi.getUserProfileDetail(this.data.upId).then((resp) => {
+            if (resp.data.status != 0) {
+                return
             }
-        },
-        success: function(res){
-            res.eventChannel.emit('setColumn', column)
-            res.eventChannel.emit('setValue', value)
+            _this.setData({
+                rValue: resp.data.data.r,
+                customer: resp.data.data.customer,
+                name: resp.data.data.customer.name,
+                mobile: resp.data.data.customer.mobile,
+                eavAttributes: resp.data.data.eav_attributes,
+            })
+            wx.setNavigationBarTitle({
+                title: '客户：' + resp.data.data.customer.name,
+            })
+        })
+    },
 
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad(q) {
+        this.setData({
+            upId: q.id,
+        }, () => {
+            this.loadData()
+        })
+
+        var _this = this
+        app.ensureConfigs((myconfigs) => {
+            _this.setData({
+                color: myconfigs.color.primary,
+                btnColor: myconfigs.color.primary_btn
+            })
+        })
+    },
+
+    gotoColumn: function (e) {
+        const {
+            index
+        } = e.target.dataset
+        var column = this.data.eavAttributes[index]
+        var value = this.data.customer[column.name]
+        if (column.editable == false) {
+            return
         }
-      })
-  },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
+        var _this = this
+        // 打开编辑字段界面，并传值 
+        wx.navigateTo({
+            url: '/pages/eav/column',
+            events: {
+                change: function (result) {
+                    console.log('值被修改了', result)
+                    var customer = _this.data.customer
+                    customer[result.key] = result.value
+                    _this.setData({
+                        customer: customer
+                    })
+                }
+            },
+            success: function (res) {
+                res.eventChannel.emit('setColumn', column)
+                res.eventChannel.emit('setValue', value)
 
-  },
+            }
+        })
+    },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady() {
 
-  },
+    },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow() {
 
-  },
+    },
 
-  submitHandle: function(){
-      var _this = this  
-      var data = this.data.customer 
-      data.name = this.data.name 
-      // 检查必填字段
-      this.data.eavAttributes.forEach((att, index) => {  
-          var value = data[att.name]
-          if(!value){
-              wx.showToast({
-                title: att.label + '是必填项，不能为空',
-              })
-              return false 
-          }
-      })
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide() {
 
-      app.request({ 
-          url: '/api/v1/user_profiles/' + this.data.upId, 
-          method: 'PUT', 
-          data: {user_profile: data},
-          success: function(resp){ 
-              if(resp.data.status != 0){
-                  console.log('error', resp.data.status)
-                  return 
-              }
-              _this.loadData()
+    },
 
-              wx.showToast({
+    submitHandle: function () {
+        var _this = this
+        var data = this.data.customer
+        data.name = this.data.name
+        // 检查必填字段
+        this.data.eavAttributes.forEach((att, index) => {
+            var value = data[att.name]
+            if (!value) {
+                wx.showToast({
+                    title: att.label + '是必填项，不能为空',
+                })
+                return false
+            }
+        })
+        // 有待检测
+        //   app.request({ 
+        //       url: '/api/v1/user_profiles/有待检测' + this.data.upId, 
+        //       method: 'PUT', 
+        //       data: {user_profile: data},
+        //       success: function(resp){ 
+
+
+        //       }
+        //   })
+        var info = {
+            user_profile: data
+        }
+        info.id = this.data.upId
+        userApi.updateUserProfileDetail(info).then((resp) => {
+            if (resp.data.status != 0) {
+                console.log('error', resp.data.status)
+                return
+            }
+            _this.loadData()
+
+            wx.showToast({
                 title: '已保存',
-              })
- 
-          }
-      })
-  },
+            })
+        })
+    },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload() {
 
-  },
+    },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh() {
 
-  },
+    },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom() {
 
-  },
+    },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage() {
 
-  }
+    }
 })
