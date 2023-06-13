@@ -1,6 +1,6 @@
 // pkgAdmin/pages/clue/show.js
 const app = getApp() 
-
+const clueApi = require("../../../api/clue")
 Page({
 
   /**
@@ -35,26 +35,30 @@ Page({
 
   loadData: function(){
     var _this = this  
-    app.request({
-      url: '/api/v1/clues/' + _this.data.clueId,  
-      success: function(resp){
+    // 有待检测
+    // app.request({
+    //   url: '/api/v1/clues/有待检测' + _this.data.clueId,  
+    //   success: function(resp){
+        
+    //   }
+    // })
+    clueApi.getClueDetail(_this.data.clueId).then((resp)=>{
         if(resp.data.status != 0){
-          return 
-        }
-        var data = resp.data.data 
-        data.follows = data.follows.map((f,i) => {
-          var r = f.created_at.split('T')
-          var date = r[0]
-          var time = r[1].split('.')[0]
-          f.created_at = date + ' ' + time
-          return f
-        })                  
-        _this.setData({
-          clue: data.clue, 
-          follows: data.follows, 
-          statusItems: data.status_items,     
-        })
-      }
+            return 
+          }
+          var data = resp.data.data 
+          data.follows = data.follows.map((f,i) => {
+            var r = f.created_at.split('T')
+            var date = r[0]
+            var time = r[1].split('.')[0]
+            f.created_at = date + ' ' + time
+            return f
+          })                  
+          _this.setData({
+            clue: data.clue, 
+            follows: data.follows, 
+            statusItems: data.status_items,     
+          })
     })
   }, 
 
