@@ -38,11 +38,6 @@ export function getCustomerDetail(customerId) {
 //     success: function (resp) {
 
 
-// app.request({
-//     url: '/api/v1/customers/'+id,
-//     method: 'PUT',
-//     data: data,
-//     success(res){
 
 // 修改报备客户资料
 export function  updateCustomer(customerId, data){

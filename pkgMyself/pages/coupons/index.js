@@ -47,16 +47,17 @@ Page({
       confirmText : '删除',
       success(resp){
         if(resp.confirm){
-          app.request({
-            url : '/api/v1/coupons/'+id,
-            method : 'DELETE',
-            success:function(res){
-              _this.loadData()
-            }
-          })
-        //   couponApi.getCouponDetail().then((res)=>{
-        //     _this.loadData()
+            // 有待检测
+        //   app.request({
+        //     url : '/api/v1/coupons/有待检测'+id,
+        //     method : 'DELETE',
+        //     success:function(res){
+        //       _this.loadData()
+        //     }
         //   })
+          couponApi.deleteCoupon(id).then((res)=>{
+            _this.loadData()
+          })
         }
       }
     })

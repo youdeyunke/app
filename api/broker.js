@@ -56,7 +56,7 @@ export function likeBroker(data) {
 
 
 
-// 查询置业顾问分组信息
+// 查询置业顾问分组信息  1
 export function getBrokerGroup(query){
     return request.get("/api/v1/broker_groups", query)
 }

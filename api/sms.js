@@ -11,13 +11,8 @@ export function smsAuth(mobile, code){
 }
 
 
-// 缺1
-// _this.request({
-//     url: "/api/v1/sms/sendto",
-//     data: {
-//         mobile: mobile
-//     },
-// 发送手机验证码短信
+
+// 发送手机验证码短信   1
 export function  sendTo(mobile){
     return request.post("/api/v1/sms/sendto", {mobile: mobile});
 }

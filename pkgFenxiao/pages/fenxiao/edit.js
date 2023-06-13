@@ -71,15 +71,18 @@ Page({
                 admin_remark: this.data.admin_remark
             }
         }
-        console.log(data)
-        app.request({
-            url: '/api/v1/customers/'+id,
-            method: 'PUT',
-            data: data,
-            success(res){
-                app.globalData.reloadCustomer = true
-                console.log(res)
-            }
+        // 有待检测
+        // console.log(data)
+        // app.request({
+        //     url: '/api/v1/customers/有待检测'+id,
+        //     method: 'PUT',
+        //     data: data,
+        //     success(res){
+             
+        //     }
+        // })
+        customerApi.updateCustomer(id,data).then((res)=>{
+            app.globalData.reloadCustomer = true
         })
         wx.navigateBack({
             delta: 2,

@@ -16,14 +16,8 @@ export function getBookingList (query){
     return request.get("/api/v1/booking_logs/", query);
 }
 
-// 根据状态查询预约结果
+// 根据状态查询预约结果 1
 export function getBookingListFromStatus (tab){
     return request.get("/api/v1/booking_logs/", {status: tab});
 }
-
-// 缺
-// app.request({
-//     url: '/api/v1/booking_logs?status='+tab,
-//     method:'GET',
-//     success:function(res){
 

@@ -1,6 +1,6 @@
 // pages/news/show.js
 const app = getApp()
-
+const newsApi = require("../../../api/news")
 Page({
 
     /**
@@ -25,17 +25,21 @@ Page({
     loadData: function () {
 
         var _this = this
-        app.request({
-            url: '/api/v1/news/' + _this.data.nid,
-            success: function (resp) {
-                _this.setData({
-                    item: resp.data.data,
-                })
-                wx.setNavigationBarTitle({
-                    title: resp.data.data.title,
-                });
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/news/有待检测' + _this.data.nid,
+        //     success: function (resp) {
+            
 
-            }
+        //     }
+        // })
+        newsApi.getNewsDetail(_this.data.nid).then((resp)=>{
+            _this.setData({
+                item: resp.data.data,
+            })
+            wx.setNavigationBarTitle({
+                title: resp.data.data.title,
+            });
         })
     },
 

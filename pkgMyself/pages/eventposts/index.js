@@ -1,6 +1,6 @@
 // pages/myself/favposts.js
 const app = getApp()
-
+const eventApi = require("../../../api/event")
 Page({
 
     /**
@@ -28,33 +28,32 @@ Page({
             page: _this.data.page || 1,
             per_page: _this.data.per_page || 10,
         }
-        app.request({
-            url: '/api/v1/event_followers/mine',
-            data: query,
-            hideLoading: true,
-            success: function (resp) {
-              console.log("最新数据",resp.data.data)
-                var d = { loading: false }
-                if (resp.data.data.length == 0) {
-                    d.hasMore = false
-                } else {
-                    var i = _this.data.page - 1
-                    var k = "posts[" + i + "]"
-                    d[k] = resp.data.data
-                }
-                if (resp.data.data.length == 0) {
-                    d['isEnd'] = true
-                    if (_this.data.page == 1) {
-                        d['isEmpty'] = true
-                        d['isEnd'] = false
-                    }
-                }
-                console.log('d is ', d)
-                _this.setData(d)
-
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/event_followers/mine有待检测',
+        //     data: query,
+        //     hideLoading: true,
+        //     success: function (resp) {
+        //     }
+        // })
+        eventApi.getMineFollowPostList(query).then((resp)=>{
+            var d = { loading: false }
+            if (resp.data.data.length == 0) {
+                d.hasMore = false
+            } else {
+                var i = _this.data.page - 1
+                var k = "posts[" + i + "]"
+                d[k] = resp.data.data
             }
+            if (resp.data.data.length == 0) {
+                d['isEnd'] = true
+                if (_this.data.page == 1) {
+                    d['isEmpty'] = true
+                    d['isEnd'] = false
+                }
+            }
+            _this.setData(d)
         })
-
     },
 
     /**

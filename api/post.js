@@ -42,14 +42,8 @@ export function quickSearch(kw) {
 }
 
 
-// 缺
-// this.request({
-//     url: '/api/v1/post_customers/',
-//     method: 'POST',
-//     hideLoading: true,
-//     data: data,
-//     success: function (resp) {
-// 绑定楼盘客户关系
+
+// 绑定楼盘客户关系   1
 export function  createPostCustomer(data){
   return request.post("/api/v1/post_customers/", data);
 }
@@ -62,10 +56,7 @@ export function  createPostCustomer(data){
 
 
 
-// app.request({
-//     url: '/api/v1/post_detail/' + _this.data.postId,
-//     success: function (resp) {
-
+//   1
 export function  getPostDetailContent(pid){
   return request.get("/api/v1/post_detail/" + pid);
 }

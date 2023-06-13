@@ -1,6 +1,6 @@
 // pkgPost/pages/detail/index.js
 const app = getApp()
-
+const postApi = require("../../../api/post")
 Page({
 
     /**
@@ -30,27 +30,31 @@ Page({
     loadData: function () {
         this.setData({ loading: true })
         var _this = this
-        app.request({
-            url: '/api/v1/post_detail/' + _this.data.postId,
-            success: function (resp) {
-                var post = resp.data.data
-                var meta = post.meta.replaceAll("：", ":")
-                var metaItems = meta.split('\n').map((line, index) => {
-                    var res = line.split(':')
-                    if (res.length == 1) {
-                        // 解析错误
-                        return { label: res[0], text: '-' }
-                    }
-                    var label = res.splice(0, 1)[0]
-                    var text = res.join(':')
-                    return { label: label, text: text }
-                })
-                console.log('meta items', metaItems)
-                _this.setData({ post: post, metaItems: metaItems })
-                wx.setNavigationBarTitle({
-                    title: post.title,
-                });
-            },
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/post_detail/有待检测' + _this.data.postId,
+        //     success: function (resp) {
+              
+        //     },
+        // })
+        postApi.getPostDetailContent(_this.data.postId).then((resp)=>{
+            var post = resp.data.data
+            var meta = post.meta.replaceAll("：", ":")
+            var metaItems = meta.split('\n').map((line, index) => {
+                var res = line.split(':')
+                if (res.length == 1) {
+                    // 解析错误
+                    return { label: res[0], text: '-' }
+                }
+                var label = res.splice(0, 1)[0]
+                var text = res.join(':')
+                return { label: label, text: text }
+            })
+            console.log('meta items', metaItems)
+            _this.setData({ post: post, metaItems: metaItems })
+            wx.setNavigationBarTitle({
+                title: post.title,
+            });
         })
     },
 

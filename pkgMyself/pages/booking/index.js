@@ -1,5 +1,6 @@
 // pkgBooking/pages/booking/index.js
 const app = getApp()
+const bookingApi = require("../../../api/booking")
 Page({
 
   /**
@@ -30,15 +31,19 @@ Page({
   getBroker:function(){
     var _this = this
     var tab = this.data.tab
-    app.request({
-      url: '/api/v1/booking_logs?status='+tab,
-      method:'GET',
-      success:function(res){
+    // 有待检测
+    // app.request({
+    //   url: '/api/v1/booking_logs有待检测?status='+tab,
+    //   method:'GET',
+    //   success:function(res){
+     
+    //   }
+    // })
+    bookingApi.getBookingListFromStatus(tab).then((res)=>{
         _this.setData({
-          broker:res.data.data
-        })
-        console.log("res.data.data:",res.data.data)
-      }
+            broker:res.data.data
+          })
+          console.log("res.data.data:",res.data.data)
     })
   },
 

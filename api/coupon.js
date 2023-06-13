@@ -20,13 +20,9 @@ export function  getCouponDetail(couponId){
     return request.get("/api/v1/coupons/" + couponId);
 }
 
-// 缺
-// app.request({
-//     url : '/api/v1/coupons/'+id,
-//     method : 'DELETE',
-//     success:function(res){
 
-// 删除卡券
+
+// 删除卡券  1
 export function  deleteCoupon(couponId){
     return request.destroy("/api/v1/coupons/" + couponId);
 }

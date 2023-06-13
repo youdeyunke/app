@@ -1,6 +1,7 @@
 // 封装七牛云前端直接上传功能
 
 const app = getApp()
+const qiniuApi = require("../api/qiniu")
 // console.log("121qiniu_app",app);
 var  cdnDomain = 'qiniucdn.udeve.cn'
 var  cdnProtoco = 'http'
@@ -11,15 +12,19 @@ module.exports = {
     },
 
     getToken: function(cb){
-        app.request({
-            url: '/api/v1/qiniu_token/',
-            method: 'POST',
-            hideLoading: true,
-            success: function(resp){
-                var token = resp.data.data.token
-                var key = resp.data.data.key
-                return cb(token, key)
-            }
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/qiniu_token/有待检测',
+        //     method: 'POST',
+        //     hideLoading: true,
+        //     success: function(resp){
+              
+        //     }
+        // })
+        qiniuApi.genQiniuToken().then((resp)=>{
+            var token = resp.data.data.token
+            var key = resp.data.data.key
+            return cb(token, key)
         })
     },
 

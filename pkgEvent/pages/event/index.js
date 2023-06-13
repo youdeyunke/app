@@ -100,27 +100,28 @@ Page({
 
         var _this = this
         var eid = e.currentTarget.dataset['id']
-        app.request({
-            url: '/api/v1/events/' + eid,
-            method: 'DELETE',
-            success: function (resp) {
-                if (resp.data.status != 0) {
-                    return false
-                }
-                _this.loadData()
-                setTimeout(function () {
-                    wx.showToast({
-                        title: '已删除',
-                        icon: 'none',
-                    })
-
-                }, 1500)
-
-            }
-        })
-        // eventApi.getEventDetail().then((res)=>{
-            
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/events/有待检测' + eid,
+        //     method: 'DELETE',
+        //     success: function (resp) {
+               
+        //     }
         // })
+        eventApi.deleteEvent(eid).then((resp)=>{
+            if (resp.data.status != 0) {
+                return false
+            }
+            _this.loadData()
+            setTimeout(function () {
+                wx.showToast({
+                    title: '已删除',
+                    icon: 'none',
+                })
+
+            }, 1500)
+
+        })
     },
 
 

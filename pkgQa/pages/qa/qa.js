@@ -34,7 +34,11 @@ Page({
         var bid = answer.user.id
 
         // 先调用打招呼接口
-        wx.showLoading({ title: '正在打开', icon: 'none', mask: true })
+        wx.showLoading({
+            title: '正在打开',
+            icon: 'none',
+            mask: true
+        })
         var _this = this
         wx.navigateTo({
             url: '/pkgQa/pages/messages/show?target_user_id=' + bid,
@@ -54,44 +58,55 @@ Page({
         var chatEnable = ext['chat_enable'] != false
         var qid = options.id
         var user = app.globalData.userInfo
-        this.setData({ id: qid, chatEnable: chatEnable, user: user })
+        this.setData({
+            id: qid,
+            chatEnable: chatEnable,
+            user: user
+        })
         var _this = this
         this.loadData()
     },
 
     loadData: function () {
         var _this = this
-        app.request({
-            url: '/api/v1/questions/' + _this.data.id,
-            hideLoading: true,
-            success: function (resp) {
-                if (resp.data.status != 0) {
-                    _this.setData({ loading: false })
-                    return false
-                }
-                var item = resp.data.data
-                var answers = []
-                item['created_at_pretty'] = util.prettyTime(item['created_at'])
-                item['updated_at_pretty'] = util.prettyTime(item['updated_at'])
-                item['answers'].forEach((a, i) => {
-                    // 查询是否点过赞
-                    var cacheKey = 'answer.' + a.id + '.liked'
-                    var liked = wx.getStorageSync(cacheKey) == 'liked'
-                    a['created_at_pretty'] = util.prettyTime(a['created_at'])
-                    a['likes'] = a['likes'] || 0
-                    a['liked'] = liked
-                    answers.push(a)
-                })
-                _this.setData({ item: item, answers: answers, loading: false })
-                wx.stopPullDownRefresh()
-                wx.hideNavigationBarLoading()
-                wx.stopPullDownRefresh() //停止下拉刷新    
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/questions/有待检测' + _this.data.id,
+        //     hideLoading: true,
+        //     success: function (resp) {
 
-            }
-        })
-        // qaApi.getAnswerList().then((res)=>{
-            
+
+        //     }
         // })
+        qaApi.getAnswerList(_this.data.id).then((resp) => {
+            if (resp.data.status != 0) {
+                _this.setData({
+                    loading: false
+                })
+                return false
+            }
+            var item = resp.data.data
+            var answers = []
+            item['created_at_pretty'] = util.prettyTime(item['created_at'])
+            item['updated_at_pretty'] = util.prettyTime(item['updated_at'])
+            item['answers'].forEach((a, i) => {
+                // 查询是否点过赞
+                var cacheKey = 'answer.' + a.id + '.liked'
+                var liked = wx.getStorageSync(cacheKey) == 'liked'
+                a['created_at_pretty'] = util.prettyTime(a['created_at'])
+                a['likes'] = a['likes'] || 0
+                a['liked'] = liked
+                answers.push(a)
+            })
+            _this.setData({
+                item: item,
+                answers: answers,
+                loading: false
+            })
+            wx.stopPullDownRefresh()
+            wx.hideNavigationBarLoading()
+            wx.stopPullDownRefresh() //停止下拉刷新    
+        })
 
     },
 
@@ -116,8 +131,10 @@ Page({
         // 先改变按钮状态，再发送请求
         var item = this.data.item
         item.followed = !item.followed
-        this.setData({ item: item })
-// 有待检测
+        this.setData({
+            item: item
+        })
+        // 有待检测
         // app.request({
         //     url: url,
         //     method: "post",
@@ -132,10 +149,10 @@ Page({
 
         //     }
         // })
-        var query={
-            question_id: _this.data.item.id 
+        var query = {
+            question_id: _this.data.item.id
         }
-        qaApi.followQuestion(this.data.item.id,query).then((resp)=>{
+        qaApi.followQuestion(this.data.item.id, query).then((resp) => {
             if (resp.data.status != 0) {
                 return false
             }
@@ -183,7 +200,7 @@ Page({
     onShow: function () {
         this.loadData()
         var color = app.globalData.myconfigs.color
-        this.setData({ 
+        this.setData({
             primaryColor: color.primary,
             primaryBtnColor: color.primary_btn,
         })
@@ -204,25 +221,31 @@ Page({
 
     doDelete: function () {
         var _this = this
-        app.request({
-            url: '/api/v1/questions/' + _this.data.item.id,
-            method: 'DELETE',
-            success: function (resp) {
-                if (resp.data.status != 0) {
-                    return false
-                }
-                wx.showToast({
-                    title: '已删除',
-                    icon: 'none',
-                    mask: true,
-                    duration: 1500,
-                    success: function () {
-                        setTimeout(function () {
-                            wx.navigateBack({ delta: -1 })
-                        }, 1500)
-                    },
-                })
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/questions/有待检测' + _this.data.item.id,
+        //     method: 'DELETE',
+        //     success: function (resp) {
+
+        //     }
+        // })
+        qaApi.deleteQuestion(_this.data.item.id).then((resp) => {
+            if (resp.data.status != 0) {
+                return false
             }
+            wx.showToast({
+                title: '已删除',
+                icon: 'none',
+                mask: true,
+                duration: 1500,
+                success: function () {
+                    setTimeout(function () {
+                        wx.navigateBack({
+                            delta: -1
+                        })
+                    }, 1500)
+                },
+            })
         })
     },
 
@@ -246,7 +269,8 @@ Page({
     onPullDownRefresh: function () {
         this.setData({
             loading: true,
-            item: null, answers: null
+            item: null,
+            answers: null
         })
         this.loadData()
     },

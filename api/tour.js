@@ -35,21 +35,6 @@ export function createTourCoupon(data) {
     return request.post("/api/v1/tour_coupons/", data);
 }
 
-// 缺1
-// app.request({
-//     url: '/api/v1/tours/' + _this.data.tourId + '?broker_id=' + bid,
-//     success: function (resp) {
-
-
-// app.request({
-//     url: '/api/v1/tour_members/0',
-//     method: 'DELETE',
-//     data: data,
-//     success: function (resp) {
-// 取消活动报名
-export function  cancleJoin(){
-    request.destroy("/api/v1/tour_members/0");
-}
 
 
 // 功能已经删除

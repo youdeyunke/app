@@ -1,5 +1,6 @@
 // pkgBroker/pages/broker/components/broker-group-selector/index.js
 const app = getApp() 
+const brokerApi = require("../../../../../api/broker")
 
 Component({
     /**
@@ -43,22 +44,26 @@ Component({
             var query = {
                 cat: cat
             }
-            app.request({ 
-                url: '/api/v1/broker_groups',  
-                data: query, 
-                success: function(resp){ 
-                    if(resp.data.status != 0){ 
-                        return 
-                    }
-                    var gs = resp.data.data.filter((g) => { 
-                        return  true
-                    })
-                    
-                    // 只显示全民经纪人身份列表
-                    _this.setData({ 
-                        groups: gs, 
-                    })
+            // 有待检测
+            // app.request({ 
+            //     url: '/api/v1/broker_groups有待检测',  
+            //     data: query, 
+            //     success: function(resp){ 
+                  
+            //     }
+            // })
+            brokerApi.getBrokerGroup(query).then((resp)=>{
+                if(resp.data.status != 0){ 
+                    return 
                 }
+                var gs = resp.data.data.filter((g) => { 
+                    return  true
+                })
+                
+                // 只显示全民经纪人身份列表
+                _this.setData({ 
+                    groups: gs, 
+                })
             })
         },
 

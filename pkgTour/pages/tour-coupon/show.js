@@ -260,35 +260,39 @@ Page({
     loadData: function (cb) {
         var _this = this
         var bid = this.data.brokerId || ''
-        app.request({
-            url: '/api/v1/tours/' + _this.data.tourId + '?broker_id=' + bid,
-            success: function (resp) {
-                var tour = resp.data.data.tour
-                var joined = resp.data.data.joined
-                var html = tour['content'] || ''
-                var post = resp.data.data.post
-                console.log('tour', tour, 'join', joined)
-                if (html) {
-                    html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
-                    html = html.replace(/\<p/gi, '<p class="rich-text-p" ')
-                }
-
-                var b = resp.data.broker || {}
-                _this.setData({
-                    item: tour,
-                    brokerName: b.name || '',
-                    brokerPhone: b.phone || '',
-                    html: html,
-                    loading: false,
-                    post: post,
-                    joined: joined
-                })
-                wx.setNavigationBarTitle({
-                    title: tour.title + ' ' + tour.status_name,
-                });
-
-                return typeof cb == 'function' && cb(resp.data.data)
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/tours/有待检测' + _this.data.tourId + '?broker_id=' + bid,
+        //     success: function (resp) {
+               
+        //     }
+        // })
+        tourApi.getTourDetail(_this.data.tourId,{broker_id:bid}).then((resp)=>{
+            var tour = resp.data.data.tour
+            var joined = resp.data.data.joined
+            var html = tour['content'] || ''
+            var post = resp.data.data.post
+            console.log('tour', tour, 'join', joined)
+            if (html) {
+                html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
+                html = html.replace(/\<p/gi, '<p class="rich-text-p" ')
             }
+
+            var b = resp.data.broker || {}
+            _this.setData({
+                item: tour,
+                brokerName: b.name || '',
+                brokerPhone: b.phone || '',
+                html: html,
+                loading: false,
+                post: post,
+                joined: joined
+            })
+            wx.setNavigationBarTitle({
+                title: tour.title + ' ' + tour.status_name,
+            });
+
+            return typeof cb == 'function' && cb(resp.data.data)
         })
     },
 

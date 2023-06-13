@@ -2,8 +2,12 @@
 const auth = require("utils/auth.js");
 const EXT = wx.getExtConfigSync()
 const city = require("utils/city.js");
-const userApi= require("./api/user");
-const cityApi = require("./api/city")
+const userApi = require("./api/user");
+const cityApi = require("./api/city");
+const postApi = require("./api/post");
+const qrApi = require("./api/qr");
+const smsApi = require("./api/sms");
+const visitorApi = require("./api/visitor")
 //const T = require("utils/test.js");
 //const TIM = require('tim/index.js');
 var onfire = require('/utils/onfire.min.js');
@@ -52,10 +56,10 @@ App({
                     var value = setting.authSetting["scope.userLocation"];
                     if (value) {
                         _this.wx.getFuzzyLocation({
-                          type: 'type',
-                          success: (result) => {},
-                          fail: (res) => {},
-                          complete: (res) => {},
+                            type: 'type',
+                            success: (result) => {},
+                            fail: (res) => {},
+                            complete: (res) => {},
                         });
                     }
                 }
@@ -109,19 +113,23 @@ App({
         console.log('生成二维码携带的数据:', path, extData)
         extData = JSON.stringify(extData)
         var _this = this
-        this.request({
-            url: '/api/v1/qrs/',
-            method: 'POST',
-            hideLoading: false,
-            data: {
-                path: path,
-                qr_data: extData
-            },
-            success: function (resp) {
-                if (resp.data.status == 0) {
-                    return typeof cb == 'function' ** cb(resp.data.data)
-                }
-            },
+        // 有待检测
+        // this.request({
+        //     url: '/api/v1/qrs/有待检测',
+        //     method: 'POST',
+        //     hideLoading: false,
+        //     data: {
+        //         path: path,
+        //         qr_data: extData
+        //     },
+        //     success: function (resp) {
+
+        //     },
+        // })
+        qrApi.createQrImage(path, extData).then((resp) => {
+            if (resp.data.status == 0) {
+                return typeof cb == 'function' ** cb(resp.data.data)
+            }
         })
     },
 
@@ -258,7 +266,7 @@ App({
         //     success: function (resp) {
         //     }
         // });
-        cityApi.getCityListV2().then((resp)=>{
+        cityApi.getCityListV2().then((resp) => {
             _this.globalData.cities = resp.data.data;
             return cb(resp.data.data);
         })
@@ -349,11 +357,13 @@ App({
                 }
                 var data = resp.data.data
                 // 未读消息 
-                var c = data.unread_message_count 
+                var c = data.unread_message_count
                 var bindex = 1
-                if(c == 0){
-                    wx.removeTabBarBadge({ index: bindex  })
-                }else {
+                if (c == 0) {
+                    wx.removeTabBarBadge({
+                        index: bindex
+                    })
+                } else {
                     wx.setTabBarBadge({
                         index: bindex,
                         text: c.toString(),
@@ -430,30 +440,34 @@ App({
         // 注意，此方法只负责创建一个新的vid值，不负责处理绑定转发分享等逻辑，相关逻辑由heartbeat负责处理
         var _this = this
         var key = 'visitorUid'
-        var vid = wx.getStorageSync(key); 
-        if(vid && vid.length > 5){
-          // 已经有vid了，不需要重新生成
-          return ;
+        var vid = wx.getStorageSync(key);
+        if (vid && vid.length > 5) {
+            // 已经有vid了，不需要重新生成
+            return;
         }
         // 创建一个新的vid
-        this.request({
-            url: '/api/v1/visitors',
-            hideLoading: true,
-            method: 'POST',
-            data: { },
-            success: function (resp) {
-                var data = resp.data
-                if (data.status == 0) {
-                    _this.globalData.visitorId = data.data
-                    wx.setStorage({
-                        key: key,
-                        data: data.data
-                    })
-                    console.log('set vid is', _this.globalData.visitorId)
-                }
+        // 有待检测
+        // this.request({
+        //     url: '/api/v1/visitors有待检测',
+        //     hideLoading: true,
+        //     method: 'POST',
+        //     data: { },
+        //     success: function (resp) {
 
-                typeof cb == 'function' && cb(resp.data.data)
+        //     }
+        // })
+        visitorApi.createVisitor().then((resp) => {
+            var data = resp.data
+            if (data.status == 0) {
+                _this.globalData.visitorId = data.data
+                wx.setStorage({
+                    key: key,
+                    data: data.data
+                })
+                console.log('set vid is', _this.globalData.visitorId)
             }
+
+            typeof cb == 'function' && cb(resp.data.data)
         })
     },
 
@@ -468,55 +482,64 @@ App({
             console.log('没有visitor id，无法上报事件 ' + actionName)
             return
         }
-
-        this.request({
-            url: '/api/v1/visitor_actions',
-            hideLoading: true,
-            method: 'POST',
-            data: {
-                visitor_uid: uid,
-                name: actionName,
-                seconds: seconds,
-            },
-            success: function (resp) {
-                var data = resp.data.data
-                typeof cb == 'function' && cb(resp.data.data)
-            }
+        // 有待检测
+        // this.request({
+        //     url: '/api/v1/visitor_actions有待检测',
+        //     hideLoading: true,
+        //     method: 'POST',
+        //     data: {
+        //         visitor_uid: uid,
+        //         name: actionName,
+        //         seconds: seconds,
+        //     },
+        //     success: function (resp) {
+        //         var data = resp.data.data
+        //         typeof cb == 'function' && cb(resp.data.data)
+        //     }
+        // })
+        visitorApi.createVisitorAction(uid, actionName, seconds).then((resp) => {
+            var data = resp.data.data
+            typeof cb == 'function' && cb(resp.data.data)
         })
     },
 
-    setShareParams:function(query){
-      // 从参数中解析出分享参数并写入local storage
-      let parentId = wx.getStorageSync('parentId');
-      if(query.parentId){
-        if(!parentId){
-            wx.setStorage({
-                key: 'parentId',
-                data: query.parentId
-            })
+    setShareParams: function (query) {
+        // 从参数中解析出分享参数并写入local storage
+        let parentId = wx.getStorageSync('parentId');
+        if (query.parentId) {
+            if (!parentId) {
+                wx.setStorage({
+                    key: 'parentId',
+                    data: query.parentId
+                })
+            }
         }
-      }
-      let sourceName = query.sourceName
-      if(query.sourceName){
-        if(!sourceName){
-            wx.setStorage({
-                key: 'sourceName',
-                data: query.sourceName,
-            })
+        let sourceName = query.sourceName
+        if (query.sourceName) {
+            if (!sourceName) {
+                wx.setStorage({
+                    key: 'sourceName',
+                    data: query.sourceName,
+                })
+            }
         }
-      }
     },
 
     sendSms: function (mobile, cb) {
         var _this = this;
-        _this.request({
-            url: "/api/v1/sms/sendto",
-            data: {
-                mobile: mobile
-            },
-            success: function (resp) {}
-        });
+        // 有待检测
+        // _this.request({
+        //     url: "/api/v1/sms/sendto有待检测",
+        //     data: {
+        //         mobile: mobile
+        //     },
+        //     success: function (resp) {}
+        // });
+        smsApi.sendTo(mobile).then((resp) => {
+
+        })
     },
+
 
     bindPostCustomer: function (postId, remark) {
         // 将客户和楼盘进行绑定关联 
@@ -525,14 +548,18 @@ App({
             post_id: postId,
             remark: remark || '未知'
         }
-        this.request({
-            url: '/api/v1/post_customers/',
-            method: 'POST',
-            hideLoading: true,
-            data: data,
-            success: function (resp) {
-                // pass
-            }
+        // 有待检测
+        // this.request({
+        //     url: '/api/v1/post_customers/有待检测',
+        //     method: 'POST',
+        //     hideLoading: true,
+        //     data: data,
+        //     success: function (resp) {
+        //         // pass
+        //     }
+        // })
+        postApi.createPostCustomer(data).then((res) => {
+
         })
     },
 
@@ -541,8 +568,8 @@ App({
             console.log('获取用户手机号错误')
             return false;
         }
-// 有待检测
-        userApi.updateUserProfile(e.detail.iv,e.detail.encryptedData).then((res)=>{
+        // 有待检测
+        userApi.updateUserProfile(e.detail.iv, e.detail.encryptedData).then((res) => {
             if (res.data.status != 0) {
                 wx.showModal({
                     content: '服务器出现错误，请稍后再试',
@@ -554,7 +581,7 @@ App({
                 typeof cb == 'function' && cb(user.mobile)
             }
         })
-    
+
     },
 
     dingyueHandle: function (cb) {
@@ -565,7 +592,7 @@ App({
             fail: function (res) {
                 console.log('订阅消息失败:', res)
             },
-            complete: function(e){ 
+            complete: function (e) {
                 typeof cb == 'function' && cb()
             }
         })

@@ -19,21 +19,6 @@ export function getNewsCatList(){
     return request.get("/api/v1/news_cats/"  );
 }
 
-
-// 缺少
-// app.request({
-//     url: '/api/v1/news/' + _this.data.nid,
-//     success: function (resp) {
-//         _this.setData({
-//             item: resp.data.data,
-//         })
-//         wx.setNavigationBarTitle({
-//             title: resp.data.data.title,
-//         });
-
-//     }
-// })
-
 // 查询文章详细内容
 export function  getNewsDetail(newsId){
     return request.get("/api/v1/news/" + newsId);
