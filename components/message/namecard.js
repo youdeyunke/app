@@ -51,11 +51,10 @@ Component({
 
         loadBrokerProfile: function (uid) {
             var _this = this
-            // 有待检验
+            //   √
             brokerApi.getBrokerShowDetail({
                 user_id: uid
             }).then((resp) => {
-                console.log("121resp",resp);
                 if (resp.data.status != 0) {
                     return
                 }

@@ -92,9 +92,9 @@ Page({
             receiver_id: this.data.targetUserId,
             id: postId
         }
-        // √
+        // √  有待检测   postid没有
         postApi.sendPostCard(data).then((res) => {
-
+            
         })
         app.bindPostCustomer(postId, '向楼盘置业顾问发起了在线聊天咨询')
 
@@ -222,7 +222,7 @@ Page({
 
     loadData: function (cb) {
         var _this = this
-        var data={
+        var data = {
             last_id: _this.data.lastId,
             target_id: _this.data.targetUserId,
             ranking: 'newer',
@@ -238,10 +238,10 @@ Page({
         //         ranking: 'newer',
         //     },
         //     success: function (resp) {
-               
+
         //     }
         // })
-        messageApi.getMessageList(data).then((resp)=>{
+        messageApi.getMessageList(data).then((resp) => {
             if (resp.data.status != 0) {
                 console.log('return false')
                 return false

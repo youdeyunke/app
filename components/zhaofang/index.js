@@ -101,7 +101,7 @@ Component({
 
         var user = app.globalData.userInfo
         var contact_mobile_lock = false
-        if (user == null ) {
+        if (user == null) {
             this.setData({
                 contact_mobile_lock: contact_mobile_lock
             })
@@ -127,16 +127,14 @@ Component({
             //     url: '/api/v1/needs/ 有待检测',
             //     method: 'GET',
             //     success: function (resp) {
-                  
+
             //     }
             // })
-            needApi.getNeedList().then((resp)=>{
+            needApi.getNeedList().then((resp) => {
                 if (resp.data.status != 0) {
                     return
                 }
                 var rdata = resp.data.data
-
-
                 if (rdata.area && rdata.area.length > 0) {
                     _this.setData({
                         areaList: rdata.area
@@ -367,10 +365,10 @@ Component({
             //         code: code
             //     },
             //     success: function (res) {
-                  
+
             //     }
             // })
-            smsApi.smsAuth(phone,code).then((res)=>{
+            smsApi.smsAuth(phone, code).then((res) => {
                 var data = res.data
                 if (data.status == 0) {
                     // 保存下服务器返回的token
@@ -385,16 +383,16 @@ Component({
             var _this = this
             // 将表单数据处理成线索表所需要的数据格式 
 
-// 有待检测
+            // 有待检测
             // app.request({
             //     url: '/api/v1/needs/有待检测',
             //     data: data,
             //     method: 'POST',
             //     success: function (resp) {
-                  
+
             //     }
             // })
-            needApi.getNeedList(data).then((resp)=>{
+            needApi.getNeedList(data).then((resp) => {
                 if (resp.data.status != 0) {
                     wx.showToast({
                         title: '服务器出现错误，请稍后再试',
