@@ -258,7 +258,7 @@ App({
         //     success: function (resp) {
         //     }
         // });
-        cityApi.getCityListV2().then((res)=>{
+        cityApi.getCityListV2().then((resp)=>{
             _this.globalData.cities = resp.data.data;
             return cb(resp.data.data);
         })
