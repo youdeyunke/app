@@ -27,6 +27,18 @@ export function getClueSummary( ){
 //     success: function(resp){
 //       if(resp.data.status != 0){
 
+// 拉取线索列表
+export function getClueList(query){
+    return request.get("/api/v1/clues", query)
+}
+
+
+
     // app.request({
     //     url: '/api/v1/clues/' + _this.data.clueId,  
     //     success: function(resp){
+
+// 拉取线索详情
+export function getClueDetail(clueId){
+    return request.get("/api/v1/clues/" + clueId)
+}

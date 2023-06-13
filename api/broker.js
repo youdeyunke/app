@@ -59,7 +59,7 @@ export function getBrokerGroup(query){
     return request.get("/api/v1/broker_groups", query)
 }
 
-// 缺
+// 缺,查看佣金功能，已经删除此功能
 // app.request({
 //     url:'/api/v1/brokage_info/'+this.data.id,
 //     success:function(res){
