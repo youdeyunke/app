@@ -140,7 +140,7 @@ const http = ({
     })
 }
 
-// 判断是否走封装的请求
+// 判断是否需要拼接请求头
 const getUrl = (url) => {
     if (url.indexOf('://') == -1) {
         url = apiHost + url;
@@ -151,7 +151,6 @@ const getUrl = (url) => {
 
 // get请求
 const get = (url, data = {}) => {
-    // console.log("getdata",data);
     return http({
         url,
         data

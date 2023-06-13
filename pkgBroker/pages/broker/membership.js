@@ -39,7 +39,8 @@ Page({
 
     loadItems: function () {
         var _this = this
-        app.request({
+        
+        app.request({  //已经删除
             url: '/api/v1/broker_memberships',
 
             success: function (resp) {
@@ -62,7 +63,7 @@ Page({
             loading: true
         })
 
-        app.request({
+        app.request({  //已经删除
             url: '/api/v1/broker_membership_orders',
             method: 'POST',
             data: { pid: pid },

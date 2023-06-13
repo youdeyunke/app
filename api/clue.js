@@ -19,3 +19,14 @@ export function  getClueStatusList(query){
 export function getClueSummary( ){
     request.get("/api/v1/clues/summary")
 }
+
+
+// 缺
+// app.request({
+//     url: '/api/v1/clues/?status_id=' + _this.data.statusId,
+//     success: function(resp){
+//       if(resp.data.status != 0){
+
+    // app.request({
+    //     url: '/api/v1/clues/' + _this.data.clueId,  
+    //     success: function(resp){

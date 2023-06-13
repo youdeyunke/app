@@ -112,7 +112,7 @@ Page({
         }
 
         var _this = this  
-        app.request({ 
+        app.request({ //已经删除
             url: '/api/v1/tour_sign/', 
             method: 'POST', 
             data: data, 

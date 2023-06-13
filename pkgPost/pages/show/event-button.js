@@ -1,6 +1,7 @@
 // pages/post/event-button.js
 const app = getApp()
 var auth = require('../../../utils/auth.js');
+const eventApi = require("../../../api/event")
 
 Component({
     /**
@@ -98,38 +99,47 @@ Component({
             var _this = this
             var fid = this.data.fid
             var pid = this.data.pid
-            app.request({
-                url: '/v1/event_followers/' + fid,
-                method: 'DELETE',
-                data: {
-                    post_id: pid
-                },
-                success: function (resp) {
-                    // 提交后刷新状态
-                    _this.loadStatus()
-                    wx.showToast({
-                        title: '已取消订阅楼盘动态通知，系统将不会给您发送任何该楼的动态通知',
-                        icon: 'none',
-                        image: '',
-                        duration: 1500,
-                        mask: true,
-                    });
-                }
+            // 有待检测
+            // app.request({
+            //     url: '/v1/event_followers/有待检测' + fid,
+            //     method: 'DELETE',
+            //     data: {
+            //         post_id: pid
+            //     },
+            //     success: function (resp) {
+            //         // 提交后刷新状态
+                  
+            //     }
+            // })
+            eventApi.deleteEventFollow(fid,pid).then((res)=>{
+                _this.loadStatus()
+                wx.showToast({
+                    title: '已取消订阅楼盘动态通知，系统将不会给您发送任何该楼的动态通知',
+                    icon: 'none',
+                    image: '',
+                    duration: 1500,
+                    mask: true,
+                });
             })
         },
 
         createSub: function () {
             var _this = this
-            app.request({
-                url: '/v1/event_followers',
-                method: 'POST',
-                data: {
-                    post_id: _this.data.pid
-                },
-                success: function (resp) {
+            // 有待检测
+            // app.request({
+            //     url: '/v1/event_followers有待检测',
+            //     method: 'POST',
+            //     data: {
+            //         post_id: _this.data.pid
+            //     },
+            //     success: function (resp) {
+            //         // 提交后刷新状态
+            //         _this.loadStatus()
+            //     }
+            // })
+            eventApi.createEventFollow(_this.data.pid).then((res)=>{
                     // 提交后刷新状态
                     _this.loadStatus()
-                }
             })
         },
 
@@ -151,28 +161,32 @@ Component({
                 return false
             }
             var _this = this
-            app.request({
-                url: '/v1/event_followers',
-                hideLoading: true,
-                data: {
-                    post_id: _this.data.pid,
-                },
-                success: function (resp) {
-                    _this.setTitle()
-                    if (resp.data.data) {
-                        _this.setData({
-                            status: 1,
-                            fid: resp.data.data.id,
-                        })
-                        return
-                    }
-                    _this.setData({
-                        status: 0,
-                        fid: null,
-                    })
-                    return
-                }
+            // 有待检测
+            // app.request({
+            //     url: '/v1/event_followers有待检测',
+            //     hideLoading: true,
+            //     data: {
+            //         post_id: _this.data.pid,
+            //     },
+            //     success: function (resp) {
+                   
+            //     }
+            // })
+         eventApi.createEventFollow(_this.data.pid).then((resp)=>{
+            _this.setTitle()
+            if (resp.data.data) {
+                _this.setData({
+                    status: 1,
+                    fid: resp.data.data.id,
+                })
+                return
+            }
+            _this.setData({
+                status: 0,
+                fid: null,
             })
+            return
+         })
         },
 
     }

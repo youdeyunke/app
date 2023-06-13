@@ -28,7 +28,7 @@ export function getEventCatList() {
     return request.get("/api/v1/event_cats");
 }
 
-// 取消关注动态      未发现
+// 取消关注动态     1
 // TODO 需要优化此接口 
 export function deleteEventFollow(followId, postId) {
     return request.destroy("/api/v1/event_followers/" + followId, {
@@ -36,7 +36,7 @@ export function deleteEventFollow(followId, postId) {
     });
 }
 
-// 关注楼盘动态         未发现
+// 关注楼盘动态        1
 // TODO 需要优化关注楼盘动态功能
 export function createEventFollow(postId) {
     return request.post("/api/v1/event_followers", {
@@ -45,7 +45,7 @@ export function createEventFollow(postId) {
 }
 
 
-// 删除一条动态
+// 删除一条动态  未发现
 export function deleteEvent(eid){
     return request.destroy("/api/v1/events/" + eid);
 }

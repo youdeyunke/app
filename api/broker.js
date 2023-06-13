@@ -42,11 +42,9 @@ export function likeBroker(data) {
 }
 
 //  置业顾问付费入驻功能，已经删除
-// 缺
 // app.request({
 //     url: '/api/v1/broker_memberships',
 //     success: function (resp) {
-
 
 // app.request({
 //     url: '/api/v1/broker_membership_orders',
@@ -60,4 +58,10 @@ export function likeBroker(data) {
 export function getBrokerGroup(query){
     return request.get("/api/v1/broker_groups", query)
 }
+
+// 缺
+// app.request({
+//     url:'/api/v1/brokage_info/'+this.data.id,
+//     success:function(res){
+//       _this.setData({ 
 
