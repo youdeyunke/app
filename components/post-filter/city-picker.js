@@ -1,5 +1,6 @@
 // pages/post/filter/city-picker.js
 const app = getApp()
+const cityApi= require("../../api/city")
 Component({
     /**
      * 组件的属性列表
@@ -77,24 +78,28 @@ Component({
 
         loadCityData: function () {
             var _this = this
-            app.request({
-                url: '/api/v2/cities',
-                success: function (resp) {
-                    if (resp.data.status != 0) {
-                        return false
-                    }
-                    // cityitems for van-tree-select 
-                    var items = resp.data.data.map((city, i) => {
-                        if (i == 0) {
-                            city.text = '全部'
-                        }
-                        return city
-                    })
-                    // 根据默认的city id 找到对应的index 
-                    var cityIndex = items.findIndex((city, index) => { return city.id == _this.data.cityId })
-                    cityIndex = cityIndex <= 0 ? 0 : cityIndex // find index whill return -1 if not find
-                    _this.setData({ cityItems: items, cityIndex: cityIndex })
+            // 有待检测
+            // app.request({
+            //     url: '/api/v2/cities有待检测',
+            //     success: function (resp) {
+                   
+            //     }
+            // })
+            cityApi.getCityListV2().then((resp)=>{
+                if (resp.data.status != 0) {
+                    return false
                 }
+                // cityitems for van-tree-select 
+                var items = resp.data.data.map((city, i) => {
+                    if (i == 0) {
+                        city.text = '全部'
+                    }
+                    return city
+                })
+                // 根据默认的city id 找到对应的index 
+                var cityIndex = items.findIndex((city, index) => { return city.id == _this.data.cityId })
+                cityIndex = cityIndex <= 0 ? 0 : cityIndex // find index whill return -1 if not find
+                _this.setData({ cityItems: items, cityIndex: cityIndex })
             })
         }
 

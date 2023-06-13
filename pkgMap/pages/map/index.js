@@ -1,6 +1,7 @@
 // pages/map/index.js
 const app = getApp()
 const postApi = require("../../../api/post")
+const mapApi = require("../../../api/map")
 const debug = false
 const bgColor = '#1989fa'
 const whiteColor = '#ffffff'
@@ -251,29 +252,31 @@ Page({
             data[key] = filter[key]
         })
         var _this = this
-        console.log('load markers with query data ', data)
-        app.request({
-            url: '/api/v1/map_markers',
-            method: 'POST',
-            data: data,
-            hideLoading: true,
-            success: function (resp) {
-                console.log('markers resp', resp.data.data)
-                if (resp.data.status != 0) {
-                    return false
-                }
-                if (resp.data.data && resp.data.data.length > 0) {
-                    _this.setData({
-                        level: _level
-                    })
-                    _this.renderMarkers(resp.data.data)
-                    return false
-                }
-                wx.showToast({
-                    title: '没有数据',
-                    icon: 'none'
-                });
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/map_markers有待检测',
+        //     method: 'POST',
+        //     data: data,
+        //     hideLoading: true,
+        //     success: function (resp) {
+               
+        //     }
+        // })
+        mapApi.getMapMarkerList(data).then((resp)=>{
+            if (resp.data.status != 0) {
+                return false
             }
+            if (resp.data.data && resp.data.data.length > 0) {
+                _this.setData({
+                    level: _level
+                })
+                _this.renderMarkers(resp.data.data)
+                return false
+            }
+            wx.showToast({
+                title: '没有数据',
+                icon: 'none'
+            });
         })
     },
 

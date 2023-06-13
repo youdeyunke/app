@@ -1,6 +1,6 @@
 // pkgAdmin/pages/clue/home.js
 const app = getApp() 
-
+const  clueApi = require("../../../api/clue")
 
 Page({
 
@@ -41,11 +41,15 @@ Page({
   loadData: function(){
     // 加载线索摘要信息 
     var _this = this  
-    app.request({
-      url: '/api/v1/clues/summary', 
-      method: 'GET', 
-      success: function(resp){
-        console.log('resp.data.data', resp.data.data)
+    // 有待检测
+    // app.request({
+    //   url: '/api/v1/clues/summary有待检测', 
+    //   method: 'GET', 
+    //   success: function(resp){
+       
+    //   }
+    // })
+    clueApi.getClueSummary().then((resp)=>{
         if(resp.data.status != 0){
           return false 
         }
@@ -54,8 +58,6 @@ Page({
           summary: resp.data.data.summary, 
           loading: false, 
         })
-        console.log('resp.data.data', resp.data.data)
-      }
     })
   },
 

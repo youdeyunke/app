@@ -2,7 +2,8 @@
 const auth = require("utils/auth.js");
 const EXT = wx.getExtConfigSync()
 const city = require("utils/city.js");
-const userApi= require("./api/user")
+const userApi= require("./api/user");
+const cityApi = require("./api/city")
 //const T = require("utils/test.js");
 //const TIM = require('tim/index.js');
 var onfire = require('/utils/onfire.min.js');
@@ -250,14 +251,17 @@ App({
         }
 
         var _this = this;
-        this.request({
-            url: "/api/v2/cities",
-            hideLoading: true,
-            success: function (resp) {
-                _this.globalData.cities = resp.data.data;
-                return cb(resp.data.data);
-            }
-        });
+        // 有待检测
+        // this.request({
+        //     url: "/api/v2/cities有待检测",
+        //     hideLoading: true,
+        //     success: function (resp) {
+        //     }
+        // });
+        cityApi.getCityListV2().then((res)=>{
+            _this.globalData.cities = resp.data.data;
+            return cb(resp.data.data);
+        })
     },
 
 

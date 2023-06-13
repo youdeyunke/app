@@ -1,6 +1,6 @@
 // pkgMyself/pages/coupons/index.js
 const app = getApp() 
-
+const couponApi = require("../../../api/coupon")
 Page({
 
   /**
@@ -23,14 +23,18 @@ Page({
 
   loadData: function(){
     var _this = this  
-    app.request({
-      url: '/api/v1/coupons/', 
-      success: function(res) {
+    // 有待检测
+    // app.request({
+    //   url: '/api/v1/coupons/有待检测', 
+    //   success: function(res) {
+       
+    //   }
+    // })
+    couponApi.getCouponList().then((res)=>{
         if(res.data.status != 0){
-          return 
-        }
-        _this.setData({items: res.data.data})
-      }
+            return 
+          }
+          _this.setData({items: res.data.data})
     })
   },
 
@@ -50,6 +54,9 @@ Page({
               _this.loadData()
             }
           })
+        //   couponApi.getCouponDetail().then((res)=>{
+        //     _this.loadData()
+        //   })
         }
       }
     })

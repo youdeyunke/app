@@ -1,6 +1,6 @@
 // pkgMyself/pages/coupons/show.js
 const app = getApp() 
-
+const couponApi = require("../../../api/coupon")
 Page({
 
   /**
@@ -99,26 +99,30 @@ Page({
 
   loadData: function(){
     var _this = this  
-    app.request({  
-      hideLoading: true, 
-      url: '/api/v1/coupons/' + this.data.cid, 
-      success: function(resp){ 
+    // 有待检测
+    // app.request({  
+    //   hideLoading: true, 
+    //   url: '/api/v1/coupons/有待检测' + this.data.cid, 
+    //   success: function(resp){ 
+       
+    //   }
+    // })
+    couponApi.getCouponDetail(this.data.cid).then((resp)=>{
         if(resp.data.status != 0){
-          return 
-        }
-        var c = resp.data.data  
-        _this.setData({  
-          coupon: c
-        })
-        wx.setNavigationBarTitle({
-          title:  c.name,
-        })
-        if(c.used == false ){        
-          setTimeout(() => { 
-            _this.loadData()
-          }, 2000)
-        }
-      }
+            return 
+          }
+          var c = resp.data.data  
+          _this.setData({  
+            coupon: c
+          })
+          wx.setNavigationBarTitle({
+            title:  c.name,
+          })
+          if(c.used == false ){        
+            setTimeout(() => { 
+              _this.loadData()
+            }, 2000)
+          }
     })
   },
 

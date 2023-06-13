@@ -1,5 +1,6 @@
 // pages/qa/qa.js
 const app = getApp()
+const qaApi = require("../../../api/qa")
 var util = require('../../../utils/util.js');
 var auth = require('../../../utils/auth.js');
 
@@ -88,6 +89,9 @@ Page({
 
             }
         })
+        // qaApi.getAnswerList().then((res)=>{
+            
+        // })
 
     },
 
@@ -103,31 +107,40 @@ Page({
     followHandle: function (e) {
         // 点击关注问题
         var _this = this
-        var method = 'POST'
-        var url = '/api/v1/question_followers'
+        var url = '/api/v1/question_followers有待检测'
         if (this.data.item.followed) {
             method = 'DELETE'
             url = ''
-            url = '/api/v1/question_followers/' + this.data.item.id
+            url = '/api/v1/question_followers/有待检测' + this.data.item.id
         }
         // 先改变按钮状态，再发送请求
         var item = this.data.item
         item.followed = !item.followed
         this.setData({ item: item })
+// 有待检测
+        // app.request({
+        //     url: url,
+        //     method: "post",
+        //     hideLoading: true,
+        //     data: { question_id: _this.data.item.id },
+        //     success: function (resp) {
+        //         if (resp.data.status != 0) {
+        //             return false
+        //         }
+        //         // 关注成功, 重新加载数据
+        //         _this.loadData()
 
-        app.request({
-            url: url,
-            method: method,
-            hideLoading: true,
-            data: { question_id: _this.data.item.id },
-            success: function (resp) {
-                if (resp.data.status != 0) {
-                    return false
-                }
-                // 关注成功, 重新加载数据
-                _this.loadData()
-
+        //     }
+        // })
+        var query={
+            question_id: _this.data.item.id 
+        }
+        qaApi.followQuestion(this.data.item.id,query).then((resp)=>{
+            if (resp.data.status != 0) {
+                return false
             }
+            // 关注成功, 重新加载数据
+            _this.loadData()
         })
     },
 

@@ -1,5 +1,6 @@
 // pkgSearch/page/search/index.js
 const app = getApp()
+const searchApi = require("../../../api/search")
 Page({
 
   /**
@@ -55,16 +56,20 @@ Page({
   },
 
   searchNumPlus: function (pid) {
-    app.request({
-      url: '/api/v1/hot_search',
-      method: 'POST',
-      hideLoading: true,
-      data: {
-        post_id: pid
-      },
-      success: function (resp) {
-        // pass
-      }
+    //   有待测试
+    // app.request({
+    //   url: '/api/v1/hot_search有待测试',
+    //   method: 'POST',
+    //   hideLoading: true,
+    //   data: {
+    //     post_id: pid
+    //   },
+    //   success: function (resp) {
+    //     // pass
+    //   }
+    // })
+    searchApi.createHoutSearch(pid).then((res)=>{
+
     })
   },
   valueHandle: function (e) {

@@ -1,6 +1,6 @@
 // pkgZhuli/pages/zhuli/index.js
 const app = getApp() 
-
+const zhuliApi = require("../../../api/zhuli")
 Page({
 
   /**
@@ -69,20 +69,24 @@ Page({
     var _this  = this  
     var hid = this.data.hid 
     // 发起助力 
-    app.request({
-      url: '/api/v1/zhuli/join', 
-      method: 'POST', 
-      data: {id: hid}, 
-      success: function(res){ 
+    // 有待检测
+    // app.request({
+    //   url: '/api/v1/zhuli/join有待检测', 
+    //   method: 'POST', 
+    //   data: {id: hid}, 
+    //   success: function(res){ 
+       
+    //   }
+    // })
+    zhuliApi.joinZhuli(hid).then((res)=>{
         if(res.data.status != 0){
-          return 
-        }
-        var myid = res.data.data  
-        var url = '/pkgZhuli/pages/zhuli/mine?id=' + myid  
-        wx.navigateTo({
-          url: url
-        })
-      }
+            return 
+          }
+          var myid = res.data.data  
+          var url = '/pkgZhuli/pages/zhuli/mine?id=' + myid  
+          wx.navigateTo({
+            url: url
+          })
     })
   },
 

@@ -1,5 +1,6 @@
 // pkgFenxiao/pages/fenxiao/confirm.js
 const app = getApp() 
+const customerApi = require("../../../api/coupon")
 
 Page({
 
@@ -30,52 +31,59 @@ Page({
       broker_id: brokerId
     }
     app.dingyueHandle()
-    app.request({ 
-      url: '/api/v1/customers/confirm', 
-      data: data, 
-      method: 'POST', 
-      success: function(resp){
+    // 有待检测
+    // app.request({ 
+    //   url: '/api/v1/customers/confirm有待检测', 
+    //   data: data, 
+    //   method: 'POST', 
+    //   success: function(resp){   
+    //   }
+    // })
+    customerApi.confirmCustomer(data).then((resp)=>{
         if(resp.data.status == 0){
-          _this.loadData()
-          wx.showToast({
-            title: '已确认带看',
-          })
-        }
-      }
+            _this.loadData()
+            wx.showToast({
+              title: '已确认带看',
+            })
+          }
     })
   },
   
   loadData:function(){
     var _this=this
-    app.request({
-      url:'/api/v1/customers/'+_this.data.id,
-      methods:"GET",
-      success:function(res){
+    // 有待检测
+    // app.request({
+    //   url:'/api/v1/customers/有待检测'+_this.data.id,
+    //   methods:"GET",
+    //   success:function(res){
+       
+    //   }
+    // })
+    customerApi.getCustomerDetail(_this.data.id).then((res)=>{
         var logs = res.data.data.logs.map((log) => {
-          var ds = log.created_at.split('T')
-          var date = ds[0]
-          var time = ds[1].split('.')[0]
-          var dt = date + ' ' + time
-          return {
-            text: log.content + ' 【' + log.operator + '】', 
-            desc:  dt, 
-          }
-        })
-        var posts = []
-        var postIds = []
-        res.data.data.posts.map((m) => {
-            posts.push(m.title)
-            postIds.push(m.id)
-        })
-        _this.setData({
-          value:res.data.data, 
-          assignBroker: res.data.data.assign_broker,
-          logs: logs ,
-          loading: false, 
-          posts: posts.toString(','),
-          postIds: postIds.toString(',')
-        })
-      }
+            var ds = log.created_at.split('T')
+            var date = ds[0]
+            var time = ds[1].split('.')[0]
+            var dt = date + ' ' + time
+            return {
+              text: log.content + ' 【' + log.operator + '】', 
+              desc:  dt, 
+            }
+          })
+          var posts = []
+          var postIds = []
+          res.data.data.posts.map((m) => {
+              posts.push(m.title)
+              postIds.push(m.id)
+          })
+          _this.setData({
+            value:res.data.data, 
+            assignBroker: res.data.data.assign_broker,
+            logs: logs ,
+            loading: false, 
+            posts: posts.toString(','),
+            postIds: postIds.toString(',')
+          })
     })
   },
 

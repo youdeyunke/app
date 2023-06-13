@@ -54,10 +54,6 @@ export function likeBroker(data) {
 //     data: { pid: pid },
 //     success: function (resp) {
 
-    // app.request({ 
-    //     url: '/api/v1/broker_groups',  
-    //     data: query, 
-    //     success: function(resp){ 
 
 
 // 查询置业顾问分组信息

@@ -14,8 +14,3 @@ export function getMyselfQuestionList(query){
     return request.get("/api/v1/myself/questions" , query);
 }
 
-
-// 每日签到,无需参数   完成
-export function markSign( ){
-    return request.post("/api/v1/qiandao" , {});
-}

@@ -1,7 +1,7 @@
 let request = require('../utils/request.js');
 
-
-export function  getHistoryList(query={}){
+// 1
+export function  getHistoryList(query){
     return request.get("/api/v1/history", query);
 
 }

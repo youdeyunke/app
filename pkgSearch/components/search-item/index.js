@@ -1,5 +1,6 @@
 // pkgSearch/components/search-item/index.js
 const app = getApp();
+const searchApi = require("../../../api/search")
 Component({
   /**
    * 组件的属性列表
@@ -23,14 +24,18 @@ Component({
   },
   ready:function(){
     var _this = this
-    app.request({
-      url: '/api/v1/hot_search',
-      method:'GET',
-      success:function(res){
+    // 有待测试
+    // app.request({
+    //   url: '/api/v1/hot_search有待测试',
+    //   method:'GET',
+    //   success:function(res){
+      
+    //   }
+    // })
+    searchApi.getHotSearchList().then((res)=>{
         _this.setData({
-          house:res.data.data
-        })
-      }
+            house:res.data.data
+          })
     })
   }
 })

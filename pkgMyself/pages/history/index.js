@@ -1,6 +1,6 @@
 // pkgHistory/pages/history/index.js
 const app = getApp() 
-
+const historyApi = require("../../../api/history")
 Page({
 
   /**
@@ -19,14 +19,18 @@ Page({
       page: this.data.page, 
       per_page: this.data.perPage, 
     }
-   app.request({
-      url: '/api/v1/history',
-      data:query , 
-      success: function(resp){
+    // 有待检测
+//    app.request({
+//       url: '/api/v1/history有待检测',
+//       data:query , 
+//       success: function(resp){
+      
+        
+//       }
+//     })
+    historyApi.getHistoryList(query).then((resp)=>{
         var logs =_this.data.logs.concat(resp.data.data.items)
         _this.setData({logs: logs}) 
-        
-      }
     })
   },
 

@@ -1,5 +1,6 @@
 // pages/fenxiao/customers.js
 const app = getApp()
+const customerApi = require("../../../api/customer")
 Page({
 
   /**
@@ -51,20 +52,24 @@ Page({
           page: _this.data.page,
           per_page: _this.data.per_page,
       }
-      app.request({
-          url: '/api/v1/customers/',
-          data: query,
-          success: function(resp){
-              var i = query['page']  - 1
-              var data = { loading: false }
-              if (i > 0) {
-                var key = 'items[' + i + ']'
-                data[key] = resp.data.data
-              } else {
-                data['items'] = [resp.data.data]
-              }
-              _this.setData(data)
-          },
+    //   有待检测
+    //   app.request({
+    //       url: '/api/v1/customers/有待检测',
+    //       data: query,
+    //       success: function(resp){
+          
+    //       },
+    //   })
+      customerApi.getCustormerList(query).then((resp)=>{
+        var i = query['page']  - 1
+        var data = { loading: false }
+        if (i > 0) {
+          var key = 'items[' + i + ']'
+          data[key] = resp.data.data
+        } else {
+          data['items'] = [resp.data.data]
+        }
+        _this.setData(data)
       })
   },
 

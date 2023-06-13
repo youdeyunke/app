@@ -1,6 +1,7 @@
 // pkgFenxiao/pages/fenxiao/edit.js
 
 const app = getApp()
+const customerApi = require("../../../api/customer")
 Page({
 
     /**
@@ -93,27 +94,30 @@ Page({
 
     loadData(id){
         var _this = this
-        app.request({
-            url: '/api/v1/customers/'+id,
-            success(res){
-                console.log('789654',res)
-                if(res.data.data.status == 0){
-                    _this.setData({
-                        status: res.data.data.status,
-                        status_remark: res.data.data.status_remark
-                    })
-                }
-                if(res.data.data.status == 2){
-                    _this.setData({
-                        status: res.data.data.status,
-                        deal_status_item_id: res.data.data.deal_status_item_id,
-                        receiver_name: res.data.data.receiver_name,
-                        receiver_mobile: res.data.data.receiver_mobile,
-                        admin_remark: res.data.data.admin_remark,
-                        radio: 'youxiao',
-                        jiaoyiRadio: res.data.data.deal_status_item.name
-                    })
-                }
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/customers/有待检测'+id,
+        //     success(res){
+               
+        //     }
+        // })
+        customerApi.getCustomerDetail(id).then((res)=>{
+            if(res.data.data.status == 0){
+                _this.setData({
+                    status: res.data.data.status,
+                    status_remark: res.data.data.status_remark
+                })
+            }
+            if(res.data.data.status == 2){
+                _this.setData({
+                    status: res.data.data.status,
+                    deal_status_item_id: res.data.data.deal_status_item_id,
+                    receiver_name: res.data.data.receiver_name,
+                    receiver_mobile: res.data.data.receiver_mobile,
+                    admin_remark: res.data.data.admin_remark,
+                    radio: 'youxiao',
+                    jiaoyiRadio: res.data.data.deal_status_item.name
+                })
             }
         })
     },

@@ -1,7 +1,8 @@
 // pages/owner/sale.js
 
 const app = getApp()
-const postApi = require("../../../api/post")
+const postApi = require("../../../api/post");
+const customerApi = require("../../../api/customer")
 var auth = require('../../../utils/auth.js');
 
 Page({
@@ -327,32 +328,35 @@ Page({
             return false;
         }
         app.dingyueHandle()
-
-        app.request({
-            url: '/api/v1/customers',
-            method: 'POST',
-            data: {
-                customer: fdata
-            },
-            success: function (resp) {
-                if (resp.data.status != 0) {
-                    return false;
-                }
-                wx.showModal({
-                    title: '报备成功',
-                    content: '系统已经记录下该客户信息，一旦签约，你将获得相应的佣金',
-                    success: function (res) {
-                        // /pkgFenxiao/pages/fenxiao/customer-detail?id=id
-                        _this.setData({
-                            value: resp.data.data.id
-                        })
-                        wx.navigateTo({
-                            url: '/pkgFenxiao/pages/fenxiao/show?id=' + _this.data.value,
-                        })
-
-                    }
-                })
+// 有待检测
+        // app.request({
+        //     url: '/api/v1/customers有待检测',
+        //     method: 'POST',
+        //     data: {
+        //         customer: fdata
+        //     },
+        //     success: function (resp) {
+              
+        //     }
+        // })
+        customerApi.createCustomer(fdata).then((resp)=>{
+            if (resp.data.status != 0) {
+                return false;
             }
+            wx.showModal({
+                title: '报备成功',
+                content: '系统已经记录下该客户信息，一旦签约，你将获得相应的佣金',
+                success: function (res) {
+                    // /pkgFenxiao/pages/fenxiao/customer-detail?id=id
+                    _this.setData({
+                        value: resp.data.data.id
+                    })
+                    wx.navigateTo({
+                        url: '/pkgFenxiao/pages/fenxiao/show?id=' + _this.data.value,
+                    })
+
+                }
+            })
         })
     },
 

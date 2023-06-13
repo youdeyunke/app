@@ -1,6 +1,6 @@
 // pkgEvent/pages/event/new.js
 const app = getApp()
-var qiniu = require('../../../utils/qiniu.js');
+var eventApi = require('../../../utils/event.js');
 var auth = require('../../../utils/auth.js');
 
 Page({
@@ -157,39 +157,47 @@ Page({
         }
 
         this.setData({ loading: true })
-        app.request({
-            url: '/api/v1/events',
-            data: { event: data, push: _this.data.push },
-            method: 'POST',
-            hideLoading: true,
-            success: function (resp) {
-                _this.setData({ loading: false })
-                if (resp.data.status != 0) {
-                    return false
-                }
-
-                wx.showToast({
-                    title: '提交成功，等待管理员审核',
-                    icon: 'success',
-                    mask: true,
-                    duration: 1500,
-                })
-                setTimeout(function () {
-                    wx.navigateBack({ delta: -1 })
-                }, 1500)
+        // 有待检测    该接口参数减少
+        // app.request({
+        //     url: '/api/v1/events有待检测',
+        //     data: { event: data, push: _this.data.push },
+        //     method: 'POST',
+        //     hideLoading: true,
+        //     success: function (resp) {
+              
+        //     }
+        // })
+        eventApi.createEvent(data).then((resp)=>{
+            _this.setData({ loading: false })
+            if (resp.data.status != 0) {
+                return false
             }
+
+            wx.showToast({
+                title: '提交成功，等待管理员审核',
+                icon: 'success',
+                mask: true,
+                duration: 1500,
+            })
+            setTimeout(function () {
+                wx.navigateBack({ delta: -1 })
+            }, 1500)
         })
     },
 
     loadCats: function () {
         var _this = this
-        app.request({
-            url: '/api/v1/event_cats',
-            success: function (resp) {
-                _this.setData({
-                    cats: resp.data.data
-                })
-            }
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/event_cats有待检测',
+        //     success: function (resp) {
+              
+        //     }
+        // })
+        eventApi.getEventCatList().then((resp)=>{
+            _this.setData({
+                cats: resp.data.data
+            })
         })
     },
 

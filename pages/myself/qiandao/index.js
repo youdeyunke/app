@@ -1,6 +1,6 @@
 // pages/myself/qiandao/index.js
 const app = getApp() 
-const myselfApi = require("../../../api/myself")
+const qiandaoApi = require("../../../api/qiandao")
 
 Component({
   /**
@@ -71,7 +71,7 @@ Component({
         
     //     }
     //   })
-      myselfApi.markSign().then((res)=>{
+      qiandaoApi.qiandao().then((res)=>{
         if(res.data.status != 0){ 
             return false 
           }

@@ -1,6 +1,7 @@
 // pkgEvent/pages/event/index.js
 const app = getApp()
-const postApi = require("../../../api/post")
+const postApi = require("../../../api/post");
+const eventApi = require("../../../api/event")
 var auth = require('../../../utils/auth.js');
 
 Page({
@@ -69,19 +70,21 @@ Page({
             post_id: this.data.postId,
             cat_id: catId,
         }
-        app.request({
-            url: '/api/v1/events',
-            data: query,
-            success: function (resp) {
-                _this.setData({
-                    loading: false,
-                    items: resp.data.data.items,
-                    broker: resp.data.data.broker,
-                    user: app.globalData.userInfo,
-                    cats: resp.data.data.cats,
-                })
-
-            }
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/events有待检测',
+        //     data: query,
+        //     success: function (resp) {
+        //     }
+        // })
+        eventApi.getEventList(query).then((resp)=>{
+            _this.setData({
+                loading: false,
+                items: resp.data.data.items,
+                broker: resp.data.data.broker,
+                user: app.globalData.userInfo,
+                cats: resp.data.data.cats,
+            })
         })
     },
     deleteHandle: function (e) {
@@ -115,6 +118,9 @@ Page({
 
             }
         })
+        // eventApi.getEventDetail().then((res)=>{
+            
+        // })
     },
 
 

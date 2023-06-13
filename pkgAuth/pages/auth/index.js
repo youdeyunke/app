@@ -1,5 +1,6 @@
 // pages/myself/myself.js
 const app = getApp()
+const sessionApi = require("../../../api/session")
 var auth = require('../../../utils/auth.js');
 
 Page({
@@ -65,27 +66,30 @@ Page({
         if (data['referrer_id']) {
             console.log('检测到推荐人id：', data)
         }
-
         // 发送给服务器
-        app.request({
-            data: data,
-            method: 'POST',
-            url: '/api/v2/sessions',
-            hideLoading: true,
-            success: function (resp) {
-                var data = resp.data
-                if (data.status == 0) {
-                    // 保存下服务器返回的token
-                    var token = data.data.token
-                    var user = data.data.user
-                    wx.setStorageSync('token', token)
-                    wx.setStorageSync('userInfo', user)
-                    // 在globalData中标记登录状态
-                    app.globalData.token = token
-                    app.globalData.userInfo = user
-                    // callback
-                    typeof cb == "function" && cb(user)
-                }
+        // 有待检测
+        // app.request({
+        //     data: data,
+        //     method: 'POST',
+        //     url: '/api/v2/sessions有待检测',
+        //     hideLoading: true,
+        //     success: function (resp) {
+               
+        //     }
+        // })
+        sessionApi.wechatLoginV2(code,iv,encryptedData).then((resp)=>{
+            var data = resp.data
+            if (data.status == 0) {
+                // 保存下服务器返回的token
+                var token = data.data.token
+                var user = data.data.user
+                wx.setStorageSync('token', token)
+                wx.setStorageSync('userInfo', user)
+                // 在globalData中标记登录状态
+                app.globalData.token = token
+                app.globalData.userInfo = user
+                // callback
+                typeof cb == "function" && cb(user)
             }
         })
     },

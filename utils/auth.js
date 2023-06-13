@@ -1,6 +1,7 @@
 const util = require("util.js");
 const smsApi = require("../api/sms")
 const userApi = require("../api/user")
+const sessionApi = require("../api/session")
 module.exports = {
 
     setUserInfo: function (token, user) {
@@ -92,21 +93,25 @@ module.exports = {
             console.log('检测到推荐人id：', data)
         }
         // 发送给服务器
-        app.request({
-            data: data,
-            method: 'POST',
-            url: '/api/v2/sessions',
-            hideLoading: true,
-            success: function (resp) {
-                var data = resp.data
-                if (data.status == 0) {
-                    // 保存下服务器返回的token
-                    var token = data.data.token
-                    var user = data.data.user
-                    _this.setUserInfo(token, user)
-                    // callback
-                    typeof cb == "function" && cb(user)
-                }
+        // 有待检测
+        // app.request({
+        //     data: data,
+        //     method: 'POST',
+        //     url: '/api/v2/sessions有待检测',
+        //     hideLoading: true,
+        //     success: function (resp) {
+              
+        //     }
+        // })
+        sessionApi.wechatLoginV2(code,iv,encryptedData).then((resp)=>{
+            var data = resp.data
+            if (data.status == 0) {
+                // 保存下服务器返回的token
+                var token = data.data.token
+                var user = data.data.user
+                _this.setUserInfo(token, user)
+                // callback
+                typeof cb == "function" && cb(user)
             }
         })
     },

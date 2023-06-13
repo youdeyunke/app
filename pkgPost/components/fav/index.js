@@ -1,5 +1,6 @@
 // components/fav.js
 const app = getApp()
+const favApi = require("../../../api/fav")
 var auth = require('../../../utils/auth.js');
 
 Component({
@@ -49,17 +50,24 @@ Component({
             // 查询初始状态
             // 查询状态
             var _this = this
-
-            app.request({
-                url: '/api/v1/favs/',
-                hideLoading: true,
-                data: {
-                    target_id: _this.data.pid,
-                    target_type: 'post'
-                },
-                success: function (resp) {
-                    _this.setData(resp.data.data)
-                },
+            // 有待检测
+            // app.request({
+            //     url: '/api/v1/favs/有待检测',
+            //     hideLoading: true,
+            //     data: {
+            //         target_id: _this.data.pid,
+            //         target_type: 'post'
+            //     },
+            //     success: function (resp) {
+            //         _this.setData(resp.data.data)
+            //     },
+            // })
+            var query = {
+                target_id: _this.data.pid,
+                target_type: 'post'
+            }
+            favApi.getFavList(query).then((resp) => {
+                _this.setData(resp.data.data)
             })
         },
 
@@ -72,7 +80,7 @@ Component({
 
             var pid = this.data.pid
             var _this = this
-            
+
             if (!pid) {
                 console.error('pid 不存在', pid)
                 return
@@ -82,34 +90,38 @@ Component({
             this.setData({
                 status: this.data.status == 1 ? 0 : 1
             })
-            app.request({
-                url: '/api/v1/favs/',
-                hideLoading: true,
-                method: 'POST',
-                data: {
-                    target_id: pid,
-                    target_type: 'post'
-                },
-                success: function (resp) {
-                    _this.setData(resp.data.data) // {{ count:0, status: 1}}
-                    if (resp.data.data == true) {
-                        var t = '已收藏'
-                    } else {
-                        var t = '已取消'
-                    }
-                    console.log('fav change ')
-                    _this.triggerEvent('change', {
-                        status: resp.data.data,
-                        title: t
-                    })
-                    wx.showToast({
-                        title: t,
-                        icon: 'none',
-                        duration: 1500,
-                        mask: false,
-                    });
+            // 有待检测
+            // app.request({
+            //     url: '/api/v1/favs/有待检测',
+            //     hideLoading: true,
+            //     method: 'POST',
+            //     data: {
+            //         target_id: pid,
+            //         target_type: 'post'
+            //     },
+            //     success: function (resp) {
+                  
 
+            //     }
+            // })
+            favApi.createFav( 'post',pid).then((resp)=>{
+                _this.setData(resp.data.data) // {{ count:0, status: 1}}
+                if (resp.data.data == true) {
+                    var t = '已收藏'
+                } else {
+                    var t = '已取消'
                 }
+                console.log('fav change ')
+                _this.triggerEvent('change', {
+                    status: resp.data.data,
+                    title: t
+                })
+                wx.showToast({
+                    title: t,
+                    icon: 'none',
+                    duration: 1500,
+                    mask: false,
+                });
             })
         },
 

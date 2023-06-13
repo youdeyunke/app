@@ -1,5 +1,6 @@
 // pkgFenxiao/pages/fenxiao/customer-detail.js
 const app = getApp()
+const customerApi = require("../../../api/customer")
 Page({
 
   /**
@@ -46,35 +47,39 @@ Page({
 
   loadData:function(){
     var _this=this
-    app.request({
-      url:'/api/v1/customers/'+_this.data.id,
-      methods:"GET",
-      success:function(res){
+    // 有待检测
+    // app.request({
+    //   url:'/api/v1/customers/有待检测'+_this.data.id,
+    //   methods:"GET",
+    //   success:function(res){
+       
+    //   }
+    // })
+    customerApi.getCustomerDetail(_this.data.id).then((res)=>{
         var logs = res.data.data.logs.map((log) => {
-          var ds = log.created_at.split('T')
-          var date = ds[0]
-          var time = ds[1].split('.')[0]
-          var dt = date + ' ' + time
-          return {
-            text: log.content + ' 【' + log.operator + '】', 
-            desc:  dt, 
-          }
-        })
-        var posts = []
-        res.data.data.posts.map((m) => {
-            posts.push(m.title)
-        })
-        var palette = _this.data.palette
-        palette.views[0].content = '/pkgFenxiao/pages/fenxiao/confirm?id='+res.data.data.id
-        _this.setData({
-          value:res.data.data, 
-          logs: logs ,
-          loading: false, 
-          is_admin: app.globalData.userInfo.is_admin,
-          palette: palette,
-          posts: posts.toString(',')
-        })
-      }
+            var ds = log.created_at.split('T')
+            var date = ds[0]
+            var time = ds[1].split('.')[0]
+            var dt = date + ' ' + time
+            return {
+              text: log.content + ' 【' + log.operator + '】', 
+              desc:  dt, 
+            }
+          })
+          var posts = []
+          res.data.data.posts.map((m) => {
+              posts.push(m.title)
+          })
+          var palette = _this.data.palette
+          palette.views[0].content = '/pkgFenxiao/pages/fenxiao/confirm?id='+res.data.data.id
+          _this.setData({
+            value:res.data.data, 
+            logs: logs ,
+            loading: false, 
+            is_admin: app.globalData.userInfo.is_admin,
+            palette: palette,
+            posts: posts.toString(',')
+          })
     })
   },
   onImgOK: function(e){

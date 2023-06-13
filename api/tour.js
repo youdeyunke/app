@@ -4,7 +4,7 @@ let request = require('../utils/request');
  * 活动模块接口
  * **/
 
-// 拉取活动列表
+// 拉取活动列表   1
 export function getTourList(query) {
     return request.get("/api/v1/tours/", query);
 }
@@ -19,7 +19,7 @@ export function createTourMember(data) {
     return request.post("/api/v1/tour_members/", data);
 }
 
-// 拉取活动详情
+// 拉取活动详情   1
 export function getTourDetail(tourId) {
     return request.get("/api/v1/tours/" + tourId);
 }
@@ -30,7 +30,7 @@ export function tourSign(data) {
     return request.post("/api/v1/tours/", data);
 }
 
-// 领取活动优惠券
+// 领取活动优惠券   1
 export function createTourCoupon(data) {
     return request.post("/api/v1/tour_coupons/", data);
 }
