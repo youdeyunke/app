@@ -63,14 +63,6 @@ export function quickSearch(kw) {
 //     success: function (resp) {
 
 
-// app.request({
-//     url: '/api/v1/poster_templates/',
-//     success: function (resp) {
-
-
-
-
-
 
 
 
@@ -80,45 +72,45 @@ export function quickSearch(kw) {
 
 
 
-// 查询预售证详情
+// 查询预售证详情  1
 export function getPostLicenseList(query){
   return request.get("/api/v1/post_licenses", query);
 }
 
-// 查询楼盘排行榜
+// 查询楼盘排行榜  1
 export function  getPostRank(query){
   return request.get("/api/v1/post_rank", query);
 }
 
 
-// 查询楼盘摇号数据
+// 查询楼盘摇号数据  1
 export function   getPostTicketList(query){
   return request.get("/api/v1/post_tickets", query);
 }
 
-// 查询摇号详情
+// 查询摇号详情   1
 export function  getPostTicketDetail(tid){
   return request.get("/api/v1/post_tickets/"+tid);
 }
 
 
-// 查询楼盘的vr列表
+// 查询楼盘的vr列表   1
 export function  getPostVrList(pid){
   return request.get("/api/v1/post_vrs", {post_id:pid});
 }
 
-// 查询楼盘的vr详情
+// 查询楼盘的vr详情   1
 export function  getPostVrDetail(vid){
   return request.get("/api/v1/post_vrs/"+vid);
 }
 
 
-// 查询楼盘户型列表
+// 查询楼盘户型列表  1
 export function  getPostTypeList(query){
   return request.get("/api/v1/types", query);
 }
 
-// 查询户型详情数据
+// 查询户型详情数据   1
 // TODO 后端接口需要将types改为post_types
 export function getPostTypeDetail(tid){
   return request.get("/api/v1/types/"+tid);

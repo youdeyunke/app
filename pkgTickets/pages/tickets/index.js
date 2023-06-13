@@ -82,15 +82,19 @@ Page({
             kw: this.data.kw,
             scope: scope, 
         }
-        app.request({
-            url: '/api/v1/post_tickets',
-            data: params,
-            success: function (res) {
-                var items = res.data.data
-                _this.setData({
-                    items: items,
-                })
-            }
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/post_tickets有待检测',
+        //     data: params,
+        //     success: function (res) {
+             
+        //     }
+        // })
+        postApi.getPostTicketList(params).then((res)=>{
+            var items = res.data.data
+            _this.setData({
+                items: items,
+            })
         })
     },
     onChange(e) {

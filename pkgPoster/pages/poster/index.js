@@ -1,6 +1,7 @@
 // pages/poster/index.js
 const app = getApp()
 const postApi = require("../../../api/post")
+const posterApi = require('../../../api/poster')
 import Poster from '../../utils/poster/poster';
 var auth = require('../../../utils/auth.js');
 var title = {
@@ -230,19 +231,23 @@ Page({
             bg: 'https://qiniucdn.udeve.cn/poster-templates/6.jpg',
             font_color: '#fff'
         }]
-        app.request({
-            url: '/api/v1/poster_templates/',
-            success: function (resp) {
-                if (resp.data.status == 0) {
-                    // 后端没有录入数据
-                    if (resp.data.data && resp.data.data.length > 0) {
-                        tpls = resp.data.data
-                    }
-                    return typeof cb == 'function' && cb(tpls)
-                } else {
-                    // 服务器版本不够，降级处理
-                    return typeof cb == 'function' && cb(tpls)
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/poster_templates/有待检测',
+        //     success: function (resp) {
+               
+        //     }
+        // })
+        posterApi.gettPosterList().then((resp)=>{
+            if (resp.data.status == 0) {
+                // 后端没有录入数据
+                if (resp.data.data && resp.data.data.length > 0) {
+                    tpls = resp.data.data
                 }
+                return typeof cb == 'function' && cb(tpls)
+            } else {
+                // 服务器版本不够，降级处理
+                return typeof cb == 'function' && cb(tpls)
             }
         })
     },

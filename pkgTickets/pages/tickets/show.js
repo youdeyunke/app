@@ -36,15 +36,18 @@ Page({
 
         var _this = this
         //获取个人信息接口
-        app.request({
-            url: '/api/v1/post_tickets/' + this.data.ticketId,
-            success: function (res) {
-                _this.setData({
-                    ticket: res.data.data,
-
-                })
-                _this.loadPostInfo(res.data.data.post_id)
-            }
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/post_tickets/有待检测' + this.data.ticketId,
+        //     success: function (res) {
+             
+        //     }
+        // })
+        postApi.getPostTicketDetail(this.data.ticketId).then((res)=>{
+            _this.setData({
+                ticket: res.data.data,
+            })
+            _this.loadPostInfo(res.data.data.post_id)
         })
         //获取楼盘信息接口
 

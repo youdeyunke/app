@@ -1,6 +1,6 @@
 // pkgRanking/pages/ranking/index.js
 const app = getApp()
-
+const postApi = require("../../../api/post")
 
 Page({
 
@@ -30,22 +30,26 @@ Page({
       cat: this.data.tabs[this.data.currentTabIndex].value, 
     }
     var _this = this  
-    app.request({
-      url: '/api/v1/post_rank', 
-      data: query, 
-      success: function(res){
+    // 有待检测
+    // app.request({
+    //   url: '/api/v1/post_rank有待检测', 
+    //   data: query, 
+    //   success: function(res){
+       
+    //   }
+    // })
+    postApi.getPostRank(query).then((res)=>{
         if(res.data.status != 0){
-          return
-        }
-        
-        if(res.data.data.length == 0){ 
-          wx.showToast({
-            icon:'none',
-            title: '数据暂未生成',
-          })
-        }
-        _this.setData({items: res.data.data})
-      }
+            return
+          }
+          
+          if(res.data.data.length == 0){ 
+            wx.showToast({
+              icon:'none',
+              title: '数据暂未生成',
+            })
+          }
+          _this.setData({items: res.data.data})
     })
   },
 

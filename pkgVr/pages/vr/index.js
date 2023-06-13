@@ -1,5 +1,6 @@
 // pkgVr/pages/vr/index.js
 const app = getApp()
+const postApi = require("../../../api/post")
 Page({
 
   /**
@@ -31,15 +32,19 @@ Page({
   },
   lodaData(){
     var _this = this
-    app.request({
-      url:'/api/v1/post_vrs?post_id='+_this.data.postId,
-      success: function(res) {
+    // 有待检测
+    // app.request({
+    //   url:'/api/v1/post_vrs有待检测?post_id='+_this.data.postId,
+    //   success: function(res) {
+      
+    //   }
+    // })
+    postApi.getPostVrList(_this.data.postId).then((res)=>{
         _this.setData({
-          vrItem:res.data.data,
-          title:res.data.post.title+'的全景'
-        })
-        wx.setNavigationBarTitle({title: _this.data.title,});
-      }
+            vrItem:res.data.data,
+            title:res.data.post.title+'的全景'
+          })
+          wx.setNavigationBarTitle({title: _this.data.title,});
     })
   },
   onShareAppMessage(){

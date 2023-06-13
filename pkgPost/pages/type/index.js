@@ -58,58 +58,62 @@ Page({
         var query = {
             id: pid
         }
-        app.request({
-            url: '/api/v1/types',
-            data: query,
-            success: function (resp) {
-                if (resp.data.status != 0) {
-                    return false
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/types有待检测',
+        //     data: query,
+        //     success: function (resp) {
+              
+        //     }
+        // })
+        postApi.getPostTypeList(query).then((resp)=>{
+            if (resp.data.status != 0) {
+                return false
+            }
+            var items = resp.data.data
+
+            // 标签
+            var tags = [{
+                name: '全部',
+                group: 0
+            }]
+            var tagDict = {}
+            items.forEach((item, i) => {
+                item.cover = 'https://qiniucdn.udeve.net/fang/pkgPost/image-none.png'
+                if (item.images && item.images_list.length >= 1) {
+                    item.cover = item.images_list[0]
                 }
-                var items = resp.data.data
+                var key = item.s.toString() // 几室
+                if (!tagDict[key] == true) {
+                    tagDict[key] = true
+                }
+            })
 
-                // 标签
-                var tags = [{
-                    name: '全部',
-                    group: 0
-                }]
-                var tagDict = {}
-                items.forEach((item, i) => {
-                    item.cover = 'https://qiniucdn.udeve.net/fang/pkgPost/image-none.png'
-                    if (item.images && item.images_list.length >= 1) {
-                        item.cover = item.images_list[0]
-                    }
-                    var key = item.s.toString() // 几室
-                    if (!tagDict[key] == true) {
-                        tagDict[key] = true
-                    }
-                })
+            Object.keys(tagDict).forEach((key, i) => {
+                var tag = {
+                    name: key + '室',
+                    group: key
+                }
+                tags.push(tag)
+            })
+            _this.setData({
+                items: items,
+                tags: tags,
+                loading: false
+            })
 
-                Object.keys(tagDict).forEach((key, i) => {
-                    var tag = {
-                        name: key + '室',
-                        group: key
-                    }
-                    tags.push(tag)
+            if (items.length == 0) {
+                wx.showToast({
+                    icon: 'none',
+                    title: '没有上传户型数据,无法显示',
                 })
-                _this.setData({
-                    items: items,
-                    tags: tags,
-                    loading: false
-                })
-
-                if (items.length == 0) {
-                    wx.showToast({
-                        icon: 'none',
-                        title: '没有上传户型数据,无法显示',
+                setTimeout(() => {
+                    wx.navigateBack({
+                        delta: -1,
                     })
-                    setTimeout(() => {
-                        wx.navigateBack({
-                            delta: -1,
-                        })
 
-                    }, 1500)
+                }, 1500)
 
-                }
             }
         })
     },

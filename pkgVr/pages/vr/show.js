@@ -1,6 +1,6 @@
 // pkgVr/pages/vr/show.js
 const app = getApp() 
-
+const postApi = require("../../../api/post")
 Page({
 
   /**
@@ -25,14 +25,18 @@ Page({
   },
 
   loadData: function(){
-    var _this = this  
-    app.request({
-      url: '/api/v1/post_vrs/' + this.data.vrId, 
-      success: function(resp){
+    var _this = this 
+    // 有待检测 
+    // app.request({
+    //   url: '/api/v1/post_vrs/有待检测' + this.data.vrId, 
+    //   success: function(resp){
+       
+    //   }
+    // })
+    postApi.getPostVrDetail(this.data.vrId).then((resp)=>{
         _this.setData({
-          vr: resp.data.data,
-        })
-      }
+            vr: resp.data.data,
+          })
     })
   },
 

@@ -28,29 +28,33 @@ Page({
 
     loadType: function (tid) {
         var _this = this
-        app.request({
-            url: '/api/v1/types/' + tid,
-            success: function (resp) {
-                if (resp.data.status != 0) {
-                    return false
-                }
-                var type = resp.data.data.type
-                var post = resp.data.data.post
-                var tags = []
-                if(type.tags){ 
-                  tags = type.tags.split(',')
-                }
-
-                _this.setData({
-                    loading: false,
-                    post: resp.data.data.post,
-                    tags: tags, 
-                    broker: resp.data.data.broker,
-                    type: resp.data.data.type,
-                })
-                var title = post.title + type.name + type.sale_status_name || ''
-                wx.setNavigationBarTitle({ title: title, });
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/types/有待检测' + tid,
+        //     success: function (resp) {
+              
+        //     }
+        // })
+        postApi.getPostTypeDetail(tid).then((res)=>{
+            if (resp.data.status != 0) {
+                return false
             }
+            var type = resp.data.data.type
+            var post = resp.data.data.post
+            var tags = []
+            if(type.tags){ 
+              tags = type.tags.split(',')
+            }
+
+            _this.setData({
+                loading: false,
+                post: resp.data.data.post,
+                tags: tags, 
+                broker: resp.data.data.broker,
+                type: resp.data.data.type,
+            })
+            var title = post.title + type.name + type.sale_status_name || ''
+            wx.setNavigationBarTitle({ title: title, });
         })
     },
 

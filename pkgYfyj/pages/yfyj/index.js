@@ -1,6 +1,6 @@
 // pkgYfyj/pages/yfyj/index.js
 const app = getApp()
-
+const postApi = require("../../../api/post")
 Page({
 
     /**
@@ -99,22 +99,25 @@ Page({
         // 加载置顶楼层下的房间信息
         var _this = this
         var query = { post_id: this.data.postId }
-  
-        app.request({
-            url: '/api/v1/building_rooms',
-            data: query,
-            success: function (resp) {
-                if (resp.data.status != 0) {
-                    return false
-                }
-                
-                var rooms = resp.data.data
+//   有待检测
+        // app.request({
+        //     url: '/api/v1/building_rooms有待检测',
+        //     data: query,
+        //     success: function (resp) {
+              
 
-                _this.setData({ loading: false, post: resp.data.post, rooms: rooms }, () => {
-                    _this.formatRoomsData()
-                })
-
+        //     }
+        // })
+        postApi.getBuildingRoomList(query).then((resp)=>{
+            if (resp.data.status != 0) {
+                return false
             }
+            
+            var rooms = resp.data.data
+
+            _this.setData({ loading: false, post: resp.data.post, rooms: rooms }, () => {
+                _this.formatRoomsData()
+            })
         })
     },
 
