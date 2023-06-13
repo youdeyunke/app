@@ -49,9 +49,17 @@ export function createEventFollow(postId) {
 //     url: '/api/v1/events/' + eid,
 //     method: 'DELETE',
 //     success: function (resp) {
+// 删除一条动态
+export function deleteEvent(eid){
+    return request.destroy("/api/v1/events/" + eid);
+}
 
 // app.request({
 //     url: '/api/v1/event_followers/mine',
 //     data: query,
 //     hideLoading: true,
 //     success: function (resp) {
+//拉取我订阅的楼盘动态列表
+export function getMineFollowPostList(){
+    return request.get("/api/v1/event_followers/mine");
+}

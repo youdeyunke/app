@@ -5,8 +5,8 @@ let request = require('../utils/request.js');
  * **/
 
 // 拉取Page详细信息
-export function getPageDetail(pageIdOrKey){
-    return request.get("/api/v1/pages/" +pageIdOrKey );
+export function getPageDetail(pageIdOrKey, query={}){
+    return request.get("/api/v1/pages/" +pageIdOrKey, query );
 }
 
 // 缺

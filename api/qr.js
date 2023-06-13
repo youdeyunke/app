@@ -9,6 +9,7 @@ export function getQrDetail( qrId){
     return request.get("/api/v1/qrs/" + qrId );
 }
 
+
 // 缺1
 // this.request({
 //     url: '/api/v1/qrs/',
@@ -18,3 +19,10 @@ export function getQrDetail( qrId){
 //         path: path,
 //         qr_data: extData
 //     },
+// 生成一张带数据的二维图片
+export function createQrImage(path, extData){
+    return request.post("/api/v1/qrs/", {
+        path: path,
+        qr_data: extData
+    });
+}

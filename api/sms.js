@@ -17,3 +17,7 @@ export function smsAuth(mobile, code){
 //     data: {
 //         mobile: mobile
 //     },
+// 发送手机验证码短信
+export function  sendTo(mobile){
+    return request.post("/api/v1/sms/sendto", {mobile: mobile});
+}

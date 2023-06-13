@@ -49,12 +49,16 @@ export function quickSearch(kw) {
 //     hideLoading: true,
 //     data: data,
 //     success: function (resp) {
+// 绑定楼盘客户关系
+export function  createPostCustomer(data){
+  return request.post("/api/v1/post_customers/", data);
+}
 
+
+// 已经删除了的功能
 // app.request({
 //     url:'/api/v1/post_docs?post_id='+this.data.postId,
 //     success:function(res){
-
-
 
 
 
@@ -62,6 +66,9 @@ export function quickSearch(kw) {
 //     url: '/api/v1/post_detail/' + _this.data.postId,
 //     success: function (resp) {
 
+export function  getPostDetailContent(pid){
+  return request.get("/api/v1/post_detail/" + pid);
+}
 
 
 

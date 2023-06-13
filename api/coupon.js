@@ -25,3 +25,8 @@ export function  getCouponDetail(couponId){
 //     url : '/api/v1/coupons/'+id,
 //     method : 'DELETE',
 //     success:function(res){
+
+// 删除卡券
+export function  deleteCoupon(couponId){
+    return request.destroy("/api/v1/coupons/" + couponId);
+}

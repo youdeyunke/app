@@ -22,11 +22,6 @@ export function getCommentDetail (commentId){
     return request.get("/api/v1/mycomments/" + commentId);
 }
 
-// 根据条件拉取某个楼盘下的评论列表   未使用
-export function getTargetCommentList (targetId, targetType, scope){
-    return request.get("/api/v1/mycomments/", {target_id: targetId, target_type: targetType, scope: scope});
-}
-
 // 根据条件拉取全部评论列表  完成
 export function getAllCommentList(query){
     return request.get("/api/v1/mycomments/", query);

@@ -20,8 +20,8 @@ export function createTourMember(data) {
 }
 
 // 拉取活动详情   1
-export function getTourDetail(tourId) {
-    return request.get("/api/v1/tours/" + tourId);
+export function getTourDetail(tourId, query={}) {
+    return request.get("/api/v1/tours/" + tourId, query);
 }
 
 
@@ -46,7 +46,13 @@ export function createTourCoupon(data) {
 //     method: 'DELETE',
 //     data: data,
 //     success: function (resp) {
+// 取消活动报名
+export function  cancleJoin(){
+    request.destroy("/api/v1/tour_members/0");
+}
 
+
+// 功能已经删除
 // app.request({ 
 //     url: '/api/v1/tour_sign/', 
 //     method: 'POST', 

@@ -27,15 +27,24 @@ export function getCustomerDetail(customerId) {
 }
 
 
+
+
 // 缺
+// pages/udeve 页面可以删除，app.json
 // wx.request({
 //     url: 'https://www.udeve.cn/api/v1/customers',
 //     method: 'POST',
 //     data: data,
 //     success: function (resp) {
 
+
 // app.request({
 //     url: '/api/v1/customers/'+id,
 //     method: 'PUT',
 //     data: data,
 //     success(res){
+
+// 修改报备客户资料
+export function  updateCustomer(customerId, data){
+    return request.put("/api/v1/customers/" + customerId, data);
+}

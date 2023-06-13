@@ -17,6 +17,10 @@ export function getVisitorList(query){
 //     method: 'POST',
 //     data: { },
 //     success: function (resp) {
+// 创建一个visitor
+export function createVisitor(){
+    return request.post("/api/v1/visitors/");
+}
 
 
 
@@ -31,3 +35,11 @@ export function getVisitorList(query){
     //         seconds: seconds,
     //     },
     //     success: function (resp) {
+// 记录一个visitor的行为
+export function createVisitorAction(uid, actionName, seconds){
+    return request.post("/api/v1/visitor_actions/", {
+        visitor_uid: uid,
+        name: actionName,
+        seconds: seconds,
+    });
+}

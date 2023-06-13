@@ -41,7 +41,7 @@ export function likeBroker(data) {
     return request.post("/api/v1/brokers/like", data);
 }
 
-
+//  置业顾问付费入驻功能，已经删除
 // 缺
 // app.request({
 //     url: '/api/v1/broker_memberships',

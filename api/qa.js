@@ -27,6 +27,10 @@ export function likeAnswer(aid) {
 //         _this.setData({ likesCount: likes })
 //     }
 // })
+// 给回答点赞
+export function  likeAnswer(aid){
+    return request.put("/api/v1/answers/" + aid, { do: 'like' });
+}
 
 
 // 发布一个答案    1
@@ -39,8 +43,8 @@ export function createAnswer(questionId, content) {
 
 
 // 拉取问题列表    格式不对
-export function getAnswerList(query) {
-    return request.get("/api/v1/questions/", query);
+export function getAnswerList(qid) {
+    return request.get("/api/v1/questions/" + qid);
 }
 // app.request({
 //     url: '/api/v1/questions/' + _this.data.id,
@@ -70,3 +74,7 @@ export function followQuestion(qid) {
 //     url: '/api/v1/questions/' + _this.data.item.id,
 //     method: 'DELETE',
 //     success: function (resp) {
+// 删除提问
+export function  deleteQuestion(qid){
+    return request.destroy("/api/v1/questions/" + qid);
+}

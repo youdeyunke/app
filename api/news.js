@@ -33,3 +33,8 @@ export function getNewsCatList(){
 
 //     }
 // })
+
+// 查询文章详细内容
+export function  getNewsDetail(newsId){
+    return request.get("/api/v1/news/" + newsId);
+}
