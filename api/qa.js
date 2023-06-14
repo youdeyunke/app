@@ -27,9 +27,12 @@ export function createAnswer(questionId, content) {
 
 // 拉取问题列表   1
 export function getAnswerList(qid) {
-    return request.get("/api/v1/questions/" + qid);
+    return request.get("/api/v1/answers/" + qid);
 }
-
+// 查询答案详情
+export function getAnswerDetail(answerId) {
+    return request.get("/api/v1/answers/" + answerId);
+}
 
 
 // 发布一个提问     未发现
