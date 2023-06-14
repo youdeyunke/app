@@ -44,12 +44,7 @@ export function  deleteQuestion(qid){
     return request.destroy("/api/v1/questions/" + qid);
 }
 
-// 缺
-// app.request({
-//     url: '/api/v1/questions',
-//     data: query,
-//     success: function (resp) {
-//     if(query.page==1){
+// 1
 export function getQuestionList(query) {
     return request.get("/api/v1/questions", query);
 }
