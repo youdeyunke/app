@@ -26,13 +26,13 @@ export function createAnswer(questionId, content) {
 
 
 // 拉取问题列表   未发现
-export function getAnswerList(qid) {
-    return request.get("/api/v1/answers/" + qid);
-}
+//export function getAnswerList(qid) {
+//    return request.get("/api/v1/answers/" + qid);
+//}
 // 查询答案详情  未发现
-export function getAnswerDetail(answerId) {
-    return request.get("/api/v1/answers/" + answerId);
-}
+//export function getAnswerDetail(answerId) {
+//    return request.get("/api/v1/answers/" + answerId);
+//}
 
 // 发布一个提问     完成
 export function createQuestion(data) {
@@ -50,7 +50,9 @@ export function  deleteQuestion(qid){
 //     data: query,
 //     success: function (resp) {
 //     if(query.page==1){
-
+export function getQuestionList(query) {
+    return request.get("/api/v1/questions", query);
+}
 
 
 // 关注一个问题   1
