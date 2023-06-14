@@ -1,7 +1,7 @@
 // pages/home/home.js
 const app = getApp()
 const scoreApi = require("../../api/score")
-const cityApi=require("../../api/city")
+const cityApi = require("../../api/city")
 import utils from '../../utils/util'
 const rowWidthItem = ['60%', "100%", "30%", "40%", "100%"]
 
@@ -52,25 +52,13 @@ Page({
     loadSelectCity: function () {
         var adcode = wx.getStorageSync('cityCode')
         var _this = this
-        // 有待检测
-        // var url = '/api/v1/cities/有待检测'
-        // app.request({
-        //     url: url,
-        //     success(resp) {
-             
-        //     }
-        // })
-        cityApi.getCityListV1(
-
-        ).then((resp)=>{
+        // √
+        cityApi.getCityListV1().then((resp) => {
             var cities = resp.data.data
-
             if (!adcode) {
-
                 _this.setData({
                     city: cities[0].name
                 })
-
             } else {
                 cities.forEach((item) => {
                     if (item.adcode == adcode) {

@@ -45,10 +45,10 @@ module.exports = {
         //         code: code
         //     },
         //     success: function (res) {
-              
+
         //     }
         // })
-        smsApi.smsAuth(phone,code).then((res)=>{
+        smsApi.smsAuth(phone, code).then((res) => {
             var data = res.data
             if (data.status == 0) {
                 // 保存下服务器返回的token
@@ -57,7 +57,7 @@ module.exports = {
                 _this.setUserInfo(token, user)
                 typeof cb == "function" && cb(user)
             }
-      
+
         })
     },
 
@@ -93,17 +93,8 @@ module.exports = {
             console.log('检测到推荐人id：', data)
         }
         // 发送给服务器
-        // 有待检测
-        // app.request({
-        //     data: data,
-        //     method: 'POST',
-        //     url: '/api/v2/sessions有待检测',
-        //     hideLoading: true,
-        //     success: function (resp) {
-              
-        //     }
-        // })
-        sessionApi.wechatLoginV2(code,iv,encryptedData).then((resp)=>{
+        // √
+        sessionApi.wechatLoginV2(code, encryptedData, iv).then((resp) => {
             var data = resp.data
             if (data.status == 0) {
                 // 保存下服务器返回的token
@@ -162,7 +153,7 @@ module.exports = {
     getRemoteUserInfo: function (cb) {
         /* 从服务器获取用户信息 */
         // 有待检测    请求发送没有返回
-        userApi.getMyselfInfo().then((resp) => { 
+        userApi.getMyselfInfo().then((resp) => {
             if (resp.data.status == 0) {
                 var user = resp.data.data
                 typeof cb == "function" && cb(user)
