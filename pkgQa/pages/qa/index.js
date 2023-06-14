@@ -41,21 +41,16 @@ Page({
         page: _this.data.page,
         per_page: _this.data.per_page,
     }
-    // 有待检验
-    // app.request({
-    //   url: '/api/v1/questions/有待检验',
-    //   data: {
-    //     target_id: _this.data.target_id,
-    //     target_type: _this.data.target_type,
-    //     user_id: _this.data.user_id,
-    //     page: _this.data.page,
-    //     per_page: _this.data.per_page,
-    //   },
-    //   success: function(res){
-     
-    //   }
-    // })
-    qaApi.getAnswerList(data).then((res)=>{
+    app.request({
+      url: '/api/v1/questions/',
+      data: {
+        target_id: _this.data.target_id,
+        target_type: _this.data.target_type,
+        user_id: _this.data.user_id,
+        page: _this.data.page,
+        per_page: _this.data.per_page,
+      },
+      success: function(res){
         var d = {loading: false}
         res.data.data.forEach(function(item, i){
           var index = _this.data.items.length + i
@@ -66,7 +61,11 @@ Page({
         }) 
        
         _this.setData(d)
+      }
     })
+    // qaApi.getAnswerList(data).then((res)=>{
+     
+    // })
   },
 
   /**

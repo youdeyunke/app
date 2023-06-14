@@ -69,44 +69,44 @@ Page({
 
     loadData: function () {
         var _this = this
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/questions/有待检测' + _this.data.id,
-        //     hideLoading: true,
-        //     success: function (resp) {
 
-
-        //     }
-        // })
-        qaApi.getAnswerList(_this.data.id).then((resp) => {
-            if (resp.data.status != 0) {
+        app.request({
+            url: '/api/v1/questions/' + _this.data.id,
+            hideLoading: true,
+            success: function (resp) {
+                if (resp.data.status != 0) {
+                    _this.setData({
+                        loading: false
+                    })
+                    return false
+                }
+                var item = resp.data.data
+                var answers = []
+                item['created_at_pretty'] = util.prettyTime(item['created_at'])
+                item['updated_at_pretty'] = util.prettyTime(item['updated_at'])
+                item['answers'].forEach((a, i) => {
+                    // 查询是否点过赞
+                    var cacheKey = 'answer.' + a.id + '.liked'
+                    var liked = wx.getStorageSync(cacheKey) == 'liked'
+                    a['created_at_pretty'] = util.prettyTime(a['created_at'])
+                    a['likes'] = a['likes'] || 0
+                    a['liked'] = liked
+                    answers.push(a)
+                })
                 _this.setData({
+                    item: item,
+                    answers: answers,
                     loading: false
                 })
-                return false
+                wx.stopPullDownRefresh()
+                wx.hideNavigationBarLoading()
+                wx.stopPullDownRefresh() //停止下拉刷新    
+
             }
-            var item = resp.data.data
-            var answers = []
-            item['created_at_pretty'] = util.prettyTime(item['created_at'])
-            item['updated_at_pretty'] = util.prettyTime(item['updated_at'])
-            item['answers'].forEach((a, i) => {
-                // 查询是否点过赞
-                var cacheKey = 'answer.' + a.id + '.liked'
-                var liked = wx.getStorageSync(cacheKey) == 'liked'
-                a['created_at_pretty'] = util.prettyTime(a['created_at'])
-                a['likes'] = a['likes'] || 0
-                a['liked'] = liked
-                answers.push(a)
-            })
-            _this.setData({
-                item: item,
-                answers: answers,
-                loading: false
-            })
-            wx.stopPullDownRefresh()
-            wx.hideNavigationBarLoading()
-            wx.stopPullDownRefresh() //停止下拉刷新    
         })
+        // qaApi.getAnswerList(_this.data.id).then((resp) => {
+
+        // })
 
     },
 
@@ -122,25 +122,49 @@ Page({
     followHandle: function (e) {
         // 点击关注问题
         var _this = this
-        var url = '/api/v1/question_followers/' //有待检测
+        // var url = '/api/v1/question_followers/有待检测'
+        //  // 已经关注了
+        //  method = 'DELETE'
+        //  url = ''
+        //  url = '/api/v1/question_followers/有待检测' + this.data.item.id
         if (this.data.item.followed) {
-            // 已经关注了
-            method = 'DELETE'
-            url = ''
-            url = '/api/v1/question_followers/' + this.data.item.id
+             // 先改变按钮状态，再发送请求
+             var item = this.data.item
+             item.followed = !item.followed
+             this.setData({
+                 item: item
+             })
+             qaApi.cancleFollowQuestion(this.data.item.id).then((resp)=>{
+                if (resp.data.status != 0) {
+                    return false
+                }
+                // 关注成功, 重新加载数据
+                _this.loadData()
+             })
+        } else {
+            // 先改变按钮状态，再发送请求
+            var item = this.data.item
+            item.followed = !item.followed
+            this.setData({
+                item: item
+            })
+            qaApi.followQuestion(_this.data.item.id).then((resp) => {
+                if (resp.data.status != 0) {
+                    return false
+                }
+                // 关注成功, 重新加载数据
+                _this.loadData()
+            })
         }
-        // 先改变按钮状态，再发送请求
-        var item = this.data.item
-        item.followed = !item.followed
-        this.setData({
-            item: item
-        })
-        // 有待检测
+
+// 有待检测
         // app.request({
         //     url: url,
         //     method: "post",
         //     hideLoading: true,
-        //     data: { question_id: _this.data.item.id },
+        //     data: {
+        //         question_id: _this.data.item.id
+        //     },
         //     success: function (resp) {
         //         if (resp.data.status != 0) {
         //             return false
@@ -150,16 +174,7 @@ Page({
 
         //     }
         // })
-        var query = {
-            question_id: _this.data.item.id
-        }
-        qaApi.followQuestion(this.data.item.id, query).then((resp) => {
-            if (resp.data.status != 0) {
-                return false
-            }
-            // 关注成功, 重新加载数据
-            _this.loadData()
-        })
+
     },
 
 

@@ -11,7 +11,7 @@ export function getQrDetail( qrId){
 
 
 
-// 生成一张带数据的二维图片
+// 生成一张带数据的二维图片   1
 export function createQrImage(path, extData){
     return request.post("/api/v1/qrs/", {
         path: path,

@@ -1,5 +1,5 @@
 let request = require('../utils/request.js');
-// 完成
+// 完成  检测完成  全局搜索方法名
 export function getHouseList(data){
     return request.get("/api/v1/houses", data);
 }

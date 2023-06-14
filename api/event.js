@@ -45,13 +45,13 @@ export function createEventFollow(postId) {
 }
 
 
-// 删除一条动态  未发现
+// 删除一条动态 1
 export function deleteEvent(eid){
     return request.destroy("/api/v1/events/" + eid);
 }
 
 
-//拉取我订阅的楼盘动态列表
+//拉取我订阅的楼盘动态列表   1
 export function getMineFollowPostList(query){
     return request.get("/api/v1/event_followers/mine",query);
 }

@@ -7,7 +7,9 @@ const cityApi = require("./api/city");
 const postApi = require("./api/post");
 const qrApi = require("./api/qr");
 const smsApi = require("./api/sms");
-const visitorApi = require("./api/visitor")
+const visitorApi = require("./api/visitor");
+const heartbeatApi = require("./api/heartbeat");
+const myconfigApi = require("./api/myconfig")
 //const T = require("utils/test.js");
 //const TIM = require('tim/index.js');
 var onfire = require('/utils/onfire.min.js');
@@ -136,17 +138,21 @@ App({
     loadConfigs: function (cb) {
         /* 从服务器加载系统配置嘻嘻 */
         var _this = this;
-        this.request({
-            url: "/api/v1/myconfigs",
-            hideLoading: true,
-            success: function (resp) {
-                var conf = resp.data.data;
-                _this.globalData.myconfigs = conf
-                _this.globalData.ui = conf.ui // ui assets 
-                _this.globalData.color = conf.color
-                return typeof cb == "function" && cb(conf);
-            }
-        });
+        // 有待检测
+        // this.request({
+        //     url: "/api/v1/myconfigs有待检测",
+        //     hideLoading: true,
+        //     success: function (resp) {
+             
+        //     }
+        // });
+        myconfigApi.getMyconfigDetail().then((resp)=>{
+            var conf = resp.data.data;
+            _this.globalData.myconfigs = conf
+            _this.globalData.ui = conf.ui // ui assets 
+            _this.globalData.color = conf.color
+            return typeof cb == "function" && cb(conf);
+        })
     },
 
     downloadImage: function (url, cb) {
@@ -342,35 +348,39 @@ App({
         }
 
         var _this = this;
-        var data = {
-            sourceName: wx.getStorageSync('sourceName') || '',
-            parentId: wx.getStorageSync('parentId') || '',
-        }
-        this.request({
-            url: "/api/v1/heartbeat",
-            data: data,
-            method: 'POST',
-            hideLoading: true,
-            success: function (resp) {
-                if (!resp.data.data) {
-                    return
-                }
-                var data = resp.data.data
-                // 未读消息 
-                var c = data.unread_message_count
-                var bindex = 1
-                if (c == 0) {
-                    wx.removeTabBarBadge({
-                        index: bindex
-                    })
-                } else {
-                    wx.setTabBarBadge({
-                        index: bindex,
-                        text: c.toString(),
-                    })
-                }
+        // 有待检测    data可不传
+        // var data = {
+        //     sourceName: wx.getStorageSync('sourceName') || '',
+        //     parentId: wx.getStorageSync('parentId') || '',
+        // }
+        // this.request({
+        //     url: "/api/v1/heartbeat有待检测",
+        //     data: data,
+        //     method: 'POST',
+        //     hideLoading: true,
+        //     success: function (resp) {
+                
+        //     }
+        // });
+        heartbeatApi.heartBeat().then((resp)=>{
+            if (!resp.data.data) {
+                return
             }
-        });
+            var data = resp.data.data
+            // 未读消息 
+            var c = data.unread_message_count
+            var bindex = 1
+            if (c == 0) {
+                wx.removeTabBarBadge({
+                    index: bindex
+                })
+            } else {
+                wx.setTabBarBadge({
+                    index: bindex,
+                    text: c.toString(),
+                })
+            }
+        })
     },
 
     gotoWebview: function (url, title = "") {

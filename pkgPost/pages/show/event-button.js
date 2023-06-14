@@ -66,7 +66,7 @@ Component({
         },
 
 
-   
+
 
         openHandle: function () {
             // 如果没有登陆，则弹窗登陆窗口 
@@ -88,7 +88,7 @@ Component({
                     _this.setData({
                         showDialog: true
                     })
-  
+
                     return
                 }
                 _this.subHandle()
@@ -108,10 +108,10 @@ Component({
             //     },
             //     success: function (resp) {
             //         // 提交后刷新状态
-                  
+
             //     }
             // })
-            eventApi.deleteEventFollow(fid,pid).then((res)=>{
+            eventApi.deleteEventFollow(fid, pid).then((res) => {
                 _this.loadStatus()
                 wx.showToast({
                     title: '已取消订阅楼盘动态通知，系统将不会给您发送任何该楼的动态通知',
@@ -137,9 +137,10 @@ Component({
             //         _this.loadStatus()
             //     }
             // })
-            eventApi.createEventFollow(_this.data.pid).then((res)=>{
-                    // 提交后刷新状态
-                    _this.loadStatus()
+            eventApi.createEventFollow(_this.data.pid).then((res) => {
+
+                // 提交后刷新状态
+                _this.loadStatus()
             })
         },
 
@@ -169,24 +170,24 @@ Component({
             //         post_id: _this.data.pid,
             //     },
             //     success: function (resp) {
-                   
+
             //     }
             // })
-         eventApi.createEventFollow(_this.data.pid).then((resp)=>{
-            _this.setTitle()
-            if (resp.data.data) {
+            eventApi.createEventFollow(_this.data.pid).then((resp) => {
+                _this.setTitle()
+                if (resp.data.data) {
+                    _this.setData({
+                        status: 1,
+                        fid: resp.data.data.id,
+                    })
+                    return
+                }
                 _this.setData({
-                    status: 1,
-                    fid: resp.data.data.id,
+                    status: 0,
+                    fid: null,
                 })
                 return
-            }
-            _this.setData({
-                status: 0,
-                fid: null,
             })
-            return
-         })
         },
 
     }

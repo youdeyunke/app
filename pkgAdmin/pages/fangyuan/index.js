@@ -1,6 +1,7 @@
 /// pages/myself/posts.js
 const app = getApp()
 var auth = require('../../../utils/auth.js');
+const postApi = require("../../../api/post")
 
 Page({
 
@@ -48,25 +49,33 @@ Page({
         /* 拉取我的房源 */
         this.setData({ loading: true })
         var _this = this
-        app.request({
-            url: '/api/v1/admin_posts/',
-            data: {
-                per_page: 999,
-                kw: _this.data.searchText,
+        var data={
+            per_page: 999,
+            kw: _this.data.searchText,
+        }
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/admin_posts/有待检测',
+        //     data: {
+        //         per_page: 999,
+        //         kw: _this.data.searchText,
 
-            },
-            success: function (resp) {
-                _this.setData({ loading: false })
-                if (!resp.data.status == 0) {
-                    return false
-                }
-                var posts = resp.data.data.map((p, i) => {
-                    return p
-                })
-                _this.setData({
-                    postItems: resp.data.data,
-                })
+        //     },
+        //     success: function (resp) {
+              
+        //     }
+        // })
+        postApi.getAdminPostList(data).then((resp)=>{
+            _this.setData({ loading: false })
+            if (!resp.data.status == 0) {
+                return false
             }
+            var posts = resp.data.data.map((p, i) => {
+                return p
+            })
+            _this.setData({
+                postItems: resp.data.data,
+            })
         })
     },
 

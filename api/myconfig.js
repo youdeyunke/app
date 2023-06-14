@@ -1,6 +1,6 @@
 let request = require('../utils/request.js');
 
-// 拉取基本配置
+// 拉取基本配置  1
 export function  getMyconfigDetail(){
     return request.get("/api/v1/myconfigs/");
 }

@@ -1,5 +1,6 @@
 // pages/qa/answer-like.js
 const app = getApp()
+const qaApi = require("../../api/qa")
 Component({
     /**
      * 组件的属性列表
@@ -54,16 +55,20 @@ Component({
 
             // 没有点过赞
             var _this = this
-            app.request({
-                method: 'PUT',
-                hideLoading: true,
-                url: '/api/v1/answers/' + _this.data.aid,
-                data: { do: 'like' },
-                success: function (resp) {
-                    var likes = resp.data.data
-                    _this.markLiked()
-                    _this.setData({ likesCount: likes })
-                }
+            // 有待检测
+            // app.request({
+            //     method: 'PUT',
+            //     hideLoading: true,
+            //     url: '/api/v1/answers/有待检测' + _this.data.aid,
+            //     data: { do: 'like' },
+            //     success: function (resp) {
+                 
+            //     }
+            // })
+            qaApi.likeAnswer(_this.data.aid).then((resp)=>{
+                var likes = resp.data.data
+                _this.markLiked()
+                _this.setData({ likesCount: likes })
             })
         },
 

@@ -4,7 +4,7 @@ let request = require('../utils/request.js');
  */
 
 
-// 生成七牛上传的token  
+// 生成七牛上传的token   1 
 export function  genQiniuToken(){
     return request.post("/api/v1/qiniu_token");
 }

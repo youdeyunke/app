@@ -1,7 +1,9 @@
 // pages/myself/profile.js
 const app = getApp()
+const userApi = require("../../../api/user")
 var auth = require('../../../utils/auth.js');
 var qiniu = require('../../../utils/qiniu.js');
+
 
 Page({
 
@@ -84,21 +86,25 @@ Page({
     updateProfile: function(utype){
         var _this = this
         var data = this.data.userInfo
-        app.request({
-            url: '/api/v1/users/0' ,
-            method: 'PUT',
-            data: { profile: data },
-            success: function (resp) {
-                if (resp.data.status == 0) {
-                    wx.showToast({
-                        icon: 'none', title: '个人资料修改成功'
-                    })
-                    setTimeout(() => {
-                        wx.navigateBack({ delta: -1 })
-                    }, 1500)
-                }
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/users/0有待检测' ,
+        //     method: 'PUT',
+        //     data: { profile: data },
+        //     success: function (resp) {
+              
+        //     }
+        // })  
+        userApi.updateUserProfile(data).then((resp)=>{
+            if (resp.data.status == 0) {
+                wx.showToast({
+                    icon: 'none', title: '个人资料修改成功'
+                })
+                setTimeout(() => {
+                    wx.navigateBack({ delta: -1 })
+                }, 1500)
             }
-        })        
+        })     
 
     },
 

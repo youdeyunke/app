@@ -19,7 +19,7 @@ export function getNewsCatList(){
     return request.get("/api/v1/news_cats/"  );
 }
 
-// 查询文章详细内容
+// 查询文章详细内容    1
 export function  getNewsDetail(newsId){
     return request.get("/api/v1/news/" + newsId);
 }

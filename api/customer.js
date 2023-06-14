@@ -29,7 +29,6 @@ export function getCustomerDetail(customerId) {
 
 
 
-// 缺
 // pages/udeve 页面可以删除，app.json
 // wx.request({
 //     url: 'https://www.udeve.cn/api/v1/customers',

@@ -10,11 +10,11 @@ export function sendPostCard(data) {
 export function getPostList(data) {
     return request.get("/api/v1/posts/", data);
 }
-
+// 1
 export function getAdminPostList(data) {
     return request.get("/api/v1/admin_posts/", data);
 }
-
+// 1
 export function getAdminPostDetail(pid) {
     return request.get("/api/v1/admin_posts/" + pid);
 }

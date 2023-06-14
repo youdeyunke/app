@@ -1,6 +1,6 @@
 // pkgAdmin/pages/admin/post.js
 const app = getApp()
-
+const postApi = require("../../../api/post")
 Page({
 
     /**
@@ -60,23 +60,26 @@ Page({
 
     loadPost: function () {
         var _this = this
-        app.request({
-            url: '/api/v1/admin_posts/' + _this.data.postId,
-            success: function (resp) {
-                var id = resp.data.data.media_cat_id
-                if (resp.data.status != 0) {
-                    return false
-                }
-                var post = resp.data.data
-                wx.setNavigationBarTitle({
-                    title: post.title,
-                });
-                var items = ["old", "rental", "shop"]
-                var r = items.includes(post.group)
-                _this.setData({ post: post, canEdit: r, media_cat_id: id })
+        // 有待检测
+        // app.request({
+        //     url: '/api/v1/admin_posts/有待检测' + _this.data.postId,
+        //     success: function (resp) {
+               
+        //     }
+        // })
+        postApi.getAdminPostDetail(_this.data.postId).then((resp)=>{
+            var id = resp.data.data.media_cat_id
+            if (resp.data.status != 0) {
+                return false
             }
+            var post = resp.data.data
+            wx.setNavigationBarTitle({
+                title: post.title,
+            });
+            var items = ["old", "rental", "shop"]
+            var r = items.includes(post.group)
+            _this.setData({ post: post, canEdit: r, media_cat_id: id })
         })
-
     },
 
     /**

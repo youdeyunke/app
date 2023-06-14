@@ -60,15 +60,10 @@ Component({
         kw:this.properties.kw,
         page:this.properties.page
       }
-    //   有待检测
-    //   app.request({
-    //     url: '/api/v1/questions/有待检测',
-    //     data: query,
-    //     success: function (resp) {
-        
-    //     }
-    //   })
-      qaApi.getAnswerList(query).then((resp)=>{
+      app.request({
+        url: '/api/v1/questions',
+        data: query,
+        success: function (resp) {
         if(query.page==1){
             _this.setData({
               qaItems:resp.data.data
@@ -87,7 +82,11 @@ Component({
               icon: 'none',
             })
           }
+        }
       })
+    //   qaApi.getAnswerList(query).then((resp)=>{
+  
+    //   })
     },
   },
 

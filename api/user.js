@@ -1,6 +1,6 @@
 let request = require('../utils/request.js');
 
-// 更新用户信息(avatar/name)     未找到
+// 更新用户信息(avatar/name)     1
 export function updateUserProfile(profile){
     // profile like {name:xxx, name: xxx}
     return  request.put("/api/v1/users/0" , {profile: profile});
