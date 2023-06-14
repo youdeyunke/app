@@ -21,7 +21,7 @@ Page({
   },
   loadPost:function(){
     var _this=this
-    app.request({
+    app.request({   //已经删除
       url:'/api/v1/brokage_info/'+this.data.id,
       success:function(res){
         _this.setData({ 

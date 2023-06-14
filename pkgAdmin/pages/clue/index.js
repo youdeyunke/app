@@ -1,6 +1,6 @@
 // pkgAdmin/pages/clue/index.js
 const app = getApp() 
-
+const clueApi = require("../../../api/clue")
 
 Page({
 
@@ -28,21 +28,25 @@ Page({
 
   loadData: function(){
     var _this = this  
-    app.request({
-      url: '/api/v1/clues/?status_id=' + _this.data.statusId,
-      success: function(resp){
+    // 有待检测
+    // app.request({
+    //   url: '/api/v1/clues/有待检测?status_id=' + _this.data.statusId,
+    //   success: function(resp){
+       
+    //   }
+    // })
+    clueApi.getClueList({status_id:_this.data.statusId}).then((resp)=>{
         if(resp.data.status != 0){
-          return
-        }
-        _this.setData({
-          items: resp.data.data.items, 
-          status: resp.data.data.status, 
-        })
-        var pageTitle = resp.data.data.status.name + '-线索列表'
-        wx.setNavigationBarTitle({
-          title: pageTitle,
-        })
-      }
+            return
+          }
+          _this.setData({
+            items: resp.data.data.items, 
+            status: resp.data.data.status, 
+          })
+          var pageTitle = resp.data.data.status.name + '-线索列表'
+          wx.setNavigationBarTitle({
+            title: pageTitle,
+          })
     })
   },
 
