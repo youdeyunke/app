@@ -85,7 +85,7 @@ Page({
         var _this = this
         var data = this.data.userInfo
         app.request({
-            url: '/api/v1/' + utype + '/0' ,
+            url: '/api/v1/users/0' ,
             method: 'PUT',
             data: { profile: data },
             success: function (resp) {

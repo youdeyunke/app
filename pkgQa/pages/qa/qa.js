@@ -122,11 +122,12 @@ Page({
     followHandle: function (e) {
         // 点击关注问题
         var _this = this
-        var url = '/api/v1/question_followers有待检测'
+        var url = '/api/v1/question_followers/' //有待检测
         if (this.data.item.followed) {
+            // 已经关注了
             method = 'DELETE'
             url = ''
-            url = '/api/v1/question_followers/有待检测' + this.data.item.id
+            url = '/api/v1/question_followers/' + this.data.item.id
         }
         // 先改变按钮状态，再发送请求
         var item = this.data.item

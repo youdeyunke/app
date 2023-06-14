@@ -11,6 +11,14 @@ export function getPostList(data) {
     return request.get("/api/v1/posts/", data);
 }
 
+export function getAdminPostList(data) {
+    return request.get("/api/v1/admin_posts/", data);
+}
+
+export function getAdminPostDetail(pid) {
+    return request.get("/api/v1/admin_posts/" + pid);
+}
+
 // 查询楼盘详情数据   完成
 export function getPostDetail(pid) {
     return request.get("/api/v1/posts/" + pid);

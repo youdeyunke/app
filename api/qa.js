@@ -34,18 +34,20 @@ export function getAnswerDetail(answerId) {
     return request.get("/api/v1/answers/" + answerId);
 }
 
-
 // 发布一个提问     未发现
 export function createQuestion(data) {
     return request.post("/api/v1/questions/", data);
 }
 
-// 关注或者取消关注一个问题   1
+// 关注一个问题   1
 export function followQuestion(qid) {
-    var query = {
-        question_id: qid
-    }
-    return request.post("/api/v1/question_followers/" + qid, query);
+    var data = { question_id: qid }
+    return request.post("/api/v1/question_followers/", data);
+}
+
+export function  cancleFollowQuestion(qid){
+    var data = { question_id: qid }
+    return request.destroy("/api/v1/question_followers/" + qid, data);
 }
 
 

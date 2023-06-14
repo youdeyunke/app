@@ -1,3 +1,0 @@
-<!-- <button bindtap="getSign"> start </button> -->
-<!-- <web-view src="https://wxpay.udeve.net"/> -->
-<button style="width: 100rpx;height: 100rpx;" bindtap="wxzhif"></button>

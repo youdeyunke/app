@@ -152,7 +152,6 @@
                 "pages/fenxiao/index",
                 "pages/fenxiao/report",
                 "pages/fenxiao/confirm",
-                "pages/fenxiao/report-detail",
                 "pages/fenxiao/show",
                 "pages/fenxiao/edit"
             ]
@@ -172,7 +171,6 @@
             "pages": [
                 "pages/broker/index",
                 "pages/broker/join",
-                "pages/broker/membership",
                 "pages/broker/profile",
                 "pages/broker/qr",
                 "pages/broker/audit/index",
@@ -228,14 +226,6 @@
             "pages": [
                 "pages/vr/index",
                 "pages/vr/show"
-            ]
-        },
-        {
-            "root": "pkgCompany",
-            "name": "company",
-            "pages": [
-                "pages/company/index",
-                "pages/company/show"
             ]
         },
         {
@@ -314,12 +304,10 @@
         "pages/messages/show",
         "pages/cities/select",
         "pages/districts/select",
-        "pages/udeve/index",
         "pages/visitors/index",
         "pages/qr/show",
         "pages/tab1/index",
-        "pages/tab2/index",
-        "pages/wxpay/demo"
+        "pages/tab2/index"
     ],
     "tabBar": {
         "custom": true,

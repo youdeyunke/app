@@ -1,8 +1,0 @@
-<view class="box">
-  <view class="title ziti1"><view style="flex:1">佣金金额：</view><text class="ziti">{{value.title}}</text></view>
-  <view class="title ziti1"><view style="flex:1">结账周期：</view><text class="ziti">{{value.cashin}}</text></view>
-  <view class="content ziti1"><view class="yjgz">佣金规则:</view><view class="ziti">{{value.content}}</view></view>
-  <navigator url="/pkgFenxiao/pages/fenxiao/report?pid={{id}}"  class="button">
-    <view class="buttons">报备客户</view>
-  </navigator>
-</view>

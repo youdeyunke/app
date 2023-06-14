@@ -1,9 +1,9 @@
 let request = require('../utils/request.js');
 
 // 更新用户信息(avatar/name)     未找到
-export function updateUserProfile(userId,profile){
+export function updateUserProfile(profile){
     // profile like {name:xxx, name: xxx}
-    return  request.put("/api/v1/users/" + userId, {profile: profile});
+    return  request.put("/api/v1/users/0" , {profile: profile});
 }
 
 // 完成

@@ -1,8 +1,0 @@
-/* pages/broker/membership.wxss */
-page{
-  padding-top:20rpx;
-}
-
-.radio-value-class {
-  flex: none !important;
-}
