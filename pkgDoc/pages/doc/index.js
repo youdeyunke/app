@@ -25,7 +25,7 @@ Page({
   },
   loadData(){
     var _this= this
-    app.request({
+    app.request({  //已删除该功能
       url:'/api/v1/post_docs?post_id='+this.data.postId,
       success:function(res){
         _this.setData({

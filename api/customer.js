@@ -38,7 +38,7 @@ export function getCustomerDetail(customerId) {
 
 
 
-// 修改报备客户资料
+// 修改报备客户资料    1
 export function  updateCustomer(customerId, data){
     return request.put("/api/v1/customers/" + customerId, data);
 }

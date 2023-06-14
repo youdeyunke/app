@@ -40,7 +40,7 @@ Page({
         }
 
         // 请求微信支付签名，自动唤起微信支付
-        app.request({
+        app.request({  //待定
             url: '/api/v1/balances/recharge_sign',
             method: 'POST',
             data: { amount: amount },

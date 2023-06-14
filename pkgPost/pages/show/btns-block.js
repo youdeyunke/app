@@ -1,6 +1,7 @@
 // components/broker.js const app = getApp()
 const app = getApp()
-const postApi = require("../../../api/post")
+const postApi = require("../../../api/post");
+const favApi = require("../../../api/fav")
 var auth = require('../../../utils/auth.js');
 
 Component({
@@ -75,19 +76,23 @@ Component({
         loadFavStatus: function () {
             // 查询收藏状态
             var _this = this
-            app.request({
-                url: '/api/1/favs/',
-                hideLoading: true,
-                data: {
-                    target_id: _this.data.value.post_id,
-                    target_type: 'post'
-                },
-                success: function (resp) {
-                    _this.setData({
-                        favStatus: resp.data.data.status,
-                        favCount: resp.data.data.count,
-                    })
-                },
+            // 有待检测
+            // app.request({
+            //     url: '/api/1/favs/有待检测',
+            //     hideLoading: true,
+            //     data: {
+            //         target_id: _this.data.value.post_id,
+            //         target_type: 'post'
+            //     },
+            //     success: function (resp) {
+                 
+            //     },
+            // })
+            favApi.createFav('post',_this.data.value.post_id).then((resp)=>{
+                _this.setData({
+                    favStatus: resp.data.data.status,
+                    favCount: resp.data.data.count,
+                })
             })
         },
 
@@ -95,20 +100,24 @@ Component({
             var pid = this.data.value.post_id
             var _this = this
             auth.ensureUser(function (userInfo) {
-                app.request({
-                    url: '/api/1/favs/',
-                    hideLoading: false,
-                    method: 'POST',
-                    data: {
-                        target_id: pid,
-                        target_type: 'post'
-                    },
-                    success: function (resp) {
-                        _this.setData({
-                            favStatus: resp.data.data.status,
-                            favCount: resp.data.data.count,
-                        })
-                    }
+                // 有待检测
+                // app.request({
+                //     url: '/api/1/favs/有待检测',
+                //     hideLoading: false,
+                //     method: 'POST',
+                //     data: {
+                //         target_id: pid,
+                //         target_type: 'post'
+                //     },
+                //     success: function (resp) {
+                     
+                //     }
+                // })
+                favApi.createFav('post',pid).then((resp)=>{
+                    _this.setData({
+                        favStatus: resp.data.data.status,
+                        favCount: resp.data.data.count,
+                    })
                 })
             })
         },

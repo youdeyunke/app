@@ -30,7 +30,7 @@ Page({
             page: _this.data.page,
             per_page: _this.data.per_page,
         }
-        app.request({
+        app.request({ //待定
             url: '/api/v1/balances/',
             data: query,
             success: function (resp) {
@@ -50,7 +50,7 @@ Page({
 
     loadBalanceInfo: function () {
         var _this = this
-        app.request({
+        app.request({  //待定
             url: '/api/v1/balances/info',
             success: function (resp) {
                 if (resp.data.status == 0) {

@@ -31,7 +31,7 @@ Page({
 
     loadBalanceInfo: function () {
         var _this = this
-        app.request({
+        app.request({ //待定
             url: '/api/v1/balances/info',
             success: function (resp) {
                 if (resp.data.status == 0) {
@@ -86,7 +86,7 @@ Page({
 
     _submit: function (data) {
         var _this = this
-        app.request({
+        app.request({  //待定
             url: '/api/v1/balances',
             method: 'POST',
             data: data,

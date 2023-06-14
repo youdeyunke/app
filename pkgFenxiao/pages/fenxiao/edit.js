@@ -3,7 +3,6 @@
 const app = getApp()
 const customerApi = require("../../../api/customer")
 Page({
-
     /**
      * 页面的初始数据
      */

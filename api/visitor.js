@@ -10,7 +10,7 @@ export function getVisitorList(query){
 }
 
 
-// 创建一个visitor  未发现
+// 创建一个visitor  1
 export function createVisitor(){
     return request.post("/api/v1/visitors/");
 }

@@ -1,16 +1,18 @@
 // components/city-picker.js
 const app = getApp()
-
+const cityApi = require("../api/city")
 Component({
     /**
      * 组件的属性列表
      */
     properties: {
         show: {
-            type: Boolean, value: false
+            type: Boolean,
+            value: false
         },
         position: {
-            type: String, value: "bottom"
+            type: String,
+            value: "bottom"
         },
 
     },
@@ -21,11 +23,10 @@ Component({
     data: {
         activeTabIndex: 0,
 
-        configs: [
-            {
+        configs: [{
                 label: '区域',
                 id: 'city',
-                url: '/api/v2/cities',
+                url: '/api/v2/cities',  //有待检测
                 keys: ['city_id', 'district_id'],
             },
             /* {
@@ -47,13 +48,17 @@ Component({
     ready: function () {
         var _this = this
         this.data.configs.forEach(function (config, i) {
-            app.request({
-                url: config.url,
-                success: function (resp) {
-                    if (resp.data.status == 0) {
-                        config.items = resp.data.data
-                        _this.updateConfig(i, config)
-                    }
+            // 有待检测
+            // app.request({
+            //     url: config.url,
+            //     success: function (resp) {
+
+            //     }
+            // })
+            cityApi.getCityListV2().then((resp) => {
+                if (resp.data.status == 0) {
+                    config.items = resp.data.data
+                    _this.updateConfig(i, config)
                 }
             })
         })
@@ -66,11 +71,15 @@ Component({
 
 
         onShow: function () {
-            this.setData({ show: true })
+            this.setData({
+                show: true
+            })
         },
 
         onClose: function () {
-            this.setData({ show: false })
+            this.setData({
+                show: false
+            })
         },
 
 

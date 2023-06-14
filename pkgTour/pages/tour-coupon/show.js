@@ -222,8 +222,9 @@ Page({
 
     postData(data) {
         var _this = this
+        // 有待检测
         // app.request({
-        //     url: '/api/v1/tour_coupons/',
+        //     url: '/api/v1/tour_coupons/有待检测',
         //     method: 'POST',
         //     data: data,
         //     success: function (resp) {

@@ -1,5 +1,6 @@
 // components/pagemaker/searchbar/city-selector.js
 const app = getApp()
+const cityApi = require("../../../api/city")
 Component({
     /**
      * 组件的属性列表
@@ -61,16 +62,20 @@ Component({
 
         loadAllCity: function () {
             var _this = this
-            app.request({
-                url: '/api/v1/cities',
-                success: function (resp) {
-                    if (resp.data.status != 0) {
-                        return
-                    }
-                    var items = resp.data.data
-                    items = [{ name: '全部', id: null }].concat(items)
-                    _this.setData({ cityItems: items })
+            // 有待检测
+            // app.request({
+            //     url: '/api/v1/cities有待检测',
+            //     success: function (resp) {
+                   
+            //     }
+            // })
+            cityApi.getCityListV1().then((resp)=>{
+                if (resp.data.status != 0) {
+                    return
                 }
+                var items = resp.data.data
+                items = [{ name: '全部', id: null }].concat(items)
+                _this.setData({ cityItems: items })
             })
         },
 
