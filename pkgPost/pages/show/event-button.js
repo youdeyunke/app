@@ -17,9 +17,12 @@ Component({
         }
     },
 
-
-    ready: function () {
-        this.loadStatus()
+    observers: {
+        "pid": function(val){
+            if(val){
+                this.loadStatus()
+            }
+        }
     },
 
     /**
@@ -55,9 +58,7 @@ Component({
                 confirm: !this.data.confirm
             })
         },
-        setTitle: function () {
-            // status变化出发title的变化
-        },
+     
 
         closeHandle: function () {
             this.setData({
@@ -82,13 +83,11 @@ Component({
             var _this = this
             auth.ensureUser((user) => {
                 wx.hideLoading();
-
                 // 如果是新订阅
                 if (_this.data.status == 0) {
                     _this.setData({
                         showDialog: true
                     })
-
                     return
                 }
                 _this.subHandle()
@@ -99,19 +98,8 @@ Component({
             var _this = this
             var fid = this.data.fid
             var pid = this.data.pid
-            // 有待检测
-            // app.request({
-            //     url: '/v1/event_followers/有待检测' + fid,
-            //     method: 'DELETE',
-            //     data: {
-            //         post_id: pid
-            //     },
-            //     success: function (resp) {
-            //         // 提交后刷新状态
-
-            //     }
-            // })
-            eventApi.deleteEventFollow(fid, pid).then((res) => {
+            // 有待检测   √
+            eventApi.deleteEventFollow(pid).then((res) => {
                 _this.loadStatus()
                 wx.showToast({
                     title: '已取消订阅楼盘动态通知，系统将不会给您发送任何该楼的动态通知',
@@ -125,29 +113,15 @@ Component({
 
         createSub: function () {
             var _this = this
-            // 有待检测
-            // app.request({
-            //     url: '/v1/event_followers有待检测',
-            //     method: 'POST',
-            //     data: {
-            //         post_id: _this.data.pid
-            //     },
-            //     success: function (resp) {
-            //         // 提交后刷新状态
-            //         _this.loadStatus()
-            //     }
-            // })
+            // √
             eventApi.createEventFollow(_this.data.pid).then((res) => {
-
                 // 提交后刷新状态
                 _this.loadStatus()
             })
         },
 
         subHandle: function () {
-
             var _this = this
-
             if (this.data.status == 1) {
                 // 取消订阅
                 this.cancleSub()
@@ -162,30 +136,26 @@ Component({
                 return false
             }
             var _this = this
-            // 有待检测
-            // app.request({
-            //     url: '/v1/event_followers有待检测',
-            //     hideLoading: true,
-            //     data: {
-            //         post_id: _this.data.pid,
-            //     },
-            //     success: function (resp) {
-
-            //     }
-            // })
-            eventApi.createEventFollow(_this.data.pid).then((resp) => {
-                _this.setTitle()
+            // 有待检测   √
+            eventApi.createEventFollow(_this.data.pid).then((resp) => {  
                 if (resp.data.data) {
                     _this.setData({
                         status: 1,
                         fid: resp.data.data.id,
                     })
+                    wx.setStorage({
+                        key: _this.data.pid+"_ef",
+                        data: 'ok'
+                      })
                     return
                 }
                 _this.setData({
                     status: 0,
                     fid: null,
                 })
+                wx.removeStorage({
+                    key: _this.data.pid+"_ef",
+                  })
                 return
             })
         },

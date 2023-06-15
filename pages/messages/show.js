@@ -227,7 +227,7 @@ Page({
             target_id: _this.data.targetUserId,
             ranking: 'newer',
         }
-        // 有待检测
+        // 有待检测    一直发送
         // app.request({
         //     url: '/api/v1/messages有待检测',
         //     method: 'GET',

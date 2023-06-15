@@ -30,7 +30,7 @@ export function getEventCatList() {
 // 取消关注动态     1
 // TODO 需要优化此接口 
 export function deleteEventFollow(postId) {
-    return request.destroy("/api/v1/event_followers/", {
+    return request.destroy("/api/v1/event_followers/0", {
         post_id: postId
     });
 }

@@ -1,6 +1,6 @@
 <block>
 
-    <login-window class="loginwindow" ></login-window>
+    <login-window class="loginwindow"></login-window>
 
     <van-popup closeable round bind:close="closeHandle" duration="400" show="{{showDialog}}">
         <view class="dialog">
@@ -27,6 +27,7 @@
     </van-popup>
     <view class="action {{ status == 1 ? 'dark' : '' }}" bindtap="openHandle">
         <!-- <ud-icon name="dingyue-{{status}}"/> -->
+
         <view class="status-text" style="color: {{color}};border: 1rpx solid {{color}};">{{ nameDict['btn'][status] }}</view>
     </view>
 </block>

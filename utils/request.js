@@ -176,7 +176,7 @@ const destroy = (url, data = {}) => {
     return http({
         url,
         data,
-        method: 'put'
+        method: 'DELETE'
     })
 }
 module.exports = {
