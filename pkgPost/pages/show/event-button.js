@@ -105,9 +105,6 @@ Component({
             eventApi.deleteEventFollow(pid).then((res) => {
                 wx.removeStorage({
                     key: this.data.pid+"_ef",
-                    success: function(res) {
-                      console.log('121删除成功')
-                    }
                   })
                 _this.loadStatus()
                 wx.showToast({
@@ -133,7 +130,6 @@ Component({
             })
         },
         subHandle: function () {
-            var _this = this
             if (this.data.status == 1) {
                 // 取消订阅
                 this.cancleSub()
