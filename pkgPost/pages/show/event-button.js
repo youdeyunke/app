@@ -18,8 +18,12 @@ Component({
     },
 
     observers: {
-        "pid": function(val){
-            if(val){
+        "pid": function (val) {
+            if (val) {
+                // wx.setStorage({
+                //     key: val+"_ef",
+                //     data: null
+                //   })
                 this.loadStatus()
             }
         }
@@ -58,7 +62,7 @@ Component({
                 confirm: !this.data.confirm
             })
         },
-     
+
 
         closeHandle: function () {
             this.setData({
@@ -96,10 +100,15 @@ Component({
 
         cancleSub: function () {
             var _this = this
-            var fid = this.data.fid
             var pid = this.data.pid
             // 有待检测   √
             eventApi.deleteEventFollow(pid).then((res) => {
+                wx.removeStorage({
+                    key: this.data.pid+"_ef",
+                    success: function(res) {
+                      console.log('121删除成功')
+                    }
+                  })
                 _this.loadStatus()
                 wx.showToast({
                     title: '已取消订阅楼盘动态通知，系统将不会给您发送任何该楼的动态通知',
@@ -110,16 +119,19 @@ Component({
                 });
             })
         },
-
+      
         createSub: function () {
             var _this = this
             // √
             eventApi.createEventFollow(_this.data.pid).then((res) => {
+                wx.setStorage({
+                    key: _this.data.pid+"_ef",
+                    data: 'ok'
+                  })
                 // 提交后刷新状态
                 _this.loadStatus()
             })
         },
-
         subHandle: function () {
             var _this = this
             if (this.data.status == 1) {
@@ -131,33 +143,18 @@ Component({
         },
 
         loadStatus: function () {
-            // 查询订阅状态
-            if (!app.globalData.token) {
-                return false
-            }
             var _this = this
-            // 有待检测   √
-            eventApi.createEventFollow(_this.data.pid).then((resp) => {  
-                if (resp.data.data) {
-                    _this.setData({
-                        status: 1,
-                        fid: resp.data.data.id,
-                    })
-                    wx.setStorage({
-                        key: _this.data.pid+"_ef",
-                        data: 'ok'
-                      })
-                    return
-                }
+            // 查询订阅状态
+            var value = wx.getStorageSync(this.data.pid+"_ef")
+            if(value=='ok'){
                 _this.setData({
-                    status: 0,
-                    fid: null,
+                    status: 1
                 })
-                wx.removeStorage({
-                    key: _this.data.pid+"_ef",
-                  })
-                return
-            })
+            }else {
+                _this.setData({
+                    status: 0
+                })
+            }
         },
 
     }
