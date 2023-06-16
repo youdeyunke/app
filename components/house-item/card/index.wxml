@@ -25,8 +25,8 @@
                 </view>
             </view>
             <view class="price">
-                <view class="left">{{post.average_price_info.label}}:</view>
-                <view class="right">{{post.average_price_info.text}}{{post.average_price_info.px}}</view>
+                <view class="left">{{post.price_lable}}:</view>
+                <view class="right">{{post.price_value}}{{post.price_unit}}</view>
             </view>
         </view>
     </view>

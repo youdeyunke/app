@@ -111,7 +111,7 @@ Component({
     //   √
       houseApi.getHouseList(query).then((resp)=>{
         _this.setData({loading: false })
-        var res = resp.data.data.list
+        var res = resp.data.data.result
         var filters = resp.data.filters
         var config = _this.data.config
         // TODO setData items
