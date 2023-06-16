@@ -13,14 +13,7 @@ Page({
 
   loadData(){
       var _this = this
-    //   有待检测
-    //   var url = '/api/v1/cities/有待检测'
-    //   app.request({
-    //       url: url,
-    //       success(resp){
-           
-    //       }
-    //   })
+    //   有待检测  √
       cityApi.getCityListV1(
 
       ).then((resp)=>{

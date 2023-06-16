@@ -1,6 +1,6 @@
 // pkgEvent/pages/event/new.js
 const app = getApp()
-var eventApi = require('../../../utils/event.js');
+var eventApi = require('../../../api/event');
 var auth = require('../../../utils/auth.js');
 
 Page({
@@ -157,16 +157,7 @@ Page({
         }
 
         this.setData({ loading: true })
-        // 有待检测    该接口参数减少
-        // app.request({
-        //     url: '/api/v1/events有待检测',
-        //     data: { event: data, push: _this.data.push },
-        //     method: 'POST',
-        //     hideLoading: true,
-        //     success: function (resp) {
-              
-        //     }
-        // })
+        // √
         eventApi.createEvent(data).then((resp)=>{
             _this.setData({ loading: false })
             if (resp.data.status != 0) {

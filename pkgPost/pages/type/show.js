@@ -35,7 +35,7 @@ Page({
               
         //     }
         // })
-        postApi.getPostTypeDetail(tid).then((res)=>{
+        postApi.getPostTypeDetail(tid).then((resp)=>{
             if (resp.data.status != 0) {
                 return false
             }

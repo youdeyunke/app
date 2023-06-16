@@ -32,15 +32,7 @@ Component({
     methods: {
         loadData() {
             var _this = this
-            // 有待检验
-            // app.request({
-            //     url: '/api/v1/first_screen_adds有待检验',
-            //     method: 'get',
-            //     hideLoading: true,
-            //     success: function (res) {
-
-            //     }
-            // })
+            // √
             first_screenApi.getFirstScreen().then((res) => {
                 let value = res.data.data
                 if (!value) {

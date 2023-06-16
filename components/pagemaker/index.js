@@ -120,22 +120,7 @@ Component({
                 city_code: wx.getStorageSync('cityCode') || ''
             }
             q.mode = this.data.mode
-            // 有待检测
-            //   app.request({
-            //     url: '/api/v1/pages/有待检测' + v,
-            //     hideLoading: true,
-            //     data: q,
-            //     success: function (resp) {
-            //         var data = resp.data.data
-            //         _this.setData({
-            //           loading: false,
-            //           modules: data.modules,
-            //           pageConfig: data.config,
-            //         })
-            //         _this.setNavbar(data.config)
-            //         _this.triggerEvent('ready', data.config)
-            //     }
-            //   })
+            // √
             pageApi.getPageDetail(v).then((resp) => {
                 var data = resp.data.data
                 _this.setData({

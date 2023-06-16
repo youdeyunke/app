@@ -41,14 +41,7 @@ Page({
   loadData: function(){
     // 加载线索摘要信息 
     var _this = this  
-    // 有待检测
-    // app.request({
-    //   url: '/api/v1/clues/summary有待检测', 
-    //   method: 'GET', 
-    //   success: function(resp){
-       
-    //   }
-    // })
+    // √
     clueApi.getClueSummary().then((resp)=>{
         if(resp.data.status != 0){
           return false 

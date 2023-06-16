@@ -58,7 +58,7 @@ Component({
           }
           var _this = this
           this.setData({loading: true})
-        //   有待检测
+        //   √
           brokerApi.getBrokerList(query).then((resp)=>{
             _this.setData({
                 loading: false, 

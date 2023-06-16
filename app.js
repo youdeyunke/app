@@ -138,14 +138,7 @@ App({
     loadConfigs: function (cb) {
         /* 从服务器加载系统配置嘻嘻 */
         var _this = this;
-        // 有待检测
-        // this.request({
-        //     url: "/api/v1/myconfigs有待检测",
-        //     hideLoading: true,
-        //     success: function (resp) {
-             
-        //     }
-        // });
+        // √
         myconfigApi.getMyconfigDetail().then((resp)=>{
             var conf = resp.data.data;
             _this.globalData.myconfigs = conf
@@ -348,20 +341,7 @@ App({
         }
 
         var _this = this;
-        // 有待检测    data可不传
-        // var data = {
-        //     sourceName: wx.getStorageSync('sourceName') || '',
-        //     parentId: wx.getStorageSync('parentId') || '',
-        // }
-        // this.request({
-        //     url: "/api/v1/heartbeat有待检测",
-        //     data: data,
-        //     method: 'POST',
-        //     hideLoading: true,
-        //     success: function (resp) {
-                
-        //     }
-        // });
+        // 有待检测    data可不传   √
         heartbeatApi.heartBeat().then((resp)=>{
             if (!resp.data.data) {
                 return
