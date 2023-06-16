@@ -71,14 +71,21 @@ Page({
     // 发起助力 
     // 有待检测
     // app.request({
-    //   url: '/api/v1/zhuli/join有待检测', 
+    //   url: '/api/v1/zhuli/join', 
     //   method: 'POST', 
     //   data: {id: hid}, 
     //   success: function(res){ 
-       
+    //     if(res.data.status != 0){
+    //         return 
+    //       }
+    //       var myid = res.data.data  
+    //       var url = '/pkgZhuli/pages/zhuli/mine?id=' + myid  
+    //       wx.navigateTo({
+    //         url: url
+    //       })
     //   }
     // })
-    zhuliApi.joinZhuli(hid).then((res)=>{
+    zhuliApi.joinZhuli({id:hid}).then((res)=>{
         if(res.data.status != 0){
             return 
           }

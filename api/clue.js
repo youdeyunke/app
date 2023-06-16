@@ -17,7 +17,7 @@ export function  getClueStatusList(query){
 
 // 拉取线索概况信息  完成
 export function getClueSummary( ){
-    request.get("/api/v1/clues/summary")
+    return request.get("/api/v1/clues/summary")
 }
 
 

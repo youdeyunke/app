@@ -122,14 +122,7 @@ Component({
     methods: {
         loadData: function () {
             var _this = this
-            // 有待检测
-            // app.request({
-            //     url: '/api/v1/needs/ 有待检测',
-            //     method: 'GET',
-            //     success: function (resp) {
-
-            //     }
-            // })
+            // 首页一键找房（返回信息看不懂）√
             needApi.getNeedList().then((resp) => {
                 if (resp.data.status != 0) {
                     return

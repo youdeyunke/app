@@ -16,19 +16,14 @@ Component({
             value: '#000000'
         }
     },
-
+//监听事件
     observers: {
         "pid": function (val) {
             if (val) {
-                // wx.setStorage({
-                //     key: val+"_ef",
-                //     data: null
-                //   })
                 this.loadStatus()
             }
         }
     },
-
     /**
      * 组件的初始数据
      */
@@ -97,11 +92,10 @@ Component({
                 _this.subHandle()
             })
         },
-
         cancleSub: function () {
             var _this = this
             var pid = this.data.pid
-            // 有待检测   √
+            //   √
             eventApi.deleteEventFollow(pid).then((res) => {
                 wx.removeStorage({
                     key: this.data.pid+"_ef",

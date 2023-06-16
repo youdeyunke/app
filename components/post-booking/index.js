@@ -204,15 +204,7 @@ Component({
     
             app.bindPostCustomer(log.post_id, '点击了预约看房')
             this.setData({ loging: true })
-            // 有待检测
-            // app.request({
-            //     url: '/api/v1/booking_logs/有待检测',
-            //     method: 'POST',
-            //     data: { booking_log: log },
-            //     success: function (resp) {
-                  
-            //     },
-            // })
+            //   √
             bookingApi.createBooking(
                 log
             ).then((resp)=>{
