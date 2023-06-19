@@ -28,7 +28,7 @@
                 {{ post.area_info.label}} {{ post.area_info.text}}
             </view>
             <view class="price">
-                {{post.average_price_info.text}}{{post.average_price_info.px}}
+                {{post.price_value}}{{post.price_unit}}
             </view>
         </view>
     </view>

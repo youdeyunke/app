@@ -7,7 +7,7 @@
                 {{post.title}}
             </view>
             <view class="price">
-                <text class="red">{{post.average_price_info.text}}{{post.average_price_info.px}}</text>
+                <text class="red">{{post.price_value}}{{post.price_unit}}</text>
             </view>
             <view class="address">{{post.address}}</view>
             <view class="tags">
