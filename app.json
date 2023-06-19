@@ -86,6 +86,14 @@
             ]
         },
         {
+          "root":"pkgErshou",
+          "name":"pkgershou",
+          "pages":[
+            "pages/index" ,
+            "pages/show"
+          ]
+        },
+        {
             "root": "pkgPost",
             "name": "pkgpost",
             "pages": [
