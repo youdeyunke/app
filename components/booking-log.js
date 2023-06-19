@@ -109,9 +109,8 @@ Component({
                 return
             }
             var _this = this
-        //   有待检测
+        //   有待检测   父级页面不知道如何进入   输入路径参数未知
             postApi.getPostDetail(pid).then((resp)=>{
-                console.log("121",resp);
                 _this.setData({
                     post: resp.data.data
                 })

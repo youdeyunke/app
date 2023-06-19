@@ -13,7 +13,7 @@ Page({
 
   loadData(){
       var _this = this
-    //   有待检测  √
+    //   √
       cityApi.getCityListV1(
 
       ).then((resp)=>{

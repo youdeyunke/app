@@ -26,7 +26,7 @@ Component({
         configs: [{
                 label: '区域',
                 id: 'city',
-                url: '/api/v2/cities',  //有待检测
+                url: '/api/v2/cities',
                 keys: ['city_id', 'district_id'],
             },
             /* {
@@ -48,13 +48,7 @@ Component({
     ready: function () {
         var _this = this
         this.data.configs.forEach(function (config, i) {
-            // 有待检测
-            // app.request({
-            //     url: config.url,
-            //     success: function (resp) {
-
-            //     }
-            // })
+            //   √    base-filter,filter组件引入了该组件但base- 未被引用     pages/home/home被调用        
             cityApi.getCityListV2().then((resp) => {
                 if (resp.data.status == 0) {
                     config.items = resp.data.data

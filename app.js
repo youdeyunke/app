@@ -341,7 +341,7 @@ App({
         }
 
         var _this = this;
-        // 有待检测    data可不传   √
+        //    √
         heartbeatApi.heartBeat().then((resp)=>{
             if (!resp.data.data) {
                 return
@@ -488,7 +488,6 @@ App({
         //     }
         // })
         visitorApi.createVisitorAction(uid, actionName, seconds).then((resp) => {
-            var data = resp.data.data
             typeof cb == 'function' && cb(resp.data.data)
         })
     },

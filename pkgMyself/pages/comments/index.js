@@ -49,7 +49,7 @@ Page({
       
     //   }
     // })
-    mycommentApi.getMineCommentList(query).then((res)=>{
+    mycommentApi.getMineCommentList(query).then((resp)=>{
         _this.setData({
             loading: false, 
             end: resp.data.end, 

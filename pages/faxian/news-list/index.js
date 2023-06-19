@@ -30,7 +30,7 @@ Component({
             //     success: function (resp) {  
             //     }
             //   })
-            newsApi.getNewsCatList().then((res) => {
+            newsApi.getNewsCatList().then((resp) => {
                 _this.setData({
                     newsCats: resp.data.data
                 })

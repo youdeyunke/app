@@ -92,7 +92,7 @@ Page({
             receiver_id: this.data.targetUserId,
             id: postId
         }
-        // √  有待检测   postid没有
+        // √    postid没有
         postApi.sendPostCard(data).then((res) => {
             
         })

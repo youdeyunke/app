@@ -23,7 +23,7 @@ export function  createZhuliSuccess(data){
     return request.post("/api/v1/zhuli", data);
 }
 
-// 发起我的助力活动  1
+// 发起我的助力活动  完成
 export function joinZhuli(hid){
     return request.post("/api/v1/zhuli/join/", {id: hid});
 

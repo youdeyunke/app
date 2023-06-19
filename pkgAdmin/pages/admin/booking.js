@@ -1,5 +1,4 @@
 // pages/fenxiao/balance.js
-const app = getApp()
 const bookingApi = require("../../../api/booking")
 Page({
 
@@ -29,14 +28,7 @@ Page({
           user_group: 'broker',
           per_page: _this.data.per_page,
       }
-    //   有待检测
-    //   app.request({
-    //       url: '/api/v1/booking_logs/有待检测',
-    //       data: query,
-    //       success: function(resp){
-           
-    //       },
-    //   })
+    //   √
       bookingApi.getBookingList(
         query
       ).then((resp)=>{

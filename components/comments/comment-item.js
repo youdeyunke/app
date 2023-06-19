@@ -1,32 +1,50 @@
 // components/comments/comment-item.js
 const app = getApp()
-const mycommentApi= require("../../api/mycomment")
+const mycommentApi = require("../../api/mycomment")
 
 Component({
     /**
      * 组件的属性列表
      */
     properties: {
-        item: { type: Object },
-        images: { type: Boolean, value: true },
-        isLink: { type:Boolean, value: true},
-        border: { type: Boolean, value: true },
-        showReplyBtn: { type: Boolean, value: false },
+        item: {
+            type: Object
+        },
+        images: {
+            type: Boolean,
+            value: true
+        },
+        isLink: {
+            type: Boolean,
+            value: true
+        },
+        border: {
+            type: Boolean,
+            value: true
+        },
+        showReplyBtn: {
+            type: Boolean,
+            value: false
+        },
     },
 
     observers: {
         "item.target_type": function (t) {
             // 如果是回复，就不显示五角星
             this.setData({
-                showStars: t  == 'post'
+                showStars: t == 'post'
             })
         },
         "item.like_nums": function (c) {
             var _this = this
-            this.setData({ likeNums: c })
+            this.setData({
+                likeNums: c
+            })
             var key = 'liked_comment.' + this.data.item.id
             if (wx.getStorageSync(key)) {
-                _this.setData({ liked: true })
+                _this.setData({
+                    liked: true
+                })
             }
         },
     },
@@ -44,7 +62,9 @@ Component({
                 return false
             }
             var pid = this.data.item.at_user.id
-            wx.navigateTo({url: '/pkgBroker/pages/broker/profile?id=' + pid })
+            wx.navigateTo({
+                url: '/pkgBroker/pages/broker/profile?id=' + pid
+            })
         },
         replyClickHandle: function (e) {
             // 点击回复按钮
@@ -52,7 +72,9 @@ Component({
                 this.gotoDetail()
                 return false
             }
-            this.triggerEvent('replyclick', {comment: this.data.item})
+            this.triggerEvent('replyclick', {
+                comment: this.data.item
+            })
         },
         gotoDetail: function (e) {
             if (!this.data.isLink) {
@@ -82,7 +104,7 @@ Component({
                 likeNums: this.data.item.like_nums + 1,
                 liked: true,
             })
-// 有待检测
+            // 有待检测
             // app.request({
             //     url: '/api/v1/mycomments/like有待检测',
             //     hideLoading: true,
@@ -96,7 +118,7 @@ Component({
             //         })
             //     }
             // })
-            mycommentApi.likeComment(cid).then((res)=>{
+            mycommentApi.likeComment(cid).then((res) => {
                 wx.setStorage({
                     key: key,
                     data: true,
