@@ -1,4 +1,4 @@
-<navigator hover-class="none" class="post" url="/pkgPost/pages/show/index?id={{post.id}}">
+<navigator hover-class="none" class="post" url="/pkgErshou/pages/show?id={{post.id}}">
     <view class="cover">
         <image class="cover-image" src="{{post.cover}}?imageView2/1/w/333/h/246" />
 

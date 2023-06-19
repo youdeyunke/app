@@ -18,9 +18,9 @@ Component({
         return
       }
       if(!post.url){
-        var url = '/pkgPost/pages/show/index?id=' + post.id
+        var url = '/pkgErshou/pages/show?id=' + post.id
         this.setData({url: url})
-        
+        return
       }
       this.setData({url: post.url})
 
