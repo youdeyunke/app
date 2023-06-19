@@ -1,27 +1,28 @@
 <!-- components/pagemaker/posts/post-item0.wxml -->
 <view class="outer">
     <navigator hover-class="none" class="post" url="{{url }}">
-        <post-cover wx:if="{{post}}" item="{{post}}"></post-cover>
+        <post-cover wx:if="{{post}}" item="{{post}}" width="230" height="180"></post-cover>
         <view class="right">
             <view class="title">
                 {{post.title}}
             </view>
-            <view class="price">
-                <text class="red">{{post.price_value}}{{post.price_unit}}</text>
-            </view>
-            <view class="address">{{post.address}}</view>
+            <view class="address">{{post.type}}/{{post.area}}/{{post.position}}/{{post.type_name}}</view>
             <view class="tags">
-                <van-tag text-color="#ffffff"  color="{{post.sale_status_item.color}}" size="mini">{{post.sale_status_item.name}}
-                </van-tag>
-                <van-tag color="#ECEFF6" text-color="#848CA1" size="mini" wx:for="{{post.tags}}" wx:key="item.id"
+                <!-- <van-tag text-color="#ffffff"  color="{{post.sale_status_item.color}}" size="mini">{{post.sale_status_item.name}}
+                </van-tag> -->
+                <van-tag color="#ECEFF6" text-color="{{item.color}}" size="mini" wx:for="{{post.tags}}" wx:key="item.id"
                     wx:if="{{index<=1}}">{{item.name}}</van-tag>
             </view>
 
-            <view class="point {{ point.cat}}" wx:for="{{post.points_info}}" wx:for-item="point">
+            <view class="price">
+                <text class="red">{{post.price_label}} <text style="font-size: 36rpx;">{{post.price_value}}</text> {{post.price_unit}}</text>
+            </view>
+
+            <!-- <view class="point {{ point.cat}}" wx:for="{{post.points_info}}" wx:for-item="point">
                 <text class="ptitle">{{ point.title || '项目亮点' }} </text>
                 <view class="blank"></view>
                 <text class="content">{{ point.content }}</text>
-            </view>
+            </view> -->
 
         </view>
 

@@ -76,7 +76,10 @@
     font-size: 32rpx;
     font-weight: bolder;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    /* white-space: nowrap; */
+    display: -webkit-box;
+  -webkit-line-clamp: 2; /* 显示的行数 */
+  -webkit-box-orient: vertical;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
