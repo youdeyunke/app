@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "banners-block": "./banners-block",
+    "map-block":"./map-block"
+  }
 }

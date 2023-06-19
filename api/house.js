@@ -4,7 +4,7 @@ export function getHouseList(data){
     return request.get("/api/v6/houses", data);
 }
 
-// 拉取楼盘详情页模块数据    未找到
+// 拉取楼盘详情页模块数据     完成
 export function getHouseBlocks(pid){
     return request.get("/api/v6/houses/"+pid);
 }

@@ -1,0 +1,24 @@
+.location {
+    font-size: 28rpx;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20rpx;
+    align-items: center;
+}
+.location-left{
+    width: 580rpx;
+}
+.value{
+    font-size: 26rpx;
+}
+
+.location-right{
+    line-height: 80rpx;
+}
+.location .label {
+    color: #999999;
+}
+
+button :hover {
+    background-color: none;
+}

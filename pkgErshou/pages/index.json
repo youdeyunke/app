@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+    "navigationStyle": "custom",
+  "usingComponents": {
+    "house-item": "/components/house-item/cell/index"
+  }
 }
