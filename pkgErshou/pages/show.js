@@ -10,6 +10,8 @@ Page({
         block: {},
         banners: {},
         rule: null,
+        btnText:"立即报名", // 按钮大文字
+        btnDesc:null,//按钮小字
         bids: [], // 出价记录
         has_joined: false, // 是否报名参加过
         members: [], // 报名的成员列表
@@ -88,10 +90,29 @@ Page({
 
     },
 
-    payAndJoin: function () {
+    btnHandle:function(){
+      if(this.data.has_joined){
+        this.bidHandle()
+      }else{
+        this.payAndJoinHandle(this.data.rule.id);
+      }
+    },
+
+    // 出价
+    bidHandle:function(){
+      // 参与出价，出价后要刷新
+      wx.showLoading();
+      houseApi.createBid(this.data.rule.id).then((res) =>{
+        this.loadData(this.data.houseId);
+      })
+    },
+
+    payAndJoinHandle: function () {
         // 报名参加竞拍
         var ruleId = this.data.rule.id;
-        houseApi.payAndJoin(ruleId).then((res) => {});
+        houseApi.payAndJoin(ruleId).then((res) => {
+          this.loadData(this.data.houseId);
+        });
     },
 
     /**
