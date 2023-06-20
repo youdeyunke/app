@@ -34,6 +34,9 @@ Page({
         var _this = this
         houseApi.getHouseBlocks(e).then((res) => {
             console.log("121resssss",res.data.data.tags);
+            wx.setNavigationBarTitle({
+                title: res.data.data.title
+              })
             _this.setData({
                 block:res.data.data,
                 banners:res.data.data.banners,
@@ -42,6 +45,7 @@ Page({
             if(res.data.data.rule_id){
                 _this.loadRule(res.data.data.rule_id)
             }
+          
         })
     },
     /**
