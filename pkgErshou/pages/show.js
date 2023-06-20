@@ -25,6 +25,7 @@ Page({
         // TODO 
         houseApi.getRuleDetail(ruleId).then((res) => {
            const data =  res.data.data;
+           console.log("121竞价",res);
             this.setData({rule: data.rule, bids:data.bids});
         })
     },

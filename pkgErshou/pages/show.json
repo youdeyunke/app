@@ -1,6 +1,8 @@
 {
+  "navigationStyle": "custom",
   "usingComponents": {
     "banners-block": "./banners-block",
-    "map-block":"./map-block"
+    "map-block":"./map-block",
+    "raw-html":"/components/raw-html"
   }
 }

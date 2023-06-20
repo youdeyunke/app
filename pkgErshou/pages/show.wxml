@@ -1,4 +1,5 @@
 <!--pkgErshou/pages/show.wxml-->
+<view class="custom-navigation-bar">{{block.title}}</view>
 <banners-block value="{{banners}}"></banners-block>
 <!-- 基础信息 -->
 <view class="box">
@@ -15,7 +16,7 @@
         </view>
     </view>
     <view class="biaotiBox">
-        通透户型安静位置，动静分离2居室，2个阳台西四环内五棵松
+        {{block.title}}
     </view>
     <view class="fuzerenBox">
         <view style="display: flex;">
@@ -45,21 +46,21 @@
     </view>
     <view class="jichuxinxiBox">
         <view class="shoujia">
-            售价
+         {{block.price_label}}
             <view class="shoujia_jine">
-                1450万元
+               {{block.price_value}}{{block.price_unit}}
             </view>
         </view>
-        <view class="shoujia  huxing">
+        <view class=" huxing">
             户型
             <view class="shoujia_jine">
                 2室2厅
             </view>
         </view>
         <view class="shoujia">
-            建筑面积
+          面积
             <view class="shoujia_jine">
-                99.08㎡
+                {{block.area_value}}㎡
             </view>
         </view>
     </view>
@@ -94,7 +95,8 @@
     </view>
 </view>
 <!-- 竞拍 -->
-<view wx:if="{{rule && rule.id}}">
+<!-- wx:if="{{rule && rule.id}}" -->
+<view >
     <view class="jingpaiBox">
         <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
         <view class="jpText">
@@ -106,7 +108,43 @@
         <view class="jingmaiBox">
             我的竞买号:M2067
         </view>
-        <view class="jingmaineirongBox">
+        <view class="jingmaineirongBox">    
+            <view class="jmBox">
+                <view class="jmBiaoqian">
+                    出局
+                </view>
+                <view class="jmText">
+                    L6172
+                    ￥75,812
+                </view>
+            </view>
+            <view class="jmBox">
+                <view class="jmBiaoqian">
+                    出局
+                </view>
+                <view class="jmText">
+                    L6172
+                    ￥75,812
+                </view>
+            </view>
+            <view class="jmBox">
+                <view class="jmBiaoqian">
+                    出局
+                </view>
+                <view class="jmText">
+                    L6172
+                    ￥75,812
+                </view>
+            </view>
+            <view class="jmBox">
+                <view class="jmBiaoqian">
+                    出局
+                </view>
+                <view class="jmText">
+                    L6172
+                    ￥75,812
+                </view>
+            </view>
             <view class="jmBox">
                 <view class="jmBiaoqian">
                     出局
@@ -148,15 +186,23 @@
                 </view>
             </view>
         </view>
-
-
+    </view>
+    <view class="jingpaiBox">
+        <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
+        <view class="jpText">
+            竞价详情
+        </view>
+        <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
+    </view>
+    <view class="box">
+       <raw-html html="{{rule.content}}"></raw-html>
     </view>
 </view>
 <!-- 分割线 -->
 <view class="fengexian"> </view>
 
 <!-- 地图 -->
-<!-- <map-block></map-block> -->
+<!-- <map-block tabs="{{map_tabs}}"></map-block> -->
 
 <!-- 底部栏 -->
 <view class="bottomBox">

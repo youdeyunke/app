@@ -9,7 +9,7 @@ export function getHouseBlocks(pid){
     return request.get("/api/v6/houses/"+pid);
 }
 
-// 拉取竞价规则
+// 拉取竞价规则   完成
 export function getRuleDetail(ruleId){
   return request.get("/api/v6/auction_rules/"+ruleId);
 }
