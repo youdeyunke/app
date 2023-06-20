@@ -19,7 +19,7 @@ Page({
      */
     onLoad: function (q) {
         if (q.amount) {
-            this.setData({ amount: amount })
+            this.setData({ amount: q.amount })
         }
     },
 
@@ -44,6 +44,10 @@ Page({
         wx.showLoading()
         walletApi.createBalance(amount).then((resp) => {
             // pass
+            if(resp.data.code == 0){
+              // 回退
+              wx.navigateBack();
+            }
             wx.hideLoading();
         });
 
