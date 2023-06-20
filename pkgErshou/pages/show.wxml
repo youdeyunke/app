@@ -10,7 +10,7 @@
         </view>
 
         <view class="tishi">
-            <image class="tishiImg" src="" mode="" />
+            <van-icon name="bell" style="margin-right: 10rpx;" />
             变量提示
         </view>
     </view>
@@ -53,7 +53,7 @@
         <view class=" huxing">
             户型
             <view class="shoujia_jine">
-               {{block.type_name}}
+                {{block.type_name}}
             </view>
         </view>
         <view class="shoujia">
@@ -63,8 +63,8 @@
             </view>
         </view>
     </view>
-    <view class="daikanBox">
-        <image class="daikanBoxImg" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
+    <view class="daikanBox" wx:if="{{block.vr}}" bindtap="vrBtn" data-vr="{{block.vr}}">
+        <image class="daikanBoxImg" src="https://qiniucdn.udeve.net/fang/post-cover-icon-vr.png" mode="" />
         <view class="daikanText">
             带看无需奔走，专人答疑
         </view>
@@ -80,18 +80,18 @@
             </view>
         </view>
         <view class="xxxxTitle">
-          用途：
+            用途：
             <view class="xxxxText">
                 {{block.category}}
             </view>
         </view>
         <view class="xxxxTitle">
-          朝向：
+            朝向：
             <view class="xxxxText">
                 {{block.position}}
             </view>
         </view>
-       
+
     </view>
 </view>
 <!-- 竞拍 -->
@@ -174,6 +174,18 @@
                 评估价:
                 <view class="xxxxText">
                     146346元/平
+                </view>
+            </view>
+            <view class="xxxxTitle">
+                开始时间:
+                <view class="xxxxText">
+                    {{rule.starts_at}}
+                </view>
+            </view>
+            <view class="xxxxTitle">
+                结束时间:
+                <view class="xxxxText">
+                    {{rule.ends_at}}
                 </view>
             </view>
         </view>
