@@ -1,5 +1,7 @@
 // pkgWallet/pages/wallet/index.js
 const app = getApp()
+const walletApi = require('../../../api/balance.js');
+
 
 Page({
 
@@ -30,37 +32,29 @@ Page({
             page: _this.data.page,
             per_page: _this.data.per_page,
         }
-        app.request({ //待定
-            url: '/api/v1/balances/',
-            data: query,
-            success: function (resp) {
-                var i = query['page'] - 1
-                var data = { loading: false, total_items: resp.data.total_items }
-                if (i > 0) {
-                    var key = 'items[' + i + ']'
-                    data[key] = resp.data.data
-                } else {
-                    data['items'] = [resp.data.data]
-                }
-                _this.setData(data)
-                console.log('data is', data, resp.data.data)
-            },
-        })
+        walletApi.getBalanceList(query).then((resp) => {
+            var data = { loading: false };
+            var i = query['page'] - 1
+            if (i > 0) {
+                var key = 'items[' + i + ']'
+                data[key] = resp.data.data.result
+            } else {
+                data['items'] = [resp.data.data.result]
+            }
+            _this.setData(data)
+            console.log('data is', data, resp.data.data)
+
+        });
     },
 
     loadBalanceInfo: function () {
         var _this = this
-        app.request({  //待定
-            url: '/api/v1/balances/info',
-            success: function (resp) {
-                if (resp.data.status == 0) {
-                    console.log('balance info resp', resp)
-                    _this.setData({
-                        balanceInfo: resp.data.data
-                    })
-                }
-            }
-        })
+        walletApi.getBalanceCount().then((resp) => {
+            this.setData({
+                balanceInfo: resp.data.data
+            })
+
+        });
     },
 
     /**
