@@ -10,6 +10,8 @@ Page({
         banners: {},
         rule: null,
         bids:[], // 出价记录
+        has_joined: false, // 是否报名参加过
+        members:[], // 报名的成员列表
         houseId:null,
     },
 
@@ -26,7 +28,7 @@ Page({
         houseApi.getRuleDetail(ruleId).then((res) => {
            const data =  res.data.data;
            console.log("121竞价",res);
-            this.setData({rule: data.rule, bids:data.bids});
+            this.setData(data);
         })
     },
 
@@ -70,6 +72,13 @@ Page({
      */
     onUnload() {
 
+    },
+
+    payAndJoin: function(){
+        // 报名参加竞拍
+        var ruleId = this.data.rule.id;
+        houseApi.payAndJoin(ruleId).then((res) => {
+        });
     },
 
     /**

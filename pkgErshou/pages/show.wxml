@@ -209,7 +209,7 @@
             已设提醒
         </view>
     </view>
-    <view class="baomingBtn">
+    <view class="baomingBtn" bindtap="payAndJoin">
         <view class="biaomingTitle">
             立即报名
         </view>
