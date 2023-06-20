@@ -21,4 +21,19 @@ export function getRuleDetail(ruleId){
   return request.get("/api/v6/auction_rules/"+ruleId);
 }
 
+// 报名参加竞拍
+export function payAndJoin(ruleId){
+    return request.post("/api/v6/auction_members", {rule_id: ruleId});
+}
+
+// 参与出价
+export function createBid(ruleId){
+    return request.post("/api/v6/auction_bids", {rule_id: ruleId});
+}
+
+// 拉取出价明细
+export function getBidList(ruleId){
+    return request.get("/api/v6/auction_bids", {rule_id: ruleId});
+}
+
 
