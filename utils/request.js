@@ -117,6 +117,12 @@ const http = ({
                         content: res.data.error
                     });
                 }
+                if (res.data.status == 1 && res.data.message) {
+                    wx.showModal({
+                        title: "温馨提示",
+                        content: res.data.message,
+                    });
+                }
 
                 var t = app && app.globalData && app.globalData.myconfigs && app.globalData.myconfigs.timeout ? app.globalData.myconfigs.timeout : 0
 
