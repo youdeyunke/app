@@ -9,6 +9,7 @@ Page({
         items: [],
         page:1,
         business: '',
+        kw: '',
         filterOption: {},
         filter:{
             page: 1,
@@ -28,6 +29,23 @@ Page({
             _this.loadPostFilter()
         })
         
+    },
+
+    kwSearch(e){
+        var filter = this.data.filter
+        var kw = e.detail
+        if(kw){
+            filter.kw = kw
+        }else{
+            delete filter.kw
+        }
+        filter.page = 1
+        this.setData({
+            filter: filter,
+            items:[]
+        },()=>{
+            this.loadData()
+        })
     },
 
     filterChange(e){
