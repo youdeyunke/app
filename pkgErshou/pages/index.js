@@ -66,7 +66,7 @@ Page({
                 _this.setData({
                     items:item
                 })
-            } 
+            }
         })
     },
     /**
