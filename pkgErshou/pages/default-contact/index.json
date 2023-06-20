@@ -1,8 +1,6 @@
 {
     "component": true,
     "usingComponents": {
-        "share-box": "../share-box/index",
-        "post-booking": "/components/post-booking/index",
-        "fav": "../fav/index"
+        "post-booking": "/components/post-booking/index"
     }
 }
