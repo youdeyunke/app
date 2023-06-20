@@ -95,8 +95,8 @@
     </view>
 </view>
 <!-- 竞拍 -->
-<!-- wx:if="{{rule && rule.id}}" -->
-<view >
+
+<view wx:if="{{rule && rule.id}}">
     <view class="jingpaiBox">
         <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
         <view class="jpText">
@@ -109,15 +109,6 @@
             我的竞买号:M2067
         </view>
         <view class="jingmaineirongBox">    
-            <view class="jmBox">
-                <view class="jmBiaoqian">
-                    出局
-                </view>
-                <view class="jmText">
-                    L6172
-                    ￥75,812
-                </view>
-            </view>
             <view class="jmBox">
                 <view class="jmBiaoqian">
                     出局
