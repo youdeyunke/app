@@ -7,11 +7,12 @@ Page({
      */
     data: {
         block:{
-            banners: {}
+            banners: {}// TODO修改
         },
+        banners: {},
         rule: null,
         bids:[], // 出价记录
-        postId:null
+        postId:null,  // TODO houseId,
     },
 
     /**
