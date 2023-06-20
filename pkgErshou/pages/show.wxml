@@ -1,90 +1,93 @@
 <!--pkgErshou/pages/show.wxml-->
 <banners-block value="{{block.banners}}"></banners-block>
 <!-- 基础信息 -->
-<view style="padding: 30rpx;background-color: #ffffff;">
-    <view style="display: flex;justify-content: space-between;">
-        <view class="biaoqian">
-            电铁房
-        </view>
-        <view style="width: 160rpx;height: 54rpx;background: #F2F4F8;border-radius: 8rpx; color: #2E6AD6;display: flex;align-items: center;">
-            <image style="width: 28rpx;height: 28rpx;" src="" mode="" />
+<view class="box">
+    <view class="biaoqianBox">
+    <view class="biaoqianLBox">
+        <view class="biaoqian" style="color:{{item.color}}"  wx:for="{{block.tags}}">
+           {{item.name}}
+        </view> 
+    </view>
+      
+        <view class="tishi">
+            <image class="tishiImg" src="" mode="" />
             变量提示
         </view>
     </view>
-    <view style="font-size: 34rpx;font-weight: 600;color: #222222;margin-top: 32rpx;">
+    <view class="biaotiBox">
         通透户型安静位置，动静分离2居室，2个阳台西四环内五棵松
     </view>
-    <view style="display: flex;justify-content: space-between;">
+    <view class="fuzerenBox">
         <view style="display: flex;">
-            <view style="display: flex;align-items: center;color: #999999;font-size: 24rpx;">
-                <image style="width: 40rpx;height: 32rpx;margin-right: 13rpx;" src="https://qiniucdn.udeve.cn/fang2021/b1f98257-2189-4116-a962-664a8f7ea68b.png" mode="" />
+            <view class="fuzeren">
+                <image class="fuzerenImg" src="https://qiniucdn.udeve.cn/fang2021/b1f98257-2189-4116-a962-664a8f7ea68b.png" mode="" />
                 房源负责人
             </view>
-            <view style="display: flex;align-items: center;color: #999999;font-size: 24rpx;margin-left: 50rpx;">
-                <image style="width: 40rpx;height: 32rpx;margin-right: 13rpx;" src="https://qiniucdn.udeve.cn/fang2021/a6eb9ded-760d-470a-ad64-acfdba186831.png" mode="" />
+            <view class="fuzeren" style="margin-left: 50rpx;">
+                <image class="fuzerenImg" src="https://qiniucdn.udeve.cn/fang2021/a6eb9ded-760d-470a-ad64-acfdba186831.png" mode="" />
                 房源发布机构
             </view>
         </view>
         <view style="display: flex;">
-            <view style="display: flex;flex-direction:column;font-size: 26rpx;color: #333333;width: 80rpx;height: 80rpx;align-items: center;">
-                <image style="width: 40rpx;height: 40rpx;" src="https://qiniucdn.udeve.cn/fang2021/1cafcedd-4633-41e1-9ec1-2d9f413e8a9e.png" mode="" />
+            <view class="guanzhu">
+                <image class="guanzhuImg" src="https://qiniucdn.udeve.cn/fang2021/1cafcedd-4633-41e1-9ec1-2d9f413e8a9e.png" mode="" />
                 <view>
                     关注
                 </view>
             </view>
-            <view style="display: flex;flex-direction:column;font-size: 26rpx;color: #333333;width: 80rpx;height: 100rpx;align-items: center;">
-                <image style="width: 40rpx;height: 40rpx;" src="https://qiniucdn.udeve.cn/fang2021/88362a90-7692-4214-8154-aa4b6fe4e1f9.png" mode="" />
+            <view class="guanzhu">
+                <image class="guanzhuImg" src="https://qiniucdn.udeve.cn/fang2021/88362a90-7692-4214-8154-aa4b6fe4e1f9.png" mode="" />
                 <view>
                     分享
                 </view>
             </view>
         </view>
     </view>
-    <view style="display: flex;">
-        <view style="font-size: 28rpx;color: #999999;">
+    <view class="jichuxinxiBox">
+        <view class="shoujia">
             售价
-            <view style="font-size: 34rpx;color: #333333;font-weight: 600;">
+            <view class="shoujia_jine">
                 1450万元
             </view>
         </view>
-        <view style="border-left: 2rpx solid #DDDDDD;border-right:2rpx solid #DDDDDD;padding: 0 90rpx 0 30rpx;margin-left: 90rpx;margin-right: 30rpx;font-size: 28rpx;color: #999999;">
+        <view class="shoujia  huxing">
             户型
-            <view style="font-size: 34rpx;color: #333333;font-weight: 600;">
+            <view class="shoujia_jine">
                 2室2厅
             </view>
         </view>
-        <view style="font-size: 28rpx;color: #999999;">
+        <view class="shoujia">
             建筑面积
-            <view style="font-size: 34rpx;color: #333333;font-weight: 600;">
+            <view class="shoujia_jine">
                 99.08㎡
             </view>
         </view>
     </view>
-    <view style="display: flex;align-items: center;margin-top: 40rpx;background: #F7F6F1;padding: 18rpx;border-radius: 8rpx;">
-        <image style="width: 42rpx;height: 42rpx;" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
-        <view style="font-size: 28rpx;color: #333333;margin-right: 43rpx;margin-left: 14rpx;">
-            小鹭找房带看无需奔走，专人答疑
+    <view class="daikanBox">
+        <image class="daikanBoxImg" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
+        <view class="daikanText">
+            带看无需奔走，专人答疑
         </view>
-        <view style="display: flex;width: 132rpx;height: 54rpx;border: 1px solid #2E6AD6;border-radius: 8rpx;align-items: center;color: #2E6AD6;align-items: center;justify-content: center;font-size: 22rpx">
+        <view class="daikanBtn">
             线上带看
         </view>
     </view>
-    <view style="display: flex;flex-direction:row;flex-wrap:wrap;">
-        <view style="display: flex;width: 340rpx;font-size: 28rpx;color: #999999;padding-top: 30rpx;">
+    <view class="xiangxixinxiBox">
+        <view class="xxxxTitle">
             单价：
-            <view style="color: #333333;font-weight: bold;">
+            <view class="xxxxText">
                 146346元/平
             </view>
         </view>
-        <view style="display: flex;width: 340rpx;font-size: 28rpx;color: #999999;padding-top: 30rpx;">
+        <view class="xxxxTitle">
             单价：
-            <view style="color: #333333;font-weight: bold;">
+            <view class="xxxxText">
                 146346元/平
             </view>
         </view>
-        <view style="display: flex;width: 340rpx;font-size: 28rpx;color: #999999;padding-top: 30rpx;">
+        <view class="xxxxTitle">
             单价：
-            <view style="color: #333333;font-weight: bold;">
+            <view class="xxxxText">
                 146346元/平
             </view>
         </view>
@@ -92,72 +95,56 @@
 </view>
 <!-- 竞拍 -->
 <view>
-    <view style="background: #E7F4FF;height: 84rpx;width: 100%;margin-top: 24rpx;display: flex;align-items: center;">
-        <image style="width: 42rpx;height: 42rpx;margin-left: 30rpx;" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
-        <view style="font-size: 32rpx;color: #333333;font-weight: bold;margin-left: 16rpx;margin-right: 470rpx;">
+    <view class="jingpaiBox">
+        <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
+        <view class="jpText">
             竞价拍卖
         </view>
-        <image style="width: 46rpx;height: 46rpx;" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
+        <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
     </view>
-    <view style="padding: 30rpx;background-color: #ffffff;">
-        <view style="font-size: 30rpx;color: #333333;font-weight: bold;">
+    <view class="box">
+        <view class="jingmaiBox">
             我的竞买号:M2067
         </view>
-        <view style="display: flex;justify-content: space-between;">
-            <view style="width: 214rpx;height: 83rpx;background: #FFFFFF;border: 1px solid #DDDDDD;margin-top: 43rpx;display: flex;align-items: center;flex-direction:row-reverse;position: relative;">
-                <view style="height: 30rpx;background-color: #cccccc;font-size: 22rpx;font-size: 22rpx;color: #FFFFFF;position: absolute;top: -1rpx;left: 0;padding: 3rpx 5rpx 3rpx 5rpx;">
+        <view class="jingmaineirongBox">
+            <view class="jmBox">
+                <view class="jmBiaoqian">
                     出局
                 </view>
-                <view style="width: 100rpx;font-size: 22rpx;color: #999999;display: flex;flex-direction: column;text-align: right;margin-right: 18rpx;">
+                <view class="jmText">
                     L6172
                     ￥75,812
                 </view>
             </view>
         </view>
-        <view style="display: flex;margin-top: 38rpx;">
-            <view style="font-size: 28rpx;color: #999999;">
+        <view class="baozhengjinBox">
+            <view class="bzjTitle">
                 保证金：
             </view>
-            <view style="font-size: 28rpx;color: #333333;margin-left: 25rpx;margin-right: 25rpx;">
+            <view class="bzjText">
                 ￥1.0
             </view>
-            <view style="font-size: 28rpx;color: #2E6AD6">
+            <view class="bzjBtn">
                 查看如何支付
             </view>
         </view>
-        <view style="display: flex;flex-direction:row;flex-wrap:wrap;margin-top: 33rpx;">
-            <view style="display: flex;width: 340rpx;">
-                <view style="font-size: 28rpx;color: #999999;">
-                    起拍价:
-                </view>
-                <view style="font-weight: 600;">
-                    ￥2
+        <view class="xiangxixinxiBox">
+            <view class="xxxxTitle">
+                起拍价:
+                <view class="xxxxText">
+                    146346元/平
                 </view>
             </view>
-            <view style="display: flex;width: 340rpx;">
-                <view style="font-size: 28rpx;color: #999999;">
-                    加价幅度:
-                </view>
-                <view style="font-weight: 600;">
-                    ￥2
+            <view class="xxxxTitle">
+                加价幅度:
+                <view class="xxxxText">
+                    146346元/平
                 </view>
             </view>
-        </view>
-        <view style="display: flex;flex-direction:row;flex-wrap:wrap;margin-top: 33rpx;">
-            <view style="display: flex;width: 340rpx;">
-                <view style="font-size: 28rpx;color: #999999;">
-                    起拍价:
-                </view>
-                <view style="font-weight: 600;">
-                    ￥2
-                </view>
-            </view>
-            <view style="display: flex;width: 340rpx;">
-                <view style="font-size: 28rpx;color: #999999;">
-                    加价幅度:
-                </view>
-                <view style="font-weight: 600;">
-                    ￥2
+            <view class="xxxxTitle">
+                评估价:
+                <view class="xxxxText">
+                    146346元/平
                 </view>
             </view>
         </view>
@@ -166,30 +153,30 @@
     </view>
 </view>
 <!-- 分割线 -->
-<view style="height: 36rpx;width: 100%;"> </view>
+<view class="fengexian"> </view>
 
 <!-- 地图 -->
 <!-- <map-block></map-block> -->
 
 <!-- 底部栏 -->
-<view style="display: flex;justify-content: space-around;align-items: center;padding: 15rpx 0 15rpx 0;background-color: #ffffff; position: sticky;bottom: 0;">
-    <view style="display: flex;align-items: center;flex-direction: column;">
-        <image style="width: 62rpx;height: 62rpx;" src="https://qiniucdn.udeve.cn/fang2021/16cc3f04-0aa4-420b-9ad6-732229493f46.png" mode=""/>
-        <view style="font-size: 24rpx;color: #666666;">
+<view class="bottomBox">
+    <view class="zixunBtn">
+        <image class="zixunImg" src="https://qiniucdn.udeve.cn/fang2021/16cc3f04-0aa4-420b-9ad6-732229493f46.png" mode="" />
+        <view class="zixunText">
             咨询
         </view>
     </view>
-    <view style="display: flex;align-items: center;flex-direction: column;">
-        <image style="width: 62rpx;height: 62rpx;" src="https://qiniucdn.udeve.cn/fang2021/c171c255-3290-4e2b-bf17-22529937aabe.png" mode=""/>
-        <view style="font-size: 24rpx;color: #666666;">
+    <view class="zixunBtn">
+        <image class="zixunImg" src="https://qiniucdn.udeve.cn/fang2021/c171c255-3290-4e2b-bf17-22529937aabe.png" mode="" />
+        <view class="zixunText">
             已设提醒
         </view>
     </view>
-    <view style="width: 420rpx;height: 90rpx;background: #2065E2;border-radius: 12rpx;color: #FFFFFF;display: flex;align-items: center;justify-content: center;flex-direction: column;">
-        <view style="font-size: 34rpx;font-weight: 600;">
+    <view class="baomingBtn">
+        <view class="biaomingTitle">
             立即报名
         </view>
-        <view style="font-size: 22rpx;">
+        <view class="biaomingText">
             保证金￥10,000
         </view>
     </view>

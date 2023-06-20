@@ -7,7 +7,7 @@ Page({
      */
     data: {
         block:{
-            banners: {}
+            banners: {},
         },
         postId:null
     },
@@ -21,7 +21,7 @@ Page({
     loadData: function (e) {
         var _this = this
         houseApi.getHouseBlocks(e).then((res) => {
-            console.log("121res",res.data.data);
+            console.log("121resssss",res.data.data.tags);
             _this.setData({
                 block:res.data.data,
                 postId:res.data.data.id
