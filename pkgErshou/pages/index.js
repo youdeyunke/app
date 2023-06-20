@@ -7,21 +7,74 @@ Page({
      */
     data: {
         items: [],
-        page:1
+        page:1,
+        business: '',
+        kw: '',
+        filterOption: {},
+        filter:{
+            page: 1,
+        }
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        this.loadData()
+        var _this = this
+        var business = options.business || '出租'
+        this.setData({
+            business: business
+        },() => {
+            _this.loadData()
+            _this.loadPostFilter()
+        })
+        
+    },
+
+    kwSearch(e){
+        var filter = this.data.filter
+        var kw = e.detail
+        if(kw){
+            filter.kw = kw
+        }else{
+            delete filter.kw
+        }
+        filter.page = 1
+        this.setData({
+            filter: filter,
+            items:[]
+        },()=>{
+            this.loadData()
+        })
+    },
+
+    filterChange(e){
+        var _this = this
+        var filter = e.detail
+        console.log(filter);
+        filter.page = 1
+        this.setData({
+            filter: filter,
+            items: []
+        },()=>{
+            _this.loadData()
+        })
+    },
+
+    loadPostFilter(){
+        var _this = this
+        var business = this.data.business
+        console.log("loadfilter",business);
+        houseApi.getHouseFilter(business).then((resp)=>{
+            _this.setData({
+                filterOption: resp.data.data
+            })
+        })
     },
 
     loadData: function () {
         var _this = this
-        var query={
-            page:this.data.page
-        }
+        var query= this.data.filter
         houseApi.getHouseList(query).then((res) => {
             if(res.data.data.result.length>0) {
                 var item= _this.data.items
@@ -73,9 +126,11 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom() {
-        var page = this.data.page || 1
+        // var page = this.data.filter.page || 1
+        var filter = this.data.filter
+        filter.page = filter.page + 1
         this.setData({
-            page: page + 1,
+            filter: filter,
         },()=>{
             this.loadData()
         })

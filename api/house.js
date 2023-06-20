@@ -9,7 +9,16 @@ export function getHouseBlocks(pid){
     return request.get("/api/v6/houses/"+pid);
 }
 
+<<<<<<< HEAD
 // 拉取竞价规则   完成
+=======
+// 拉取楼盘筛选条件
+export function getHouseFilter(busi){
+    return request.get("/api/v6/house_filters?business=" + busi);
+}
+
+// 拉取竞价规则
+>>>>>>> 8d0a3199db204ebade14c877612367c19d242d55
 export function getRuleDetail(ruleId){
   return request.get("/api/v6/auction_rules/"+ruleId);
 }

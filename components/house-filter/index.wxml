@@ -1,0 +1,9 @@
+<view class="new-post-filter">
+    <!-- <city-picker style="height:100%;" bind:change="cityChange" city-id="{{filter.city_id}}" district-id="{{filter.district_id}}" />
+    <price-picker label="售价" bind:change="priceChange" />
+    <order-picker style="height:100%;" bind:change="orderChange" options="{{orderOptions}}" />
+    <other-filter wx:if="{{options}}" filter="{{filter}}" options="{{options}}" bind:change="otherChange"></other-filter> -->
+    <fitment-picker wx:if="{{options.fitment}}"  items="{{options.fitment}}" bind:change="fitmentChange"></fitment-picker>
+    <position-picker wx:if="{{options.position}}" items="{{options.position}}" bind:change="positionChange"></position-picker>
+    <category-picker wx:if="{{options.category}}" items="{{options.category}}" bind:change="categoryChange"></category-picker>
+</view>
