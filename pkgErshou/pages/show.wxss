@@ -1,5 +1,9 @@
 /* pkgErshou/pages/show.wxss */
-box {
-    padding: 30rpx;
-    background-color: #ffffff;
+.biaoqian {
+    height: 34rpx;
+    font-size: 22rpx;
+    color: #2E6AD6;
+    padding: 7rpx;
+    background: #F2F4F8;
+    border-radius: 2rpx;
 }

@@ -1,8 +1,9 @@
 <!--pkgErshou/pages/show.wxml-->
 <banners-block value="{{block.banners}}"></banners-block>
+<!-- 基础信息 -->
 <view style="padding: 30rpx;background-color: #ffffff;">
     <view style="display: flex;justify-content: space-between;">
-        <view style="height: 34rpx;font-size: 22rpx;color: #2E6AD6;padding: 7rpx;background: #F2F4F8;border-radius: 2rpx;">
+        <view class="biaoqian">
             电铁房
         </view>
         <view style="width: 160rpx;height: 54rpx;background: #F2F4F8;border-radius: 8rpx; color: #2E6AD6;display: flex;align-items: center;">
@@ -89,6 +90,7 @@
         </view>
     </view>
 </view>
+<!-- 竞拍 -->
 <view>
     <view style="background: #E7F4FF;height: 84rpx;width: 100%;margin-top: 24rpx;display: flex;align-items: center;">
         <image style="width: 42rpx;height: 42rpx;margin-left: 30rpx;" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
@@ -163,13 +165,11 @@
 
     </view>
 </view>
+<!-- 分割线 -->
 <view style="height: 36rpx;width: 100%;"> </view>
 
-
-
-
-
-
+<!-- 地图 -->
+<!-- <map-block></map-block> -->
 
 <!-- 底部栏 -->
 <view style="display: flex;justify-content: space-around;align-items: center;padding: 15rpx 0 15rpx 0;background-color: #ffffff; position: sticky;bottom: 0;">

@@ -1,0 +1,138 @@
+/* pkgErshou/pages/zhoubian.wxss */
+.cell-title{
+    height: 70rpx;
+    padding: 10rpx 0 10rpx 10rpx;
+    display: flex;
+    align-items: center;
+}
+
+.cell-title .index{
+    width:50rpx; 
+    height:50rpx;
+    border-radius: 50rpx;
+    font-size:24rpx; 
+    color:#a2a2a2;
+    background:#f3f3f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right:8rpx;
+}
+
+.title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 28rpx;
+    color: #333;
+}
+
+.label {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 24rpx;
+}
+
+.name {
+    width: 80rpx;
+    height: 30rpx;
+    margin: 0 auto;
+    line-height: 30rpx;
+    font-size: 28rpx;
+}
+
+.null {
+    padding: 30rpx 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.more-btn {
+    height: 88rpx;
+    border-radius: 4rpx;
+    font-size: 30rpx;
+    background: #F8F8F8;
+    color: #333;
+    line-height: 88rpx;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30rpx;
+    font-weight: bolder;
+}
+
+.mini {
+    height: 240rpx;
+    overflow: hidden;
+}
+
+.active {
+    /* width: 80rpx;
+    height: 4rpx;
+    border-bottom: 6rpx solid #1989fa;
+    margin: 0 auto;
+    position: absolute;
+    z-index: 2;
+    bottom: 0rpx;
+    left: 25rpx; */
+    background:#1989fa; 
+    color:#fff;
+}
+
+.tabs_title {
+    width: 100%;
+    white-space: nowrap;
+    border-top: 2rpx solid #f0f0f0;
+    border-bottom: 2rpx solid #f0f0f0;
+    margin-top: 20rpx;
+}
+
+.title_item {
+    display: inline-block;
+    padding: 15rpx 0;
+    position: relative;
+    text-align: center;
+    width: 130rpx;
+}
+
+.title_item.current-active {
+    color: #1989fa;
+    font-weight: bolder;
+}
+
+/* .cell-outer {} */
+
+.cell-outer.active{
+    background:#1989fa; 
+    color:#fff;
+}
+
+.icon {
+    width: 68rpx;
+    height: 68rpx;
+    margin-top: 8rpx;
+}
+
+.border {
+    height: 2rpx;
+    background-color: #F0F0F0;
+    position: fixed;
+}
+
+.images {
+    width: 16rpx;
+    height: 22rpx;
+    margin-right: 8rpx;
+}
+
+.value {
+    padding: 10rpx 10rpx 10rpx 0;
+    height: 70rpx;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}

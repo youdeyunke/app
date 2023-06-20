@@ -1,0 +1,20 @@
+<!--pkgErshou/pages/block-box.wxml-->
+<view class="card ">
+    <view class="card-header">
+        <view class="card-header-title">
+            <view wx:if="{{leftHat}}" style="width: 6rpx;height: 30rpx;background-color: {{leftHatColor}};margin-right: 15rpx;"></view>
+            <view class="name">
+                {{title}}
+                <text wx:if="{{number>0}}">({{number}})</text>
+            </view>
+        </view>
+        <view wx:if="{{subTitle}}" class="sub-title card-header-action" bindtap='actionHandle'>
+            <text class="card-header-action-name">{{subTitle}}</text>
+            <van-icon wx:if="{{url}}" name="arrow" />
+        </view>
+    </view>
+    <view class="card-body">
+        <slot></slot>
+    </view>
+    <view class="card-footer"></view>
+</view>

@@ -1,8 +1,8 @@
 {
     "component": true,
     "usingComponents": {
-        "block-box": "./block-box/index",
-        "zhoubian": "../../components/zhoubian/index",
-        "block-button": "../../components/block-button/index"
+        "block-box": "./block-box",
+        "zhoubian": "./zhoubian",
+        "block-button": "./block-button"
     }
 }
