@@ -36,6 +36,13 @@ Page({
             // let num1= data.ends_at.indexof("T")
             // let end= data.starts_at(0,num1)
             // data.ends_at=end
+            // 已经报名参加过，按钮文字需要变化
+            if(data.has_joined){
+              this.setData({
+                btn:"立即出价",
+                btnDesc: "幅度：" + this.data.rule.bid_range
+              })
+            }
             this.setData(data);
         })
     },
