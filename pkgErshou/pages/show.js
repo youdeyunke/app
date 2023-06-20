@@ -6,10 +6,11 @@ Page({
      * 页面的初始数据
      */
     data: {
-        block:{
-            banners: {},
-        },
-        postId:null
+        block:{},
+        banners: {},
+        rule: null,
+        bids:[], // 出价记录
+        houseId:null,
     },
 
     /**
@@ -18,14 +19,28 @@ Page({
     onLoad(options) {
         this.loadData(options.id)
     },
+
+    loadRule: function(ruleId){
+        // 如果是竞价房源，那么需要拉取竞价规则信息；
+        // TODO 
+        houseApi.getRuleDetail(ruleId).then((res) => {
+           const data =  res.data.data;
+            this.setData({rule: data.rule, bids:data.bids});
+        })
+    },
+
     loadData: function (e) {
         var _this = this
         houseApi.getHouseBlocks(e).then((res) => {
             console.log("121resssss",res.data.data.tags);
             _this.setData({
                 block:res.data.data,
-                postId:res.data.data.id
+                banners:res.data.data.banners,
+                houseId:res.data.data.id
             })
+            if(res.data.data.rule_id){
+                _this.loadRule(res.data.data.rule_id)
+            }
         })
     },
     /**

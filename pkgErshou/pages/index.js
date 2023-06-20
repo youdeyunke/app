@@ -16,6 +16,7 @@ Page({
     onLoad(options) {
         this.loadData()
     },
+
     loadData: function () {
         var _this = this
         var query={
@@ -30,7 +31,7 @@ Page({
                 _this.setData({
                     items:item
                 })
-            } 
+            }
         })
     },
     /**

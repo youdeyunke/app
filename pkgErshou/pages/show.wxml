@@ -1,5 +1,5 @@
 <!--pkgErshou/pages/show.wxml-->
-<banners-block value="{{block.banners}}"></banners-block>
+<banners-block value="{{banners}}"></banners-block>
 <!-- 基础信息 -->
 <view class="box">
     <view class="biaoqianBox">
@@ -94,7 +94,7 @@
     </view>
 </view>
 <!-- 竞拍 -->
-<view>
+<view wx:if="{{rule && rule.id}}">
     <view class="jingpaiBox">
         <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
         <view class="jpText">
