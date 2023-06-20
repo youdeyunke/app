@@ -1,18 +1,19 @@
 // pkgErshou/pages/show.js
 var houseApi = require("../../api/house")
+const app = getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        block:{},
+        block: {},
         banners: {},
         rule: null,
-        bids:[], // 出价记录
+        bids: [], // 出价记录
         has_joined: false, // 是否报名参加过
-        members:[], // 报名的成员列表
-        houseId:null,
+        members: [], // 报名的成员列表
+        houseId: null,
     },
 
     /**
@@ -22,12 +23,17 @@ Page({
         this.loadData(options.id)
     },
 
-    loadRule: function(ruleId){
+    loadRule: function (ruleId) {
         // 如果是竞价房源，那么需要拉取竞价规则信息；
         // TODO 
         houseApi.getRuleDetail(ruleId).then((res) => {
-           const data =  res.data.data;
-           console.log("121竞价",res);
+            const data = res.data.data;
+            // let num = data.starts_at.indexOf('T')
+            // let starts= data.starts_at(0,num)
+            // data.starts_at=starts
+            // let num1= data.ends_at.indexof("T")
+            // let end= data.starts_at(0,num1)
+            // data.ends_at=end
             this.setData(data);
         })
     },
@@ -35,16 +41,24 @@ Page({
     loadData: function (e) {
         var _this = this
         houseApi.getHouseBlocks(e).then((res) => {
-            console.log("121resssss",res.data.data.tags);
-            _this.setData({
-                block:res.data.data,
-                banners:res.data.data.banners,
-                houseId:res.data.data.id
+            wx.setNavigationBarTitle({
+                title: res.data.data.title
             })
-            if(res.data.data.rule_id){
+            _this.setData({
+                block: res.data.data,
+                banners: res.data.data.banners,
+                houseId: res.data.data.id
+            })
+            if (res.data.data.rule_id) {
                 _this.loadRule(res.data.data.rule_id)
             }
+
         })
+    },
+    // VR看房
+    vrBtn(e) {
+        // console.log("12121点击vr",e.currentTarget.dataset.vr);
+        app.gotoWebview(e.currentTarget.dataset.vr)
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -74,11 +88,10 @@ Page({
 
     },
 
-    payAndJoin: function(){
+    payAndJoin: function () {
         // 报名参加竞拍
         var ruleId = this.data.rule.id;
-        houseApi.payAndJoin(ruleId).then((res) => {
-        });
+        houseApi.payAndJoin(ruleId).then((res) => {});
     },
 
     /**

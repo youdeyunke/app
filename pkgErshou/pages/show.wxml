@@ -1,17 +1,16 @@
 <!--pkgErshou/pages/show.wxml-->
-<view class="custom-navigation-bar">{{block.title}}</view>
 <banners-block value="{{banners}}"></banners-block>
 <!-- 基础信息 -->
 <view class="box">
     <view class="biaoqianBox">
-    <view class="biaoqianLBox">
-        <view class="biaoqian" style="color:{{item.color}}"  wx:for="{{block.tags}}">
-           {{item.name}}
-        </view> 
-    </view>
-      
+        <view class="biaoqianLBox">
+            <view class="biaoqian" style="color:{{item.color}}" wx:for="{{block.tags}}">
+                {{item.name}}
+            </view>
+        </view>
+
         <view class="tishi">
-            <image class="tishiImg" src="" mode="" />
+            <van-icon name="bell" style="margin-right: 10rpx;" />
             变量提示
         </view>
     </view>
@@ -46,26 +45,26 @@
     </view>
     <view class="jichuxinxiBox">
         <view class="shoujia">
-         {{block.price_label}}
+            {{block.price_label}}
             <view class="shoujia_jine">
-               {{block.price_value}}{{block.price_unit}}
+                {{block.price_value}}{{block.price_unit}}
             </view>
         </view>
         <view class=" huxing">
             户型
             <view class="shoujia_jine">
-                2室2厅
+                {{block.type_name}}
             </view>
         </view>
         <view class="shoujia">
-          面积
+            面积
             <view class="shoujia_jine">
                 {{block.area_value}}㎡
             </view>
         </view>
     </view>
-    <view class="daikanBox">
-        <image class="daikanBoxImg" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
+    <view class="daikanBox" wx:if="{{block.vr}}" bindtap="vrBtn" data-vr="{{block.vr}}">
+        <image class="daikanBoxImg" src="https://qiniucdn.udeve.net/fang/post-cover-icon-vr.png" mode="" />
         <view class="daikanText">
             带看无需奔走，专人答疑
         </view>
@@ -75,23 +74,24 @@
     </view>
     <view class="xiangxixinxiBox">
         <view class="xxxxTitle">
-            单价：
+            装修：
             <view class="xxxxText">
-                146346元/平
+                {{block.fitment}}
             </view>
         </view>
         <view class="xxxxTitle">
-            单价：
+            用途：
             <view class="xxxxText">
-                146346元/平
+                {{block.category}}
             </view>
         </view>
         <view class="xxxxTitle">
-            单价：
+            朝向：
             <view class="xxxxText">
-                146346元/平
+                {{block.position}}
             </view>
         </view>
+
     </view>
 </view>
 <!-- 竞拍 -->
@@ -108,7 +108,7 @@
         <view class="jingmaiBox">
             我的竞买号:M2067
         </view>
-        <view class="jingmaineirongBox">    
+        <view class="jingmaineirongBox">
             <view class="jmBox">
                 <view class="jmBiaoqian">
                     出局
@@ -151,7 +151,7 @@
                 保证金：
             </view>
             <view class="bzjText">
-                ￥1.0
+                {{rule.deposit}}￥
             </view>
             <view class="bzjBtn">
                 查看如何支付
@@ -161,19 +161,31 @@
             <view class="xxxxTitle">
                 起拍价:
                 <view class="xxxxText">
-                    146346元/平
+                    {{rule.bid_start}}元/平
                 </view>
             </view>
             <view class="xxxxTitle">
                 加价幅度:
                 <view class="xxxxText">
-                    146346元/平
+                    {{rule.bid_range}}元
                 </view>
             </view>
             <view class="xxxxTitle">
                 评估价:
                 <view class="xxxxText">
                     146346元/平
+                </view>
+            </view>
+            <view class="xxxxTitle">
+                开始时间:
+                <view class="xxxxText">
+                    {{rule.starts_at}}
+                </view>
+            </view>
+            <view class="xxxxTitle">
+                结束时间:
+                <view class="xxxxText">
+                    {{rule.ends_at}}
                 </view>
             </view>
         </view>
@@ -186,14 +198,14 @@
         <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
     </view>
     <view class="box">
-       <raw-html html="{{rule.content}}"></raw-html>
+        <raw-html html="{{rule.content}}"></raw-html>
     </view>
 </view>
 <!-- 分割线 -->
 <view class="fengexian"> </view>
 
 <!-- 地图 -->
-<!-- <map-block tabs="{{map_tabs}}"></map-block> -->
+<!-- <map-block value="{{block}}"></map-block> -->
 
 <!-- 底部栏 -->
 <view class="bottomBox">

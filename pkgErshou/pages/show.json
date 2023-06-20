@@ -1,5 +1,4 @@
 {
-  "navigationStyle": "custom",
   "usingComponents": {
     "banners-block": "./banners-block",
     "map-block":"./map-block",
