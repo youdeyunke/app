@@ -262,6 +262,7 @@
     color: #333333;
     margin-left: 25rpx;
     margin-right: 25rpx;
+    font-weight: bold;
 }
 
 .bzjBtn {

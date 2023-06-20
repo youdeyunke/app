@@ -53,7 +53,7 @@
         <view class=" huxing">
             户型
             <view class="shoujia_jine">
-                2室2厅
+               {{block.type_name}}
             </view>
         </view>
         <view class="shoujia">
@@ -151,7 +151,7 @@
                 保证金：
             </view>
             <view class="bzjText">
-                ￥1.0
+                {{rule.deposit}}￥
             </view>
             <view class="bzjBtn">
                 查看如何支付
@@ -161,13 +161,13 @@
             <view class="xxxxTitle">
                 起拍价:
                 <view class="xxxxText">
-                    146346元/平
+                    {{rule.bid_start}}元/平
                 </view>
             </view>
             <view class="xxxxTitle">
                 加价幅度:
                 <view class="xxxxText">
-                    146346元/平
+                    {{rule.bid_range}}元
                 </view>
             </view>
             <view class="xxxxTitle">
