@@ -9,4 +9,8 @@ export function getHouseBlocks(pid){
     return request.get("/api/v6/houses/"+pid);
 }
 
+// 拉取楼盘筛选条件
+export function getHouseFilter(busi){
+    return request.get("/api/v6/house_filters?business=" + busi);
+}
 

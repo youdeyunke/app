@@ -7,8 +7,9 @@
         </view>
     </view>
     <view style="position: absolute;top: 530rpx;background-color: #ffffff;padding: 10rpx;border-radius: 30rpx 30rpx 0rpx 0rpx;width: 730rpx;">
-        <view style="height: 126rpx;">
-            筛选
+        <view >
+            
+            <house-filter bind:change="filterChange" filter="{{filter}}" options="{{filterOption}}"></house-filter>
         </view>
         <house-item wx:for="{{items}}" post="{{item}}"></house-item>
     </view>
