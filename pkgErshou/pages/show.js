@@ -16,6 +16,8 @@ Page({
         has_joined: false, // 是否报名参加过
         members: [], // 报名的成员列表
         houseId: null,
+        title:"",
+        headSwitch:true
     },
 
     /**
@@ -24,18 +26,65 @@ Page({
     onLoad(options) {
         this.loadData(options.id)
     },
+// 时间格式处理
+    processDate(dateString) {
+        const date = new Date(dateString);
+        const month = this.formatNumber(date.getMonth() + 1); // 获取月份，注意月份要加1
+        const day = this.formatNumber(date.getDate()); // 获取日期
+        const time = date.toTimeString().slice(0, 8); // 获取时间，截取前8个字符
+      
+        return `${month}-${day} ${time}`;
+      },
+      
+      // 格式化数字为两位数
+      formatNumber(num) {
+        return num < 10 ? `0${num}` : num;
+      },
+// 判断当前时间是否在指定的时间区间内
+ checkTimeRange(min,max) {
+    const minDate = new Date(min);
+    console.log("min",minDate);
+    const maxDate = new Date(max);
+    const currentDate = new Date();
+  
+    if (currentDate < minDate) {
+      this.setData({
+          title:"即将开始:"+this.processDate(this.formatDateTime(minDate))                        
+      })
+    } else if (currentDate > maxDate) {
+      this.setData({
+        headSwitch:false
+    })
+    } else {
+      this.setData({
+        title:"结束时间:"+this.processDate(this.formatDateTime(maxDate))
+    })
+    }
+  },
+  
+  // 格式化日期时间
+   formatDateTime(dateTime) {
+    const year = dateTime.getFullYear();
+    const month = this.formatNumber(dateTime.getMonth() + 1);
+    const day = this.formatNumber(dateTime.getDate());
+    const time = dateTime.toTimeString().slice(0, 8);
+  
+    return `${year}-${month}-${day} ${time}`;
+  },
+  
+
+  
 
     loadRule: function (ruleId) {
         // 如果是竞价房源，那么需要拉取竞价规则信息；
         // TODO 
         houseApi.getRuleDetail(ruleId).then((res) => {
             const data = res.data.data;
-            // let num = data.starts_at.indexOf('T')
-            // let starts= data.starts_at(0,num)
-            // data.starts_at=starts
-            // let num1= data.ends_at.indexof("T")
-            // let end= data.starts_at(0,num1)
-            // data.ends_at=end
+            var time_on = this.processDate(data.rule.starts_at)
+            var end_time = this.processDate(data.rule.ends_at) 
+            this.checkTimeRange(data.rule.starts_at,data.rule.ends_at)
+            data.rule.starts_at=time_on
+            data.rule.ends_at=end_time
             // 已经报名参加过，按钮文字需要变化
             if(data.has_joined){
               this.setData({

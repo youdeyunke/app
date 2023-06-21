@@ -6,7 +6,27 @@
     text-align: center;
     background-color:#ffffff;
     color: #333333;
-    /* 其他自定义样式 */
+  }
+  .headLabelBox {
+    padding-left: 17rpx;
+    width: 330rpx;
+    height: 64rpx;
+    background: #000000;
+    opacity: 0.5;
+    border-radius: 32rpx 0rpx 0rpx 32rpx;
+    color: #FFFFFF;
+    font-size: 24rpx;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 20rpx;
+    right: 0;
+  }
+  .headLabelImg {
+      width: 32rpx;
+      height: 32rpx;
+      margin-right: 11rpx;
+      
   }
 .box {
     padding: 30rpx;

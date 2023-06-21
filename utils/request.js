@@ -4,7 +4,6 @@ const defaultApiHost = 'http://192.168.31.66:2021';
 const EXT = wx.getExtConfigSync();
 const apiHost = EXT.host || defaultApiHost;
 const throttle = require('./throttle');
-// const auth= require("./auth");
 
 // 发送http请求
 const http = ({
@@ -22,7 +21,6 @@ const http = ({
     if (wx.getStorageSync('token')) {
         header.Authorization = wx.getStorageSync('token');
     }
-    // console.log('‘headerts',header.Authorization);
     return new Promise((resolve, reject) => {
         wx.request({
             url: getUrl(url),

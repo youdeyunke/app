@@ -1,5 +1,10 @@
 <!--pkgErshou/pages/show.wxml-->
 <banners-block value="{{banners}}"></banners-block>
+<!-- 头部标签 -->
+<view class="headLabelBox" wx:if="{{rule && rule.id&& headSwitch}}">
+<image  class="headLabelImg" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode=""/>
+    {{title}}
+</view>
 <!-- 基础信息 -->
 <view class="box">
     <view class="biaoqianBox">
