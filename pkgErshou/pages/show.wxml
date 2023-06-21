@@ -221,12 +221,12 @@
             已设提醒
         </view>
     </view>
-    <view class="baomingBtn" bindtap="payAndJoin">
+    <view class="baomingBtn" bindtap="btnHandle">
         <view class="biaomingTitle">
-            立即报名
+            {{btnText}}
         </view>
-        <view class="biaomingText">
-            保证金￥10,000
+        <view wx:if="{{btnDesc}}" class="biaomingText">
+            {{btnDesc}}
         </view>
     </view>
 </view>

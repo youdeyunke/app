@@ -10,6 +10,8 @@ Page({
         block: {},
         banners: {},
         rule: null,
+        btnText:"立即报名", // 按钮大文字
+        btnDesc:null,//按钮小字
         bids: [], // 出价记录
         has_joined: false, // 是否报名参加过
         members: [], // 报名的成员列表
@@ -34,6 +36,13 @@ Page({
             // let num1= data.ends_at.indexof("T")
             // let end= data.starts_at(0,num1)
             // data.ends_at=end
+            // 已经报名参加过，按钮文字需要变化
+            if(data.has_joined){
+              this.setData({
+                btn:"立即出价",
+                btnDesc: "幅度：" + this.data.rule.bid_range
+              })
+            }
             this.setData(data);
         })
     },
@@ -88,10 +97,38 @@ Page({
 
     },
 
-    payAndJoin: function () {
+    btnHandle:function(){
+      if(this.data.has_joined){
+        this.bidHandle()
+      }else{
+        this.payAndJoinHandle(this.data.rule.id);
+      }
+    },
+
+    // 出价
+    bidHandle:function(){
+      // 参与出价，出价后要刷新
+      wx.showLoading();
+      houseApi.createBid(this.data.rule.id).then((res) =>{
+        this.loadData(this.data.houseId);
+      })
+    },
+
+    payAndJoinHandle: function () {
         // 报名参加竞拍
         var ruleId = this.data.rule.id;
-        houseApi.payAndJoin(ruleId).then((res) => {});
+        houseApi.payAndJoin(ruleId).then((res) => {
+          console.log("res",res)
+          if(res.data.code != 0 && res.data.message && res.data.message.indexOf("充值") > 0){
+            console.log("bb");
+            var url = '/pkgWallet/pages/wallet/recharge?amount=' + this.data.rule.deposit;
+            console.log('aaa',url)
+            wx.navigateTo({
+              url:url,
+            })
+          }
+          this.loadData(this.data.houseId);
+        });
     },
 
     /**

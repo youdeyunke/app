@@ -1,5 +1,6 @@
 // pkgWallet/pages/wallet/recharge.js
 const app = getApp()
+const walletApi = require('../../../api/balance.js');
 
 Page({
 
@@ -18,7 +19,7 @@ Page({
      */
     onLoad: function (q) {
         if (q.amount) {
-            this.setData({ amount: amount })
+            this.setData({ amount: q.amount })
         }
     },
 
@@ -40,14 +41,15 @@ Page({
         }
 
         // 请求微信支付签名，自动唤起微信支付
-        app.request({  //待定
-            url: '/api/v1/balances/recharge_sign',
-            method: 'POST',
-            data: { amount: amount },
-            success: ((resp) => {
-                console.log('done', resp)
-            })
-        })
+        wx.showLoading()
+        walletApi.createBalance(amount).then((resp) => {
+            // pass
+            if(resp.data.code == 0){
+              // 回退
+              wx.navigateBack();
+            }
+            wx.hideLoading();
+        });
 
     },
 

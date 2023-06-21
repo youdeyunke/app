@@ -6,10 +6,6 @@ const apiHost = EXT.host || defaultApiHost;
 const util = require('./util')
 const auth= require("./auth")
 
-
-
-
-
 // 发送http请求
 const http = ({
     url = '',
@@ -45,12 +41,13 @@ const http = ({
 
                 if (res.data.status == 888) {
                     // 调起支付
+                    console.log('wxpay res ', res);
                     wx.requestPayment({
-                        timeStamp: res.data.data.timeStamp,
-                        nonceStr: res.data.data.nonceStr,
-                        package: res.data.data.package,
-                        signType: res.data.data.signType,
-                        paySign: res.data.data.paySign,
+                        timeStamp: res.data.data.time_stamp,
+                        nonceStr: res.data.data.nonce_str,
+                        package: res.data.data.package_value,
+                        signType: res.data.data.sign_type,
+                        paySign: res.data.data.pay_sign,
                         success: function (wxpay_res) {
                             if (wxpay_res['errMsg'] == "requestPayment:ok") {
                                 // 支付成功了
@@ -75,6 +72,7 @@ const http = ({
                                 title: "支付失败",
                                 content: "支付失败，请重试"
                             });
+                            console.log('wxpayres', wxpay_res);
                             reject(res)
                             //   return typeof obj.fail == "function" && obj.success(res);
                         }
