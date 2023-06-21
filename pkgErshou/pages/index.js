@@ -22,6 +22,9 @@ Page({
     onLoad(options) {
         var _this = this
         var business = options.business || '出租'
+        wx.setNavigationBarTitle({
+          title: business,
+        })
         this.setData({
             business: business
         },() => {

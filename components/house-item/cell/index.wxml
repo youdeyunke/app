@@ -6,7 +6,7 @@
             <view class="title">
                 {{post.title}}
             </view>
-            <view class="address">{{post.type}}/{{post.area}}/{{post.position}}/{{post.type_name}}</view>
+            <view class="address">{{post.type_name || '户型'}}/{{post.area_value}}㎡/{{post.position}}</view>
             <view class="tags">
                 <!-- <van-tag text-color="#ffffff"  color="{{post.sale_status_item.color}}" size="mini">{{post.sale_status_item.name}}
                 </van-tag> -->
