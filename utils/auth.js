@@ -3,7 +3,6 @@ const smsApi = require("../api/sms")
 const userApi = require("../api/user")
 const sessionApi = require("../api/session")
 module.exports = {
-
     setUserInfo: function (token, user) {
         // 用户账户登陆成功后，刷新全局用户资料信息
         // 保存下服务器返回的token
@@ -131,19 +130,18 @@ module.exports = {
         // 去登录页面
         if (!token) {
             console.log('没有从globalData中获取到token,跳转到登录页面', app.globalData)
-            this.gotoAuth()
+        
+            util.throttle(function (e) {
+                console.log('由截流函数执行')
+                wx.hideLoading()
+                wx.navigateTo({
+                    url: '/pkgAuth/pages/auth/index'
+                })
+            }, 1000)()
             return
         }
         return typeof cb == 'function' && cb(user)
     },
-
-    gotoAuth: util.throttle(function (e) {
-        console.log('由截流函数执行')
-        wx.hideLoading()
-        wx.navigateTo({
-            url: '/pkgAuth/pages/auth/index'
-        })
-    }, 1000),
 
 
     loadUserInfo: function (cb) {

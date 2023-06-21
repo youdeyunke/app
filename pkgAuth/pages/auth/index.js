@@ -10,19 +10,19 @@ Page({
      */
     data: {
         ui: {},
-        allowTerms: false, 
+        allowTerms: false,
         code: null,
         loading: false,
-        show:true
+        show: true
     },
 
 
     loginHandle: function (e) {
         var _this = this
-        if(!this.data.allowTerms){
+        if (!this.data.allowTerms) {
             wx.showToast({
-              title: '请同意用户协议，才能正常登陆账号哦',
-              icon: 'none'
+                title: '请同意用户协议，才能正常登陆账号哦',
+                icon: 'none'
             })
             return
         }
@@ -44,14 +44,20 @@ Page({
         var iv = e.detail.iv
 
         // 换取服务器的token
-        this.setData({ loading: true })
+        this.setData({
+            loading: true
+        })
         this.getSessionToken(code, encryptedData, iv, function (userInfo) {
             console.log('code is', code)
             var pages = getCurrentPages()
             if (pages.length == 1) {
-                wx.switchTab({ url: '/pages/myself/index' })
+                wx.switchTab({
+                    url: '/pages/myself/index'
+                })
             } else {
-                wx.navigateBack({ delta: 1 })
+                wx.navigateBack({
+                    delta: 1
+                })
             }
         })
     },
@@ -60,23 +66,18 @@ Page({
     getSessionToken: function (code, encryptedData, iv, cb) {
         // 重新获取token，并刷新 user info
         var _this = this
-        var data = { code: code, encryptedData: encryptedData, iv: iv }
+        var data = {
+            code: code,
+            encryptedData: encryptedData,
+            iv: iv
+        }
         data['referrer_id'] = wx.getStorageSync('referrer_id') || ''
         // 如果有推荐人信息
         if (data['referrer_id']) {
             console.log('检测到推荐人id：', data)
         }
         // 发送给服务器
-        // 有待检测
-        // app.request({
-        //     data: data,
-        //     method: 'POST',
-        //     url: '/api/v2/sessions有待检测',
-        //     hideLoading: true,
-        //     success: function (resp) {
-               
-        //     }
-        // })
+        // √
         sessionApi.wechatLoginV2(code,encryptedData,iv).then((resp)=>{
             var data = resp.data
             if (data.status == 0) {
@@ -95,7 +96,7 @@ Page({
     },
 
 
-    termsHandle: function(){
+    termsHandle: function () {
         this.setData({
             allowTerms: !this.data.allowTerms,
         })
@@ -111,7 +112,7 @@ Page({
         app.globalData.token = null
         wx.setStorageSync("userInfo", null);
         wx.setStorageSync("token", null);
-      
+
     },
 
 
@@ -127,21 +128,25 @@ Page({
      */
     onShow: function () {
         var _this = this
-        this.setData({ loading: false })
+        this.setData({
+            loading: false
+        })
         app.ensureConfigs(function (configs) {
             var ui = configs.ui
-            var color = configs.color 
-            _this.setData({ 
-                headerImg:  ui.login_header,
-                bodyImg: ui.login_body ,  
-                primaryBtnColor:  color.primary_btn, 
+            var color = configs.color
+            _this.setData({
+                headerImg: ui.login_header,
+                bodyImg: ui.login_body,
+                primaryBtnColor: color.primary_btn,
                 primaryColor: color.primary,
             })
         })
 
         wx.login({
             success: function (res) {
-                _this.setData({ code: res.code })
+                _this.setData({
+                    code: res.code
+                })
             },
             complete: function (res) {
                 // 用户拒绝,跳转到设置界面
@@ -169,8 +174,7 @@ Page({
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function () {
-    },
+    onPullDownRefresh: function () {},
 
     /**
      * 页面上拉触底事件的处理函数

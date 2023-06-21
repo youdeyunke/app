@@ -3,8 +3,8 @@ console.log("121request_app", app);
 const defaultApiHost = 'http://192.168.31.66:2021';
 const EXT = wx.getExtConfigSync();
 const apiHost = EXT.host || defaultApiHost;
-const util = require('./util')
-const auth= require("./auth")
+const util = require('./util');
+// const auth= require("./auth");
 
 // 发送http请求
 const http = ({
@@ -107,12 +107,12 @@ const http = ({
                 if ([2000, 2001].includes(res.data.status)) {
                     // token 过期,清空当前登录状态
                     // auth.gotoAuth("需要登录", "请先登录账号");
-                    util.throttle(function (e) {
+                    util.throttle(function(){
                         wx.hideLoading()
-                        wx.navigateTo({
-                            url: '/pkgAuth/pages/auth/index'
-                        }) 
-                    }, 1000);
+                            wx.navigateTo({
+                                url: '/pkgAuth/pages/auth/index'
+                            })
+                      },1000)()
                     return false;
                 }
                 if (res.data.status == 1 && res.data.error) {
