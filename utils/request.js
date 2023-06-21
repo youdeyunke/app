@@ -3,7 +3,7 @@ console.log("121request_app", app);
 const defaultApiHost = 'http://192.168.31.66:2021';
 const EXT = wx.getExtConfigSync();
 const apiHost = EXT.host || defaultApiHost;
-const util = require('./util');
+const throttle = require('./throttle');
 // const auth= require("./auth");
 
 // 发送http请求
@@ -22,7 +22,7 @@ const http = ({
     if (wx.getStorageSync('token')) {
         header.Authorization = wx.getStorageSync('token');
     }
-
+    // console.log('‘headerts',header.Authorization);
     return new Promise((resolve, reject) => {
         wx.request({
             url: getUrl(url),
@@ -107,7 +107,7 @@ const http = ({
                 if ([2000, 2001].includes(res.data.status)) {
                     // token 过期,清空当前登录状态
                     // auth.gotoAuth("需要登录", "请先登录账号");
-                    util.throttle(function(){
+                    throttle.throttle(function(){
                         wx.hideLoading()
                             wx.navigateTo({
                                 url: '/pkgAuth/pages/auth/index'

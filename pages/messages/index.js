@@ -191,6 +191,7 @@ Page({
 
 
         var userInfo = app.globalData.userInfo
+        console.log('userInfoxx',userInfo);
         if (userInfo) {
             this.loadData()
             this.stopInterval()

@@ -15,25 +15,6 @@ function shuffle(arr) {
     }
 }
 
-function throttle(fn, delay) {
-    // 记录上一次函数触发的时间
-    if(delay == null || delay == undefined){
-        delay = 1500
-    }
-    var lastTime = 0;
-    return function() {
-        // 记录当前函数触发的时间
-        var nowTime = Date.now();
-        if (nowTime - lastTime > delay) {
-            fn.apply(this, arguments);
-            // 同步时间
-            lastTime = nowTime;
-        }
-    }
-}
-
-
-
 function set16ToRgb(str) {
     var reg = /^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/
     if (!reg.test(str)) {
@@ -59,6 +40,5 @@ function set16ToRgb(str) {
 module.exports = {
     prettyTime: prettyTime,
     shuffle: shuffle,
-    throttle: throttle,
     set16ToRgb: set16ToRgb
 }

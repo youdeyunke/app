@@ -1,4 +1,4 @@
-const util = require("util.js");
+const throttle = require("throttle.js");
 const smsApi = require("../api/sms")
 const userApi = require("../api/user")
 const sessionApi = require("../api/session")
@@ -131,7 +131,7 @@ module.exports = {
         if (!token) {
             console.log('没有从globalData中获取到token,跳转到登录页面', app.globalData)
         
-            util.throttle(function (e) {
+            throttle.throttle(function (e) {
                 console.log('由截流函数执行')
                 wx.hideLoading()
                 wx.navigateTo({
