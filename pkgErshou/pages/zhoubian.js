@@ -2,8 +2,9 @@
 //index.js
 //获取应用实例
 const app = getApp()
-const qqmapApi = require("../../api/map")
+const qqmapApi = require("../../api/qqmap")
 const postApi= require("../../api/post")
+const houseApi = require("../../api/house")
 Component({
     /**
      * 组件的属性列表
@@ -26,7 +27,8 @@ Component({
             type: String
         },
         postId: {
-            type: Number
+            type: Number,
+            default:null
         },
         haveTabs: {
             type: String
@@ -51,6 +53,10 @@ Component({
             this.setData({
                 resTabs: resTabs
             })
+        },
+        'postId':function(res) {
+            if(!res){return}
+            this.loadData()
         }
     },
     /**
@@ -136,7 +142,7 @@ Component({
                 mapH: 320
             })
         }
-        this.loadData()
+    
     },
     ready: function () {
         this.getContent()
@@ -145,10 +151,8 @@ Component({
      * 组件的方法列表
      */
     methods: {
-
         getContent(e) {
             var _this = this
-            var app = getApp()
             var tab = this.data.tabs[this.data.active]
             qqmapApi.placeSearch({
                 keyword: tab.value,
@@ -278,13 +282,13 @@ Component({
             this.setData({
                 markers: markers
             })
-            console.log('markers', this.data.markers, pois)
+            // console.log('markers', this.data.markers, pois)
         },
         loadData() {
             var _this = this
             // 拉取楼盘的基本信息：坐标、名称、id
             //   √
-            postApi.getPostBaseInfo( _this.data.postId
+            houseApi.getHouseBlocks( _this.data.postId
             ).then((res)=>{  
                var post = res.data.data
                _this.setData({

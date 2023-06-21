@@ -205,7 +205,7 @@
 <view class="fengexian"> </view>
 
 <!-- 地图 -->
-<!-- <map-block value="{{block}}"></map-block> -->
+<map-block value="{{block}}"></map-block>
 
 <!-- 底部栏 -->
 <view class="bottomBox">

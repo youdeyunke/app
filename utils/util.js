@@ -21,7 +21,7 @@ function throttle(fn, delay) {
         delay = 1500
     }
     var lastTime = 0;
-    // return function() {
+    return function() {
         // 记录当前函数触发的时间
         var nowTime = Date.now();
         if (nowTime - lastTime > delay) {
@@ -29,7 +29,7 @@ function throttle(fn, delay) {
             // 同步时间
             lastTime = nowTime;
         }
-    // }
+    }
 }
 
 function set16ToRgb(str){
