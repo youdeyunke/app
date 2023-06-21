@@ -158,7 +158,7 @@
             <view class="bzjText">
                 {{rule.deposit}}￥
             </view>
-            <view class="bzjBtn">
+            <view class="bzjBtn" bindtap="seeMore">
                 查看如何支付
             </view>
         </view>
@@ -235,3 +235,5 @@
         </view>
     </view>
 </view>
+
+<van-popup show="{{show}}">内容</van-popup>

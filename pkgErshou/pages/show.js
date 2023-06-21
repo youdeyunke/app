@@ -17,7 +17,8 @@ Page({
         members: [], // 报名的成员列表
         houseId: null,
         title:"",
-        headSwitch:true
+        headSwitch:true,
+        show: false,
     },
 
     /**
@@ -72,7 +73,12 @@ Page({
     return `${year}-${month}-${day} ${time}`;
   },
   
-
+// 查看按钮
+seeMore() {
+    this.setData({
+        show : true
+    })
+},
   
 
     loadRule: function (ruleId) {

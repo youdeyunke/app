@@ -1,14 +1,12 @@
 /* pkgErshou/pages/block-box.wxss */
 .card {
-    width: 718rpx;
-    margin: 0 auto 20rpx auto;
+    width: 750rpx;
     display: flex;
     flex-direction: column;
     /* justify-content: space-around; */
     position: relative;
     box-sizing: border-box;
     background: #fff;
-    border-radius: 20rpx;
 }
 
 .card .sub-title {

@@ -2,6 +2,7 @@
   "usingComponents": {
     "banners-block": "./banners-block",
     "map-block":"./map-block",
-    "raw-html":"/components/raw-html"
+    "raw-html":"/components/raw-html",
+    "van-popup": "/vant/popup/index"
   }
 }

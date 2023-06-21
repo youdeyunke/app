@@ -117,7 +117,7 @@
 .shoujia {
     font-size: 28rpx;
     color: #999999;
-    width: 33%;
+    /* width: 30%; */
 }
 
 .shoujia_jine {
@@ -131,9 +131,10 @@
     border-right: 2rpx solid #DDDDDD;
     font-size: 28rpx;
     color: #999999;
-    margin-right: 30rpx;
-    padding-left: 30rpx;    
-    padding-right: 50rpx;
+    margin-right: 40rpx;
+    margin-left: 40rpx;
+    padding-left: 40rpx;    
+    padding-right: 40rpx;
 }
 
 .daikanBox {
