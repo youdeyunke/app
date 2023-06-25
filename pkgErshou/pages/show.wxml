@@ -248,6 +248,6 @@
     </view>
 </view>
 
-<van-popup  round="true" closeable="true"  show="{{show}}">
+<van-popup  round="true" closeable="true"  close-on-click-overlay="closePopup"  show="{{show}}">
 <view style="width: 690rpx;height: 300rpx;display: flex;align-items: center;justify-content: center;">内容</view>
 </van-popup>
