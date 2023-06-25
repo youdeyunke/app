@@ -57,6 +57,10 @@ Component({
         'postId':function(res) {
             if(!res){return}
             this.loadData()
+        },
+        "latitude":function (res) {
+            if(!res){return}
+            this.getContent()
         }
     },
     /**
@@ -145,7 +149,7 @@ Component({
     
     },
     ready: function () {
-        this.getContent()
+        // this.getContent()
     },
     /**
      * 组件的方法列表
