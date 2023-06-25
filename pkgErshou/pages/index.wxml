@@ -13,7 +13,7 @@
         </view>
         <view style="margin: 10rpx 0 20rpx 0;" wx:for="{{items}}">
             <house-item  post="{{item}}"></house-item>
-            <view style="width: 100%;height: 2rpx;background-color: #999;opacity: 0.3;margin: 20rpx 0 20rpx 0;">
+            <view style="width: 100%;height: 2rpx;background-color: #E7E7F2;margin: 20rpx 0 20rpx 0;">
                 
             </view>
         </view>

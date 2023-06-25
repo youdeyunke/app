@@ -22,11 +22,14 @@ Page({
     onLoad(options) {
         var _this = this
         var business = options.business || '出租'
+        var filter = this.data.filter
+        filter.business = business
         wx.setNavigationBarTitle({
           title: business,
         })
         this.setData({
-            business: business
+            business: business,
+            filter: filter
         },() => {
             _this.loadData()
             _this.loadPostFilter()
