@@ -180,9 +180,7 @@ callHandle: function (e) {
         // 报名参加竞拍
         var ruleId = this.data.rule.id;
         houseApi.payAndJoin(ruleId).then((res) => {
-          console.log("res",res)
           if(res.data.code != 0 && res.data.message && res.data.message.indexOf("充值") > 0){
-            console.log("bb");
             var url = '/pkgWallet/pages/wallet/recharge?amount=' + this.data.rule.deposit;
             console.log('aaa',url)
             wx.navigateTo({
