@@ -2,7 +2,7 @@
 <banners-block value="{{banners}}"></banners-block>
 <!-- 头部标签 -->
 <view class="headLabelBox" wx:if="{{rule && rule.id&& headSwitch}}">
-<image  class="headLabelImg" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode=""/>
+    <image class="headLabelImg" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
     {{title}}
 </view>
 <!-- 基础信息 -->
@@ -100,7 +100,6 @@
     </view>
 </view>
 <!-- 竞拍 -->
-
 <view wx:if="{{rule && rule.id}}">
     <view class="jingpaiBox">
         <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
@@ -213,10 +212,10 @@
         <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
     </view>
     <view class="box">
-    <view class="xxText">
-        {{block.content}}
-    </view>
-      
+        <view class="xxText">
+            {{block.content}}
+        </view>
+
     </view>
 </view>
 <!-- 分割线 -->
@@ -249,4 +248,6 @@
     </view>
 </view>
 
-<van-popup show="{{show}}">内容</van-popup>
+<van-popup bind:click-overlay="closePopup" show="{{show}}">
+<view style="width: 100rpx;height: 100rpx;display: flex;align-items: center;justify-content: center;">内容</view>
+</van-popup>
