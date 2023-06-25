@@ -17,7 +17,7 @@ Page({
         houseId: null,
         title: "",
         headSwitch: true,
-        show: false,
+        show: false, 
     },
 
     /**
