@@ -290,6 +290,15 @@
     font-size: 28rpx;
     color: #2E6AD6
 }
+.xiangxiTitle {
+    background: #ffffff;
+    height: 84rpx;
+    width: 100%;
+    margin-top: 24rpx;
+    display: flex;
+    align-items: center;
+    border-bottom: 1rpx solid  #E7E7F2;
+}
 
 .bottomBox {
     display: flex;

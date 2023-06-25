@@ -138,7 +138,7 @@ Component({
         }
         if (this.data.mode == 'mini') {
             this.setData({
-                mapW: 656,
+                mapW: 690,
                 mapH: 320
             })
         }

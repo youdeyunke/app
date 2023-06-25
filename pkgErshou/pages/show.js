@@ -79,7 +79,14 @@ seeMore() {
         show : true
     })
 },
-  
+//   咨询按钮
+callHandle: function (e) {
+    var m = this.data.block.contact_mobile
+    console.log("121m",m);
+    wx.makePhoneCall({
+        phoneNumber: m,
+    })
+},
 
     loadRule: function (ruleId) {
         // 如果是竞价房源，那么需要拉取竞价规则信息；
