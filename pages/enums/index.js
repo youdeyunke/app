@@ -1,18 +1,47 @@
-// pages/enums/index.js
+// pages/enums/index.js'
+const enumApi = require("../../api/enum");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    items: [],
+    cat: "",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    this.setData({
+      cat: options.cat
+    }, function () {
+      this.loadData();
+    })
 
+  },
+
+  itemClick: function (e) {
+    const {
+      index
+    } = e.currentTarget.dataset
+    var post = this.data.items[index]
+    var ch = this.getOpenerEventChannel()
+    if (ch) {
+      ch.emit("change", post)
+    }
+    wx.navigateBack({
+      delta: 1,
+    })
+  },
+
+  loadData: function () {
+    enumApi.getEnumList(this.data.cat).then((res) => {
+      this.setData({
+        items: res.data.data
+      });
+    })
   },
 
   /**

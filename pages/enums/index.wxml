@@ -1,2 +1,5 @@
-<!--pages/enums/index.wxml-->
-<text>pages/enums/index.wxml</text>
+<van-cell-group title="请选择">
+
+<van-field is-link border="true" wx:for="{{items}}" data-index="{{index}}" readonly label="{{item.name}}" bindtap="itemClick"></van-field>
+
+</van-cell-group>
