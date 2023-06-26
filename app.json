@@ -93,6 +93,11 @@
             "pages/show",
             "pages/create",
             "pages/subdistricts/index"
+          ],
+          "requiredPrivateInfos":[
+              "getFuzzyLocation",
+              "choosePoi",
+              "chooseAddress"
           ]
         },
         {

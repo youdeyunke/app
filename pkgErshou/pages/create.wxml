@@ -7,7 +7,7 @@
 <van-cell-group title="基本信息">
 
   <van-field readonly bindtap="chooseDistrict" is-link label="区域" value="{{district_name}}" />
-  <van-field readonly bindtap="chooseLocation" is-link label="小区" value="{{post.street}}" />
+  <van-field readonly bindtap="chooseLocation" is-link label="小区" value="{{sub_district_name}}" />
 
   <van-field label="户型" model:value="{{ type_name }}" placeholder="请输入户型" />
   <!-- 面积、绑定字段：area,  只能输入小数  -->
@@ -21,16 +21,15 @@
   <!-- 起拍价，字段price_value,  只能输入小数  -->
 
 
-  <!-- 上传户型图，绑定字段type_image -->
-  <van-field readonly bindtap="" is-link label="户型图" value="{{
-    type_image != null ? " 已上传" : "未上传" }}" />
+  <!-- 上传户型图，绑定字段type_image   value="{{type_image != null ? " 已上传" : "未上传" }}"-->
+  <van-field readonly bindtap="" is-link label="户型图" />
 </van-cell-group>
 
 <van-cell-group title="房源照片">
 <!-- 调用images-uploader组件， 绑定字段：images  ，多图用逗号分割-->
 </van-cell-group>
 
-<van-cell-group title="视频介绍"></van-cell-group>
+<van-cell-group title="视频介绍">
   <!-- 上传视频文件，绑定字段video --> 
 </van-cell-group>
 

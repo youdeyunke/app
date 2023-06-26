@@ -73,7 +73,7 @@ Page({
     },
 
 
-    // // 带倒计时
+    // // 倒计时
     // // 判断当前时间是否在指定的时间区间内
     // checkTimeRange(min, max) {
     //     const minDateTime = new Date(min);
@@ -141,11 +141,6 @@ Page({
     //     const time = dateTime.toTimeString().slice(0, 8);
 
     //     return `${month}-${day} ${time}`;
-    // },
-
-    // // 格式化数字为两位数
-    // formatNumber(num) {
-    //     return num < 10 ? `0${num}` : num;
     // },
 
 

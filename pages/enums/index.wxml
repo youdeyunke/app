@@ -1,5 +1,5 @@
 <van-cell-group title="请选择">
 
-<van-field is-link border="true" wx:for="{{items}}" data-index="{{index}}" readonly label="{{item.name}}" bindtap="itemClick"></van-field>
+<van-field is-link border="true" wx:for="{{items}}" data-index="{{item}}" readonly label="{{item.name}}" bindtap="itemClick"></van-field>
 
 </van-cell-group>
