@@ -263,6 +263,16 @@ Page({
         // 报名参加竞拍
         var ruleId = this.data.rule.id;
         houseApi.payAndJoin(ruleId).then((res) => {
+<<<<<<< HEAD
+          if(res.data.code != 0 && res.data.message && res.data.message.indexOf("充值") > 0){
+            var url = '/pkgWallet/pages/wallet/recharge?amount=' + this.data.rule.deposit;
+            console.log('aaa',url)
+            wx.navigateTo({
+              url:url,
+            })
+          }
+          this.loadData(this.data.houseId);
+=======
             console.log("res", res)
             if (res.data.code != 0 && res.data.message && res.data.message.indexOf("充值") > 0) {
                 console.log("bb");
@@ -273,6 +283,7 @@ Page({
                 })
             }
             this.loadData(this.data.houseId);
+>>>>>>> 8ac986339bb74ec3f2ea49607f8f685af163d39a
         });
     },
 
