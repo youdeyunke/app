@@ -3,10 +3,20 @@ let request = require('../utils/request.js');
 export function getHouseList(data){
     return request.get("/api/v6/houses", data);
 }
+// 发布二手房
+export function createHouse(data){
+  return request.post("/api/v6/houses", data);
+}
 
 // 拉取楼盘详情页模块数据     完成
 export function getHouseBlocks(pid){
     return request.get("/api/v6/houses/"+pid);
+}
+
+// 创建小区poi点
+export function createSubdistrict(data){
+  // {name:"xx", lagitude:xx, longitude:xx, street:xx,}
+  return request.post("/api/v1/sub_districts", data);
 }
 
 // 拉取楼盘筛选条件

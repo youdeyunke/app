@@ -90,7 +90,9 @@
           "name":"pkgershou",
           "pages":[
             "pages/index" ,
-            "pages/show"
+            "pages/show",
+            "pages/create",
+            "pages/subdistricts/index"
           ]
         },
         {
@@ -304,6 +306,7 @@
         "pages/pagemaker/show",
         "pages/zhaofang/index",
         "pages/want/index",
+        "pages/enums/index",
         "pages/faxian/index",
         "pages/webview/show",
         "pages/myself/index",
