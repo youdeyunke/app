@@ -1,7 +1,7 @@
 <!--pkgTour/pages/components/poster-window/index.wxml-->
 <block>
     <painter palette="{{palette}}" scaleRatio='3' bind:imgOK="onImgOK" bind:imgErr="onImgErr" />
-    <van-popup show="{{ show }}" bind:close="onClose" lock-scroll='true'>
+    <van-popup show="{{ show }}"  bind:close="onClose" lock-scroll='true'>
         <image wx:if="{{image}}" src="{{image}}" show-menu-by-longpress='true' style="width: 600rpx; height: 980rpx;" />
     </van-popup>
 
