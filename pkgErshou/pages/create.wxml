@@ -24,7 +24,7 @@
 </van-cell-group>
 <van-cell-group title="户型图">
     <view class="huxingbox">
-        <images-uploader max="1" bind:change="typeimageshandle"></images-uploader>
+        <images-uploader max="1" bind:change="typeimagesHandle"></images-uploader>
     </view>
 </van-cell-group>
 

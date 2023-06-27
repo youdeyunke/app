@@ -118,7 +118,7 @@ Page({
     },
     videoHandle:function (video) {
         this.setData({
-        video:JSON.stringify(video.detail.images)
+        video:JSON.stringify(video.detail.video)
         })
     },
     // 面积强制转换
@@ -154,6 +154,11 @@ Page({
         houseApi.createHouse(data).then((res) => {
             // todo 
             console.log(res);
+            if(res.errMsg=="request:ok") {
+                wx.showToast({
+                    title: '提交成功',
+                })
+            }
         })
 
     },
