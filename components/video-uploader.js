@@ -8,11 +8,11 @@ Component({
    */
   properties: {
     images:{type: Array, value: []},
-    video: {type:String, value: ''},
+    // video: {type:String, value: ''},
     max: {type: Number, value: 15},
     min: {type: Number, value: 3},
     cover: {type: Number, value: 0},
-    enableVideo: {type: Boolean, value: false},
+    enableVideo: {type: Boolean, value: true},
   },
 
   /**
@@ -23,6 +23,7 @@ Component({
     currentIndex: -1,
     files: [],
     urls: [],
+    video:"",
     showSheet: false,
     sheetActions: [
       {key: 'setcover', name: '设为主图'}, 
@@ -66,12 +67,10 @@ Component({
     },
 
     setCover: function(){
-        console.log("121cover",this.data.cover);
         var xx=this.data.currentIndex
         this.setData({
             cover:xx
         })
-        console.log("121改cover",this.data.cover);
       this.triggerEvent('change', {cover_index: this.data.currentIndex})
     },
 
@@ -82,7 +81,6 @@ Component({
 
       // 删除主图左边的, c -1
       if(i < c){
-          console.log("121删除");
         wx.showToast({title: 'c--'})
         c = c -1
       }
@@ -111,6 +109,7 @@ Component({
       var _this = this
       var path = paths.shift()
       qiniu.upload(path, function(url){
+          console.log("121url",url,typeof(url));
             if(ftype == 'images'){
               var urls = _this.data.images
               urls.push(url)
@@ -120,6 +119,12 @@ Component({
               _this.triggerEvent('change', { images: urls, cover_index: _this.data.cover })
             }
             if(ftype == 'video'){
+                console.log("121video1");
+                var video = _this.data.video
+                console.log("121video2",video);
+                _this.setData({
+                    video:url
+                })
               _this.triggerEvent('change', {video: url })
             }
           
@@ -147,32 +152,31 @@ Component({
       //  icon: 'none',
       //})      
       wx.chooseMedia({
+        count: 9,
+        mediaType: ['image','video'],
         sourceType: ['album', 'camera'],
-        compressed: true,
-        maxDuration: 60,
+        maxDuration: 30,
         camera: 'back',
-        fail: function(res){
-          console.log('fail', res)
-          wx.showToast({
-            title: res,
-            icon: 'none',
-          })
+        success(res) {
+          console.log(res.tempFiles[0].tempFilePath)
+          this.success(res.tempFiles[0].tempFilePath)
+          console.log(res.tempFiles[0].size)
+          this.complete(res.tempFiles[0].size)
         },
-
         complete: function(res){
-          console.log('complete', res)
-          var size = res.size / (1024*1024)
-          //wx.showModal({
-          //  title: '文件',
-          //  content: size + 'Mb',
-          //})
-        },
-        
-        success: function(res) {
-          console.log(res.tempFilePath)
-          const paths = [res.tempFilePath]
-          _this.doUpload('video', paths)
-        }
+            console.log('complete', res)
+            var size = res.tempFiles[0].size / (1024*1024)
+            wx.showModal({
+             title: '文件',
+             content: size.toFixed(2) + 'Mb',
+            })
+          },
+          
+          success: function(res) {
+            console.log("121success",res.tempFiles[0].tempFilePath)
+            const paths = [res.tempFiles[0].tempFilePath]
+            _this.doUpload('video', paths)
+          }
       })
 
     },
@@ -197,7 +201,7 @@ Component({
 
     chooseImages: function(e){
       var that = this
-      console.log('121images count',that.data.max - that.data.images.length )
+      console.log('images count',that.data.max - that.data.images.length )
       wx.chooseImage({
         count: that.data.max - that.data.images.length,
         sizeType: ['original', 'compressed'],

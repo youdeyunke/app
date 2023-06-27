@@ -1,6 +1,6 @@
 {
   "usingComponents": {
     "images-uploader": "/components/images-uploader2",
-    "video-uploader":"/components/images-uploader"
+    "video-uploader":"/components/video-uploader"
   }
 }
