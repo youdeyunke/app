@@ -49,7 +49,7 @@ Component({
             }
             var paths = []
             file.forEach((f, i) => {
-                paths.push(f.path)
+                paths.push(f.url)
             })
             this.doUpload(0, paths)
         },

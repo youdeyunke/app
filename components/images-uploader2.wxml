@@ -3,6 +3,7 @@
 <van-uploader
   multiple="{{true}}"
   bind:delete="deleteHandle"
+  max-count="{{max}}"
   file-list="{{ images }}"
   bind:after-read="afterRead"
 >

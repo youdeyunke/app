@@ -1,1 +1,13 @@
 /* pkgErshou/pages/create.wxss */
+.huxingbox {
+    background-color: #ffffff;
+    padding: 20rpx;
+    border-bottom: 2rpx solid #f6f7f7;
+}
+.huxing {
+    line-height: 80rpx;color: #646566;
+}
+.footer {
+    position: sticky;
+    bottom: 0;
+}

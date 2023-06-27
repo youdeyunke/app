@@ -17,7 +17,10 @@ Page({
         fitment: "精装",
         images: "",
         type_image: "",
-
+        video:"",
+        area: null,
+        price_value: null,
+        show:true,
 
         // 以下是隐藏字段
         address: "",
@@ -37,11 +40,11 @@ Page({
         var _this = this
         wx.navigateTo({
             url: '/pages/enums/index?cat=house_fitment',
-              events: {
-                change: function(name){ 
+            events: {
+                change: function (name) {
                     // TODO 选中了一个楼盘
                     _this.setData({
-                        fitment:name
+                        fitment: name
                     })
                 }
             },
@@ -55,11 +58,11 @@ Page({
         var _this = this
         wx.navigateTo({
             url: '/pages/enums/index?cat=house_position',
-              events: {
-                change: function(name){ 
+            events: {
+                change: function (name) {
                     // TODO 选中了一个楼盘
                     _this.setData({
-                        position:name
+                        position: name
                     })
                 }
             },
@@ -101,6 +104,35 @@ Page({
             sub_district_name: poi.name,
             latitude: poi.latitude,
             longitude: poi.longitude,
+        })
+    },
+    typeimagesHandle:function (image) {
+        this.setData({
+            type_image: JSON.stringify(image.detail.value)
+        })
+    },
+    imagesHandle:function (image) {
+        this.setData({
+            images: JSON.stringify(image.detail.value)
+        })
+    },
+    videoHandle:function (video) {
+        this.setData({
+        video:JSON.stringify(video.detail.images)
+        })
+    },
+    // 面积强制转换
+    areaonChange:function (area) {
+        let value = area.detail.replace(/^\D./g, '')
+        this.setData({
+            area:value  
+        })
+    },
+     // 价格强制转换
+    price_valueonChange:function (price_value) {
+        let value = price_value.detail.replace(/^\D./g, '')
+        this.setData({
+            price_value:value  
         })
     },
     /**

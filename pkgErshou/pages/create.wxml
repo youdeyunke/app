@@ -1,42 +1,56 @@
 <van-tabs active="{{ business }}" bind:change="businessChange">
-  <van-tab title="出售" name="出售"></van-tab>
-  <van-tab title="出租" name="出租"></van-tab>
-  <van-tab title="竞价" name="竞价"></van-tab>
+    <van-tab title="出售" name="出售"></van-tab>
+    <van-tab title="出租" name="出租"></van-tab>
+    <van-tab title="竞价" name="竞价"></van-tab>
 </van-tabs>
 
 <van-cell-group title="基本信息">
-
-  <van-field readonly bindtap="chooseDistrict" is-link label="区域" value="{{district_name}}" />
-  <van-field readonly bindtap="chooseLocation" is-link label="小区" value="{{sub_district_name}}" />
-
-  <van-field label="户型" model:value="{{ type_name }}" placeholder="请输入户型" />
-  <!-- 面积、绑定字段：area,  只能输入小数  -->
-
-  <van-field readonly bindtap="chooseFitment" is-link label="装修" value="{{fitment}}" />
-  <van-field readonly bindtap="choosePosition" is-link label="朝向" value="{{position}}" />
-
-  <!-- 价格名称要根据business判断 -->
-  <!-- 售价，字段price_value,  只能输入小数  -->
-  <!-- 月租，字段price_value,  只能输入小数  -->
-  <!-- 起拍价，字段price_value,  只能输入小数  -->
-
-
-  <!-- 上传户型图，绑定字段type_image   value="{{type_image != null ? " 已上传" : "未上传" }}"-->
-  <van-field readonly bindtap="" is-link label="户型图" />
+    <van-field readonly bindtap="chooseDistrict" is-link label="区域" value="{{district_name}}" />
+    <van-field readonly bindtap="chooseLocation" is-link label="小区" value="{{sub_district_name}}" />
+    <van-field label="户型" model:value="{{ type_name }}" placeholder="请输入户型" />
+    <!-- 面积、绑定字段：area,  只能输入小数  -->
+    <van-field label="面积" type="number"  bind:change="areaonChange" data-area="{{area}}" model:value="{{ area }}" placeholder="请输入面积" />
+    <van-field readonly bindtap="chooseFitment" is-link label="装修" value="{{fitment}}" />
+    <van-field readonly bindtap="choosePosition" is-link label="朝向" value="{{position}}" />
+    <!-- 价格名称要根据business判断 -->
+    <!-- 售价，字段price_value,  只能输入小数  -->
+    <!-- 月租，字段price_value,  只能输入小数  -->
+    <!-- 起拍价，字段price_value,  只能输入小数  -->
+    <van-field label="售价" type="number" bind:change="price_valueonChange" data-area="{{price_value}}" model:value="{{ price_value }}" placeholder="请输入价格" wx:if="{{business=='出售'}}" />
+    <van-field label="月租" type="number" bind:change="price_valueonChange" data-area="{{price_value}}" model:value="{{ price_value }}" placeholder="请输入价格" wx:if="{{business =='出租'}}" />
+    <van-field label="起拍价" type="number" bind:change="price_valueonChange" data-area="{{price_value}}" model:value="{{ price_value }}" placeholder="请输入价格" wx:if="{{business=='竞价'}}" />
+    <!-- 上传户型图，绑定字段type_image   value="{{type_image != null ? " 已上传" : "未上传" }}"-->
+    <!-- <van-field readonly bindtap="handleUpload"  placeholder="{{type_image ? '已上传' : '未上传' }}" is-link label="户型图" /> -->
+</van-cell-group>
+<van-cell-group title="户型图">
+    <view class="huxingbox">
+        <images-uploader max="1" bind:change="typeimageshandle"></images-uploader>
+    </view>
 </van-cell-group>
 
-<van-cell-group title="房源照片">
+
 <!-- 调用images-uploader组件， 绑定字段：images  ，多图用逗号分割-->
+<van-cell-group title="房源照片">
+    <view class="huxingbox">
+        <images-uploader bind:change="imagesHandle"></images-uploader>
+    </view>
 </van-cell-group>
 
+
+<!-- 上传视频文件，绑定字段video -->
 <van-cell-group title="视频介绍">
-  <!-- 上传视频文件，绑定字段video --> 
+    <view class="huxingbox">
+        <video-uploader bind:change="videoHandle"></video-uploader>
+    </view>
 </van-cell-group>
+
+
 
 <van-cell-group title="详细介绍">
-  <!-- 插入一个文本框textarea ，双向绑定变量：{{ content }} -->
+    <!-- 插入一个文本框textarea ，双向绑定变量：{{ content }} -->
+    <van-field model:value="{{ content }}" type="textarea" autosize placeholder="请输入详细介绍" />
 </van-cell-group>
 
 <view class="footer">
-  <van-button bindtap="submitHandle" block type="primary">提交审核</van-button>
+    <van-button bindtap="submitHandle" block type="primary">提交审核</van-button>
 </view>

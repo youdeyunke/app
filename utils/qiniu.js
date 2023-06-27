@@ -12,15 +12,7 @@ module.exports = {
     },
 
     getToken: function(cb){
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/qiniu_token/有待检测',
-        //     method: 'POST',
-        //     hideLoading: true,
-        //     success: function(resp){
-              
-        //     }
-        // })
+    //  √
         qiniuApi.genQiniuToken().then((resp)=>{
             var token = resp.data.data.token
             var key = resp.data.data.key
@@ -52,7 +44,6 @@ module.exports = {
                 formData: formData,
                 success: function(resp){
                     wx.hideLoading()
-                    console.log('qiniu resp', resp, 'formdata', formData )
                     if(resp.statusCode == 200 && resp.errMsg == "uploadFile:ok"){
                       var url =  _this.genUrl(key)
                       console.log('upload to qiniu success,url is:', url)

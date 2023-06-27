@@ -47,7 +47,6 @@ Component({
     onSheetClose: function(e){
       this.setData({showSheet: false})
     },
-
     onSheetSelect: function(e){
       var _this = this
       console.log('sheet select ', e)
@@ -67,6 +66,12 @@ Component({
     },
 
     setCover: function(){
+        console.log("121cover",this.data.cover);
+        var xx=this.data.currentIndex
+        this.setData({
+            cover:xx
+        })
+        console.log("121改cover",this.data.cover);
       this.triggerEvent('change', {cover_index: this.data.currentIndex})
     },
 
@@ -77,6 +82,7 @@ Component({
 
       // 删除主图左边的, c -1
       if(i < c){
+          console.log("121删除");
         wx.showToast({title: 'c--'})
         c = c -1
       }
@@ -93,6 +99,10 @@ Component({
       var imgs =  this.data.images
       imgs.splice(i, 1)
       this.triggerEvent('change', {images: imgs, cover_index: c})
+      this.setData({
+        currentIndex:c,
+        images:imgs
+      })
     },
 
     doUpload: function(ftype, paths){
@@ -104,6 +114,9 @@ Component({
             if(ftype == 'images'){
               var urls = _this.data.images
               urls.push(url)
+              _this.setData({
+               images:urls
+              })
               _this.triggerEvent('change', { images: urls, cover_index: _this.data.cover })
             }
             if(ftype == 'video'){
@@ -133,7 +146,7 @@ Component({
       //  title: '测试：开启屏幕常亮',
       //  icon: 'none',
       //})      
-      wx.chooseVideo({
+      wx.chooseMedia({
         sourceType: ['album', 'camera'],
         compressed: true,
         maxDuration: 60,
@@ -184,7 +197,7 @@ Component({
 
     chooseImages: function(e){
       var that = this
-      console.log('images count',that.data.max - that.data.images.length )
+      console.log('121images count',that.data.max - that.data.images.length )
       wx.chooseImage({
         count: that.data.max - that.data.images.length,
         sizeType: ['original', 'compressed'],
