@@ -3,6 +3,5 @@
   "usingComponents": {
     "van-action-sheet": "/vant/action-sheet/index",
     "van-popup": "/vant/popup/index"
-  
   }
 }

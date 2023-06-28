@@ -1,4 +1,4 @@
-<!--components/images-uploader.wxml-->
+<!--components/video-uploader/index.wxml-->
 <view>
     <view class="uploader">
         <block wx:if="{{enableVideo}}">

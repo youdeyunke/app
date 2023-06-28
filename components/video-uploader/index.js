@@ -1,6 +1,6 @@
-// components/images-uploader.js
+// components/video-uploader/index.js
 const app = getApp()
-var qiniu = require('../utils/qiniu.js');
+var qiniu = require('../../utils/qiniu');
 
 Component({
     /**
@@ -205,7 +205,6 @@ Component({
                     this.complete(res.tempFiles[0].size)
                 },
                 complete: function (res) {
-                    console.log('complete', res)
                     var size = res.tempFiles[0].size / (1024 * 1024)
                     wx.showModal({
                         title: '文件',

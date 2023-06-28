@@ -25,11 +25,10 @@ Page({
         var dindex = e.currentTarget.dataset.dindex
         var citem = this.data.cities[cindex]
         var ditem = citem['children'][dindex]
-        console.log("121",cindex,"--1--",dindex,"--2--",citem,"--3--",ditem);
         onfire.fire('selectDistrict', { id: citem.id, name: citem.text }, { id: ditem.id, name: ditem.text })
         var ch =  this.getOpenerEventChannel() 
         if(ch){
-            ch.emit("change", ditem.text,ditem.id)
+            ch.emit("change", ditem)
         }
         wx.navigateBack({
           delta: 1,

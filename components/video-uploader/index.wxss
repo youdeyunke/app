@@ -1,4 +1,4 @@
-/* components/video-uploader.wxss */
+/* components/video-uploader/index.wxss */
 .uploader{
   display: flex;
   justify-content: flex-start;
