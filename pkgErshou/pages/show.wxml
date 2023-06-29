@@ -226,19 +226,19 @@
 
 <!-- 底部栏 -->
 <view class="bottomBox">
-    <view class="zixunBtn" bindtap="callHandle">
+    <view wx:if="{{zixun_show}}" class="zixunBtn" bindtap="callHandle">
         <image class="zixunImg" src="https://qiniucdn.udeve.cn/fang2021/16cc3f04-0aa4-420b-9ad6-732229493f46.png" mode="" />
         <view class="zixunText">
             咨询
         </view>
     </view>
-    <view class="zixunBtn">
+    <view wx:if="{{zixun_show}}"  bindtap="remindBtn" class="zixunBtn">
         <image class="zixunImg" src="https://qiniucdn.udeve.cn/fang2021/c171c255-3290-4e2b-bf17-22529937aabe.png" mode="" />
         <view class="zixunText">
-            已设提醒
+            {{tixingtext}}
         </view>
     </view>
-    <view class="baomingBtn" bindtap="btnHandle">
+    <view class="{{btnText=='立即报名' ? 'baomingBtn baomingsmallBtn' : 'baomingBtn baomingbigBtn' }}" bindtap="btnHandle">
         <view class="biaomingTitle">
             {{btnText}}
         </view>

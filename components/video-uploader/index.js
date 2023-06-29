@@ -31,6 +31,7 @@ Component({
       })
       var _this = this
       var path = paths.shift()
+      console.log("121path",path);
       qiniu.upload(path, function (url) {
         _this.setData({
           video: url
@@ -55,6 +56,7 @@ Component({
 
     chooseVideo: function (e) {
       var _this = this
+      // 拍摄或从手机相册中选择图片或视频
       wx.chooseMedia({
         count: 9,
         mediaType: ['video'],

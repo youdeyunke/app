@@ -130,4 +130,5 @@ module.exports = {
   post,
   put,
   destroy,
+  getUrl
 }

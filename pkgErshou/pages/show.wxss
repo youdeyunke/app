@@ -331,7 +331,6 @@
 }
 
 .baomingBtn {
-  width: 420rpx;
   height: 90rpx;
   background: #2065E2;
   border-radius: 12rpx;
@@ -340,6 +339,12 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+.baomingbigBtn{
+  width: 690rpx;
+}
+.baomingsmallBtn {
+  width: 420rpx;
 }
 
 .biaomingTitle {
