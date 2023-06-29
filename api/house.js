@@ -44,4 +44,12 @@ export function getBidList(ruleId){
     return request.get("/api/v6/auction_bids", {rule_id: ruleId});
 }
 
+// 订阅竞拍提醒
+export function createHouseAuctionRemind(houseId){
+  return request.post("/api/v6/user_reminds", {target_id: houseId, target_type: "house.auction"});
+}
 
+// 取消订阅竞拍提醒
+export function deleteHouseAuctionRemind(houseId){
+  return request.delete("/api/v6/user_reminds", {target_id: houseId, target_type: "house.auction"});
+}

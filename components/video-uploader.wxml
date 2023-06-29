@@ -14,8 +14,8 @@
             <view class="title"></view>
             <image mode="widthFix" src="{{item}}"></image>
         </view>
-        <!--照片上传 -->
-        <!-- <view  wx:if="{{max - images.length > 0}}" bindtap="chooseImages" class="item add-image"></view> -->
+          <!--照片上传 -->
+          <!-- <view  wx:if="{{max - images.length > 0}}" bindtap="chooseImages" class="item add-image"></view> -->
     </view>
 
     <van-action-sheet  show="{{showSheet}}" actions="{{sheetActions}}" bind:close="onSheetClose" bind:select="onSheetSelect" />

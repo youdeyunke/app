@@ -28,6 +28,28 @@ Page({
         this.setData({ amount: v })
     },
 
+    callWxpay:function(data){
+      wx.requestPayment({
+        timeStamp:data.time_stamp,
+        nonceStr:data.nonce_str,
+        paySign: data.pay_sign,
+        signType:data.sign_type,
+        package:data.package_value,
+        success:function(e){
+          wx.showToast({
+            title: '支付成功',
+          })
+          wx.navigateBack()
+        },
+        fail:function(e){
+          wx.showToast({
+            title: '支付失败，请重试',
+            icon:'none',
+          })
+        }
+      })
+    },
+
     gotoPay: function (e) {
         var _this = this
         var amount = this.data.amount || 0
@@ -43,11 +65,7 @@ Page({
         // 请求微信支付签名，自动唤起微信支付
         wx.showLoading()
         walletApi.createBalance(amount).then((resp) => {
-            // pass
-            if(resp.data.code == 0){
-              // 回退
-              wx.navigateBack();
-            }
+            this.callWxpay(resp.data.data);
             wx.hideLoading();
         });
 

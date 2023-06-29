@@ -22,12 +22,12 @@ export function updateBrokerViewsCount(userId) {
 
 // 置业顾问申请入驻    完成
 export function createBroker(profile) {
-    return request.post("/api/v1/brokers/", profile);
+    return request.post("/api/v6/brokers", profile);
 }
 
 // 拉取当前登录账号置业顾问申请入驻状态信息   完成
 export function checkBrokerStatus() {
-    return request.post("/api/v1/brokers/check_status", {});
+    return request.post("/api/v6/brokers/check_status", {});
 }
 
 //完成
