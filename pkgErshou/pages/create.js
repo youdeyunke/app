@@ -41,10 +41,10 @@ Page({
         wx.navigateTo({
             url: '/pages/enums/index?cat=house_fitment',
             events: {
-                change: function (name) {
+                change: function (post) {
                     // TODO 选中了一个楼盘
                     _this.setData({
-                        fitment: name
+                        fitment: post.name
                     })
                 }
             },
@@ -59,10 +59,10 @@ Page({
         wx.navigateTo({
             url: '/pages/enums/index?cat=house_position',
             events: {
-                change: function (name) {
+                change: function (post) {
                     // TODO 选中了一个楼盘
                     _this.setData({
-                        position: name
+                        position: post.name
                     })
                 }
             },
@@ -85,11 +85,11 @@ Page({
         wx.navigateTo({
             url: '/pages/districts/select',
             events: {
-                change: function (district_name, district_id, ) {
+                change: function (ditem) {
                     // TODO 选中了一个楼盘
                     _this.setData({
-                        district_name: district_name,
-                        district_id: district_id
+                        district_name: ditem.text,
+                        district_id: ditem.id
                     })
                 }
             },

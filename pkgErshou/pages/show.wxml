@@ -33,19 +33,20 @@
                 房源发布机构
             </view>
         </view>
-        <view style="display: flex;">
+        <view style="display: flex;position: relative;">
             <view class="guanzhu">
                 <image class="guanzhuImg" src="https://qiniucdn.udeve.cn/fang2021/1cafcedd-4633-41e1-9ec1-2d9f413e8a9e.png" mode="" />
                 <view>
                     关注
                 </view>
             </view>
-            <view class="guanzhu">
+            <view class="guanzhu" bindtap="onShareAppMessage">
                 <image class="guanzhuImg" src="https://qiniucdn.udeve.cn/fang2021/88362a90-7692-4214-8154-aa4b6fe4e1f9.png" mode="" />
                 <view>
                     分享
                 </view>
             </view>
+            <button open-type="share" class="fenxiang"></button>
         </view>
     </view>
     <view class="jichuxinxiBox">
@@ -204,7 +205,7 @@
     <view class="box">
         <raw-html html="{{rule.content}}"></raw-html>
     </view>
-    <view class="xiangxiTitle">
+    <view class="xiangxiTitle" wx:if="{{block.content}}">
         <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
         <view class="jpText">
             详细介绍
@@ -215,7 +216,6 @@
         <view class="xxText">
             {{block.content}}
         </view>
-
     </view>
 </view>
 <!-- 分割线 -->

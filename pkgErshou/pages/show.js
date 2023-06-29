@@ -25,7 +25,13 @@ Page({
      */
     onLoad(options) {
         this.loadData(options.id)
+        // if(this.data.rule==null) {
+        //   this.setData({
+        //     btnText:"立即出价"
+        //   })
+        // }
     },
+
     // 时间格式处理
     processDate(dateString) {
         const date = new Date(dateString);
@@ -43,7 +49,6 @@ Page({
     // 判断当前时间是否在指定的时间区间内
     checkTimeRange(min, max) {
         const minDate = new Date(min);
-        console.log("min", minDate);
         const maxDate = new Date(max);
         const currentDate = new Date();
 
@@ -145,7 +150,6 @@ Page({
 
 
 
-
     // 查看按钮
     seeMore() {
         this.setData({
@@ -160,7 +164,6 @@ Page({
     //   咨询按钮
     callHandle: function (e) {
         var m = this.data.block.contact_mobile
-        console.log("121m", m);
         wx.makePhoneCall({
             phoneNumber: m,
         })
@@ -179,7 +182,7 @@ Page({
             // 已经报名参加过，按钮文字需要变化
             if (data.has_joined) {
                 this.setData({
-                    btn: "立即出价",
+                  btnText: "立即出价",
                     btnDesc: "幅度：" + this.data.rule.bid_range
                 })
             }
@@ -200,6 +203,10 @@ Page({
             })
             if (res.data.data.rule_id) {
                 _this.loadRule(res.data.data.rule_id)
+            }else{
+              _this.setData({
+                btnText:"立即出价"
+              })
             }
 
         })
@@ -289,6 +296,16 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage() {
-
-    }
+    
+      return {
+        title: this.data.block.title,
+        path: '/pkgErshou/pages/show' // 自定义的分享路径
+      };
+    },
+      // 自定义朋友圈分享内容
+  onShareTimeline: function () {
+    return {
+      title: this.data.block.title
+    };
+  }
 })

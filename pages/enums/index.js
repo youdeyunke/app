@@ -23,14 +23,13 @@ Page({
     },
 
     itemClick: function (e) {
-        console.log("121",e.currentTarget.dataset.index.name);
         const {
             index
         } = e.currentTarget.dataset
         var post = this.data.items[index]
         var ch = this.getOpenerEventChannel()
         if (ch) {
-            ch.emit("change", e.currentTarget.dataset.index.name)
+            ch.emit("change", post)
         }
         wx.navigateBack({
             delta: 1,

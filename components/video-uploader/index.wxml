@@ -1,0 +1,14 @@
+<!--components/video-uploader/index.wxml-->
+<view>
+  <view class="uploader">
+    <block>
+      <view wx:if="{{video}}" class="item video image">
+        <video src="{{video}}"></video>
+      </view>
+      <view bindtap="chooseVideo" wx:if="{{!video}}" class="item add-video">
+        <view>上传视频</view>
+        <view>(60秒内)</view>
+      </view>
+    </block>
+  </view>
+</view>

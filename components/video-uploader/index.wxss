@@ -1,4 +1,4 @@
-/* components/video-uploader.wxss */
+/* components/video-uploader/index.wxss */
 .uploader{
   display: flex;
   justify-content: flex-start;
@@ -19,26 +19,6 @@
   overflow: hidden;
 }
 
-.uploader .item.image.main{
-  position: relative;
-  border:2rpx solid var(--color-a);
-}
-
-.uploader .item.image.main .title::after{
-  content: '主图';
-  position:absolute;
-  width:80rpx;
-  height:40rpx;
-  background:var(--color-a);
-  color:#fff;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  left:0;
-  top:0;
-
-}
-
 .uploader .item image{
   max-width: 160rpx;
   max-height: 160rpx;
@@ -48,13 +28,6 @@
 .uploader .item.video video{
   max-width: 180rpx;
   max-height: 180rpx;
-
-}
-
-.uploader .item.add-image::after{
-  content: "+";
-  font-size:80rpx;
-  color: #f4f4f4;
 
 }
 

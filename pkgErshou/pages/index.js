@@ -21,7 +21,7 @@ Page({
      */
     onLoad(options) {
         var _this = this
-        var business = options.business || '竞价'
+        var business = options.business || '租房'
         var filter = this.data.filter
         filter.business = business
         wx.setNavigationBarTitle({
