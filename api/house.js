@@ -51,5 +51,5 @@ export function createHouseAuctionRemind(houseId){
 
 // 取消订阅竞拍提醒
 export function deleteHouseAuctionRemind(houseId){
-  return request.delete("/api/v6/user_reminds", {target_id: houseId, target_type: "house.auction"});
+  return request.destroy("/api/v6/user_reminds", {target_id: houseId, target_type: "house.auction"});
 }
