@@ -1,25 +1,10 @@
 // 封装七牛云前端直接上传功能
 
 const app = getApp()
-const qiniuApi = require("../api/qiniu")
-// console.log("121qiniu_app",app);
-var  cdnDomain = 'qiniucdn.udeve.cn'
-var  cdnProtoco = 'http'
+let request = require("../utils/request.js")
+
 
 module.exports = {
-    genUrl: function(key){
-        return cdnProtoco + "://" + cdnDomain + '/' + key
-    },
-
-    getToken: function(cb){
-    //  √
-        qiniuApi.genQiniuToken().then((resp)=>{
-            var token = resp.data.data.token
-            var key = resp.data.data.key
-            return cb(token, key)
-        })
-    },
-
     upload: function(filePath, cb){
         // 拉取服务端配置信息
         var _this = this
@@ -34,30 +19,33 @@ module.exports = {
     },
 
     _upload: function(filePath, cb){
-        var _this = this
-        this.getToken( function(token, key){
-            var formData = {token: token, key: key}
-            wx.uploadFile({
-                url: 'https://up.qbox.me',
-                filePath: filePath,
-                name: 'file',
-                formData: formData,
-                success: function(resp){
-                    wx.hideLoading()
-                    if(resp.statusCode == 200 && resp.errMsg == "uploadFile:ok"){
-                      var url =  _this.genUrl(key)
-                      console.log('upload to qiniu success,url is:', url)
-                      return typeof cb == 'function' && cb(url)
-                    }else{
-                      wx.showToast({
-                        title: "上传文件失败",
-                        icon: "none",
-                        duration: 2000,
-                      });
-                    }
-                }
-            })
-        })
+       
+        var header={
+          Authorization: wx.getStorageSync('token')
+        }
+        var url=request.getUrl("/api/v6/upload")
+         // 将本地资源上传到服务器。
+        wx.uploadFile({
+          url: url,
+          filePath: filePath,
+          header:header,
+          name: 'file',
+          success: function(resp){
+              wx.hideLoading()
+              if(resp.statusCode == 200 && resp.errMsg == "uploadFile:ok"){
+               if(resp.data) {
+                var url = JSON.parse(resp.data).data.url
+                return typeof cb == 'function' && cb(url)
+               }
+              }else{
+                wx.showToast({
+                  title: "上传文件失败",
+                  icon: "none",
+                  duration: 2000,
+                });
+              }
+          }
+      })
     }
 
 }
