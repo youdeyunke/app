@@ -199,6 +199,7 @@ Page({
         })
         wx.showToast({
           title: '取消提醒',
+          icon:"none"
         })
         this.setData({
           tixingtext: "设置提醒"
