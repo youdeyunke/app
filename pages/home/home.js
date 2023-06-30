@@ -1,7 +1,7 @@
 // pages/home/home.js
 const app = getApp()
-const scoreApi = require("../../api/score")
-const cityApi = require("../../api/city")
+const cityApi = require("../../api/city");
+const shareApi = require("../../api/share");
 import utils from '../../utils/util'
 const rowWidthItem = ['60%', "100%", "30%", "40%", "100%"]
 
@@ -122,7 +122,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        app.setShareParams(options);
+        shareApi.markShareVisitor(options);
         this.setData({
             system: app.globalData.system
         }, () => {
@@ -174,7 +174,7 @@ Page({
         var config = e.detail
         console.log('page ready config', config)
         // 页面加载完成
-        var pageTitle = config.title.value || app.globalData.myconfig.xcx_name
+        var pageTitle = config.title.value || app.globalData.myconfigs.xcx_name
         var shareCover = config.shareCover
         var shareTitle = config.shareTitle || pageTitle
         var titleBgColor = config.title.bgColor
@@ -237,23 +237,18 @@ Page({
 
     onShareAppMessage: function () {
         var _this = this
+        var path = '/pages/home/home'
         const promise = new Promise(resolve => {
             // √
-            scoreApi.createScore('share_home').then((res) => {
-                if (res.data.status == 0 && res.data.data == 'ok') {
-                    wx.showToast({
-                        icon: 'none',
-                        title: '积分已增加',
-                    })
-                }
-                var path = '/pages/home/home'
-                // 如果是登录用户，需要构建转发分享参数
-                if (app.globalData.userInfo && app.globalData.userInfo.id) {
-                    path = path + "?sourceUserId=" + app.globalData.userInfo.id + "&sourceName=转发分享小程序首页"
+            shareApi.createShareHomepage(_this.data.shareTitle).then((res) => {
+                if (res.data.status == 0 && res.data.data != 0) {
+                    var shareId = res.data.data;
+                    path += "?share_id=" + shareId;
                 }
                 resolve({
                     title: _this.data.shareTitle,
                     imageUrl: _this.data.shareCover,
+                    path: path,
                 })
             })
         })

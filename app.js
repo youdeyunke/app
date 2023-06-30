@@ -492,28 +492,6 @@ App({
         })
     },
 
-    setShareParams: function (query) {
-        // 从参数中解析出分享参数并写入local storage
-        let parentId = wx.getStorageSync('parentId');
-        if (query.parentId) {
-            if (!parentId) {
-                wx.setStorage({
-                    key: 'parentId',
-                    data: query.parentId
-                })
-            }
-        }
-        let sourceName = query.sourceName
-        if (query.sourceName) {
-            if (!sourceName) {
-                wx.setStorage({
-                    key: 'sourceName',
-                    data: query.sourceName,
-                })
-            }
-        }
-    },
-
     sendSms: function (mobile, cb) {
         var _this = this;
         // 有待检测
