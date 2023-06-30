@@ -65,13 +65,10 @@ Page({
         wx.showLoading()
         this.setData({
             loading: true,
-            groupValue: q.group_value || 'jingji', // jinji,broker  用于区分全民经纪人和置业顾问
         })
         if (q.post_id) {
             this.setDefaultPost(q.post_id)
         }
-
-
         wx.setNavigationBarTitle({
             title: '申请入驻',
         })
@@ -165,7 +162,7 @@ Page({
         //     })
         //     return false
         // }
-        if (data.groupValue == 'jingji' && !data.groupName) {
+        if (!data.groupValue || !data.groupName) {
             wx.showToast({
                 icon: 'none',
                 title: '请选择身份',
@@ -230,8 +227,19 @@ Page({
     },
 
     showUserGroupSelector: function () {
-        var el = this.selectComponent('#broker-group-selector')
-        el.open(this.data.groupValue)
+      var _this = this
+        wx.navigateTo({
+          url: '/pages/enums/index?cat=broker_group',
+          events:{
+            change:function(e){
+              console.log('e',e);
+              _this.setData({ 
+                groupValue:e.value, 
+                groupName:e.name,
+              })
+            }
+          },
+        })
     },
 
     groupChange: function (e) {
