@@ -17,7 +17,7 @@
 </van-cell-group>
 <van-cell-group title="户型图">
     <view class="huxingbox">
-        <images-uploader max="1" bind:change="typeimagesHandle"></images-uploader>
+        <images-uploader width="160" height="160" max="1" bind:change="typeimagesHandle"></images-uploader>
     </view>
 </van-cell-group>
 
@@ -25,7 +25,7 @@
 <!-- 调用images-uploader组件， 绑定字段：images  ，多图用逗号分割-->
 <van-cell-group title="房源照片">
     <view class="huxingbox">
-        <images-uploader bind:change="imagesHandle"></images-uploader>
+        <images-uploader width="160" height="160" bind:change="imagesHandle"></images-uploader>
     </view>
 </van-cell-group>
 
@@ -33,7 +33,7 @@
 <!-- 上传视频文件，绑定字段video -->
 <van-cell-group title="视频介绍">
     <view class="huxingbox">
-        <video-uploader bind:change="videoHandle"></video-uploader>
+        <video-uploader width="200" height="200" bind:change="videoHandle"></video-uploader>
     </view>
 </van-cell-group>
 

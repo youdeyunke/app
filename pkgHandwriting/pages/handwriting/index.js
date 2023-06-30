@@ -1,5 +1,5 @@
 const app = getApp() 
-var qiniu = require('../../../utils/qiniu.js');
+var upload = require('../../../utils/upload.js');
 
 
 Page({
@@ -48,7 +48,7 @@ Page({
       quality: 1, 
       success(res){
         var path = res.tempFilePath 
-        qiniu.upload(path, (url) => {
+        upload.upload(path, (url) => {
           wx.hideLoading()
           console.log('sign image', url)
           wx.setStorage({

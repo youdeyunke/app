@@ -6,8 +6,10 @@
   max-count="{{max}}"
   file-list="{{ images }}"
   bind:after-read="afterRead"
+  preview-full-image="true"
+  preview-size="{{width}}rpx"
 >
-    <view class="upload-btn">
+    <view class="upload-btn" style="width: {{width}}rpx;height: {{height}}rpx;">
         <van-icon size="40rpx" color="#999999" name="photograph" />
         <text>添加照片</text>
     </view>

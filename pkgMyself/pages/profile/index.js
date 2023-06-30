@@ -2,7 +2,7 @@
 const app = getApp()
 const userApi = require("../../../api/user")
 var auth = require('../../../utils/auth.js');
-var qiniu = require('../../../utils/qiniu.js');
+var upload = require('../../../utils/upload.js');
 
 
 Page({
@@ -119,7 +119,7 @@ Page({
             sizeType: ['original', 'compressed'],
             success(res) {
                 const path = res.tempFilePaths[0]
-                qiniu.upload(path, (url) => {
+                upload.upload(path, (url) => {
                     u[key] = url
                     _this.setData({userInfo: u})
                 })

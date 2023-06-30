@@ -2,10 +2,10 @@
 <view>
   <view class="uploader">
     <block>
-      <view wx:if="{{video}}" class="item video image">
-        <video src="{{video}}"></video>
+      <view  style="width: {{width}}rpx;height: {{height}}rpx;" wx:if="{{video}}" class="item video ">
+        <video style="width: {{width}}rpx;height: {{height}}rpx;" src="{{video}}"></video>
       </view>
-      <view bindtap="chooseVideo" wx:if="{{!video}}" class="item add-video">
+      <view style="width: {{width}}rpx;height: {{height}}rpx;" bindtap="chooseVideo" wx:if="{{!video}}" class="item add-video">
         <view>上传视频</view>
         <view>(60秒内)</view>
       </view>

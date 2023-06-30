@@ -1,12 +1,13 @@
 // components/video-uploader/index.js
-var qiniu = require('../../utils/qiniu');
+var upload = require('../../utils/upload');
 
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-
+    width:{type:Number,value:200},
+    height:{type:Number,value:200}
   },
 
   /**
@@ -31,8 +32,7 @@ Component({
       })
       var _this = this
       var path = paths.shift()
-      console.log("121path",path);
-      qiniu.upload(path, function (url) {
+      upload.upload(path, function (url) {
         _this.setData({
           video: url
         })
@@ -48,7 +48,6 @@ Component({
               title: '上传完成!',
               icon: 'success',
             })
-
           }, 1000)
         }
       })
@@ -65,14 +64,6 @@ Component({
         camera: 'back',
         success(res) {
           this.success(res.tempFiles[0].tempFilePath)
-          this.complete(res.tempFiles[0].size)
-        },
-        complete: function (res) {
-          var size = res.tempFiles[0].size / (1024 * 1024)
-          wx.showModal({
-            title: '文件',
-            content: size.toFixed(2) + 'Mb',
-          })
         },
         success: function (res) {
           const paths = [res.tempFiles[0].tempFilePath]

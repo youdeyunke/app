@@ -1,7 +1,7 @@
 // pkgAdmin/pages/admin/xiangce/upload-btn.js
 const app = getApp()
 const mediaApi= require("../../../../api/media")
-var qiniu = require('../../../../utils/qiniu.js');
+var upload = require('../../../../utils/upload.js');
 
 Component({
     /**
@@ -26,7 +26,7 @@ Component({
             wx.showLoading({ title: "上传中,请勿关闭", mask: true })
             var _this = this
             var path = paths.shift()
-            qiniu.upload(path, function (url) {
+            upload.upload(path, function (url) {
                 _this.insertPath(url)
                 if (paths.length > 0) {
                     _this.doUpload(paths)

@@ -1,4 +1,4 @@
-const qiniu = require("../utils/qiniu")
+const upload = require("../utils/upload")
 const userApi= require("../api/user")
 // components/avatar-sync.js
 const app = getApp()
@@ -40,7 +40,7 @@ Component({
             success: function(res) {
               //  上传到自己服务器
               console.log('头像下载到本地',res)
-              qiniu.upload(res.tempFilePath, function(url){
+              upload.upload(res.tempFilePath, function(url){
                 info.avatarUrl = url
                 console.log('头像已上传到cdn ', url)  
                 _this.doUpdate(info)

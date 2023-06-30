@@ -4,8 +4,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width:160rpx;
-    height: 160rpx;
     border-radius: 8rpx;
     padding:10rpx;
     border:2rpx dashed #cecece;
