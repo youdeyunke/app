@@ -2,10 +2,7 @@
 const app = getApp()
 const postApi = require("../../../api/post")
 const scoreApi = require("../../../api/score")
-var auth = require('../../../utils/auth.js');
-var util = require('../../../utils/util.js');
 var wxCharts = require('../../../utils/wxcharts-min');
-var radarChart = null;
 const themes = [{
         color: '#3A6BDD',
         bgImg: 'https://qiniucdn.udeve.cn/fang2021/6eed67a9-7a5c-4a64-be48-d81221ca3ac0.png'
@@ -16,7 +13,6 @@ const themes = [{
     }
 ]
 Page({
-
     /**
      * 页面的初始 数据
      */
@@ -239,7 +235,7 @@ Page({
                     menus: ['shareAppMessage', 'shareTimeline']
                 })
             })
-        }).fail((res) => {
+        }).catch((res) => {
             wx.showToast({
                 title: '楼盘页面渲染错误',
                 icon: 'error',
@@ -344,9 +340,6 @@ Page({
         this.getPageDom()
     },
 
-
-
-
     drawRadar() {
         let windowWidth = 320;
         try {
@@ -355,7 +348,7 @@ Page({
         } catch (e) {
             // do something when get system info failed
         }
-        radarChart = new wxCharts({
+       this.radarChart = new wxCharts({
             canvasId: 'radarCanvas',
             type: 'radar',
             background: "#D1E8FF",
@@ -371,7 +364,6 @@ Page({
                 radar: {
                     max: 150,
                     labelColor: '#333',
-
                 }
             }
         });

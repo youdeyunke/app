@@ -35,7 +35,7 @@ Component({
     data: {
         images: [
             // {url: '',name: '', isImage: true}
-        ]
+        ],
     },
 
     /**
@@ -73,7 +73,10 @@ Component({
             var urls = []
             this.data.images.forEach((image, i) => {
                 var url = image.url.split('?')[0]
-                urls.push(url)
+                urls.push({url:url})
+            })
+            this.setData({
+              images:urls
             })
             this.triggerEvent('change', { value: urls })
         },
@@ -89,12 +92,20 @@ Component({
         },
 
         deleteHandle: function (e) {
-            var i = e.detail.index
+            var i = e.currentTarget.dataset.index
             var images = this.data.images
             images.splice(i, 1)
             this.setData({ images: images })
             this.hasChanged()
         },
+        Preview:function(e) {
+          let url= e.currentTarget.dataset.index
+          wx.previewImage({
+            current: url, 
+            urls: [url]
+          })
+        }
+       
 
     }
 })

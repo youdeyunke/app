@@ -33,7 +33,7 @@
 <!-- 上传视频文件，绑定字段video -->
 <van-cell-group title="视频介绍">
   <view class="huxingbox">
-    <video-uploader width="200" height="200" bind:change="videoHandle"></video-uploader>
+    <video-uploader width="690" height="200" bind:change="videoHandle"></video-uploader>
   </view>
 </van-cell-group>
 
