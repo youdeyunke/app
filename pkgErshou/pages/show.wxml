@@ -25,12 +25,12 @@
     <view class="fuzerenBox">
         <view style="display: flex;">
             <view class="fuzeren">
-                <image class="fuzerenImg" src="https://qiniucdn.udeve.cn/fang2021/b1f98257-2189-4116-a962-664a8f7ea68b.png" mode="" />
-                房源负责人
+              <image class="fuzerenImg" src="https://qiniucdn.udeve.cn/fang2021/a6eb9ded-760d-470a-ad64-acfdba186831.png" mode="" />
+                房源已审核
             </view>
             <view class="fuzeren" style="margin-left: 50rpx;">
-                <image class="fuzerenImg" src="https://qiniucdn.udeve.cn/fang2021/a6eb9ded-760d-470a-ad64-acfdba186831.png" mode="" />
-                房源发布机构
+              <image class="fuzerenImg" src="https://qiniucdn.udeve.cn/fang2021/b1f98257-2189-4116-a962-664a8f7ea68b.png" mode="" />
+                由{{block.seller}}发布
             </view>
         </view>
         <view style="display: flex;position: relative;">
@@ -110,8 +110,8 @@
         <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
     </view>
     <view class="box">
-        <view class="jingmaiBox">
-            我的竞买号:M2067
+        <view class="jingmaiBox" wx:if="{{joined}}">
+            我的竞买号:{{myCode || "-"}}
         </view>
         <view class="jingmaineirongBox">
             <view class="jmBox" wx:for="{{members}}">
@@ -182,7 +182,7 @@
     <view class="xiangxiTitle" wx:if="{{block.content}}">
         <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
         <view class="jpText">
-            详细介绍
+            房源介绍
         </view>
         <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
     </view>

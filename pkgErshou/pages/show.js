@@ -1,5 +1,6 @@
 // pkgErshou/pages/show.js
 var houseApi = require("../../api/house")
+var shareApi = require("../../api/share");
 const app = getApp()
 Page({
   /**
@@ -26,6 +27,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    shareApi.markShareVisitor(options);
     this.loadData(options.id)
     var value = wx.getStorageSync('houseId')
     if (value == "") {
@@ -233,6 +235,7 @@ Page({
   loadData: function (e) {
     var _this = this
     houseApi.getHouseBlocks(e).then((res) => {
+      _this.genShareId(res.data.data.title, res.data.data.id);
       wx.setNavigationBarTitle({
         title: res.data.data.title
       })
@@ -269,6 +272,18 @@ Page({
    */
   onShow() {
 
+  },
+
+  genShareId(title, houseId){
+    if(this.data.shareId){
+       return;
+    }
+    var _this = this;
+    shareApi.createShareErshou(title, "house." +houseId ).then((res) =>{
+      if(res.data.data){
+        _this.setData({shareId:res.data.data});
+      }
+    });
   },
 
   /**
@@ -366,10 +381,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage() {
-
+    var path = "/pkgErshou/pages/show?id=" + this.data.houseId +"&share_id=" +this.data.shareId
     return {
       title: this.data.block.title,
-      path: '/pkgErshou/pages/show' // 自定义的分享路径
+      path: path, // 自定义的分享路径
     };
   },
   // 自定义朋友圈分享内容
