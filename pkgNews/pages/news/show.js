@@ -27,6 +27,7 @@ Page({
         var _this = this
         // √
         newsApi.getNewsDetail(_this.data.nid).then((resp)=>{
+          console.log("121resp",resp);
             _this.setData({
                 item: resp.data.data,
             })

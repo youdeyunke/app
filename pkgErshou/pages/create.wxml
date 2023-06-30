@@ -44,8 +44,9 @@
   <view class="fieldBox" bindtap="focusField">
     <van-field  focus="{{focus}}"  model:value="{{ content }}" type="textarea" autosize placeholder="请输入详细介绍:" />
   </view>
-  
 </van-cell-group>
+<!-- 占位 -->
+<view style="width: 100%;height: 10rpx;"></view>
 
 <view class="footer">
   <van-button bindtap="submitHandle" block type="primary">提交审核</van-button>

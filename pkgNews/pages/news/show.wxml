@@ -1,6 +1,5 @@
 <block wx:if="{{!loading}}">
     <view wx:if="{{item.content_type == 'html'}}" class="news-content">
-       
         <box padding="20" margin-bottom="20" width="710" >
             <view class="header">
                 <view class="h1">{{item.title}}</view>
