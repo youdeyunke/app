@@ -301,6 +301,11 @@ Page({
     // 参与出价，出价后要刷新
     wx.showLoading();
     houseApi.createBid(this.data.rule.id).then((res) => {
+      if(res.data.code == 0){
+        wx.showToast({
+          title: '出价成功',
+        })
+      }
       this.loadData(this.data.houseId);
     })
   },

@@ -114,42 +114,16 @@
             我的竞买号:M2067
         </view>
         <view class="jingmaineirongBox">
-            <view class="jmBox">
+            <view class="jmBox" wx:for="{{members}}">
                 <view class="jmBiaoqian">
-                    出局
+                    排名：{{index+1}}
                 </view>
                 <view class="jmText">
-                    L6172
-                    ￥75,812
+                    {{item.code}}
+                    ￥{{item.price}}
                 </view>
             </view>
-            <view class="jmBox">
-                <view class="jmBiaoqian">
-                    出局
-                </view>
-                <view class="jmText">
-                    L6172
-                    ￥75,812
-                </view>
-            </view>
-            <view class="jmBox">
-                <view class="jmBiaoqian">
-                    出局
-                </view>
-                <view class="jmText">
-                    L6172
-                    ￥75,812
-                </view>
-            </view>
-            <view class="jmBox">
-                <view class="jmBiaoqian">
-                    出局
-                </view>
-                <view class="jmText">
-                    L6172
-                    ￥75,812
-                </view>
-            </view>
+
         </view>
         <view class="baozhengjinBox">
             <view class="bzjTitle">
@@ -166,7 +140,7 @@
             <view class="xxxxTitle">
                 起拍价:
                 <view class="xxxxText">
-                    {{rule.bid_start}}元/平
+                    {{rule.bid_start}}
                 </view>
             </view>
             <view class="xxxxTitle">
@@ -176,9 +150,9 @@
                 </view>
             </view>
             <view class="xxxxTitle">
-                评估价:
+                最新出价:
                 <view class="xxxxText">
-                    146346元/平
+                    {{rule.bid_current || '-'}}元
                 </view>
             </view>
             <view class="xxxxTitle">
@@ -224,7 +198,11 @@
 <!-- 地图 -->
 <map-block value="{{block}}"></map-block>
 
-<!-- 底部栏 -->
+<!-- 二手、租房时的底部栏 -->
+<!--  view class="bottomBox">
+</view -->
+
+<!-- 竞价时的底部栏 -->
 <view class="bottomBox">
     <view wx:if="{{zixun_show}}" class="zixunBtn" bindtap="callHandle">
         <image class="zixunImg" src="https://qiniucdn.udeve.cn/fang2021/16cc3f04-0aa4-420b-9ad6-732229493f46.png" mode="" />
