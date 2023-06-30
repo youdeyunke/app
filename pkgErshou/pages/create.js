@@ -210,13 +210,6 @@ Page({
       })
       return
     }
-    if(!data.video) {
-      wx.showToast({
-        title: '请上传视频介绍',
-        icon:'none'
-      })
-      return
-    }
     else {
       houseApi.createHouse(data).then((res) => {
         // todo 
@@ -225,6 +218,9 @@ Page({
           wx.showToast({
             title: '提交成功',
           })
+          wx.navigateBack({
+            delta: 1
+          });
         }
       })
     }

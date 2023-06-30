@@ -33,7 +33,7 @@
 <!-- 上传视频文件，绑定字段video -->
 <van-cell-group title="视频介绍">
   <view class="huxingbox">
-    <video-uploader width="200" height="200" bind:change="videoHandle"></video-uploader>
+    <video-uploader width="690" height="200" bind:change="videoHandle"></video-uploader>
   </view>
 </van-cell-group>
 
@@ -44,8 +44,9 @@
   <view class="fieldBox" bindtap="focusField">
     <van-field  focus="{{focus}}"  model:value="{{ content }}" type="textarea" autosize placeholder="请输入详细介绍:" />
   </view>
-  
 </van-cell-group>
+<!-- 占位 -->
+<view style="width: 100%;height: 10rpx;"></view>
 
 <view class="footer">
   <van-button bindtap="submitHandle" block type="primary">提交审核</van-button>
