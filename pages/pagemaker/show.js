@@ -37,7 +37,7 @@ Page({
   pageReadyHandle: function (e) {
     var config = e.detail
     // 页面加载完成
-    var pageTitle = config.title.value || app.globalData.myconfig.xcx_name
+    var pageTitle = config.title.value || app.globalData.myconfigs.xcx_name
     var shareCover = config.shareCover
     var shareTitle = config.shareTitle || pageTitle
     var titleBgColor = config.title.bgColor

@@ -50,5 +50,5 @@ export function markShareVisitor(options){
         return;
     }
     console.log("当前点击了来自分享的链接 share id :", shareId)
-    return request.post("/api/v6/share_visitors", {share_id: shareId});
+    return request.post("/api/v6/share/" + shareId + "/visitors", {});
 }
