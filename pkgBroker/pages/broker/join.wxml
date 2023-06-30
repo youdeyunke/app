@@ -1,77 +1,77 @@
 <view class="outer">
-    <image class="banner" src="{{broker_join_bj}}"></image>
-    <block wx:if="{{groupValue == 'broker'}}">
-
-        <view class="title">
-            置业顾问入驻
-        </view>
-        <view class="desc">
-            入驻后即可开通专属个人主页、拓客海报等。
-        </view>
-    </block>
-    <block wx:if="{{groupValue == 'jingji'}}">
-
-        <view class="title">
-            全民经纪人入驻
-        </view>
-        <view class="desc">
-           入驻后即可报备客户，赚佣金
-        </view>
-    </block>
-
-    <view style="width: 750rpx;height: 324rpx;"></view>
-
-    <block wx:if="{{userstate.join_status==-1}}">
-        <van-notice-bar wrapable scrollable="{{ false }}" text="审核状态：暂未通过！请修改资料重新提交\n拒绝原因：{{userstate.info}}">
-        </van-notice-bar>
-    </block>
-
-    <view class="body">
-
-        <van-cell-group title="基本信息">
-            <van-field center required label="手机号" use-button-slot model:value="{{ mobile }}" readonly="{{mobileLock}}" readonly="{{mobileLock}}" placeholder="请填写手机号">
-                <sms-button wx:if="{{!mobileLock}}" slot="button" mobile="{{mobile}}" />
-                <view style="color:{{primaryColor}};" wx:else slot="button">
-                    <van-icon bindtap="changeMobile" name="edit"></van-icon>
-                    修改
-                </view>
-            </van-field>
-
-            <van-field wx:if="{{!mobileLock}}" label="验证码" required model:value="{{ smsCode }}" placeholder="短信验证码" />
-
-            <van-field required use-button-slot label="姓名" model:value="{{name}}" placeholder="请输入真实姓名">
-
-                <choose-block slot="button" class="choose" options="{{sexOptions}}" model:value="{{sex}}" bindchangeStatus="changeSex"></choose-block>
-
-            </van-field>
-
-
-        </van-cell-group>
-
-        <view class="blank"></view>
-
-        <van-cell-group title="身份信息">
-            <van-field wx:if="{{groupValue == 'jingji'}}" required label="选择身份" bindtap="showUserGroupSelector" value="{{groupName}}" placeholder="点击选择身份" is-link readonly="{{true}}"> </van-field>
-            <van-field required label="主营楼盘" bindtap="gotoPostSelector" value="{{postTitle}}" placeholder="点击选择楼盘" is-link readonly="{{true}}"> </van-field>
-            <van-field required label="个人头像" bindtap="chooseImage" data-key="avatar" value="{{avatar && avatar.length >0 ? '已上传' : ''}}" placeholder="点击上传" is-link readonly="{{true}}"> </van-field>
-            <van-field required label="微信号" model:value="{{wechat}}" placeholder="请输入微信号" />
-        </van-cell-group>
-
-        <van-cell-group title="银行卡信息（用于佣金提现）">
-            <van-field required label="户名" model:value="{{bank_user}}" placeholder="请输入银行卡户名" />
-            <van-field required label="开户行" model:value="{{bank}}" placeholder="请输入开户行" />
-            <van-field required label="支行" model:value="{{sub_bank}}" placeholder="请输入支行" />
-            <van-field required label="银行卡号" model:value="{{bank_id}}" placeholder="请输入银行卡号" />
-
-        </van-cell-group>
-
-
+  <image class="banner" src="{{broker_join_bj}}"></image>
+  <block wx:if="{{groupValue == 'advisor'}}">
+    <view class="title">
+      置业顾问入驻
     </view>
+    <view class="desc">
+      入驻后即可开通专属个人主页、拓客海报等。
+    </view>
+  </block>
+  <block wx:if="{{groupValue == 'broker'}}">
+
+    <view class="title">
+      全民经纪人入驻
+    </view>
+    <view class="desc">
+      入驻后即可报备客户，赚佣金
+    </view>
+  </block>
+
+  <view style="width: 750rpx;height: 324rpx;"></view>
+
+  <block wx:if="{{userstate.join_status==-1}}">
+    <van-notice-bar wrapable scrollable="{{ false }}" text="审核状态：暂未通过！请修改资料重新提交\n拒绝原因：{{userstate.info}}">
+    </van-notice-bar>
+  </block>
+
+  <view class="body">
+
+    <van-cell-group title="基本信息">
+      <van-field center required label="手机号" use-button-slot model:value="{{ mobile }}" readonly="{{mobileLock}}" readonly="{{mobileLock}}" placeholder="请填写手机号">
+        <sms-button wx:if="{{!mobileLock}}" slot="button" mobile="{{mobile}}" />
+        <view style="color:{{primaryColor}};" wx:else slot="button">
+          <van-icon bindtap="changeMobile" name="edit"></van-icon>
+          修改
+        </view>
+      </van-field>
+
+      <van-field wx:if="{{!mobileLock}}" label="验证码" required model:value="{{ smsCode }}" placeholder="短信验证码" />
+
+      <van-field required use-button-slot label="姓名" model:value="{{name}}" placeholder="请输入真实姓名">
+
+        <choose-block slot="button" class="choose" options="{{sexOptions}}" model:value="{{sex}}" bindchangeStatus="changeSex"></choose-block>
+
+      </van-field>
+
+
+    </van-cell-group>
+
+    <view class="blank"></view>
+
+    <van-cell-group title="身份信息">
+      <van-field required label="选择身份" bindtap="showUserGroupSelector" value="{{groupName}}" placeholder="点击选择身份" is-link readonly="{{true}}"> </van-field>
+      
+      <van-field required label="主营楼盘" bindtap="gotoPostSelector" value="{{postTitle}}" placeholder="点击选择楼盘" is-link readonly="{{true}}"> </van-field>
+      <van-field required label="个人头像" bindtap="chooseImage" data-key="avatar" value="{{avatar && avatar.length >0 ? '已上传' : ''}}" placeholder="点击上传" is-link readonly="{{true}}"> </van-field>
+      <van-field required label="微信号" model:value="{{wechat}}" placeholder="请输入微信号" />
+    </van-cell-group>
+
+    <van-cell-group title="银行卡信息（用于佣金提现）">
+      <van-field required label="户名" model:value="{{bank_user}}" placeholder="请输入银行卡户名" />
+      <van-field required label="开户行" model:value="{{bank}}" placeholder="请输入开户行" />
+      <van-field required label="支行" model:value="{{sub_bank}}" placeholder="请输入支行" />
+      <van-field required label="银行卡号" model:value="{{bank_id}}" placeholder="请输入银行卡号" />
+
+    </van-cell-group>
+
+
+  </view>
 
 
 </view>
 <view class="footer">
-    <van-button block type="primary" color="{{btnColor}}" round bindtap="submitHandle">申请开通</van-button>
+  <van-button block type="primary" color="{{btnColor}}" round bindtap="submitHandle">申请开通</van-button>
 </view>
 
 
