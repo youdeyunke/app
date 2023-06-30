@@ -2,7 +2,7 @@ const app = getApp();
 const postApi = require("../../../api/post");
 const brokerApi = require("../../../api/broker");
 const smsApi = require("../../../api/sms")
-var qiniu = require('../../../utils/qiniu.js');
+var upload = require('../../../utils/upload.js');
 var auth = require('../../../utils/auth.js');
 
 Page({
@@ -113,7 +113,7 @@ Page({
                     uploading: true
                 })
                 const path = res.tempFilePaths[0]
-                qiniu.upload(path, (url) => {
+                upload.upload(path, (url) => {
                     var key = e.currentTarget.dataset.key;
                     var data = {}
                     data[key] = url

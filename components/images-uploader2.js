@@ -1,5 +1,5 @@
 // components/images-uploader2.js
-var qiniu = require('../utils/qiniu.js');
+var upload = require('../utils/upload.js');
 
 Component({
     /**
@@ -8,6 +8,8 @@ Component({
     properties: {
         imagesStr: { type: String, value: '' },
         max: { type: Number, value: 10 },
+        width:{type:Number,value:160},
+        height:{type:Number,value:160}
     },
 
     observers: {
@@ -61,7 +63,7 @@ Component({
                 wx.hideLoading()
                 return false
             }
-            qiniu.upload(paths[i], function (url) {
+            upload.upload(paths[i], function (url) {
                 _this.addToImages(url)
                 _this.doUpload(i + 1, paths)
             })

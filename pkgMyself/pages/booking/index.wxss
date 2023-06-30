@@ -2,7 +2,6 @@
   padding: 20rpx;
 }
 .booking-box{
-  width: 710rpx;
   background-color: #fff;
   border-radius: 20rpx;
   padding: 30rpx;
