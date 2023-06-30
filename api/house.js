@@ -31,7 +31,7 @@ export function getRuleDetail(ruleId){
 
 // 报名参加竞拍
 export function payAndJoin(ruleId){
-    return request.post("/api/v6/auction_members", {rule_id: ruleId});
+    return request.post("/api/v6/auction_members/join", {rule_id: ruleId});
 }
 
 // 参与出价

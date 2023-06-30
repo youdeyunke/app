@@ -12,7 +12,7 @@ Page({
     btnText: "立即报名", // 按钮大文字
     btnDesc: null, //按钮小字
     bids: [], // 出价记录
-    has_joined: false, // 是否报名参加过
+    joined: false, // 是否报名参加过
     members: [], // 报名的成员列表
     houseId: null,
     title: "",
@@ -220,10 +220,10 @@ Page({
       data.rule.starts_at = time_on
       data.rule.ends_at = end_time
       // 已经报名参加过，按钮文字需要变化
-      if (data.has_joined) {
+      if (data.joined) {
         this.setData({
           btnText: "立即出价",
-          btnDesc: "幅度：" + this.data.rule.bid_range
+          btnDesc: "幅度：" + data.rule.bid_range
         })
       }
       this.setData(data);
@@ -289,7 +289,7 @@ Page({
     if (this.data.btnText == "立即联系") {
       this.callHandle()
     }
-    if (this.data.has_joined) {
+    if (this.data.joined) {
       this.bidHandle()
     } else {
       this.payAndJoinHandle(this.data.rule.id);
@@ -304,21 +304,42 @@ Page({
       this.loadData(this.data.houseId);
     })
   },
+  callWxpay:function(data){
+    var _this = this;
+    wx.requestPayment({
+      timeStamp:data.time_stamp,
+      nonceStr:data.nonce_str,
+      paySign: data.pay_sign,
+      signType:data.sign_type,
+      package:data.package_value,
+      success:function(e){
+        wx.showToast({
+          title: '支付成功',
+        })
+        _this.loadData(_this.data.houseId);
+      },
+      fail:function(e){
+        wx.showToast({
+          title: '支付失败，请重试',
+          icon:'none',
+        })
+      }
+    })
+  },
 
   payAndJoinHandle: function () {
     // 报名参加竞拍
+    // 此接口会吊起微信支付界面
+    // 先刷新再报名
+
     var ruleId = this.data.rule.id;
+    var _this = this;
     houseApi.payAndJoin(ruleId).then((res) => {
-      console.log("res", res)
-      if (res.data.code != 0 && res.data.message && res.data.message.indexOf("充值") > 0) {
-        console.log("bb");
-        var url = '/pkgWallet/pages/wallet/recharge?amount=' + this.data.rule.deposit;
-        console.log('aaa', url)
-        wx.navigateTo({
-          url: url,
-        })
+      if(res.data.code != 0){
+        return false;
       }
-      this.loadData(this.data.houseId);
+      // 调用微信支付
+      _this.callWxpay(res.data.data);
     });
   },
 
