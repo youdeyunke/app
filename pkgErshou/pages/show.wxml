@@ -102,14 +102,14 @@
 </view>
 <!-- 竞拍 -->
 <view wx:if="{{rule && rule.id}}">
-  <view class="jingpaiBox">
+  <view class="jingpaiBox" bindtap="gochujia">
     <view class="jingpaiBoxL">
       <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
       <view class="jpText">
         竞价拍卖
       </view>
     </view>
-    <view class="jingpaiBoxR"  bindtap="gochujia">
+    <view class="jingpaiBoxR" >
       <view>出价记录</view>
       <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
     </view>
@@ -202,8 +202,6 @@
     <view class="jingpaiBoxR">
       <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
     </view>
-
-
   </view>
   <view class="box">
     <view class="xxText">
