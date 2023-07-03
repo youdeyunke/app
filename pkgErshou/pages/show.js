@@ -19,8 +19,8 @@ Page({
     title: "",
     headSwitch: true,
     show: false,
-    zixun_show: true,
-    tixingtext: "提醒"
+    tixingtext: "提醒",
+    business:"竞价"
   },
 
   /**
@@ -242,14 +242,14 @@ Page({
       _this.setData({
         block: res.data.data,
         banners: res.data.data.banners,
-        houseId: res.data.data.id
+        houseId: res.data.data.id,
+        business:res.data.data.business
       })
       if (res.data.data.rule_id) {
         _this.loadRule(res.data.data.rule_id)
       } else {
         _this.setData({
           btnText: "立即联系",
-          zixun_show: false
         })
       }
 
@@ -301,10 +301,9 @@ Page({
   },
 
   btnHandle: function () {
-    if (this.data.btnText == "立即联系") {
+    if (this.data.business != "竞价") {
       this.callHandle()
-    }
-    if (this.data.joined) {
+    }else if (this.data.joined) {
       this.bidHandle()
     } else {
       this.payAndJoinHandle(this.data.rule.id);

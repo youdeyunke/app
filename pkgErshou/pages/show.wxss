@@ -332,6 +332,7 @@
 
 .baomingBtn {
   height: 90rpx;
+  width: 420rpx;
   background: #2065E2;
   border-radius: 12rpx;
   color: #FFFFFF;
@@ -340,11 +341,16 @@
   justify-content: center;
   flex-direction: column;
 }
-.baomingbigBtn{
+.ershoubaomingBtn {
+  height: 90rpx;
   width: 690rpx;
-}
-.baomingsmallBtn {
-  width: 420rpx;
+  background: #2065E2;
+  border-radius: 12rpx;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .biaomingTitle {

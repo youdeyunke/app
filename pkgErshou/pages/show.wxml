@@ -2,195 +2,195 @@
 <banners-block value="{{banners}}"></banners-block>
 <!-- 头部标签 -->
 <view class="headLabelBox" wx:if="{{rule && rule.id&& headSwitch}}">
-    <image class="headLabelImg" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
-    {{title}}
+  <image class="headLabelImg" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
+  {{title}}
 </view>
 <!-- 基础信息 -->
 <view class="box">
-    <view class="biaoqianBox">
-        <view class="biaoqianLBox">
-            <view class="biaoqian" style="color:{{item.color}}" wx:for="{{block.tags}}">
-                {{item.name}}
-            </view>
-        </view>
+  <view class="biaoqianBox">
+    <view class="biaoqianLBox">
+      <view class="biaoqian" style="color:{{item.color}}" wx:for="{{block.tags}}">
+        {{item.name}}
+      </view>
+    </view>
 
-        <view class="tishi">
-            <van-icon name="bell" style="margin-right: 10rpx;" />
-            变量提示
-        </view>
+    <view class="tishi">
+      <van-icon name="bell" style="margin-right: 10rpx;" />
+      变量提示
     </view>
-    <view class="biaotiBox">
-        {{block.title}}
+  </view>
+  <view class="biaotiBox">
+    {{block.title}}
+  </view>
+  <view class="fuzerenBox">
+    <view style="display: flex;">
+      <view class="fuzeren">
+        <image class="fuzerenImg" src="https://qiniucdn.udeve.cn/fang2021/a6eb9ded-760d-470a-ad64-acfdba186831.png" mode="" />
+        房源已审核
+      </view>
+      <view class="fuzeren" style="margin-left: 50rpx;">
+        <image class="fuzerenImg" src="https://qiniucdn.udeve.cn/fang2021/b1f98257-2189-4116-a962-664a8f7ea68b.png" mode="" />
+        由{{block.seller}}发布
+      </view>
     </view>
-    <view class="fuzerenBox">
-        <view style="display: flex;">
-            <view class="fuzeren">
-              <image class="fuzerenImg" src="https://qiniucdn.udeve.cn/fang2021/a6eb9ded-760d-470a-ad64-acfdba186831.png" mode="" />
-                房源已审核
-            </view>
-            <view class="fuzeren" style="margin-left: 50rpx;">
-              <image class="fuzerenImg" src="https://qiniucdn.udeve.cn/fang2021/b1f98257-2189-4116-a962-664a8f7ea68b.png" mode="" />
-                由{{block.seller}}发布
-            </view>
+    <view style="display: flex;position: relative;">
+      <view class="guanzhu">
+        <image class="guanzhuImg" src="https://qiniucdn.udeve.cn/fang2021/1cafcedd-4633-41e1-9ec1-2d9f413e8a9e.png" mode="" />
+        <view>
+          关注
         </view>
-        <view style="display: flex;position: relative;">
-            <view class="guanzhu">
-                <image class="guanzhuImg" src="https://qiniucdn.udeve.cn/fang2021/1cafcedd-4633-41e1-9ec1-2d9f413e8a9e.png" mode="" />
-                <view>
-                    关注
-                </view>
-            </view>
-            <view class="guanzhu" bindtap="onShareAppMessage">
-                <image class="guanzhuImg" src="https://qiniucdn.udeve.cn/fang2021/88362a90-7692-4214-8154-aa4b6fe4e1f9.png" mode="" />
-                <view>
-                    分享
-                </view>
-            </view>
-            <button open-type="share" class="fenxiang"></button>
+      </view>
+      <view class="guanzhu" bindtap="onShareAppMessage">
+        <image class="guanzhuImg" src="https://qiniucdn.udeve.cn/fang2021/88362a90-7692-4214-8154-aa4b6fe4e1f9.png" mode="" />
+        <view>
+          分享
         </view>
+      </view>
+      <button open-type="share" class="fenxiang"></button>
     </view>
-    <view class="jichuxinxiBox">
-        <view class="shoujia">
-            {{block.price_label}}
-            <view class="shoujia_jine">
-                {{block.price_value}}{{block.price_unit}}
-            </view>
-        </view>
-        <view class=" huxing">
-            户型
-            <view class="shoujia_jine">
-                {{block.type_name}}
-            </view>
-        </view>
-        <view class="shoujia">
-            面积
-            <view class="shoujia_jine">
-                {{block.area_value}}㎡
-            </view>
-        </view>
+  </view>
+  <view class="jichuxinxiBox">
+    <view class="shoujia">
+      {{block.price_label}}
+      <view class="shoujia_jine">
+        {{block.price_value}}{{block.price_unit}}
+      </view>
     </view>
-    <view class="daikanBox" wx:if="{{block.vr}}" bindtap="vrBtn" data-vr="{{block.vr}}">
-        <image class="daikanBoxImg" src="https://qiniucdn.udeve.net/fang/post-cover-icon-vr.png" mode="" />
-        <view class="daikanText">
-            带看无需奔走，专人答疑
-        </view>
-        <view class="daikanBtn">
-            线上带看
-        </view>
+    <view class=" huxing">
+      户型
+      <view class="shoujia_jine">
+        {{block.type_name}}
+      </view>
     </view>
-    <view class="xiangxixinxiBox">
-        <view class="xxxxTitle">
-            装修：
-            <view class="xxxxText">
-                {{block.fitment}}
-            </view>
-        </view>
-        <view class="xxxxTitle">
-            用途：
-            <view class="xxxxText">
-                {{block.category}}
-            </view>
-        </view>
-        <view class="xxxxTitle">
-            朝向：
-            <view class="xxxxText">
-                {{block.position}}
-            </view>
-        </view>
+    <view class="shoujia">
+      面积
+      <view class="shoujia_jine">
+        {{block.area_value}}㎡
+      </view>
+    </view>
+  </view>
+  <view class="daikanBox" wx:if="{{block.vr}}" bindtap="vrBtn" data-vr="{{block.vr}}">
+    <image class="daikanBoxImg" src="https://qiniucdn.udeve.net/fang/post-cover-icon-vr.png" mode="" />
+    <view class="daikanText">
+      带看无需奔走，专人答疑
+    </view>
+    <view class="daikanBtn">
+      线上带看
+    </view>
+  </view>
+  <view class="xiangxixinxiBox">
+    <view class="xxxxTitle">
+      装修：
+      <view class="xxxxText">
+        {{block.fitment}}
+      </view>
+    </view>
+    <view class="xxxxTitle">
+      用途：
+      <view class="xxxxText">
+        {{block.category}}
+      </view>
+    </view>
+    <view class="xxxxTitle">
+      朝向：
+      <view class="xxxxText">
+        {{block.position}}
+      </view>
+    </view>
 
-    </view>
+  </view>
 </view>
 <!-- 竞拍 -->
 <view wx:if="{{rule && rule.id}}">
-    <view class="jingpaiBox">
-        <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
-        <view class="jpText">
-            竞价拍卖
-        </view>
-        <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
+  <view class="jingpaiBox">
+    <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
+    <view class="jpText">
+      竞价拍卖
     </view>
-    <view class="box">
-        <view class="jingmaiBox" wx:if="{{joined}}">
-            我的竞买号:{{myCode || "-"}}
+    <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
+  </view>
+  <view class="box">
+    <view class="jingmaiBox" wx:if="{{joined}}">
+      我的竞买号:{{myCode || "-"}}
+    </view>
+    <view class="jingmaineirongBox">
+      <view class="jmBox" wx:for="{{members}}">
+        <view class="jmBiaoqian">
+          排名：{{index+1}}
         </view>
-        <view class="jingmaineirongBox">
-            <view class="jmBox" wx:for="{{members}}">
-                <view class="jmBiaoqian">
-                    排名：{{index+1}}
-                </view>
-                <view class="jmText">
-                    {{item.code}}
-                    ￥{{item.price}}
-                </view>
-            </view>
+        <view class="jmText">
+          {{item.code}}
+          ￥{{item.price}}
+        </view>
+      </view>
 
-        </view>
-        <view class="baozhengjinBox">
-            <view class="bzjTitle">
-                保证金：
-            </view>
-            <view class="bzjText">
-                {{rule.deposit}}￥
-            </view>
-            <view class="bzjBtn" bindtap="seeMore">
-                查看如何支付
-            </view>
-        </view>
-        <view class="xiangxixinxiBox">
-            <view class="xxxxTitle">
-                起拍价:
-                <view class="xxxxText">
-                    {{rule.bid_start}}
-                </view>
-            </view>
-            <view class="xxxxTitle">
-                加价幅度:
-                <view class="xxxxText">
-                    {{rule.bid_range}}元
-                </view>
-            </view>
-            <view class="xxxxTitle">
-                最新出价:
-                <view class="xxxxText">
-                    {{rule.bid_current || '-'}}元
-                </view>
-            </view>
-            <view class="xxxxTitle">
-                开始时间:
-                <view class="xxxxText">
-                    {{rule.starts_at}}
-                </view>
-            </view>
-            <view class="xxxxTitle">
-                结束时间:
-                <view class="xxxxText">
-                    {{rule.ends_at}}
-                </view>
-            </view>
-        </view>
     </view>
-    <view class="jingpaiBox">
-        <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
-        <view class="jpText">
-            竞价详情
+    <view class="baozhengjinBox">
+      <view class="bzjTitle">
+        保证金：
+      </view>
+      <view class="bzjText">
+        {{rule.deposit}}￥
+      </view>
+      <view class="bzjBtn" bindtap="seeMore">
+        查看如何支付
+      </view>
+    </view>
+    <view class="xiangxixinxiBox">
+      <view class="xxxxTitle">
+        起拍价:
+        <view class="xxxxText">
+          {{rule.bid_start}}
         </view>
-        <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
-    </view>
-    <view class="box">
-        <raw-html html="{{rule.content}}"></raw-html>
-    </view>
-    <view class="xiangxiTitle" wx:if="{{block.content}}">
-        <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
-        <view class="jpText">
-            房源介绍
+      </view>
+      <view class="xxxxTitle">
+        加价幅度:
+        <view class="xxxxText">
+          {{rule.bid_range}}元
         </view>
-        <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
-    </view>
-    <view class="box">
-        <view class="xxText">
-            {{block.content}}
+      </view>
+      <view class="xxxxTitle">
+        最新出价:
+        <view class="xxxxText">
+          {{rule.bid_current || '-'}}元
         </view>
+      </view>
+      <view class="xxxxTitle">
+        开始时间:
+        <view class="xxxxText">
+          {{rule.starts_at}}
+        </view>
+      </view>
+      <view class="xxxxTitle">
+        结束时间:
+        <view class="xxxxText">
+          {{rule.ends_at}}
+        </view>
+      </view>
     </view>
+  </view>
+  <view class="jingpaiBox">
+    <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
+    <view class="jpText">
+      竞价详情
+    </view>
+    <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
+  </view>
+  <view class="box">
+    <raw-html html="{{rule.content}}"></raw-html>
+  </view>
+  <view class="xiangxiTitle" wx:if="{{block.content}}">
+    <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
+    <view class="jpText">
+      房源介绍
+    </view>
+    <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
+  </view>
+  <view class="box">
+    <view class="xxText">
+      {{block.content}}
+    </view>
+  </view>
 </view>
 <!-- 分割线 -->
 <view class="fengexian"> </view>
@@ -199,33 +199,41 @@
 <map-block value="{{block}}"></map-block>
 
 <!-- 二手、租房时的底部栏 -->
-<!--  view class="bottomBox">
-</view -->
-
-<!-- 竞价时的底部栏 -->
-<view class="bottomBox">
-    <view wx:if="{{zixun_show}}" class="zixunBtn" bindtap="callHandle">
-        <image class="zixunImg" src="https://qiniucdn.udeve.cn/fang2021/16cc3f04-0aa4-420b-9ad6-732229493f46.png" mode="" />
-        <view class="zixunText">
-            咨询
-        </view>
+<view wx:if="{{business != '竞价'}}" class="bottomBox">
+  <view class="ershoubaomingBtn" bindtap="btnHandle">
+    <view class="biaomingTitle">
+      {{btnText}}
     </view>
-    <view wx:if="{{zixun_show}}"  bindtap="remindBtn" class="zixunBtn">
-        <image class="zixunImg" src="https://qiniucdn.udeve.cn/fang2021/c171c255-3290-4e2b-bf17-22529937aabe.png" mode="" />
-        <view class="zixunText">
-            {{tixingtext}}
-        </view>
+    <view wx:if="{{btnDesc}}" class="biaomingText">
+      {{btnDesc}}
     </view>
-    <view class="{{btnText=='立即报名' ? 'baomingBtn baomingsmallBtn' : 'baomingBtn baomingbigBtn' }}" bindtap="btnHandle">
-        <view class="biaomingTitle">
-            {{btnText}}
-        </view>
-        <view wx:if="{{btnDesc}}" class="biaomingText">
-            {{btnDesc}}
-        </view>
-    </view>
+  </view>
 </view>
 
-<van-popup  round="true" closeable="true" bind:close="closePopup"   show="{{show}}">
-<view style="width: 690rpx;height: 300rpx;display: flex;align-items: center;justify-content: center;">内容</view>
+<!-- 竞价时的底部栏 -->
+<view wx:if="{{business=='竞价'}}" class="bottomBox">
+  <view class="zixunBtn" bindtap="callHandle">
+    <image class="zixunImg" src="https://qiniucdn.udeve.cn/fang2021/16cc3f04-0aa4-420b-9ad6-732229493f46.png" mode="" />
+    <view class="zixunText">
+      咨询
+    </view>
+  </view>
+  <view bindtap="remindBtn" class="zixunBtn">
+    <image class="zixunImg" src="https://qiniucdn.udeve.cn/fang2021/c171c255-3290-4e2b-bf17-22529937aabe.png" mode="" />
+    <view class="zixunText">
+      {{tixingtext}}
+    </view>
+  </view>
+  <view class=" baomingBtn " bindtap="btnHandle">
+    <view class="biaomingTitle">
+      {{btnText}}
+    </view>
+    <view wx:if="{{btnDesc}}" class="biaomingText">
+      {{btnDesc}}
+    </view>
+  </view>
+</view>
+
+<van-popup round="true" closeable="true" bind:close="closePopup" show="{{show}}">
+  <view style="width: 690rpx;height: 300rpx;display: flex;align-items: center;justify-content: center;">内容</view>
 </van-popup>
