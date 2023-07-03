@@ -111,7 +111,6 @@ Page({
     this.setData({
       type_image: type_imagejoin
     })
-    console.log("121type_image",this.data.type_image);
   },
   imagesHandle: function (image) {
     var imagesjoin = image.detail.value.map(function(obj) {
@@ -120,7 +119,6 @@ Page({
     this.setData({
       images:imagesjoin
     })
-    console.log("121images",this.data.images);
   },
   videoHandle: function (video) {
     this.setData({
