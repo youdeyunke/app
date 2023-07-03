@@ -106,13 +106,19 @@ Page({
   },
   typeimagesHandle: function (image) {
     this.setData({
-      type_image: JSON.stringify(image.detail.value)
+      type_image: image.detail.value[0].url
     })
+    console.log("121data",this.data.type_image);
   },
   imagesHandle: function (image) {
+    console.log("121image",image.detail.value);
+    var result = image.detail.value.map(function(obj) {
+      return obj.url;
+    }).join("|");
     this.setData({
-      images: JSON.stringify(image.detail.value)
+      images:result
     })
+    console.log("121",this.data.images);
   },
   videoHandle: function (video) {
     this.setData({
