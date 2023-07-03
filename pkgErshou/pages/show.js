@@ -260,6 +260,11 @@ Page({
     // console.log("12121点击vr",e.currentTarget.dataset.vr);
     app.gotoWebview(e.currentTarget.dataset.vr)
   },
+  gochujia:function() {
+    wx.navigateTo({
+      url: '/pkgErshou/pages/chujiajilu/index?id='+this.data.rule.id
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

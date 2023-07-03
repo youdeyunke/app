@@ -103,11 +103,16 @@
 <!-- 竞拍 -->
 <view wx:if="{{rule && rule.id}}">
   <view class="jingpaiBox">
-    <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
-    <view class="jpText">
-      竞价拍卖
+    <view class="jingpaiBoxL">
+      <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
+      <view class="jpText">
+        竞价拍卖
+      </view>
     </view>
-    <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
+    <view class="jingpaiBoxR"  bindtap="gochujia">
+      <view>出价记录</view>
+      <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
+    </view>
   </view>
   <view class="box">
     <view class="jingmaiBox" wx:if="{{joined}}">
@@ -120,7 +125,10 @@
         </view>
         <view class="jmText">
           {{item.code}}
-          ￥{{item.price}}
+          <view wx:if="{{item.price}}">
+            ￥{{item.price}}
+          </view>
+
         </view>
       </view>
 
@@ -170,21 +178,32 @@
     </view>
   </view>
   <view class="jingpaiBox">
-    <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
-    <view class="jpText">
-      竞价详情
+    <view class="jingpaiBoxL">
+      <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
+      <view class="jpText">
+        竞价详情
+      </view>
     </view>
-    <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
+    <view class="jingpaiBoxR">
+      <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
+    </view>
+
   </view>
   <view class="box">
     <raw-html html="{{rule.content}}"></raw-html>
   </view>
   <view class="xiangxiTitle" wx:if="{{block.content}}">
-    <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
-    <view class="jpText">
-      房源介绍
+    <view class="jingpaiBoxL">
+      <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
+      <view class="jpText">
+        房源介绍
+      </view>
     </view>
-    <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
+    <view class="jingpaiBoxR">
+      <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
+    </view>
+
+
   </view>
   <view class="box">
     <view class="xxText">

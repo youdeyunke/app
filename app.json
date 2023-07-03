@@ -92,7 +92,8 @@
             "pages/index" ,
             "pages/show",
             "pages/create",
-            "pages/subdistricts/index"
+            "pages/subdistricts/index",
+            "pages/chujiajilu/index"
           ],
           "requiredPrivateInfos":[
               "getFuzzyLocation",

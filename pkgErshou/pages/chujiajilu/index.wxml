@@ -1,0 +1,6 @@
+<!--pkgErshou/pages/chujiajilu/index.wxml-->
+<view>
+  <van-cell-group>
+    <van-cell title="{{item.user.mobile}}" value="{{item.bid}}￥" label="{{item.created_at}}" border="{{ true }}" wx:for="{{bids}}" />
+  </van-cell-group>
+</view>

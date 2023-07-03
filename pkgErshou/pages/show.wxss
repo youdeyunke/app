@@ -201,6 +201,15 @@
   margin-top: 24rpx;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+}
+.jingpaiBoxL {
+  display: flex;
+  align-items: center;
+}
+.jingpaiBoxR {
+  display: flex;
+  align-items: center;
 }
 
 .jpImgL {
@@ -214,7 +223,6 @@
   color: #333333;
   font-weight: bold;
   margin-left: 16rpx;
-  margin-right: 470rpx;
 }
 
 .jpImgR {
@@ -301,6 +309,7 @@
   margin-top: 24rpx;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   border-bottom: 1rpx solid #E7E7F2;
 }
 
