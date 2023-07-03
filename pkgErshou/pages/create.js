@@ -105,20 +105,22 @@ Page({
     })
   },
   typeimagesHandle: function (image) {
-    this.setData({
-      type_image: image.detail.value[0].url
-    })
-    console.log("121data",this.data.type_image);
-  },
-  imagesHandle: function (image) {
-    console.log("121image",image.detail.value);
-    var result = image.detail.value.map(function(obj) {
+    var type_imagejoin = image.detail.value.map(function(obj) {
       return obj.url;
     }).join("|");
     this.setData({
-      images:result
+      type_image: type_imagejoin
     })
-    console.log("121",this.data.images);
+    console.log("121type_image",this.data.type_image);
+  },
+  imagesHandle: function (image) {
+    var imagesjoin = image.detail.value.map(function(obj) {
+      return obj.url;
+    }).join("|");
+    this.setData({
+      images:imagesjoin
+    })
+    console.log("121images",this.data.images);
   },
   videoHandle: function (video) {
     this.setData({
