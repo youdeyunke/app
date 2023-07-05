@@ -52,28 +52,6 @@ Page({
             likeNums: this.data.item.like_nums + 1,
             liked: true,
         })
-// 有待检测
-        // app.request({
-        //     url: '/api/v1/mycomments/like有待检测',
-        //     hideLoading: true,
-        //     method: 'POST',
-        //     data: { id: cid },
-        //     success: function (resp) {
-        //         console.log('resp')
-        //         wx.setStorage({
-        //             key: key,
-        //             data: true,
-        //         })
-        //         wx.showToast({
-        //             title: '点赞+1',
-        //             icon: 'none',
-        //             image: '',
-        //             duration: 1500,
-        //             mask: false,
-        //         });
-
-        //     }
-        // })
         mycommentApi.likeComment(cid).then((res)=>{
             wx.setStorage({
                 key: key,
@@ -108,14 +86,6 @@ Page({
                 return false
             }
             var _this = this
-            // 有待检测
-            // app.request({
-            //     url: '/api/v1/mycomments有待检测',
-            //     method: 'POST',
-            //     data: data,
-            //     success: function (resp) {
-            //     }
-            // })
             mycommentApi.createComment(data).then((resp)=>{
                 if (resp.data.status == 0) {
                     _this.closeFormHandle()
@@ -157,12 +127,6 @@ Page({
     loadData: function () {
         // 加载评论，以及回复
         var _this = this
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/mycomments/有待检测' + _this.data.cid,
-        //     success: function (resp) {
-        //     }
-        // })
         mycommentApi.getCommentDetail( _this.data.cid).then((resp)=>{
             var item = resp.data.data.item
             var reply_items = item.reply_items

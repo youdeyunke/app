@@ -180,19 +180,6 @@ Page({
             first_id: _this.data.firstId, // 最顶上一条消息的id
             ranking: 'older',
         }
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/messages有待检测',
-        //     method: 'GET',
-        //     data: {
-        //         target_id: _this.data.targetUserId,
-        //         first_id: _this.data.firstId, // 最顶上一条消息的id
-        //         ranking: 'older',
-        //     },
-        //     success: function (resp) {
-
-        //     },
-        // })
         messageApi.getMessageList(data).then((resp) => {
             if (resp.data.status != 0) {
                 return false
@@ -227,20 +214,6 @@ Page({
             target_id: _this.data.targetUserId,
             ranking: 'newer',
         }
-        // 有待检测    一直发送
-        // app.request({
-        //     url: '/api/v1/messages有待检测',
-        //     method: 'GET',
-        //     hideLoading: true,
-        //     data: {
-        //         last_id: _this.data.lastId,
-        //         target_id: _this.data.targetUserId,
-        //         ranking: 'newer',
-        //     },
-        //     success: function (resp) {
-
-        //     }
-        // })
         messageApi.getMessageList(data).then((resp) => {
             if (resp.data.status != 0) {
                 console.log('return false')

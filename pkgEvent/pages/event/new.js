@@ -178,13 +178,6 @@ Page({
 
     loadCats: function () {
         var _this = this
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/event_cats有待检测',
-        //     success: function (resp) {
-              
-        //     }
-        // })
         eventApi.getEventCatList().then((resp)=>{
             _this.setData({
                 cats: resp.data.data

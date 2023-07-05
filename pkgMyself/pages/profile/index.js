@@ -86,15 +86,6 @@ Page({
     updateProfile: function(utype){
         var _this = this
         var data = this.data.userInfo
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/users/0有待检测' ,
-        //     method: 'PUT',
-        //     data: { profile: data },
-        //     success: function (resp) {
-              
-        //     }
-        // })  
         userApi.updateUserProfile(data).then((resp)=>{
             if (resp.data.status == 0) {
                 wx.showToast({

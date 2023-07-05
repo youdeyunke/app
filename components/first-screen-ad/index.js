@@ -57,13 +57,7 @@ Component({
 
         uploadData(data) {
             data.id = this.data.id,
-                // 有待检测
-                // app.request({
-                // 	url: '/api/v1/first_screen_adds/有待检测' + this.data.id,
-                // 	method: 'PUT',
-                // 	hideLoading: true,
-                // 	data: data,
-                // })
+
                 first_screenApi.updateFirstScreenAdd(
                     data
                 ).then((res) => {

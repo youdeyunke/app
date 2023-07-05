@@ -51,19 +51,6 @@ Page({
         page: _this.data.page,
         per_page: _this.data.per_page
       }
-    //   有待检测
-    //   app.request({
-    //       url: '/api/v1/myself/questions有待检测',
-    //       hideLoading: true,
-    //       data: {
-    //         scope:scope,
-    //         page: _this.data.page,
-    //         per_page: _this.data.per_page
-    //       },
-    //       success: function(resp){
-           
-    //       }
-    //   })
       myselfApi.getMyselfQuestionList(data).then((resp)=>{
         if(resp.data.status != 0){
             _this.setData({loading: false})

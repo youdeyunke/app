@@ -252,16 +252,6 @@ Page({
             data[key] = filter[key]
         })
         var _this = this
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/map_markers有待检测',
-        //     method: 'POST',
-        //     data: data,
-        //     hideLoading: true,
-        //     success: function (resp) {
-               
-        //     }
-        // })
         mapApi.getMapMarkerList(data).then((resp)=>{
             if (resp.data.status != 0) {
                 return false

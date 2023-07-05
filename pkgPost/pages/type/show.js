@@ -28,13 +28,6 @@ Page({
 
     loadType: function (tid) {
         var _this = this
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/types/有待检测' + tid,
-        //     success: function (resp) {
-              
-        //     }
-        // })
         postApi.getPostTypeDetail(tid).then((resp)=>{
             if (resp.data.status != 0) {
                 return false

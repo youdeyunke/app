@@ -61,24 +61,6 @@ Component({
             _this.setData({
                 loading: true
             })
-            //   有待检测
-            //   app.request({
-            //     url:'/api/v1/media_cats/有待检测',
-            //     method:'POST',
-            //     data:{
-            //       name:_this.data.cat.name,
-            //       target_id: _this.data.cat.post_id,
-            //       target_type: "post"
-            //       // post_id:_this.data.cat.post_id
-            //     },
-            //     success: function() {
-            //       _this.triggerEvent('update')
-            //       _this.setData({
-            //         show:false,
-            //         loading: false
-            //       })
-            //     }
-            //   })
             mediaApi.createMediaCat({
                 name: _this.data.cat.name,
                 target_id: _this.data.cat.post_id,
@@ -100,21 +82,6 @@ Component({
                     id: _this.data.cat.id,
                     name: _this.data.cat.name
                 }
-                // 有待检测
-            //   app.request({
-            //     url:'/api/v1/media_cats/有待检测'+_this.data.cat.id,
-            //     method:'PUT',
-            //     data:{
-            //       name:_this.data.cat.name,
-            //     },
-            //     success: function() {
-            //       _this.triggerEvent('update')
-            //       _this.setData({
-            //         show:false,
-            //         loading: false
-            //       })
-            //     }
-            //   })
             mediaApi.updateMediaCat(
                 data
             ).then((res) => {

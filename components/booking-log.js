@@ -158,17 +158,6 @@ Component({
         updateLogStatus: function (status, cb) {
           
             var _this = this
-            // 有待检测
-            // var url = '/api/v1/booking_logs/有待检测' + this.data.item.id
-            // var data = { status: status }
-            // app.request({
-            //     url: url,
-            //     method: 'PUT',
-            //     data: { booking_log: data },
-            //     success: function (resp) {
-            //         console.log('update status resp', resp)
-            //     }
-            // })
             bookingApi.updateBookingStatus(
                 this.data.item.id,status
             ).then((resp)=>{

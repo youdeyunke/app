@@ -70,19 +70,6 @@ Component({
                 url: url,
                 media_cat_id: id
             }
-            // 有待检测
-            // app.request({
-            //     url: '/api/v1/media_items/有待检测',
-            //     method: 'POST',
-            //     data: {
-            //         filetype: type,
-            //         url: url,
-            //         media_cat_id: id
-            //     },
-            //     success: function (res) {
-            //         _this.triggerEvent('change')
-            //     }
-            // })
             mediaApi.createMediaItem(data).then((res)=>{
                 _this.triggerEvent('change')
             })

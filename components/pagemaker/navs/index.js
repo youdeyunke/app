@@ -20,17 +20,6 @@ Component({
             }
             var _this = this 
             // 根据position id 查询导航按钮
-            // 有待检测
-            // app.request({
-            //     url: '/api/v1/navs?position_id= 有待检测' + pid, 
-            //     hideLoading: true, 
-            //     success: function(res){
-            //         if(res.data.status != 0){
-            //             return 
-            //         }
-            //         _this.setData({navs: res.data.data})
-            //     }
-            // })
             navsApi.getNavFromPosition(pid).then((res)=>{
                 if(res.data.status != 0){
                     return 

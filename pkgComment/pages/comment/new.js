@@ -160,15 +160,6 @@ Page({
 
       
         var _this = this
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/mycomments有待检测',
-        //     method: 'POST',
-        //     data: comment,
-        //     success: function (resp) {
-             
-        //     }
-        // })
         mycommentApi.createComment(comment).then((resp)=>{
              // 页面卸载的收，会将this.data.comment写入globalData.newComment
                 // 发布成功后，就清空

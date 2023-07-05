@@ -67,15 +67,6 @@ Page({
         })
         app.dingyueHandle()
         var _this = this
-        // 有待检测
-        // app.request({
-        //   url: '/api/v1/clue_follows/有待检测', 
-        //   method: 'POST', 
-        //   data: { follow: data }, 
-        //   success: function(resp){
-
-        //   }
-        // })
         clueApi.createClueFollow(data).then((resp) => {
             if (resp.data.status != 0) {
                 return false
@@ -105,18 +96,6 @@ Page({
 
     loadData: function () {
         var _this = this
-        // 有待检测
-        // app.request({
-        //   url: '/api/v1/clue_status有待检测', 
-        //   success: function(resp){
-        //     if(resp.data.status != 0){
-        //       return
-        //     }
-        //     _this.setData({ 
-        //       statusItems: resp.data.data, 
-        //     })
-        //   }
-        // })
         clueApi.getClueStatusList().then((resp) => {
             if (resp.data.status != 0) {
                 return

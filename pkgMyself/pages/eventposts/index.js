@@ -28,14 +28,6 @@ Page({
             page: _this.data.page || 1,
             per_page: _this.data.per_page || 10,
         }
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/event_followers/mine有待检测',
-        //     data: query,
-        //     hideLoading: true,
-        //     success: function (resp) {
-        //     }
-        // })
         eventApi.getMineFollowPostList(query).then((resp)=>{
             var d = { loading: false }
             if (resp.data.data.length == 0) {

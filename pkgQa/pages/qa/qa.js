@@ -69,15 +69,6 @@ Page({
 
     loadData: function () {
         var _this = this
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/questions/有待检测' + _this.data.id,
-        //     hideLoading: true,
-        //     success: function (resp) {
-
-
-        //     }
-        // })
         qaApi.getQuestionList(_this.data.id).then((resp) => {
             if (resp.data.status != 0) {
                 _this.setData({
@@ -122,11 +113,6 @@ Page({
     followHandle: function (e) {
         // 点击关注问题
         var _this = this
-        // var url = '/api/v1/question_followers/有待检测'
-        //  // 已经关注了
-        //  method = 'DELETE'
-        //  url = ''
-        //  url = '/api/v1/question_followers/有待检测' + this.data.item.id
         if (this.data.item.followed) {
             // 先改变按钮状态，再发送请求
             var item = this.data.item
@@ -156,24 +142,6 @@ Page({
                 _this.loadData()
             })
         }
-
-        // 有待检测
-        // app.request({
-        //     url: url,
-        //     method: "post",
-        //     hideLoading: true,
-        //     data: {
-        //         question_id: _this.data.item.id
-        //     },
-        //     success: function (resp) {
-        //         if (resp.data.status != 0) {
-        //             return false
-        //         }
-        //         // 关注成功, 重新加载数据
-        //         _this.loadData()
-
-        //     }
-        // })
 
     },
 
@@ -237,14 +205,6 @@ Page({
 
     doDelete: function () {
         var _this = this
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/questions/有待检测' + _this.data.item.id,
-        //     method: 'DELETE',
-        //     success: function (resp) {
-
-        //     }
-        // })
         qaApi.deleteQuestion(_this.data.item.id).then((resp) => {
             if (resp.data.status != 0) {
                 return false

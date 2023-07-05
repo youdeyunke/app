@@ -26,16 +26,6 @@ Component({
 
     loadData: function(){
       var _this = this
-    //   有待检测
-    //   app.request({
-    //     url: '/api/v1/mycomments有待检测',
-    //     data: {
-    //       mycomment_id: 
-    //     },
-    //     success: function(resp){
-       
-    //     }
-    //   })
       mycommentApi.getAllCommentList(_this.data.mycommentId).then((resp)=>{
         var items = resp.data.data
         if(items.length == 0){

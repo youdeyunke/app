@@ -53,15 +53,6 @@ Page({
         var data = {
             zhuli_id: this.data.zhuli.id,
         }
-        // 有待检测
-        // app.request({ 
-        //   url: '/api/v1/zhuli_haoyou/有待检测', 
-        //   method: 'POST', 
-        //   data: data  , 
-        //   success: function(res){ 
-
-        //   }
-        // })
         zhuliApi.createZhuliHaoyou(data).then((res) => {
             if (res.data.status != 0) {
                 return
@@ -78,13 +69,6 @@ Page({
     loadData: function () {
         var _this = this
         var user = this.data.user
-        // 有待检测
-        // app.request({ 
-        //   url: '/api/v1/zhuli/有待检测' + _this.data.mid,
-        //   success: function(res){ 
-
-        //   }
-        // })
         zhuliApi.getZhuliDetail(_this.data.mid).then((res) => {
             var zhuli = res.data.data.zhuli
             var tour = res.data.data.tour
@@ -150,15 +134,6 @@ Page({
         var data = {
             id: zhuli.id,
         }
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/zhuli有待检测',
-        //     method: 'POST',
-        //     data: data,
-        //     success: function (res) {
-             
-        //     }
-        // })
         zhuliApi.createZhuliSuccess(data).then((res)=>{
             if (res.data.status != 0) {
                 return
@@ -172,13 +147,6 @@ Page({
 
     loadHuodong: function (hid) {
         var _this = this
-        // 有待检测
-        // app.request({ 
-        //   url: '/api/v1/tours/有待检测' + hid, 
-        //   success: function(res){ 
-
-        //   }
-        // })
         tourApi.getTourDetail(hid).then((res) => {
             if (res.data.status != 0) {
                 return false
@@ -199,14 +167,6 @@ Page({
         var query = {
             zhuli_id: this.data.mid
         }
-        // 有待检测
-        // app.request({ 
-        //   url: '/api/v1/zhuli_haoyou/有待检测', 
-        //   data: query, 
-        //   success: function(res){ 
-
-        //   }
-        // })
         zhuliApi.getZhuliHaoyouList(query).then((res) => {
             if (res.data.status != 0) {
                 return false

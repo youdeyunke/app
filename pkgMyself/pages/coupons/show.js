@@ -99,14 +99,6 @@ Page({
 
   loadData: function(){
     var _this = this  
-    // 有待检测
-    // app.request({  
-    //   hideLoading: true, 
-    //   url: '/api/v1/coupons/有待检测' + this.data.cid, 
-    //   success: function(resp){ 
-       
-    //   }
-    // })
     couponApi.getCouponDetail(this.data.cid).then((resp)=>{
         if(resp.data.status != 0){
             return 

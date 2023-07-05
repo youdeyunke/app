@@ -50,18 +50,6 @@ Page({
             target_type: _this.data.target_type,
             scope: _this.data.scope,
         }
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/mycomments有待检测',
-        //     data: {
-        //         target_id: _this.data.target_id,
-        //         target_type: _this.data.target_type,
-        //         scope: _this.data.scope,
-        //     },
-        //     success: function (resp) {
-              
-        //     },
-        // })
         mycommentApi.getAllCommentList(query).then((resp)=>{
             _this.setData({
                 items: resp.data.data.items,

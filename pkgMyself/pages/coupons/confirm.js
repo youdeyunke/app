@@ -27,15 +27,6 @@ Page({
 
   submitHandle: function(cid){
     // 扫码核销
-    // 有待检测
-    // var data = { }
-    // app.request({ 
-    //   url: '/api/v1/coupons/有待检测' + this.data.cid, 
-    //   method: 'PUT', 
-    //   data: data, 
-    //   success: function(resp){ 
-    //    }
-    // })
     couponApi.updateCoupon(this.data.cid,data).then((resp)=>{
         if(resp.data.status != 0){
             return 
@@ -90,13 +81,6 @@ Page({
       error: '', 
       
     })
-    // 有待检测
-    // app.request({  
-    //   url: '/api/v1/coupons/有待检测' + cid, 
-    //   method: 'GET',
-    //   success: function(resp){       
-    //   }
-    // })
     couponApi.getCouponDetail(cid).then((resp)=>{
         if(resp.data.status != 0){
             // 回退 

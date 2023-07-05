@@ -31,16 +31,6 @@ Page({
   getBroker:function(){
     var _this = this
     var tab = this.data.tab
-    // 有待检测
-    // app.request({
-    //   url: '/api/v1/booking_logs?status='+tab,
-    //   method:'GET',
-    //   success:function(res){
-    //     _this.setData({
-    //                 broker:res.data.data
-    //               })
-    //   }
-    // })
     bookingApi.getBookingListFromStatus(tab).then((res)=>{
         _this.setData({
             broker:res.data.data

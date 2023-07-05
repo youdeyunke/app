@@ -76,18 +76,6 @@ Component({
         loadFavStatus: function () {
             // 查询收藏状态
             var _this = this
-            // 有待检测
-            // app.request({
-            //     url: '/api/1/favs/有待检测',
-            //     hideLoading: true,
-            //     data: {
-            //         target_id: _this.data.value.post_id,
-            //         target_type: 'post'
-            //     },
-            //     success: function (resp) {
-                 
-            //     },
-            // })
             favApi.createFav('post',_this.data.value.post_id).then((resp)=>{
                 _this.setData({
                     favStatus: resp.data.data.status,
@@ -100,19 +88,6 @@ Component({
             var pid = this.data.value.post_id
             var _this = this
             auth.ensureUser(function (userInfo) {
-                // 有待检测
-                // app.request({
-                //     url: '/api/1/favs/有待检测',
-                //     hideLoading: false,
-                //     method: 'POST',
-                //     data: {
-                //         target_id: pid,
-                //         target_type: 'post'
-                //     },
-                //     success: function (resp) {
-                     
-                //     }
-                // })
                 favApi.createFav('post',pid).then((resp)=>{
                     _this.setData({
                         favStatus: resp.data.data.status,

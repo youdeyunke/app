@@ -33,14 +33,6 @@ Page({
 
     loadData: function () {
         var _this = this
-        // 有待检验
-        // app.request({
-        //     url: '/api/v1/building_rooms/有待检验' + _this.data.roomId,
-        //     success: function (resp) {
-              
-
-        //     }
-        // })
         postApi.getBuildingRoomDetail(_this.data.roomId).then((resp)=>{
             if (resp.data.status != 0) {
                 return flase

@@ -15,13 +15,6 @@ Page({
     loadData: function () {
         // 加载数据表结构
         var _this = this
-        // 有待检验
-        // app.request({
-        //   url: '/api/v1/user_profiles/有待检验'  + this.data.upId,
-        //   success: function(resp){ 
-
-        //   }
-        // })
         userApi.getUserProfileDetail(this.data.upId).then((resp) => {
             if (resp.data.status != 0) {
                 return
@@ -125,16 +118,6 @@ Page({
                 return false
             }
         })
-        // 有待检测
-        //   app.request({ 
-        //       url: '/api/v1/user_profiles/有待检测' + this.data.upId, 
-        //       method: 'PUT', 
-        //       data: {user_profile: data},
-        //       success: function(resp){ 
-
-
-        //       }
-        //   })
         var info = {
             user_profile: data
         }

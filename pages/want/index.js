@@ -68,15 +68,6 @@ Page({
       var query = { 
           cityCode: wx.getStorageSync('cityCode') || ''
       }
-    //   有待检测
-    //   app.request({
-    //     url: '/api/v1/needs/有待检测', 
-    //     data: query, 
-    //     method: 'GET', 
-    //     success: function(resp){ 
-         
-    //     }
-    //   })
       needApi.getNeedList(query).then((resp)=>{
         if(resp.data.status != 0){
             return 
@@ -231,18 +222,6 @@ Page({
             })
             return false
         }
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/sms/auth有待检测',
-        //     method: 'POST',
-        //     data: {
-        //         mobile: phone,
-        //         code: code
-        //     },
-        //     success: function (res) {
-            
-        //     }
-        // })
         smsApi.smsAuth(phone,code).then((res)=>{
             var data = res.data
             if (data.status == 0) {
@@ -276,17 +255,7 @@ Page({
 
     postData: function(data){
         var _this = this 
-        // 将表单数据处理成线索表所需要的数据格式 
-
-// 有待检测
-        // app.request({
-        //     url: '/api/v1/needs/有待检测',
-        //     data: data,
-        //     method: 'POST',
-        //     success: function (resp) {
-               
-        //     }
-        // })     
+        // 将表单数据处理成线索表所需要的数据格式  
         needApi.getNeedList(data).then((resp)=>{
             if (resp.data.status != 0) {
                 wx.showToast({

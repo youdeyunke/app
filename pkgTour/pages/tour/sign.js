@@ -35,13 +35,6 @@ Page({
     loadData: function(){
         // 加载活动信息
         var _this = this  
-        // 有待检测
-        // app.request({ 
-        //     url: '/api/v1/tours/有待检测' + this.data.tourId, 
-        //     success: function(resp){ 
-             
-        //     }
-        // })
         tourApi.getTourDetail(this.data.tourId).then((resp)=>{
             if(resp.data.status != 0){
                 return 

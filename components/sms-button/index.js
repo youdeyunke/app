@@ -61,14 +61,6 @@ Component({
         wx.showModal({title: '手机号格式错误',icon: 'none'})
         return false
       }
-    //   有待检测
-    //   app.request({
-    //     url:'/api/v1/sms有待检测',
-    //     method:'POST',
-    //     data:{mobile:phone},
-    //     success: function(res) {
-    //     }
-    //   })
       smsApi.sendSms(phone).then((res)=>{
         wx.showToast({title:'发送成功'})
         _this.setData({yanzhengShow:true})

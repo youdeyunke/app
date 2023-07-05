@@ -326,18 +326,6 @@ Page({
             })
             return false
         }
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/sms/auth有待检测',
-        //     method: 'POST',
-        //     data: {
-        //         mobile: mobile,
-        //         code: code
-        //     },
-        //     success: function (res) {
-              
-        //     }
-        // })
         smsApi.smsAuth(phone,code).then((res)=>{
             var data = res.data
             if (data.status == 0) {

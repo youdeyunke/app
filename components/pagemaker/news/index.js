@@ -37,14 +37,7 @@ Component({
 
         loadData: function () {
             var _this = this
-            // 有待检测
-            // app.request({
-            //     url: '/api/v1/news_summary有待检测',
-            //     method: 'GET',
-            //     success: function (resp) {
-                   
-            //     },
-            // })
+
             newsApi.getNewsSummary().then((resp)=>{
                 if (resp.data.status == 0) {
                     var cats = resp.data.data.filter((cat, i) => {

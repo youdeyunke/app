@@ -24,12 +24,6 @@ Component({
         loadNewsCats: function () {
             //查询顶部
             var _this = this
-            //   有待检测
-            //   app.request({
-            //     url: '/api/v1/news_cats有待检测',
-            //     success: function (resp) {  
-            //     }
-            //   })
             newsApi.getNewsCatList().then((resp) => {
                 _this.setData({
                     newsCats: resp.data.data
@@ -78,13 +72,6 @@ Component({
                 per_page: 10
             }
             var _this = this
-            //   有待检测
-            //   app.request({
-            //     url: '/api/v1/news有待检测',
-            //     data: query,
-            //     success: function (resp) { 
-            //     }
-            //   })
             newsApi.getNewsList(query).then((resp) => {
                 if (resp.data.status != 0) {
                     return
@@ -104,14 +91,6 @@ Component({
                 is_top: false,
                 kw: this.properties.kw,
             }
-            //   有待检测
-            //   app.request({
-            //       url: '/api/v1/news有待检测',
-            //       data: query,
-            //       success: function (resp) {
-
-            //       }
-            //   })
             newsApi.getNewsList(query).then((resp) => {
                 if (this.data.page == 1) {
                     _this.setData({

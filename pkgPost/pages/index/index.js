@@ -80,14 +80,6 @@ Page({
 
         // 根据专辑Id加载分类信息
         var _this = this
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/albums/有待检测' + albumId,
-        //     method: 'GET',
-        //     success: function (resp) {
-             
-        //     }
-        // })
         albumApi.getAlbumDetail(
             albumId
         ).then((resp)=>{

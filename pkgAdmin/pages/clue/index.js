@@ -28,13 +28,6 @@ Page({
 
   loadData: function(){
     var _this = this  
-    // 有待检测
-    // app.request({
-    //   url: '/api/v1/clues/有待检测?status_id=' + _this.data.statusId,
-    //   success: function(resp){
-       
-    //   }
-    // })
     clueApi.getClueList({status_id:_this.data.statusId}).then((resp)=>{
         if(resp.data.status != 0){
             return

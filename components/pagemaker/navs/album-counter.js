@@ -36,13 +36,6 @@ Component({
 
     loadData: function(albumId){
       var _this = this  
-    //   有待检测
-    //   app.request({
-    //     url: '/api/v1/albums/ 有待检测' + albumId, 
-    //     success: function(resp){
-       
-    //     }
-    //   })
       albumApi.getAlbumDetail(albumId).then((resp)=>{
         if(resp.data.status != 0){
             return 

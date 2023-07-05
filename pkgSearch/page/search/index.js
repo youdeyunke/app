@@ -56,18 +56,6 @@ Page({
   },
 
   searchNumPlus: function (pid) {
-    //   有待测试
-    // app.request({
-    //   url: '/api/v1/hot_search有待测试',
-    //   method: 'POST',
-    //   hideLoading: true,
-    //   data: {
-    //     post_id: pid
-    //   },
-    //   success: function (resp) {
-    //     // pass
-    //   }
-    // })
     searchApi.createHoutSearch(pid).then((res)=>{
 
     })

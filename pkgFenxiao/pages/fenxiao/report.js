@@ -328,17 +328,6 @@ Page({
             return false;
         }
         app.dingyueHandle()
-// 有待检测
-        // app.request({
-        //     url: '/api/v1/customers有待检测',
-        //     method: 'POST',
-        //     data: {
-        //         customer: fdata
-        //     },
-        //     success: function (resp) {
-              
-        //     }
-        // })
         customerApi.createCustomer(fdata).then((resp)=>{
             if (resp.data.status != 0) {
                 return false;

@@ -25,18 +25,7 @@ Component({
     methods: {
         loadData: function () {
             var _this = this
-            // 有待检测  
-            // app.request({
-            //     url: '/api/v1/fitments有待检测',
-            //     data: {},
-            //     success: function (resp) {
-            //         _this.setData({
-            //             items: resp.data.data
-            //         })
-            //     }
-            // })
             fitmentApi.getBookingList(
-
             ).then((resp) => {
                 _this.setData({
                     items: resp.data.data

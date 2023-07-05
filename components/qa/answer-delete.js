@@ -37,14 +37,6 @@ Component({
 
     doDelete: function(){
         var _this = this
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/answers/有待检测' + _this.data.aid,
-        //     method: 'DELETE',
-        //     success: function(resp){
-           
-        //     }
-        // })
         qaApi.deleteAnswer(_this.data.aid).then((resp)=>{
             if(resp.data.status != 0){
                 return false

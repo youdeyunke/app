@@ -60,14 +60,6 @@ Component({
 
             var query = { ids: ids.join(',') }
             var _this = this
-            // 有待检测
-            // app.request({
-            //     url: '/api/v1/news有待检测',
-            //     hideLoading: true,
-            //     data: query,
-            //     success: function (resp) {
-            //     }
-            // })
             newsApi.getNewsList(query).then((resp)=>{
                 if (resp.data.status == 0) {
                     _this.setData({ items: resp.data.data })

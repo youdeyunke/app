@@ -75,18 +75,6 @@ Page({
             })
             return false
         }
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/sms/auth有待检测',
-        //     method: 'POST',
-        //     data: {
-        //         mobile: phone,
-        //         code: code
-        //     },
-        //     success: function (res) {
-
-        //     }
-        // })
         smsApi.smsAuth(phone, code).then((res) => {
             var data = res.data
             if (data.status == 0) {
@@ -187,50 +175,10 @@ Page({
                 _this.postData(data)
             })
         }
-        // 有待检验
-        // app.request({
-        //   url: '/api/v1/tour_coupons/有待检验',
-        //   method: 'POST',
-        //   data: data,
-        //   success: function (resp) {
-        //     _this.setData({
-        //       loading: false
-        //     })
-        //     if (resp.data.status == 0) {
-        //       wx.showModal({
-        //         title: '领取成功',
-        //         content: '卡券已发送到您的账号中，进入：我的-我的卡券查看',
-        //         showCancel: false,
-        //         confirmText: '去查看',
-        //         confirmColor: '#B20700',
-        //         success: (result) => {
-        //           if (result.confirm) {
-        //             var url = '/pkgMyself/pages/coupons/index'
-        //             wx.redirectTo({
-        //               url: url,
-        //             })
-        //           }
-        //         },
-        //         fail: () => {},
-        //         complete: () => {}
-        //       });
-
-        //     }
-        //   }
-        // })
     },
 
     postData(data) {
         var _this = this
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/tour_coupons/有待检测',
-        //     method: 'POST',
-        //     data: data,
-        //     success: function (resp) {
-
-        //     }
-        // })
         tourApi.createTourCoupon(data).then((resp) => {
             _this.setData({
                 loading: false
@@ -261,13 +209,6 @@ Page({
     loadData: function (cb) {
         var _this = this
         var bid = this.data.brokerId || ''
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/tours/有待检测' + _this.data.tourId + '?broker_id=' + bid,
-        //     success: function (resp) {
-               
-        //     }
-        // })
         tourApi.getTourDetail(_this.data.tourId,{broker_id:bid}).then((resp)=>{
             var tour = resp.data.data.tour
             var joined = resp.data.data.joined

@@ -30,13 +30,6 @@ Page({
     loadData: function () {
         this.setData({ loading: true })
         var _this = this
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/post_detail/有待检测' + _this.data.postId,
-        //     success: function (resp) {
-              
-        //     },
-        // })
         postApi.getPostDetailContent(_this.data.postId).then((resp)=>{
             var post = resp.data.data
             var meta = post.meta.replaceAll("：", ":")

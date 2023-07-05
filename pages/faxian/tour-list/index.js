@@ -59,14 +59,6 @@ Component({
         kw:this.data.kw,
         page:this.data.page,
       }
-    //   有待检测
-    //   app.request({
-    //     url: '/api/v1/tours/有待检测',
-    //     data: query,
-    //     success: function (resp) {
-         
-    //     }
-    //   })
       tourApi.getTourList(query).then((resp)=>{
         if (resp.data.status != 0) {
             return

@@ -36,13 +36,6 @@ Page({
 
         var _this = this
         //获取个人信息接口
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/post_tickets/有待检测' + this.data.ticketId,
-        //     success: function (res) {
-             
-        //     }
-        // })
         postApi.getPostTicketDetail(this.data.ticketId).then((res)=>{
             _this.setData({
                 ticket: res.data.data,
@@ -55,7 +48,6 @@ Page({
 
     loadPostInfo: function (postId) {
         var _this = this
-        // 有待检验
         postApi.getPostBaseInfo(postId).then((res) => {
             var post = res.data.data
             _this.setData({

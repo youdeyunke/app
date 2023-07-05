@@ -50,7 +50,6 @@ Component({
 
             _this.setData({ loading: true })
             var query = this.data.query
-            // 有待检测
             postApi.getPostList(query).then((resp)=>{
                 var meta = resp.data.meta
                 var p = _this.data.query.page || 1

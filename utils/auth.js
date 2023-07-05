@@ -35,18 +35,6 @@ module.exports = {
             })
             return false
         }
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/sms/auth有待检测',
-        //     method: 'POST',
-        //     data: {
-        //         mobile: phone,
-        //         code: code
-        //     },
-        //     success: function (res) {
-
-        //     }
-        // })
         smsApi.smsAuth(phone, code).then((res) => {
             var data = res.data
             if (data.status == 0) {
@@ -150,7 +138,6 @@ module.exports = {
 
     getRemoteUserInfo: function (cb) {
         /* 从服务器获取用户信息 */
-        // 有待检测    请求发送没有返回
         userApi.getMyselfInfo().then((resp) => {
             if (resp.data.status == 0) {
                 var user = resp.data.data

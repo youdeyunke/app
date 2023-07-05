@@ -41,14 +41,6 @@ Page({
       per_page: _this.data.per_page,
       order: _this.data.order,
     }
-// 有待检测
-    // app.request({
-    //   url: '/api/v1/mycomments/mine有待检测',
-    //   data: query,
-    //   success: function (resp) {
-      
-    //   }
-    // })
     mycommentApi.getMineCommentList(query).then((resp)=>{
         _this.setData({
             loading: false, 
@@ -99,14 +91,6 @@ Page({
 
   doDelete: function(cid){
     var _this = this
-    // 有待检测
-    // app.request({
-    //   url: '/api/v1/mycomments/有待检测' + cid,
-    //   method:'DELETE',
-    //   success: function(resp){
-    //     _this.reload()
-    //   }
-    // })
     mycommentApi.deleteComment(cid).then((res)=>{
         _this.reload()
     })

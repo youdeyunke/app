@@ -42,7 +42,6 @@ Component({
             var pid = this.data.message.content
             var _this = this
             var key = 'post_base_info.' + pid
-            // 有待检验
             postApi.getPostBaseInfo(pid).then((resp) => {
                 var post = resp.data.data
                 wx.setStorageSync(key, post)

@@ -115,19 +115,6 @@ App({
         console.log('生成二维码携带的数据:', path, extData)
         extData = JSON.stringify(extData)
         var _this = this
-        // 有待检测
-        // this.request({
-        //     url: '/api/v1/qrs/有待检测',
-        //     method: 'POST',
-        //     hideLoading: false,
-        //     data: {
-        //         path: path,
-        //         qr_data: extData
-        //     },
-        //     success: function (resp) {
-
-        //     },
-        // })
         qrApi.createQrImage(path, extData).then((resp) => {
             if (resp.data.status == 0) {
                 return typeof cb == 'function' ** cb(resp.data.data)
@@ -258,13 +245,6 @@ App({
         }
 
         var _this = this;
-        // 有待检测
-        // this.request({
-        //     url: "/api/v2/cities有待检测",
-        //     hideLoading: true,
-        //     success: function (resp) {
-        //     }
-        // });
         cityApi.getCityListV2().then((resp) => {
             _this.globalData.cities = resp.data.data;
             return cb(resp.data.data);
@@ -436,16 +416,6 @@ App({
             return;
         }
         // 创建一个新的vid
-        // 有待检测
-        // this.request({
-        //     url: '/api/v1/visitors有待检测',
-        //     hideLoading: true,
-        //     method: 'POST',
-        //     data: { },
-        //     success: function (resp) {
-
-        //     }
-        // })
         visitorApi.createVisitor().then((resp) => {
             var data = resp.data
             if (data.status == 0) {
@@ -472,36 +442,12 @@ App({
             console.log('没有visitor id，无法上报事件 ' + actionName)
             return
         }
-        // 有待检测
-        // this.request({
-        //     url: '/api/v1/visitor_actions有待检测',
-        //     hideLoading: true,
-        //     method: 'POST',
-        //     data: {
-        //         visitor_uid: uid,
-        //         name: actionName,
-        //         seconds: seconds,
-        //     },
-        //     success: function (resp) {
-        //         var data = resp.data.data
-        //         typeof cb == 'function' && cb(resp.data.data)
-        //     }
-        // })
         visitorApi.createVisitorAction(uid, actionName, seconds).then((resp) => {
             typeof cb == 'function' && cb(resp.data.data)
         })
     },
 
     sendSms: function (mobile, cb) {
-        var _this = this;
-        // 有待检测
-        // _this.request({
-        //     url: "/api/v1/sms/sendto有待检测",
-        //     data: {
-        //         mobile: mobile
-        //     },
-        //     success: function (resp) {}
-        // });
         smsApi.sendTo(mobile).then((resp) => {
 
         })
@@ -515,16 +461,6 @@ App({
             post_id: postId,
             remark: remark || '未知'
         }
-        // 有待检测
-        // this.request({
-        //     url: '/api/v1/post_customers/有待检测',
-        //     method: 'POST',
-        //     hideLoading: true,
-        //     data: data,
-        //     success: function (resp) {
-        //         // pass
-        //     }
-        // })
         postApi.createPostCustomer(data).then((res) => {
 
         })
@@ -535,7 +471,6 @@ App({
             console.log('获取用户手机号错误')
             return false;
         }
-        // 有待检测
         userApi.updateUserProfile(e.detail.iv, e.detail.encryptedData).then((res) => {
             if (res.data.status != 0) {
                 wx.showModal({

@@ -45,17 +45,6 @@ Component({
         target_type: _this.data.targetType,
         per_page: _this.data.limit,
       }
-    //   有待检测
-    //   app.request({
-    //     url: '/api/v1/visitors/有待检测',
-    //     data: {
-    //       target_id: _this.data.targetId,
-    //       target_type: _this.data.targetType,
-    //       per_page: _this.data.limit,
-    //     },
-    //     success: function (resp) {
-    //     }
-    //   })
       visitorApi.getVisitorList(query).then((resp)=>{
         _this.setData({
             visitors: resp.data.data,

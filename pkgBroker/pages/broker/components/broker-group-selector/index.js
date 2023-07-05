@@ -44,14 +44,6 @@ Component({
             var query = {
                 cat: cat
             }
-            // 有待检测
-            // app.request({ 
-            //     url: '/api/v1/broker_groups有待检测',  
-            //     data: query, 
-            //     success: function(resp){ 
-                  
-            //     }
-            // })
             brokerApi.getBrokerGroup(query).then((resp)=>{
                 if(resp.data.status != 0){ 
                     return 

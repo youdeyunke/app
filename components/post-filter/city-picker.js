@@ -78,13 +78,6 @@ Component({
 
         loadCityData: function () {
             var _this = this
-            // 有待检测
-            // app.request({
-            //     url: '/api/v2/cities有待检测',
-            //     success: function (resp) {
-                   
-            //     }
-            // })
             cityApi.getCityListV2().then((resp)=>{
                 if (resp.data.status != 0) {
                     return false

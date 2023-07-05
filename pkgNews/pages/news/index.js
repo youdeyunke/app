@@ -76,15 +76,6 @@ Page({
 
     loadCats: function (cb) {
         var _this = this
-        // 有待检测
-        // app.request({
-        //     hideLoading: true,
-        //     url: '/api/v1/news_cats/有待检测',
-        //     hideLoading: true,
-        //     success: function (resp) {
-              
-        //     }
-        // })
         newsApi.getNewsCatList().then((resp)=>{
             _this.setData({
                 cats: resp.data.data,

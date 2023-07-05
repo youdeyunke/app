@@ -32,13 +32,6 @@ Page({
   },
   lodaData(){
     var _this = this
-    // 有待检测
-    // app.request({
-    //   url:'/api/v1/post_vrs有待检测?post_id='+_this.data.postId,
-    //   success: function(res) {
-      
-    //   }
-    // })
     postApi.getPostVrList(_this.data.postId).then((res)=>{
         _this.setData({
             vrItem:res.data.data,

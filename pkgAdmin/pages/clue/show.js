@@ -35,13 +35,6 @@ Page({
 
   loadData: function(){
     var _this = this  
-    // 有待检测
-    // app.request({
-    //   url: '/api/v1/clues/有待检测' + _this.data.clueId,  
-    //   success: function(resp){
-        
-    //   }
-    // })
     clueApi.getClueDetail(_this.data.clueId).then((resp)=>{
         if(resp.data.status != 0){
             return 

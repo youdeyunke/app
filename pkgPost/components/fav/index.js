@@ -50,18 +50,6 @@ Component({
             // 查询初始状态
             // 查询状态
             var _this = this
-            // 有待检测
-            // app.request({
-            //     url: '/api/v1/favs/有待检测',
-            //     hideLoading: true,
-            //     data: {
-            //         target_id: _this.data.pid,
-            //         target_type: 'post'
-            //     },
-            //     success: function (resp) {
-            //         _this.setData(resp.data.data)
-            //     },
-            // })
             var query = {
                 target_id: _this.data.pid,
                 target_type: 'post'
@@ -90,20 +78,6 @@ Component({
             this.setData({
                 status: this.data.status == 1 ? 0 : 1
             })
-            // 有待检测
-            // app.request({
-            //     url: '/api/v1/favs/有待检测',
-            //     hideLoading: true,
-            //     method: 'POST',
-            //     data: {
-            //         target_id: pid,
-            //         target_type: 'post'
-            //     },
-            //     success: function (resp) {
-                  
-
-            //     }
-            // })
             favApi.createFav( 'post',pid).then((resp)=>{
                 _this.setData(resp.data.data) // {{ count:0, status: 1}}
                 if (resp.data.data == true) {

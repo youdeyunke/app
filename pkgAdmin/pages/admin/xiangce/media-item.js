@@ -30,14 +30,6 @@ Component({
                 content: '确定删除吗',
                 success: function (res) {
                     if (res.confirm) {
-                        // 有待检测
-                        // app.request({
-                        //     url: '/api/v1/media_items/有待检测' + id,
-                        //     method: 'DELETE',
-                        //     success: function () {
-                            
-                        //     }
-                        // })
                         mediaApi.deleteMediaItem(id).then((res)=>{
                             wx.showToast({
                                 title: '删除成功',

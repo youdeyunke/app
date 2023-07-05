@@ -32,15 +32,6 @@ Page({
 
   loadData: function(qid){
     var _this = this   
-    // 有待检测
-    // app.request({
-    //   url: '/api/v1/qrs/有待检测' + qid,  
-    //   hideLoaindg: true, 
-    //   success: function(resp){
-       
-
-    //   }
-    // })
     qrApi.getQrDetail(qid).then((resp)=>{
         if(resp.data.status != 0){
             _this.setData({

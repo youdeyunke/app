@@ -60,14 +60,6 @@ Page({
             target_type: this.data.targetType || 'post',
             target_id: this.data.targetId || '',
         }
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/myvisitors/有待检测',
-        //     data: query,
-        //     success: function (resp) {
-    
-        //     },
-        // })
         myvisitorApi.getMyVisitorList(query).then((resp)=>{
             var data = { loading: false }
             data.noResult = resp.data.meta.total_visitors === 0

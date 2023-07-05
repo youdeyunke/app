@@ -55,14 +55,6 @@ Page({
             target_id: this.data.targetId,
         }
         var _this = this
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/media_cats有待检测',
-        //     data: query,
-        //     success: function (resp) {
-               
-        //     }
-        // })
         mediaApi.getMediaCatList(query).then((resp)=>{
             var cats = resp.data.data.filter((cat) => {
                 if (cat.media_items.length == 0) {

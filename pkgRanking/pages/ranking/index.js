@@ -30,14 +30,6 @@ Page({
       cat: this.data.tabs[this.data.currentTabIndex].value, 
     }
     var _this = this  
-    // 有待检测
-    // app.request({
-    //   url: '/api/v1/post_rank有待检测', 
-    //   data: query, 
-    //   success: function(res){
-       
-    //   }
-    // })
     postApi.getPostRank(query).then((res)=>{
         if(res.data.status != 0){
             return

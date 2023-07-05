@@ -60,13 +60,6 @@ Page({
 
     loadPost: function () {
         var _this = this
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/admin_posts/有待检测' + _this.data.postId,
-        //     success: function (resp) {
-               
-        //     }
-        // })
         postApi.getAdminPostDetail(_this.data.postId).then((resp)=>{
             var id = resp.data.data.media_cat_id
             if (resp.data.status != 0) {

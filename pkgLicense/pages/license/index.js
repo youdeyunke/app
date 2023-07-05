@@ -29,15 +29,6 @@ Page({
       kw: this.data.kw,
       page: this.data.page
     }
-    // 有待检测
-    // app.request({
-    //   url: '/api/v1/post_licenses有待检测',
-    //   method: 'GET',
-    //   data: query,
-    //   success: function (res) {
-      
-    //   }
-    // })
     postApi.getPostLicenseList(query).then((res)=>{
         var oldData = _this.data.options
         var newData = res.data.data

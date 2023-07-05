@@ -62,15 +62,6 @@ Component({
     qiandaoHandle: function(){
       var _this = this  
       var key = this.data.key 
-    //   有待检测
-    //   app.request({ 
-    //     url: '/api/v1/qiandao/ 有待检测', 
-    //     method: 'POST', 
-    //     data: {}, 
-    //     success: function(res){
-        
-    //     }
-    //   })
       qiandaoApi.qiandao().then((res)=>{
         if(res.data.status != 0){ 
             return false 

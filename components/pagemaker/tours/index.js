@@ -41,15 +41,6 @@ Component({
                 query.ids = this.data.config.ids.join(',')
             }
             query.limit = this.data.config.limit || 10
-            // 有待检测
-            // app.request({
-            //     url: '/api/v1/tours有待检测',
-            //     data: query, 
-            //     method: 'GET',
-            //     success: function (resp) {
-
-            //     },
-            // })
             tourApi.getTourList(query).then((resp) => {
                 if (resp.data.status == 0) {
                     _this.setData({

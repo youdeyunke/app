@@ -79,14 +79,6 @@ Page({
 
     deleteChat: function (chatId) {
         var _this = this
-        // 有待检测
-        // app.request({ 
-        //   url: '/api/v1/chat_lists/有待检测' + chatId, 
-        //   method: 'DELETE',
-        //   success: function(resp) {
-
-        //   }
-        // })
         messageApi.deleteChat(chatId).then((resp) => {
             if (resp.data.status == 0) {
                 wx.showToast({
@@ -99,44 +91,7 @@ Page({
     },
 
     loadData: function () {
-        var _this = this
-        // 有待检测
-        // app.request({
-        //   url: '/api/v1/chat_lists/有待检测',
-        //   hideLoading: true,
-        //   success: function (res) {
-        //     if (res.data.status == 0) {
-        //       // 如果列表没有变化就不更新 
-        //       var old = _this.data.items  
-        //       var n = res.data.data  
-        //       if(JSON.stringify(n) == JSON.stringify(old)){
-        //         return
-        //       }
-        //       var items = res.data.data.map((item) => { 
-        //         if(item.last_content_type == 'post'){
-        //           item.last_content = '[楼盘]'
-        //         }
-        //         if(item.last_content_type == 'namecard'){
-        //             item.last_content = '[名片]'
-        //         }
-        //         if(item.last_content_type == 'image'){
-        //             item.last_content == '[图片]'
-        //         }
-        //         if(item.last_content_type == 'location'){
-        //             item.last_content = '[定位]'
-        //         }
-        //         return item
-        //       })
-        //       _this.setData({ 
-        //         items: items, 
-        //         sleepTime: res.data.sleep, 
-        //         count: res.data.count || 0,
-        //       })
-        //     }
-        //   },
-        //   complete: function(res){
-        //   },
-        // })   
+        var _this = this 
         messageApi.getChatList().then((res) => {
             if (res.data.status == 0) {
                 // 如果列表没有变化就不更新 

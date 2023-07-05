@@ -45,20 +45,7 @@ Component({
                 lastContent: content,
                 pending: true
             })
-            //   有待检测
-            //   app.request({
-            //     url: '/api/v1/messages有待检测',
-            //     hideLoading: true,
-            //     method: 'POST',
-            //     data: {content: content, content_type: 'text', receiver_id: _this.data.receiverId},
-            //     success: function(resp){
 
-            //     },
-            //     complete: function(){
-            //       _this.setData({pending: false})
-            //     },
-
-            //   })
             messageApi.sendTextMessage(content,_this.data.receiverId).then((resp) => {
                 if (resp.data.status == 0) {
                     _this.triggerEvent('success', resp.data.data)

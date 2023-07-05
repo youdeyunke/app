@@ -32,14 +32,6 @@ Page({
             target_type: this.data.targetType,
             target_id: this.data.targetId,
         }
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/media_cats有待检测',
-        //     data: query,
-        //     success: function (res) {
-
-        //     }
-        // })
         mediaApi.getMediaCatList(query).then((res) => {
             if (res.data.data.length == 0) {
                 wx.showModal({
@@ -126,14 +118,6 @@ Page({
                             icon: 'none'
                         })
                     } else {
-                        //   有待检测
-                        // app.request({
-                        //   url:'/api/v1/media_cats/有待检测'+this.data.cats[this.data.albumIndex].id,
-                        //   method:'DELETE',
-                        //   success:function(){
-
-                        //   }
-                        // })
                         mediaApi.deleteMediaCat(
                             this.data.cats[this.data.albumIndex].id
                         ).then((res) => {

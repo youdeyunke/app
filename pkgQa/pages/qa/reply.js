@@ -74,18 +74,6 @@ Page({
     doSubmit: function () {
         var _this = this
         var content = _this.data.content
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/answers有待检测',
-        //     method: 'POST',
-        //     data: {
-        // 	question_id: _this.data.qid,
-        // 	content: content,
-        //     },
-        //     success: function (resp) {
-
-        //     }
-        // })
         qaApi.createAnswer(_this.data.qid, content).then((resp) => {
             _this.setData({
                 loading: false

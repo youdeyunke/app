@@ -91,19 +91,6 @@ Page({
             content: content,
             target_id: _this.data.target_id, target_type: _this.data.target_type
         }
-        // 有待检测
-        // app.request({
-        //     method: 'POST',
-        //     url: '/api/v1/questions/有待检测',
-        //     data: {
-        //         content: content,
-        //         target_id: _this.data.target_id, target_type: _this.data.target_type
-        //     },
-        //     success: function (resp) {
-             
-
-        //     }
-        // })
         qaApi.createQuestion(data).then((resp)=>{
             _this.setData({loading: false})
             //  处理完成

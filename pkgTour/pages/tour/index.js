@@ -37,15 +37,6 @@ Page({
             page: _this.data.page,
             per_page: _this.data.per_page
         }
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/tours有待检测',
-        //     data: query,
-        //     hideLoading: true,
-        //     success: function (resp) {
-                
-        //     }
-        // })
         tourApi.getTourList(query).then((resp)=>{
             var index = _this.data.page - 1
             var key = 'items[' + index + ']'

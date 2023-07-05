@@ -52,14 +52,6 @@ Page({
           page: _this.data.page,
           per_page: _this.data.per_page,
       }
-    //   有待检测
-    //   app.request({
-    //       url: '/api/v1/customers/有待检测',
-    //       data: query,
-    //       success: function(resp){
-          
-    //       },
-    //   })
       customerApi.getCustormerList(query).then((resp)=>{
         var i = query['page']  - 1
         var data = { loading: false }

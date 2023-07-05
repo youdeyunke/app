@@ -28,19 +28,6 @@ module.exports = {
         // 解析经纬度坐标，并提示是否需要切换城市
         var _this = this
         const app = getApp()
-        // 有待检测
-        // var key = app.globalData.qqMapAppKey
-        // var url = 'https://apis.map.qq.com/ws/geocoder/v1/有待检测'
-        // var query = {
-        //     key: key, 
-        //     location: poi.latitude + ',' + poi.longitude,
-        // }
-        // wx.request({ 
-        //     url: url, 
-        //     data: query, 
-        //     success: function(resp){
-        //     }
-        // })
         mapApi.geocoder(poi.latitude, poi.longitude).then((resp) => {
             if (resp.data.status != 0) {
                 return

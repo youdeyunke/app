@@ -70,13 +70,6 @@ Page({
             post_id: this.data.postId,
             cat_id: catId,
         }
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/events有待检测',
-        //     data: query,
-        //     success: function (resp) {
-        //     }
-        // })
         eventApi.getEventList(query).then((resp)=>{
             _this.setData({
                 loading: false,
@@ -100,14 +93,6 @@ Page({
 
         var _this = this
         var eid = e.currentTarget.dataset['id']
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/events/有待检测' + eid,
-        //     method: 'DELETE',
-        //     success: function (resp) {
-               
-        //     }
-        // })
         eventApi.deleteEvent(eid).then((resp)=>{
             if (resp.data.status != 0) {
                 return false

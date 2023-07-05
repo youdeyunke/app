@@ -31,14 +31,6 @@ Page({
       broker_id: brokerId
     }
     app.dingyueHandle()
-    // 有待检测
-    // app.request({ 
-    //   url: '/api/v1/customers/confirm有待检测', 
-    //   data: data, 
-    //   method: 'POST', 
-    //   success: function(resp){   
-    //   }
-    // })
     customerApi.confirmCustomer(data).then((resp)=>{
         if(resp.data.status == 0){
             _this.loadData()
@@ -51,14 +43,6 @@ Page({
   
   loadData:function(){
     var _this=this
-    // 有待检测
-    // app.request({
-    //   url:'/api/v1/customers/有待检测'+_this.data.id,
-    //   methods:"GET",
-    //   success:function(res){
-       
-    //   }
-    // })
     customerApi.getCustomerDetail(_this.data.id).then((res)=>{
         var logs = res.data.data.logs.map((log) => {
             var ds = log.created_at.split('T')

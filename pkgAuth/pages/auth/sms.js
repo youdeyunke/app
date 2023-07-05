@@ -58,17 +58,6 @@ Page({
       })
       return false
     }
-    // 有待检测
-    // app.request({
-    //   url: '/api/v1/sms有待检测',
-    //   method: 'POST',
-    //   data: {
-    //     mobile: _this.data.phone
-    //   },
-    //   success: function (res) {
-      
-    //   }
-    // })
     smsApi.sendSms(_this.data.phone).then((res)=>{
         wx.showToast({
             title: '发送成功'
@@ -130,19 +119,6 @@ Page({
       })
       return false
     }
-    // 有待检测
-    // app.request({
-    //   url: '/api/v1/sms/auth有待检测',
-    //   method: 'POST',
-    //   data: {
-    //     mobile: phone,
-    //     code: yanzheng
-    //   },
-    //   success: function (res) {
-       
-
-    //   }
-    // })
     smsApi.smsAuth(phone,yanzheng).then((res)=>{
         var data = res.data
         if (data.status == 0) {

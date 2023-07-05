@@ -231,13 +231,6 @@ Page({
             bg: 'https://qiniucdn.udeve.cn/poster-templates/6.jpg',
             font_color: '#fff'
         }]
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/poster_templates/有待检测',
-        //     success: function (resp) {
-               
-        //     }
-        // })
         posterApi.gettPosterList().then((resp)=>{
             if (resp.data.status == 0) {
                 // 后端没有录入数据

@@ -69,15 +69,6 @@ Page({
             tour_id: this.data.item.id,
         }
         var _this = this
-        // 有待检验
-        // app.request({
-        //     url: '/api/v1/tour_members/0有待检验',
-        //     method: 'DELETE',
-        //     data: data,
-        //     success: function (resp) {
-               
-        //     }
-        // })
         tourApi.deleteTourMember(data).then((resp)=>{
             if (resp.data.status == 0) {
                 wx.showToast({
@@ -132,15 +123,6 @@ Page({
 
     postData(data) {
         var _this = this
-        // 有待检验  
-        // app.request({
-        //     url: '/api/v1/tour_members/有待检验',
-        //     method: 'POST',
-        //     data: data,
-        //     success: function (resp) {
-               
-        //     }
-        // })
         tourApi.createTourMember(data).then((resp)=>{
             _this.setData({
                 loading: false
@@ -182,18 +164,6 @@ Page({
             })
             return false
         }
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/sms/auth有待检测',
-        //     method: 'POST',
-        //     data: {
-        //         mobile: phone,
-        //         code: code
-        //     },
-        //     success: function (res) {
-             
-        //     }
-        // })
         smsApi.smsAuth(phone,code).then((res)=>{
             var data = res.data
             if (data.status == 0) {
@@ -225,13 +195,6 @@ Page({
     loadData: function (cb) {
         var _this = this
         var bid = this.data.brokerId || ''
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/tours/有待检测' + _this.data.tourId + '?broker_id=' + bid,
-        //     success: function (resp) {
-              
-        //     }
-        // })
         tourApi.getTourDetail(_this.data.tourId,{broker_id:bid}).then((resp)=>{
             var tour = resp.data.data.tour
             var joined = resp.data.data.joined

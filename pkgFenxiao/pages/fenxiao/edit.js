@@ -70,16 +70,6 @@ Page({
                 admin_remark: this.data.admin_remark
             }
         }
-        // 有待检测
-        // console.log(data)
-        // app.request({
-        //     url: '/api/v1/customers/有待检测'+id,
-        //     method: 'PUT',
-        //     data: data,
-        //     success(res){
-             
-        //     }
-        // })
         customerApi.updateCustomer(id,data).then((res)=>{
             app.globalData.reloadCustomer = true
         })
@@ -96,13 +86,6 @@ Page({
 
     loadData(id){
         var _this = this
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/customers/有待检测'+id,
-        //     success(res){
-               
-        //     }
-        // })
         customerApi.getCustomerDetail(id).then((res)=>{
             if(res.data.data.status == 0){
                 _this.setData({

@@ -380,13 +380,6 @@ Page({
 
     loadIcons() {
         var _this = this
-        // 有待检测
-        // app.request({
-        //     url: '/api/v1/myself/icons有待检测',
-        //     success(resp) {
-              
-        //     }
-        // })
         myselfApi.getMyselfIcons().then((resp)=>{
             _this.setData({
                 myselfIcons: resp.data.data

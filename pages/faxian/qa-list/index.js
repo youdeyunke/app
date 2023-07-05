@@ -60,14 +60,6 @@ Component({
                 kw: this.properties.kw,
                 page: this.properties.page
             }
-            // 有待检测
-            // app.request({
-            //     url: '/api/v1/questions有待检测',
-            //     data: query,
-            //     success: function (resp) {
-                   
-            //     }
-            // })
               qaApi.getQuestionList(query).then((resp)=>{
                 if (query.page == 1) {
                     _this.setData({
