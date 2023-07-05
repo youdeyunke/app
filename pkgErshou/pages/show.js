@@ -40,7 +40,6 @@ Page({
       })
     }
   },
-
   // 时间格式处理
   processDate(dateString) {
     const date = new Date(dateString);
@@ -257,7 +256,6 @@ Page({
   },
   // VR看房
   vrBtn(e) {
-    // console.log("12121点击vr",e.currentTarget.dataset.vr);
     app.gotoWebview(e.currentTarget.dataset.vr)
   },
   gochujia:function() {

@@ -1,6 +1,6 @@
 // pkgErshou/pages/create.js
 const houseApi = require("../../api/house");
-
+const app = getApp()
 Page({
 
   /**
@@ -21,6 +21,9 @@ Page({
     price_value: null,
     show: true,
     focus:false,
+    contact_name:"",
+    contact_mobile:"",
+    seller:"",
     // 以下是隐藏字段
     address: "",
     district_id: null,
@@ -66,6 +69,19 @@ Page({
       },
     })
   },
+  chooseSeller: function (e) {
+    var _this = this
+    wx.navigateTo({
+      url: '/pages/enums/index?cat=house_seller',
+      events: {
+        change: function (post) {
+          _this.setData({
+            seller: post.value
+          })
+        }
+      },
+    })
+  },
 
   chooseLocation: function (e) {
     var _this = this
@@ -96,7 +112,6 @@ Page({
 
 
   updatePoi: function (poi) {
-    // console.log('1街道地址更新1', poi,"------",poi.name)
     this.setData({
       address: poi.name,
       sub_district_name: poi.name,
@@ -130,7 +145,7 @@ Page({
       focus:true
     })
   },
-  /**
+   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
@@ -216,10 +231,23 @@ Page({
       })
       return
     }
+    if(!data.contact_name) {
+        wx.showToast({
+          title: '请输入姓名',
+          icon:'none'
+        })
+        return
+      }
+      if(!data.seller) {
+        wx.showToast({
+          title: '请选择身份',
+          icon:'none'
+        })
+        return
+      }
     else {
       houseApi.createHouse(data).then((res) => {
         // todo 
-        console.log(res);
         if (res.errMsg == "request:ok") {
           wx.showToast({
             title: '提交成功',
@@ -245,7 +273,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    if(!app.globalData.userInfo) {
+      wx.navigateTo({
+        url: '/pkgAuth/pages/auth/index',
+      })
+  }else{
+    this.setData({
+      contact_mobile:app.globalData.userInfo.mobile
+    })
+  }
   },
 
   /**

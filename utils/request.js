@@ -44,7 +44,6 @@ const http = ({
         if ([2000, 2001].includes(res.data.status)) {
           // token 过期,清空当前登录状态
           // auth.gotoAuth("需要登录", "请先登录账号");
-          console.log("121,登录");
           throttle.throttle(function () {
             wx.hideLoading()
             wx.navigateTo({

@@ -51,7 +51,6 @@ Page({
                 return false
             }
             var pid = q.target_post_id || q.post_id
-
             _this.sendPostCard(pid)
             _this.setData({
                 user: user
@@ -88,11 +87,13 @@ Page({
         if (!postId) {
             return
         }
+        if(postId=='null') {
+            return
+        }
         var data = {
             receiver_id: this.data.targetUserId,
             id: postId
         }
-        // √    postid没有
         postApi.sendPostCard(data).then((res) => {
             
         })

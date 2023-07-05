@@ -141,7 +141,6 @@ Page({
             id: pid,
             receiver_id: brokerId
         }).then((res) => {
-            console.log("121res", res);
             if (resp.data.status == 0) {
                 // 跳转到消息列表
                 wx.navigateTo({

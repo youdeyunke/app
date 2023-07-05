@@ -25,7 +25,6 @@ Component({
       console.log("子组件value", myvalue)
 // ？？  未找到引用
       postApi.quickSearch(myvalue).then((res)=>{
-          console.log("1212");
         _this.setData({
             serachresule: res.data.data
           })
