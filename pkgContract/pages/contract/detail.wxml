@@ -1,0 +1,11 @@
+<!--pkgContract/pages/contract/detail.wxml-->
+
+  <van-cell-group>
+    <van-cell title="标题" value="{{Contract.title}}" />
+    <van-cell title="联系方式" value="{{Contract.mobile}}" label="描述信息" border="{{ false }}" />
+    <van-cell title="创建时间" value="{{Contract.created_at}}" label="描述信息" border="{{ false }}" />
+  </van-cell-group>
+  <view class="btnBox">
+    <van-button type="primary" custom-style="width:375rpx">主要按钮</van-button>
+    <van-button type="info" custom-style="width:375rpx">信息按钮</van-button>
+  </view>

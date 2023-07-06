@@ -1,0 +1,11 @@
+/* pkgContract/pages/contract/detail.wxss */
+
+.btnBox {
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  align-items: center;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0;
+}

@@ -1,0 +1,6 @@
+<!--pkgContract/pages/contract/index.wxml-->
+<view>
+  <van-cell-group>
+    <van-cell data-id="{{item.id}}" data-title="{{item.title}}" bindtap="godetail" title="{{item.title}}" value="{{item.mobile}}" label="{{item.created_at}}" border="{{ true }}" wx:for="{{ContractList}}" />
+  </van-cell-group>
+</view>
