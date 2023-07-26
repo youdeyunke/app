@@ -102,6 +102,13 @@
       ]
     },
     {
+      "root": "pkgPingce",
+      "name": "pingce",
+      "pages": [
+        "pages/pingce/index"
+      ]
+    },
+    {
       "root": "pkgContract",
       "name": "pkgcontract",
       "pages": [

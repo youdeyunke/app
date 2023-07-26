@@ -1,0 +1,47 @@
+<!--pkgPingce/pages/pingce/index.wxml-->
+<image class="topimg" src="https://qiniucdn.udeve.net/udyk/64c07641e4b0a1cf65fd07cd.png" mode="" />
+<view class="pingceBox">
+    <home-item width="646" item="{{postData}}"></home-item>
+    <view style="display: flex;align-items: center;justify-content: center;margin-top: 30rpx;">
+        <view class="pingfenBox">
+            <view class="boxTop">
+                <view class="zongfen">
+                    <view style="font-size: 26rpx;">
+                        <text style="font-size: 63rpx;">{{zongpingfen}}</text>
+                        分
+                    </view>
+                    <view style="font-size: 25rpx;">楼盘评测</view>
+                </view>
+                <view class="pingfen">
+                    <view class="shequ" wx:for="{{pingceList}}">
+                        <text style="width: 110rpx;text-align-last: justify;text-align: justify;">{{item.name}}</text>
+                        <van-rate value="{{ item.score }}" allow-half size="{{ 20 }}" color="#ffd21e" void-icon="star" void-color="#eee" bind:change="onChange" />
+                        <text>{{item.score || '-'}}分</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<!-- 占位 -->
+<view style="width: 100%;height:345rpx;background-color: #ffffff;"></view>
+<view style="background-color: #ffffff;" wx:for="{{pingceList}}">
+    <view class="zongpingtext">{{item.remark}}</view>
+    <view>
+        <view class="pinzhi">
+            <view class="pinzhititle">{{item.name}}
+                <view class="zhuangshi"></view>
+            </view>
+            <view style="display: flex;align-items: center;">
+                <van-rate value="{{ item.score }}" allow-half size="{{ 20 }}" color="#ffd21e" void-icon="star" void-color="#eee" bind:change="onChange" />
+                <text>{{item.score|| '--'}}分</text>
+            </view>
+        </view>
+
+        <view class="pingzhitext">
+        <raw-html html="{{item.content}}"></raw-html>
+        </view>
+
+    </view>
+
+</view>
