@@ -81,7 +81,7 @@ module.exports = {
         }
         // 发送给服务器
         // √
-        sessionApi.wechatLoginV2(code, encryptedData, iv).then((resp) => {
+        sessionApi.wechatLogin(code, encryptedData, iv).then((resp) => {
             var data = resp.data
             if (data.status == 0) {
                 // 保存下服务器返回的token
