@@ -57,15 +57,15 @@ Component({
                 var data = { meta: meta }
                 if (p > 1) {
                     var key = 'items[' + i + ']'
-                    data[key] = resp.data.data
+                    data[key] = resp.data.data.result
                 } else {
-                    data['items'] = [resp.data.data]
+                    data['items'] = [resp.data.data.result]
                 }
                 _this.setData(data)
 
 
-                for (var i = 0; i <= resp.data.data.length - 1; i++) {
-                    var post = resp.data.data[i]
+                for (var i = 0; i <= resp.data.data.result.length - 1; i++) {
+                    var post = resp.data.data.result[i]
                     wx.setStorage({
                         key: 'post.' + post.id,
                         data: post,
