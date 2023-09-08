@@ -1,8 +1,8 @@
 <!--miniprogram/custom-tab-bar/index.wxml-->
 <view class="tab-bar">
   <view class="tab-bar-border"></view>
-  <view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
-    <image src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></image>
-    <view style="color: {{selected === index ? item.selectedColor : item.color}}">{{item.text}}</view>
+  <view wx:for="{{list}}" wx:key="index" class="tab-bar-item" data-path="{{item.page_path}}" data-index="{{index}}" bindtap="switchTab">
+    <image src="{{selected === index ? item.selected_icon_path : item.icon_path}}"></image>
+    <view style="color: {{selected === index ? item.selected_color : item.color}}">{{item.text}}</view>
   </view>
 </view>

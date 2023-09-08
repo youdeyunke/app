@@ -34,8 +34,10 @@ Component({
     },
 
     switchTab(e) {
-      const data = e.currentTarget.dataset
-      const url = data.path
+      const {index } = e.currentTarget.dataset
+      var data = this.data.list[index];
+      console.log('data', data)
+      const url = data.page_path
       console.log('tab click ', url)
       wx.switchTab({ url })
       console.log('tab index', data.index)
