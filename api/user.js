@@ -17,17 +17,10 @@ export function updateAvatar(url){
     return   request.post("/api/v1/users/update_avatar", {avatar: url});
 }
 
-
-
 // 拉取当前账号的基本信息  完成
 export function getMyselfInfo(){
     return request.get("/api/v6/users/myself");
 }
-
-
-
-
-
 
 // 查询用户信息   1
 export function  getUserProfileDetail(upId){

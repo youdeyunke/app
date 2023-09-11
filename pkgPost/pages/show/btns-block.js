@@ -87,14 +87,12 @@ Component({
         favHandle: function (e) {
             var pid = this.data.value.post_id
             var _this = this
-            auth.ensureUser(function (userInfo) {
                 favApi.createFav('post',pid).then((resp)=>{
                     _this.setData({
                         favStatus: resp.data.data.status,
                         favCount: resp.data.data.count,
                     })
                 })
-            })
         },
 
         reportHandle: function () {
