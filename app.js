@@ -37,6 +37,7 @@ App({
         apiHost: 'https://weapp1.udeve.net/39086',
         userInfo: null,
         token: null,
+        LOGIN_FLAG:0,
         cities: [],
         qqMapAppKey: "OH2BZ-7QJK6-L44SI-MEJFO-PJNH2-IABHQ",
         navBarHeight: 0, // 导航栏高度
@@ -98,8 +99,16 @@ App({
 
     setUserInfo: function () {
         // 重新启动后，需要重新设置userinfo到globaldata
-        this.globalData.token = wx.getStorageSync('token')
-        this.globalData.userInfo = wx.getStorageSync('userInfo')
+      
+        var token = wx.getStorageSync('token');
+        this.globalData.token = token;
+        this.globalData.userInfo = wx.getStorageSync('userInfo');
+        var flag = 0;
+        if(token && token.length > 5){
+          flag = 1;
+        }
+        this.globalData.LOGIN_FLAG = flag;
+
     },
 
     ensureConfigs: function (cb) {

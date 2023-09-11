@@ -21,7 +21,7 @@ export function updateAvatar(url){
 
 // 拉取当前账号的基本信息  完成
 export function getMyselfInfo(){
-    return request.get("/api/v1/users/myself");
+    return request.get("/api/v6/users/myself");
 }
 
 

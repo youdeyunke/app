@@ -57,10 +57,9 @@ Component({
       }, 5000)
 
       var code = this.data.code
-      auth.loginHandle(code, e, (user) => {
-        this.triggerEvent('success', user)
+      auth.loginHandle(code, e, (token) => {
+        this.triggerEvent('success', "ok")
         this.closeWindow()
-
       })
     },
 

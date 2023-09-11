@@ -143,11 +143,8 @@ Page({
             this.getTabBar()) {
             this.getTabBar().setPage('/pages/messages/index')
         }
-
-
-        var userInfo = app.globalData.userInfo
-        console.log('userInfoxx',userInfo);
-        if (userInfo) {
+        
+        if (app.globalData.LOGIN_FLAT) {
             this.loadData()
             this.stopInterval()
             this.startInterval()
