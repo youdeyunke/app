@@ -498,6 +498,7 @@ App({
 
   dingyueHandle: function (cb) {
     // 订阅消息
+    console.log('dingyue ....')
     var tplId = this.globalData.myconfigs.msg_tpl_id || ''
     wx.requestSubscribeMessage({
       tmplIds: [tplId],

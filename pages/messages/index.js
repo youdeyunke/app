@@ -118,7 +118,7 @@ Page({
         _this.setData({
           items: items,
           sleepTime: res.data.sleep || 5,
-          count: res.data.count || 0,
+          count: res.data.data.count || 0,
         })
       }
     })
