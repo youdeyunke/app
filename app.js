@@ -85,16 +85,7 @@ App({
 
   checkForceLogin: function () {
     return;
-    // 检查是否强制登录
-    var d = new Date()
-    this.ensureConfigs(function (conf) {
-      if (!conf['force_login']) {
-        return false
-      }
-      auth.ensureUser(function (u) {
-        console.log('服务端已开启强制登录，用户已登录')
-      })
-    })
+
   },
 
 
@@ -115,6 +106,7 @@ App({
   ensureConfigs: function (cb) {
     var conf = this.globalData.myconfigs
     if (conf) {
+
       return typeof cb == "function" && cb(conf);
     }
     return this.loadConfigs(cb)
@@ -141,6 +133,7 @@ App({
       _this.globalData.myconfigs = conf
       _this.globalData.ui = conf.ui // ui assets 
       _this.globalData.color = conf.color
+      console.log(conf.text_banner);
       return typeof cb == "function" && cb(conf);
     })
   },

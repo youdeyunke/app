@@ -112,9 +112,9 @@ Component({
     //   √
       postApi.getPostList(query).then((resp)=>{
         _this.setData({loading: false })
-        var res = resp.data.data
-        var filters = resp.data.filters
-        var config = _this.data.config
+        var res = resp.data.result;
+        var filters = resp.data.filters || [];
+        var config = _this.data.config;
         // TODO setData items
         res = res.sort((p1, p2) => {
           var index1 = config.ids.findIndex((v) => v === p1.id)
