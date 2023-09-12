@@ -201,13 +201,9 @@ Page({
         }
 
         var path = '/pages/home/home'
-        if (app.globalData.userInfo) {
-            path = path + '?source_uid=' + app.globalData.userInfo.id
-        }
         this.setData({
             pagePath: path
         })
-        this.loadSelectCity()
     },
 
 

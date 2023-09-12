@@ -18,17 +18,17 @@ export function getMessageList(data){
 
 // 标记全部已读  完成
 export function markReadAll(){
-    return request.post("/api/v6/chat_lists/readall"  );
+    return request.post("/api/v6/chat_list/readall"  );
 }
 
 // 删除一个会话   完成
 export function deleteChat(chatId){
-    return request.destroy("/api/v6/chat_lists/" + chatId  );
+    return request.destroy("/api/v6/chat_list/" + chatId  );
 }
 
 // 拉取会话列表  完成
 export function getChatList(query={}){
-    return request.get("/api/v6/chat_lists", query  );
+    return request.get("/api/v6/chat_list", query  );
 }
 
 
