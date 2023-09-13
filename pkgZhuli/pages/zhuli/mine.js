@@ -2,6 +2,7 @@
 const app = getApp()
 const tourApi = require("../../../api/tour")
 const zhuliApi = require("../../../api/zhuli")
+const postApi = require("../../../api/post");
 Page({
 
     /**
@@ -14,7 +15,7 @@ Page({
         showProgress: false,
         showSuccess: false,
         huodong: null,
-        coupon_config: null,
+        couponConfig: null,
         pageCover: 'https://qiniucdn.udeve.net/zhuli-cover.png',
         zhuli: null,
         item: null, // 活动信息
@@ -30,7 +31,6 @@ Page({
             mid: q.id,
         }, () => {
             _this.loadData()
-            _this.loadHaoyou()
         })
 
     },
@@ -60,32 +60,38 @@ Page({
             // show dialog 
             _this.selectComponent('.thanks').openDialog()
             _this.loadData()
-            _this.loadHaoyou()
         })
     },
 
 
+    loadPostData: function(postId){
+        console.log('load post', postId);
+        var _this = this;
+        postApi.getPostBaseInfo(postId).then((res) => {
+            console.log('post data is', res.data);
+            if(res.data.code != 0){
+                return;
+            }
+            var post = res.data.data;
+            _this.setData({
+                post:post
+            })
+        })
+    },
+
 
     loadData: function () {
+        // 拉取助力数据、楼盘数据、好友数据、优惠券数据
         var _this = this
         var user = this.data.user
+        _this.loadHaoyou(this.data.mid);
         zhuliApi.getZhuliDetail(_this.data.mid).then((res) => {
-            var zhuli = res.data.data.zhuli
-            var tour = res.data.data.tour
-            var post = res.data.data.post
-            var couponConfig = res.data.data.coupon_config
-
-            var pageTitle = "帮我助力 " + tour.title
-            var pageCover = tour.cover
-
-            _this.setData({
-                zhuli: zhuli,
-                huodong: tour,
-                post: post,
-                couponConfig: couponConfig,
-                pageTitle: pageTitle,
-                pageCover: tour.cover
-            }, () => {
+            if(res.data.code != 0){
+                return;
+            }
+            var zhuli = res.data.data
+            _this.loadTourData(zhuli.huodong_id);
+            _this.setData({ zhuli: zhuli, }, () => {
                 _this.refreshStatus()
             })
         })
@@ -145,27 +151,27 @@ Page({
         })
     },
 
-    loadHuodong: function (hid) {
+    loadTourData: function (tourId) {
         var _this = this
-        tourApi.getTourDetail(hid).then((res) => {
-            if (res.data.status != 0) {
+        tourApi.getTourDetail(tourId).then((res) => {
+            if (res.data.code != 0) {
                 return false
             }
-            var cf = res.data.data.coupon_config
-
+            var tour = res.data.data;
             _this.setData({
-                huodong: res.data.data,
-                pageTitle: res.data.data.title,
-                pageCover: res.data.data.cover,
-                coupon_config: cf,
+                couponConfig: tour.coupon_config,
+                huodong: tour,
+                pageTitle: "我的助力" + tour.title,
+                pageCover: tour.cover,
             })
+            _this.loadPostData(tour.post_id);
         })
     },
 
-    loadHaoyou: function () {
+    loadHaoyou: function (zhuliId) {
         var _this = this
         var query = {
-            zhuli_id: this.data.mid
+            zhuli_id: zhuliId,
         }
         zhuliApi.getZhuliHaoyouList(query).then((res) => {
             if (res.data.status != 0) {
@@ -214,7 +220,7 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-
+        this.loadData();
     },
 
     /**

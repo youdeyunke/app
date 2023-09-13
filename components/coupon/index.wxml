@@ -1,5 +1,5 @@
 <view class="coupon">
   <view class="name">{{item.name || '-'}}</view>
   <view class="content">{{item.desc || ''}}</view>
-  <view class="time">有效期至：{{expiredAt}}</view>
+  <view class="time">有效期至：{{item.expired_at}}</view>
 </view>

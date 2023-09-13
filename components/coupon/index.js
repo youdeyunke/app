@@ -9,14 +9,6 @@ Component({
   },
 
   observers: {
-    "item.expired_at": function(v){
-      if(!v){
-        return 
-      }
-      var r = v.split('T')
-      var expiredAt  = r[0]  + ' ' +  r[1].split('.')[0]
-      this.setData({expiredAt: expiredAt})
-    },
   },
 
 

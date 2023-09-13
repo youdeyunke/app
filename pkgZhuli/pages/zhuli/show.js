@@ -25,15 +25,29 @@ Page({
 
     },
 
+    loadPostInfo: function(postId){
+        console.log('load post ', postid)
+        postApi.getPostDetail(postId).then((res) => {
+            console.log('load post data is ', res.data);
+            if (res.data.code != 0) {
+                return
+            }
+            var post = res.data.data
+            this.setData({
+                post: post,
+            })
+        })
+    },
+
     loadData: function () {
         var _this = this
         // √
         tourApi.getTourDetail(this.data.hid).then((res) => {
-            if (res.data.status != 0) {
+            if (res.data.code != 0) {
                 return
             }
-            var tour = res.data.data.tour
-            var post = res.data.data.post
+            var tour = res.data.data
+            // 已经有助力id了，那么说明是参加过助力活动，跳转进入我的助力活动页面
             var zhuliId = res.data.data.zhuli_id
             if (zhuliId && zhuliId > 0) {
                 wx.redirectTo({
@@ -42,15 +56,15 @@ Page({
                 return
             }
             wx.setNavigationBarTitle({
+                pageTitle: tour.title,
+                pageCover: tour.cover,
                 title: tour.title,
             })
 
             _this.setData({
                 item: tour,
-                post: post,
-                pageTitle: tour.title,
-                pageCover: tour.cover
             })
+            _this.loadPostInfo(tour.post_id);
         })
     },
 

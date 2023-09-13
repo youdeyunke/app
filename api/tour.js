@@ -21,7 +21,7 @@ export function createTourMember(data) {
 
 // 拉取活动详情   1
 export function getTourDetail(tourId, query={}) {
-    return request.get("/api/v1/tours/" + tourId, query);
+    return request.get("http://localhost:8080/api/v6/tours/" + tourId, query);
 }
 
 

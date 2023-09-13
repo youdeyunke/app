@@ -14,7 +14,7 @@ export function  getZhuliHaoyouList(query){
 
 // 查询助力活动的详情   1
 export function  getZhuliDetail(zhuliId){
-    return request.get("/api/v1/zhuli/" + zhuliId);
+    return request.get("http://localhost:8080/api/v6/zhuli/" + zhuliId);
 }
 
 

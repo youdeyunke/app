@@ -2,14 +2,13 @@
   <timer date="{{item.ends_at}}"></timer>
 </view>
 
-
 <view class="body">
 
 
   <mycard width="710" radius="30" title="{{item.title}}" title-size="32">
     <view class="rule">
       <view class="rule-item">
-        活动时间：{{item.starts_at_pretty}} ~ {{item.ends_at_pretty}}
+        活动时间：{{item.starts_at}} ~ {{item.ends_at}}
       </view>
 
       <view class="rule-item">

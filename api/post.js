@@ -39,7 +39,7 @@ export function getPostBlocks(pid) {
 
 // 拉取楼盘基本信息  完成
 export function getPostBaseInfo(pid) {
-    return request.get("/api/v1/post_base_info/" + pid);
+    return request.get("http://localhost:8080/api/v6/post_base_info/" + pid);
 }
 
 // 快速搜索楼盘，参数只需要传关键字既可   完成

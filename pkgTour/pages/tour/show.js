@@ -2,6 +2,7 @@
 const app = getApp()
 const smsApi = require('../../../api/sms')
 const tourApi = require("../../../api/tour")
+const postApi = require("../../../api/post")
 var auth = require('../../../utils/auth');
 
 Page({
@@ -12,9 +13,6 @@ Page({
     data: {
         tourId: null,
         homebtn: null,
-        joined: false,
-        brokerName: "",
-        brokerPhone: "",
         showForm: false,
         user: null,
         name: '',
@@ -50,7 +48,6 @@ Page({
         app.checkForceLogin()
         this.setData({
             tourId: q.id,
-            brokerId: q.broker_id || '',
         }, () => {
             this.loadData()
         })
@@ -89,8 +86,6 @@ Page({
         var data = {
             tour_id: this.data.item.id,
             name: this.data.name,
-            broker_name: this.data.brokerName,
-            broker_phone: this.data.brokerPhone,
             mobile: this.data.mobile
         }
         if (!data.name) {
@@ -192,30 +187,39 @@ Page({
         })
     },
 
+    loadPostInfo:function(postId){
+        var _this = this 
+        postApi.getPostBaseInfo(postId).then((res)=>{
+            if(res.data.code != 0){
+                return
+            }
+            var post = res.data.data
+            _this.setData({
+                post: post,
+            })
+        })
+    },
+
     loadData: function (cb) {
         var _this = this
-        var bid = this.data.brokerId || ''
-        tourApi.getTourDetail(_this.data.tourId,{broker_id:bid}).then((resp)=>{
-            var tour = resp.data.data.tour
-            var joined = resp.data.data.joined
+        tourApi.getTourDetail(_this.data.tourId).then((resp)=>{
+            if(resp.data.code != 0){
+                return;
+            }
+            var tour = resp.data.data
             var html = tour['content'] || ''
-            var post = resp.data.data.post
-            console.log('tour', tour, 'join', joined)
             if (html) {
                 html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
                 html = html.replace(/\<p/gi, '<p class="rich-text-p" ')
             }
 
-            var b = resp.data.broker || {}
             _this.setData({
                 item: tour,
-                brokerName: b.name || '',
-                brokerPhone: b.phone || '',
                 html: html,
                 loading: false,
-                post: post,
-                joined: joined
             })
+            // 加载楼盘信息
+            _this.loadPostInfo(tour.post_id);
             wx.setNavigationBarTitle({
                 title: tour.title + ' ' + tour.status_name,
             });
@@ -304,16 +308,6 @@ Page({
         var _this = this
         var u = app.globalData.userInfo
         var shareQuery = 'id=' + this.data.tourId
-        if (u && u.is_broker) {
-            // 如果当前账号已经是置业顾问了
-            // 那么转发分享的时候，是带上我的标记
-            shareQuery += '&broker_id=' + u.id
-        } else {
-            // 如果当前账号是客户
-            // 那么转发额时候，复制上一个置业顾问的标记
-            shareQuery += '&broker_id=' + this.data.brokerId || ''
-        }
-
         var title = this.data.item.title
         var image = this.data.item.cover
 
@@ -330,16 +324,6 @@ Page({
     onShareAppMessage: function () {
         var u = app.globalData.userInfo
         var sharePath = '/pkgTour/pages/tour/show?id=' + this.data.tourId
-        if (u && u.is_broker) {
-            // 如果当前账号已经是置业顾问了
-            // 那么转发分享的时候，是带上我的标记
-            sharePath += '&broker_id=' + u.id
-        } else {
-            // 如果当前账号是客户
-            // 那么转发额时候，复制上一个置业顾问的标记
-            sharePath += '&broker_id=' + this.data.brokerId || ''
-        }
-
         return {
             title: this.data.item.title,
             imageUrl: this.data.item.cover + "?imageView2/1/w/500/h/400",
