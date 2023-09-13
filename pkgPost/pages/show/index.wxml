@@ -19,12 +19,11 @@
 <template name="news">
     <news-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
 </template>
-<template name="ticket">
-    <ticket-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
-</template>
+
 <template name="comments">
     <comments-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
 </template>
+
 <template name="events">
     <events-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
 </template>

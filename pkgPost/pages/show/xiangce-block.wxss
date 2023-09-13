@@ -1,12 +1,19 @@
 /* pkgPost/pages/show/xiangce-block.wxss */
+.items-outer{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    height:auto;
+}
+
 .xiangce-item {
-    width: 330rpx;
+    width: 315rpx;
     height: 240rpx;
-    border-radius: 10rpx;
-    margin-right: 20rpx;
+    border-radius: 15rpx;
+    margin-right: 25rpx;
     margin-top: 15rpx;
-    position: relative;
-    display: inline-block;
 }
 
 .xiangce-item:nth-child(2n+0) {
@@ -14,7 +21,7 @@
 }
 
 .xiangce-item-cover{
-    width: 330rpx;height: 240rpx;border-radius: 10rpx;
+    width: 315rpx;height: 240rpx;border-radius: 10rpx;
 }
 .xiangce-item-type{
     position: absolute;width: 100rpx;height: 100rpx;top: 70rpx;right: 115rpx;

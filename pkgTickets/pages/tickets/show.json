@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "post-ticket-summary": "/components/post-ticket-summary/index",
-    "post-title":"/components/post-title/index"
-    
-  }
-}

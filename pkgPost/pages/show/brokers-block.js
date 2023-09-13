@@ -10,7 +10,7 @@ Component({
   },
 
   observers: {
-    "value.brokers": function(vals){
+    "value.items": function(vals){
       if(!vals){ 
         return 
       }

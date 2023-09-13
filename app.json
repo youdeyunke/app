@@ -131,13 +131,6 @@
       ]
     },
     {
-      "root": "pkgTickets",
-      "name": "pkgtickets",
-      "pages": [
-        "pages/tickets/index"
-      ]
-    },
-    {
       "root": "pkgMap",
       "name": "pkgmap",
       "pages": [
@@ -428,10 +421,6 @@
     }
   },
   "plugins": {
-    "contactPlugin": {
-      "version": "1.4.3",
-      "provider": "wx104a1a20c3f81ec2"
-    }
   },
   "debug": false,
   "sitemapLocation": "sitemap.json"

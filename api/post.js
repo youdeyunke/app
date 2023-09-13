@@ -34,7 +34,7 @@ export function getFavPosts(query) {
 
 // 拉取楼盘详情页模块数据  完成
 export function getPostBlocks(pid) {
-    return request.get("/api/v5/posts/" + pid);
+    return request.get("http://localhost:8080/api/v6/posts/" + pid);
 }
 
 // 拉取楼盘基本信息  完成
@@ -82,15 +82,6 @@ export function  getPostRank(query){
 }
 
 
-// 查询楼盘摇号数据  1
-export function   getPostTicketList(query){
-  return request.get("/api/v1/post_tickets", query);
-}
-
-// 查询摇号详情   1
-export function  getPostTicketDetail(tid){
-  return request.get("/api/v1/post_tickets/"+tid);
-}
 
 
 // 查询楼盘的vr列表   1

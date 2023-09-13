@@ -13,14 +13,14 @@
           <view class="meta">
             <view class="name">
               {{item.name}}
-              <view class="tag" style="color: {{color}};border: 1rpx solid {{color}};">{{item.sale_status_name}}</view>
+              <view class="tag" style="color: {{color}};border: 1rpx solid {{color}};">{{item.sale_status_item.name}}</view>
             </view>
 
-            <view class="tags">
+            <!-- view class="tags">
               <view wx:for="{{item.tags}}" style="margin-right:8rpx;">
                 <van-tag plain>{{item}}</van-tag>
               </view>
-            </view>
+            </view -->
 
             <view class="attr">
               <!-- <text class="label">朝向</text>

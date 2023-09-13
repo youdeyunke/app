@@ -1,8 +1,0 @@
-{
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "post-ticket-summary": "/components/post-ticket-summary/index",
-    "post-title": "/components/post-title/index",
-    "ticket-item":"./item"
-  }
-}

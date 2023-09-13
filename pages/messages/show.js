@@ -164,6 +164,7 @@ Page({
     },
 
     sendHandle: function (value) {
+      
         //  记录最新消息ID
         this.setData({
             newMessageId: value.detail.id

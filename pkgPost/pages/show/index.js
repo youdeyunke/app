@@ -221,14 +221,13 @@ Page({
             if (user && user.is_broker) {
                 data.pageQuery += '&broker_uid=' + user.id
             }
-            data.blocks = resp.data.data
-            data.navs = resp.data.navs
-            data.bannersInfo = resp.data.banners
-            data.broker = resp.data.broker
             data.loading = false
+            data.blocks = resp.data.data
+            //data.navs = resp.data.navs
+            //data.bannersInfo = resp.data.banners
+            //data.broker = resp.data.broker
+            //_this._setPostInfo(resp.data.post)
             _this.getVanTabs(resp.data.data)
-            _this._setPostInfo(resp.data.post)
-            _this._setTheme(resp.data.post.theme, resp.data.post.header_image)
             _this.setData(data, () => {
                 wx.showShareMenu({
                     withShareTicket: true,
@@ -242,10 +241,8 @@ Page({
                 image: '',
                 duration: 1500,
                 mask: true,
-                success: (result) => {},
-                fail: () => {},
-                complete: () => {}
             });
+            console.error(res);
 
         })
     },
@@ -257,6 +254,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        // 默认先关闭分享按钮，数据加载完后再开启
+        wx.hideShareMenu({
+            menus: ['shareAppMessage', 'shareTimeline']
+        })
+
         var _this = this
         var qrdata = app.globalData.qrdata
         // 将二维码携带的额外参数和options合并
@@ -279,9 +281,6 @@ Page({
             _this.gotoSubpage(options.subpage)
         })
 
-        wx.hideShareMenu({
-            menus: ['shareAppMessage', 'shareTimeline']
-        })
         _this.getStatusBarHeight()
         this.showLogin()
     },
@@ -317,7 +316,6 @@ Page({
                 }
             }
         }
-
         cacheValue.push({
             date: today,
             post: wx.getStorageSync('post_base_info.' + this.data.postId),
@@ -400,9 +398,8 @@ Page({
     },
 
     loadData: function () {
-        //this.loadPostInfo()
-        this.loadPostBlocks()
-        //this.markHistory()  TODO remove this
+        this.loadPostBlocks();
+        this.loadPostBaseInfo();
     },
 
     _setPostInfo: function (post, cb) {
@@ -411,9 +408,7 @@ Page({
         data.pageTitle = post.title
         data.pageCover = post.cover
         console.log('set post info', post)
-        wx.setNavigationBarTitle({
-            title: post.title,
-        })
+        wx.setNavigationBarTitle({ title: post.title, })
         this.setData(data, () => {
             typeof cb == 'function' && cb(post)
         })
@@ -444,36 +439,16 @@ Page({
         }
     },
 
-    loadPostInfo: function (cb) {
+    loadPostBaseInfo: function (cb) {
         // 加载楼盘的基本信息
-        // 优先从本地缓存中读取
-        var _this = this
-        var pid = this.data.postId
-        var key = 'post_base_info.' + pid
-        wx.getStorage({
-            key: key,
-            success: function (cache) {
-                if (cache.data) {
-                    _this._setPostInfo(cache.data, cb)
-                }
-
-            }
-        })
-
-        // ？？ 该方法页面未调用
-        postApi.getPostBaseInfo(pid).then((resp) => {
-            var post = resp.data.data
-            if (!post) {
-                // TODO 
-                return
-            }
+        var _this = this;
+        postApi.getPostBaseInfo(this.data.postId).then((resp) => {
+            var post = resp.data.data;
+            _this._setTheme(post.theme, post.header_image)
             _this._setPostInfo(post, cb)
-            wx.setStorage({
-                data: post,
-                key: key,
-            })
         })
     },
+
     /**
      * 生命周期函数--监听页面隐藏
      */
@@ -493,9 +468,7 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-        this.setData({
-            loading: true
-        })
+        this.setData({ loading: true })
         this.loadData()
     },
 
