@@ -22,7 +22,7 @@ Component({
       app.ensureConfigs((configs) => {
         console.log('set page path', path)
         configs.tabbars.filter((tab, index) => {
-          if (tab.pagePath == path) {
+          if (tab.page_path == path) {
             _this.setData({
               selected: index
             })
