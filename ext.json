@@ -1,12 +1,10 @@
 {
     "extEnable": true,
     "extAppid": "wx175508800f405090",
-    "directCommit": false,
+    "directCommit": true,
     "ext": {
         "name": "开发版",
-        "apihost": "http://192.168.31.66:2021",
-        "apihost1": "http://127.0.0.1:8080",
-        "version_desc": "这里是版本介绍信息",
-        "test": "hello"
+        "apihost": "https://apigw.udeve.net/release/udyk",
+        "version_desc": "这里是版本介绍信息"
     }
 }

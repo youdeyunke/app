@@ -3,7 +3,7 @@ console.log("121request_app", app);
 const defaultApiHost = 'http://192.168.31.66:2021';
 // const defaultApiHost = 'http://127.0.0.1:8080';
 const EXT = wx.getExtConfigSync();
-const apiHost = EXT.host || defaultApiHost;
+const apiHost = EXT.apihost || defaultApiHost;
 const throttle = require('./throttle');
 
 // 发送http请求
