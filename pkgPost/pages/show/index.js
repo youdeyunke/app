@@ -201,6 +201,18 @@ Page({
         wx.navigateTo(url)
     },
 
+    loadPostBannerInfo: function (params) {
+      var _this = this
+      postApi.getPostBannerInfo(_this.data.postId).then((resp) => {
+        if (resp.data.code != 0) {
+          return
+        }
+        console.log("bannersInfo: resp.data", resp.data);
+        _this.setData({
+          bannersInfo: resp.data.data
+        })
+      })
+    },
 
     loadPostBlocks: function () {
         var _this = this
@@ -400,6 +412,7 @@ Page({
     loadData: function () {
         this.loadPostBlocks();
         this.loadPostBaseInfo();
+        this.loadPostBannerInfo()
     },
 
     _setPostInfo: function (post, cb) {
