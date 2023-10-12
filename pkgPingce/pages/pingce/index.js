@@ -6,8 +6,8 @@ Page({
      * 页面的初始数据
      */
     data: {
-        postId:null,
-        postData:{},
+        postId: null,
+        postData: {},
         pingceList:[]
     },
 
@@ -16,37 +16,29 @@ Page({
      */
     onLoad(options) {
         this.setData({
-            postId:options.postid
+            postId: options.postid
         })
         this.loadPost()
         this.loadpingce()
     },
-    loadPost: function(){
+    loadPost: function () {
         var pid = this.data.postId
-        var _this = this 
+		var _this = this
         app.request({
-            url: '/api/v2/posts/' + pid,
+            url: '/api/v6/post_base_info/' + pid,
             method: 'GET',
-            success: function(resp){
+            success: function (resp) {
                 _this.setData({
                     postData: resp.data.data
                 })
             }
-        })
+		})
     },
     loadpingce: function () {
         var _this = this
-        var query = {
-            api: "/api/v6/getReviewList",
-            data: {
-                "post_id": this.data.postId
-            }
-
-        }
         app.request({
-            url: '/api/proxy',
-            data: query,
-            method: 'POST',
+            url: '/api/v6/post_reviews/'+this.data.postId,
+            method: 'GET',
             success: function (resp) {
                 _this.setData({
                     pingceList: resp.data.data,
@@ -68,6 +60,19 @@ Page({
         this.setData({
             zongpingfen: average
         })
+    },
+    goBack: function () {
+        var pages = getCurrentPages();
+        if(pages.length>1) {
+            wx.navigateBack({
+                delta: 1 
+            });
+        }else {
+            wx.reLaunch({
+                url: '/pages/home/home'
+              })
+        }
+      
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -114,7 +119,28 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage() {
-
+    onShareAppMessage: function () {
+        var postid = this.data.postId
+        var title = this.data.postData.title
+        const promise = new Promise(resolve => {
+            setTimeout(() => {
+              resolve({
+                title:title+'楼盘评测报告',
+                path: '/pkgPingce/pages/pingce/index?postid=' + postid,
+                imageUrl:"https://qiniucdn.udeve.cn/fang2021/f52cbf31-f10c-42d9-bfee-21e60c15e217.jpg"
+              })
+            }, 2000)
+          })
+          return {
+            promise 
+          }
+    },
+    onShareTimeline: function () {
+        var postid = this.data.postId
+        var title = this.data.postData.title
+        return {
+            title:title+'楼盘评测报告',
+            query: 'postid=' + postid
+        }
     }
 })

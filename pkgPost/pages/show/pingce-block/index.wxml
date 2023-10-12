@@ -1,0 +1,44 @@
+<!--pages/post/pingce-block/index.wxml-->
+
+
+
+<view wx:if="{{value.pingceList.length>0}}">
+	<block>
+		<block-box width="750" leftHat="true" leftHatColor="{{color}}" title="楼盘评测报告">
+			<view style="display: flex;align-items: center;justify-content: center;">
+				<view class="pingceBox">
+					<view class="boxTop">
+						<view class="zongfen">
+							<view style="font-size: 26rpx;">
+								<text style="font-size: 63rpx;">{{zongpingfen}}</text>
+								分
+							</view>
+							<view style="font-size: 25rpx;">楼盘评测</view>
+						</view>
+						<view class="pingfen">
+							<view class="shequ" wx:if="{{item.score}}" wx:for="{{value.pingceList}}">
+								<text style="width: 150rpx;text-align-last: justify;text-align: justify;">{{item.name}}</text>
+								<van-rate value="{{ item.score }}" allow-half size="{{ 20 }}" color="#ffd21e" void-icon="star" void-color="#eee" bind:change="onChange" />
+								<text style="width: 80rpx;display: flex;justify-content: center;">{{item.score||'-'}}分</text>
+							</view>
+						</view>
+					</view>
+					<view class="{{zhezhao ? 'boxText' : 'boxText1'}}">
+						<view class="TextBox" wx:for="{{value.pingceList}}">
+							<!-- 图标
+				<image style="width: 28rpx;height: 30rpx;background: #686667;margin-right: 16rpx;" src="" mode="" /> -->
+							<view style=" min-height: 80rpx;">
+								<text class="title">{{item.name}}</text>
+								{{item.remark || '---'}}
+							</view>
+						</view>
+					</view>
+					<view style="margin-top: 33rpx;">
+						<van-button color="rgba(58,191,129,0.17)" bindtap="jiesuobtn" custom-style=" color: #13B38F;" size="large" type="default">免费解锁详细报告</van-button>
+					</view>
+
+				</view>
+			</view>
+		</block-box>
+	</block>
+</view>

@@ -1,0 +1,5 @@
+<view class="tags">
+    <view class="tag" wx:for-item="tagItem" wx:for="{{safeItems}}" wx:key="{{tagItem}}">
+        <van-tag color="#6DBFAB"  type="primary" size="{{size}}">{{ tagItem.name }}</van-tag>
+    </view>
+</view>

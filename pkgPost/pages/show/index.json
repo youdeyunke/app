@@ -35,6 +35,7 @@
         "live":"/components/state-item/index",
         "flash-image":"../../components/flash-image/index",
         "phone-block":"./phone-block",
-        "raw-html": "/components/raw-html/index"
+		"raw-html": "/components/raw-html/index",
+		"pingce-block":"./pingce-block/index"
     }
 }

@@ -1,0 +1,10 @@
+
+.tags {
+  display:flex;
+  justify-content:flex-start;
+}
+
+
+.tags .tag{
+  margin-right:10rpx;
+}

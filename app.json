@@ -107,7 +107,8 @@
       "pages": [
         "pages/pingce/index"
       ]
-    },
+	},
+	
     {
       "root": "pkgContract",
       "name": "pkgcontract",
@@ -406,7 +407,8 @@
     "ud-tabs": "/components/ud/tabs/index",
     "ud-header": "/components/ud/header/index",
     "ud-textarea": "/components/ud/textarea/index",
-    "ud-icon": "/components/ud/icon/index"
+	"ud-icon": "/components/ud/icon/index",
+	"post-cover":"/components/post-cover/index"
   },
   "networkTimeout": {
     "request": 100000,
