@@ -6,7 +6,7 @@ let request = require('../utils/request.js');
 
 // 查询动态列表  1
 export function getEventList(query) {
-    return request.get("/api/v1/events", query);
+    return request.get("/api/v6/events", query);
 }
 
 // 查询动态详情    未发现

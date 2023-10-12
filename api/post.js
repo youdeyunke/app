@@ -34,7 +34,7 @@ export function getFavPosts(query) {
 
 // 拉取楼盘详情页模块数据  完成
 export function getPostBlocks(pid) {
-    return request.get("/api/v6/posts/" + pid);
+    return request.get("http://localhost:8080/api/v6/posts/" + pid);
 }
 
 // 拉取楼盘bannersInfo信息数据
