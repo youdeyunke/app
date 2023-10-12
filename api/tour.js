@@ -6,7 +6,7 @@ let request = require('../utils/request');
 
 // 拉取活动列表   1
 export function getTourList(query) {
-    return request.get("/api/v1/tours/", query);
+    return request.get("/api/v6/tours/", query);
 }
 
 // 刪除活动成员（取消报名）1

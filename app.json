@@ -107,8 +107,7 @@
       "pages": [
         "pages/pingce/index"
       ]
-	},
-	
+    },
     {
       "root": "pkgContract",
       "name": "pkgcontract",
@@ -215,7 +214,8 @@
       "name": "news",
       "pages": [
         "pages/news/index",
-        "pages/news/show"
+        "pages/news/show",
+        "pages/news/PostNews/index"
       ]
     },
     {
@@ -407,8 +407,8 @@
     "ud-tabs": "/components/ud/tabs/index",
     "ud-header": "/components/ud/header/index",
     "ud-textarea": "/components/ud/textarea/index",
-	"ud-icon": "/components/ud/icon/index",
-	"post-cover":"/components/post-cover/index"
+    "ud-icon": "/components/ud/icon/index",
+    "post-cover": "/components/post-cover/index"
   },
   "networkTimeout": {
     "request": 100000,
@@ -422,8 +422,7 @@
       "desc": "位置信息用于房源查询"
     }
   },
-  "plugins": {
-  },
+  "plugins": {},
   "debug": false,
   "sitemapLocation": "sitemap.json"
 }

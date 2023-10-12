@@ -1,4 +1,4 @@
 <!-- pages/post/brokers-block.wxml -->
-<block-box title-size="36" leftHat="true" leftHatColor="{{color}}" title="相关资讯" padding="{{false}}" sub-title="更多资讯" url="/pkgNews/pages/news/index?post_id={{value.post_id}}">
+<block-box title-size="36" leftHat="true" leftHatColor="{{color}}" title="相关资讯" padding="{{false}}" sub-title="更多资讯" url="/pkgNews/pages/news/PostNews/index?post_id={{value.post_id}}">
   <news-item wx:key="id" item="{{item}}" wx:for="{{value.items}}" is-cell="{{true}}" />
 </block-box>

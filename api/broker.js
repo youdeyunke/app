@@ -2,7 +2,7 @@ let request = require('../utils/request.js');
 
 // 拉取置业顾问列表  完成
 export function getBrokerList(query) {
-    return request.get("/api/v1/brokers/", query);
+    return request.get("http://localhost:8080/api/v6/brokers/", query);
 }
 
 // 拉取置业顾问详情   完成

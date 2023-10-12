@@ -11,7 +11,7 @@ export function getNewsSummary(){
 
 // 拉取文章列表    完成
 export function getNewsList(query){
-    return request.get("/api/v1/news/", query  );
+    return request.get("http://localhost:8080/api/v6/news/", query  );
 }
 
 // 拉取文章分类信息   完成

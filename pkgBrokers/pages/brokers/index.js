@@ -16,7 +16,7 @@ Page({
 
         }).then((res) => {
             _this.setData({
-                ranking: res.data.data
+                ranking: res.data.data.result
             })
         })
     },

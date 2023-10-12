@@ -55,7 +55,7 @@ Page({
         // √
         brokerApi.getBrokerList(query).then((resp) => {
             _this.setData({
-                brokers: resp.data.data
+                brokers: resp.data.data.result
             })
         })
     },

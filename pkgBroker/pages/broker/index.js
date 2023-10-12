@@ -82,12 +82,12 @@ Page({
             }
             if (i > 0) {
                 var key = 'items[' + i + ']'
-                data[key] = resp.data.data
+                data[key] = resp.data.data.result
             } else {
-                data['items'] = [resp.data.data]
+                data['items'] = [resp.data.data.result]
             }
             _this.setData(data)
-            console.log('data is', data, resp.data.data)
+            console.log('data is', data, resp.data.data.result)
         })
     },
 

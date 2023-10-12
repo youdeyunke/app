@@ -60,9 +60,10 @@ Component({
           this.setData({loading: true})
         //   √
           brokerApi.getBrokerList(query).then((resp)=>{
+            console.log(resp);
             _this.setData({
                 loading: false, 
-                items: resp.data.data,
+                items: resp.data.data.result,
             })
           })
       },

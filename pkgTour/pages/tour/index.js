@@ -12,6 +12,7 @@ Page({
         active: 0,
         loading: false,
         items: [],
+        post_id: '',
     },
 
     /**
@@ -21,8 +22,14 @@ Page({
         app.checkForceLogin()
         var _this = this
         var catId = q.cat_id || ''
+        var postId = q.post_id || ''
         wx.setNavigationBarTitle({ title: '线上活动' })
-        this.loadData()
+        this.setData({
+          post_id: postId
+        },() => {
+          _this.loadData()
+        })
+
     },
 
     onShow: function () {
@@ -36,6 +43,9 @@ Page({
         var query = {
             page: _this.data.page,
             per_page: _this.data.per_page
+        }
+        if (this.data.post_id){
+          query.post_id = this.data.post_id
         }
         tourApi.getTourList(query).then((resp)=>{
             var index = _this.data.page - 1
