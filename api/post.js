@@ -34,7 +34,7 @@ export function getFavPosts(query) {
 
 // 拉取楼盘详情页模块数据  完成
 export function getPostBlocks(pid) {
-    return request.get("http://localhost:8080/api/v6/posts/" + pid);
+    return request.get("/api/v6/posts/" + pid);
 }
 
 // 拉取楼盘bannersInfo信息数据
@@ -71,7 +71,7 @@ export function  createPostCustomer(data){
 
 //   1
 export function  getPostDetailContent(pid){
-  return request.get("http://localhost:8080/api/v6/post_detail/" + pid);
+  return request.get("/api/v6/post_detail/" + pid);
 }
 
 
@@ -102,7 +102,7 @@ export function  getPostVrDetail(vid){
 
 // 查询楼盘户型列表  1
 export function  getPostTypeList(query){
-  return request.get("http://192.168.31.45:8080/api/v6/types", query);
+  return request.get("/api/v6/types", query);
 }
 
 // 查询户型详情数据   1

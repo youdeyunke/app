@@ -1,0 +1,16 @@
+.res {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background:#fff;
+  width:710rpx;
+  margin:20rpx auto;
+  padding:20rpx;
+  box-sizing: border-box;
+
+}
+
+.res .empty {
+  padding: 30rpx 0;
+}
