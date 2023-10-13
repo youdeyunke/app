@@ -10,6 +10,10 @@ export function getBrokerDetail(userId) {
     return request.get("/api/v1/brokers/" + userId);
 }
 
+// 根据楼盘id拉取一个默认置业顾问详情   完成
+export function getPostDefaultBrokerDetail(query) {
+  return request.get("/api/v6/brokers/postDefault", query);
+}
 
 // 增加置业顾问主页浏览量    完成
 // 注意：这里要传user_id，而不是broker_id

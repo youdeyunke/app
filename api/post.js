@@ -108,7 +108,7 @@ export function  getPostTypeList(query){
 // 查询户型详情数据   1
 // TODO 后端接口需要将types改为post_types
 export function getPostTypeDetail(tid){
-  return request.get("/api/v1/types/"+tid);
+  return request.get("/api/v6/types/"+tid);
 }
 
 // 查询一房一价表   1

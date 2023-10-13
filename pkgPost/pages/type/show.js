@@ -1,6 +1,7 @@
 // pkgType/pages/type/show.js
 const app = getApp()
 const postApi = require("../../../api/post")
+const brokerApi = require("../../../api/broker")
 var auth = require('../../../utils/auth.js');
 
 Page({
@@ -26,14 +27,52 @@ Page({
 
     },
 
+    loadPostBrokerInfo: function (pid) {
+      var _this = this
+      var query = {
+        post_id : pid
+      }
+      brokerApi.getPostDefaultBrokerDetail(query).then((res) => {
+        var broker = res.data.data
+        this.setData({
+          broker: broker
+        })
+      })
+    },
+
+    loadPostInfo: function (pid) {
+      var _this = this
+      // √  
+      postApi.getPostBaseInfo(
+          pid
+      ).then((res) => {
+          var post = res.data.data
+          var data = {
+              post: post
+          }
+          // var user = app.globalData.userInfo
+          // data.pageQuery = 'id=' + pid
+          // if (user && user.is_broker) {
+          //     data.pageQuery += '&broker_id=' + user.id
+          // }
+
+          // data.pageTitle = post.title + ' 户型介绍'
+          // data.pageCover = post.cover
+          var type = this.data.type
+          var title = post.title + type.name + type.sale_status_name || ''
+          wx.setNavigationBarTitle({ title: title, });
+          _this.setData(data)
+      })
+  },
+
     loadType: function (tid) {
         var _this = this
         postApi.getPostTypeDetail(tid).then((resp)=>{
             if (resp.data.status != 0) {
                 return false
             }
-            var type = resp.data.data.type
-            var post = resp.data.data.post
+            var type = resp.data.data
+            // var post = resp.data.data.post
             var tags = []
             if(type.tags){ 
               tags = type.tags.split(',')
@@ -41,13 +80,14 @@ Page({
 
             _this.setData({
                 loading: false,
-                post: resp.data.data.post,
+                // post: resp.data.data.post,
                 tags: tags, 
-                broker: resp.data.data.broker,
-                type: resp.data.data.type,
+                // broker: resp.data.data.broker,
+                type: resp.data.data,
             })
-            var title = post.title + type.name + type.sale_status_name || ''
-            wx.setNavigationBarTitle({ title: title, });
+            _this.loadPostInfo(type.post_id)
+            _this.loadPostBrokerInfo(type.post_id)
+
         })
     },
 
@@ -84,7 +124,8 @@ Page({
         // 先调用打招呼接口
         wx.showLoading({ title: '正在打开', icon: 'none', mask: true })
         var pid = this.data.post.id
-        var brokerId = this.data.broker.id
+        //brokerId指broker对应的userid
+        var brokerId = this.data.broker.user_id
         var _this = this
             // √
             postApi.sendPostCard({

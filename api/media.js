@@ -7,7 +7,7 @@ let request = require('../utils/request.js');
 
 //  拉取相册   完成
 export function getMediaCatList( query){
-    return request.get("/api/v1/media_cats/" ,query );
+    return request.get("/api/v6/media_cats/" ,query );
 }
 
 // 删除相册   完成
