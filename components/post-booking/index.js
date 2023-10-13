@@ -52,6 +52,7 @@ Component({
         },
 
         openHandle: function (user) {
+            var user = app.globalData.userInfo
             this.setData({ show: true })
             this.setData({ 
                 user: user ,

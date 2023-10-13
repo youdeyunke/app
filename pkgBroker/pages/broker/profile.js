@@ -2,6 +2,7 @@
 const app = getApp()
 const tourApi = require("../../../api/tour")
 const brokerApi = require("../../../api/broker")
+const postApi = require("../../../api/post")
 
 Page({
     /**
@@ -95,6 +96,7 @@ Page({
         })
         this.viewHandle()
         this.showLogin()
+        this.loadRecomPost()
         //wx.setStorageSync('bindBrokerId', q.user_id || q.id)
 
     },
@@ -142,6 +144,56 @@ Page({
         })
     },
 
+    loadPostInfo: function (pid) {
+      var _this = this
+      // √  
+      postApi.getPostBaseInfo(
+          pid
+      ).then((res) => {
+          var post = res.data.data
+          _this.setData({
+            post: post
+          })
+      })
+  },
+
+    loadRecomPost: function () {
+      var _this = this
+      var query = {
+        page: 1,
+        pre_page: 10
+      }
+      postApi.getPostList(query).then((resp) => {
+        console.log("2333",resp);
+        if (resp.data.code != 0) {
+          return
+        }
+        var postList = resp.data.data.result
+        var recomPostList = _this.getRandomItems(postList, 3)
+        _this.setData({
+          recom_posts: recomPostList
+        })
+      })
+    },
+
+    // 从返回的楼盘数组中随机取三项
+    getRandomItems(arr, num) {
+      if (arr.length <= num) {
+        return arr;
+      } else {
+        const result = [];
+        const copyArr = [...arr];
+    
+        while (result.length < num) {
+          const randomIndex = Math.floor(Math.random() * copyArr.length);
+          const randomItem = copyArr.splice(randomIndex, 1)[0];
+          result.push(randomItem);
+        }
+    
+        return result;
+      }
+    },
+
     loadbroker: function () {
         var uid = this.data.userId
         var _this = this
@@ -157,6 +209,7 @@ Page({
             _this.setData({
                 broker: u,
             })
+            _this.loadPostInfo(u.post_id)
             if (resp.data.data.tags) {
                 var tagList = resp.data.data.tags.split(',')
                 _this.setData({

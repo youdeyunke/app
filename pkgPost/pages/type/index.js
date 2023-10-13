@@ -1,5 +1,6 @@
 const app = getApp()
 const postApi = require("../../../api/post")
+const brokerApi = require("../../../api/broker")
 Page({
 
     /**
@@ -29,6 +30,20 @@ Page({
         })
         this.loadTypes(pid)
         this.loadPostInfo(pid)
+        this.loadPostBrokerInfo(pid)
+    },
+
+    loadPostBrokerInfo: function (pid) {
+      var _this = this
+      var query = {
+        post_id : pid
+      }
+      brokerApi.getPostDefaultBrokerDetail(query).then((res) => {
+        var broker = res.data.data
+        this.setData({
+          broker: broker
+        })
+      })
     },
 
     loadPostInfo: function (pid) {

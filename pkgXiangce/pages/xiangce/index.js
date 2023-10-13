@@ -2,6 +2,7 @@
 var auth = require('../../../utils/auth.js');
 const app = getApp()
 const postApi = require("../../../api/post")
+const brokerApi = require("../../../api/broker")
 const mediaApi = require("../../../api/media")
 Page({
 
@@ -34,15 +35,29 @@ Page({
         this.setData({
             targetType: q.target_type || 'post',
             targetId: q.target_id,
+            postId: q.target_id,
             loading: true,
             cats: [],
             height: app.globalData.system.windowHeight,
         }, (res) => {
             _this.loadData()
+            this.loadPostBrokerInfo(q.target_id)
             //_this.loadPostInfo()
         })
     },
 
+    loadPostBrokerInfo: function (pid) {
+      var _this = this
+      var query = {
+        post_id : pid
+      }
+      brokerApi.getPostDefaultBrokerDetail(query).then((res) => {
+        var broker = res.data.data
+        _this.setData({
+          broker: broker
+        })
+      })
+    },
 
     loadData: function () {
         wx.showLoading({
@@ -105,7 +120,7 @@ Page({
 
 
     callHandle: function () {
-        var m = this.data.post.broker.mobile
+        var m = this.data.broker.mobile
         wx.makePhoneCall({
             phoneNumber: m,
         })

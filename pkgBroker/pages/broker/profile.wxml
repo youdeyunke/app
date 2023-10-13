@@ -12,15 +12,15 @@
 </ud-card>
 <!-- <view class="jiange"></view> -->
 <ud-card title="主营楼盘:" width="750">
-    <cell post="{{broker.post}}"></cell>
+    <cell post="{{post}}"></cell>
 </ud-card>
 
 
 <view style="width: 750rpx;height: 24rpx;background-color: #F0F0F0;"></view>
-<ud-card title="推荐楼盘" wx:if="{{broker.recom_posts && broker.recom_posts.length > 0}}" width="750">
-    <view wx:for="{{broker.recom_posts}}">
-    <cell  post="{{item}}"></cell>
-  </view>
+<ud-card title="推荐楼盘" wx:if="{{recom_posts && recom_posts.length > 0}}" width="750">
+    <view wx:for="{{recom_posts}}">
+      <cell  post="{{item}}"></cell>
+    </view>
 </ud-card>
 <view style="width: 750rpx;height: 24rpx;background-color: #F0F0F0;"></view>
 

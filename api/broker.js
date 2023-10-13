@@ -7,7 +7,7 @@ export function getBrokerList(query) {
 
 // 拉取置业顾问详情   完成
 export function getBrokerDetail(userId) {
-    return request.get("/api/v1/brokers/" + userId);
+    return request.get("http://localhost:8080/api/v6/brokers/" + userId);
 }
 
 // 根据楼盘id拉取一个默认置业顾问详情   完成
@@ -18,7 +18,7 @@ export function getPostDefaultBrokerDetail(query) {
 // 增加置业顾问主页浏览量    完成
 // 注意：这里要传user_id，而不是broker_id
 export function updateBrokerViewsCount(userId) {
-    return request.post("/api/v1/brokers/view", {
+    return request.post("http://localhost:8080/api/v6/brokers/view", {
         user_id: userId
     });
 }
@@ -36,13 +36,13 @@ export function checkBrokerStatus() {
 
 //完成
 export function getBrokerShowDetail(query) {
-    return request.get("/api/v1/brokers/show", query);
+    return request.get("http://localhost:8080/api/v6/brokers/show", query);
 }
 
 
 // 点赞  完成
 export function likeBroker(data) {
-    return request.post("/api/v1/brokers/like", data);
+    return request.post("http://localhost:8080/api/v6/brokers/like", data);
 }
 
 //  置业顾问付费入驻功能，已经删除

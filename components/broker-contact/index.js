@@ -15,6 +15,10 @@ Component({
             type: Number,
             value: null
         },
+        bid: {
+          type: Number,
+          value: null
+        }
 
     },
 
@@ -22,7 +26,6 @@ Component({
      * 组件的初始数据
      */
     data: {
-
         mode: 'full' // or mini
     },
 

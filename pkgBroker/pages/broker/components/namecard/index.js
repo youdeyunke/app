@@ -89,7 +89,7 @@ Component({
         },
         likeHandle: function () {
 
-            var id = this.data.broker.id
+            var id = this.data.broker.user_id
             var _this = this
             var d = new Date()
             var y = d.getFullYear()
@@ -105,7 +105,7 @@ Component({
             } else {
                 //  √
                 brokerApi.likeBroker({
-                    broker_id: id
+                  user_id: id
                 }).then((res) => {
                     if (res.data.status != 0) {
                         return

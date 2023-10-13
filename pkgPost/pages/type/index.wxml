@@ -35,4 +35,4 @@
     </navigator>
 </ud-box>
 
-<broker-contact bid="{{brokerId}}" />
+<broker-contact broker="{{broker}}" />
