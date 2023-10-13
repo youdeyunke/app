@@ -9,5 +9,5 @@ export function  getMapMarkerList(query){
 // 1
 export function geocoder(latitude, longitude){
     return request.post("/api/v1/geocoder", {latitude:latitude, longitude:longitude});
-
 }
+

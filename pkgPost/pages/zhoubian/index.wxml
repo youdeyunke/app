@@ -4,6 +4,6 @@
 </view> -->
 <box width="750">
     <view class="tab" hover-class="none" hover-stop-propagation="false">
-        <zhoubian mode="full" postId="{{postId}}" wx:if='{{post.id}}' latitude="{{post.latitude}}" longitude="{{post.longitude}}" type='big' />
+        <zhoubian haveTabs="" mode="full" postId="{{postId}}" wx:if='{{post.id}}' latitude="{{post.latitude}}" longitude="{{post.longitude}}" type='big' />
     </view>
 </box>

@@ -139,6 +139,7 @@ Component({
     },
     ready: function () {
         this.getContent()
+        this.setMarker()
     },
     /**
      * 组件的方法列表
@@ -149,43 +150,44 @@ Component({
             var _this = this
             var app = getApp()
             var tab = this.data.tabs[this.data.active]
-            qqmapApi.placeSearch({
-                keyword: tab.value,
-                latitude: _this.data.latitude,
-                longitude: _this.data.longitude,
-                page_size: '20'
-            }).then((res) => {
-                    if(res.data.status == 310){
-                        console.log(res.message)
-                        return
-                    }
-                    if (res.data && res.data.data.length == 0) {
-                        _this.setData({
-                            resp: [],
-                            isShow: 1
-                        })
-                    } else {
-                        var resp = res.data.data.map(v => {
-                            if (v._distance >= 1000) {
-                                var d = v._distance / 1000
-                                v._distance =  d.toFixed(1) + 'km'
-                            } else {
-                                v._distance = parseInt(v._distance) + 'm'
-                            }
-                            return v
-                        })
-                        _this.setData({
-                            resp: resp,
-                            isShow: 0
-                        })
-                    }
-                    _this.setData({ 
-                        pois: res.data.data 
-                    },() => {
-                        _this.getMapContext(),
-                        _this.setMarker()
-                    })
-            })
+            // qqmapApi.placeSearch({
+            //     keyword: tab.value,
+            //     latitude: _this.data.latitude,
+            //     longitude: _this.data.longitude,
+            //     page_size: '20'
+            // }).then((res) => {
+            //         return
+            //         if(res.data.status == 310){
+            //             console.log(res.message)
+            //             return
+            //         }
+            //         if (res.data && res.data.data.length == 0) {
+            //             _this.setData({
+            //                 resp: [],
+            //                 isShow: 1
+            //             })
+            //         } else {
+            //             var resp = res.data.data.map(v => {
+            //                 if (v._distance >= 1000) {
+            //                     var d = v._distance / 1000
+            //                     v._distance =  d.toFixed(1) + 'km'
+            //                 } else {
+            //                     v._distance = parseInt(v._distance) + 'm'
+            //                 }
+            //                 return v
+            //             })
+            //             _this.setData({
+            //                 resp: resp,
+            //                 isShow: 0
+            //             })
+            //         }
+            //         _this.setData({ 
+            //             pois: res.data.data 
+            //         },() => {
+            //             _this.getMapContext(),
+            //             _this.setMarker()
+            //         })
+            // })
         },
         getMapContext() {
             var _this = this
@@ -245,35 +247,35 @@ Component({
                 }
             }
             markers.push(marker)
-            pois.forEach((v, i) => {
-                var m = {
-                    id: i,
-                    //iconPath: '/assets/icons/marker.png',
-                    latitude: v.location.lat,
-                    width: '40rpx',
-                    height: '40rpx',
-                    longitude: v.location.lng,
+            // pois.forEach((v, i) => {
+            //     var m = {
+            //         id: i,
+            //         //iconPath: '/assets/icons/marker.png',
+            //         latitude: v.location.lat,
+            //         width: '40rpx',
+            //         height: '40rpx',
+            //         longitude: v.location.lng,
 
 
 
-                }
-                m.alpha = '0.6',
-                    m.width = 1,
-                    m.zIndex = i,
-                    m.height = 1,
-                    m.callout = {
-                        content: i + 1,
-                        bgColor: '#ffffff',
-                        borderRadius: 20,
-                        borderWidth: 2,
-                        borderColor: '#333333',
-                        display: 'ALWAYS',
-                        color: '#333333',
-                        padding: 6,
-                        textAlign: 'center'
-                    }
-                markers.push(m)
-            })
+            //     }
+            //     m.alpha = '0.6',
+            //         m.width = 1,
+            //         m.zIndex = i,
+            //         m.height = 1,
+            //         m.callout = {
+            //             content: i + 1,
+            //             bgColor: '#ffffff',
+            //             borderRadius: 20,
+            //             borderWidth: 2,
+            //             borderColor: '#333333',
+            //             display: 'ALWAYS',
+            //             color: '#333333',
+            //             padding: 6,
+            //             textAlign: 'center'
+            //         }
+            //     markers.push(m)
+            // })
             this.setData({
                 markers: markers
             })
