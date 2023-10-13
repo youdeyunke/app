@@ -139,7 +139,7 @@ Page({
         // 提交报名
         var data = {
             password: this.data.password,
-            tour_id: this.data.item.id,
+            tour_id: this.data.tourId,
             name: this.data.name,
             broker_name: this.data.brokerName,
             broker_phone: this.data.brokerPhone,
@@ -210,9 +210,9 @@ Page({
         var _this = this
         var bid = this.data.brokerId || ''
         tourApi.getTourDetail(_this.data.tourId,{broker_id:bid}).then((resp)=>{
-            var tour = resp.data.data.tour
+            var tour = resp.data.data
             var joined = resp.data.data.joined
-            var html = tour['content'] || ''
+            var html = tour.content || ''
             var post = resp.data.data.post
             console.log('tour', tour, 'join', joined)
             if (html) {

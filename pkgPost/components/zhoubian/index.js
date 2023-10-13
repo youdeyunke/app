@@ -3,6 +3,7 @@
 const app = getApp()
 const qqmapApi = require("../../../api/qqmap")
 const postApi= require("../../../api/post")
+const surroundApi = require("../../../api/surround")
 Component({
     /**
      * 组件的属性列表
@@ -150,6 +151,19 @@ Component({
             var _this = this
             var app = getApp()
             var tab = this.data.tabs[this.data.active]
+            surroundApi.getSurroundList({
+              post_id: _this.data.postId,
+              cat: tab.id
+            }).then((resp) => {
+              console.log("147258",resp);
+              _this.setData({ 
+                  pois: resp.data.data ,
+                  resp: resp.data.data,
+              },() => {
+                  _this.getMapContext()
+                  _this.setMarker()
+              })
+            })
             // qqmapApi.placeSearch({
             //     keyword: tab.value,
             //     latitude: _this.data.latitude,
@@ -199,8 +213,8 @@ Component({
             var pois = this.data.pois
             pois.forEach(v => {
                 var obj = {}
-                obj.longitude = v.location.lng
-                obj.latitude = v.location.lat
+                obj.longitude = v.lng
+                obj.latitude = v.lat
                 arr.push(obj)
             })
             // //缩放视野展示所有经纬度 此方法传入的数组不能为空 所以手动进行非空验证
@@ -247,35 +261,32 @@ Component({
                 }
             }
             markers.push(marker)
-            // pois.forEach((v, i) => {
-            //     var m = {
-            //         id: i,
-            //         //iconPath: '/assets/icons/marker.png',
-            //         latitude: v.location.lat,
-            //         width: '40rpx',
-            //         height: '40rpx',
-            //         longitude: v.location.lng,
-
-
-
-            //     }
-            //     m.alpha = '0.6',
-            //         m.width = 1,
-            //         m.zIndex = i,
-            //         m.height = 1,
-            //         m.callout = {
-            //             content: i + 1,
-            //             bgColor: '#ffffff',
-            //             borderRadius: 20,
-            //             borderWidth: 2,
-            //             borderColor: '#333333',
-            //             display: 'ALWAYS',
-            //             color: '#333333',
-            //             padding: 6,
-            //             textAlign: 'center'
-            //         }
-            //     markers.push(m)
-            // })
+            pois.forEach((v, i) => {
+                var m = {
+                    id: i,
+                    //iconPath: '/assets/icons/marker.png',
+                    latitude: v.lat,
+                    width: '40rpx',
+                    height: '40rpx',
+                    longitude: v.lng,
+                }
+                m.alpha = '0.6',
+                    m.width = 1,
+                    m.zIndex = i,
+                    m.height = 1,
+                    m.callout = {
+                        content: i + 1,
+                        bgColor: '#ffffff',
+                        borderRadius: 20,
+                        borderWidth: 2,
+                        borderColor: '#333333',
+                        display: 'ALWAYS',
+                        color: '#333333',
+                        padding: 6,
+                        textAlign: 'center'
+                    }
+                markers.push(m)
+            })
             this.setData({
                 markers: markers
             })

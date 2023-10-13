@@ -62,11 +62,9 @@ Page({
 
     cancleJoin: function () {
         // 取消报名
-        var data = {
-            tour_id: this.data.item.id,
-        }
+        var tour_id = this.data.tourId
         var _this = this
-        tourApi.deleteTourMember(data).then((resp)=>{
+        tourApi.deleteTourMember(tour_id).then((resp)=>{
             if (resp.data.status == 0) {
                 wx.showToast({
                     icon: 'none',
@@ -84,7 +82,7 @@ Page({
         }
         // 提交报名
         var data = {
-            tour_id: this.data.item.id,
+            tour_id: this.data.tourId,
             name: this.data.name,
             mobile: this.data.mobile
         }

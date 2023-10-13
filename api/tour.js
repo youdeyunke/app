@@ -10,13 +10,13 @@ export function getTourList(query) {
 }
 
 // 刪除活动成员（取消报名）1
-export function deleteTourMember(data) {
-    return request.destroy("/api/v1/tour_members/0", data);
+export function deleteTourMember(tourId) {
+    return request.destroy("/api/v6/tour_members/" + tourId);
 }
 
 // 创建活动成员（报名参加活动）  1
 export function createTourMember(data) {
-    return request.post("/api/v1/tour_members/", data);
+    return request.post("/api/v6/tour_members/join", data);
 }
 
 // 拉取活动详情   1
@@ -32,7 +32,7 @@ export function tourSign(data) {
 
 // 领取活动优惠券   1
 export function createTourCoupon(data) {
-    return request.post("/api/v1/tour_coupons/", data);
+    return request.post("/api/v6/tour_coupons/", data);
 }
 
 
