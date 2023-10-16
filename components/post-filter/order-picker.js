@@ -48,6 +48,7 @@ Component({
             const { index } = e.detail
             this.setData({ currentIndex: index })
             var order = this.data.order
+            console.log('change',order);
             this.triggerEvent('change', { order: order.value })
             this.setData({ popShow: false })
         },

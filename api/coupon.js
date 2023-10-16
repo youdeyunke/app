@@ -17,7 +17,7 @@ export function updateCoupon(couponId, data){
 
 // 查询优惠券详情    1
 export function  getCouponDetail(couponId){
-    return request.get("/api/v1/coupons/" + couponId);
+    return request.get("http://192.168.31.45:8080/api/v6/coupons/" + couponId);
 }
 
 

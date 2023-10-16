@@ -20,7 +20,7 @@ Component({
         input_min: null,
         input_max: null,
         keys: [
-            'price',
+            'average_price',
             'total_price',
         ],
         activeId: null,

@@ -27,6 +27,16 @@ Component({
             }
             this.setData({ saleStatusOptions: v })
         },
+        "areaValue": function (v) {
+          if (!v) {
+            return
+          }
+          var arr = v.split(",")
+          this.setData({
+            areaMin: arr[0] ,
+            areaMax: arr[1],
+          })
+        }
     },
 
     /**

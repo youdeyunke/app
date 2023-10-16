@@ -54,10 +54,11 @@ Component({
         priceChange: function (e) {
             var filter = this.data.filter
             var data = e.detail
-            if (data.price && data.price.length >= 3) {
-                filter.price = data.price
+            
+            if (data.average_price && data.average_price.length >= 3) {
+                filter.average_price = data.average_price
             } else {
-                delete filter.price
+                delete filter.average_price
             }
 
             if (data.total_price && data.total_price.length >= 3) {

@@ -12,10 +12,10 @@ Component({
         longitude: {
             type: Number
         },
-        activeItemIndex: {
-            type: Number,
-            value: null
-        },
+        // activeItemIndex: {
+        //     type: Number,
+        //     value: null
+        // },
         latitude: {
             type: Number
         },
@@ -118,9 +118,10 @@ Component({
         active: 0,
         isShow: 0,
         maxLength: 2,
-        activeMarkerIndex: null,
+        // activeMarkerIndex: null,
         pois: [],
         post: null,
+        activeItemIndex: null,
     },
     attached: function () {
         // this.getContent()
@@ -226,9 +227,14 @@ Component({
             //     padding: [50, 50, 50, 50]
             // });
             console.log('经纬度arr', arr)
-            this.setData({
-                points: arr
+            let MapContext = wx.createMapContext('map',this);
+            MapContext.includePoints({
+              padding: [50, 50, 50, 50],
+              points: arr,
             })
+            // this.setData({
+            //     points: arr
+            // })
         },
         setMarker: function () {
             this.setData({
@@ -346,8 +352,13 @@ Component({
                     v.isActive = false
                 }
             });
+            // 切换tab后撤回高亮显示
+            console.log("qihuanhouchehuigaoliangxianshi", this.data.activeItemIndex);
+
             this.setData({
                 tabs: tabs,
+                // markers: markers,
+                activeItemIndex: null,
                 active: index
             })
             this.getContent()
