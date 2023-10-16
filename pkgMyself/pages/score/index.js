@@ -32,8 +32,8 @@ Page({
         if(res.data.status != 0){ 
             return false 
           }
-          var items = _this.data.items.concat(res.data.data)
-          _this.setData({ items: items, score: res.data.amount })
+          var items = _this.data.items.concat(res.data.data.data)
+          _this.setData({ items: items, score: res.data.data.amount })
     })
   },
 

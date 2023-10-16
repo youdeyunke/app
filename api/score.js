@@ -8,5 +8,5 @@ export function createScore(key){
 }
 // 完成
 export function getScoreList(data){
-    return request.get("/api/v1/scores", data);
+    return request.get("/api/v6/scores", data);
 }
