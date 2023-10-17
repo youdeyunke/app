@@ -10,7 +10,20 @@ Page({
     page: 1, 
     perPage: 10, 
     total: 0, 
+    active: "post",
     logs: [],
+  },
+
+  onChange(e){
+    var _this = this
+    console.log(e.detail.name);
+    this.setData({
+      active: e.detail.name,
+      page: 1,
+      logs: []
+    }, () => {
+      _this.loadData()
+    })
   },
 
   loadData: function(){
@@ -18,6 +31,7 @@ Page({
     var query = {
       page: this.data.page, 
       per_page: this.data.perPage, 
+      scope: this.data.active
     }
     // √
     historyApi.getHistoryList(query).then((resp)=>{

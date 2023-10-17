@@ -2,6 +2,7 @@
 const app = getApp()
 const postApi = require("../../../api/post")
 const scoreApi = require("../../../api/score")
+const historyApi = require("../../../api/history")
 var wxCharts = require('../../../utils/wxcharts-min');
 const themes = [{
         color: '#3A6BDD',
@@ -281,6 +282,7 @@ Page({
         }
 
         var postId = options.id || options.post_id
+        _this.createHistory(postId)
         wx.setStorageSync('bindPostId', postId)
         var sourceUid = options.source_uid
         app.globalData.sourceUid = sourceUid
@@ -295,6 +297,17 @@ Page({
 
         _this.getStatusBarHeight()
         this.showLogin()
+    },
+
+    createHistory(id) {
+      historyApi.createHistory({
+        target_type: "post",
+        target_id: id
+      }).then((resp) => {
+        if (resp.data.data.status != 0) {
+          return
+        }
+      })
     },
 
     showLogin: function () {

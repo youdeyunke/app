@@ -6,5 +6,5 @@ let request = require('../utils/request.js');
 
 //签到，无需参数    完成
 export function qiandao( ){
-    return request.post("/api/v1/qiandao" , {});
+    return request.post("/api/v6/qiandao" , {});
 }

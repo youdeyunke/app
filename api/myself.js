@@ -11,6 +11,6 @@ export function getMyselfIcons( query = {}){
 
 // 拉取我发布的问题列表  完成
 export function getMyselfQuestionList(query){
-    return request.get("/api/v1/myself/questions" , query);
+    return request.get("/api/v6/myself/questions" , query);
 }
 

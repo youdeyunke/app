@@ -1,0 +1,4 @@
+<!--pkgMyself/pages/history/historyPostItem/index.wxml-->
+<view style="width: 353rpx;margin-right: 16rpx;">
+  <post-item post="{{post}}" ></post-item>  
+</view>

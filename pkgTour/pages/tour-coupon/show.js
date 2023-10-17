@@ -1,6 +1,7 @@
 // pkgTour/pages/tour-coupon/show.js
 const app = getApp()
 const tourApi = require("../../../api/tour")
+const historyApi = require("../../../api/history")
 const smsApi = require('../../../api/sms')
 var auth = require('../../../utils/auth');
 Page({
@@ -97,9 +98,20 @@ Page({
             brokerId: q.broker_id || '',
         }, () => {
             this.loadData()
+            this.createHistory(q.id)
         })
     },
 
+    createHistory(id) {
+      historyApi.createHistory({
+        target_type: "tour",
+        target_id: id
+      }).then((resp) => {
+        if (resp.data.data.status != 0) {
+          return
+        }
+      })
+    },
 
     joinHandle: function () {
         // 如果是需要输入口令领取

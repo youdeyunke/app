@@ -8,7 +8,7 @@ export function sendPostCard(data) {
 
 // 拉取楼盘列表 完成
 export function getPostList(data) {
-    return request.get("http://192.168.31.41:8080/api/v6/posts/", data);
+    return request.get("/api/v6/posts/", data);
 }
 // 1
 export function getAdminPostList(data) {
@@ -27,7 +27,7 @@ export function getPostDetail(pid) {
 
 // 拉取我收藏过的楼盘列表 完成
 export function getFavPosts(query) {
-    return request.get("/api/v1/posts/myfavs", query);
+    return request.get("/api/v6/posts/myfavs", query);
 }
 
 

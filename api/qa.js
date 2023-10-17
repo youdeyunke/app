@@ -6,21 +6,21 @@ let request = require('../utils/request.js');
 
 // 删除一个答案  完成
 export function deleteAnswer(aid) {
-    return request.destroy("/api/v1/answers/" + aid);
+    return request.destroy("/api/v6/answers/" + aid);
 }
 
 // 点赞一个答案    
 // 给回答点赞    完成
 export function  likeAnswer(aid){
-    return request.put("/api/v1/answers/" + aid, { do: 'like' });
+    return request.put("/api/v6/answers/" + aid, { do: 'like' });
 }
 
 
 // 发布一个答案    完成
 export function createAnswer(questionId, content) {
-    return request.post("/api/v1/answers/", {
+    return request.post("/api/v6/answers/", {
         question_id: questionId,
-        cotent: content
+        content: content
     });
 }
 
@@ -45,20 +45,20 @@ export function  deleteQuestion(qid){
 }
 
 // 1
-export function getQuestionList(query) {
-    return request.get("/api/v1/questions", query);
+export function getQuestionList(qaId) {
+    return request.get("/api/v6/questions/" + qaId);
 }
 
 
 // 关注一个问题   1
 export function followQuestion(qid) {
     var data = { question_id: qid }
-    return request.post("/api/v1/question_followers/", data);
+    return request.post("/api/v6/question_followers/"+ qid);
 }
 // 取消关注   1
 export function  cancleFollowQuestion(qid){
     var data = { question_id: qid }
-    return request.destroy("/api/v1/question_followers/" + qid, data);
+    return request.destroy("/api/v6/question_followers/" + qid);
 }
 
 

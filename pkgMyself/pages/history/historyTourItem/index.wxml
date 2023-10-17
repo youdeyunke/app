@@ -1,0 +1,2 @@
+<!--pkgMyself/pages/history/historyTourItem/index.wxml-->
+<tour-item item="{{tour}}"></tour-item>

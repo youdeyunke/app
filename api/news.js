@@ -21,5 +21,5 @@ export function getNewsCatList(){
 
 // 查询文章详细内容    1
 export function  getNewsDetail(newsId){
-    return request.get("http://192.168.31.45:8080/api/v6/news/" + newsId);
+    return request.get("/api/v6/news/" + newsId);
 }

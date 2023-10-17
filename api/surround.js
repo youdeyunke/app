@@ -1,5 +1,5 @@
 let request = require('../utils/request');
 
 export function getSurroundList(query) {
-  return request.get("http://192.168.31.41:8080/api/v6/surround/", query);
+  return request.get("/api/v6/surround/", query);
 }

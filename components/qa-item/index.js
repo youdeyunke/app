@@ -17,12 +17,6 @@ Component({
             }
             this.setData({ tags: t.split(',') })
         },
-        "item.created_at": function (v) {
-            var dt = v.split('T')[0]
-            var tm = v.split('T')[1].split('.')[0]
-            var v = dt + ' ' + tm
-            this.setData({ createdAt: v })
-        },
 
         "item.user_info.avatar": function (url) {
             if (!url) {

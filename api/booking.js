@@ -7,7 +7,7 @@ export function updateBookingStatus(bookingId, status){
 
 // 增加预约  完成
 export function createBooking (bookingData){
-    return request.post("/api/v1/booking_logs/", {booking_log: bookingData});
+    return request.post("/api/v6/booking_logs/", bookingData);
 }
 
 
@@ -18,6 +18,6 @@ export function getBookingList (query){
 
 // 根据状态查询预约结果 1
 export function getBookingListFromStatus (tab){
-    return request.get("/api/v1/booking_logs/", {status: tab});
+    return request.get("/api/v6/booking_logs/", {status: tab});
 }
 

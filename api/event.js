@@ -51,5 +51,5 @@ export function deleteEvent(eid){
 
 //拉取我订阅的楼盘动态列表   1
 export function getMineFollowPostList(query){
-    return request.get("/api/v1/event_followers/mine",query);
+    return request.get("/api/v6/event_followers/mine",query);
 }

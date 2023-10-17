@@ -1,4 +1,8 @@
-<block wx:for="{{logs}}">
+<van-tabs active="{{ active }}" bind:change="onChange">
+  <van-tab title="楼盘记录" name="post"></van-tab>
+  <van-tab title="活动记录" name="tour"></van-tab>
+</van-tabs>
+<!-- <block wx:for="{{logs}}">
   <view class="history-box">
     <view class="history-date">
       <image class="image1" src="../../images/time.png"></image>
@@ -10,4 +14,11 @@
       </ud-box>
     </view>
   </view>
-</block>
+  <new-post-item postId="{{item.target_id}}"></new-post-item>
+</block> -->
+<view style="display: flex;padding: 15rpx;" wx:if="{{ active == 'post' }}">
+  <new-post-item wx:for="{{logs}}" postId="{{item.target_id}}"></new-post-item>
+</view>
+<view wx:if="{{ active == 'tour' }}">
+  <tour-item wx:for="{{logs}}" tourId="{{item.target_id}}"></tour-item>
+</view>

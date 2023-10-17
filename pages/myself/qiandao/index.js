@@ -66,8 +66,8 @@ Component({
         if(res.data.status != 0){ 
             return false 
           }
-          var days = res.data.data
-          var today = res.data.today 
+          var days = res.data.data.week
+          var today = res.data.data.today 
           wx.setStorageSync(key, 'ok')
           _this.setData({checked: true, showDialog: true, days: days,  today: today  })
       })
