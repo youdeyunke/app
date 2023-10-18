@@ -55,7 +55,7 @@
                 <van-grid column-num="5">
                     <van-grid-item use-slot wx:for="{{item.items}}" wx:for-item="btn" bindtap="{{btn.handle}}" url="{{btn.url}}{{userInfo.broker_id}}" link-type="navigateTo">
                         <!-- ud-icon name="{{btn.iconKey}}"></ud-icon -->
-                        <image style="width: 63rpx;height: 63rpx;display: block;" src="{{btn.iconUrl}}"></image>
+                        <image style="width: 63rpx;height: 63rpx;display: block;" src="{{btn.icon_url}}"></image>
                         <text style="font-size: 24rpx;line-height: 60rpx;">{{btn.name}}</text>
                     </van-grid-item>
                 </van-grid>

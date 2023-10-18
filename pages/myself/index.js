@@ -433,6 +433,7 @@ Page({
     this.setData({
       userInfo: user
     })
+    this.loadIcons()
   },
   myQuit: function (e) {
     this.setData({
