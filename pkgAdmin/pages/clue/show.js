@@ -41,10 +41,10 @@ Page({
           }
           var data = resp.data.data 
           data.follows = data.follows.map((f,i) => {
-            var r = f.created_at.split('T')
-            var date = r[0]
-            var time = r[1].split('.')[0]
-            f.created_at = date + ' ' + time
+            // var r = f.created_at.split('T')
+            // var date = r[0]
+            // var time = r[1].split('.')[0]
+            // f.created_at = date + ' ' + time
             return f
           })                  
           _this.setData({

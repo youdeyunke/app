@@ -13,3 +13,7 @@ export function getCityListV1(){
 export function getCityListV2(){
     return request.get("/api/v2/cities/"  );
 }
+
+export function getCityListV6(){
+  return request.get("/api/v6/cities/"  );
+}

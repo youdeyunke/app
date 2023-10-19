@@ -16,7 +16,7 @@
         <image class="sex" src="../../images/sex-{{item.sex}}.png" /> 
         <text>{{ item.name }}</text>
         </view>
-      <view class="date"> {{item.updated_at_pretty }} </view>
+      <view class="date"> {{item.updated_at }} </view>
     </view>
     <view class="content">
       {{item.content || '-' }}

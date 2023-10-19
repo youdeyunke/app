@@ -6,6 +6,6 @@ let request = require('../utils/request.js');
 
 // 拉取album详细信息   完成
 export function getAlbumDetail(albumId){
-    return request.get("/api/v1/albums/" +albumId );
+    return request.get("/api/v6/albums/" +albumId );
 }
 
