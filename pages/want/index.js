@@ -2,6 +2,7 @@
 const app = getApp()
 const smsApi = require("../../api/sms")
 const needApi = require("../../api/need")
+const myEnum = require("../../api/enum")
 var auth = require('../../utils/auth.js');
 import Notify from '../../vant/notify/notify';
 
@@ -63,6 +64,58 @@ Page({
         ]
     },
 
+    loadAreaList(){
+      var _this = this
+      myEnum.getEnumList("areaList").then((resp) => {
+        if(resp.data.status != 0){
+          return 
+        }
+        var rdata = resp.data.data 
+        if(rdata && rdata.length > 0){ 
+          _this.setData({areaList: rdata })
+        }
+      })
+    },
+
+    loadPurpose(){
+      var _this = this
+      myEnum.getEnumList("purpose").then((resp) => {
+        if(resp.data.status != 0){
+          return 
+        }
+        var rdata = resp.data.data 
+        if(rdata && rdata.length > 0){ 
+          _this.setData({purpose: rdata })
+        }
+      })
+    },
+
+    loadhousetype(){
+      var _this = this
+      myEnum.getEnumList("housetype").then((resp) => {
+        if(resp.data.status != 0){
+          return 
+        }
+        var rdata = resp.data.data 
+        if(rdata && rdata.length > 0){ 
+          _this.setData({housetypeList: rdata })
+        }
+      })
+    },
+
+    loadbudget(){
+      var _this = this
+      myEnum.getEnumList("budget").then((resp) => {
+        if(resp.data.status != 0){
+          return 
+        }
+        var rdata = resp.data.data 
+        if(rdata && rdata.length > 0){ 
+          _this.setData({budgetList: rdata })
+        }
+      })
+    },
+
     loadData: function(){
       var _this = this  
       var query = { 
@@ -101,6 +154,10 @@ Page({
     onLoad: function (q) {
  
         this.loadData()
+        // this.loadAreaList()
+        // this.loadPurpose()
+        // this.loadhousetype()
+        // this.loadbudget()
     },
 
 
@@ -256,7 +313,7 @@ Page({
     postData: function(data){
         var _this = this 
         // 将表单数据处理成线索表所需要的数据格式  
-        needApi.getNeedList(data).then((resp)=>{
+        needApi.submitNeed(data).then((resp)=>{
             if (resp.data.status != 0) {
                 wx.showToast({
                     title: '服务器出现错误，请稍后再试',
