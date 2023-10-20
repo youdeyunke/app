@@ -22,8 +22,6 @@
         "pages/clue/index",
         "pages/clue/show",
         "pages/clue/form",
-        "pages/fangyuan/index",
-        "pages/fangyuan/show",
         "pages/admin/booking",
         "pages/admin/xiangce/index"
       ]

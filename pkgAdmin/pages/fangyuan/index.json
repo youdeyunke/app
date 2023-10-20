@@ -1,7 +1,0 @@
-{
-    "enablePullDownRefresh": true,
-    "usingComponents": {
-        "van-search": "/vant/search/index",
-        "box": "/components/ud/box/index"
-    }
-}

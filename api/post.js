@@ -10,18 +10,10 @@ export function sendPostCard(data) {
 export function getPostList(data) {
     return request.get("/api/v6/posts/", data);
 }
-// 1
-export function getAdminPostList(data) {
-    return request.get("/api/v1/admin_posts/", data);
-}
-// 1
-export function getAdminPostDetail(pid) {
-    return request.get("/api/v1/admin_posts/" + pid);
-}
 
 // 查询楼盘详情数据   完成
 export function getPostDetail(pid) {
-    return request.get("/api/v1/posts/" + pid);
+    return request.get("/api/v6/posts/" + pid);
 }
 
 
@@ -49,14 +41,14 @@ export function getPostBaseInfo(pid) {
 
 // 快速搜索楼盘，参数只需要传关键字既可   完成
 export function quickSearch(kw) {
-    return request.get("/api/v1/quicksearch", {
+    return request.get("http://localhost:8080/api/v6/quicksearch", {
         kw: kw
     })
 }
 
 
 
-// 绑定楼盘客户关系   1
+// 绑定楼盘客户关系   1  暂时不写
 export function  createPostCustomer(data){
   return request.post("/api/v1/post_customers/", data);
 }
@@ -76,12 +68,12 @@ export function  getPostDetailContent(pid){
 
 
 
-// 查询预售证详情  1
-export function getPostLicenseList(query){
-  return request.get("/api/v1/post_licenses", query);
-}
+// // 查询预售证详情  1
+// export function getPostLicenseList(query){
+//   return request.get("/api/v1/post_licenses", query);
+// }
 
-// 查询楼盘排行榜  1
+// 查询楼盘排行榜  1  先不做
 export function  getPostRank(query){
   return request.get("/api/v1/post_rank", query);
 }
@@ -89,15 +81,15 @@ export function  getPostRank(query){
 
 
 
-// 查询楼盘的vr列表   1
-export function  getPostVrList(pid){
-  return request.get("/api/v1/post_vrs", {post_id:pid});
-}
+// // 查询楼盘的vr列表   1
+// export function  getPostVrList(pid){
+//   return request.get("/api/v1/post_vrs", {post_id:pid});
+// }
 
-// 查询楼盘的vr详情   1
-export function  getPostVrDetail(vid){
-  return request.get("/api/v1/post_vrs/"+vid);
-}
+// // 查询楼盘的vr详情   1
+// export function  getPostVrDetail(vid){
+//   return request.get("/api/v1/post_vrs/"+vid);
+// }
 
 
 // 查询楼盘户型列表  1

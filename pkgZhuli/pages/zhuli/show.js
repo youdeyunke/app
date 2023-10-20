@@ -2,6 +2,7 @@
 const app = getApp()
 const zhuliApi = require("../../../api/zhuli");
 const tourApi = require("../../../api/tour")
+const postApi = require("../../../api/post")
 Page({
 
     /**
@@ -26,7 +27,6 @@ Page({
     },
 
     loadPostInfo: function(postId){
-        console.log('load post ', postid)
         postApi.getPostDetail(postId).then((res) => {
             console.log('load post data is ', res.data);
             if (res.data.code != 0) {
@@ -64,6 +64,7 @@ Page({
             _this.setData({
                 item: tour,
             })
+            console.log(tour.post_id,"555555555555");
             _this.loadPostInfo(tour.post_id);
         })
     },

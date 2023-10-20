@@ -63,7 +63,7 @@ Component({
             })
             mediaApi.createMediaCat({
                 name: _this.data.cat.name,
-                target_id: _this.data.cat.post_id,
+                target_id: _this.data.cat.target_id,
                 target_type: "post"
             }).then((res) => {
                 _this.triggerEvent('update')

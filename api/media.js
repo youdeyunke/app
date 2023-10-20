@@ -17,21 +17,21 @@ export function deleteMediaCat( mediaCatId){
 
 // 新建相册  完成
 export function createMediaCat( data ){
-    return request.post("/api/v1/media_cats/" , data);
+    return request.post("/api/v6/media_cats/" , data);
 }
 
 // 修改相册   完成
 export function updateMediaCat( catData ){
-    return request.put("/api/v1/media_cats/" + catData.id , catData);
+    return request.put("/api/v6/media_cats/" + catData.id , catData);
 }
 
 // 删除相册下的照片  完成
 export function deleteMediaItem( mediaItemId){
-    return request.destroy("/api/v1/media_items/"  + mediaItemId );
+    return request.destroy("/api/v6/media_items/"  + mediaItemId );
 }
 
 // 在相册中增加照片  完成
-export function createMediaItem( mediaType, mediaUrl, mediaCatId){
-    var data = {cat_id: mediaCatId, type: mediaType, url: mediaUrl}
-    return request.post("/api/v1/media_items/" , data );
+export function createMediaItem(data){
+    // var data = {cat_id: mediaCatId, type: mediaType, url: mediaUrl}
+    return request.post("/api/v6/media_items/" , data );
 }
