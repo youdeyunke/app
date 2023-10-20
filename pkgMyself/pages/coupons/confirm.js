@@ -27,7 +27,7 @@ Page({
 
   submitHandle: function(cid){
     // 扫码核销
-    couponApi.updateCoupon(this.data.cid,data).then((resp)=>{
+    couponApi.updateCoupon(this.data.cid).then((resp)=>{
         if(resp.data.status != 0){
             return 
           }

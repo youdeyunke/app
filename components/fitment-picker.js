@@ -9,6 +9,7 @@ Component({
 
     ready: function () {
         this.loadData()
+        console.log("readydioayong");
     },
 
     /**
@@ -30,6 +31,7 @@ Component({
                 _this.setData({
                     items: resp.data.data
                 })
+                console.log("readydioayong",resp);
             })
         },
 

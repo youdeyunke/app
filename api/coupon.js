@@ -12,7 +12,7 @@ export function getCouponList(query){
 
 // 更新优惠券    1
 export function updateCoupon(couponId, data){
-    return request.put("/api/v1/coupons/" + couponId, data);
+    return request.put("/api/v6/coupons/" + couponId, data);
 }
 
 // 查询优惠券详情    1
@@ -24,5 +24,5 @@ export function  getCouponDetail(couponId){
 
 // 删除卡券  1
 export function  deleteCoupon(couponId){
-    return request.destroy("/api/v1/coupons/" + couponId);
+    return request.destroy("/api/v6/coupons/" + couponId);
 }

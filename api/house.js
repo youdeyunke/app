@@ -13,7 +13,7 @@ export function getHouseBlocks(pid){
     return request.get("/api/v6/houses/"+pid);
 }
 
-// 创建小区poi点
+// 创建小区poi点 未用到
 export function createSubdistrict(data){
   // {name:"xx", lagitude:xx, longitude:xx, street:xx,}
   return request.post("/api/v1/sub_districts", data);

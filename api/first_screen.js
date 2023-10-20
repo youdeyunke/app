@@ -6,11 +6,11 @@ let request = require('../utils/request.js');
 
 // 拉取开屏广告列表   完成
 export function getFirstScreen(){
-    return request.get("/api/v1/first_screen_adds/" );
+    return request.get("/api/v6/first_screen_adds/" );
 }
 
 // 更新广告数据    完成
 export function updateFirstScreenAdd(data){
-    return request.put("/api/v1/first_screen_adds/" + data.id, data );
+    return request.put("/api/v6/first_screen_adds/" + data.id, data );
 }
 

@@ -243,6 +243,7 @@ Page({
         var _level = level || 'district'
         var data = {
             district_id: this.data.districtId,
+            city_id: this.data.cityId,
             level: _level,
         }
         // 合并filter 部分
