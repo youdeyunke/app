@@ -12,7 +12,7 @@ export function getMediaCatList( query){
 
 // 删除相册   完成
 export function deleteMediaCat( mediaCatId){
-    return request.destroy("/api/v1/media_cats/"  + mediaCatId );
+    return request.destroy("/api/v6/media_cats/"  + mediaCatId );
 }
 
 // 新建相册  完成

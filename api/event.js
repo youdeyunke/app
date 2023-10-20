@@ -11,12 +11,12 @@ export function getEventList(query) {
 
 // 查询动态详情    未发现
 export function getEventDetail(eventId) {
-    return request.get("/api/v1/events/" + eventId);
+    return request.get("/api/v6/events/" + eventId);
 }
 
 // 发布动态   1
 export function createEvent(data) {
-    return request.post("/api/v1/events", {
+    return request.post("/api/v6/events", {
         event: data,
         push: false
     });
@@ -24,7 +24,7 @@ export function createEvent(data) {
 
 // 查询动态分类列表   1
 export function getEventCatList() {
-    return request.get("/api/v1/event_cats");
+    return request.get("/api/v6/event_cats");
 }
 
 // 取消关注动态     1
@@ -45,7 +45,7 @@ export function createEventFollow(postId) {
 
 // 删除一条动态 1
 export function deleteEvent(eid){
-    return request.destroy("/api/v1/events/" + eid);
+    return request.destroy("/api/v6/events/" + eid);
 }
 
 

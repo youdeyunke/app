@@ -109,8 +109,9 @@ Page({
     imagesHandle: function (e) {
         console.log('iamges handle ', e)
         var images = e.detail.value
+        let urlsAsString = images.map(obj => obj.url).join(',');
         this.setData({
-            images: images.join(','),
+            images: urlsAsString,
         })
     },
 
