@@ -36,12 +36,12 @@ export function createAnswer(questionId, content) {
 
 // 发布一个提问     完成
 export function createQuestion(data) {
-    return request.post("/api/v1/questions/", data);
+    return request.post("/api/v6/questions/", data);
 }
 
 // 删除提问   完成
 export function  deleteQuestion(qid){
-    return request.destroy("/api/v1/questions/" + qid);
+    return request.destroy("/api/v6/questions/" + qid);
 }
 
 // 1

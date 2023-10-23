@@ -104,9 +104,9 @@ Page({
                 return false
             }
             
-            var rooms = resp.data.data
+            var rooms = resp.data.data.data
 
-            _this.setData({ loading: false, post: resp.data.post, rooms: rooms }, () => {
+            _this.setData({ loading: false, post: resp.data.data.post, rooms: rooms }, () => {
                 _this.formatRoomsData()
             })
         })

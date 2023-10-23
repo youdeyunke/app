@@ -41,7 +41,7 @@ export function getPostBaseInfo(pid) {
 
 // 快速搜索楼盘，参数只需要传关键字既可   完成
 export function quickSearch(kw) {
-    return request.get("http://localhost:8080/api/v6/quicksearch", {
+    return request.get("/api/v6/quicksearch", {
         kw: kw
     })
 }
@@ -105,10 +105,10 @@ export function getPostTypeDetail(tid){
 
 // 查询一房一价表   1
 export function  getBuildingRoomList(query){
-  return request.get("/api/v1/building_rooms", query);
+  return request.get("/api/v6/building_rooms", query);
 }
 
-// 查询具体房间的详细数据  1
+// 查询具体房间的详细数据  1  用不上了
 export function  getBuildingRoomDetail(roomId){
   return request.get("/api/v1/building_rooms/"+roomId);
 }

@@ -348,7 +348,7 @@ Page({
         var qrUrl = this.data.qrUrl
         var tpl = this.data.tpls[this.data.tplIndex]
         if (post.average_price) {
-            var averagePrice = post.average_price.split('~')[0]
+            var averagePrice = post.average_price
         }
         var bgImage = tpl.bg
 

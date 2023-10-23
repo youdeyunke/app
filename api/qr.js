@@ -4,16 +4,16 @@ let request = require('../utils/request.js');
  * 二维码模块接口
  * **/
 
-// 拉取二维码详细信息  完成
+// 拉取二维码详细信息  完成 
 export function getQrDetail( qrId){
-    return request.get("/api/v1/qrs/" + qrId );
+    return request.get("/api/v6/qrs/" + qrId );
 }
 
 
 
 // 生成一张带数据的二维图片   1
 export function createQrImage(path, extData){
-    return request.post("/api/v1/qrs/", {
+    return request.post("/api/v6/qrs/", {
         path: path,
         qr_data: extData
     });

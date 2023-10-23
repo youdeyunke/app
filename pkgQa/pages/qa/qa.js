@@ -80,7 +80,8 @@ Page({
             var answers = []
             item['created_at_pretty'] = util.prettyTime(item['created_at'])
             item['updated_at_pretty'] = util.prettyTime(item['updated_at'])
-            item['answer'].forEach((a, i) => {
+            if(item['answer']){
+              item['answer'].forEach((a, i) => {
                 // 查询是否点过赞
                 var cacheKey = 'answer.' + a.id + '.liked'
                 var liked = wx.getStorageSync(cacheKey) == 'liked'
@@ -88,7 +89,8 @@ Page({
                 a['likes'] = a['likes'] || 0
                 a['liked'] = liked
                 answers.push(a)
-            })
+              })
+            }
             _this.setData({
                 item: item,
                 answers: answers,
