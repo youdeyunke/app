@@ -12,7 +12,7 @@ export function  bindXcxMobile(iv, encryptedData){
 }
 
 
-// 完成
+// 完成 未用到
 export function updateAvatar(url){ 
     return   request.post("/api/v1/users/update_avatar", {avatar: url});
 }

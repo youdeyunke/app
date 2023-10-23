@@ -5,6 +5,7 @@ const app = getApp()
 const qqmapApi = require("../../api/qqmap")
 const postApi= require("../../api/post")
 const houseApi = require("../../api/house")
+const surroundApi = require("../../api/surround")
 Component({
     /**
      * 组件的属性列表
@@ -158,43 +159,55 @@ Component({
         getContent(e) {
             var _this = this
             var tab = this.data.tabs[this.data.active]
-            qqmapApi.placeSearch({
-                keyword: tab.value,
-                latitude: _this.data.latitude,
-                longitude: _this.data.longitude,
-                page_size: '20'
-            }).then((res) => {
-                    if(res.data.status == 310){
-                        console.log(res.message)
-                        return
-                    }
-                    if (res.data && res.data.data.length == 0) {
-                        _this.setData({
-                            resp: [],
-                            isShow: 1
-                        })
-                    } else {
-                        var resp = res.data.data.map(v => {
-                            if (v._distance >= 1000) {
-                                var d = v._distance / 1000
-                                v._distance =  d.toFixed(1) + 'km'
-                            } else {
-                                v._distance = parseInt(v._distance) + 'm'
-                            }
-                            return v
-                        })
-                        _this.setData({
-                            resp: resp,
-                            isShow: 0
-                        })
-                    }
-                    _this.setData({ 
-                        pois: res.data.data 
-                    },() => {
-                        _this.getMapContext(),
-                        _this.setMarker()
-                    })
+            surroundApi.getSurroundList({
+              post_id: _this.data.postId,
+              cat: tab.id
+            }).then((resp) => {
+              _this.setData({ 
+                  pois: resp.data.data ,
+                  resp: resp.data.data,
+              },() => {
+                  _this.getMapContext()
+                  _this.setMarker()
+              })
             })
+            // qqmapApi.placeSearch({
+            //     keyword: tab.value,
+            //     latitude: _this.data.latitude,
+            //     longitude: _this.data.longitude,
+            //     page_size: '20'
+            // }).then((res) => {
+            //         if(res.data.status == 310){
+            //             console.log(res.message)
+            //             return
+            //         }
+            //         if (res.data && res.data.data.length == 0) {
+            //             _this.setData({
+            //                 resp: [],
+            //                 isShow: 1
+            //             })
+            //         } else {
+            //             var resp = res.data.data.map(v => {
+            //                 if (v._distance >= 1000) {
+            //                     var d = v._distance / 1000
+            //                     v._distance =  d.toFixed(1) + 'km'
+            //                 } else {
+            //                     v._distance = parseInt(v._distance) + 'm'
+            //                 }
+            //                 return v
+            //             })
+            //             _this.setData({
+            //                 resp: resp,
+            //                 isShow: 0
+            //             })
+            //         }
+            //         _this.setData({ 
+            //             pois: res.data.data 
+            //         },() => {
+            //             _this.getMapContext(),
+            //             _this.setMarker()
+            //         })
+            // })
         },
         getMapContext() {
             var _this = this

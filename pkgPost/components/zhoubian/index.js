@@ -156,7 +156,6 @@ Component({
               post_id: _this.data.postId,
               cat: tab.id
             }).then((resp) => {
-              console.log("147258",resp);
               _this.setData({ 
                   pois: resp.data.data ,
                   resp: resp.data.data,

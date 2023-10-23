@@ -45,27 +45,9 @@ export function likeBroker(data) {
     return request.post("http://localhost:8080/api/v6/brokers/like", data);
 }
 
-//  置业顾问付费入驻功能，已经删除
-// app.request({
-//     url: '/api/v1/broker_memberships',
-//     success: function (resp) {
-
-// app.request({
-//     url: '/api/v1/broker_membership_orders',
-//     method: 'POST',
-//     data: { pid: pid },
-//     success: function (resp) {
-
-
-
 // 查询置业顾问分组信息  1
 export function getBrokerGroup(query){
     return request.get("/api/v1/broker_groups", query)
 }
 
-//查看佣金功能，已经删除此功能
-// app.request({
-//     url:'/api/v1/brokage_info/'+this.data.id,
-//     success:function(res){
-//       _this.setData({ 
 

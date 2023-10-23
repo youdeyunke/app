@@ -4,7 +4,7 @@ let request = require('../utils/request.js');
  * visitor模块相关api
  * **/
 
-// 根据条件拉取visitors列表   1
+// 根据条件拉取visitors列表   1 
 export function getVisitorList(query){
     return request.get("/api/v1/visitors/", query);
 }
