@@ -83,7 +83,7 @@ module.exports = {
         // TODO 拉取用户资料
         var token = data.data
         _this.setUserToken(token)
-        _this.setUserInfo(cb);
+        _this.setUserInfo(cb); 
 
       } else {
         wx.showToast({
