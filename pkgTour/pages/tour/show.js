@@ -21,7 +21,8 @@ Page({
         sms_code: '',
         html: '',
         item: null,
-        mobile_lock: false
+        mobile_lock: false,
+        postIds: []
     },
 
     mobileChange() {
@@ -210,11 +211,14 @@ Page({
                 html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
                 html = html.replace(/\<p/gi, '<p class="rich-text-p" ')
             }
+            var postIds = tour.post_ids ? tour.post_ids.split(",").map(Number) : []
+
 
             _this.setData({
                 item: tour,
                 html: html,
                 loading: false,
+                postIds: postIds
             })
             // 加载楼盘信息
             _this.loadPostInfo(tour.post_id);

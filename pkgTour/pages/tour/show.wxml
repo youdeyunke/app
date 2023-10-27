@@ -32,7 +32,8 @@
   </view>
   <view class="huodong-card">
     <view class="huodong-card-title">了解项目</view>
-    <post-item post="{{post}}"></post-item>
+    <!-- <post-item post="{{post}}"></post-item> -->
+    <tour-post-item wx:for="{{postIds}}" postId="{{item}}"></tour-post-item>
   </view>
 </view>
 <view style="width: 750rpx;height: 110rpx;display: flex;">

@@ -1,0 +1,3 @@
+<!--pkgTour/pages/components/tour-post-item/index.wxml-->
+
+<post-item post="{{post}}"></post-item>
