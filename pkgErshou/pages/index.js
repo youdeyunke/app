@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgErshou/pages/index.js
 const houseApi = require("../../api/house")
 Page({
@@ -7,11 +18,11 @@ Page({
      */
     data: {
         items: [],
-        page:1,
+        page: 1,
         business: '',
         kw: '',
         filterOption: {},
-        filter:{
+        filter: {
             page: 1,
         }
     },
@@ -19,42 +30,42 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad(options) {
+    onLoad (options) {
         var _this = this
         var business = options.business || '租房'
         var filter = this.data.filter
         filter.business = business
         wx.setNavigationBarTitle({
-          title: business,
+            title: business,
         })
         this.setData({
             business: business,
             filter: filter
-        },() => {
+        }, () => {
             _this.loadData()
             _this.loadPostFilter()
         })
-        
+
     },
 
-    kwSearch(e){
+    kwSearch (e) {
         var filter = this.data.filter
         var kw = e.detail
-        if(kw){
+        if (kw) {
             filter.kw = kw
-        }else{
+        } else {
             delete filter.kw
         }
         filter.page = 1
         this.setData({
             filter: filter,
-            items:[]
-        },()=>{
+            items: []
+        }, () => {
             this.loadData()
         })
     },
 
-    filterChange(e){
+    filterChange (e) {
         var _this = this
         var filter = e.detail
         console.log(filter);
@@ -62,16 +73,16 @@ Page({
         this.setData({
             filter: filter,
             items: []
-        },()=>{
+        }, () => {
             _this.loadData()
         })
     },
 
-    loadPostFilter(){
+    loadPostFilter () {
         var _this = this
         var business = this.data.business
-        console.log("loadfilter",business);
-        houseApi.getHouseFilter(business).then((resp)=>{
+        console.log("loadfilter", business);
+        houseApi.getHouseFilter(business).then((resp) => {
             _this.setData({
                 filterOption: resp.data.data
             })
@@ -80,15 +91,15 @@ Page({
 
     loadData: function () {
         var _this = this
-        var query= this.data.filter
+        var query = this.data.filter
         houseApi.getHouseList(query).then((res) => {
-            if(res.data.data.result.length>0) {
-                var item= _this.data.items
-                res.data.data.result.map((ritem)=>{
+            if (res.data.data.result.length > 0) {
+                var item = _this.data.items
+                res.data.data.result.map((ritem) => {
                     item.push(ritem)
                 })
                 _this.setData({
-                    items:item
+                    items: item
                 })
             }
         })
@@ -96,48 +107,48 @@ Page({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady() {
+    onReady () {
 
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow() {
+    onShow () {
 
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide() {
+    onHide () {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload() {
+    onUnload () {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh() {
+    onPullDownRefresh () {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom() {
+    onReachBottom () {
         // var page = this.data.filter.page || 1
         var filter = this.data.filter
         filter.page = filter.page + 1
         this.setData({
             filter: filter,
-        },()=>{
+        }, () => {
             this.loadData()
         })
     },
@@ -145,7 +156,7 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage() {
+    onShareAppMessage () {
 
     }
 })

@@ -1,3 +1,15 @@
+
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 let request = require('../utils/request.js');
 
 /** 
@@ -5,7 +17,7 @@ let request = require('../utils/request.js');
  * **/
 
 // 拉取album详细信息   完成
-export function getAlbumDetail(albumId){
-    return request.get("/api/v6/albums/" +albumId );
+export function getAlbumDetail (albumId) {
+    return request.get("/api/v6/albums/" + albumId);
 }
 

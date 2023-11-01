@@ -1,38 +1,49 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/box.js
 Component({
-  options: {
-  },
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-    borderRadius: {type: Number, value: 8},
-    width: {
-      type: Number, value: 750,
+    options: {
+    },
+    /**
+     * 组件的属性列表
+     */
+    properties: {
+        borderRadius: { type: Number, value: 8 },
+        width: {
+            type: Number, value: 750,
+        },
+
+        shadow: {
+            type: Boolean, value: false,
+        },
+
+        padding: {
+            type: Number, value: 0,
+        },
+
+
     },
 
-    shadow: {
-      type: Boolean, value: false,
+    /**
+     * 组件的初始数据
+     */
+    data: {
+
     },
 
-    padding: {
-      type: Number, value: 0,
-    },
+    /**
+     * 组件的方法列表
+     */
+    methods: {
 
-
-  },
-
-  /**
-   * 组件的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 组件的方法列表
-   */
-  methods: {
-
-  }
+    }
 })

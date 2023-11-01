@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 let request = require('../utils/request.js');
 
 /** 
@@ -5,12 +16,12 @@ let request = require('../utils/request.js');
  * **/
 
 // 拉取我的页面按钮, 无需参数  完成
-export function getMyselfIcons( query = {}){
-    return request.get("/api/v6/myself/icons" , query);
+export function getMyselfIcons (query = {}) {
+    return request.get("/api/v6/myself/icons", query);
 }
 
 // 拉取我发布的问题列表  完成
-export function getMyselfQuestionList(query){
-    return request.get("/api/v6/myself/questions" , query);
+export function getMyselfQuestionList (query) {
+    return request.get("/api/v6/myself/questions", query);
 }
 

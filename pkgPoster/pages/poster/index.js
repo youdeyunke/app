@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/poster/index.js
 const app = getApp()
 const postApi = require("../../../api/post")
@@ -231,7 +242,7 @@ Page({
             bg: 'https://qiniucdn.udeve.cn/poster-templates/6.jpg',
             font_color: '#fff'
         }]
-        posterApi.gettPosterList().then((resp)=>{
+        posterApi.gettPosterList().then((resp) => {
             if (resp.data.status == 0) {
                 // 后端没有录入数据
                 if (resp.data.data && resp.data.data.length > 0) {
@@ -336,7 +347,7 @@ Page({
             title: '房源海报有什么用途?',
             content: '可发布到朋友圈、微信聊天群等，好友长按识别即可打开房源页面',
             confirmText: '知道了',
-            success(res) {}
+            success (res) { }
         })
 
     },
@@ -396,56 +407,56 @@ Page({
         })
     },
 
-    genBrokerName() {
+    genBrokerName () {
         var userInfo = app.globalData.userInfo
         if (userInfo && userInfo.is_broker) {
             return [{
-                    type: 'image',
-                    url: userInfo.avatar,
-                    css: {
-                        width: '47rpx',
-                        height: '47rpx',
-                        borderRadius: '23rpx',
-                        top: '1187rpx',
-                        left: '55rpx',
-                    },
+                type: 'image',
+                url: userInfo.avatar,
+                css: {
+                    width: '47rpx',
+                    height: '47rpx',
+                    borderRadius: '23rpx',
+                    top: '1187rpx',
+                    left: '55rpx',
                 },
-                {
-                    type: 'text',
-                    text: userInfo.name,
-                    css: {
-                        width: '300rpx',
-                        height: '48rpx',
-                        fontSize: "36rpx",
-                        top: "1187rpx",
-                        left: "122rpx",
-                        color: "#FFFFFF",
-                    }
-                },
-                {
-                    type: 'text',
-                    text: '专业、优质服务',
-                    css: {
-                        width: '394rpx',
-                        height: '32rpx',
-                        fontSize: "24rpx",
-                        top: "1245rpx",
-                        left: "57rpx",
-                        color: "#FFFFFF",
-                    }
-                },
-                {
-                    type: 'text',
-                    text: '长按识别小程序码查看详情',
-                    css: {
-                        width: '394rpx',
-                        height: '32rpx',
-                        fontSize: "24rpx",
-                        top: "1282rpx",
-                        left: "57rpx",
-                        color: "#FFFFFF",
-                    }
+            },
+            {
+                type: 'text',
+                text: userInfo.name,
+                css: {
+                    width: '300rpx',
+                    height: '48rpx',
+                    fontSize: "36rpx",
+                    top: "1187rpx",
+                    left: "122rpx",
+                    color: "#FFFFFF",
                 }
+            },
+            {
+                type: 'text',
+                text: '专业、优质服务',
+                css: {
+                    width: '394rpx',
+                    height: '32rpx',
+                    fontSize: "24rpx",
+                    top: "1245rpx",
+                    left: "57rpx",
+                    color: "#FFFFFF",
+                }
+            },
+            {
+                type: 'text',
+                text: '长按识别小程序码查看详情',
+                css: {
+                    width: '394rpx',
+                    height: '32rpx',
+                    fontSize: "24rpx",
+                    top: "1282rpx",
+                    left: "57rpx",
+                    color: "#FFFFFF",
+                }
+            }
             ]
 
         } else {
@@ -464,7 +475,7 @@ Page({
         }
     },
 
-    genTags() {
+    genTags () {
         var post = this.data.post
         var haibaoTags = post.tags.filter((q, i) => i < 3).map((q, i) => {
             var tag = {
@@ -491,7 +502,7 @@ Page({
         return haibaoTags
     },
 
-    onImgOK(e) {
+    onImgOK (e) {
         var imagePath = e.detail.path;
         wx.showToast({
             title: '已生成',
@@ -506,7 +517,7 @@ Page({
         });
     },
 
-    onImgErr(e) {
+    onImgErr (e) {
         wx.showToast({
             title: '生成海报失败',
             icon: "error",
@@ -535,7 +546,7 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {},
+    onShow: function () { },
 
     /**
      * 生命周期函数--监听页面隐藏

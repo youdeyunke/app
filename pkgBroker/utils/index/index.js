@@ -1,9 +1,20 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 const main = {
     /**
      * 渲染块
      * @param {Object} params
      */
-    drawBlock({ text, width = 0, height, x, y, paddingLeft = 0, paddingRight = 0, borderWidth, backgroundColor, borderColor, borderRadius = 0, opacity = 1 }) {
+    drawBlock ({ text, width = 0, height, x, y, paddingLeft = 0, paddingRight = 0, borderWidth, backgroundColor, borderColor, borderRadius = 0, opacity = 1 }) {
         // 判断是否块内有文字
         let blockWidth = 0; // 块的宽度
         let textX = 0;
@@ -67,7 +78,7 @@ const main = {
      * 渲染文字
      * @param {Object} params
      */
-    drawText(params) {
+    drawText (params) {
         const { x, y, fontSize, color, baseLine, textAlign, text, opacity = 1, width, lineNum, lineHeight } = params;
         if (Object.prototype.toString.call(text) === '[object Array]') {
             let preText = { x, y, baseLine };
@@ -86,7 +97,7 @@ const main = {
     /**
      * 渲染图片
      */
-    drawImage(data) {
+    drawImage (data) {
         const { imgPath, x, y, w, h, sx, sy, sw, sh, borderRadius = 0, borderWidth = 0, borderColor } = data;
         this.ctx.save();
         if (borderRadius > 0) {
@@ -109,7 +120,7 @@ const main = {
      * 渲染线
      * @param {*} param0
      */
-    drawLine({ startX, startY, endX, endY, color, width }) {
+    drawLine ({ startX, startY, endX, endY, color, width }) {
         this.ctx.save();
         this.ctx.beginPath();
         this.ctx.setStrokeStyle(color);
@@ -120,13 +131,13 @@ const main = {
         this.ctx.closePath();
         this.ctx.restore();
     },
-    downloadResource({ images = [], pixelRatio = 1 }) {
+    downloadResource ({ images = [], pixelRatio = 1 }) {
         const drawList = [];
         this.drawArr = [];
         images.forEach((image, index) => drawList.push(this._downloadImageAndInfo(image, index, pixelRatio)));
         return Promise.all(drawList);
     },
-    initCanvas(w, h, debug) {
+    initCanvas (w, h, debug) {
         return new Promise((resolve) => {
             this.setData({
                 pxWidth: this.toPx(w),
@@ -140,7 +151,7 @@ const handle = {
     /**
      * 画圆角矩形
      */
-    _drawRadiusRect(x, y, w, h, r) {
+    _drawRadiusRect (x, y, w, h, r) {
         const br = r / 2;
         this.ctx.beginPath();
         this.ctx.moveTo(this.toPx(x + br), this.toPx(y));    // 移动到左上角的点
@@ -157,7 +168,7 @@ const handle = {
      * 计算文本长度
      * @param {Array|Object}} text 数组 或者 对象
      */
-    _getTextWidth(text) {
+    _getTextWidth (text) {
         let texts = [];
         if (Object.prototype.toString.call(text) === '[object Object]') {
             texts.push(text);
@@ -175,8 +186,8 @@ const handle = {
     /**
      * 渲染一段文字
      */
-    _drawSingleText({ x, y, fontSize, color, baseLine, textAlign = 'left', text, opacity = 1, textDecoration = 'none',
-      width, lineNum = 1, lineHeight = 0, fontWeight = 'normal', fontStyle = 'normal', fontFamily = "sans-serif"}) {
+    _drawSingleText ({ x, y, fontSize, color, baseLine, textAlign = 'left', text, opacity = 1, textDecoration = 'none',
+        width, lineNum = 1, lineHeight = 0, fontWeight = 'normal', fontStyle = 'normal', fontFamily = "sans-serif" }) {
         this.ctx.save();
         this.ctx.beginPath();
         this.ctx.font = fontStyle + " " + fontWeight + " " + this.toPx(fontSize, true) + "px " + fontFamily
@@ -187,34 +198,34 @@ const handle = {
         this.ctx.setTextAlign(textAlign);
         let textWidth = this.toRpx(this.ctx.measureText(text).width);
         const textArr = [];
-         if (textWidth > width) {
-          // 文本宽度 大于 渲染宽度
-          let fillText = '';
-          let line = 1;
-          for (let i = 0; i <= text.length - 1 ; i++) {  // 将文字转为数组，一行文字一个元素
-            fillText = fillText + text[i];
-            if (this.toRpx(this.ctx.measureText(fillText).width) >= width) {
-              if (line === lineNum) {
-                if (i !== text.length - 1) {
-                  fillText = fillText.substring(0, fillText.length - 1) + '...';
+        if (textWidth > width) {
+            // 文本宽度 大于 渲染宽度
+            let fillText = '';
+            let line = 1;
+            for (let i = 0; i <= text.length - 1; i++) {  // 将文字转为数组，一行文字一个元素
+                fillText = fillText + text[i];
+                if (this.toRpx(this.ctx.measureText(fillText).width) >= width) {
+                    if (line === lineNum) {
+                        if (i !== text.length - 1) {
+                            fillText = fillText.substring(0, fillText.length - 1) + '...';
+                        }
+                    }
+                    if (line <= lineNum) {
+                        textArr.push(fillText);
+                    }
+                    fillText = '';
+                    line++;
+                } else {
+                    if (line <= lineNum) {
+                        if (i === text.length - 1) {
+                            textArr.push(fillText);
+                        }
+                    }
                 }
-              }
-              if(line <= lineNum) {
-                textArr.push(fillText);
-              }
-              fillText = '';
-              line++;
-            } else {
-              if(line <= lineNum) {
-                if(i === text.length -1){
-                   textArr.push(fillText);
-                }
-              }
             }
-          }
-          textWidth = width;
+            textWidth = width;
         } else {
-          textArr.push(text);
+            textArr.push(text);
         }
 
         textArr.forEach((item, index) => {
@@ -235,17 +246,17 @@ const handle = {
 
                 // 根据baseLine的不同对贯穿线的Y坐标做相应调整
                 switch (baseLine) {
-                  case 'top':
-                    lineY += fontSize / 2 + threshold;
-                    break;
-                  case 'middle':
-                    break;
-                  case 'bottom':
-                    lineY -= fontSize / 2 + threshold;
-                    break;
-                  default:
-                    lineY -= fontSize / 2 - threshold;
-                    break;
+                    case 'top':
+                        lineY += fontSize / 2 + threshold;
+                        break;
+                    case 'middle':
+                        break;
+                    case 'bottom':
+                        lineY -= fontSize / 2 + threshold;
+                        break;
+                    default:
+                        lineY -= fontSize / 2 - threshold;
+                        break;
                 }
             }
             this.ctx.save();
@@ -263,7 +274,7 @@ const helper = {
     /**
       * 下载图片并获取图片信息
       */
-    _downloadImageAndInfo(image, index, pixelRatio) {
+    _downloadImageAndInfo (image, index, pixelRatio) {
         return new Promise((resolve, reject) => {
             const { x, y, url, zIndex } = image;
             const imageUrl = url;
@@ -313,7 +324,7 @@ const helper = {
      * 下载图片资源
      * @param {*} imageUrl
      */
-    _downImage(imageUrl) {
+    _downImage (imageUrl) {
         return new Promise((resolve, reject) => {
             if (/^http/.test(imageUrl) && !new RegExp(wx.env.USER_DATA_PATH).test(imageUrl)) {
                 wx.downloadFile({
@@ -325,7 +336,7 @@ const helper = {
                             reject(res.errMsg);
                         }
                     },
-                    fail(err) {
+                    fail (err) {
                         reject(err);
                     },
                 });
@@ -340,37 +351,37 @@ const helper = {
      * @param {*} imgPath
      * @param {*} index
      */
-    _getImageInfo(imgPath, index) {
+    _getImageInfo (imgPath, index) {
         return new Promise((resolve, reject) => {
             wx.getImageInfo({
                 src: imgPath,
-                success(res) {
+                success (res) {
                     resolve({ imgPath, imgInfo: res, index });
                 },
-                fail(err) {
+                fail (err) {
                     reject(err);
                 },
             });
         });
     },
-    toPx(rpx, int) {
-      if (int) {
-        return parseInt(rpx * this.factor * this.pixelRatio);
-      }
-      return rpx * this.factor * this.pixelRatio;
+    toPx (rpx, int) {
+        if (int) {
+            return parseInt(rpx * this.factor * this.pixelRatio);
+        }
+        return rpx * this.factor * this.pixelRatio;
 
     },
-    toRpx(px, int) {
-      if (int) {
-        return parseInt(px / this.factor);
-      }
-      return px / this.factor;
+    toRpx (px, int) {
+        if (int) {
+            return parseInt(px / this.factor);
+        }
+        return px / this.factor;
     },
     /**
      * 将http转为https
      * @param {String}} rawUrl 图片资源url
      */
-    _mapHttpToHttps(rawUrl) {
+    _mapHttpToHttps (rawUrl) {
         if (rawUrl.indexOf(':') < 0) {
             return rawUrl;
         }
@@ -387,7 +398,7 @@ const helper = {
 Component({
     properties: {
     },
-    created() {
+    created () {
         const sysInfo = wx.getSystemInfoSync();
         const screenWidth = sysInfo.screenWidth;
         this.factor = screenWidth / 750;
@@ -397,7 +408,7 @@ Component({
          * 计算画布的高度
          * @param {*} config
          */
-        getHeight(config) {
+        getHeight (config) {
             const getTextHeight = (text) => {
                 let fontHeight = text.lineHeight || text.fontSize;
                 let height = 0;
@@ -414,11 +425,11 @@ Component({
             (config.blocks || []).forEach((item) => {
                 heightArr.push(item.y + item.height);
             });
-            (config.texts  || []).forEach((item) => {
+            (config.texts || []).forEach((item) => {
                 let height;
                 if (Object.prototype.toString.call(item.text) === '[object Array]') {
                     item.text.forEach((i) => {
-                        height = getTextHeight({...i, baseLine: item.baseLine});
+                        height = getTextHeight({ ...i, baseLine: item.baseLine });
                         heightArr.push(item.y + height);
                     });
                 } else {
@@ -444,7 +455,7 @@ Component({
                 return config.height;
             }
         },
-        create(config) {
+        create (config) {
             this.ctx = wx.createCanvasContext('canvasid', this);
 
             this.pixelRatio = config.pixelRatio || 1;

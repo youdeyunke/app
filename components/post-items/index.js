@@ -1,6 +1,17 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/sub-district/items.js
 const app = getApp();
-const postApi= require("../../api/post")
+const postApi = require("../../api/post")
 import Notify from '../../vant/notify/notify.js';
 
 
@@ -12,7 +23,7 @@ Component({
         filter: {
             type: Object, value: {}, observer: "filterChange"
         },
-        albumKey: {type: String, value: null},
+        albumKey: { type: String, value: null },
 
     },
 
@@ -50,7 +61,7 @@ Component({
 
             _this.setData({ loading: true })
             var query = this.data.query
-            postApi.getPostList(query).then((resp)=>{
+            postApi.getPostList(query).then((resp) => {
                 var meta = resp.data.meta
                 var p = _this.data.query.page || 1
                 var i = p - 1

@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/myself/profile.js
 const app = getApp()
 const userApi = require("../../../api/user")
@@ -14,13 +25,13 @@ Page({
         loading: true,
         userInfo: {},
         tagList: [
-            {name: '标签1', value: 1,},
-            {name: '标签2', value: 2,},
-            {name: '标签3', value:3,},
-            {name: '标签4', value:4},
-            {name: '标签5', value:5},
-            {name: '标签6', value:6},
-          ],
+            { name: '标签1', value: 1, },
+            { name: '标签2', value: 2, },
+            { name: '标签3', value: 3, },
+            { name: '标签4', value: 4 },
+            { name: '标签5', value: 5 },
+            { name: '标签6', value: 6 },
+        ],
     },
 
     tagsHandle: function (e) {
@@ -29,41 +40,41 @@ Page({
         var ps = this.data.tagList
         var p = ps[i]
         var tags = []
-    
+
         p.selected = !p.selected
         ps[i] = p
         this.data.tagList.forEach(function (item, i) {
             if (item.selected) {
-              tags.push(item.name)
+                tags.push(item.name)
             }
-        })      
+        })
         userInfo.tags = tags.join(',')
         this.setData({
             tagList: ps,
             tags: tags.join(','),
             userInfo: userInfo
         })
-      },
+    },
 
-      loadTags(){
+    loadTags () {
         if (!this.data.userInfo.tags) {
             return
         }
-          var tags = this.data.userInfo.tags.split(',')
-          var tagList = this.data.tagList
-          tagList.forEach((item) => {
-              tags.forEach((tag) => {
-                if(item.name == tag){
+        var tags = this.data.userInfo.tags.split(',')
+        var tagList = this.data.tagList
+        tagList.forEach((item) => {
+            tags.forEach((tag) => {
+                if (item.name == tag) {
                     item.selected = true
                 }
-              })
-          })
-          this.setData({
-              tagList: tagList
-          })
-          console.log('22234',tags)
-          
-      },
+            })
+        })
+        this.setData({
+            tagList: tagList
+        })
+        console.log('22234', tags)
+
+    },
 
     /**
      * 生命周期函数--监听页面加载
@@ -83,10 +94,10 @@ Page({
         this.updateProfile(utype)
     },
 
-    updateProfile: function(utype){
+    updateProfile: function (utype) {
         var _this = this
         var data = this.data.userInfo
-        userApi.updateUserProfile(data).then((resp)=>{
+        userApi.updateUserProfile(data).then((resp) => {
             if (resp.data.status == 0) {
                 wx.showToast({
                     icon: 'none', title: '个人资料修改成功'
@@ -95,24 +106,24 @@ Page({
                     wx.navigateBack({ delta: -1 })
                 }, 1500)
             }
-        })     
+        })
 
     },
 
 
     chooseImage: function (e) {
         console.log('e', e)
-        var key = e.currentTarget.dataset.key 
-        var u  = this.data.userInfo 
+        var key = e.currentTarget.dataset.key
+        var u = this.data.userInfo
         var _this = this
         wx.chooseImage({
             count: 1,
             sizeType: ['original', 'compressed'],
-            success(res) {
+            success (res) {
                 const path = res.tempFilePaths[0]
                 upload.upload(path, (url) => {
                     u[key] = url
-                    _this.setData({userInfo: u})
+                    _this.setData({ userInfo: u })
                 })
             }
         })

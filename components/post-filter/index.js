@@ -1,6 +1,17 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/post/filter/index.js
 const app = getApp()
-const filter_optionApi=require("../../api/filter_option")
+const filter_optionApi = require("../../api/filter_option")
 
 Component({
     /**
@@ -47,7 +58,7 @@ Component({
             var _this = this
             filter_optionApi.getFilterOptionList(
                 _this.data.postGroup
-            ).then((resp)=>{
+            ).then((resp) => {
                 console.log('load filter options', resp)
                 if (resp.data.status != 0) {
                     return

@@ -1,10 +1,21 @@
-function prettyTime(str) {
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
+function prettyTime (str) {
     var d = str.slice(0, 10)
     var t = str.slice(11, 16)
     return d + ' ' + t
 }
 
-function shuffle(arr) {
+function shuffle (arr) {
     var i = arr.length,
         t, j
     while (i) {
@@ -15,7 +26,7 @@ function shuffle(arr) {
     }
 }
 
-function set16ToRgb(str) {
+function set16ToRgb (str) {
     var reg = /^#([0-9A-Fa-f]{3}|[0-9A-Fa-f]{6})$/
     if (!reg.test(str)) {
         return;

@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgFenxiao/pages/fenxiao/edit.js
 
 const app = getApp()
@@ -8,10 +19,10 @@ Page({
      */
     data: {
         id: null,
-        radio:'wuxiao',
+        radio: 'wuxiao',
         jiaoyiRadio: '',
         status: 0,
-        status_remark_items: ['超过报备保护期','客户信息填写错误','关联房源选择错误','其他原因'], 
+        status_remark_items: ['超过报备保护期', '客户信息填写错误', '关联房源选择错误', '其他原因'],
         deal_status_items: [],
         deal_status_item_id: '',
         status_remark: '',
@@ -20,7 +31,7 @@ Page({
         admin_remark: ''
     },
 
-    wuxiaoClick(e){
+    wuxiaoClick (e) {
         var i = e.currentTarget.dataset.i
         console.log(e.currentTarget.dataset.i)
         this.setData({
@@ -28,40 +39,40 @@ Page({
         })
     },
 
-    radioChange(event){
+    radioChange (event) {
         this.setData({
             radio: event.detail
         })
-        if(event.detail == 'wuxiao'){
+        if (event.detail == 'wuxiao') {
             this.setData({
                 status: 0
             })
         }
-        if(event.detail == 'youxiao'){
+        if (event.detail == 'youxiao') {
             this.setData({
                 status: 2
             })
         }
     },
 
-    onClick(event){
-        console.log('222',event.currentTarget.dataset)
+    onClick (event) {
+        console.log('222', event.currentTarget.dataset)
         this.setData({
             jiaoyiRadio: event.currentTarget.dataset.name,
-            deal_status_item_id: event.currentTarget.dataset.i+1
+            deal_status_item_id: event.currentTarget.dataset.i + 1
         })
     },
 
-    submitData(){
+    submitData () {
         var id = this.data.id
         var status = this.data.status
-        if(status == 0){
+        if (status == 0) {
             var data = {
                 status: this.data.status,
                 status_remark: this.data.status_remark,
             }
         }
-        if(status == 2){
+        if (status == 2) {
             var data = {
                 status: this.data.status,
                 deal_status_item_id: this.data.deal_status_item_id,
@@ -70,30 +81,30 @@ Page({
                 admin_remark: this.data.admin_remark
             }
         }
-        customerApi.updateCustomer(id,data).then((res)=>{
+        customerApi.updateCustomer(id, data).then((res) => {
             app.globalData.reloadCustomer = true
         })
         wx.navigateBack({
             delta: 2,
-          })
-    },
-
-    cancel(){
-        wx.navigateBack({
-          delta: 1,
         })
     },
 
-    loadData(id){
+    cancel () {
+        wx.navigateBack({
+            delta: 1,
+        })
+    },
+
+    loadData (id) {
         var _this = this
-        customerApi.getCustomerDetail(id).then((res)=>{
-            if(res.data.data.status == 0){
+        customerApi.getCustomerDetail(id).then((res) => {
+            if (res.data.data.status == 0) {
                 _this.setData({
                     status: res.data.data.status,
                     status_remark: res.data.data.status_remark
                 })
             }
-            if(res.data.data.status == 2){
+            if (res.data.data.status == 2) {
                 _this.setData({
                     status: res.data.data.status,
                     deal_status_item_id: res.data.data.deal_status_item_id,

@@ -1,6 +1,17 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgAdmin/pages/admin/xiangce/upload-btn.js
 const app = getApp()
-const mediaApi= require("../../../../api/media")
+const mediaApi = require("../../../../api/media")
 var upload = require('../../../../utils/upload.js');
 
 Component({
@@ -51,7 +62,7 @@ Component({
                 mediaType: ['image'],
                 sourceType: ['album', 'camera'],
                 maxDuration: 30,
-                success(res) {
+                success (res) {
                     var paths = []
                     var path = res.tempFiles
                     path.forEach(v => {
@@ -61,16 +72,16 @@ Component({
                 }
             })
         },
-        insertPath(url) {
+        insertPath (url) {
             var _this = this
             var id = this.data.mediaid
             var type = this.data.fileType
-            var data={
+            var data = {
                 filetype: type,
                 url: url,
                 media_cat_id: id
             }
-            mediaApi.createMediaItem(data).then((res)=>{
+            mediaApi.createMediaItem(data).then((res) => {
                 _this.triggerEvent('change')
             })
         },
@@ -81,7 +92,7 @@ Component({
                 mediaType: ['video'],
                 sourceType: ['album', 'camera'],
                 maxDuration: 30,
-                success(res) {
+                success (res) {
                     var paths = []
                     var path = res.tempFiles
                     path.forEach(v => {

@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/house-filter/index.js
 Component({
     /**
@@ -74,10 +85,10 @@ Component({
         //     this.triggerEvent('change', filter)
         // },
 
-        fitmentChange(e){
+        fitmentChange (e) {
             var filter = this.data.filter
             var data = e.detail
-            console.log(data,filter, this.data.filter, this.data);
+            console.log(data, filter, this.data.filter, this.data);
 
             if (data.fitment) {
                 filter.fitment = data.fitment
@@ -86,10 +97,10 @@ Component({
             }
             this.triggerEvent('change', filter)
         },
-        positionChange(e){
+        positionChange (e) {
             var filter = this.data.filter
             var data = e.detail
-            console.log(data,filter, this.data.filter, this.data);
+            console.log(data, filter, this.data.filter, this.data);
 
             if (data.position) {
                 filter.position = data.position
@@ -98,10 +109,10 @@ Component({
             }
             this.triggerEvent('change', filter)
         },
-        categoryChange(e){
+        categoryChange (e) {
             var filter = this.data.filter
             var data = e.detail
-            console.log(data,filter, this.data.filter, this.data);
+            console.log(data, filter, this.data.filter, this.data);
 
             if (data.category) {
                 filter.category = data.category

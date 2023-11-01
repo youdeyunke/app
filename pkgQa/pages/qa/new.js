@@ -1,6 +1,17 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/qa/new.js
 const app = getApp()
-const qaApi= require("../../../api/qa.js")
+const qaApi = require("../../../api/qa.js")
 var auth = require('../../../utils/auth.js');
 
 Page({
@@ -74,7 +85,7 @@ Page({
             return false
         }
         // 进入数据提交状态，按钮禁止点击
-        this.setData({ loading: true})
+        this.setData({ loading: true })
         auth.ensureUser(function (userInfo) {
             _this.doSubmit()
         })
@@ -87,12 +98,12 @@ Page({
     doSubmit: function () {
         var _this = this
         var content = _this.data.content
-        var data={
+        var data = {
             content: content,
             target_id: _this.data.target_id, target_type: _this.data.target_type
         }
-        qaApi.createQuestion(data).then((resp)=>{
-            _this.setData({loading: false})
+        qaApi.createQuestion(data).then((resp) => {
+            _this.setData({ loading: false })
             //  处理完成
             if (resp.data.status != 0) {
                 return false;
@@ -108,7 +119,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
-        this.setData({ target_id: q.target_id, target_type: q.target_type  })
+        this.setData({ target_id: q.target_id, target_type: q.target_type })
         var _this = this
         auth.ensureUser(function (userInfo) {
             _this.setData({ userInfo: userInfo })

@@ -1,9 +1,20 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgErshou/pages/zhoubian.js
 //index.js
 //获取应用实例
 const app = getApp()
 const qqmapApi = require("../../api/qqmap")
-const postApi= require("../../api/post")
+const postApi = require("../../api/post")
 const houseApi = require("../../api/house")
 const surroundApi = require("../../api/surround")
 Component({
@@ -29,7 +40,7 @@ Component({
         },
         postId: {
             type: Number,
-            default:null
+            default: null
         },
         haveTabs: {
             type: String
@@ -55,12 +66,12 @@ Component({
                 resTabs: resTabs
             })
         },
-        'postId':function(res) {
-            if(!res){return}
+        'postId': function (res) {
+            if (!res) { return }
             this.loadData()
         },
-        "latitude":function (res) {
-            if(!res){return}
+        "latitude": function (res) {
+            if (!res) { return }
             this.getContent()
         }
     },
@@ -69,61 +80,61 @@ Component({
      */
     data: {
         tabs: [{
-                id: 'youeryuan',
-                name: '幼儿园',
-                value: '学校:幼儿园',
-                icon: 'map-i-yey.png',
-                isActive: false
-            },
-            {
-                id: 'xiaoxue',
-                name: '小学',
-                value: '学校:小学',
-                icon: 'map-i-xx.png',
-                isActive: false
-            },
-            {
-                id: 'zhongxue',
-                name: '中学',
-                value: '学校:中学',
-                icon: 'map-i-zx.png',
-                isActive: false
-            },
-            {
-                id: 'meishi',
-                name: '美食',
-                value: '美食',
-                icon: 'map-i-ms.png',
-                isActive: false
-            },
-            {
-                id: 'gouwu',
-                name: '购物',
-                value: '购物',
-                icon: 'map-i-gw.png',
-                isActive: false
-            },
-            {
-                id: 'gongjiao',
-                name: '公交',
-                value: '公交',
-                icon: 'map-i-gj.png',
-                isActive: false
-            },
-            {
-                id: 'ditie',
-                name: '地铁',
-                value: '地铁',
-                icon: 'map-i-dt.png',
-                isActive: true
-            },
-            {
-                id: 'yinhang',
-                name: '银行',
-                value: '银行',
-                icon: 'map-i-yh.png',
-                isActive: false
-            },
+            id: 'youeryuan',
+            name: '幼儿园',
+            value: '学校:幼儿园',
+            icon: 'map-i-yey.png',
+            isActive: false
+        },
+        {
+            id: 'xiaoxue',
+            name: '小学',
+            value: '学校:小学',
+            icon: 'map-i-xx.png',
+            isActive: false
+        },
+        {
+            id: 'zhongxue',
+            name: '中学',
+            value: '学校:中学',
+            icon: 'map-i-zx.png',
+            isActive: false
+        },
+        {
+            id: 'meishi',
+            name: '美食',
+            value: '美食',
+            icon: 'map-i-ms.png',
+            isActive: false
+        },
+        {
+            id: 'gouwu',
+            name: '购物',
+            value: '购物',
+            icon: 'map-i-gw.png',
+            isActive: false
+        },
+        {
+            id: 'gongjiao',
+            name: '公交',
+            value: '公交',
+            icon: 'map-i-gj.png',
+            isActive: false
+        },
+        {
+            id: 'ditie',
+            name: '地铁',
+            value: '地铁',
+            icon: 'map-i-dt.png',
+            isActive: true
+        },
+        {
+            id: 'yinhang',
+            name: '银行',
+            value: '银行',
+            icon: 'map-i-yh.png',
+            isActive: false
+        },
         ],
         resp: [],
         active: 0,
@@ -147,7 +158,7 @@ Component({
                 mapH: 320
             })
         }
-    
+
     },
     ready: function () {
         // this.getContent()
@@ -156,20 +167,20 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        getContent(e) {
+        getContent (e) {
             var _this = this
             var tab = this.data.tabs[this.data.active]
             surroundApi.getSurroundList({
-              post_id: _this.data.postId,
-              cat: tab.id
+                post_id: _this.data.postId,
+                cat: tab.id
             }).then((resp) => {
-              _this.setData({ 
-                  pois: resp.data.data ,
-                  resp: resp.data.data,
-              },() => {
-                  _this.getMapContext()
-                  _this.setMarker()
-              })
+                _this.setData({
+                    pois: resp.data.data,
+                    resp: resp.data.data,
+                }, () => {
+                    _this.getMapContext()
+                    _this.setMarker()
+                })
             })
             // qqmapApi.placeSearch({
             //     keyword: tab.value,
@@ -209,7 +220,7 @@ Component({
             //         })
             // })
         },
-        getMapContext() {
+        getMapContext () {
             var _this = this
             var arr = []
             arr.push({
@@ -301,16 +312,16 @@ Component({
             })
             // console.log('markers', this.data.markers, pois)
         },
-        loadData() {
+        loadData () {
             var _this = this
             // 拉取楼盘的基本信息：坐标、名称、id
             //   √
-            houseApi.getHouseBlocks( _this.data.postId
-            ).then((res)=>{  
-               var post = res.data.data
-               _this.setData({
-                   post: post
-               })
+            houseApi.getHouseBlocks(_this.data.postId
+            ).then((res) => {
+                var post = res.data.data
+                _this.setData({
+                    post: post
+                })
             })
         },
         markertap: function (e) {
@@ -339,7 +350,7 @@ Component({
             })
 
         },
-        handleItemTap(e) {
+        handleItemTap (e) {
             this.setData({
                 maxLength: 2
             })

@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/images-uploader2.js
 var upload = require('../utils/upload.js');
 
@@ -8,8 +19,8 @@ Component({
     properties: {
         imagesStr: { type: String, value: '' },
         max: { type: Number, value: 10 },
-        width:{type:Number,value:160},
-        height:{type:Number,value:160}
+        width: { type: Number, value: 160 },
+        height: { type: Number, value: 160 }
     },
 
     observers: {
@@ -73,10 +84,10 @@ Component({
             var urls = []
             this.data.images.forEach((image, i) => {
                 var url = image.url.split('?')[0]
-                urls.push({url:url})
+                urls.push({ url: url })
             })
             this.setData({
-              images:urls
+                images: urls
             })
             this.triggerEvent('change', { value: urls })
         },
@@ -98,14 +109,14 @@ Component({
             this.setData({ images: images })
             this.hasChanged()
         },
-        Preview:function(e) {
-          let url= e.currentTarget.dataset.index
-          wx.previewImage({
-            current: url, 
-            urls: [url]
-          })
+        Preview: function (e) {
+            let url = e.currentTarget.dataset.index
+            wx.previewImage({
+                current: url,
+                urls: [url]
+            })
         }
-       
+
 
     }
 })

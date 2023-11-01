@@ -1,7 +1,18 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/recom-posts.js
 //
 const app = getApp()
-const postApi=require("../api/post")
+const postApi = require("../api/post")
 Component({
     /**
      * 组件的属性列表
@@ -45,7 +56,7 @@ Component({
                 sub_district_id: _this.data.subDistrictId || '',
                 order: 'id desc',
                 id_ne: _this.data.idNe || 0,
-            }).then((resp)=>{
+            }).then((resp) => {
                 var posts = resp.data.data
                 _this.setData({ posts: posts })
                 app.cachePosts(posts)

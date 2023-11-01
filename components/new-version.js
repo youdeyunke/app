@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/new-version.js
 const app = getApp()
 
@@ -45,7 +56,7 @@ Component({
     data: {
         show: false,
         mode: 1, // 1:检查版本，2，开屏广告,
-        time:3
+        time: 3
 
     },
 
@@ -77,19 +88,19 @@ Component({
         closeHandle: function () {
             this.setData({ show: false })
         },
-        Timeout(){
+        Timeout () {
             var _this = this
-            var time = _this.data.time -1 
+            var time = _this.data.time - 1
             setTimeout(() => {
-                _this.setData({time : time})
-                if(this.data.time<=0){
-                    this.closeHandle()  
+                _this.setData({ time: time })
+                if (this.data.time <= 0) {
+                    this.closeHandle()
                     return
-                }else{
+                } else {
                     this.Timeout()
                 }
             }, 1000);
-            
+
         },
         markNewVersion: function (e) {
             // 本地保存最新版本号，以便下次比对

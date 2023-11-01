@@ -1,6 +1,17 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/comments/new.js
 const app = getApp()
-const mycommentApi= require('../../../api/mycomment')
+const mycommentApi = require('../../../api/mycomment')
 var auth = require('../../../utils/auth.js');
 
 Page({
@@ -120,9 +131,9 @@ Page({
 
     submitHandle: function (e) {
         var extData = {
-          tags: this.genTagsStr(),  
-          cat: this.data.cat,  
-          score: this.data.score, 
+            tags: this.genTagsStr(),
+            cat: this.data.cat,
+            score: this.data.score,
         }
 
         var comment = {
@@ -158,22 +169,22 @@ Page({
             return fasle
         }
 
-      
+
         var _this = this
-        mycommentApi.createComment(comment).then((resp)=>{
-             // 页面卸载的收，会将this.data.comment写入globalData.newComment
-                // 发布成功后，就清空
-                _this.setData({ comment: '' })
-                if (resp.data.status === 0) {
-                    wx.showToast({ icon: 'none', title: '提交成功。您的评论审核通过后将对外展示', duration: 2000, mask: true })
-                    // 用于返回后刷新页面
-                    var key = 'reload_' + this.data.target_type  + '_comments'
-                    app.globalData[key] = true
-                    setTimeout(function () {
-                        wx.navigateBack({ delta: -1 })
-                    }, 2000)
-                }
-          })
+        mycommentApi.createComment(comment).then((resp) => {
+            // 页面卸载的收，会将this.data.comment写入globalData.newComment
+            // 发布成功后，就清空
+            _this.setData({ comment: '' })
+            if (resp.data.status === 0) {
+                wx.showToast({ icon: 'none', title: '提交成功。您的评论审核通过后将对外展示', duration: 2000, mask: true })
+                // 用于返回后刷新页面
+                var key = 'reload_' + this.data.target_type + '_comments'
+                app.globalData[key] = true
+                setTimeout(function () {
+                    wx.navigateBack({ delta: -1 })
+                }, 2000)
+            }
+        })
     },
 
     backHandle: function () {

@@ -1,31 +1,42 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/post/comments-block.js
 Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-      value: {type: Object },
-      color: { type: String, value: '#3A6BDD'}
-  },
+    /**
+     * 组件的属性列表
+     */
+    properties: {
+        value: { type: Object },
+        color: { type: String, value: '#3A6BDD' }
+    },
 
     observers: {
         "value.scopes": function (items) {
             // 过滤掉count为0的
-            var items = items.filter((item,i) => { return item.count > 0})
-            this.setData({scopes: items})
-      }
-  },
-  /**
-   * 组件的初始数据
-   */
-  data: {
+            var items = items.filter((item, i) => { return item.count > 0 })
+            this.setData({ scopes: items })
+        }
+    },
+    /**
+     * 组件的初始数据
+     */
+    data: {
 
-  },
+    },
 
-  /**
-   * 组件的方法列表
-   */
-  methods: {
+    /**
+     * 组件的方法列表
+     */
+    methods: {
 
-  }
+    }
 })

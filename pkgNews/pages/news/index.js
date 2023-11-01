@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/news/index.js
 const app = getApp()
 const newsApi = require("../../../api/news")
@@ -29,14 +40,14 @@ Page({
         this.ensureCats(function (cats) {
             // 根据catid 找到需要选中哪个分类
             var active = 0
-            cats.forEach((cat,i) => {
-                if(cat.id.toString() == catId.toString()){
+            cats.forEach((cat, i) => {
+                if (cat.id.toString() == catId.toString()) {
                     active = i
                 }
             })
-            var data = { 
+            var data = {
                 active: active,
-                cats: cats, 
+                cats: cats,
                 catId: catId
             }
             _this.setData(data)
@@ -76,7 +87,7 @@ Page({
 
     loadCats: function (cb) {
         var _this = this
-        newsApi.getNewsCatList().then((resp)=>{
+        newsApi.getNewsCatList().then((resp) => {
             _this.setData({
                 cats: resp.data.data,
             })
@@ -108,7 +119,7 @@ Page({
             per_page: _this.data.per_page
         }
         // √
-        newsApi.getNewsList(query).then((resp)=>{
+        newsApi.getNewsList(query).then((resp) => {
             var index = _this.data.page - 1
             var key = 'news[' + index + ']'
             var data = {

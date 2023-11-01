@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgZhuli/pages/zhuli/mine.js
 const app = getApp()
 const tourApi = require("../../../api/tour")
@@ -64,17 +75,17 @@ Page({
     },
 
 
-    loadPostData: function(postId){
+    loadPostData: function (postId) {
         console.log('load post', postId);
         var _this = this;
         postApi.getPostBaseInfo(postId).then((res) => {
             console.log('post data is', res.data);
-            if(res.data.code != 0){
+            if (res.data.code != 0) {
                 return;
             }
             var post = res.data.data;
             _this.setData({
-                post:post
+                post: post
             })
         })
     },
@@ -86,7 +97,7 @@ Page({
         var user = this.data.user
         _this.loadHaoyou(this.data.mid);
         zhuliApi.getZhuliDetail(_this.data.mid).then((res) => {
-            if(res.data.code != 0){
+            if (res.data.code != 0) {
                 return;
             }
             var zhuli = res.data.data
@@ -140,7 +151,7 @@ Page({
         var data = {
             id: zhuli.id,
         }
-        zhuliApi.createZhuliSuccess(data).then((res)=>{
+        zhuliApi.createZhuliSuccess(data).then((res) => {
             if (res.data.status != 0) {
                 return
             }

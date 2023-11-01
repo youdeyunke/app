@@ -1,8 +1,19 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 let request = require('../utils/request.js');
 
 
 // 微信手机号码授权登录
 // 必须传递对应的3个参数  1
-export function wechatLogin( code, encryptedData, iv){
-    return request.post("/api/v6/sessions", {code: code, iv: iv, encrypted_data: encryptedData})
+export function wechatLogin (code, encryptedData, iv) {
+    return request.post("/api/v6/sessions", { code: code, iv: iv, encrypted_data: encryptedData })
 }

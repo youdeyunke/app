@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgType/pages/type/show.js
 const app = getApp()
 const postApi = require("../../../api/post")
@@ -28,60 +39,60 @@ Page({
     },
 
     loadPostBrokerInfo: function (pid) {
-      var _this = this
-      var query = {
-        post_id : pid
-      }
-      brokerApi.getPostDefaultBrokerDetail(query).then((res) => {
-        var broker = res.data.data
-        this.setData({
-          broker: broker
+        var _this = this
+        var query = {
+            post_id: pid
+        }
+        brokerApi.getPostDefaultBrokerDetail(query).then((res) => {
+            var broker = res.data.data
+            this.setData({
+                broker: broker
+            })
         })
-      })
     },
 
     loadPostInfo: function (pid) {
-      var _this = this
-      // √  
-      postApi.getPostBaseInfo(
-          pid
-      ).then((res) => {
-          var post = res.data.data
-          var data = {
-              post: post
-          }
-          // var user = app.globalData.userInfo
-          // data.pageQuery = 'id=' + pid
-          // if (user && user.is_broker) {
-          //     data.pageQuery += '&broker_id=' + user.id
-          // }
+        var _this = this
+        // √  
+        postApi.getPostBaseInfo(
+            pid
+        ).then((res) => {
+            var post = res.data.data
+            var data = {
+                post: post
+            }
+            // var user = app.globalData.userInfo
+            // data.pageQuery = 'id=' + pid
+            // if (user && user.is_broker) {
+            //     data.pageQuery += '&broker_id=' + user.id
+            // }
 
-          // data.pageTitle = post.title + ' 户型介绍'
-          // data.pageCover = post.cover
-          var type = this.data.type
-          var title = post.title + type.name + type.sale_status_name || ''
-          wx.setNavigationBarTitle({ title: title, });
-          _this.setData(data)
-      })
-  },
+            // data.pageTitle = post.title + ' 户型介绍'
+            // data.pageCover = post.cover
+            var type = this.data.type
+            var title = post.title + type.name + type.sale_status_name || ''
+            wx.setNavigationBarTitle({ title: title, });
+            _this.setData(data)
+        })
+    },
 
     loadType: function (tid) {
         var _this = this
-        postApi.getPostTypeDetail(tid).then((resp)=>{
+        postApi.getPostTypeDetail(tid).then((resp) => {
             if (resp.data.status != 0) {
                 return false
             }
             var type = resp.data.data
             // var post = resp.data.data.post
             var tags = []
-            if(type.tags){ 
-              tags = type.tags.split(',')
+            if (type.tags) {
+                tags = type.tags.split(',')
             }
 
             _this.setData({
                 loading: false,
                 // post: resp.data.data.post,
-                tags: tags, 
+                tags: tags,
                 // broker: resp.data.data.broker,
                 type: resp.data.data,
             })
@@ -127,18 +138,18 @@ Page({
         //brokerId指broker对应的userid
         var brokerId = this.data.broker.user_id
         var _this = this
-            // √
-            postApi.sendPostCard({
-                id: pid,
-                receiver_id: brokerId
-            }).then((resp) => {
-                if (resp.data.status == 0) {
-                    // 跳转到消息列表
-                    wx.navigateTo({
-                        url: '/pages/messages/show?target_user_id=' + brokerId,
-                    })
-                }
-            })
+        // √
+        postApi.sendPostCard({
+            id: pid,
+            receiver_id: brokerId
+        }).then((resp) => {
+            if (resp.data.status == 0) {
+                // 跳转到消息列表
+                wx.navigateTo({
+                    url: '/pages/messages/show?target_user_id=' + brokerId,
+                })
+            }
+        })
     },
 
 
@@ -146,10 +157,10 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-        var color = app.globalData.myconfigs.color  
-        this.setData({  
-            primaryBtnColor: color.primary_btn,  
-            secondaryBtnColor: color.secondary_btn, 
+        var color = app.globalData.myconfigs.color
+        this.setData({
+            primaryBtnColor: color.primary_btn,
+            secondaryBtnColor: color.secondary_btn,
         })
 
     },

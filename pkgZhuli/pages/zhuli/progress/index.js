@@ -1,44 +1,55 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgZhuli/pages/zhuli/progress/index.js
 Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-    total: {
-      type: Number,
-      value: 0
+    /**
+     * 组件的属性列表
+     */
+    properties: {
+        total: {
+            type: Number,
+            value: 0
+        },
+        value: {
+            type: Number,
+            value: 0
+        },
     },
-    value: {
-      type: Number,
-      value: 0
-    },
-  },
 
 
-  observers: {
-    "value": function (value) {
-      // 计算百分比 
-      if (!this.data.total) {
-        return
-      }
-      var r = 100 * value / this.data.total
-      this.setData({
-        rate: r
-      })
+    observers: {
+        "value": function (value) {
+            // 计算百分比 
+            if (!this.data.total) {
+                return
+            }
+            var r = 100 * value / this.data.total
+            this.setData({
+                rate: r
+            })
+        }
+    },
+
+    /**
+     * 组件的初始数据
+     */
+    data: {
+        rate: 0,
+    },
+
+    /**
+     * 组件的方法列表
+     */
+    methods: {
+
     }
-  },
-
-  /**
-   * 组件的初始数据
-   */
-  data: {
-    rate: 0,
-  },
-
-  /**
-   * 组件的方法列表
-   */
-  methods: {
-
-  }
 })

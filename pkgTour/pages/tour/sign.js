@@ -1,5 +1,16 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgTour/pages/tour/sign.js
-const app = getApp() 
+const app = getApp()
 const tourApi = require("../../../api/tour")
 Page({
 
@@ -8,19 +19,19 @@ Page({
      */
     data: {
         user: null,
-        tourId: null, 
-        name: '', 
+        tourId: null,
+        name: '',
         mobile: '',
-        mobile_lock: false, 
+        mobile_lock: false,
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad(q) {
-        this.setData({ 
-            tourId: q.id, 
-        }, () => { 
+    onLoad (q) {
+        this.setData({
+            tourId: q.id,
+        }, () => {
             this.loadData()
         })
     },
@@ -28,48 +39,48 @@ Page({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady() {
+    onReady () {
 
     },
 
-    loadData: function(){
+    loadData: function () {
         // 加载活动信息
-        var _this = this  
-        tourApi.getTourDetail(this.data.tourId).then((resp)=>{
-            if(resp.data.status != 0){
-                return 
+        var _this = this
+        tourApi.getTourDetail(this.data.tourId).then((resp) => {
+            if (resp.data.status != 0) {
+                return
             }
-            _this.setData({ 
-                tour: resp.data.data, 
+            _this.setData({
+                tour: resp.data.data,
             })
             wx.setNavigationBarTitle({
-              title: resp.data.data.tour.title,
+                title: resp.data.data.tour.title,
             })
         })
     },
 
-    loginSuccess: function(user){
-        this.setData({ 
-            user: user, 
-            mobile: user.mobile, 
-            mobile_lock: true, 
+    loginSuccess: function (user) {
+        this.setData({
+            user: user,
+            mobile: user.mobile,
+            mobile_lock: true,
         })
-      },
+    },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow() {
-        var user = app.globalData.userInfo 
-        if(!user){
+    onShow () {
+        var user = app.globalData.userInfo
+        if (!user) {
             // TODO 
             this.selectComponent('.loginwindow').openWindow()
-            return 
+            return
         }
-        this.setData({ 
+        this.setData({
             user: user,
-            mobile: user.mobile, 
-            mobile_lock: true, 
+            mobile: user.mobile,
+            mobile_lock: true,
         })
 
     },
@@ -77,48 +88,48 @@ Page({
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide() {
+    onHide () {
 
     },
 
-    signHandle:function(){
+    signHandle: function () {
         var data = {
             tour_id: this.data.tourId,
-            mobile: this.data.mobile, 
-            name: this.data.name,  
+            mobile: this.data.mobile,
+            name: this.data.name,
         }
 
-        if(!data.name){
+        if (!data.name) {
             wx.showToast({
                 icon: 'none',
-              title: '请填写姓名',
+                title: '请填写姓名',
             })
-            return false 
+            return false
         }
 
-        if(!data.mobile){
+        if (!data.mobile) {
             wx.showToast({
                 icon: 'none',
-              title: '手机号错误，请先授权',
+                title: '手机号错误，请先授权',
             })
-            return false 
+            return false
         }
 
-        var _this = this  
+        var _this = this
         app.request({ //已经删除
-            url: '/api/v1/tour_sign/', 
-            method: 'POST', 
-            data: data, 
-            success: function(resp){ 
-                if(resp.data.status != 0){ 
-                    return 
+            url: '/api/v1/tour_sign/',
+            method: 'POST',
+            data: data,
+            success: function (resp) {
+                if (resp.data.status != 0) {
+                    return
                 }
                 wx.showToast({
-                  title: '签到成功',
+                    title: '签到成功',
                 })
                 setTimeout(() => {
                     wx.switchTab({
-                      url: '/pages/home/home',
+                        url: '/pages/home/home',
                     })
                 }, 1500)
             }
@@ -128,28 +139,28 @@ Page({
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload() {
+    onUnload () {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh() {
+    onPullDownRefresh () {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom() {
+    onReachBottom () {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage() {
+    onShareAppMessage () {
 
     }
 })

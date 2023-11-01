@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgBroker/pages/broker/components/namecard/index.js
 const app = getApp()
 const brokerApi = require("../../../../../api/broker")
@@ -61,12 +72,12 @@ Component({
             })
         },
 
-        copyWeixin() {
+        copyWeixin () {
             wx.setClipboardData({
                 data: this.data.broker.wechat,
-                success(res) {
+                success (res) {
                     wx.getClipboardData({
-                        success(res) {
+                        success (res) {
                             console.log(res.data) // data
                         }
                     })
@@ -74,7 +85,7 @@ Component({
             })
         },
 
-        saveNumber() {
+        saveNumber () {
             wx.addPhoneContact({
                 firstName: this.data.broker.name,
                 mobilePhoneNumber: this.data.broker.mobile
@@ -105,7 +116,7 @@ Component({
             } else {
                 //  √
                 brokerApi.likeBroker({
-                  user_id: id
+                    user_id: id
                 }).then((res) => {
                     if (res.data.status != 0) {
                         return
@@ -135,12 +146,12 @@ Component({
                         success: (result) => {
 
                         },
-                        fail: () => {},
-                        complete: () => {}
+                        fail: () => { },
+                        complete: () => { }
                     });
                 },
-                fail: () => {},
-                complete: () => {}
+                fail: () => { },
+                complete: () => { }
             });
         },
         qrHandle: function () {
@@ -169,10 +180,10 @@ Component({
             } else {
                 wx.downloadFile({
                     url: code,
-                    success(res) {
+                    success (res) {
                         wx.saveImageToPhotosAlbum({
                             filePath: res.tempFilePath,
-                            success(res) {
+                            success (res) {
                                 wx.showToast({
                                     title: '保存二维码成功',
                                 })

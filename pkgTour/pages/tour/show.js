@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/news/show.js
 const app = getApp()
 const smsApi = require('../../../api/sms')
@@ -25,18 +36,18 @@ Page({
         postIds: []
     },
 
-    mobileChange() {
+    mobileChange () {
         this.setData({
             mobile_lock: false
         })
     },
 
-    createHaibao() {
+    createHaibao () {
         var tour = this.data.item
         this.selectComponent("#poster").showPopup(tour)
     },
 
-    gotoKaquan() {
+    gotoKaquan () {
         wx.navigateTo({
             url: '/pkgMyself/pages/coupons/index',
         })
@@ -65,7 +76,7 @@ Page({
         // 取消报名
         var tour_id = this.data.tourId
         var _this = this
-        tourApi.deleteTourMember(tour_id).then((resp)=>{
+        tourApi.deleteTourMember(tour_id).then((resp) => {
             if (resp.data.status == 0) {
                 wx.showToast({
                     icon: 'none',
@@ -115,9 +126,9 @@ Page({
         }
     },
 
-    postData(data) {
+    postData (data) {
         var _this = this
-        tourApi.createTourMember(data).then((resp)=>{
+        tourApi.createTourMember(data).then((resp) => {
             _this.setData({
                 loading: false
             })
@@ -133,14 +144,14 @@ Page({
                             _this.loadData()
                         }
                     },
-                    fail: () => {},
-                    complete: () => {}
+                    fail: () => { },
+                    complete: () => { }
                 });
             }
         })
     },
 
-    smsLoginHandle(cb) {
+    smsLoginHandle (cb) {
         // 通过短信验证码登陆账号
         var phone = this.data.mobile
         var code = this.data.sms_code
@@ -158,7 +169,7 @@ Page({
             })
             return false
         }
-        smsApi.smsAuth(phone,code).then((res)=>{
+        smsApi.smsAuth(phone, code).then((res) => {
             var data = res.data
             if (data.status == 0) {
                 // 保存下服务器返回的token
@@ -186,10 +197,10 @@ Page({
         })
     },
 
-    loadPostInfo:function(postId){
-        var _this = this 
-        postApi.getPostBaseInfo(postId).then((res)=>{
-            if(res.data.code != 0){
+    loadPostInfo: function (postId) {
+        var _this = this
+        postApi.getPostBaseInfo(postId).then((res) => {
+            if (res.data.code != 0) {
                 return
             }
             var post = res.data.data
@@ -201,8 +212,8 @@ Page({
 
     loadData: function (cb) {
         var _this = this
-        tourApi.getTourDetail(_this.data.tourId).then((resp)=>{
-            if(resp.data.code != 0){
+        tourApi.getTourDetail(_this.data.tourId).then((resp) => {
+            if (resp.data.code != 0) {
                 return;
             }
             var tour = resp.data.data
@@ -303,10 +314,10 @@ Page({
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () {},
+    onReachBottom: function () { },
 
 
-    onShareTimeline() {
+    onShareTimeline () {
         var _this = this
         var u = app.globalData.userInfo
         var shareQuery = 'id=' + this.data.tourId

@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/map/index.js
 const app = getApp()
 const postApi = require("../../../api/post")
@@ -199,7 +210,7 @@ Page({
         this.data.map.includePoints({
             points: markers,
             padding: 20,
-            success: function () {},
+            success: function () { },
         })
     },
 
@@ -229,7 +240,7 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {},
+    onShow: function () { },
 
     loadMarkers: function (level) {
         wx.showLoading({
@@ -253,7 +264,7 @@ Page({
             data[key] = filter[key]
         })
         var _this = this
-        mapApi.getMapMarkerList(data).then((resp)=>{
+        mapApi.getMapMarkerList(data).then((resp) => {
             if (resp.data.status != 0) {
                 return false
             }
@@ -361,7 +372,7 @@ Page({
         this.popClose()
         var _this = this
         this.data.map.getScale({
-            success(res) {
+            success (res) {
                 console.log('scale', res.scale)
                 // 视野级别： 0~8：城市， 8~10：行政区， 10~12：商圈， 12~16：小区
                 // 当视野扩大，自动显示上一级
@@ -395,7 +406,7 @@ Page({
         this.data.map.moveToLocation({
             longitude: longitude,
             latitude: latitude,
-            success() {}
+            success () { }
         })
     },
 
@@ -405,7 +416,7 @@ Page({
         var _this = this
         // 检查是否有位置权限
         wx.getSetting({
-            success(res) {
+            success (res) {
                 if (!res.authSetting['scope.userLocation']) {
                     wx.openSetting({
 
@@ -420,7 +431,7 @@ Page({
     _getLocation: function () {
         var _this = this
         wx.getFuzzyLocation({
-            success(res) {
+            success (res) {
                 const latitude = res.latitude
                 const longitude = res.longitude
                 _this.moveTo(res.latitude, res.longitude)

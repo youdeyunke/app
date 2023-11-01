@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/districts/select.js
 const app = getApp()
 var onfire = require('../../utils/onfire.min.js');
@@ -19,19 +30,19 @@ Page({
             did: q.id,
         })
     },
-    
+
     districtClick: function (e) {
         var cindex = e.currentTarget.dataset.cindex
         var dindex = e.currentTarget.dataset.dindex
         var citem = this.data.cities[cindex]
         var ditem = citem['children'][dindex]
         onfire.fire('selectDistrict', { id: citem.id, name: citem.text }, { id: ditem.id, name: ditem.text })
-        var ch =  this.getOpenerEventChannel() 
-        if(ch){
+        var ch = this.getOpenerEventChannel()
+        if (ch) {
             ch.emit("change", ditem)
         }
         wx.navigateBack({
-          delta: 1,
+            delta: 1,
         })
     },
 

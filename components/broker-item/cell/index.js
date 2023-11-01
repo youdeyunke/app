@@ -1,5 +1,16 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/broker-item/index.js
-const app = getApp() 
+const app = getApp()
 
 Component({
     /**
@@ -17,7 +28,7 @@ Component({
     },
 
     observers: {
-        'item.level': function(level){
+        'item.level': function (level) {
             var _this = this
             var levelName = this.data.levelName
             if (level == 1) {
@@ -35,11 +46,11 @@ Component({
         }
     },
 
-    ready: function(){
-        var color = app.globalData.myconfigs.color  
-        this.setData({ 
-            primaryBtnColor: color.primary_btn, 
-            bg: color.broker_cell_bg, 
+    ready: function () {
+        var color = app.globalData.myconfigs.color
+        this.setData({
+            primaryBtnColor: color.primary_btn,
+            bg: color.broker_cell_bg,
             secondaryBtnColor: color.secondary_btn,
         })
     },
@@ -48,7 +59,7 @@ Component({
      * 组件的初始数据
      */
     data: {
-        avatarColors: ['#FFCB45','#A9CDFF','#FFC28C'],
+        avatarColors: ['#FFCB45', '#A9CDFF', '#FFC28C'],
         levelName: ''
     },
 
@@ -90,7 +101,7 @@ Component({
             var _this = this
             wx.makePhoneCall({
                 phoneNumber: _this.data.item.mobile,
-                success: (result) => {},
+                success: (result) => { },
             });
         },
     }

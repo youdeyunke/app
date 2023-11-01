@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 Component({
     properties: {
         config: {
@@ -13,7 +24,7 @@ Component({
             value: false,
         }
     },
-    ready() {
+    ready () {
         if (this.data.preload) {
             const poster = this.selectComponent('#poster');
             this.downloadStatus = 'doing';
@@ -27,18 +38,18 @@ Component({
         }
     },
     methods: {
-        trigger(event, data) {
+        trigger (event, data) {
             if (this.listener && typeof this.listener[event] === 'function') {
                 this.listener[event](data);
             }
         },
-        once(event, fun) {
+        once (event, fun) {
             if (typeof this.listener === 'undefined') {
                 this.listener = {};
             }
             this.listener[event] = fun;
         },
-        downloadResource(reset) {
+        downloadResource (reset) {
             return new Promise((resolve, reject) => {
                 if (reset) {
                     this.downloadStatus = null;
@@ -58,28 +69,28 @@ Component({
                             resolve();
                         })
                         .catch((e) => reject(e));
-                }  
+                }
             })
         },
-        onCreate(reset = false) {
+        onCreate (reset = false) {
             !this.data.hideLoading && wx.showLoading({ mask: true, title: '生成中' });
             return this.downloadResource(typeof reset === 'boolean' && reset).then(() => {
                 !this.data.hideLoading && wx.hideLoading();
                 const poster = this.selectComponent('#poster');
                 poster.create(this.data.config);
             })
-            .catch((err) => {
-                !this.data.hideLoading && wx.hideLoading();
-                wx.showToast({ icon: 'none', title: err.errMsg || '生成失败' });
-                console.error(err);
-                this.triggerEvent('fail', err);
-            })
+                .catch((err) => {
+                    !this.data.hideLoading && wx.hideLoading();
+                    wx.showToast({ icon: 'none', title: err.errMsg || '生成失败' });
+                    console.error(err);
+                    this.triggerEvent('fail', err);
+                })
         },
-        onCreateSuccess(e) {
+        onCreateSuccess (e) {
             const { detail } = e;
             this.triggerEvent('success', detail);
         },
-        onCreateFail(err) {
+        onCreateFail (err) {
             console.error(err);
             this.triggerEvent('fail', err);
         }

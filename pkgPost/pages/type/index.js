@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 const app = getApp()
 const postApi = require("../../../api/post")
 const brokerApi = require("../../../api/broker")
@@ -34,16 +45,16 @@ Page({
     },
 
     loadPostBrokerInfo: function (pid) {
-      var _this = this
-      var query = {
-        post_id : pid
-      }
-      brokerApi.getPostDefaultBrokerDetail(query).then((res) => {
-        var broker = res.data.data
-        this.setData({
-          broker: broker
+        var _this = this
+        var query = {
+            post_id: pid
+        }
+        brokerApi.getPostDefaultBrokerDetail(query).then((res) => {
+            var broker = res.data.data
+            this.setData({
+                broker: broker
+            })
         })
-      })
     },
 
     loadPostInfo: function (pid) {
@@ -73,7 +84,7 @@ Page({
         var query = {
             id: pid
         }
-        postApi.getPostTypeList(query).then((resp)=>{
+        postApi.getPostTypeList(query).then((resp) => {
             if (resp.data.status != 0) {
                 return false
             }

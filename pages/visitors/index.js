@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/visitors/index.js
 const app = getApp()
 const myvisitorApi = require("../../api/myvisitor")
@@ -15,14 +26,14 @@ Page({
             { name: '本月', value: 'this_month_items' },
             { name: '全部', value: 'all' },
         ],
-        total_pages:0,
+        total_pages: 0,
         noResult: false,
         scopeIndex: 0,
         page: 1,
         targetId: '',
         per_page: 20,
         loading: true,
-        vistorList:[],
+        vistorList: [],
     },
 
     /**
@@ -37,15 +48,15 @@ Page({
             targetId: q.targetId || '',
             targetType: q.targetType || 'post',
         },
-        function () {
-            _this.loadData()
-        })
+            function () {
+                _this.loadData()
+            })
     },
 
     tabChange: function (e) {
         var index = e.detail.name
         var _this = this
-        this.setData({ scopeIndex: index, page: 1, loading: true ,vistorList:[]}, () => {
+        this.setData({ scopeIndex: index, page: 1, loading: true, vistorList: [] }, () => {
             _this.loadData()
         })
     },
@@ -60,41 +71,41 @@ Page({
             target_type: this.data.targetType || 'post',
             target_id: this.data.targetId || '',
         }
-        myvisitorApi.getMyVisitorList(query).then((resp)=>{
+        myvisitorApi.getMyVisitorList(query).then((resp) => {
             var data = { loading: false }
             data.noResult = resp.data.meta.total_visitors === 0
             _this.setData({
-                total_pages : resp.data.total_pages,
-                loading:false
+                total_pages: resp.data.total_pages,
+                loading: false
             })
             _this.ListData(resp.data.data)
         })
     },
-    ListData:function(arr){
+    ListData: function (arr) {
         //获取data中的 vistorList
         var vistorList = this.data.vistorList
-        var obj ={}
-        arr.forEach((v,i,a)=>{
+        var obj = {}
+        arr.forEach((v, i, a) => {
             var v1 = v
             //根据空格切割字符串
             var arr1 = v.updated_at.trim().split(" ")
             //将浏览的小时和分钟存放到数据中
-            a[i].lookTime=arr1[1]
+            a[i].lookTime = arr1[1]
             //将日期根据-切割 然后在拼接 月和 日
-            var x =arr1[0].trim().split("-")[1] + '-' +arr1[0].trim().split("-")[2];
+            var x = arr1[0].trim().split("-")[1] + '-' + arr1[0].trim().split("-")[2];
             //中文版
-            var strc =  arr1[0].trim().split("-")[1] + '月' +arr1[0].trim().split("-")[2] + '日';
-            
-            if(!obj[x]){
-                obj[x]={}
+            var strc = arr1[0].trim().split("-")[1] + '月' + arr1[0].trim().split("-")[2] + '日';
+
+            if (!obj[x]) {
+                obj[x] = {}
                 obj[x].date = strc
-                obj[x].logs =[]
+                obj[x].logs = []
             }
             obj[x].logs.push(v1)
             vistorList.push(obj[x])
         })
         this.setData({
-            vistorList :vistorList
+            vistorList: vistorList
         })
     },
     /**
@@ -130,13 +141,13 @@ Page({
      */
     onPullDownRefresh: function () {
         this.setData({
-            page:1,
-            loading:true,
-            vistorList:[]
+            page: 1,
+            loading: true,
+            vistorList: []
         }),
             this.loadData()
-        
-        
+
+
     },
 
     /**
@@ -144,12 +155,12 @@ Page({
      */
     onReachBottom: function () {
         var page = this.data.page || 1
-        if(page < this.data.total_pages){
+        if (page < this.data.total_pages) {
             this.setData({
                 page: page + 1,
                 loading: true,
             })
-        }else{
+        } else {
             return false
         }
         this.loadData()

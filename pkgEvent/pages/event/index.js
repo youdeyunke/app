@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgEvent/pages/event/index.js
 const app = getApp()
 const postApi = require("../../../api/post");
@@ -70,7 +81,7 @@ Page({
             post_id: this.data.postId,
             cat_id: catId,
         }
-        eventApi.getEventList(query).then((resp)=>{
+        eventApi.getEventList(query).then((resp) => {
             _this.setData({
                 loading: false,
                 items: resp.data.data.items,
@@ -93,7 +104,7 @@ Page({
 
         var _this = this
         var eid = e.currentTarget.dataset['id']
-        eventApi.deleteEvent(eid).then((resp)=>{
+        eventApi.deleteEvent(eid).then((resp) => {
             if (resp.data.status != 0) {
                 return false
             }
@@ -185,7 +196,7 @@ Page({
             imageUrl: image
         }
     },
-    onShareTimeline() {
+    onShareTimeline () {
         var _this = this
         var title = this.data.post.title + '的动态更新啦，快点击查看'
         var image = this.data.post.cover

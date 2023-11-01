@@ -1,12 +1,23 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/post/booking.js
 const app = getApp()
-const bookingApi=require("../../api/booking")
+const bookingApi = require("../../api/booking")
 Component({
     /**
      * 组件的属性列表
      */
     properties: {
-        postId: {type: Number,value:null},
+        postId: { type: Number, value: null },
         booked: { type: Boolean, value: false },
         currentTimeIndex: null,
     },
@@ -21,21 +32,21 @@ Component({
         currentTimeIndex: 0,
 
         name: '',
-        date: '', 
-        time: '', 
-        remark: '', 
+        date: '',
+        time: '',
+        remark: '',
         mobile: '', // 如果当前用户已经登陆，自动填充手机号， 并且不能被修改
 
-        mobileLocked: false,        
+        mobileLocked: false,
         dates: [],
     },
 
     ready: function () {
         var user = app.globalData.userInfo
-        this.setData({ 
-            user: user ,
-            mobile:  user ?  user.mobile : '',
-            mobileLocked: user ?  true : false, 
+        this.setData({
+            user: user,
+            mobile: user ? user.mobile : '',
+            mobileLocked: user ? true : false,
         })
         this.initDate()
     },
@@ -44,7 +55,7 @@ Component({
      * 组件的方法列表
      */
     methods: {
-       
+
 
         closeHandle: function () {
             this.setData({ show: false })
@@ -54,10 +65,10 @@ Component({
         openHandle: function (user) {
             var user = app.globalData.userInfo
             this.setData({ show: true })
-            this.setData({ 
-                user: user ,
-                mobile:  user ?  user.mobile : '',
-                mobileLocked: user ?  true : false, 
+            this.setData({
+                user: user,
+                mobile: user ? user.mobile : '',
+                mobileLocked: user ? true : false,
             })
             this.triggerEvent('open', {})
         },
@@ -152,9 +163,9 @@ Component({
         validate: function (log) {
         },
 
-        submitHandle: function(){
+        submitHandle: function () {
             this._submitHandle()
-  
+
         },
 
         _submitHandle: function () {
@@ -165,25 +176,25 @@ Component({
                 })
                 return false;
             }
-            if(this.data.name==''){
+            if (this.data.name == '') {
                 wx.showToast({
-                  title: '请输入您的姓名',
-                  icon:'none'
+                    title: '请输入您的姓名',
+                    icon: 'none'
                 })
                 return false
             }
-            if(this.data.mobile==''){
+            if (this.data.mobile == '') {
                 wx.showToast({
-                  title: '请输入您的联系方式',
-                  icon:'none'
+                    title: '请输入您的联系方式',
+                    icon: 'none'
                 })
                 return false
             }
-            console.log("this.data.mobile",this.data.mobile.length)
-            if(this.data.mobile.length<'11'){
+            console.log("this.data.mobile", this.data.mobile.length)
+            if (this.data.mobile.length < '11') {
                 wx.showToast({
-                  title: '号码格式错误，请重新输入',
-                  icon:'none'
+                    title: '号码格式错误，请重新输入',
+                    icon: 'none'
                 })
                 return false
             }
@@ -192,23 +203,23 @@ Component({
             var _this = this
             var log = {
                 post_id: this.properties.postId,
-                name: this.data.name, 
-                remark: this.data.remark, 
-                mobile: this.data.mobile, 
+                name: this.data.name,
+                remark: this.data.remark,
+                mobile: this.data.mobile,
                 status: 0,
             }
-            console.log("log",log)
+            console.log("log", log)
             var d = this.data.dates[this.data.currentDateIndex]
             var t = d.times[this.data.currentTimeIndex]
             log['time'] = t.value
             log['date'] = d.value
-    
+
             app.bindPostCustomer(log.post_id, '点击了预约看房')
             this.setData({ loging: true })
             //   √
             bookingApi.createBooking(
                 log
-            ).then((resp)=>{
+            ).then((resp) => {
                 _this.setData({ loging: false })
                 if (resp.data.status == 0) {
                     _this.triggerEvent('change', { value: true })
@@ -217,18 +228,18 @@ Component({
         },
 
         nameChange: function (e) {
-            this.setData({ 
-                name: e.detail.value 
+            this.setData({
+                name: e.detail.value
             })
         },
-        mobileChange:function(e){
+        mobileChange: function (e) {
             this.setData({
-                mobile:e.detail.value
+                mobile: e.detail.value
             })
         },
-        wordChange:function(e){
+        wordChange: function (e) {
             this.setData({
-                remark:e.detail.value
+                remark: e.detail.value
             })
         },
 
@@ -241,7 +252,7 @@ Component({
                 user_group: 'user',
                 post_id: this.data.postId
             }
-            bookingApi.getBookingList(query).then((res)=>{
+            bookingApi.getBookingList(query).then((res) => {
 
             })
         },

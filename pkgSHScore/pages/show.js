@@ -1,77 +1,88 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // newHoseNum/pages/test.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    result:'',
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        result: '',
 
-  },
+    },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    console.log(options);
-    this.setData({
-      result: options.result
-    })
-  },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        console.log(options);
+        this.setData({
+            result: options.result
+        })
+    },
 
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
 
-  },
+    },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
 
-  },
+    },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
 
-  },
+    },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
 
-  },
+    },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
 
-  },
+    },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
 
-  },
+    },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-    var path = '/pkgSHScore/pages/show?result=' + this.data.result
-    return {
-      title: '积分查询',
-      path: path ,
-      imageUrl:'https://qiniucdn.udeve.net/fang2021/sh-jf-cover.png',
-     
-    }
-  },
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage () {
+        var path = '/pkgSHScore/pages/show?result=' + this.data.result
+        return {
+            title: '积分查询',
+            path: path,
+            imageUrl: 'https://qiniucdn.udeve.net/fang2021/sh-jf-cover.png',
+
+        }
+    },
 })

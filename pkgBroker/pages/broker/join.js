@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 const app = getApp();
 const postApi = require("../../../api/post");
 const brokerApi = require("../../../api/broker");
@@ -25,13 +36,13 @@ Page({
         sex: 1,
         loading: true,
         sexOptions: [{
-                label: '男',
-                value: '1'
-            },
-            {
-                label: '女',
-                value: '0'
-            }
+            label: '男',
+            value: '1'
+        },
+        {
+            label: '女',
+            value: '0'
+        }
         ],
         join_status: '',
     },
@@ -105,7 +116,7 @@ Page({
         wx.chooseImage({
             count: 1,
             sizeType: ['original', 'compressed'],
-            success(res) {
+            success (res) {
                 _this.setData({
                     uploading: true
                 })
@@ -227,18 +238,18 @@ Page({
     },
 
     showUserGroupSelector: function () {
-      var _this = this
+        var _this = this
         wx.navigateTo({
-          url: '/pages/enums/index?cat=broker_group',
-          events:{
-            change:function(e){
-              console.log('e',e);
-              _this.setData({ 
-                groupValue:e.value, 
-                groupName:e.name,
-              })
-            }
-          },
+            url: '/pages/enums/index?cat=broker_group',
+            events: {
+                change: function (e) {
+                    console.log('e', e);
+                    _this.setData({
+                        groupValue: e.value,
+                        groupName: e.name,
+                    })
+                }
+            },
         })
     },
 
@@ -308,7 +319,7 @@ Page({
     },
 
 
-    smsLoginHandle(cb) {
+    smsLoginHandle (cb) {
         // 通过短信验证码登陆账号
         var mobile = this.data.mobile
         var code = this.data.smsCode
@@ -326,7 +337,7 @@ Page({
             })
             return false
         }
-        smsApi.smsAuth(phone,code).then((res)=>{
+        smsApi.smsAuth(phone, code).then((res) => {
             var data = res.data
             if (data.status == 0) {
                 // 保存下服务器返回的token
@@ -335,7 +346,7 @@ Page({
                 auth.setUserInfo(token, user)
                 return cb()
             }
-      
+
         })
     },
     /**

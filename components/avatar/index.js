@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/avatar/index.js
 Component({
     /**
@@ -5,26 +16,26 @@ Component({
      */
     properties: {
         border: {
-            type: String, 
+            type: String,
             default: null,
         },
         size: {
-            type: Number, 
-            default: 200, 
-        },  
+            type: Number,
+            default: 200,
+        },
         src: {
-            type: String, 
+            type: String,
             default: '',
         }
 
     },
 
     observers: {
-        "border": function(color){
-            if(!color){
-                return 
+        "border": function (color) {
+            if (!color) {
+                return
             }
-            this.setData({ 
+            this.setData({
                 borderValue: "border:6rpx solid " + color
             })
         }

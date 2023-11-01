@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/price-picker.js
 Component({
     /**
@@ -7,7 +18,7 @@ Component({
         position: {
             type: String, value: "bottom"
         },
-        label: {type: String, value: '售价'}
+        label: { type: String, value: '售价' }
 
     },
 
@@ -171,8 +182,8 @@ Component({
             this.setData({ show: false })
         },
 
-        showHandle: function(e){
-            this.setData({show: true})
+        showHandle: function (e) {
+            this.setData({ show: true })
         },
 
         onReset: function (e) {

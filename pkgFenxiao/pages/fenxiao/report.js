@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/owner/sale.js
 
 const app = getApp()
@@ -20,55 +31,55 @@ Page({
         receiver_name: '',
         post_type: '',
         sexOptions: [{
-                label: '先生',
-                value: 1
-            },
-            {
-                label: '女士',
-                value: 0
-            }
+            label: '先生',
+            value: 1
+        },
+        {
+            label: '女士',
+            value: 0
+        }
         ],
         houses: [{
-                id: 1,
-                selected: false,
-                value: "不限"
-            },
-            {
-                id: 2,
-                selected: false,
-                value: "一室"
-            },
-            {
-                id: 3,
-                selected: false,
-                value: "两室"
-            },
-            {
-                id: 4,
-                selected: false,
-                value: "三室"
-            },
-            {
-                id: 5,
-                selected: false,
-                value: "四室"
-            },
-            {
-                id: 6,
-                selected: false,
-                value: "五室及以上"
-            }
+            id: 1,
+            selected: false,
+            value: "不限"
+        },
+        {
+            id: 2,
+            selected: false,
+            value: "一室"
+        },
+        {
+            id: 3,
+            selected: false,
+            value: "两室"
+        },
+        {
+            id: 4,
+            selected: false,
+            value: "三室"
+        },
+        {
+            id: 5,
+            selected: false,
+            value: "四室"
+        },
+        {
+            id: 6,
+            selected: false,
+            value: "五室及以上"
+        }
         ],
         post: null,
         postValue: '',
         tabs: [{
-                label: '全号',
-                value: 'full'
-            },
-            {
-                label: '隐号',
-                value: 'protected'
-            },
+            label: '全号',
+            value: 'full'
+        },
+        {
+            label: '隐号',
+            value: 'protected'
+        },
         ],
         name: '',
         mobile: '',
@@ -109,7 +120,7 @@ Page({
             mobile: e.detail.value
         })
     },
-    checkboxChange(e) {
+    checkboxChange (e) {
         let string = "houses[" + e.target.dataset.index + "].selected"
         this.setData({
             [string]: !this.data.houses[e.target.dataset.index].selected
@@ -154,7 +165,7 @@ Page({
         })
     },
 
-    pidChange(e) {
+    pidChange (e) {
         var p = e.detail
         this.setData({
             pid: p.id,
@@ -163,7 +174,7 @@ Page({
         this.loadPost(p.id)
     },
 
-    loadPostIds() {
+    loadPostIds () {
         var posts = this.data.posts
         var postIdList = []
         posts.forEach((item) => {
@@ -175,7 +186,7 @@ Page({
         })
     },
 
-    postAdd(post) {
+    postAdd (post) {
         var posts = this.data.posts
         var res = posts.filter((p) => p.id == post.id)
         if (res.length != 0) {
@@ -187,7 +198,7 @@ Page({
         })
         this.loadPostIds()
     },
-    onClose(e) {
+    onClose (e) {
         var i = e.currentTarget.dataset.i
         var posts = this.data.posts
         posts.splice(i, 1)
@@ -213,7 +224,7 @@ Page({
             })
         })
     },
-    chooseHandle(e) {
+    chooseHandle (e) {
         var value = e.detail.item.value
         var mobileType = this.data.mobileType
         var chooseShow = this.data.chooseShow
@@ -328,7 +339,7 @@ Page({
             return false;
         }
         app.dingyueHandle()
-        customerApi.createCustomer(fdata).then((resp)=>{
+        customerApi.createCustomer(fdata).then((resp) => {
             if (resp.data.status != 0) {
                 return false;
             }
@@ -352,7 +363,7 @@ Page({
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function () {},
+    onUnload: function () { },
 
 
     /**

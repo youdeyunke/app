@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/post/filter/old-post-filter.js
 Component({
     /**
@@ -25,7 +36,7 @@ Component({
                 label: "默认",
                 value: null
             },
-   
+
             {
                 label: "均价（从小到大)",
                 value: "custom_average_price  asc"
@@ -54,7 +65,7 @@ Component({
         priceChange: function (e) {
             var filter = this.data.filter
             var data = e.detail
-            
+
             if (data.average_price && data.average_price.length >= 3) {
                 filter.average_price = data.average_price
             } else {

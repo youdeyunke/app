@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgAdmin/pages/admin/xiangce.js
 const app = getApp()
 const mediaApi = require("../../../../api/media")
@@ -26,7 +37,7 @@ Page({
         })
         this.loadData()
     },
-    loadData() {
+    loadData () {
         var _this = this
         var query = {
             target_type: this.data.targetType,
@@ -52,7 +63,7 @@ Page({
         })
     },
 
-    onChange(event) {
+    onChange (event) {
         var cats = this.data.cats
         var i = event.detail.index
         this.setData({
@@ -63,17 +74,17 @@ Page({
         })
     },
 
-    showPopup() {
+    showPopup () {
         this.setData({
             show: true
         });
     },
-    onClose() {
+    onClose () {
         this.setData({
             show: false
         });
     },
-    onConfirm(v) {
+    onConfirm (v) {
         var cats = this.data.cats
         this.setData({
             mediaCatId: cats[v.detail.index].id,
@@ -84,7 +95,7 @@ Page({
             show: false
         });
     },
-    createAlbum() {
+    createAlbum () {
         this.setData({
             albumShow: true,
             albumVal: {
@@ -93,14 +104,14 @@ Page({
             }
         })
     },
-    updateAlbum() {
+    updateAlbum () {
         this.setData({
             albumShow: true,
             albumVal: this.data.cats[this.data.albumIndex]
 
         })
     },
-    deleteAlbum() {
+    deleteAlbum () {
         var _this = this
         wx.showModal({
             title: '提示',

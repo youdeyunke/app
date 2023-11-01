@@ -1,6 +1,17 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/post/filter/city-picker.js
 const app = getApp()
-const cityApi= require("../../api/city")
+const cityApi = require("../../api/city")
 Component({
     /**
      * 组件的属性列表
@@ -78,7 +89,7 @@ Component({
 
         loadCityData: function () {
             var _this = this
-            cityApi.getCityListV2().then((resp)=>{
+            cityApi.getCityListV2().then((resp) => {
                 if (resp.data.status != 0) {
                     return false
                 }

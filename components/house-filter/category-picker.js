@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/house-filter/category-picker.js
 Component({
     /**
@@ -12,10 +23,10 @@ Component({
         }
     },
 
-    observers:{
-        "items" :function(val){
-            if(!val.length){ return }
-            var arr = val.map((ite)=>{
+    observers: {
+        "items": function (val) {
+            if (!val.length) { return }
+            var arr = val.map((ite) => {
                 ite.active = false
                 return ite
             })
@@ -43,7 +54,7 @@ Component({
         onConfirm: function (e) {
             // 点击确定
             var _this = this
-            if(!this.data.activeValue.length){
+            if (!this.data.activeValue.length) {
                 this.setData({ show: false })
                 return
             }
@@ -51,7 +62,7 @@ Component({
             var data = {
                 category: categorys
             }
-            
+
 
             console.log('on change', data)
             this.triggerEvent('change', data)
@@ -76,12 +87,12 @@ Component({
                 filterItem: items
             })
         },
-        showHandle: function(e){
-            this.setData({show: true})
+        showHandle: function (e) {
+            this.setData({ show: true })
         },
 
         onReset: function (e) {
-            var arr = this.data.items.map((ite)=>{
+            var arr = this.data.items.map((ite) => {
                 ite.active = false
                 return ite
             })

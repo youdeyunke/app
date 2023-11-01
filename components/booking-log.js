@@ -1,7 +1,18 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/booking-log.js
 const app = getApp()
-const postApi= require("../api/post")
-const bookingApi=require("../api/booking")
+const postApi = require("../api/post")
+const bookingApi = require("../api/booking")
 Component({
     /**
      * 组件的属性列表
@@ -109,8 +120,8 @@ Component({
                 return
             }
             var _this = this
-        //   有待检测   父级页面不知道如何进入   输入路径参数未知
-            postApi.getPostDetail(pid).then((resp)=>{
+            //   有待检测   父级页面不知道如何进入   输入路径参数未知
+            postApi.getPostDetail(pid).then((resp) => {
                 _this.setData({
                     post: resp.data.data
                 })
@@ -156,11 +167,11 @@ Component({
         },
 
         updateLogStatus: function (status, cb) {
-          
+
             var _this = this
             bookingApi.updateBookingStatus(
-                this.data.item.id,status
-            ).then((resp)=>{
+                this.data.item.id, status
+            ).then((resp) => {
                 if (resp.data.status == 0) {
                     var item = _this.data.item
                     item['status'] = status
@@ -175,7 +186,7 @@ Component({
             wx.showModal({
                 title: '操作提示',
                 content: '确定要删除这条预约记录吗?',
-                success(res) {
+                success (res) {
                     if (res.confirm) {
                         _this.updateLogStatus(3)
                     }

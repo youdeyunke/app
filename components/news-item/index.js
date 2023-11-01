@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/tt.js
 const app = getApp()
 
@@ -10,19 +21,19 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        item: { type: Object, value: {} }, 
-        width: {type: Number, value: 710},
-        isCell: {type: Boolean, value: false},
+        item: { type: Object, value: {} },
+        width: { type: Number, value: 710 },
+        isCell: { type: Boolean, value: false },
     },
 
     observers: {
-        "item": function(item){
-            if(!item || !item.id || !item.content_type){
-                return 
+        "item": function (item) {
+            if (!item || !item.id || !item.content_type) {
+                return
             }
-            if(this.data.isCell == true){
+            if (this.data.isCell == true) {
                 // 强制制定了class name
-                this.setData({ 
+                this.setData({
                     className: 'item'
                 })
                 return
@@ -30,9 +41,9 @@ Component({
 
             var t = item.content_type || 'html'
 
-            if(t == 'video'){
-           
-                this.setData({ 
+            if (t == 'video') {
+
+                this.setData({
                     className: 'video-item'
                 })
             }

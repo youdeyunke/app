@@ -1,14 +1,25 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 let request = require('../utils/request.js');
 
 /**
  * 合同模块
  */
 // 拉取合同列表 
-export function getContractList( ){
+export function getContractList () {
     return request.get("/api/v6/fdd/contracts")
 }
 
 // 拉取合同详情
-export function getContractDetail(cid){
-  return request.get("/api/v6/fdd/contracts/"+cid)
+export function getContractDetail (cid) {
+    return request.get("/api/v6/fdd/contracts/" + cid)
 }

@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/news/show.js
 const app = getApp()
 const newsApi = require("../../../api/news")
@@ -26,7 +37,7 @@ Page({
 
         var _this = this
         // √
-        newsApi.getNewsDetail(_this.data.nid).then((resp)=>{
+        newsApi.getNewsDetail(_this.data.nid).then((resp) => {
             _this.setData({
                 item: resp.data.data,
             })
@@ -36,11 +47,11 @@ Page({
         })
     },
 
-    endAction() {
+    endAction () {
         this.videoContext = wx.createVideoContext('video', this);
         this.videoContext.exitFullScreen()
     },
-    startAciton() {
+    startAciton () {
         var videoContext = wx.createVideoContext('myVideo', this);// 	创建 video 上下文 VideoContext 对象。
         videoContext.requestFullScreen({	// 设置全屏时视频的方向，不指定则根据宽高比自动判断。
             direction: 90						// 屏幕逆时针90度

@@ -1,3 +1,14 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: UDEVE Team <tech@udeve.cn>
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
 <van-search bind:change="kwChange" model:value="{{kw}}"></van-search>
 <van-cell-group title="请选择置业顾问">
     <van-cell is-link bindtap="itemClick" data-index="{{index}}" title="{{item.name ? item.name+'('+item.mobile+')' : ''}}" value="选择" wx:for="{{brokers}}"></van-cell>

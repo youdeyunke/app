@@ -1,6 +1,17 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/post-selector/index.js
 const app = getApp()
-const postApi=require("../../api/post")
+const postApi = require("../../api/post")
 Component({
     /**
      * 组件的属性列表
@@ -21,10 +32,10 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        onClose() {
+        onClose () {
             this.setData({ show: false });
         },
-        onChange(e) {
+        onChange (e) {
             var _this = this
             let kw = e.detail
             if (kw == '') {
@@ -35,15 +46,15 @@ Component({
                 return
             }
             //？？   该组件未被引用
-            postApi.quickSearch(kw).then((res)=>{
+            postApi.quickSearch(kw).then((res) => {
                 _this.setData({
                     postItems: res.data.data
                 })
             })
         },
-        selectHandle(e) {
-            const { id, index  } = e.currentTarget.dataset
-            var item =  this.data.postItems[index]
+        selectHandle (e) {
+            const { id, index } = e.currentTarget.dataset
+            var item = this.data.postItems[index]
             this.triggerEvent("change", item)
         }
     }

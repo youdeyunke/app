@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/news/index.js
 const app = getApp()
 const tourApi = require("../../../api/tour")
@@ -25,9 +36,9 @@ Page({
         var postId = q.post_id || ''
         wx.setNavigationBarTitle({ title: '线上活动' })
         this.setData({
-          post_id: postId
-        },() => {
-          _this.loadData()
+            post_id: postId
+        }, () => {
+            _this.loadData()
         })
 
     },
@@ -44,10 +55,10 @@ Page({
             page: _this.data.page,
             per_page: _this.data.per_page
         }
-        if (this.data.post_id){
-          query.post_id = this.data.post_id
+        if (this.data.post_id) {
+            query.post_id = this.data.post_id
         }
-        tourApi.getTourList(query).then((resp)=>{
+        tourApi.getTourList(query).then((resp) => {
             var index = _this.data.page - 1
             var key = 'items[' + index + ']'
             var data = {

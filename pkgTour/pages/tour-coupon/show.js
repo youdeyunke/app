@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgTour/pages/tour-coupon/show.js
 const app = getApp()
 const tourApi = require("../../../api/tour")
@@ -29,30 +40,30 @@ Page({
         mobile: null
     },
 
-    moveHome() {
+    moveHome () {
         wx.switchTab({
             url: '/pages/home/home'
         })
     },
 
-    createHaibao() {
+    createHaibao () {
         var tour = this.data.item
         this.selectComponent("#poster").showPopup(tour)
     },
 
-    gotoKaquan() {
+    gotoKaquan () {
         wx.navigateTo({
             url: '/pkgMyself/pages/coupons/index',
         })
     },
 
-    mobileChange() {
+    mobileChange () {
         this.setData({
             mobile_lock: false
         })
     },
 
-    smsLoginHandle(cb) {
+    smsLoginHandle (cb) {
         // 通过短信验证码登陆账号
         var phone = this.data.mobile
         var code = this.data.sms_code
@@ -102,15 +113,15 @@ Page({
         })
     },
 
-    createHistory(id) {
-      historyApi.createHistory({
-        target_type: "tour",
-        target_id: id
-      }).then((resp) => {
-        if (resp.data.data.status != 0) {
-          return
-        }
-      })
+    createHistory (id) {
+        historyApi.createHistory({
+            target_type: "tour",
+            target_id: id
+        }).then((resp) => {
+            if (resp.data.data.status != 0) {
+                return
+            }
+        })
     },
 
     joinHandle: function () {
@@ -189,7 +200,7 @@ Page({
         }
     },
 
-    postData(data) {
+    postData (data) {
         var _this = this
         tourApi.createTourCoupon(data).then((resp) => {
             _this.setData({
@@ -210,8 +221,8 @@ Page({
                             })
                         }
                     },
-                    fail: () => {},
-                    complete: () => {}
+                    fail: () => { },
+                    complete: () => { }
                 });
 
             }
@@ -221,7 +232,7 @@ Page({
     loadData: function (cb) {
         var _this = this
         var bid = this.data.brokerId || ''
-        tourApi.getTourDetail(_this.data.tourId,{broker_id:bid}).then((resp)=>{
+        tourApi.getTourDetail(_this.data.tourId, { broker_id: bid }).then((resp) => {
             var tour = resp.data.data
             var joined = resp.data.data.joined
             var html = tour.content || ''
@@ -322,10 +333,10 @@ Page({
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () {},
+    onReachBottom: function () { },
 
 
-    onShareTimeline() {
+    onShareTimeline () {
         var _this = this
         var u = app.globalData.userInfo
         var shareQuery = 'id=' + this.data.tourId

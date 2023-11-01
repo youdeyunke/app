@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgEvent/pages/event/new.js
 const app = getApp()
 var eventApi = require('../../../api/event');
@@ -57,13 +68,13 @@ Page({
      */
     onShow: function () {
         // 自动生成pub time 
-        var d = new Date() 
-        var y = d.getFullYear()  
-        var m = d.getMonth()   + 1
+        var d = new Date()
+        var y = d.getFullYear()
+        var m = d.getMonth() + 1
         var d = d.getDate()
-        var date = y + '-' + m + '-' + d  
+        var date = y + '-' + m + '-' + d
         this.setData({
-            pub_time: date, 
+            pub_time: date,
         })
 
     },
@@ -159,7 +170,7 @@ Page({
 
         this.setData({ loading: true })
         // √
-        eventApi.createEvent(data).then((resp)=>{
+        eventApi.createEvent(data).then((resp) => {
             _this.setData({ loading: false })
             if (resp.data.status != 0) {
                 return false
@@ -179,7 +190,7 @@ Page({
 
     loadCats: function () {
         var _this = this
-        eventApi.getEventCatList().then((resp)=>{
+        eventApi.getEventCatList().then((resp) => {
             _this.setData({
                 cats: resp.data.data
             })

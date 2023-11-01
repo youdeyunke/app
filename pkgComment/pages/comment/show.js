@@ -1,6 +1,17 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgComment/pages/comment/show.js
 const app = getApp()
-const mycommentApi= require("../../../api/mycomment")
+const mycommentApi = require("../../../api/mycomment")
 var auth = require('../../../utils/auth.js');
 
 Page({
@@ -52,7 +63,7 @@ Page({
             likeNums: this.data.item.like_nums + 1,
             liked: true,
         })
-        mycommentApi.likeComment(cid).then((res)=>{
+        mycommentApi.likeComment(cid).then((res) => {
             wx.setStorage({
                 key: key,
                 data: true,
@@ -86,7 +97,7 @@ Page({
                 return false
             }
             var _this = this
-            mycommentApi.createComment(data).then((resp)=>{
+            mycommentApi.createComment(data).then((resp) => {
                 if (resp.data.status == 0) {
                     _this.closeFormHandle()
                     wx.showToast({
@@ -100,7 +111,7 @@ Page({
                     });
                     _this.loadData()
                 }
-              })
+            })
         })
     },
 
@@ -127,7 +138,7 @@ Page({
     loadData: function () {
         // 加载评论，以及回复
         var _this = this
-        mycommentApi.getCommentDetail( _this.data.cid).then((resp)=>{
+        mycommentApi.getCommentDetail(_this.data.cid).then((resp) => {
             var item = resp.data.data.item
             var reply_items = item.reply_items
             item.reply_items = []
@@ -136,8 +147,8 @@ Page({
                 item: item,
                 likeNums: resp.data.data.item.like_nums,
                 reply_items: reply_items
-            })  
-          })
+            })
+        })
     },
 
     /**

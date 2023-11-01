@@ -1,91 +1,102 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgAdmin/pages/clue/home.js
-const app = getApp() 
-const  clueApi = require("../../../api/clue")
+const app = getApp()
+const clueApi = require("../../../api/clue")
 
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    items: [], 
-    summary: {},
-    loading: true,
-  },
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        items: [],
+        summary: {},
+        loading: true,
+    },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (q) {
-    this.loadData()
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (q) {
+        this.loadData()
 
-  },
+    },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
 
-  },
+    },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    this.setData({ 
-      user: app.globalData.userInfo, 
-    })
-  },
-
-
-  loadData: function(){
-    // 加载线索摘要信息 
-    var _this = this  
-    // √
-    clueApi.getClueSummary().then((resp)=>{
-        if(resp.data.status != 0){
-          return false 
-        }
-        _this.setData({
-          items: resp.data.data.items, 
-          summary: resp.data.data.summary, 
-          loading: false, 
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+        this.setData({
+            user: app.globalData.userInfo,
         })
-    })
-  },
+    },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
 
-  },
+    loadData: function () {
+        // 加载线索摘要信息 
+        var _this = this
+        // √
+        clueApi.getClueSummary().then((resp) => {
+            if (resp.data.status != 0) {
+                return false
+            }
+            _this.setData({
+                items: resp.data.data.items,
+                summary: resp.data.data.summary,
+                loading: false,
+            })
+        })
+    },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
 
-  },
+    },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
 
-  },
+    },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
 
-  },
+    },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
 
-  }
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+
+    }
 })

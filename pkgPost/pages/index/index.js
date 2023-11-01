@@ -1,6 +1,17 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/sub-districts/index.js
 const app = getApp()
-const albumApi=require("../../../api/album")
+const albumApi = require("../../../api/album")
 Page({
 
     /**
@@ -17,15 +28,15 @@ Page({
         filter: {},
     },
 
-    gotoMap: function(){
+    gotoMap: function () {
         wx.navigateTo({
             url: '/pkgMap/pages/map/index'
         })
     },
 
-    modeToggle: function(){
+    modeToggle: function () {
         this.setData({
-            mode:  this.data.mode == 'list' ? 'map' : 'list'
+            mode: this.data.mode == 'list' ? 'map' : 'list'
         })
     },
 
@@ -81,7 +92,7 @@ Page({
         var _this = this
         albumApi.getAlbumDetail(
             albumId
-        ).then((resp)=>{
+        ).then((resp) => {
             var album = resp.data.data
             _this.setData({
                 album: album,

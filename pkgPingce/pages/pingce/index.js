@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgPingce/pages/pingce/index.js
 const app = getApp()
 Page({
@@ -8,13 +19,13 @@ Page({
     data: {
         postId: null,
         postData: {},
-        pingceList:[]
+        pingceList: []
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad(options) {
+    onLoad (options) {
         this.setData({
             postId: options.postid
         })
@@ -23,7 +34,7 @@ Page({
     },
     loadPost: function () {
         var pid = this.data.postId
-		var _this = this
+        var _this = this
         app.request({
             url: '/api/v6/post_base_info/' + pid,
             method: 'GET',
@@ -32,12 +43,12 @@ Page({
                     postData: resp.data.data
                 })
             }
-		})
+        })
     },
     loadpingce: function () {
         var _this = this
         app.request({
-            url: '/api/v6/post_reviews/'+this.data.postId,
+            url: '/api/v6/post_reviews/' + this.data.postId,
             method: 'GET',
             success: function (resp) {
                 _this.setData({
@@ -48,7 +59,7 @@ Page({
             }
         })
     },
-    calculateAverage(arr) {
+    calculateAverage (arr) {
         let sum = 0;
         let count = 0;
 
@@ -63,56 +74,56 @@ Page({
     },
     goBack: function () {
         var pages = getCurrentPages();
-        if(pages.length>1) {
+        if (pages.length > 1) {
             wx.navigateBack({
-                delta: 1 
+                delta: 1
             });
-        }else {
+        } else {
             wx.reLaunch({
                 url: '/pages/home/home'
-              })
+            })
         }
-      
+
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady() {
+    onReady () {
 
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow() {
+    onShow () {
 
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide() {
+    onHide () {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload() {
+    onUnload () {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh() {
+    onPullDownRefresh () {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom() {
+    onReachBottom () {
 
     },
 
@@ -124,22 +135,22 @@ Page({
         var title = this.data.postData.title
         const promise = new Promise(resolve => {
             setTimeout(() => {
-              resolve({
-                title:title+'楼盘评测报告',
-                path: '/pkgPingce/pages/pingce/index?postid=' + postid,
-                imageUrl:"https://qiniucdn.udeve.cn/fang2021/f52cbf31-f10c-42d9-bfee-21e60c15e217.jpg"
-              })
+                resolve({
+                    title: title + '楼盘评测报告',
+                    path: '/pkgPingce/pages/pingce/index?postid=' + postid,
+                    imageUrl: "https://qiniucdn.udeve.cn/fang2021/f52cbf31-f10c-42d9-bfee-21e60c15e217.jpg"
+                })
             }, 2000)
-          })
-          return {
-            promise 
-          }
+        })
+        return {
+            promise
+        }
     },
     onShareTimeline: function () {
         var postid = this.data.postId
         var title = this.data.postData.title
         return {
-            title:title+'楼盘评测报告',
+            title: title + '楼盘评测报告',
             query: 'postid=' + postid
         }
     }

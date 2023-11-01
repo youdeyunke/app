@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/post.js
 const app = getApp()
 
@@ -6,7 +17,7 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        home: {type: Boolean, value: false},
+        home: { type: Boolean, value: false },
         range: {
             type: Number, value: -1,
         },
@@ -83,7 +94,7 @@ Component({
             this.setData({ showNumber: res })
         },
         "item.tags": function (tags) {
-            if(!tags){
+            if (!tags) {
                 return
             }
             tags.splice(0, 1)
@@ -109,32 +120,32 @@ Component({
      * 组件的方法列表
      */
     methods: {
-         callHandle: function(){
-            var b  = this.data.item.brokers[0]
+        callHandle: function () {
+            var b = this.data.item.brokers[0]
             wx.makePhoneCall({
-              phoneNumber: b.mobile,
+                phoneNumber: b.mobile,
             })
         },
 
-        chatHandle: function(){
+        chatHandle: function () {
             // 先调用打招呼接口
-            wx.showLoading({title: '正在打开', icon: 'none', mask: true})
+            wx.showLoading({ title: '正在打开', icon: 'none', mask: true })
             var _this = this
             var pid = this.data.item.id || ''
             console.log('pid in broker link')
             var broker = this.data.item.brokers[0]
             var bid = broker.id
             wx.navigateTo({
-                url: '/pages/messages/show?target_user_id=' + bid  + '&target_post_id=' + pid,
-                success: function(){
-                  wx.hideLoading()
+                url: '/pages/messages/show?target_user_id=' + bid + '&target_post_id=' + pid,
+                success: function () {
+                    wx.hideLoading()
                 }
-              })
-              return
-          },
+            })
+            return
+        },
 
         formHandle: function (e) {
-       
+
         },
 
     }

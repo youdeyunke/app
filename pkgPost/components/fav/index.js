@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/fav.js
 const app = getApp()
 const favApi = require("../../../api/fav")
@@ -39,7 +50,7 @@ Component({
         status: 0,
     },
 
-    ready: function () {},
+    ready: function () { },
 
 
     /**
@@ -78,7 +89,7 @@ Component({
             this.setData({
                 status: this.data.status == 1 ? 0 : 1
             })
-            favApi.createFav( 'post',pid).then((resp)=>{
+            favApi.createFav('post', pid).then((resp) => {
                 _this.setData(resp.data.data) // {{ count:0, status: 1}}
                 if (resp.data.data == true) {
                     var t = '已收藏'

@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/message/input.js
 const app = getApp()
 const messageApi = require("../../api/message")
@@ -46,16 +57,16 @@ Component({
                 pending: true
             })
 
-            messageApi.sendTextMessage(content,_this.data.receiverId).then((resp) => {
-              // 返回结果
-              _this.setData({pending:false});
+            messageApi.sendTextMessage(content, _this.data.receiverId).then((resp) => {
+                // 返回结果
+                _this.setData({ pending: false });
                 if (resp.data.code == 0) {
                     _this.triggerEvent('success', resp.data.data)
                 } else {
-                  wx.showToast({
-                    icon:'none',
-                    title: '发送消息失败，请重试',
-                  })
+                    wx.showToast({
+                        icon: 'none',
+                        title: '发送消息失败，请重试',
+                    })
                     console.error('error')
                 }
             })

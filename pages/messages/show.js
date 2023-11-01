@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/messages/index.js
 const app = getApp()
 const postApi = require("../../api/post")
@@ -87,7 +98,7 @@ Page({
         if (!postId) {
             return
         }
-        if(postId=='null') {
+        if (postId == 'null') {
             return
         }
         var data = {
@@ -95,7 +106,7 @@ Page({
             id: postId
         }
         postApi.sendPostCard(data).then((res) => {
-            
+
         })
         app.bindPostCustomer(postId, '向楼盘置业顾问发起了在线聊天咨询')
 
@@ -164,7 +175,7 @@ Page({
     },
 
     sendHandle: function (value) {
-      
+
         //  记录最新消息ID
         this.setData({
             newMessageId: value.detail.id

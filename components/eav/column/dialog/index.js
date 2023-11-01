@@ -1,10 +1,21 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/eav/column/options/index.js
 Component({
     /**
      * 组件的属性列表
      */
     properties: {
-        items: {type: Object},
+        items: { type: Object },
 
     },
 
@@ -19,12 +30,12 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        open: function(){
+        open: function () {
             this.setData({ show: true })
         },
 
-        close: function(){
-            this.setData({show: false })
+        close: function () {
+            this.setData({ show: false })
         },
 
     }

@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 const app = getApp()
 const postApi = require("../../../api/post")
 import Poster from '../../utils/poster/poster';
@@ -274,7 +285,7 @@ Page({
         palette: {}
     },
 
-    genUserCard() {
+    genUserCard () {
         var userInfo = app.globalData.userInfo
         var palette = {
             background: '#FFFFFF',
@@ -322,7 +333,7 @@ Page({
         })
     },
 
-    genTags() {
+    genTags () {
         // var userInfo = app.globalData.userInfo
         if (app.globalData.userInfo.tags == '' || app.globalData.userInfo.tags == null || app.globalData.userInfo.tags == undefined) {
             return []
@@ -353,7 +364,7 @@ Page({
         return haibaoTags
     },
 
-    loadData() {
+    loadData () {
         var _this = this
         var userInfo = app.globalData.userInfo
         console.log('99999', userInfo)
@@ -361,7 +372,7 @@ Page({
             wx.showModal({
                 content: '未绑定主营楼盘，无法生成海报',
                 showCancel: false,
-                success(res) {
+                success (res) {
                     wx.navigateBack({
                         delta: 1
                     })
@@ -393,7 +404,7 @@ Page({
         }, 800)
     },
 
-    onImgOK(e) {
+    onImgOK (e) {
         this.imagePath = e.detail.path;
         this.setData({
             posterUrl: this.imagePath,
@@ -411,11 +422,11 @@ Page({
 
     },
 
-    saveFile() {
+    saveFile () {
         var _this = this
         wx.saveImageToPhotosAlbum({
             filePath: _this.data.posterUrl,
-            success() {
+            success () {
                 wx.showToast({
                     title: '保存成功',
                     icon: 'success',
@@ -423,7 +434,7 @@ Page({
             }
         })
     },
-    userEdit() {
+    userEdit () {
         wx.navigateTo({
             url: '/pkgMyself/pages/profile/index'
         })

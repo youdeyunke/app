@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/zhaofang/index.js
 const app = getApp()
 const smsApi = require("../../api/sms")
@@ -37,58 +48,58 @@ Component({
         contact_name: '',
         sms_code: '',
         housetypeList: [{
-                name: '1居',
-                value: 1,
-            },
-            {
-                name: '2居',
-                value: 2,
-            },
-            {
-                name: '3居',
-                value: 3,
-            },
-            {
-                name: '4居',
-                value: 4
-            },
-            {
-                name: '5居',
-                value: 5
-            },
-            {
-                name: '5居+',
-                value: 6
-            },
+            name: '1居',
+            value: 1,
+        },
+        {
+            name: '2居',
+            value: 2,
+        },
+        {
+            name: '3居',
+            value: 3,
+        },
+        {
+            name: '4居',
+            value: 4
+        },
+        {
+            name: '5居',
+            value: 5
+        },
+        {
+            name: '5居+',
+            value: 6
+        },
         ],
 
         areaList: [{
             name: '80㎡以下'
-        }, ],
+        },],
 
         purposeList: [{
-                name: '刚需'
-            },
-            {
-                name: '改善房'
-            },
-            {
-                name: '投资增值'
-            },
-            {
-                name: '给父母住'
-            },
-            {
-                name: '学区房'
-            },
-            {
-                name: '其他'
-            },
+            name: '刚需'
+        },
+        {
+            name: '改善房'
+        },
+        {
+            name: '投资增值'
+        },
+        {
+            name: '给父母住'
+        },
+        {
+            name: '学区房'
+        },
+        {
+            name: '其他'
+        },
 
         ]
     },
 
-    attached() {
+    attached () {
         this.loadData()
 
         var _this = this
@@ -155,7 +166,7 @@ Component({
                 })
             })
         },
-        onChange(e) {
+        onChange (e) {
             console.log(e.detail)
             this.setData({
                 budget_min: e.detail[0],
@@ -163,13 +174,13 @@ Component({
                 value: e.detail
             })
         },
-        nextPage() {
+        nextPage () {
             var status = this.data.status
             this.setData({
                 status: status + 1
             })
         },
-        quyuNextPage() {
+        quyuNextPage () {
             if (!this.data.position) {
                 wx.showToast({
                     title: '请选择区域',
@@ -182,7 +193,7 @@ Component({
                 status: status + 1
             })
         },
-        huxinNextPage() {
+        huxinNextPage () {
             if (!this.data.housetype) {
                 wx.showToast({
                     title: '请选择户型',
@@ -195,7 +206,7 @@ Component({
                 status: status + 1
             })
         },
-        mianjiNextPage() {
+        mianjiNextPage () {
             if (!this.data.area) {
                 wx.showToast({
                     title: '请选择面积',
@@ -208,7 +219,7 @@ Component({
                 status: status + 1
             })
         },
-        yongtuNextPage() {
+        yongtuNextPage () {
             if (!this.data.purpose) {
                 wx.showToast({
                     title: '请选择买房用途',
@@ -331,7 +342,7 @@ Component({
             })
 
         },
-        smsLoginHandle(cb) {
+        smsLoginHandle (cb) {
             // 通过短信验证码登陆账号
             var phone = this.data.contact_mobile
             var code = this.data.sms_code

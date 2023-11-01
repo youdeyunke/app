@@ -1,3 +1,14 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: UDEVE Team <tech@udeve.cn>
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
 <view class="wrapper">
     <van-notice-bar bindtap="showDetail" left-icon="/assets/icons/yongjin.png" text="佣金： {{ value.brokage}} 详细规则：{{ value.brokage_desc || '无' }}" >
         <navigator slot="right-icon" url="/pkgFenxiao/pages/fenxiao/report?pid={{value.post_id}}" hover-class="none"> 

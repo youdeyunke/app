@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/map.js
 const app = getApp()
 
@@ -52,7 +63,7 @@ Component({
             this.setData({ center: { longitude: _this.data.longitude, latitude: _this.data.latitude } })
         },
         setMarker: function () {
-            this.setData({markers: []})
+            this.setData({ markers: [] })
             var pois = this.data.pois
             var markers = []
             var _this = this
@@ -72,31 +83,31 @@ Component({
 
             }
             markers.push(marker)
-            pois.forEach((v,i) => {
+            pois.forEach((v, i) => {
                 var m = {
-                    id: v.id, 
+                    id: v.id,
                     iconPath: '/assets/icons/marker.png',
                     latitude: v.location.lat,
-                    width:'40rpx',
-                    height:'40rpx',
+                    width: '40rpx',
+                    height: '40rpx',
                     longitude: v.location.lng,
 
-                    
-      
+
+
                 }
                 m.alpha = '0.6',
-                m.width = 1,
-                m.zIndex = 10,
-                m.height = 1,
-                m.callout = {
-                    content: v.title, 
-                    bgColor: '#ffffff', 
-                    borderRadius: 4,
-                    display: 'ALWAYS',
-                    color: '#333333', 
-                    padding:6,
-                    textAlign: 'center'
-                }
+                    m.width = 1,
+                    m.zIndex = 10,
+                    m.height = 1,
+                    m.callout = {
+                        content: v.title,
+                        bgColor: '#ffffff',
+                        borderRadius: 4,
+                        display: 'ALWAYS',
+                        color: '#333333',
+                        padding: 6,
+                        textAlign: 'center'
+                    }
                 markers.push(m)
             })
             this.setData({ markers: markers })
@@ -109,7 +120,7 @@ Component({
             wx.showLoading({ title: '正在打开地图', mask: true })
             wx.getFuzzyLocation({
                 type: 'wgs84', //返回可以用于wx.openLocation的经纬度
-                success(res) {
+                success (res) {
                     const latitude = _this.data.latitude
                     const longitude = _this.data.longitude
                     wx.openLocation({
@@ -143,7 +154,7 @@ Component({
                 },
             })
         },
-        getMapContext() {
+        getMapContext () {
 
             var _this = this
             var arr = []

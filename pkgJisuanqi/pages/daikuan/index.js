@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 //index.js
 const util = require('./util.js')
 //获取应用实例
@@ -80,14 +91,14 @@ Page({
             });
         }
         var lprRate = app.globalData.myconfigs.lpr_rate || 4.65
-        var businessTotalLoanStr = '' 
+        var businessTotalLoanStr = ''
         var businessTotalLoan = 0
-        if(q.total){
-            businessTotalLoanStr = q.total  
+        if (q.total) {
+            businessTotalLoanStr = q.total
             businessTotalLoan = parseFloat(q.total)
         }
-        console.log('businessTotalLoanStr',businessTotalLoanStr,businessTotalLoan)
-        
+        console.log('businessTotalLoanStr', businessTotalLoanStr, businessTotalLoan)
+
         this.setData({
             paymentYearArr: paymentYearArr,
             businessTotalLoanStr: businessTotalLoanStr,
@@ -315,14 +326,14 @@ Page({
      */
     onShareAppMessage: function () {
         return {
-            title:'房贷计算器',
-            path:'/pkgJisuanqi/pages/daikuan/index'
+            title: '房贷计算器',
+            path: '/pkgJisuanqi/pages/daikuan/index'
         }
     },
-    onShareTimeline(){
-            return{
-            title:'房贷计算器',
-            path:'/pkgJisuanqi/pages/daikuan/index'
-            }
+    onShareTimeline () {
+        return {
+            title: '房贷计算器',
+            path: '/pkgJisuanqi/pages/daikuan/index'
         }
+    }
 })

@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 let request = require('../utils/request.js');
 
 /** 
@@ -5,12 +16,12 @@ let request = require('../utils/request.js');
  * **/
 
 // 拉取开屏广告列表   完成
-export function getFirstScreen(){
-    return request.get("/api/v6/first_screen_adds/" );
+export function getFirstScreen () {
+    return request.get("/api/v6/first_screen_adds/");
 }
 
 // 更新广告数据    完成
-export function updateFirstScreenAdd(data){
-    return request.put("/api/v6/first_screen_adds/" + data.id, data );
+export function updateFirstScreenAdd (data) {
+    return request.put("/api/v6/first_screen_adds/" + data.id, data);
 }
 

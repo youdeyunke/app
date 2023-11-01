@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgXiangce/pages/xiangce/index.js
 var auth = require('../../../utils/auth.js');
 const app = getApp()
@@ -47,16 +58,16 @@ Page({
     },
 
     loadPostBrokerInfo: function (pid) {
-      var _this = this
-      var query = {
-        post_id : pid
-      }
-      brokerApi.getPostDefaultBrokerDetail(query).then((res) => {
-        var broker = res.data.data
-        _this.setData({
-          broker: broker
+        var _this = this
+        var query = {
+            post_id: pid
+        }
+        brokerApi.getPostDefaultBrokerDetail(query).then((res) => {
+            var broker = res.data.data
+            _this.setData({
+                broker: broker
+            })
         })
-      })
     },
 
     loadData: function () {
@@ -70,7 +81,7 @@ Page({
             target_id: this.data.targetId,
         }
         var _this = this
-        mediaApi.getMediaCatList(query).then((resp)=>{
+        mediaApi.getMediaCatList(query).then((resp) => {
             var cats = resp.data.data.filter((cat) => {
                 if (cat.media_items.length == 0) {
                     return false

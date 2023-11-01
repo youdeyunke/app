@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/post/index.js
 const app = getApp()
 const postApi = require("../../../api/post")
@@ -5,13 +16,13 @@ const scoreApi = require("../../../api/score")
 const historyApi = require("../../../api/history")
 var wxCharts = require('../../../utils/wxcharts-min');
 const themes = [{
-        color: '#3A6BDD',
-        bgImg: 'https://qiniucdn.udeve.cn/fang2021/6eed67a9-7a5c-4a64-be48-d81221ca3ac0.png'
-    },
-    {
-        color: '#30DFBB',
-        bgImg: 'https://qiniucdn.udeve.cn/fang2021/40f109f6-8ec0-4bb2-8483-8a073fa2a294.png'
-    }
+    color: '#3A6BDD',
+    bgImg: 'https://qiniucdn.udeve.cn/fang2021/6eed67a9-7a5c-4a64-be48-d81221ca3ac0.png'
+},
+{
+    color: '#30DFBB',
+    bgImg: 'https://qiniucdn.udeve.cn/fang2021/40f109f6-8ec0-4bb2-8483-8a073fa2a294.png'
+}
 ]
 Page({
     /**
@@ -61,10 +72,10 @@ Page({
             selector: '#' + name,
             duration: 300,
             offsetTop: -offsetTop,
-            success(resp) {
+            success (resp) {
                 console.log('成功', resp)
             },
-            fail(resp) {
+            fail (resp) {
                 console.log('失败', resp)
             },
         })
@@ -84,7 +95,7 @@ Page({
         }
 
     },
-    getVanTabs(blocks) {
+    getVanTabs (blocks) {
         var vanTabs = []
         blocks.map((p) => {
             vanTabs.push(p.name)
@@ -129,7 +140,7 @@ Page({
             bgOpacity: opacity
         })
     },
-    getStatusBarHeight() {
+    getStatusBarHeight () {
         var _this = this
         wx.getSystemInfo({
             success: (result) => {
@@ -139,7 +150,7 @@ Page({
             }
         })
     },
-    setShowTab(st) {
+    setShowTab (st) {
         var _this = this
         wx.getSystemInfo({
             success: (result) => {
@@ -159,7 +170,7 @@ Page({
         })
     },
 
-    backTo(e) {
+    backTo (e) {
         console.log(e.detail.delta)
         wx.navigateBack({
             delta: e.detail.delta
@@ -203,16 +214,16 @@ Page({
     },
 
     loadPostBannerInfo: function (params) {
-      var _this = this
-      postApi.getPostBannerInfo(_this.data.postId).then((resp) => {
-        if (resp.data.code != 0) {
-          return
-        }
-        console.log("bannersInfo: resp.data", resp.data);
-        _this.setData({
-          bannersInfo: resp.data.data
+        var _this = this
+        postApi.getPostBannerInfo(_this.data.postId).then((resp) => {
+            if (resp.data.code != 0) {
+                return
+            }
+            console.log("bannersInfo: resp.data", resp.data);
+            _this.setData({
+                bannersInfo: resp.data.data
+            })
         })
-      })
     },
 
     loadPostBlocks: function () {
@@ -299,15 +310,15 @@ Page({
         this.showLogin()
     },
 
-    createHistory(id) {
-      historyApi.createHistory({
-        target_type: "post",
-        target_id: id
-      }).then((resp) => {
-        if (resp.data.data.status != 0) {
-          return
-        }
-      })
+    createHistory (id) {
+        historyApi.createHistory({
+            target_type: "post",
+            target_id: id
+        }).then((resp) => {
+            if (resp.data.data.status != 0) {
+                return
+            }
+        })
     },
 
     showLogin: function () {
@@ -363,7 +374,7 @@ Page({
         this.getPageDom()
     },
 
-    drawRadar() {
+    drawRadar () {
         let windowWidth = 320;
         try {
             let res = wx.getSystemInfoSync();
@@ -371,7 +382,7 @@ Page({
         } catch (e) {
             // do something when get system info failed
         }
-       this.radarChart = new wxCharts({
+        this.radarChart = new wxCharts({
             canvasId: 'radarCanvas',
             type: 'radar',
             background: "#D1E8FF",
@@ -478,7 +489,7 @@ Page({
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function () {},
+    onHide: function () { },
 
     /**
      * 生命周期函数--监听页面卸载

@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/qa/qa.js
 const app = getApp()
 const qaApi = require("../../../api/qa")
@@ -80,16 +91,16 @@ Page({
             var answers = []
             item['created_at_pretty'] = util.prettyTime(item['created_at'])
             item['updated_at_pretty'] = util.prettyTime(item['updated_at'])
-            if(item['answer']){
-              item['answer'].forEach((a, i) => {
-                // 查询是否点过赞
-                var cacheKey = 'answer.' + a.id + '.liked'
-                var liked = wx.getStorageSync(cacheKey) == 'liked'
-                a['created_at_pretty'] = util.prettyTime(a['created_at'])
-                a['likes'] = a['likes'] || 0
-                a['liked'] = liked
-                answers.push(a)
-              })
+            if (item['answer']) {
+                item['answer'].forEach((a, i) => {
+                    // 查询是否点过赞
+                    var cacheKey = 'answer.' + a.id + '.liked'
+                    var liked = wx.getStorageSync(cacheKey) == 'liked'
+                    a['created_at_pretty'] = util.prettyTime(a['created_at'])
+                    a['likes'] = a['likes'] || 0
+                    a['liked'] = liked
+                    answers.push(a)
+                })
             }
             _this.setData({
                 item: item,
@@ -197,7 +208,7 @@ Page({
         wx.showModal({
             title: '操作提示',
             content: '确定要删除这条回答吗？',
-            success(res) {
+            success (res) {
                 if (res.confirm) {
                     _this.doDelete()
                 }

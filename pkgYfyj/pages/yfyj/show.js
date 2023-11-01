@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgYfyj/pages/yfyj/show.js
 const app = getApp()
 const postApi = require("../../../api/post")
@@ -33,7 +44,7 @@ Page({
 
     loadData: function () {
         var _this = this
-        postApi.getBuildingRoomDetail(_this.data.roomId).then((resp)=>{
+        postApi.getBuildingRoomDetail(_this.data.roomId).then((resp) => {
             if (resp.data.status != 0) {
                 return flase
             }

@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 const app = getApp()
 const link = require('../pagemaker/link')
 const first_screenApi = require("../../api/first_screen")
@@ -30,7 +41,7 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        loadData() {
+        loadData () {
             var _this = this
             // √
             first_screenApi.getFirstScreen().then((res) => {
@@ -55,7 +66,7 @@ Component({
             })
         },
 
-        uploadData(data) {
+        uploadData (data) {
             data.id = this.data.id,
 
                 first_screenApi.updateFirstScreenAdd(

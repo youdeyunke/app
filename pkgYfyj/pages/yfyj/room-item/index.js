@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgYfyj/pages/yfyj/room-item.js
 Component({
     /**
@@ -5,7 +16,7 @@ Component({
      */
     properties: {
         room: { type: Object, },
-        selected: {type: Boolean, value: false},
+        selected: { type: Boolean, value: false },
 
     },
 
@@ -20,7 +31,7 @@ Component({
      * 组件的方法列表
      */
     methods: {
-        itemClick: function(e){
+        itemClick: function (e) {
             this.triggerEvent('click', this.data.room)
         },
 

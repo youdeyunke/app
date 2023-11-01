@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgWallet/pages/wallet/recharge.js
 const app = getApp()
 const walletApi = require('../../../api/balance.js');
@@ -28,26 +39,26 @@ Page({
         this.setData({ amount: v })
     },
 
-    callWxpay:function(data){
-      wx.requestPayment({
-        timeStamp:data.time_stamp,
-        nonceStr:data.nonce_str,
-        paySign: data.pay_sign,
-        signType:data.sign_type,
-        package:data.package_value,
-        success:function(e){
-          wx.showToast({
-            title: '支付成功',
-          })
-          wx.navigateBack()
-        },
-        fail:function(e){
-          wx.showToast({
-            title: '支付失败，请重试',
-            icon:'none',
-          })
-        }
-      })
+    callWxpay: function (data) {
+        wx.requestPayment({
+            timeStamp: data.time_stamp,
+            nonceStr: data.nonce_str,
+            paySign: data.pay_sign,
+            signType: data.sign_type,
+            package: data.package_value,
+            success: function (e) {
+                wx.showToast({
+                    title: '支付成功',
+                })
+                wx.navigateBack()
+            },
+            fail: function (e) {
+                wx.showToast({
+                    title: '支付失败，请重试',
+                    icon: 'none',
+                })
+            }
+        })
     },
 
     gotoPay: function (e) {

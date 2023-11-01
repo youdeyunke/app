@@ -1,3 +1,14 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: UDEVE Team <tech@udeve.cn>
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
 <!--pkgPingce/pages/pingce/index.wxml-->
 <image class="topimg" src="https://qiniucdn.udeve.net/udyk/64c07641e4b0a1cf65fd07cd.png" mode="" />
 <image style="position: absolute;top: 100rpx;width: 50rpx;height: 50rpx;left: 80rpx;" bindtap="goBack" src="https://qiniucdn.udeve.cn/fang2021/a392d2fb-5d3e-486b-923a-a6321fb07674.png" mode="" />

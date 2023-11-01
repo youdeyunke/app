@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/post/cover-block.js
 const app = getApp()
 
@@ -15,18 +26,18 @@ Component({
      */
     data: {
         showShareBox: false,
-        shareIcon: '', 
-        vrIcon: '', 
-        videoIcon: '', 
-        eyeIcon: '', 
+        shareIcon: '',
+        vrIcon: '',
+        videoIcon: '',
+        eyeIcon: '',
 
     },
 
-    ready: function(){
-        var ui = app.globalData.ui  
-        this.setData({ 
-            vrIcon: ui.post_cover_icon_vr, 
-            videoIcon: ui.post_cover_icon_video, 
+    ready: function () {
+        var ui = app.globalData.ui
+        this.setData({
+            vrIcon: ui.post_cover_icon_vr,
+            videoIcon: ui.post_cover_icon_video,
             eyeIcon: ui.post_covver_icon_eye,
         })
     },
@@ -39,9 +50,9 @@ Component({
             this.setData({ showShareBox: true })
         },
         vrHandle: function () {
-            var url  = '/pkgVr/pages/vr/index?post_id=' + this.data.value.id
+            var url = '/pkgVr/pages/vr/index?post_id=' + this.data.value.id
             wx.navigateTo({
-              url: url,
+                url: url,
             })
         },
     },

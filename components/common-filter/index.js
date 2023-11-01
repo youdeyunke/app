@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // components/common-filter/index.js
 const app = getApp()
 
@@ -9,60 +20,60 @@ Component({
         configs: {
             type: Array,
             value: [{
-                    label: '状态',
-                    key: 'sale_status_item_id',
-                    options: [{
-                            text: '全部状态',
-                            value: null
-                        },
-                        {
-                            text: '状态1',
-                            value: 1
-                        },
-                        {
-                            text: '状态2',
-                            value: 2
-                        },
-                        {
-                            text: '状态3',
-                            value: 3
-                        },
-                    ]
+                label: '状态',
+                key: 'sale_status_item_id',
+                options: [{
+                    text: '全部状态',
+                    value: null
                 },
                 {
-                    label: '产品',
-                    key: 'product_id',
-                    options: [{
-                            text: '产品1',
-                            value: 1
-                        },
-                        {
-                            text: '产品2',
-                            value: 2
-                        },
-                        {
-                            text: '产品3',
-                            value: 3
-                        },
-                    ]
+                    text: '状态1',
+                    value: 1
                 },
                 {
-                    label: '期次',
-                    key: 'period',
-                    options: [{
-                            text: '期次1',
-                            value: 1
-                        },
-                        {
-                            text: '期次2',
-                            value: 2
-                        },
-                        {
-                            text: '期次3',
-                            value: 3
-                        },
-                    ]
+                    text: '状态2',
+                    value: 2
                 },
+                {
+                    text: '状态3',
+                    value: 3
+                },
+                ]
+            },
+            {
+                label: '产品',
+                key: 'product_id',
+                options: [{
+                    text: '产品1',
+                    value: 1
+                },
+                {
+                    text: '产品2',
+                    value: 2
+                },
+                {
+                    text: '产品3',
+                    value: 3
+                },
+                ]
+            },
+            {
+                label: '期次',
+                key: 'period',
+                options: [{
+                    text: '期次1',
+                    value: 1
+                },
+                {
+                    text: '期次2',
+                    value: 2
+                },
+                {
+                    text: '期次3',
+                    value: 3
+                },
+                ]
+            },
 
             ],
         }

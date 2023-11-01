@@ -1,12 +1,23 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/post/pingce-block/index.js
 const app = getApp()
 Component({
     /**
      * 组件的属性列表
      */
-	properties: {
+    properties: {
         value: { type: Object },
-        color: { type: String, value: '#3A6BDD'}
+        color: { type: String, value: '#3A6BDD' }
     },
 
     /**
@@ -17,15 +28,15 @@ Component({
         zhezhao: true
     },
     ready: function () {
-		this.calculateAverage()
+        this.calculateAverage()
     },
     /**
      * 组件的方法列表
      */
     methods: {
-  
-        calculateAverage() {
-		var arr = this.data.value.pingceList
+
+        calculateAverage () {
+            var arr = this.data.value.pingceList
             let sum = 0;
             let count = 0;
 
@@ -38,10 +49,10 @@ Component({
                 zongpingfen: average
             })
         },
-        jiesuobtn() {
-           wx.navigateTo({
-             url: '/pkgPingce/pages/pingce/index?postid='+this.data.value.postId,
-           })
+        jiesuobtn () {
+            wx.navigateTo({
+                url: '/pkgPingce/pages/pingce/index?postid=' + this.data.value.postId,
+            })
         }
     }
 })

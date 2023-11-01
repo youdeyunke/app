@@ -1,3 +1,14 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自有软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pages/myself/zhao.js
 const app = getApp()
 const smsApi = require("../../api/sms")
@@ -15,7 +26,7 @@ Page({
         isDone: false,
         contact_name: '',
         contact_mobile: '',
-        contact_sex: 1, 
+        contact_sex: 1,
         area: '', // 期望面积,
         value: [100, 200],
         valueRuler: [30, 80, 150, 200, 300, 500],
@@ -30,129 +41,129 @@ Page({
 
         positionList: [],
         housetypeList: [
-          {name: '1居', value: 1,},
-          {name: '2居', value: 2,},
-          {name: '3居', value:3,},
-          {name: '4居', value:4},
-          {name: '5居', value:5},
-          {name: '5居+', value:6},
+            { name: '1居', value: 1, },
+            { name: '2居', value: 2, },
+            { name: '3居', value: 3, },
+            { name: '4居', value: 4 },
+            { name: '5居', value: 5 },
+            { name: '5居+', value: 6 },
         ],
 
         areaList: [
-          {name: '80㎡以下'},
+            { name: '80㎡以下' },
         ],
 
         purposeList: [{
-                name: '刚需'
-            },
-            {
-                name: '改善房'
-            },
-            {
-                name: '投资增值'
-            },
-            {
-                name: '给父母住'
-            },
-            {
-                name: '学区房'
-            },
-            {
-                name: '其他'
-            },
-          
+            name: '刚需'
+        },
+        {
+            name: '改善房'
+        },
+        {
+            name: '投资增值'
+        },
+        {
+            name: '给父母住'
+        },
+        {
+            name: '学区房'
+        },
+        {
+            name: '其他'
+        },
+
         ]
     },
 
-    loadAreaList(){
-      var _this = this
-      myEnum.getEnumList("areaList").then((resp) => {
-        if(resp.data.status != 0){
-          return 
-        }
-        var rdata = resp.data.data 
-        if(rdata && rdata.length > 0){ 
-          _this.setData({areaList: rdata })
-        }
-      })
+    loadAreaList () {
+        var _this = this
+        myEnum.getEnumList("areaList").then((resp) => {
+            if (resp.data.status != 0) {
+                return
+            }
+            var rdata = resp.data.data
+            if (rdata && rdata.length > 0) {
+                _this.setData({ areaList: rdata })
+            }
+        })
     },
 
-    loadPurpose(){
-      var _this = this
-      myEnum.getEnumList("purpose").then((resp) => {
-        if(resp.data.status != 0){
-          return 
-        }
-        var rdata = resp.data.data 
-        if(rdata && rdata.length > 0){ 
-          _this.setData({purpose: rdata })
-        }
-      })
+    loadPurpose () {
+        var _this = this
+        myEnum.getEnumList("purpose").then((resp) => {
+            if (resp.data.status != 0) {
+                return
+            }
+            var rdata = resp.data.data
+            if (rdata && rdata.length > 0) {
+                _this.setData({ purpose: rdata })
+            }
+        })
     },
 
-    loadhousetype(){
-      var _this = this
-      myEnum.getEnumList("housetype").then((resp) => {
-        if(resp.data.status != 0){
-          return 
-        }
-        var rdata = resp.data.data 
-        if(rdata && rdata.length > 0){ 
-          _this.setData({housetypeList: rdata })
-        }
-      })
+    loadhousetype () {
+        var _this = this
+        myEnum.getEnumList("housetype").then((resp) => {
+            if (resp.data.status != 0) {
+                return
+            }
+            var rdata = resp.data.data
+            if (rdata && rdata.length > 0) {
+                _this.setData({ housetypeList: rdata })
+            }
+        })
     },
 
-    loadbudget(){
-      var _this = this
-      myEnum.getEnumList("budget").then((resp) => {
-        if(resp.data.status != 0){
-          return 
-        }
-        var rdata = resp.data.data 
-        if(rdata && rdata.length > 0){ 
-          _this.setData({budgetList: rdata })
-        }
-      })
+    loadbudget () {
+        var _this = this
+        myEnum.getEnumList("budget").then((resp) => {
+            if (resp.data.status != 0) {
+                return
+            }
+            var rdata = resp.data.data
+            if (rdata && rdata.length > 0) {
+                _this.setData({ budgetList: rdata })
+            }
+        })
     },
 
-    loadData: function(){
-      var _this = this  
-      var query = { 
-          cityCode: wx.getStorageSync('cityCode') || ''
-      }
-      needApi.getNeedList(query).then((resp)=>{
-        if(resp.data.status != 0){
-            return 
-          }
-          var rdata = resp.data.data 
-          
-          
-          if(rdata.area && rdata.area.length > 0){ 
-            _this.setData({areaList: rdata.area })
-          }
+    loadData: function () {
+        var _this = this
+        var query = {
+            cityCode: wx.getStorageSync('cityCode') || ''
+        }
+        needApi.getNeedList(query).then((resp) => {
+            if (resp.data.status != 0) {
+                return
+            }
+            var rdata = resp.data.data
 
-          if(rdata.purpose && rdata.purpose.length > 0){ 
-            _this.setData({purposeList: resp.data.data.purpose })
-          }
-          if(rdata.housetype && rdata.housetype.length > 0){ 
-            _this.setData({housetypeList: rdata.housetype })
-          }
-          if(rdata.budget && rdata.budget.length > 0){ 
-            _this.setData({budgetList: rdata.budget })
-          }
 
-          _this.setData({ 
-            positionList: rdata.districts,
-          })
-    })
+            if (rdata.area && rdata.area.length > 0) {
+                _this.setData({ areaList: rdata.area })
+            }
+
+            if (rdata.purpose && rdata.purpose.length > 0) {
+                _this.setData({ purposeList: resp.data.data.purpose })
+            }
+            if (rdata.housetype && rdata.housetype.length > 0) {
+                _this.setData({ housetypeList: rdata.housetype })
+            }
+            if (rdata.budget && rdata.budget.length > 0) {
+                _this.setData({ budgetList: rdata.budget })
+            }
+
+            _this.setData({
+                positionList: rdata.districts,
+            })
+        })
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
- 
+
         this.loadData()
         // this.loadAreaList()
         // this.loadPurpose()
@@ -171,12 +182,12 @@ Page({
         var data = {}
     },
 
-    showError: function(msg){
-        Notify({message: msg , type:'danger'})
+    showError: function (msg) {
+        Notify({ message: msg, type: 'danger' })
     },
 
-    reWrite: function(e){
-        this.setData({isDone: false})
+    reWrite: function (e) {
+        this.setData({ isDone: false })
     },
 
 
@@ -192,39 +203,39 @@ Page({
         }
 
         if (!this.data.housetype) {
-            this.showError( '请填写户型')
-            return
-        }       
-
-        if (!this.data.area) {
-            this.showError( '请填写面积')
-            return
-        }       
-
-
-        if (!this.data.contact_name) {
-            this.showError( '请填写联系人姓名')
+            this.showError('请填写户型')
             return
         }
 
-        if(this.data.contact_mobile_lock == false && !this.data.sms_code){
-            this.showError( '请填写短信验证码')
-            return 
+        if (!this.data.area) {
+            this.showError('请填写面积')
+            return
+        }
+
+
+        if (!this.data.contact_name) {
+            this.showError('请填写联系人姓名')
+            return
+        }
+
+        if (this.data.contact_mobile_lock == false && !this.data.sms_code) {
+            this.showError('请填写短信验证码')
+            return
         }
 
 
         var data = {
             cat: this.data.cat,
-            budget_min: this.data.budget_min,  
-            budget_max: this.data.budget_max, 
+            budget_min: this.data.budget_min,
+            budget_max: this.data.budget_max,
             position: this.data.position,
             content: this.data.intent,
-            housetype: this.data.housetype,  
-            area: this.data.area, 
-            points: this.data.purpose, 
+            housetype: this.data.housetype,
+            area: this.data.area,
+            points: this.data.purpose,
             name: this.data.contact_name,
             mobile: this.data.contact_mobile,
-            sex: this.data.contact_sex, 
+            sex: this.data.contact_sex,
         }
         var budget_max = this.data.budget_max
         if (budget_max == 500) {
@@ -233,9 +244,9 @@ Page({
         return cb(data)
     },
 
-    sexToggle: function(e){
+    sexToggle: function (e) {
         this.setData({
-            contact_sex: this.data.contact_sex == 1 ? 0 : 1 , 
+            contact_sex: this.data.contact_sex == 1 ? 0 : 1,
         })
     },
 
@@ -261,7 +272,7 @@ Page({
         })
     },
 
-    smsLoginHandle(cb) {
+    smsLoginHandle (cb) {
         // 通过短信验证码登陆账号
         var phone = this.data.contact_mobile
         var code = this.data.sms_code
@@ -279,13 +290,13 @@ Page({
             })
             return false
         }
-        smsApi.smsAuth(phone,code).then((res)=>{
+        smsApi.smsAuth(phone, code).then((res) => {
             var data = res.data
             if (data.status == 0) {
                 // 保存下服务器返回的token
                 var token = data.data.token
                 var user = data.data.user
-                auth.setUserInfo(token, user) 
+                auth.setUserInfo(token, user)
                 return cb()
             }
         })
@@ -294,26 +305,26 @@ Page({
 
     submitHandle: function (e) {
         var _this = this
-        _this.validate(function (data){
+        _this.validate(function (data) {
             // 如果需要提交验证码
             // 应该改为，判断点击了修改按钮之后
-            var _token = app.globalData.token 
-            if(!_token){
+            var _token = app.globalData.token
+            if (!_token) {
                 _this.smsLoginHandle(() => {
                     _this.postData(data)
                 })
                 return
             }
             _this.postData(data)
-            return 
+            return
         })
 
     },
 
-    postData: function(data){
-        var _this = this 
+    postData: function (data) {
+        var _this = this
         // 将表单数据处理成线索表所需要的数据格式  
-        needApi.submitNeed(data).then((resp)=>{
+        needApi.submitNeed(data).then((resp) => {
             if (resp.data.status != 0) {
                 wx.showToast({
                     title: '服务器出现错误，请稍后再试',
@@ -324,19 +335,19 @@ Page({
 
             // 设置一些重要标志位 
             _this.setData({
-                isDone: true, 
+                isDone: true,
                 sms_code: null,
-                contact_mobile_lock: true,  
+                contact_mobile_lock: true,
             })
             wx.showToast({
-              title: '提交成功，我们的专业顾问将尽快与您联系',
+                title: '提交成功，我们的专业顾问将尽快与您联系',
             })
             setTimeout(() => {
-              wx.navigateBack({
-                delta: 1,
-              })
-            },1500)
-        })   
+                wx.navigateBack({
+                    delta: 1,
+                })
+            }, 1500)
+        })
     },
 
     inputChange: function (e) {
@@ -348,61 +359,61 @@ Page({
     },
 
     positionHandle: function (e) {
-      var i = e.currentTarget.dataset.index
-      var ps = this.data.positionList
-      var p = ps[i]
-      var position = []
+        var i = e.currentTarget.dataset.index
+        var ps = this.data.positionList
+        var p = ps[i]
+        var position = []
 
-      p.selected = !p.selected
-      ps[i] = p
-      this.data.positionList.forEach(function (item, i) {
-          if (item.selected) {
-              position.push(item.text)
-          }
-      })
-      this.setData({
-          positionList: ps,
-          position: position.join(',')
-      })
-  },
+        p.selected = !p.selected
+        ps[i] = p
+        this.data.positionList.forEach(function (item, i) {
+            if (item.selected) {
+                position.push(item.text)
+            }
+        })
+        this.setData({
+            positionList: ps,
+            position: position.join(',')
+        })
+    },
 
-  housetypeHandle: function (e) {
-    var i = e.currentTarget.dataset.index
-    var ps = this.data.housetypeList
-    var p = ps[i]
-    var housetype = []
+    housetypeHandle: function (e) {
+        var i = e.currentTarget.dataset.index
+        var ps = this.data.housetypeList
+        var p = ps[i]
+        var housetype = []
 
-    p.selected = !p.selected
-    ps[i] = p
-    this.data.housetypeList.forEach(function (item, i) {
-        if (item.selected) {
-          housetype.push(item.name)
-        }
-    })      
-      this.setData({
-        housetypeList: ps,
-        housetype: housetype.join(',')
-    })
-  },
+        p.selected = !p.selected
+        ps[i] = p
+        this.data.housetypeList.forEach(function (item, i) {
+            if (item.selected) {
+                housetype.push(item.name)
+            }
+        })
+        this.setData({
+            housetypeList: ps,
+            housetype: housetype.join(',')
+        })
+    },
 
-  areaHandle: function (e) {
-    var i = e.currentTarget.dataset.index
-    var ps = this.data.areaList
-    var p = ps[i]
-    var area = []
+    areaHandle: function (e) {
+        var i = e.currentTarget.dataset.index
+        var ps = this.data.areaList
+        var p = ps[i]
+        var area = []
 
-    p.selected = !p.selected
-    ps[i] = p
-    this.data.areaList.forEach(function (item, i) {
-        if (item.selected) {
-          area.push(item.name)
-        }
-    })      
-      this.setData({
-        areaList: ps,
-        area: area.join(',')
-    })
-  },
+        p.selected = !p.selected
+        ps[i] = p
+        this.data.areaList.forEach(function (item, i) {
+            if (item.selected) {
+                area.push(item.name)
+            }
+        })
+        this.setData({
+            areaList: ps,
+            area: area.join(',')
+        })
+    },
 
     purposeHandle: function (e) {
         var i = e.currentTarget.dataset.index
@@ -426,7 +437,7 @@ Page({
         })
     },
 
-    onChange(e) {
+    onChange (e) {
         console.log(e.detail)
         this.setData({
             budget_min: e.detail[0],
@@ -448,17 +459,17 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-      var _this  = this  
-      app.ensureConfigs((myconfigs) => { 
-        _this.setData({
-          primaryColor: myconfigs.color.primary,
-          primaryBtnColor: myconfigs.color.primary_btn
+        var _this = this
+        app.ensureConfigs((myconfigs) => {
+            _this.setData({
+                primaryColor: myconfigs.color.primary,
+                primaryBtnColor: myconfigs.color.primary_btn
+            })
         })
-      })
 
         var user = app.globalData.userInfo
         var contact_mobile_lock = false
-        if (user == null ) {
+        if (user == null) {
             this.setData({
                 contact_mobile_lock: contact_mobile_lock
             })
@@ -481,11 +492,11 @@ Page({
 
     },
 
-    changeMobile: function(e){
-      this.setData({ 
-        contact_mobile: '', 
-        contact_mobile_lock:false,
-      })
+    changeMobile: function (e) {
+        this.setData({
+            contact_mobile: '',
+            contact_mobile_lock: false,
+        })
     },
 
     /**
