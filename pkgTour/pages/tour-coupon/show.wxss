@@ -301,7 +301,7 @@ page {
 }
 
 .huodong-card {
-    width: 690rpx;
+    /* width: 690rpx; */
     border-radius: 20rpx;
     margin-bottom: 30rpx;
     background-color: #FFF;
