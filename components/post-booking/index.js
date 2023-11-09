@@ -92,6 +92,8 @@ Component({
                 var m = day.getMonth() + 1
                 var d = day.getDate()
                 var w = day.getDay()
+                if (m<10) m = '0'+m;
+                if (d<10) d = '0'+d;
                 var dateStr = y + '-' + m + '-' + d
                 var label = m + '.' + d
                 if (labelHead[i]) {

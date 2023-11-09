@@ -37,7 +37,8 @@
   </mycard>
 
   <mycard radius="20" title="相关项目" title-size="32" width="710">
-      <post-item post="{{post}}"></post-item>
+      <!-- <post-item post="{{post}}"></post-item> -->
+      <tour-post-item wx:for="{{postIds}}" postId="{{item}}"></tour-post-item>
   </mycard>
   
   <steps wx:if="{{haoyouCount == 0}}"></steps>

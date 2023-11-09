@@ -18,7 +18,7 @@ export function updateBookingStatus (bookingId, status) {
 
 // 增加预约  完成
 export function createBooking (bookingData) {
-    return request.post("/api/v6/booking_logs/", bookingData);
+    return request.post("http://localhost:8080/api/v6/booking_logs", bookingData);
 }
 
 

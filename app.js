@@ -475,9 +475,9 @@ App({
             post_id: postId,
             remark: remark || '未知'
         }
-        postApi.createPostCustomer(data).then((res) => {
+        // postApi.createPostCustomer(data).then((res) => {
 
-        })
+        // })
     },
 
     bindPhoneNumber: function (e, cb) {

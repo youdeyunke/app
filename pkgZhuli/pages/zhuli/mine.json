@@ -11,6 +11,7 @@
     "coupon": "/components/coupon/index",
     "thanks": "./thanks/index",
     "timer":"./timer/index",
+    "tour-post-item": "./tour-post-item/index",
     "cover": "./cover/index"
   }
 }

@@ -14,6 +14,7 @@ const app = getApp()
 const tourApi = require("../../../api/tour")
 const zhuliApi = require("../../../api/zhuli")
 const postApi = require("../../../api/post");
+
 Page({
 
     /**
@@ -30,7 +31,7 @@ Page({
         pageCover: 'https://qiniucdn.udeve.net/zhuli-cover.png',
         zhuli: null,
         item: null, // 活动信息
-
+        postIds: [],
     },
 
     /**
@@ -75,20 +76,20 @@ Page({
     },
 
 
-    loadPostData: function (postId) {
-        console.log('load post', postId);
-        var _this = this;
-        postApi.getPostBaseInfo(postId).then((res) => {
-            console.log('post data is', res.data);
-            if (res.data.code != 0) {
-                return;
-            }
-            var post = res.data.data;
-            _this.setData({
-                post: post
-            })
-        })
-    },
+    // loadPostData: function (postId) {
+    //     console.log('load post', postId);
+    //     var _this = this;
+    //     postApi.getPostBaseInfo(postId).then((res) => {
+    //         console.log('post data is', res.data);
+    //         if (res.data.code != 0) {
+    //             return;
+    //         }
+    //         var post = res.data.data;
+    //         _this.setData({
+    //             post: post
+    //         })
+    //     })
+    // },
 
 
     loadData: function () {
@@ -169,13 +170,15 @@ Page({
                 return false
             }
             var tour = res.data.data;
+            var postIds = tour.post_ids ? tour.post_ids.split(",").map(Number) : []
             _this.setData({
                 couponConfig: tour.coupon_config,
                 huodong: tour,
                 pageTitle: "我的助力" + tour.title,
                 pageCover: tour.cover,
+                postIds: postIds
             })
-            _this.loadPostData(tour.post_id);
+            // _this.loadPostData(tour.post_id);
         })
     },
 
