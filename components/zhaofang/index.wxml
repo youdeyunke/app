@@ -27,9 +27,24 @@
     </view>
     <view wx:if="{{ status == 2 }}">
         <view class="item-body">
+          <view class="tags-list">
+            <view class="tag-item" wx:for="{{cityList}}">
+                <van-tag size="large" color="{{item.text == citySelect ? primaryColor : '#FAFAFA'}}" text-color="{{item.text == citySelect ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="cityHandle" data-index="{{index}}" type="primary" plain="{{item.text == citySelect ? true : false}}">
+                    <view class="tags-list-name">{{item.text}}</view>
+                </van-tag>
+            </view>
+        </view>
+        </view>
+        <view class="zhaof-btn-1">
+            <van-button block color="{{primaryBtnColor}}" bindtap="cityNextPage">下一步({{status}}/6)</van-button>
+        </view>
+    </view>
+
+    <view wx:if="{{ status == 3 }}">
+        <view class="item-body">
             <view class="tags-list">
-                <view class="tag-item" wx:for="{{positionList}}">
-                    <van-tag size="large" color="{{item.selected ? primaryColor : '#FAFAFA'}}" text-color="{{item.selected ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="positionHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? true : false}}">
+                <view class="tag-item" wx:for="{{districtList}}">
+                    <van-tag size="large" color="{{item.selected ? primaryColor : '#FAFAFA'}}" text-color="{{item.selected ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="districtHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? true : false}}">
                         <view class="tags-list-name">{{item.text}}</view>
                     </van-tag>
                 </view>
@@ -39,7 +54,8 @@
             <van-button block color="{{primaryBtnColor}}" bindtap="quyuNextPage">下一步({{status}}/6)</van-button>
         </view>
     </view>
-    <view wx:if="{{ status == 3 }}">
+
+    <view wx:if="{{ status == 4 }}">
         <view class="item-body">
             <view class="tags-list">
                 <view class="tag-item" wx:for="{{housetypeList}}">
@@ -53,7 +69,7 @@
             <van-button block color="{{primaryBtnColor}}" bindtap="huxinNextPage">下一步({{status}}/6)</van-button>
         </view>
     </view>
-    <view wx:if="{{ status == 4 }}">
+    <view wx:if="{{ status == 5 }}">
         <view class="item-body">
             <view class="tags-list">
                 <view class="tag-item" wx:for="{{areaList}}">
@@ -67,7 +83,7 @@
             <van-button block color="{{primaryBtnColor}}" bindtap="mianjiNextPage">下一步({{status}}/6)</van-button>
         </view>
     </view>
-    <view wx:if="{{ status == 5 }}">
+    <view wx:if="{{ status == 6 }}">
         <view class="item-body">
             <view class="tags-list">
                 <view class="tag-item" wx:for="{{purposeList}}">
@@ -81,7 +97,7 @@
             <van-button block color="{{primaryBtnColor}}" bindtap="yongtuNextPage">下一步({{status}}/6)</van-button>
         </view>
     </view>
-    <view wx:if="{{ status == 6 && !isDone}}">
+    <view wx:if="{{ status == 7 && !isDone}}">
         <view class="item-body">
             <van-cell-group>
                 <van-field bindchange="inputChange" center required label="手机号" value="{{ contact_mobile }}" readonly="{{contact_mobile_lock}}" disabled="{{contact_mobile_lock}}" placeholder="用于专属顾问联系您" data-name="contact_mobile">

@@ -1,18 +1,19 @@
 /**
-* +----------------------------------------------------------------------
-* | 友得云客  - 开启房产营销新纪元
-* +----------------------------------------------------------------------
-* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
-* +----------------------------------------------------------------------
-* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
-* +----------------------------------------------------------------------
-* | Author: UDEVE Team <tech@udeve.cn>
-* +----------------------------------------------------------------------
-*/
+ * +----------------------------------------------------------------------
+ * | 友得云客  - 开启房产营销新纪元
+ * +----------------------------------------------------------------------
+ * | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ * +----------------------------------------------------------------------
+ * | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ * +----------------------------------------------------------------------
+ * | Author: UDEVE Team <tech@udeve.cn>
+ * +----------------------------------------------------------------------
+ */
 // pages/myself/zhao.js
 const app = getApp()
 const smsApi = require("../../api/sms")
 const needApi = require("../../api/need")
+const cityApi = require("../../api/city")
 const myEnum = require("../../api/enum")
 var auth = require('../../utils/auth.js');
 import Notify from '../../vant/notify/notify';
@@ -39,43 +40,66 @@ Page({
         contact: '',
         sms_code: '',
 
+        cities: [],
+        cityList: [],
+        districtList: [],
+        citySelect: '',
+        district: '',
+
         positionList: [],
-        housetypeList: [
-            { name: '1居', value: 1, },
-            { name: '2居', value: 2, },
-            { name: '3居', value: 3, },
-            { name: '4居', value: 4 },
-            { name: '5居', value: 5 },
-            { name: '5居+', value: 6 },
+        housetypeList: [{
+                name: '1居',
+                value: 1,
+            },
+            {
+                name: '2居',
+                value: 2,
+            },
+            {
+                name: '3居',
+                value: 3,
+            },
+            {
+                name: '4居',
+                value: 4
+            },
+            {
+                name: '5居',
+                value: 5
+            },
+            {
+                name: '5居+',
+                value: 6
+            },
         ],
 
-        areaList: [
-            { name: '80㎡以下' },
-        ],
+        areaList: [{
+            name: '80㎡以下'
+        }, ],
 
         purposeList: [{
-            name: '刚需'
-        },
-        {
-            name: '改善房'
-        },
-        {
-            name: '投资增值'
-        },
-        {
-            name: '给父母住'
-        },
-        {
-            name: '学区房'
-        },
-        {
-            name: '其他'
-        },
+                name: '刚需'
+            },
+            {
+                name: '改善房'
+            },
+            {
+                name: '投资增值'
+            },
+            {
+                name: '给父母住'
+            },
+            {
+                name: '学区房'
+            },
+            {
+                name: '其他'
+            },
 
         ]
     },
 
-    loadAreaList () {
+    loadAreaList() {
         var _this = this
         myEnum.getEnumList("areaList").then((resp) => {
             if (resp.data.status != 0) {
@@ -83,12 +107,14 @@ Page({
             }
             var rdata = resp.data.data
             if (rdata && rdata.length > 0) {
-                _this.setData({ areaList: rdata })
+                _this.setData({
+                    areaList: rdata
+                })
             }
         })
     },
 
-    loadPurpose () {
+    loadPurpose() {
         var _this = this
         myEnum.getEnumList("purpose").then((resp) => {
             if (resp.data.status != 0) {
@@ -96,25 +122,29 @@ Page({
             }
             var rdata = resp.data.data
             if (rdata && rdata.length > 0) {
-                _this.setData({ purpose: rdata })
+                _this.setData({
+                    purpose: rdata
+                })
             }
         })
     },
 
-    loadhousetype () {
+    loadhousetype() {
         var _this = this
-        myEnum.getEnumList("housetype").then((resp) => {
+        myEnum.getEnumList("housetypeList").then((resp) => {
             if (resp.data.status != 0) {
                 return
             }
             var rdata = resp.data.data
             if (rdata && rdata.length > 0) {
-                _this.setData({ housetypeList: rdata })
+                _this.setData({
+                    housetypeList: rdata
+                })
             }
         })
     },
 
-    loadbudget () {
+    loadbudget() {
         var _this = this
         myEnum.getEnumList("budget").then((resp) => {
             if (resp.data.status != 0) {
@@ -122,7 +152,9 @@ Page({
             }
             var rdata = resp.data.data
             if (rdata && rdata.length > 0) {
-                _this.setData({ budgetList: rdata })
+                _this.setData({
+                    budgetList: rdata
+                })
             }
         })
     },
@@ -132,29 +164,80 @@ Page({
         var query = {
             cityCode: wx.getStorageSync('cityCode') || ''
         }
-        needApi.getNeedList(query).then((resp) => {
+        // needApi.getNeedList(query).then((resp) => {
+        //     if (resp.data.status != 0) {
+        //         return
+        //     }
+        //     var rdata = resp.data.data
+
+
+        //     if (rdata.area && rdata.area.length > 0) {
+        //         _this.setData({
+        //             areaList: rdata.area
+        //         })
+        //     }
+
+        //     if (rdata.purpose && rdata.purpose.length > 0) {
+        //         _this.setData({
+        //             purposeList: resp.data.data.purpose
+        //         })
+        //     }
+        //     if (rdata.housetype && rdata.housetype.length > 0) {
+        //         _this.setData({
+        //             housetypeList: rdata.housetype
+        //         })
+        //     }
+        //     if (rdata.budget && rdata.budget.length > 0) {
+        //         _this.setData({
+        //             budgetList: rdata.budget
+        //         })
+        //     }
+
+        //     _this.setData({
+        //         positionList: rdata.districts,
+        //     })
+        // })
+        cityApi.getCityListV6().then((resp) => {
             if (resp.data.status != 0) {
                 return
             }
-            var rdata = resp.data.data
+            var cities = resp.data.data
+            var cityList = []
+            cities.map((cit) => {
+                if (cit.id == 0) {
+                    return
+                }
+                if (cit.children.length == 0) {
+                    return
+                }
+                var newci = {
+                    text: '',
+                    id: null
+                }
+                newci.text = cit.text
+                newci.id = cit.id
+                cityList.push(newci)
+            })
 
+            var c = cityList[0]
+            var districtList = []
+            cities.forEach((item, index) => {
+                if (item.id != c.id) {
+                    return
+                }
+                districtList = item.children
+            })
+            districtList = districtList.map((item, index) => {
+                item.selected = false
+                return item
+            })
 
-            if (rdata.area && rdata.area.length > 0) {
-                _this.setData({ areaList: rdata.area })
-            }
-
-            if (rdata.purpose && rdata.purpose.length > 0) {
-                _this.setData({ purposeList: resp.data.data.purpose })
-            }
-            if (rdata.housetype && rdata.housetype.length > 0) {
-                _this.setData({ housetypeList: rdata.housetype })
-            }
-            if (rdata.budget && rdata.budget.length > 0) {
-                _this.setData({ budgetList: rdata.budget })
-            }
-
-            _this.setData({
-                positionList: rdata.districts,
+            this.setData({
+                cities: cities,
+                cityList: cityList,
+                citySelect: c.text,
+                districtList: districtList,
+                district: ''
             })
         })
     },
@@ -165,10 +248,10 @@ Page({
     onLoad: function (q) {
 
         this.loadData()
-        // this.loadAreaList()
-        // this.loadPurpose()
-        // this.loadhousetype()
-        // this.loadbudget()
+        this.loadAreaList()
+        this.loadPurpose()
+        this.loadhousetype()
+        this.loadbudget()
     },
 
 
@@ -183,11 +266,16 @@ Page({
     },
 
     showError: function (msg) {
-        Notify({ message: msg, type: 'danger' })
+        Notify({
+            message: msg,
+            type: 'danger'
+        })
     },
 
     reWrite: function (e) {
-        this.setData({ isDone: false })
+        this.setData({
+            isDone: false
+        })
     },
 
 
@@ -197,8 +285,8 @@ Page({
             return
         }
 
-        if (!this.data.position) {
-            this.showError('请填写区域')
+        if (!this.data.district) {
+            this.showError('请选择区域')
             return
         }
 
@@ -228,7 +316,7 @@ Page({
             cat: this.data.cat,
             budget_min: this.data.budget_min,
             budget_max: this.data.budget_max,
-            position: this.data.position,
+            position: this.data.citySelect + ":" + this.data.district,
             content: this.data.intent,
             housetype: this.data.housetype,
             area: this.data.area,
@@ -272,7 +360,7 @@ Page({
         })
     },
 
-    smsLoginHandle (cb) {
+    smsLoginHandle(cb) {
         // 通过短信验证码登陆账号
         var phone = this.data.contact_mobile
         var code = this.data.sms_code
@@ -358,6 +446,47 @@ Page({
         this.setData(d)
     },
 
+    cityHandle: function (e) {
+        var i = e.currentTarget.dataset.index
+        var cs = this.data.cityList
+        var c = cs[i]
+        var districtList = []
+        this.data.cities.forEach((item, index) => {
+            if (item.id != c.id) {
+                return
+            }
+            districtList = item.children
+        })
+        districtList = districtList.map((item, index) => {
+            item.selected = false
+            return item
+        })
+        this.setData({
+            citySelect: c.text,
+            districtList: districtList,
+            district: ''
+        })
+    },
+
+    districtHandle: function (e) {
+        var i = e.currentTarget.dataset.index
+        var ds = this.data.districtList
+        var d = ds[i]
+        var district = []
+
+        d.selected = !d.selected
+        ds[i] = d
+        this.data.districtList.forEach(function (item, i) {
+            if (item.selected) {
+                district.push(item.text)
+            }
+        })
+        this.setData({
+            districtList: ds,
+            district: district.join(',')
+        })
+    },
+
     positionHandle: function (e) {
         var i = e.currentTarget.dataset.index
         var ps = this.data.positionList
@@ -437,7 +566,7 @@ Page({
         })
     },
 
-    onChange (e) {
+    onChange(e) {
         console.log(e.detail)
         this.setData({
             budget_min: e.detail[0],

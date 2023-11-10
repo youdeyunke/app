@@ -13,6 +13,8 @@
 const app = getApp()
 const smsApi = require("../../api/sms")
 const needApi = require("../../api/need")
+const cityApi = require("../../api/city")
+const myEnum = require("../../api/enum")
 var auth = require('../../utils/auth.js');
 Component({
     /**
@@ -47,6 +49,11 @@ Component({
         contact_sex: 1,
         contact_name: '',
         sms_code: '',
+        cities: [],
+        cityList: [],
+        districtList: [],
+        citySelect: '',
+        district: '',
         housetypeList: [{
             name: '1居',
             value: 1,
@@ -101,6 +108,10 @@ Component({
 
     attached () {
         this.loadData()
+        this.loadAreaList()
+        this.loadPurpose()
+        this.loadhousetype()
+        this.loadbudget()
 
         var _this = this
         app.ensureConfigs((myconfigs) => {
@@ -131,41 +142,187 @@ Component({
      * 组件的方法列表
      */
     methods: {
+
         loadData: function () {
             var _this = this
             // 首页一键找房（返回信息看不懂）√
-            needApi.getNeedList().then((resp) => {
-                if (resp.data.status != 0) {
-                    return
-                }
-                var rdata = resp.data.data
-                if (rdata.area && rdata.area.length > 0) {
-                    _this.setData({
-                        areaList: rdata.area
-                    })
-                }
+            // needApi.getNeedList().then((resp) => {
+            //     if (resp.data.status != 0) {
+            //         return
+            //     }
+            //     var rdata = resp.data.data
+            //     if (rdata.area && rdata.area.length > 0) {
+            //         _this.setData({
+            //             areaList: rdata.area
+            //         })
+            //     }
 
-                if (rdata.purpose && rdata.purpose.length > 0) {
-                    _this.setData({
-                        purposeList: resp.data.data.purpose
-                    })
-                }
-                if (rdata.housetype && rdata.housetype.length > 0) {
-                    _this.setData({
-                        housetypeList: rdata.housetype
-                    })
-                }
-                if (rdata.budget && rdata.budget.length > 0) {
-                    _this.setData({
-                        budgetList: rdata.budget
-                    })
-                }
+            //     if (rdata.purpose && rdata.purpose.length > 0) {
+            //         _this.setData({
+            //             purposeList: resp.data.data.purpose
+            //         })
+            //     }
+            //     if (rdata.housetype && rdata.housetype.length > 0) {
+            //         _this.setData({
+            //             housetypeList: rdata.housetype
+            //         })
+            //     }
+            //     if (rdata.budget && rdata.budget.length > 0) {
+            //         _this.setData({
+            //             budgetList: rdata.budget
+            //         })
+            //     }
 
-                _this.setData({
-                    positionList: rdata.districts,
-                })
-            })
+            //     _this.setData({
+            //         positionList: rdata.districts,
+            //     })
+            // })
+            cityApi.getCityListV6().then((resp) => {
+              if (resp.data.status != 0) {
+                  return
+              }
+              var cities = resp.data.data
+              var cityList = []
+              cities.map((cit) => {
+                  if (cit.id == 0) {
+                      return
+                  }
+                  if (cit.children.length == 0) {
+                      return
+                  }
+                  var newci = {
+                      text: '',
+                      id: null
+                  }
+                  newci.text = cit.text
+                  newci.id = cit.id
+                  cityList.push(newci)
+              })
+  
+              var c = cityList[0]
+              var districtList = []
+              cities.forEach((item, index) => {
+                  if (item.id != c.id) {
+                      return
+                  }
+                  districtList = item.children
+              })
+              districtList = districtList.map((item, index) => {
+                  item.selected = false
+                  return item
+              })
+  
+              this.setData({
+                  cities: cities,
+                  cityList: cityList,
+                  citySelect: c.text,
+                  districtList: districtList,
+                  district: ''
+              })
+          })
         },
+
+        loadAreaList() {
+          var _this = this
+          myEnum.getEnumList("areaList").then((resp) => {
+              if (resp.data.status != 0) {
+                  return
+              }
+              var rdata = resp.data.data
+              if (rdata && rdata.length > 0) {
+                  _this.setData({
+                      areaList: rdata
+                  })
+              }
+          })
+      },
+  
+      loadPurpose() {
+          var _this = this
+          myEnum.getEnumList("purpose").then((resp) => {
+              if (resp.data.status != 0) {
+                  return
+              }
+              var rdata = resp.data.data
+              if (rdata && rdata.length > 0) {
+                  _this.setData({
+                      purpose: rdata
+                  })
+              }
+          })
+      },
+  
+      loadhousetype() {
+          var _this = this
+          myEnum.getEnumList("housetypeList").then((resp) => {
+              if (resp.data.status != 0) {
+                  return
+              }
+              var rdata = resp.data.data
+              if (rdata && rdata.length > 0) {
+                  _this.setData({
+                      housetypeList: rdata
+                  })
+              }
+          })
+      },
+  
+      loadbudget() {
+          var _this = this
+          myEnum.getEnumList("budget").then((resp) => {
+              if (resp.data.status != 0) {
+                  return
+              }
+              var rdata = resp.data.data
+              if (rdata && rdata.length > 0) {
+                  _this.setData({
+                      budgetList: rdata
+                  })
+              }
+          })
+      },
+
+      cityHandle: function (e) {
+        var i = e.currentTarget.dataset.index
+        var cs = this.data.cityList
+        var c = cs[i]
+        var districtList = []
+        this.data.cities.forEach((item, index) => {
+            if (item.id != c.id) {
+                return
+            }
+            districtList = item.children
+        })
+        districtList = districtList.map((item, index) => {
+            item.selected = false
+            return item
+        })
+        this.setData({
+            citySelect: c.text,
+            districtList: districtList,
+            district: ''
+        })
+    },
+
+    districtHandle: function (e) {
+        var i = e.currentTarget.dataset.index
+        var ds = this.data.districtList
+        var d = ds[i]
+        var district = []
+
+        d.selected = !d.selected
+        ds[i] = d
+        this.data.districtList.forEach(function (item, i) {
+            if (item.selected) {
+                district.push(item.text)
+            }
+        })
+        this.setData({
+            districtList: ds,
+            district: district.join(',')
+        })
+    },
+
         onChange (e) {
             console.log(e.detail)
             this.setData({
@@ -180,8 +337,21 @@ Component({
                 status: status + 1
             })
         },
+        cityNextPage () {
+          if (!this.data.citySelect) {
+            wx.showToast({
+                title: '请选择城市',
+                icon: 'none'
+            })
+            return
+        }
+        var status = this.data.status
+        this.setData({
+            status: status + 1
+        })
+        },
         quyuNextPage () {
-            if (!this.data.position) {
+            if (!this.data.district) {
                 wx.showToast({
                     title: '请选择区域',
                     icon: 'none'
@@ -374,7 +544,7 @@ Component({
         postData: function (data) {
             var _this = this
             // 将表单数据处理成线索表所需要的数据格式 
-            needApi.getNeedList(data).then((resp) => {
+            needApi.submitNeed(data).then((resp) => {
                 if (resp.data.status != 0) {
                     wx.showToast({
                         title: '服务器出现错误，请稍后再试',
@@ -409,7 +579,7 @@ Component({
                 cat: this.data.cat,
                 budget_min: this.data.budget_min,
                 budget_max: this.data.budget_max,
-                position: this.data.position,
+                position: this.data.citySelect + ":" + this.data.district,
                 housetype: this.data.housetype,
                 area: this.data.area,
                 points: this.data.purpose,

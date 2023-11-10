@@ -38,11 +38,20 @@
         </view>
     </card>
 
+    <card width="710" hat="{{false}}" title="城市">
+        <view class="tags-list">
+            <view class="tag-item" wx:for="{{cityList}}">
+                <van-tag size="large" color="{{item.text == citySelect ? primaryColor : '#FAFAFA'}}" text-color="{{item.text == citySelect ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="cityHandle" data-index="{{index}}" type="primary" plain="{{item.text == citySelect ? true : false}}">
+                    <view class="tags-list-name">{{item.text}}</view>
+                </van-tag>
+            </view>
+        </view>
+    </card>
 
     <card width="710" hat="{{false}}" title="区域">
         <view class="tags-list">
-            <view class="tag-item" wx:for="{{positionList}}">
-                <van-tag size="large" color="{{item.selected ? primaryColor : '#FAFAFA'}}" text-color="{{item.selected ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="positionHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? true : false}}">
+            <view class="tag-item" wx:for="{{districtList}}">
+                <van-tag size="large" color="{{item.selected ? primaryColor : '#FAFAFA'}}" text-color="{{item.selected ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="districtHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? true : false}}">
                     <view class="tags-list-name">{{item.text}}</view>
                 </van-tag>
             </view>
