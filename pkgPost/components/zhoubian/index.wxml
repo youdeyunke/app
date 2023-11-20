@@ -25,14 +25,10 @@
     <view class="tabs_content">
         <view hidden="{{isShow == 0}}" class="null">无数据</view>
         <view hidden="{{isShow ==1}}">
-            <view class="cell-outer" wx:if="{{ index+1 <= maxLength || type == 'big' }}" label="{{item.address}}" name='{{item}}' wx:for="{{resp}}" wx:key="{{item.id}}">
+            <view class="cell-outer" wx:if="{{ index+1 <= maxLength || type == 'big'}}" label="{{item.address}}" name='{{item}}' wx:for="{{pois}}" wx:key="{{item.id}}">
                 <van-cell center title-class='title' label-class='label'>
                     <view class="cell-title {{ index == activeItemIndex ? 'active' : ''}}" slot="title">
                         <view class="index">{{index+1}}</view>{{ item.title}}
-                    </view>
-                    <view class="value {{ index == activeItemIndex ? 'active' : ''}}">
-                        <image class="images" src="/assets/icons/location.3x.png"></image>
-                        <text class="" style="font-size:26rpx">{{item._distance}}</text>
                     </view>
                 </van-cell>
             </view>

@@ -165,54 +165,38 @@ Component({
             var tab = this.data.tabs[this.data.active]
             surroundApi.getSurroundList({
                 post_id: _this.data.postId,
-                cat: tab.id
+                // cat: tab.id
             }).then((resp) => {
                 _this.setData({
-                    pois: resp.data.data,
+                    // pois: resp.data.data,
                     resp: resp.data.data,
                 }, () => {
+                    // _this.getMapContext()
+                    // _this.setMarker()
+                    // _this.handleItemTap()
+                    var tabs = this.data.tabs
+                    tabs.forEach((v, i) => {
+                        if (i == 0) {
+                            v.isActive = true
+                        } else {
+                            v.isActive = false
+                        }
+                    });
+
+                    var arr = this.data.resp.filter((item) => item.category == tabs[0].name)
+
+                    this.setData({
+                        tabs: tabs,
+                        // markers: markers,
+                        pois: arr,
+                        active: 0
+                    })
                     _this.getMapContext()
                     _this.setMarker()
+
                 })
             })
-            // qqmapApi.placeSearch({
-            //     keyword: tab.value,
-            //     latitude: _this.data.latitude,
-            //     longitude: _this.data.longitude,
-            //     page_size: '20'
-            // }).then((res) => {
-            //         return
-            //         if(res.data.status == 310){
-            //             console.log(res.message)
-            //             return
-            //         }
-            //         if (res.data && res.data.data.length == 0) {
-            //             _this.setData({
-            //                 resp: [],
-            //                 isShow: 1
-            //             })
-            //         } else {
-            //             var resp = res.data.data.map(v => {
-            //                 if (v._distance >= 1000) {
-            //                     var d = v._distance / 1000
-            //                     v._distance =  d.toFixed(1) + 'km'
-            //                 } else {
-            //                     v._distance = parseInt(v._distance) + 'm'
-            //                 }
-            //                 return v
-            //             })
-            //             _this.setData({
-            //                 resp: resp,
-            //                 isShow: 0
-            //             })
-            //         }
-            //         _this.setData({ 
-            //             pois: res.data.data 
-            //         },() => {
-            //             _this.getMapContext(),
-            //             _this.setMarker()
-            //         })
-            // })
+
         },
         getMapContext () {
             var _this = this
@@ -229,22 +213,14 @@ Component({
                 arr.push(obj)
             })
             // //缩放视野展示所有经纬度 此方法传入的数组不能为空 所以手动进行非空验证
-            // if(pois.length ==0){
-            //     return
-            // }
-            // this.data.map.includePoints({
-            //     points: arr,
-            //     padding: [50, 50, 50, 50]
-            // });
+
             console.log('经纬度arr', arr)
             let MapContext = wx.createMapContext('map', this);
             MapContext.includePoints({
                 padding: [50, 50, 50, 50],
                 points: arr,
             })
-            // this.setData({
-            //     points: arr
-            // })
+
         },
         setMarker: function () {
             this.setData({
@@ -280,7 +256,7 @@ Component({
             pois.forEach((v, i) => {
                 var m = {
                     id: i,
-                    //iconPath: '/assets/icons/marker.png',
+                    iconPath: '/assets/icons/markk.png',
                     latitude: v.lat,
                     width: '40rpx',
                     height: '40rpx',
@@ -353,7 +329,7 @@ Component({
             var _this = this
             const {
                 index
-            } = e.currentTarget.dataset;
+            } = e.currentTarget.dataset || { index: 0 };
             var tabs = this.data.tabs
             tabs.forEach((v, i) => {
                 if (i == index) {
@@ -363,15 +339,20 @@ Component({
                 }
             });
             // 切换tab后撤回高亮显示
-            console.log("qihuanhouchehuigaoliangxianshi", this.data.activeItemIndex);
+            console.log("qihuanhouchehuigaoliangxianshi", this.data.activeItemIndex,tabs[index]);
+
+            var arr = this.data.resp.filter((item) => item.category == tabs[index].name)
 
             this.setData({
                 tabs: tabs,
                 // markers: markers,
+                pois: arr,
                 activeItemIndex: null,
                 active: index
             })
-            this.getContent()
+            _this.getMapContext()
+            _this.setMarker()
+            // this.getContent()
         },
     }
 })

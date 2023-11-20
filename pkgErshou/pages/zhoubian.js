@@ -72,7 +72,7 @@ Component({
         },
         "latitude": function (res) {
             if (!res) { return }
-            this.getContent()
+            // this.getContent()
         }
     },
     /**
@@ -161,7 +161,7 @@ Component({
 
     },
     ready: function () {
-        // this.getContent()
+        this.getContent()
     },
     /**
      * 组件的方法列表
@@ -172,7 +172,7 @@ Component({
             var tab = this.data.tabs[this.data.active]
             surroundApi.getSurroundList({
                 post_id: _this.data.postId,
-                cat: tab.id
+                // cat: tab.id
             }).then((resp) => {
                 _this.setData({
                     pois: resp.data.data,
@@ -370,7 +370,7 @@ Component({
                 tabs: tabs,
                 active: index
             })
-            this.getContent()
+            // this.getContent()
         },
     }
 })
