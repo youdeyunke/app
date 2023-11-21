@@ -1,0 +1,21 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: UDEVE Team <tech@udeve.cn>
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--pkgCustomer/components/follow/index.wxml-->
+<van-cell-group title="跟进日志">
+  <van-cell center title="已联系" label="2020-10-11" value="已与客户取得了联系(许晋语)"/>
+  <van-cell center title="未接通" label="2020-10-11" value="客户未接电话(许晋语)"/>
+  <van-cell center title="已联系" label="2020-10-11" value="已与客户取得了联系(许晋语)"/>
+</van-cell-group>
+
+<view style="width: 100%;margin: 30rpx 0 0 0;">
+  <van-button type="primary" bind:click="createFollow" block>新增跟进日志</van-button>
+</view>

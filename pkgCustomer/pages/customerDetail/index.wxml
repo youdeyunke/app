@@ -1,0 +1,54 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: UDEVE Team <tech@udeve.cn>
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--pkgCustomer/pages/customerDetail/index.wxml-->
+<view class="user">
+  <image class="avatar" src="https://qiniucdn.udeve.net/udyk/652f8053e4b05854ecc5cfe1.jpg?imageView2/2/w/100" mode=""/>
+  <view style="width: 500rpx;">
+    <view class="detail">
+      <view>李伟</view>
+      <view class="btns">
+        <van-button icon="phone" block size="mini" type="primary" />
+        <van-button size="mini" block type="danger">放回公海</van-button>
+      </view>
+    </view>
+    <view>13072222222</view>
+  </view>
+</view>
+
+<van-cell-group >
+  <van-cell center title="渠道来源" value="手动录入"/>
+  <van-cell center title="客户归属" value="王乐康 13000230000" is-link/>
+  <van-cell center title="创建时间" value="2022-11-04 20:39"/>
+</van-cell-group>
+
+<van-tabs active="{{ tab }}" bind:change="tabChange">
+  <van-tab name="profile" title="客户详情"></van-tab>
+  <van-tab name="follow" title="跟进日志(3)"></van-tab>
+  <van-tab name="thread" title="线索动态(10)"></van-tab>
+  <van-tab name="contact" title="联系人(1)"></van-tab>
+</van-tabs>
+
+<view wx:if="{{ tab == 'profile' }}">
+  <customer-profile customerId="{{id}}"></customer-profile>
+</view>
+
+<view wx:if="{{ tab == 'follow' }}">
+  <follow targetId="{{}}" targetType="{{}}"></follow>
+</view>
+
+<view wx:if="{{ tab == 'thread' }}">
+  <sub-thread parentId="{{}}"></sub-thread>
+</view>
+
+<view wx:if="{{ tab == 'contact' }}">
+  <customer-contact customerId="{{id}}"></customer-contact>
+</view>

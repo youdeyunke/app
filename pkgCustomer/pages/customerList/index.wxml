@@ -1,0 +1,29 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: UDEVE Team <tech@udeve.cn>
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--pkgCustomer/pages/threadList/index.wxml-->
+<van-search value="{{ kw }}" bind:search="kwSearch" bind:clear="kwClear" placeholder="请输入客户姓名或手机号" />
+<van-cell-group title="{{ kw ? '搜索结果' : ''}}" wx:if="{{ type != 'public' }}">
+  <van-cell center title="张先生 130****1111" value="查看" label="未接通" is-link link-type="navigateTo" url="/pkgCustomer/pages/customerDetail/index?id={{}}"/>
+  <van-cell center title="张先生 130****1111" value="查看" label="未接通" is-link link-type="navigateTo" url="/pkgCustomer/pages/customerDetail/index"/>
+  <van-cell center title="张先生 130****1111" value="查看" label="高意向" is-link link-type="navigateTo" url="/pkgCustomer/pages/customerDetail/index"/>
+  <van-cell center title="张先生 130****1111" value="查看" label="未接通" is-link link-type="navigateTo" url="/pkgCustomer/pages/customerDetail/index"/>
+  <van-cell center title="张先生 130****1111" value="查看" label="未接通" is-link link-type="navigateTo" url="/pkgCustomer/pages/customerDetail/index"/>
+  <van-cell center title="张先生 130****1111" value="查看" label="未接通" is-link link-type="navigateTo" url="/pkgCustomer/pages/customerDetail/index"/>
+</van-cell-group>
+<van-cell-group title="{{ kw ? '搜索结果' : ''}}" wx:else>
+  <van-cell center title="张先生 130****1111" value="领取" label="未接通" bind:click="linquCustomer" />
+  <van-cell center title="张先生 130****1111" value="领取" label="未接通" bind:click="linquCustomer" />
+  <van-cell center title="张先生 130****1111" value="领取" label="高意向" bind:click="linquCustomer" />
+  <van-cell center title="张先生 130****1111" value="领取" label="未接通" bind:click="linquCustomer" />
+  <van-cell center title="张先生 130****1111" value="领取" label="未接通" bind:click="linquCustomer" />
+  <van-cell center title="张先生 130****1111" value="领取" label="未接通" bind:click="linquCustomer" />
+</van-cell-group>

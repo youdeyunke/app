@@ -11,7 +11,16 @@
       "root": "pkgCustomer",
       "pages": [
         "pages/edit",
-        "pages/show"
+        "pages/show",
+        "pages/index/index",
+        "pages/search/index",
+        "pages/threadList/index",
+        "pages/threadDetail/index",
+        "pages/createFollow/index",
+        "pages/customerList/index",
+        "pages/customerDetail/index",
+        "pages/customerContactEdit/index",
+        "pages/customerProfileEdit/index"
       ]
     },
     {

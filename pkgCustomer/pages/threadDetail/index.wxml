@@ -1,0 +1,51 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: UDEVE Team <tech@udeve.cn>
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--pkgCustomer/pages/threadDetail/index.wxml-->
+<van-cell-group >
+  <van-cell center title="客户名称" value="李伟"/>
+  <van-cell center title="手机号" value="13000230000"/>
+  <van-cell center title="来源" value="客户报名参加活动"/>
+  <van-cell center title="楼盘" value="恒大城"/>
+  <van-cell center title="备注" value="该客户查看了楼盘"/>
+</van-cell-group>
+
+<!-- <van-cell-group title="跟进日志">
+  <van-cell center title="已联系" label="2020-10-11" value="已与客户取得了联系(许晋语)"/>
+  <van-cell center title="未接通" label="2020-10-11" value="客户未接电话(许晋语)"/>
+  <van-cell center title="已联系" label="2020-10-11" value="已与客户取得了联系(许晋语)"/>
+</van-cell-group>
+
+<view style="width: 100%;margin: 30rpx 0 0 0;">
+  <van-button type="primary" bind:click="createFollow" block>新增跟进日志</van-button>
+</view> -->
+
+<follow targetId="{{}}" targetType="{{}}"></follow>
+
+<!-- <van-cell-group title="线索动态">
+  <van-cell center title="2020-10-11" value="客户参加活动 活动id:1，活动标题：报名领券"/>
+  <van-cell center title="2020-10-11" value="客户参加活动 活动id:1，活动标题：报名领券"/>
+  <van-cell center title="2020-10-11" value="客户参加活动 活动id:1，活动标题：报名领券"/>
+</van-cell-group> -->
+
+<sub-thread parentId="{{}}"></sub-thread>
+
+<view style="height: 120rpx;">
+</view>
+
+<view style="display: flex;width: 750rpx;position: fixed;bottom: 0;">
+  <view style="width: 50%;">
+    <van-button type="danger" block>放回公海</van-button>
+  </view>
+  <view style="width: 50%;">
+    <van-button type="info" block>转为客户</van-button>
+  </view>
+</view>

@@ -1,0 +1,19 @@
+/* pkgCustomer/pages/index/index.wxss */
+.box {
+  width: 630rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+  padding: 30rpx;
+  background-color: #fff;
+}
+
+.box .count {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.search{
+  width: 690rpx;margin: 0 auto;margin-top: 30rpx;
+}

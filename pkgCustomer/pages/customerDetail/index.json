@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "customer-contact": "../../components/customerContact/index",
+    "follow": "../../components/follow/index",
+    "sub-thread": "../../components/subThreads/index",
+    "customer-profile": "../../components/customerProfile/index"
+  },
+  "navigationBarTitleText": "客户详情"
+}

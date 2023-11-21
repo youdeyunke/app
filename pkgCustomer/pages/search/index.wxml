@@ -1,0 +1,33 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: UDEVE Team <tech@udeve.cn>
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--pkgCustomer/pages/search/index.wxml-->
+<van-search value="{{ kw }}" bind:change="kwChange" placeholder="请输入搜索关键词" />
+<van-radio-group value="{{ type }}" bind:change="onChange">
+  <van-cell-group>
+    <van-cell title="我的线索" clickable data-name="myThread" bind:click="onClick">
+      <van-radio slot="right-icon" name="myThread" />
+    </van-cell>
+    <van-cell title="公海线索" clickable data-name="publicThread" bind:click="onClick">
+      <van-radio slot="right-icon" name="publicThread" />
+    </van-cell>
+    <van-cell title="我的客户" clickable data-name="myCustomer" bind:click="onClick">
+      <van-radio slot="right-icon" name="myCustomer" />
+    </van-cell>
+    <van-cell title="公海客户" clickable data-name="publicCustomer" bind:click="onClick">
+      <van-radio slot="right-icon" name="publicCustomer" />
+    </van-cell>
+  </van-cell-group>
+</van-radio-group>
+
+<view class="btn">
+  <van-button type="primary" bind:click="gotoList" block>搜索</van-button>
+</view>

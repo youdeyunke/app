@@ -1,0 +1,6 @@
+/* pkgCustomer/pages/search/index.wxss */
+.btn{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

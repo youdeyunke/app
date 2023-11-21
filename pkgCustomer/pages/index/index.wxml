@@ -1,0 +1,49 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: UDEVE Team <tech@udeve.cn>
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--pkgCustomer/pages/index/index.wxml-->
+<view class="box">
+  <view class="count">
+    <view>
+      <view>待跟进客户</view>
+      <view style="font-size: 48rpx;">6</view>
+    </view>
+    <view>
+      <view>待跟进线索</view>
+      <view style="font-size: 48rpx;">6</view>
+    </view>
+    <view>
+      <view>将回收客户</view>
+      <view style="font-size: 48rpx;">6</view>
+    </view>
+  </view>
+  <view class="count" style="margin-top: 30rpx;">
+    <view>
+      <view>将回收线索</view>
+      <view style="font-size: 48rpx;">6</view>
+    </view>
+  </view>
+</view>
+
+<view class="search">
+  <van-search bind:click-input="gotoSearch" placeholder="请输入客户姓名或手机号" />
+</view>
+
+<view class="box">
+  <van-grid>
+    <van-grid-item link-type="navigateTo" url="/pkgCustomer/pages/threadList/index?type=private" icon="orders-o" text="我的线索" />
+    <van-grid-item link-type="navigateTo" url="/pkgCustomer/pages/threadList/index?type=public" icon="todo-list-o" text="公海线索" />
+    <van-grid-item link-type="navigateTo" url="/pkgCustomer/pages/customerList/index?type=private" icon="contact" text="我的客户" />
+    <van-grid-item link-type="navigateTo" url="/pkgCustomer/pages/customerList/index?type=public" icon="friends-o" text="公海客户" />
+    <van-grid-item link-type="navigateTo" url="" icon="add-o" text="新增线索" />
+    <van-grid-item link-type="navigateTo" url="" icon="add-o" text="新增客户" />
+  </van-grid>
+</view>

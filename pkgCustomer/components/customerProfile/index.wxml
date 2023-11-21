@@ -1,0 +1,22 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: UDEVE Team <tech@udeve.cn>
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--pkgCustomer/components/customerProfile/index.wxml-->
+<van-cell-group title="客户详情" >
+  <van-cell center title="年龄" value="13000230000" is-link/>
+  <van-cell center title="性别" value="13000230000" is-link/>
+  <van-cell center title="意向等级" value="13000230000" is-link/>
+  <van-cell center title="意向面积" value="13000230000" is-link/>
+  <van-cell center title="意向户型" value="13000230000" is-link/>
+  <van-cell center title="意向总价" value="13000230000" is-link/>
+  <van-cell center title="意向单价" value="13000230000" is-link/>
+  <van-cell center title="购房用途" value="13000230000" is-link/>
+</van-cell-group>

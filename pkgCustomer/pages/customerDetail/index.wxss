@@ -9,8 +9,32 @@
 * | Author: UDEVE Team <tech@udeve.cn>
 * +----------------------------------------------------------------------
 */
-let request = require('../utils/request');
+/* pkgCustomer/pages/customerDetail/index.wxss */
+.user {
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+}
 
-export function getSurroundList (query) {
-    return request.get("/api/v6/surround/", query);
+.user .avatar {
+  width: 150rpx;
+  height: 150rpx;
+  display: block;
+}
+
+.user .detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 38rpx;
+  margin-bottom: 10rpx;
+}
+
+.user .detail .btns {
+  width: 240rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

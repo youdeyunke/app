@@ -1,0 +1,37 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: UDEVE Team <tech@udeve.cn>
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--pkgCustomer/pages/createFollow/index.wxml-->
+<van-notify id="van-notify" />
+
+
+<ud-card width="710" title-size="28" hat="{{false}}" title="跟进日志内容">
+  <ud-textarea width="660" bind:input="contentHandle" value="{{content}}" max-length="300" />
+</ud-card>
+
+<ud-card width="710" title-size="28" hat="{{false}}" title="选择状态">
+
+  <view class="status-items">
+
+    <van-tag bindtap="itemClick" custom-class="status-item" data-index="{{index}}" size="large" color="#1989fa"
+      plain="{{item.id === statusId ? false : true}}" wx:for="{{statusItems}}">{{item.name}}</van-tag>
+  </view>
+
+</ud-card>
+
+<view class="footer">
+  <van-button bindtap="submitHandle" loading="{{loading}}" color="#1989fa" block custom-style="width:710rpx;margin-bottom:20rpx;">提交跟进日志
+  </van-button>
+
+  <navigator open-type="navigateBack">
+    <van-button loading="{{loading}}" block type="default" custom-style="width:710rpx;">取消并返回</van-button>
+  </navigator>
+</view>

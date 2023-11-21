@@ -1,0 +1,11 @@
+<!--pkgCustomer/pages/customerContactEdit/index.wxml-->
+<van-cell-group>
+  <van-field model:value="{{ value }}" label="联系人姓名" placeholder="请输入联系人姓名" />
+  <van-field model:value="{{ value }}" label="联系人电话" placeholder="请输入联系人电话" />
+  <van-field model:value="{{ value }}" label="联系人身份" placeholder="请输入联系人身份" />
+</van-cell-group>
+
+<view style="width: 100%;margin: 30rpx 0 0 0;">
+  <van-button type="primary" block bind:click="createFollow" block>保存</van-button>
+  <van-button type="primary" block bind:click="createFollow" block>删除</van-button>
+</view>
