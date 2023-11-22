@@ -16,6 +16,10 @@
   <van-cell center title="已联系" label="2020-10-11" value="已与客户取得了联系(许晋语)"/>
 </van-cell-group>
 
+<view wx:if="{{ followList.length == 0 }}" style="color: #999;text-align: center;" >
+  无数据
+</view>
+
 <view style="width: 100%;margin: 30rpx 0 0 0;">
   <van-button type="primary" bind:click="createFollow" block>新增跟进日志</van-button>
 </view>

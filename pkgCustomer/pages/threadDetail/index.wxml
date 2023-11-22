@@ -10,42 +10,30 @@
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
 <!--pkgCustomer/pages/threadDetail/index.wxml-->
-<van-cell-group >
-  <van-cell center title="客户名称" value="李伟"/>
-  <van-cell center title="手机号" value="13000230000"/>
-  <van-cell center title="来源" value="客户报名参加活动"/>
-  <van-cell center title="楼盘" value="恒大城"/>
-  <van-cell center title="备注" value="该客户查看了楼盘"/>
+<van-cell-group>
+  <van-cell center title="客户名称" value="{{thread.name}}" />
+  <van-cell center title="手机号" value="{{thread.mobile}}" />
+  <van-cell center title="来源" value="{{thread.source}}" />
+  <van-cell center title="楼盘" value="{{thread.post_title}}" />
+  <van-cell center title="备注" value="{{thread.remark}}" />
 </van-cell-group>
-
-<!-- <van-cell-group title="跟进日志">
-  <van-cell center title="已联系" label="2020-10-11" value="已与客户取得了联系(许晋语)"/>
-  <van-cell center title="未接通" label="2020-10-11" value="客户未接电话(许晋语)"/>
-  <van-cell center title="已联系" label="2020-10-11" value="已与客户取得了联系(许晋语)"/>
-</van-cell-group>
-
-<view style="width: 100%;margin: 30rpx 0 0 0;">
-  <van-button type="primary" bind:click="createFollow" block>新增跟进日志</van-button>
-</view> -->
 
 <follow targetId="{{}}" targetType="{{}}"></follow>
 
-<!-- <van-cell-group title="线索动态">
-  <van-cell center title="2020-10-11" value="客户参加活动 活动id:1，活动标题：报名领券"/>
-  <van-cell center title="2020-10-11" value="客户参加活动 活动id:1，活动标题：报名领券"/>
-  <van-cell center title="2020-10-11" value="客户参加活动 活动id:1，活动标题：报名领券"/>
-</van-cell-group> -->
-
-<sub-thread parentId="{{}}"></sub-thread>
+<sub-thread parentId="{{id}}"></sub-thread>
 
 <view style="height: 120rpx;">
 </view>
 
 <view style="display: flex;width: 750rpx;position: fixed;bottom: 0;">
   <view style="width: 50%;">
-    <van-button type="danger" block>放回公海</van-button>
+    <van-button type="danger" block bind:click="releaseThread">放回公海</van-button>
   </view>
   <view style="width: 50%;">
-    <van-button type="info" block>转为客户</van-button>
+    <van-button type="info" block bind:click="threadToCustomer">转为客户</van-button>
   </view>
 </view>
+
+<van-dialog use-slot title="放回公海原因" show="{{ show }}" bind:close="reasonDialogClose">
+  <van-field model:value="{{ recover_reason }}" label="原因" placeholder="请输入丢弃线索原因"  />
+</van-dialog>

@@ -1,26 +1,97 @@
 // pkgCustomer/pages/threadDetail/index.js
+const app = getApp()
+const threadApi = require("../../../api/thread")
+const followApi = require("../../../api/follow")
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    thread: {},
+    id: null,
+    show: false,
+    recover_reason: '',
   },
 
-  createFollow(){
-    var id = ''
-    var url = "/pkgCustomer/pages/createFollow/index?target_type=thread&target_id=" + id
-    wx.navigateTo({
-      url: url,
+  loadThread(threadid){
+    var _this = this
+    threadApi.getThreads(threadid).then((resp) => {
+      if (resp.data.code != 0) {
+        return
+      }
+      this.setData({
+        thread: resp.data.data
+      })
+    })
+  },
+
+  releaseThread(){
+    var _this = this
+    var id = this.data.id
+    wx.showModal({
+      title: '是否将线索放回公海',
+      content: '',
+      complete: (res) => {
+        if (res.confirm) {
+          _this.setData({
+            show: true
+          })
+        }
+      }
+    })
+  },
+
+  reasonDialogClose(e){
+    var _this = this
+    var id = this.data.id
+    var data = {
+      recover_reason: this.data.recover_reason
+    }
+    if (e.detail == "confirm") {
+      threadApi.releaseThreads(id, data).then((resp) => {
+        if (resp.data.code != 0) {
+          return
+        }
+        wx.showToast({
+          title: '线索已放回公海',
+          complete: () =>{
+            wx.navigateBack({
+              delta: 2
+            })
+          }
+        })
+      })
+    }
+  },
+
+  threadToCustomer(){
+    var id = this.data.id
+    wx.showModal({
+      title: '确定将线索转为客户吗？',
+      content: '',
+      complete: (res) => {
+        if (res.confirm) {
+          threadApi.threadToCustomer(id).then((resp) => {
+            if (resp.data.code != 0) {
+              return
+            }
+          })
+        }
+      }
     })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-
+  onLoad(q) {
+    var threadid = q.id
+    this.setData({
+      id: threadid
+    })
+    this.loadThread(threadid)
   },
 
   /**

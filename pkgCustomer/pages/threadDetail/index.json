@@ -3,7 +3,8 @@
     "van-cell": "/vant/cell/index",
     "van-cell-group": "/vant/cell-group/index",
     "follow": "../../components/follow/index",
-    "sub-thread": "../../components/subThreads/index"
+    "sub-thread": "../../components/subThreads/index",
+    "van-dialog": "/vant/dialog/index"
   },
   "navigationBarTitleText": "线索详情"
 }
