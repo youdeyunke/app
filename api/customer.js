@@ -45,25 +45,25 @@ export function updateCustomer (customerId, data) {
 
 // 拉取客户列表
 export function getCustormersList (query) {
-  return request.get("/api/v6/customers", query);
+  return request.get("http://192.168.31.45:8080/api/v6/customers", query);
 }
 
 // 拉取客户详情
 export function getCustormer (id) {
-  return request.get("/api/v6/customers/" + id);
+  return request.get("http://192.168.31.45:8080/api/v6/customers/" + id);
 }
 
 // 将私人客户放回公海
 export function releaseCustomer (id, data) {
-  return request.post("/api/v6/customers/" + id + "/release", data);
+  return request.post("http://192.168.31.45:8080/api/v6/customers/" + id + "/release", data);
 }
 
 // 领取公海客户
 export function recieveCustomer (id) {
-  return request.post("/api/v6/customers/" + id + "/recieve");
+  return request.post("http://192.168.31.45:8080/api/v6/customers/" + id + "/recieve");
 }
 
 // 创建客户
 export function createCustomer(data) {
-  return request.post("/v6/customers/create", data)
+  return request.post("http://192.168.31.45:8080/v6/customers/create", data)
 }

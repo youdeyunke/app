@@ -10,6 +10,8 @@
  * +----------------------------------------------------------------------
  */
 // pkgCustomer/pages/customerList/index.js
+const customerApi = require("../../../api/customer")
+
 Page({
 
   /**
@@ -18,35 +20,83 @@ Page({
   data: {
     kw: '',
     type: 'private',
+    page: 1,
+    items: []
   },
 
-  kwSearch(e){
+  kwSearch(e) {
+    var _this = this
     this.setData({
-      kw: e.detail
+      kw: e.detail,
+      items: [],
+      page: 1
+    },() => {
+      _this.loadData()
     })
   },
 
-  kwClear(){
+  kwClear() {
+    var _this = this
     this.setData({
-      kw: ''
+      kw: '',
+      items: [],
+      page: 1
+    },() => {
+      _this.loadData()
     })
   },
 
-  linquCustomer(){
+  linquCustomer(e){
+    var _this =this
+    var customerid = e.currentTarget.dataset.customerid
+    console.log(e,customerid);
     wx.showModal({
       title: '是否领取该客户',
       content: '',
       complete: (res) => {
-        if (res.cancel) {
-          
-        }
-    
         if (res.confirm) {
-          
+          customerApi.recieveCustomer(customerid).then((resp) => {
+            if (resp.data.code != 0) {
+              return
+            }
+            wx.showToast({
+              title: '领取成功',
+              icon: 'none'
+            })
+            this.setData({
+              items: [],
+              page: 1
+            },() => {
+              _this.loadData()
+            })
+          })
         }
       }
     })
   },
+
+  loadData() {
+    var _this = this
+    var data = {
+      page: this.data.page,
+      per_page: 15,
+      type: this.data.type
+    }
+    if (this.data.kw) {
+      data.kw = this.data.kw
+    }
+    customerApi.getCustormersList(data).then((resp) => {
+      if (resp.data.code != 0) {
+        return
+      }
+      var arr = _this.data.items
+      var resarr = arr.concat(resp.data.data)
+      _this.setData({
+        items: resarr
+      })
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -76,6 +126,7 @@ Page({
           title: '待跟进客户',
         })
       }
+      _this.loadData()
     })
   },
 
@@ -118,7 +169,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
+    var _this = this
+    var page = this.data.page
+    this.setData({
+      page: page + 1
+    },() => {
+      _this.loadData()
+    })
   },
 
   /**

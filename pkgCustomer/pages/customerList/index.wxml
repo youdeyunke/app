@@ -12,18 +12,11 @@
 <!--pkgCustomer/pages/threadList/index.wxml-->
 <van-search value="{{ kw }}" bind:search="kwSearch" bind:clear="kwClear" placeholder="请输入客户姓名或手机号" />
 <van-cell-group title="{{ kw ? '搜索结果' : ''}}" wx:if="{{ type != 'public' }}">
-  <van-cell center title="张先生 130****1111" value="查看" label="未接通" is-link link-type="navigateTo" url="/pkgCustomer/pages/customerDetail/index?id={{}}"/>
-  <van-cell center title="张先生 130****1111" value="查看" label="未接通" is-link link-type="navigateTo" url="/pkgCustomer/pages/customerDetail/index"/>
-  <van-cell center title="张先生 130****1111" value="查看" label="高意向" is-link link-type="navigateTo" url="/pkgCustomer/pages/customerDetail/index"/>
-  <van-cell center title="张先生 130****1111" value="查看" label="未接通" is-link link-type="navigateTo" url="/pkgCustomer/pages/customerDetail/index"/>
-  <van-cell center title="张先生 130****1111" value="查看" label="未接通" is-link link-type="navigateTo" url="/pkgCustomer/pages/customerDetail/index"/>
-  <van-cell center title="张先生 130****1111" value="查看" label="未接通" is-link link-type="navigateTo" url="/pkgCustomer/pages/customerDetail/index"/>
+  <!-- <van-cell center title="张先生 130****1111" value="查看" label="未接通" is-link link-type="navigateTo" url="/pkgCustomer/pages/customerDetail/index?id={{}}"/> -->
+  <van-cell wx:for="{{items}}" center title="{{item.name + '  ' + item.mobile}}" value="查看" label="{{item.status.name}}" is-link link-type="navigateTo" url="/pkgCustomer/pages/customerDetail/index?id={{item.id}}"/>
 </van-cell-group>
 <van-cell-group title="{{ kw ? '搜索结果' : ''}}" wx:else>
-  <van-cell center title="张先生 130****1111" value="领取" label="未接通" bind:click="linquCustomer" />
-  <van-cell center title="张先生 130****1111" value="领取" label="未接通" bind:click="linquCustomer" />
-  <van-cell center title="张先生 130****1111" value="领取" label="高意向" bind:click="linquCustomer" />
-  <van-cell center title="张先生 130****1111" value="领取" label="未接通" bind:click="linquCustomer" />
-  <van-cell center title="张先生 130****1111" value="领取" label="未接通" bind:click="linquCustomer" />
-  <van-cell center title="张先生 130****1111" value="领取" label="未接通" bind:click="linquCustomer" />
+  <!-- <van-cell center title="张先生 130****1111" value="领取" label="未接通" bind:click="linquCustomer" /> -->
+  <van-cell wx:for="{{items}}" center title="{{item.name + '  ' + item.mobile}}" value="领取" label="{{item.status.name}}" bind:click="linquCustomer" data-customerid="{{item.id}}" />
 </van-cell-group>
+<no-result wx:if="{{ items.length == 0 }}"></no-result>

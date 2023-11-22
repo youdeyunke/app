@@ -40,6 +40,7 @@ Page({
     var _this = this
     this.setData({
       kw: '',
+      items: [],
       page: 1
     },() => {
       _this.loadData()
