@@ -12,18 +12,11 @@
 <!--pkgCustomer/pages/threadList/index.wxml-->
 <van-search value="{{ kw }}" bind:search="kwSearch" bind:clear="kwClear" placeholder="请输入客户姓名或手机号" />
 <van-cell-group title="{{ kw ? '搜索结果' : ''}}" wx:if="{{ type != 'public' }}">
-  <van-cell center title="张先生 130****1111" value="查看" label="2023-11-15 用户参加报名活动" is-link link-type="navigateTo" url="/pkgCustomer/pages/threadDetail/index?id={{}}"/>
-  <van-cell center title="张先生 130****1111" value="查看" label="2023-11-15 用户参加报名活动" is-link link-type="navigateTo" url="/pkgCustomer/pages/threadDetail/index"/>
-  <van-cell center title="张先生 130****1111" value="查看" label="2023-11-15 用户参加报名活动" is-link link-type="navigateTo" url="/pkgCustomer/pages/threadDetail/index"/>
-  <van-cell center title="张先生 130****1111" value="查看" label="2023-11-15 用户参加报名活动" is-link link-type="navigateTo" url="/pkgCustomer/pages/threadDetail/index"/>
-  <van-cell center title="张先生 130****1111" value="查看" label="2023-11-15 用户参加报名活动" is-link link-type="navigateTo" url="/pkgCustomer/pages/threadDetail/index"/>
-  <van-cell center title="张先生 130****1111" value="查看" label="2023-11-15 用户参加报名活动" is-link link-type="navigateTo" url="/pkgCustomer/pages/threadDetail/index"/>
+  <!-- <van-cell center title="张先生 130****1111" value="查看" label="2023-11-15 用户参加报名活动" is-link link-type="navigateTo" url="/pkgCustomer/pages/threadDetail/index?id={{}}"/> -->
+  <van-cell wx:for="{{items}}" center title="{{ item.name + '  ' + item.mobile }}" value="查看" label="{{ item.source }}" is-link link-type="navigateTo" url="/pkgCustomer/pages/threadDetail/index?id={{item.id}}"/>
 </van-cell-group>
 <van-cell-group title="{{ kw ? '搜索结果' : ''}}" wx:else>
-  <van-cell center title="张先生 130****1111" value="领取" label="2023-11-15 用户参加报名活动" bind:click="linquThread" />
-  <van-cell center title="张先生 130****1111" value="领取" label="2023-11-15 用户参加报名活动" bind:click="linquThread" />
-  <van-cell center title="张先生 130****1111" value="领取" label="2023-11-15 用户参加报名活动" bind:click="linquThread" />
-  <van-cell center title="张先生 130****1111" value="领取" label="2023-11-15 用户参加报名活动" bind:click="linquThread" />
-  <van-cell center title="张先生 130****1111" value="领取" label="2023-11-15 用户参加报名活动" bind:click="linquThread" />
-  <van-cell center title="张先生 130****1111" value="领取" label="2023-11-15 用户参加报名活动" bind:click="linquThread" />
+  <!-- <van-cell center title="张先生 130****1111" value="领取" label="2023-11-15 用户参加报名活动" bind:click="linquThread" /> -->
+  <van-cell wx:for="{{items}}" center title="{{ item.name + '  ' + item.mobile }}" value="领取" label="{{ item.source }}" bind:click="linquThread" data-threadid="{{item.id}}" />
 </van-cell-group>
+<no-result wx:if="{{ items.length == 0 }}"></no-result>

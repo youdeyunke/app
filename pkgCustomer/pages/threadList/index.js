@@ -10,6 +10,9 @@
  * +----------------------------------------------------------------------
  */
 // pkgCustomer/pages/threadList/index.js
+const app = getApp()
+const threadApi = require("../../../api/thread")
+
 Page({
 
   /**
@@ -18,33 +21,78 @@ Page({
   data: {
     kw: '',
     type: 'private',
+    page: 1,
+    items: []
   },
 
-  kwSearch(e){
+  kwSearch(e) {
+    var _this = this
     this.setData({
-      kw: e.detail
+      kw: e.detail,
+      items: [],
+      page: 1
+    },() => {
+      _this.loadData()
     })
   },
 
-  kwClear(){
+  kwClear() {
+    var _this = this
     this.setData({
-      kw: ''
+      kw: '',
+      page: 1
+    },() => {
+      _this.loadData()
     })
   },
 
-  linquThread(){
+  linquThread(e) {
+    var _this =this
+    var threadId = e.currentTarget.dataset.threadid
+    console.log(e,threadId);
     wx.showModal({
       title: '是否领取该线索',
       content: '',
       complete: (res) => {
-        if (res.cancel) {
-          
-        }
-    
         if (res.confirm) {
-          
+          threadApi.recieveThreads(threadId).then((resp) => {
+            if (resp.data.code != 0) {
+              return
+            }
+            wx.showToast({
+              title: '领取成功',
+              icon: 'none'
+            })
+            this.setData({
+              items: [],
+              page: 1
+            },() => {
+              _this.loadData()
+            })
+          })
         }
       }
+    })
+  },
+
+  loadData() {
+    var _this = this
+    var data = {
+      page: this.data.page,
+      type: this.data.type
+    }
+    if (this.data.kw) {
+      data.kw = this.data.kw
+    }
+    threadApi.getThreadList(data).then((resp) => {
+      if (resp.data.code != 0) {
+        return
+      }
+      var arr = _this.data.items
+      var resarr = arr.concat(resp.data.data)
+      _this.setData({
+        items: resarr
+      })
     })
   },
 
@@ -55,29 +103,29 @@ Page({
     var _this = this
     console.log(e);
     this.setData(
-      e
-    ,() => {
-      if(_this.data.type == "private"){
-        wx.setNavigationBarTitle({
-          title: '我的线索',
-        })
-      }
-      if(_this.data.type == "public"){
-        wx.setNavigationBarTitle({
-          title: '公海线索',
-        })
-      }
-      if(_this.data.type == "recycle"){
-        wx.setNavigationBarTitle({
-          title: '将回收线索',
-        })
-      }
-      if(_this.data.type == "follow-up"){
-        wx.setNavigationBarTitle({
-          title: '待跟进线索',
-        })
-      }
-    })
+      e, () => {
+        if (_this.data.type == "private") {
+          wx.setNavigationBarTitle({
+            title: '我的线索',
+          })
+        }
+        if (_this.data.type == "public") {
+          wx.setNavigationBarTitle({
+            title: '公海线索',
+          })
+        }
+        if (_this.data.type == "recycle") {
+          wx.setNavigationBarTitle({
+            title: '将回收线索',
+          })
+        }
+        if (_this.data.type == "follow-up") {
+          wx.setNavigationBarTitle({
+            title: '待跟进线索',
+          })
+        }
+        _this.loadData()
+      })
 
   },
 
@@ -120,7 +168,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom() {
-
+    var _this = this
+    var page = this.data.page
+    this.setData({
+      page: page + 1
+    },() => {
+      _this.loadData()
+    })
   },
 
   /**
