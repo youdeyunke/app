@@ -11,10 +11,13 @@
 -->
 <!--pkgCustomer/components/customerContact/index.wxml-->
 <van-cell-group title="联系人" >
-  <van-cell center title="许晋语" label="姐姐" value="13000230000" is-link link-type="navigateTo" url="/pkgCustomer/pages/customerContactEdit/index?id={{}}"/>
-  <van-cell center title="李伟" label="哥哥" value="13000230000" is-link/>
-  <van-cell center title="何洁从" label="弟弟" value="13000230000" is-link/>
+  <!-- <van-cell center title="许晋语" label="姐姐" value="13000230000" is-link /> -->
+  <van-cell wx:for="{{contacts}}" center title="{{item.name}}" label="{{item.cat}}" value="{{item.mobile}}" is-link link-type="navigateTo" url="/pkgCustomer/pages/customerContactEdit/index?id={{item.id}}&customerId={{customerId}}"/>
 </van-cell-group>
+
+<view wx:if="{{ contacts.length == 0 }}" style="color: #999;text-align: center;" >
+  无数据
+</view>
 
 <view style="width: 100%;margin: 30rpx 0 0 0;">
   <van-button type="primary" block bind:click="createFollow" block>新增联系人</van-button>

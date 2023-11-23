@@ -10,25 +10,53 @@
 * +----------------------------------------------------------------------
 */
 // pkgCustomer/components/customerContact/index.js
+const customerContactApi = require("../../../api/customer_contact")
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-
+    customerId: {type:Number},
   },
 
   /**
    * 组件的初始数据
    */
   data: {
+    contacts: []
+  },
 
+  observers: {
+    "customerId": function (val) {
+      if(!val){
+        return
+      }
+      this.loadData(val)
+    }
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-
+    loadData(id){
+      var _this = this
+      var data = {
+        customer_id: id
+      }
+      customerContactApi.getCustomerContacts(data).then((resp) => {
+        if (resp.data.code != 0) {
+          return
+        }
+        this.setData({
+          contacts: resp.data.data
+        })
+      })
+    },
+    createFollow(){
+      wx.navigateTo({
+        url: '/pkgCustomer/pages/customerContactEdit/index?customerId=' + this.data.customerId,
+      })
+    }
   }
 })

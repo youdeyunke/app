@@ -16,8 +16,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    target_id: {type:Number, value: null},
-    target_type: {type:String, value: 'thread'}
+    target_id: {type:Number},
+    target_type: {type:String}
   },
 
   /**
@@ -27,13 +27,23 @@ Component({
     followList:[]
   },
 
+  observers:{
+    "target_id": function (val) {
+      if (!val) {
+        return
+      }
+      this.loadFollow()
+    }
+  },
+
   /**
    * 组件的方法列表
    */
   methods: {
     createFollow(){
-      var id = ''
-      var type = ''
+      var id = this.data.target_id
+      var type = this.data.target_type
+      console.log(this.data);
       var url = "/pkgCustomer/pages/createFollow/index?target_type=" + type + "&target_id=" + id
       wx.navigateTo({
         url: url,

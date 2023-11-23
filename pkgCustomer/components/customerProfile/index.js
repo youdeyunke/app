@@ -10,25 +10,48 @@
 * +----------------------------------------------------------------------
 */
 // pkgCustomer/components/customerProfile/index.js
+const customerProfileApi = require("../../../api/customer_profile")
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
+    customerId: {type:Number},
+  },
 
+  observers: {
+    "customerId": function (val) {
+      if(!val){
+        return
+      }
+      this.loadData(val)
+    }
   },
 
   /**
    * 组件的初始数据
    */
   data: {
-
+    profile: {}
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-
+    loadData(id){
+      var _this = this
+      var data = {
+        customer_id: id
+      }
+      customerProfileApi.getCustomerProfile(data).then((resp) => {
+        if (resp.data.code != 0) {
+          return
+        }
+        this.setData({
+          profile: resp.data.data
+        })
+      })
+    },
   }
 })

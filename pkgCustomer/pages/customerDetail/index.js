@@ -1,11 +1,26 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
 // pkgCustomer/pages/customerDetail/index.js
+const customerApi = require("../../../api/customer")
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    tab: 'profile'
+    tab: 'profile',
+    id: null,
+    customer: {},
   },
 
   tabChange(e){
@@ -14,11 +29,27 @@ Page({
     })
   },
 
+  loadCustomer(id){
+    var _this = this
+    customerApi.getCustormer(id).then((resp) => {
+      if (resp.data.code != 0) {
+        return
+      }
+      this.setData({
+        customer: resp.data.data
+      })
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-
+  onLoad(q) {
+    var id = q.id
+    this.setData({
+      id: id
+    })
+    this.loadCustomer(id)
   },
 
   /**

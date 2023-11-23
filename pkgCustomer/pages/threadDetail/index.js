@@ -12,7 +12,6 @@
 // pkgCustomer/pages/threadDetail/index.js
 const app = getApp()
 const threadApi = require("../../../api/thread")
-const followApi = require("../../../api/follow")
 
 Page({
 

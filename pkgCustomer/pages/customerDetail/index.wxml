@@ -14,13 +14,13 @@
   <image class="avatar" src="https://qiniucdn.udeve.net/udyk/652f8053e4b05854ecc5cfe1.jpg?imageView2/2/w/100" mode=""/>
   <view style="width: 500rpx;">
     <view class="detail">
-      <view>李伟</view>
+      <view>{{customer.name}}</view>
       <view class="btns">
         <van-button icon="phone" block size="mini" type="primary" />
         <van-button size="mini" block type="danger">放回公海</van-button>
       </view>
     </view>
-    <view>13072222222</view>
+    <view>{{customer.mobile}}</view>
   </view>
 </view>
 
@@ -42,7 +42,7 @@
 </view>
 
 <view wx:if="{{ tab == 'follow' }}">
-  <follow targetId="{{}}" targetType="{{}}"></follow>
+  <follow target_type="customer" target_id="{{id}}"></follow>
 </view>
 
 <view wx:if="{{ tab == 'thread' }}">

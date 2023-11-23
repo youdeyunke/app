@@ -13,6 +13,7 @@
 import Notify from '../../../vant/notify/notify';
 const app = getApp()
 const clueApi = require("../../../api/clue")
+const followApi = require("../../../api/follow")
 Page({
 
   /**
@@ -88,14 +89,33 @@ Page({
     var data = {
       content: content,
       status_id: this.data.statusId,
-      clue_id: this.data.clueId
+      target_id: this.data.target_id,
+      target_type: this.data.target_type
     }
     this.setData({
       loading: true
     })
-    app.dingyueHandle()
+    // app.dingyueHandle()
     var _this = this
-    clueApi.createClueFollow(data).then((resp) => {
+    // clueApi.createClueFollow(data).then((resp) => {
+    //   if (resp.data.status != 0) {
+    //     return false
+    //   }
+    //   _this.setData({
+    //     loading: false
+    //   })
+    //   app.globalData.backToReload = true
+
+    //   wx.showToast({
+    //     title: '日志已提交成功',
+    //   })
+    //   setTimeout(() => {
+    //     wx.navigateBack({
+    //       delta: -1,
+    //     })
+    //   }, 1000)
+    // })
+    followApi.createCustomerFollow(data).then((resp) => {
       if (resp.data.status != 0) {
         return false
       }
@@ -113,7 +133,6 @@ Page({
         })
       }, 1000)
     })
-
     wx.showLoading({
       title: '提交中',
     })
@@ -130,8 +149,10 @@ Page({
       var sid = parseInt(q.status_id)
     }
     this.setData({
-      clueId: q.id,
+      // clueId: q.id,
       statusId: sid,
+      target_id: q.target_id,
+      target_type: q.target_type
     })
     this.loadData()
   },
