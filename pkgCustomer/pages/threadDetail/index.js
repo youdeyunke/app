@@ -86,7 +86,7 @@ Page({
               return
             }
             wx.navigateTo({
-              url: '/pkgCustomer/pages/customerDetail/index?id=' + resp.data.data.id,
+              url: '/pkgCustomer/pages/customerDetail/index?id=' + resp.data.data,
             })
           })
         }

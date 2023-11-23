@@ -1,0 +1,11 @@
+/* pkgCustomer/pages/customerCheck/index.wxss */
+.footer{
+  width:750rpx; 
+  position: fixed;
+  background:#fff; 
+  bottom:0;
+  left:0;
+  padding:10rpx 20rpx;
+  margin:0 auto;
+  border-top:2rpx solid #cecece;
+}

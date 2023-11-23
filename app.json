@@ -20,7 +20,9 @@
         "pages/customerList/index",
         "pages/customerDetail/index",
         "pages/customerContactEdit/index",
-        "pages/customerProfileEdit/index"
+        "pages/customerProfileEdit/index",
+        "pages/createCustomer/index",
+        "pages/customerCheck/index"
       ]
     },
     {

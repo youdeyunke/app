@@ -1,0 +1,29 @@
+<!--pkgCustomer/pages/createCustomer/index.wxml-->
+<van-cell-group>
+  <van-field model:value="{{ name }}" label="客户姓名" placeholder="请输入客户姓名" />
+  <van-field model:value="{{ mobile }}" label="客户电话" placeholder="请输入客户电话" />
+</van-cell-group>
+<van-cell title="客户性别" value="{{sex}}"></van-cell>
+
+<van-radio-group value="{{ sex }}" bind:change="onChange">
+  <van-cell-group>
+    <van-cell title="男性" clickable data-name="男性" bind:click="onClick">
+      <van-radio slot="right-icon" name="男性" />
+    </van-cell>
+    <van-cell title="女性" clickable data-name="女性" bind:click="onClick">
+      <van-radio slot="right-icon" name="女性" />
+    </van-cell>
+  </van-cell-group>
+</van-radio-group>
+
+<van-cell-group>
+  <van-field model:value="{{ remark }}" label="备注" type="textarea" placeholder="请输入备注" autosize border="{{ false }}" />
+</van-cell-group>
+
+<ud-card width="750" title-size="28" hat="{{false}}" title="选择状态">
+  <view class="status-items">
+    <van-tag bindtap="itemClick" custom-class="status-item" data-index="{{index}}" size="large" color="#1989fa" plain="{{item.id === statusId ? false : true}}" wx:for="{{statusItems}}">{{item.name}}</van-tag>
+  </view>
+</ud-card>
+
+<van-button block bindtap="createCustomer" type="info">提交</van-button>

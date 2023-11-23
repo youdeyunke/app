@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-field": "/vant/field/index",
+    "van-radio-group": "/vant/radio-group/index",
+    "van-radio": "/vant/radio/index",
+    "van-collapse": "/vant/collapse/index",
+    "van-collapse-item": "/vant/collapse-item/index"
+  }
+}

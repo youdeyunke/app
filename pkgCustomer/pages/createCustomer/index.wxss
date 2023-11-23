@@ -9,14 +9,26 @@
 * | Author: UDEVE Team <tech@udeve.cn>
 * +----------------------------------------------------------------------
 */
-let request = require('../utils/request.js');
-
-// 拉取跟进日志
-export function getCustomerFollows (data) {
-  return request.get("/api/v6/coustomer_follows", data);
+/* pkgCustomer/pages/createCustomer/index.wxss */
+.footer {
+  margin-top:20rpx;
 }
 
-// 创建跟进日志
-export function createCustomerFollow (data) {
-  return request.post("http://192.168.31.45:8080/api/v6/coustomer_follows/create", data);
+.status-items{ 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.status-item{
+  width:180rpx;
+  text-align-last: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height:60rpx;
+  border-radius: 10rpx;
+
+  margin-bottom:20rpx;
 }

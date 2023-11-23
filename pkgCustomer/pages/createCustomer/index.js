@@ -9,29 +9,44 @@
  * | Author: UDEVE Team <tech@udeve.cn>
  * +----------------------------------------------------------------------
  */
-// pkgCustomer/pages/createFollow/index.js
-import Notify from '../../../vant/notify/notify';
-const app = getApp()
+// pkgCustomer/pages/createCustomer/index.js
 const clueApi = require("../../../api/clue")
-const followApi = require("../../../api/follow")
+const customerApi = require("../../../api/customer")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    error: null,
-    content: '',
-    statusItems: [
-
-    ],
-
-    clueId: null,
+    statusItems: [],
     statusId: null,
-    target_id: null,
-    target_type: null,
+    name: '',
+    mobile: '',
+    sex: '',
+    remark: '',
   },
 
+  createCustomer(){
+    var data = {
+      name: this.data.name,
+      mobile: this.data.mobile,
+      status_id: this.data.statusId,
+      sex: this.data.sex,
+      remark: this.data.remark
+    }
+    console.log(data);
+    customerApi.createCustomer(data).then((resp) => {
+      if (resp.data.status != 0) {
+        return
+      }
+      wx.showToast({
+        title: '创建成功',
+      })
+      setTimeout(()=>{
+        wx.navigateBack()
+      },1500)
+    })
+  },
 
   loadData: function () {
     var _this = this
@@ -42,14 +57,6 @@ Page({
       _this.setData({
         statusItems: resp.data.data,
       })
-    })
-  },
-
-
-  contentHandle: function (e) {
-    var c = e.detail.value
-    this.setData({
-      content: c
     })
   },
 
@@ -64,84 +71,22 @@ Page({
 
   },
 
-  submitHandle: function (e) {
-    if (this.data.loading) {
-      return
-    }
-
-    // validate
-    var content = this.data.content
-    if (!content || content.length < 5) {
-      Notify({
-        message: '请填写跟进日志详细内容，不少于5个字',
-        type: 'danger'
-      })
-      return false
-    }
-
-    if (!this.data.statusId) {
-      Notify({
-        message: '请选择一个状态',
-        type: 'danger'
-      })
-      return false
-    }
-    var data = {
-      content: content,
-      status_id: this.data.statusId,
-      target_id: this.data.target_id,
-      target_type: this.data.target_type
-    }
+  onChange(e){
     this.setData({
-      loading: true
-    })
-    var _this = this
-
-    followApi.createCustomerFollow(data).then((resp) => {
-      if (resp.data.status != 0) {
-        return false
-      }
-      _this.setData({
-        loading: false
-      })
-      app.globalData.backToReload = true
-
-      wx.showToast({
-        title: '日志已提交成功',
-      })
-      setTimeout(() => {
-        this.getOpenerEventChannel().emit("change")
-        wx.navigateBack({
-          delta: -1,
-        })
-      }, 1000)
-    })
-    wx.showLoading({
-      title: '提交中',
-    })
-
+      sex: e.detail,
+    });
   },
-
-  quxiaoBack(){
-    this.getOpenerEventChannel().emit("change")
-    wx.navigateBack({
-      delta: -1,
-    })
+  onClick(event) {
+    const { name } = event.currentTarget.dataset;
+    this.setData({
+      sex: name,
+    });
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(q) {
-    if (q.status_id) {
-      var sid = parseInt(q.status_id)
-    }
-    this.setData({
-      // clueId: q.id,
-      statusId: sid,
-      target_id: q.target_id,
-      target_type: q.target_type
-    })
+  onLoad(options) {
     this.loadData()
   },
 
