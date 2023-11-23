@@ -1,2 +1,14 @@
 <!--pkgCustomer/pages/customerProfileEdit/index.wxml-->
-<text>pkgCustomer/pages/customerProfileEdit/index.wxml</text>
+<van-radio-group value="{{ profile[type] }}" bind:change="onChange">
+  <van-cell-group>
+    <van-cell wx:for="{{items}}" title="{{item}}" clickable data-name="{{item}}" bind:click="onClick">
+      <van-radio slot="right-icon" name="{{item}}" />
+    </van-cell>
+  </van-cell-group>
+</van-radio-group>
+
+<view class="footer">
+
+<van-button bindtap="updateData" block type="primary">确定</van-button>
+<van-button block bindtap="cancleHandle" type="default">取消</van-button>
+</view>

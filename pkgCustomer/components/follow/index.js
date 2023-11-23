@@ -41,12 +41,18 @@ Component({
    */
   methods: {
     createFollow(){
+      var _this = this
       var id = this.data.target_id
       var type = this.data.target_type
       console.log(this.data);
       var url = "/pkgCustomer/pages/createFollow/index?target_type=" + type + "&target_id=" + id
       wx.navigateTo({
         url: url,
+        events:{
+          change: function(){
+            _this.loadFollow(id)
+          }
+        }
       })
     },
     loadFollow(threadid){
@@ -62,6 +68,7 @@ Component({
         this.setData({
           followList: resp.data.data
         })
+        this.triggerEvent("followCount", resp.data.data.length)
       })
     },
   }

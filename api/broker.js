@@ -18,7 +18,7 @@ export function getBrokerList (query) {
 
 // 拉取置业顾问详情   完成
 export function getBrokerDetail (userId) {
-    return request.get("http://localhost:8080/api/v6/brokers/" + userId);
+    return request.get("/api/v6/brokers/" + userId);
 }
 
 // 根据楼盘id拉取一个默认置业顾问详情   完成

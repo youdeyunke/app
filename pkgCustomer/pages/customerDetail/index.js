@@ -11,7 +11,7 @@
 */
 // pkgCustomer/pages/customerDetail/index.js
 const customerApi = require("../../../api/customer")
-
+const brokerApi = require("../../../api/broker")
 Page({
 
   /**
@@ -21,6 +21,30 @@ Page({
     tab: 'profile',
     id: null,
     customer: {},
+    broker: {},
+    recover_reason: '',
+    show: false,
+    followCount: 0,
+    threadCount: 0,
+    contactCount: 0,
+  },
+
+  getFollowCount(e){
+    this.setData({
+      followCount: e.detail
+    })
+  },
+
+  getThreadCount(e){
+    this.setData({
+      threadCount: e.detail
+    })
+  },
+
+  getContactCount(e){
+    this.setData({
+      contactCount: e.detail
+    })
   },
 
   tabChange(e){
@@ -38,7 +62,57 @@ Page({
       this.setData({
         customer: resp.data.data
       })
+      this.loadBroker(resp.data.data.broker_id)
     })
+  },
+
+  loadBroker(id){
+    brokerApi.getBrokerDetail(id).then((resp) => {
+      if (resp.data.code != 0) {
+        return
+      }
+      this.setData({
+        broker: resp.data.data
+      })
+    })
+  },
+
+  releaseCustomer(){
+    var _this = this
+    var id = this.data.id
+    wx.showModal({
+      title: '是否将客户放回公海',
+      content: '',
+      complete: (res) => {
+        if (res.confirm) {
+          _this.setData({
+            show: true
+          })
+        }
+      }
+    })
+  },
+
+  reasonDialogClose(e){
+    var _this = this
+    var id = this.data.id
+    var data = {
+      recover_reason: this.data.recover_reason
+    }
+    if (e.detail == "confirm") {
+      customerApi.releaseCustomer(id,data).then((resp) => {
+        if (resp.data.code != 0) {
+          return
+        }
+        wx.showToast({
+          title: '放回公海成功',
+          icon: 'none',
+        })
+        setTimeout(() => {
+          wx.navigateBack()
+        }, 1500)
+      })
+    }
   },
 
   /**

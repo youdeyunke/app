@@ -18,7 +18,7 @@
   <van-cell center title="备注" value="{{thread.remark}}" />
 </van-cell-group>
 
-<follow targetId="{{}}" targetType="{{}}"></follow>
+<follow target_id="{{id}}" target_type="thread"></follow>
 
 <sub-thread parentId="{{id}}"></sub-thread>
 

@@ -66,12 +66,10 @@ Page({
         }
         wx.showToast({
           title: '线索已放回公海',
-          complete: () =>{
-            wx.navigateBack({
-              delta: 2
-            })
-          }
         })
+        setTimeout(()=>{
+          wx.navigateBack()
+        },1500)
       })
     }
   },
@@ -87,6 +85,9 @@ Page({
             if (resp.data.code != 0) {
               return
             }
+            wx.navigateTo({
+              url: '/pkgCustomer/pages/customerDetail/index?id=' + resp.data.data.id,
+            })
           })
         }
       }

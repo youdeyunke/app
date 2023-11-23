@@ -53,5 +53,19 @@ Component({
         })
       })
     },
+    gotoEdit(e){
+      var _this =this
+      var type = e.currentTarget.dataset.type
+      var id = this.data.customerId
+      var url = "/pkgCustomer/pages/customerProfileEdit/index?type=" + type + "&customerId=" + id
+      wx.navigateTo({
+        url: url,
+        events:{
+          change: function(){
+            _this.loadData(id)
+          }
+        }
+      })
+    },
   }
 })

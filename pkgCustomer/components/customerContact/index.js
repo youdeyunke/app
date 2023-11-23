@@ -51,11 +51,35 @@ Component({
         this.setData({
           contacts: resp.data.data
         })
+        this.triggerEvent("contactCount", resp.data.data.length)
       })
     },
-    createFollow(){
+    createContact(){
+      var _this = this
+      var id = this.data.customerId
       wx.navigateTo({
         url: '/pkgCustomer/pages/customerContactEdit/index?customerId=' + this.data.customerId,
+        events:{
+          change: function(){
+            console.log("xjainanana");
+            _this.loadData(id)
+          }
+        }
+      })
+    },
+    updateContact(e){
+      var _this = this
+      var id = e.currentTarget.dataset.id
+      var customerId = this.data.customerId
+      var url = "/pkgCustomer/pages/customerContactEdit/index?id=" + id + "&customerId="+ customerId
+      wx.navigateTo({
+        url: url,
+        events:{
+          change: function(){
+            console.log("gxnsihixhuah");
+            _this.loadData(_this.data.customerId)
+          }
+        }
       })
     }
   }

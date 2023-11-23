@@ -128,6 +128,7 @@ Page({
         title: '日志已提交成功',
       })
       setTimeout(() => {
+        this.getOpenerEventChannel().emit("change")
         wx.navigateBack({
           delta: -1,
         })
@@ -137,8 +138,13 @@ Page({
       title: '提交中',
     })
 
+  },
 
-
+  quxiaoBack(){
+    this.getOpenerEventChannel().emit("change")
+    wx.navigateBack({
+      delta: -1,
+    })
   },
 
   /**

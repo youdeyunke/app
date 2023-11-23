@@ -11,13 +11,13 @@
 -->
 <!--pkgCustomer/pages/customerDetail/index.wxml-->
 <view class="user">
-  <image class="avatar" src="https://qiniucdn.udeve.net/udyk/652f8053e4b05854ecc5cfe1.jpg?imageView2/2/w/100" mode=""/>
+  <image class="avatar" src="{{customer.avatar}}" mode=""/>
   <view style="width: 500rpx;">
     <view class="detail">
       <view>{{customer.name}}</view>
       <view class="btns">
         <van-button icon="phone" block size="mini" type="primary" />
-        <van-button size="mini" block type="danger">放回公海</van-button>
+        <van-button size="mini" bind:click="releaseCustomer" block type="danger">放回公海</van-button>
       </view>
     </view>
     <view>{{customer.mobile}}</view>
@@ -25,30 +25,42 @@
 </view>
 
 <van-cell-group >
-  <van-cell center title="渠道来源" value="手动录入"/>
-  <van-cell center title="客户归属" value="王乐康 13000230000" is-link/>
-  <van-cell center title="创建时间" value="2022-11-04 20:39"/>
+  <van-cell center title="渠道来源" value="{{customer.source}}"/>
+  <van-cell center title="客户归属" value="{{broker.name + ' ' + broker.mobile}}" is-link link-type="navigateTo" url="/pkgBroker/pages/broker/profile?id={{customer.broker_id}}"/>
+  <van-cell center title="创建时间" value="{{customer.created_at}}"/>
 </van-cell-group>
 
 <van-tabs active="{{ tab }}" bind:change="tabChange">
-  <van-tab name="profile" title="客户详情"></van-tab>
-  <van-tab name="follow" title="跟进日志(3)"></van-tab>
-  <van-tab name="thread" title="线索动态(10)"></van-tab>
-  <van-tab name="contact" title="联系人(1)"></van-tab>
+  <van-tab name="profile" title="客户详情">
+    <customer-profile customerId="{{id}}"></customer-profile>
+  </van-tab>
+  <van-tab name="follow" title="跟进日志({{followCount}})">
+    <follow target_type="customer" target_id="{{id}}" bindfollowCount="getFollowCount"></follow>
+  </van-tab>
+  <van-tab name="thread" title="线索动态({{threadCount}})">
+    <sub-thread parentId="{{}}" bindthreadCount="getThreadCount"></sub-thread>
+  </van-tab>
+  <van-tab name="contact" title="联系人({{contactCount}})">
+    <customer-contact customerId="{{id}}" bindcontactCount="getContactCount"></customer-contact>
+  </van-tab>
 </van-tabs>
 
-<view wx:if="{{ tab == 'profile' }}">
-  <customer-profile customerId="{{id}}"></customer-profile>
+<van-dialog use-slot title="放回公海原因" show="{{ show }}" bind:close="reasonDialogClose">
+  <van-field model:value="{{ recover_reason }}" label="原因" placeholder="请输入丢弃线索原因"  />
+</van-dialog>
+
+<!-- <view wx:if="{{ tab == 'profile' }}">
+  
 </view>
 
 <view wx:if="{{ tab == 'follow' }}">
-  <follow target_type="customer" target_id="{{id}}"></follow>
+  
 </view>
 
 <view wx:if="{{ tab == 'thread' }}">
-  <sub-thread parentId="{{}}"></sub-thread>
+  
 </view>
 
 <view wx:if="{{ tab == 'contact' }}">
-  <customer-contact customerId="{{id}}"></customer-contact>
-</view>
+  
+</view> -->

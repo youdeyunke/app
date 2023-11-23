@@ -31,7 +31,7 @@
   <van-button bindtap="submitHandle" loading="{{loading}}" color="#1989fa" block custom-style="width:710rpx;margin-bottom:20rpx;">提交跟进日志
   </van-button>
 
-  <navigator open-type="navigateBack">
+  <navigator bindtap="quxiaoBack" open-type="navigateBack">
     <van-button loading="{{loading}}" block type="default" custom-style="width:710rpx;">取消并返回</van-button>
   </navigator>
 </view>

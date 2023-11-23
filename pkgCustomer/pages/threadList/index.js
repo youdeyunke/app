@@ -162,7 +162,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh() {
-
+    var _this = this
+    this.setData({
+      kw: '',
+      items: [],
+      page: 1
+    },() => {
+      _this.loadData()
+    })
   },
 
   /**

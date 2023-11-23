@@ -57,7 +57,9 @@ Page({
           icon: 'none',
         })
         setTimeout(()=>{
+          this.getOpenerEventChannel().emit("change")
           wx.navigateBack()
+          
         },1500)
       })
     } else {
@@ -70,7 +72,9 @@ Page({
           icon: 'none',
         })
         setTimeout(()=>{
+          this.getOpenerEventChannel().emit("change")
           wx.navigateBack()
+
         },1500)
       })
     }
@@ -87,7 +91,9 @@ Page({
         icon: 'none',
       })
       setTimeout(()=>{
+        this.getOpenerEventChannel().emit("change")
         wx.navigateBack()
+       
       },1500)
     })
     

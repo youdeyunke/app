@@ -11,12 +11,12 @@
 -->
 <!--pkgCustomer/components/customerProfile/index.wxml-->
 <van-cell-group title="客户详情" >
-  <van-cell center title="年龄" value="{{profile.name}}" is-link/>
-  <van-cell center title="性别" value="{{profile.sex}}" is-link/>
-  <van-cell center title="意向等级" value="{{profile.purchasing_urgency}}" is-link/>
-  <van-cell center title="意向面积" value="{{profile.intend_area}}" is-link/>
-  <van-cell center title="意向户型" value="{{profile.intend_room_type}}" is-link/>
-  <van-cell center title="意向总价" value="{{profile.intend_total}}" is-link/>
-  <van-cell center title="意向单价" value="{{profile.intend_single}}" is-link/>
-  <van-cell center title="购房用途" value="{{profile.purpose}}" is-link/>
+  <van-cell center bindtap="gotoEdit" title="年龄" value="{{profile.age}}" is-link data-type="age"/>
+  <van-cell center bindtap="gotoEdit" title="性别" value="{{profile.sex}}" is-link data-type="sex"/>
+  <van-cell center bindtap="gotoEdit" title="意向等级" value="{{profile.purchasing_urgency}}" is-link data-type="purchasing_urgency"/>
+  <van-cell center bindtap="gotoEdit" title="意向面积" value="{{profile.intend_area}}" is-link data-type="intend_area"/>
+  <van-cell center bindtap="gotoEdit" title="意向户型" value="{{profile.intend_room_type}}" is-link data-type="intend_room_type"/>
+  <van-cell center bindtap="gotoEdit" title="意向总价" value="{{profile.intend_total}}" is-link data-type="intend_total"/>
+  <van-cell center bindtap="gotoEdit" title="意向单价" value="{{profile.intend_single}}" is-link data-type="intend_single"/>
+  <van-cell center bindtap="gotoEdit" title="购房用途" value="{{profile.purpose}}" is-link data-type="purpose"/>
 </van-cell-group>

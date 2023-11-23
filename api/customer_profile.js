@@ -17,6 +17,6 @@ export function getCustomerProfile (data) {
 }
 
 // 更新客户详情信息
-export function updateCustomerProfile (id) {
-  return request.post("/api/v6/customer_profiles/" + id);
+export function updateCustomerProfile (id, data) {
+  return request.post("/api/v6/customer_profiles/" + id, data);
 }

@@ -48,6 +48,7 @@ Component({
         this.setData({
           subThreads: resp.data.data
         })
+        this.triggerEvent("threadCount", resp.data.data.length)
       })
     },
   }
