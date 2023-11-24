@@ -1,5 +1,6 @@
 {
   "usingComponents": {
     "van-search": "/vant/search/index"
-  }
+  },
+  "navigationBarTitleText": "客户查重"
 }

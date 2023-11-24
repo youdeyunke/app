@@ -29,7 +29,7 @@ export function getPostDefaultBrokerDetail (query) {
 // 增加置业顾问主页浏览量    完成
 // 注意：这里要传user_id，而不是broker_id
 export function updateBrokerViewsCount (userId) {
-    return request.post("http://localhost:8080/api/v6/brokers/view", {
+    return request.post("/api/v6/brokers/view", {
         user_id: userId
     });
 }
@@ -47,13 +47,13 @@ export function checkBrokerStatus () {
 
 //完成
 export function getBrokerShowDetail (query) {
-    return request.get("http://localhost:8080/api/v6/brokers/show", query);
+    return request.get("/api/v6/brokers/show", query);
 }
 
 
 // 点赞  完成
 export function likeBroker (data) {
-    return request.post("http://localhost:8080/api/v6/brokers/like", data);
+    return request.post("/api/v6/brokers/like", data);
 }
 
 // 查询置业顾问分组信息  1

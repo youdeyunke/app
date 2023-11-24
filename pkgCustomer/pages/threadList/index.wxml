@@ -17,6 +17,8 @@
 </van-cell-group>
 <van-cell-group title="{{ kw ? '搜索结果' : ''}}" wx:else>
   <!-- <van-cell center title="张先生 130****1111" value="领取" label="2023-11-15 用户参加报名活动" bind:click="linquThread" /> -->
-  <van-cell wx:for="{{items}}" center title="{{ item.name + '  ' + item.mobile }}" value="领取" label="{{ item.source }}" bind:click="linquThread" data-threadid="{{item.id}}" />
+  <van-cell wx:for="{{items}}" center title="{{ item.name + '  ' + item.mobile }}" label="{{ item.source }}" bind:click="linquThread" data-threadid="{{item.id}}">
+    <van-button slot="right-icon" size="mini" type="primary">领取</van-button>
+  </van-cell>
 </van-cell-group>
 <no-result wx:if="{{ items.length == 0 }}"></no-result>

@@ -65,10 +65,10 @@ export function recieveCustomer (id) {
 
 // 创建客户
 export function createCustomer(data) {
-  return request.post("http://192.168.31.45:8080/api/v6/customers/create", data)
+  return request.post("/api/v6/customers/create", data)
 }
 
 // 客户查重
 export function checkCustormer (data) {
-  return request.get("http://192.168.31.45:8080/api/v6/customers/duplicate_check", data);
+  return request.get("/api/v6/customers/duplicate_check", data);
 }

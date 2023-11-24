@@ -12,24 +12,27 @@
 <!--pkgCustomer/pages/index/index.wxml-->
 <view class="box">
   <view class="count">
-    <view>
+    <navigator url="/pkgCustomer/pages/customerList/index?type=follow-up">
       <view>待跟进客户</view>
       <view style="font-size: 48rpx;">6</view>
-    </view>
-    <view>
-      <view>待跟进线索</view>
-      <view style="font-size: 48rpx;">6</view>
-    </view>
-    <view>
+    </navigator>
+
+    <navigator url="/pkgCustomer/pages/customerList/index?type=recycle">
       <view>将回收客户</view>
       <view style="font-size: 48rpx;">6</view>
-    </view>
+    </navigator>
+    
+    <navigator url="/pkgCustomer/pages/threadList/index?type=follow-up">
+      <view>待跟进线索</view>
+      <view style="font-size: 48rpx;">6</view>
+    </navigator>
+
   </view>
   <view class="count" style="margin-top: 30rpx;">
-    <view>
+    <navigator url="/pkgCustomer/pages/threadList/index?type=recycle">
       <view>将回收线索</view>
       <view style="font-size: 48rpx;">6</view>
-    </view>
+    </navigator>
   </view>
 </view>
 

@@ -53,6 +53,14 @@ Page({
     })
   },
 
+  callHandle: function () {
+    var mobile = this.data.customer.mobile
+    wx.makePhoneCall({
+        phoneNumber: mobile,
+    })
+},
+
+
   loadCustomer(id){
     var _this = this
     customerApi.getCustormer(id).then((resp) => {

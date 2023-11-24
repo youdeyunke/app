@@ -16,7 +16,7 @@
     <view class="detail">
       <view>{{customer.name}}</view>
       <view class="btns">
-        <van-button icon="phone" block size="mini" type="primary" />
+        <van-button icon="phone" bindtap="callHandle" block size="mini" type="primary" />
         <van-button size="mini" bind:click="releaseCustomer" block type="danger">放回公海</van-button>
       </view>
     </view>

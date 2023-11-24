@@ -17,6 +17,11 @@
 </van-cell-group>
 <van-cell-group title="{{ kw ? '搜索结果' : ''}}" wx:else>
   <!-- <van-cell center title="张先生 130****1111" value="领取" label="未接通" bind:click="linquCustomer" /> -->
-  <van-cell wx:for="{{items}}" center title="{{item.name + '  ' + item.mobile}}" value="领取" label="{{item.status.name}}" bind:click="linquCustomer" data-customerid="{{item.id}}" />
+  <van-cell wx:for="{{items}}" center title="{{item.name + '  ' + item.mobile}}" label="{{item.status.name}}" bind:click="linquCustomer" data-customerid="{{item.id}}">
+    <!-- <view >
+      领取
+    </view> -->
+    <van-button slot="right-icon" size="mini" type="primary">领取</van-button>
+  </van-cell>
 </van-cell-group>
 <no-result wx:if="{{ items.length == 0 }}"></no-result>

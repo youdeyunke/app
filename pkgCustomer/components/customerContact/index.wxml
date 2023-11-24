@@ -12,7 +12,7 @@
 <!--pkgCustomer/components/customerContact/index.wxml-->
 <van-cell-group title="联系人" >
   <!-- <van-cell center title="许晋语" label="姐姐" value="13000230000" is-link /> -->
-  <van-cell wx:for="{{contacts}}" center title="{{item.name}}" label="{{item.cat}}" value="{{item.mobile}}" is-link bindtap="updateContact"/>
+  <van-cell wx:for="{{contacts}}" center title="{{item.name}}" label="{{item.cat}}" value="{{item.mobile}}" data-id="{{item.id}}" is-link bindtap="updateContact"/>
 </van-cell-group>
 
 <view wx:if="{{ contacts.length == 0 }}" style="color: #999;text-align: center;" >

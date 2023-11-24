@@ -18,5 +18,5 @@ export function getCustomerFollows (data) {
 
 // 创建跟进日志
 export function createCustomerFollow (data) {
-  return request.post("http://192.168.31.45:8080/api/v6/coustomer_follows/create", data);
+  return request.post("/api/v6/coustomer_follows/create", data);
 }

@@ -1,17 +1,32 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: UDEVE Team <tech@udeve.cn>
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
 <!--pkgCustomer/pages/customerCheck/index.wxml-->
 <van-search bind:click-input="gotoSearch" value="{{mobile}}" bind:change="mobileChange" placeholder="请输入需要查询的手机号" />
 
-<van-cell-group wx:if="{{customer}}">
 
-  <van-cell center title="客户姓名" value="{{customer.name}}"/>
-  <van-cell center title="手机号" value="{{customer.mobile}}"/>
-  <van-cell center title="所属顾问" value="{{customer.broker_name}}"/>
-  <van-cell center title="客户来源" value="{{customer.source}}"/>
+<view wx:if="{{customer}}" class="resbody">
+  <van-cell-group>
+
+<van-cell center title="客户姓名" value="{{customer.name}}" />
+<van-cell center title="手机号" value="{{customer.mobile}}" />
+<van-cell center title="所属顾问" value="{{customer.broker_name}}" />
+<van-cell center title="客户来源" value="{{customer.source}}" />
 </van-cell-group>
 
-<no-result wx:if="{{show}}"></no-result>
+</view>
+
+<no-result wx:if="{{show}}" text="{{text}}"></no-result>
 
 <view class="footer">
-<van-button bindtap="checkData" block type="primary">搜索</van-button>
-<van-button block bindtap="cancleHandle" type="default">返回</van-button>
+  <van-button bindtap="checkData" block type="primary">搜索</van-button>
+  <van-button block bindtap="cancleHandle" type="default">返回</van-button>
 </view>

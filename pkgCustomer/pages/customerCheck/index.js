@@ -1,3 +1,14 @@
+/**
+ * +----------------------------------------------------------------------
+ * | 友得云客  - 开启房产营销新纪元
+ * +----------------------------------------------------------------------
+ * | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ * +----------------------------------------------------------------------
+ * | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ * +----------------------------------------------------------------------
+ * | Author: UDEVE Team <tech@udeve.cn>
+ * +----------------------------------------------------------------------
+ */
 // pkgCustomer/pages/customerCheck/index.js
 const customerApi = require("../../../api/customer")
 Page({
@@ -9,6 +20,7 @@ Page({
     mobile:'',
     show: false,
     customer: null,
+    text: ""
   },
 
   mobileChange(e){
@@ -30,11 +42,13 @@ Page({
         _this.setData({
           customer: resp.data.data,
           show: true,
+          text: '没有找到手机号为' + data.mobile + '的用户数据'
         })
       } else {
         _this.setData({
           customer: resp.data.data,
           show: false,
+          text: ''
         })
       }
     })
