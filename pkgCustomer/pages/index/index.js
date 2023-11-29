@@ -10,13 +10,13 @@
  * +----------------------------------------------------------------------
  */
 // pkgCustomer/pages/index/index.js
+const customerApi = require("../../../api/customer")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
   },
 
   gotoSearch(){
@@ -25,11 +25,20 @@ Page({
     })
   },
 
+  loadData(){
+    customerApi.getCount().then((resp) => {
+      if (resp.data.code != 0) {
+        return
+      }
+      this.setData(resp.data.data)
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.loadData()
   },
 
   /**

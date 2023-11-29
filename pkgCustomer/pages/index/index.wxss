@@ -23,6 +23,11 @@
   align-items: center;
   justify-content: space-between;
   text-align: center;
+  flex-wrap: wrap;
+}
+.box .count .moudel{
+  width: 200rpx;
+  margin-bottom: 10rpx;
 }
 
 .search{

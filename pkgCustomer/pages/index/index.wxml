@@ -12,28 +12,28 @@
 <!--pkgCustomer/pages/index/index.wxml-->
 <view class="box">
   <view class="count">
-    <navigator url="/pkgCustomer/pages/customerList/index?type=follow-up">
-      <view>待跟进客户</view>
-      <view style="font-size: 48rpx;">6</view>
+    <navigator class="moudel" url="/pkgCustomer/pages/customerList/index?ids={{customer_to_be_followed_up_on.ids}}&type=follow-up">
+      <view>{{customer_to_be_followed_up_on.cat}}</view>
+      <view style="font-size: 48rpx;">{{customer_to_be_followed_up_on.count}}</view>
     </navigator>
 
-    <navigator url="/pkgCustomer/pages/customerList/index?type=recycle">
-      <view>将回收客户</view>
-      <view style="font-size: 48rpx;">6</view>
+    <navigator class="moudel" url="/pkgCustomer/pages/customerList/index?ids={{customer_recycling.ids}}&type=recycle">
+      <view>{{customer_recycling.cat}}</view>
+      <view style="font-size: 48rpx;">{{customer_recycling.count}}</view>
     </navigator>
     
-    <navigator url="/pkgCustomer/pages/threadList/index?type=follow-up">
-      <view>待跟进线索</view>
-      <view style="font-size: 48rpx;">6</view>
+    <navigator class="moudel" url="/pkgCustomer/pages/threadList/index?ids={{thread_to_be_followed_up_on.ids}}&type=follow-up">
+      <view>{{thread_to_be_followed_up_on.cat}}</view>
+      <view style="font-size: 48rpx;">{{thread_to_be_followed_up_on.count}}</view>
+    </navigator>
+
+    <navigator class="moudel" url="/pkgCustomer/pages/threadList/index?ids={{thread_recycling.ids}}&type=recycle">
+      <view>{{thread_recycling.cat}}</view>
+      <view style="font-size: 48rpx;">{{thread_recycling.count}}</view>
     </navigator>
 
   </view>
-  <view class="count" style="margin-top: 30rpx;">
-    <navigator url="/pkgCustomer/pages/threadList/index?type=recycle">
-      <view>将回收线索</view>
-      <view style="font-size: 48rpx;">6</view>
-    </navigator>
-  </view>
+
 </view>
 
 <view class="search">
@@ -46,7 +46,7 @@
     <van-grid-item link-type="navigateTo" url="/pkgCustomer/pages/threadList/index?type=public" icon="todo-list-o" text="公海线索" />
     <van-grid-item link-type="navigateTo" url="/pkgCustomer/pages/customerList/index?type=private" icon="contact" text="我的客户" />
     <van-grid-item link-type="navigateTo" url="/pkgCustomer/pages/customerList/index?type=public" icon="friends-o" text="公海客户" />
-    <van-grid-item link-type="navigateTo" url="" icon="add-o" text="新增线索" />
+    <!-- <van-grid-item link-type="navigateTo" url="" icon="add-o" text="新增线索" /> -->
     <van-grid-item link-type="navigateTo" url="/pkgCustomer/pages/createCustomer/index" icon="add-o" text="新增客户" />
     <van-grid-item link-type="navigateTo" url="/pkgCustomer/pages/customerCheck/index" icon="search" text="客户查重" />
   </van-grid>

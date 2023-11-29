@@ -78,9 +78,17 @@ Page({
 
   loadData() {
     var _this = this
-    var data = {
-      page: this.data.page,
-      type: this.data.type
+    var data = {}
+    if (this.data.type == "private" || this.data.type == "public") {
+      data = {
+        page: this.data.page,
+        per_page: 15,
+        type: this.data.type,
+      }
+    } else {
+      data = {
+        ids: this.data.ids
+      }
     }
     if (this.data.kw) {
       data.kw = this.data.kw

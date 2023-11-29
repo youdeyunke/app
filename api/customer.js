@@ -72,3 +72,7 @@ export function createCustomer(data) {
 export function checkCustormer (data) {
   return request.get("/api/v6/customers/duplicate_check", data);
 }
+
+export function getCount (data) {
+  return request.get("/api/v6/customer_thread/count", data);
+}
