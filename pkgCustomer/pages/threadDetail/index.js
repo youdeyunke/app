@@ -33,8 +33,26 @@ Page({
       }
       this.setData({
         thread: resp.data.data
+      },() => {
+        _this.veriThread()
       })
     })
+  },
+
+  // 验证线索，线索已被转为客户，将跳转至客户列表页
+  veriThread(){
+    var data = this.data.thread
+    if( data.status == 4 ) {
+      wx.showToast({
+        title: '该线索已被转为客户，请去客户详情页查看',
+        icon: 'none'
+      })
+      setTimeout(()=>{
+        wx.navigateTo({
+          url: '/pkgCustomer/pages/customerList/index',
+        })
+      },1500)
+    }
   },
 
   releaseThread(){

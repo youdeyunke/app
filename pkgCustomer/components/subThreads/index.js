@@ -16,7 +16,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    parentId: {type:Number, value: null}
+    parentId: {type:Number}
   },
 
   observers: {
@@ -25,6 +25,7 @@ Component({
         return
       }
       this.loadSubThread(val)
+      this.loadParentThread(val)
     }
   },
 
@@ -32,13 +33,25 @@ Component({
    * 组件的初始数据
    */
   data: {
-    subThreads:[]
+    subThreads:[],
+    parentThread: null
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
+    loadParentThread(parentid){
+      var _this = this
+      threadApi.getThreads(parentid).then((resp) => {
+        if (resp.data.code != 0) {
+          return
+        }
+        this.setData({
+          parentThread: resp.data.data
+        })
+      })
+    },
     loadSubThread(parentid){
       var _this = this
       threadApi.getSubThreads(parentid).then((resp) => {
@@ -48,7 +61,7 @@ Component({
         this.setData({
           subThreads: resp.data.data
         })
-        this.triggerEvent("threadCount", resp.data.data.length)
+        this.triggerEvent("threadCount", resp.data.data.length + 1)
       })
     },
   }

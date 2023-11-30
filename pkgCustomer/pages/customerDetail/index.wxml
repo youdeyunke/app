@@ -38,7 +38,7 @@
     <follow target_type="customer" target_id="{{id}}" bindfollowCount="getFollowCount"></follow>
   </van-tab>
   <van-tab name="thread" title="线索动态({{threadCount}})">
-    <sub-thread parentId="{{}}" bindthreadCount="getThreadCount"></sub-thread>
+    <sub-thread parentId="{{customer.thread_id}}" bindthreadCount="getThreadCount"></sub-thread>
   </van-tab>
   <van-tab name="contact" title="联系人({{contactCount}})">
     <customer-contact customerId="{{id}}" bindcontactCount="getContactCount"></customer-contact>

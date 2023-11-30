@@ -13,7 +13,8 @@
 <van-cell-group title="线索动态">
   <!-- <van-cell center title="2020-10-11" value="客户参加活动 活动id:1，活动标题：报名领券"/> -->
   <van-cell wx:for="{{subThreads}}" center title="{{item.created_at}}" value="{{item.source}}"/>
+  <van-cell wx:if="{{parentThread}}" center title="{{parentThread.created_at}}" value="{{parentThread.source}}"/>
 </van-cell-group>
-<view wx:if="{{ subThreads.length == 0 }}" style="color: #999;text-align: center;" >
+<view wx:if="{{ subThreads.length == 0 && parentThread == null }}" style="color: #999;text-align: center;" >
   无数据
 </view>
