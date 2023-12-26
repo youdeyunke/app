@@ -232,7 +232,7 @@ Page({
                 postIds: postIds
             })
             // 加载楼盘信息
-            _this.loadPostInfo(tour.post_id);
+            // _this.loadPostInfo(tour.post_id);
             wx.setNavigationBarTitle({
                 title: tour.title + ' ' + tour.status_name,
             });

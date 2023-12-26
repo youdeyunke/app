@@ -455,9 +455,10 @@ App({
             console.log('没有visitor id，无法上报事件 ' + actionName)
             return
         }
-        visitorApi.createVisitorAction(uid, actionName, seconds).then((resp) => {
-            typeof cb == 'function' && cb(resp.data.data)
-        })
+        // 接口未写，todo
+        // visitorApi.createVisitorAction(uid, actionName, seconds).then((resp) => {
+        //     typeof cb == 'function' && cb(resp.data.data)
+        // })
     },
 
     sendSms: function (mobile, cb) {

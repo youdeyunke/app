@@ -242,7 +242,7 @@ Page({
                 html = html.replace(/\<img/gi, '<img class="rich-text-img" ')
                 html = html.replace(/\<p/gi, '<p class="rich-text-p" ')
             }
-
+            var postIds = tour.post_ids ? tour.post_ids.split(",").map(Number) : []
             var b = resp.data.broker || {}
             _this.setData({
                 item: tour,
@@ -251,6 +251,7 @@ Page({
                 html: html,
                 loading: false,
                 post: post,
+                postIds: postIds,
                 joined: joined
             })
             wx.setNavigationBarTitle({
