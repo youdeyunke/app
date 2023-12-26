@@ -49,7 +49,6 @@ App({
         token: null,
         LOGIN_FLAG: 0,
         cities: [],
-        qqMapAppKey: "OH2BZ-7QJK6-L44SI-MEJFO-PJNH2-IABHQ",
         navBarHeight: 0, // 导航栏高度
         menuRight: 0, // 胶囊距右方间距（方保持左、右间距一致）
         menuBotton: 0, // 胶囊距底部间距（保持底部间距一致）
