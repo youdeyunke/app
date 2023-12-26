@@ -117,10 +117,11 @@
 }
 
 .icons{
-    display: flex;
+    /* display: flex;
     justify-content: flex-start;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
+    width: 710rpx;
 }
 .icons .icon-item{
     display: flex;

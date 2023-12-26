@@ -106,7 +106,7 @@ page {
 }
 
 .bottom-btn {
-    width: 750rpx;
+    width: 690rpx;
     height: 130rpx;
     background-color: #FFF;
     display: flex;

@@ -25,8 +25,8 @@ Component({
             if (!vals) {
                 return
             }
-            var brokers = vals.filter((v) => {
-                return v.level == 1
+            var brokers = vals.sort((a,b)=>{
+              return a.level - b.level
             }).filter((v, i) => {
                 return i <= 2
             })

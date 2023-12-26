@@ -8,6 +8,5 @@ project.private.config.json
 *.log
 *.pyc
 *.DS_Store
-app.json
 project.config.json
 .vscode
