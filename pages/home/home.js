@@ -64,7 +64,7 @@ Page({
         var adcode = wx.getStorageSync('cityCode')
         var _this = this
         // √
-        cityApi.getCityListV1().then((resp) => {
+        cityApi.getCityListV6().then((resp) => {
             var cities = resp.data.data
             if (!adcode) {
                 _this.setData({

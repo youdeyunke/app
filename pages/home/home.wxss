@@ -56,6 +56,6 @@ page {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-left: 1rpx solid #FFF;
+    /* border-left: 1rpx solid #FFF; */
     padding:0 20rpx;
 }

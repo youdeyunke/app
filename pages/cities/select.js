@@ -25,7 +25,7 @@ Page({
     loadData () {
         var _this = this
         //   √
-        cityApi.getCityListV1(
+        cityApi.getCityListV6(
 
         ).then((resp) => {
             _this.setData({

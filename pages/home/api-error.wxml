@@ -1,0 +1,4 @@
+<!--pages/home/api-error.wxml-->
+<view class="warning-message">
+  系统检测到您尚未配置 API 主机地址，请前往 'utils/request.js' 文件中的 'defaultApiHost' 进行配置。将defaultApiHost设置为您的Java后端项目运行地址。确保将 API 主机地址正确设置，以便小程序能够正常发起网络请求和访问数据。如需帮助，请参考相关文档或联系系统管理员。
+</view>

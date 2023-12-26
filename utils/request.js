@@ -10,8 +10,7 @@
 * +----------------------------------------------------------------------
 */
 const app = getApp()
-console.log("121request_app", app);
-const defaultApiHost = 'http://192.168.31.66:2021';
+const defaultApiHost = 'http://118.195.182.40:8089';
 // const defaultApiHost = 'http://127.0.0.1:8080';
 const EXT = wx.getExtConfigSync();
 const apiHost = EXT.apihost || defaultApiHost;
@@ -100,6 +99,11 @@ const http = ({
 }
 // 判断是否需要拼接请求头
 const getUrl = (url) => {
+  if(!defaultApiHost){
+    wx.navigateTo({
+      url: '/pages/home/api-error',
+    })
+  }
     if (url.indexOf('://') == -1) {
         url = apiHost + url;
     }
@@ -142,5 +146,6 @@ module.exports = {
     post,
     put,
     destroy,
-    getUrl
+    getUrl,
+    defaultApiHost
 }

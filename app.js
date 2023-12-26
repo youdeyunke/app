@@ -10,6 +10,7 @@
 * +----------------------------------------------------------------------
 */
 //app.js
+const request = require('utils/request.js');
 const auth = require("utils/auth.js");
 const EXT = wx.getExtConfigSync()
 const city = require("utils/city.js");
@@ -44,8 +45,6 @@ App({
 
         reddotIntervalId: null,
         system: {},
-        //apiHost: 'http://82.157.35.247:9000',
-        apiHost: 'https://weapp1.udeve.net/39086',
         userInfo: null,
         token: null,
         LOGIN_FLAG: 0,
@@ -259,7 +258,7 @@ App({
         }
 
         var _this = this;
-        cityApi.getCityListV2().then((resp) => {
+        cityApi.getCityListV6().then((resp) => {
             _this.globalData.cities = resp.data.data;
             return cb(resp.data.data);
         })

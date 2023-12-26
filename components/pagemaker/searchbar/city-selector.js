@@ -63,7 +63,7 @@ Component({
         loadAllCity: function () {
             var _this = this
             //  √
-            cityApi.getCityListV1().then((resp)=>{
+            cityApi.getCityListV6().then((resp)=>{
                 if (resp.data.status != 0) {
                     return
                 }

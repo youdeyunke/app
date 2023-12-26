@@ -102,6 +102,7 @@ Page({
                 wx.showToast({
                     icon: 'none', title: '个人资料修改成功'
                 })
+                auth.setUserInfo()
                 setTimeout(() => {
                     wx.navigateBack({ delta: -1 })
                 }, 1500)
@@ -144,7 +145,7 @@ Page({
     loadUser: function () {
         this.setData({ loading: true })
         var _this = this
-        auth.getRemoteUserInfo(function (user) {
+        auth.setUserInfo(function (user) {
             _this.setData({ userInfo: user, loading: false })
             _this.loadTags()
         })

@@ -26,6 +26,8 @@ Component({
      */
     data: {
         showShareBox: false,
+        primaryBtnColor: "#ff9600",
+        secondaryBtnColor: "#3a67c0",
     },
 
     ready: function () {

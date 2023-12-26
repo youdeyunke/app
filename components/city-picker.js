@@ -60,7 +60,7 @@ Component({
         var _this = this
         this.data.configs.forEach(function (config, i) {
             //   √    base-filter,filter组件引入了该组件但base- 未被引用     pages/home/home被调用        
-            cityApi.getCityListV2().then((resp) => {
+            cityApi.getCityListV6().then((resp) => {
                 if (resp.data.status == 0) {
                     config.items = resp.data.data
                     _this.updateConfig(i, config)
