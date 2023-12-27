@@ -211,7 +211,7 @@ Page({
             this.getTabBar()) {
             this.getTabBar().setPage('/pages/home/home')
         }
-        if(!request.defaultApiHost){
+        if(!request.apiHost){
           wx.redirectTo({
             url: '/pages/home/api-error',
           })

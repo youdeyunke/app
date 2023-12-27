@@ -1,11 +1,15 @@
 /* pages/home/api-error.wxss */
+page{
+  background-color: #fff;
+}
 .warning-message {  
-  color: #FFA500; /* 橙色 */  
-  font-size: 16px;  
+  color: #787F8E;
+  word-wrap: break-word;
+  font-size: 32rpx;  
   font-weight: bold;  
-  border: 1px solid #FFA500; /* 橙色边框 */  
+  /* border: 1px solid #FFA500; 橙色边框   */
   text-align: center;
-  padding: 10px;  
-  transition: color 0.3s ease; /* 过渡效果 */  
-  margin: 200rpx 10rpx;
+  /* padding: 10px;   */
+  /* transition: color 0.3s ease; 过渡效果   */
+  margin: 0 60rpx;
 }

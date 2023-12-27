@@ -1,4 +1,9 @@
 <!--pages/home/api-error.wxml-->
+<image style="width: 750rpx;height: 750rpx;display: block;" src="/assets/icons/api-error.svg" mode=""/>
 <view class="warning-message">
-  系统检测到您尚未配置 API 主机地址，请前往 'utils/request.js' 文件中的 'defaultApiHost' 进行配置。将defaultApiHost设置为您的服务端运行地址。确保将 API 主机地址正确设置，以便小程序能够正常发起网络请求和访问数据。如需帮助，请参考相关文档或联系系统管理员。
+  系统检测到您尚未配置 API 主机地址，请前往 '/utils/request.js' 文件中的 'apiHost' 进行配置。将apiHost设置为您的服务端运行地址。确保将 API 主机地址正确设置，以便小程序能够正常发起网络请求和访问数据。如需帮助，请参考相关文档或联系系统管理员。
+</view>
+<view style="position: absolute;bottom: 90rpx;padding: 0 300rpx;">
+  <van-button bindtap="restartProgram" custom-style="margin: 0 auto;width: 150rpx;" type="info">重试</van-button>
+
 </view>
