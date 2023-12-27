@@ -11,6 +11,7 @@
 */
 // pages/home/home.js
 const app = getApp()
+const request = require('../../utils/request');
 const cityApi = require("../../api/city");
 const shareApi = require("../../api/share");
 import utils from '../../utils/util'
@@ -210,7 +211,11 @@ Page({
             this.getTabBar()) {
             this.getTabBar().setPage('/pages/home/home')
         }
-
+        if(!request.defaultApiHost){
+          wx.redirectTo({
+            url: '/pages/home/api-error',
+          })
+        }
         var path = '/pages/home/home'
         this.setData({
             pagePath: path

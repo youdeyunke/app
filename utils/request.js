@@ -10,10 +10,11 @@
 * +----------------------------------------------------------------------
 */
 const app = getApp()
-const defaultApiHost = 'http://192.168.31.66:2021';
+// 请修改为您自己的服务端地址，服务端安装请参考文档：http://doc.youdeyunke.com/zhunbei.html
+const defaultApiHost = '';
 // const defaultApiHost = 'http://127.0.0.1:8080';
 const EXT = wx.getExtConfigSync();
-const apiHost = EXT.apihost || defaultApiHost;
+const apiHost = defaultApiHost;
 const throttle = require('./throttle');
 
 // 发送http请求
@@ -99,11 +100,6 @@ const http = ({
 }
 // 判断是否需要拼接请求头
 const getUrl = (url) => {
-  if(!defaultApiHost){
-    wx.navigateTo({
-      url: '/pages/home/api-error',
-    })
-  }
     if (url.indexOf('://') == -1) {
         url = apiHost + url;
     }
