@@ -10,7 +10,7 @@
 * +----------------------------------------------------------------------
 */
 const app = getApp()
-const defaultApiHost = '';
+const defaultApiHost = 'http://192.168.31.66:2021';
 // const defaultApiHost = 'http://127.0.0.1:8080';
 const EXT = wx.getExtConfigSync();
 const apiHost = EXT.apihost || defaultApiHost;
