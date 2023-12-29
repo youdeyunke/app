@@ -21,10 +21,10 @@
       <image class="img" src="/assets/icons/post/live.png"></image>
     </block>
     <block wx:if="{{post.has_video==true}}">
-      <image class="img" src="/assets/icons/bofang.png"></image>
+      <image class="img" src="/assets/icons/post/video.png"></image>
     </block>
     <block wx:if="{{post.has_vr==true}}">
-      <image class="img" src="/assets/icons/VR.png"></image>
+      <image class="img" src="/assets/icons/post/VR.png"></image>
     </block>
   </view>
 </navigator>
