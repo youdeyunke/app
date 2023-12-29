@@ -11,10 +11,10 @@
 */
 const app = getApp()
 // 请修改为您自己的服务端地址，服务端安装请参考文档：http://doc.youdeyunke.com/zhunbei.html
-const defaultApiHost = '';
+// const defaultApiHost = '';
 // const defaultApiHost = 'http://127.0.0.1:8080';
 const EXT = wx.getExtConfigSync();
-const apiHost = defaultApiHost;
+const apiHost = '';
 const throttle = require('./throttle');
 
 // 发送http请求
@@ -143,5 +143,5 @@ module.exports = {
     put,
     destroy,
     getUrl,
-    defaultApiHost
+    apiHost
 }
