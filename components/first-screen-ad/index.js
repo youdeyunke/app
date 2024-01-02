@@ -46,7 +46,7 @@ Component({
             // √
             first_screenApi.getFirstScreen().then((res) => {
                 let value = res.data.data
-                if (!value) {
+                if (!value || value == '暂无数据') {
                     return false
                 }
 
