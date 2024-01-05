@@ -109,7 +109,7 @@ Page({
     loginHandle () {
         if (!this.data.allowTerms) {
             wx.showToast({
-                title: '请同意用户协议，才能正常登陆账号哦',
+                title: '请同意用户协议，才能正常登录账号哦',
                 icon: 'none'
             })
             return

@@ -39,7 +39,7 @@ page {
 
 .footer {
     padding: 30rpx;
-    width: 100%;
+    width: 690rpx;
     background: #fff;
     display: flex;
     justify-content: space-around;

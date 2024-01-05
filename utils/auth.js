@@ -30,7 +30,7 @@ module.exports = {
 
 
     smsLoginHandle (phone, code, cb) {
-        // 通过短信验证码登陆账号
+        // 通过短信验证码登录账号
         var _this = this
 
         if (!(/^1[3456789]\d{9}$/.test(phone))) {
@@ -60,7 +60,7 @@ module.exports = {
 
 
     loginHandle: function (code, e, cb) {
-        // 微信授权登陆
+        // 微信授权登录
         const app = getApp()
         var _this = this
         // 注意，code 需要在getUserInfo之前获取到，否则会导致登录失败
@@ -68,7 +68,7 @@ module.exports = {
         if (e.detail.errMsg != 'getUserInfo:ok' && e.detail.errMsg != 'getPhoneNumber:ok') {
             wx.showModal({
                 title: '操作失败',
-                content: '请允许微信授权，才能正常登陆账号哦',
+                content: '请允许微信授权，才能正常登录账号哦',
                 showCancle: false
             })
             console.error('授权时候出错', e)
@@ -106,7 +106,7 @@ module.exports = {
     },
 
     logout: function () {
-        // 退出登陆，清空token和缓存信息 
+        // 退出登录，清空token和缓存信息 
         const app = getApp()
         wx.setStorage({
             key: 'userInfo',

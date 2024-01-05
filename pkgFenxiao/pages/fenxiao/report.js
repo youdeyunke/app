@@ -269,7 +269,7 @@ Page({
             title: '报备客户',
         })
         this.loadPost(this.data.pid)
-        // 如果登陆了
+        // 如果登录了
         var user = app.globalData.userInfo
         if (user) {
             if (!this.data.introducer_mobile) {
