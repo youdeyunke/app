@@ -35,7 +35,7 @@ Component({
         date: '',
         time: '',
         remark: '',
-        mobile: '', // 如果当前用户已经登陆，自动填充手机号， 并且不能被修改
+        mobile: '', // 如果当前用户已经登录，自动填充手机号， 并且不能被修改
 
         mobileLocked: false,
         dates: [],

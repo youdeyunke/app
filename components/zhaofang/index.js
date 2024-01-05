@@ -513,7 +513,7 @@ Component({
 
         },
         smsLoginHandle (cb) {
-            // 通过短信验证码登陆账号
+            // 通过短信验证码登录账号
             var phone = this.data.contact_mobile
             var code = this.data.sms_code
             if (!(/^1[3456789]\d{9}$/.test(phone))) {

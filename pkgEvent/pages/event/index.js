@@ -145,7 +145,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        // 检查一些是否管理登陆了
+        // 检查一些是否管理登录了
         if (this.data.user) {
             return false
         }

@@ -22,9 +22,10 @@ Component({
     observers: {
         "value.items": function (items) {
             items = items.map((item, i) => {
-                if (item.images_list && item.images_list.length >= 1) {
+              var images_list = item.images.split(',')
+                if (images_list && images_list.length >= 1) {
                     item.hasImage = true
-                    item.cover = item.images_list[0]
+                    item.cover = images_list[0]
                 } else {
                     item.hasImage = false
                     item.cover = 'https://qiniucdn.udeve.net/fang/pkgPost/image-none.png'

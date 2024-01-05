@@ -163,7 +163,7 @@ Page({
         }
 
         if (app.globalData.LOGIN_FLAG != 1) {
-            // 未登陆
+            // 未登录
             this.selectComponent('.loginwindow').openWindow()
             return;
         }

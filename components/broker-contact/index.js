@@ -67,7 +67,7 @@ Component({
             var user = app.globalData.userInfo
             if (!user) {
                 wx.showToast({
-                    title: '请先登陆',
+                    title: '请先登录',
                     icon: 'none',
                 })
                 return false

@@ -44,7 +44,7 @@
                 <view class="name">访客，您好
 
                 </view>
-                <view class="desc">登陆或注册账号，体验更多服务</view>
+                <view class="desc">登录或注册账号，体验更多服务</view>
             </view>
 
             <view class="login" bindtap="gotoLoginPage">
@@ -115,7 +115,7 @@
                     <view slot="title">
                         <view class="van-cell-title">
                             <image class="van-cell-icon" src="/assets/icons/31.png"></image>
-                            <view class="van-cell-text">退出登陆</view>
+                            <view class="van-cell-text">退出登录</view>
                         </view>
                     </view>
                 </van-cell>

@@ -16,10 +16,10 @@
       <van-icon name="cross" size="24"></van-icon>
     </view>
 
-    <van-button loading-text="登陆中" loading="{{loading}}" icon="wechat" open-type="getPhoneNumber" bind:getphonenumber="loginHandle"
+    <van-button loading-text="登录中" loading="{{loading}}" icon="wechat" open-type="getPhoneNumber" bind:getphonenumber="loginHandle"
       custom-style="width:519rpx;height:90rpx;border-raidus:10rpx;"
-      color="{{primaryBtnColor}}" block>微信登陆</van-button>
-    <van-button bindtap="gotoSms"  loading-text="登陆中" loading="{{loading}}"  icon="comment" custom-style="width:519rpx;height:90rpx;border-raidus:10rpx;margin:20rpx 0 30rpx 0;" color="{{primaryColor}}"
-      plain>短信登陆</van-button>
+      color="{{primaryBtnColor}}" block>微信登录</van-button>
+    <van-button bindtap="gotoSms"  loading-text="登录中" loading="{{loading}}"  icon="comment" custom-style="width:519rpx;height:90rpx;border-raidus:10rpx;margin:20rpx 0 30rpx 0;" color="{{primaryColor}}"
+      plain>短信登录</van-button>
   </view>
 </van-popup>

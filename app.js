@@ -282,7 +282,7 @@ App({
         console.log('配置加载完毕，准备初始化tim sdk')
         var appid = 1400181975
         TIM.initTim(appid)
-        // 如果当前用户已经登陆过的话，将tim也登陆
+        // 如果当前用户已经登录过的话，将tim也登录
         setTimeout(function () {
             TIM.login()
         }, 1000)

@@ -25,7 +25,7 @@
         <navigator style="width:100%;margin-top:20rpx;"  url="/pkgAuth/pages/auth/sms">
             <van-button color="{{primaryColor}}" plain style="width:100%;font-size:32rpx;" block icon="comment"
                 loading="{{loading}}" disabled="{{loading}}" type="info">
-                短信登陆
+                短信登录
             </van-button>
         </navigator>
 

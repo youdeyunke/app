@@ -364,7 +364,7 @@ Page({
         if (q.referrer_id && q.referrer_id.length > 0) {
             console.log("推荐人的id 为", q.referrer_id)
             wx.setStorageSync('referrer_id', q.referrer_id)
-            // 如果当前账号没有登陆，就弹出收到邀请的提示
+            // 如果当前账号没有登录，就弹出收到邀请的提示
             if (!token) {
                 wx.showModal({
                     title: '邀请注册',

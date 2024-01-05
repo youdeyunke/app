@@ -80,7 +80,7 @@ Component({
 
         },
         chatHandle: function () {
-            // 如果没有登陆，则弹窗登陆窗口 
+            // 如果没有登录，则弹窗登录窗口 
             if (!app.globalData.token) {
                 this.selectComponent('.loginwindow').openWindow()
                 return
