@@ -46,7 +46,7 @@
 
 ## 如何使用
 
-1. [点击下载](https://tcdn.udeve.net/install-by-docker/udyk-by-docker_6.0.2.zip)最新版本服务端安装包，参考[服务端安装文档]()进行服务端搭建
+1. [点击下载](https://tcdn.udeve.net/install-by-docker/udyk-by-docker_6.0.2.zip)最新版本服务端安装包，参考[服务端安装文档](https://doc.youdeyunke.com/by-docker-bt.html)进行服务端搭建
 2. clone 本项目到本地导入微信小程序开发工具, 修改apihost为您自己的服务器域名，或者服务端IP+端口号
 3. 在小程序开发工具中预览项目
 如果在安装搭建过程中有任何困难，欢迎加入微信群（群二维码见下方），我们的技术顾问将为你提供帮助和指导。
