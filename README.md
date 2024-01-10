@@ -3,7 +3,6 @@
 <div align="center">
 
 [产品官网](https://www.youdeyunke.com/) |
-[申请免费版授权码](https://www.youdeyunke.com/preview) |
 [帮助文档](https://doc.youdeyunke.com)
 
 </div>                                                                                                   

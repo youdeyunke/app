@@ -105,7 +105,7 @@
     <!-- <view class="bottom-button-right bottom-button-common"> -->
     <view class="bottom-button-common">
       <view wx:if="{{item.joined}}"  bindtap="cancleJoin">取消报名</view>
-      <view wx:else bindtap="joinHandle">{{item.join_btn}}</view>
+      <view wx:else bindtap="joinHandle">{{item.join_btn || '立即参加'}}</view>
     </view>
   </view>
 </view>
