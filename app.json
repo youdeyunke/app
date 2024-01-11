@@ -322,6 +322,25 @@
       "pages": [
         "pages/xiangou/index"
       ]
+    },
+    {
+      "root": "pkgTickets",
+      "name": "tickets",
+      "pages": [
+      ]
+    },
+    {
+        "root": "pkgBooking",
+        "name": "booking",
+        "pages": [
+        ]
+      },
+    {
+      "root": "pkgCropper",
+      "name": "cropper",
+      "pages": [
+        "pages/cropper/index"
+      ]
     }
   ],
   "pages": [

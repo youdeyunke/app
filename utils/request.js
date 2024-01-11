@@ -14,7 +14,7 @@ const app = getApp()
 // const defaultApiHost = '';
 // const defaultApiHost = 'http://127.0.0.1:8080';
 const EXT = wx.getExtConfigSync();
-const apiHost = 'http://demo.youdeyunke.com';
+const apiHost = 'https://demo.youdeyunke.com';
 const throttle = require('./throttle');
 
 // 发送http请求
