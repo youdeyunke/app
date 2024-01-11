@@ -9,19 +9,20 @@
  | Author: UDEVE Team <tech@udeve.cn>
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
-<navigation-bar  bgOpacity="{{bgOpacity}}" background="{{titleBgColor}}"  background-color-top="none" title="{{pageTitle}}" color="{{titleFontColor}}">
-  <view class="topLeftBtn" slot="left">
+<!-- 隐藏顶部栏 -->
+<!-- <navigation-bar  bgOpacity="{{bgOpacity}}" background="{{titleBgColor}}"  background-color-top="none" title="{{pageTitle}}" color="{{titleFontColor}}">
+  <view class="topLeftBtn" slot="left"> -->
     <!-- view bindtap="citySelect" class="topLeftBtn-address">
     {{city}}
     </view 
     <view class="topLeftBtn-center" bindtap="citySelect">
         <van-icon name="arrow-down" />
     </view -->
-    <view bindtap="gotoSearch" class="topLeftBtn-right">
+    <!-- <view bindtap="gotoSearch" class="topLeftBtn-right">
         <van-icon name="search" />
     </view>
   </view>
-</navigation-bar>
+</navigation-bar> -->
 
 <first-screen-ad />
 
