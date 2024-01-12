@@ -17,9 +17,9 @@
 	<block>
 		<block-box width="750" leftHat="true" leftHatColor="{{color}}" title="楼盘评测报告">
 			<view style="display: flex;align-items: center;justify-content: center;">
-				<view class="pingceBox">
+				<view class="pingceBox" style="background: linear-gradient(180deg, {{color}}80 0%, {{color}}00 100%);">
 					<view class="boxTop">
-						<view class="zongfen">
+						<view class="zongfen" style="background:{{color}};">
 							<view style="font-size: 26rpx;">
 								<text style="font-size: 63rpx;">{{zongpingfen}}</text>
 								分
@@ -45,7 +45,7 @@
 						</view>
 					</view>
 					<view style="margin-top: 33rpx;">
-						<van-button color="rgba(58,191,129,0.17)" bindtap="jiesuobtn" custom-style=" color: #13B38F;" size="large" type="default">免费解锁详细报告</van-button>
+						<van-button color="{{color}}" bindtap="jiesuobtn" custom-style=" color: #fff;" size="large" type="default">免费解锁详细报告</van-button>
 					</view>
 
 				</view>
