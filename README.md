@@ -50,6 +50,23 @@
 3. 在小程序开发工具中预览项目
 如果在安装搭建过程中有任何困难，欢迎加入微信群（群二维码见下方），我们的技术顾问将为你提供帮助和指导。
 
+
+## 产品演示
+
+### 管理后台演示
+访问以下链接以体验管理后台界面与功能：
+
+> [管理后台](http://demo.youdeyunke.com/)
+- **测试账户**：
+  - 用户名：`demo@youdeyunke.com`
+  - 密码：`88888888`
+
+### 小程序演示
+<div align="center">
+<img src="https://qiniucdn.udeve.net/udyk/65a0d469b33aac0d968a3529.jpg?imageView2/2/w/200" alt="小程序二维码">
+</div>
+请使用微信扫描上方二维码，预览和体验小程序。
+
 ## 免费版与商用版本的区别
 
 | 特性 |  免费版| 商用版 |
@@ -108,7 +125,7 @@
 群二维码：
 <div align="center">
 
-![](https://qiniucdn.udeve.cn/wefang-saas/filestore/file/3546/e20679387b8f5cd471b314e16f24ca1e.png?imageView2/2/w/200)
+![](https://qiniucdn.udeve.net/udyk/65a0d631b33aac0d968a352a.png?imageView2/2/w/200)
 </div>    
 
 ## 版权信息

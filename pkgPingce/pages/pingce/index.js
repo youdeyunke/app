@@ -19,7 +19,9 @@ Page({
     data: {
         postId: null,
         postData: {},
-        pingceList: []
+        pingceList: [],
+        primaryColor: '',
+        primaryBtnColor: '',
     },
 
     /**
@@ -31,6 +33,13 @@ Page({
         })
         this.loadPost()
         this.loadpingce()
+        var _this = this
+        app.ensureConfigs((myconfigs) => {
+            _this.setData({
+                primaryColor: myconfigs.color.primary,
+                primaryBtnColor: myconfigs.color.primary_btn
+            })
+        })
     },
     loadPost: function () {
         var pid = this.data.postId

@@ -19,7 +19,7 @@
 		<view style="display: flex;align-items: center;justify-content: center;margin-top: 30rpx;width: 646rpx;">
 			<view class="pingfenBox">
 				<view class="boxTop">
-					<view class="zongfen">
+					<view class="zongfen" style="background: {{primaryColor}};">
 						<view style="font-size: 26rpx;">
 							<text style="font-size: 63rpx;">{{zongpingfen}}</text>
 							分
@@ -44,7 +44,7 @@
 	<view>
 		<view class="pinzhi">
 			<view class="pinzhititle">{{item.name}}
-				<view class="zhuangshi"></view>
+				<view class="zhuangshi" style="background: {{primaryBtnColor}};"></view>
 			</view>
 			<view style="display: flex;align-items: center;">
 				<van-rate value="{{ item.score }}" allow-half size="{{ 20 }}" color="#ffd21e" void-icon="star" void-color="#eee" bind:change="onChange" />

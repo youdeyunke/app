@@ -21,9 +21,9 @@
             </view>
         </view>
     </scroll-view>
-    <swiper style="width: 690rpx;height: 850rpx;margin-top: 50rpx;" current="{{currentIndex}}" bindchange="swiperChange">
+    <swiper style="width: 660rpx;height: 850rpx;margin-top: 50rpx;" current="{{currentIndex}}" bindchange="swiperChange">
         <swiper-item wx:for="{{value.items}}">
-            <image style="width: 690rpx;height: 850rpx;border-radius: 10rpx;" src="{{item.image}}"></image>
+            <image style="width: 660rpx;height: 850rpx;border-radius: 10rpx;" src="{{item.image}}"></image>
         </swiper-item>
     </swiper>
 </block-box>
