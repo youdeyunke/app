@@ -26,7 +26,7 @@
                     <ud-icon customStyle='display:inline-block' name="broker-level-{{ userInfo.level}}"/>
                 </view>
                 <view wx:if="{{userInfo.is_broker}}" class="desc">个性签名：{{ userInfo.desc || '未填写个人介绍' }}</view>
-                <navigator url="/pkgMyself/pages/score/index" hover-class="none" class="score">我的积分：{{ userInfo.score }}
+                <navigator url="/pkgMyself/pages/score/index" hover-class="none" class="score">我的积分：{{ userInfo.score || 0 }}
                 </navigator>
             </view>
             <view class="qiandao-outer">
