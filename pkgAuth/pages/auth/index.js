@@ -40,6 +40,13 @@ Page({
     },
 
     loginHandle: function (e) {
+        if(!this.data.allowTerms){
+            wx.showToast({
+              title: '请同意用户协议',
+              icon: 'none'
+            })
+            return
+        }
         this.setData({
             loading: true
         })

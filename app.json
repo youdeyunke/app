@@ -103,11 +103,6 @@
         "pages/create",
         "pages/subdistricts/index",
         "pages/chujiajilu/index"
-      ],
-      "requiredPrivateInfos": [
-        "getFuzzyLocation",
-        "choosePoi",
-        "chooseAddress"
       ]
     },
     {
@@ -363,6 +358,12 @@
     "pages/tab1/index",
     "pages/tab2/index",
     "pages/home/api-error"
+  ],
+  "requiredPrivateInfos": [
+
+    "choosePoi",
+    "chooseAddress",
+    "chooseLocation"
   ],
   "tabBar": {
     "custom": false,

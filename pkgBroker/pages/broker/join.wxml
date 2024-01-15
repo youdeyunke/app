@@ -32,7 +32,7 @@
   <view style="width: 750rpx;height: 324rpx;"></view>
 
   <block wx:if="{{userstate.join_status==-1}}">
-    <van-notice-bar wrapable scrollable="{{ false }}" text="审核状态：暂未通过！请修改资料重新提交\n拒绝原因：{{userstate.info}}">
+    <van-notice-bar wrapable scrollable="{{ false }}" text="审核状态：暂未通过！请修改资料重新提交\n拒绝原因：{{userstate.reject_reason}}">
     </van-notice-bar>
   </block>
 

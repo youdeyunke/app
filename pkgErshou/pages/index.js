@@ -32,7 +32,7 @@ Page({
      */
     onLoad (options) {
         var _this = this
-        var business = options.business || '租房'
+        var business = options.business || '出租'
         var filter = this.data.filter
         filter.business = business
         wx.setNavigationBarTitle({
