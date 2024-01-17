@@ -65,7 +65,7 @@ Component({
                 target_id: _this.data.pid,
                 target_type: 'post'
             }
-            favApi.getFavList(query).then((resp) => {
+            favApi.getFavStatus(query).then((resp) => {
                 _this.setData(resp.data.data)
             })
         },

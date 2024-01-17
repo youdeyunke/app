@@ -12,8 +12,8 @@
 let request = require('../utils/request.js');
 
 
-// 拉取收藏列表  1
-export function getFavList (query) {
+// 拉取收藏状态  1
+export function getFavStatus (query) {
     return request.get("/api/v6/favs", query);
 }
 // 添加收藏   1

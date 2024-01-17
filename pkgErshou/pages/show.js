@@ -12,6 +12,7 @@
 // pkgErshou/pages/show.js
 var houseApi = require("../../api/house")
 var shareApi = require("../../api/share");
+const favApi = require("../../api/fav")
 const app = getApp()
 Page({
     /**
@@ -31,7 +32,8 @@ Page({
         headSwitch: true,
         show: false,
         tixingtext: "提醒",
-        business: "竞价"
+        business: "竞价",
+        favStatus: false,
     },
 
     /**
@@ -40,6 +42,7 @@ Page({
     onLoad (options) {
         shareApi.markShareVisitor(options);
         this.loadData(options.id)
+        this.loadDefaultFavStatus(options.id)
         var value = wx.getStorageSync('houseId')
         if (value == "") {
             this.setData({
@@ -273,6 +276,37 @@ Page({
         wx.navigateTo({
             url: '/pkgErshou/pages/chujiajilu/index?id=' + this.data.rule.id
         });
+    },
+    guanzhuHouse() {
+
+      var hid = this.data.houseId
+      var _this = this
+      favApi.createFav('house', hid).then((resp) => {
+        if (resp.data.code != 0) {
+          return
+        }
+        _this.setData({
+          favStatus: resp.data.data
+        })
+          // _this.setData({
+          //     favStatus: resp.data.data.status,
+          //     favCount: resp.data.data.count,
+          // })
+      })
+    },
+    loadDefaultFavStatus: function (id) {
+      // 查询初始状态
+      // 查询状态
+      var _this = this
+      var query = {
+          target_id: id,
+          target_type: 'house'
+      }
+      favApi.getFavStatus(query).then((resp) => {
+          _this.setData({
+            favStatus: resp.data.data.status
+          })
+      })
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

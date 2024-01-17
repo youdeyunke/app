@@ -45,10 +45,11 @@
       </view>
     </view>
     <view style="display: flex;position: relative;">
-      <view class="guanzhu">
-        <image class="guanzhuImg" src="https://qiniucdn.udeve.cn/fang2021/1cafcedd-4633-41e1-9ec1-2d9f413e8a9e.png" mode="" />
+      <view class="guanzhu" bindtap="guanzhuHouse">
+        <image class="guanzhuImg" wx:if="{{!favStatus}}" src="https://qiniucdn.udeve.cn/fang2021/1cafcedd-4633-41e1-9ec1-2d9f413e8a9e.png" mode="" />
+        <image class="guanzhuImg" wx:if="{{favStatus}}" src="https://qiniucdn.udeve.net/udyk/65a72fab6ba637f7f73d960a.png" mode="" />
         <view>
-          关注
+          {{favStatus ? '已关注' : '关注'}}
         </view>
       </view>
       <view class="guanzhu" bindtap="onShareAppMessage">

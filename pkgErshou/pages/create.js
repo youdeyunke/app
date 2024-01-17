@@ -28,7 +28,7 @@ Page({
         images: "",
         type_image: "",
         video: "",
-        area: null,
+        area_value: null,
         price_value: null,
         show: true,
         focus: false,
@@ -193,7 +193,7 @@ Page({
             })
             return
         }
-        if (!data.area) {
+        if (!data.area_value) {
             wx.showToast({
                 title: '请填写面积',
                 icon: 'none'
@@ -235,7 +235,7 @@ Page({
             })
             return
         }
-        if (!data.type_image) {
+        if (!data.images) {
             wx.showToast({
                 title: '请上传房源照片',
                 icon: 'none'
