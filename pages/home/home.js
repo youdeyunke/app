@@ -193,6 +193,10 @@ Page({
         var titleFontColor = config.title.color
         titleBgColor = utils.set16ToRgb(titleBgColor)
 
+        wx.setNavigationBarTitle({
+          title: app.globalData.myconfigs.xcx_name,
+        })
+
         this.setData({
             shareCover: shareCover,
             shareTitle: shareTitle,

@@ -22,7 +22,19 @@ Page({
         limit: 100000,
         hasMore: true,
         page: 1,
-        per_page: 5,
+        per_page: 10,
+        favType: 'post',
+    },
+
+    favTypeChange(e){
+      var _this = this
+      this.setData({
+        favType: e.detail.name,
+        page: 1,
+        per_page: 10,
+      },()=>{
+        _this.loadData()
+      })
     },
 
     loadData: function () {
@@ -39,6 +51,7 @@ Page({
         var query = {
             page: _this.data.page || 1,
             per_page: _this.data.per_page || 10,
+            target_type: _this.data.favType
         }
         //   √
         postApi.getFavPosts(query).then((resp) => {

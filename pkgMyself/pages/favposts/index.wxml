@@ -11,11 +11,16 @@
 -->
 <!--pages/post/index.wxml-->
 
+<van-tabs active="{{ favType }}" bind:change="favTypeChange">
+  <van-tab title="新房" name="post"></van-tab>
+  <van-tab title="二手房" name="house"></van-tab>
+</van-tabs>
+
 <view class="outer" wx:if="{{posts.length > 0}}">
   <block wx:for="{{posts}}" wx:for-item="postitems">
   <view class="item-outer" wx:for="{{postitems}}" >
-
-    <post post="{{item}}"></post>
+    <house wx:if="{{favType == 'house'}}" post="{{item}}"></house>
+    <post wx:if="{{favType == 'post'}}" post="{{item}}"></post>
     </view>
   </block>
 </view>

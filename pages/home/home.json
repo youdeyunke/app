@@ -1,6 +1,5 @@
 {
     "enablePullDownRefresh": true,
-    "navigationStyle": "custom",
  
     "usingComponents": {
         "new-version": "/components/new-version",
