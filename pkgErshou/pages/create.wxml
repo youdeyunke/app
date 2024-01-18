@@ -59,12 +59,14 @@
 
 <van-cell-group title="联系信息">
     <van-field label="姓名" type="textarea"  model:value="{{ contact_name }}" placeholder="请输入姓名" />
-    <van-field readonly   is-link label="电话" placeholder="请选择电话" value="{{contact_mobile}}" />
+    <van-field readonly bindtap="checkLogin" is-link label="电话" placeholder="点击获取手机号" value="{{contact_mobile}}" />
     <van-field readonly bindtap="chooseSeller" is-link label="身份" placeholder="请选择身份" value="{{seller}}" />
 </van-cell-group>
 <!-- 占位 -->
 <view style="width: 100%;height: 10rpx;"></view>
 
 <view class="footer">
-  <van-button bindtap="submitHandle" block type="primary">提交审核</van-button>
+  <van-button bindtap="submitHandle" color="{{primaryBtnColor}}" block type="primary">提交审核</van-button>
 </view>
+
+<login-window bind:success="setMobile" class="loginwindow"></login-window>

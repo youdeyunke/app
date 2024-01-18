@@ -165,7 +165,11 @@ Page({
                 business: options
             })
         }
-
+        this.setData({
+          bg: app.globalData.myconfigs.ui.login_window || 'https://qiniucdn.udeve.net/fang/login-window.png',
+          primaryColor: app.globalData.myconfigs.color.primary || '#1989fa',
+          primaryBtnColor: app.globalData.myconfigs.color.primary_btn || 'linear-gradient(270deg, #1989FA 0%, rgba(25, 137, 250, 0.6) 100%)',
+      })
     },
 
 
@@ -273,6 +277,14 @@ Page({
 
     },
 
+    setMobile(){
+      if (app.globalData.userInfo) {
+        this.setData({
+          contact_mobile: app.globalData.userInfo.mobile
+        })
+      }
+    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -284,14 +296,9 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow () {
-        if (!app.globalData.userInfo) {
-            wx.navigateTo({
-                url: '/pkgAuth/pages/auth/index',
-            })
-        } else {
-            this.setData({
-                contact_mobile: app.globalData.userInfo.mobile
-            })
+        if (!app.globalData.token) {
+          this.selectComponent('.loginwindow').openWindow()
+          return
         }
     },
 

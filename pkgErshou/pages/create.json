@@ -2,5 +2,6 @@
   "usingComponents": {
     "images-uploader": "/components/images-uploader2",
     "video-uploader":"/components/video-uploader/index"
-  }
+  },
+  "navigationBarTitleText": "创建二手房"
 }

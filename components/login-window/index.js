@@ -69,6 +69,7 @@ Component({
 
             var code = this.data.code
             auth.loginHandle(code, e, (token) => {
+                app.setUserInfo()
                 this.triggerEvent('success', "ok")
                 this.closeWindow()
             })

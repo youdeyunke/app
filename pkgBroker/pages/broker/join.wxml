@@ -68,13 +68,13 @@
       <van-field required label="微信号" model:value="{{wechat}}" placeholder="请输入微信号" />
     </van-cell-group>
 
-    <van-cell-group title="银行卡信息（用于佣金提现）">
+    <!-- <van-cell-group title="银行卡信息（用于佣金提现）">
       <van-field required label="户名" model:value="{{bank_user}}" placeholder="请输入银行卡户名" />
       <van-field required label="开户行" model:value="{{bank}}" placeholder="请输入开户行" />
       <van-field required label="支行" model:value="{{sub_bank}}" placeholder="请输入支行" />
       <van-field required label="银行卡号" model:value="{{bank_id}}" placeholder="请输入银行卡号" />
 
-    </van-cell-group>
+    </van-cell-group> -->
 
 
   </view>

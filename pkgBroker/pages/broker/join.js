@@ -23,10 +23,10 @@ Page({
     data: {
         userInfo: null,
 
-        bank: '',
-        sub_bank: '',
-        bank_user: '',
-        bank_id: '',
+        // bank: '',
+        // sub_bank: '',
+        // bank_user: '',
+        // bank_id: '',
 
         mobile: '',
         name: '',
@@ -205,13 +205,13 @@ Page({
             return false
         }
 
-        if (!data.bank || !data.bank_user || !data.sub_bank || !data.bank_id) {
-            wx.showToast({
-                icon: 'none',
-                title: '请填写银行卡信息',
-            })
-            return false
-        }
+        // if (!data.bank || !data.bank_user || !data.sub_bank || !data.bank_id) {
+        //     wx.showToast({
+        //         icon: 'none',
+        //         title: '请填写银行卡信息',
+        //     })
+        //     return false
+        // }
 
 
         return true
@@ -281,10 +281,10 @@ Page({
             post_id: this.data.postId,
             group_value: this.data.groupValue,
             group_name: this.data.groupName,
-            bank: this.data.bank,
-            sub_bank: this.data.sub_bank,
-            bank_user: this.data.bank_user,
-            bank_id: this.data.bank_id,
+            // bank: this.data.bank,
+            // sub_bank: this.data.sub_bank,
+            // bank_user: this.data.bank_user,
+            // bank_id: this.data.bank_id,
         }
         this.setData({
             loading: true
