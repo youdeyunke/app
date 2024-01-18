@@ -53,7 +53,7 @@ Component({
 
         optionClick: function (e) {
             const { index } = e.currentTarget.dataset;
-            this.setData({ currentIndex: index.toString() })
+            this.setData({ currentIndex: index })
         },
 
         onConfirm: function (e) {

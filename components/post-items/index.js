@@ -48,6 +48,11 @@ Component({
             if (Object.keys(query).length == 0) {
                 return false;
             }
+            for (let prop in query) {
+              if (query[prop] === null) {
+                delete query[prop];
+              }
+            }
             this.setData({ query: query })
             this.loadData()
         },
@@ -62,7 +67,7 @@ Component({
             _this.setData({ loading: true })
             var query = this.data.query
             postApi.getPostList(query).then((resp) => {
-                var meta = resp.data.meta
+                var meta = resp.data.data.page
                 var p = _this.data.query.page || 1
                 var i = p - 1
                 var data = { meta: meta }
@@ -73,6 +78,9 @@ Component({
                     data['items'] = [resp.data.data.result]
                 }
                 _this.setData(data)
+                _this.setData({
+                  loading: false
+                })
 
 
                 for (var i = 0; i <= resp.data.data.result.length - 1; i++) {
