@@ -39,7 +39,7 @@
                 {{ post.area_info.label}} {{ post.area_info.text}}
             </view>
             <view class="price">
-                {{post.price_value}}{{post.price_unit}}
+              {{post.price_label}}: {{post.price_value}}{{post.price_unit}}
             </view>
         </view>
     </view>
