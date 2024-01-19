@@ -99,6 +99,7 @@
 .item .date {
     font-size: 22rpx;
     color: #A0A0A0;
+    padding-left: 10rpx;
 }
 
 .item .author {
