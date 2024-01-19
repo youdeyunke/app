@@ -219,9 +219,7 @@ Page({
 
     doPost: function (data) {
         //  √
-        brokerApi.createBroker({
-            profile: data
-        }).then((resp) => {
+        brokerApi.createBroker(data).then((resp) => {
             if (resp.data.status != 0) {
                 return
             }
