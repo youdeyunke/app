@@ -84,7 +84,7 @@
   font-size: 34rpx;
   font-weight: 600;
   color: #222222;
-  margin-top: 32rpx;
+  /* margin-top: 32rpx; */
 }
 
 .fuzerenBox {
@@ -383,7 +383,7 @@
 }
 
 .fengexian {
-  height: 36rpx;
+  height: 24rpx;
   width: 100%;
 }
 

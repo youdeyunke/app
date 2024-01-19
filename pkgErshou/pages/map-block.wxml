@@ -9,9 +9,6 @@
  | Author: UDEVE Team <tech@udeve.cn>
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
-<block-box title="{{value.sub_district_name}}" leftHat="true" leftHatColor="{{color}}" padding="{{false}}" title-size="36" sub-title="查看详情" url="/pkgPost/pages/zhoubian/index?id={{value.id}}">
+<block-box title="{{value.sub_district_name}}" leftHat="true" leftHatColor="{{color}}" padding="{{false}}" title-size="36" url='daohang' latitude="{{value.latitude}}" longitude="{{value.longitude}}" address="{{value.sub_district_name}}" sub-title="导航前往" >
     <zhoubian  haveTabs="{{tabs}}" latitude="{{value.latitude}}" mode="mini" longitude="{{value.longitude}}" postId="{{value.id}}" />
-    <view style="padding:30rpx">
-        <block-button maxLength='2' allLength='{{resp.length}}' url="/pkgPost/pages/zhoubian/index?id={{value.id}}" color="{{color}}" buttonVal='查看更多' />
-    </view>
 </block-box>

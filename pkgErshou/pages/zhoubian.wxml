@@ -10,14 +10,13 @@
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
 <!--pkgErshou/pages/zhoubian.wxml-->
-<map enable-zoom enable-scroll="{{true}}" enable-rotate="{{true}}" longitude="{{value.longitude}}" show-scale="{{false}}" latitude="{{value.latitude}}" markers="{{markers}}" include-points="{{points}}" bindcallouttap="markertap" bindmarkertap="markertap" style="width:{{mapW}}rpx; height:{{mapH}}rpx;"></map>
+<map enable-zoom enable-scroll="{{true}}" enable-rotate="{{true}}" longitude="{{longitude}}" show-scale="{{false}}" latitude="{{latitude}}" markers="{{markers}}" include-points="{{points}}" bindcallouttap="markertap" bindmarkertap="markertap" style="width:{{mapW}}rpx; height:{{mapH}}rpx;"></map>
 
-<view class="tabs">
+<!-- <view class="tabs">
 
     <scroll-view class="tabs_title" scroll-x='{{true}}'>
         <view wx:for='{{resTabs}}' wx:key='id' class="title_item  {{ index === active ? 'current-active' : ''}}" bindtap="handleItemTap" data-index='{{index}}'>
             <view class="content">
-                <!-- ud-icon name="{{item.icon}}" customStyle="margin-bottom:20rpx;margin-left:90rpx;" / -->
                 <view class="name">{{item.name}}</view>
                 <view class="active" hidden="{{index != active}}"></view>
             </view>
@@ -38,11 +37,5 @@
                 </van-cell>
             </view>
         </view>
-        <!-- <view wx:if="{{buttonShow}}">
-            <view hidden="{{isShow ==1 || type == 'big'}}" class="more-btn" bind:tap="moreHandle">{{buttonVal}}</view>
-        </view> -->
-        <!-- <view style="padding:30rpx" wx:if="{{buttonShow}}">
-            <block-button maxLength='2' allLength='{{resp.length}}' buttonVal='展开全部' bind:change='lengthChange' />
-        </view> -->
     </view>
-</view>
+</view> -->

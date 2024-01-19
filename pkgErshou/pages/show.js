@@ -172,12 +172,6 @@ Page({
 
 
 
-    // 查看按钮
-    seeMore () {
-        this.setData({
-            show: true
-        })
-    },
     closePopup () {
         this.setData({
             show: false

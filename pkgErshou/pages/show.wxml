@@ -18,7 +18,8 @@
 </view>
 <!-- 基础信息 -->
 <view class="box">
-  <view class="biaoqianBox">
+  <!-- 功能未实现，先隐藏 -->
+  <!-- <view class="biaoqianBox">
     <view class="biaoqianLBox">
       <view class="biaoqian" style="color:{{item.color}}" wx:for="{{block.tags}}">
         {{item.name}}
@@ -29,7 +30,7 @@
       <van-icon name="bell" style="margin-right: 10rpx;" />
       变量提示
     </view>
-  </view>
+  </view> -->
   <view class="biaotiBox">
     {{block.title}}
   </view>
@@ -112,99 +113,8 @@
 
   </view>
 </view>
-<!-- 竞拍 -->
-<view wx:if="{{rule && rule.id}}">
-  <view class="jingpaiBox" bindtap="gochujia">
-    <view class="jingpaiBoxL">
-      <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
-      <view class="jpText">
-        竞价拍卖
-      </view>
-    </view>
-    <view class="jingpaiBoxR" >
-      <view>出价记录</view>
-      <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
-    </view>
-  </view>
-  <view class="box">
-    <view class="jingmaiBox" wx:if="{{joined}}">
-      我的竞买号:{{myCode || "-"}}
-    </view>
-    <view class="jingmaineirongBox">
-      <view class="jmBox" wx:for="{{members}}">
-        <view class="jmBiaoqian">
-          排名：{{index+1}}
-        </view>
-        <view class="jmText">
-          {{item.code}}
-          <view wx:if="{{item.price}}">
-            ￥{{item.price}}
-          </view>
 
-        </view>
-      </view>
-
-    </view>
-    <view class="baozhengjinBox">
-      <view class="bzjTitle">
-        保证金：
-      </view>
-      <view class="bzjText">
-        {{rule.deposit}}￥
-      </view>
-      <view class="bzjBtn" bindtap="seeMore">
-        查看如何支付
-      </view>
-    </view>
-    <view class="xiangxixinxiBox">
-      <view class="xxxxTitle">
-        起拍价:
-        <view class="xxxxText">
-          {{rule.bid_start}}
-        </view>
-      </view>
-      <view class="xxxxTitle">
-        加价幅度:
-        <view class="xxxxText">
-          {{rule.bid_range}}元
-        </view>
-      </view>
-      <view class="xxxxTitle">
-        最新出价:
-        <view class="xxxxText">
-          {{rule.bid_current || '-'}}元
-        </view>
-      </view>
-      <view class="xxxxTitle">
-        开始时间:
-        <view class="xxxxText">
-          {{rule.starts_at}}
-        </view>
-      </view>
-      <view class="xxxxTitle">
-        结束时间:
-        <view class="xxxxText">
-          {{rule.ends_at}}
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class="jingpaiBox">
-    <view class="jingpaiBoxL">
-      <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
-      <view class="jpText">
-        竞价详情
-      </view>
-    </view>
-    <view class="jingpaiBoxR">
-      <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
-    </view>
-
-  </view>
-  <view class="box">
-    <raw-html html="{{rule.content}}"></raw-html>
-  </view>
-  <view class="xiangxiTitle" wx:if="{{block.content}}">
+<view class="xiangxiTitle" wx:if="{{block.content}}">
     <view class="jingpaiBoxL">
       <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
       <view class="jpText">
@@ -220,12 +130,15 @@
       {{block.content}}
     </view>
   </view>
-</view>
+
 <!-- 分割线 -->
 <view class="fengexian"> </view>
 
 <!-- 地图 -->
 <map-block value="{{block}}"></map-block>
+
+<!-- 分割线 -->
+<view class="fengexian"> </view>
 
 <!-- 二手、租房时的底部栏 -->
 <view wx:if="{{business != '竞价'}}" class="bottomBox">
@@ -239,29 +152,6 @@
   </view>
 </view>
 
-<!-- 竞价时的底部栏 -->
-<view wx:if="{{business=='竞价'}}" class="bottomBox">
-  <view class="zixunBtn" bindtap="callHandle">
-    <image class="zixunImg" src="https://qiniucdn.udeve.cn/fang2021/16cc3f04-0aa4-420b-9ad6-732229493f46.png" mode="" />
-    <view class="zixunText">
-      咨询
-    </view>
-  </view>
-  <view bindtap="remindBtn" class="zixunBtn">
-    <image class="zixunImg" src="https://qiniucdn.udeve.cn/fang2021/c171c255-3290-4e2b-bf17-22529937aabe.png" mode="" />
-    <view class="zixunText">
-      {{tixingtext}}
-    </view>
-  </view>
-  <view class=" baomingBtn " bindtap="btnHandle">
-    <view class="biaomingTitle">
-      {{btnText}}
-    </view>
-    <view wx:if="{{btnDesc}}" class="biaomingText">
-      {{btnDesc}}
-    </view>
-  </view>
-</view>
 
 <van-popup round="true" closeable="true" bind:close="closePopup" show="{{show}}">
   <view style="width: 690rpx;height: 300rpx;display: flex;align-items: center;justify-content: center;">内容</view>

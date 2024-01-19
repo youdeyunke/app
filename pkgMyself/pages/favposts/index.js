@@ -32,6 +32,7 @@ Page({
         favType: e.detail.name,
         page: 1,
         per_page: 10,
+        posts: [],
       },()=>{
         _this.loadData()
       })
