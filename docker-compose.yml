@@ -31,8 +31,8 @@ services:
     image: "mysql:8"
     expose:
       - 3306
-    ports:
-      - "13306:3306"
+    #ports:
+    #  - "13306:3306"  若需通过数据库管理工具连接容器内的数据库，则打开此端口映射，并在工具中连接到13306端口进行管理，默认建议不开启
     volumes:
       - /var/lib/udyk/mysql:/var/lib/mysql
     environment:
