@@ -125,7 +125,7 @@
       <image class="jpImgR" src="https://qiniucdn.udeve.cn/fang2021/8795c6fa-9821-4c61-8ebc-cdbeb5af56fc.png" mode="" />
     </view> -->
   </view>
-  <view class="box">
+  <view wx:if="{{block.content}}" class="box">
     <view class="xxText">
       {{block.content}}
     </view>
