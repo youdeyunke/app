@@ -9,12 +9,26 @@
 * | Author: UDEVE Team <tech@udeve.cn>
 * +----------------------------------------------------------------------
 */
-.cr{
-  width: 100%; 
+.cr {
+  width: 100%;
   text-align: center;
-  font-size:24rpx; 
-  color:#cecece;
-  margin:20rpx auto 10rpx auto;
+  font-size: 24rpx;
+  color: #cecece;
+  margin: 20rpx auto 10rpx auto;
   transform: scale(0.9);
   letter-spacing: 1rpx;
+}
+
+.logo-box {
+  width: 750rpx;
+  padding: 20rpx 0;
+}
+
+.logo-img {
+  width: 100rpx;
+  height: 42rpx;
+  margin: 0 auto;
+  display: block;
+  filter: grayscale(100%);
+  opacity: 50%;
 }

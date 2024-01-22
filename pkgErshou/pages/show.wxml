@@ -140,6 +140,8 @@
 <!-- 分割线 -->
 <view class="fengexian"> </view>
 
+<copyright></copyright>
+
 <!-- 二手、租房时的底部栏 -->
 <view wx:if="{{business != '竞价'}}" class="bottomBox">
   <view class="ershoubaomingBtn" bindtap="btnHandle">

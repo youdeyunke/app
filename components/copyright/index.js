@@ -37,6 +37,13 @@ Component({
      */
     methods: {
 
+      showToast(){
+        wx.showToast({
+          title: '©友得云客版权所有',
+          icon: 'none',
+        })
+      },
+
         sayHello: function () {
             wx.showToast({
                 icon: 'none',

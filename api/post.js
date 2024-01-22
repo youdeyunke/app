@@ -124,3 +124,7 @@ export function getBuildingRoomDetail (roomId) {
     return request.get("/api/v1/building_rooms/" + roomId);
 }
 
+// 查询楼盘评测
+export function getPostReviews(pid){
+  return request.get("/api/v6/post_reviews/"+pid)
+}

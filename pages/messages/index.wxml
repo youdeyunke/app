@@ -34,5 +34,6 @@
   <van-divider wx:else  contentPosition="center">没有更多了</van-divider>
 
 </block>
+<copyright></copyright>
 
 <login-window bind:success="loginSuccess" class="loginwindow"></login-window>

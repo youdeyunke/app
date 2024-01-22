@@ -11,6 +11,7 @@
 */
 // pkgPingce/pages/pingce/index.js
 const app = getApp()
+const postApi = require("../../../api/post")
 Page({
 
     /**
@@ -44,29 +45,36 @@ Page({
     loadPost: function () {
         var pid = this.data.postId
         var _this = this
-        app.request({
-            url: '/api/v6/post_base_info/' + pid,
-            method: 'GET',
-            success: function (resp) {
-                _this.setData({
-                    postData: resp.data.data
-                })
-            }
+        postApi.getPostBaseInfo(pid).then((resp) => {
+          _this.setData({
+            postData: resp.data.data
         })
+        })
+        // app.request({
+        //     url: '/api/v6/post_base_info/' + pid,
+        //     method: 'GET',
+        //     success: function (resp) {
+
+        //     }
+        // })
     },
     loadpingce: function () {
         var _this = this
-        app.request({
-            url: '/api/v6/post_reviews/' + this.data.postId,
-            method: 'GET',
-            success: function (resp) {
-                _this.setData({
-                    pingceList: resp.data.data,
-                }, () => {
-                    _this.calculateAverage(resp.data.data)
-                })
-            }
+        var pid = this.data.postId
+        postApi.getPostReviews(pid).then((resp) => {
+          _this.setData({
+                pingceList: resp.data.data,
+            }, () => {
+                _this.calculateAverage(resp.data.data)
+            })
         })
+        // app.request({
+        //     url: '/api/v6/post_reviews/' + this.data.postId,
+        //     method: 'GET',
+        //     success: function (resp) {
+
+        //     }
+        // })
     },
     calculateAverage (arr) {
         let sum = 0;
