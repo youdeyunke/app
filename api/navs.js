@@ -19,4 +19,7 @@ let request = require('../utils/request.js');
 export function getNavFromPosition (positionId) {
     return request.get("/api/v6/navs/", { position_id: positionId });
 }
+export function getDynamicNavs(id) {
+  return request.get("/api/v6/dynamic_navs/" + id);
+}
 

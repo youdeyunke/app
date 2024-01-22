@@ -1,6 +1,17 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: UDEVE Team <tech@udeve.cn>
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
 <view class="list mode-{{config.styleName}}">
     <view wx:key="id" wx:for="{{navs}}" class="item">
-        <view data-index="{{index}}" config="{{item.link}}" class="link" hover-class="none" bindtap="clickHandle">
+        <!-- <view data-index="{{index}}" config="{{item.link}}" class="link" hover-class="none" bindtap="clickHandle">
             <view class="icon">
                 <view  class="count">
                     {{item.inner_text}}
@@ -9,6 +20,7 @@
                 <view wx:if="{{item.badge_text}}" class="badge"><view class="text">{{item.badge_text}}</view></view>
             </view>
             <view class="name" style="color: {{ item.color || '#333333' }}">{{item.name}}</view>
-        </view>
+        </view> -->
+        <nav item="{{item}}" styleName="{{config.styleName}}"></nav>
     </view>
 </view>
