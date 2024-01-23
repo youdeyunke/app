@@ -1,6 +1,5 @@
 {
   "enablePullDownRefresh": true,
-  "navigationBarTextStyle":"white",
   "usingComponents": {
     "van-tag": "/vant/tag/index",
     "howlong": "/components/howlong"

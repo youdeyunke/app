@@ -9,10 +9,18 @@
  | Author: UDEVE Team <tech@udeve.cn>
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
-<block wx:if="{{userInfo.id}}">
+<view wx:if="{{showDingyue}}" class="message-top" bindtap="dingyueHandle">
+  <text style="color: #333333;">订阅消息推送，第一时间回复通知</text>
+  <view>
+    <text style="color: #ffffff;">订阅</text>
+  </view>
+</view>
+<van-tabs active="{{ active }}" bind:click="onChange" color="{{primaryColor}}">
+  <van-tab info="{{chat_message_count == 0 ?  null : chat_message_count}}" title="聊天">
+    <block wx:if="{{userInfo.id}}">
   <view class="tools">
     <view class=""></view>
-    <view wx:if="{{count > 0}}" bindtap="readAll" class="read-all">全部已读</view>
+    <view wx:if="{{chat_message_count > 0}}" bindtap="readAll" class="read-all">全部已读</view>
   </view>
 
   <view bindtap="dingyue" class="outer" padding="30">
@@ -34,6 +42,42 @@
   <van-divider wx:else  contentPosition="center">没有更多了</van-divider>
 
 </block>
+  </van-tab>
+
+  <van-tab info="{{sys_message_count == 0 ? null : sys_message_count }}" title="系统消息">
+    <view class="tools">
+      <view class=""></view>
+      <view wx:if="{{sys_message_count > 0}}" bindtap="readAllSys" class="read-all">全部已读</view>
+    </view>
+
+    <view class="outer" padding="30">
+      <view bindtap="sysItemClickHandle" data-index="{{index}}" wx:for="{{systemItems}}">
+        <view class="xtxxbox">
+          <view style="display: flex;flex-direction: column;justify-content: space-between;width: 700rpx;">
+            <view style="display: flex;justify-content: space-between;align-items: center">
+              <view style="font-weight: bold;font-size: 32rpx;">
+                {{item.title}}
+              </view>
+              <view class="biaoqian" wx:if="{{item.unread==true}}">未读</view>
+            </view>
+            <view style="color: #333333;font-size: 32rpx;word-wrap: break-word;">
+              {{item.content}}
+            </view>
+            <view style="color: #666666;font-size: 26rpx;">
+              {{item.updated_at}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{xtitems.length == 0}}" class="empty">没有收到任何消息</view>
+    <van-divider wx:else contentPosition="center">没有更多了</van-divider>
+  </van-tab>
+
+</van-tabs>
+
+
+
 <copyright></copyright>
 
 <login-window bind:success="loginSuccess" class="loginwindow"></login-window>

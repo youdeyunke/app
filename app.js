@@ -341,6 +341,8 @@ App({
             var data = resp.data.data
             // 未读消息 
             var c = data.unread_message_count
+            _this.globalData.sys_message_count = data.sys_message_count;
+            _this.globalData.chat_message_count = data.chat_message_count;
             var bindex = 1
             if ( !c || c == 0) {
                 wx.removeTabBarBadge({

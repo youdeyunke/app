@@ -128,4 +128,69 @@ page{
   }
   
   
+  .xtxxbox {
+    width: 100%;
+    min-height: 150rpx;
+    display: flex;
+    border-bottom: 1rpx solid #E1E1E1;
+    padding: 30rpx 0 20rpx 0;
+    display: flex;
+    justify-content: space-between;
+  }
   
+  .title1 {
+    color: #9e1d1d;
+    font-size: 36rpx;
+    font-weight: 600;
+  }
+  
+  .title2 {
+    color: purple;
+    font-size: 36rpx;
+    font-weight: 600;
+  }
+  
+  .biaoqian {
+    font-size: 20rpx;
+    background: red;
+    width: 70rpx;
+    height: 30rpx;
+    color: #ffffff;
+    border-radius: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.8);
+  }
+  .message-top {
+    width: 750rpx;
+    height: 100rpx;
+    background-color: #FFF3E7;
+    padding-left: 30rpx;
+    font-size: 30rpx;
+    color: #F49946;
+    padding-right: 30rpx;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .message-top view {
+    display: inline-block;
+    font-size: 28rpx;
+    color: #FFFFFF;
+    width: 140rpx;
+    height: 60rpx;
+    background-color: #FB921D;
+    line-height: 60rpx;
+    border-radius: 14rpx;
+    text-align: center;
+  }
+  
+  .message-top image {
+    width: 10rpx;
+    height: 18rpx;
+    margin-left: 10rpx;
+    margin-bottom: 1rpx;
+  }

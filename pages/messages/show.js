@@ -83,10 +83,10 @@ Page({
                 wx.setNavigationBarTitle({
                     title: title,
                 })
-                wx.setNavigationBarColor({
-                    backgroundColor: titleColor,
-                    frontColor: fontColor,
-                })
+                // wx.setNavigationBarColor({
+                //     backgroundColor: titleColor,
+                //     frontColor: fontColor,
+                // })
 
             })
 
@@ -233,7 +233,7 @@ Page({
                 return false
             }
             var d = {}
-            var items = resp.data.data
+            var items = resp.data.data.data
 
             items.forEach(function (message, i) {
                 _this.saveMessage(message)
@@ -244,8 +244,8 @@ Page({
                 var k = 'messages[' + len + ']'
                 d[k] = items.reverse()
             }
-            d['sleepTime'] = resp.data.sleep
-            d.targetUserInfo = resp.data.target_user_info
+            d['sleepTime'] = resp.data.data.sleep
+            d.targetUserInfo = resp.data.data.target_user_info
             _this.setData(d, () => {
                 typeof cb == 'function' && cb()
             })

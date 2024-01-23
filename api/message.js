@@ -32,6 +32,11 @@ export function markReadAll () {
     return request.post("/api/v6/chat_list/readall");
 }
 
+// 标记系统消息全部已读
+export function markSysReadAll () {
+  return request.post("/api/v6/sys_message_list/readall");
+}
+
 // 删除一个会话
 export function deleteChat (chatId) {
     return request.destroy("/api/v6/chat_list/" + chatId);
@@ -40,4 +45,14 @@ export function deleteChat (chatId) {
 // 拉取会话列表
 export function getChatList (query = {}) {
     return request.get("/api/v6/chat_list", query);
+}
+
+// 拉取系统消息
+export function getSysMessage (data) {
+  return request.get("/api/v6/sys_message_list", data);
+}
+
+// 标记系统消息已读
+export function markSysMesRead (id) {
+  return request.post("/api/v6/sys_message_list/marker_read/" + id);
 }

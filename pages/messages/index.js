@@ -19,11 +19,39 @@ Page({
      * 页面的初始数据
      */
     data: {
-        items: null,
+        items: [],
         isLogin: false,
         userInfo: {},
         sleepTime: 1000,
         iid: null,
+        active: 0,
+        primaryColor: '#9e1d1d',
+        chat_message_count: 0,
+        sys_message_count: 0,
+        systemItems: [],
+        page: 1,
+        showDingyue: true,
+    },
+
+    onChange(event) {
+      var title = event.detail.title
+      if (title == "系统消息") {
+        this.setData({
+          page:1,
+          systemItems: []
+        })
+        this.loadSysMessage()
+      }
+    },
+
+    dingyueHandle: function () {
+      var _this = this;
+      app.dingyueHandle(function () {
+        wx.showToast({
+          title: '已订阅',
+        })
+        _this.setData({ showDingyue: false })
+      })
     },
 
     /**
@@ -33,15 +61,46 @@ Page({
         wx.setNavigationBarTitle({
             title: '消息'
         })
+        var color = app.globalData.color
+        this.setData({
+            primaryColor: color.primary || '#9e1d1d',
+        })
     },
 
     readAll: function () {
         // √
-        messageApi.markReadAll().then((res) => {
-            wx.showToast({
-                title: '已将全部消息标记为已读',
-            })
+        messageApi.markReadAll().then((resp) => {
+          if (resp.data.code != 0) {
+            return
+          }
+          wx.showToast({
+              title: '已将全部消息标记为已读',
+              icon: 'none'
+          })
         })
+    },
+
+    readAllSys(){
+      // 将系统消息全部已读取
+      var _this = this
+
+      messageApi.markSysReadAll().then((resp) => {
+        if (resp.data.code != 0) {
+          return
+        }
+        wx.showToast({
+          title: '已将全部系统消息标记为已读',
+        })
+        var systemItems =  _this.data.systemItems.map((item) =>{ 
+          item.unread = false;
+          return item;
+        })
+        // 修改未读数为0
+        _this.setData({
+          sys_message_count:0,
+          systemItems:systemItems,
+        })
+      })
     },
 
     stopInterval: function () {
@@ -60,7 +119,9 @@ Page({
         // 开启定时器，并防止重复
         var _this = this
         var t = 5 * 1000
-        var iid = setInterval(_this.loadData, t)
+        var iid = setInterval(() => {
+          this.loadData();
+        }, t);
         this.setData({
             iid: iid
         })
@@ -106,6 +167,7 @@ Page({
         messageApi.getChatList().then((res) => {
             if (res.data.code == 0) {
                 // 如果列表没有变化就不更新 
+                // console.log(_this);
                 var old = _this.data.items
                 var n = res.data.data.result
                 if (JSON.stringify(n) == JSON.stringify(old)) {
@@ -129,10 +191,52 @@ Page({
                 _this.setData({
                     items: items,
                     sleepTime: res.data.sleep || 5,
-                    count: res.data.data.count || 0,
+                    chat_message_count: res.data.data.count || 0,
                 })
             }
         })
+    },
+
+    loadSysMessage(){
+      var _this = this
+      var data = {
+        page: this.data.page,
+        pre_page: 10,
+      }
+      messageApi.getSysMessage(data).then((resp) => {
+        if (resp.data.code != 0) {
+          return
+        }
+        var newarr = resp.data.data
+        _this.setData({
+          systemItems: [..._this.data.systemItems, ...newarr]
+        })
+      })
+    },
+
+    sysItemClickHandle(index) {
+      var index = index.currentTarget.dataset.index
+      var id = this.data.systemItems[index].id
+      var url = this.data.systemItems[index].url
+      var _this= this
+      messageApi.markSysMesRead(id).then((resp) => {
+        if (resp.data.code != 0) {
+          return
+        }
+        var unread= _this.data.systemItems
+        if(unread[index].unread==true) {
+          _this.setData({
+            sys_message_count:_this.data.sys_message_count-1
+          })
+        }
+        unread[index].unread=false
+        _this.setData({
+          systemItems:unread
+        })
+        wx.navigateTo({
+          url: url,
+        })
+      })
     },
 
     /**
@@ -170,6 +274,10 @@ Page({
         this.loadData()
         this.stopInterval()
         this.startInterval()
+        this.setData({
+          sys_message_count: app.globalData.sys_message_count,
+          chat_message_count: app.globalData.chat_message_count,
+        })
         var user = wx.getStorageSync('userInfo');
         this.setData({
             userInfo: user
@@ -207,13 +315,24 @@ Page({
      */
     onPullDownRefresh: function () {
         this.loadData()
+        this.setData({
+          page: 1,
+          systemItems: []
+        },() => {
+          _this.loadSysMessage()
+        })
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
+      var _this =this
+      this.setData({
+        page: this.data.page + 1
+      },() => {
+        _this.loadSysMessage()
+      })
     },
 
     /**

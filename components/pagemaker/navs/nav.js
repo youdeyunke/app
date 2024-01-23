@@ -40,7 +40,6 @@ Component({
       console.log("555555");
 
       navsApi.getDynamicNavs(item.id).then((resp) => {
-        console.log(resp.data,"555555");
         if (resp.data.status != 0) {
           return
         }
