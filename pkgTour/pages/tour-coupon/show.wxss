@@ -19,6 +19,7 @@ page {
     background-size: 750rpx 840rpx;
     background-image: url('https://qiniucdn.udeve.cn/fang2021/f6099ade-e061-4fac-9105-623b88ea7030.png');
     background-repeat: no-repeat;
+    width: 750rpx;
 }
 
 .box {
@@ -239,7 +240,7 @@ page {
 .content-bottom {
     position: fixed;
     bottom: 0rpx;
-    width: 100%;
+    width: 750rpx;
     height: 140rpx;
     margin-top: 17rpx;
     background-color: #F83F4A;

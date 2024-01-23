@@ -26,11 +26,11 @@ page {
   top:0; 
   left:0;
   z-index:100;
-  width:100%;
+  width:750rpx;
 }
 
 .body {
-  width: 100%;
+  width: 750rpx;
   height: auto;
   padding-top: 20rpx;
   margin-bottom:120rpx;
@@ -50,7 +50,7 @@ page {
   position: fixed;
   bottom: 20rpx;
   left: 0;
-  width: 100%;
+  width: 750rpx;
   display: flex;
   justify-content: space-around;
   align-items: center;

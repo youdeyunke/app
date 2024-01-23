@@ -12,6 +12,7 @@
 /* pkgCustomer/pages/customerProfileEdit/index.wxss */
 .footer{
   width:750rpx; 
+  box-sizing: border-box;
   position: fixed;
   background:#fff; 
   bottom:0;
