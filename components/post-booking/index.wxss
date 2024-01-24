@@ -19,6 +19,7 @@
   box-sizing:border-box;
   background-color:#F2F2F2;
   padding: 20rpx;
+  max-height: 80vh;
 }
 
 .dialog-date{
@@ -37,7 +38,7 @@
 }
 
 .dialog-message{
-  width: 710rpx;
+  /* width: 710rpx; */
   height: 536rpx;
   border-radius: 20rpx;
   padding: 20rpx 30rpx ;
@@ -54,6 +55,7 @@
   display: flex;
   align-items: center;
   height:133rpx ;
+  width:650rpx ;
 }
 .message-word text{
   margin-left: 30rpx;

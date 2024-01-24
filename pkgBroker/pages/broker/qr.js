@@ -11,6 +11,7 @@
 */
 const app = getApp()
 const postApi = require("../../../api/post")
+const brokerApi = require("../../../api/broker")
 import Poster from '../../utils/poster/poster';
 var haibaoBg = {
     type: 'image',
@@ -286,7 +287,7 @@ Page({
     },
 
     genUserCard () {
-        var userInfo = app.globalData.userInfo
+        var userInfo = this.data.userInfo
         var palette = {
             background: '#FFFFFF',
             width: '750rpx',
@@ -334,11 +335,10 @@ Page({
     },
 
     genTags () {
-        // var userInfo = app.globalData.userInfo
-        if (app.globalData.userInfo.tags == '' || app.globalData.userInfo.tags == null || app.globalData.userInfo.tags == undefined) {
+        if (this.data.userInfo.tags == '' || this.data.userInfo.tags == null || this.data.userInfo.tags == undefined) {
             return []
         }
-        var tags = app.globalData.userInfo.tags.split(',')
+        var tags = this.data.userInfo.tags.split(',')
         var haibaoTags = tags.filter((q, i) => i < 3).map((q, i) => {
             var tag = {
                 type: 'text',
@@ -364,9 +364,37 @@ Page({
         return haibaoTags
     },
 
+    loadBrokerData() {
+      var _this = this
+      var userInfo = app.globalData.userInfo
+      if (userInfo == null) {
+          wx.showModal({
+              content: '未登录，无法生成海报',
+              showCancel: false,
+              success (res) {
+                  wx.navigateBack({
+                      delta: 1
+                  })
+              }
+          })
+          return
+      }
+      brokerApi.getBrokerDetail(userInfo.id).then((resp) => {
+        console.log(resp.data);
+        if (resp.data.code != 0) {
+          return
+        }
+        _this.setData({
+          userInfo: resp.data.data
+        },( ) => {
+          _this.loadData()
+        })
+      })
+    },
+
     loadData () {
         var _this = this
-        var userInfo = app.globalData.userInfo
+        var userInfo = this.data.userInfo
         console.log('99999', userInfo)
         if (userInfo == null || userInfo.post_id == null || userInfo.post_id == '' || userInfo.post_id == undefined) {
             wx.showModal({
@@ -394,7 +422,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
-        this.loadData()
+        this.loadBrokerData()
         // this.genUserCard()
         wx.showLoading({
             title: '加载中',
@@ -415,7 +443,7 @@ Page({
         if (this.data.userInfo && this.data.userInfo.id) {
             return
         }
-        var userInfo = app.globalData.userInfo
+        var userInfo = this.data.userInfo
         if (!userInfo) {
             return
         }

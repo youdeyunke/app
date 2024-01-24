@@ -44,7 +44,7 @@
 
 <view class="bottom-btn">
   <view class="bottom-btn-fenxiang" style="position: relative;">
-    <image src="../../image/fenxian.png"></image>
+    <image src="https://qiniucdn.udeve.net/udyk/65b06910b33af4699191824b.png"></image>
     <view >分享</view>
     <button open-type="share"></button>
   </view>

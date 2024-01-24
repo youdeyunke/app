@@ -10,7 +10,7 @@
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
 <view class="info-box">
-  <navigator class="message" url="/pkgBroker/pages/broker/profile?id={{userinfo.id}}">
+  <navigator class="message" url="/pkgBroker/pages/broker/profile?id={{userinfo.user_id}}">
     <image class="avatar" src="{{userinfo.avatar}}?imageView2/5/h/200/w/200"></image>
     <view class="name">{{userinfo.name}}</view>
     <image class="level" src="/assets/icons/broker/{{userinfo.level}}.png"></image>
