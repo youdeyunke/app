@@ -11,7 +11,7 @@
  */
 /* pkgCustomer/pages/index/index.wxss */
 .box {
-  width: 630rpx;
+  width: 710rpx;
   margin: 0 auto;
   margin-top: 30rpx;
   padding: 30rpx;
@@ -31,5 +31,5 @@
 }
 
 .search{
-  width: 690rpx;margin: 0 auto;margin-top: 30rpx;
+  width: 710rpx;margin: 0 auto;margin-top: 30rpx;
 }

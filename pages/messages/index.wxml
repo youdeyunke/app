@@ -11,11 +11,12 @@
 -->
 <view wx:if="{{showDingyue}}" class="message-top" bindtap="dingyueHandle">
   <text style="color: #333333;">订阅消息推送，第一时间回复通知</text>
-  <view>
-    <text style="color: #ffffff;">订阅</text>
+  <view style="background-color: {{primaryColor || '#F49946'}};">
+    <text style="color: #ffffff;background-color: {{primaryColor}};">订阅</text>
   </view>
 </view>
-<van-tabs active="{{ active }}" bind:click="onChange" color="{{primaryColor}}">
+<view style="display: flex;justify-content: space-between;flex-direction: column;min-height: calc(100vh - 100rpx);">
+  <van-tabs active="{{ active }}" bind:click="onChange" color="{{primaryColor}}">
   <van-tab info="{{chat_message_count == 0 ?  null : chat_message_count}}" title="聊天">
     <block wx:if="{{userInfo.id}}">
   <view class="tools">
@@ -70,7 +71,7 @@
         </view>
       </view>
     </view>
-    <view wx:if="{{xtitems.length == 0}}" class="empty">没有收到任何消息</view>
+    <view wx:if="{{systemItems.length == 0}}" class="empty">没有收到任何消息</view>
     <van-divider wx:else contentPosition="center">没有更多了</van-divider>
   </van-tab>
 
@@ -79,5 +80,7 @@
 
 
 <copyright></copyright>
+</view>
+
 
 <login-window bind:success="loginSuccess" class="loginwindow"></login-window>

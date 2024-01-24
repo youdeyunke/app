@@ -17,7 +17,7 @@
             <van-search v-model="kw" bind:change="kwSearch" placeholder="您想住在哪？" />
         </view>
     </view>
-    <view style="position: absolute;top: 530rpx;background-color: #ffffff;padding: 10rpx 30rpx 30rpx 30rpx;border-radius: 30rpx 30rpx 0rpx 0rpx;width: 690rpx;">
+    <view style="position: absolute;top: 530rpx;background-color: #ffffff;padding: 10rpx 30rpx 30rpx 30rpx;border-radius: 30rpx 30rpx 0rpx 0rpx;width: 100%;">
         <view style="padding: 40rpx 0 40rpx 0;">
             
             <house-filter bind:change="filterChange" filter="{{filter}}" options="{{filterOption}}"></house-filter>

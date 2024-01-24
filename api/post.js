@@ -14,7 +14,7 @@ let request = require('../utils/request.js');
 
 // 聊天消息中发送楼盘卡片  完成
 export function sendPostCard (data) {
-    return request.get("/api/v2/posts/hello", data);
+    return request.get("/api/v6/posts/hello", data);
 }
 
 // 拉取楼盘列表 完成
