@@ -15,9 +15,9 @@
 
 <view wx:if="{{value.pingceList.length>0}}">
 	<block>
-		<block-box width="750" leftHat="true" leftHatColor="{{color}}" title="楼盘评测报告">
-			<view style="display: flex;align-items: center;justify-content: center;">
-				<view class="pingceBox" style="background: linear-gradient(180deg, {{color}}80 0%, {{color}}00 100%);">
+
+			<view class="pingceBox" style="background: linear-gradient(180deg, {{color}}80 0%, {{color}}00 100%);">
+				<!-- <view class="pingceBox" style=""> -->
 					<view class="boxTop">
 						<view class="zongfen" style="background:{{color}};">
 							<view style="font-size: 26rpx;">
@@ -34,22 +34,20 @@
 							</view>
 						</view>
 					</view>
-					<view class="{{zhezhao ? 'boxText' : 'boxText1'}}">
+					<!-- <view class="{{zhezhao ? 'boxText' : 'boxText1'}}">
 						<view class="TextBox" wx:for="{{value.pingceList}}">
-							<!-- 图标
-				<image style="width: 28rpx;height: 30rpx;background: #686667;margin-right: 16rpx;" src="" mode="" /> -->
 							<view style=" min-height: 80rpx;">
 								<text class="title">{{item.name}}</text>
 								{{item.remark || '---'}}
 							</view>
 						</view>
-					</view>
-					<view style="margin-top: 33rpx;">
-						<van-button color="{{color}}" bindtap="jiesuobtn" custom-style=" color: #fff;" size="large" type="default">免费解锁详细报告</van-button>
+					</view> -->
+					<view style="margin-top: 33rpx;width: 100%;border-radius: 20rpx;">
+						<van-button color="{{color}}" bindtap="jiesuobtn" custom-style=" color: #fff;border-radius:0 0 20rpx 20rpx;" size="large" type="default">点击解锁详细报告</van-button>
 					</view>
 
-				</view>
+				<!-- </view> -->
 			</view>
-		</block-box>
+
 	</block>
 </view>

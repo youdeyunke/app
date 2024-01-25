@@ -128,14 +128,14 @@ page{
   }
   
   
-  .xtxxbox {
+  .sysMesbox {
     width: 100%;
     min-height: 150rpx;
-    display: flex;
+    /* display: flex; */
     border-bottom: 1rpx solid #E1E1E1;
     padding: 30rpx 0 20rpx 0;
-    display: flex;
-    justify-content: space-between;
+    /* display: flex;
+    justify-content: space-between; */
   }
   
   .title1 {

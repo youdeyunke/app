@@ -15,7 +15,7 @@
     height: 460rpx;
 }
 .pingceBox {
-    /* width: 678rpx; */
+    width: 690rpx;
     height: 420rpx;
 	background: #FFFFFF;
     box-shadow: 0rpx 2rpx 27rpx 3rpx rgba(161, 117, 126, 0.15);

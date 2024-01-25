@@ -15,7 +15,7 @@
 <view style="display: flex;width: 750rpx;align-items: center;justify-content: center;">
 	<view class="pingceBox">
 
-		<home-item width="646" item="{{postData}}"></home-item>
+		<home-item post="{{postData}}"></home-item>
 		<view style="display: flex;align-items: center;justify-content: center;margin-top: 30rpx;width: 646rpx;">
 			<view class="pingfenBox">
 				<view class="boxTop">

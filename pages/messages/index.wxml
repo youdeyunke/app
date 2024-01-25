@@ -53,8 +53,8 @@
 
     <view class="outer" padding="30">
       <view bindtap="sysItemClickHandle" data-index="{{index}}" wx:for="{{systemItems}}">
-        <view class="xtxxbox">
-          <view style="display: flex;flex-direction: column;justify-content: space-between;width: 700rpx;">
+        <view class="sysMesbox">
+          <!-- <view style="display: flex;flex-direction: column;justify-content: space-between;width: 700rpx;"> -->
             <view style="display: flex;justify-content: space-between;align-items: center">
               <view style="font-weight: bold;font-size: 32rpx;">
                 {{item.title}}
@@ -67,7 +67,7 @@
             <view style="color: #666666;font-size: 26rpx;">
               {{item.updated_at}}
             </view>
-          </view>
+          <!-- </view> -->
         </view>
       </view>
     </view>

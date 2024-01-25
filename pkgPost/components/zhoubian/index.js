@@ -133,6 +133,7 @@ Component({
         pois: [],
         post: null,
         activeItemIndex: null,
+        color:'',
     },
     attached: function () {
         // this.getContent()
@@ -153,6 +154,10 @@ Component({
     ready: function () {
         this.getContent()
         this.setMarker()
+        var color = app.globalData.color
+        this.setData({
+          color: color.primary || '#9e1d1d'
+        })
     },
     /**
      * 组件的方法列表
@@ -353,6 +358,35 @@ Component({
             _this.getMapContext()
             _this.setMarker()
             // this.getContent()
+        },
+        tabChange(e){
+          var _this = this
+          this.setData({
+            maxLength: 2
+          })
+          const index = e.detail.name || 0
+          var tabs = this.data.tabs
+          tabs.forEach((v, i) => {
+              if (i == index) {
+                  v.isActive = true
+              } else {
+                  v.isActive = false
+              }
+          });
+          // 切换tab后撤回高亮显示
+          console.log("qihuanhouchehuigaoliangxianshi", this.data.activeItemIndex,tabs[index]);
+
+          var arr = this.data.resp.filter((item) => item.category == tabs[index].name)
+
+          this.setData({
+              tabs: tabs,
+              // markers: markers,
+              pois: arr,
+              activeItemIndex: null,
+              active: index
+          })
+          _this.getMapContext()
+          _this.setMarker()
         },
     }
 })
