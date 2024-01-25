@@ -379,7 +379,7 @@ Page({
           })
           return
       }
-      brokerApi.getBrokerDetail(userInfo.id).then((resp) => {
+      brokerApi.getBrokerDetail(userInfo.user_id).then((resp) => {
         console.log(resp.data);
         if (resp.data.code != 0) {
           return

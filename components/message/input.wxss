@@ -28,7 +28,7 @@
 
 .input-wrapper input{
   border:1px solid #cecece;
-  width: calc(100% - 200rpx);
+  width: calc(100% - 120rpx);
   height:80rpx;
   border-radius:12rpx;
   background:#fff;

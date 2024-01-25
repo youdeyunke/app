@@ -26,7 +26,7 @@
 
   <view bindtap="dingyue" class="outer" padding="30">
     <navigator data-index="{{index}}" bindlongpress="deleteHandle" wx:key="{{item.id}}" hover-class='none' open-type='navigate'
-      url="/pages/messages/show?target_user_id={{item.sender_info.id}}" wx:for="{{items}}" class="item">
+      url="/pages/messages/show?target_user_id={{item.sender_info.user_id}}" wx:for="{{items}}" class="item">
       <!-- view class="tip" wx:if="{{item.unread == true}}"> </view -->
       <image mode="aspectFill" class="avatar" src="{{item.sender_info.avatar}}?imageView2/5/w/200/h/200"></image>
       <view class="info">
