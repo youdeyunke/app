@@ -339,7 +339,9 @@ App({
                 return
             }
             var data = resp.data.data
-            // 未读消息 
+            // 总体未读消息数量 `unread_message_count` 用于底部消息Tab栏的通知角标展示
+            // 聊天未读消息数量 `chat_message_count` 用于消息页面聊天消息Tab栏的通知角标展示
+            // 系统未读消息数量 `sys_message_count` 用于消息页面系统消息Tab栏的通知角标展示
             var c = data.unread_message_count
             _this.globalData.sys_message_count = data.sys_message_count;
             _this.globalData.chat_message_count = data.chat_message_count;

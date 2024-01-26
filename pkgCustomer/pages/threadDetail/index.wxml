@@ -12,7 +12,7 @@
 <!--pkgCustomer/pages/threadDetail/index.wxml-->
 <van-cell-group>
   <van-cell center title="客户名称" value="{{thread.name}}" />
-  <van-cell center title="手机号" value="{{thread.mobile}}" />
+  <van-cell center title="手机号" value="{{thread.mobile}}" bindtap="callHandle" is-link/>
   <van-cell center title="来源" value="{{thread.source}}" />
   <van-cell center title="楼盘" value="{{thread.post_title}}" />
   <van-cell center title="备注" value="{{thread.remark}}" />

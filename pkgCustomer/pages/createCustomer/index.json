@@ -4,7 +4,8 @@
     "van-radio-group": "/vant/radio-group/index",
     "van-radio": "/vant/radio/index",
     "van-collapse": "/vant/collapse/index",
-    "van-collapse-item": "/vant/collapse-item/index"
+    "van-collapse-item": "/vant/collapse-item/index",
+    "van-popup": "/vant/popup/index"
   },
   "navigationBarTitleText": "新建客户"
 }

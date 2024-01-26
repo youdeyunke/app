@@ -25,6 +25,13 @@ Page({
     recover_reason: '',
   },
 
+  callHandle: function () {
+    var mobile = this.data.thread.mobile
+    wx.makePhoneCall({
+        phoneNumber: mobile,
+    })
+},
+
   loadThread(threadid){
     var _this = this
     threadApi.getThreads(threadid).then((resp) => {

@@ -24,6 +24,13 @@ Page({
     mobile: '',
     sex: '',
     remark: '',
+    show: false
+  },
+
+  showPopup(){
+    this.setData({
+      show: true
+    })
   },
 
   createCustomer(){
@@ -74,12 +81,14 @@ Page({
   onChange(e){
     this.setData({
       sex: e.detail,
+      show: false,
     });
   },
   onClick(event) {
     const { name } = event.currentTarget.dataset;
     this.setData({
-      sex: name,
+      sex: name,      
+      show: false,
     });
   },
 

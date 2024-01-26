@@ -14,18 +14,9 @@
   <van-field model:value="{{ name }}" label="客户姓名" placeholder="请输入客户姓名" />
   <van-field model:value="{{ mobile }}" label="客户电话" placeholder="请输入客户电话" />
 </van-cell-group>
-<van-cell title="客户性别" value="{{sex}}"></van-cell>
+<van-cell title="客户性别" value="{{sex}}" bindtap="showPopup" is-link></van-cell>
 
-<van-radio-group value="{{ sex }}" bind:change="onChange">
-  <van-cell-group>
-    <van-cell title="男性" clickable data-name="男性" bind:click="onClick">
-      <van-radio slot="right-icon" name="男性" />
-    </van-cell>
-    <van-cell title="女性" clickable data-name="女性" bind:click="onClick">
-      <van-radio slot="right-icon" name="女性" />
-    </van-cell>
-  </van-cell-group>
-</van-radio-group>
+
 
 <van-cell-group>
   <van-field model:value="{{ remark }}" label="备注" type="textarea" placeholder="请输入备注" autosize border="{{ false }}" />
@@ -38,3 +29,21 @@
 </ud-card>
 
 <van-button block bindtap="createCustomer" type="info">提交</van-button>
+
+<van-popup
+  show="{{ show }}"
+  position="bottom"
+  custom-style="height: 20%;"
+  bind:close="onClose"
+>
+<van-radio-group value="{{ sex }}" bind:change="onChange">
+  <van-cell-group>
+    <van-cell title="男性" clickable data-name="男性" bind:click="onClick">
+      <van-radio slot="right-icon" name="男性" />
+    </van-cell>
+    <van-cell title="女性" clickable data-name="女性" bind:click="onClick">
+      <van-radio slot="right-icon" name="女性" />
+    </van-cell>
+  </van-cell-group>
+</van-radio-group>
+</van-popup>

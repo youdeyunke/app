@@ -47,7 +47,7 @@
     <van-grid-item link-type="navigateTo" url="/pkgCustomer/pages/customerList/index?type=private" icon="contact" text="我的客户" />
     <van-grid-item link-type="navigateTo" url="/pkgCustomer/pages/customerList/index?type=public" icon="friends-o" text="公海客户" />
     <!-- <van-grid-item link-type="navigateTo" url="" icon="add-o" text="新增线索" /> -->
-    <van-grid-item link-type="navigateTo" url="/pkgCustomer/pages/createCustomer/index" icon="add-o" text="新增客户" />
+    <van-grid-item link-type="navigateTo" url="/pkgCustomer/pages/createCustomer/index" icon="add-o" text="新建客户" />
     <van-grid-item link-type="navigateTo" url="/pkgCustomer/pages/customerCheck/index" icon="search" text="客户查重" />
   </van-grid>
 </view>
