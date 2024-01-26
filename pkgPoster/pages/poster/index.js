@@ -174,7 +174,7 @@ var qrBg = {
         width: '143rpx',
         height: '143rpx',
         color: '#FFFFFF',
-        borderRadius: '72rpx',
+        // borderRadius: '72rpx',
         top: '1176rpx',
         left: '552rpx',
     },
