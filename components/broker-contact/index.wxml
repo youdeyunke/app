@@ -18,13 +18,13 @@
         <view class="btn btn1" bindtap="chatHandle"></view>
         <view class="btn btn2" bindtap="callHandle"></view>
         <image src="/assets/images/broker-contact-bg.png" class="bg" />
-        <image src="/assets/icons/broker/{{broker.level}}.png" class="badge" />
+        <!-- <image src="/assets/icons/broker/{{broker.level}}.png" class="badge" /> -->
     </view>
     <view hidden="{{mode != 'mini' }}" class="mini">
         <image bindtap="gotoProfile" src="{{broker.avatar}}" class="avatar" />
         <view bindtap="gotoProfile" class="name" bindtap="gotoProfile" >
             <view class="text">{{broker.name}}</view>
-            <image src="/assets/icons/broker/{{broker.level}}.png" class="badge" />
+            <!-- <image src="/assets/icons/broker/{{broker.level}}.png" class="badge" /> -->
         </view>
         <view class="btn btn1" bindtap="chatHandle">在线咨询</view>
         <view class="btn btn2" bindtap="callHandle">电话咨询</view>

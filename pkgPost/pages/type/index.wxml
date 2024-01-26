@@ -37,7 +37,7 @@
             </view>
             <view class="kv">
                 <view class="key">参考总价</view>
-                <view wx:if="{{item.total_price > 0}}" class="value price">
+                <view wx:if="{{!item.unknow_price}}" class="value price">
                     约{{item.total_price}}万/套
                 </view>
                 <view wx:else class="value ">待定</view>

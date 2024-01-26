@@ -33,7 +33,12 @@
     padding: 20rpx;
     position: relative;
 }
-
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
 .huxingbiaoqian {
     width: 120rpx;
     height: 42rpx;

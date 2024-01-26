@@ -73,7 +73,7 @@ Component({
                 return false
             }
             var uid1 = user.id
-            var uid2 = this.data.broker.id
+            var uid2 = this.data.broker.user_id
 
             if (uid1.toString() == uid2.toString()) {
                 wx.showToast({
@@ -84,13 +84,13 @@ Component({
             }
 
             wx.navigateTo({
-                url: '/pages/messages/show?target_user_id=' + this.data.broker.id,
+                url: '/pages/messages/show?target_user_id=' + this.data.broker.user_id,
             });
 
         },
 
         gotoProfile: function () {
-            var url = '/pkgBroker/pages/broker/profile?id=' + this.data.broker.id
+            var url = '/pkgBroker/pages/broker/profile?id=' + this.data.broker.user_id
             wx.navigateTo({
                 url: url,
             })
