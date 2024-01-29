@@ -239,7 +239,7 @@ Page({
           [temp] : items[index]
         })
         wx.navigateTo({
-          url: url,
+          url: '/pages/messages/systemMesShow/index?id=' + id,
         })
       })
     },

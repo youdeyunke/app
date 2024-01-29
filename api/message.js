@@ -56,3 +56,8 @@ export function getSysMessage (data) {
 export function markSysMesRead (id) {
   return request.post("/api/v6/sys_message_list/marker_read/" + id);
 }
+
+// 拉取系统消息详情
+export function getSysMessageDetail (id) {
+  return request.get("/api/v6/sys_message/" + id);
+}

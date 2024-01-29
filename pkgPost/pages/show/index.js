@@ -68,7 +68,7 @@ Page({
     tabChange: function (e) {
         console.log(e.detail.name)
         var name = e.detail.name
-        var offsetTop = this.data.StatusBarHeight + 88
+        var offsetTop = this.data.StatusBarHeight
         wx.pageScrollTo({
             selector: '#' + name,
             duration: 300,
@@ -86,7 +86,7 @@ Page({
         var vanTabs = this.data.vanTabs
         var pageDomTop = this.data.pageDomTop
         for (let i = 0; i < pageDomTop.length; i++) {
-            if ((e + 88 + statusBarHeight) < pageDomTop[i]) {
+            if ((e + statusBarHeight) < pageDomTop[i]) {
                 this.setData({
                     tabActive: vanTabs[i]
                 })

@@ -9,6 +9,18 @@
  | Author: UDEVE Team <tech@udeve.cn>
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
+<wxs module="stringConverter">
+  var mapping = {
+    'like': '点赞',
+    'customer': '客户',
+    'thread': '线索'
+  };
+
+  function convertString(input) {
+      return mapping[input] || '';
+  }
+  module.exports.convertString = convertString
+</wxs>
 <view wx:if="{{showDingyue}}" class="message-top" bindtap="dingyueHandle">
   <text style="color: #333333;">订阅消息推送，第一时间回复通知</text>
   <view style="background-color: {{primaryColor || '#F49946'}};">
@@ -53,8 +65,8 @@
 
     <view class="outer" padding="30">
       <view bindtap="sysItemClickHandle" data-index="{{index}}" wx:for="{{systemItems}}">
-        <view class="sysMesbox">
-          <!-- <view style="display: flex;flex-direction: column;justify-content: space-between;width: 700rpx;"> -->
+        <!-- <view class="sysMesbox">
+
             <view style="display: flex;justify-content: space-between;align-items: center">
               <view style="font-weight: bold;font-size: 32rpx;">
                 {{item.title}}
@@ -67,8 +79,19 @@
             <view style="color: #666666;font-size: 26rpx;">
               {{item.updated_at}}
             </view>
-          <!-- </view> -->
-        </view>
+
+
+
+
+        </view> -->
+
+        <van-cell label="{{item.updated_at}}" is-link>
+          <view slot="title" style="display: flex;justify-content: space-between;">
+            <view class="van-cell-text">{{'['+ stringConverter.convertString(item.cat) + ']' +item.title}}</view>
+            <van-tag wx:if="{{item.unread==true}}" type="danger">未读</van-tag>
+          </view>
+        </van-cell>
+
       </view>
     </view>
     <view wx:if="{{systemItems.length == 0}}" class="empty">没有收到任何消息</view>
@@ -80,6 +103,8 @@
 
 
 <copyright></copyright>
+<view wx:if="{{showDingyue}}" style="width: 750rpx;height: 100rpx;">
+</view>
 </view>
 
 

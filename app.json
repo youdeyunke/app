@@ -357,7 +357,8 @@
     "pages/qr/show",
     "pages/tab1/index",
     "pages/tab2/index",
-    "pages/home/api-error"
+    "pages/home/api-error",
+    "pages/messages/systemMesShow/index"
   ],
   "requiredPrivateInfos": [
     "choosePoi",
