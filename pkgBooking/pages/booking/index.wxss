@@ -1,0 +1,164 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
+
+.mytabs{
+  padding:0;
+  margin:0 !important;
+}
+
+.dialog{
+  box-sizing:border-box;
+  background-color:#F2F2F2;
+  padding: 20rpx;
+  max-height: 80vh;
+}
+
+.dialog-date{
+  border-radius: 20rpx 20rpx 0 0 ;
+  padding: 30rpx 30rpx ;
+  border-bottom: 4rpx solid #F0F0F0;
+  background-color: #fff;
+}
+
+.dialog-time{
+  padding: 6rpx 30rpx ;
+  background-color: #fff;
+  border-radius: 0 0 20rpx 20rpx;
+  margin-bottom: 20rpx;
+  padding-bottom: 30rpx;
+}
+
+.dialog-message{
+  /* width: 710rpx; */
+  height: 536rpx;
+  border-radius: 20rpx;
+  padding: 20rpx 30rpx ;
+  background-color: #fff;
+  color: #666666;
+}
+.message-name text:nth-of-type(1){
+  color: #E82525;
+  margin-left: 18rpx;
+  margin-right: 5rpx;
+}
+.message-word{
+  border-bottom: 1rpx solid #B4B4B4;
+  display: flex;
+  align-items: center;
+  height:133rpx ;
+  width:650rpx ;
+}
+.message-word text{
+  margin-left: 30rpx;
+}
+.message-name text:nth-of-type(2){
+  margin-right: 30rpx;
+}
+.message-name{
+  width:650rpx ;
+  height:133rpx ;
+  display: flex;
+  align-items: center;
+  border-bottom: 1rpx solid #B4B4B4;
+}
+input{
+  display: inline-block;
+}
+.title{
+  font-size:40rpx;
+  color:#000;
+  font-weight: bolder;
+  margin-bottom:40rpx;
+}
+
+.actions{
+  margin-top:40rpx;
+  width:100%;
+  box-sizing:border-box;
+}
+
+.desc{
+  font-size:28rpx;
+  color: #333333;
+  margin-bottom: 30rpx;
+}
+
+.form .title{
+  display:flex;
+}
+
+
+.success {
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:center;
+}
+
+.success .title, .success .desc{
+  text-align:center;
+}
+
+.success .title{
+  color:#1989fa;
+}
+
+.success .icon{
+  margin-top:40rpx;
+}
+
+.form .desc{
+  margin:20rpx 0;
+}
+
+
+.dates{
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  width:100%;
+}
+
+
+.times{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  margin-top:0rpx;
+}
+
+.dialog .mytag{
+  width:150rpx;
+  text-align:center;
+  justify-content:center;
+  align-items:center;
+  margin:10rpx 0rpx;
+  padding:20rpx 10rpx;
+}
+
+.dialog .dates .mytag{
+  margin-right:10rpx;
+  border-radius:0;
+  padding-left:15rpx;
+  padding-right:15rpx;
+}
+
+
+button.fake, button.fake::after{
+  padding:0;
+  margin:0;
+  display:inline-block;
+  border:none;
+  background:none;
+  overflow:visible;
+}

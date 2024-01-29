@@ -321,15 +321,15 @@
     {
       "root": "pkgTickets",
       "name": "tickets",
-      "pages": [
-      ]
+      "pages": []
     },
     {
-        "root": "pkgBooking",
-        "name": "booking",
-        "pages": [
-        ]
-      },
+      "root": "pkgBooking",
+      "name": "booking",
+      "pages": [
+        "pages/booking/index"
+      ]
+    },
     {
       "root": "pkgCropper",
       "name": "cropper",
@@ -360,7 +360,6 @@
     "pages/home/api-error"
   ],
   "requiredPrivateInfos": [
-
     "choosePoi",
     "chooseAddress",
     "chooseLocation"

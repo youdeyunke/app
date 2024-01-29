@@ -90,6 +90,7 @@ Page({
         }
         wx.showToast({
           title: '已将全部系统消息标记为已读',
+          icon: 'none'
         })
         var systemItems =  _this.data.systemItems.map((item) =>{ 
           item.unread = false;
@@ -223,15 +224,19 @@ Page({
         if (resp.data.code != 0) {
           return
         }
-        var unread= _this.data.systemItems
-        if(unread[index].unread==true) {
+        var items = _this.data.systemItems
+        if(items[index].unread==true) {
           _this.setData({
             sys_message_count:_this.data.sys_message_count-1
           })
         }
-        unread[index].unread=false
+        items[index].unread=false
+        let temp = 'systemItems[' + index + ']'
+        // _this.setData({
+        //   systemItems:items
+        // })
         _this.setData({
-          systemItems:unread
+          [temp] : items[index]
         })
         wx.navigateTo({
           url: url,
@@ -314,6 +319,7 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
+        var _this =this
         this.loadData()
         this.setData({
           page: 1,
