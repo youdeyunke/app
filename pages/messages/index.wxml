@@ -103,9 +103,8 @@
 
 
 <copyright></copyright>
+</view>
 <view wx:if="{{showDingyue}}" style="width: 750rpx;height: 100rpx;">
 </view>
-</view>
-
 
 <login-window bind:success="loginSuccess" class="loginwindow"></login-window>

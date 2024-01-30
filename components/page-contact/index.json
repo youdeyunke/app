@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "default-contact": "/components/default-contact/index",
+    "broker-contact": "/components/broker-contact/index"
+  }
+}

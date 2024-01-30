@@ -1,0 +1,3 @@
+<!--components/page-contact/index.wxml-->
+<broker-contact wx:if="{{showBroker}}" broker="{{broker}}" post-id="{{postId}}"></broker-contact>
+<default-contact wx:else post="{{postInfo}}"></default-contact>

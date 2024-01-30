@@ -37,7 +37,8 @@ Component({
      * 组件的初始数据
      */
     data: {
-        mode: 'full' // or mini
+        mode: 'mini',
+        localBrokerId: null,
     },
 
     observers: {
@@ -104,11 +105,23 @@ Component({
 
         },
 
-        closeHandle: function () {
-            this.setData({
-                mode: 'mini'
+        loadBrokerInfo(bid){
+          var _this = this
+          brokerApi.getBrokerDetail(bid).then((resp) => {
+            if (resp.data.code != 0) {
+              return
+            }
+            _this.setData({
+              broker: resp.data.data
             })
-        }
+          })
+        },
+
+        // closeHandle: function () {
+        //     this.setData({
+        //         mode: 'mini'
+        //     })
+        // }
 
     }
 })

@@ -46,4 +46,4 @@
     </navigator>
 </ud-box>
 
-<broker-contact broker="{{broker}}" />
+<page-contact pid="{{pid}}" />

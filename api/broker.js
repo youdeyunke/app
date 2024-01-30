@@ -16,6 +16,11 @@ export function getBrokerList (query) {
     return request.get("/api/v6/brokers/", query);
 }
 
+// 拉取一个楼盘下所有置业顾问列表  完成
+export function getPostBrokerList (pid) {
+  return request.get("/api/v6/post_brokers/"+ pid);
+}
+
 // 拉取置业顾问详情   完成
 export function getBrokerDetail (userId) {
     return request.get("/api/v6/brokers/" + userId);

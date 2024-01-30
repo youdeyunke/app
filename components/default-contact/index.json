@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "share-box": "/pkgPost/components/share-box/index",
+        "post-booking": "/components/post-booking/index",
+        "fav": "/pkgPost/components/fav/index"
+    }
+}

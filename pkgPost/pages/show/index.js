@@ -37,6 +37,7 @@ Page({
         pageCover: '',
         pageUrl: '/pkgPost/pages/show/index?post_id=',
         postInfo: null,
+        brokerId: null,
         color: "#3A6BDD",
         bgImg: "https://qiniucdn.udeve.cn/fang2021/6eed67a9-7a5c-4a64-be48-d81221ca3ac0.png",
         theme: 'theme1',
@@ -294,8 +295,7 @@ Page({
         }
 
         var postId = options.id || options.post_id
-        var key = 'post-' + postId + '-brokerId'
-        var brokerId = wx.getStorageSync(key)
+
         _this.createHistory(postId)
         wx.setStorageSync('bindPostId', postId)
         var sourceUid = options.source_uid
@@ -311,6 +311,12 @@ Page({
 
         _this.getStatusBarHeight()
         this.showLogin()
+
+        if (options.broker_uid) {
+          this.setData({
+            brokerId: options.broker_uid
+          })
+        }
     },
 
     createHistory (id) {

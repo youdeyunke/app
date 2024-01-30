@@ -30,6 +30,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
+        var _this = this 
         wx.setNavigationBarTitle({
             title: '全部户型列表'
         });
@@ -70,7 +71,7 @@ Page({
             var user = app.globalData.userInfo
             data.pageQuery = 'id=' + pid
             if (user && user.is_broker) {
-                data.pageQuery += '&broker_id=' + user.id
+                data.pageQuery += '&broker_uid=' + user.id
             }
 
             data.pageTitle = post.title + ' 户型介绍'
