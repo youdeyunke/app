@@ -9,7 +9,7 @@
  | Author: UDEVE Team <tech@udeve.cn>
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
-<van-tabs active="{{ active }}" bind:change="onChange">
+<van-tabs active="{{ active }}" color="{{primaryColor}}" bind:change="onChange">
   <van-tab title="楼盘记录" name="post"></van-tab>
   <van-tab title="活动记录" name="tour"></van-tab>
 </van-tabs>
@@ -27,8 +27,8 @@
   </view>
   <new-post-item postId="{{item.target_id}}"></new-post-item>
 </block> -->
-<view style="display: flex;padding: 15rpx;" wx:if="{{ active == 'post' }}">
-  <new-post-item wx:for="{{logs}}" postId="{{item.target_id}}"></new-post-item>
+<view style="display: flex;padding: 15rpx;flex-wrap: wrap;" wx:if="{{ active == 'post' }}">
+  <new-post-item class="item" wx:for="{{logs}}" postId="{{item.target_id}}"></new-post-item>
 </view>
 <view wx:if="{{ active == 'tour' }}">
   <tour-item wx:for="{{logs}}" tourId="{{item.target_id}}"></tour-item>

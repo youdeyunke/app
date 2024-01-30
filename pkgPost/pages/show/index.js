@@ -294,6 +294,8 @@ Page({
         }
 
         var postId = options.id || options.post_id
+        var key = 'post-' + postId + '-brokerId'
+        var brokerId = wx.getStorageSync(key)
         _this.createHistory(postId)
         wx.setStorageSync('bindPostId', postId)
         var sourceUid = options.source_uid

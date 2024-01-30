@@ -114,4 +114,6 @@
 {
     float:right;
     color: #EF3C51;
+    font-weight: bold;
+    font-size: 26rpx;
 }

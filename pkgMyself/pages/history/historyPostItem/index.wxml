@@ -10,6 +10,6 @@
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
 <!--pkgMyself/pages/history/historyPostItem/index.wxml-->
-<view style="width: 353rpx;margin-right: 16rpx;">
+<view style="width: 350rpx;">
   <post-item post="{{post}}" ></post-item>  
 </view>

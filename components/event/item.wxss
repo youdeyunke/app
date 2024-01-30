@@ -35,9 +35,10 @@
 .event .content {
     font-size: 28rpx;
     color: #666;
-    padding: 14rpx 0 30rpx 42rpx;
+    padding: 14rpx 0 0rpx 42rpx;
     border-left: 2px solid #f4f4f4;
-    margin-left: 15rpx;
+    margin-left: 10rpx;
+    margin-bottom: 30rpx;
     line-height: 1.5;
 }
 

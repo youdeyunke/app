@@ -25,7 +25,7 @@
         <view class="meta">
             <view class="name">
                 {{item.name}}
-                <van-tag plain size="mini" type="primary">{{ item.sale_status_name }}</van-tag>
+                <van-tag plain size="mini" type="primary">{{ item.sale_status_item.name }}</van-tag>
             </view>
             <view class="kv">
                 <text class="key">户型朝向</text>

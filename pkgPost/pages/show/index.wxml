@@ -65,7 +65,7 @@
 <page-loading loading="{{loading}}" />
 <!-- <images-block value="{{imagesInfo}}"></images-block> -->
    <!-- 导航标签 -->
-   <view style="position: fixed; top: 0; left: 0;z-index: 10;">
+   <view style="position: fixed; top: 0; left: 0;z-index: 10;width: 100%;">
         <van-tabs active="{{ tabActive }}" bind:click="tabChange" color="{{color}}">
             <van-tab wx:key="name" wx:for="{{blocks}}" name="{{item.name}}" title="{{item.label_short || item.label || '无标签'}}"></van-tab>
         </van-tabs>

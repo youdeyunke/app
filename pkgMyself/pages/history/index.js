@@ -23,6 +23,7 @@ Page({
         total: 0,
         active: "post",
         logs: [],
+        primaryColor: ''
     },
 
     onChange (e) {
@@ -68,6 +69,10 @@ Page({
             title: '访问足迹',
         })
         this.loadData()
+        var color = app.globalData.color
+        this.setData({
+          primaryColor: color.primary || '#9e1d1d',
+        })
     },
 
     /**

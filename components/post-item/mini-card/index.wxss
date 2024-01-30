@@ -27,9 +27,9 @@
 }
 
 .post .price{
-  color:#EC0101;
+  color:#ef3c51;
   font-size:26rpx;
-  
+  font-weight: bold;
 }
 
 .cover-image{
