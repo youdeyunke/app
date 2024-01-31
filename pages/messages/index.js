@@ -275,6 +275,8 @@ Page({
             // 未登录
             this.selectComponent('.loginwindow').openWindow()
             return;
+        } else {
+          this.selectComponent('.loginwindow').closeWindow()
         }
         this.loadData()
         this.stopInterval()
