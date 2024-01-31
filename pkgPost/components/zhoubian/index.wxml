@@ -22,7 +22,7 @@
         </view>
     </scroll-view> -->
     <van-tabs active="{{ active }}" color="{{color}}" bind:change="tabChange">
-      <van-tab wx:for='{{resTabs}}' name="{{index}}" title="{{ item.name }}"></van-tab>
+      <van-tab wx:for='{{tabs}}' name="{{index}}" title="{{ item.name }}"></van-tab>
     </van-tabs>
     <view class="tabs_content">
         <view hidden="{{isShow == 0}}" class="null">无数据</view>

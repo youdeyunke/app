@@ -12,7 +12,7 @@
 <view class="top-box">
     <van-search round bind:clear="clearHandle" model:value="{{ kw }}" placeholder="输入关键词进行搜索" custom-class="search-box" bind:confirm="kwChange" bind:search='kwChange' bind:change="kwChange" bind:clear="kwChange" bind:blur="kwChange" input-class='search' />
 
-    <van-tabs animated active="{{ active }}" bind:change="tabChange">
+    <van-tabs animated active="{{ active }}" color="{{primaryColor}}" bind:change="tabChange">
         <van-tab name="news" title="资讯">
 
             <news id="news-list" kw="{{kw}}" page="{{page}}"></news>
@@ -21,7 +21,9 @@
             <qa id="qa-list" kw="{{kw}}" page="{{page}}"></qa>
         </van-tab -->
         <van-tab name="tour" title="活动">
-
+            <view style="height: 20rpx;">
+              
+            </view>
             <hd id="tour-list" kw="{{kw}}" page="{{page}}"></hd>
         </van-tab>
     </van-tabs>

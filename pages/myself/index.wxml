@@ -76,7 +76,7 @@
 
 
 
-            <van-cell-group inset>
+            <van-cell-group >
 
                 <van-cell  center is-link url="/pkgMyself/pages/profile/index">
                     <view slot="title">

@@ -32,6 +32,7 @@ Page({
         kw: '',
         loading: true,
         active: 'news',
+        primaryColor: ''
     },
 
     kwChange: function (e) {
@@ -60,7 +61,12 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (q) { },
+    onLoad: function (q) { 
+      var color = app.globalData.color
+      this.setData({
+        primaryColor: color.primary || '#9e1d1d',
+    })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

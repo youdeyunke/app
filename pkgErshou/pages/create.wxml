@@ -9,7 +9,7 @@
  | Author: UDEVE Team <tech@udeve.cn>
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
-<van-tabs active="{{ business }}" bind:change="businessChange">
+<van-tabs active="{{ business }}" color="{{primaryColor}}" bind:change="businessChange">
   <van-tab title="出售" name="出售"></van-tab>
   <van-tab title="出租" name="出租"></van-tab>
   <!-- <van-tab title="竞价" name="竞价"></van-tab> -->

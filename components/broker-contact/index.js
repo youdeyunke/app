@@ -85,7 +85,7 @@ Component({
             }
 
             wx.navigateTo({
-                url: '/pages/messages/show?target_user_id=' + this.data.broker.user_id,
+                url: '/pages/messages/show?target_user_id=' + this.data.broker.user_id + '&post_id=' + this.data.broker.post_id,
             });
 
         },

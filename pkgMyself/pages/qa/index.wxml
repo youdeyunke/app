@@ -10,7 +10,7 @@
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
 <view class="tabs">
-    <van-tabs animated swipeable  type="line"  bind:change="scopeChange" sticky color="#1989FA">
+    <van-tabs animated swipeable  type="line"  bind:change="scopeChange" sticky color="{{primaryColor}}">
       <van-tab wx:for="{{scopes}}" wx:for-item="scope" title="{{scope.label}}({{scope.count}})">
       </van-tab>
     </van-tabs> 

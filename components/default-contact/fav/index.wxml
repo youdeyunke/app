@@ -9,21 +9,10 @@
  | Author: UDEVE Team <tech@udeve.cn>
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
-<!--pages/post/index.wxml-->
-
-<van-tabs active="{{ favType }}" color="{{primaryColor}}" bind:change="favTypeChange">
-  <van-tab title="新房" name="post"></van-tab>
-  <van-tab title="二手房" name="house"></van-tab>
-</van-tabs>
-
-<view class="outer" wx:if="{{posts.length > 0}}">
-  <block wx:for="{{posts}}" wx:for-item="postitems">
-  <view class="item-outer" wx:for="{{postitems}}" >
-    <house wx:if="{{favType == 'house'}}" post="{{item}}"></house>
-    <post wx:if="{{favType == 'post'}}" post="{{item}}"></post>
+<block>
+    <login-window bind:success="clickHandle" class="loginwindow"></login-window>
+    <view report-submit class="myfav" bindtap="clickHandle">
+        <ud-icon name="fav-{{status}}"/>
+        <text>{{ status == 1 ? '已收藏' : '收藏' }}</text>
     </view>
-  </block>
-</view>
-
-<no-result wx:else />
-
+</block>

@@ -28,6 +28,7 @@ Page({
         loading: true,
         page: 1,
         per_page: 20,
+        primaryColor: null,
     },
 
     /**
@@ -37,6 +38,10 @@ Page({
         wx.setNavigationBarTitle({
             title: '我的问答',
         })
+        var color  = app.globalData.color
+        this.setData({
+          primaryColor: color.primary || '#9e1d1d',
+      })
     },
 
 

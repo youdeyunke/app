@@ -44,25 +44,25 @@ Component({
         }
     },
     observers: {
-        'haveTabs': function () {
-            var tabs = this.data.haveTabs.split(',')
-            if (tabs == '') {
-                this.setData({
-                    resTabs: this.data.tabs
-                })
-                return
-            }
-            var resTabs = this.data.tabs.filter((t) => {
-                for (let i = 0; i < tabs.length; i++) {
-                    if (t.id == tabs[i]) {
-                        return t
-                    }
-                }
-            })
-            this.setData({
-                resTabs: resTabs
-            })
-        }
+        // 'haveTabs': function () {
+        //     var tabs = this.data.haveTabs.split(',')
+        //     if (tabs == '') {
+        //         this.setData({
+        //             resTabs: this.data.tabs
+        //         })
+        //         return
+        //     }
+        //     var resTabs = this.data.tabs.filter((t) => {
+        //         for (let i = 0; i < tabs.length; i++) {
+        //             if (t.id == tabs[i]) {
+        //                 return t
+        //             }
+        //         }
+        //     })
+        //     this.setData({
+        //         resTabs: resTabs
+        //     })
+        // }
     },
     /**
      * 组件的初始数据
@@ -190,8 +190,12 @@ Component({
 
                     var arr = this.data.resp.filter((item) => item.category == tabs[0].name)
 
+                    const filteredTabs = tabs.filter(tab => {
+                      return resp.data.data.some(item => item.category === tab.name);
+                    });
+
                     this.setData({
-                        tabs: tabs,
+                        tabs: filteredTabs,
                         // markers: markers,
                         pois: arr,
                         active: 0

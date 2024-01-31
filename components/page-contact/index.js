@@ -22,12 +22,16 @@ Component({
 
       // load broker info 
       var _this = this
+      var query = {
+        post_id: pid,
+        per_page: 999
+      }
       // TODO get from cache 
-      brokerApi.getPostBrokerList(pid).then((resp) => {
+      brokerApi.getBrokerList(query).then((resp) => {
         if (resp.data.code != 0) {
           return
         }
-        var brokers = resp.data.data;
+        var brokers = resp.data.data.result;
         var _id = wx.getStorageSync('bindBrokerId')
         var foundBroker = brokers.find(function(broker) {
           return broker.user_id == _id;

@@ -202,7 +202,7 @@ Page({
       var _this = this
       var data = {
         page: this.data.page,
-        pre_page: 10,
+        per_page: 10,
       }
       messageApi.getSysMessage(data).then((resp) => {
         if (resp.data.code != 0) {

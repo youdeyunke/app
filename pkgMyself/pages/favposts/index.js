@@ -24,6 +24,7 @@ Page({
         page: 1,
         per_page: 10,
         favType: 'post',
+        primaryColor: null,
     },
 
     favTypeChange(e){
@@ -87,7 +88,10 @@ Page({
             title: '我的收藏',
         })
         this.loadData()
-
+        var color  = app.globalData.color
+        this.setData({
+          primaryColor: color.primary || '#9e1d1d',
+      })
     },
 
     /**

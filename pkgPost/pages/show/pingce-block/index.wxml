@@ -43,7 +43,7 @@
 						</view>
 					</view> -->
 					<view style="margin-top: 33rpx;width: 100%;border-radius: 20rpx;">
-						<van-button color="{{color}}" bindtap="jiesuobtn" custom-style=" color: #fff;border-radius:0 0 20rpx 20rpx;" size="large" type="default">点击解锁详细报告</van-button>
+						<van-button color="{{color}}" bindtap="jiesuobtn" custom-style=" color: #fff;border-radius:0 0 20rpx 20rpx;" size="large" type="default">点击查看详细报告</van-button>
 					</view>
 
 				<!-- </view> -->

@@ -172,7 +172,7 @@ Page({
         var _this = this
         var query = {
             page: 1,
-            pre_page: 10
+            per_page: 10
         }
         postApi.getPostList(query).then((resp) => {
             console.log("2333", resp);
