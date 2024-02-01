@@ -143,6 +143,7 @@ module.exports = {
 
 
     setUserInfo: function (cb) {
+        const app = getApp()
         /* 从服务器获取用户信息并保存到localstorage中 */
         userApi.getMyselfInfo().then((resp) => {
             if (resp.data.code != 0) {
@@ -152,6 +153,7 @@ module.exports = {
             var user = resp.data.data
             // 存入本地
             wx.setStorageSync('userInfo', user);
+            app.globalData.userInfo = user;
             typeof cb == "function" && cb(user)
         })
     },

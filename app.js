@@ -333,8 +333,16 @@ App({
         }
 
         var _this = this;
+
+        var data = {}
+        var key = 'bindBrokerId'
+        var brokerId = wx.getStorageSync(key)
+        if (brokerId) {
+          data.bind_broker_id = brokerId
+        }
+
         //    √
-        heartbeatApi.heartBeat().then((resp) => {
+        heartbeatApi.heartBeat(data).then((resp) => {
             if (!resp.data.data) {
                 return
             }

@@ -141,11 +141,11 @@ Page({
             this.checkInstallTips()
         })
         this.loadSelectCity()
-        setTimeout(() => {
-            this.setData({
-                loading: false
-            })
-        }, 500)
+        // setTimeout(() => {
+        //     this.setData({
+        //         loading: false
+        //     })
+        // }, 500)
 
     },
 
