@@ -124,7 +124,7 @@
 群二维码：
 <div align="center">
 
-![](https://qiniucdn.udeve.cn/udyk/65b38baee4b0b561b0833afc.png?imageView2/2/w/200)
+![](https://qiniucdn.udeve.net/udyk/65bcc601b33af18b181b479c.png?imageView2/2/w/200)
 </div>    
 
 ## 版权信息

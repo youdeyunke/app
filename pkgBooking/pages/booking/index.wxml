@@ -13,12 +13,15 @@
   <block wx:if="{{!booked}}">
     <view class="dialog-date">
       <view class="desc">请选择日期</view>
-      <scroll-view class="dates" scroll-with-animation="{{true}}">
-        <view style="display:inline-block;" class="fake" form-type="submit" wx:for="{{dates}}" data-index="{{index}}" wx:key="value" wx:for-item="date" bindtap="dateClick">
-          <van-tag custom-class="mytag" size="large" type="primary" plain="{{currentDateIndex != index}}">
-            {{ date.label }}
-          </van-tag>
+      <scroll-view class="dates" scroll-x="{{true}}" scroll-with-animation="{{true}}">
+        <view style="display: flex;">
+          <view form-type="submit" wx:for="{{dates}}" data-index="{{index}}" wx:key="value" wx:for-item="date" bindtap="dateClick">
+            <van-tag custom-class="mytag2" size="large" type="primary" plain="{{currentDateIndex != index}}">
+              {{ date.label }}
+            </van-tag>
+          </view>
         </view>
+
       </scroll-view>
     </view>
     <view class="form">

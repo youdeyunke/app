@@ -146,6 +146,15 @@ input{
   padding:20rpx 10rpx;
 }
 
+.dialog .mytag2{
+  width: 200rpx;
+  text-align:center;
+  justify-content:center;
+  margin: 10rpx 0rpx;
+  padding: 20rpx 15rpx;
+  margin-right: 10rpx;
+  border-radius: 10rpx;
+}
 .dialog .dates .mytag{
   margin-right:10rpx;
   border-radius:0;

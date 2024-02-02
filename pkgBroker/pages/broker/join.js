@@ -173,13 +173,13 @@ Page({
         //     })
         //     return false
         // }
-        if (!data.groupValue || !data.groupName) {
-            wx.showToast({
-                icon: 'none',
-                title: '请选择身份',
-            })
-            return false
-        }
+        // if (!data.groupValue || !data.groupName) {
+        //     wx.showToast({
+        //         icon: 'none',
+        //         title: '请选择身份',
+        //     })
+        //     return false
+        // }
 
 
         if (!data.postId) {
@@ -277,8 +277,8 @@ Page({
             avatar: this.data.avatar,
             namecard: this.data.namecard,
             post_id: this.data.postId,
-            group_value: this.data.groupValue,
-            group_name: this.data.groupName,
+            group_value: 'broker',
+            group_name: '置业顾问',
             // bank: this.data.bank,
             // sub_bank: this.data.sub_bank,
             // bank_user: this.data.bank_user,

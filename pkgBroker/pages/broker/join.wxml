@@ -61,7 +61,7 @@
     <view class="blank"></view>
 
     <van-cell-group title="身份信息">
-      <van-field required label="选择身份" bindtap="showUserGroupSelector" value="{{groupName}}" placeholder="点击选择身份" is-link readonly="{{true}}"> </van-field>
+      <!-- <van-field required label="选择身份" bindtap="showUserGroupSelector" value="{{groupName}}" placeholder="点击选择身份" is-link readonly="{{true}}"> </van-field> -->
       
       <van-field required label="主营楼盘" bindtap="gotoPostSelector" value="{{postTitle}}" placeholder="点击选择楼盘" is-link readonly="{{true}}"> </van-field>
       <van-field required label="个人头像" bindtap="chooseImage" data-key="avatar" value="{{avatar && avatar.length >0 ? '已上传' : ''}}" placeholder="点击上传" is-link readonly="{{true}}"> </van-field>
