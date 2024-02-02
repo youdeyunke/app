@@ -111,7 +111,7 @@
                         </view>
                     </view>
                 </van-cell>
-                <van-cell is-link bindtap="logoutHandle" border="{{false}}" value="">
+                <van-cell is-link bindtap="logoutHandle" wx:if="{{userInfo}}" border="{{false}}" value="">
                     <view slot="title">
                         <view class="van-cell-title">
                             <image class="van-cell-icon" src="/assets/icons/31.png"></image>

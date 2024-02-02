@@ -331,6 +331,13 @@
       ]
     },
     {
+      "root": "pkgRili",
+      "name": "pkgRili",
+      "pages": [
+          "pages/houseSigning/index"
+      ]
+    },
+    {
       "root": "pkgCropper",
       "name": "cropper",
       "pages": [

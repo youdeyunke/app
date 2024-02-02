@@ -18,7 +18,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        broker: '',
+        broker: [],
         tab: 0
     },
     chatHandle: function (e) {
@@ -43,6 +43,9 @@ Page({
         var _this = this
         var tab = this.data.tab
         bookingApi.getBookingListFromStatus(tab).then((res) => {
+            if (res.data.code != 0) {
+              return
+            }
             _this.setData({
                 broker: res.data.data
             })

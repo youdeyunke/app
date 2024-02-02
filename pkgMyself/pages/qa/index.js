@@ -42,6 +42,7 @@ Page({
         this.setData({
           primaryColor: color.primary || '#9e1d1d',
       })
+      this.loadData()
     },
 
 
@@ -102,7 +103,6 @@ Page({
     onShow: function () {
         console.log('onshow')
         this.setData({ items: [], page: 1 })
-        this.loadData()
     },
 
     /**

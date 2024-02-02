@@ -110,6 +110,12 @@ Page({
             lprBase: 0,
         })
         this.resetData(1)
+
+        this.setData({
+          primaryColor: app.globalData.myconfigs.color.primary || '#1989fa',
+          primaryBtnColor: app.globalData.myconfigs.color.primary_btn || 'linear-gradient(270deg, #1989FA 0%, rgba(25, 137, 250, 0.6) 100%)',
+      })
+
     },
     // 公共方法
     resetData: function (loanType) {

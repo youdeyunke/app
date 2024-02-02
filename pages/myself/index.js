@@ -22,7 +22,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        userInfo: {},
+        userInfo: null,
         headerBg: "",
         score: 0,
         // userIcons: [

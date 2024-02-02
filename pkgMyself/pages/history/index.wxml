@@ -27,9 +27,14 @@
   </view>
   <new-post-item postId="{{item.target_id}}"></new-post-item>
 </block> -->
+<no-result wx:if="{{logs.length == 0}}"></no-result>
 <view style="display: flex;padding: 15rpx;flex-wrap: wrap;" wx:if="{{ active == 'post' }}">
   <new-post-item class="item" wx:for="{{logs}}" postId="{{item.target_id}}"></new-post-item>
 </view>
+
+<view style="height: 20rpx;"></view>
+
 <view wx:if="{{ active == 'tour' }}">
   <tour-item wx:for="{{logs}}" tourId="{{item.target_id}}"></tour-item>
 </view>
+

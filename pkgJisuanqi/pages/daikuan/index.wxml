@@ -11,7 +11,7 @@
 -->
 <!-- index.wxml -->
 <box>
-    <van-tabs color="#1989fa" bind:change="loanTypeChange">
+    <van-tabs color="{{primaryColor}}" bind:change="loanTypeChange">
         <van-tab wx:for="{{loanTypeArr}}" title="{{item.text}}"></van-tab>
     </van-tabs>
 </box>
@@ -54,5 +54,5 @@
     </view>
 </van-popup>
 <view class="actions">
-    <van-button style="width:100%;" block type="info" bindtap="calculateLoan">开始计算</van-button>
+    <van-button style="width:100%;" color="{{primaryBtnColor}}" block type="info" bindtap="calculateLoan">开始计算</van-button>
 </view>

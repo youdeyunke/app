@@ -1,0 +1,52 @@
+<!--
++- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+| 友得云客  - 开启房产营销新纪元
++- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+| Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
++- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+| Licensed 友得云客不是自由软件 未经允许不可移除相关版权
++- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+| Author: UDEVE Team <tech@udeve.cn>
++- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--pkgRili/pages/houseSigning/index.wxml-->
+<view >
+  <view class="btn-row">
+
+    <text bindtap="changeDate" data-type="preMonth">上一月</text>
+    <view>{{nowYear + "-" + (nowMonth >= 10 ? nowMonth : "0" + nowMonth)}}</view>
+    <text bindtap="changeDate" data-type="nextMonth">下一月</text>
+
+  </view>
+  <view class="week-row">
+    <view class="week-item"  wx:for="{{week}}" wx:key="index">{{item}}</view>
+  </view>
+  <view class="day-row" wx:for="{{totalDay}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+    
+    <view wx:for="{{item}}" wx:for-item="subItem" wx:for-index="subIndex" wx:key="subIndex"
+    class="day-item {{subItem.otherMonth?'day-otherMonth':''}}" >
+      <view class=" {{subItem.today?'day-today':''}}" style="{{subItem.today ? 'border: 1rpx solid '+ primaryColor + ';color: '+ primaryColor +';' : ''}}">
+        <view class="today-bg" style="{{subItem.today?'background-color: '+ primaryColor + ';':''}}">今天</view>
+        <view>{{subItem.day}}</view>
+      </view>        
+      <view style="color: {{primaryColor}};" class="xiangm-item" wx:if="{{subItem.yhrlData}}">
+        {{subItem.yhrlData.count}}
+      </view>
+      <view style="color: {{primaryColor}};" class="xiangm-item" wx:else>
+        0
+      </view>
+
+    </view>
+  </view>
+</view>
+
+<view class="summary-container">
+  <view class="summary-icon" style="background: {{primaryColor}};"></view>
+  <view class="summary-text">月度汇总</view>
+</view>
+<Linechart item="{{linechartdata}}" color="{{primaryColor}}"></Linechart>
+
+<view class="tip" style="color: #999;">网签数据来自网上房地产网站</view>
+<view wx:if="{{lastUpdate}}" class="tip">更新时间： {{lastUpdate}}</view>
+
+<view class="spacer"></view>
