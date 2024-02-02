@@ -31,6 +31,10 @@ Component({
 
     },
 
+    detached(){
+      app.globalData.loginWindowShowStatus = false
+    },
+
     /**
      * 组件的初始数据
      */
@@ -81,11 +85,15 @@ Component({
                 show: false,
                 loading: false,
             })
+            app.globalData.loginWindowShowStatus = false
         },
 
 
 
         openWindow: function () {
+            if (app.globalData.loginWindowShowStatus){
+              return
+            }
             if (this.data.show == true) {
                 return false
             }
@@ -93,6 +101,7 @@ Component({
                 show: true,
                 loading: false,
             })
+            app.globalData.loginWindowShowStatus = true
             var _this = this
             wx.login({
                 success: function (res) {

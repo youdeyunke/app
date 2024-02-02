@@ -242,6 +242,25 @@ Page({
         })
     },
 
+    shoLoginWindow(){
+      this.selectComponent('.loginwindow').openWindow()
+    },
+  
+    loginsuccess(e){
+      console.log(e);
+      var _this = this
+      setTimeout(() => {
+        var u = app.globalData.userInfo
+        if (u && u.id) {
+            _this.setData({
+                contact_mobile: u.mobile,
+                contact_mobile_lock: true,
+            })
+        }
+      },1000)
+  
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */

@@ -39,7 +39,7 @@
 
 .dialog-message{
   /* width: 710rpx; */
-  height: 536rpx;
+  /* height: 666rpx; */
   border-radius: 20rpx;
   padding: 20rpx 30rpx ;
   background-color: #fff;

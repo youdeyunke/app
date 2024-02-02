@@ -599,5 +599,23 @@ Component({
                 status: 1
             })
         },
+        shoLoginWindow(){
+          this.selectComponent('.loginwindow').openWindow()
+        },
+      
+        loginsuccess(e){
+          console.log(e);
+          var _this = this
+          setTimeout(() => {
+            var u = app.globalData.userInfo
+            if (u && u.id) {
+                _this.setData({
+                    contact_mobile: u.mobile,
+                    contact_mobile_lock: true,
+                })
+            }
+          },1000)
+      
+        },
     }
 })

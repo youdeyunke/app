@@ -11,7 +11,7 @@
 -->
 <block>
 
-    <login-window class="loginwindow"></login-window>
+    <login-window bind:success="openHandle" class="loginwindow"></login-window>
 
     <van-popup closeable round bind:close="closeHandle" duration="400" show="{{showDialog}}">
         <view class="dialog">

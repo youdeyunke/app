@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "sms-button": "/components/sms-button/index",
+    "choose-block":"/components/choose-block/index",
+    "van-button": "/vant/button/index"
+  }
 }

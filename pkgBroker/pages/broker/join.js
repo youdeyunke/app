@@ -316,6 +316,24 @@ Page({
         })
     },
 
+    shoLoginWindow(){
+      this.selectComponent('.loginwindow').openWindow()
+    },
+  
+    loginsuccess(e){
+      console.log(e);
+      var _this = this
+      setTimeout(() => {
+        var u = app.globalData.userInfo
+        if (u && u.id) {
+            _this.setData({
+                mobile: u.mobile,
+                mobileLock: true,
+            })
+        }
+      },1000)
+  
+    },
 
     smsLoginHandle (cb) {
         // 通过短信验证码登录账号
@@ -335,7 +353,7 @@ Page({
             })
             return false
         }
-        smsApi.smsAuth(phone, code).then((res) => {
+        smsApi.smsAuth(mobile, code).then((res) => {
             var data = res.data
             if (data.status == 0) {
                 // 保存下服务器返回的token

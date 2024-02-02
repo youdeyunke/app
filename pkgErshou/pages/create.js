@@ -94,6 +94,16 @@ Page({
         })
     },
 
+    checkLogin(){
+      if (!app.globalData.token) {
+        this.selectComponent('.loginwindow').openWindow()
+        return
+      }
+      this.setData({
+        contact_mobile: app.globalData.userInfo.mobile
+      })
+    },
+
     chooseLocation: function (e) {
         var _this = this
         wx.getSetting() //获取用户权限

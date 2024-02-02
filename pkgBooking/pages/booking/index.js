@@ -13,6 +13,8 @@
 const app = getApp()
 const bookingApi = require("../../../api/booking")
 const postApi = require("../../../api/post")
+const smsApi = require("../../../api/sms")
+var auth = require('../../../utils/auth.js');
 Page({
 
   /**
@@ -30,11 +32,12 @@ Page({
     remark: '',
     mobile: '', // 如果当前用户已经登录，自动填充手机号， 并且不能被修改
 
-    mobileLocked: false,
     dates: [],
     postId: null,
     booked: false,
     post: null,
+    smsCode: null,
+    mobileLock: false,
   },
 
   /**
@@ -45,7 +48,6 @@ Page({
     this.setData({
       user: user,
       mobile: user ? user.mobile : '',
-      mobileLocked: user ? true : false,
       postId: options.pid,
     })
     this.initDate()
@@ -56,20 +58,8 @@ Page({
     this.setData({
       show: false
     })
+    wx.navigateBack()
     this.triggerEvent('close', {})
-  },
-
-  openHandle: function (user) {
-    var user = app.globalData.userInfo
-    this.setData({
-      show: true
-    })
-    this.setData({
-      user: user,
-      mobile: user ? user.mobile : '',
-      mobileLocked: user ? true : false,
-    })
-    this.triggerEvent('open', {})
   },
 
   initDate: function () {
@@ -171,7 +161,29 @@ Page({
   validate: function (log) {},
 
   submitHandle: function () {
-    this._submitHandle()
+    var _this = this
+    this.setData({
+      loading: true
+    })
+    _this._submitHandle()
+  },
+
+  shoLoginWindow(){
+    this.selectComponent('.loginwindow').openWindow()
+  },
+
+  loginsuccess(e){
+    console.log(e);
+    var _this = this
+    setTimeout(() => {
+      var u = app.globalData.userInfo
+      if (u && u.id) {
+          _this.setData({
+              mobile: u.mobile,
+              mobileLock: true,
+          })
+      }
+    },1000)
 
   },
 
@@ -181,12 +193,18 @@ Page({
         title: '请选择预约时间',
         icon: 'none',
       })
+      this.setData({
+        loading: false
+      })
       return false;
     }
     if (this.data.name == '') {
       wx.showToast({
         title: '请输入您的姓名',
         icon: 'none'
+      })
+      this.setData({
+        loading: false
       })
       return false
     }
@@ -195,6 +213,9 @@ Page({
         title: '请输入您的联系方式',
         icon: 'none'
       })
+      this.setData({
+        loading: false
+      })
       return false
     }
     console.log("this.data.mobile", this.data.mobile.length)
@@ -202,6 +223,9 @@ Page({
       wx.showToast({
         title: '号码格式错误，请重新输入',
         icon: 'none'
+      })
+      this.setData({
+        loading: false
       })
       return false
     }
@@ -230,7 +254,7 @@ Page({
       log
     ).then((resp) => {
       _this.setData({
-        loging: false
+        loading: false
       })
       if (resp.data.status == 0) {
         // _this.triggerEvent('change', {
@@ -261,6 +285,7 @@ Page({
       remark: e.detail.value
     })
   },
+
 
   loadData: function () {
     var _this = this
@@ -304,7 +329,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    var u = app.globalData.userInfo
+    if (u && u.id) {
+        this.setData({
+            mobile: u.mobile,
+            mobileLock: true,
+        })
+    }
 
+    var _this = this
+    app.ensureConfigs((myconfigs) => {
+        _this.setData({
+            color: myconfigs.color.primary,
+            btnColor: myconfigs.color.primary_btn
+        })
+    })
   },
 
   /**
