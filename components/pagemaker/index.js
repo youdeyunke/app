@@ -19,6 +19,10 @@ Component({
             type: String,
             default: null
         },
+        pageHidden: {
+          type: Boolean,
+          default: false
+        }
     },
 
     /**

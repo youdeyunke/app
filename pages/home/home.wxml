@@ -30,6 +30,6 @@
     <image src="https://qiniucd.udeve.net/fang/install-tips-{{system.systemName}}.png" />
 </van-transition>
 <page-loading wx:if="{{loading}}" />
-<pagemaker style="{{loading ? 'display: none;' : ''}}"  bind:ready="pageReadyHandle" ref="pagemaker" style="" class="pm" page-key="home" />
+<pagemaker pageHidden="{{loading}}"  bind:ready="pageReadyHandle" ref="pagemaker" class="pm" page-key="home" />
 
 <copyright></copyright>

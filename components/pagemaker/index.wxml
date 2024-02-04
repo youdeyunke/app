@@ -53,7 +53,7 @@
     <webview-module config="{{item}}" ></webview-module>
 </template>
 
-<view class="pagemaker">
+<view hidden="{{pageHidden}}" class="pagemaker">
     <block wx:key="id" wx:for="{{modules}}">
         <module-box config="{{item}}" shadow="{{pageConfig.shadowValue }}" radius="{{pageConfig.radius}}" width="{{pageConfig.width}}">
                 <template is="{{item.name}}" data="{{item: item}}" ></template>
