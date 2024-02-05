@@ -21,13 +21,20 @@
   }
   module.exports.convertString = convertString
 </wxs>
+
+<!-- <navigation-bar  bgOpacity="{{bgOpacity}}" background-color-top="none" title="消息" color="{{titleFontColor}}">
+</navigation-bar> -->
+<view class="header" style="background-image: url({{configs.ui.theme_bg}});">
+  
+</view>
+
 <view wx:if="{{showDingyue}}" class="message-top" bindtap="dingyueHandle">
   <text style="color: #333333;">订阅消息推送，第一时间回复通知</text>
   <view style="background-color: {{primaryColor || '#F49946'}};">
     <text style="color: #ffffff;background-color: {{primaryColor}};">订阅</text>
   </view>
 </view>
-<view style="display: flex;justify-content: space-between;flex-direction: column;min-height: calc(100vh - 100rpx);">
+<view style="display: flex;justify-content: space-between;flex-direction: column;min-height: calc(100vh - 100rpx);background-color: #ffffff;">
   <van-tabs active="{{ active }}" bind:click="onChange" color="{{primaryColor}}">
   <van-tab info="{{chat_message_count == 0 ?  null : chat_message_count}}" title="聊天">
     <block wx:if="{{userInfo.id}}">

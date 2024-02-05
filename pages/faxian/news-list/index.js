@@ -25,8 +25,12 @@ Component({
         newsItems: [],
         page: 1,
         kw: '',
+        cat_id: null,
+        active: 0,
         end: false,
+        primaryColor: '#9e1d1d'
     },
+
 
     /**
      * 组件的方法列表
@@ -35,10 +39,33 @@ Component({
         loadNewsCats: function () {
             //查询顶部
             var _this = this
-            newsApi.getNewsCatList().then((resp) => {
-                _this.setData({
-                    newsCats: resp.data.data
-                })
+            // newsApi.getNewsCatList().then((resp) => {
+            //     _this.setData({
+            //         newsCats: resp.data.data
+            //     })
+            // }),
+            newsApi.getNewsSummary().then((resp)=>{
+              if (resp.data.status == 0) {
+                  var cats = resp.data.data.filter((cat, i) => {
+                      return cat.items.length > 0
+                  })
+                  _this.setData({
+                    newsCats: cats,
+                  })
+              }
+          })
+        },
+
+        catChange: function (e) {
+            const catId  = e.currentTarget.dataset.catid
+            // console.log(catId);
+            // this.setData({ active: catId, cat_id: catId, page: 1 })
+            // this.loadNews()
+            var i = e.currentTarget.dataset.i
+            var _this = this
+            this.setData({
+              active: i,
+              newsItems: _this.data.newsCats[i].items
             })
         },
 
@@ -102,6 +129,9 @@ Component({
                 is_top: false,
                 kw: this.properties.kw,
             }
+            if(this.data.cat_id){
+              query.cat_id = this.data.cat_id
+            }
             newsApi.getNewsList(query).then((resp) => {
                 if (this.data.page == 1) {
                     _this.setData({
@@ -122,6 +152,11 @@ Component({
         this.loadNewsCats()
         this.loadTopNews()
         this.loadNews()
+        var color = app.globalData.color
+        // console.log('zujiancol',color);
+        this.setData({
+            primaryColor: color.primary || '#9e1d1d',
+        })
     },
 
     'observers': {

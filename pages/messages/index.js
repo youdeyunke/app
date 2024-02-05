@@ -31,6 +31,7 @@ Page({
         systemItems: [],
         page: 1,
         showDingyue: true,
+        configs: null,
     },
 
     onChange(event) {
@@ -65,6 +66,13 @@ Page({
         this.setData({
             primaryColor: color.primary || '#9e1d1d',
         })
+        var _this = this
+        app.ensureConfigs(function (configs) {
+          _this.setData({
+              configs: configs
+          })
+        })
+
     },
 
     readAll: function () {

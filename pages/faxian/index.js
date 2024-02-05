@@ -28,7 +28,7 @@ Page({
         },
             // { name: '活动', id: 'tour' },
         ],
-
+        configs: null,
         kw: '',
         loading: true,
         active: 'news',
@@ -62,9 +62,15 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) { 
+      var _this = this
       var color = app.globalData.color
       this.setData({
         primaryColor: color.primary || '#9e1d1d',
+      })
+      app.ensureConfigs(function (configs) {
+        _this.setData({
+            configs: configs
+        })
     })
     },
     /**

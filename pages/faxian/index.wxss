@@ -10,23 +10,35 @@
 * +----------------------------------------------------------------------
 */
 /* pages/faxian/index.wxss */
-.top-box{
-    /* position: sticky; */
-    top: 0;
-    left: 0;
-    z-index: 5;
-    width: 100%;
+.top-box {
+  /* position: sticky; */
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  background-color: #f0f0f0;
+}
+
+.header {
+  background-size: 750rpx 410rpx;
+  background-repeat: no-repeat;
+  width: 750rpx;
+  height: 410rpx;
+  
+  position: absolute;
+  top: 0;
+  z-index: -1;
 }
 
 .res {
-    width: 750rpx;
-    box-sizing: border-box;
+  width: 750rpx;
+  box-sizing: border-box;
 }
 
 .qa-new {
-    position: fixed;
-    bottom: 20rpx;
-    width: 200rpx;
-    left: calc(50% - 100rpx);
-    z-index: 10;
-  }
+  position: fixed;
+  bottom: 20rpx;
+  width: 200rpx;
+  left: calc(50% - 100rpx);
+  z-index: 10;
+}

@@ -1,7 +1,6 @@
 {
   "enablePullDownRefresh": true,
   "usingComponents": {
-    "van-tag": "/vant/tag/index",
-    "howlong": "/components/howlong"
+    "van-tag": "/vant/tag/index"
   }
 }

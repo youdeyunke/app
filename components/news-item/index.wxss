@@ -79,6 +79,7 @@
     display: flex;
     max-width: 450rpx;
     min-width:440rpx;
+    min-height: 166rpx;
     width: calc(100% - 214rpx - 20rpx);
     flex-direction: column;
     justify-content: space-between;

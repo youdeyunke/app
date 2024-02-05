@@ -19,8 +19,22 @@
     <hot-news></hot-news>
 </mycard>
 
+<view class="news-cats" hidden="{{newsCats.length == 0}}">
+        <scroll-view scroll-x="{{true}}" style="width:700rpx; white-space: nowrap;margin: 0 auto;">
+            <!-- <view class="cat-item">
+                <van-tag size="large" color="#D81E06" plain="{{ 0 !== active }}" data-catid="{{0}}" bind:tap="catChange">
+                    全部
+                </van-tag>
+            </view> -->
+            <view class="cat-item" wx:for="{{newsCats}}" wx:for-item="cat">
+                <van-tag size="large" color="{{primaryColor}}" plain="{{ index !== active }}" data-catid="{{cat.id}}" data-i="{{index}}" bind:tap="catChange">
+                    {{ cat.name }}
+                </van-tag>
+            </view>
+        </scroll-view>
+    </view>
 
-<mycard  title="全部资讯">
+<mycard  title="">
 
     <view class="item"  wx:for="{{newsItems}}" wx:for-key="id">
         <news-item item="{{item}}"></news-item>

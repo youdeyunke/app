@@ -13,7 +13,19 @@ page{
     background: #fff !important;
     height: 100vh;
   }
-  
+  .touming{
+    background-color: rgba(0, 0, 0, 0);
+  }
+  .header {
+    background-size: 750rpx 410rpx;
+    background-repeat: no-repeat;
+    width: 750rpx;
+    height: 410rpx;
+    
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
   .outer{
     width:710rpx;
     margin:0 20rpx;

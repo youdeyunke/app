@@ -9,6 +9,12 @@
  | Author: UDEVE Team <tech@udeve.cn>
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
+
+<!-- <navigation-bar  bgOpacity="{{bgOpacity}}" background-color-top="none" title="发现" color="{{titleFontColor}}">
+</navigation-bar> -->
+<view class="header" style="background-image: url({{configs.ui.theme_bg}});">
+  
+</view>
 <view class="top-box">
     <van-search round bind:clear="clearHandle" model:value="{{ kw }}" placeholder="输入关键词进行搜索" custom-class="search-box" bind:confirm="kwChange" bind:search='kwChange' bind:change="kwChange" bind:clear="kwChange" bind:blur="kwChange" input-class='search' />
 

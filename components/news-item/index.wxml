@@ -17,7 +17,7 @@
     </view>
     <view class="title-block">
         <view class="title">{{item.title}}</view>
-        <view class="summary an-multi-ellipsis--l3">{{ item.summary }} </view>
+        <!-- <view class="summary an-multi-ellipsis--l3">{{ item.summary }} </view> -->
         <view class="meta">
             <view>
                 <text class="author">{{item.author || ''}}</text>

@@ -16,3 +16,12 @@
   overflow: hidden;
   background:#fff;
 }
+.news-cats {
+  padding: 20rpx 0;
+  background-color: #fff;
+}
+
+.cat-item {
+  display: inline-block;
+  margin-right: 20rpx;
+}

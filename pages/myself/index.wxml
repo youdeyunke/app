@@ -11,7 +11,7 @@
 -->
 <view class="outer">
     <view
-        style="background-image:url('{{configs.ui.myself_bg }}')"
+        style="background-image:url('{{configs.ui.theme_bg }}')"
         class="header {{ userInfo.is_broker == true ? 'broker' : 'default' }}">
 
         <block wx:if="{{userInfo.id}}">
