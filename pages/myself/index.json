@@ -1,6 +1,5 @@
 {
     "navigationStyle": "custom",
-    "enablePullDownRefresh": true,
 
     "usingComponents": {
         "qiandao": "./qiandao/index",

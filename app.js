@@ -516,15 +516,46 @@ App({
         // 订阅消息
         console.log('dingyue ....')
         var tplId = this.globalData.myconfigs.msg_tpl_id || ''
+        console.log(tplId);
         wx.requestSubscribeMessage({
-            tmplIds: [tplId],
-            fail: function (res) {
-                console.log('订阅消息失败:', res)
-            },
-            complete: function (e) {
-                typeof cb == 'function' && cb()
+          tmplIds: [tplId],
+          success: function (res) {
+              console.log('订阅消息结果:', res);
+              if (res[tplId] === 'accept') {
+                  console.log('用户同意订阅消息');
+                  typeof cb === 'function' && cb(); // 用户同意，执行回调
+              } else {
+                  // 处理不同的拒绝情况
+                  let errMsg;
+                  switch (res[tplId]) {
+                      case 'reject':
+                          errMsg = '您拒绝了订阅请求';
+                          break;
+                      case 'ban':
+                          errMsg = '订阅功能已被封禁';
+                          break;
+                      case 'filter':
+                          errMsg = '订阅请求因重名被过滤';
+                          break;
+                      default:
+                          errMsg = '订阅失败，请稍后再试';
+                  }
+                  wx.showToast({
+                      title: errMsg,
+                      icon: 'none',
+                      duration: 2000
+                  });
+              }
+          },
+          fail: function (err) {
+              console.log('订阅消息失败:', err);
+              wx.showToast({
+                  title: '订阅消息请求失败',
+                  icon: 'none',
+                  duration: 2000
+              });
             }
-        })
+        });
     },
 
 

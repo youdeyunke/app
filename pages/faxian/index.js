@@ -31,7 +31,7 @@ Page({
         configs: null,
         kw: '',
         loading: true,
-        active: 'news',
+        active: 'tour',
         primaryColor: ''
     },
 
@@ -71,7 +71,11 @@ Page({
         _this.setData({
             configs: configs
         })
-    })
+      })
+      var tab = this.data.active  
+      var ele = this.selectComponent('#' + tab + '-list')
+      console.log('tab ', tab)
+      ele.loadData()
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

@@ -1,5 +1,5 @@
 {
-  "enablePullDownRefresh": true,
+  "navigationStyle": "custom",
   "usingComponents": {
     "van-tag": "/vant/tag/index"
   }

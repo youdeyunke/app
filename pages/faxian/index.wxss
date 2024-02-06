@@ -16,9 +16,16 @@
   left: 0;
   z-index: 5;
   width: 100%;
-  background-color: #f0f0f0;
 }
-
+.top-box .van-tabs__scroll{
+  background: rgba(0, 0, 0, 0);
+}
+.search{
+  background: rgba(0, 0, 0, 0) !important;
+}
+.tab-box{
+  margin-top: 10rpx;padding-top: 5rpx;border-radius: 30rpx 30rpx 0 0 ;background: #fff;min-height: 300rpx;
+}
 .header {
   background-size: 750rpx 410rpx;
   background-repeat: no-repeat;

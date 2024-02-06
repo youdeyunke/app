@@ -25,8 +25,8 @@
 }
 
 .logo-img {
-  width: 100rpx;
-  height: 42rpx;
+  width: 200rpx;
+  height: 84rpx;
   margin: 0 auto;
   display: block;
   filter: grayscale(100%);

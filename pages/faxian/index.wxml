@@ -10,35 +10,39 @@
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
 
-<!-- <navigation-bar  bgOpacity="{{bgOpacity}}" background-color-top="none" title="发现" color="{{titleFontColor}}">
-</navigation-bar> -->
+<navigation-bar bgOpacity="{{bgOpacity}}" background-color-top="none" title="" color="{{titleFontColor}}">
+</navigation-bar>
 <view class="header" style="background-image: url({{configs.ui.theme_bg}});">
-  
+
 </view>
 <view class="top-box">
-    <van-search round bind:clear="clearHandle" model:value="{{ kw }}" placeholder="输入关键词进行搜索" custom-class="search-box" bind:confirm="kwChange" bind:search='kwChange' bind:change="kwChange" bind:clear="kwChange" bind:blur="kwChange" input-class='search' />
+  <van-tabs animated active="{{ active }}" title-active-color="#fff" title-inactive-color="#fff" color="#fff" bind:change="tabChange">
 
-    <van-tabs animated active="{{ active }}" color="{{primaryColor}}" bind:change="tabChange">
-        <van-tab name="news" title="资讯">
+    <van-tab name="tour" title="活动">
+      <view class="tab-box">
+        <van-search round bind:clear="clearHandle" model:value="{{ kw }}" placeholder="输入关键词进行搜索" bind:confirm="kwChange" bind:search='kwChange' bind:change="kwChange" bind:clear="kwChange" bind:blur="kwChange" custom-class='search' />
+        <hd id="tour-list" kw="{{kw}}" page="{{page}}"></hd>
+      </view>
+    </van-tab>
 
-            <news id="news-list" kw="{{kw}}" page="{{page}}"></news>
-        </van-tab>
-        <!-- van-tab name="qa" title="问答">
+    <van-tab name="news" title="资讯">
+      <view class="tab-box">
+        <van-search round bind:clear="clearHandle" model:value="{{ kw }}" placeholder="输入关键词进行搜索" bind:confirm="kwChange" bind:search='kwChange' bind:change="kwChange" bind:clear="kwChange" bind:blur="kwChange" custom-class='search' />
+        <news id="news-list" kw="{{kw}}" page="{{page}}"></news>
+      </view>
+
+    </van-tab>
+    <!-- van-tab name="qa" title="问答">
             <qa id="qa-list" kw="{{kw}}" page="{{page}}"></qa>
         </van-tab -->
-        <van-tab name="tour" title="活动">
-            <view style="height: 20rpx;">
-              
-            </view>
-            <hd id="tour-list" kw="{{kw}}" page="{{page}}"></hd>
-        </van-tab>
-    </van-tabs>
+
+  </van-tabs>
 
 
 </view>
 
 <navigator wx:if="{{active == 'qa'}}" url="/pkgQa/pages/qa/new" class="qa-new">
-    <van-button custom-style="width:200rpx;" round color="{{btnColor}}">我要提问</van-button>
+  <van-button custom-style="width:200rpx;" round color="{{btnColor}}">我要提问</van-button>
 </navigator>
 
 <no-result wx:if="{{isEmpty}}" />

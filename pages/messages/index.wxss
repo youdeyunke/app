@@ -13,7 +13,10 @@ page{
     background: #fff !important;
     height: 100vh;
   }
-  .touming{
+  .vantabs2{
+    display: flex;justify-content: space-between;flex-direction: column;min-height: calc(100vh - 280rpx);
+  }
+  .vantabs2 .van-tabs__scroll{
     background-color: rgba(0, 0, 0, 0);
   }
   .header {
@@ -30,7 +33,9 @@ page{
     width:710rpx;
     margin:0 20rpx;
   }
-  
+  .mes-box{
+    background: #fff;padding-top: 5rpx;border-radius: 30rpx 30rpx 0 0;min-height: 500rpx;margin-top: 10rpx;
+  }
   .item .count{
     background:red;
     color:#fff;

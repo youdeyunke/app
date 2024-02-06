@@ -16,6 +16,10 @@ page {
     padding-top:0rpx;
 }
 
+.raw {
+  font-size: 30rpx;
+}
+
 .header {
     background: #fff;
     box-sizing: border-box;
