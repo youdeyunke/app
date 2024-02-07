@@ -59,9 +59,9 @@ Component({
         favChangeHandle: function (e) {
             console.log('fav change 222', e)
             var s = e.detail.status
-            var name = "收藏了楼盘:"
+            var name = "收藏了二手房楼盘:"
             if (s == 0) {
-                name = "取消收藏楼盘:"
+                name = "取消收藏二手房楼盘:"
             }
             name += this.data.post.title
             app.markVisitorAction(name, 0)
@@ -94,7 +94,7 @@ Component({
                 success: (res) => {
                     if (res.confirm) {
                         app.bindPostCustomer(postId, '拨打了楼盘资讯电话')
-                        app.markVisitorAction('点击拨打楼盘联系电话:' + phone, 0)
+                        app.markVisitorAction('点击二手房拨打楼盘联系电话:' + phone, 0)
                         wx.makePhoneCall({
                             phoneNumber: phone,
                             success: (result) => {

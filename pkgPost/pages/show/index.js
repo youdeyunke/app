@@ -324,7 +324,7 @@ Page({
             target_type: "post",
             target_id: id
         }).then((resp) => {
-            if (resp.data.data.status != 0) {
+            if (resp.data.status != 0) {
                 return
             }
         })

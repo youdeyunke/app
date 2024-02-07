@@ -338,8 +338,13 @@ App({
         var data = {}
         var key = 'bindBrokerId'
         var brokerId = wx.getStorageSync(key)
+        var key = 'visitorUid'
+        var uid = wx.getStorageSync(key)
         if (brokerId) {
           data.bind_broker_id = brokerId
+        }
+        if (uid){
+          data.uid = uid
         }
 
         //    √
@@ -468,9 +473,9 @@ App({
             return
         }
         // 接口未写，todo
-        // visitorApi.createVisitorAction(uid, actionName, seconds).then((resp) => {
-        //     typeof cb == 'function' && cb(resp.data.data)
-        // })
+        visitorApi.createVisitorAction(uid, actionName, seconds).then((resp) => {
+            typeof cb == 'function' && cb(resp.data.data)
+        })
     },
 
     sendSms: function (mobile, cb) {
