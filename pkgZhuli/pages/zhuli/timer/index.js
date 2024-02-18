@@ -39,6 +39,7 @@ Component({
      */
     data: {
         timestamp: 0,
+        tourEnd: false
     },
 
     /**
@@ -51,6 +52,9 @@ Component({
             var s = this.data.timestamp - now.getTime()
             if (s <= 0) {
                 // 已结束
+                this.setData({
+                  tourEnd: true
+                })
                 return
             }
             // 计算时间差

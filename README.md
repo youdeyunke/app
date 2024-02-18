@@ -109,7 +109,7 @@
 * 微信：udeve_cn
 
 
-<!-- ## 交流反馈
+## 交流反馈
 
 欢迎大家使用友得云客小程序开源项目！您的意见和反馈对于项目的改进至关重要。为了方便大家进行交流和讨论，我们特地创建了一个微信群。
 
@@ -124,8 +124,8 @@
 群二维码：
 <div align="center">
 
-![](https://qiniucdn.udeve.net/udyk/65bcc601b33af18b181b479c.png?imageView2/2/w/200)
-</div>     -->
+![](https://qiniucdn.udeve.net/udyk/65d1a8ede4b04f205654de24.png?imageView2/2/w/200)
+</div>    
 
 ## 版权信息
 

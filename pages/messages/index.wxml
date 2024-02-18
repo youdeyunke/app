@@ -95,4 +95,4 @@
 <view wx:if="{{showDingyue}}" style="width: 750rpx;height: 100rpx;">
 </view>
 
-<login-window bind:success="loginSuccess" class="loginwindow"></login-window>
+<login-window closable="{{false}}" bind:success="loginSuccess" class="loginwindow"></login-window>

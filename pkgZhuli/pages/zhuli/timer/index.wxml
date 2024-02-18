@@ -10,7 +10,7 @@
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
 <!--pkgZhuli/pages/zhuli/timer/index.wxml-->
-<view class="outer" wx:if="{{timestamp >= 0}}">
+<view class="outer" wx:if="{{timestamp >= 0 && !tourEnd}}">
 <view class="text">剩余时间</view>
 <view class="box">{{days}}</view>
 <view class="text">天</view>
@@ -20,4 +20,10 @@
 <view class="text">分</view>
 <view class="box">{{seconds}}</view>
 <view class="text">秒</view>
+</view>
+
+<view class="outer" wx:else>
+<view class="text"></view>
+<view class="text">活动已结束</view>
+<view class="text"></view>
 </view>

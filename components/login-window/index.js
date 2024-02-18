@@ -94,6 +94,9 @@ Component({
             if (app.globalData.loginWindowShowStatus){
               return
             }
+            if (app.globalData.token){
+              return
+            }
             if (this.data.show == true) {
                 return false
             }

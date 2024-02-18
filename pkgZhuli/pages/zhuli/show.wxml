@@ -44,7 +44,7 @@
 
 </view>
 
-<view class="footer">
+<view class="footer" wx:if="{{ item.status_value != 'end' }}">
   <view class="btn share">
     <button class="fake" open-type="share"></button>
     转发告诉好友
