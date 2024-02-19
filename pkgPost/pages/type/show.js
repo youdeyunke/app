@@ -38,18 +38,18 @@ Page({
 
     },
 
-    loadPostBrokerInfo: function (pid) {
-        var _this = this
-        var query = {
-            post_id: pid
-        }
-        brokerApi.getPostDefaultBrokerDetail(query).then((res) => {
-            var broker = res.data.data
-            this.setData({
-                broker: broker
-            })
-        })
-    },
+    // loadPostBrokerInfo: function (pid) {
+    //     var _this = this
+    //     var query = {
+    //         post_id: pid
+    //     }
+    //     // brokerApi.getPostDefaultBrokerDetail(query).then((res) => {
+    //     //     var broker = res.data.data
+    //     //     this.setData({
+    //     //         broker: broker
+    //     //     })
+    //     // })
+    // },
 
     loadPostInfo: function (pid) {
         var _this = this
@@ -70,7 +70,7 @@ Page({
             // data.pageTitle = post.title + ' 户型介绍'
             // data.pageCover = post.cover
             var type = this.data.type
-            var title = post.title + type.name + type.sale_status_name || ''
+            var title = post.title + type.name + (type.sale_status_name || '')
             wx.setNavigationBarTitle({ title: title, });
             _this.setData(data)
         })
@@ -97,7 +97,7 @@ Page({
                 type: resp.data.data,
             })
             _this.loadPostInfo(type.post_id)
-            _this.loadPostBrokerInfo(type.post_id)
+            // _this.loadPostBrokerInfo(type.post_id)
 
         })
     },

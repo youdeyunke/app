@@ -413,6 +413,9 @@ Page({
             _this.setData({
                 post: resp.data.data
             }, () => {
+                wx.showLoading({
+                  title: '生成中'
+                })
                 _this.genUserCard()
             })
         })
@@ -427,15 +430,17 @@ Page({
         wx.showLoading({
             title: '加载中',
         })
-        setTimeout(function () {
-            wx.hideLoading()
-        }, 800)
+        // setTimeout(function () {
+        //     wx.hideLoading()
+        // }, 800)
     },
 
     onImgOK (e) {
         this.imagePath = e.detail.path;
         this.setData({
             posterUrl: this.imagePath,
+        },() => {
+          wx.hideLoading()
         });
     },
 

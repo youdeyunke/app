@@ -36,7 +36,7 @@ Page({
 
     onChange(event) {
       var title = event.detail.title
-      if (title == "系统消息") {
+      if (title == "通知") {
         this.setData({
           page:1,
           systemItems: []
@@ -89,7 +89,7 @@ Page({
     },
 
     readAllSys(){
-      // 将系统消息全部已读取
+      // 将通知全部已读取
       var _this = this
 
       messageApi.markSysReadAll().then((resp) => {
@@ -97,7 +97,7 @@ Page({
           return
         }
         wx.showToast({
-          title: '已将全部系统消息标记为已读',
+          title: '已将全部通知标记为已读',
           icon: 'none'
         })
         var systemItems =  _this.data.systemItems.map((item) =>{ 

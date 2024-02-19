@@ -63,7 +63,7 @@
       </view>
     </van-tab>
 
-    <van-tab info="{{sys_message_count == 0 ? null : sys_message_count }}" title="系统消息">
+    <van-tab info="{{sys_message_count == 0 ? null : sys_message_count }}" title="通知">
       <view class="mes-box">
         <view class="tools">
           <view class=""></view>

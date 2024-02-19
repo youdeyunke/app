@@ -30,7 +30,8 @@
 
 .action .status-text {
     width: 120rpx;
-    height: 50rpx;
+    /* height: 50rpx; */
+    border-radius: 10rpx;
     background-color: #ffffff;
     line-height: 50rpx;
     font-size: 26rpx;

@@ -79,7 +79,7 @@
       <view class="font-bottom">海报</view>
     </view>
     <view class="bottom-collection">
-        <image class="font-top" src="../../image/haibao.png"></image>
+        <image class="font-top" src="../../image/fenxiang.png"></image>
         <button open-type="share" class="share-btn"></button>
         <view class="font-bottom">分享</view>
     </view>
@@ -98,7 +98,7 @@
       <view class="font-bottom">海报</view>
     </view>
     <view class="bottom-collection">
-        <image class="font-top" src="../../image/haibao.png"></image>
+        <image class="font-top" src="../../image/fenxiang.png"></image>
         <button open-type="share" class="share-btn"></button>
         <view class="font-bottom">分享</view>
     </view>
@@ -119,7 +119,7 @@
       <view class="font-bottom">海报</view>
     </view>
     <view class="bottom-collection">
-        <image class="font-top" src="../../image/haibao.png"></image>
+        <image class="font-top" src="../../image/fenxiang.png"></image>
         <button open-type="share" class="share-btn"></button>
         <view class="font-bottom">分享</view>
     </view>

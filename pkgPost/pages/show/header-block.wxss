@@ -50,8 +50,11 @@
 
 .left-tag {
     color: #666666;
-    padding: 0 14rpx;
-    padding-bottom: 8rpx;
+    padding: 6rpx 14rpx;
+    /* padding-bottom: 8rpx; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 4rpx;
     background: #FFFFFF;
     margin-right: 16rpx;

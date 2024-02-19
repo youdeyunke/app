@@ -94,7 +94,7 @@ Component({
             if (app.globalData.loginWindowShowStatus){
               return
             }
-            if (app.globalData.token){
+            if (app.globalData.LOGIN_FLAG == 1){
               return
             }
             if (this.data.show == true) {
