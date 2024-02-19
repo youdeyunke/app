@@ -71,7 +71,7 @@
         </view>
 
         <view class="outer" padding="30">
-          <view bindtap="sysItemClickHandle" data-index="{{index}}" wx:for="{{systemItems}}">
+          <view bindtap="sysItemClickHandle" bindlongpress="deleteSysHandle" data-index="{{index}}" data-sid="{{item.id}}" wx:for="{{systemItems}}">
 
             <van-cell label="{{item.updated_at}}" is-link>
               <view slot="title" style="display: flex;justify-content: space-between;">

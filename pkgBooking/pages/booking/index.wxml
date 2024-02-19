@@ -13,7 +13,7 @@
   <block wx:if="{{!booked}}">
     <view class="dialog-date">
       <view class="desc">请选择日期</view>
-      <scroll-view class="dates" scroll-x="{{true}}" scroll-with-animation="{{true}}">
+      <!-- <scroll-view class="dates" scroll-x="{{true}}" scroll-with-animation="{{true}}">
         <view style="display: flex;">
           <view form-type="submit" wx:for="{{dates}}" data-index="{{index}}" wx:key="value" wx:for-item="date" bindtap="dateClick">
             <van-tag custom-class="mytag2" size="large" type="primary" plain="{{currentDateIndex != index}}">
@@ -22,7 +22,21 @@
           </view>
         </view>
 
-      </scroll-view>
+      </scroll-view> -->
+
+
+      <swiper indicator-dots="{{false}}" style="height: 100rpx;" display-multiple-items="3">
+        <block wx:for="{{dates}}" wx:key="{{index}}" wx:key="value" wx:for-item="date" >
+          <swiper-item style="height: 100rpx;">
+            <view form-type="submit" data-index="{{index}}" bindtap="dateClick">
+              <van-tag custom-class="mytag2" size="large" type="primary" plain="{{currentDateIndex != index}}">
+                {{ date.label }}
+              </van-tag>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+
     </view>
     <view class="form">
       <view class="dialog-time">

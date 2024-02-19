@@ -171,6 +171,44 @@ Page({
         })
     },
 
+    deleteSysHandle(e){
+      var _this = this
+      console.log(e);
+      var sid = e.currentTarget.dataset.sid
+
+
+      wx.showModal({
+        title: '删除通知',
+        content: "确定要删除这条通知吗？",
+        success: function (res) {
+            if (!res.confirm) {
+                return
+            }
+            _this.deleteSysMes(sid)
+        }
+    })
+    },
+
+    deleteSysMes(sid){
+      
+      var _this = this
+
+      messageApi.deleteSysMes(sid).then((resp) => {
+        if (resp.data.status != 0) {
+          return
+        }
+        wx.showToast({
+          icon: 'none',
+          title: '已删除',
+      })
+        _this.setData({
+          systemItems: []
+        }, ( ) => {
+          _this.loadSysMessage()
+        })
+      })
+    },
+
     loadData: function () {
         var _this = this
         messageApi.getChatList().then((res) => {

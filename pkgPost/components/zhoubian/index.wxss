@@ -148,3 +148,12 @@
     justify-content: flex-end;
     align-items: center;
 }
+.tabs_content {
+  position: fixed;
+  bottom: 0;
+  width: 750rpx;
+  height: calc(100vh - 840rpx);
+  overflow-y: auto; /* 允许垂直滚动 */
+  background-color: #fff; /* 设置背景色 */
+  border-top: 1rpx solid #ccc; /* 设置顶部边框 */
+}

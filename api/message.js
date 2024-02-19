@@ -61,3 +61,8 @@ export function markSysMesRead (id) {
 export function getSysMessageDetail (id) {
   return request.get("/api/v6/sys_message/" + id);
 }
+
+// 删除一个系统通知
+export function deleteSysMes (chatId) {
+  return request.destroy("/api/v6/sys_message/" + chatId);
+}
