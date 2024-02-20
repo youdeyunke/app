@@ -10,6 +10,22 @@
 * +----------------------------------------------------------------------
 */
 /* pkgHistory/pages/history/index.wxss */
+.noticebar{
+  text-align: center;
+  background-color: #fff;
+  color: #999;
+  /* height: 60rpx; */
+  padding: 10rpx;
+}
+.noticebar .noticetext{
+  width: 690rpx;
+  margin: 0 auto;
+  padding: 5rpx 0;
+  background-color: #ebebeb;
+  line-height: 40rpx;
+  font-size: 20rpx;
+  border-radius: 0rpx;
+}
 .history-top{
   width:750rpx ;
   height:110rpx ;

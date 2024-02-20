@@ -294,6 +294,12 @@ Page({
             app.globalData.qrdata = null
         }
 
+        app.ensureConfigs(function (configs) {
+          _this.setData({
+              configs: configs
+          })
+        })
+
         var postId = options.id || options.post_id
 
         _this.createHistory(postId)
@@ -460,37 +466,37 @@ Page({
         })
     },
 
-    _setTheme: function (q, img) {
-        console.log(q);
-        if (q && q.substring(0, 1) == "#") {
-            this.setData({
-                color: q
-            })
-        } else {
-            themes.map((t, i) => {
-                if (q == ('theme' + (i + 1))) {
-                    this.setData({
-                        color: t.color,
-                        bgImg: t.bgImg,
-                        theme: q
-                    })
-                    return
-                }
-            })
-        }
-        if (img) {
-            this.setData({
-                bgImg: img
-            })
-        }
-    },
+    // _setTheme: function (q, img) {
+    //     console.log(q);
+    //     if (q && q.substring(0, 1) == "#") {
+    //         this.setData({
+    //             color: q
+    //         })
+    //     } else {
+    //         themes.map((t, i) => {
+    //             if (q == ('theme' + (i + 1))) {
+    //                 this.setData({
+    //                     color: t.color,
+    //                     bgImg: t.bgImg,
+    //                     theme: q
+    //                 })
+    //                 return
+    //             }
+    //         })
+    //     }
+    //     if (img) {
+    //         this.setData({
+    //             bgImg: img
+    //         })
+    //     }
+    // },
 
     loadPostBaseInfo: function (cb) {
         // 加载楼盘的基本信息
         var _this = this;
         postApi.getPostBaseInfo(this.data.postId).then((resp) => {
             var post = resp.data.data;
-            _this._setTheme(post.theme, post.header_image)
+            // _this._setTheme(post.theme, post.header_image)
             _this._setPostInfo(post, cb)
         })
     },

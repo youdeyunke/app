@@ -24,6 +24,8 @@
 .footer {
   position: sticky;
   bottom: 0;
+  width: 710rpx;
+  margin: 0 auto;
   z-index: 100;
 }
 

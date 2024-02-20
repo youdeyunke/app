@@ -46,7 +46,7 @@
     <view style="font-size: 28rpx;"><text style="color: red;">{{broker.view_nums}}</text>人浏览</view>
     <view style="display: flex;"  bindtap="likeHandle">
       <image style="width: 36rpx;height: 36rpx;" src="../../../../image/dianzan.png"></image>
-      <view style="font-size: 28rpx;">{{likeNums}}点赞</view>
+      <view style="font-size: 28rpx;">{{likeNums || 0}}点赞</view>
     </view>
   </view>
 </view>

@@ -9,6 +9,9 @@
  | Author: UDEVE Team <tech@udeve.cn>
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
+<view class="noticebar">
+  <view class="noticetext">为您保留最近的小程序浏览历史记录</view>
+</view>
 <van-tabs active="{{ active }}" color="{{primaryColor}}" bind:change="onChange">
   <van-tab title="楼盘记录" name="post"></van-tab>
   <van-tab title="活动记录" name="tour"></van-tab>

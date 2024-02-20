@@ -34,7 +34,7 @@
 }
 
 .left-title {
-    color: #333;
+    color: #fff;
     font-weight: 600;
     font-size: 40rpx;
 }

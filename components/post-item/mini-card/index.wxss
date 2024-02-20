@@ -38,7 +38,7 @@
     /* position: absolute; */
     top: 0;
     left: 0;
-    border-radius:8rpx;
+    border-radius:8rpx 8rpx 0 0;
 }
 
 .post .tags {
