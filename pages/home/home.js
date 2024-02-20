@@ -134,7 +134,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        shareApi.markShareVisitor(options);
         this.setData({
             system: app.globalData.system
         }, () => {
@@ -253,19 +252,25 @@ Page({
 
     onShareAppMessage: function () {
         var _this = this
-        var path = '/pages/home/home'
+        var path = '/pkgShare/pages/index'
         const promise = new Promise(resolve => {
             // √
-            shareApi.createShareHomepage(_this.data.shareTitle).then((res) => {
-                if (res.data.status == 0 && res.data.data != 0) {
-                    var shareId = res.data.data;
-                    path += "?share_id=" + shareId;
-                }
-                resolve({
-                    title: _this.data.shareTitle,
-                    imageUrl: _this.data.shareCover,
-                    path: path,
-                })
+            var data = {
+              uid: wx.getStorageSync('visitorUid'),
+              score_config_key: 'share_home',
+              share_complete_path: '/pages/home/home',
+              title: _this.data.shareTitle
+            }
+            shareApi.createShareLog(data).then((resp) => {
+              if (resp.data.status == 0 && resp.data.data != 0) {
+                  var shareId = resp.data.data;
+                  path += "?id=" + shareId;
+              }
+              resolve({
+                  title: _this.data.shareTitle,
+                  imageUrl: _this.data.shareCover,
+                  path: path,
+              })
             })
         })
 
@@ -276,21 +281,6 @@ Page({
         }
     },
     onShareTimeline: function () {
-        const promise = new Promise(resolve => {
-            // √
-            scoreApi.createScore('share_home').then((res) => {
-                if (res.data.status == 0 && res.data.data == 'ok') {
-                    wx.showToast({
-                        icon: 'none',
-                        title: '积分已增加',
-                    })
-                }
-                resolve({
-                    title: _this.data.shareTitle,
-                    imageUrl: _this.data.shareCover,
-                })
-            })
-        })
         return {
             title: _this.data.shareTitle,
             imageUrl: _this.data.shareCover,

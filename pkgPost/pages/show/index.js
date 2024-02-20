@@ -535,19 +535,24 @@ Page({
         var _this = this
         const promise = new Promise(resolve => {
             //  √
-            shareApi.createSharePost(_this.data.pageTitle,'post.'+_this.data.postId ).then((res) => {
-              if (res.data.status == 0 && res.data.data == 'ok') {
-                  wx.showToast({
-                      icon: 'none',
-                      title: '积分已增加',
-                  })
+
+            var data = {
+              uid: wx.getStorageSync('visitorUid'),
+              score_config_key: 'share_post',
+              share_complete_path: '/pkgPost/pages/show/index?' + _this.data.pageQuery + '&scene_key=wechat',
+              title: _this.data.pageTitle,
+            }
+            shareApi.createShareLog(data).then((resp) => {
+              if (resp.data.status == 0 && resp.data.data != 0) {
+                  var shareId = resp.data.data;
               }
-              resolve ({
-                    title: _this.data.pageTitle,
-                    path: 'pkgPost/pages/show/index?' + _this.data.pageQuery + '&scene_key=wechat',
-                    imageUrl: _this.data.pageCover,
-                })
-          })
+              resolve({
+                  title: _this.data.pageTitle,
+                  imageUrl: _this.data.pageCover,
+                  path: '/pkgShare/pages/index?id=' + shareId,
+              })
+            })
+
         })
         return {
             title: _this.data.pageTitle,
@@ -560,22 +565,6 @@ Page({
 
     onShareTimeline: function () {
         var _this = this
-        const promise = new Promise(resolve => {
-            //？？该方法未使用
-            shareApi.createSharePost(_this.data.pageTitle,'post.'+_this.data.postId ).then((res) => {
-              if (res.data.status == 0 && res.data.data == 'ok') {
-                  wx.showToast({
-                      icon: 'none',
-                      title: '积分已增加',
-                  })
-              }
-              resolve ({
-                  title: _this.data.pageTitle,
-                  query: _this.data.pageQuery + '&scene_key=timeline',
-                  imageUrl: _this.data.pageCover
-              })
-          })
-        })
         return {
             title: _this.data.pageTitle,
             query: _this.data.pageQuery + '&scene_key=timeline',

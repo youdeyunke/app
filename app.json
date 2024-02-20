@@ -334,7 +334,14 @@
       "root": "pkgRili",
       "name": "pkgRili",
       "pages": [
-          "pages/houseSigning/index"
+        "pages/houseSigning/index"
+      ]
+    },
+    {
+      "root": "pkgShare",
+      "name": "pkgShare",
+      "pages": [
+        "pages/index"
       ]
     },
     {

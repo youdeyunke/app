@@ -261,6 +261,12 @@ Page({
   
     },
 
+    contentInput: function(e) {
+      this.setData({
+        intent: e.detail.value // 将输入的内容与content进行双向绑定
+      });
+    },
+
     /**
      * 生命周期函数--监听页面加载
      */

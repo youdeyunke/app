@@ -40,7 +40,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad (options) {
-        shareApi.markShareVisitor(options);
         this.loadData(options.id)
         this.loadDefaultFavStatus(options.id)
         var value = wx.getStorageSync('houseId')
@@ -242,7 +241,7 @@ Page({
     loadData: function (e) {
         var _this = this
         houseApi.getHouseBlocks(e).then((res) => {
-            _this.genShareId(res.data.data.title, res.data.data.id);
+            // _this.genShareId(res.data.data.title, res.data.data.id);
             wx.setNavigationBarTitle({
                 title: res.data.data.title
             })
@@ -314,18 +313,6 @@ Page({
      */
     onShow () {
 
-    },
-
-    genShareId (title, houseId) {
-        if (this.data.shareId) {
-            return;
-        }
-        var _this = this;
-        shareApi.createShareErshou(title, "house." + houseId).then((res) => {
-            if (res.data.data) {
-                _this.setData({ shareId: res.data.data });
-            }
-        });
     },
 
     /**
@@ -422,7 +409,27 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage () {
-        var path = "/pkgErshou/pages/show?id=" + this.data.houseId + "&share_id=" + this.data.shareId
+        // var path = "/pkgErshou/pages/show?id=" + this.data.houseId + "&share_id=" + this.data.shareId
+        var path = "/pkgErshou/pages/show?id=" + this.data.houseId 
+        var _this = this
+        const promise = new Promise(resolve => {
+          var data = {
+            uid: wx.getStorageSync('visitorUid'),
+            score_config_key: 'share_post',
+            share_complete_path: path,
+            title: this.data.block.title,
+          }
+          shareApi.createShareLog(data).then((resp) => {
+            if (resp.data.status == 0 && resp.data.data != 0) {
+                var shareId = resp.data.data;
+            }
+            resolve({
+                title: _this.data.block.title,
+                path: '/pkgShare/pages/index?id=' + shareId,
+            })
+          })
+        })
+
         return {
             title: this.data.block.title,
             path: path, // 自定义的分享路径

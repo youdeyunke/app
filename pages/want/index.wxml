@@ -92,7 +92,7 @@
     </card>
 
     <card width="710" hat="{{false}}" title="其它要求">
-        <textarea placeholder="填写其它要求说明，可留空"></textarea>
+        <textarea placeholder="填写其它要求说明，可留空" bindinput="contentInput"></textarea>
     </card>
 
     <card width="710" hat="{{false}}" title="联系方式">

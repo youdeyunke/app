@@ -14,7 +14,8 @@
     'like': '点赞',
     'customer': '客户',
     'thread': '线索',
-    'share_customer': '拓客'
+    'share_customer': '拓客',
+    'score': '积分'
   };
 
   function convertString(input) {

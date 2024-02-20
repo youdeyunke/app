@@ -63,6 +63,12 @@ Page({
         })
     },
 
+    contentInput: function(e) {
+      this.setData({
+        content: e.detail.value // 将输入的内容与content进行双向绑定
+      });
+    },
+
 
     choosePosition: function (e) {
         // 跳转到选择枚举值的页面  

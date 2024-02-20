@@ -63,3 +63,18 @@ export function markShareVisitor (options) {
     console.log("当前点击了来自分享的链接 share id :", shareId)
     return request.post("/api/v6/share/" + shareId + "/visitors", {});
 }
+
+// 创建一个share记录，接口传递参数有：uid、分享的页面完整路径、share key。接口返回share的id值，小程序生成一个转发专用地址：/pkgShare/pages/index?id=
+export function createShareLog(data) {
+  return request.post("/api/v6/shares", data);
+}
+
+// 根据id查询分享记录接口，
+export function getShareLog(id) {
+  return request.get("/api/v6/shares/" + id);
+}
+
+// 记录点击分享行为并增加积分，参数有：share_id、uid(点击分享用户的uid)
+export function addShareVisitors(data) {
+  return request.post("/api/v6/share_visitors", data);
+}

@@ -54,9 +54,12 @@
 
 <card width="710" hat="{{false}}" title="详细介绍">
   <!-- 插入一个文本框textarea ，双向绑定变量：{{ content }} -->
-  <view class="fieldBox" bindtap="focusField">
+  <!-- <view class="fieldBox" bindtap="focusField">
     <van-field  focus="{{focus}}"  model:value="{{ content }}" type="textarea" autosize placeholder="请输入详细介绍:" />
-  </view>
+  </view> -->
+
+  <textarea placeholder="请输入详细介绍" bindinput="contentInput"></textarea>
+
 </card>
 
 <card width="710" hat="{{false}}" title="联系信息">
