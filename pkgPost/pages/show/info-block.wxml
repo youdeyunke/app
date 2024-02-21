@@ -12,7 +12,7 @@
 <block-box leftHat="true" leftHatColor="{{color}}" title="楼盘详情信息" sub-title='查看更多信息' url='{{value.more_url}}' padding="{{false}}" title-size="36">
 <view style="padding: 0 0 40rpx 0;background-color: #FFF;">
 
-  <view wx:if="{{value.point_title}}" style="padding: 20rpx;background: linear-gradient(to right, #f8f1e9, #fefff7);display: flex;align-items: center;margin-bottom: 40rpx;border-radius: 10rpx;box-shadow: 0 0 10rpx rgba(0, 0, 0, 0.1);">
+  <view wx:if="{{value.point_title}}" class="post-point">
     <van-icon name="star" color="{{color}}" />
     <view class="maohao" style="margin-left:10rpx"></view>
     <view class="content-title">楼盘亮点：</view>

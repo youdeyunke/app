@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "post-item":"/components/post-item/mini-card/index",
+    "van-divider": "/vant/divider/index"
+  }
+}

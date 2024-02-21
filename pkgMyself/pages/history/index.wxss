@@ -12,19 +12,20 @@
 /* pkgHistory/pages/history/index.wxss */
 .noticebar{
   text-align: center;
-  background-color: #fff;
+  /* background-color: #fff; */
   color: #999;
   /* height: 60rpx; */
-  padding: 10rpx;
+  padding: 10rpx 10rpx 0 10rpx;
+  margin-top: 10rpx;
 }
 .noticebar .noticetext{
   width: 690rpx;
   margin: 0 auto;
   padding: 5rpx 0;
-  background-color: #ebebeb;
+  background-color: #e4e4e4;
   line-height: 40rpx;
   font-size: 20rpx;
-  border-radius: 0rpx;
+  border-radius: 10rpx;
 }
 .history-top{
   width:750rpx ;

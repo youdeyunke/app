@@ -9,9 +9,7 @@
  | Author: UDEVE Team <tech@udeve.cn>
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
-<view class="noticebar">
-  <view class="noticetext">为您保留最近的小程序浏览历史记录</view>
-</view>
+
 <van-tabs active="{{ active }}" color="{{primaryColor}}" bind:change="onChange">
   <van-tab title="楼盘记录" name="post"></van-tab>
   <van-tab title="活动记录" name="tour"></van-tab>
@@ -30,6 +28,9 @@
   </view>
   <new-post-item postId="{{item.target_id}}"></new-post-item>
 </block> -->
+<view class="noticebar">
+  <view class="noticetext">为您保留最近的小程序浏览历史记录</view>
+</view>
 <no-result wx:if="{{logs.length == 0}}"></no-result>
 <view style="display: flex;padding: 15rpx;flex-wrap: wrap;" wx:if="{{ active == 'post' }}">
   <new-post-item class="item" wx:for="{{logs}}" postId="{{item.target_id}}"></new-post-item>

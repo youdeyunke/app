@@ -28,7 +28,7 @@
 
 .post .price{
   color:#ef3c51;
-  font-size:26rpx;
+  font-size:24rpx;
   font-weight: bold;
 }
 
@@ -53,7 +53,7 @@
 }
 
 .post .area{
-  font-size:26rpx;
+  font-size:24rpx;
   color:#888;
   margin:20rpx 0; 
 
