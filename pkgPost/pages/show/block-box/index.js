@@ -46,11 +46,13 @@ Component({
                     wx.navigateTo({
                         url: url,
                     })
+                    console.log('hello')
                     break;
                 case "switchtab":
                     wx.switchTab({
                         url: url,
                     })
+                    console.log('hello')
                     break;
                 case "webview":
                     wx.navigateTo({

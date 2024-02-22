@@ -29,7 +29,7 @@ Component({
             this.setData({ tags: t.split(',') })
         },
 
-        "item.user_info.avatar": function (url) {
+        "item.user.avatar": function (url) {
             if (!url) {
                 return
             }

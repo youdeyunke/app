@@ -102,7 +102,10 @@ Page({
      */
     onShow: function () {
         console.log('onshow')
-        this.setData({ items: [], page: 1 })
+        var _this = this
+        this.setData({ items: [], page: 1 },() => {
+          _this.loadData()
+        })
     },
 
     /**

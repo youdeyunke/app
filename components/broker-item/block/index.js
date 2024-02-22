@@ -51,7 +51,7 @@ Component({
     data: {
         loading: false,
         levelImg: '',
-        bg: '',
+        bg: 'https://qiniucdn.udeve.net/udyk/65d59baab33aeb2be5e36adb.png',
         items: [],
     },
 
@@ -59,7 +59,7 @@ Component({
 
         var color = app.globalData.color
         this.setData({
-            bg: color.broker_block_bg,
+            // bg: color.broker_block_bg,
             primaryColor: color.primary,
         })
 

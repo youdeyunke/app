@@ -61,8 +61,8 @@ Page({
             res.data.data.forEach(function (item, i) {
                 var index = _this.data.items.length + i
                 var k = "items[" + index + "]"
-                item['created_at_pretty'] = util.prettyTime(item['created_at'])
-                item['updated_at_pretty'] = util.prettyTime(item['updated_at'])
+                // item['created_at_pretty'] = util.prettyTime(item['created_at'])
+                // item['updated_at_pretty'] = util.prettyTime(item['updated_at'])
                 d[k] = item
             })
 

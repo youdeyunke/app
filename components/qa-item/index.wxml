@@ -25,7 +25,7 @@
     <view class="footer">
         <view class="left">
             <image class="avatar" src="{{avatar}}" />
-            <text style="margin-left:10rpx;">{{ item.user_info.name }}</text>
+            <text style="margin-left:10rpx;">{{ item.user.name }}</text>
             <text>{{item.created_at}}</text>
         </view>
         <view class="right">

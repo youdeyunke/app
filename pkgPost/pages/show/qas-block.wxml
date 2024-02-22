@@ -9,7 +9,7 @@
  | Author: UDEVE Team <tech@udeve.cn>
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
-<block-box title-size="36"  leftHat="true" leftHatColor="{{color}}" title="{{ value.title }}" subtitle="{{ value.more_title }}" url="{{moreUrl}}">
+<block-box title-size="36"  leftHat="true" leftHatColor="{{color}}" title="{{ value.title }}" subTitle="{{ value.more_title }}" url="{{value.more_url}}">
     <view class="qas">
         <view class="empty" wx:if="{{value.items.length == 0}}">还没有人提问</view>
         <view class="item" hover-class="none" wx:key="id" wx:for="{{value.items}}">
@@ -19,7 +19,7 @@
                     {{item.content}}
                 </navigator>
                 <view class="footer">
-                    <view class="count">{{item.answers_count}}条回答</view>
+                    <view class="count">{{item.answers.length}}条回答</view>
                 </view>
             </view>
         </view>

@@ -37,8 +37,8 @@ export function createAnswer (questionId, content) {
 
 
 // 拉取问题列表   未发现
-export function getAnswerList (qid) {
-    return request.get("/api/v1/answers/", qid);
+export function getAnswerList (data) {
+    return request.get("/api/v6/questions/", data);
 }
 // 查询答案详情  未发现
 //export function getAnswerDetail(answerId) {

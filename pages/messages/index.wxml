@@ -15,7 +15,10 @@
     'customer': '客户',
     'thread': '线索',
     'share_customer': '拓客',
-    'score': '积分'
+    'score': '积分',
+    'event': '动态',
+    'broker': '顾问',
+    'qa': '问答'
   };
 
   function convertString(input) {

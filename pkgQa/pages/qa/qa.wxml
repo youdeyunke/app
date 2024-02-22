@@ -38,10 +38,10 @@
             <view class="meta">
                 <view class="left">
                     <view class="avatar">
-                        <image src="{{answer.user_info.avatar}}" />
+                        <image src="{{answer.user.avatar}}" />
                     </view>
                     <view class="name">
-                        {{ answer.user_info.name}}  {{ answer.created_at_pretty }}
+                        {{ answer.user.name}}  {{ answer.created_at_pretty }}
                     </view>
                     <view class="tag" wx:if="{{ index == 0}}">
                         <van-tag size="mini" type="primary">最佳回答</van-tag>

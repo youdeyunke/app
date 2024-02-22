@@ -89,6 +89,9 @@ Page({
             }
             var item = resp.data.data
             var answers = []
+            wx.setNavigationBarTitle({
+              title: item.content,
+            })
             item['created_at_pretty'] = util.prettyTime(item['created_at'])
             item['updated_at_pretty'] = util.prettyTime(item['updated_at'])
             if (item['answer']) {
@@ -102,6 +105,7 @@ Page({
                     answers.push(a)
                 })
             }
+            answers.sort((a, b) => (b.likes || 0) - (a.likes || 0));
             _this.setData({
                 item: item,
                 answers: answers,
