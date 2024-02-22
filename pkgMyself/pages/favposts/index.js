@@ -74,7 +74,6 @@ Page({
                     d['isEnd'] = false
                 }
             }
-            console.log('d is ', d)
             _this.setData(d)
         })
 

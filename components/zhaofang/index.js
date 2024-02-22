@@ -324,7 +324,7 @@ Component({
     },
 
         onChange (e) {
-            console.log(e.detail)
+            // console.log(e.detail)
             this.setData({
                 budget_min: e.detail[0],
                 budget_max: e.detail[1],
@@ -465,7 +465,7 @@ Component({
             p.selected = !p.selected
             ps[i] = p
             this.data.purposeList.forEach(function (item, i) {
-                console.log('item', item)
+                // console.log('item', item)
                 if (item.selected) {
                     purpose.push(item.name)
                 }
@@ -604,7 +604,7 @@ Component({
         },
       
         loginsuccess(e){
-          console.log(e);
+          // console.log(e);
           var _this = this
           setTimeout(() => {
             var u = app.globalData.userInfo

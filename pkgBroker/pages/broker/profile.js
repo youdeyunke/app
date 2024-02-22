@@ -78,7 +78,7 @@ Page({
             success (res) {
                 wx.getClipboardData({
                     success (res) {
-                        console.log(res.data) // data
+                        // console.log(res.data) // data
                     }
                 })
             }
@@ -175,7 +175,7 @@ Page({
             per_page: 10
         }
         postApi.getPostList(query).then((resp) => {
-            console.log("2333", resp);
+            // console.log("2333", resp);
             if (resp.data.code != 0) {
                 return
             }

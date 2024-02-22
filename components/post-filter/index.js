@@ -25,7 +25,6 @@ Component({
 
     observers: {
         "filter.group_v2": function (g) {
-            console.log('filter.group v2', g)
             if (!g) {
                 return
             }
@@ -59,7 +58,6 @@ Component({
             filter_optionApi.getFilterOptionList(
                 _this.data.postGroup
             ).then((resp) => {
-                console.log('load filter options', resp)
                 if (resp.data.status != 0) {
                     return
                 }

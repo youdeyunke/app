@@ -136,7 +136,7 @@ Page({
 
     popClose: function () {
         var scale = SCALE_DICT['sub_district']
-        console.log('pop close, set scale', scale)
+        // console.log('pop close, set scale', scale)
         this.setData({
             popState: 0,
             scale: scale
@@ -283,13 +283,13 @@ Page({
     },
 
     markertap: function (e) {
-        console.log('marker click', e)
+        // console.log('marker click', e)
         var _this = this
         var index = e.detail.markerId
-        console.log('marker index ', index)
+        // console.log('marker index ', index)
         var marker = this.data.markers[index]
         var markerId = marker._id
-        console.log('marker is', marker)
+        // console.log('marker is', marker)
         this.setData({
             markerId: markerId
         })
@@ -349,7 +349,7 @@ Page({
 
 
     regionchange: function (e) {
-        console.log('视角变化', e.type, e.causedBy)
+        // console.log('视角变化', e.type, e.causedBy)
         return
         if (e.type == 'begin') {
             this.scaleHandleStart(e)
@@ -365,7 +365,7 @@ Page({
             return false
         }
         // 地图被拖放
-        console.log('处理手势拖动缩放的情况', e)
+        // console.log('处理手势拖动缩放的情况', e)
         // 注意： 只需要处理用户手动缩放的情况
         // update的情况不需要处
         //  doc : https://developers.weixin.qq.com/miniprogram/dev/component/map.html
@@ -373,7 +373,7 @@ Page({
         var _this = this
         this.data.map.getScale({
             success (res) {
-                console.log('scale', res.scale)
+                // console.log('scale', res.scale)
                 // 视野级别： 0~8：城市， 8~10：行政区， 10~12：商圈， 12~16：小区
                 // 当视野扩大，自动显示上一级
 

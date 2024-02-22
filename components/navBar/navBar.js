@@ -245,7 +245,6 @@ Component({
 
                 app.globalSystemInfo = systemInfo; //将信息保存到全局变量中,后边再用就不用重新异步获取了
 
-                //console.log('systemInfo', systemInfo);
                 return systemInfo;
             }
         },

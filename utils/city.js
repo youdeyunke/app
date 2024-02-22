@@ -29,7 +29,7 @@ module.exports = {
             },
             fail: function (res) {
                 // TODO 获取位置信息失败
-                console.log("无法获取当前定位信息", res)
+                // console.log("无法获取当前定位信息", res)
             },
         })
     },

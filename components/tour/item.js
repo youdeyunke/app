@@ -36,7 +36,7 @@ Component({
     },
 
     ready: function () {
-        console.log('ready')
+        // console.log('ready')
         var _this = this
         var time_ago = this.getDateDiff(_this.data.item.created_at)
         this.setData({ time_ago: time_ago })

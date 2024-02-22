@@ -37,7 +37,6 @@ Component({
       var _this = this
       var item = this.data.item
       // 根据position id 查询导航按钮  
-      console.log("555555");
 
       navsApi.getDynamicNavs(item.id).then((resp) => {
         if (resp.data.status != 0) {

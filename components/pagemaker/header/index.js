@@ -15,7 +15,6 @@ Component({
                 return
             }
             var link = c.link && c.link.cat !== 'no' ? c.link : null
-            console.log('link is', link)
             var data = {
                 title: c.title.text,
                 icon: c.title.icon,

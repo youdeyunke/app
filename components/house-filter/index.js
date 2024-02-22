@@ -20,7 +20,6 @@ Component({
     },
     observers: {
         'options': function (v) {
-            console.log('options change in new-post-filter.js ', v)
         }
     },
 

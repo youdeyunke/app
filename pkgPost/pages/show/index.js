@@ -67,7 +67,7 @@ Page({
     },
 
     tabChange: function (e) {
-        console.log(e.detail.name)
+        // console.log(e.detail.name)
         var name = e.detail.name
         var offsetTop = this.data.StatusBarHeight
         wx.pageScrollTo({
@@ -173,7 +173,7 @@ Page({
     },
 
     backTo (e) {
-        console.log(e.detail.delta)
+        // console.log(e.detail.delta)
         wx.navigateBack({
             delta: e.detail.delta
         });
@@ -221,7 +221,7 @@ Page({
             if (resp.data.code != 0) {
                 return
             }
-            console.log("bannersInfo: resp.data", resp.data);
+            // console.log("bannersInfo: resp.data", resp.data);
             _this.setData({
                 bannersInfo: resp.data.data
             })
@@ -362,7 +362,7 @@ Page({
         if (cacheValue.length >= 1) {
             for (let i = 0; i < cacheValue.length; i++) {
                 if (cacheValue[i].post.id == this.data.postId) {
-                    console.log("出现过了")
+                    // console.log("出现过了")
                     return
                 }
             }
@@ -422,7 +422,7 @@ Page({
      */
     onShow: function () {
         var pages = getCurrentPages()
-        console.log('pages', pages)
+        // console.log('pages', pages)
         var showNavBack = false
         if (pages.length > 1) {
             showNavBack = true
@@ -459,7 +459,7 @@ Page({
         data.postInfo = post
         data.pageTitle = post.title
         data.pageCover = post.cover
-        console.log('set post info', post)
+        // console.log('set post info', post)
         wx.setNavigationBarTitle({ title: post.title, })
         this.setData(data, () => {
             typeof cb == 'function' && cb(post)

@@ -247,7 +247,7 @@ Page({
     },
   
     loginsuccess(e){
-      console.log(e);
+      // console.log(e);
       var _this = this
       setTimeout(() => {
         var u = app.globalData.userInfo
@@ -364,7 +364,7 @@ Page({
     },
 
     mobileBind: function (e) {
-        console.log('用户授权获取手机号成功', e.detail)
+        // console.log('用户授权获取手机号成功', e.detail)
         var mobile = e.detail
         if (!mobile) {
             wx.showToast({
@@ -578,7 +578,7 @@ Page({
         p.selected = !p.selected
         ps[i] = p
         this.data.purposeList.forEach(function (item, i) {
-            console.log('item', item)
+            // console.log('item', item)
             if (item.selected) {
                 purpose.push(item.name)
             }
@@ -592,7 +592,7 @@ Page({
     },
 
     onChange(e) {
-        console.log(e.detail)
+        // console.log(e.detail)
         this.setData({
             budget_min: e.detail[0],
             budget_max: e.detail[1],

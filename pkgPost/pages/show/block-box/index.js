@@ -34,7 +34,7 @@ Component({
     methods: {
 
         actionHandle: function (e) {
-            console.log('url:', this.data.url, 'opentype', this.data.opentype)
+            // console.log('url:', this.data.url, 'opentype', this.data.opentype)
             if (!this.data.url) {
                 return false
             }
@@ -46,19 +46,19 @@ Component({
                     wx.navigateTo({
                         url: url,
                     })
-                    console.log('hello')
+                    // console.log('hello')
                     break;
                 case "switchtab":
                     wx.switchTab({
                         url: url,
                     })
-                    console.log('hello')
+                    // console.log('hello')
                     break;
                 case "webview":
                     wx.navigateTo({
                         url: '/pages/webview/webview?url=' + url,
                     })
-                    console.log('hello')
+                    // console.log('hello')
                     break;
                 default:
                     console.log('default:', _this.data.opentype.toLowerCase, 'url', url)

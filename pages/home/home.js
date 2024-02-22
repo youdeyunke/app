@@ -183,7 +183,7 @@ Page({
 
     pageReadyHandle: function (e) {
         var config = e.detail
-        console.log('page ready config', config)
+        // console.log('page ready config', config)
         // 页面加载完成
         var pageTitle = config.title.value || app.globalData.myconfigs.xcx_name
         var shareCover = config.shareCover

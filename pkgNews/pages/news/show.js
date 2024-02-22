@@ -28,7 +28,7 @@ Page({
      */
     onLoad: function (q) {
         app.checkForceLogin()
-        console.log('q', q)
+        // console.log('q', q)
         this.setData({ nid: q.id, homebtn: q.homebtn || null })
         this.loadData()
     },

@@ -223,7 +223,6 @@ Component({
             })
             // //缩放视野展示所有经纬度 此方法传入的数组不能为空 所以手动进行非空验证
 
-            console.log('经纬度arr', arr)
             let MapContext = wx.createMapContext('map', this);
             MapContext.includePoints({
                 padding: [50, 50, 50, 50],
@@ -291,7 +290,6 @@ Component({
             this.setData({
                 markers: markers
             })
-            console.log('markers', this.data.markers, pois)
         },
         loadData () {
             var _this = this

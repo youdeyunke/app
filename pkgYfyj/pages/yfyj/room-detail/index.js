@@ -40,7 +40,7 @@ Component({
 
         onShow: function (item) {
             // TODO  计算价格差异  
-            console.log('item', item)
+            // console.log('item', item)
             // 处理价格单位等 
 
             item.hasDelta = false

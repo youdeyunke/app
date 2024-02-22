@@ -111,7 +111,7 @@ Page({
       }
 
     }
-    console.log('dates', dates)
+    // console.log('dates', dates)
     this.setData({
       dates: dates
     })
@@ -173,7 +173,7 @@ Page({
   },
 
   loginsuccess(e){
-    console.log(e);
+    // console.log(e);
     var _this = this
     setTimeout(() => {
       var u = app.globalData.userInfo
@@ -218,7 +218,7 @@ Page({
       })
       return false
     }
-    console.log("this.data.mobile", this.data.mobile.length)
+    // console.log("this.data.mobile", this.data.mobile.length)
     if (this.data.mobile.length < '11') {
       wx.showToast({
         title: '号码格式错误，请重新输入',
@@ -239,7 +239,7 @@ Page({
       mobile: this.data.mobile,
       status: 0,
     }
-    console.log("log", log)
+    // console.log("log", log)
     var d = this.data.dates[this.data.currentDateIndex]
     var t = d.times[this.data.currentTimeIndex]
     log['time'] = t.value

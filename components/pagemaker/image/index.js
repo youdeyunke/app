@@ -31,7 +31,6 @@ Component({
     },
 
     "config.height": function (v) {
-      console.log('config.height', v)
       // 图片的高度值
       if (!v || !v.value) {
         return false

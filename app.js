@@ -421,7 +421,6 @@ App({
             var s = systemInfo['system'].split(' ')[0].toLowerCase()
             systemInfo['systemName'] = s
             this.globalData.system = systemInfo
-            console.log('systeminfo', systemInfo)
 
             // 胶囊按钮位置信息
             const menuButtonInfo = wx.getMenuButtonBoundingClientRect();

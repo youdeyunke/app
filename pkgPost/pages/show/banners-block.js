@@ -118,7 +118,7 @@ Component({
         },
 
         itemChange: function (e) {
-            console.log('item change', e)
+            // console.log('item change', e)
             var source = e.detail.source
             var i = e.detail.current
             var item = this.data.images[i]
@@ -134,7 +134,7 @@ Component({
         },
 
         tabChange: function (e) {
-            console.log('tab change', e)
+            // console.log('tab change', e)
             var tab = e.currentTarget.dataset.tab
             this.setData({
                 currentTab: tab

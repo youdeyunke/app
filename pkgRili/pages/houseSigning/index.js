@@ -128,7 +128,6 @@ Page({
         per_page: 9999,
     }
       housesigningApi.getHousesignings(data).then((resp) => {
-        console.log(resp);
         if (resp.data.code != 0) {
           return
         }
