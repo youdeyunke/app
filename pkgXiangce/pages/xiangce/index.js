@@ -52,7 +52,7 @@ Page({
             height: app.globalData.system.windowHeight,
         }, (res) => {
             _this.loadData()
-            this.loadPostBrokerInfo(q.target_id)
+            // this.loadPostBrokerInfo(q.target_id)
             //_this.loadPostInfo()
         })
     },
@@ -62,12 +62,12 @@ Page({
         var query = {
             post_id: pid
         }
-        brokerApi.getPostDefaultBrokerDetail(query).then((res) => {
-            var broker = res.data.data
-            _this.setData({
-                broker: broker
-            })
-        })
+        // brokerApi.getPostDefaultBrokerDetail(query).then((res) => {
+        //     var broker = res.data.data
+        //     _this.setData({
+        //         broker: broker
+        //     })
+        // })
     },
 
     loadData: function () {

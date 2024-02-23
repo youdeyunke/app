@@ -89,7 +89,7 @@ Component({
             if (img.cat == 'video') {
                 var urls = [{
                     url: img.url,
-                    poster: img.image,
+                    // poster: img.image,
                     type: 'video',
                 }]
                 wx.previewMedia({

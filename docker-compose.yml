@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   app:
-    image: "udeve/udyk:6.0.73" # 默认拉取最新版本
+    image: "udeve/udyk:6.0.181" # 默认拉取最新版本
     privileged: true
     expose:
       - 8080
