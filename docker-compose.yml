@@ -9,14 +9,14 @@ services:
       - "18080:8080" # 18080为对外暴露端口，可以根据需要进行修改，然后通过Nginx反向代理到此端口既可
     environment:
       - TZ="Asia/Shanghai"
+      - LANG="C.UTF-8" 
     depends_on:
       - redis
       - db
     volumes:
       - "/var/lib/udyk/app:/app"
       - "/tmp:/tmp"
-    environment:
-      LANG: "C.UTF-8"      
+        
 
   redis:
     restart: "always"
