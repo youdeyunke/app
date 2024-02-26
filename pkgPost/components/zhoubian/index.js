@@ -164,6 +164,23 @@ Component({
      */
     methods: {
 
+        calculateDestinationCoordinate(latitude, longitude, distance) {
+          // 将距离转换成弧度
+          const EARTH_RADIUS = 6371;
+          const distanceRadians = distance / EARTH_RADIUS;
+        
+          // 将纬度转换成弧度
+          const latRad = latitude * Math.PI / 180;
+          
+          // 计算新点的纬度
+          const newLat = latitude + (distanceRadians * (180 / Math.PI));
+        
+          // 计算新点的经度
+          const newLon = longitude;
+        
+          return {latitude: newLat, longitude: newLon};
+        },
+
         getContent (e) {
             var _this = this
             var app = getApp()
@@ -261,6 +278,69 @@ Component({
                 }
             }
             markers.push(marker)
+
+            const targetCoordinate1 = this.calculateDestinationCoordinate(_this.data.post.latitude, _this.data.post.longitude, 1);
+            var marker1 = {
+              iconPath: '/assets/icons/marker.png',
+              alpha: '0',
+              width: "1rpx",
+              height: "1rpx",
+              latitude: targetCoordinate1.latitude,
+              longitude: targetCoordinate1.longitude,
+
+              callout: {
+                  content: '1km',
+                  borderRadius: 4,
+                  display: 'ALWAYS',
+                  padding: 2,
+                  fontSize: '20rpx',
+                  textAlign: 'center',
+              }
+          }
+
+            const targetCoordinate2 = this.calculateDestinationCoordinate(_this.data.post.latitude, _this.data.post.longitude, 2);
+            var marker2 = {
+              iconPath: '/assets/icons/marker.png',
+              alpha: '0',
+              width: "1rpx",
+              height: "1rpx",
+              latitude: targetCoordinate2.latitude,
+              longitude: targetCoordinate2.longitude,
+
+              callout: {
+                  content: '2km',
+                  borderRadius: 4,
+                  display: 'ALWAYS',
+                  padding: 2,
+                  fontSize: '20rpx',
+                  textAlign: 'center',
+              }
+          }
+
+            const targetCoordinate3 = this.calculateDestinationCoordinate(_this.data.post.latitude, _this.data.post.longitude, 3);
+            var marker3 = {
+              iconPath: '/assets/icons/marker.png',
+              alpha: '0',
+              width: "1rpx",
+              height: "1rpx",
+              latitude: targetCoordinate3.latitude,
+              longitude: targetCoordinate3.longitude,
+
+              callout: {
+                  content: '3km',
+                  borderRadius: 4,
+                  display: 'ALWAYS',
+                  padding: 2,
+                  fontSize: '20rpx',
+                  textAlign: 'center',
+              }
+          }
+
+          markers.push(marker1)
+          markers.push(marker2)
+          markers.push(marker3)
+
+
             pois.forEach((v, i) => {
                 var m = {
                     id: i,
@@ -298,8 +378,32 @@ Component({
             postApi.getPostBaseInfo(_this.data.postId
             ).then((res) => {
                 var post = res.data.data
+
+                var arr = [{
+                            latitude: post.latitude,
+                            longitude: post.longitude,
+                            color: '#cecdc9',
+                            fillColor: '#00000010',
+                            radius:1000,
+                            strokeWidth: 2
+                          },{
+                            latitude: post.latitude,
+                            longitude: post.longitude,
+                            color: '#cecdc9',
+                            fillColor: '#00000010',
+                            radius:2000,
+                            strokeWidth: 2
+                          },{
+                            latitude: post.latitude,
+                            longitude: post.longitude,
+                            color: '#cecdc9',
+                            fillColor: '#00000010',
+                            radius:3000,
+                            strokeWidth: 2
+                          }]
                 _this.setData({
-                    post: post
+                    post: post,
+                    circles: arr
                 })
             })
         },

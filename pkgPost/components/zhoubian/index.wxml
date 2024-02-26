@@ -9,7 +9,7 @@
  | Author: UDEVE Team <tech@udeve.cn>
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
-<map id="map" enable-zoom enable-scroll="{{false}}" enable-rotate="{{true}}" longitude="{{longitude}}" show-scale="{{false}}" latitude="{{latitude}}" markers="{{markers}}" include-points="{{points}}" bindcallouttap="markertap" bindmarkertap="markertap" style="width:{{mapW}}rpx; height:{{mapH}}rpx;"></map>
+<map id="map" enable-zoom enable-scroll="{{false}}" enable-rotate="{{true}}" circles="{{circles}}" longitude="{{longitude}}" show-scale="{{false}}" latitude="{{latitude}}" markers="{{markers}}" include-points="{{points}}" bindcallouttap="markertap" bindmarkertap="markertap" style="width:{{mapW}}rpx; height:{{mapH}}rpx;"></map>
 
 <view class="tabs">
 
