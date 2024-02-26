@@ -11,7 +11,7 @@
 -->
 <view id="brokers-box">
   <view class="brokers-top">
-    <image src="/pkgBrokers/image/2-0.png"></image>
+    <image src="https://qiniucdn.udeve.net/udyk/65dc547fe4b0f06b0116bc3f.png"></image>
     <navigator class="brokers-top-photo" url="/pkgBroker/pages/broker/profile?id={{ranking[0].user_id}}">
       <image src="{{ranking[0].avatar}}" ></image>
       <image src="/pkgBrokers/image/1-24.png"></image>

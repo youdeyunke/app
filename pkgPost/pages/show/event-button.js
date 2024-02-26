@@ -109,15 +109,18 @@ Component({
             eventApi.deleteEventFollow(pid).then((res) => {
                 wx.removeStorage({
                     key: this.data.pid + "_ef",
+                    success(){
+                      _this.loadStatus()
+                      wx.showToast({
+                          title: '已取消订阅楼盘动态通知，系统将不会给您发送任何该楼的动态通知',
+                          icon: 'none',
+                          image: '',
+                          duration: 1500,
+                          mask: true,
+                      });
+                    }
                 })
-                _this.loadStatus()
-                wx.showToast({
-                    title: '已取消订阅楼盘动态通知，系统将不会给您发送任何该楼的动态通知',
-                    icon: 'none',
-                    image: '',
-                    duration: 1500,
-                    mask: true,
-                });
+               
             })
         },
 
@@ -127,10 +130,13 @@ Component({
             eventApi.createEventFollow(_this.data.pid).then((res) => {
                 wx.setStorage({
                     key: _this.data.pid + "_ef",
-                    data: 'ok'
+                    data: 'ok',
+                    success(){
+                      // 提交后刷新状态
+                      _this.loadStatus()
+                    }
                 })
-                // 提交后刷新状态
-                _this.loadStatus()
+
             })
         },
         subHandle: function () {

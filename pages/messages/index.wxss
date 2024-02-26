@@ -216,3 +216,58 @@ page{
     margin-left: 10rpx;
     margin-bottom: 1rpx;
   }
+
+  /* styles.css */
+
+.sysitem-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 40rpx 0;
+}
+
+.sysitem-image {
+  width: 100rpx;
+  height: 100rpx;
+  display: inline-block;
+}
+
+.sysitem-content {
+  width: 420rpx;
+}
+
+.sysitem-title {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.sysitem-subtitle {
+  width: 400rpx;
+  margin-top: 10rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #999;
+}
+
+.sysitem-meta {
+  width: 160rpx;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+.sysitem-date {
+  font-size: 22rpx;
+  color: #999;
+  margin-left: auto;
+}
+
+.sysitem-badge {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 8rpx;
+  background-color: red;
+  margin-left: auto;
+  margin-top: 10rpx;
+}

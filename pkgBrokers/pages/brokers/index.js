@@ -18,16 +18,31 @@ Page({
      * 页面的初始数据
      */
     data: {
-        ranking: ''
+        ranking: '',
+        pid: null,
     },
     LoadHandle () {
         var _this = this
-        // √
-        brokerApi.getBrokerList({
+        var data = { per_page: 100 }
+        if(this.data.pid) {
+          data.post_id = this.data.pid
+        }
 
-        }).then((res) => {
+        // √
+        brokerApi.getBrokerList(data).then((res) => {
+            if(res.data.code != 0){ return }
+            var arr = res.data.data.result
+            // 将arr 按照score属性排序
+            arr.sort(function(a, b) {
+              return b.score - a.score
+            })  
+            // 如果排序后的数组大于20，将数组减少到20   
+            if (arr.length > 20) {
+              arr = arr.slice(0, 20)
+            }
+
             _this.setData({
-                ranking: res.data.data.result
+                ranking: arr
             })
         })
     },
@@ -36,6 +51,12 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+      var _this = this
+        if (options.pid) {
+          this.setData({
+            pid: options.pid
+          })
+        }
         this.LoadHandle()
         wx.setNavigationBarTitle({
             title: '置业顾问排行榜'

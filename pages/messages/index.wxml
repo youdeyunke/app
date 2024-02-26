@@ -11,20 +11,38 @@
 -->
 <wxs module="stringConverter">
   var mapping = {
-    'like': '点赞',
-    'customer': '客户',
-    'thread': '线索',
-    'share_customer': '拓客',
-    'score': '积分',
-    'event': '动态',
-    'broker': '顾问',
-    'qa': '问答'
+    'like': '用户点赞',
+    'customer': '客户管理',
+    'thread': '线索管理',
+    'share_customer': '顾问拓客',
+    'score': '顾问积分',
+    'event': '楼盘动态',
+    'broker': '置业顾问',
+    'qa': '楼盘问答'
   };
 
   function convertString(input) {
     return mapping[input] || '';
   }
+  function formatDateTime(originalDateTime) {
+    var dateArr = originalDateTime.split(' '); // 拆分日期和时间部分
+    var date = dateArr[0].split('-'); // 拆分年、月、日部分
+    var time = dateArr[1].split(':'); // 拆分小时、分钟、秒部分
+    
+    var month = parseInt(date[1]);
+    var day = parseInt(date[2]);
+    var hour = parseInt(time[0]);
+    var minute = parseInt(time[1]);
+
+    var formattedMonth = month < 10 ? '0' + month : month;
+    var formattedDay = day < 10 ? '0' + day : day;
+    var formattedHour = hour < 10 ? '0' + hour : hour;
+    var formattedMinute = minute < 10 ? '0' + minute : minute;
+
+    return formattedMonth + '-' + formattedDay + ' ' + formattedHour + ':' + formattedMinute;
+  };
   module.exports.convertString = convertString
+  module.exports.formatDateTime = formatDateTime
 </wxs>
 
 <navigation-bar bgOpacity="{{bgOpacity}}" background-color-top="none" title="" color="{{titleFontColor}}">
@@ -77,12 +95,24 @@
         <view class="outer" padding="30">
           <view bindtap="sysItemClickHandle" bindlongpress="deleteSysHandle" data-index="{{index}}" data-sid="{{item.id}}" wx:for="{{systemItems}}">
 
-            <van-cell label="{{item.updated_at}}" is-link>
+            <!-- <van-cell label="{{item.updated_at}}" is-link>
               <view slot="title" style="display: flex;justify-content: space-between;">
                 <view class="van-cell-text">{{'['+ stringConverter.convertString(item.cat) + ']' +item.title}}</view>
                 <van-tag wx:if="{{item.unread==true}}" type="danger">未读</van-tag>
               </view>
-            </van-cell>
+            </van-cell> -->
+
+            <view class="sysitem-container">
+              <image class="sysitem-image" src="/assets/icons/message/{{stringConverter.convertString(item.cat)}}.png" mode=""/>
+              <view class="sysitem-content">
+                <view class="sysitem-title">{{stringConverter.convertString(item.cat)}}</view>
+                <view class="sysitem-subtitle">{{item.title}}</view>
+              </view>
+              <view class="sysitem-meta">
+                <view class="sysitem-date">{{stringConverter.formatDateTime(item.updated_at)}}</view>
+                <view class="sysitem-badge" style="background-color: {{item.unread ? '' : '#ccc'}};"></view>
+              </view>
+            </view>
 
           </view>
         </view>
