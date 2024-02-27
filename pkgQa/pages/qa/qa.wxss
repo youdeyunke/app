@@ -97,8 +97,12 @@ page {
     margin-bottom: 20rpx;
 }
 
-.answer .avatar, .answer .name, .answer .tag {
+.answer .avatar,.answer .name, .answer .tag, .answer .time {
     margin-right: 20rpx;
+}
+
+.answer .level, .answer .name {
+  margin-right: 10rpx;
 }
 
 .answer .meta .left {
@@ -108,11 +112,24 @@ page {
     font-size: 28rpx;
 }
 
+.answer .avatar{
+  width: 60rpx;
+  height: 60rpx;
+}
+
 .answer .avatar image {
     width: 60rpx;
     height: 60rpx;
     border-radius: 60rpx;
-    border: 1rpx solid #f4f4f4;
+    border: 1rpx solid #fff;
+}
+.answer .level{
+  width: 40rpx;
+  height: 40rpx;
+}
+.answer .level image {
+  width: 40rpx;
+  height: 40rpx;
 }
 
 .answer .content {

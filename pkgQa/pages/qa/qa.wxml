@@ -9,6 +9,14 @@
  | Author: UDEVE Team <tech@udeve.cn>
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
+
+<wxs module="stringConverter">
+  var formatTime = function (dateString) {
+    return dateString.slice(2)
+  }
+  module.exports.formatTime = formatTime
+</wxs>
+
 <page-loading loading="{{loading}}" />
 <box width="710" padding="20" hidden="{{loading && !item.id}}">
     <view class="float-btn">
@@ -40,9 +48,19 @@
                     <view class="avatar">
                         <image src="{{answer.user.avatar}}" />
                     </view>
+                    
                     <view class="name">
-                        {{ answer.user.name}}  {{ answer.created_at_pretty }}
+                        {{ answer.user.name}}
                     </view>
+
+                    <view class="level" wx:if="{{answer.user.is_broker}}">
+                        <image src="/assets/icons/broker/jiangpai{{answer.user.level}}.png" />
+                    </view>
+
+                    <view class="time">
+                        {{ stringConverter.formatTime(answer.created_at_pretty) }}
+                    </view>
+
                     <view class="tag" wx:if="{{ index == 0}}">
                         <van-tag size="mini" type="primary">最佳回答</van-tag>
                     </view>
