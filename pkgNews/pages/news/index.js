@@ -27,6 +27,8 @@ Page({
         loading: false,
         cats_key: 'news.cats',
         news: [],
+        kw: '',
+        primaryColor: '#9e1d1d'
     },
 
     /**
@@ -36,7 +38,7 @@ Page({
         app.checkForceLogin()
         var _this = this
         var catId = q.cat_id || ''
-        wx.setNavigationBarTitle({ title: '头条' })
+        wx.setNavigationBarTitle({ title: '资讯' })
         this.ensureCats(function (cats) {
             // 根据catid 找到需要选中哪个分类
             var active = 0
@@ -45,9 +47,15 @@ Page({
                     active = i
                 }
             })
+            if(!catId){
+                catId = cats[0].id
+            }
+            
+            var color = app.globalData.color
             var data = {
                 active: active,
                 cats: cats,
+                primaryColor: color.primary || '#9e1d1d',
                 catId: catId
             }
             _this.setData(data)
@@ -59,12 +67,18 @@ Page({
         this.loadCats()
     },
 
+    kwChange(){
+      this.loadNews()
+    },
+
     catChange: function (e) {
-        var i = e.detail.name
+        var i = e.currentTarget.dataset.i
         var cat = this.data.cats[i]
         this.setData({
             isEmpty: false,
+            isEnd: false,
             catId: cat.id,
+            active: i,
             page: 1,
             news: [],
         })
@@ -116,7 +130,8 @@ Page({
         var query = {
             cat_id: _this.data.catId,
             page: _this.data.page,
-            per_page: _this.data.per_page
+            per_page: _this.data.per_page,
+            kw: _this.data.kw,
         }
         // √
         newsApi.getNewsList(query).then((resp) => {

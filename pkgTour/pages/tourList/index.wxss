@@ -9,29 +9,9 @@
 * | Author: UDEVE Team <tech@udeve.cn>
 * +----------------------------------------------------------------------
 */
-.loading{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.outer{
-  /* width:710rpx; */
-
-}
-
-
-.post-item .border{
-  width: 100%; 
-  margin:0 10rpx;
-  border-bottom:2rpx solid #f2f2f2;
-  height: 10rpx;
-  margin-bottom:20rpx; 
-}
-
-
-.post-item:last-child .border{
-  border:none;
-  margin-bottom:0rpx;
-  height: 0rpx;
+/* pkgTour/pages/tourList/index.wxss */
+.tour-list{
+  width: 710rpx;
+  margin: 0 auto;
+  padding-top: 20rpx;
 }

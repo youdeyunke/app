@@ -122,7 +122,7 @@
 
   </van-tabs>
 
-
+  <recommended-post-items wx:if="{{!userInfo.is_broker}}"></recommended-post-items>
 
   <copyright></copyright>
 </view>

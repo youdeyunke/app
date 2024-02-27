@@ -1,6 +1,7 @@
 {
   "navigationStyle": "custom",
   "usingComponents": {
-    "van-tag": "/vant/tag/index"
+    "van-tag": "/vant/tag/index",
+    "recommended-post-items": "/components/recommended-post-items/index"
   }
 }

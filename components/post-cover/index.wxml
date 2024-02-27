@@ -14,7 +14,9 @@
     <image style="width:{{width}}rpx;height:{{height}}rpx;" class="img" src="{{item.cover}}?imageView2/2/w/400"
         mode="aspectFill" lazy-load="{{true}}" />
 
-
+    <view class="salestatus" wx:if="{{item.sale_status_item}}" style="background-color: {{item.sale_status_item.color}};">
+      {{item.sale_status_item.name}}
+    </view>
     <view class="footer">
         <view class="views" wx:if="{{views}}">
             <image class="icon eye" src="{{eyeIcon}}"></image>

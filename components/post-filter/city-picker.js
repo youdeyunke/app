@@ -93,6 +93,7 @@ Component({
                 if (resp.data.status != 0) {
                     return false
                 }
+                console.log(resp.data.data);
                 // cityitems for van-tree-select 
                 var items = resp.data.data.map((city, i) => {
                     if (i == 0) {

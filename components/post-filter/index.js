@@ -55,14 +55,14 @@ Component({
         loadFilterOptions: function () {
             // 加载销售状态选项
             var _this = this
-            filter_optionApi.getFilterOptionList(
-                _this.data.postGroup
-            ).then((resp) => {
-                if (resp.data.status != 0) {
-                    return
-                }
-                _this.setData({ filterOptions: resp.data.data })
-            })
+            // filter_optionApi.getFilterOptionList(
+            //     _this.data.postGroup
+            // ).then((resp) => {
+            //     if (resp.data.status != 0) {
+            //         return
+            //     }
+            //     _this.setData({ filterOptions: resp.data.data })
+            // })
         },
 
 

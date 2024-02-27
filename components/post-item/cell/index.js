@@ -33,7 +33,23 @@ Component({
                 this.setData({ url: url })
 
             }
-            this.setData({ url: post.url })
+            if (post.point_title !== null && post.point_title !== undefined) {
+                //将post.point_title中的中英文：都转为英文:
+                var point_title = post.point_title.replace(/：/g, ':')
+                //将point_title按英文:分割成数组
+                var point_title_arr = point_title.split(':')
+                //如果数组长度大于1，说明有中英文:，将数组第一个元素赋值给point_title
+                var point = { }
+                if (point_title_arr.length > 1) {
+                    point.title = point_title_arr[0]
+                    point.content = point_title_arr[1]
+                } else {
+                    point.title = '楼盘亮点'
+                    point.content = post.point_title
+                }
+                
+            }
+            this.setData({ url: post.url, point: point })
 
         },
     },

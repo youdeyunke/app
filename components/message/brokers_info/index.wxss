@@ -39,8 +39,9 @@
   align-items: center;
 }
 .level{
-  width: 120rpx;
-  height: 34rpx;
+  /* width: 120rpx; */
+  width: 50rpx;
+  height: 50rpx;
   margin-left: 12rpx;
 }
 .wechat,.mobile{

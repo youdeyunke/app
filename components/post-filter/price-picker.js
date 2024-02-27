@@ -171,13 +171,17 @@ Component({
                 }
             })
             if (!value) {
-                value = this.data.input_min + ',' + this.data.input_max
+                if(this.data.input_min && this.data.input_max){
+                    value = this.data.input_min + ',' + this.data.input_max
+                }
+                // value = this.data.input_min + ',' + this.data.input_max
             }
-            if (!value) {
-                return false
-            }
+            // if (!value) {
+            //     return false
+            // }
 
             data[key] = value
+            console.log(data);
             this.triggerEvent('change', data, {})
             this.setData({ show: false })
         },

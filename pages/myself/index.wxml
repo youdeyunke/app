@@ -121,6 +121,9 @@
                 </van-cell>
             </van-cell-group>
         </ud-card>
+
+        <recommended-post-items wx:if="{{!userInfo.is_broker}}"></recommended-post-items>
+
     </view>
 </view>
 

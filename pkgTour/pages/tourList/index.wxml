@@ -9,15 +9,8 @@
  | Author: UDEVE Team <tech@udeve.cn>
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
-<view class="info-box">
-  <navigator class="message" url="/pkgBroker/pages/broker/profile?id={{userinfo.user_id}}">
-    <image class="avatar" src="{{userinfo.avatar}}?imageView2/5/h/200/w/200"></image>
-    <view class="name">{{userinfo.name}}</view>
-    <image class="level" src="/assets/icons/broker/jiangpai{{userinfo.level}}.png"></image>
-  </navigator>
-  <view class="footer">
-
-  <image bindtap="copyHandle" class="wechat" src="/assets/icons/message/wechat.png"></image>
-  <image bindtap="callHandle" class="mobile" src="/assets/icons/message/mobile.png"></image>
-</view>
+<!--pkgTour/pages/tourList/index.wxml-->
+<van-search round bind:clear="clearHandle" model:value="{{ kw }}" placeholder="输入关键词进行搜索" bind:confirm="kwChange" bind:search='kwChange' bind:clear="kwChange" bind:blur="kwChange" custom-class='search' />
+<view class="tour-list">
+    <tour-item wx:for="{{tourItems}}" item="{{item}}"></tour-item>
 </view>

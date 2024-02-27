@@ -38,7 +38,7 @@ Component({
 
             {
                 label: "均价（从小到大)",
-                value: "custom_average_price  asc"
+                value: "custom_average_price asc"
             },
             {
                 label: "均价（从大到小)",

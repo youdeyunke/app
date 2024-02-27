@@ -13,7 +13,7 @@
 
 .post {
     box-sizing: border-box;
-    width: 100%;
+    width: 690rpx;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -22,9 +22,10 @@
 }
 
 .post .right{
-    margin-left:20rpx;
+    margin-left:30rpx;
     box-sizing: border-box;
-    width: calc(100% - 20rpx - 214rpx);
+    width: 420rpx;
+    /* width: calc(100% - 20rpx - 214rpx); */
 }
 
 .eye-icon{
@@ -82,9 +83,9 @@
 
 
 .post .title  {
-    color: #333;
+    color: #000;
     margin-bottom: 0rpx;
-    font-size: 32rpx;
+    font-size: 36rpx;
     font-weight: bolder;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -98,10 +99,13 @@
 
 .post .price {
     margin-bottom:6rpx;
+    overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .post .address {
-    color: #A0A0A0;
+    color: #333;
     margin-bottom: 6rpx;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -109,7 +113,7 @@
     overflow-x: hidden;
     overflow-y: hidden;
     width: 400rpx;
-    font-size:24rpx;
+    font-size:22rpx;
 }
 
 .post .tags {
@@ -130,8 +134,8 @@
 .post .red {
     margin-right: 10rpx;
     color: #EF3C51;
+    font-size: 36rpx;
     font-weight: bold;
-    font-size:26rpx; 
 }
 
 .post .status{

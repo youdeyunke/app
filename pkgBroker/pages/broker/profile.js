@@ -97,7 +97,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
-        this.loadTours()
+        
         var _this = this
         _this.setData({
             t0: new Date().getTime(),
@@ -125,9 +125,9 @@ Page({
         }, 3000)
     },
 
-    loadTours: function () {
+    loadTours: function (pid) {
         var _this = this
-        var query = {}
+        var query = {post_id: pid}
         query.cityCode = wx.getStorageSync('cityCode') || ''
         tourApi.getTourList(query).then((resp) => {
             if (resp.data.status != 0) {
@@ -221,6 +221,7 @@ Page({
                 broker: u,
             })
             _this.loadPostInfo(u.post_id)
+            _this.loadTours(u.post_id)
             if (resp.data.data.tags) {
                 var tagList = resp.data.data.tags.split(',')
                 _this.setData({

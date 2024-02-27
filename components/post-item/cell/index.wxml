@@ -12,24 +12,31 @@
 <!-- components/pagemaker/posts/post-item0.wxml -->
 <view class="outer">
     <navigator hover-class="none" class="post" url="{{url }}">
-        <post-cover wx:if="{{post}}" item="{{post}}"></post-cover>
+        <post-cover wx:if="{{post}}" height="180" width="240" item="{{post}}"></post-cover>
         <view class="right">
             <view class="title">
                 {{post.title}}
             </view>
-            <view class="price">
-                <text class="red">{{post.average_price_info.text}}{{post.average_price_info.px}}</text>
-            </view>
             <view class="address">{{post.address}}</view>
+            <view class="price">
+                <text class="red">{{post.average_price_info.text}} <text style="font-size: 22rpx;">{{post.average_price_info.px}}</text></text>
+            </view>
+            
             <view class="tags">
-                <van-tag text-color="#ffffff"  color="{{post.sale_status_item.color}}" size="mini">{{post.sale_status_item.name}}
-                </van-tag>
-                <van-tag color="#ECEFF6" text-color="#848CA1" size="mini" wx:for="{{post.tags}}" wx:key="item.id"
+                <!-- <van-tag text-color="#ffffff"  color="{{post.sale_status_item.color}}" size="mini">{{post.sale_status_item.name}}
+                </van-tag> -->
+                <van-tag color="#F4F5FA" text-color="#6A7B8B" size="mini" wx:for="{{post.tags}}" wx:key="item.id"
                     wx:if="{{index<=1}}">{{item.name}}</van-tag>
             </view>
 
-            <view class="point {{ point.cat}}" wx:for="{{post.points_info}}" wx:for-item="point">
+            <!-- <view class="point {{ point.cat}}" wx:for="{{post.points_info}}" wx:for-item="point">
                 <text class="ptitle">{{ point.title || '项目亮点' }} </text>
+                <view class="blank"></view>
+                <text class="content">{{ point.content }}</text>
+            </view> -->
+
+            <view class="point default" wx:if="{{ post.point_title }}">
+                <text class="ptitle">{{point.title}}</text>
                 <view class="blank"></view>
                 <text class="content">{{ point.content }}</text>
             </view>

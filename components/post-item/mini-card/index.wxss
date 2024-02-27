@@ -46,6 +46,7 @@
     justify-content: flex-start;
     align-items: center;
     margin: 20rpx 0;
+    min-height: 36rpx;
 }
 
 .post .tags .tag-item:last-child {
