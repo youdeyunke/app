@@ -51,11 +51,13 @@
 
 </view>
 
-<view wx:if="{{showDingyue}}" class="message-top" bindtap="dingyueHandle">
-  <text style="color: #333333;">订阅消息推送，第一时间回复通知</text>
-  <view style="background-color: {{primaryColor || '#F49946'}};">
+<view wx:if="{{showDingyue}}" class="message-top" >
+  <van-icon name="cross" bindtap="closeDinyueHandle" />
+  <text style="color: {{primaryColor}};font-size: 24rpx;">订阅消息通知，重要消息不错过，请点按钮开启</text>
+  <!-- <view style="background-color: {{primaryColor || '#F49946'}};">
     <text style="color: #ffffff;background-color: {{primaryColor}};">订阅</text>
-  </view>
+  </view> -->
+  <van-button round size="mini" icon="bell" bindtap="dingyueHandle" color="{{primaryColor}}">订阅</van-button>
 </view>
 <view class="vantabs2">
   <van-tabs title-active-color="#fff" title-inactive-color="#fff" active="{{ active }}" bind:click="onChange" color="#fff">

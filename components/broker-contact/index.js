@@ -39,6 +39,15 @@ Component({
     data: {
         mode: 'mini',
         localBrokerId: null,
+        primaryBtnColor: "#ff9600",
+        secondaryBtnColor: "#3a67c0",
+    },
+    ready(){
+      var color = app.globalData.myconfigs.color
+      this.setData({
+          primaryBtnColor: color.primary_btn,
+          secondaryBtnColor: color.secondary_btn,
+      })
     },
 
     observers: {

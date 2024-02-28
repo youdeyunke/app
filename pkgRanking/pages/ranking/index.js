@@ -38,7 +38,7 @@ Page({
 
     loadData: function () {
         var query = {
-            cat: this.data.tabs[this.data.currentTabIndex].value,
+          albums_name: this.data.tabs[this.data.currentTabIndex].name,
         }
         var _this = this
         postApi.getPostRank(query).then((res) => {
@@ -122,6 +122,9 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
+      return{
+        path: '/pkgRanking/pages/ranking/index',
+        title: '楼盘排行'
+      }
     }
 })

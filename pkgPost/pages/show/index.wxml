@@ -76,11 +76,11 @@
 <view style="position: absolute;top: 0;" class="outer" hidden="{{loading}}">
     <banners-block color="{{configs.color.primary}}" value="{{bannersInfo}}"></banners-block>
     <cover-block value="{{postInfo}}" color="{{configs.color.primary}}" />
-    <view style="position: absolute;top: 730rpx;">
+    <view style="position: absolute;top: 690rpx;width: 750rpx;">
         <header-block navs="{{navs}}" post="{{postInfo}}" color="{{configs.color.primary}}" bgImgUrl="{{configs.ui.theme_bg}}" />
     </view>
     <!-- 占位 -->
-    <view style="width: 100%;height: 180rpx;"></view>
+    <view style="width: 100%;height: 130rpx;"></view>
 
 
      <!-- 循环显示各内容模块 -->

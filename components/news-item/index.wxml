@@ -22,7 +22,7 @@
             </view>
             <view class="views"> <van-icon name="eye" size="28rpx" /> <text style="margin-left:10rpx;">{{ item.view_nums }}</text></view>
         </view>
-    </view>
+    </view> 
     <view class="cover" hover-class="none" hover-stop-propagation="false">
         <image class="cover img" src="{{item.cover }}?imageView2/2/w/250"></image>
         <image src="/assets/icons/bofang.png" class="play"></image>

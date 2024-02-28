@@ -86,7 +86,7 @@ export function getPostDetailContent (pid) {
 
 // 查询楼盘排行榜  1  先不做
 export function getPostRank (query) {
-    return request.get("/api/v1/post_rank", query);
+    return request.get("/api/v6/post_rank", query);
 }
 
 

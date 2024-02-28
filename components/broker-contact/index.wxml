@@ -25,7 +25,7 @@
             <view class="text">{{broker.name}}</view>
             <!-- <image src="/assets/icons/broker/{{broker.level}}.png" class="badge" /> -->
         </view>
-        <view class="btn btn1" bindtap="chatHandle">在线咨询</view>
-        <view class="btn btn2" bindtap="callHandle">电话咨询</view>
+        <view class="btn btn1" style="background: {{secondaryBtnColor}};" bindtap="chatHandle">在线咨询</view>
+        <view class="btn btn2" style="background: {{primaryBtnColor}};" bindtap="callHandle">电话咨询</view>
     </view>
 </block>

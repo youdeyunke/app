@@ -44,6 +44,11 @@ Page({
         this.loadSysMessage()
       }
     },
+    closeDinyueHandle(){
+      this.setData({
+        showDingyue: false
+      })
+    },
 
     dingyueHandle: function () {
       var _this = this;

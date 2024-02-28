@@ -138,7 +138,8 @@
       "root": "pkgMap",
       "name": "pkgmap",
       "pages": [
-        "pages/map/index"
+        "pages/map/index",
+        "pages/ershouMap/index"
       ]
     },
     {

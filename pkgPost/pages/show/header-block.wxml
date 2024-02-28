@@ -10,11 +10,11 @@
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
 <view class="outer">
-    <view class="title-block" style="background-image: url({{bgImgUrl}});">
+    <view class="title-block" style="background: {{color}};">
         <view class="first-left">
             <view class="left-title">{{post.title}}</view>
             <view class="left-tags">
-                <view class="left-tag" style="color: {{color}};border: 1rpx solid {{color}};" wx:for="{{post.tags}}" wx:if="{{index <= 2}}" wx:for-item="tag" wx:key="id">
+                <view class="left-tag" style="color: #fff;" wx:for="{{post.tags}}" wx:if="{{index <= 2}}" wx:for-item="tag" wx:key="id">
                     <text>{{tag.name}}</text>
                 </view>
             </view>

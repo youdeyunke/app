@@ -42,5 +42,8 @@
         </view>
     </view>
 </view>
+<view style="height: 150rpx;">
+  
+</view>
 
 <button open-type="share" class="buttons" bindtap="shareHandle">分享楼盘给更多好友</button>

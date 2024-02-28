@@ -39,6 +39,6 @@
     <view class="action {{ status == 1 ? 'dark' : '' }}" bindtap="openHandle">
         <!-- <ud-icon name="dingyue-{{status}}"/> -->
 
-        <view class="status-text" style="color: {{color}};border: 1rpx solid {{color}};">{{ nameDict['btn'][status] }}</view>
+        <view class="status-text" style="color: #fff;border: 2rpx solid #fff;">{{ nameDict['btn'][status] }}</view>
     </view>
 </block>

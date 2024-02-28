@@ -24,6 +24,7 @@ Page({
         tags: [],
         group: 0,
         items: [],
+        primaryColor:'#2B78E4'
     },
 
     /**
@@ -36,9 +37,15 @@ Page({
         });
         var pid = q.post_id || q.id
         var brokerId = q.broker_id
+        var color = app.globalData.myconfigs.color
+        // this.setData({
+        //     primaryBtnColor: color.primary_btn,
+        //     secondaryBtnColor: color.secondary_btn,
+        // })
         this.setData({
             pid: pid,
-            brokerId: brokerId
+            brokerId: brokerId,
+            primaryColor: color.primary
         })
         this.loadTypes(pid)
         this.loadPostInfo(pid)

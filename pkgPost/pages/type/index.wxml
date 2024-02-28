@@ -20,12 +20,12 @@
     <navigator hover-class="none" url="/pkgPost/pages/type/show?id={{item.id}}" hidden="{{ group > 0 && group != item.s}}" class="housetype {{ item.className}}" wx:for="{{items}}" wx:key="id">
         <view class="poster">
             <image width="165px" height="110px" bindtap="viewImage" data-index="{{index}}" src="{{item.cover }}?imageView2/1/w/165/h/110"></image>
-            <view class="huxingbiaoqian" >主力户型</view>
+            <view class="huxingbiaoqian" style="background-color: {{primaryColor}};" >主力户型</view>
         </view>
         <view class="meta">
             <view class="name">
                 {{item.name}}
-                <van-tag plain size="mini" type="primary">{{ item.sale_status_item.name }}</van-tag>
+                <van-tag plain size="mini" color="{{ item.sale_status_item.color || primaryColor}}" type="primary">{{ item.sale_status_item.name }}</van-tag>
             </view>
             <view class="kv">
                 <text class="key">户型朝向</text>

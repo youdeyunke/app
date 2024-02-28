@@ -1,5 +1,5 @@
 {
-
+  "navigationBarTitleText": "楼盘排行",
   "usingComponents": {
     "item": "/components/post-item/cell/index"
   }

@@ -12,7 +12,7 @@
 <!-- components/broker-item/index.wxml -->
 <block>
     <login-window closable="{{true}}" class="loginwindow"></login-window>
-    <view class="outer" style="background:{{bg}}">
+    <view class="outer" style="background-image: url('https://qiniucdn.udeve.net/udyk/65df00a2e4b0599d30678609.png');background-size: 100% 130rpx;">
         <view style="display: flex;align-items: center;">
             <view class="avatar" bindtap="gotoProfile">
             
@@ -26,8 +26,14 @@
             <image class="broker-level-icon" src="/assets/icons/broker/jiangpai{{item.level}}.png"></image>
         </view>
         <view class="actions">
-            <image bindtap="chatHandle" src="/assets/icons/broker/message.png"></image>
-            <image bindtap="phoneHandle" src="/assets/icons/broker/phone.png"></image>
+            <!-- <image bindtap="chatHandle" src="/assets/icons/broker/message.png"></image>
+            <image bindtap="phoneHandle" src="/assets/icons/broker/phone.png"></image> -->
+            <view bindtap="phoneHandle" class="btns">
+              
+            </view>
+            <view bindtap="chatHandle" class="btns">
+              
+            </view>
         </view>
     </view>
 

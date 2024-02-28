@@ -25,7 +25,7 @@
             </block>
         </view>
     </view> -->
-    <post-cover height="246" width="100%" bottomRightRadius='0' bottomLeftRadius='0' wx:if="{{post}}" item="{{post}}"></post-cover>
+    <post-cover height="246" width="100%" topRightRadius="16" topLeftRadius="16" bottomRightRadius='0' bottomLeftRadius='0' wx:if="{{post}}" item="{{post}}"></post-cover>
     <view class="footer">
         <view class="title">{{post.title}}</view>
         <view class="top">

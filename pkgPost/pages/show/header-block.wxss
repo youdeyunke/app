@@ -13,20 +13,22 @@
     background-color: #fff;
     color: #333;
     font-size: 24rpx;
-    border-top-right-radius: 26rpx;
-    border-top-left-radius: 26rpx;
+    width: 718rpx;
+    margin: 0 auto 0 auto;
+    border-top-right-radius: 20rpx;
+    border-top-left-radius: 20rpx;
     overflow: hidden;
     /* margin-bottom:20rpx; */
 }
 
 .first-left {
-    width: 600rpx;
+    /* width: 600rpx; */
 }
 
 .title-block {
-    background-image: url('https://qiniucdn.udeve.cn/fang2021/6eed67a9-7a5c-4a64-be48-d81221ca3ac0.png');
-    background-size: 100% 100%;
-    padding: 50rpx 16rpx 85rpx 16rpx;
+    /* background-image: url('https://qiniucdn.udeve.cn/fang2021/6eed67a9-7a5c-4a64-be48-d81221ca3ac0.png');
+    background-size: 100% 100%; */
+    padding: 30rpx 30rpx 120rpx 30rpx;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -35,8 +37,12 @@
 
 .left-title {
     color: #fff;
-    font-weight: 600;
+    font-weight: bold;
     font-size: 40rpx;
+    width: 530rpx;
+    white-space: nowrap; /* 禁止换行 */
+    overflow: hidden; /* 超出部分隐藏 */
+    text-overflow: ellipsis; /* 溢出部分显示省略号 */
 }
 
 .left-tags {
@@ -56,7 +62,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 4rpx;
-    background: #FFFFFF;
+    background: rgba(255 , 255, 255, 0.2);
     margin-right: 16rpx;
     margin-top: 10rpx;
     font-size: 25rpx;
@@ -70,6 +76,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 30rpx;
 }
 
 

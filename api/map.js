@@ -16,6 +16,10 @@ let request = require('../utils/request.js');
 export function getMapMarkerList (query) {
     return request.post("/api/v6/map_markers", query);
 }
+// 拉取二手房标记点
+export function getErshouMapMarkerList (query) {
+  return request.post("/api/v6/map_markers_house", query);
+}
 
 // 1 未找到用的地方
 export function geocoder (latitude, longitude) {
