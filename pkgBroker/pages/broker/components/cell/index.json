@@ -1,4 +1,6 @@
 {
     "component": true,
-    "usingComponents": {}
+    "usingComponents": {
+      "post-cover": "/components/post-cover/index"
+    }
 }

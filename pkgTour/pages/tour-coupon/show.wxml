@@ -60,7 +60,11 @@
   <view class="huodong-card">
     <view class="huodong-card-title">了解项目</view>
     <!-- <post-item post="{{post}}"></post-item> -->
-    <tour-post-item wx:for="{{postIds}}" postId="{{item}}"></tour-post-item>
+    <!-- <tour-post-item wx:for="{{postIds}}" postId="{{item}}"></tour-post-item> -->
+    <view wx:for="{{postIds}}"  class="post-item">
+      <tour-post-item postId="{{item}}"></tour-post-item>
+      <view class="border"></view>
+    </view>
   </view>
   </view>
 

@@ -28,7 +28,18 @@ page {
     /* background:#fff; */
     box-sizing: border-box;
 }
-
+.post-item .border{
+  width: 100%; 
+  margin:0 10rpx;
+  border-bottom:2rpx solid #f2f2f2;
+  height: 10rpx;
+  margin-bottom:20rpx; 
+}
+.post-item:last-child .border{
+  border:none;
+  margin-bottom:0rpx;
+  height: 0rpx;
+}
 .box .title {
     font-size: 32rpx;
     color: #333;
