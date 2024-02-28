@@ -1,9 +1,6 @@
 {
     "enablePullDownRefresh": false,
     "usingComponents": {
-
-      
-        "cell-t": "plugin://contactPlugin/cell",
         "namecard": "./components/namecard/index",
         "van-popup":"/vant/popup/index",
         "post-navs":"/components/post-navs/index",

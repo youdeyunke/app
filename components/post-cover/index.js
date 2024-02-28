@@ -18,8 +18,12 @@ Component({
      */
     properties: {
         item: { type: Object, value: {} },
-        width: { type: Number, value: 215 },
+        width: { type: String, value: 215 },
         height: { type: Number, value: 156 },
+        topLeftRadius: { type: Number, value: 8 },
+        topRightRadius: { type: Number, value: 8 },
+        bottomLeftRadius: { type: Number, value: 8 },
+        bottomRightRadius: { type: Number, value: 8 },
 
     },
 
@@ -47,6 +51,14 @@ Component({
             }
             this.setData({ views: n })
 
+        },
+        "width": function (iw) {
+          // 如果width是百分比
+          if (iw.indexOf('%') > 0) {
+            this.setData({ imageWidth: iw })
+          } else {
+            this.setData({ imageWidth: iw + 'rpx' })
+          }
         }
     },
 
@@ -58,7 +70,7 @@ Component({
         vrIcon: '',
         videoIcon: '',
         eyeIcon: '',
-
+        imageWidth: '215rpx',
     },
 
     /**

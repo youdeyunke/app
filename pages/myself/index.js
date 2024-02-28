@@ -243,6 +243,8 @@ Page({
         })
         app.globalData.userInfo = null
         app.globalData.token = null
+        app.globalData.LOGIN_FLAG = 0
+        this.loadIcons()
     },
 
     syncAvatar: function (e) {

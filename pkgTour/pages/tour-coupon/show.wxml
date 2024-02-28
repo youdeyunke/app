@@ -40,7 +40,7 @@
     <view style="margin-bottom: 10rpx;">
         <view style="font-size: 28rpx;display: flex;">
             <text style="color: #999999;margin-right: 20rpx;width: 120rpx;">活动时间:</text>
-            <view style="width: 480rpx;">{{item.starts_at_pretty}}~{{ item.ends_at_pretty}}</view>
+            <view style="width: 480rpx;">{{item.starts_at}}~{{ item.ends_at}}</view>
         </view>
         <view style="font-size: 28rpx;margin-top: 30rpx;display: flex;">
             <text style="color: #999999;margin-right: 20rpx;width: 120rpx;">主办单位:</text>

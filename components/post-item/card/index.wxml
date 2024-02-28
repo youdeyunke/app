@@ -10,7 +10,7 @@
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
 <navigator hover-class="none" class="post" url="/pkgPost/pages/show/index?id={{post.id}}">
-    <view class="cover">
+    <!-- <view class="cover">
         <image class="cover-image" src="{{post.cover}}?imageView2/1/w/750/h/400" />
         <view class="address">{{post.address}}</view>
         <view class="position">
@@ -24,7 +24,8 @@
             <image src="/assets/icons/post/VR.png"></image>
         </block>
         </view>
-    </view>
+    </view> -->
+    <post-cover height="400" width="100%" wx:if="{{post}}" item="{{post}}"></post-cover>
     <view class="footer">
         <view class="title">{{post.title}}</view>
         <view class="top">

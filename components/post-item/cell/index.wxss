@@ -13,7 +13,7 @@
 
 .post {
     box-sizing: border-box;
-    width: 690rpx;
+    /* width: 690rpx; */
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -24,8 +24,8 @@
 .post .right{
     margin-left:30rpx;
     box-sizing: border-box;
-    width: 420rpx;
-    /* width: calc(100% - 20rpx - 214rpx); */
+    /* width: 400rpx; */
+    width: calc(100% - 30rpx - 240rpx);
 }
 
 .eye-icon{
@@ -84,21 +84,21 @@
 
 .post .title  {
     color: #000;
-    margin-bottom: 0rpx;
     font-size: 36rpx;
+    line-height: 36rpx;
     font-weight: bolder;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
-    margin-bottom:6rpx;
+    margin-bottom:14rpx;
     width:100%;
 }
 
 
 .post .price {
-    margin-bottom:6rpx;
+    margin-bottom:10rpx;
     overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -106,21 +106,37 @@
 
 .post .address {
     color: #333;
-    margin-bottom: 6rpx;
+    margin-bottom: 5rpx;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     overflow-x: hidden;
     overflow-y: hidden;
-    width: 400rpx;
+    width: 100%;
+    height: 35rpx;
+    line-height: 35rpx;
     font-size:22rpx;
 }
 
 .post .tags {
     display: flex;
     justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 10rpx;
+    /* align-items: center; */
+    /* margin-bottom: 10rpx; */
+    transform: scale(0.9);
+    transform-origin: left top;
+}
+
+.post .tags .tag{
+  box-sizing: content-box !important;
+  padding: 0 9rpx;
+  background-color: #F4F5FA;
+  color: #6A7B8B;
+  border-radius: 5rpx;
+  height: 36rpx;
+  line-height: 35rpx;
+  font-size: 25rpx;
+  margin-right: 18rpx;
 }
 
 .post van-tag:last-child {

@@ -16,7 +16,7 @@
   <view class="price red">
     {{post.average_price_info.text}}{{post.average_price_info.px}}
   </view>
-  <view class="position">
+  <!-- <view class="position">
     <block wx:if="{{post.has_live==true}}">
       <image class="img" src="/assets/icons/post/live.png"></image>
     </block>
@@ -26,5 +26,5 @@
     <block wx:if="{{post.has_vr==true}}">
       <image class="img" src="/assets/icons/post/VR.png"></image>
     </block>
-  </view>
+  </view> -->
 </navigator>

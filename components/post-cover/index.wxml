@@ -9,15 +9,15 @@
  | Author: UDEVE Team <tech@udeve.cn>
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
-<view class="cover" style="width:{{width}}rpx;height:{{height}}rpx;">
+<view class="cover" style="width:{{imageWidth}};height:{{height}}rpx;">
 
-    <image style="width:{{width}}rpx;height:{{height}}rpx;" class="img" src="{{item.cover}}?imageView2/2/w/400"
+    <image style="width:{{imageWidth}};height:{{height}}rpx;border-radius: {{topLeftRadius}}rpx {{topRightRadius}}rpx {{bottomLeftRadius}}rpx {{bottomRightRadius}}rpx;" class="img" src="{{item.cover}}?imageView2/2/w/400"
         mode="aspectFill" lazy-load="{{true}}" />
 
-    <view class="salestatus" wx:if="{{item.sale_status_item}}" style="background-color: {{item.sale_status_item.color}};">
+    <view class="salestatus" wx:if="{{item.sale_status_item}}" style="background-color: {{item.sale_status_item.color}};border-radius: {{topLeftRadius * 2}}rpx 0 {{topLeftRadius * 2}}rpx 0;">
       {{item.sale_status_item.name}}
     </view>
-    <view class="footer">
+    <view class="footer" style="border-radius: {{topLeftRadius}}rpx {{topRightRadius}}rpx {{bottomLeftRadius}}rpx {{bottomRightRadius}}rpx;">
         <view class="views" wx:if="{{views}}">
             <image class="icon eye" src="{{eyeIcon}}"></image>
             {{views}}

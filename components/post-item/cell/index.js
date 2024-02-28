@@ -38,11 +38,11 @@ Component({
                 var point_title = post.point_title.replace(/：/g, ':')
                 //将point_title按英文:分割成数组
                 var point_title_arr = point_title.split(':')
-                //如果数组长度大于1，说明有中英文:，将数组第一个元素赋值给point_title
+                //如果数组长度大于1，说明有中英文:，将数组第一个元素赋值给point_title，将数组剩余元素以:连接为字符串后赋值给point.content
                 var point = { }
                 if (point_title_arr.length > 1) {
                     point.title = point_title_arr[0]
-                    point.content = point_title_arr[1]
+                    point.content = point_title_arr.slice(1).join(':')
                 } else {
                     point.title = '楼盘亮点'
                     point.content = post.point_title

@@ -11,11 +11,8 @@
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
 <navigator  hover-class="none" class="{{className}}" url="/pkgNews/pages/news/show?id={{item.id}}">
-    <view class="cover" hover-class="none" hover-stop-propagation="false">
-        <image class="cover img" src="{{item.cover }}?imageView2/2/w/250"></image>
-        <image src="/assets/icons/bofang.png" class="play"></image>
-    </view>
-    <view class="title-block">
+
+  <view class="title-block">
         <view class="title">{{item.title}}</view>
         <!-- <view class="summary an-multi-ellipsis--l3">{{ item.summary }} </view> -->
         <view class="meta">
@@ -26,5 +23,10 @@
             <view class="views"> <van-icon name="eye" size="28rpx" /> <text style="margin-left:10rpx;">{{ item.view_nums }}</text></view>
         </view>
     </view>
+    <view class="cover" hover-class="none" hover-stop-propagation="false">
+        <image class="cover img" src="{{item.cover }}?imageView2/2/w/250"></image>
+        <image src="/assets/icons/bofang.png" class="play"></image>
+    </view>
+
 </navigator>
 

@@ -12,12 +12,12 @@
 <block-box leftHat="true" leftHatColor="{{color}}" title="楼盘详情信息" sub-title='查看更多信息' url='{{value.more_url}}' padding="{{false}}" title-size="36">
 <view style="padding: 0 0 40rpx 0;background-color: #FFF;">
 
-  <view wx:if="{{value.point_title}}" class="post-point">
+  <view wx:if="{{point}}" class="post-point">
     <van-icon name="star" color="{{color}}" />
     <view class="maohao" style="margin-left:10rpx"></view>
-    <view class="content-title">楼盘亮点：</view>
+    <view class="content-title">{{point.title}}</view>
     <view class="maohao" style="margin-left:10rpx"></view>
-    <view class="content-desc">{{value.point_title}}</view>
+    <view class="content-desc">{{point.content}}</view>
   </view>
 
   <view class="block-content one">

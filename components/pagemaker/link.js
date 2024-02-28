@@ -36,7 +36,7 @@ module.exports = {
         var appid = config.appid
         var path = config.apppath
         wx.navigateToMiniProgram({
-            appid: appid,
+            appId: appid,
             path: path,
         })
     },
