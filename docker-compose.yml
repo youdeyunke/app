@@ -1,13 +1,14 @@
 version: "3.9"
 services:
   app:
-    image: "udeve/udyk:6.0.181" # 默认拉取最新版本
-    privileged: true
+    container_name: udyk-app
+    image: "udeve/udyk:6.0.181"     # 默认拉取最新版本
+    privileged: true                # 注意，不能去掉
     restart: always
     expose:
       - 8080
     ports:
-      - "18080:8080" # 18080为对外暴露端口，可以根据需要进行修改，然后通过Nginx反向代理到此端口既可
+      - "18080:8080"                # 18080为对外暴露端口，可以根据需要进行修改，然后通过Nginx反向代理到此端口既可
     environment:
       TZ: "Asia/Shanghai"
       LANG: "C.UTF-8"
@@ -20,6 +21,7 @@ services:
         
 
   redis:
+    container_name: udyk-redis
     restart: "always"
     image: redis:4.0
     command: redis-server --bind 0.0.0.0
@@ -32,6 +34,7 @@ services:
       - 6379
 
   db:
+    container_name: udyk-db
     image: "mysql:8.0.3"
     expose:
       - 3306
