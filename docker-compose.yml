@@ -3,13 +3,14 @@ services:
   app:
     image: "udeve/udyk:6.0.181" # 默认拉取最新版本
     privileged: true
+    restart: always
     expose:
       - 8080
     ports:
       - "18080:8080" # 18080为对外暴露端口，可以根据需要进行修改，然后通过Nginx反向代理到此端口既可
     environment:
-      - TZ:"Asia/Shanghai"
-      - LANG:"C.UTF-8" 
+      TZ: "Asia/Shanghai"
+      LANG: "C.UTF-8"
     depends_on:
       - redis
       - db
@@ -23,8 +24,8 @@ services:
     image: redis:4.0
     command: redis-server --bind 0.0.0.0
     environment:
-      - TZ:"Asia/Shanghai"
-      - LANG:"C.UTF-8" 
+      - TZ: "Asia/Shanghai"
+      - LANG: "C.UTF-8" 
     volumes:
       - /var/lib/udyk/redis:/data
     expose:
@@ -34,8 +35,6 @@ services:
     image: "mysql:8.0.3"
     expose:
       - 3306
-    #ports:
-    #  - "13306:3306"  若需通过数据库管理工具连接容器内的数据库，则打开此端口映射，并在工具中连接到13306端口进行管理，默认建议不开启
     volumes:
       - /var/lib/udyk/mysql:/var/lib/mysql
     environment:
