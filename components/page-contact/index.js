@@ -42,6 +42,8 @@ Component({
             broker: foundBroker,
             showBroker: true
           })
+          //设置该楼盘拨打的电话，用于户型
+          wx.setStorageSync('post-'+ pid +'-mobile', foundBroker.mobile)
         } else {
           // 没有找到符合条件的对象
           _this.loadPostBaseInfo()
@@ -88,6 +90,8 @@ Component({
           return
         }
         var post = resp.data.data;
+         //设置该楼盘拨打的电话，用于户型
+         wx.setStorageSync('post-'+ this.data.pid +'-mobile', post.phone)
         _this.setData({
           postInfo: post
         })

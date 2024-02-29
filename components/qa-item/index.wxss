@@ -45,7 +45,7 @@
 .question .target-name {
     color: #1989fa;
     margin: 0 10rpx;
-    max-width: 200rpx;
+    max-width: 410rpx;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;

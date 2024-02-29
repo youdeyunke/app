@@ -13,7 +13,7 @@
   <navigator class="message" url="/pkgBroker/pages/broker/profile?id={{userinfo.user_id}}">
     <image class="avatar" src="{{userinfo.avatar}}?imageView2/5/h/200/w/200"></image>
     <view class="name">{{userinfo.name}}</view>
-    <image class="level" src="/assets/icons/broker/jiangpai{{userinfo.level}}.png"></image>
+    <image class="level" src="{{ levelImgs[userinfo.level - 1] }}"></image>
   </navigator>
   <view class="footer">
 

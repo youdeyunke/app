@@ -119,7 +119,7 @@
 }
 
 .broker-level-icon {
-    width: 62rpx;
-    height: 62rpx;
+    width: 36rpx;
+    height: 36rpx;
     margin-left: 37rpx;
 }

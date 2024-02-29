@@ -84,8 +84,8 @@
 
 .post .title  {
     color: #000;
-    font-size: 36rpx;
-    line-height: 36rpx;
+    font-size: 38rpx;
+    line-height: 38rpx;
     font-weight: bolder;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -98,7 +98,7 @@
 
 
 .post .price {
-    margin-bottom:10rpx;
+    margin-bottom:8rpx;
     overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -106,7 +106,7 @@
 
 .post .address {
     color: #333;
-    margin-bottom: 5rpx;
+    margin-bottom: 3rpx;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -132,9 +132,9 @@
   padding: 0 9rpx;
   background-color: #F4F5FA;
   color: #6A7B8B;
-  border-radius: 5rpx;
+  border-radius: 6rpx;
   height: 36rpx;
-  line-height: 35rpx;
+  line-height: 34rpx;
   font-size: 25rpx;
   margin-right: 18rpx;
 }

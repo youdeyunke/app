@@ -24,7 +24,7 @@
                 <view class="tip">订阅后后置业顾问可能会与您电话联系并提供服务</view>
             </view>
             <block wx:if="{{status === 0}}">
-                <van-button bindtap="subHandle" loading="{{loading}}" block type="info" size="large">
+                <van-button bindtap="subHandle" color="{{primaryBtnColor}}" loading="{{loading}}" block type="info" size="large">
                     立即订阅
                 </van-button>
                 <van-button custom-style="margin-top:20rpx;" plain type="default" size="large" bindtap="closeHandle">

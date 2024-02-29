@@ -38,6 +38,8 @@ Page({
     post: null,
     smsCode: null,
     mobileLock: false,
+    primaryBtnColor: "#ff9600",
+    primaryColor: "#ff9600",
   },
 
   /**
@@ -45,10 +47,13 @@ Page({
    */
   onLoad(options) {
     var user = app.globalData.userInfo
+    var color = app.globalData.myconfigs.color
     this.setData({
       user: user,
       mobile: user ? user.mobile : '',
-      postId: options.pid,
+        primaryBtnColor: color.primary_btn,
+        primaryColor: color.primary,
+        postId: options.pid,
     })
     this.initDate()
     this.loadPostData(options.pid)

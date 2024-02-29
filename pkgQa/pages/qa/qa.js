@@ -24,6 +24,7 @@ Page({
         item: null,
         answers: [],
         loading: true,
+        levelImgs: [],
     },
 
     callHandle: function (e) {
@@ -69,10 +70,16 @@ Page({
         var chatEnable = ext['chat_enable'] != false
         var qid = options.id
         var user = app.globalData.userInfo
+        var levelImgs = [
+          app.globalData.ui.broker_medal_1,
+          app.globalData.ui.broker_medal_2,
+          app.globalData.ui.broker_medal_3,
+        ]
         this.setData({
             id: qid,
             chatEnable: chatEnable,
-            user: user
+            levelImgs:levelImgs,
+            user: user,
         })
         var _this = this
         this.loadData()

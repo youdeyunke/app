@@ -10,6 +10,7 @@
 * +----------------------------------------------------------------------
 */
 // components/message/brokers_info/index.js
+const app = getApp()
 Component({
     /**
      * 组件的属性列表
@@ -24,7 +25,18 @@ Component({
      * 组件的初始数据
      */
     data: {
+      levelImgs:[]
+    },
 
+    ready(){
+      var levelImgs = [
+        app.globalData.ui.broker_medal_1,
+        app.globalData.ui.broker_medal_2,
+        app.globalData.ui.broker_medal_3,
+      ]
+      this.setData({
+        levelImgs:levelImgs
+      })
     },
 
     /**

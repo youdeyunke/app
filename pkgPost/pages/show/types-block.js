@@ -10,6 +10,7 @@
 * +----------------------------------------------------------------------
 */
 // pages/post/types-block.js
+const app =getApp()
 Component({
     /**
      * 组件的属性列表
@@ -51,5 +52,18 @@ Component({
      * 组件的方法列表
      */
     methods: {
+      gotoVr(e){
+        var vr = e.currentTarget.dataset.vr
+        app.gotoWebview(vr, 'vr')
+      },
+      callPhone(){
+        console.log(1111);
+        var phone = wx.getStorageSync('post-'+ this.data.value.post_id +'-mobile')
+        console.log(phone);
+        wx.makePhoneCall({
+            phoneNumber: phone,
+            success: (result) => { },
+        });
+      },
     }
 })

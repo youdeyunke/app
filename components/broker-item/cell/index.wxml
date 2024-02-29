@@ -23,7 +23,7 @@
                 <view class="fullname">{{ item.name}}</view>
                 <view class="broker-level">{{levelName}}</view>
             </view>
-            <image class="broker-level-icon" src="/assets/icons/broker/jiangpai{{item.level}}.png"></image>
+            <image class="broker-level-icon" src="{{levelImg}}"></image>
         </view>
         <view class="actions">
             <image bindtap="chatHandle" src="/assets/icons/broker/message.png"></image>

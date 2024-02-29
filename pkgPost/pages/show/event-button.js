@@ -35,6 +35,13 @@ Component({
             }
         }
     },
+
+    ready: function () {
+      var color = app.globalData.myconfigs.color
+      this.setData({
+          primaryBtnColor: color.primary_btn,
+      })
+  },
     /**
      * 组件的初始数据
      */
@@ -57,6 +64,7 @@ Component({
         },
         fid: null,
         status: 0,
+        primaryBtnColor: "#ff9600",
     },
 
     /**

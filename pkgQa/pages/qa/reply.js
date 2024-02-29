@@ -133,7 +133,11 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+      var color = app.globalData.myconfigs.color
+      this.setData({
+          primaryColor: color.primary,
+          primaryBtnColor: color.primary_btn,
+      })
     },
 
     /**

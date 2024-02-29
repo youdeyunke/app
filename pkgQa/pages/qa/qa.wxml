@@ -25,7 +25,7 @@
     <view class="question">
         <q-icon />
         <view class="body">
-            <view class="content"><text wx:if="{{item.target_name}}" class="target" bindtap="gotoTarget">#{{item.target_name}}#</text>
+            <view class="content"><text wx:if="{{item.target_name}}" class="target" style="color: {{primaryColor}};" bindtap="gotoTarget">#{{item.target_name}}#</text>
                 <text>{{ item.content }}</text>
             </view>
             <view class="actions">
@@ -54,7 +54,7 @@
                     </view>
 
                     <view class="level" wx:if="{{answer.user.is_broker}}">
-                        <image src="/assets/icons/broker/jiangpai{{answer.user.level}}.png" />
+                        <image src="{{levelImgs[answer.user.level-1]}}" />
                     </view>
 
                     <view class="time">
@@ -62,7 +62,7 @@
                     </view>
 
                     <view class="tag" wx:if="{{ index == 0}}">
-                        <van-tag size="mini" type="primary">最佳回答</van-tag>
+                        <van-tag size="mini" color="{{primaryColor}}" type="primary">最佳回答</van-tag>
                     </view>
                 </view>
                 <view class="right actions">

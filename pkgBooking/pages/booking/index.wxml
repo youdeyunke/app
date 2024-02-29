@@ -29,7 +29,7 @@
         <block wx:for="{{dates}}" wx:key="{{index}}" wx:key="value" wx:for-item="date" >
           <swiper-item style="height: 100rpx;">
             <view form-type="submit" data-index="{{index}}" bindtap="dateClick">
-              <van-tag custom-class="mytag2" size="large" type="primary" plain="{{currentDateIndex != index}}">
+              <van-tag custom-class="mytag2" color="{{primaryColor}}" size="large" type="primary" plain="{{currentDateIndex != index}}">
                 {{ date.label }}
               </van-tag>
             </view>
@@ -45,7 +45,7 @@
           <view bindtap="timeClick" data-index="{{index}}" form-type="submit" class="fake" wx:for="{{dates[currentDateIndex].times}}" wx:key="value" wx:for-item="time">
             <van-tag custom-class="mytag" size="large" wx:if="{{time.disabled}}" type="default" plain>{{ time.label }}
             </van-tag>
-            <van-tag custom-class="mytag" size="large" wx:else plain="{{ currentTimeIndex != index }}" data-index="{{index}}" type="primary">{{time.label}}</van-tag>
+            <van-tag custom-class="mytag"  color="{{primaryColor}}" size="large" wx:else plain="{{ currentTimeIndex != index }}" data-index="{{index}}" type="primary">{{time.label}}</van-tag>
           </view>
         </view>
       </view>
@@ -61,7 +61,7 @@
       </view>
     
       <view class="actions">
-        <van-button bindtap="submitHandle" block="{{true}}" loading="{{loading}}" loading-text="加载中" type="info" disabled="{{ currentDateIndex == null || currentTimeIndex == null || !name }}">确认预约</van-button>
+        <van-button bindtap="submitHandle" color="{{primaryBtnColor}}" block="{{true}}" loading="{{loading}}" loading-text="加载中" type="info" disabled="{{ currentDateIndex == null || currentTimeIndex == null || !name }}">确认预约</van-button>
       </view>
     </view>
   </block>
@@ -73,7 +73,7 @@
       <van-icon color="#1989fa" name="passed" size="200rpx;"></van-icon>
     </view>
     <view class="actions">
-      <van-button bindtap="closeHandle" block="{{true}}" type="default" plain round>好的</van-button>
+      <van-button bindtap="closeHandle" block="{{true}}" color="{{primaryBtnColor}}" type="default" plain round>好的</van-button>
     </view>
   </view>
 </view>

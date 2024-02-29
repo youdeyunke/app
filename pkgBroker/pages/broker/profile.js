@@ -24,6 +24,8 @@ Page({
         bg: null,
         userId: null,
         tagList: [],
+        primaryBtnColor: "#ff9600",
+        secondaryBtnColor: "#3a67c0",
     },
     showPopup () {
         this.setData({
@@ -99,9 +101,12 @@ Page({
     onLoad: function (q) {
         
         var _this = this
+        var color = app.globalData.myconfigs.color
         _this.setData({
             t0: new Date().getTime(),
-            userId: q.id || q.user_id,
+            primaryBtnColor: color.primary_btn,
+            secondaryBtnColor: color.secondary_btn,
+          userId: q.id || q.user_id,
         }, function () {
             _this.loadbroker()
         })

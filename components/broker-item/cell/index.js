@@ -27,6 +27,7 @@ Component({
         },
     },
 
+
     observers: {
         'item.level': function (level) {
             var _this = this
@@ -42,6 +43,17 @@ Component({
             }
             this.setData({
                 levelName: levelName
+            })
+            var levelImgs = [
+              app.globalData.ui.broker_medal_1,
+              app.globalData.ui.broker_medal_2,
+              app.globalData.ui.broker_medal_3,
+            ]
+            // v = 1,2,3
+            // https://qiniucdn.udeve.net/fang/medal.{{item.level}}.png
+            this.setData({
+                levelName: levelName,
+                levelImg: levelImgs[level - 1]
             })
         }
     },
@@ -60,7 +72,8 @@ Component({
      */
     data: {
         avatarColors: ['#FFCB45', '#A9CDFF', '#FFC28C'],
-        levelName: ''
+        levelName: '',
+        levelImg: ''
     },
 
     /**

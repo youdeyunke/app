@@ -427,6 +427,10 @@ Page({
     onLoad: function (q) {
         this.loadBrokerData()
         // this.genUserCard()
+        var color = app.globalData.myconfigs.color
+        this.setData({
+          primaryBtnColor: color.primary_btn,
+        })
         wx.showLoading({
             title: '加载中',
         })

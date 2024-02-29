@@ -23,7 +23,7 @@
           <view class="desc time">券码:{{item.code}}</view>
         </view>
         <view class="footer">
-          <van-button color="{{primaryBtnColor}}" round size="mini">查看</van-button>
+          <van-button color="{{primaryBtnColor}}" color="{{primaryBtnColor}}" round size="mini">查看</van-button>
         </view>
       </navigator>
       <no-result wx:if="{{res.items.length == 0}}"></no-result>

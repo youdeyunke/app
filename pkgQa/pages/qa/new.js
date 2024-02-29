@@ -119,7 +119,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (q) {
-        this.setData({ target_id: q.target_id, target_type: q.target_type })
+      var color = app.globalData.myconfigs.color
+        this.setData({ target_id: q.target_id, target_type: q.target_type ,primaryColor: color.primary,
+          primaryBtnColor: color.primary_btn,})
         var _this = this
         auth.ensureUser(function (userInfo) {
             _this.setData({ userInfo: userInfo })

@@ -49,11 +49,11 @@
     <button open-type="share"></button>
   </view>
   <view style="display: flex;">
-    <view class="bottom-btn-lianxi" bindtap="callMe">
+    <view class="bottom-btn-lianxi" style="background: {{secondaryBtnColor}};" bindtap="callMe">
       <view class="text-1" >联系Ta</view>
       <view class="text-2">你的手机号不会被泄露</view>
     </view>
-    <view class="bottom-btn-lianxi" bindtap="chatHandle" style="background-color: #FFA320;">
+    <view class="bottom-btn-lianxi" bindtap="chatHandle" style="background: {{primaryBtnColor}};">
       <view class="text-1">在线咨询</view>
       <view class="text-2">实时在线沟通</view>
     </view>

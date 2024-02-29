@@ -20,7 +20,7 @@
 
 
 <view class="footer">
-    <van-button bindtap="bookingHandle" icon="chat-o" type="primary" color="{{primaryBtnColor}}" block>预约看房</van-button>
-    <van-button bindtap="callHandle" icon="phone-o" type="info" color="{{secondaryBtnColor}}" block>电话咨询</van-button>
+    <van-button bindtap="bookingHandle" icon="chat-o" type="primary" color="{{secondaryBtnColor}}" block>预约看房</van-button>
+    <van-button bindtap="callHandle" icon="phone-o" type="info" color="{{primaryBtnColor}}" block>电话咨询</van-button>
 </view>
 <booking bind:change="bookingChange" booked="{{bookingStatus}}" post-id="{{postId}}" id="booking" />

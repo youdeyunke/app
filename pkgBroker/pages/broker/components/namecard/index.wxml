@@ -28,14 +28,14 @@
           <view class="user-card-lxfs-item">
             <image class="user-card-lxfs-item-img" src="../../../../image/phone.png" bindtap="callMe"></image>
             <view class="user-card-lxfs-item-message" bindtap="callMe">{{broker.mobile}}</view>
-            <view class="user-card-lxfs-btn" bindtap="saveNumber">
+            <view class="user-card-lxfs-btn" bindtap="saveNumber" style="background: {{primaryBtnColor}};">
                 <text style="font-size: 25rpx;zoom: 0.8;color: #FFF;">保存到通讯录</text> 
             </view>
           </view>
           <view class="user-card-lxfs-item" style="margin-top: 20rpx;">
             <image class="user-card-lxfs-item-img" src="../../../../image/weixin.png"></image>
             <view class="user-card-lxfs-item-message">{{broker.wechat || '-'}}</view>
-            <view class="user-card-lxfs-btn" bindtap="copyHandle">
+            <view class="user-card-lxfs-btn" bindtap="copyHandle" style="background: {{primaryBtnColor}};">
                 <text style="font-size: 25rpx;zoom: 0.8;color: #FFF;">复制微信号码</text> 
             </view>
           </view>

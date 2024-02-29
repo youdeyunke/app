@@ -11,6 +11,7 @@
  */
 // pkgCustomer/pages/customerProfileEdit/index.js
 const customerProfileApi = require("../../../api/customer_profile")
+const app = getApp()
 Page({
 
   /**
@@ -21,7 +22,8 @@ Page({
     type: '',
     customerId: null,
     profile: {},
-  },
+    primaryBtnColor: "#ff9600",
+    },
 
   /**
    * 生命周期函数--监听页面加载
@@ -29,9 +31,12 @@ Page({
   onLoad(q) {
     var customerId = q.customerId
     var type = q.type
+    var color = app.globalData.myconfigs.color
+
     this.setData({
       type: type,
-      customerId: customerId,
+        primaryBtnColor: color.primary_btn,
+        customerId: customerId,
     })
     this.loadOption(type)
     this.loadData(customerId)

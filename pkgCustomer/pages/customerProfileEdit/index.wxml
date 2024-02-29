@@ -27,6 +27,6 @@
 
 <view class="footer">
 
-<van-button bindtap="updateData" block type="primary">确定</van-button>
+<van-button bindtap="updateData" color="{{primaryBtnColor}}" block type="primary">确定</van-button>
 <van-button block bindtap="cancleHandle" type="default">取消</van-button>
 </view>

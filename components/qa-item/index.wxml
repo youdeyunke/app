@@ -16,8 +16,8 @@
             <van-tag style="margin: 0 10rpx;" wx:for="{{tags}}" type="primary" plain>
                 {{item}}
             </van-tag>
-            <view wx:if="{{item.target_name}}" class="target-name">#{{ item.target_name }}#</view>
-            <view wx:if="{{item.is_done}}" class="jiejue">已解决</view>
+            <view wx:if="{{item.target_name}}" style="color: {{primaryColor}};" class="target-name">#{{ item.target_name }}#</view>
+            <view wx:if="{{item.is_done}}" style="color: {{primaryColor}};border: 1rpx solid {{primaryColor}};" class="jiejue">已解决</view>
         </view>
         <view class="right">{{item.answers_count || 0 }}回答</view>
     </view>
