@@ -38,3 +38,10 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.custom-input .van-field__control {
+  min-height: 150rpx; /* 设置输入框的最小高度为50px */
+}
+.custom-dialog .van-button__text {
+  color: #000;
+}

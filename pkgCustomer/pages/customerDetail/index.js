@@ -12,6 +12,7 @@
 // pkgCustomer/pages/customerDetail/index.js
 const customerApi = require("../../../api/customer")
 const brokerApi = require("../../../api/broker")
+const app = getApp()
 Page({
 
   /**
@@ -27,6 +28,8 @@ Page({
     followCount: 0,
     threadCount: 0,
     contactCount: 0,
+    primaryBtnColor: "#ff9600",
+    primaryColor: "#ff9600",
   },
 
   getFollowCount(e){
@@ -128,8 +131,11 @@ Page({
    */
   onLoad(q) {
     var id = q.id
+    var color = app.globalData.myconfigs.color
     this.setData({
-      id: id
+      id: id,
+      primaryBtnColor: color.primary_btn,
+      primaryColor: color.primary,
     })
     this.loadCustomer(id)
   },

@@ -33,6 +33,7 @@
     align-items: center;
     color: #333;
     font-size: 24rpx;
+    line-height: 24rpx;
 }
 
 .share image {

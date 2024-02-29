@@ -21,14 +21,14 @@
 
   <view class="status-items">
 
-    <van-tag bindtap="itemClick" custom-class="status-item" data-index="{{index}}" size="large" color="#1989fa"
+    <van-tag bindtap="itemClick" custom-class="status-item" data-index="{{index}}" size="large" color="{{primaryColor}}"
       plain="{{item.id === statusId ? false : true}}" wx:for="{{statusItems}}">{{item.name}}</van-tag>
   </view>
 
 </ud-card>
 
 <view class="footer">
-  <van-button bindtap="submitHandle" loading="{{loading}}" color="#1989fa" block custom-style="width:710rpx;margin-bottom:20rpx;">提交跟进日志
+  <van-button bindtap="submitHandle" color="{{primaryBtnColor}}" loading="{{loading}}" block custom-style="width:710rpx;margin-bottom:20rpx;">提交跟进日志
   </van-button>
 
   <navigator bindtap="quxiaoBack" open-type="navigateBack">

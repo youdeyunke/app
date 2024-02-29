@@ -11,6 +11,7 @@
 */
 // pkgCustomer/components/follow/index.js
 const followApi = require("../../../api/follow")
+const app =getApp()
 Component({
   /**
    * 组件的属性列表
@@ -24,7 +25,8 @@ Component({
    * 组件的初始数据
    */
   data: {
-    followList:[]
+    followList:[],
+    primaryBtnColor: "#ff9600",
   },
 
   observers:{
@@ -35,6 +37,13 @@ Component({
       this.loadFollow()
     }
   },
+
+  ready: function () {
+    var color = app.globalData.myconfigs.color
+    this.setData({
+        primaryBtnColor: color.primary_btn,
+    })
+},
 
   /**
    * 组件的方法列表

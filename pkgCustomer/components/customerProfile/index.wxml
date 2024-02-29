@@ -11,6 +11,7 @@
 -->
 <!--pkgCustomer/components/customerProfile/index.wxml-->
 <van-cell-group title="客户详情" >
+  <van-cell center bindtap="gotoEdit" title="姓名" value="{{profile.name}}" is-link data-type="name"/>
   <van-cell center bindtap="gotoEdit" title="年龄" value="{{profile.age}}" is-link data-type="age"/>
   <van-cell center bindtap="gotoEdit" title="性别" value="{{profile.sex}}" is-link data-type="sex"/>
   <van-cell center bindtap="gotoEdit" title="意向等级" value="{{profile.purchasing_urgency}}" is-link data-type="purchasing_urgency"/>

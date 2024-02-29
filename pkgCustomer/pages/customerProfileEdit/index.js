@@ -20,7 +20,7 @@ Page({
     items: [],
     type: '',
     customerId: null,
-    profile: {}
+    profile: {},
   },
 
   /**
@@ -41,6 +41,14 @@ Page({
     var profile = this.data.profile
     var type = this.data.type
     profile[type] = event.detail
+    this.setData({
+      profile: profile,
+    });
+  },
+  nameChange(event) {
+    // event.detail 为当前输入的值
+    var profile = this.data.profile
+    profile.name = event.detail
     this.setData({
       profile: profile,
     });

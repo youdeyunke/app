@@ -30,7 +30,7 @@
     <van-button type="danger" block bind:click="releaseThread">放回公海</van-button>
   </view>
   <view style="width: 50%;">
-    <van-button type="info" block bind:click="threadToCustomer">转为客户</van-button>
+    <van-button type="info" color="{{primaryBtnColor}}" block bind:click="threadToCustomer">转为客户</van-button>
   </view>
 </view>
 

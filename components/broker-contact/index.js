@@ -74,14 +74,19 @@ Component({
         chatHandle: function () {
             // TODO 如果咨询的是某个具体楼盘 将楼盘参数携带 
             // 防止自己和自己聊天  
-            var user = app.globalData.userInfo
-            if (!user) {
-                wx.showToast({
-                    title: '请先登录',
-                    icon: 'none',
-                })
-                return false
+            if (!app.globalData.token) {
+              this.selectComponent('.loginwindow').openWindow()
+              return
             }
+
+            // var user = app.globalData.userInfo
+            // if (!user) {
+            //     wx.showToast({
+            //         title: '请先登录',
+            //         icon: 'none',
+            //     })
+            //     return false
+            // }
             var uid1 = user.id
             var uid2 = this.data.broker.user_id
 

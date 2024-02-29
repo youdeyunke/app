@@ -52,7 +52,7 @@
     border-radius: 0rpx;
     overflow: hidden;
     position: relative;
-    margin-right:20rpx;
+    /* margin-right:20rpx; */
 }
 .item .cover .img{
     width: 100%;

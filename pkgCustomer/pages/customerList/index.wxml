@@ -34,7 +34,7 @@
     <!-- <view >
       领取
     </view> -->
-    <van-button slot="right-icon" size="mini" type="primary">领取</van-button>
+    <van-button slot="right-icon" color="{{primaryBtnColor}}" size="mini" type="primary">领取</van-button>
   </van-cell>
 </van-cell-group>
 <no-result wx:if="{{ items.length == 0 }}"></no-result>

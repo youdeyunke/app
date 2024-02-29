@@ -21,5 +21,5 @@
 </view>
 
 <view style="width: 100%;margin: 30rpx 0 0 0;">
-  <van-button type="primary" bind:click="createFollow" block>新增跟进日志</van-button>
+  <van-button type="primary" color="{{primaryBtnColor}}" bind:click="createFollow" block>新增跟进日志</van-button>
 </view>

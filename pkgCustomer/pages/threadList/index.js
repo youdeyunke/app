@@ -22,6 +22,7 @@ Page({
     kw: '',
     type: 'private',
     page: 1,
+    primaryBtnColor: "#ff9600",
     items: []
   },
 
@@ -134,6 +135,11 @@ Page({
           })
         }
         _this.loadData()
+      })
+
+      var color = app.globalData.myconfigs.color
+      this.setData({
+          primaryBtnColor: color.primary_btn,
       })
 
   },

@@ -10,6 +10,13 @@
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
 <!--pkgCustomer/pages/customerProfileEdit/index.wxml-->
+<van-field
+    wx:if="{{type == 'name'}}"
+    model:value="{{ profile.name }}"
+    placeholder="请输入用户名"
+    border="{{ false }}"
+    bind:change="nameChange"
+  />
 <van-radio-group value="{{ profile[type] }}" bind:change="onChange">
   <van-cell-group>
     <van-cell wx:for="{{items}}" title="{{item}}" clickable data-name="{{item}}" bind:click="onClick">

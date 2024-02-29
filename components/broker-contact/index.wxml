@@ -9,6 +9,7 @@
  | Author: UDEVE Team <tech@udeve.cn>
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
+<login-window bind:success="clickHandle" class="loginwindow"></login-window>
 <block wx:if="{{broker}}">
     <view class="blank-{{mode}}"></view>
     <!-- <view hidden="{{mode != 'full' }}" class="full">

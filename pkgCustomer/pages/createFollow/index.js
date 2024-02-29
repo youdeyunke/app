@@ -30,6 +30,8 @@ Page({
     statusId: null,
     target_id: null,
     target_type: null,
+    primaryBtnColor: "#ff9600",
+    primaryColor: "#3a67c0",
   },
 
 
@@ -136,11 +138,14 @@ Page({
     if (q.status_id) {
       var sid = parseInt(q.status_id)
     }
+    var color = app.globalData.myconfigs.color
     this.setData({
       // clueId: q.id,
       statusId: sid,
       target_id: q.target_id,
-      target_type: q.target_type
+      target_type: q.target_type,
+      primaryBtnColor: color.primary_btn,
+      primaryColor:color.primary
     })
     this.loadData()
   },

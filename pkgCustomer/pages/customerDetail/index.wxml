@@ -16,7 +16,7 @@
     <view class="detail">
       <view>{{customer.name}}</view>
       <view class="btns">
-        <van-button icon="phone" bindtap="callHandle" block size="mini" type="primary" />
+        <van-button icon="phone" bindtap="callHandle" block color="{{primaryBtnColor}}" size="mini" type="primary" />
         <van-button size="mini" bind:click="releaseCustomer" block type="danger">放回公海</van-button>
       </view>
     </view>
@@ -30,7 +30,7 @@
   <van-cell center title="创建时间" value="{{customer.created_at}}"/>
 </van-cell-group>
 
-<van-tabs active="{{ tab }}" bind:change="tabChange">
+<van-tabs active="{{ tab }}" bind:change="tabChange" color="{{primaryColor}}">
   <van-tab name="profile" title="客户详情">
     <customer-profile customerId="{{id}}"></customer-profile>
   </van-tab>
@@ -45,8 +45,8 @@
   </van-tab>
 </van-tabs>
 
-<van-dialog use-slot title="放回公海原因" show="{{ show }}" bind:close="reasonDialogClose">
-  <van-field model:value="{{ recover_reason }}" label="原因" placeholder="请输入丢弃线索原因"  />
+<van-dialog class="custom-dialog" use-slot title="放回公海原因" show="{{ show }}" bind:close="reasonDialogClose">
+  <van-field class="custom-input" model:value="{{ recover_reason }}" type="textarea" placeholder="请输入丢弃线索原因"  />
 </van-dialog>
 
 <!-- <view wx:if="{{ tab == 'profile' }}">

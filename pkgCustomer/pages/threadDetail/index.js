@@ -23,6 +23,7 @@ Page({
     id: null,
     show: false,
     recover_reason: '',
+    primaryBtnColor: "#ff9600",
   },
 
   callHandle: function () {
@@ -93,7 +94,9 @@ Page({
           title: '线索已放回公海',
         })
         setTimeout(()=>{
-          wx.navigateBack()
+          wx.navigateBack({
+            delta: 2
+          })
         },1500)
       })
     }
@@ -124,7 +127,9 @@ Page({
    */
   onLoad(q) {
     var threadid = q.id
+    var color = app.globalData.myconfigs.color
     this.setData({
+      primaryBtnColor: color.primary_btn,
       id: threadid
     })
     this.loadThread(threadid)

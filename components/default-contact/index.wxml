@@ -17,7 +17,7 @@
         </div>
         <div class="share" bindtap="shareHandle">
             <ud-icon name="share"/>
-            <view>转发</view>
+            <view style="margin-top: 8rpx;">转发</view>
         </div>
  
             <div style="background:{{secondaryBtnColor}}" class="btn btn1" bindtap="bookingHandle">

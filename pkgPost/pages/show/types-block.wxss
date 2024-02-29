@@ -116,7 +116,7 @@
     border: 1rpx solid #1989FA;
     width: 60rpx;
     height: 32rpx;
-    line-height: 32rpx;
+    line-height: 28rpx;
     color: #1989FA;
     text-align: center;
     font-size: 20rpx;

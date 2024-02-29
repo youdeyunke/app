@@ -11,6 +11,7 @@
 */
 // pkgCustomer/components/customerContact/index.js
 const customerContactApi = require("../../../api/customer_contact")
+const app =getApp()
 Component({
   /**
    * 组件的属性列表
@@ -23,8 +24,16 @@ Component({
    * 组件的初始数据
    */
   data: {
-    contacts: []
+    contacts: [],
+    primaryBtnColor: "#ff9600",
   },
+
+  ready: function () {
+    var color = app.globalData.myconfigs.color
+    this.setData({
+        primaryBtnColor: color.primary_btn,
+    })
+},
 
   observers: {
     "customerId": function (val) {
