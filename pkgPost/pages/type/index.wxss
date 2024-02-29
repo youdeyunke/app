@@ -57,6 +57,7 @@
     overflow: hidden;
     background: #cecece;
     position: relative;
+    border-radius: 10rpx;
 }
 
 .housetype .meta {

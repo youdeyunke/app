@@ -23,4 +23,5 @@
     height:100%;
     border-radius: 100%;
     box-sizing: border-box;
+    border-style: solid;
 }

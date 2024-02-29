@@ -26,7 +26,11 @@ Component({
         src: {
             type: String,
             default: '',
-        }
+        },
+        borderWidth: {
+          type: Number,
+          value: 6,
+        },
 
     },
 
@@ -35,9 +39,9 @@ Component({
             if (!color) {
                 return
             }
-            this.setData({
-                borderValue: "border:6rpx solid " + color
-            })
+            // this.setData({
+            //     borderValue: "border:6rpx solid " + color
+            // })
         }
     },
 

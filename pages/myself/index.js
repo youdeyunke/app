@@ -393,9 +393,42 @@ Page({
 
     loadIcons () {
         var _this = this
-        myselfApi.getMyselfIcons().then((resp) => {
+        myselfApi.getMyselfIcons().then((resp) => { 
+            if (resp.data.code != 0) {
+              return
+            }
+            var icons = resp.data.data
+            var resIcons = []
+            icons.forEach((icon) => {
+                //循环icon.items，给每个对象都加上is_blank字段
+                icon.items.forEach((item) => {
+                    item.is_blank = false
+                })
+                //如果icon.items长度小于4，就将item填充到4个，如果icons.items.length大于5，就将item填充到5的倍数
+                if (icon.items.length == 1) {
+                    // for (let i = icon.items.length; i < 4; i++) {
+                        icon.items.push({
+                            url: '',
+                            name: '',
+                            icon_url: '',
+                            is_blank: true
+                        })
+                    // }
+                } else if (icon.items.length > 5) {
+                    let length = icon.items.length
+                    for (let i = length; i % 5 != 0; i++) {
+                        icon.items.push({
+                            url: '',
+                            name: '',
+                            icon_url: '',
+                            is_blank: true
+                        })
+                    }
+                }
+                resIcons.push(icon)
+            })
             _this.setData({
-                myselfIcons: resp.data.data
+                myselfIcons: resIcons
             })
         })
     },

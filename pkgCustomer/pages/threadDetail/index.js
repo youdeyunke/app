@@ -55,7 +55,7 @@ Page({
         icon: 'none'
       })
       setTimeout(()=>{
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pkgCustomer/pages/customerList/index',
         })
       },1500)

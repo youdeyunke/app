@@ -60,7 +60,7 @@ Page({
           // bgColor: app.globalData.myconfigs.color.primary,
       })
       wx.setNavigationBarTitle({
-          title: '地图找房'
+          title: '二手房地图找房'
       })
       var _this = this
       app.ensureConfigs((configs) => {
@@ -311,7 +311,7 @@ Page({
               })
               nextLevel = 'post'
               break;
-          case 'post':
+          case 'house':
               // 房源被点击
               // 改变被点击的marker的背景颜色
               this.markerColorHandle(markerId)

@@ -54,7 +54,7 @@ page {
 
 .result-view {
   background: #fff;
-  width: 100%;
+  width: 690rpx;
   height: 280rpx;
   padding: 80rpx 20rpx 0rpx 20rpx;
   box-sizing: border-box;

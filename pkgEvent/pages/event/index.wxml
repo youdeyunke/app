@@ -12,7 +12,7 @@
 <post-title post="{{post}}"></post-title>
 <box padding="30">
     <view class="ecats">
-        <view bindtap="catClickHandle" data-index="{{index}}" class="cat-item {{ currentCatIndex == index ? 'active': '' }}" wx:for="{{cats}}" wx:for-item="cat">
+        <view bindtap="catClickHandle" data-index="{{index}}" style="{{ currentCatIndex == index ? 'background: '+ primaryColor + ';' : '' }}" class="cat-item {{ currentCatIndex == index ? 'active': '' }}" wx:for="{{cats}}" wx:for-item="cat">
             {{cat.name}}({{cat.count}})
         </view>
     </view>

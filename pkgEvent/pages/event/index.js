@@ -29,6 +29,7 @@ Page({
         post: null,
         user: null,
         broker: null,
+        primaryColor: '#1989fa'
     },
 
     /**
@@ -36,8 +37,10 @@ Page({
      */
     onLoad: function (q) {
         var pid = q.id || q.post_id
+        var color = app.globalData.myconfigs.color
         this.setData({
-            postId: pid
+            postId: pid,
+            primaryColor: color.primary,
         }, () => {
             this.loadData()
             this.loadPost()

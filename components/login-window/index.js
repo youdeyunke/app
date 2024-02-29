@@ -18,7 +18,7 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        closable: { type: Boolean, value: false },
+        closable: { type: Boolean, value: true },
     },
 
     ready: function () {
@@ -26,6 +26,7 @@ Component({
             bg: app.globalData.myconfigs.ui.login_window || 'https://qiniucdn.udeve.net/fang/login-window.png',
             primaryColor: app.globalData.myconfigs.color.primary || '#1989fa',
             primaryBtnColor: app.globalData.myconfigs.color.primary_btn || 'linear-gradient(270deg, #1989FA 0%, rgba(25, 137, 250, 0.6) 100%)',
+            secondaryBtnColor: app.globalData.myconfigs.color.secondary_btn,
         })
         var _this = this
 
@@ -43,7 +44,7 @@ Component({
         show: false,
         bg: null,
         primaryColor: '#1989fa',
-
+        secondaryBtnColor: "#3a67c0",
     },
 
     /**

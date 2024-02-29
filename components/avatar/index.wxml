@@ -12,7 +12,7 @@
 <view 
 style="width:{{size}}rpx; height:{{size}}rpx; border-radius:{{size}}rpx; background-image:url('{{src}}?imageView2/0/w/{{size*3}}/')" class="avatar">
 
-<view class="border" style="{{borderValue}}">
+<view class="border" style="border-color:{{border}};border-width:{{borderWidth}}rpx;">
 </view>
 
 </view>

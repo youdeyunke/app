@@ -18,6 +18,8 @@
 </view>
 <van-popup show="{{ popState == 1 }}" z-index="999" position="bottom" overlay="{{ false }}" bind:close="popClose" closeable>
     <view class="result-view">
+      <view style="width: 100%;">
         <post-item wx:if="{{post}}" post="{{post}}" border="false" />
+      </view>
     </view>
 </van-popup>

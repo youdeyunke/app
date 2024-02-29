@@ -27,6 +27,7 @@ Page({
         loading: true,
         user_id: '',
         pageTitle: '全部提问',
+        primaryBtnColor: "#ff9600",
     },
 
     /**
@@ -37,6 +38,7 @@ Page({
             target_id: q.target_id || '',
             target_type: q.target_type || '',
             user_id: q.user_id || '',
+            primaryBtnColor:  app.globalData.myconfigs.color.primary_btn,
         })
         this.loadItems()
 

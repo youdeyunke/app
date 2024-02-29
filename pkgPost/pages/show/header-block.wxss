@@ -22,7 +22,8 @@
 }
 
 .first-left {
-    /* width: 600rpx; */
+    width: 530rpx;
+    overflow: hidden;
 }
 
 .title-block {
@@ -38,37 +39,45 @@
 .left-title {
     color: #fff;
     font-weight: bold;
-    font-size: 40rpx;
+    font-size: 42rpx;
     width: 530rpx;
     white-space: nowrap; /* 禁止换行 */
     overflow: hidden; /* 超出部分隐藏 */
     text-overflow: ellipsis; /* 溢出部分显示省略号 */
+    height: 64rpx;
+    line-height: 64rpx;
 }
 
 .left-tags {
     display: flex;
     flex-wrap: wrap;
     /* height: 46rpx; */
+    width: 1060rpx;
     overflow: hidden;
     margin-top: 20rpx;
     justify-content: flex-start;
+    transform: scale(0.5);
+    transform-origin: left top;
 }
 
 .left-tag {
-    color: #666666;
-    padding: 6rpx 14rpx;
+    color: #fff;
+    padding: 0rpx 34rpx;
     /* padding-bottom: 8rpx; */
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 4rpx;
+    /* line-height: 80rpx; */
+    border-radius: 8rpx;
     background: rgba(255 , 255, 255, 0.2);
-    margin-right: 16rpx;
-    margin-top: 10rpx;
-    font-size: 25rpx;
+    margin-right: 34rpx;
+    height: 80rpx;
+    
+    /* margin-top: 10rpx; */
+    font-size: 40rpx;
 }
 .left-tag text{
-    zoom: 0.8;
+    /* zoom: 0.8; */
 }
 
 .event-button {
@@ -76,7 +85,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 30rpx;
+    margin-top: 34rpx;
 }
 
 

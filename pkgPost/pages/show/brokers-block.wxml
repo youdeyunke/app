@@ -12,7 +12,7 @@
 <!-- pages/post/brokers-block.wxml -->
 <block-box title-size="36" leftHat="true" leftHatColor="{{color}}" title="官方认证置业顾问" padding="{{false}}" sub-title="更多顾问" url="/pkgBroker/pages/broker/index?post_id={{value.post_id}}">
 
-    <view wx:for="{{brokers}}" style="margin-bottom: 10rpx;">
+    <view wx:for="{{brokers}}" style="margin-bottom: 15rpx;">
         <broker-cell-item item="{{item}}" postId="{{value.post_id}}" theme="{{theme}}" color="{{color}}"></broker-cell-item>
     </view>
 </block-box>

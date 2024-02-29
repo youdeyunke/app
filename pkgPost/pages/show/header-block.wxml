@@ -15,7 +15,7 @@
             <view class="left-title">{{post.title}}</view>
             <view class="left-tags">
                 <view class="left-tag" style="color: #fff;" wx:for="{{post.tags}}" wx:if="{{index <= 2}}" wx:for-item="tag" wx:key="id">
-                    <text>{{tag.name}}</text>
+                    {{tag.name}}
                 </view>
             </view>
         </view>

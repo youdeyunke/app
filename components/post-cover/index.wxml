@@ -17,7 +17,7 @@
     <view class="salestatus" wx:if="{{item.sale_status_item}}" style="background-color: {{item.sale_status_item.color}};border-radius: {{topLeftRadius * 2}}rpx 0 {{topLeftRadius * 2}}rpx 0;">
       {{item.sale_status_item.name}}
     </view>
-    <view class="footer" style="border-radius: {{topLeftRadius}}rpx {{topRightRadius}}rpx {{bottomLeftRadius}}rpx {{bottomRightRadius}}rpx;">
+    <view class="footer" style="border-radius: 0rpx 0rpx {{bottomLeftRadius}}rpx {{bottomRightRadius}}rpx;">
         <view class="views" wx:if="{{views}}">
             <image class="icon eye" src="{{eyeIcon}}"></image>
             {{views}}

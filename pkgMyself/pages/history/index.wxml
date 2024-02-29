@@ -38,7 +38,7 @@
 
 <view style="height: 20rpx;"></view>
 
-<view wx:if="{{ active == 'tour' }}">
+<view style="padding: 20rpx;" wx:if="{{ active == 'tour' }}">
   <tour-item wx:for="{{logs}}" tourId="{{item.target_id}}"></tour-item>
 </view>
 

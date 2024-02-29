@@ -26,6 +26,9 @@ Page({
         scrollIntoView: '',
         t0: null,
         postId: null,
+        primaryColor: '#1989fa',
+        primaryBtnColor: "#ff9600",
+        secondaryBtnColor: "#3a67c0",
     },
 
     tabChange: function (e) {
@@ -50,6 +53,9 @@ Page({
             loading: true,
             cats: [],
             height: app.globalData.system.windowHeight,
+            primaryColor: app.globalData.myconfigs.color.primary || '#1989fa',
+            primaryBtnColor: app.globalData.myconfigs.color.primary_btn || '',
+            secondaryBtnColor: app.globalData.myconfigs.color.secondary_btn || '',
         }, (res) => {
             _this.loadData()
             // this.loadPostBrokerInfo(q.target_id)

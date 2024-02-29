@@ -16,7 +16,7 @@
 }
 
 .outer{
-  /* width:710rpx; */
+  width:710rpx;
 
 }
 

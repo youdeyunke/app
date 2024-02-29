@@ -25,6 +25,7 @@ Page({
         loading: true,
         postId: null,
         // brokers:''
+        primaryBtnColor: "#ff9600",
 
     },
 
@@ -34,6 +35,7 @@ Page({
     onLoad: function (q) {
         this.setData({
             postId: q.post_id,
+            primaryBtnColor: app.globalData.myconfigs.color.primary_btn,
         }, () => {
             this.loadData()
         })

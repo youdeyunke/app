@@ -118,10 +118,10 @@
 }
 
 .icons{
-    /* display: flex;
-    justify-content: flex-start;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; */
+    flex-wrap: wrap;
     width: 710rpx;
 }
 .icons .icon-item{
@@ -133,12 +133,20 @@
     font-size: 24rpx; 
     color:#444;
     height: 90rpx;
-    margin-bottom:20rpx;
+    margin-bottom:40rpx;
     margin-right:42rpx;
 }
 
 .icons .icon-item:nth-child(5n){
   margin-right:0rpx;
+}
+.icons .icon-item:last-child{
+  margin-right:0rpx;
+}
+.icons .icon-item:nth-last-child(-n+5) {
+  /* 设置最后五个元素的特殊样式 */
+  margin-bottom: 0;
+  /* 添加其他特殊样式 */
 }
 
 .icons .icon-item .name{
