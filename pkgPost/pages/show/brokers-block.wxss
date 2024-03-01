@@ -19,7 +19,7 @@
 }
 
 .badge-item {
-    font-size: 28rpx;
+    font-size: 24rpx;
     color: #A0A0A0;
     display: flex;
     justify-content: flex-start;
