@@ -23,7 +23,7 @@ Page({
         currentTabIndex: 0,
         tabs: [
             { name: '综合榜', value: 'all' },
-            { name: '搜索榜', value: 'search' },
+            { name: '热搜榜', value: 'search' },
             { name: '人气榜', value: 'hot' },
             { name: '关注榜', value: 'like' },
         ],

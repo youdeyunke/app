@@ -48,7 +48,18 @@ Component({
 
             })
 
+            const categorizedImages = Object.values(items.reduce((acc, img) => {
+              if (!acc[img.cat]) {
+                acc[img.cat] = [];
+              }
+              acc[img.cat].push(img);
+              return acc;
+            }, {}));
+            
+            // 合并不同类型的图片数组
+            const mergedImages = categorizedImages.reduce((result, group) => result.concat(group), []);
 
+            data.mergedImages = mergedImages
             data.counters = counters
             this.setData(data)
         }
@@ -65,6 +76,9 @@ Component({
         currentTab: '',
         currentIndex: 0,
         tabs: [],
+        showVideo: false,
+        videoUrl: '',
+        mergedImages: []
     },
 
     ready: function () {
@@ -84,17 +98,22 @@ Component({
 
         itemClick: function (e) {
             var i = this.data.currentIndex
-            var img = this.data.images[i]
+            var img = this.data.mergedImages[i]
 
             if (img.cat == 'video') {
-                var urls = [{
-                    url: img.url,
-                    // poster: img.image,
-                    type: 'video',
-                }]
-                wx.previewMedia({
-                    sources: urls,
-                    current: 0,
+                // var urls = [{
+                //     url: img.url,
+                //     // poster: img.image,
+                //     type: 'video',
+                // }]
+                // wx.previewMedia({
+                //     sources: urls,
+                //     current: 0,
+                // })
+                var videoUrl = img.url
+                this.setData({
+                  videoUrl: videoUrl,
+                  showVideo: true,
                 })
                 return
             }
@@ -104,7 +123,7 @@ Component({
                 return
             }
 
-            var urls = this.data.images.filter((im, i) => {
+            var urls = this.data.mergedImages.filter((im, i) => {
                 return im.cat == img.cat
             }).map((im, i) => {
                 return im.image
@@ -121,7 +140,7 @@ Component({
             // console.log('item change', e)
             var source = e.detail.source
             var i = e.detail.current
-            var item = this.data.images[i]
+            var item = this.data.mergedImages[i]
             if (source == "") {
                 // 点击切换tab 不处理
                 return false
@@ -141,8 +160,8 @@ Component({
             })
             var _this = this
             // 注意，不能使用forEach，因为异步问题
-            for (var index = 0; index <= _this.data.images.length - 1; index++) {
-                var item = _this.data.images[index]
+            for (var index = 0; index <= _this.data.mergedImages.length - 1; index++) {
+                var item = _this.data.mergedImages[index]
                 if (item.cat === tab) {
                     _this.setData({
                         currentIndex: index
@@ -150,6 +169,13 @@ Component({
                     return
                 }
             }
+        },
+
+        closeVideoPopup(){
+          this.setData({
+            showVideo: false,
+            videoUrl: ''
+          })
         },
 
     }

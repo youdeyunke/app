@@ -15,7 +15,7 @@
         indicator-dots="{{false}}" autoplay="{{false}}" interval="5000" duration="500" circular="true"
         easing-function="linear">
         <swiper-item wx:key="index" data-index="{{index}}" class="swiper-item"
-            bindtap="itemClick" data-index="{{index}}"  wx:for="{{images}}">
+            bindtap="itemClick" data-index="{{index}}"  wx:for="{{mergedImages}}">
             <image wx:if="{{item.cat  === 'vr'}}" class="icon vr" src="{{vrIcon}}"></image>
             <image wx:if="{{item.cat === 'video'}}" class="icon video" src="{{videoIcon}}"></image>
             <image src="{{item.image}}?imageView2/5/h/530/w/750" mode="aspectFill" class="cover"></image>
@@ -33,9 +33,13 @@
     </view>
 
     <view class="counter">
-        {{ images[currentIndex].number}}/{{counters[images[currentIndex].cat] }}
+        {{ mergedImages[currentIndex].number}}/{{counters[mergedImages[currentIndex].cat] }}
     </view>
-
+    <van-popup closeable="{{true}}" close-on-click-overlay="{{true}}" show="{{showVideo}}" bind:close="closeVideoPopup" overlay-style="">
+        <view style="width:750rpx; display: flex; justify-content: center; align-items: center;" >
+            <video wx:if="{{showVideo}}" style="width:100%;height: 100vh;" src="{{videoUrl}}" autoplay="{{true}}" ></video>
+        </view>
+    </van-popup>
 </view>
 
 </block>

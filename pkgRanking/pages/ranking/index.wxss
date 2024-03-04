@@ -136,7 +136,7 @@ page{
 
 .item .p .rank{
     position: absolute; 
-    left:20rpx;
+    left:170rpx;
     top:0rpx;
 }
 
