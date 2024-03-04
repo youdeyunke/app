@@ -134,7 +134,7 @@
 群二维码：
 <div align="center">
 
-![](https://qiniucdn.udeve.net/udyk/65e57b858eca4a30e998fc42.png?imageView2/2/w/200)
+![](https://qiniucdn.udeve.net/udyk/65e57c558ecac9513038b2b7.png?imageView2/2/w/200)
 </div>    
 
 ## 版权信息
