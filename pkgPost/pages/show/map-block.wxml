@@ -10,7 +10,7 @@
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
 <block-box title="{{value.title}}" leftHat="true" leftHatColor="{{color}}" padding="{{false}}" title-size="36" sub-title="查看详情" url="/pkgPost/pages/zhoubian/index?id={{value.post_id}}">
-    <zhoubian haveTabs="{{tabs}}" latitude="{{value.latitude}}" mode="mini" longitude="{{value.longitude}}" postId="{{value.post_id}}" />
+    <zhoubian haveTabs="{{tabs}}" primaryColor="{{color}}" latitude="{{value.latitude}}" mode="mini" longitude="{{value.longitude}}" postId="{{value.post_id}}" />
     <view style="padding:30rpx">
         <block-button maxLength='2' allLength='{{resp.length}}' url="/pkgPost/pages/zhoubian/index?id={{value.post_id}}" color="{{color}}" buttonVal='查看更多' />
     </view>

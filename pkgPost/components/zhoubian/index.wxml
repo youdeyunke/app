@@ -21,7 +21,7 @@
             </view>
         </view>
     </scroll-view> -->
-    <van-tabs active="{{ active }}" color="{{color}}" bind:change="tabChange">
+    <van-tabs active="{{ active }}" color="{{primaryColor}}" bind:change="tabChange">
       <van-tab wx:for='{{tabs}}' name="{{index}}" title="{{ item.name }}"></van-tab>
     </van-tabs>
     <view class="{{ type == 'big' ? 'tabs_content' : ''}}">

@@ -41,6 +41,10 @@ Component({
         },
         haveTabs: {
             type: String
+        },
+        primaryColor: {
+          type: String,
+          value: '#9e1d1d'
         }
     },
     observers: {
@@ -154,10 +158,10 @@ Component({
     ready: function () {
         this.getContent()
         this.setMarker()
-        var color = app.globalData.color
-        this.setData({
-          color: color.primary || '#9e1d1d'
-        })
+        // var color = app.globalData.color
+        // this.setData({
+        //   color: color.primary || '#9e1d1d'
+        // })
     },
     /**
      * 组件的方法列表

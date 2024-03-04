@@ -22,6 +22,7 @@ Page({
         activeMarkerIndex: null,
         pois: [],
         post: null,
+        color: '#9e1d1d'
     },
     // getMapContext() {
 
@@ -120,6 +121,10 @@ Page({
         }, () => {
             _this.loadData()
 
+        })
+        var color = app.globalData.color
+        this.setData({
+          color: color.primary || '#9e1d1d'
         })
         // this.setMarker()
     },

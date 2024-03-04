@@ -111,7 +111,7 @@
                 <view class="sysitem-subtitle">{{item.title}}</view>
               </view>
               <view class="sysitem-meta">
-                <view class="sysitem-date">{{stringConverter.formatDateTime(item.updated_at)}}</view>
+                <view class="sysitem-date">{{stringConverter.formatDateTime(item.created_at)}}</view>
                 <view class="sysitem-badge" style="background-color: {{item.unread ? '' : '#ccc'}};"></view>
               </view>
             </view>
