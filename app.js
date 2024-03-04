@@ -518,15 +518,11 @@ App({
 
     dingyueHandle: function (cb) {
         // 订阅消息
-        console.log('dingyue ....')
         var tplId = this.globalData.myconfigs.msg_tpl_id || ''
-        console.log(tplId);
         wx.requestSubscribeMessage({
           tmplIds: [tplId],
           success: function (res) {
-              console.log('订阅消息结果:', res);
               if (res[tplId] === 'accept') {
-                  console.log('用户同意订阅消息');
                   typeof cb === 'function' && cb(); // 用户同意，执行回调
               } else {
                   // 处理不同的拒绝情况
@@ -552,7 +548,6 @@ App({
               }
           },
           fail: function (err) {
-              console.log('订阅消息失败:', err);
               wx.showToast({
                   title: '订阅消息请求失败',
                   icon: 'none',

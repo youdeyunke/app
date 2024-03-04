@@ -16,9 +16,9 @@
     <view class="user-card-details" >
       <view class="user-card-title">
         <view class="user-card-title-name" >{{broker.name}}</view>
-        <view wx:if="{{broker.level == 1}}" class="user-card-status">金牌置业顾问</view>
-        <view wx:if="{{broker.level == 2}}" class="user-card-status">银牌置业顾问</view>
-        <view wx:if="{{broker.level == 3}}" class="user-card-status">铜牌置业顾问</view>
+        <view style="background: {{primaryColor}};" wx:if="{{broker.level == 1}}" class="user-card-status">金牌置业顾问</view>
+        <view style="background: {{primaryColor}};" wx:if="{{broker.level == 2}}" class="user-card-status">银牌置业顾问</view>
+        <view style="background: {{primaryColor}};" wx:if="{{broker.level == 3}}" class="user-card-status">铜牌置业顾问</view>
       </view>
       <view class="user-card-company" >
         <image class="user-card-image" src="../../../../image/loupan.png"></image>

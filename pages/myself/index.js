@@ -186,7 +186,6 @@ Page({
         var _this = this
         wx.getStorageInfo({
             success (res) {
-                console.log('cache', res)
                 _this.setData({
                     cache: res
                 })

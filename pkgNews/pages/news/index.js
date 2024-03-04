@@ -151,7 +151,7 @@ Page({
 
             data[key] = resp.data.data
             _this.setData(data)
-            console.log('set data', data)
+            // console.log('set data', data)
         })
     },
 

@@ -28,6 +28,7 @@ Component({
       var color = app.globalData.myconfigs.color
         this.setData({
             bg: app.globalData.ui.broker_namecard_bg,
+            primaryColor: color.primary,
             primaryBtnColor: color.primary_btn,
             secondaryBtnColor: color.secondary_btn,
         })
@@ -57,6 +58,7 @@ Component({
         viewNums: 0,
         primaryBtnColor: "#ff9600",
         secondaryBtnColor: "#3a67c0",
+        primaryColor: "#ff9600",
     },
 
 

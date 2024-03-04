@@ -43,7 +43,7 @@ Page({
     },
 
     tabChange: function (e) {
-        console.log('e', e)
+        // console.log('e', e)
         var tab = e.detail.name
         if (tab == this.data.active) {
             return false
@@ -53,7 +53,7 @@ Page({
             kw: '',
         }, () => {
             var ele = this.selectComponent('#' + tab + '-list')
-            console.log('tab ', tab)
+            // console.log('tab ', tab)
             ele.reloadData()
         })
 
@@ -74,7 +74,7 @@ Page({
       })
       var tab = this.data.active  
       var ele = this.selectComponent('#' + tab + '-list')
-      console.log('tab ', tab)
+      // console.log('tab ', tab)
       ele.loadData()
     },
     /**
@@ -121,7 +121,7 @@ Page({
     onPullDownRefresh: function () {
         var tab = this.data.active
         var ele = this.selectComponent('#' + tab + '-list')
-        console.log('tab ', tab)
+        // console.log('tab ', tab)
         ele.reloadData()
     },
 

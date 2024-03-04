@@ -343,23 +343,23 @@ Page({
         })
 
         // 如果已经订阅消息，不显示底部提示
-        wx.getSetting({
-          withSubscriptions: true,
-          success (res) {
+        // wx.getSetting({
+        //   withSubscriptions: true,
+        //   success (res) {
 
-            console.log(res.subscriptionsSetting)
-            if(!res.subscriptionsSetting.mainSwitch){
-              return
-            }
-            var tplId = app.globalData.myconfigs.msg_tpl_id || ''
+        //     console.log(res.subscriptionsSetting)
+        //     if(!res.subscriptionsSetting.mainSwitch){
+        //       return
+        //     }
+        //     var tplId = app.globalData.myconfigs.msg_tpl_id || ''
 
-            if ( res.subscriptionsSetting.hasOwnProperty('itemSettings') && res.subscriptionsSetting.itemSettings.hasOwnProperty(tplId) && res.subscriptionsSetting.itemSettings[tplId] == 'accept') {
-              _this.setData({
-                showDingyue: false
-              })
-            }
-          }
-        })
+        //     if ( res.subscriptionsSetting.hasOwnProperty('itemSettings') && res.subscriptionsSetting.itemSettings.hasOwnProperty(tplId) && res.subscriptionsSetting.itemSettings[tplId] == 'accept') {
+        //       _this.setData({
+        //         showDingyue: false
+        //       })
+        //     }
+        //   }
+        // })
 
     },
 
