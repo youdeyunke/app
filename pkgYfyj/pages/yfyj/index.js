@@ -26,6 +26,8 @@ Page({
         floors: [], // 楼层数
         post: null,
         currentBuildingIndex: 0,
+        currentBuild: '',
+        primaryColor: '',
     },
 
 
@@ -51,16 +53,21 @@ Page({
     onLoad: function (q) {
         var postId = q.id || q.post_id
         var _this = this
-        this.setData({ postId: postId }, function () {
+        this.setData({ postId: postId , primaryColor: app.globalData.color.primary}, function () {
             _this.loadData()
         })
         var floors = []
-        wx.setNavigationBarTitle({
-            title: '一房一价',
-        });
-
     },
 
+    buildClick(e){
+      var build = e.detail
+      var currentBuildingIndex = this.data.buildings.findIndex((b) => b === build)
+      if (currentBuildingIndex === -1) {
+        return
+      }
+    this.setData({ currentBuildingIndex: currentBuildingIndex })
+      console.log(e);
+    },
 
     formatRoomsData: function () {
         var rooms = this.data.rooms
@@ -70,6 +77,7 @@ Page({
             return room.building;
         });
         buildings = Array.from(new Set(buildings)).sort();
+        buildings = buildings.filter((building) => building);
 
         // 取出floors
         var floors = rooms.map((room) => {
@@ -99,9 +107,11 @@ Page({
             });
             groupsData.push(bitem);
         });
+        var cindex = this.data.currentBuildingIndex
         this.setData({
             buildings: buildings,
             groupsData: groupsData,
+            currentBuild: buildings[cindex]
         })
     },
 
@@ -116,6 +126,10 @@ Page({
             }
 
             var rooms = resp.data.data.data
+
+            wx.setNavigationBarTitle({
+              title: resp.data.data.post.title + '一房一价',
+          });
 
             _this.setData({ loading: false, post: resp.data.data.post, rooms: rooms }, () => {
                 _this.formatRoomsData()

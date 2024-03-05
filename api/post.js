@@ -128,3 +128,8 @@ export function getBuildingRoomDetail (roomId) {
 export function getPostReviews(pid){
   return request.get("/api/v6/post_reviews/"+pid)
 }
+
+// 拉取楼盘动态总平图
+export function getPostAirviews(pid){
+  return request.get("/api/v6/posts_airview?id="+pid)
+}

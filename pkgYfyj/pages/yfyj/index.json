@@ -1,6 +1,7 @@
 {
     "usingComponents": {
         "post-title": "/components/post-title/index",
+        "air-view": "../../components/air-view/index",
         "room-detail": "./room-detail/index",
         "room-item": "./room-item/index"
     }

@@ -10,10 +10,10 @@
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
 <block wx:if="{{!loading}}">
-
-<post-title post="{{post}}"></post-title>
+<air-view pid="{{postId}}" currentBuild="{{currentBuild}}" bind:buildClick="buildClick"></air-view>
+<!-- <post-title post="{{post}}"></post-title> -->
 <view class="header">
-    <van-tabs animated type="line" color="#1989FA" ellipsis="{{false}}" bind:change="tabChange" sticky>
+    <van-tabs color="{{primaryColor}}" animated type="line" active="{{currentBuildingIndex}}" ellipsis="{{false}}" bind:change="tabChange" sticky>
         <van-tab wx:for="{{buildings}}" wx:if="{{b}}"  wx:for-item="b" title="{{b}}"></van-tab>
     </van-tabs>
 </view>

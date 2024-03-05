@@ -1,0 +1,1 @@
+<canvas type="2d" id="myCanvas" bindtap="clickHandle" style="width:750rpx;height:{{bg_height * ( 750/bg_width )}}rpx;"></canvas>
