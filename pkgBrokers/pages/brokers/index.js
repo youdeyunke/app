@@ -111,6 +111,7 @@ Page({
     onShareAppMessage: function () {
         return {
             title: '置业顾问排行榜',
+            path: '/pkgBrokers/pages/brokers/index'
         }
     }
 })

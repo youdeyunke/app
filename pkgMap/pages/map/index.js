@@ -474,6 +474,9 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
+      return{
+        path: '/pkgMap/pages/map/index',
+        title: '地图找房'
+      }
     }
 })

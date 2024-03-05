@@ -38,7 +38,7 @@ Page({
         app.checkForceLogin()
         var _this = this
         var catId = q.cat_id || ''
-        wx.setNavigationBarTitle({ title: '资讯' })
+        wx.setNavigationBarTitle({ title: '楼市资讯' })
         this.ensureCats(function (cats) {
             // 根据catid 找到需要选中哪个分类
             var active = 0
@@ -207,6 +207,9 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
+      return{
+        path: '/pkgNews/pages/news/index',
+        title: '楼市资讯'
+      }
     }
 })
