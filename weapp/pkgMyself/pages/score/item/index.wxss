@@ -1,0 +1,51 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
+.outer{
+  width: 710rpx;
+  height:144rpx;
+  background:#ffffff; 
+  border-radius: 15rpx;
+  margin:20rpx auto 0rpx auto;
+  padding:20rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.outer .name{ 
+  font-size: 26rpx; 
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.outer .name .date{
+  color:#999;
+}
+
+.outer .value{
+  font-size: 36rpx;
+}
+
+.outer .value.jia {
+  color:#39BA24;
+}
+
+.outer .value.jian{
+  color:#FF4545;
+}
+
+.outer .value .icon{
+  width: 80rpx;
+}

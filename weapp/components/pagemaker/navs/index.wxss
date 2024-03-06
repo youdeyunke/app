@@ -1,0 +1,132 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
+/* components/pagemaker/navs/index.wxss */
+
+.list {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width:100%;
+    margin:0rpx auto;
+    padding: 16rpx;
+    box-sizing: border-box;
+}
+
+.list .item .icon {
+    width: 100rpx;
+    height: 100rpx;
+    background-size: 100rpx 100rpx; 
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    align-items: center;
+}
+
+.list .item .icon .badge{
+    position: absolute;
+    top:-20rpx; 
+    right: -20rpx;
+    z-index:11;
+    font-size: 30rpx;
+    letter-spacing: 2rpx; 
+    white-space: nowrap;
+    max-width: 240rpx;
+    overflow: hidden;
+    height: 58rpx;
+    line-height: 58rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    background:#F43535; 
+    color:#fff; 
+    border-radius: 16rpx;
+    padding:8rpx 18rpx;
+    border: 2rpx solid #fff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+}
+
+
+.list .item .count {
+    position: absolute;
+    top: 0rpx;
+    left: 0rpx;
+    height: 100rpx;
+    width: 100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    z-index: 10;
+    font-weight: bold;
+    font-size: 24rpx;
+}
+
+.list .item .name {
+    font-size: 24rpx;
+    color: #333;
+    min-width: 100rpx;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin-top: 0rpx;
+}
+
+.list .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100rpx;
+    margin-top: 10rpx;
+}
+
+.list .item .link {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.list.mode-5 .item {
+    margin-right: calc((100% - 500rpx) /4);
+}
+
+.list.mode-5 .item:nth-child(5n) {
+    margin-right: 0rpx;
+}
+
+.list.mode-5 .item:nth-child(-n+5) {
+    margin-top: 0;
+}
+
+.list.mode-4 .item {
+    margin-right: calc((100% - 400rpx) /3);
+}
+
+.list.mode-4 .item:nth-child(4n) {
+    margin-right: 0rpx;
+}
+
+.list.mode-4 .item:nth-child(-n+4) {
+    margin-top: 0;
+}

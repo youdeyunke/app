@@ -1,0 +1,124 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
+.customer{ 
+  width:750rpx; 
+  position: sticky;
+  top:0; 
+  padding:0 30rpx;
+  box-sizing: border-box;
+  left:0; 
+  height:120rpx; 
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.customer .header{
+  display: flex;
+  align-items: center;
+}
+
+.customer .header .edit{
+  color:#1989fa; 
+  font-size:26rpx;
+  margin-left:20rpx;
+}
+
+.customer .sex{
+  width:29rpx; 
+  height: 29rpx; 
+  vertical-align: middle;
+  margin-right:10rpx;
+}
+
+.customer .name{
+  color:#333; 
+  font-size:32rpx; 
+}
+
+.customer .btn{
+  height:60rpx; 
+  width: 60rpx;
+}
+
+.customer .btn.wechat{
+  margin-right:30rpx;
+}
+
+.customer .footer{
+   
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.logs{
+  width:710rpx; 
+  border-radius: 15rpx;
+  background-color: #fff;
+  margin:20rpx auto 20rpx auto;
+  padding:30rpx; 
+  box-sizing: border-box;
+}
+
+.log{
+  border-left:2px dashed #cecece;
+  padding-left:30rpx;
+  position: relative;
+}
+
+.log .header{
+  color:#999; 
+  font-size:24rpx; 
+  margin-bottom:20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.log .body{
+  margin-bottom:20rpx;
+  color:#333; 
+  font-size:28rpx;
+  line-height: 1.4;
+  letter-spacing: 1.2rpx;
+}
+
+.log .footer{
+  height:20rpx; 
+  width:600rpx;
+  border-top:1rpx solid  #f0f0f0;
+  margin:20rpx 0 0rpx 20rpx ;
+}
+
+.log .dot{
+  background: #1989fa; 
+  width:18rpx; 
+  height: 18rpx;
+  border-radius: 18rpx;
+  position: absolute;
+  left:-9rpx;
+  top:10rpx;
+}
+
+.action{
+  margin:0 auto;
+  width:750rpx; 
+  height:120rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  position: fixed;
+  bottom:0rpx; 
+  left:0rpx;
+
+}

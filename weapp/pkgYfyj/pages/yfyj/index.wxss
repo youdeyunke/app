@@ -1,0 +1,78 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
+/* pkgYfyj/pages/yfyj/index.wxss */
+
+.header {
+    width: 100%;
+    background: #fff;
+    margin-bottom: 1px;
+}
+
+.header .title {
+    padding: 0 20rpx;
+    margin-top: 20rpx;
+    margin-bottom: 10rpx;
+    font-size: 28rpx;
+    color: 000;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header .title .more {
+    font-size: 22rpx;
+    color: #333;
+    font-weight: normal;
+    background: #f4f4f4;
+    padding:6rpx;
+    
+}
+
+.floor-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.floor-list .floors {
+    width: 60rpx;
+}
+
+.floor-list .floors .floor-item {
+    width: 100%;
+    height: 180rpx;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    border:1px solid #fff;
+}
+
+.floor-list .rooms {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.scroll-views {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.room-floor-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: scroll;
+    width: calc(100% - 70rpx);
+}

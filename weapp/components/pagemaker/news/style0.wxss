@@ -1,0 +1,83 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: UDEVE Team <tech@udeve.cn>
+* +----------------------------------------------------------------------
+*/
+/* components/pagemaker/news/style0.wxss */
+
+.item-list {
+    width: 100%;
+    margin: 0rpx auto 20rpx auto;
+    padding:20rpx 0rpx 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-top: 2rpx solid #f0f0f0;
+
+}
+
+.item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 152rpx;
+    margin: 10rpx 0rpx;
+    border-bottom: 2rpx solid #f0f0f0;
+    padding: 20rpx;
+}
+
+.item:last-child {
+    border: none;
+    margin-bottom: none;
+}
+
+.item .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width:550rpx;
+    height: 152rpx;
+    padding: 16rpx 0;
+}
+
+.item .footer {
+    font-size: 24rpx;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: bottom;
+}
+
+.item .author {
+    color: #666;
+}
+
+.item .date {
+    color: #999;
+}
+
+.item .title {
+    font-size: 26rpx;
+    height: 72rpx;
+    font-weight: bold;
+    color: 333;
+}
+
+.item .cover {
+    margin-right:30rpx;
+}
+
+.item .cover image {
+    width: 210rpx;
+    height: 135rpx;
+    border-radius: 10rpx;
+}

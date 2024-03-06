@@ -1,0 +1,22 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: UDEVE Team <tech@udeve.cn>
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<block>
+    <view class="outer">
+
+        <!-- <van-tabs border swipeable animated color="{{primaryColor}}" active="{{ active }}" bind:change="onChange">
+            <van-tab title-style="font-size:26rpx;color:#333;" wx:for="{{cats}}" wx:for-item="cat" title="{{cat.name}}"> -->
+                <style0 items="{{cats[0].items}}"></style0>
+            <!-- </van-tab>
+        </van-tabs> -->
+
+    </view>
+</block>
