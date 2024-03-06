@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "视频看房",
+  "usingComponents": {
+    "van-popup": "/vant/popup/index"
+  }
+}

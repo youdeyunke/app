@@ -347,6 +347,13 @@
       ]
     },
     {
+      "root": "pkgVideo",
+      "name": "pkgVideo",
+      "pages": [
+        "pages/video/index"
+      ]
+    },
+    {
       "root": "pkgCropper",
       "name": "cropper",
       "pages": [
