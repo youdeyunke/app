@@ -14,11 +14,11 @@
       <view class="booking-box">
         <navigator  url="/pkgPost/pages/show/index?id={{item.post.id}}" class="booking-top">
           <view class="booking-top-nav">
-            <image class="image1" src="../../image/2.png"></image>
+            <!-- <image class="image1" src="../../image/2.png"></image> -->
             <text>{{item.post.title}}</text>
           </view>
  
-          <image class="image2" src="../../image/1.png"></image>
+          <!-- <image class="image2" src="../../image/1.png"></image> -->
          </navigator>
         <view class="booking-time">
           <view class="booking-time-nav">
@@ -30,31 +30,7 @@
             <text>{{item.remark}}</text>
           </view>
         </view>
-        <view wx:if="{{item.broker_id}}" class="booking-bottom">
-          <view class="booking-bottom-left">
-            <image class="image3" src="{{item.broker_profile.avatar}}"></image>
-            <view class="booking-message">
-              <view class="booking-message-top">
-                <text>{{item.broker_profile.name}}</text>
-                <image class="image4" src="/assets/icons/broker/{{item.broker_profile.level}}.png"></image>
-              </view>
-              <view class="booking-message-bottom">
-                <image class="image5" src="../../image/7.png"></image>
-                <text>{{item.broker_profile.mobile}}</text>
-              </view>
-            </view>
-          </view>
-          <view class="booking-handle">
-            <image class="image6" src="https://qiniucdn.udeve.net/fang/broker-item-chat.png" bindtap="chatHandle" data-myid="{{item.broker_profile.id}}"></image>
-            <image class="image6" src="https://qiniucdn.udeve.net/fang/broker-item-phone.png" bindtap="callHandle" data-mobile="{{item.broker_profile.mobile}}">
-            </image>
-          </view>
-        </view>
 
-        <view wx:else class="booking-bot">
-          <image class="image3" src="../../image/Group 309.png"></image>
-          <text>等待分配置业顾问</text>
-        </view>
       </view>
     </view>
   </block>
