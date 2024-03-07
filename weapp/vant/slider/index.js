@@ -1,7 +1,12 @@
 import { VantComponent } from '../common/component';
 import { touch } from '../mixins/touch';
 import { canIUseModel } from '../common/version';
-import { getRect, addUnit } from '../common/utils';
+import { getRect, addUnit, nextTick, addNumber, clamp } from '../common/utils';
+const DRAG_STATUS = {
+    START: 'start',
+    MOVING: 'moving',
+    END: 'end',
+};
 VantComponent({
     mixins: [touch],
     props: {
@@ -54,16 +59,16 @@ VantComponent({
             else {
                 this.startValue = this.format(this.newValue);
             }
-            this.dragStatus = 'start';
+            this.dragStatus = DRAG_STATUS.START;
         },
         onTouchMove(event) {
             if (this.data.disabled)
                 return;
-            if (this.dragStatus === 'start') {
+            if (this.dragStatus === DRAG_STATUS.START) {
                 this.$emit('drag-start');
             }
             this.touchMove(event);
-            this.dragStatus = 'draging';
+            this.dragStatus = DRAG_STATUS.MOVING;
             getRect(this, '.van-slider').then((rect) => {
                 const { vertical } = this.data;
                 const delta = vertical ? this.deltaY : this.deltaX;
@@ -82,9 +87,12 @@ VantComponent({
         onTouchEnd() {
             if (this.data.disabled)
                 return;
-            if (this.dragStatus === 'draging') {
-                this.updateValue(this.newValue, true);
-                this.$emit('drag-end');
+            if (this.dragStatus === DRAG_STATUS.MOVING) {
+                this.dragStatus = DRAG_STATUS.END;
+                nextTick(() => {
+                    this.updateValue(this.newValue, true);
+                    this.$emit('drag-end');
+                });
             }
         },
         onClick(event) {
@@ -163,15 +171,19 @@ VantComponent({
             const { max, min } = this.data;
             return max - min;
         },
+        getOffsetWidth(current, min) {
+            const scope = this.getScope();
+            // 避免最小值小于最小step时出现负数情况
+            return `${Math.max(((current - min) * 100) / scope, 0)}%`;
+        },
         // 计算选中条的长度百分比
         calcMainAxis() {
             const { value } = this;
             const { min } = this.data;
-            const scope = this.getScope();
             if (this.isRange(value)) {
-                return `${((value[1] - value[0]) * 100) / scope}%`;
+                return this.getOffsetWidth(value[1], value[0]);
             }
-            return `${((value - Number(min)) * 100) / scope}%`;
+            return this.getOffsetWidth(value, Number(min));
         },
         // 计算选中条的开始位置的偏移量
         calcOffset() {
@@ -184,8 +196,12 @@ VantComponent({
             return '0%';
         },
         format(value) {
-            const { max, min, step } = this.data;
-            return Math.round(Math.max(min, Math.min(value, max)) / step) * step;
+            const min = +this.data.min;
+            const max = +this.data.max;
+            const step = +this.data.step;
+            value = clamp(value, min, max);
+            const diff = Math.round((value - min) / step) * step;
+            return addNumber(min, diff);
         },
     },
 });

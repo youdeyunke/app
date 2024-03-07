@@ -4,6 +4,10 @@ VantComponent({
     field: true,
     classes: ['field-class', 'input-class', 'cancel-class'],
     props: {
+        value: {
+            type: String,
+            value: '',
+        },
         label: String,
         focus: Boolean,
         error: Boolean,
@@ -49,6 +53,10 @@ VantComponent({
             type: String,
             value: 'clear',
         },
+        cursorSpacing: {
+            type: Number,
+            value: 0,
+        },
     },
     methods: {
         onChange(event) {
@@ -60,7 +68,7 @@ VantComponent({
         onCancel() {
             /**
              * 修复修改输入框值时，输入框失焦和赋值同时触发，赋值失效
-             * https://github.com/youzan/@vant/weapp/issues/1768
+             * https://github.com/youzan/vant-weapp/issues/1768
              */
             setTimeout(() => {
                 if (canIUseModel()) {

@@ -4,6 +4,7 @@ import { GRAY, RED } from '../common/color';
 import { toPromise } from '../common/utils';
 VantComponent({
     mixins: [button],
+    classes: ['cancle-button-class', 'confirm-button-class'],
     props: {
         show: {
             type: Boolean,
@@ -17,14 +18,17 @@ VantComponent({
             type: String,
             value: 'default',
         },
-        useSlot: Boolean,
+        confirmButtonId: String,
         className: String,
         customStyle: String,
         asyncClose: Boolean,
         messageAlign: String,
         beforeClose: null,
         overlayStyle: String,
+        useSlot: Boolean,
         useTitleSlot: Boolean,
+        useConfirmButtonSlot: Boolean,
+        useCancelButtonSlot: Boolean,
         showCancelButton: Boolean,
         closeOnClickOverlay: Boolean,
         confirmButtonOpenType: String,
@@ -60,6 +64,10 @@ VantComponent({
         transition: {
             type: String,
             value: 'scale',
+        },
+        rootPortal: {
+            type: Boolean,
+            value: false,
         },
     },
     data: {

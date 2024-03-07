@@ -44,7 +44,7 @@
   <van-grid>
     <van-grid-item link-type="navigateTo" url="/pkgCustomer/pages/threadList/index?type=private" icon="orders-o" text="我的线索" />
     <van-grid-item link-type="navigateTo" url="/pkgCustomer/pages/threadList/index?type=public" icon="todo-list-o" text="公海线索" />
-    <van-grid-item link-type="navigateTo" url="/pkgCustomer/pages/customerList/index?type=private" icon="contact" text="我的客户" />
+    <van-grid-item link-type="navigateTo" url="/pkgCustomer/pages/customerList/index?type=private" icon="contact-o" text="我的客户" />
     <van-grid-item link-type="navigateTo" url="/pkgCustomer/pages/customerList/index?type=public" icon="friends-o" text="公海客户" />
     <!-- <van-grid-item link-type="navigateTo" url="" icon="add-o" text="新增线索" /> -->
     <van-grid-item link-type="navigateTo" url="/pkgCustomer/pages/createCustomer/index" icon="add-o" text="新建客户" />

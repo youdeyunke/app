@@ -10,7 +10,7 @@
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
 <van-search value="{{ kw }}" background="#f3f5f7" placeholder="输入经纪人手机号、姓名进行搜索" use-action-slot bind:clear="clearSearch" bind:search="doSearch" custom-class="search-box" bind:change="searchTextInput">
-    <view slot="action" bind:tap="doSearch">搜索</view>
+    <view slot="action" style="width: 80rpx;text-align: center;" bind:tap="doSearch">搜索</view>
 </van-search>
 <view class="empty" wx:if="{{!loading && items[0].length == 0 }}" style="text-align:center;color:#cecece;margin-top:100rpx;">
     没有记录

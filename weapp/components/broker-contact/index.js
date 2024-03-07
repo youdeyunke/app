@@ -79,7 +79,7 @@ Component({
               return
             }
 
-            // var user = app.globalData.userInfo
+            var user = app.globalData.userInfo
             // if (!user) {
             //     wx.showToast({
             //         title: '请先登录',

@@ -26,6 +26,8 @@ Component({
         showVideo: false,
         //mark: 'watermark/4/text/6IGq5bGL6YCJ5oi_/font/5a6L5L2T/fontsize/500/fill/Z3JheQ==/dissolve/50/rotate/-45/uw/100/uh/100/resize/1',
         mark: '',
+        playVideo: false,
+        videoUrl: '',
     },
 
     ready: function () {
@@ -54,7 +56,7 @@ Component({
         viewImage: function (item) {
             var _this = this
             var url = item.url + '?' + this.data.mark
-            var urls = this.data.items.map((m, i) => { return m.url + '?' + _this.data.mark })
+            var urls = this.data.items.filter( item => item.filetype == 'image').map((m, i) => { return m.url + '?' + _this.data.mark })
             wx.previewImage({
                 current: url,
                 urls: urls,
@@ -72,11 +74,21 @@ Component({
                 case 'video':
                     var url = item.url
                     // app.gotoVideo(url, '视频')
-                    _this.viewVideo(index)
+                    // var videoUrl = img.url
+                    this.setData({
+                      videoUrl: url,
+                      playVideo: true,
+                    })
                     break;
             }
 
         },
-
+        closeVideoPopup(){
+            this.setData({
+                playVideo: false,
+                videoUrl: ''
+            })
+        },
+  
     }
 })
