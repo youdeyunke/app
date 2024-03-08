@@ -21,7 +21,7 @@
 **管理后台**
 
 * [管理后台 http://demo.youdeyunke.com/](http://demo.youdeyunke.com/)
-* 用户名：`demo@youdeyunke.com`
+* 用户名：`gitee@youdeyunke.com`
 * 密码：`88888888`
 
 **小程序端**
