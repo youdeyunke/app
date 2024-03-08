@@ -11,7 +11,12 @@
 */
 /* pkgVideo/pages/video/index.wxss */
 .search{
-	padding: 20rpx 30rpx !important;
+  padding: 20rpx 30rpx !important;
+  border-radius: 20rpx 20rpx 0rpx 0rpx !important;
+/* background: #FFFFFF; */
+  position: absolute;
+  top: 10rpx;
+  width: 750rpx;
 }
 
 .list {

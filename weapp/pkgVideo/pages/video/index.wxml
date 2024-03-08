@@ -26,9 +26,9 @@
   };
 </wxs>
 <page-meta page-style="{{ showVideo ? 'overflow: hidden;' : '' }}" />
-
+<view style="height: 50rpx;background-color: {{primaryColor}};"> </view>
 <van-search round bind:clear="clearHandle" model:value="{{ kw }}" placeholder="输入关键词进行搜索" bind:change="kwChange" custom-class="search" />
-
+<view style="height: 58rpx;"></view>
 <view class="list">
   <view class="item" wx:for="{{items}}" bindtap="videoHandle" data-video="{{item}}">
     <image class="cover" src="{{item.cover}}?imageView2/1/w/330/h/275" mode="" />

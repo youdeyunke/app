@@ -117,7 +117,7 @@
             </van-field>
         </van-cell-group>
     </card>
-    <view style="width:90%;margin:auto;">
+    <view style="width:710rpx;margin:auto;">
         <van-button bindtap="submitHandle" block color="{{primaryBtnColor || '#1989fa'}}">提交需求，帮我找房</van-button>
     </view>
 
