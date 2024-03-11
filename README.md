@@ -142,7 +142,7 @@
 群二维码：
 <div align="center">
 
-![](https://qiniucdn.udeve.net/udyk/65e57c558ecac9513038b2b7.png?imageView2/2/w/200)
+![](https://qiniucdn.udeve.net/udyk/65eef289e4b066b2ee17f69b.png?imageView2/2/w/200)
 </div>    
 
 ## 版权信息
