@@ -2,7 +2,7 @@ version: "3.9"
 services:
   app:
     container_name: udyk-app
-    image: "udeve/udyk:6.0.181"     # 默认拉取最新版本
+    image: "udeve/udyk:6.0.227"     # 默认拉取最新版本
     privileged: true                # 注意，不能去掉
     restart: always
     expose:

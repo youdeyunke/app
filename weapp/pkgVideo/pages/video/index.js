@@ -29,6 +29,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    var _this = this
+    app.ensureConfigs((myconfigs) => {
+
+      var bgColor = myconfigs.color.primary || '#F0F0F0'
+      var fontColor = '#ffffff'
+        wx.setNavigationBarColor({
+          backgroundColor: bgColor,
+          frontColor: fontColor,
+        })
+        _this.setData({
+            btnColor: myconfigs.color.primary_btn,
+            primaryColor: myconfigs.color.primary,
+        })
+    })
     this.loadData()
   },
 

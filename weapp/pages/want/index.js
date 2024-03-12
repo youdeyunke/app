@@ -331,8 +331,8 @@ Page({
             return
         }
 
-        if (this.data.contact_mobile_lock == false && !this.data.sms_code) {
-            this.showError('请填写短信验证码')
+        if (!this.data.contact_mobile) {
+            this.showError('请填写手机号')
             return
         }
 

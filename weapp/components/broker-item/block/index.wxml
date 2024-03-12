@@ -16,6 +16,6 @@
   </navigator>
   <view class="broker-name line-limit">{{ item.name }} </view>
   <view class="broker-company line-limit">{{ item.post_title || '' }}</view>
-  <van-button custom-style="background:none;border-radius:6rpx;overfollow:hidden;" bindtap="zixun" icon="comment" size="mini" type="primary" plain color="#333333">咨询</van-button>
+  <van-button custom-style="background:none;border-radius:6rpx;overfollow:hidden;opacity: 0;" bindtap="zixun" icon="comment" size="mini" type="primary" plain color="#333333">咨询</van-button>
 </view>
 <login-window class="loginwindow"></login-window>

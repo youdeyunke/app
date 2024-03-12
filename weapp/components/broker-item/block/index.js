@@ -51,7 +51,7 @@ Component({
     data: {
         loading: false,
         levelImg: '',
-        bg: 'https://qiniucdn.udeve.net/udyk/65d59baab33aeb2be5e36adb.png',
+        bg: 'https://qiniucdn.udeve.net/udyk/65e946658eca4d65ccc012ec.png',
         items: [],
     },
 

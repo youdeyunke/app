@@ -5,7 +5,13 @@ import { isDef } from '../common/validator';
 import { useChildren } from '../common/relation';
 VantComponent({
     mixins: [touch],
-    classes: ['nav-class', 'tab-class', 'tab-active-class', 'line-class'],
+    classes: [
+        'nav-class',
+        'tab-class',
+        'tab-active-class',
+        'line-class',
+        'wrap-class',
+    ],
     relation: useChildren('tab', function () {
         this.updateTabs();
     }),
@@ -73,6 +79,10 @@ VantComponent({
             type: Boolean,
             value: true,
         },
+        useBeforeChange: {
+            type: Boolean,
+            value: false,
+        },
     },
     data: {
         tabs: [],
@@ -83,6 +93,7 @@ VantComponent({
         skipTransition: true,
         scrollWithAnimation: false,
         lineOffsetLeft: 0,
+        inited: false,
     },
     mounted() {
         requestAnimationFrame(() => {
@@ -105,28 +116,25 @@ VantComponent({
         },
         trigger(eventName, child) {
             const { currentIndex } = this.data;
-            const currentChild = child || this.children[currentIndex];
-            if (!isDef(currentChild)) {
+            const data = this.getChildData(currentIndex, child);
+            if (!isDef(data)) {
                 return;
             }
-            this.$emit(eventName, {
-                index: currentChild.index,
-                name: currentChild.getComputedName(),
-                title: currentChild.data.title,
-            });
+            this.$emit(eventName, data);
         },
         onTap(event) {
             const { index } = event.currentTarget.dataset;
             const child = this.children[index];
             if (child.data.disabled) {
                 this.trigger('disabled', child);
+                return;
             }
-            else {
+            this.onBeforeChange(index).then(() => {
                 this.setCurrentIndex(index);
                 nextTick(() => {
                     this.trigger('click');
                 });
-            }
+            });
         },
         // correct the index of active tab
         setCurrentIndexByName(name) {
@@ -152,6 +160,9 @@ VantComponent({
                 });
             });
             if (currentIndex === data.currentIndex) {
+                if (!data.inited) {
+                    this.resize();
+                }
                 return;
             }
             const shouldEmitChange = data.currentIndex !== null;
@@ -191,12 +202,13 @@ VantComponent({
                     .reduce((prev, curr) => prev + curr.width, 0);
                 lineOffsetLeft +=
                     (rect.width - lineRect.width) / 2 + (ellipsis ? 0 : 8);
-                this.setData({ lineOffsetLeft });
+                this.setData({ lineOffsetLeft, inited: true });
                 this.swiping = true;
                 if (skipTransition) {
-                    nextTick(() => {
+                    // waiting transition end
+                    setTimeout(() => {
                         this.setData({ skipTransition: false });
-                    });
+                    }, this.data.duration);
                 }
             });
         },
@@ -247,7 +259,7 @@ VantComponent({
             if (direction === 'horizontal' && offsetX >= minSwipeDistance) {
                 const index = this.getAvaiableTab(deltaX);
                 if (index !== -1) {
-                    this.setCurrentIndex(index);
+                    this.onBeforeChange(index).then(() => this.setCurrentIndex(index));
                 }
             }
             this.swiping = false;
@@ -265,6 +277,26 @@ VantComponent({
                 }
             }
             return -1;
+        },
+        onBeforeChange(index) {
+            const { useBeforeChange } = this.data;
+            if (!useBeforeChange) {
+                return Promise.resolve();
+            }
+            return new Promise((resolve, reject) => {
+                this.$emit('before-change', Object.assign(Object.assign({}, this.getChildData(index)), { callback: (status) => (status ? resolve() : reject()) }));
+            });
+        },
+        getChildData(index, child) {
+            const currentChild = child || this.children[index];
+            if (!isDef(currentChild)) {
+                return;
+            }
+            return {
+                index: currentChild.index,
+                name: currentChild.getComputedName(),
+                title: currentChild.data.title,
+            };
         },
     },
 });

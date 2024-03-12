@@ -279,14 +279,22 @@ Page({
         else {
             houseApi.createHouse(data).then((res) => {
                 // todo 
-                if (res.errMsg == "request:ok") {
-                    wx.showToast({
-                        title: '提交成功',
-                    })
-                    wx.navigateBack({
-                        delta: 1
-                    });
+                if (res.data.code != 0) {
+                    return
                 }
+                wx.showModal({
+                    title: '提交成功',
+                    content: '房源审核通过后将上架到小程序',
+                    showCancel: false,
+                    complete: (res) => {
+                      if (res.confirm) {
+                          wx.navigateBack({
+                              delta: 1
+                          });
+                      }
+                    }
+                })
+
             })
         }
 

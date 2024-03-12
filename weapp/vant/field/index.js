@@ -22,6 +22,9 @@ VantComponent({
         }, clearIcon: {
             type: String,
             value: 'clear',
+        }, extraEventParams: {
+            type: Boolean,
+            value: false,
         } }),
     data: {
         focused: false,
@@ -33,11 +36,19 @@ VantComponent({
         this.setData({ innerValue: this.value });
     },
     methods: {
+        formatValue(value) {
+            const { maxlength } = this.data;
+            if (maxlength !== -1 && value.length > maxlength) {
+                return value.slice(0, maxlength);
+            }
+            return value;
+        },
         onInput(event) {
             const { value = '' } = event.detail || {};
-            this.value = value;
+            const formatValue = this.formatValue(value);
+            this.value = formatValue;
             this.setShowClear();
-            this.emitChange();
+            return this.emitChange(Object.assign(Object.assign({}, event.detail), { value: formatValue }));
         },
         onFocus(event) {
             this.focused = true;
@@ -60,7 +71,7 @@ VantComponent({
             this.value = '';
             this.setShowClear();
             nextTick(() => {
-                this.emitChange();
+                this.emitChange({ value: '' });
                 this.$emit('clear', '');
             });
         },
@@ -76,7 +87,7 @@ VantComponent({
             if (value === '') {
                 this.setData({ innerValue: '' });
             }
-            this.emitChange();
+            this.emitChange({ value });
         },
         onLineChange(event) {
             this.$emit('linechange', event.detail);
@@ -84,12 +95,17 @@ VantComponent({
         onKeyboardHeightChange(event) {
             this.$emit('keyboardheightchange', event.detail);
         },
-        emitChange() {
-            this.setData({ value: this.value });
-            nextTick(() => {
-                this.$emit('input', this.value);
-                this.$emit('change', this.value);
-            });
+        emitChange(detail) {
+            const { extraEventParams } = this.data;
+            this.setData({ value: detail.value });
+            let result;
+            const data = extraEventParams
+                ? Object.assign(Object.assign({}, detail), { callback: (data) => {
+                        result = data;
+                    } }) : detail.value;
+            this.$emit('input', data);
+            this.$emit('change', data);
+            return result;
         },
         setShowClear() {
             const { clearable, readonly, clearTrigger } = this.data;

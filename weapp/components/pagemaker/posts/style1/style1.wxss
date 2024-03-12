@@ -14,13 +14,13 @@
 .other {
     white-space: nowrap;
     margin-right: 0rpx;
-    width: 720rpx;
+    width: 690rpx;
 }
 .others{
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    width:720rpx;
+    width:690rpx;
     padding: 0 15rpx;
 }
 ::-webkit-scrollbar {

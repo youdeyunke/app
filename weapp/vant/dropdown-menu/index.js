@@ -4,6 +4,7 @@ import { addUnit, getRect, getSystemInfoSync } from '../common/utils';
 let ARRAY = [];
 VantComponent({
     field: true,
+    classes: ['title-class'],
     relation: useChildren('dropdown-item', function () {
         this.updateItemListData();
     }),
@@ -30,6 +31,10 @@ VantComponent({
             type: String,
             value: 'down',
             observer: 'updateChildrenData',
+        },
+        safeAreaTabBar: {
+            type: Boolean,
+            value: false,
         },
         closeOnClickOverlay: {
             type: Boolean,

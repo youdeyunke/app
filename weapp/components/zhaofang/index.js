@@ -568,9 +568,9 @@ Component({
                 })
                 return
             }
-            if (this.data.contact_mobile_lock == false && !this.data.sms_code) {
+            if (!this.data.contact_mobile) {
                 wx.showToast({
-                    title: '请填写短信验证码',
+                    title: '请填写手机号',
                     icon: 'none'
                 })
                 return

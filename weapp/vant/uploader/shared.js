@@ -1,5 +1,5 @@
-// props for choose image
-export const chooseImageProps = {
+// props for image
+export const imageProps = {
     sizeType: {
         type: Array,
         value: ['original', 'compressed'],
@@ -8,9 +8,13 @@ export const chooseImageProps = {
         type: Array,
         value: ['album', 'camera'],
     },
+    showmenu: {
+        type: Boolean,
+        value: true,
+    },
 };
-// props for choose video
-export const chooseVideoProps = {
+// props for video
+export const videoProps = {
     capture: {
         type: Array,
         value: ['album', 'camera'],
@@ -27,4 +31,27 @@ export const chooseVideoProps = {
         type: String,
         value: 'back',
     },
+};
+// props for media
+export const mediaProps = {
+    capture: {
+        type: Array,
+        value: ['album', 'camera'],
+    },
+    mediaType: {
+        type: Array,
+        value: ['image', 'video', 'mix'],
+    },
+    maxDuration: {
+        type: Number,
+        value: 60,
+    },
+    camera: {
+        type: String,
+        value: 'back',
+    },
+};
+// props for file
+export const messageFileProps = {
+    extension: null,
 };

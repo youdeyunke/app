@@ -3,6 +3,7 @@
   "enablePullDownRefresh": true,
   "usingComponents": {
       "booking": "/components/post-booking/index",
+      "page-contact": "/components/page-contact/index",
       "media-items": "./media-items"
   }
 }

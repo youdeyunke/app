@@ -27,7 +27,7 @@ Page({
         // sub_bank: '',
         // bank_user: '',
         // bank_id: '',
-
+        // mobileLock: true,
         mobile: '',
         name: '',
         smsCode: '',
