@@ -46,7 +46,7 @@
 </view>
 <Linechart item="{{linechartdata}}" color="{{primaryColor}}"></Linechart>
 
-<view class="tip" style="color: #999;">网签数据来自网上房地产网站</view>
+<view class="tip" style="color: #999;">网签日历数据来自网上房地产网站</view>
 <view wx:if="{{lastUpdate}}" class="tip">更新时间： {{lastUpdate}}</view>
 
 <view class="spacer"></view>

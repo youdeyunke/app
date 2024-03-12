@@ -2,5 +2,5 @@
     "usingComponents": {
         "Linechart":"../../components/Linechart/index"
     },
-    "navigationBarTitleText": "二手房网签数据"
+    "navigationBarTitleText": "二手房网签日历"
 }

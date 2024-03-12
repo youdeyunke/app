@@ -210,7 +210,7 @@ Page({
      */
     onShareAppMessage() {
       return {
-        title: '二手房网签数据',
+        title: '二手房网签日历',
         path: '/pkgRili/pages/houseSigning/index',
         success: function () { },
         fail: function () { }
@@ -218,7 +218,7 @@ Page({
     },
     onShareTimeline: function () {
         return {
-          title: '二手房网签数据',
+          title: '二手房网签日历',
         }
     }
 })

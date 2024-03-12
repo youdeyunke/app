@@ -56,6 +56,7 @@ Page({
   videoHandle(e) {
     var video = e.currentTarget.dataset.video
     console.log(e, video);
+    videoApi.addVideoViews(video.id)
 
     if (video.is_wxvideo) {
       wx.openChannelsActivity({

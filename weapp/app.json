@@ -354,6 +354,13 @@
       ]
     },
     {
+      "root": "pkgFeedback",
+      "name": "pkgFeedback",
+      "pages": [
+        "pages/Feedback/index"
+      ]
+    },
+    {
       "root": "pkgCropper",
       "name": "cropper",
       "pages": [
