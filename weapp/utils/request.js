@@ -34,6 +34,7 @@ const http = ({
 
     if (wx.getStorageSync('token')) {
         header.Authorization = wx.getStorageSync('token');
+        header.vue_admin_template_token = wx.getStorageSync('token'); //sa-token 使用
     }
     return new Promise((resolve, reject) => {
         wx.request({

@@ -23,7 +23,8 @@ module.exports = {
             mask: true
         })
         var header = {
-            Authorization: wx.getStorageSync('token')
+            Authorization: wx.getStorageSync('token'),
+            vue_admin_template_token: wx.getStorageSync('token')
         }
         var url = request.getUrl("/api/v6/upload")
         // 将本地资源上传到服务器。
