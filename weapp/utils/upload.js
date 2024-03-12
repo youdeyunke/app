@@ -36,12 +36,12 @@ module.exports = {
             success: function (resp) {
                 var Data = JSON.parse(resp.data)
                 wx.hideLoading()
-                if (resp.statusCode == 200 && resp.errMsg == "uploadFile:ok") {
-                    if (resp.data) {
-                        var url = Data.data.url
-                        return typeof cb == 'function' && cb(url)
-                    }
-                }
+                // if (resp.statusCode == 200 && resp.errMsg == "uploadFile:ok") {
+                //     if (resp.data) {
+                //         var url = Data.data.url
+                //         return typeof cb == 'function' && cb(url)
+                //     }
+                // }
                 if (Data.code == 2000 || Data.status == 2000 || Data.code == 2001 || Data.status == 2001) {
                     throttle.throttle(function () {
                         wx.hideLoading()
@@ -49,6 +49,11 @@ module.exports = {
                             url: '/pkgAuth/pages/auth/index'
                         })
                     }, 1000)()
+                } else if (resp.statusCode == 200 && resp.errMsg == "uploadFile:ok") {
+                    if (resp.data) {
+                        var url = Data.data.url
+                        return typeof cb == 'function' && cb(url)
+                    }
                 } else {
                     wx.showToast({
                         title: "上传文件失败",
