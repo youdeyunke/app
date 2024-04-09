@@ -11,7 +11,8 @@
 */
 const app = getApp()
 // 请修改为您自己的服务端地址，服务端安装请参考文档：http://doc.youdeyunke.com/zhunbei.html
-const apiHost = 'https://demo.youdeyunke.com';
+//const apiHost = 'https://demo.youdeyunke.com';
+const apiHost = 'https://m.kexuezhaofang.com'
 const throttle = require('./throttle');
 
 // 发送http请求
