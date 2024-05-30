@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "card": "/components/card",
+    "post": "/components/post-item/cell/index"
+  
+  }
+}

@@ -1,0 +1,37 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view class="auth" wx:if="{{!userInfo}}">
+    <view class="header" style="background-image:url('https://qiniucdn.udeve.net/fang/login-header.png')">
+    </view>
+
+    <view class="body" style="background-image:url('https://qiniucdn.udeve.net/fang/login-body.png')">
+    </view>
+
+    <view class="footer">
+        <van-button color="{{primaryBtnColor}}" style="width:100%;font-size:32rpx;" block icon="wechat" loading="{{loading}}"
+            disabled="{{loading}}"  open-type='getPhoneNumber' bindgetphonenumber='loginHandle' wx:if="{{!is_wxwork}}">
+            微信登录
+        </van-button>
+
+        <view class="terms-block" hover-class="none">
+            <ud-checkbox model:value="{{allowTerms}}"></ud-checkbox>
+            <view class="terms" bindtap="termsHandle">
+                <text>同意</text>
+                <navigator style="color:#1989fa" url="/pkgAuth/pages/auth/terms">《用户协议》</navigator>
+            </view>
+        </view>
+
+    </view>
+
+
+
+</view>

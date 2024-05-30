@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "post": "/components/post-item/cell/index",
+      "box": "/components/ud/box/index"
+  }
+}

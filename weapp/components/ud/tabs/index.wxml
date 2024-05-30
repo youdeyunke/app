@@ -1,0 +1,21 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<scroll-view class="outer" scroll-x>
+
+  <view class="tabs">
+
+        <view class="tab {{activeIndex == index ? 'active' : ''}} " wx:for="{{data}}" data-index='{{index}}' bind:tap="tabChange">
+            <view class="name">{{item.name || item.title || item.label}}</view>
+            <view style="background-color:{{primaryColor}}" wx:if="{{activeIndex === index }}" class="border" ></view>
+        </view>
+    </view>
+</scroll-view>

@@ -1,0 +1,29 @@
+{
+  "enablePullDownRefresh": false,
+  "navigationBarTitleText": "楼盘详情",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "banners-block": "./banners-block",
+    "header-block": "./header-block",
+    "joingroup-block": "./joingroup-block",
+    "info-block": "./info-block",
+    "brokers-block": "./brokers-block",
+    "recoms-block": "./recoms-block",
+    "events-block": "./events-block",
+    "tours-block": "./tours-block",
+    "news-block": "./news-block",
+    "types-block": "./types-block",
+    "qas-block": "./qas-block",
+    "xiangce-block": "./xiangce-block",
+    "page-loading": "./page-loading",
+    "box": "/components/ud/box/index",
+    "broker-contact": "/components/broker-contact/index",
+    "page-contact": "/components/page-contact/index",
+    "points_block": "./points_block",
+    "van-tabs": "/vant/tabs/index",
+    "van-tab": "/vant/tab/index",
+    "raw-html": "/components/raw-html/index",
+    "pingce-block": "./pingce-block/index",
+    "recommended-post-items": "/components/recommended-post-items/index"
+  }
+}

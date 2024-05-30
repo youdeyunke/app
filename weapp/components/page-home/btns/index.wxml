@@ -1,0 +1,12 @@
+<!--components/pagemaker/myselficons/index.wxml-->
+
+<scroll-view class="icons" enable-flex scroll-y="true" scroll-x="true" bindscroll="getleft" scroll-with-animation="{{true}}" show-scrollbar="{{false}}" enhanced="{{true}}" style="padding-top: 30rpx">
+	<view wx:for="{{arrangedItems}}" wx:key="index" class="icon-row width-large-5" >
+    <btn pageKey="{{pageKey}}" item="{{btn}}" wx:for="{{item}}" class="icon-item arr-5 style-large" wx:for-item="btn"></btn>
+  </view>
+</scroll-view>
+<view class="slide" wx:if="{{slideShow}}">
+	<view class='slide-bar'>
+		<view class="slide-show" style="width:{{slideWidth}}rpx; margin-left:{{slideLeft<=1 ? 0 : slideLeft+'rpx'}};background-color: {{primaryColor}};"></view>
+	</view>
+</view>

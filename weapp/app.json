@@ -1,0 +1,305 @@
+{
+  "subpackages": [
+    {
+      "root": "pkgMyself",
+      "name": "pkgmyself",
+      "pages": [
+        "pages/profile/index",
+        "pages/favposts/index",
+        "pages/eventposts/index",
+        "pages/booking/index",
+        "pages/qa/index",
+        "pages/history/index"
+      ]
+    },
+    {
+      "root": "pkgError",
+      "name": "pkgerror",
+      "pages": [
+        "pages/404/index",
+        "pages/444/index"
+      ]
+    },
+    {
+      "root": "pkgErshou",
+      "name": "pkgershou",
+      "pages": [
+        "pages/index",
+        "pages/show",
+        "pages/create",
+        "pages/subdistricts/index",
+        "pages/chujiajilu/index"
+      ]
+    },
+    {
+      "root": "pkgPingce",
+      "name": "pingce",
+      "pages": [
+        "pages/pingce/index"
+      ]
+    },
+    {
+      "root": "pkgPost",
+      "name": "pkgpost",
+      "pages": [
+        "pages/index/index",
+        "pages/show/index",
+        "pages/desc/index",
+        "pages/type/index",
+        "pages/selector/index",
+        "pages/type/show"
+      ]
+    },
+    {
+      "root": "pkgMap",
+      "name": "pkgmap",
+      "pages": [
+        "pages/map/index",
+        "pages/ershouMap/index"
+      ]
+    },
+    {
+      "root": "pkgPoster",
+      "name": "poster",
+      "pages": [
+        "pages/poster/index"
+      ]
+    },
+    {
+      "root": "pkgEvent",
+      "name": "event",
+      "pages": [
+        "pages/event/index"
+      ]
+    },
+    {
+      "root": "pkgBroker",
+      "name": "broker",
+      "pages": [
+        "pages/broker/index",
+        "pages/broker/join",
+        "pages/broker/profile",
+        "pages/broker/qr",
+        "pages/broker/audit/index"
+      ]
+    },
+    {
+      "root": "pkgJisuanqi",
+      "name": "jisuanqi",
+      "pages": [
+        "pages/daikuan/index",
+        "pages/daikuan/detail"
+      ]
+    },
+    {
+      "root": "pkgNews",
+      "name": "news",
+      "pages": [
+        "pages/news/index",
+        "pages/news/show",
+        "pages/news/PostNews/index"
+      ]
+    },
+    {
+      "root": "pkgXiangce",
+      "name": "xiangce",
+      "pages": [
+        "pages/xiangce/index"
+      ]
+    },
+    {
+      "root": "pkgTour",
+      "name": "tour",
+      "pages": [
+        "pages/tour/index",
+        "pages/tourList/index"
+      ]
+    },
+    {
+      "root": "pkgVr",
+      "name": "pkgVr",
+      "pages": [
+        "pages/vr/show"
+      ]
+    },
+    {
+      "root": "pkgQa",
+      "name": "qa",
+      "pages": [
+        "pages/qa/index",
+        "pages/qa/qa",
+        "pages/qa/reply",
+        "pages/qa/new"
+      ]
+    },
+    {
+      "root": "pkgAuth",
+      "name": "auth",
+      "pages": [
+        "pages/auth/index",
+        "pages/auth/terms"
+      ]
+    },
+    {
+      "root": "pkgSearch",
+      "name": "search",
+      "pages": [
+        "page/search/index"
+      ]
+    },
+    {
+      "root": "pkgAbout",
+      "name": "about",
+      "pages": [
+        "pages/about/index"
+      ]
+    },
+    {
+      "root": "pkgBooking",
+      "name": "booking",
+      "pages": [
+        "pages/booking/index"
+      ]
+    },
+    {
+      "root": "pkgShare",
+      "name": "pkgShare",
+      "pages": [
+        "pages/index"
+      ]
+    },
+    {
+      "root": "pkgVideo",
+      "name": "pkgVideo",
+      "pages": [
+        "pages/video/index",
+        "pages/show/index"
+      ]
+    },
+    {
+      "root": "pkgFeedback",
+      "name": "pkgFeedback",
+      "pages": [
+        "pages/Feedback/index"
+      ]
+    },
+    {
+      "root": "pkgWrok",
+      "name": "pkgWrok",
+      "pages": [
+        "pages/index"
+      ]
+    }
+  ],
+  "pages": [
+    "pages/home/home",
+    "pages/eav/column",
+    "pages/want/index",
+    "pages/enums/index",
+    "pages/webview/show",
+    "pages/myself/index",
+    "pages/messages/index",
+    "pages/cities/select",
+    "pages/districts/select",
+    "pages/qr/show",
+    "pages/home/api-error",
+    "pages/messages/systemMesShow/index",
+    "pages/error-message/index"
+  ],
+  "requiredPrivateInfos": [
+    "choosePoi",
+    "chooseAddress",
+    "chooseLocation"
+  ],
+  "tabBar": {
+    "custom": false,
+    "selectedColor": "#3d67c9",
+    "backgroundColor": "#fff",
+    "color": "#999",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "/assets/tabs/home.0.png",
+        "selectedIconPath": "/assets/tabs/home.1.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/messages/index",
+        "iconPath": "/assets/tabs/message.0.png",
+        "selectedIconPath": "/assets/tabs/message.1.png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/myself/index",
+        "iconPath": "/assets/tabs/myself.0.png",
+        "selectedIconPath": "/assets/tabs/myself.1.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "enablePullDownRefresh": false,
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationStyle": "default",
+    "backgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "avatar": "/components/avatar/index",
+    "login-window": "/components/login-window/index",
+    "copyright": "/components/copyright",
+    "navigation-bar": "/components/navBar/navBar",
+    "no-result": "/components/no-result",
+    "van-panel": "/vant/panel/index",
+    "van-grid": "/vant/grid/index",
+    "van-grid-item": "/vant/grid-item/index",
+    "van-rate": "/vant/rate/index",
+    "van-icon": "/vant/icon/index",
+    "van-image": "/vant/image/index",
+    "van-tag": "/vant/tag/index",
+    "van-skeleton": "/vant/skeleton/index",
+    "van-popup": "/vant/popup/index",
+    "van-search": "/vant/search/index",
+    "van-loading": "/vant/loading/index",
+    "van-notify": "/vant/notify/index",
+    "van-notice-bar": "/vant/notice-bar/index",
+    "van-tabs": "/vant/tabs/index",
+    "van-tab": "/vant/tab/index",
+    "van-divider": "/vant/divider/index",
+    "van-button": "/vant/button/index",
+    "van-field": "/vant/field/index",
+    "van-radio-group": "/vant/radio-group/index",
+    "van-radio": "/vant/radio/index",
+    "van-cell": "/vant/cell/index",
+    "van-switch": "/vant/switch/index",
+    "van-cell-group": "/vant/cell-group/index",
+    "mycard": "/components/ud/card/index",
+    "box": "/components/ud/box/index",
+    "ud-card": "/components/ud/card/index",
+    "ud-box": "/components/ud/box/index",
+    "ud-checkbox": "/components/ud/checkbox/index",
+    "ud-image": "/components/ud/image/index",
+    "ud-tabs": "/components/ud/tabs/index",
+    "ud-header": "/components/ud/header/index",
+    "ud-textarea": "/components/ud/textarea/index",
+    "ud-icon": "/components/ud/icon/index",
+    "post-cover": "/components/post-cover/index"
+  },
+  "networkTimeout": {
+    "request": 100000,
+    "connectSocket": 10000,
+    "uploadFile": 100000,
+    "downloadFile": 100000
+  },
+  "serviceProviderTicket": "",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "位置信息用于房源查询"
+    }
+  },
+  "plugins": {},
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
+}

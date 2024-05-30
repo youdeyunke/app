@@ -1,0 +1,106 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* pages/qa/question-item.wxss */
+
+.question {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20rpx;
+    background: #fff;
+    border-radius: 20rpx;
+    border: 2rpx solid #f4f4f4;
+    padding: 40rpx;
+    width: 100%;
+}
+
+.question .header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.question .header .left {
+    display: flex;
+    align-items: center;
+}
+
+.right {
+    color: #A0A0A0;
+    font-size: 24rpx;
+}
+
+.question .target-name {
+    color: #1989fa;
+    margin: 0 10rpx;
+    max-width: 410rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.question .body {
+    width: 100%;
+    padding: 20rpx 0;
+    color: #333;
+    font-size: 28rpx;
+}
+
+.question .footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.question .avatar {
+    width: 36rpx;
+    height: 36rpx;
+    border-radius: 30rpx;
+    overflow: hidden;
+}
+
+.question .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24rpx;
+    color: #999;
+    margin-top: 20rpx;
+}
+
+.question .footer .left {
+    display: flex;
+    align-items: center;
+}
+
+.question .footer text {
+    margin-right: 10rpx;
+    color: #A0A0A0;
+    font-size: 24rpx;
+}
+
+
+
+.jiejue {
+    border-radius: 6rpx;
+    border: 1rpx solid #1989FA;
+    width: 76rpx;
+    height: 32rpx;
+    line-height: 32rpx;
+    color: #1989FA;
+    font-size: 20rpx;
+    text-align: center;
+}

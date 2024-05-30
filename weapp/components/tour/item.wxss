@@ -1,0 +1,103 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+.cover{
+  width: 710rpx;
+  border: 2rpx solid #f4f4f4;
+  background: #FFFFFF;
+  margin-bottom: 20rpx;
+  border-radius: 20rpx;
+}
+.title{
+  margin: 30rpx 26rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.img{
+  width: 710rpx;
+  height: 355rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+.img .title{
+  width: 184rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  border-top-right-radius: 30rpx;
+  border-bottom-right-radius:30rpx ;
+  position: absolute;
+  top: 60rpx;
+  left: 0;
+  color: #fff;
+}
+.title{
+  margin: 0;
+}
+.title text{
+  margin: 0 auto;
+}
+.success{
+  background-color: #ED6A0C;
+}
+.fail{
+  background-color: #cecece;
+}
+.text{
+  color: #333;
+  font-size: 28rpx;
+  padding: 0 38rpx;
+  padding-top: 24rpx;
+  padding-bottom: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.text-btn{
+  border-radius: 10rpx;
+  background-color: #1989fa;
+  width: 168rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #fff;
+}
+.title{
+  color: #333333;
+  font-weight: bold;
+  font-size: 32rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.address{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 450rpx;
+}
+.renshu{
+  color: #A0A0A0;
+  font-size: 24rpx;
+  margin-bottom: 7rpx;
+}
+.text-right{
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: -30rpx;
+}

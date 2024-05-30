@@ -1,0 +1,14 @@
+{
+    "component": true,
+    "usingComponents": {
+
+        "popup": "/components/popup",
+
+        "range-input": "/components/range-input/index",
+        "selector": "/components/selector/index",
+        "fitment-picker": "./fitment-picker",
+        "category-picker": "./category-picker",
+        "position-picker": "./position-picker",
+        "range-slider": "/components/range-slider/range-slider"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "component": true,
+    "usingComponents": {
+        "order-picker": "./order-picker",
+        "popup": "/components/popup",
+        "city-picker": "./city-picker",
+        "range-slider": "/components/range-slider/range-slider"
+    }
+}

@@ -1,0 +1,30 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!-- components/event/item.wxml -->
+<view class="event">
+    <view class="title">
+        <view style="border-color:{{color}}" class="circle"></view>
+        <view class="time">
+            {{ event.author || '管理员'}} 在 {{ event.pub_time || '未知时间'}}发布
+            <van-button wx:if="{{canDelete}}" plain round data-id="{{event.id}}" bindtap="deleteHandle" size="mini" icon="delete" type="danger" />
+        </view>
+    </view>
+    <view class="content">
+        <text class="strong">{{event.title || '' }}</text>
+        {{event.content}}
+        <view class="images">
+            <view bindtap="imageClickHandle" class="image-item" wx:for="{{images}}" wx:for-item="url" data-index="{{index}}">
+                <image mode="aspectFit" src="{{url}}" />
+            </view>
+        </view>
+    </view>
+</view>

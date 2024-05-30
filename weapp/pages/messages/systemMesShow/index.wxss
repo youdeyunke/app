@@ -1,0 +1,61 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+.message {
+  margin: 30rpx auto;
+  color: #999;
+  text-align: center;
+}
+
+.message-container {
+  margin: 0 auto;
+  width: 710rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+}
+
+.message-header {
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.message-image {
+  width: 50rpx;
+  height: 50rpx;
+  display: inline-block;
+}
+
+.message-title {
+  font-weight: bold;
+  margin-left: 10rpx;
+  max-width: 600rpx;
+}
+
+.message-divider {
+  width: 670rpx;
+  height: 2rpx;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+}
+
+.message-content {
+  padding: 20rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.message-footer {
+  padding: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

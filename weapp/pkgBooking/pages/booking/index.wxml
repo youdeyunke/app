@@ -1,0 +1,95 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+
+<view class="header" style=" background-color: {{color}};">
+  <navigator open-type="navigateBack" hover-class="none" class="post-title">
+    {{post.title}}
+    <van-icon name="arrow" />
+  </navigator>
+  <navigator url="/pkgMyself/pages/booking/index" class="my-appointment">
+    我的预约
+  </navigator>
+</view>
+<view class="divider" style="background-color: {{color}};"></view>
+
+<view class="content">
+  <view class="appointment">
+    <view class="appointment-header">
+      <view>
+        <van-icon color="{{color}}" name="notes-o" /> 选择预约日期
+      </view>
+      <view>
+        {{currentMonth}}
+      </view>
+    </view>
+    <view class="appointment-details">
+      <view class="week-header">
+        <view>周一</view>
+        <view>周二</view>
+        <view>周三</view>
+        <view>周四</view>
+        <view>周五</view>
+        <view>周六</view>
+        <view>周日</view>
+      </view>
+      <view class="week-day">
+      <view wx:for="{{days}}" class="day" style="{{ item.disable ? '' : 'border: 1rpx solid ' + color+';color: '+ color+';' }}{{currentDateIndex == index ? 'color:#fff;background-color: ' + color : ''}}">
+        <view data-index="{{index}}" class="dd" bindtap="dateClick" style="">
+          {{item.day}}
+          <view wx:if="{{item.isToday}}" class="today" style="background-color: {{color}};">
+            今
+          </view>
+        </view>
+      </view>
+
+      </view>
+    </view>
+  </view>
+
+  <view class="appointment">
+    <view class="appointment-header">
+      <view>
+        <van-icon name="underway-o" color="{{color}}" /> 选择时间
+      </view>
+    </view>
+    <view class="appointment-details">
+      <view class="times">
+          <view bindtap="{{time.disabled ? '' : 'timeClick'}}" data-index="{{index}}" form-type="submit" class="fake" wx:for="{{days[currentDateIndex].times}}" wx:key="value" wx:for-item="time">
+            <van-tag custom-class="mytag" size="large" wx:if="{{time.disabled}}" type="default" plain>{{ time.label }}
+            </van-tag>
+            <van-tag custom-class="mytag"  color="{{color}}" size="large" wx:else plain="{{ currentTimeIndex != index }}" data-index="{{index}}" type="primary">{{time.label}}</van-tag>
+          </view>
+        </view>
+    </view>
+  </view>
+
+  <view class="appointment">
+    <view class="appointment-header">
+      <view>
+        <van-icon name="records-o" color="{{color}}" /> 填写联系方式
+      </view>
+    </view>
+    <view class="appointment-details">
+      <van-field required use-button-slot label="姓名" model:value="{{name}}" placeholder="请输入姓名"></van-field>
+        <van-field center required label="手机号" use-button-slot model:value="{{ mobile }}" readonly="{{true}}" placeholder="点击登录获取手机号">
+          <van-button wx:if="{{!mobileLock}}" slot="button" size="mini" bindtap="shoLoginWindow" color="{{btnColor}}">登录</van-button>
+        </van-field>
+
+        <van-field use-button-slot label="留言" model:value="{{remark}}" placeholder="请输入留言"></van-field>
+    </view>
+  </view>
+
+  <van-button bind:click="submitHandle" color="{{btnColor}}" block="{{true}}" loading="{{loading}}" loading-text="加载中" disabled="{{ currentDateIndex == null || currentTimeIndex == null || !name }}">确认预约</van-button>
+
+</view>
+
+<login-window bind:success="loginsuccess" class="loginwindow"></login-window>

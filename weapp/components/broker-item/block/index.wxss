@@ -1,0 +1,83 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* components/broker/hot-brokers.wxss */
+
+
+.line-limit {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.broker-item {
+    width: 220rpx;
+    height: 320rpx;
+    padding:30rpx 20rpx;
+    margin: 10rpx 20rpx 10rpx 0;
+    box-sizing: border-box;
+    border-radius: 10rpx;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 2rpx 2rpx 24rpx rgba(0,0,0, 0.1);
+}
+
+.broker-item{
+  background-size: 220rpx 320rpx;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.broker-item .level{
+  width:48rpx;
+  height:48rpx;
+  position: absolute;
+  top:-2rpx; 
+  left:15rpx;
+  vertical-align: baseline;
+}
+
+.broker-item .btn{
+  font-size:24rpx; 
+  color:#666; 
+
+  border-width: 2rpx;
+  border-style: solid;
+  border-radius: 6rpx;
+  padding:2rpx 10rpx;
+  letter-spacing: 2rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.broker-company{
+
+  font-size: 22rpx;
+  height:30rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transform: scale(0.8);
+  margin-bottom:30rpx;
+  margin-top:10rpx;
+  width: 100%;
+  text-align: center;
+
+}
+
+
+.broker-mobile {
+    color: #053357;
+}

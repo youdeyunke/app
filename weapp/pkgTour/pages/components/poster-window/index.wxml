@@ -1,0 +1,19 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--pkgTour/pages/components/poster-window/index.wxml-->
+<block>
+    <painter palette="{{palette}}" scaleRatio='3' bind:imgOK="onImgOK" bind:imgErr="onImgErr" />
+    <van-popup show="{{ show }}"  bind:close="onClose" lock-scroll='true'>
+        <image wx:if="{{image}}" src="{{image}}" show-menu-by-longpress='true' style="width: 600rpx; height: 980rpx;" />
+    </van-popup>
+
+</block> 

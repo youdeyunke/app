@@ -1,0 +1,116 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* pkgType/pages/type/index.wxss */
+
+.filter {
+    margin-bottom: 20rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.filter .item {
+    margin-right: 20rpx;
+    font-size: 28rpx;
+    height: 70rpx;
+    width: 120rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4rpx;
+    color: #999999;
+    background: #f8f8f8;
+}
+
+.filter .item.active {
+    color: #1989fa;
+    background: #f1f5ff;
+}
+
+.housetype {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20rpx;
+    padding-bottom: 20rpx;
+    font-size: var(--font-s);
+    border: 2rpx solid #f4f4f4;
+}
+
+.housetype.border-none {
+    border-bottom: none;
+    margin-bottom: 0rpx;
+}
+
+.housetype .poster, .housetype .poster image {
+    width: 280rpx;
+    height: 200rpx;
+    overflow: hidden;
+    background: #cecece;
+    position: relative;
+    border-radius: 10rpx;
+}
+
+.housetype .meta {
+    width: 340rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-left: 30rpx;
+}
+
+.housetype .name {
+    width: 100%;
+    font-weight: bolder;
+    color: #333;
+    margin-bottom: 10rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.housetype .kv {
+    font-size: 28rpx;
+    margin: 8rpx 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.housetype .kv .key {
+    color: #999999;
+    width: 120rpx;
+}
+
+.housetype .kv .value {
+    color: #333333;
+    margin-left: 15rpx;
+}
+
+.housetype .kv .value.price {
+    color: #ff0000;
+}
+.huxingbiaoqian {
+    width: 120rpx;
+    height: 42rpx;
+    background: #2B78E4;
+    border-radius: 10rpx 0rpx 20rpx 0rpx;
+    color: #FFFFFF;
+    font-size: 22rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; 
+    top: 0rpx;
+    left: 0rpx;
+}

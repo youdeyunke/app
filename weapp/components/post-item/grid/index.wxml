@@ -1,0 +1,30 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<navigator hover-class="none" class="post" url="/pkgPost/pages/show/index?id={{post.id}}">
+
+  <post-cover wx:if="{{post}}" item="{{post}}"></post-cover>
+  <view class="title">{{post.title}}</view>
+  <view class="price red">
+    {{post.average_price_info.text}}{{post.average_price_info.px}}
+  </view>
+  <!-- <view class="position">
+    <block wx:if="{{post.has_live==true}}">
+      <image class="img" src="/assets/icons/post/live.png"></image>
+    </block>
+    <block wx:if="{{post.has_video==true}}">
+      <image class="img" src="/assets/icons/post/video.png"></image>
+    </block>
+    <block wx:if="{{post.has_vr==true}}">
+      <image class="img" src="/assets/icons/post/VR.png"></image>
+    </block>
+  </view> -->
+</navigator>

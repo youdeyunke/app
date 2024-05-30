@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "page-loading": "./page-loading",
+    "painter":"/components/painter/painter"
+  }
+}

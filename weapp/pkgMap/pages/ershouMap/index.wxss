@@ -1,0 +1,89 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* pkgMap/pages/ershouMap/index.wxss */
+page {
+  height: 100% !important;
+}
+
+.shadow {
+  box-shadow: 2px 2px 6px #cecece;
+}
+
+.loading {
+  background: #fff;
+  width: 200rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50rpx;
+  left: calc(50% - 100rpx);
+  border-radius: 60rpx;
+  opacity: 0.78;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.dingwei {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 80rpx;
+}
+
+.center-point {
+  width: 50rpx;
+  height: 50rpx;
+  position: fixed;
+  left: calc(50% - 25rpx);
+  bottom: calc(50% - 25rpx);
+}
+
+.map-view {
+  transition: height .25s;
+}
+
+.result-view {
+  background: #fff;
+  width: 690rpx;
+  height: 280rpx;
+  padding: 80rpx 20rpx 0rpx 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.back {
+
+  font-size: 22rpx;
+  height:60rpx;
+  width:130rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 100rpx;
+  right: 40rpx;
+  background: rgba(255,255,255, 0.8);
+  border-radius: 30rpx;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.filter {
+  background: #fff;
+  width: 750rpx;
+  padding: 20rpx 20rpx;
+  box-sizing: border-box;
+}

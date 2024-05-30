@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "block-box": "./block-box/index",
+        "block-button": "../../components/block-button"
+    }
+}

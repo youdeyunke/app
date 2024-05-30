@@ -1,0 +1,79 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* components/pagemaker/posts/post-item1/post-item1.wxss */
+
+.post {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 24rpx;
+    margin-bottom: 20rpx;
+    width: 220rpx;
+    position: relative;
+
+}
+
+.cover {
+    width: 220rpx;
+    height: 165rpx;
+
+    overflow: hidden;
+    margin-bottom: 10rpx;
+
+}
+
+.title {
+    color: #333;
+    margin-bottom: 6rpx;
+    margin-top:6rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
+    font-size: 32rpx;
+    font-weight: bold;
+}
+
+.price {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
+    font-size: 26rpx;
+}
+
+.red {
+    color: #EF3C51;
+    font-weight: bold;
+}
+.position{
+    height: 165rpx;
+    width: 40rpx;
+    position: absolute;
+    top: 0rpx;
+    right: 0rpx;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding-bottom: 20rpx;
+    z-index: 55555;
+}
+.position .img{
+    width:30rpx ;
+    height: 30rpx;
+    margin-top: 18rpx;
+}

@@ -1,0 +1,31 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<box padding="30">
+
+  <ud-textarea value="{{content}}" bind:input="contentChange" max-length="500" min-length="5" placeholder="请输入问题" />
+  <view class="actions">
+    <van-button   disabled="{{ content.length < minLength || loading }}" loading="{{loading}}" color="{{primaryBtnColor}}" bindtap="submitHandle" type="info" block  >我要提问</van-button>
+    <view style="height:20rpx;display:block;"></view>
+    <van-button   bindtap="backHandle" type="default" block  >返回</van-button>
+  </view>
+</box>
+
+<mycard title="你可以这样问" hat="{{false}}" padding="{{false}}">
+  <van-cell size="large" wx:for="{{commonQs}}" wx:for-item="text">
+    <view slot="title">{{text}}</view>
+    <van-button bindtap="quickHandle" type="info" round size="small" color="{{primaryBtnColor}}" plain data-index="{{index}}">去提问</van-button>
+  </van-cell>
+
+</mycard>
+
+
+

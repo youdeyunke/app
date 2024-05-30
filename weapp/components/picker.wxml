@@ -1,0 +1,22 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<popup position="{{position}}" show="{{ show }}" bind:cancle="onClose" bind:confirm="onConfirm" label="请选择" cancle-btn-text="取消">
+    <view class="options">
+        <van-radio-group value="{{ currentIndex }}">
+            <van-cell-group>
+                <van-cell wx:for="{{options}}" data-index="{{index}}" title="{{item.label || item.name}}" bind:click="optionClick">
+                    <van-radio custom-style="margin-left:20rpx;" slot="right-icon" name="{{index}}" />
+                </van-cell>
+            </van-cell-group>
+        </van-radio-group>
+    </view>
+</popup>

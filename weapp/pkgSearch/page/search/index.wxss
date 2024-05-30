@@ -1,0 +1,112 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* pkgSearch/page/search/index.wxss */
+page{
+  box-sizing: border-box;
+  background-color: #fff !important;
+  padding: 40rpx 25rpx 0 20rpx;
+}
+.search-top{
+  height:70rpx ;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.search-top-left{
+  width:625rpx ;
+  height:70rpx ;
+  background-color: #F0F0F0;
+  border-radius: 50rpx;
+  font-size:24rpx ;
+  /* color: #A0A0A0; */
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  padding-left: 45rpx;
+}  
+.search-top-left input{
+  width: 490rpx;
+}
+.image1{
+  width:26rpx ;
+  height: 26rpx;
+  margin-right: 15rpx;
+}
+.search-top-right{
+  font-size:26rpx ;
+  color:#1989FA ;
+}
+.search-history{
+  font-size: 34rpx;
+  color: #333333;
+  height: 45rpx;
+  margin-top: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 37rpx;
+}
+.image2{
+  width: 31rpx;
+  height: 34rpx;
+}
+.search-record text{
+  height: 53rpx;
+  background-color: #F0F0F0;
+  font-size:24rpx ;
+  color: #A0A0A0;
+  display: inline-block;
+  line-height: 53rpx;
+  padding:0 33rpx;
+  border-radius:50rpx ;
+  margin-right: 20rpx;
+  /* margin-bottom: 20rpx; */
+}
+.text{
+color: #A0A0A0;
+font-size: 24rpx;
+text-align: left;
+}
+.more{
+  float:right;
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+  align-items: center;
+  margin-top:40rpx;
+}
+.image3{
+  width: 144rpx;
+  height: 30rpx;
+  margin-top: 40rpx;
+}
+.image4{
+  width:28rpx ;
+  height:28rpx;
+  position: relative;
+  z-index: 5;
+}
+.component-search{
+  position: absolute;
+  top: 95rpx;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 20rpx rgba(0,0,0, 0.15);
+}
+.del{
+  width: 90rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

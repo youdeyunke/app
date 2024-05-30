@@ -1,0 +1,36 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--pkgErshou/pages/index.wxml-->
+<view style="position:relative;width: 100%;height: 1000rpx;">
+    <view style="width: 100%;height: 560rpx;display: flex;justify-content: center;">
+        <image style="width: 100%;height: 100%;" src="https://qiniucdn.udeve.cn/fang2021/f89f6a66-652c-4da2-a5ae-e959ed83c9d7.png" mode="" />
+        <view style="position: absolute;top: 156rpx;width: 690rpx;border-radius: 12rpx;overflow: hidden;">
+            <van-search v-model="kw" bind:change="kwSearch" placeholder="您想住在哪？" />
+        </view>
+    </view>
+    <view style="position: absolute;top: 530rpx;background-color: #ffffff;padding: 10rpx 30rpx 30rpx 30rpx;border-radius: 30rpx 30rpx 0rpx 0rpx;width: 100%;">
+        <view style="padding: 40rpx 0 40rpx 0;">
+            
+            <house-filter bind:change="filterChange" filter="{{filter}}" options="{{filterOption}}"></house-filter>
+        </view>
+        <view style="margin: 10rpx 0 20rpx 0;" wx:for="{{items}}">
+            <house-item  post="{{item}}"></house-item>
+            
+            <view style="width: 100%;height: 2rpx;background-color: #E7E7F2;margin: 20rpx 0 20rpx 0;">
+                
+            </view>
+        </view>
+        <no-result wx:if="{{!items.length}}"></no-result>
+    </view>
+
+
+</view>

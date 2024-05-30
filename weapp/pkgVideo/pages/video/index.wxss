@@ -1,0 +1,102 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* pkgVideo/pages/video/index.wxss */
+.search{
+  padding: 0rpx 30rpx 30rpx 30rpx !important;
+  /* border-radius: 20rpx 20rpx 0rpx 0rpx !important; */
+/* background: #FFFFFF; */
+  /* position: absolute;
+  top: 0rpx; */
+  width: 750rpx;
+}
+
+.list {
+  display: flex;
+	flex-wrap: wrap;
+	padding: 0rpx 30rpx 30rpx 30rpx;
+	background-color: #fff;
+}
+
+.item {
+  position: relative;
+  width: 330rpx;
+  margin: 0 30rpx 30rpx 0;
+}
+.item:nth-child(even){
+	margin-right: 0;
+}
+
+.cover {
+  display: block;
+  width: 330rpx;
+  height: 275rpx;
+  border-radius: 20rpx;
+}
+
+.tag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 20rpx 0 20rpx 0;
+  background-color: #FCA12E;
+  height: 48rpx;
+  font-size: 24rpx;
+  line-height: 48rpx;
+  color: #fff;
+  padding: 0 12rpx;
+}
+
+.title {
+  color: #000000;
+  font-weight: bold;
+	font-size: 30rpx;
+	min-height: 84rpx;
+  line-height: 44rpx;
+  text-align: left;
+  margin-top: 7rpx;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+	margin-top: 50rpx;
+	zoom: 0.5;
+}
+.avatar {
+  display: block;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  margin-right: 20rpx;
+}
+
+.author {
+  color: #999999;
+  font-weight: regular;
+  font-size: 44rpx;
+	/* line-height: 30rpx; */
+	max-width: 320rpx;
+	white-space: nowrap; /* 不换行 */
+  overflow: hidden; /* 溢出部分隐藏 */
+	text-overflow: ellipsis; /* 溢出部分显示省略号 */
+}
+
+.date {
+  color: #999999;
+  font-weight: regular;
+  font-size: 44rpx;
+}

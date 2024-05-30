@@ -1,0 +1,185 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* pages/post/tours-block.wxss */
+
+.huodongBox {
+    width: 602rpx;
+    height: 144rpx;
+    
+    border-radius: 10rpx;
+    padding: 28rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30rpx;
+}
+.huodongBox_0 {
+    background: #edfaff;
+    border:2rpx solid #7ccbfe;
+}
+.huodongBox_1 {
+    background-color: #f8fdf9;
+    border: 2rpx solid #38a37e;
+}
+.huodongBox_2 {
+    background: #edfaff;
+    border:2rpx solid #7ccbfe;
+}
+.huodongBox_3 {
+    background-color: #f8fdf9;
+    border: 2rpx solid #38a37e;
+}
+.huodongBox_4 {
+    background: #edfaff;
+    border:2rpx solid #7ccbfe;
+}
+.huodongBox_5 {
+    background-color: #f8fdf9;
+    border: 2rpx solid #38a37e;
+}
+.huodongBoxleft {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.biaoTi {
+    width: 400rpx;
+    height: 34rpx;
+    line-height: 30rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #333333;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.jianJie {
+    width: 400rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    font-size: 26rpx;
+    font-weight: bold;
+    color: #666666;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-top: 10rpx;
+    margin-bottom: 10rpx;
+}
+
+.baoming {
+    display: flex;
+    align-items: center;
+}
+
+.xiaotouxiang {
+    width: 32rpx;
+    height: 32rpx;
+    border-radius: 50%;
+}
+
+.baomingrenshu {
+    margin-left: 14rpx;
+    font-size: 22rpx;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #333333;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .types {
+    display: inline-block;
+}
+
+.tour-item {
+    width: 280rpx;
+    height: 370rpx;
+    box-shadow: 3rpx 3rpx 19rpx 2rpx rgba(30, 62, 104, 0.0800);
+    border-radius: 16rpx;
+    margin-right: 20rpx;
+    flex-shrink: 0;
+}
+
+.tour-item image {
+    width: 280rpx;
+    height: 250rpx;
+    border-radius: 16rpx 16rpx 0 0;
+}
+
+.tour-item view {
+    width: 280rpx;
+    height: 120rpx;
+    border-radius: 0 0 16rpx 16rpx;
+    padding: 20rpx;
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #333333;
+}
+
+.tour-title {
+    width: 240rpx;
+    height: 80rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    white-space: normal;
+} */

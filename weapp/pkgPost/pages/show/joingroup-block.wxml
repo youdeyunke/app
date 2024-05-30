@@ -1,0 +1,33 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--pkgPost/pages/show/joingroup-block.wxml-->
+<view class="box"style="margin-bottom: 20rpx;" >
+  <image class="image" src="https://qiniucdn.udeve.net/fang/pkgPost/join.png" mode="widthFix" bindtap="onQrShow"></image>
+  <text class="text">{{value.title}}</text>
+  <block wx:if="{{value.qr != null}}">
+    <van-popup show="{{ show }}" bind:close="onClose" round position="bottom" closeable>
+      <view class="profile-wechatqr">
+        <view class="profile-wechatqr-nav">
+          <view class="profile-wechatr-nav-qr">
+            <view>
+              <image src="{{value.qr}}"></image>
+            </view>
+          </view>
+        </view>
+        <view class="profile-wechatqr-text">保存并扫描二维码，进入相关群聊获取更多楼盘信息！</view>
+        <view class="profile-wechatqr-save" bindtap="getSaveImage">保存到相册
+        </view>
+      </view>
+    </van-popup>
+  </block>
+</view>
+

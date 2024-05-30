@@ -1,0 +1,32 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+ .coupon{
+  width: 643rpx;
+  height: 194rpx;
+  background-image:url('https://qiniucdn.udeve.net/fang/coupon-bg.png'); 
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  color: #fff;
+
+  font-size: 24rpx; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  box-sizing: border-box;
+  padding:20rpx 0 20rpx 190rpx;
+}
+
+ .coupon .name{
+  font-size: 46rpx; 
+  font-weight: bold;
+}

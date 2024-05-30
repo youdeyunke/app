@@ -1,0 +1,137 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+
+<view style="box-shadow: 10rpx 20rpx 20rpx 0 rgb(55 99 170 / 30%), -8rpx -8rpx 20rpx 0 #fff;border-radius: 15rpx;margin: 16rpx auto;width: 710rpx;">
+    <header title="一键找房"></header>
+<view class="outer">
+    <view wx:if="{{ status == 1 }}">
+        <view class="jiage-1" style="color: {{primaryColor}};">{{budget_min}}-{{budget_max}}万{{budget_max == 500 ? '+' : ''}}</view>
+        <view class="slider-1">
+            <van-slider min="30" max="500" value="{{value}}" range='true' bar-height="6rpx" active-color="{{primaryColor}}" bind:change="onChange"  use-button-slot>
+                <view slot="left-button" class="slider-button-1" style="border: 5rpx solid {{primaryColor}};"></view>
+                <view slot="right-button" class="slider-button-1" style="border: 5rpx solid {{primaryColor}};"></view>
+            </van-slider>
+        </view>
+        <view class="slider-ruler-1">
+            <view wx:for="{{valueRuler}}">{{item}}万</view>
+        </view>
+        <view class="zhaof-btn-1">
+            <van-button block color="{{primaryBtnColor}}" bindtap="nextPage">一键找房</van-button>
+        </view>
+    </view>
+    <view wx:if="{{ status == 2 }}">
+        <view class="item-body">
+          <view class="tags-list">
+            <view class="tag-item" wx:for="{{cityList}}">
+                <van-tag size="large" color="{{item.text == citySelect ? primaryColor : '#FAFAFA'}}" text-color="{{item.text == citySelect ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="cityHandle" data-index="{{index}}" type="primary" plain="{{item.text == citySelect ? true : false}}">
+                    <view class="tags-list-name">{{item.text}}</view>
+                </van-tag>
+            </view>
+        </view>
+        </view>
+        <view class="zhaof-btn-1">
+            <van-button block color="{{primaryBtnColor}}" bindtap="cityNextPage">下一步({{status}}/6)</van-button>
+        </view>
+    </view>
+
+    <view wx:if="{{ status == 3 }}">
+        <view class="item-body">
+            <view class="tags-list">
+                <view class="tag-item" wx:for="{{districtList}}">
+                    <van-tag size="large" color="{{item.selected ? primaryColor : '#FAFAFA'}}" text-color="{{item.selected ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="districtHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? true : false}}">
+                        <view class="tags-list-name">{{item.text}}</view>
+                    </van-tag>
+                </view>
+            </view>
+        </view>
+        <view class="zhaof-btn-1">
+            <van-button block color="{{primaryBtnColor}}" bindtap="quyuNextPage">下一步({{status}}/6)</van-button>
+        </view>
+    </view>
+
+    <view wx:if="{{ status == 4 }}">
+        <view class="item-body">
+            <view class="tags-list">
+                <view class="tag-item" wx:for="{{housetypeList}}">
+                    <van-tag size="large" color="{{item.selected ? primaryColor : '#FAFAFA'}}" text-color="{{item.selected ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="housetypeHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? true : false}}">
+                        <view class="tags-list-name">{{item.name}}</view>
+                    </van-tag>
+                </view>
+            </view>
+        </view>
+        <view class="zhaof-btn-1">
+            <van-button block color="{{primaryBtnColor}}" bindtap="huxinNextPage">下一步({{status}}/6)</van-button>
+        </view>
+    </view>
+    <view wx:if="{{ status == 5 }}">
+        <view class="item-body">
+            <view class="tags-list">
+                <view class="tag-item" wx:for="{{areaList}}">
+                    <van-tag size="large" color="{{item.selected ? primaryColor : '#FAFAFA'}}" text-color="{{item.selected ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="areaHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? true : false}}">
+                        <view class="tags-list-name">{{item.name}}</view>
+                    </van-tag>
+                </view>
+            </view>
+        </view>
+        <view class="zhaof-btn-1">
+            <van-button block color="{{primaryBtnColor}}" bindtap="mianjiNextPage">下一步({{status}}/6)</van-button>
+        </view>
+    </view>
+    <view wx:if="{{ status == 6 }}">
+        <view class="item-body">
+            <view class="tags-list">
+                <view class="tag-item" wx:for="{{purposeList}}">
+                    <van-tag size="large" color="{{item.selected ? primaryColor : '#FAFAFA'}}" text-color="{{item.selected ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="purposeHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? true : false}}">
+                        <view class="tags-list-name">{{item.name}}</view>
+                    </van-tag>
+                </view>
+            </view>
+        </view>
+        <view class="zhaof-btn-1">
+            <van-button block color="{{primaryBtnColor}}" bindtap="yongtuNextPage">下一步({{status}}/6)</van-button>
+        </view>
+    </view>
+    <view wx:if="{{ status == 7 && !isDone}}">
+        <view class="item-body">
+            <van-cell-group>
+                <van-field bindchange="inputChange" center required label="手机号" value="{{ contact_mobile }}" readonly="{{contact_mobile_lock}}" disabled="{{contact_mobile_lock}}" placeholder="用于专属顾问联系您" data-name="contact_mobile">
+                  <van-button wx:if="{{!contact_mobile_lock}}" slot="button" size="mini" bindtap="shoLoginWindow" color="{{primaryBtnColor}}">登录</van-button>
+                    <!-- <view style="color:{{primaryColor}};" bindtap="changeMobile" wx:else slot="button">
+                        <van-icon name="edit"></van-icon>
+                        修改
+                    </view> -->
+                </van-field>
+
+                <!-- <van-field wx:if="{{!contact_mobile_lock}}" bindchange="inputChange" label="验证码" required value="{{ sms_code }}" placeholder="短信验证码" data-name="sms_code" /> -->
+                <van-field bindchange="inputChange" label="姓名" required value="{{ contact_name }}" placeholder="怎么称呼您" data-name="contact_name">
+                    <view slot="button">
+                        <van-button bindtap="sexToggle" color="{{primaryColor}}" size="mini" type="info" plain="{{ contact_sex != 1 }}">先生</van-button>
+
+                        <van-button bindtap="sexToggle" color="{{primaryColor}}" size="mini" type="info" plain="{{ contact_sex != 0 }}">女士</van-button>
+                    </view>
+                </van-field>
+            </van-cell-group>
+        </view>
+        <view class="zhaof-btn-1">
+            <van-button block color="{{primaryBtnColor}}" bindtap="submitHandle">提交需求,帮我找房</van-button>
+        </view>
+    </view>
+    <view wx:if="{{isDone}}">
+        <view class="item-body">{{message}}</view>
+        <view bindtap="reWrite" class="reWriteBtn" style="color: {{primaryColor}};">
+            <van-icon name="edit" />重新填写
+        </view>
+    </view>
+</view>
+</view>
+
+<login-window bind:success="loginsuccess" class="loginwindow"></login-window>

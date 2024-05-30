@@ -1,0 +1,155 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* components/pagemaker/myselflogin/index.wxss */
+.header{
+
+	width: 750rpx; 
+	box-sizing: border-box;
+	padding: 30rpx 0rpx 30rpx 30rpx;
+	display: flex;
+	align-items: center;
+	margin-bottom: 30rpx;
+}
+
+.header.default{
+ 
+}
+
+.header.broker{
+	background-image: url('https://qiniucdn.udeve.net/fang/myself-2.png'); 
+}
+
+.header .avatar{
+	width: 120rpx;
+	height: 120rpx;
+	border-radius: 60rpx;
+	position: relative;
+
+
+	margin-right:30rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.header .avatar .img{
+	width: 120rpx; 
+	height: 120rpx; 
+	border-radius: 60rpx;
+}
+
+.header .avatar .border{
+	border:4rpx solid #ffffff;
+	box-sizing:border-box;
+	width: 120rpx; 
+	height: 120rpx;
+	border-radius: 60rpx;
+	position:absolute; 
+	top:0; 
+	left:0;
+}
+
+.header .login .img{
+	width: 200rpx; 
+	height: 80rpx;
+}
+
+.header .name-info{
+	width: calc(720rpx - 212rpx - 150rpx);
+	color:#fff;
+	font-size:24rpx;
+	height: 100rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.header .name-info .desc{
+	font-size: 28rpx;
+}
+
+.header .name-info .name{
+	font-size: 44rpx; 
+	line-height: 44rpx;
+	/* margin-bottom:30rpx; */
+}
+
+.header .name-info .name .img{
+	width: 110rpx; 
+	height: 32rpx;
+}
+
+.header  .workstand{
+	border-radius: 30rpx 0rpx 0rpx 30rpx;
+	background: #FFFFFF38;
+	color: #FFFFFF;
+	font-size: 24rpx;
+	width: 212rpx;
+	height: 60rpx;
+	line-height: 60rpx;
+	text-align: center;
+}
+
+.header .edit{
+	color:#fff;
+	font-size: 24rpx;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.header .edit .img{
+	width:25rpx; 
+	height: 25rpx;
+	margin-left:6rpx;
+}
+
+.score-container {
+	width: 690rpx;
+	height: 110rpx;
+	margin: -90rpx auto 0 auto;
+	position: relative;
+	margin-bottom: 30rpx;
+}
+
+.score-background-image {
+	width: 690rpx;
+	height: 110rpx;
+	display: inline-block;
+}
+
+.score-label {
+	width: 205rpx;
+	height: 34rpx;
+	line-height: 34rpx;
+	position: absolute;
+	top: 38rpx;
+	left: 218rpx;
+	padding-left: 35rpx;
+	border-left: 1rpx solid #f4f4f4;
+	font-size: 28rpx;
+	color: #333;
+}
+
+.score {
+	width: 70rpx;
+	height: 34rpx;
+	line-height: 34rpx;
+	position: absolute;
+	top: 38rpx;
+	right: 43rpx;
+	font-size: 28rpx;
+	color: #fff;
+	font-weight: bold;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}

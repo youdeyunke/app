@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "tour-item": "../components/tour-item/index"
+  },
+  "navigationBarTitleText": "全部活动"
+}

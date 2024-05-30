@@ -1,0 +1,31 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!-- components/pagemaker/searchbar/city-selector.wxml -->
+<block>
+    <view class="city" bindtap="onPopShow">
+        <view wx:for="{{cityItems}}" wx:key="id" wx:if="{{item.id == cityId }}">{{item.name}}</view>
+    </view>
+    <van-popup position="top" show="{{ popShow }}" bind:close="onPopClose">
+        <view class="title">切换城市</view>
+        <view class="city-items">
+            <view wx:for="{{cityItems}}" wx:for-item="city" wx:key="id" class="city-item {{ cityId == city.id ? 'active' :  '' }}" bindtap="cityClick" data-city-id="{{city.id}}">
+                {{city.name}}
+            </view>
+        </view>
+        <view class="actions">
+            <van-button bindtap="resetHandle" type="default" block style="width:100%;">
+                重置
+            </van-button>
+            <van-button type="info" block bindtap="submitHandle" style="width:100%">确定</van-button>
+        </view>
+    </van-popup>
+</block>

@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "block-box": "./block-box",
+    "news-item": "/components/news-item/index",
+    "block-button": "../../components/block-button"
+  }
+}

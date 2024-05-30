@@ -1,0 +1,31 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<van-search value="{{ kw }}" background="#f3f5f7" placeholder="输入经纪人手机号、姓名进行搜索" use-action-slot bind:clear="clearSearch" bind:search="doSearch" custom-class="search-box" bind:change="searchTextInput">
+    <view slot="action" style="width: 80rpx;text-align: center;" bind:tap="doSearch">搜索</view>
+</van-search>
+<view class="empty" wx:if="{{!loading && items[0].length == 0 }}" style="text-align:center;color:#cecece;margin-top:100rpx;">
+    没有记录
+</view>
+<block wx:else>
+    <block wx:for="{{items}}" wx:for-item="brokers">
+        <view class="broker-item" wx:for="{{brokers}}" wx:for-item="broker">
+            <broker-item style="width:690rpx;" item="{{broker}}" postId="{{postId}}" class="broker"></broker-item>
+        </view>
+    </block>
+    <view style="height: 150rpx;">
+      
+    </view>
+    <navigator style="background: {{primaryBtnColor}};" class="footer" url="/pkgBroker/pages/broker/join">+申请入驻置业顾问</navigator>
+    <view style="display:flex;justify-content:center;align-items:center;margin-top:30rpx;">
+        <van-loading wx:if="{{loading}}" />
+    </view>
+</block>

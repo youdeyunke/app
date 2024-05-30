@@ -1,0 +1,45 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view class="outer">
+
+    <van-field wx:if="{{mode == 'string'}}" label="{{column.label}}" placeholder="{{column.placeholder}}" model:value="{{value}}"></van-field>
+
+    <textarea wx:if="{{mode == 'textarea'}}" placeholder="{{column.placeholder}}" model:value="{{value}}"></textarea>
+
+    <van-field wx:if="{{mode == 'number'}}" label="{{column.label}}" placeholder="{{column.placeholder}}" model:value="{{value}}"></van-field>
+
+    <van-cell wx:if="{{mode == 'switch'}}" title="{{column.label}}">
+        <van-switch slot="right-icon" model:checked="{{ value }}" bind:change="onChange" />
+    </van-cell>
+
+
+    <van-radio-group wx:if="{{mode == 'radio'}}" value="{{ value }}" bind:change="radioChange">
+        <van-cell-group>
+            <van-cell wx:for="{{options}}" title="{{item.label}}" clickable data-name="{{item.value}}" bind:click="optionClick">
+                <van-radio slot="right-icon" name="{{item.value}}" />
+            </van-cell>
+        </van-cell-group>
+    </van-radio-group>
+
+
+    <van-cell-group wx:if="{{mode == 'checkbox'}}">
+        <van-cell wx:for="{{options}}" title="{{item.label}}" clickable data-index="{{index}}" bind:click="checkboxClick">
+            <van-radio shape="square" slot="right-icon" name="{{item.value}}" />
+        </van-cell>
+    </van-cell-group>
+
+</view>
+<view class="footer">
+
+    <van-button color="{{btnColor}}" bindtap="confirmHandle" block type="primary">确定</van-button>
+    <van-button block bindtap="cancleHandle" type="default">取消</van-button>
+</view>

@@ -1,0 +1,62 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!-- pages/post/filter/old-post-filter.wxml -->
+<view class="old-post-filter">
+    <city-picker style="height:100%;" bind:change="cityChange" city-id="{{filter.city_id}}" district-id="{{filter.district_id}}" />
+    <order-picker style="height:100%;" bind:change="orderChange" options="{{orderOptions}}" />
+    <view class="filter" bindtap="showFilterHandle">
+        筛选
+        <van-icon name="filter-o" />
+        <popup show="{{showPop}}" bind:confirm="filterConfirmHandle" bind:cancle="filterCancleHandle">
+            <view class="filter-body">
+                <view class="section total-price">
+                    <view class="title-block">
+                        <view class="title">月租金</view>
+                    </view>
+                    <view class="body">
+                        <van-field class="myinput" maxlength="5" clearable type="number" data-name="rentPriceMin" value="{{ rentPriceMin }}" placeholder="请输入" bind:change="rentPriceChange">
+                            <text slot="right-icon"></text>
+                        </van-field>
+                        <view class="text">至</view>
+                        <van-field class="myinput" maxlength="5" clearable type="number" data-name="rentPriceMax" value="{{ rentPriceMax }}" placeholder="请输入" bind:change="rentPriceChange">
+                            <text slot="right-icon">元/月</text>
+                        </van-field>
+                    </view>
+                </view>
+                <view class="section area">
+                    <view class="title-block">
+                        <view class="title">面积</view>
+                    </view>
+                    <view class="body">
+                        <van-field class="myinput" maxlength="3" clearable type="number" data-name="areaMin" value="{{ areaMin }}" placeholder="请输入" bind:change="areaChange"></van-field>
+                        <view class="text">至</view>
+                        <van-field class="myinput" maxlength="3" clearable type="number" data-name="areaMax" value="{{ areaMax }}" placeholder="请输入" bind:change="areaChange">
+                            <text slot="right-icon">㎡</text>
+                        </van-field>
+                    </view>
+                </view>
+                <view class="section house-type">
+                    <view class="title-block">
+                        <view class="title">户型</view>
+                    </view>
+                    <view class="body">
+                        <view class="house-type-list">
+                            <view data-index="{{index}}" bindtap="houseTypeItemHandle" wx:key="{{index}}" class="house-type-item {{ houseTypeIndex === index ? 'active' : '' }}" wx:for="{{houseTypeItems}}">
+                                {{item.name}}
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </popup>
+    </view>
+</view>

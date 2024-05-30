@@ -1,0 +1,77 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<van-tabs active="{{ business }}" color="{{primaryColor}}" bind:change="businessChange">
+  <van-tab title="出售" name="出售"></van-tab>
+  <van-tab title="出租" name="出租"></van-tab>
+  <!-- <van-tab title="竞价" name="竞价"></van-tab> -->
+</van-tabs>
+
+<view style="height: 20rpx;">
+  
+</view>
+
+<card width="710" hat="{{false}}" title="基本信息">
+  <van-field readonly bindtap="chooseDistrict" is-link label="区域" placeholder="点击选择区域" value="{{district_name}}" />
+  <van-field readonly bindtap="chooseLocation" is-link label="小区" placeholder="点击搜索小区" value="{{sub_district_name}}" />
+  <van-field label="户型" type="textarea" model:value="{{ type_name }}" placeholder="请输入户型几室几厅" />
+  <van-field label="面积" type="number"  model:value="{{ area_value }}" placeholder="请输入面积" />
+  <van-field readonly bindtap="chooseFitment" is-link label="装修" placeholder="精装" value="{{fitment}}" />
+  <van-field readonly bindtap="choosePosition" is-link label="朝向" placeholder="朝南" value="{{position}}" />
+  <van-field label="售价" type="number"  model:value="{{ price_value }}" placeholder="请输入价格" wx:if="{{business=='出售'}}" />
+  <van-field label="月租" type="number"  model:value="{{ price_value }}" placeholder="请输入价格" wx:if="{{business =='出租'}}" />
+  <van-field label="起拍价" type="number"  model:value="{{ price_value }}" placeholder="请输入价格" wx:if="{{business=='竞价'}}" />
+</card>
+
+<card width="710" hat="{{false}}" title="户型图">
+  <view class="huxingbox">
+    <images-uploader width="630" height="200" max="1" bind:change="typeimagesHandle"></images-uploader>
+  </view>
+</card>
+
+<!-- 调用images-uploader组件， 绑定字段：images  ，多图用逗号分割-->
+<card width="710" hat="{{false}}" title="房源照片">
+  <view class="huxingbox">
+    <images-uploader width="200" height="200" bind:change="imagesHandle"></images-uploader>
+  </view>
+</card>
+
+
+<!-- 上传视频文件，绑定字段video -->
+<card width="710" hat="{{false}}" title="视频介绍">
+  <view class="huxingbox">
+    <video-uploader width="630" height="200" bind:change="videoHandle"></video-uploader>
+  </view>
+</card>
+
+<card width="710" hat="{{false}}" title="详细介绍">
+  <!-- 插入一个文本框textarea ，双向绑定变量：{{ content }} -->
+  <!-- <view class="fieldBox" bindtap="focusField">
+    <van-field  focus="{{focus}}"  model:value="{{ content }}" type="textarea" autosize placeholder="请输入详细介绍:" />
+  </view> -->
+
+  <textarea placeholder="请输入详细介绍" bindinput="contentInput"></textarea>
+
+</card>
+
+<card width="710" hat="{{false}}" title="联系信息">
+    <van-field label="姓名" type="textarea"  model:value="{{ contact_name }}" placeholder="请输入姓名" />
+    <van-field readonly bindtap="checkLogin" is-link label="电话" placeholder="点击获取手机号" value="{{contact_mobile}}" />
+    <van-field readonly bindtap="chooseSeller" is-link label="身份" placeholder="请选择身份" value="{{seller}}" />
+</card>
+<!-- 占位 -->
+<view style="width: 100%;height: 10rpx;"></view>
+
+<view class="footer">
+  <van-button bindtap="submitHandle" color="{{primaryBtnColor}}" block type="primary">提交审核</van-button>
+</view>
+
+<login-window bind:success="setMobile" class="loginwindow"></login-window>

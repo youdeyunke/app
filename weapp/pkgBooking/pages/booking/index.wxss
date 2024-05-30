@@ -1,0 +1,173 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+
+.header {
+  padding: 0 40rpx;
+  width: 750rpx;
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  font-size: 28rpx;
+}
+
+.post-title {
+  display: flex;
+  align-items: center;
+  width: 460rpx;
+  white-space: nowrap;
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+.my-appointment {
+  border-radius: 30rpx;
+  border: 2rpx solid #FFFFFF;
+  width: 180rpx;
+  height: 60rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 60rpx;
+  font-size: 24rpx;
+}
+
+.divider {
+  width: 100%;
+  height: 40rpx;
+}
+
+.content {
+  position: relative;
+  top: -40rpx;
+  background-color: #F4F4F4;
+  border-radius: 30rpx 30rpx 0 0;
+  width: 100%;
+  padding: 30rpx 30rpx 0 30rpx;
+}
+
+.appointment {
+  box-shadow: 2rpx 4rpx 23rpx 0rpx #00000026;
+  border-radius: 10rpx;
+  margin-bottom: 30rpx;
+}
+
+.appointment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30rpx;
+  background-color: #f7f7f7;
+  height: 84rpx;
+  color: #333;
+  border-radius: 10rpx 10rpx 0 0;
+}
+
+.appointment-details {
+  padding: 30rpx;
+  background-color: #fff;
+  border-radius: 0 0 10rpx 10rpx;
+}
+
+.times {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 0rpx;
+}
+
+.appointment-details .mytag {
+  width: 150rpx;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 0rpx 0rpx 10rpx 0;
+  padding: 20rpx 10rpx;
+}
+
+
+.week-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #F7F7F9;
+  padding: 0 20rpx;
+  height: 74rpx;
+  color: #333;
+}
+
+.week-day {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.day {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 8rpx;
+  margin-top: 30rpx;
+  margin-right: calc(140rpx / 6);
+  font-weight: bold;
+  font-size: 28rpx;
+  line-height: 70rpx;
+  text-align: center;
+  position: relative;
+  border: 1rpx solid #CECECE;
+  color: #CECECE;
+}
+
+.day:nth-child(7n) {
+  margin-right: 0rpx;
+}
+
+.day .dd {
+  width: 100%;
+  height: 100%;
+  /* border-radius: 8rpx; */
+}
+
+.today {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 30rpx;
+  position: absolute;
+  background-color: #0464C3;
+  color: #fff;
+  font-size: 32rpx;
+  /* line-height: 60rpx; */
+  font-weight: 500;
+  transform: scale(0.5);
+  top: -30rpx;
+  right: -30rpx;
+  border: 4rpx #fff solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+
+
+button.fake,
+button.fake::after {
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  border: none;
+  background: none;
+  overflow: visible;
+}

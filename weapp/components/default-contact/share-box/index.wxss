@@ -1,0 +1,164 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* pkgPost/components/share-box/index.wxss */
+
+.outer {
+    width: 100%;
+}
+
+.dialog {
+    width: 100%;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dialog.main {
+    height: 421rpx;
+}
+
+.dialog.copy {
+    width: 710rpx;
+    padding-top: 30rpx;
+}
+
+.dialog.copy .body {
+    padding: 20rpx;
+}
+
+.dialog .header {
+    width: 100%;
+    box-sizing: border-box;
+    height: 100rpx;
+    line-height: 100rpx;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30rpx;
+    color: #333;
+    font-weight: bold;
+    border-bottom: 2rpx solid #f4f4f4;
+}
+
+.dialog .header .close {
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    top: 30rpx;
+    right: 20rpx;
+}
+
+.dialog .footer {
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28rpx;
+}
+
+.body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.footer .cancle {
+    text-align: center;
+    color: #999;
+    border: 2rpx solid #cecece;
+    height: 60rpx;
+    border-radius: 60rpx;
+    line-height: 60rpx;
+    font-size: 24rpx;
+    padding: 0 30rpx;
+    min-width: 200rpx;
+}
+
+.body .icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.body .icon .name {
+    color: #a0a0a0;
+    font-size: 28rpx;
+    margin-top: 10rpx;
+}
+
+.body .icon image {
+    width: 92rpx;
+    height: 92rpx;
+}
+
+.icon .btn {
+    background: none;
+    border: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    z-index: 99;
+}
+
+.tips {
+    font-size: 28rpx;
+    width: 100%;
+    padding: 20rpx 20rpx 40rpx 20rpx;
+    text-align: center;
+}
+
+.tips .img {
+    width: 120rpx;
+    height: 120rpx;
+    position: absolute;
+    top: 0rpx;
+    right: 124rpx;
+}
+
+.tips .text {
+    margin-top: 130rpx;
+    margin-bottom: 10rpx;
+    color: #1989fa;
+    font-weight: bolder;
+}
+
+.dialog.copy .postinfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 0 30rpx;
+}
+
+.dialog.copy .info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding-top: 8rpx;
+    padding-bottom: 8rpx;
+}
+
+.dialog.copy .info .label {
+    color: #666;
+    width: 200rpx;
+}

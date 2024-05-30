@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "house-item":"/components/house-item/mini-card/index"
+  }
+}

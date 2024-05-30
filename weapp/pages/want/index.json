@@ -1,0 +1,16 @@
+{
+  "navigationBarTitleText": "帮我找房",
+  "usingComponents": {
+    "box": "/components/ud/box/index",
+    "card": "/components/ud/card/index",
+    "van-field": "/vant/field/index",
+    "van-radio-group": "/vant/radio-group/index",
+    "van-radio": "/vant/radio/index",
+    "choose-block":"/components/choose-block/index",
+    "van-slider": "/vant/slider/index",
+    "van-stepper": "/vant/stepper/index",
+    "van-cell": "/vant/cell/index",
+    "van-popup": "/vant/popup/index",
+    "range-slider": "/components/range-slider/range-slider"
+  }
+}

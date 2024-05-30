@@ -1,0 +1,37 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!-- pages/post/brokers-block.wxml -->
+<block-box title-size="36" leftHat="true" leftHatColor="{{color}}" title="官方认证置业顾问" padding="{{false}}" sub-title="更多顾问" url="/pkgBroker/pages/broker/index?post_id={{value.post_id}}">
+
+  <view class="badges">
+        <view class="badge-item">
+            <image class="" src="https://qiniucdn.udeve.net/fang/pkgPost/jingji-icon-0.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
+            免费带看
+        </view>
+        <view class="badge-item">
+            <image class="" src="https://qiniucdn.udeve.net/fang/pkgPost/jingji-icon-1.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
+            专业服务
+        </view>
+        <view class="badge-item">
+            <image class="" src="https://qiniucdn.udeve.net/fang/pkgPost/jingji-icon-2.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
+            区域解读
+        </view>
+        <view class="badge-item">
+            <image class="" src="https://qiniucdn.udeve.net/fang/pkgPost/jingji-icon-3.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
+            户型分析
+        </view>
+    </view>
+
+    <view wx:for="{{brokers}}" style="margin-bottom: 15rpx;">
+        <broker-cell-item item="{{item}}" postId="{{value.post_id}}" theme="{{theme}}" color="{{color}}"></broker-cell-item>
+    </view>
+</block-box>

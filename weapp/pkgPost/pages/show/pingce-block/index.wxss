@@ -1,0 +1,89 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* pages/post/pingce-block/index.wxss */
+.pingceBox {
+  /* width: 689rpx; */
+  background: linear-gradient(180deg, rgba(58, 191, 129, 0.22) 0%, rgba(58, 191, 129, 0) 100%);
+  border-radius: 20rpx 20rpx 20rpx 20rpx;
+  opacity: 1;
+  /* display: flex; */
+  flex-direction: column;
+  padding-bottom: 35rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 718rpx;
+  margin: 0 auto;
+}
+
+.boxTop {
+  padding: 35rpx 20rpx;
+  display: flex;
+  flex-direction: row;
+  /* height: 151rpx; */
+}
+
+.zongfen {
+  width: 140rpx;
+  height: 151rpx;
+  background: #3ABF81;
+  box-shadow: 0rpx 0rpx 11rpx 2rpx rgba(0, 0, 0, 0.16);
+  border-radius: 12rpx 12rpx 12rpx 12rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+}
+
+.pingfen {
+  display: flex;
+  flex-direction: column;
+  margin-left: 42rpx;
+  justify-content: space-around;
+}
+
+.shequ {
+  width: 470rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.boxText {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30rpx;
+  font-size: 23rpx;
+  height: 176rpx;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to top, transparent, black);
+  /* -webkit-mask-image: none; 取消遮罩层 */
+}
+
+.boxText1 {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30rpx;
+  font-size: 23rpx;
+  -webkit-mask-image: none;
+}
+
+.TextBox {
+  display: flex;
+  flex-direction: row;
+  color: #000000;
+}
+
+.title {
+  font-weight: 600;
+}

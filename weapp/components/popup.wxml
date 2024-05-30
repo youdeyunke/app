@@ -1,0 +1,23 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<van-popup show="{{show}}" position="{{position}}">
+    <view class="mypopup mypopup-{{position}}">
+        <view class="main">
+            <slot></slot>
+        </view>
+        <view class="actions">
+            <view catchtap="onCancle" class="cancle">{{cancleBtnText}}</view>
+            <view class="label">{{label}}</view>
+            <view catchtap="onConfirm" class="confirm">{{confirmBtnText}}</view>
+        </view>
+    </view>
+</van-popup>

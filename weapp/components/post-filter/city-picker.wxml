@@ -1,0 +1,21 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!-- pages/post/filter/city-picker.wxml -->
+<view class="post-city-picker">
+    <view class="{{popShow === true ? 'active' : '' }} filter-name" bindtap="popToggleHandle">
+        {{ city.text }} {{ district.text }}
+        <van-icon name="arrow-down" />
+    </view>
+    <popup show="{{popShow}}" position="top" bind:cancle="onReset" bind:confirm="onConfirm" label="请选择">
+        <van-tree-select items="{{ cityItems }}" main-active-index="{{ cityIndex }}" active-id="{{ district.id }}" bind:click-nav="cityClick" bind:click-item="districtClick" content-active-class="content-active" main-active-class="main-content-active" />
+    </popup>
+</view>

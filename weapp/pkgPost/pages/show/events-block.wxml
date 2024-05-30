@@ -1,0 +1,17 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!-- pages/post/events-block.wxml -->
+<block-box font-size="36" leftHat="true" leftHatColor="{{color}}" sub-title="{{value.more_title}}" url="{{value.more_url}}" title="{{value.title || '楼盘动态'}}" sub-title="查看全部动态">
+    <event wx:if="{{event && event.id}}" event="{{event}}"></event>
+    <view class="empty" wx:else>没有动态</view>
+    <block-button url="{{value.more_url}}" color="{{color}}" buttonVal='查看更多楼盘动态' />
+</block-box>

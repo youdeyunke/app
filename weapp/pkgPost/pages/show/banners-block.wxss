@@ -1,0 +1,100 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+.post-cover {
+    width: 750rpx;
+    height: 750rpx;
+    border-radius: 0rpx;
+    overflow: hidden;
+    margin: 0 0 0rpx 0;
+    padding: 0rpx;
+    position: relative;
+}
+
+.cover{
+    width: 100%; 
+    height: 100%;
+}
+
+.post-cover .swiper-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: 750rpx auto;
+}
+
+.post-cover .icon{
+    position:absolute; 
+    width: 120rpx;
+    height:120rpx;
+    top:calc(50%  - 60rpx);
+    left:calc(50%  - 60rpx);
+}
+
+
+ .tabs-outer{
+    position:absolute;
+    left:0rpx;
+    bottom:90rpx;
+    width: 750rpx;
+    height: 46rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+
+}
+
+ .tabs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:rgba(0,0,0, 0.3);
+    border-radius: 23rpx;
+}
+
+ .tabs .tab-item{
+    width: 90rpx;
+    height: 40rpx;
+    color:#f4f4f4;
+    font-size: 24rpx;
+    text-align:center;
+    line-height: 40rpx;
+    border-radius: 23rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s  ease-out;
+}
+
+ .tabs .tab-item.active{
+    width: 90rpx; 
+    height: 40rpx;
+    color:#fff;
+    border:2rpx solid #fff;
+    font-size: 24rpx;
+    text-align:center;
+    line-height: 40rpx;
+}
+
+.counter{
+    font-size: 24rpx; 
+    color:#fff; 
+    font-weight: bold;
+    position: absolute; 
+    bottom:90rpx;
+    right:20rpx;
+    background:rgba(0,0,0, 0.2);
+    padding:4rpx 10rpx;
+    border-radius: 10rpx;
+}

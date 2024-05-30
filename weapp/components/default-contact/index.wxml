@@ -1,0 +1,35 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<block>
+    <view style="width:100%;height:150rpx;"></view>
+    <view class="outer">
+        <div class="fav">
+            <fav bind:change="favChangeHandle" pid="{{post.id}}"></fav>
+        </div>
+        <div class="share" bindtap="shareHandle">
+            <ud-icon name="share"/>
+            <view style="margin-top: 8rpx;">转发</view>
+        </div>
+ 
+            <div style="background:{{secondaryBtnColor}}" class="btn btn1" bindtap="bookingHandle">
+                <view class="name">预约看房</view>
+                <view class="desc">置业顾问免费带看</view>
+            </div>
+            <div style="background:{{primaryBtnColor}}" class="btn btn2" bindtap="phoneHandle">
+                <view class="name">电话咨询</view>
+                <view class="desc">{{post.phone}}{{ post.sub_phone ? '转' + post.sub_phone : ''}}</view>
+            </div>
+
+    </view>
+    <share-box wx:if="{{post}}" post-info="{{post}}" model:show="{{showShareBox}}" />
+
+</block>

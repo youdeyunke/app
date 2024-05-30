@@ -1,0 +1,89 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view class="outer">
+    <van-popup round position="bottom" show="{{ show }}" bind:close="closeHandle">
+        <view class="dialog main">
+            <view class="header">
+                转发分享
+                <image src="https://qiniucdn.udeve.net/fang/pkgPost/share-close.png" class="close" bindtap="closeHandle" />
+            </view>
+            <view class="body" bindtap="closeHandle">
+                <view class="icon" hover-class="none" bindtap="wechatHandle">
+                    <image src="https://qiniucdn.udeve.net/fang/pkgPost/share-chat.png" />
+                    <view class="name">微信好友</view>
+                    <button class="btn" open-type="share" bindtap=""></button>
+                </view>
+                <view class="icon" bindtap="timelineHandle">
+                    <image src="https://qiniucdn.udeve.net/fang/pkgPost/share-tl.png" />
+                    <view class="name">朋友圈</view>
+                </view>
+                <view class="icon" bindtap="copyHandle" wx:if="{{postInfo}}">
+                    <image src="https://qiniucdn.udeve.net/fang/pkgPost/share-copy.png" />
+                    <view class="name">复制文本</view>
+                </view>
+                <view class="icon" bindtap="posterHandle">
+                    <image src="https://qiniucdn.udeve.net/fang/pkgPost/share-poster.png" />
+                    <view class="name">生成海报</view>
+                </view>
+            </view>
+            <view class="footer">
+                <view bindtap="closeHandle" class="cancle">取消</view>
+            </view>
+        </view>
+    </van-popup>
+    <van-popup position="top" show="{{showTips}}" bind:close="closeTips">
+        <view class="tips">
+            <image class="img" src="https://qiniucdn.udeve.net/fang/pkgPost/share-tips.png" />
+            <view class="text">请点击右上角...选择分享到朋友圈</view>
+        </view>
+    </van-popup>
+    <van-popup round show="{{showCopy}}" bind:close="closeCopy">
+        <view class="dialog copy">
+            <view class="header">
+                {{postInfo.title}}
+                <image src="https://qiniucdn.udeve.net/fang/pkgPost/share-close.png" class="close" bindtap="closeCopy" />
+            </view>
+            <view class="body">
+                <view class="postinfo">
+                    <view class="info">
+                        <view class="label">项目名称</view>
+                        <view clss="text">{{postInfo.title}}</view>
+                    </view>
+                    <view class="info">
+                        <view class="label">参考均价</view>
+                        <view clss="text">{{postInfo.average_price}}</view>
+                    </view>
+                    <view class="info">
+                        <view class="label">项目亮点</view>
+                        <view clss="text">{{tags}}</view>
+                    </view>
+                    <view class="info">
+                        <view class="label">项目地址</view>
+                        <view clss="text">{{postInfo.address}}</view>
+                    </view>
+                    <view class="info">
+                        <view class="label">咨询热线</view>
+                        <view clss="text">
+                            {{postInfo.phone}}{{postInfo.sub_phone ? postInfo.sub_phone : ''}}
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="footer">
+                <view class="cancle" bindtap="closeCopy">
+                    <van-icon name="passed" />
+                    文本已复制到剪贴板
+                </view>
+            </view>
+        </view>
+    </van-popup>
+</view>

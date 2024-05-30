@@ -1,0 +1,69 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<block-box leftHat="true" leftHatColor="{{color}}" title="楼盘详情信息" sub-title='查看更多信息' url='{{value.more_url}}' padding="{{false}}" title-size="36">
+<view style="padding: 0 0 40rpx 0;background-color: #FFF;">
+
+  <view wx:if="{{point}}" class="post-point">
+    <van-icon name="star" color="{{color}}" />
+    <view class="maohao" style="margin-left:10rpx"></view>
+    <view class="content-title">{{point.title}}</view>
+    <view class="maohao" style="margin-left:10rpx"></view>
+    <view class="content-desc">{{point.content}}</view>
+  </view>
+
+  <view class="block-content one">
+    <view class="content-title">参考均价</view>
+    <view class="maohao" style="margin-left:10rpx"></view>
+    <view class="content-desc"><text style="color: #EC0101;font-weight: bold;">{{value.average_price_info.text}} {{value.average_price_info.px}}</text></view>
+  </view>
+
+  <view class="block-content">
+    <view class="content-title">参考总价</view>
+    <view class="maohao" style="margin-left:10rpx"></view>
+    <view class="content-desc">{{value.total_price_info.text}} {{value.total_price_info.px}}</view>
+  </view>
+
+
+
+  <view class="block-content">
+    <view class="content-title">面积区间</view>
+    <view class="maohao" style="margin-left:10rpx"></view>
+    <view class="content-desc"> {{value.area_info.text}}{{value.area_info.px}}</view>
+  </view>
+
+
+  <view class="block-content">
+    <view class="content-title">物业类型</view>
+    <view class="maohao" style="margin-left:10rpx"></view>
+    <view class="content-desc">{{value.cats }}</view>
+  </view>
+
+  <view class="block-content"  bindtap="getLocation">
+    <view class="content-title">楼盘地址</view>
+    <view class="maohao" style="margin-left:10rpx"></view>
+    <view class="content-desc">{{value.address }}</view>
+  </view>
+  <!-- <view wx:key="index" class="block-content" wx:for="{{metaItems}}" wx:for-item="meta">
+    <view class="content-title" space='nbsp'>{{meta.label}}</view>
+    <view class="maohao" style="margin-left:10rpx"></view>
+    <view class="content-desc">{{meta.text}}</view>
+  </view> -->
+</view>
+<view class="box-bottom"  wx:if="{{value.gzh_enable == true }}" bindtap="gotoGzh">
+    <!-- <image class="box-bottom-icon" src="../../images/weixin-icon-{{theme}}.png"></image> -->
+    <van-icon custom-class="box-bottom-icon" custom-style="font-size:56rpx;" name="wechat" color="{{color}}" />
+    <view  class="box-bottom-text" >{{ value.gzh_name }}</view>
+    <!-- <view style="width: 110rpx;height: 50rpx;"> -->
+    <van-button block custom-style="width: 120rpx;height: 50rpx;" plain color="{{color}}">关注</van-button>
+    <!-- </view> -->
+  </view>
+</block-box>

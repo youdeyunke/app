@@ -1,0 +1,32 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view class="box" style="width:{{width}}rpx;border-radius:{{radius}}rpx;margin-bottom: {{marginBottom}}rpx;">
+    <view class="card ">
+        <view wx:if="{{title}}" class="card-header" style="padding: 0 {{padding}}rpx;">
+            <view class="card-header-title">
+                <view wx:if="{{leftHat}}" style="width: 6rpx;height: 30rpx;background-color: {{leftHatColor}};margin-right: 20rpx;"></view>
+                <view class="name" style="font-size:{{titleSize}}rpx;color:{{titleColor}}">
+                    {{title}}
+                    <view wx:if="{{hat}}" class="card-hat"></view>
+                </view>
+            </view>
+            <view wx:if="{{subTitle}}" class="sub-title card-header-action" bindtap='actionHandle'>
+                <text class="card-header-action-name">{{subTitle}}</text>
+                <van-icon wx:if="{{url}}" name="arrow" />
+            </view>
+        </view>
+
+        <view class="card-body" style="padding: {{padding}}rpx;{{title ? 'padding-top: 0;' : ''}}" >
+            <slot></slot>
+        </view>
+    </view>
+</view>

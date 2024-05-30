@@ -1,0 +1,53 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--components/pagemaker/myselflogin/index.wxml-->
+<view style="background: {{primaryColor}};" class="header {{ userInfo.is_broker == true ? 'broker' : 'default' }}">
+
+	<block wx:if="{{userInfo.id}}">
+
+		<navigator hover-class="none" url="/pkgMyself/pages/profile/index" class="avatar">
+			<view class="border"></view>
+			<image class="img" src="{{userInfo.avatar}}"></image>
+		</navigator>
+
+		<navigator hover-class="none" url="/pkgMyself/pages/profile/index" class="name-info">
+			<view class="name">{{ userInfo.name }}
+				<van-icon custom-style="margin-left: 20rpx" size="28rpx" name="edit" />
+			</view>
+			<view class="desc">{{ userInfo.mobile }}</view>
+		</navigator>
+		<navigator wx:if="{{userInfo.is_broker}}" hover-class="none" url="/pkgWrok/pages/index" class="workstand">
+			进入工作台
+			<van-icon name="arrow" />
+		</navigator>
+
+	</block>
+	<block wx:else>
+		<view class="avatar">
+			<view class="border"></view>
+			<image class="img" src="https://qiniucdn.udeve.net/fang/myself-21.png"></image>
+		</view>
+
+		<view class="name-info">
+			<view class="name">访客，您好
+
+			</view>
+			<view class="desc" style="font-size: 24rpx;">登录或注册账号，体验更多服务</view>
+		</view>
+
+		<view class="login" bindtap="gotoLoginPage">
+			<image class="img" src="https://qiniucdn.udeve.net/fang/myself-20.png"></image>
+		</view>
+
+	</block>
+
+</view>

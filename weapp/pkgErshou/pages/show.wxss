@@ -1,0 +1,397 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* pkgErshou/pages/show.wxss */
+.custom-navigation-bar {
+  width: 100%;
+  height: 140rpx;
+  line-height: 160rpx;
+  text-align: center;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.headLabelBox {
+  padding-left: 17rpx;
+  width: 330rpx;
+  height: 64rpx;
+  background: #000000;
+  opacity: 0.5;
+  border-radius: 32rpx 0rpx 0rpx 32rpx;
+  color: #FFFFFF;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 20rpx;
+  right: 0;
+}
+
+.headLabelImg {
+  width: 32rpx;
+  height: 32rpx;
+  margin-right: 11rpx;
+
+}
+
+.box {
+  padding: 30rpx;
+  background-color: #ffffff;
+}
+
+.biaoqianBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.biaoqianLBox {
+  display: flex;
+}
+
+.biaoqian {
+  height: 34rpx;
+  font-size: 22rpx;
+  padding: 7rpx;
+  background: #F2F4F8;
+  border-radius: 2rpx;
+  margin-right: 10rpx;
+}
+
+.tishi {
+  width: 160rpx;
+  height: 54rpx;
+  background: #F2F4F8;
+  border-radius: 8rpx;
+  color: #2E6AD6;
+  display: flex;
+  align-items: center;
+}
+
+.tishiImg {
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.biaotiBox {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #222222;
+  /* margin-top: 32rpx; */
+}
+
+.fuzerenBox {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fuzeren {
+  display: flex;
+  align-items: center;
+  color: #999999;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+  color: #999999;
+  font-size: 24rpx;
+}
+
+.fuzerenImg {
+  width: 40rpx;
+  height: 32rpx;
+  margin-right: 13rpx;
+}
+
+.guanzhu {
+  display: flex;
+  flex-direction: column;
+  font-size: 26rpx;
+  color: #333333;
+  width: 80rpx;
+  height: 100rpx;
+  align-items: center;
+}
+
+.guanzhuImg {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.jichuxinxiBox {
+  display: flex;
+}
+
+.shoujia {
+  font-size: 28rpx;
+  color: #999999;
+  /* width: 30%; */
+}
+
+.shoujia_jine {
+  font-size: 34rpx;
+  color: #333333;
+  font-weight: 600;
+}
+
+.huxing {
+  border-left: 2rpx solid #DDDDDD;
+  border-right: 2rpx solid #DDDDDD;
+  font-size: 28rpx;
+  color: #999999;
+  margin-right: 40rpx;
+  margin-left: 40rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+
+.daikanBox {
+  display: flex;
+  align-items: center;
+  margin-top: 40rpx;
+  background: #F7F6F1;
+  padding: 18rpx;
+  border-radius: 8rpx;
+}
+
+.daikanBoxImg {
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.daikanText {
+  font-size: 28rpx;
+  color: #333333;
+  margin-right: 43rpx;
+  margin-left: 14rpx;
+  width: 420rpx;
+}
+
+.daikanBtn {
+  display: flex;
+  width: 132rpx;
+  height: 54rpx;
+  border: 1px solid #2E6AD6;
+  border-radius: 8rpx;
+  align-items: center;
+  color: #2E6AD6;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx
+}
+
+.xiangxixinxiBox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.xxxxTitle {
+  display: flex;
+  width: 340rpx;
+  font-size: 28rpx;
+  color: #999999;
+  padding-top: 30rpx;
+}
+
+.xxxxText {
+  color: #333333;
+  font-weight: bold;
+}
+
+.jingpaiBox {
+  background: #E7F4FF;
+  height: 84rpx;
+  width: 100%;
+  margin-top: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.jingpaiBoxL {
+  display: flex;
+  align-items: center;
+}
+.jingpaiBoxR {
+  display: flex;
+  align-items: center;
+}
+
+.jpImgL {
+  width: 42rpx;
+  height: 42rpx;
+  margin-left: 30rpx;
+}
+
+.jpText {
+  font-size: 32rpx;
+  color: #333333;
+  font-weight: bold;
+  margin-left: 16rpx;
+}
+
+.jpImgR {
+  width: 46rpx;
+  height: 46rpx;
+}
+
+.jingmaiBox {
+  font-size: 30rpx;
+  color: #333333;
+  font-weight: bold;
+}
+
+.jingmaineirongBox {
+  display: flex;
+  width: 100%;
+  height: 136rpx;
+  overflow: scroll;
+}
+
+.jmBox {
+  flex-shrink: 0;
+  width: 214rpx;
+  height: 83rpx;
+  background: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  margin-top: 43rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  position: relative;
+  margin-right: 24rpx;
+}
+
+.jmText {
+  width: 100rpx;
+  font-size: 22rpx;
+  color: #999999;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  margin-right: 18rpx;
+}
+
+.jmBiaoqian {
+  height: 30rpx;
+  background-color: #cccccc;
+  font-size: 22rpx;
+  font-size: 22rpx;
+  color: #FFFFFF;
+  position: absolute;
+  top: -1rpx;
+  left: 0;
+  padding: 3rpx 5rpx 3rpx 5rpx;
+}
+
+.baozhengjinBox {
+  display: flex;
+  margin-top: 38rpx;
+}
+
+.bzjTitle {
+  font-size: 28rpx;
+  color: #999999;
+}
+
+.bzjText {
+  font-size: 28rpx;
+  color: #333333;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+  font-weight: bold;
+}
+
+.bzjBtn {
+  font-size: 28rpx;
+  color: #2E6AD6
+}
+
+.xiangxiTitle {
+  background: #ffffff;
+  height: 84rpx;
+  width: 100%;
+  margin-top: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #E7E7F2;
+}
+
+.bottomBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15rpx 0 15rpx 0;
+  background-color: #ffffff;
+  position: sticky;
+  bottom: 0;
+}
+
+.zixunBtn {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.zixunImg {
+  width: 62rpx;
+  height: 62rpx;
+}
+
+.zixunText {
+  font-size: 24rpx;
+  color: #666666;
+}
+
+.baomingBtn {
+  height: 90rpx;
+  width: 420rpx;
+  background: #2065E2;
+  border-radius: 12rpx;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.ershoubaomingBtn {
+  height: 90rpx;
+  width: 690rpx;
+  background: #2065E2;
+  border-radius: 12rpx;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.biaomingTitle {
+  font-size: 34rpx;
+  font-weight: 600;
+}
+
+.biaomingText {
+  font-size: 22rpx;
+}
+
+.fengexian {
+  height: 24rpx;
+  width: 100%;
+}
+
+.fenxiang {
+  position: absolute;
+  top: 0;
+  width: 80rpx;
+  height: 80rpx;
+  right: 0;
+  opacity: 0;
+}

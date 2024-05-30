@@ -1,0 +1,67 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+.outer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding:0 30rpx;
+    position: relative;
+  }
+  .outer .title {
+    font-size: 32rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .outer .title .icon{
+    height: 80rpx; 
+    width:80rpx;
+    margin-right:20rpx;
+  }
+  
+  .outer .btn {
+    height: 52rpx;
+    line-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding:0 20rpx;
+    border-radius: 4rpx;
+    border-style: solid;
+    border-width: 2rpx;
+    font-size: 26rpx;
+  }
+  
+  .outer .hand{
+    width: 75rpx;
+    height:60rpx; 
+    position:absolute;
+    bottom:20rpx; 
+    right:20rpx;
+    animation: handmove 1s ease-in-out 1s infinite normal;
+  }
+  
+  @keyframes handmove {
+    from {
+      bottom:30rpx;
+      right:30rpx;
+    }
+    to {
+      bottom:10rpx;
+      right:10rpx;
+    }
+    
+  }

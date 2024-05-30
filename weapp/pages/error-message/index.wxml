@@ -1,0 +1,20 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+
+<image style="width: 750rpx;height: 750rpx;display: block;" src="/assets/icons/api-error.svg" mode=""/>
+<view class="warning-message">
+  {{message}}
+</view>
+<view style="position: absolute;bottom: 90rpx;width: 690rpx;left: 30rpx;">
+  <van-button bindtap="restartProgram" custom-style="margin: 0 auto;width: 690rpx;" type="info">重试</van-button>
+
+</view>

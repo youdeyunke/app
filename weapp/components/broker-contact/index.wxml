@@ -1,0 +1,22 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<login-window bind:success="clickHandle" class="loginwindow"></login-window>
+<block wx:if="{{broker}}">
+    <view class="blank-{{mode}}"></view>
+    <view class="mini">
+        <image bindtap="gotoProfile" src="{{broker.avatar}}" class="avatar" />
+        <view bindtap="gotoProfile" class="name" bindtap="gotoProfile" >
+            <view class="text">{{broker.name}}</view>
+        </view>
+        <view class="btn btn2" style="background: {{primaryBtnColor}};" bindtap="callHandle">电话咨询</view>
+    </view>
+</block>

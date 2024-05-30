@@ -1,0 +1,29 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<ud-box padding="0" width="710">
+    <painter palette="{{palette}}" scaleRatio='3' bind:imgOK="onImgOK" bind:imgErr="onImgErr" />
+    <image class="poster-image" src="{{posterUrl}}" show-menu-by-longpress='true'></image>
+</ud-box>
+    <view class="footer">
+       
+        
+        <van-notice-bar
+        left-icon="volume-o"
+        scrollable="{{false}}"
+        wrapable 
+        text=""
+        />
+        <van-button type="info" custom-style="margin-top:20rpx;" color="{{primaryBtnColor}}" block bind:click='saveFile'>保存到相册</van-button>
+    
+    </view>
+    
+

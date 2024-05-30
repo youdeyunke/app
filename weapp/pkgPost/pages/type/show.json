@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "broker-contact": "/components/broker-contact/index",
+    "page-contact": "/components/page-contact/index",
+        "safe-tips": "/components/safe-tips"
+  }
+}

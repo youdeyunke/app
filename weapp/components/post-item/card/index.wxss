@@ -1,0 +1,119 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* components/pagemaker/posts/post-item2/post-item2.wxss */
+
+.post {
+    font-size: 24rpx;
+    height: 524rpx;
+    margin-bottom: 20rpx
+}
+
+
+
+.post .cover {
+    height: 400rpx;
+    position: relative;
+}
+
+.post .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20rpx;
+    margin-bottom: 10rpx;
+}
+
+.cover-image{
+    width: 100%;
+    height: 100%;
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    border-radius:8rpx;
+}
+
+.post .tags {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 0rpx;
+}
+
+.post .tags .tag:last-child {
+    margin-right: 0;
+}
+
+.post .tags .tag {
+    margin-right: 10rpx;
+    zoom: 0.8;
+}
+
+.post .cover .address {
+    width: calc(100% - 40rpx);
+    background:  rgba(0, 0, 0, 0.4);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    height: 60rpx;
+    box-sizing: border-box;
+    padding: 0 20rpx;
+    color: #fff;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom-right-radius: 10rpx;
+    border-bottom-left-radius: 10rpx;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.post .title {
+    color: #333;
+    font-size: 32rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-weight: bold;
+    margin-top: 16rpx;
+}
+.position{
+    height: 250rpx;
+    width: 50rpx;
+    position: absolute;
+    top: 90rpx;
+    right: 20rpx;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding-bottom: 20rpx;
+    z-index: 55555;
+}
+.position image{
+    width:48rpx ;
+    height: 48rpx;
+    margin-top: 18rpx;
+}
+.left{
+    float: left;
+}
+.right
+{
+    float:right;
+    color: #EF3C51;
+    font-weight: bold;
+    font-size: 26rpx;
+}

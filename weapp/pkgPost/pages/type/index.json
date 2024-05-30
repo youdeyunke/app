@@ -1,0 +1,8 @@
+{
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "broker-contact": "/components/broker-contact/index",
+        "page-contact": "/components/page-contact/index",
+        "post-title": "/components/post-title/index"
+    }
+}

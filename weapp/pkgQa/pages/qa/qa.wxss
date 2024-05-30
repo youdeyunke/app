@@ -1,0 +1,172 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+page {
+    padding-top: 20rpx !important;
+    padding-bottom: 110rpx;
+}
+
+.box {
+    padding: 30rpx;
+    width: 690rpx;
+    background: #fff;
+    margin-bottom: 20rpx;
+}
+
+.float-btn {
+    width: 100%;
+    padding: 30rpx;
+    position: fixed;
+    left: 0rpx;
+    bottom: 0rpx;
+    right: 0rpx;
+    background: #fff;
+    border-top: 1px solid #f4f4f4;
+    box-sizing: border-box;
+    z-index: 999;
+}
+
+.question {
+    margin-bottom: 30rpx;
+    padding-bottom: 30rpx;
+    border-bottom: 2rpx solid #f4f4f4;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.question .content .target {
+    color: #1989FA;
+    margin-right: 5rpx;
+}
+
+.question .body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.question .content {
+    font-size: 28rpx;
+    color: #000000;
+    line-height: 1.4;
+    letter-spacing: 0.3rpx;
+    border-radius: 8rpx;
+    margin-bottom: 20rpx;
+    line-height: 1.4;
+    letter-spacing: 2.2rpx;
+}
+
+.question .actions {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 28rpx;
+}
+
+.question .count {
+    color: #999999;
+    font-size: 24rpx;
+}
+
+.question .add {
+    color: #1989fa;
+}
+
+.answer {
+    border-bottom: 2rpx solid #f4f4f4;
+    margin-bottom: 30rpx;
+    padding-bottom: 30rpx;
+}
+
+.answer .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20rpx;
+}
+
+.answer .avatar,.answer .name, .answer .tag, .answer .time {
+    margin-right: 20rpx;
+}
+
+.answer .level, .answer .name {
+  margin-right: 10rpx;
+}
+
+.answer .meta .left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 28rpx;
+}
+
+.answer .avatar{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.answer .avatar image {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 60rpx;
+    border: 1rpx solid #fff;
+}
+.answer .level{
+  width: 40rpx;
+  height: 40rpx;
+}
+.answer .level image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.answer .content {
+    letter-spacing: 2.2rpx;
+    width: 690rpx;
+    font-size: 28rpx;
+    word-break: break-all;
+    padding: 0rpx;
+    border-radius: 8rpx;
+    margin-bottom: 20rpx;
+    line-height: 1.4;
+    letter-spacing: 2.2rpx;
+}
+
+.answer .actions {
+    display: none;
+    justify-content: flex-end;
+}
+
+.answer .action-item {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 60rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.answer .footer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.empty {
+    color: #999999;
+    font-size: 24rpx;
+    text-align: center;
+    margin: 20rpx auto;
+}

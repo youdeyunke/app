@@ -1,0 +1,45 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<block>
+<view class="post-cover">
+    <swiper current="{{currentIndex}}" bindchange="itemChange" style="width:100%;height:100%;" class="swiper"
+        indicator-dots="{{false}}" autoplay="{{false}}" interval="5000" duration="500" circular="true"
+        easing-function="linear">
+        <swiper-item wx:key="index" data-index="{{index}}" class="swiper-item"
+            bindtap="itemClick" data-index="{{index}}"  wx:for="{{mergedImages}}">
+            <image wx:if="{{item.cat  === 'vr'}}" class="icon vr" src="/assets/icons/VR.png"></image>
+            <image wx:if="{{item.cat === 'video'}}" class="icon video" src="/assets/icons/post-cover-icon-video.png"></image>
+            <image src="{{item.image}}?imageView2/5/h/530/w/750" mode="aspectFill" class="cover"></image>
+        </swiper-item>
+    </swiper>
+
+    <view class="tabs-outer">
+        <view class="tabs">
+            <view wx:key="value"  style="background:{{ currentTab ===  tab.value ? color : 'none' }}"
+                wx:for-item="tab" wx:for="{{tabs}}" bindtap="tabChange" data-tab="{{tab.value}}"
+                class="tab-item {{ currentTab === tab.value ? 'active' : '' }}" wx:for="{{tabs}}">
+                {{ tab.name }}
+            </view>
+        </view>
+    </view>
+
+    <view class="counter">
+        {{ mergedImages[currentIndex].number}}/{{counters[mergedImages[currentIndex].cat] }}
+    </view>
+    <van-popup closeable="{{true}}" close-on-click-overlay="{{true}}" show="{{showVideo}}" bind:close="closeVideoPopup" overlay-style="">
+        <view style="width:750rpx; display: flex; justify-content: center; align-items: center;" >
+            <video wx:if="{{showVideo}}" style="width:100%;height: 100vh;" src="{{videoUrl}}" autoplay="{{true}}" ></video>
+        </view>
+    </van-popup>
+</view>
+
+</block>

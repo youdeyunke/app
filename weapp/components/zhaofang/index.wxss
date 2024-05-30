@@ -1,0 +1,100 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* components/zhaofang/index.wxss */
+.outer {
+    width: 100%;
+    padding-bottom: 20rpx;
+}
+
+.jiage-1 {
+    height: 100rpx;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 28rpx;
+    font-weight: bold;
+}
+
+.slider-1 {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.slider-button-1 {
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 20rpx;
+    background-color: #FFF;
+}
+
+.slider-ruler-1 {
+    width: 95%;
+    height: 30rpx;
+    margin: 40rpx auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.zhaof-btn-1 {
+    width: 90%;
+    /* height: 70rpx; */
+    /* border-radius: 10rpx; */
+    margin: 0 auto;
+    /* color: #FFF;
+    text-align: center;
+    line-height: 70rpx;
+    font-size: 28rpx; */
+}
+
+.tags-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.tag-item {
+    margin-bottom: 10rpx;
+    margin-right: 20rpx;
+    border-radius: 10rpx;
+    width: calc((100% - 60rpx)/4);
+}
+
+.tag-item:nth-child(4n + 4) {
+    margin-right: 0;
+}
+
+.tags-list-name {
+    width: 120rpx;
+    font-size: 24rpx;
+    text-align: center;
+}
+
+.item-header {
+    font-size: 36rpx;
+    font-weight: bold;
+    height: 100rpx;
+    line-height: 100rpx;
+    padding-left: 40rpx;
+}
+
+.item-body {
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 30rpx;
+}
+
+.reWriteBtn {
+    text-align: center;
+    width: 200rpx;
+    height: 50rpx;
+    margin: 0 auto;
+}

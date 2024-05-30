@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "post-item": "/components/house-item/cell/index"
+  }
+}

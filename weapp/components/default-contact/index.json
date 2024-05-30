@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "share-box": "./share-box/index",
+        "fav": "./fav/index"
+    }
+}

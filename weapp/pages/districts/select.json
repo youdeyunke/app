@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "请选择区域",
+    "usingComponents": {
+        "van-cell-group": "/vant/cell-group/index",
+        "van-cell": "/vant/cell/index"
+    }
+}

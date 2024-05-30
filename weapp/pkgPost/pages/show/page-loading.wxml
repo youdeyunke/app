@@ -1,0 +1,43 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view style="padding-top:20rpx;width:100%;height:100%;background:#fff;" data-name="{{loading}}" hidden="{{loading == false}}">
+
+    <view  style="width:750rpx;margin-bottom:70rpx;margin-top:0rpx;">
+        <van-skeleton  style="width:100%;"   row="5"  loading="{{true}}" avatar="{{false}}" > </van-skeleton>
+    </view>
+
+    <view  style="width:750rpx;margin-bottom:70rpx;margin-top:20rpx;">
+        <van-skeleton  style="width:100%;"   row="5" row-width="{{ ['40%', '100%',  '100%', '100%', '90%'] }}"  loading="{{true}}" > </van-skeleton>
+    </view>
+
+    <view  style="width:750rpx;margin-bottom:70rpx;margin-top:20rpx;">
+        <van-skeleton  style="width:100%;"   row="2"  loading="{{true}}" avatar="{{false}}" > </van-skeleton>
+    </view>
+    
+    <view  style="width:750rpx;margin-bottom:20rpx;" wx:key="index" wx:for="{{[1,2]}}" >
+        <van-skeleton  style="width:100%;"  title row="1" row-width="{{ ['100%', '50%', '100%', '100%'] }}" loading="{{true}}" avatar="{{true}}" avatar-size="120rpx" >
+    </van-skeleton>
+    </view>
+
+    <view  style="width:750rpx;margin-bottom:70rpx;margin-top:40rpx;">
+        <van-skeleton  style="width:100%;"   row="2"  loading="{{true}}" avatar="{{false}}" > </van-skeleton>
+    </view>
+
+    <view  style="width:750rpx;margin-bottom:70rpx;margin-top:20rpx;" wx:for="{{ [1,2] }}">
+        <van-skeleton  style="width:100%;"   row="5" row-width="{{ ['40%', '100%',  '100%', '100%', '90%'] }}"  loading="{{true}}" > </van-skeleton>
+    </view>
+
+    <view  style="width:750rpx;margin-bottom:70rpx;margin-top:20rpx;">
+        <van-skeleton  style="width:100%;"   row="2"  loading="{{true}}" avatar="{{false}}" > </van-skeleton>
+    </view>
+
+</view>

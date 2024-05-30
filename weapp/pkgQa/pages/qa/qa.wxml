@@ -1,0 +1,84 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+
+<wxs module="stringConverter">
+  var formatTime = function (dateString) {
+    return dateString.slice(2)
+  }
+  module.exports.formatTime = formatTime
+</wxs>
+
+<page-loading loading="{{loading}}" />
+<box width="710" padding="20" hidden="{{loading && !item.id}}">
+    <view class="float-btn">
+        <van-button bindtap="addHandle" color="{{primaryBtnColor}}" type="info" block>我要回答</van-button>
+    </view>
+    <view class="question">
+        <q-icon />
+        <view class="body">
+            <view class="content"><text wx:if="{{item.target_name}}" class="target" style="color: {{primaryColor}};" bindtap="gotoTarget">#{{item.target_name}}#</text>
+                <text>{{ item.content }}</text>
+            </view>
+            <view class="actions">
+                <view class="count">{{ item.answers_count}}条回答</view>
+                <view class="btns">
+                    <van-button style="margin-right:10rpx;" wx:if="{{user.id == item.user_id }}" plain icon="delete" type="danger" size="mini" bindtap="deleteHandle">
+                        删除
+                    </van-button>
+                    <van-button plain="{{item.followed}}"  name="eye" color="{{primaryColor}}" size="mini" class="follow" hover-class="none" bindtap="followHandle">
+                        {{ item.followed ? '已关注' : '关注' }} ({{ item.followers_count }})
+                    </van-button>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="answers">
+        <view class="answer" wx:key="id" wx:for-item="answer" wx:for="{{answers}}">
+            <view class="meta">
+                <view class="left">
+                    <view class="avatar">
+                        <image src="{{answer.user.avatar}}" />
+                    </view>
+                    
+                    <view class="name">
+                        {{ answer.user.name}}
+                    </view>
+
+                    <view class="level" wx:if="{{answer.user.is_broker}}">
+                        <image src="{{levelImgs[answer.user.level-1]}}" />
+                    </view>
+
+                    <view class="time">
+                        {{ stringConverter.formatTime(answer.created_at_pretty) }}
+                    </view>
+
+                    <view class="tag" wx:if="{{ index == 0}}">
+                        <van-tag size="mini" color="{{primaryColor}}" type="primary">最佳回答</van-tag>
+                    </view>
+                </view>
+                <view class="right actions">
+                    <view bindtap="callHandle" data-index="{{index}}" class="action-item">
+                        <van-icon color="#1989fa" name="phone" size="40rpx;" />
+                    </view>
+                </view>
+            </view>
+            <view class="content">{{ answer.content }}</view>
+            <view class="footer">
+                <delete wx:if="{{answer.user_id == user.id}}" bind:deleted="loadData" aid="{{answer.id}}"></delete>
+                <like style="margin-left:8rpx;" count="{{answer.likes}}" aid="{{answer.id}}" />
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{answers.length == 0}}" class="waiting empty" style="margin-bottom:20rpx;">
+        该问题还未收到回复
+    </view>
+</box>

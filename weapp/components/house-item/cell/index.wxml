@@ -1,0 +1,45 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!-- components/pagemaker/posts/post-item0.wxml -->
+<view class="outer">
+    <navigator hover-class="none" class="post" url="{{url }}">
+        <post-cover wx:if="{{post}}" item="{{post}}" width="230" height="180"></post-cover>
+        <view class="right">
+            <view class="title">
+                {{post.title}}
+            </view>
+            <view class="address">{{post.type_name || '户型'}}/{{post.area_value}}㎡/{{post.position}}</view>
+            <view class="tags">
+                <!-- <van-tag text-color="#ffffff"  color="{{post.sale_status_item.color}}" size="mini">{{post.sale_status_item.name}}
+                </van-tag> -->
+                <van-tag color="#ECEFF6" text-color="{{item.color}}" size="mini" wx:for="{{post.tags}}" wx:key="item.id"
+                    wx:if="{{index<=1}}">{{item.name}}</van-tag>
+            </view>
+
+            <view class="price">
+                <text class="red">{{post.price_label}} <text style="font-size: 36rpx;">{{post.price_value}}</text> {{post.price_unit}}</text>
+            </view>
+
+            <!-- <view class="point {{ point.cat}}" wx:for="{{post.points_info}}" wx:for-item="point">
+                <text class="ptitle">{{ point.title || '项目亮点' }} </text>
+                <view class="blank"></view>
+                <text class="content">{{ point.content }}</text>
+            </view> -->
+
+        </view>
+
+    </navigator>
+
+
+
+
+</view>

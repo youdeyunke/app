@@ -1,0 +1,46 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!-- pages/post/tours-block.wxml -->
+<block>
+    <block-box width="750" leftHat="true" leftHatColor="{{color}}" title="热门活动" sub-title="{{value.more_title}}" url="{{value.more_url}}">
+        <view bindtap="gotoTour" data-item="{{item}}" url="{{item.url}}" class="huodongBox huodongBox_{{index}}" wx:for="{{value.items}}">
+            <view class="huodongBoxleft">
+                <view class="biaoTi">
+                    {{item.title}}
+                </view>
+                <view class="jianJie">
+                    {{item.address}}
+                </view>
+                <view class="baoming">
+                    <view style="width: 64rpx;height: 32rpx;">
+                        <view style="position: relative;" wx:if="{{item.members_current > 0}}">
+                            <image class="xiaotouxiang" src="https://profile-avatar.csdnimg.cn/bb9c6b91adee4976af36a71f3d2b7f31_qq_42774501.jpg!1" mode="" />
+                            <image class="xiaotouxiang" style="position: absolute;left: 16rpx;" src="https://profile-avatar.csdnimg.cn/bb9c6b91adee4976af36a71f3d2b7f31_qq_42774501.jpg!1" mode="" />
+                            <image class="xiaotouxiang" style="position: absolute;left: 32rpx;" src="https://profile-avatar.csdnimg.cn/bb9c6b91adee4976af36a71f3d2b7f31_qq_42774501.jpg!1" mode="" />
+                        </view>
+                    </view>
+
+                    <view class="baomingrenshu">
+                        {{item.members_current || 0}}人已报名
+                    </view>
+                    <view style="font-size: 20rpx;margin-left: 16rpx;padding: 0 12rpx 0 12rpx;">
+                        <van-button plain custom-style="padding: 0 12rpx 0 12rpx;" type="primary" color="#7232dd" size="mini" round="true"> {{item.status_name}}</van-button>
+                    </view>
+                </view>
+            </view>
+            <view>
+                <van-button plain type="primary" size="small">{{item.join_btn}}</van-button>
+            </view>
+        </view>
+
+    </block-box>
+</block>

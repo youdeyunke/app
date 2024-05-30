@@ -1,0 +1,276 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+page{
+    background: #fff !important;
+    height: 100vh;
+  }
+  .vantabs2{
+    display: flex;justify-content: space-between;flex-direction: column;min-height: calc(100vh - 280rpx);
+  }
+  .vantabs2 .van-tabs__scroll{
+    background-color: rgba(0, 0, 0, 0);
+  }
+  .header {
+    background-size: 750rpx 410rpx;
+    background-repeat: no-repeat;
+    width: 750rpx;
+    height: 410rpx;
+    
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+  .outer{
+    width:710rpx;
+    margin:0 20rpx;
+  }
+  .mes-box{
+    background: #fff;padding-top: 5rpx;border-radius: 30rpx 30rpx 0 0;min-height: 500rpx;margin-top: 10rpx;
+  }
+  .item .count{
+    background:red;
+    color:#fff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60rpx;
+    width:60rpx;
+    border-radius: 50%;
+    position: absolute;
+    left:70rpx;
+    top:0rpx;
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+  }
+  
+  .tools{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:20rpx 20rpx 10rpx 20rpx;
+    font-size:24rpx;
+    color:#333333;
+  }
+  
+  .item{
+    display: flex;
+    justify-content: space-between;
+    align-items:  center;
+    height: 160rpx;
+    border-bottom: 1rpx solid #E1E1E1;
+    position: relative;
+  }
+  
+  .item .tip::after{
+    content: '未读';
+    color:#fff;
+    display: flex;
+    border-radius: 30rpx;
+    background: red;
+    padding:8rpx 18rpx;
+    position: absolute;
+    right: 12rpx;
+    transform: scale(0.8);
+    top: 80rpx;
+  }
+  
+  .item .avatar{
+    height:110rpx;
+    width: 110rpx;
+    border-radius: 10rpx;
+    margin-right:35rpx ;
+    border: 1px solid #dddddd;
+  }
+  
+  .item .info{
+    height: 100rpx;
+    width: calc(750rpx - 60rpx - 92rpx - 20rpx);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .line-limit{
+    width: 427rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #777777;
+    font-size: 24rpx;
+  }
+  
+  .item .name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .item  .nickname{
+    color: #000;
+    font-size: 36rpx;
+  }
+  
+  .item .info .text{
+    color: #cecece;
+  }
+  
+  
+  
+  .empty{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+  }
+  
+  
+  .unlogin .title{
+    font-size:30rpx;
+  }
+  .unlogin .desc{
+    font-size:28rpx;
+    margin-top:20rpx;
+    margin-bottom:40rpx;
+  }
+  .title {
+    display: flex;
+  }
+  
+  .sysMesbox {
+    width: 100%;
+    min-height: 150rpx;
+    /* display: flex; */
+    border-bottom: 1rpx solid #E1E1E1;
+    padding: 30rpx 0 20rpx 0;
+    /* display: flex;
+    justify-content: space-between; */
+  }
+  
+  .title1 {
+    color: #9e1d1d;
+    font-size: 36rpx;
+    font-weight: 600;
+  }
+  
+  .title2 {
+    color: purple;
+    font-size: 36rpx;
+    font-weight: 600;
+  }
+  
+  .biaoqian {
+    font-size: 20rpx;
+    background: red;
+    width: 70rpx;
+    height: 30rpx;
+    color: #ffffff;
+    border-radius: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0.8);
+  }
+  .message-top {
+    width: 750rpx;
+    height: 80rpx;
+    border-radius: 40rpx 40rpx 0rpx 0rpx;
+  background: #E6EAF5;
+
+    /* background-color: #FFF3E7; */
+    padding-left: 40rpx;
+    /* font-size: 40rpx; */
+    /* color: #F49946; */
+    padding-right: 40rpx;
+    /* box-sizing: border-box; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+  }
+  
+  /* .message-top view {
+    display: inline-block;
+    font-size: 28rpx;
+    color: #FFFFFF;
+    width: 140rpx;
+    height: 60rpx;
+    background-color: #FB921D;
+    line-height: 60rpx;
+    border-radius: 14rpx;
+    text-align: center;
+  }
+  
+  .message-top image {
+    width: 10rpx;
+    height: 18rpx;
+    margin-left: 10rpx;
+    margin-bottom: 1rpx;
+  } */
+
+  /* styles.css */
+
+.sysitem-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 40rpx 0;
+}
+
+.sysitem-image {
+  width: 100rpx;
+  height: 100rpx;
+  display: inline-block;
+}
+
+.sysitem-content {
+  width: 420rpx;
+}
+
+.sysitem-title {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.sysitem-subtitle {
+  width: 400rpx;
+  margin-top: 10rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #999;
+}
+
+.sysitem-meta {
+  width: 160rpx;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+}
+
+.sysitem-date {
+  font-size: 22rpx;
+  color: #999;
+  margin-left: auto;
+}
+
+.sysitem-badge {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 8rpx;
+  background-color: red;
+  margin-left: auto;
+  margin-top: 10rpx;
+}

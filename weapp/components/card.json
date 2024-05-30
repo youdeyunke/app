@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "box": "/components/ud/box/index"
+  
+  }
+}

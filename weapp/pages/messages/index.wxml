@@ -1,0 +1,97 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<wxs module="stringConverter">
+  var mapping = {
+    'like': '用户点赞',
+    'customer': '客户管理',
+    'thread': '线索管理',
+    'share_customer': '顾问拓客',
+    'score': '顾问积分',
+    'event': '楼盘动态',
+    'post_event': '楼盘动态',
+    'tupai': '土拍动态',
+    'broker': '置业顾问',
+    'qa': '楼盘问答'
+  };
+
+  function convertString(input) {
+    return mapping[input] || '';
+  }
+  function formatDateTime(originalDateTime) {
+    var dateArr = originalDateTime.split(' '); // 拆分日期和时间部分
+    var date = dateArr[0].split('-'); // 拆分年、月、日部分
+    var time = dateArr[1].split(':'); // 拆分小时、分钟、秒部分
+    
+    var month = parseInt(date[1]);
+    var day = parseInt(date[2]);
+    var hour = parseInt(time[0]);
+    var minute = parseInt(time[1]);
+
+    var formattedMonth = month < 10 ? '0' + month : month;
+    var formattedDay = day < 10 ? '0' + day : day;
+    var formattedHour = hour < 10 ? '0' + hour : hour;
+    var formattedMinute = minute < 10 ? '0' + minute : minute;
+
+    return formattedMonth + '-' + formattedDay + ' ' + formattedHour + ':' + formattedMinute;
+  };
+  module.exports.convertString = convertString
+  module.exports.formatDateTime = formatDateTime
+</wxs>
+
+<view class="header" style="background: {{primaryColor}};">
+
+</view>
+
+<view wx:if="{{showDingyue}}" class="message-top" >
+  <van-icon name="cross" bindtap="closeDinyueHandle" />
+  <text style="color: {{primaryColor}};font-size: 24rpx;">订阅消息通知，重要消息不错过，请点按钮开启</text>
+  <van-button round size="mini" icon="bell" bindtap="dingyueHandle" color="{{primaryColor}}">订阅</van-button>
+</view>
+<!-- <view class="vantabs2">
+  <van-tabs title-active-color="#fff" title-inactive-color="#fff" active="{{ active }}" color="#fff">
+    <van-tab info="{{sys_message_count == 0 ? null : sys_message_count }}" title="通知"> -->
+      <view class="mes-box">
+        <view class="tools">
+          <view style="color: #999;"><van-icon name="info" /> 仅显示最近三个月的系统通知</view>
+          <view wx:if="{{sys_message_count > 0}}" bindtap="readAllSys" class="read-all">全部已读</view>
+        </view>
+
+        <view class="outer" padding="30">
+          <view bindtap="sysItemClickHandle" bindlongpress="deleteSysHandle" data-index="{{index}}" data-sid="{{item.id}}" wx:for="{{systemItems}}">
+            <view class="sysitem-container">
+              <image class="sysitem-image" src="/assets/icons/message/{{stringConverter.convertString(item.cat)}}.png" mode=""/>
+              <view class="sysitem-content">
+                <view class="sysitem-title">{{stringConverter.convertString(item.cat)}}</view>
+                <view class="sysitem-subtitle">{{item.title}}</view>
+              </view>
+              <view class="sysitem-meta">
+                <view class="sysitem-date">{{stringConverter.formatDateTime(item.created_at)}}</view>
+                <view class="sysitem-badge" style="background-color: {{item.unread ? '' : '#ccc'}};"></view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+        <no-result wx:if="{{systemItems.length == 0}}" text="没有收到任何消息"></no-result>
+      </view>
+    <!-- </van-tab>
+
+  </van-tabs> -->
+
+  <recommended-post-items wx:if="{{!userInfo.is_broker}}"></recommended-post-items>
+
+  <copyright></copyright>
+<!-- </view> -->
+<view wx:if="{{showDingyue}}" style="width: 750rpx;height: 100rpx;">
+</view>
+
+<login-window closable="{{false}}" bind:success="loginSuccess" class="loginwindow"></login-window>

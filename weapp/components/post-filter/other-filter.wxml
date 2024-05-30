@@ -1,0 +1,53 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view class="filter" bindtap="showFilterHandle">
+    <view bind:tap="showPopHandle">
+        筛选
+        <van-icon name="filter-o" />
+    </view>
+    <popup show="{{showPop}}" bind:confirm="filterConfirmHandle" bind:cancle="filterCancleHandle">
+        <view class="filter-body">
+            <view class="section area">
+                <view class="title-block">
+                    <view class="title">物业类型</view>
+                </view>
+                <view class="body">
+                    <selector style="width:100%;" value-key="id" options="{{catOptions}}" model:value="{{catValue}}"></selector>
+                </view>
+            </view>
+            <view class="section area">
+                <view class="title-block">
+                    <view class="title">面积</view>
+                </view>
+                <view class="body">
+                    <range-input unit="㎡" model:value="{{areaValue}}"></range-input>
+                </view>
+            </view>
+            <view class="section house-type">
+                <view class="title-block">
+                    <view class="title">户型</view>
+                </view>
+                <view class="body">
+                    <selector options="{{houseTypeItems}}" model:value="{{houseTypeValue}}"></selector>
+                </view>
+            </view>
+            <view class="section fitment">
+                <view class="title-block">
+                    <view class="title">装修</view>
+                </view>
+                <view class="body">
+                    <selector value-key="id" columns="4" options="{{fitmentOptions}}" model:value="{{fitmentValue}}"></selector>
+                </view>
+            </view>
+        </view>
+    </popup>
+</view>

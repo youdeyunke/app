@@ -1,0 +1,12 @@
+{
+    "navigationBarTitleText": "申请开通全民经纪人",
+    "backgroundColor": "#cecece",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "van-field": "/vant/field/index",
+        "van-picker": "/vant/picker/index",
+        "van-button": "/vant/button/index",
+        "mysearch":"/components/post-search/index",
+        "choose-block":"/components/choose-block/index"
+    }
+}

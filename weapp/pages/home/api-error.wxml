@@ -1,0 +1,20 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--pages/home/api-error.wxml-->
+<image style="width: 750rpx;height: 750rpx;display: block;" src="/assets/icons/api-error.svg" mode=""/>
+<view class="warning-message">
+  系统检测到您尚未配置 API 主机地址，请前往 '/utils/request.js' 文件中的 'apiHost' 进行配置。将apiHost设置为您的服务端运行地址。确保将 API 主机地址正确设置，以便小程序能够正常发起网络请求和访问数据。如需帮助，请参考相关文档或联系系统管理员。
+</view>
+<view style="position: absolute;bottom: 90rpx;width: 690rpx;left: 30rpx;">
+  <van-button bindtap="restartProgram" custom-style="margin: 0 auto;width: 690rpx;" type="info">重试</van-button>
+
+</view>

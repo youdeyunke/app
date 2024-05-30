@@ -1,0 +1,33 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!-- components/broker-item/index.wxml -->
+<block>
+    <login-window closable="{{true}}" class="loginwindow"></login-window>
+    <view class="outer" style="background:{{bg}}">
+        <view style="display: flex;align-items: center;">
+            <view class="avatar" bindtap="gotoProfile">
+            
+                    <avatar border="{{avatarColors[item.level-1]}}" size="92" src="{{item.avatar}}"/>
+    
+            </view>
+            <view class="name">
+                <view class="fullname">{{ item.name}}</view>
+                <view class="broker-level">{{levelName}}</view>
+            </view>
+            <image class="broker-level-icon" src="{{levelImg}}"></image>
+        </view>
+        <view class="actions">
+            <image bindtap="phoneHandle" src="/assets/icons/broker/phone.png"></image>
+        </view>
+    </view>
+
+</block>

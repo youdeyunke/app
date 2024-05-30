@@ -1,0 +1,133 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* pages/post/info-block.wxss */
+
+.xiangce-item {
+  width: 230rpx;
+  height: 180rpx;
+  position: relative;
+  display: inline-block;
+  margin-right: 20rpx;
+  border-radius: 6rpx;
+  overflow: hidden;
+}
+
+
+
+.xiangce-item .image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.xiangce-item .title {
+  position: absolute;
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  text-align: center;
+  z-index: 5;
+  bottom: 0rpx;
+  left: 0;
+  color: #fff;
+  font-size: 22rpx;
+  /* Rectangle 63 */
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+}
+
+.xiangce {
+  height: 180rpx;
+  width: 710rpx;
+  white-space: nowrap;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.post-point {
+  padding: 20rpx;
+  background: linear-gradient(to right, #f8f1e9, #fefff7);
+  display: flex;
+  align-items: center;
+  margin-bottom: 40rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #f4f3f0;
+}
+
+
+.content-title {
+  width: 110rpx;
+  font-size: 26rpx;
+  color: #999999;
+
+  text-align-last: justify;
+  white-space: nowrap;
+  display: inline-block;
+  text-overflow: ellipsis;
+}
+
+.block-content {
+  color: #333;
+  margin-top: 42rpx;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.one {
+  margin-top: 0rpx;
+}
+
+.content-desc {
+  color: #333;
+  font-size: 26rpx;
+  font-weight: bold;
+}
+
+.maohao {
+  text-align: center;
+  width: 10rpx;
+}
+
+.content-desc {
+  margin-left: 10rpx;
+}
+
+.red {
+  color: #E82525 !important;
+  font-weight: bolder;
+}
+
+.box-bottom {
+  width: 690rpx;
+  /* height: 110rpx; */
+  /* padding: 0 30rpx; */
+  padding-top: 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+  background-color: #FFF;
+  border-top: 2rpx solid #DDDDDD;
+}
+
+.box-bottom-icon {
+  width: 56rpx;
+  height: 56rpx;
+}
+
+.box-bottom-text {
+  width: 450rpx;
+  font-size: 30rpx;
+  color: #333333;
+}

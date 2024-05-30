@@ -1,0 +1,47 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<navigator hover-class="none" class="post" url="/pkgPost/pages/show/index?id={{post.id}}">
+    <!-- <view class="cover">
+        <image class="cover-image" src="{{post.cover}}?imageView2/1/w/333/h/246" />
+
+        <view class="position">
+            <block wx:if="{{post.has_live==true}}">
+                <image src="/assets/icons/post/live.png"></image>
+            </block>
+            <block wx:if="{{post.has_video==true}}">
+                <image src="/assets/icons/post/video.png"></image>
+            </block>
+            <block wx:if="{{post.has_vr==true}}">
+                <image src="/assets/icons/post/VR.png"></image>
+            </block>
+        </view>
+    </view> -->
+    <post-cover height="246" width="100%" topRightRadius="16" topLeftRadius="16" bottomRightRadius='0' bottomLeftRadius='0' wx:if="{{post}}" item="{{post}}"></post-cover>
+    <view class="footer">
+        <view class="title">{{post.title}}</view>
+        <view class="top">
+            <view class="tags">
+                <view wx:if="{{index <= 1}}" wx:for="{{post.tags}}" wx:key="item.id" class="tag-item">
+                  
+                        {{item.name}}
+        
+                </view>
+            </view>
+            <view class="area">
+                {{ post.area_info.label}} {{ post.area_info.text}}
+            </view>
+            <view class="price">
+                {{post.average_price_info.text}}{{post.average_price_info.px}}
+            </view>
+        </view>
+    </view>
+</navigator>
