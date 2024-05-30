@@ -1,0 +1,138 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--pkgErshou/pages/show.wxml-->
+<banners-block value="{{banners}}"></banners-block>
+<!-- 头部标签 -->
+<view class="headLabelBox" wx:if="{{rule && rule.id&& headSwitch}}">
+  <image class="headLabelImg" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
+  {{title}}
+</view>
+<!-- 基础信息 -->
+<view class="box">
+
+  <view class="biaotiBox">
+    {{block.title}}
+  </view>
+  <view class="fuzerenBox">
+    <view style="display: flex;">
+      <view class="fuzeren">
+        <image class="fuzerenImg" src="https://qiniucdn.udeve.cn/fang2021/a6eb9ded-760d-470a-ad64-acfdba186831.png" mode="" />
+        房源已审核
+      </view>
+      <view class="fuzeren" style="margin-left: 50rpx;">
+        <image class="fuzerenImg" src="https://qiniucdn.udeve.cn/fang2021/b1f98257-2189-4116-a962-664a8f7ea68b.png" mode="" />
+        由{{block.seller}}发布
+      </view>
+    </view>
+    <view style="display: flex;position: relative;">
+      <view class="guanzhu" bindtap="guanzhuHouse">
+        <image class="guanzhuImg" wx:if="{{!favStatus}}" src="https://qiniucdn.udeve.cn/fang2021/1cafcedd-4633-41e1-9ec1-2d9f413e8a9e.png" mode="" />
+        <image class="guanzhuImg" wx:if="{{favStatus}}" src="https://qiniucdn.udeve.net/udyk/65a72fab6ba637f7f73d960a.png" mode="" />
+        <view>
+          {{favStatus ? '已关注' : '关注'}}
+        </view>
+      </view>
+      <view class="guanzhu" bindtap="onShareAppMessage">
+        <image class="guanzhuImg" src="https://qiniucdn.udeve.cn/fang2021/88362a90-7692-4214-8154-aa4b6fe4e1f9.png" mode="" />
+        <view>
+          分享
+        </view>
+      </view>
+      <button open-type="share" class="fenxiang"></button>
+    </view>
+  </view>
+  <view class="jichuxinxiBox">
+    <view class="shoujia">
+      {{block.price_label}}
+      <view class="shoujia_jine">
+        {{block.price_value}}{{block.price_unit}}
+      </view>
+    </view>
+    <view class=" huxing">
+      户型
+      <view class="shoujia_jine">
+        {{block.type_name}}
+      </view>
+    </view>
+    <view class="shoujia">
+      面积
+      <view class="shoujia_jine">
+        {{block.area_value}}㎡
+      </view>
+    </view>
+  </view>
+  <view class="daikanBox" wx:if="{{block.vr}}" bindtap="vrBtn" data-vr="{{block.vr}}">
+    <image class="daikanBoxImg" src="https://qiniucdn.udeve.net/fang/post-cover-icon-vr.png" mode="" />
+    <view class="daikanText">
+      带看无需奔走，专人答疑
+    </view>
+    <view class="daikanBtn">
+      线上带看
+    </view>
+  </view>
+  <view class="xiangxixinxiBox">
+    <view class="xxxxTitle">
+      装修：
+      <view class="xxxxText">
+        {{block.fitment}}
+      </view>
+    </view>
+    <view class="xxxxTitle">
+      用途：
+      <view class="xxxxText">
+        {{block.category}}
+      </view>
+    </view>
+    <view class="xxxxTitle">
+      朝向：
+      <view class="xxxxText">
+        {{block.position}}
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<view class="xiangxiTitle" wx:if="{{block.content}}">
+    <view class="jingpaiBoxL">
+      <image class="jpImgL" src="https://qiniucdn.udeve.cn/fang2021/c6147555-908c-4234-8d6e-8ae38cda033f.png" mode="" />
+      <view class="jpText">
+        房源介绍
+      </view>
+    </view>
+
+  </view>
+  <view wx:if="{{block.content}}" class="box">
+    <view class="xxText">
+      {{block.content}}
+    </view>
+  </view>
+
+<!-- 分割线 -->
+<view class="fengexian"> </view>
+
+<!-- 分割线 -->
+<view class="fengexian"> </view>
+
+<copyright></copyright>
+
+<!-- 二手、租房时的底部栏 -->
+<view class="bottomBox">
+  <view class="ershoubaomingBtn" bindtap="btnHandle">
+    <view class="biaomingTitle">
+      {{btnText}}
+    </view>
+    <view wx:if="{{btnDesc}}" class="biaomingText">
+      {{btnDesc}}
+    </view>
+  </view>
+</view>

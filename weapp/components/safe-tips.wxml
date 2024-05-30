@@ -1,0 +1,28 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view class="safe-tips" wx:if="{{statement}}">
+  <view class="title"> 
+    <view class="left">
+      <image class="img" mode="widthFix" src="/assets/icons/safe-tips-icon.png" />  <text class="text">免责声明</text> 
+    </view>
+
+    <view class="right">
+      <button class="btn" plain open-type="contact" bindcontact="handleContact">报告数据错误</button>
+    </view>
+
+  </view>
+   <view class="content" >
+   <text class="text" selectable="true">{{statement}}</text>
+
+   </view>
+</view>
+

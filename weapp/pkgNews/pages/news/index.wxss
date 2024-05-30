@@ -1,0 +1,60 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+.res {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; */
+    background:#fff;
+    width:750rpx;
+    /* margin:20rpx auto; */
+    padding:20rpx;
+    box-sizing: border-box;
+
+}
+
+.res .empty {
+    padding: 20rpx 0;
+}
+/* .news-cats {
+  padding: 20rpx 0;
+  background-color: #fff;
+}
+
+.cat-item {
+  display: inline-block;
+  margin-right: 20rpx;
+} */
+
+.new-cats{
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+	overflow-x: auto;
+	scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 25rpx 30rpx 25rpx;
+  /* padding-bottom: 30rpx; */
+  max-height: 100rpx;
+  overflow-y: hidden; /* 禁止垂直滚动 */
+  /* height: auto; */
+  background-color: #fff;
+}
+.new-cats::-webkit-scrollbar {
+	display: none;
+}
+.new-cats .new-cat{
+  height: 60rpx;line-height: 60rpx;font-size: 28rpx;color: #333;background-color: #f5f5f5;padding: 0 20rpx;border-radius: 4rpx;margin-right: 20rpx;
+}
+.new-cats .new-cat:last-child{
+  margin-right: 0rpx;
+}

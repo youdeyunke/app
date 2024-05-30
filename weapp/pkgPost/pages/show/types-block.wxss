@@ -1,0 +1,125 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+.types {
+    display: inline-block;
+}
+
+.tags {
+    display: flex;
+    margin: 10rpx 0 0 0;
+}
+
+.type {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /* width: 240rpx;
+    height: 390rpx; */
+    width: 316rpx;
+    height: 550rpx;
+    margin-right: 30rpx;
+    border: 1rpx solid #CCCCCC;
+    border-radius: 10rpx;
+    padding: 20rpx;
+    position: relative;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+  display: none;
+}
+.huxingbiaoqian {
+    width: 120rpx;
+    height: 42rpx;
+    /* background: #2B78E4; */
+    border-radius: 10rpx 0rpx 20rpx 0rpx;
+    color: #FFFFFF;
+    font-size: 22rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -20rpx;
+    left: -20rpx;
+}
+
+.type .cover image {
+    /* width: 240rpx;
+    height: 180rpx;
+    border-radius: 4rpx; */
+    width: 316rpx;
+    height: 260rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+.meta {
+    margin-left: 36rpx;
+}
+.type .name {
+    width: 240rpx;
+    font-size: 30rpx;
+    color: #333;
+    font-weight: bold;
+    margin-top: 36rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+}
+
+.type .attr {
+    font-size: 24rpx;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 18rpx;
+}
+
+.type .attr .label {
+    margin-right: 8rpx;
+    color: #999;
+}
+
+.type .cover {
+    position: relative;
+}
+
+.type .zoom {
+    position: absolute;
+    bottom: 10rpx;
+    right: 0rpx;
+    padding: 4rpx;
+    background: rgba(0, 0, 0, 0.15);
+    font-size: 28rpx;
+    color: #f4f4f4;
+    display: flex;
+    border-radius: 6rpx;
+}
+
+.price {
+    font-weight: bold;
+    color: #E82525;
+}
+
+.tag {
+    background-color: #fff;
+    border: 1rpx solid #1989FA;
+    width: 60rpx;
+    height: 32rpx;
+    line-height: 28rpx;
+    color: #1989FA;
+    text-align: center;
+    font-size: 20rpx;
+    font-weight: normal;
+    border-radius: 4rpx;
+}

@@ -1,0 +1,173 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* pkgPost/components/broker-contact/index.wxss */
+
+.blank-full {
+    height: 420rpx;
+    width: 750rpx;
+    display: block;
+}
+
+.blank-mini {
+    height: 150rpx;
+    width: 750rpx;
+    display: block;
+}
+
+.full {
+    position: fixed;
+    width: 750rpx;
+    height: 420rpx;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+    transition: all 0.5s;
+}
+
+.full .bg {
+    width: 750rpx;
+    height: 420rpx;
+    border-top-left-radius: 20rpx;
+    border-top-right-radius: 20rpx;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 20;
+    box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.25);
+}
+
+.full .avatar {
+    box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.25);
+    border: 4rpx solid #fff;
+    width: 170rpx;
+    height: 170rpx;
+    border-radius: 170rpx;
+    overflow: hidden;
+    position: absolute;
+    left: 286rpx;
+    top: -85rpx;
+    z-index: 30;
+}
+
+.full .close {
+    width: 80rpx;
+    height: 80rpx;
+    position: absolute;
+    right: 30rpx;
+    top: 10rpx;
+    z-index: 30;
+}
+
+.full .btn {
+    width: 296rpx;
+    height: 80rpx;
+    position: absolute;
+    top: 277rpx;
+    z-index: 30;
+}
+
+.full .badge {
+    position: absolute;
+    z-index: 31;
+    width: 152rpx;
+    height: 42rpx;
+    top: 70rpx;
+    left: 292rpx;
+}
+
+.full .name {
+    font-size: 28rpx;
+    color: #333;
+    font-weight: bold;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 110rpx;
+    left: 0;
+    z-index: 30;
+}
+
+.full .btn1 {
+    left: 52rpx;
+}
+
+.full .btn2 {
+    right: 52rpx;
+}
+
+.mini {
+    transition: all 0.5s;
+    border-top: 2rpx solid #f0f0f0;
+    background: #fff;
+    height: 150rpx;
+    width: 750rpx;
+    box-sizing: border-box;
+    padding: 0 20rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    bottom: 0;
+}
+
+.mini .btn {
+    width: 196rpx;
+    height: 80rpx;
+    border-radius: 5rpx;
+    overflow: hidden;
+    color: #fdfdfd;
+    font-size: 26rpx;
+    line-height: 80rpx;
+    text-align: center;
+    letter-spacing: 2rpx;
+}
+
+.mini .btn1 {
+    background: linear-gradient(270deg, #0FC19A 0%, #36D8C0 100%);
+    margin-left: 20rpx;
+}
+
+.mini .btn2 {
+    background: linear-gradient(270.65deg, #1972E7 0.49%, #4794EF 99.43%);
+}
+
+.mini .name {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mini .name .text {
+    font-size: 32rpx;
+    color: #333;
+    margin-bottom: 6rpx;
+}
+
+.mini .avatar {
+    width: 100rpx;
+    height: 100rpx;
+    box-sizing: border-box;
+    border: 6rpx solid #fde6b2;
+    border-radius: 120rpx;
+    overflow: hidden;
+    z-index: 20;
+    margin-right: 20rpx;
+}
+
+.mini .badge {
+    width: 132rpx;
+    height: 36rpx;
+}

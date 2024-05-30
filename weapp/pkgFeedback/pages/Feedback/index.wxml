@@ -1,0 +1,55 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--pkgFeedback/pages/Feedback/index.wxml-->
+<view style="height: 30rpx;"></view>
+<view class="header">
+	<text class="icon">*</text>反馈类型
+</view>
+<view class="body">
+	<view class="cats">
+		<view class="catitem" style="{{ currentCat == item ? 'color:' + primaryColor + ';background-color: ' + primaryColor + '25;' : '' }}" wx:for="{{cats}}" data-cat="{{item}}" bindtap="catHandle">
+			{{item}}
+		</view>
+	</view>
+</view>
+
+<view class="header">
+	<text class="icon">*</text>问题描述
+</view>
+<view class="body">
+	<view class="content">
+		<textarea class="input" placeholder="请详细描述您的问题或者建议，以便于我们快速处理" maxlength="300" bindinput="contentInput"></textarea>
+		<text class="content-count">{{content.length}}/300</text>
+	</view>
+</view>
+
+<view class="header">
+	相关图片<text class="sub-title">（最多可上传3张图片，单张小于10Mb）</text>
+</view>
+<view class="body">
+	<images-uploader width="200" height="200" bind:change="imagesHandle"></images-uploader>
+</view>
+
+<view class="header">
+	联系方式<text class="sub-title">（手机/微信号/邮箱）</text>
+</view>
+<view class="body">
+	<van-field custom-class='mobile-input' model:value="{{ phone }}" placeholder="请输入" />
+</view>
+
+<view style="height: 150rpx;">
+	
+</view>
+
+<view class="bottom-btn">
+	<van-button bind:click="submitHandle" loading="{{loading}}" color="{{primaryBtnColor}}" block>提交</van-button>
+</view>

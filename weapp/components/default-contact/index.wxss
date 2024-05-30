@@ -1,0 +1,74 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+.outer {
+    height: 150rpx;
+    width: 750rpx;
+    padding: 20rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #ffffff;
+    border-top: 2rpx solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.share {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    font-size: 24rpx;
+    line-height: 24rpx;
+}
+
+.share image {
+    width: 54rpx;
+    height: 54rpx;
+    margin-bottom: 4rpx;
+}
+
+.btn {
+    height: 90rpx;
+    border-radius: 8rpx;
+    width: 255rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    letter-spacing: 2rpx;
+}
+
+.btn .name {
+    color: #fdfdfd;
+    font-size: 28rpx;
+}
+
+.btn .desc {
+    font-size: 24rpx;
+    width: 100%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.67);
+    transform:scale(0.8)
+}
+
+.btn3{
+    width: 510rpx;
+    background: linear-gradient(270deg, #0FC19A 0%, #36D8C0 100%);
+    border-radius: 10rpx;
+}

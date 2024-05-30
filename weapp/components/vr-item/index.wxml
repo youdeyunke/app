@@ -1,0 +1,30 @@
+
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view hover-class="none" class="video-item" bindtap="clickHandle">
+    <view class="cover" hover-class="none" hover-stop-propagation="false">
+        <image mode="aspectFill" class="cover" src="{{item.cover }}?imageView2/2/w/250"></image>
+        <image src="/assets/icons/vr.png" class="play"></image>
+    </view>
+    <view class="title-block">
+        <view class="title"> {{item.name}}</view>
+        <view class="summary an-multi-ellipsis--l3">{{ item.summary }} </view>
+        <view class="meta">
+            <view>
+                <text class="author">{{item.author || ''}}</text>
+                <text class="date">{{item.date || ''}}</text>
+            </view>
+            <view wx:if="{{item.view_nums}}" class="views"> <van-icon name="eye" size="28rpx" /> <text style="margin-left:10rpx;">{{ item.view_nums }}</text></view>
+        </view>
+    </view>
+</view>
+

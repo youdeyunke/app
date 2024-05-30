@@ -1,0 +1,109 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+page {
+    font-size: 24rpx;
+    background: #f2f2f2 !important;
+    min-height: 100%;
+    padding-top:0rpx;
+}
+
+.raw {
+  font-size: 30rpx;
+}
+
+.header {
+    background: #fff;
+    box-sizing: border-box;
+    margin-bottom: 20rpx;
+}
+
+.header .h1 {
+    font-size: 32rpx;
+    font-weight: bold;
+    line-height: 1.6;
+    color:#333;
+    letter-spacing: 2rpx;
+    margin-bottom: 18rpx;
+}
+
+.header .author {
+    color: #1989fa;
+    margin-right:8rpx;
+}
+
+.header .meta {
+    font-size: 24rpx;
+    color: #666;
+    border-bottom: 2rpx solid #f2f2f2;
+    padding-bottom: 10rpx;
+    margin-bottom:20rpx;
+
+
+}
+
+.header .meta text{
+    margin-left:20rpx;
+}
+
+.header .meta text:first-child{
+    margin-left:0;
+}
+
+myfav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40rpx;
+    width: 60rpx;
+    height: 50rpx;
+    border: 1rpx solid #cecece;
+    margin: 40rpx auto 30rpx auto;
+    border-radius: 50rpx;
+    color: #666;
+}
+
+myfav image {
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 20rpx;
+}
+.video{
+    width: 100%;
+    height: 100% !important;
+    min-height: 100vh !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #000;
+}
+.video video {
+    width: 750rpx;
+    height: 750rpx;
+}
+
+
+.end{
+    font-size:24rpx; 
+    scale: 0.8;
+    color: #cecece;
+}
+
+.news-content{
+    padding-top:20rpx;
+}
+
+.news-content .cover{
+    height: 416rpx;
+    background-size: 100% auto; 
+    background-repeat: no-repeat;
+    margin-bottom:-40rpx;
+}

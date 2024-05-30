@@ -1,0 +1,140 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+.header {
+    width: 750rpx;
+    height: 550rpx;
+    /* background-color: #fff; */
+    padding-top: 30rpx;
+    background-size: 750rpx 270rpx;
+}
+
+.zhuye-bg {
+    width: 180rpx;
+    height: 386rpx;
+    position: absolute;
+    left: 182rpx;
+}
+
+.user-card {
+    width: 690rpx;
+    height: 386rpx;
+    border-radius: 30rpx;
+    box-shadow: 2rpx 8rpx 27rpx 3rpx rgba(32, 46, 187, 0.0800);
+    margin: 30rpx;
+    position: relative;
+    display: flex;
+}
+
+.user-card-details {
+    z-index: 10;
+    border-radius: 30rpx;
+    background-color: #FFF;
+}
+
+.user-card-avatar {
+    width: 300rpx;
+    height: 386rpx;
+    border-radius: 30rpx;
+}
+
+.user-card-title {
+    display: flex;
+    width: 390rpx;
+    padding: 0 30rpx;
+    justify-content: space-between;
+    align-items: center;
+    height: 120rpx;
+}
+
+.user-card-title-name {
+    font-size: 36rpx;
+    font-weight: bold;
+}
+
+.user-card-status {
+    width: 210rpx;
+    height: 56rpx;
+    font-size: 28rpx;
+    text-align: center;
+    background-color: #1C56DB;
+    color: #FFF;
+    line-height: 56rpx;
+    border-radius: 28rpx;
+}
+
+.user-card-company {
+    display: flex;
+    padding-left: 30rpx;
+    justify-content: left;
+    align-items: center;
+    height: 100rpx;
+}
+
+.user-card-image {
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 12rpx;
+}
+
+.user-card-company-name {
+    font-size: 28rpx;
+    color: #666666;
+    font-weight: 400;
+}
+
+.user-card-lxfs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 166rpx;
+    position: absolute;
+    left: 284rpx;
+}
+
+.user-card-lxfs-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-card-lxfs-item-img {
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 12rpx;
+}
+
+.user-card-lxfs-item-message {
+    font-size: 26rpx;
+    color: #666666;
+    margin-right: 12rpx;
+    width: 180rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.user-card-lxfs-btn {
+    width: 150rpx;
+    height: 42rpx;
+    background-color: #5099FF;
+    border-radius: 21rpx;
+    text-align: center;
+    line-height: 35rpx;
+}
+
+.user-status-mes {
+    padding: 0 40rpx;
+    /* width: 750rpx; */
+    display: flex;
+    justify-content: space-between;
+}

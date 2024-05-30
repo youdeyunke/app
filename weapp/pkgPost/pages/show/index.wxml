@@ -1,0 +1,96 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<template name="joingroup">
+    <joingroup-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
+</template>
+<template name="info">
+    <info-block value="{{block.value}}" color="{{color}}" theme="{{theme}}" id="{{block.name}}" />
+</template>
+<template name="types">
+    <types-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
+</template>
+<template name="brokers">
+    <brokers-block value="{{block.value}}" color="{{color}}" theme="{{theme}}" id="{{block.name}}" />
+</template>
+<template name="qas">
+    <qas-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
+</template>
+<template name="news">
+    <news-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
+</template>
+<template name="events">
+    <events-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
+</template>
+<template name="tours">
+    <tours-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
+</template>
+<template name="recoms">
+    <recoms-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
+</template>
+<template name="points">
+    <points_block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
+</template>
+<template name="xiangce">
+    <xiangce-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
+</template>
+<template name="pingce">
+	<pingce-block  value= "{{block.value}}" color="{{color}}"  id="{{block.name}}"></pingce-block>
+</template>
+<!-- 致电售楼处 -->
+<!-- <template name="html">
+    <phone-block />
+</template> -->
+<template name="html">
+    <raw-html html="{{block.value.html}}"></raw-html>
+</template>
+
+<!-- <navigation-bar bgOpacity="{{bgOpacity}}" back="true" bindback="backTo" background="rgb(255 ,255 ,255)" background-color-top="none" title=""></navigation-bar> -->
+<page-loading loading="{{loading}}" />
+<!-- <images-block value="{{imagesInfo}}"></images-block> -->
+   <!-- 导航标签 -->
+   <view style="position: fixed; top: 0; left: 0;z-index: 10;width: 100%;">
+        <van-tabs active="{{ tabActive }}" bind:click="tabChange" color="{{configs.color.primary}}">
+            <van-tab wx:key="name" wx:for="{{blocks}}" name="{{item.name}}" title="{{item.label_short || item.label || '无标签'}}"></van-tab>
+        </van-tabs>
+    </view>
+
+
+<view style="position: absolute;top: 0;" class="outer" hidden="{{loading}}">
+    <banners-block color="{{configs.color.primary}}" value="{{bannersInfo}}"></banners-block>
+    <cover-block value="{{postInfo}}" color="{{configs.color.primary}}" />
+    <view style="position: absolute;top: 690rpx;width: 750rpx;">
+        <header-block navs="{{navs}}" post="{{postInfo}}" color="{{configs.color.primary}}" />
+    </view>
+    <!-- 占位 -->
+    <view style="width: 100%;height: 130rpx;"></view>
+
+
+     <!-- 循环显示各内容模块 -->
+    <view class="block" wx:for="{{blocks}}" wx:for-item="block" wx:for-key="index" wx:key="name">
+        <template is="{{block.name}}" data="{{block: block,color: configs.color.primary, theme: theme, postInfo: postInfo}}" />
+        
+    </view>
+    <ad-link />
+   
+    <!-- <recommended-post-items currentPostId="{{postId}}" showPostCount="{{8}}"></recommended-post-items> -->
+
+    <!-- safe-tips  / -->
+    <copyright></copyright>
+    <!-- <broker-contact wx:if="{{postId && postInfo && broker}}" broker="{{broker}}" post-id="{{postId}}"></broker-contact>
+    <default-contact wx:else post="{{postInfo}}"></default-contact> -->
+    <page-contact pid="{{postId}}" brokerId="{{brokerId}}"></page-contact>
+</view>
+
+
+
+    
+<login-window closable="{{true}}" class="loginwindow" ref="loginwindow"></login-window>

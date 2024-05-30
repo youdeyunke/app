@@ -1,0 +1,25 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--components/video-uploader/index.wxml-->
+<view>
+  <view class="uploader">
+    <block>
+      <view  style="width: {{width}}rpx;height: {{height}}rpx;" wx:if="{{video}}" class="item video ">
+        <video style="width: {{width}}rpx;height: {{height}}rpx;" src="{{video}}"></video>
+      </view>
+      <view style="width: {{width}}rpx;height: {{height}}rpx;" bindtap="chooseVideo" wx:if="{{!video}}" class="item add-video">
+        <view>上传视频</view>
+        <view>(60秒内)</view>
+      </view>
+    </block>
+  </view>
+</view>

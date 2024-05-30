@@ -1,0 +1,28 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!-- components/pagemaker/noticebar/index.wxml -->
+<view class="notice" style="height: 100rpx;" v-cloak>
+    <view class="icon">
+        <image mode="aspectFit" src="https://qiniucdn.udeve.net/udyk/65f282498eca49f426f5c9c1.png" />
+    </view>
+    <view class="items">
+        <swiper autoplay="true" circular="true" interval="3000" vertical="true" style="width:100%;height:100%;">
+            <swiper-item item-id="{{index}}" data-index="{{index}}" wx:key="{{item.id}}" wx:for="{{items}}" 
+                bindtap="itemClick">
+                <navigator style="color:#333333;font-size:26rpx" class="news-title" url="/pkgNews/pages/news/show?id={{item.id}}" hover-class='none' >
+                    {{item.title}}
+                </navigator>
+
+            </swiper-item>
+        </swiper>
+    </view>
+</view>

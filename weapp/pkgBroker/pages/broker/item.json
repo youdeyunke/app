@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+
+    "badge": "/components/badge",
+    "box": "/components/ud/box/index"
+  }
+}
+

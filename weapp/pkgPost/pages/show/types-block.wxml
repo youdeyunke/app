@@ -1,0 +1,60 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<block>
+  <block-box hat="{{false}}"   leftHat="true" leftHatColor="{{color}}" width="750" title-size="36" title="户型介绍" url="{{value.more_url}}" sub-title="{{value.more_title}}">
+    <scroll-view scroll-with-animation="{{true}}" scroll-x style="width:100%;white-space: nowrap;">
+      <view class="types" wx:for="{{items}}" wx:key="id">
+        <navigator hover-class="none" class="type">
+          <navigator url="/pkgPost/pages/type/show?id={{item.id}}" class="cover">
+            <view class="zoom" wx:if="{{item.hasImage}}">
+              <van-icon name="search" />
+            </view>
+            <image src="{{item.cover}}?imageView2/1/w/165/h/110"></image>
+            <view wx:if="{{item.main_tag}}" class="huxingbiaoqian" style="background-color:{{color}};">主力户型</view>
+          </navigator>
+          <view class="meta">
+            <view class="name">
+              <text style="width: 180rpx;display: inline-block;  white-space: nowrap;overflow: hidden;text-overflow: ellipsis;">{{item.name}}</text>
+              
+              <view class="tag" style="color: {{color}};border: 1rpx solid {{color}};">{{item.sale_status_item.name}}</view>
+            </view>
+
+            <!-- view class="tags">
+              <view wx:for="{{item.tags}}" style="margin-right:8rpx;">
+                <van-tag plain>{{item}}</van-tag>
+              </view>
+            </view -->
+
+            <view class="attr">
+              <!-- <text class="label">朝向</text>
+                            <text class="value">{{item.position}}</text> -->
+              <text class="label">建面</text>
+              <text class="value">约{{item.area}}㎡</text>
+            </view>
+            <view class="attr">
+              <view wx:if="{{item.total_price > 0}}" class="value price">
+                约{{item.total_price}}万/套
+              </view>
+              <view wx:else class="value price">待定</view>
+            </view>
+            <van-button wx:if="{{item.vr}}" data-vr="{{item.vr}}" bindtap="gotoVr" plain type="primary" size="large" color="{{color}}"  custom-style="width: 246rpx;height: 72rpx;border-radius: 10rpx;font-size:24rpx; line-height: 72rpx;margin-top:30rpx">
+            VR带看
+            </van-button>
+            <van-button wx:else plain type="primary" bindtap="callPhone" size="large" color="{{color}}"  custom-style="width: 246rpx;height: 72rpx;border-radius: 10rpx;font-size:24rpx; line-height: 72rpx;margin-top:30rpx">
+            咨询首付
+            </van-button>
+          </view>
+        </navigator>
+      </view>
+    </scroll-view>
+  </block-box>
+</block>

@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "个人中心",
+    "usingComponents": {
+        "recommended-post-items": "/components/recommended-post-items/index",
+        "card": "./card/index",
+        "btn": "/components/page-home/btns/btn/index",
+        "myselflogin": "/components/page-home/myselflogin/index"
+    }
+}

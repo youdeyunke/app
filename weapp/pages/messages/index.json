@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "消息",
+  "usingComponents": {
+    "van-tag": "/vant/tag/index",
+    "recommended-post-items": "/components/recommended-post-items/index"
+  }
+}

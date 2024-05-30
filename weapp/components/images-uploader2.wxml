@@ -1,0 +1,30 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<block>
+  <!-- 展示 -->
+  <view wx:if="{{images.length!=0}}" style="display: flex;flex-wrap: wrap;padding-bottom: 30rpx;">
+    <view style="position: relative;width: {{width}}rpx;height: {{height}}rpx;padding: 14rpx;box-sizing: content-box;" wx:for="{{images}}">
+      <image src="https://qiniucdn.udeve.net/udyk/649e99ade4b03d2849d53606.png" data-index="{{index}}" bindtap="deleteHandle" style="width: 40rpx;height: 40rpx;position: absolute;top: 0;right: 0;" mode="" />
+      <image data-index="{{item.url}}" bindtap="Preview" mode="aspectFit" src="{{item.url}}" style="width: {{width}}rpx;height: {{height}}rpx;display: inline-block;" />
+    </view>
+  </view>
+  <view wx:if="{{images.length!=max}}">
+    <van-uploader multiple="{{true}}" bind:delete="deleteHandle" bind:after-read="afterRead">
+      <view class="upload-btn" style="width: {{width}}rpx;height: {{height}}rpx;">
+        <van-icon size="40rpx" color="#999999" name="photograph" />
+        <text>添加照片</text>
+      </view>
+    </van-uploader>
+  </view>
+
+
+</block>

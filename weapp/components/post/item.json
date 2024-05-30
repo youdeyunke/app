@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "mytags": "/components/tags",
+    "badge": "/components/badge",
+    "box": "/components/box"
+  }
+}
+

@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "broker-cell-item": "/components/broker-item/cell/index",
+    "broker-block-item": "/components/broker-item/block/index",
+    "header": "../header/style0"
+  }
+}

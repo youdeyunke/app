@@ -1,0 +1,37 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+  <block wx:for="{{broker}}">
+    <view class="box">
+      <view class="booking-box">
+        <navigator  url="/pkgPost/pages/show/index?id={{item.post.id}}" class="booking-top">
+          <view class="booking-top-nav">
+            <!-- <image class="image1" src="../../image/2.png"></image> -->
+            <text>{{item.post.title}}</text>
+          </view>
+ 
+          <!-- <image class="image2" src="../../image/1.png"></image> -->
+         </navigator>
+        <view class="booking-time">
+          <view class="booking-time-nav">
+            <text>预约时段：</text> 
+            <text>{{item.date}} {{item.time}}</text>
+          </view>
+          <view class="booking-time-nav">
+            <text>我的留言：</text>
+            <text>{{item.remark}}</text>
+          </view>
+        </view>
+
+      </view>
+    </view>
+  </block>
+  <no-result wx:if="{{broker.length == 0}}"></no-result>

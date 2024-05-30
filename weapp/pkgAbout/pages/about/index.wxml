@@ -1,0 +1,49 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--pkgAbout/pages/about/index.wxml-->
+<image class="image1" src="../../image/1.png"></image>
+<view class="about-box">
+  <view class="about-title">
+    <view>{{xcx_name}}</view>
+    <view> VERSION {{server_version }}</view>
+  </view>
+  <view class="about-describe">
+    <view>{{xcx_us}}</view>
+  </view>
+  <view class="po" wx:if="{{show==true}}">
+    <view class="image-box" >
+      <image src="{{xcx_wechat_qr}}" bindlongpress="savaHandle"></image>
+    </view>
+    <view class="close-box">
+      <image class="image2" src="../../image/4.png" bindtap="closeHandle"></image>
+    </view>
+  </view> 
+
+  <view class="about-contact">
+    <image src="../../image/5.png"></image>
+    <view>如需商务合作,敬请联系我们！</view>
+  </view>
+  <view class="bottom">
+    <view class="about-way" >
+    <view class="way-nav" bindtap="showWechat" wx:if="{{xcx_wechat_qr}}">
+      <image src="../../image/3.png"></image>
+      <view>客服微信</view>
+    </view>
+    <view class="way-nav" bindtap="callHandle" wx:if="{{service_mobile}}">
+      <image src="../../image/2.png"></image>
+      <view>客服电话</view>
+    </view>
+  </view>
+  <view class="about-corp">版权所有：优得(西安)科技有限公司</view>
+  </view>
+  
+</view>

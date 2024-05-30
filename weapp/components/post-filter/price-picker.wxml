@@ -1,0 +1,22 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!-- components/price-picker.wxml -->
+<view>
+    <view bind:tap="showHandle">{{title}} 售价<van-icon name="arrow-down" /></view>
+    <popup show="{{show}}" position="top" bind:cancle="onReset" bind:confirm="onConfirm" label="请选择">
+        <van-tree-select items="{{ items }}" main-active-index="{{ mainActiveIndex }}" active-id="{{ activeId }}" bind:click-nav="navClick" bind:click-item="itemClick" content-active-class="content-active" main-active-class="main-content-active" />
+        <view class="footer">
+            <van-field value="{{input_min}}" data-name="input_min" bindinput="priceInput" placeholder="请输入" label="最低价格" />
+            <van-field value="{{input_max}}" data-name="input_max" bindinput="priceInput" placeholder="请输入" label="最高价格" />
+        </view>
+    </popup>
+</view>

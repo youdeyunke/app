@@ -1,0 +1,232 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* components/pagemaker/posts/post-item0.wxss */
+
+.post {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 28rpx;
+    position: relative;
+}
+
+.post .right{
+    margin-left:20rpx;
+    box-sizing: border-box;
+    width: calc(100% - 20rpx - 214rpx);
+}
+
+.eye-icon{
+    position: absolute;
+    left:20rpx; 
+    bottom:10rpx;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.eye-icon .num{
+    color:#fff;
+    font-size:22rpx;
+    scale: 0.8;
+    margin-left:2rpx;
+    font-weight: bolder;
+}
+
+.eye-icon image{
+    width:30rpx; 
+    height:30rpx; 
+}
+
+.video-icon{
+    height: 165rpx;
+    position: absolute;
+    bottom:10rpx;
+    right:10rpx;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    
+
+}
+.video-icon image{
+    width:30rpx ;
+    height: 30rpx;
+    margin-top: 18rpx;
+}
+
+.post .cover image.main {
+    width:100%;
+    height:100%;
+}
+
+.post .cover{
+    width: 220rpx;
+    height: 165rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+    margin-right: 20rpx;    
+    position: relative;
+}
+
+
+.post .title  {
+    color: #333;
+    margin-bottom: 0rpx;
+    font-size: 32rpx;
+    font-weight: bolder;
+    text-overflow: ellipsis;
+    /* white-space: nowrap; */
+    display: -webkit-box;
+  -webkit-line-clamp: 2; /* 显示的行数 */
+  -webkit-box-orient: vertical;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    margin-bottom:6rpx;
+    width:100%;
+}
+
+
+.post .price {
+    margin-bottom:6rpx;
+}
+
+.post .address {
+    color: #A0A0A0;
+    margin-bottom: 6rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 400rpx;
+    font-size:24rpx;
+}
+
+.post .tags {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10rpx;
+}
+
+.post van-tag:last-child {
+    margin-right: 0;
+}
+
+.post van-tag {
+    margin-right: 10rpx;
+}
+
+.post .red {
+    margin-right: 10rpx;
+    color: #EF3C51;
+    font-weight: bold;
+    font-size:26rpx; 
+}
+
+.post .status{
+    position: absolute;
+    top:1rpx;
+    right:10rpx;
+    padding:0 4rpx;
+}
+
+.post .status text{
+    font-size:24rpx;
+    scale: 0.8;
+}
+
+.outer{
+    display: flex;
+    flex-direction: column;
+    margin-bottom:0rpx;
+}
+
+.outer .point {
+    width: 100%; 
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size:24rpx; 
+
+    height: 40rpx;
+    border-radius: 3rpx;
+    padding:0rpx 10rpx;
+    margin-top:10rpx;
+    margin-bottom:10rpx;
+
+
+}
+
+.outer .point.default{
+    background: rgba(255, 176,64,0.17);
+    background-image:url('https://qiniucdn.udeve.net/fang/post-item-point.png'); 
+    background-size: 28rpx 28rpx;
+    background-repeat: no-repeat;
+    background-position: 8rpx 7rpx;
+}
+
+.outer .point.time{
+    background: rgba(255, 176,64,0.17);
+    background-image:url('https://qiniucdn.udeve.net/fang/post-item-point.png'); 
+    background-size: 28rpx 28rpx;
+    background-repeat: no-repeat;
+    background-position: 8rpx 7rpx;
+}
+
+.point .ptitle{
+    color:#333;
+    font-weight: bolder;
+    margin-left:10rpx;
+    margin-right:10rpx;
+    white-space: nowrap;
+    padding-left:28rpx;
+
+}
+.point .blank{
+    height: 60%; 
+    width:10rpx; 
+    border-right:2rpx solid #cecece;
+
+    margin-right: 10rpx;
+}
+
+.point .content{
+    color:#666;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.outer .point image{
+    width:27rpx; 
+    height:27rpx;
+}
+
+.outer .border{
+    width:100%; 
+    height:20rpx; 
+    border-bottom:2rpx solid #f0f0f0;
+    display: block;
+}
+
+.outer .margin{
+    height:20rpx;
+    display: block;
+    width:100%;
+}

@@ -1,0 +1,73 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* pkgBroker/pages/broker/qr.wxss */
+page{
+    margin-bottom: 20rpx;
+    padding-top:20rpx;
+    background:#f2f2f2;
+}
+.card-wrapper {
+    width: 750rpx;
+    height: 480rpx;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-wrapper-bg {
+    width: 1500rpx;
+    height: 1500rpx;
+    position: absolute;
+    top: -500rpx;
+    left: -400rpx;
+    z-index: 1;
+    filter: blur(20px);
+}
+
+.card-wrapper .card {
+    z-index: 1;
+    position: absolute;
+
+    top: 40rpx;
+    left: 45rpx;
+}
+    .image{
+        width: 100%;
+        height: 600rpx;
+        margin: auto 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        color: #BCBCBC;
+    }
+    .image image{
+        width: 300rpx;
+        height: 300rpx;
+        margin-bottom: 30rpx;
+    }
+    .footer{
+        box-sizing: border-box;
+        padding: 10rpx;
+        bottom: 0;
+        left: 0;
+        width:710rpx;
+        margin: 20rpx auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .poster-image{
+        width: 710rpx;
+        margin:0rpx auto;
+        height: 1675rpx;
+    }

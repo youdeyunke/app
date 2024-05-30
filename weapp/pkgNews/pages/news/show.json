@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+
+        "raw-html": "/components/raw-html/index",
+        "box": "/components/ud/box/index",
+        "mystars": "/components/stars"
+    }
+}

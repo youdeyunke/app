@@ -1,0 +1,117 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* pkgType/pages/type/show.wxss */
+
+page {
+    /* padding-bottom: 120rpx; */
+    background: #f0f0f0 !important;
+}
+
+.cover, .swiper {
+    width: 750rpx;
+    height: 500rpx;
+    border-radius: 0rpx;
+    overflow: hidden;
+    margin: 0 0 0rpx 0;
+    padding: 0rpx;
+}
+
+.cover image.item, swiper-item {
+    height: 500rpx;
+    width: 750rpx;
+    margin: 0 auto;
+}
+
+.title-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0rpx 0 20rpx 0;
+    width: 100%;
+}
+
+.title-block .post-title {
+    font-size: 40rpx;
+    font-weight: bolder;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.desc .title {
+    font-size: 28rpx;
+    color: #333;
+    font-weight: bolder;
+}
+
+.desc .content {
+    font-size: 28rpx;
+    margin-bottom: 20rpx;
+    line-height: 1.6;
+}
+
+.detail-meta {
+    font-size: 28rpx;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.detail-meta .meta {
+    display: flex;
+    height: 40rpx;
+    margin-bottom: 10rpx;
+    width: 50%;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.detail-meta .meta.lg {
+    width: 100%;
+}
+
+.detail-meta .meta text.label {
+    color: #999;
+    width: 130rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.detail-meta .meta text.value {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.detail-meta .meta navigator.value {
+    color: rgb(121, 121, 172);
+}
+
+.footer {
+    padding: 30rpx;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0rpx;
+    left: 0rpx;
+    border-top: 2rpx solid #f9f9f9;
+}
+
+.footer van-button {
+    width: 45%;
+}

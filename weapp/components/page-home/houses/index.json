@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "header": "../header/style0",
+    "style3": "./style3/style3"
+  }
+}

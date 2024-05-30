@@ -1,0 +1,9 @@
+{
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "namecard": "./components/namecard/index",
+        "van-popup":"/vant/popup/index",
+        "tour-item": "/components/tour/item",
+        "cell":"./components/cell/index"
+    }
+}

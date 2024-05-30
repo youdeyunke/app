@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "banners-block": "./banners-block",
+    "raw-html":"/components/raw-html",
+    "van-popup": "/vant/popup/index"
+  }
+}

@@ -1,0 +1,25 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view class="map-view" style="width: 100%; height:100%;z-index:100;">
+    <map id="map" enable-zoom longitude="{{center.longitude}}" show-scale="true" bindpoitap="poiHandle" latitude="{{center.latitude}}" scale="{{scale}}" markers="{{markers}}" bindcallouttap="markertap" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" style="width: 100%; height:100%;">
+        <cover-view wx:if="{{level != 'city'}}" bindtap="upLevel" style="color:{{bgColor}}" class="back">返回上级</cover-view>
+        <cover-view wx:if="{{loading}}" class="loading shadow">正在加载...</cover-view>
+        <!-- cover-image class="center-point" src="/assets/icons/center-point.png"></cover-image -->
+    </map>
+</view>
+<van-popup show="{{ popState == 1 }}" z-index="999" position="bottom" overlay="{{ false }}" bind:close="popClose" closeable>
+    <view class="result-view">
+      <view style="width: 100%;">
+        <post-item wx:if="{{post}}" post="{{post}}" border="false" />
+      </view>
+    </view>
+</van-popup>

@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "cell": "./cell/index",
+        "sub-button": "/components/sub-button/index"
+    }
+}

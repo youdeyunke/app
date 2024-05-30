@@ -1,0 +1,22 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--components/recommended-post-items/index.wxml-->
+<view style="width: {{width}}rpx;margin: 0 auto;">
+  <van-divider contentPosition="center" borderColor="#999" customStyle="width: 350rpx;margin-left: auto;margin-right: auto;">推荐楼盘</van-divider>
+  <view class="posts" wx:if="{{items.length}}">
+    <view class="item" wx:for="{{items}}">
+      <post-item post="{{item}}"></post-item>
+    </view>
+
+  </view>
+  <no-result wx:else></no-result>
+</view>

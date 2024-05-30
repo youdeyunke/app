@@ -1,0 +1,100 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* pages/qa/question-item.wxss */
+
+.item{
+    margin-bottom: 34rpx;
+    width:100%;
+}
+
+.question{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+
+.question .content .target{
+    color:#1989FA;
+    margin-right:5rpx;
+}
+
+.question .body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.question .content {
+    letter-spacing: 0.3;
+    line-height:1.5;
+    font-size:30rpx;
+    color:#000000;
+    max-height:90rpx;
+    overflow:hidden;
+}
+
+
+.question .count{
+    font-size:28rpx;
+    color: #999;
+    margin-top:8rpx;
+}
+
+.answer{
+  width:100%;
+  box-sizing: border-box;
+  padding:30rpx;
+  background: #f9f9f9;
+  margin-top:30rpx;
+  margin-bottom:30rpx;
+  border-radius: 8rpx;
+}
+
+.answer .header{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size:24rpx;
+}
+
+.answer .header .avatar image{
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 60rpx;
+    border:1rpx solid #f4f4f4;
+    margin-right: 20rpx;
+}
+
+.answer .header .name{
+  font-size:28rpx;
+}
+
+.answer .content{
+  letter-spacing: 0.3;
+  line-height:1.7;
+  width:100%;
+  font-size:26rpx;
+  word-break: break-all;
+  padding:0rpx;
+  border-radius: 8rpx;
+  margin-bottom: 20rpx;
+
+}
+
+
+.answer .footer{
+  display:flex;
+  justify-content:flex-end;
+}

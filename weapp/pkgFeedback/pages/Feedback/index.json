@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我要反馈",
+  "usingComponents": {
+    "images-uploader": "/components/images-uploader2"
+  }
+}

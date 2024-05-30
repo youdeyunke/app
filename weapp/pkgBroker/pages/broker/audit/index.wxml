@@ -1,0 +1,33 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--pkgBroker/pages/broker/audit/index.wxml-->
+<view class="audit-box">
+  <block wx:if="{{state=='pending'}}">
+    <image class="image1" src="https://qiniucdn.udeve.net/fang/pkgBroker/17.png"></image>
+    <image class="image2" src="https://qiniucdn.udeve.net/fang/pkgBroker/16.png"></image>
+    <view class="audit-message">
+      <text>资料审核中，审核通过后将会有短信和推送通知</text>
+    </view>
+  </block>
+  <block wx:if="{{state=='ok'}}">
+    <image class="image1" src="https://qiniucdn.udeve.net/fang/pkgBroker/13.png"></image>
+    <image class="image2" src="https://qiniucdn.udeve.net/fang/pkgBroker/14.png"></image>
+    <view class="audit-message">
+      <text>您已经入驻成功，无需重复申请。</text>  <text class="link" bindtap="gotoHomepage">查看我的主页</text>
+    </view>
+  </block>
+  
+
+  <view class="audit-submit" bindtap="submitHandle">
+    返回主页
+  </view>
+</view>

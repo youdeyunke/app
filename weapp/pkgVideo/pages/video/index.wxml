@@ -1,0 +1,50 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--pkgVideo/pages/video/index.wxml-->
+<wxs module="dateUtils">
+  // 定义wxs模块方法，用于时间格式转换
+  function formatDate(dateString) {
+    var parts = dateString.split(' ')[0].split('-');
+    var year = parts[0];
+    var month = parts[1];
+    var day = parts[2];
+    return year - 1 + '.' + (parseInt(month) < 10 ? '0' + parseInt(month) : parseInt(month)) + '.' + day;
+  }
+
+  // 导出wxs模块方法
+  module.exports = {
+    formatDate: formatDate
+  };
+</wxs>
+<page-meta page-style="{{ showVideo ? 'overflow: hidden;' : '' }}" />
+<view style="height: 64rpx;background-color: {{primaryColor}};position: absolute;width: 750rpx;z-index: -1;"> </view>
+<view style="height: 30rpx;border-radius: 30rpx 30rpx 0rpx 0rpx;background-color: #fff;">
+  
+</view>
+<van-search round bind:clear="clearHandle" model:value="{{ kw }}" placeholder="输入关键词进行搜索" bind:change="kwChange" custom-class="search" />
+<view class="list">
+  <view class="item" wx:for="{{items}}" bindtap="videoHandle" data-video="{{item}}">
+    <image class="cover" src="{{item.cover}}?imageView2/1/w/330/h/275" mode="" />
+    <view class="title">{{item.title}}</view>
+    <view class="info">
+      <view class="info-left" style="display: flex;align-items: center;">
+        <image class="avatar" src="{{item.author_avatar}}" mode="" />
+        <view class="author"><text>{{item.author_name}}</text></view>
+      </view>
+      <view class="date"><text>{{dateUtils.formatDate(item.created_at)}}</text></view>
+    </view>
+  </view>
+
+
+</view>
+<no-result wx:if="{{!items.length}}"></no-result>
+

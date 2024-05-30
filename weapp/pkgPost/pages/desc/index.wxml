@@ -1,0 +1,40 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view class="body">
+    <post-title post="{{post}}" ></post-title>
+    <mycard title="基本信息">
+        <van-cell size="mini" title="项目名称" value="{{post.title}}"></van-cell>
+        <van-cell size="mini" title="面积区间" value="{{post.area_info.text}}{{post.area_info.px}}"></van-cell>
+        <van-cell size="mini" title="参考均价">
+            <view style="color:red;">
+                {{post.average_price_info.text}}{{post.average_price_info.px}}
+            </view>
+        </van-cell>
+        <van-cell size="mini" title="参考总价">
+            <view style="color:red;">
+                {{post.total_price_info.text}}{{post.total_price_info.px}}
+            </view>
+        </van-cell>
+
+        <van-cell bindtap="gotoLocation" is-link size="mini" title="项目地址" value="{{post.address}}"></van-cell>
+        <van-cell is-link size="mini" title="咨询电话" bindtap="phoneCall">
+            <view>{{post.phone}} {{ post.sub_phone ?  '转' + post.sub_phone : ''}}</view>
+        </van-cell>
+    </mycard>
+
+    <mycard title="楼盘参数" wx:if="{{metaItems.length > 0}}">
+        <van-cell size="mini" wx:for="{{metaItems}}" wx:for-item="meta" title="{{meta.label}}" value="{{meta.text}}"></van-cell>
+    </mycard>
+    <mycard title="详细介绍" wx:if="{{post.content}}">
+        <raw-html html="{{post.content}}"></raw-html>
+    </mycard>
+</view>

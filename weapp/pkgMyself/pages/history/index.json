@@ -1,0 +1,9 @@
+{
+  
+    "navigationBarTitleText": "我的历史浏览记录",
+  "usingComponents": {
+    "post-item": "/components/post-item/cell/index",
+    "new-post-item": "./historyPostItem/index",
+    "tour-item": "./historyTourItem/index"
+  }
+}

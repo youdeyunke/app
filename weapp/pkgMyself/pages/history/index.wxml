@@ -1,0 +1,44 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+
+<van-tabs active="{{ active }}" color="{{primaryColor}}" bind:change="onChange">
+  <van-tab title="楼盘记录" name="post"></van-tab>
+  <van-tab title="活动记录" name="tour"></van-tab>
+</van-tabs>
+<!-- <block wx:for="{{logs}}">
+  <view class="history-box">
+    <view class="history-date">
+      <image class="image1" src="../../images/time.png"></image>
+      <text>{{item.time}}</text>
+    </view>
+    <view class="history-items">
+      <ud-box padding="20" width="710">
+        <post-item border="{{false}}" class="items" post="{{item.post}}" />
+      </ud-box>
+    </view>
+  </view>
+  <new-post-item postId="{{item.target_id}}"></new-post-item>
+</block> -->
+<view class="noticebar">
+  <view class="noticetext">为您保留最近的小程序浏览历史记录</view>
+</view>
+<no-result wx:if="{{logs.length == 0}}"></no-result>
+<view style="display: flex;padding: 15rpx;flex-wrap: wrap;" wx:if="{{ active == 'post' }}">
+  <new-post-item class="item" wx:for="{{logs}}" postId="{{item.target_id}}"></new-post-item>
+</view>
+
+<view style="height: 20rpx;"></view>
+
+<view style="padding: 20rpx;" wx:if="{{ active == 'tour' }}">
+  <tour-item wx:for="{{logs}}" tourId="{{item.target_id}}"></tour-item>
+</view>
+

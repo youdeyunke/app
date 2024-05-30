@@ -1,0 +1,22 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<van-popup show="{{show}}" duration="800" custom-style="background:none;margin-top:100rpx;">
+    <view class="new-version-window">
+        <view class="close-text"  bindtap="closeHandle">{{second}} s</view>
+        <image src="{{image}}" class="bg" bindtap="adClick" />
+        <view class="ad">广告</view>
+   </view>
+    <view class="fork">
+        <image src="../../assets/icons/round-wrong-sign.png" data-skip_nums="{{skip_nums}}" bindtap="closeHandle">
+        </image>
+    </view>
+</van-popup>

@@ -1,0 +1,123 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+
+<van-notify id="van-notify" />
+
+<block wx:if="{{!isDone}}">
+
+    <ud-header color="{{primaryColor}}" width="710" height="200" title="帮我找房">
+        平台置业顾问帮您全城找好房
+    </ud-header>
+
+
+    <card width="710" hat="{{false}}" title="预算范围">
+        <view class="jiage-1" style="color: {{primaryColor}};">{{budget_min}}-{{budget_max}}万{{budget_max == 500 ? '+' : ''}}</view>
+        <view class="slider-1">
+            <van-slider min="30" max="500" value="{{value}}" range='true' bar-height="6rpx" active-color="{{primaryColor}}" bind:change="onChange"  use-button-slot>
+                <view slot="left-button" class="slider-button-1" style="border: 5rpx solid {{primaryColor}};"></view>
+                <view slot="right-button" class="slider-button-1" style="border: 5rpx solid {{primaryColor}};"></view>
+            </van-slider>
+        </view>
+        <view class="slider-ruler-1">
+            <view wx:for="{{valueRuler}}">{{item}}万</view>
+        </view>
+    </card>
+
+    <card width="710" hat="{{false}}" title="城市">
+        <view class="tags-list">
+            <view class="tag-item" wx:for="{{cityList}}">
+                <van-tag size="large" color="{{item.text == citySelect ? primaryColor : '#FAFAFA'}}" text-color="{{item.text == citySelect ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="cityHandle" data-index="{{index}}" type="primary" plain="{{item.text == citySelect ? true : false}}">
+                    <view class="tags-list-name">{{item.text}}</view>
+                </van-tag>
+            </view>
+        </view>
+    </card>
+
+    <card width="710" hat="{{false}}" title="区域">
+        <view class="tags-list">
+            <view class="tag-item" wx:for="{{districtList}}">
+                <van-tag size="large" color="{{item.selected ? primaryColor : '#FAFAFA'}}" text-color="{{item.selected ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="districtHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? true : false}}">
+                    <view class="tags-list-name">{{item.text}}</view>
+                </van-tag>
+            </view>
+        </view>
+    </card>
+
+    <card width="710" hat="{{false}}" title="户型">
+        <view class="tags-list">
+            <view class="tag-item"  wx:for="{{housetypeList}}">
+                <van-tag size="large" color="{{item.selected ? primaryColor : '#FAFAFA'}}" text-color="{{item.selected ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="housetypeHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? true : false}}">
+                    <view class="tags-list-name">{{item.name}}</view>
+                </van-tag>
+            </view>
+        </view>
+    </card>
+
+    <card width="710" hat="{{false}}" title="面积">
+        <view class="tags-list">
+            <view class="tag-item" wx:for="{{areaList}}">
+                <van-tag size="large" color="{{item.selected ? primaryColor : '#FAFAFA'}}" text-color="{{item.selected ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="areaHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? true : false}}">
+                    <view class="tags-list-name">{{item.name}}</view>
+                </van-tag>
+            </view>
+        </view>
+    </card>
+
+
+
+    <card width="710" hat="{{false}}" title="买房用途" sub-title="至少选择一项">
+        <view class="tags-list">
+            <view class="tag-item" wx:for="{{purposeList}}">
+                <van-tag size="large" color="{{item.selected ? primaryColor : '#FAFAFA'}}" text-color="{{item.selected ? primaryColor : '#333333'}}" custom-style="height:50rpx;" bindtap="purposeHandle" data-index="{{index}}" type="primary" plain="{{item.selected ? true : false}}">
+                    <view class="tags-list-name">{{item.name}}</view>
+
+                </van-tag>
+            </view>
+        </view>
+    </card>
+
+    <card width="710" hat="{{false}}" title="其它要求">
+        <textarea placeholder="填写其它要求说明，可留空" bindinput="contentInput"></textarea>
+    </card>
+
+    <card width="710" hat="{{false}}" title="联系方式">
+        <van-cell-group>
+
+            <van-field bindchange="inputChange" center required label="手机号" value="{{ contact_mobile }}" readonly="{{contact_mobile_lock}}" disabled="{{contact_mobile_lock}}" placeholder="用于专属顾问联系您" data-name="contact_mobile">
+                <van-button wx:if="{{!contact_mobile_lock}}" slot="button" size="mini" bindtap="shoLoginWindow" color="{{primaryBtnColor}}">登录</van-button>
+            </van-field>
+
+            <van-field bindchange="inputChange" label="姓名" required value="{{ contact_name }}" placeholder="怎么称呼您" data-name="contact_name" >
+                <view slot="button">
+                    <van-button bindtap="sexToggle" color="{{primaryColor}}" size="mini" type="info" plain="{{ contact_sex != 1 }}">先生</van-button>
+
+                    <van-button bindtap="sexToggle" color="{{primaryColor}}" size="mini" type="info" plain="{{ contact_sex != 0 }}">女士</van-button>
+                </view>
+            </van-field>
+        </van-cell-group>
+    </card>
+    <view style="width:710rpx;margin:auto;">
+        <van-button bindtap="submitHandle" block color="{{primaryBtnColor || '#1989fa'}}">提交需求，帮我找房</van-button>
+    </view>
+
+</block>
+
+<view class="res" wx:else>
+    <icon type="success" size="100" />
+    <view class="title">提交成功</view>
+    <view class="desc">我们已经收到您的找房要求，系统正在为您分配置业顾问，2个工作日内会有专属置业顾问与您电话联系，请注意接听</view>
+    <view class="btns">
+        <van-button block type="info" form-type="submit" bindtap="gotoHome">返回首页</van-button>
+        <van-button custom-style="margin-top:20rpx;" block type="default" form-type="submit" bindtap="reWrite">重新填写</van-button>
+    </view>
+</view>
+<login-window bind:success="loginsuccess" class="loginwindow"></login-window>

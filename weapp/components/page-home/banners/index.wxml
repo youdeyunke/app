@@ -1,0 +1,22 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view class="outer" >
+    
+    <swiper style="height:280rpx;overflow:hidden;width:710rpx;" indicator-dots="{{items.length > 1}}" autoplay="{{ items.length > 1}}" interval="{{interval}}" duration="500" circular="{{items.length > 1}}" indicator-color="rgba(255,255,255,0.7)" autoplay indicator-active-color="#1989fa">
+        <swiper-item wx:key="{{index}}" wx:for="{{items}}" bindtap="goto" data-index="{{index}}">
+            <link config="{{item.link}}" custom-style="link">
+                <image mode="scaleToFill" style="width:100%;height:100%;border-radius:10rpx;" src="{{item.url }}"></image>
+            </link>
+        </swiper-item>
+    </swiper>
+  
+</view>

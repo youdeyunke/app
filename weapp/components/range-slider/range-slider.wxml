@@ -1,0 +1,24 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view class='range-slider' style='width:{{width}}rpx;height:{{height}}rpx'>
+  <view class='range-bar' style='width:100%;height:{{barHeight}}rpx'>
+    <view class='range-bar-bg' style='background-color:{{backgroundColor}}'></view>
+    <view class='range-bar-progress' style='margin-left:{{progressBarLeft}}rpx;width:{{progressBarWidth}}rpx;background-color:{{activeColor}}'></view>
+  </view>
+  <view class='block' style='width:{{blockSize}}rpx;height:{{blockSize}}rpx;margin-left:{{minBlockLeft}}rpx;' catch:touchstart='_onBlockTouchStart' catch:touchmove='_onBlockTouchMove' catch:touchend='_onBlockTouchEnd' data-left='{{minBlockLeft}}' data-tag='minBlock'>
+    <slot name='minBlock'></slot>
+  </view>
+  <view class='block' style='width:{{blockSize}}rpx;height:{{blockSize}}rpx;margin-left:{{maxBlockLeft}}rpx;' catch:touchstart='_onBlockTouchStart' catch:touchmove='_onBlockTouchMove' catch:touchend='_onBlockTouchEnd' data-left='{{maxBlockLeft}}'
+    data-tag='maxBlock'>
+    <slot name='maxBlock'></slot>
+  </view>
+</view>

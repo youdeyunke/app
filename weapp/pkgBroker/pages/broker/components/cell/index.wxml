@@ -1,0 +1,30 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+--> 
+<navigator hover-class="none" class="post" url="/pkgPost/pages/show/index?id={{post.id}}">
+  <post-cover height="400" width="100%" wx:if="{{post}}" item="{{post}}"></post-cover>
+    <view class="footer">
+        <view class="title">{{post.title}}</view>
+        <view class="top">
+            <view class="tags">
+                <view wx:for="{{post.tags}}" style="zoom: 0.8;margin-right: 10rpx;" >
+                    <van-tag wx:key="id" wx:if="{{index <= 2}}" text-color="{{item.text_color }}" size="mini" plain wx:key="item.id">
+                        {{item.name}}
+                    </van-tag>
+                </view>
+            </view>
+            <view class="price">
+                <view class="left">{{post.average_price_info.label}}:</view>
+                <view class="right">{{post.average_price_info.text}}{{post.average_price_info.px}}</view>
+            </view>
+        </view>
+    </view>
+</navigator>

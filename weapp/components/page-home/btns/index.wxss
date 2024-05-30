@@ -1,0 +1,75 @@
+/* components/pagemaker/myselficons/index.wxss */
+.icons {
+	display: flex;
+	min-height: 135rpx;
+	padding: 30rpx 20rpx;
+	margin: 0 auto;
+}
+
+.width-large-5 {
+	width: 710rpx;
+	margin-right: calc((710rpx - 675rpx) / 4);
+}
+
+.icons .arr-5 {
+	margin-right: calc(((100% - 675rpx) / 4));
+}
+
+.icons .icon-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	width: 135rpx;
+	font-size: 24rpx;
+	color: #444;
+	/* height: 135rpx; */
+
+}
+
+.icons .icon-item:last-child,
+.icons .arr-4:nth-child(4n),
+.icons .arr-5:nth-child(5n) {
+	margin-right: 0rpx;
+}
+
+.icons .arr-4:nth-child(n + 5) {
+	margin-top: 10rpx;
+}
+
+.icons .arr-5:nth-child(n + 6) {
+	margin-top: 10rpx;
+}
+
+.icon-row {
+	display: flex;
+	flex-wrap: wrap;
+	flex-shrink: 0;
+}
+
+.icon-row:last-child {
+	margin-right: 0;
+}
+
+.slide {
+	/* height: 20rpx; */
+	margin-bottom: 30rpx;
+	/* margin-top: 30rpx; */
+	background: #fff;
+	width: 100%;
+	/* padding:14rpx 0 5rpx 0 */
+}
+
+.slide .slide-bar {
+	width: 80rpx;
+	margin: 0 auto;
+	height: 8rpx;
+	background: #eee;
+	border-radius: 4rpx;
+}
+
+.slide .slide-bar .slide-show {
+	height: 100%;
+	border-radius: 4rpx;
+	background-color: #00aeff;
+}

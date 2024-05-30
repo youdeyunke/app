@@ -1,0 +1,122 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+page {
+
+    padding-bottom:20rpx;
+}
+
+.jiage-1 {
+    height: 100rpx;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 28rpx;
+    font-weight: bold;
+}
+
+.slider-1 {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.slider-button-1 {
+    width: 40rpx;
+    height: 40rpx;
+    border-radius: 20rpx;
+    background-color: #FFF;
+}
+
+.slider-ruler-1 {
+    width: 95%;
+    height: 30rpx;
+    margin: 40rpx auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tags-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.tag-item{
+    margin-bottom: 10rpx;
+    margin-right: 20rpx;
+    border-radius: 10rpx;
+    width: calc((100% - 60rpx)/4);
+}
+.tag-item:nth-child(4n + 4){
+    margin-right: 0;
+}
+/* .van-tag--plain,.van-tag--primary{
+    margin-bottom: 10rpx;
+    margin-right: 20rpx;
+    border-radius: 10rpx;
+} */
+
+
+.tags-list-name{
+    width: 120rpx;
+    font-size:24rpx;
+    text-align: center;
+}
+
+.res {
+    width: 690rpx;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 200rpx;
+}
+
+.res .title {
+    color: #000;
+    font-size: 40rpx;
+    font-weight: bolder;
+    width: 100%;
+    text-align: center;
+    margin-top: 60rpx;
+}
+
+.res .desc {
+    font-size: 28rpx;
+    color: #333;
+    line-height: 1.5;
+    text-align: center;
+    margin-top: 60rpx;
+}
+
+.res .btns {
+    margin: 60rpx auto;
+    display: flex;
+    width:690rpx;
+    flex-direction: column;
+}
+
+.banner image{
+    width:710rpx;
+    border-radius: 10rpx; 
+    overflow: hidden;
+    height:280rpx;
+
+}
+
+.banner {
+    margin:20rpx auto; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

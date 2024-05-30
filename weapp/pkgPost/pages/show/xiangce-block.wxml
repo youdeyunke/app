@@ -1,0 +1,28 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--pkgPost/pages/show/xiangce-block.wxml-->
+<block>
+    <block-box width="750" leftHat="true" leftHatColor="{{color}}" title="楼盘相册">
+        <view class="items-outer">
+            <view class="xiangce-item" wx:for="{{value.items}}" bindtap="itemClick" data-i="{{index}}" >
+                <image class="xiangce-item-cover" wx:if="{{item.cat != 'video'}}" src="{{item.cover}}"></image>
+                <video class="xiangce-item-cover" object-fit="cover" show-center-play-btn='{{false}}' show-play-btn='{{false}}' show-fullscreen-btn="{{false}}" wx:if="{{item.cat == 'video'}}" src="{{item.cover}}"></video>
+                <image class="xiangce-item-type" wx:if="{{item.cat == 'vr'}}" src="https://qiniucdn.udeve.net/fang/post-cover-icon-vr.png"></image>
+                <image wx:if="{{item.cat == 'video'}}" class="mask" src="/assets/icons/bofang.png"></image>
+                <image wx:if="{{item.cat == 'vr'}}" class="mask" src="/assets/icons/VR.png"></image>
+            </view> 
+        </view>
+    </block-box>
+    <van-popup show="{{ show }}" bind:close="onClose" closeable>
+        <video style="width: 690rpx;height: 900rpx;" src="{{videoUrl}}"></video>
+    </van-popup>
+</block>

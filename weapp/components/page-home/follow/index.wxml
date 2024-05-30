@@ -1,0 +1,23 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view style="box-shadow: 10rpx 20rpx 20rpx 0 rgb(55 99 170 / 30%), -8rpx -8rpx 20rpx 0 #fff;border-radius: 15rpx;margin: 16rpx auto;width: 710rpx;">
+  <view bindtap="linkHandle" class="outer" style="height: 130rpx;">
+    <view class="title" style="color: #333333;">
+      关注公众号
+    </view>
+    <view style="color:#1989fa;" class="btn">关注</view>
+
+    <image class="hand" src="/assets/icons/hand.png" />
+
+  </view>
+
+</view>

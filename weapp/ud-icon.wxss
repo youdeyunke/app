@@ -1,0 +1,343 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+.udicon
+{
+ display:block;
+ background:url('https://qiniucdn.udeve.cn/fang2021/c3f585fb-4892-4d31-a643-7b87bd703c2b.png')  no-repeat;
+ zoom: 0.33;
+}
+.udicon-1{
+    width:80px;
+    height:80px;
+    background-position:0px 0px;
+   }
+   .udicon-2{
+    width:80px;
+    height:80px;
+    background-position:-81px 0px;
+   }
+   .udicon-3{
+    width:80px;
+    height:80px;
+    background-position:-162px 0px;
+   }
+   .udicon-4{
+    width:80px;
+    height:80px;
+    background-position:-243px 0px;
+   }
+   .udicon-5{
+    width:80px;
+    height:80px;
+    background-position:-324px 0px;
+   }
+   .udicon-6{
+    width:80px;
+    height:80px;
+    background-position:-405px 0px;
+   }
+   .udicon-7{
+    width:80px;
+    height:80px;
+    background-position:-486px 0px;
+   }
+   .udicon-8{
+    width:80px;
+    height:80px;
+    background-position:-567px 0px;
+   }
+   .udicon-9{
+    width:80px;
+    height:80px;
+    background-position:0px -81px;
+   }
+   .udicon-10{
+    width:80px;
+    height:80px;
+    background-position:-81px -81px;
+   }
+   .udicon-11{
+    width:80px;
+    height:80px;
+    background-position:-162px -81px;
+   }
+   .udicon-12{
+    width:80px;
+    height:80px;
+    background-position:-243px -81px;
+   }
+   .udicon-13{
+    width:80px;
+    height:80px;
+    background-position:-324px -81px;
+   }
+   .udicon-14{
+    width:80px;
+    height:80px;
+    background-position:-405px -81px;
+   }
+   .udicon-15{
+    width:80px;
+    height:80px;
+    background-position:-486px -81px;
+   }
+   .udicon-16{
+    width:80px;
+    height:80px;
+    background-position:-567px -81px;
+   }
+   .udicon-17{
+    width:80px;
+    height:80px;
+    background-position:0px -162px;
+   }
+   .udicon-18{
+    width:80px;
+    height:80px;
+    background-position:-81px -162px;
+   }
+   .udicon-19{
+    width:80px;
+    height:80px;
+    background-position:-162px -162px;
+   }
+   .udicon-20{
+    width:80px;
+    height:80px;
+    background-position:-243px -162px;
+   }
+   .udicon-21{
+    width:80px;
+    height:80px;
+    background-position:-324px -162px;
+   }
+   .udicon-22{
+    width:80px;
+    height:80px;
+    background-position:-405px -162px;
+   }
+   .udicon-23{
+    width:80px;
+    height:80px;
+    background-position:-486px -162px;
+   }
+   .udicon-24{
+    width:80px;
+    height:80px;
+    background-position:-567px -162px;
+   }
+   .udicon-25{
+    width:80px;
+    height:80px;
+    background-position:0px -243px;
+   }
+   .udicon-26{
+    width:80px;
+    height:80px;
+    background-position:-81px -243px;
+   }
+   .udicon-27{
+    width:80px;
+    height:80px;
+    background-position:-162px -243px;
+   }
+   .udicon-28{
+    width:80px;
+    height:80px;
+    background-position:-243px -243px;
+   }
+   .udicon-29{
+    width:80px;
+    height:80px;
+    background-position:-324px -243px;
+   }
+   .udicon-30{
+    width:80px;
+    height:80px;
+    background-position:-405px -243px;
+   }
+   .udicon-31{
+    width:80px;
+    height:80px;
+    background-position:-486px -243px;
+   }
+   .udicon-32{
+    width:80px;
+    height:80px;
+    background-position:-567px -243px;
+   }
+   .udicon-bofang{
+    width:150px;
+    height:150px;
+    background-position:-648px 0px;
+   }
+   .udicon-broker-level-1{
+    width:165px;
+    height:48px;
+    background-position:0px -324px;
+   }
+   .udicon-broker-level-2{
+    width:165px;
+    height:48px;
+    background-position:-166px -324px;
+   }
+   .udicon-broker-level-3{
+    width:165px;
+    height:48px;
+    background-position:-332px -324px;
+   }
+   .udicon-dingyue-0{
+    width:70px;
+    height:70px;
+    background-position:-648px -240px;
+   }
+   .udicon-dingyue-1{
+    width:70px;
+    height:70px;
+    background-position:-719px -240px;
+   }
+   .udicon-fav-0{
+    width:70px;
+    height:70px;
+    background-position:-790px -240px;
+   }
+   .udicon-fav-1{
+    width:70px;
+    height:70px;
+    background-position:-861px -240px;
+   }
+   .udicon-map-i-dt{
+    width:105px;
+    height:105px;
+    background-position:-4px -380px;
+   }
+   .udicon-map-i-gj{
+    width:105px;
+    height:105px;
+    background-position:-110px -380px;
+   }
+   .udicon-map-i-gw{
+    width:105px;
+    height:105px;
+    background-position:-216px -380px;
+   }
+   .udicon-map-i-ms{
+    width:105px;
+    height:105px;
+    background-position:-322px -380px;
+   }
+   .udicon-map-i-xx{
+    width:105px;
+    height:105px;
+    background-position:-8px -488px;
+   }
+   .udicon-map-i-yey{
+    width:105px;
+    height:105px;
+    background-position:-114px -488px;
+   }
+   .udicon-map-i-yh{
+    width:105px;
+    height:105px;
+    background-position:-220px -488px;
+   }
+   .udicon-map-i-zx{
+    width:105px;
+    height:105px;
+    background-position:-326px -488px;
+   }
+   .udicon-medal-1{
+    width:75px;
+    height:75px;
+    background-position:-648px -153px;
+   }
+   .udicon-medal-2{
+    width:75px;
+    height:75px;
+    background-position:-724px -153px;
+   }
+   .udicon-medal-3{
+    width:75px;
+    height:75px;
+    background-position:-800px -153px;
+   }
+   .udicon-post-cover-icon-eye{
+    width:50px;
+    height:50px;
+    background-position:-818px -5px;
+   }
+   .udicon-post-header-cell-location{
+    width:40px;
+    height:40px;
+    background-position:-869px -5px;
+   }
+   .udicon-post-nav-dongtai{
+    width:120px;
+    height:120px;
+    background-position:-498px -326px;
+   }
+   .udicon-post-nav-guwen{
+    width:120px;
+    height:120px;
+    background-position:-619px -326px;
+   }
+   .udicon-post-nav-huxin{
+    width:120px;
+    height:120px;
+    background-position:-740px -326px;
+   }
+   .udicon-post-nav-jisuan{
+    width:120px;
+    height:120px;
+    background-position:-861px -326px;
+   }
+   .udicon-post-nav-vr{
+    width:120px;
+    height:120px;
+    background-position:-498px -447px;
+   }
+   .udicon-post-nav-wenda{
+    width:120px;
+    height:120px;
+    background-position:-619px -447px;
+   }
+   .udicon-post-nav-xiangqin{
+    width:120px;
+    height:120px;
+    background-position:-740px -447px;
+   }
+   .udicon-post-nav-yaohao{
+    width:120px;
+    height:120px;
+    background-position:-861px -447px;
+   }
+   .udicon-post-nav-yfyj{
+    width:120px;
+    height:120px;
+    background-position:-498px -568px;
+   }
+   .udicon-post-nav-zhoubian{
+    width:120px;
+    height:120px;
+    background-position:-619px -568px;
+   }
+   .udicon-question{
+    width:50px;
+    height:50px;
+    background-position:-813px -63px;
+   }
+   .udicon-share{
+    width:70px;
+    height:70px;
+    background-position:-879px -59px;
+   }
+   

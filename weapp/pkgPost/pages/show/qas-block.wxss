@@ -1,0 +1,94 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* pages/post/qas-block.wxss */
+
+.empty{
+  color:#999999;
+  text-align:center;
+  margin:20rpx auto;
+}
+
+.add-btn{
+  height:88rpx;
+  background:rgba(241,245,255,1);
+  border-radius:4rpx;
+  font-size:32rpx;
+  color:#1989FA;
+  line-height: 88rpx;
+  text-align: center;
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-btn van-icon{
+    margin-right:6rpx;
+}
+
+.qas{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.qas .item{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width:100%;
+    margin-bottom:30rpx;
+}
+
+.qas .item .icon{
+    width:36rpx;
+    height: 36rpx;
+    line-height: 36rpx;
+
+    background: #ff4444;
+    color: #fff;
+    font-weight: bolder;
+    font-size:20rpx;
+    text-align: center;
+    margin-right:10rpx;
+    margin-top:4rpx;
+}
+
+.qas .item .info{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width:100%;
+}
+
+.qas .item .info .content{
+    font-size:28rpx;
+    color: #333333;
+    line-height: 1.4;
+    margin-bottom:6rpx;
+    width:100%;
+}
+
+.qas .item .info .footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width:100%;
+}
+
+.qas .item .info .count{
+    font-size: 24rpx;
+    color: #999999;
+}

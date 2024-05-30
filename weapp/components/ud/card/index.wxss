@@ -1,0 +1,97 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* components/card.wxss */
+
+.box{
+    background: #fff;
+    margin:0 auto 20rpx auto;
+    border-radius: 8rpx;
+
+}
+
+.card {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+.card .sub-title {
+    font-size: 24rpx;
+}
+
+.card.shadow-none {
+    box-shadow: none;
+}
+
+.card .card-header.border-none {
+    border: none;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 2rpx;
+
+    height: 80rpx;
+    padding: 0 20rpx;
+}
+
+.card-hat {
+    width: 100%;
+    height: 10rpx;
+    background: #1989f9;
+    opacity: .45;
+    border-radius: 20rpx;
+    position: absolute;
+    bottom: 6rpx;
+    left: 0;
+    margin-right:8rpx;
+}
+
+.card-header-title {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.name {
+    color: #333333;
+    position: relative;
+    font-weight: bolder;
+}
+
+.card-header-action {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.card-header-action-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    line-height: 100%;
+    margin-right: 10rpx;
+}
+
+
+.card-body {
+    padding: 0 20rpx 20rpx 20rpx;
+    box-sizing: border-box;
+}

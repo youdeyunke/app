@@ -1,0 +1,42 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<form bindsubmit="submitHandle">
+    <box padding="20">
+        <van-cell wx:if="{{!userInfo.is_broker}}" size="large" title="头像" bindtap="chooseImage" data-key="avatar">
+            <image style="width:90rpx;height:90rpx;border-radius:90rpx;" slot="right-icon" src="{{userInfo.avatar}}?imageView2/5/h/200/w/200" />
+        </van-cell>
+        <van-field bind:input="textChange" data-name="name" size="large" label="昵称" value="{{ userInfo.name }}" placeholder="" input-align="right" name="name" />
+        <van-cell size="large" title="手机号" value="{{ userInfo.mobile }}" border="{{false}}" disabled />
+      
+      <block wx:if="{{userInfo.is_broker}}">
+
+       
+        <van-field bind:input="textChange" data-name="wechat" size="large" label="微信号码" value="{{ userInfo.wechat }}" placeholder="" input-align="right" name="wechat" />
+        <van-field bind:input="textChange" data-name="desc" size="large" label="个性签名" type="textarea" maxlength="150" show-word-limit autosize value="{{ userInfo.desc }}" placeholder=""   />
+        <van-cell size="large" title="微信二维码" data-key="wechat_qr" value="{{ userInfo.wechat_qr ? '已上传' : '未上传' }}" bindtap="chooseImage" placeholder="上传您的微信二维码" is-link></van-cell>
+
+        </block>
+    </box>
+    <box wx:if="{{false}}">
+        <van-cell size="large" title="自动回复">
+            <van-switch checked="{{ userInfo.auto_reply_switch }}" bind:change="textChange" data-name="auto_reply_switch" />
+        </van-cell>
+        <van-field wx:if="{{userInfo.auto_reply_switch }}" disabled="{{userInfo.auto_reply_switch == false}}" label="回复内容" type="textarea" audosize bind:input="textChange" data-name="auto_reply_text" size="large" value="{{ userInfo.auto_reply_text }}" placeholder="自动回复内容" input-align="right" />
+    </box>
+    <view class="actions">
+        <van-button bindtap="submitHandle" custom-style="margin-bottom:10rpx;" disabled="{{loading}}" type="info" block>
+            保存修改
+        </van-button>
+
+        <van-button bindtap="goBack" block>返回</van-button>
+    </view>
+</form>

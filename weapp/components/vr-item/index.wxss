@@ -1,0 +1,80 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+
+
+.video-item{
+    width:710rpx; 
+    height:320rpx;
+    margin:0 auto 20rpx auto; 
+    position: relative;
+    border-radius: 20rpx;
+    overflow: hidden;
+}
+
+.video-item .cover{
+    width:100%;
+    height:100%;
+    position: absolute; 
+    top:0; 
+    left:0;
+
+    z-index:1;
+}
+
+.video-item .video-item{
+    width:70rpx; 
+    height:70rpx;
+}
+
+.video-item .title-block{
+    z-index:2;
+    position: absolute;
+    top:0; 
+    left:0; 
+    width:100%; 
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color:#fff;
+    padding:30rpx;
+    background-image:  linear-gradient(to top  ,  rgba(0,0,0, 0.4), rgba(0,0,0, 0.8));
+}
+
+.video-item .meta{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size:24rpx;
+}
+.video-item .summary{
+    display:none;
+}
+
+.video-item .title{
+    font-size:32rpx;
+}
+
+.video-item .views{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.video-item image.play{
+    width:70rpx; 
+    height:70rpx;
+    position: absolute;
+    left:calc(50% - 35rpx); 
+    top:calc(50% - 35rpx);
+    z-index:10;
+}

@@ -1,0 +1,163 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* pages/poster/index.wxss */
+
+page {
+    padding-bottom: 150rpx;
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bar {
+    height: 120rpx;
+    width: 100%;
+    background: #ffffff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: 2rpx solid #cecece;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30rpx;
+    box-sizing: border-box;
+}
+
+.bar .right {
+    font-size: 28rpx;
+    font-weight: bolder;
+}
+
+.bar .tools {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.bar .tools .blank {
+    height: 30rpx;
+    border-right: 2rpx solid #cecece;
+    width: 2rpx;
+    margin: 0 20rpx;
+}
+
+.bar .tool-item {
+    font-size: 28rpx;
+    color: #333;
+    height: 100%;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    margin-right: 20rpx;
+}
+
+.bar .tool-item text {
+    font-size: 24rpx;
+    color: #666;
+    margin-left:8rpx;
+}
+
+.tips {
+    padding: 40rpx 20rpx;
+    color: #999999;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 28rpx;
+    letter-space: 1.2;
+}
+
+.editor {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30rpx;
+}
+
+.editor .btns {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.editor .btns button {
+    width: 100%;
+    margin-top: 10rpx;
+}
+
+.tpls {
+    box-sizing: border-box;
+    white-space: nowrap;
+    padding: 20rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.tpls .tpl-item {
+    display: inline-block;
+    width: 120rpx;
+    height: 200rpx;
+    margin-right: 20rpx;
+    border: 2rpx solid #ffffff;
+}
+
+.tpls .tpl-item.active {
+    border: 2rpx solid #1989fa;
+}
+
+.tpls .tpl-item image {
+    width: 100rpx;
+    height: 180rpx;
+    margin: 10rpx;
+}
+
+.tpls .tpl-item .name {
+    font-size: 24rpx;
+    text-align: center;
+    color: #333;
+}
+
+.tpls .tpl-item.active .name {
+    color: #1989fa;
+}
+
+.tpls-title {
+    padding: 20rpx 30rpx;
+}
+
+/* pkgComment/pages/comment/show.wxss */
+
+.pop-header {
+    padding: 30rpx 30rpx 30rpx 30rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 28rpx;
+    border-bottom: 2rpx solid #cecece;
+}
+
+.pop-header .submit {
+    color: #1989FA;
+}
+
+.pop-header .cancle {
+    color: #333333;
+}

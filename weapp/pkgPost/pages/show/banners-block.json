@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+      "video-preview": "/components/video-preview/index",
+      "van-popup": "/vant/popup/index"
+  }
+}

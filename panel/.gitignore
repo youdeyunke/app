@@ -1,0 +1,22 @@
+.DS_Store
+node_modules/
+dist/
+LICENSE
+*.zip
+admin2
+*.tar.gz
+*.tar
+npm-debug.log*
+*.swp
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+tests/**/coverage/
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln

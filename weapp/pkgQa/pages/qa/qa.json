@@ -1,0 +1,13 @@
+{
+    "enablePullDownRefresh": true,
+    "usingComponents": {
+        "page-loading": "./page-loading",
+        "q-icon": "/components/qa/question-icon",
+        "like": "/components/qa/answer-like",
+        "delete": "/components/qa/answer-delete",
+        "card": "/components/card",
+        "box": "/components/ud/box/index",
+        "recoms": "/components/recom-posts",
+        "van-field": "/vant/field/index"
+    }
+}

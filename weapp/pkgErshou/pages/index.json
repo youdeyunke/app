@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "house-item": "/components/house-item/cell/index",
+    "house-filter": "/components/house-filter/index"
+  }
+}

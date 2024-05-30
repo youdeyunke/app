@@ -1,0 +1,43 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view class="header">
+  <van-search
+    value="{{ value }}"
+    placeholder="请输入小区名称"
+    use-action-slot
+    bind:change="inputChange"
+    bind:search="onConfirm"
+  >
+    <view slot="action" bind:tap="onConfirm">确定</view>
+  </van-search>
+</view>
+
+<view class="res">
+ <view class="res-title">请选择</view>
+
+ <view class="res-list">
+  <van-cell-group wx:if="{{items.length}}|">
+    <van-cell
+      data-index="{{index}}"
+      wx:for="{{items}}"
+      wx:for-key="{{item.id}}"
+      bind:tap="itemClick"
+      size="large"
+      is-link
+      title="{{item.name}}"
+      value="{{item.street}}"
+      border="{{ true }}"
+    />
+  </van-cell-group> 
+ </view>
+
+</view>

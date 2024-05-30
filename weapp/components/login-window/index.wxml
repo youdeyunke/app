@@ -1,0 +1,24 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<van-popup lock-scrol="{{true}}" show="{{show}}" duration="800" custom-style="background:none;">
+  <view style="background-image:url('{{bg}}')" class="window">
+
+    <view wx:if="{{closable}}" class="close" bindtap="closeWindow">
+      <van-icon name="cross" size="24"></van-icon>
+    </view>
+
+    <van-button loading-text="登录中" loading="{{loading}}" icon="wechat" open-type="getPhoneNumber" bind:getphonenumber="loginHandle"
+      custom-style="width:519rpx;height:90rpx;border-raidus:10rpx;"
+      color="{{primaryBtnColor}}" wx:if="{{!is_wxwork}}" block>微信登录</van-button>
+
+  </view>
+</van-popup>

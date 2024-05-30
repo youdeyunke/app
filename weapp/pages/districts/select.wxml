@@ -1,0 +1,19 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view class="res">
+    <van-cell-group wx:for-index="cindex" wx:for-key="{{city.id}}" wx:for-items="{{cities}}" wx:for-item='city' wx:if="{{city.id && city.children.length}}">
+        <view class="cname">{{city.text}}</view>
+        <van-cell bindtap="districtClick" data-cindex="{{cindex}}" data-dindex="{{dindex}}" wx:for-index="dindex" wx:for-key="{{dis.id}}" wx:if="{{dis.id}}" wx:for="{{city.children}}" wx:for-item="dis" title="{{dis.text}}">
+            <van-icon wx:if="{{dis.id == did}}" slot="right-icon" name="success" class="custom-icon" />
+        </van-cell>
+    </van-cell-group>
+</view>

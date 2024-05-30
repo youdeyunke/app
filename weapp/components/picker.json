@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "box": "/components/ud/box/index",
+    "popup": "/components/popup",
+    "van-popup": "/vant/popup/index"
+  }
+}

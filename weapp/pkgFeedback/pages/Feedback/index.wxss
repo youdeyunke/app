@@ -1,0 +1,92 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* pkgFeedback/pages/Feedback/index.wxss */
+page {
+	background-color: #fff;
+}
+
+.header {
+	font-size: 28rpx;
+	font-weight: bold;
+	height: 80rpx;
+	padding: 0rpx 30rpx 0 30rpx;
+	line-height: 80rpx;
+}
+
+.header .icon {
+	color: #FF0000;
+	font-weight: regular;
+}
+
+.header .sub-title {
+	font-size: 24rpx;
+	color: #999;
+	font-weight: regular;
+}
+
+.body {
+	width: 690rpx;
+	margin: 10rpx 30rpx 20rpx 30rpx;
+}
+
+.cats {
+	display: flex;
+	white-space: nowrap;
+	overflow-x: auto;
+	scrollbar-width: none;
+	-webkit-overflow-scrolling: touch;
+}
+
+.cats::-webkit-scrollbar {
+	display: none;
+	/* 隐藏滚动条 */
+}
+
+.catitem {
+	padding: 0 20rpx;
+	height: 60rpx;
+	line-height: 60rpx;
+	background-color: #F4F4F4;
+	border-radius: 4rpx;
+	color: #333;
+	margin-right: 20rpx;
+}
+
+.content {
+	background: #F7F8FA;
+	border-radius: 8rpx;
+	height: 365rpx;
+	position: relative;
+}
+
+.content .input {
+	border-radius: 8rpx;
+	font-size: 24rpx;
+}
+
+.content .content-count {
+	position: absolute;
+	right: 26rpx;
+	bottom: 30rpx;
+	font-size: 24rpx;
+	color: #999;
+}
+
+.mobile-input{
+	height: 88rpx;
+	background-color: #F7F8FA !important;
+	color: #C8C9CC !important;
+}
+
+.bottom-btn{
+	width: 690rpx;height: 88rpx;margin: 0 auto;position: fixed;bottom: 30rpx;left: 30rpx;
+}

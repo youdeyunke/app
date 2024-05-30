@@ -1,0 +1,64 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view class="bg"></view>
+<view class="user-header" style="background-image:url('https://qiniucdn.udeve.net/fang/broker-profile-bg.png');">
+    <namecard  broker="{{broker}}" bg="https://qiniucdn.udeve.net/fang/broker-profile-bg.png" ></namecard>
+</view>
+<view class="jiange"></view>
+<ud-card title="个人简介:" width="750">
+    
+    <view class="user-jianjie-content">{{broker.desc || '未填写个人简介'}}</view>
+    <view class="user-jianjie-tags" >
+        <view class="user-jianjie-tag" wx:for="{{tagList}}">{{item}}</view>
+    </view>
+</ud-card>
+<!-- <view class="jiange"></view> -->
+<ud-card title="主营楼盘:" width="750">
+    <cell post="{{post}}"></cell>
+</ud-card>
+
+
+<view style="width: 750rpx;height: 24rpx;background-color: #F0F0F0;"></view>
+<ud-card title="推荐楼盘" wx:if="{{recom_posts && recom_posts.length > 0}}" width="750">
+    <view wx:for="{{recom_posts}}">
+      <cell  post="{{item}}"></cell>
+    </view>
+</ud-card>
+<view style="width: 750rpx;height: 24rpx;background-color: #F0F0F0;"></view>
+
+<ud-card title="热门活动"  width="750">
+    <view wx:for="{{tours}}">
+    <tour-item item="{{item}}"></tour-item>
+    </view>
+</ud-card>
+
+
+<view class="bottom-btn">
+  <view class="bottom-btn-fenxiang" style="position: relative;">
+    <image src="https://qiniucdn.udeve.net/udyk/65b06910b33af4699191824b.png"></image>
+    <view >分享</view>
+    <button open-type="share"></button>
+  </view>
+  <view style="display: flex;">
+    <view class="bottom-btn-lianxi" style="background: {{secondaryBtnColor}};" bindtap="callMe">
+      <view class="text-1" >联系Ta</view>
+      <view class="text-2">你的手机号不会被泄露</view>
+    </view>
+  </view>
+</view>
+<!-- <view class="jiange"></view> -->
+<view class="zixun" wx:if="{{false}}">
+  <image src="../../image/zxun.png"></image>
+  <view >咨询</view>
+</view>
+
+<login-window closable="{{true}}" class="loginwindow" ref="loginwindow"></login-window>

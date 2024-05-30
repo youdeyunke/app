@@ -1,0 +1,111 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* pkgPingce/pages/pingce/index.wxss */
+.topimg {
+    width: 100%;
+    height: 460rpx;
+}
+.pingceBox {
+    width: 690rpx;
+    /* height: 420rpx; */
+	background: #FFFFFF;
+    box-shadow: 0rpx 2rpx 27rpx 3rpx rgba(161, 117, 126, 0.15);
+    border-radius: 20rpx;
+    position: absolute;
+    top: 316rpx;
+    padding: 36rpx;
+}
+
+.pingfenBox {
+    width: 689rpx;
+    /* background: linear-gradient(180deg, rgba(58, 191, 129, 0.22) 0%, rgba(58, 191, 129, 0) 100%);
+    border-radius: 11rpx 11rpx 11rpx 11rpx; */
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 35rpx;
+}
+
+.boxTop {
+    padding: 35rpx 20rpx;
+	display: flex;
+	align-items: center;
+    flex-direction: row;
+    height: 151rpx;
+}
+
+.zongfen {
+    width: 140rpx;
+    height: 151rpx;
+    background: #3ABF81;
+    box-shadow: 0rpx 0rpx 11rpx 2rpx rgba(0, 0, 0, 0.16);
+    border-radius: 12rpx 12rpx 12rpx 12rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+}
+
+.pingfen {
+    display: flex;
+    flex-direction: column;
+    margin-left: 42rpx;
+    justify-content: space-around;
+}
+
+.shequ {
+    width: 470rpx;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.zongpingtext {
+    width: 688rpx;
+    font-size: 30rpx;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #333333;
+    line-height: 48rpx;
+    padding: 30rpx 31rpx 52rpx 31rpx;
+}
+
+.pinzhi {
+    padding: 30rpx 31rpx 50rpx 31rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 688rpx;
+}
+.pinzhititle{
+    position: relative;
+    font-weight: bold;
+    font-size: 34rpx;
+}
+.zhuangshi {
+    width: 100%;
+    height: 18rpx;
+    background: #3abf81;
+    position: absolute;
+    bottom:0rpx;
+    opacity: 0.3;
+}
+
+.pingzhitext {
+    padding: 0 31rpx 50rpx 31rpx;
+    font-size: 30rpx;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #333333;
+    line-height: 48rpx;
+}

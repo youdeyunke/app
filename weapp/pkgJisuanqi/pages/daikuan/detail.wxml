@@ -1,0 +1,59 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!-- pages/detail/detail.wxml -->
+<wxs module="format" src="./truncate.wxs"></wxs>
+
+
+
+<box>
+  <view class="card">
+    <view class="cardItem">
+      <label>每月需还款</label>
+    </view>
+    <view class="cardItem monthlyPayment">
+      <label class="{{monthlyPaymentClass}}">{{monthlyPaymentStr || '计算中...' }}</label>
+      <label class="unit">元</label>
+    </view>
+    <view class="cardItem" wx:if="{{balanceStr}}">
+      <label>每月递减 {{balanceStr}} 元</label>
+    </view>
+    <van-cell size="large"  title="还款总额" value="{{TotalPaidStr}} 万" />
+    <van-cell size="large"  title="还款方式" value="{{loanTypeName}}" />    
+
+  <canvas canvas-id="mychart" class="canvas" style="width:{{windowWidth}}px;height:{{windowWidth}}px;" ></canvas>        
+
+  </view>
+</box>
+
+
+
+<view style="width:100%;">
+  <van-tabs  color="#00ae66"  type="line"  >
+    <van-tab wx:for="{{payDetails}}" wx:for-item="yearItem" wx:key="year"  title="{{yearItem.year}}年">
+
+
+      <box>
+        <van-cell size="large" title="本年还款总额" value="￥ {{format.truncate(yearItem.yearPaid)}}" />
+        <van-cell size="large" title="本年利息总额" value="￥ {{format.truncate(yearItem.yearInterest)}}" />
+      </box>
+
+      <view style="padding:20rpx 0;color:#cecece;width:100%;text-align:center;font-size:24rpx;">以下为每月还款明细</view>
+
+      <mycard padding="{{false}}" hat="{{false}}" wx:for="{{yearItem.months}}" wx:for-item="monthItem" wx:key="month" title="{{yearItem.year}}年{{monthItem.month}}月">
+        <van-cell title="本期还款" value="{{format.truncate(monthItem.monthlyPayment)}}" />
+        <van-cell title="本期本金" value="{{format.truncate(monthItem.principal)}}" />
+        <van-cell title="本期利息" value="{{format.truncate(monthItem.interest)}}" />
+        <van-cell title="剩余本金" value="{{format.truncate(monthItem.surplus)}}" />        
+      </mycard>
+    </van-tab>
+  </van-tabs>
+</view>

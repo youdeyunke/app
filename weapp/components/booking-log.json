@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+      "post-item": "/components/post-item/cell/index",
+      "van-panel": "/vant/panel/index",
+      "van-action-sheet": "/vant/action-sheet/index"
+  }
+}

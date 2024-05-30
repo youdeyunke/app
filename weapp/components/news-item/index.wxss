@@ -1,0 +1,203 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+.item {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-sizing: border-box;
+    position: relative;
+    border-bottom: 1rpx solid #f2f2f2;
+    padding:0 ; 
+    margin:0 auto 18rpx auto;
+    width:100%;
+}
+
+.item .summary{
+    font-size:24rpx; 
+    columns: #333333;
+    line-height:36rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height:70rpx;
+    margin:8rpx 0;
+    display: -webkit-box;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; 
+  
+
+}
+
+.item .badge {
+    width: 120rpx;
+    height: 110rpx;
+    position: absolute;
+    top: -30rpx;
+    left: -24rpx;
+    z-index: 10;
+}
+.item .cover {
+    width: 210rpx;
+    height: 155rpx;
+    border-radius: 0rpx;
+    overflow: hidden;
+    position: relative;
+    /* margin-right:20rpx; */
+    margin-bottom: 33rpx;
+}
+.item .cover .img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10rpx;
+
+}
+
+.item .title {
+    font-size: 32rpx;
+    color: #333;
+    line-height: 42rpx;
+    font-weight: bolder;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    max-width: 460rpx;
+    margin-bottom: 30rpx;
+    min-height: 80rpx;
+}
+.new-tag{
+    height: 64rpx;line-height: 64rpx;font-size: 44rpx;font-weight:400;color: #fff;background-color: red;padding: 0 20rpx;border-radius: 8rpx;zoom: 0.5;display: inline-block;position: relative;top: -6rpx;
+}
+
+.item .title-block {
+    height: 100%;
+    /* display: flex; */
+    max-width: 460rpx;
+    min-width:440rpx;
+    min-height: 166rpx;
+    width: calc(100% - 210rpx - 15rpx);
+    /* flex-direction: column; */
+    /* justify-content: space-between; */
+    margin: 0rpx 15rpx 10rpx 0;
+    box-sizing: border-box;
+}
+
+.item .meta {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    color: #666;
+    font-size: 20rpx;
+    width: 100%;
+
+}
+.meta .new-cover{
+    width: 33rpx;height: 33rpx;border-radius: 50%;margin-right: 8rpx;
+}
+.meta .new-author{
+    font-size: 44rpx;zoom: 0.5;
+    max-width: 830rpx;
+    white-space: nowrap; /* 不换行 */
+    overflow: hidden; /* 溢出部分隐藏 */
+    text-overflow: ellipsis; /* 使用省略号表示溢出部分 */
+}
+
+.item .date {
+    font-size: 22rpx;
+    color: #A0A0A0;
+    padding-left: 10rpx;
+}
+
+.item .author {
+    font-size: 22rpx;
+    color: #666666;
+}
+
+
+.item .views{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+
+
+.video-item{
+
+    height:320rpx;
+    margin:0 auto 20rpx auto; 
+    position: relative;
+    border-radius: 20rpx;
+    overflow: hidden;
+}
+
+.video-item .cover{
+    width:100%;
+    height:100%;
+    position: absolute; 
+    top:0; 
+    left:0;
+
+    z-index:1;
+}
+
+.video-item .video-item{
+    width:70rpx; 
+    height:70rpx;
+}
+
+.video-item .title-block{
+    z-index:2;
+    position: absolute;
+    top:0; 
+    left:0; 
+    width:100%; 
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color:#fff;
+    padding:30rpx;
+    background-image:  linear-gradient(to top  ,  rgba(0,0,0, 0.4), rgba(0,0,0, 0.8));
+}
+
+.video-item .meta{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size:24rpx;
+}
+.video-item .summary{
+    display:none;
+}
+
+.video-item .title{
+    font-size:32rpx;
+}
+
+.video-item .views{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.video-item  .play{
+    width:70rpx; 
+    height:70rpx;
+    position: absolute;
+    left:calc(50% - 35rpx); 
+    top:calc(50% - 35rpx);
+    z-index:10;
+}

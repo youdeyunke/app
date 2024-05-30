@@ -1,0 +1,32 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--components/pagemaker/posts/index.wxml-->
+
+<template name="style-3">
+    <style3 items="{{items}}" />
+</template>
+
+<header title="二手房列表" subtitle="查看更多" link="{{morelink}}" ></header>
+<view class="posts-items">
+
+  <template is="style-3" data="{{items:items}}"></template>
+
+  <no-result wx:if="{{items.length == 0}}"></no-result>
+
+  <block wx:if="{{config.data.styleName == 0}}">
+    <view wx:if="{{loading}}" style="margin:0 auto;width:100%;display: flex;justify-content: center;">
+      <van-loading size="24px">加载中...</van-loading>
+    </view>
+
+    <van-divider wx:if="{{end}}" contentPosition="center">没有更多了</van-divider>
+  </block>
+</view>

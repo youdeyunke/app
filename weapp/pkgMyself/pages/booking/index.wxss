@@ -1,0 +1,120 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+.box{
+  padding: 20rpx;
+}
+.booking-box{
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  padding-top: 0;
+}
+.booking-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 90rpx;
+  border-bottom: 1rpx solid #EAEAEA;
+  margin-bottom: 30rpx;
+}
+.booking-top-nav{
+  display: flex;
+  align-items: center;
+  font-size:28rpx ;
+  color: #1989FA;
+  font-weight: bold;
+  
+}
+.image1{
+  width: 40rpx;
+  height:40rpx ;
+  margin-right: 6rpx;
+}
+.image2{
+  width: 20rpx;
+  height: 30rpx;
+}
+.booking-time{
+  height: 160rpx;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  border-bottom: 1rpx solid #EAEAEA;
+  margin-bottom: 30rpx;
+}
+.booking-time-nav{
+  font-size: 26rpx;
+  color: #333333;
+  font-weight: bold;
+}
+.booking-time-nav text:nth-of-type(1){
+  color:#A0A0A0 ;
+  font-weight: normal;
+}
+.image3{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+.image4{
+  width: 104rpx;
+  height: 30rpx;
+  margin-left: 6rpx;
+}
+.image5{
+  width: 22rpx;
+  height: 22rpx;
+  margin-right: 6rpx;
+}
+.image6{
+  width:118rpx ;
+  height: 50rpx;
+  margin-left:20rpx ;
+}
+.booking-handle{
+  display: flex;
+
+}
+.booking-bottom-left{
+  display: flex;
+  align-items: center;
+}
+.booking-bottom{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.booking-message{
+  height:88rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.booking-message-top{
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color:#333333;
+}
+.booking-message-bottom{
+  display: flex;
+  align-items: center;
+  font-size:24rpx ;
+  color: #999999;
+}
+.booking-bot{
+  display: flex;
+  align-items: center;
+  font-size: 28rpx;
+  color: #D4D4D4;
+}

@@ -1,0 +1,116 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+.topbar{
+    position: sticky;
+    top:0; 
+    left:0;
+    width:100%;
+    z-index:100;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    width: 100%;
+    padding: 0rpx 30rpx;
+    box-sizing: border-box;
+
+    border-bottom: 2rpx solid #f4f4f4;
+}
+
+.header .ditu {
+    height: 80rpx;
+    width: 200rpx;
+    border-radius: 80rpx;
+    background: #F6F7FB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333333;
+}
+
+.header .ditu image {
+    width: 24rpx;
+    height: 24rpx;
+    margin-right: 8rpx;
+}
+
+.header .search-box {
+    width: 540rpx;
+    padding-left: 10rpx;
+}
+
+.header .search-box .van-search__content {
+    border-radius: 80rpx;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.header .search-box .van-search__action {
+    border-radius: 80rpx;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background: #F4f4f4;
+    height: 80rpx;
+    display: flex;
+    width: 100rpx;
+    justify-content: center; 
+    align-items: center;
+}
+
+.filter {
+
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 0rpx 30rpx 0rpx 30rpx;
+    height: 80rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.res {
+    margin: 20rpx auto;
+    padding-top:20rpx;
+    width:750rpx;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background:#fff;
+}
+
+.subinfo {
+    width: 100%;
+    border-bottom: 2rpx solid #f4f4f4;
+}
+
+.float-btn {
+    width: 88rpx;
+    height: 88rpx;
+    border-radius: 88rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 30rpx;
+    box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.2);
+    font-size: var(--font-xs);
+    color: #fff;
+    opacity: 0.9;
+}

@@ -1,0 +1,27 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<block wx:if="{{item.status != 3}}">
+    <van-panel title="状态：{{statusName[item.status]}}" status="{{ item.date  }} {{ item.time }}" use-footer-slot>
+        <view style="height:30rpx;"></view>
+        <post-item style="" post="{{item.post}}" border="{{false}}" shadow="{{false}}" />
+        <view slot="footer" class="footer">
+            <view class="time">姓名：{{ item.name }} 电话：{{ item.mobile }}</view>
+            <view class="btns">
+                <van-button plain wx:if="{{userGroup == 'broker'}}" size="mini" bindtap="callHandle" type="info" style="margin-right:20rpx;">
+                    拨打电话
+                </van-button>
+                <van-button size="mini" bindtap="menuToggle" plain type="info">管理</van-button>
+            </view>
+        </view>
+    </van-panel>
+    <van-action-sheet title="管理菜单" cancle-text="取消" show="{{ showMenu }}" actions="{{ actions }}" bind:close="menuToggle" bind:select="onSelect" />
+</block>

@@ -1,0 +1,43 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view class="topbar">
+    <view class="header" wx:if="{{!albumId}}">
+        <view class="ditu" bindtap="gotoMap">
+            <block wx:if="{{ mode == 'list'}}">
+                <van-icon name="location" size="28rpx;" />
+                地图
+            </block>
+
+            <block wx:else>
+                <van-icon name="bars" size="28rpx;" />
+                列表
+            </block>
+        </view>
+        <van-search name="kw" shape="round" value="{{kw}}" placeholder-style="font-size:24rpx;color:#cecece;"
+            placeholder="输入小区、街道关键词" background="#none" field-class="search-box-field" custom-class="search-box"
+            bind:change="kwChange" bind:clear="kwClear" use-action-slot focus="{{false}}">
+            <view slot="action" class="action-btn" bind:tap="onSearch">搜索</view>
+        </van-search>
+    </view>
+    <view class="filter" style="top:{{ !albumId ? '110rpx' : '0rpx'}}">
+        <post-filter filter="{{filter}}" bind:change="filterChange" />
+    </view>
+</view>
+<album-info wx:if="{{ mode == 'list' &&  albumId}}" album="{{album}}"></album-info>
+<view wx:if="{{mode == 'list'}}" class="res">
+
+    <items album-key="{{ album ? album.key : ''}}" show-total-count="{{true}}" wx:if="{{filter}}" filter="{{filter}}" />
+
+</view>
+<block wx:else>
+    map block
+</block>

@@ -1,0 +1,71 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* components/pagemaker/searchbar/city-selector.wxss */
+
+.city {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.city text {
+    width: 100%;
+    text-align: right;
+    font-size: 24rpx;
+    color: #666;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.title {
+    margin: 20rpx 0 0 20rpx;
+    font-size: 28rpx;
+    color: #333;
+    text-align: center;
+}
+
+.city-items {
+    padding: 20rpx 20rpx;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.city-item {
+    width: 219rpx;
+    height: 80rpx;
+    margin-right: 20rpx;
+    margin-bottom: 20rpx;
+    border: 2rpx solid #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.city-item:nth-child(3n) {
+    margin-right: 0;
+}
+
+.city-item.active {
+    color: #1989fa;
+    border-color: #1989fa;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20rpx;
+}

@@ -1,0 +1,22 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view class="res">
+
+  <block wx:key="index" wx:for="{{news}}" wx:for-item="newsItems">
+    <!-- <tt data-id="{{item.id}}" item="{{item}}" v-if="{{item}}" wx:for="{{newsItems}}"  wx:if="{{item.id}}" /> -->
+    <news-item wx:key="id" wx:for="{{newsItems}}" item="{{item}}"></news-item>
+  </block>
+</view>
+<no-result wx:if="{{isEmpty}}" />
+<view class="empty" wx:if="{{loading}}">
+  <van-loading />
+</view>

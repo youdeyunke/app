@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "van-slider": "/vant/slider/index",
+        "header": "../header/style0"
+    }
+}

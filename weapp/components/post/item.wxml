@@ -1,0 +1,55 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view class="outer">
+
+    <navigator hover-class="none" style="width:{{width}}rpx;" class="post {{item.group == 'new' && item.coupon_enable ? '' : 'coupon-none'}} {{type}} {{ shadow ? 'shado' : 'shadow-none'}} {{ border ? 'border' : 'border-none'}}" open-type="navigate" url="/pages/post/post?id={{item.id}}">
+        <badge wx:if="{{item.brokage_info.show == true}}">{{item.brokage_info.title}}</badge>
+        <post-cover item="{{item}}" width="220" height="190"></post-cover>
+        <view class="meta">
+            <view class="item-title van-ellipsis ">
+                <view class="left">{{ item.title}}</view>
+                <view class="right">
+                    <van-tag size="mini" color="#00B09D" type="primary">{{ item.sale_status_name}}</van-tag>
+                </view>
+            </view>
+            <view class="price-info" wx:for="{{item.prices}}" wx:if="{{item.cat == 'average'}}">
+                参考均价：{{item.value}} 元/平
+            </view>
+            <view class="type-info">
+                <view class="left">{{item.district.name}}</view>
+                <view wx:if="{{ album_tag }}" class="right">/ {{ album_tag}}</view>
+            </view>
+            <view class="footer">
+                <mytags mini="true" items="{{tags}}" max="3"></mytags>
+                <view class="comment">
+                    <view class="num">
+                        <van-icon name="comment-o" />
+                        <text style="margin-left:6rpx;">{{ item.comments_count }}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+    </navigator>
+
+    <view url="/pkgBroker/pages/broker/index?post_id={{item.id}}" class="broker" wx:if="{{home && item.brokers.length > 0}}">
+        <view class="left">
+            <image wx:if="{{index <= 5}}" mode="aspectFill" wx:for="{{item.brokers}}" src="{{item.avatar}}?imageView2/2/w/80" class="a"></image>
+        </view>
+        <view class="right">
+            <view class="btn" bindtap="callHandle">
+
+                <image src="./call.png" class="icon"></image>致电顾问
+            </view>
+        </view>
+    </view>
+</view>

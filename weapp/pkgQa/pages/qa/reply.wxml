@@ -1,0 +1,21 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<box padding="30">
+  <ud-textarea value="{{content}}"  bind:input="inputHandle" placeholder="请输入不少于5个字的回答" max-length="{{maxLength}}" min-length="{{minLength}}" />
+
+  <view class="actions">
+    <van-button   disabled="{{loading || content.length < minLength }}" color="{{primaryBtnColor}}" loading="{{loading}}" bindtap="submitHandle" type="info" block  >提交</van-button>
+    <view style="height:20rpx;display:block;"></view>
+    <van-button   bindtap="backHandle" type="default" block  >返回</van-button>
+  </view>
+</box>
+

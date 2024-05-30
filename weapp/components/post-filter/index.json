@@ -1,0 +1,10 @@
+{
+    "component": true,
+    "usingComponents": {
+        "auction-post-filter": "./old-post-filter",
+        "shop-post-filter": "./shop-post-filter",
+        "rental-post-filter": "./rental-post-filter",
+        "new-post-filter": "./new-post-filter",
+        "old-post-filter": "./old-post-filter"
+    }
+}

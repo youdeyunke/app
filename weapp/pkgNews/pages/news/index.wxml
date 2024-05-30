@@ -1,0 +1,29 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<van-search round bind:clear="clearHandle" model:value="{{ kw }}" placeholder="输入关键词进行搜索" bind:confirm="kwChange" bind:search='kwChange' bind:change="kwChange" bind:clear="kwChange" bind:blur="kwChange" custom-class='search' />
+
+<view class="new-cats" hidden="{{cats.length == 0}}">
+
+  <view class="new-cat" data-i="{{index}}" bindtap="catChange" style="{{ active == index ? 'font-weight: bold;color:' + primaryColor + ';background:' + primaryColor + '25;' : '' }}" wx:for="{{cats}}">{{item.name}}</view>
+</view>
+
+<view class="res">
+
+  <block wx:key="index" wx:for="{{news}}" wx:for-item="newsItems">
+    <news-item wx:key="id" wx:for="{{newsItems}}" item="{{item}}"></news-item>
+  </block>
+  <no-result wx:if="{{isEmpty}}" />
+</view>
+
+<view class="empty" wx:if="{{loading}}">
+  <van-loading />
+</view>

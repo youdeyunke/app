@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "news-item": "/components/news-item/index",
+    "header": "../header/style0"
+  }
+}

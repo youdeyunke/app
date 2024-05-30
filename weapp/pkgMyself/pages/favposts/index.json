@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+
+        "post": "/components/post-item/cell/index",
+        "house": "/components/house-item/cell/index",
+        "box": "/components/ud/box/index"
+    }
+}

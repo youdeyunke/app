@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+        "item": "/components/qa-item/index",
+        "like": "/components/qa/answer-like"
+  }
+}

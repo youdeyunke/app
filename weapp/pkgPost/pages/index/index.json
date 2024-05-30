@@ -1,0 +1,8 @@
+{
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "items": "/components/post-items/index",
+        "post-filter": "/components/post-filter/index",
+        "album-info": "./album-info"
+    }
+}

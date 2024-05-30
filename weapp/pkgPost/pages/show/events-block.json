@@ -1,0 +1,8 @@
+{
+    "component": true,
+    "usingComponents": {
+        "block-box": "./block-box/index",
+        "event": "/components/event/item",
+        "block-button": "../../components/block-button"
+    }
+}

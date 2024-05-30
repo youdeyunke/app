@@ -1,0 +1,39 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<navigator wx:if="{{item && item.id }}" hover-class="none" class="post" open-type="navigate" url="/pkgPost/pages/show/index?id={{item.id}}">
+    <view class="cover skeleton-rect">
+        <view wx:if="{{ range > 0 && showNumber  }}" class="rank {{ range <= 3 ? 'red' : 'default' }}">
+            {{range}}
+        </view>
+        <image lazy-load="{{true}}" mode="aspectFill" class="i" src="{{ item.cover || '/assets/images/cover-none.png' }}?imageView2/2/w/750"></image>
+        <view class="icons">
+            <image wx:if="{{item.vr_url}}" class="vr-btn" src="/assets/icons/vr.png"></image>
+            <image wx:if="{{item.video}}" class="video-btn" src="/assets/icons/bofang.png"></image>
+        </view>
+    </view>
+    <view class="meta">
+        <view class="item-title van-ellipsis ">
+            <view class="left">{{ item.title}}</view>
+        </view>
+        <view class="price-info" wx:for="{{item.prices}}" wx:if="{{item.cat == 'average'}}">
+            {{item.name}}
+        </view>
+        <view class="type-info">
+            <view class="left">{{item.district.name}}</view>
+            <view wx:if="{{ album_tag }}" class="right">/ {{ album_tag}}</view>
+        </view>
+        <view class="price">均价{{item.average_price}}万元/㎡</view>
+        <view class="footer">
+            <mytags mini="true" items="{{tags}}" max="3"></mytags>
+        </view>
+    </view>
+</navigator>

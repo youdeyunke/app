@@ -1,0 +1,52 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view class="header">
+  <view class="user-card">
+    <image mode="aspectFill" class="user-card-avatar" bindtap="avatarHandle" src="{{broker.avatar}}"></image>
+    <image class="zhuye-bg" src="https://qiniucdn.udeve.net/udyk/65b0834ab33a04b3d5c4ab29.png"></image>
+    <view class="user-card-details" >
+      <view class="user-card-title">
+        <view class="user-card-title-name" >{{broker.name}}</view>
+        <view style="background: {{primaryColor}};" wx:if="{{broker.level == 1}}" class="user-card-status">金牌置业顾问</view>
+        <view style="background: {{primaryColor}};" wx:if="{{broker.level == 2}}" class="user-card-status">银牌置业顾问</view>
+        <view style="background: {{primaryColor}};" wx:if="{{broker.level == 3}}" class="user-card-status">铜牌置业顾问</view>
+      </view>
+      <view class="user-card-company" >
+        <image class="user-card-image" src="../../../../image/loupan.png"></image>
+        <view class="user-card-company-name" >{{broker.group_name || '置业顾问'}}</view>
+      </view>
+      <view class="user-card-lxfs">
+          <view class="user-card-lxfs-item">
+            <image class="user-card-lxfs-item-img" src="../../../../image/phone.png" bindtap="callMe"></image>
+            <view class="user-card-lxfs-item-message" bindtap="callMe">{{broker.mobile}}</view>
+            <view class="user-card-lxfs-btn" bindtap="saveNumber" style="background: {{primaryBtnColor}};">
+                <text style="font-size: 25rpx;zoom: 0.8;color: #FFF;">保存到通讯录</text> 
+            </view>
+          </view>
+          <view class="user-card-lxfs-item" style="margin-top: 20rpx;">
+            <image class="user-card-lxfs-item-img" src="../../../../image/weixin.png"></image>
+            <view class="user-card-lxfs-item-message">{{broker.wechat || '-'}}</view>
+            <view class="user-card-lxfs-btn" bindtap="copyHandle" style="background: {{primaryBtnColor}};">
+                <text style="font-size: 25rpx;zoom: 0.8;color: #FFF;">复制微信号码</text> 
+            </view>
+          </view>
+      </view>
+    </view>
+  </view>
+  <view class="user-status-mes">
+    <view style="font-size: 28rpx;"><text style="color: red;">{{broker.view_nums}}</text>人浏览</view>
+    <view style="display: flex;"  bindtap="likeHandle">
+      <image style="width: 36rpx;height: 36rpx;" src="../../../../image/dianzan.png"></image>
+      <view style="font-size: 28rpx;">{{likeNums || 0}}点赞</view>
+    </view>
+  </view>
+</view>

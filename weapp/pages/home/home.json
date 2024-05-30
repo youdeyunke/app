@@ -1,0 +1,17 @@
+{
+    "usingComponents": {
+        "first-screen-ad": "/components/first-screen-ad/index",
+        "copyright":"/components/copyright/index",
+        "banners": "/components/page-home/banners/index",
+        "btns": "/components/page-home/btns/index",
+        "notice": "/components/page-home/notice/index",
+        "brokers": "/components/page-home/brokers/index",
+        "follow": "/components/page-home/follow/index",
+        "post": "/components/page-home/posts/index",
+        "zhaofang": "/components/page-home/zhaofang/index",
+        "house": "/components/page-home/houses/index",
+        "videos": "/components/page-home/videos/index",
+        "news-list": "/components/page-home/newslist/index",
+        "searchbar":"/components/page-home/searchbar/index"
+    }
+}

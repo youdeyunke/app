@@ -1,0 +1,13 @@
+{
+    "component": true,
+    "usingComponents": {
+        "order-picker": "./order-picker",
+        "other-filter": "./other-filter",
+        "popup": "/components/popup",
+        "city-picker": "./city-picker",
+        "price-picker": "./price-picker",
+        "range-input": "/components/range-input/index",
+        "selector": "/components/selector/index",
+        "range-slider": "/components/range-slider/range-slider"
+    }
+}

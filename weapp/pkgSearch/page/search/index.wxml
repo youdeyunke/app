@@ -1,0 +1,41 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!--pkgSearch/page/search/index.wxml-->
+<view class="search-box">
+  <view class="search-top">
+    <view class="search-top-left">
+      <image class="image1" src="../../images/search.png"></image>
+      <input type="text" placeholder="您想住哪儿？" bindinput="inputHandle" value="{{inputvalue}}" />
+      <view class="del" wx:if="{{delshow===true}}">
+        <image class="image4" src="../../images/det.png" bindtap="delvalue"></image>
+      </view>
+    </view>
+    <view class="search-top-right" bindtap="searchHandle">搜索</view>
+    <block wx:if="{{resultshow==true}}">
+      <mysearch class="component-search" value="{{inputvalue}}" bindchangevalue="valueHandle"></mysearch>
+    </block>
+  </view>
+  <block wx:if="{{searchRecord != ''}}">
+    <view class="search-history">
+      <view>历史搜索</view>
+      <image class="image2" src="../../images/rubbish.png" bindtap="clearHandle"></image>
+    </view>
+    <view class="search-record">
+      <text wx:for="{{searchRecord}}" bindtap="checkvalueHandle" data-index="{{index}}"
+        wx:if="{{index<6}}">{{item}}</text>
+    </view>
+  </block>
+
+  <image class="image3" src="../../images/hot.png"></image>
+  <navigator url="/pkgPost/pages/index/index" class="more"><text class="text">查看更多></text></navigator>
+  <search-item></search-item>
+</view>

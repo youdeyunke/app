@@ -1,0 +1,25 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<!-- components/pagemaker/header/style0.wxml -->
+<view class="header">
+    <view class="title">
+        <image wx:if="{{icon}}" class="icon" src="{{icon}}?imageView2/5/h/120/w/120"></image>
+        <text style="font-size: {{fontsize}}rpx;color: {{fontcolor}};">{{title}}</text>
+        <!-- view class="hat"></view  -->
+    </view>
+    <view class="subtitle" bindtap="clickHandle">
+        {{subtitle}}
+        <view class="arrow" wx:if="{{link}}">
+            <van-icon name="arrow" />
+        </view>
+    </view>
+</view>

@@ -1,0 +1,23 @@
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<view>
+    <view bind:tap="showHandle">类型<van-icon name="arrow-down" /></view>
+    <popup show="{{show}}" position="top" bind:cancle="onReset" bind:confirm="onConfirm" label="请选择">
+        <!-- <van-tree-select max="10" items="{{ items }}" main-active-index="{{ mainActiveIndex }}" active-id="{{ activeId }}" bind:click-nav="navClick" bind:click-item="itemClick" content-active-class="content-active" main-active-class="main-content-active" /> -->
+        <view>
+            <view style="padding-left: 30rpx;font-size: 36rpx;">类型</view>
+            <view style="width: 100%;padding: 30rpx 30rpx 0 30rpx;display: flex;flex-wrap: wrap;box-sizing: border-box;">
+                <view  bindtap="itemsClick" data-index="{{index}}" data-ite="{{item}}" class="{{item.active ? 'xuanz':''}} active-item" wx:for="{{filterItem}}">{{item.name}}</view>
+            </view>
+        </view>
+    </popup>
+</view>

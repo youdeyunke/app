@@ -1,0 +1,33 @@
+
+<!--
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+ | 友得云客  - 开启房产营销新纪元
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+ | Author: www.youdeyunke.com
+ +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+-->
+<navigator  hover-class="none" class="{{className}}" url="/pkgNews/pages/news/show?id={{item.id}}">
+
+  <view class="title-block">
+        <view class="title"> <view class="new-tag" style="background-color: {{primaryColor}};">{{item.news_cat}}</view> {{item.title}}</view>
+        <view class="meta">
+            <image class="new-cover" wx:if="{{item.avatar}}" src="{{item.avatar}}" mode=""/>
+            <view class="new-author">
+                <text>{{item.author || ''}}</text>
+                <text style="margin-right: 15px;"></text>
+                <text>{{item.date || ''}}</text>
+            </view>
+            
+        </view>
+    </view> 
+    <view class="cover" hover-class="none" hover-stop-propagation="false">
+        <image class="cover img" src="{{item.cover }}?imageView2/2/w/250"></image>
+        <image src="/assets/icons/bofang.png" class="play"></image>
+    </view>
+
+</navigator>
+

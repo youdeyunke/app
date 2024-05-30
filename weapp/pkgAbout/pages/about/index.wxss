@@ -1,0 +1,139 @@
+/**
+* +----------------------------------------------------------------------
+* | 友得云客  - 开启房产营销新纪元
+* +----------------------------------------------------------------------
+* | Copyright (c) 2019~2023 优得（西安）信息科技有限公司版权所有
+* +----------------------------------------------------------------------
+* | Licensed 友得云客不是自由软件 未经允许不可移除相关版权
+* +----------------------------------------------------------------------
+* | Author: www.youdeyunke.com
+* +----------------------------------------------------------------------
+*/
+/* pkgAbout/pages/about/index.wxss */
+.image1{
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -5;
+}
+.about-box{
+  padding-top: 196rpx;
+  height: 100vh;
+  box-sizing: border-box;
+}
+.about-title{
+  width: 470rpx;
+  height: 120rpx;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 54rpx;
+  color: #fff;
+  margin-bottom: 339rpx;
+  text-align: center;
+}
+.about-title view:nth-of-type(2){
+  font-size: 24rpx;
+}
+.about-describe{
+  width:580rpx ;
+  height: 156rpx;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  color: #666666;
+  font-size: 26rpx;
+}
+.about-contact{
+  padding:0 150rpx ;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 190rpx;
+}
+.about-contact image{
+  width:45rpx ;
+  height: 50rpx;
+}
+.about-contact view{
+  width:383rpx ;
+  height: 53rpx;
+  background-color: #45A0FC;
+  border-radius: 2rpx 35rpx 35rpx 35rpx;
+  font-size: 24rpx;
+  color: #fff;
+  line-height: 53rpx;
+  text-align: center;
+}
+.about-way{
+  width: 710rpx;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  margin-top: 60rpx;
+  justify-content: space-around;
+}
+.way-nav{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 26rpx;
+  color: #666666;
+}
+.about-way image{
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 15rpx;
+  box-shadow: 0rpx 0rpx 12rpx rgba(0, 0, 0, .15);
+  border-radius: 50%;
+}
+.about-corp{
+  text-align: center;
+  margin-top: 60rpx;
+  font-size: 24rpx;
+  color:#666666 ;
+  background-color: #fff;
+  height: 90rpx;
+}
+.po{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(12, 12, 12,0.6);
+  padding-top: 450rpx;
+  z-index: 888;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.image-box{
+  width: 600rpx;
+  height: 600rpx;
+  background-color: #fff;
+  padding: 80rpx;
+  border-radius: 10rpx;
+  margin: 0 auto;
+}
+.po image{
+  width:440rpx ;
+  height: 440rpx;
+}
+.close-box{
+  width: 80rpx;
+  height: 80rpx;
+  margin: 0 auto;
+  margin-top: 10rpx;
+}
+.po .image2{
+  width: 80rpx;
+  height: 80rpx;
+}
+.bottom{
+  background-color: #fff;
+}
