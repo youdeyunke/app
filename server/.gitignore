@@ -8,6 +8,7 @@ target/
 !**/src/test/**/target/
 **/version.txt
 /src/main/resources/static/admin/
+build.sh
 
 *.p12
 
