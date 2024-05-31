@@ -209,7 +209,6 @@ import ImagePicker from "@/components/ImagePicker";
 import { updateWeappInfo, updateMapInfo, updateServerInfo, updateWeappConfig } from "@/api/myconfig";
 import UdCard from "@/components/UdCard";
 import HelpIcon from "@/components/HelpIcon";
-import { getModuleConfigs } from "@/api/module_config";
 import UserMedia from "@/components/MediaManager/UserMedia";
 import Tags from "../tags/index.vue";
 import CityAddress from "../address/index.vue";
@@ -287,7 +286,6 @@ export default {
     if (this.btns.update_myconfig_pageurl) {
       this.loadPaths();
     }
-    this.loadModuleConfigs();
     if (this.btns.update_myconfig_ossconfig) {
       this.loadOssList();
     }
@@ -323,12 +321,6 @@ export default {
         this.$message.success("保存成功")
       })
 
-    },
-
-    loadModuleConfigs: function () {
-      getModuleConfigs().then((resp) => {
-        this.moduleConfigs = resp.data;
-      });
     },
 
     loadPaths: function () {
