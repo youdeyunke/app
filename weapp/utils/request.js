@@ -11,7 +11,7 @@
 */
 const app = getApp()
 // 请修改为您自己的服务端地址，服务端安装请参考文档：http://doc.youdeyunke.com/zhunbei.html
-const apiHost = 'http://192.168.31.40:8082';
+const apiHost = 'https://demo.youdeyunke.com';
 const throttle = require('./throttle');
 
 // 发送http请求
