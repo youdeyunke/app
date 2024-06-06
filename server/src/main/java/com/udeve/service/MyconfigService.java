@@ -146,18 +146,39 @@ public class MyconfigService {
     }
 
     public String getLastServerVersion(){
+        //从redis获取，成功获取到的话就直接返回
         String lastServerVersion = stringRedisTemplate.opsForValue().get("last_server_version");
-        if (ObjectUtil.isEmpty(lastServerVersion)) {
-            String res = restTemplate.getForObject("https://gitee.com/youdeyunke/app/raw/master/server/.serversion", String.class);
-            if (res == null || res.isEmpty()) {
-                log.warn("从git仓库中获取到的最新版本为空：{}",res);
-                return null;
-            }
-            stringRedisTemplate.opsForValue().set("last_server_version", res,5, TimeUnit.MINUTES);
-            log.info("从git仓库中获取最新版本：{}",res);
-            return res;
+        if (ObjectUtil.isNotEmpty(lastServerVersion)) {
+            return lastServerVersion;
         }
-        return lastServerVersion;
+
+        //redis中的过期了，需要重新获取一下
+        cn.hutool.json.JSONObject res;
+        try {
+
+
+            res = restTemplate.getForObject("https://tcdn.udeve.net/udyk-business-serversion/serversion.json", cn.hutool.json.JSONObject.class);
+        }catch (Exception e){
+            log.error("最新版本获取失败，原因：{}",e.getMessage());
+            return null;
+        }
+        if (res == null || res.isEmpty()) {
+            log.warn("获取到的最新版本为空或空字符串：{}",res);
+            return null;
+        }
+
+        //成功获取到了，存到redis中
+        String latestVersion;
+        try {
+            latestVersion= res.getStr("serversion");
+            stringRedisTemplate.opsForValue().set("last_server_version", latestVersion,5, TimeUnit.MINUTES);
+            log.info("成功获取最新版本：{}",res);
+        }catch (Exception e){
+            log.error("从结果中获取 serversion 或 存入redis 失败，原因：{}",e.getMessage());
+            return null;
+        }
+
+        return latestVersion;
     }
 
     public String getTextBanner() {

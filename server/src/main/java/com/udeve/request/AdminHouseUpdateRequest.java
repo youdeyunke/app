@@ -33,7 +33,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Data
 @Slf4j
-@ApiModel(value = "管理后台编辑云存储设置的")
 public class AdminHouseUpdateRequest implements Serializable {
     public Integer id;
     @Size(min = 3, max = 50, message = "标题长度必须为3-50")

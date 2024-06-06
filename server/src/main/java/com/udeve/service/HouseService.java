@@ -56,23 +56,6 @@ public class HouseService {
     @Autowired
     CityRepository cityRepository;
 
-
-    // 管理员更新房源信息
-    public JsonResponse adminUpdateHouse(AdminHouseUpdateRequest dto){
-        House house  = houseRepository.findById(dto.id).get();
-        modelMapper.map(dto, house);
-        // 设置城市、行政区等信息；
-        house.setSubDistrictName(dto.getSubDistrictName());
-        City city = cityRepository.findById(dto.getCityId()).get();
-        DistrictEntity districtEntity = districtRepository.findById(dto.getDistrictId()).get();
-        house.setCity(city);
-        house.setDistrict(districtEntity);
-        house.setUpdatedAt(LocalDateTime.now());
-
-        houseRepository.saveAndFlush(house);
-        return JsonResponse.ok(house);
-    }
-
     // 用户接口返回数据
     public JsonResponse getListingForApi(HouseSearchRequest queryDto){
         Page<House> pageResult = getListing(queryDto);

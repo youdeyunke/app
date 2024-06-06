@@ -79,21 +79,6 @@ public class UploadFileUtil {
 
     public static final String IMAGE_GIF = "image/gif";
 
-    /**
-     * 默认上传的地址
-     */
-    private static String defaultUploadDir = UdykUtil.getUploadDir();
-
-    public static void setDefaultUploadDir(String defaultBaseDir)
-    {
-        UploadFileUtil.defaultUploadDir = defaultBaseDir;
-    }
-
-    public static String getDefaultUploadDir()
-    {
-        return defaultUploadDir;
-    }
-
 
     public static FileInfo uploadLocal(MultipartFile file , String domain){
         try
