@@ -78,7 +78,7 @@
 | --- | --- | --- |
 | 管理后台地址 | 搭建中... | http://demo.youdeyunke.com/ |
 | 管理后台用户名 | 搭建中... | `gitee@youdeyunke.com` |
-| 管理后台密码 | 搭建中... | `88888888` |
+| 管理后台密码 | 搭建中... | 联系客服获取：[客服地址](https://work.weixin.qq.com/kfid/kfc8a0f8817daf2ec01) |
 | 小程序演示 | 搭建中... |  ![](https://qiniucdn.udeve.net/udyk/65a0d469b33aac0d968a3529.jpg) |
 
 
