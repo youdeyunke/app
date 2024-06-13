@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[产品官网](https://www.youdeyunke.com/) | [在线客服](https://work.weixin.qq.com/kfid/kfc8a0f8817daf2ec01) | [加入群聊](https://qiniucdn.udeve.net/udyk/66064f7e8ecade73b2385bb3.jpg)
+[产品官网](https://www.youdeyunke.com/?statId=6) | [在线客服](https://work.weixin.qq.com/kfid/kfc8a0f8817daf2ec01) | [加入群聊](https://qiniucdn.udeve.net/udyk/66064f7e8ecade73b2385bb3.jpg)
 
 
 </div>
