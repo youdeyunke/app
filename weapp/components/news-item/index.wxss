@@ -65,7 +65,7 @@
 .item .title {
     font-size: 32rpx;
     color: #333;
-    line-height: 42rpx;
+    line-height: 50rpx;
     font-weight: bolder;
     display: -webkit-box;
     overflow: hidden;

@@ -12,7 +12,18 @@
 const app = getApp()
 // 请修改为您自己的服务端地址，服务端安装请参考文档：http://doc.youdeyunke.com/zhunbei.html
 //const apiHost = 'https://demo.youdeyunke.com';
-const apiHost = 'https://m.kexuezhaofang.com'
+
+const apiHost = 'http://udyk.natapp1.cc'
+
+//const apiHost = 'https://m.kexuezhaofang.com'
+
+// 唐山，租购并举
+//const apiHost = 'https://lnfy.ts-est.com'
+
+//const apiHost = 'https://qmyx.hbsrkj.com'
+
+// 红城房交会
+//const apiHost = 'https://mp.gaiya.com.cn'
 const throttle = require('./throttle');
 
 // 发送http请求

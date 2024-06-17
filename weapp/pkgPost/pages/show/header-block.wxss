@@ -13,7 +13,7 @@
     background-color: #fff;
     color: #333;
     font-size: 24rpx;
-    width: 718rpx;
+    width: 750rpx;
     margin: 0 auto 0 auto;
     border-top-right-radius: 20rpx;
     border-top-left-radius: 20rpx;

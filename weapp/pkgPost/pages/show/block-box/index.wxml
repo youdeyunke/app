@@ -12,7 +12,7 @@
 <view class="card ">
     <view class="card-header">
         <view class="card-header-title">
-            <view wx:if="{{leftHat}}" style="width: 6rpx;height: 30rpx;background-color: {{leftHatColor}};margin-right: 15rpx;"></view>
+            <view class="card-hat" wx:if="{{leftHat}}" style="background-color: {{leftHatColor}}"></view>
             <view class="name">
                 {{title}}
                 <text wx:if="{{number>0}}">({{number}})</text>
