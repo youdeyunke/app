@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     gotoPurchaseUrl() {
-      window.open('https://www.youdeyunke.com/price.html');
+      window.open('https://www.youdeyunke.com/price.html?statId=9');
     },
   },
 };
