@@ -1,4 +1,4 @@
-![友得云客房产小程序](https://qiniucdn.udeve.cn/fang2021/4bbe636b-e0e8-4580-8bb0-66bbf61f11bd.png)
+![友得云客房产小程序](https://tcdn.udeve.net/fang2021/4bbe636b-e0e8-4580-8bb0-66bbf61f11bd.png)
 
 ## 友得云客(社区版)管理面板运行指南
 
