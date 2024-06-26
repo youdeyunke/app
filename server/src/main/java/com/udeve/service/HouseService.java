@@ -62,7 +62,7 @@ public class HouseService {
         List<HouseListingVo> result = pageResult.getContent().stream().map(houseEntity ->{
             HouseListingVo map = modelMapper.map(houseEntity, HouseListingVo.class);
             if(map.getCover()==null || ("").equals(map.getCover())){
-                //TODO 改为素材图
+                // 素材图
                 map.setCover(map.getImageList().size()==0?"https://qiniucdn.udeve.cn/udyk/659e5134e4b04bdf00a71575.png":map.getImageList().get(0));
             }
             return map;
@@ -103,7 +103,7 @@ public class HouseService {
     public Page<House> getListing(HouseSearchRequest queryDto){
         // 根据参数进行动态查询
         log.info("house service dto {}", queryDto.toString());
-        Specification<House> specification = (Specification<House>)(Root<House> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) -> {
+        Specification<House> specification = (Root<House> root, CriteriaQuery<?> criteriaQuery, CriteriaBuilder criteriaBuilder) -> {
             List<Predicate> predicates = new ArrayList<>();
             //增加一个id大于0的默认条件
             predicates.add(criteriaBuilder.greaterThan(root.get("id"), 0));
@@ -189,7 +189,7 @@ public class HouseService {
     }
 
     public JsonResponse getHouseFilters(String business) {
-        // TODO 返回小程序端用于筛选的数据
+        // 返回小程序端用于筛选的数据
         JSONObject data = new JSONObject();
         data.put("category", myconfigService.getEnumList("house_category"));
         data.put("fitment", myconfigService.getEnumList("house_fitment"));

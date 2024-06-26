@@ -12,7 +12,7 @@
 <template>
     <div class="" v-cloak v-if="item">
         <el-dialog :visible.sync="show" :destroy-on-close="true" :close-on-click-modal="false" v-loading="loading"
-            title="编辑角色" width="400px" @close="$emit('update:show', false)" :with-header="false" v-if="show">
+            :title="item.id?'编辑角色':'新建角色'" width="400px" @close="$emit('update:show', false)" :with-header="false" v-if="show">
             <el-form size="mini" label-position="left">
                 <el-form-item label="角色名称" required>
                     <el-input v-model="item.name" style="width: 200px" />
