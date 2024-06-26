@@ -12,6 +12,7 @@ package com.udeve.config;
  */
 import cn.dev33.satoken.exception.NotLoginException;
 import cn.dev33.satoken.exception.NotPermissionException;
+import cn.dev33.satoken.jwt.exception.SaJwtException;
 import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import com.udeve.utils.JsonResponse;
 import com.udeve.utils.UserTipGenerator;
@@ -73,6 +74,12 @@ public class ExceptionController {
 
         log.warn("发生 runtime 异常：{}", ex.getMessage());
         return JsonResponse.error(ex.getMessage());
+    }
+
+    @ExceptionHandler(SaJwtException.class)
+    public JsonResponse handleSaJwtException(SaJwtException ex) {
+        log.error("Sa-Token 异常：{}", ex.getMessage());
+        return JsonResponse.unauthorized("登录过期，请重新登录！");
     }
 
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
