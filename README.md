@@ -76,10 +76,10 @@
 
 | 内容 | 社区版|  商业版   |
 | --- | --- | --- |
-| 管理后台地址 | https://demo2.youdeyunke.com/ | http://demo.youdeyunke.com/admin/index.html |
-| 楼盘网站地址 | `无网站` | https://demo.youdeyunke.com |
-| 管理后台用户名 | 	`gitee@youdeyunke.com` | `gitee@youdeyunke.com` |
-| 管理后台密码 | `88888888` | [咨询客服获取密码](https://work.weixin.qq.com/kfid/kfc8a0f8817daf2ec01) |
+| 管理端演示地址 | https://demo2.youdeyunke.com/ | https://demo.youdeyunke.com/admin/index.html |
+| 管理端演示用户名 | 	`gitee@youdeyunke.com` | `gitee@youdeyunke.com` |
+| 管理端演示用户密码 | `88888888` | [咨询客服获取密码](https://work.weixin.qq.com/kfid/kfc8a0f8817daf2ec01) |
+| 网站端演示地址 | `不支持` | https://demo.youdeyunke.com |
 | 小程序演示 | ![](https://demo2.youdeyunke.com/filestore/2024/06/21/b690b7dbde84db693701e518d910a856_20240621104716A012.jpg) |  ![](https://tcdn.udeve.net/udyk/65a0d469b33aac0d968a3529.jpg) |
 
 
