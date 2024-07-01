@@ -10,8 +10,8 @@
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
 <view class="bg"></view>
-<view class="user-header" style="background-image:url('https://qiniucdn.udeve.net/fang/broker-profile-bg.png');">
-    <namecard  broker="{{broker}}" bg="https://qiniucdn.udeve.net/fang/broker-profile-bg.png" ></namecard>
+<view class="user-header" style="background-image:url('https://tcdn.udeve.net/fang/broker-profile-bg.png');">
+    <namecard  broker="{{broker}}" bg="https://tcdn.udeve.net/fang/broker-profile-bg.png" ></namecard>
 </view>
 <view class="jiange"></view>
 <ud-card title="个人简介:" width="750">
@@ -44,7 +44,7 @@
 
 <view class="bottom-btn">
   <view class="bottom-btn-fenxiang" style="position: relative;">
-    <image src="https://qiniucdn.udeve.net/udyk/65b06910b33af4699191824b.png"></image>
+    <image src="https://tcdn.udeve.net/udyk/65b06910b33af4699191824b.png"></image>
     <view >分享</view>
     <button open-type="share"></button>
   </view>

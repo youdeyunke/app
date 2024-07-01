@@ -22,7 +22,7 @@ Component({
      * 组件的初始数据
      */
     data: {
-        defaultIcon: "https://qiniucdn.udeve.cn/assets/icons/search-icon.png",
+        defaultIcon: "https://tcdn.udeve.net/assets/icons/search-icon.png",
 
     },
 

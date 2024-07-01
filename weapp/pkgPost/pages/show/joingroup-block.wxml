@@ -11,7 +11,7 @@
 -->
 <!--pkgPost/pages/show/joingroup-block.wxml-->
 <view class="box"style="margin-bottom: 20rpx;" >
-  <image class="image" src="https://qiniucdn.udeve.net/fang/pkgPost/join.png" mode="widthFix" bindtap="onQrShow"></image>
+  <image class="image" src="https://tcdn.udeve.net/fang/pkgPost/join.png" mode="widthFix" bindtap="onQrShow"></image>
   <text class="text">{{value.title}}</text>
   <block wx:if="{{value.qr != null}}">
     <van-popup show="{{ show }}" bind:close="onClose" round position="bottom" closeable>

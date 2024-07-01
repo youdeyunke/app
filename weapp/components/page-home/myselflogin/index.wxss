@@ -25,7 +25,7 @@
 }
 
 .header.broker{
-	background-image: url('https://qiniucdn.udeve.net/fang/myself-2.png'); 
+	background-image: url('https://tcdn.udeve.net/fang/myself-2.png'); 
 }
 
 .header .avatar{

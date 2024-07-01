@@ -35,7 +35,7 @@ Component({
                 '/assets/icons/broker/broker.level.3.png',
             ]
             // v = 1,2,3
-            // https://qiniucdn.udeve.net/fang/medal.{{item.level}}.png
+            // https://tcdn.udeve.net/fang/medal.{{item.level}}.png
             v = v - 1
             this.setData({
                 levelImg: levelImgs[v]
@@ -51,7 +51,7 @@ Component({
     data: {
         loading: false,
         levelImg: '',
-        bg: 'https://qiniucdn.udeve.net/udyk/65e946658eca4d65ccc012ec.png',
+        bg: 'https://tcdn.udeve.net/udyk/65e946658eca4d65ccc012ec.png',
         items: [],
     },
 

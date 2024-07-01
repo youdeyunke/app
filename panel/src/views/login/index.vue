@@ -14,9 +14,9 @@
         <div class="login-window" v-loading="loading">
             <div class="left">
 
-                <img  src="https://qiniucdn.udeve.net/udyk/6555ca584049db2b0c23871c.png" class="logo" />
+                <img  src="https://tcdn.udeve.net/udyk/6555ca584049db2b0c23871c.png" class="logo" />
 
-                <img src="https://qiniucdn.udeve.cn/assets/images/a411ef83776aa.png" class="theme" />
+                <img src="https://tcdn.udeve.net/assets/images/a411ef83776aa.png" class="theme" />
 
                 <div class="cr">
                     <a href="https://www.youdeyunke.com/" target="_blank">优得（西安）信息科技有限公司</a>

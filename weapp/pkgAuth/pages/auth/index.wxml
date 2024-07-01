@@ -10,10 +10,10 @@
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
 <view class="auth" wx:if="{{!userInfo}}">
-    <view class="header" style="background-image:url('https://qiniucdn.udeve.net/fang/login-header.png')">
+    <view class="header" style="background-image:url('https://tcdn.udeve.net/fang/login-header.png')">
     </view>
 
-    <view class="body" style="background-image:url('https://qiniucdn.udeve.net/fang/login-body.png')">
+    <view class="body" style="background-image:url('https://tcdn.udeve.net/fang/login-body.png')">
     </view>
 
     <view class="footer">

@@ -10,7 +10,7 @@
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
 <view class="outer">
-  <image class="banner" src="https://qiniucdn.udeve.net/fang/myself-1.png"></image>
+  <image class="banner" src="https://tcdn.udeve.net/fang/myself-1.png"></image>
   <block wx:if="{{groupValue == 'advisor'}}">
     <view class="title">
       置业顾问入驻

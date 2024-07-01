@@ -75,7 +75,7 @@ export default {
         return {
             showForm: false,
             post: null,
-            cdnDomain: "qiniucdn.udeve.cn",
+            cdnDomain: "tcdn.udeve.net",
             cdnProtoco: "http",
             loading: false,
             BannerItem: {},

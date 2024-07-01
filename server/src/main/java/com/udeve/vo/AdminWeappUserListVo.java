@@ -24,7 +24,7 @@ public class AdminWeappUserListVo implements Serializable {
 
     public String mobile;
 
-    public String avatar = "https://qiniucdn.udeve.cn/default-avatar.png";
+    public String avatar = "https://tcdn.udeve.net/default-avatar.png";
 
     public LocalDateTime createdAt = LocalDateTime.now();
 

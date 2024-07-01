@@ -15,7 +15,7 @@ const brokerApi = require("../../../api/broker")
 
 var haibaoBg = {
     type: 'image',
-    url: 'https://qiniucdn.udeve.cn/fang2021/ef878289-5fda-4241-a117-2422d0609a96.png',
+    url: 'https://tcdn.udeve.net/fang2021/ef878289-5fda-4241-a117-2422d0609a96.png',
     css: {
         width: '750rpx',
         height: '280rpx',

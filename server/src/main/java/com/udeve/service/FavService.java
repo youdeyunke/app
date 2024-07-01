@@ -134,7 +134,7 @@ public class FavService {
                     HouseItemForListingVo map = modelMapper.map(house, HouseItemForListingVo.class);
                     if(map.getCover()==null || ("").equals(map.getCover())){
                         //TODO 改为素材图
-                        map.setCover(map.getImageList().size()==0?"https://qiniucdn.udeve.cn/udyk/659e5134e4b04bdf00a71575.png":map.getImageList().get(0));
+                        map.setCover(map.getImageList().size()==0?"https://tcdn.udeve.net/udyk/659e5134e4b04bdf00a71575.png":map.getImageList().get(0));
                     }
                     return map;
                 })

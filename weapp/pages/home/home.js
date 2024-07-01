@@ -30,7 +30,7 @@ Page({
                 "dynamicInnerText": true,
                 "link": "{\"cat\":\"page\",\"opentype\":\"\",\"path\":\"/pkgPost/pages/index/index?district_id=1\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
                 "name": "新城区",
-                "iconUrl": "https://qiniucdn.udeve.cn/udyk/65bb629ee4b0bee2ad943894.png",
+                "iconUrl": "https://tcdn.udeve.net/udyk/65bb629ee4b0bee2ad943894.png",
                 "id": 1712153796698
             },
             {
@@ -40,7 +40,7 @@ Page({
                 "dynamicInnerText": true,
                 "link": "{\"cat\":\"page\",\"opentype\":\"\",\"path\":\"/pkgPost/pages/index/index?district_id=4\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
                 "name": "雁塔区",
-                "iconUrl": "https://qiniucdn.udeve.cn/udyk/65bb6290e4b0bee2ad943893.png",
+                "iconUrl": "https://tcdn.udeve.net/udyk/65bb6290e4b0bee2ad943893.png",
                 "id": 1712153925425
             },
             {
@@ -50,7 +50,7 @@ Page({
                 "dynamicInnerText": true,
                 "link": "{\"cat\":\"page\",\"opentype\":\"\",\"path\":\"/pkgPost/pages/index/index?district_id=5\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
                 "name": "灞桥区",
-                "iconUrl": "https://qiniucdn.udeve.cn/udyk/65bb6281e4b0bee2ad943892.png",
+                "iconUrl": "https://tcdn.udeve.net/udyk/65bb6281e4b0bee2ad943892.png",
                 "id": 1712153982395
             },
             {
@@ -60,7 +60,7 @@ Page({
                 "dynamicInnerText": true,
                 "link": "{\"cat\":\"page\",\"opentype\":\"\",\"path\":\"/pkgPost/pages/index/index?district_id=6\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
                 "name": "未央区",
-                "iconUrl": "https://qiniucdn.udeve.cn/udyk/65bb6272e4b0bee2ad943891.png",
+                "iconUrl": "https://tcdn.udeve.net/udyk/65bb6272e4b0bee2ad943891.png",
                 "id": 1712154035708
             },
             {
@@ -70,7 +70,7 @@ Page({
                 "dynamicInnerText": true,
                 "link": "{\"cat\":\"page\",\"opentype\":\"\",\"path\":\"/pkgPost/pages/index/index?district_id=9\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
                 "name": "长安区",
-                "iconUrl": "https://qiniucdn.udeve.cn/udyk/65bb6261e4b0bee2ad943890.png",
+                "iconUrl": "https://tcdn.udeve.net/udyk/65bb6261e4b0bee2ad943890.png",
                 "id": 1712154136937
             },
             {
@@ -78,42 +78,42 @@ Page({
                 "public": true,
                 "link": "{\"cat\":\"page\",\"opentype\":\"navigateTo\",\"path\":\"/pkgPost/pages/index/index\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\"}",
                 "name": "热门楼盘",
-                "iconUrl": "https://qiniucdn.udeve.net/udyk/65ddabce8ecaa4eb12d7bc69.png"
+                "iconUrl": "https://tcdn.udeve.net/udyk/65ddabce8ecaa4eb12d7bc69.png"
             },
             {
                 "size": 100,
                 "public": true,
                 "link": "{\"cat\":\"page\",\"opentype\":\"navigateTo\",\"path\":\"/pages/want/index\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\"}",
                 "name": "帮我找房",
-                "iconUrl": "https://qiniucdn.udeve.net/udyk/660cae288eca9b2a88286093.png"
+                "iconUrl": "https://tcdn.udeve.net/udyk/660cae288eca9b2a88286093.png"
             },
             {
                 "size": "100",
                 "public": true,
                 "link": "{\"cat\":\"page\",\"opentype\":\"navigateTo\",\"path\":\"/pkgErshou/pages/create\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\"}",
                 "name": "我要卖房",
-                "iconUrl": "https://qiniucdn.udeve.net/udyk/660cae898eca9b2a88286094.png"
+                "iconUrl": "https://tcdn.udeve.net/udyk/660cae898eca9b2a88286094.png"
             },
             {
                 "size": "100",
                 "public": true,
                 "link": "{\"cat\":\"page\",\"opentype\":\"navigateTo\",\"path\":\"/pkgBroker/pages/broker/join?group_value=broker\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\"}",
                 "name": "顾问入驻",
-                "iconUrl": "https://qiniucdn.udeve.net/udyk/65e03f7e8eca1a2060df32c1.png"
+                "iconUrl": "https://tcdn.udeve.net/udyk/65e03f7e8eca1a2060df32c1.png"
             },
             {
                 "size": "100",
                 "public": true,
                 "link": "{\"cat\":\"page\",\"opentype\":\"navigateTo\",\"path\":\"/pkgJisuanqi/pages/daikuan/index\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\"}",
                 "name": "房贷计算",
-                "iconUrl": "https://qiniucdn.udeve.net/udyk/660caf138eca2b4e71e23a40.png"
+                "iconUrl": "https://tcdn.udeve.net/udyk/660caf138eca2b4e71e23a40.png"
             },
             {
                 "size": 100,
                 "public": false,
                 "link": "{\"cat\":\"page\",\"opentype\":\"navigateTo\",\"path\":\"/pkgTour/pages/tourList/index\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
                 "name": "热门活动",
-                "iconUrl": "https://qiniucdn.udeve.net/udyk/660cb11a8eca2b4e71e23a44.png",
+                "iconUrl": "https://tcdn.udeve.net/udyk/660cb11a8eca2b4e71e23a44.png",
                 "id": 1712153517405
             },
             {
@@ -121,7 +121,7 @@ Page({
                 "public": false,
                 "link": "{\"cat\":\"page\",\"opentype\":\"navigateTo\",\"path\":\"/pkgVideo/pages/video/index\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\"}",
                 "name": "视频看房",
-                "iconUrl": "https://qiniucdn.udeve.net/udyk/65ee50f5e4b066b2ee17f692.png",
+                "iconUrl": "https://tcdn.udeve.net/udyk/65ee50f5e4b066b2ee17f692.png",
                 "id": 1712153513003
             }
         ],

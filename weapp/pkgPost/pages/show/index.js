@@ -18,11 +18,11 @@ const historyApi = require("../../../api/history")
 var wxCharts = require('../../../utils/wxcharts-min');
 const themes = [{
     color: '#3A6BDD',
-    bgImg: 'https://qiniucdn.udeve.cn/fang2021/6eed67a9-7a5c-4a64-be48-d81221ca3ac0.png'
+    bgImg: 'https://tcdn.udeve.net/fang2021/6eed67a9-7a5c-4a64-be48-d81221ca3ac0.png'
 },
 {
     color: '#30DFBB',
-    bgImg: 'https://qiniucdn.udeve.cn/fang2021/40f109f6-8ec0-4bb2-8483-8a073fa2a294.png'
+    bgImg: 'https://tcdn.udeve.net/fang2021/40f109f6-8ec0-4bb2-8483-8a073fa2a294.png'
 }
 ]
 Page({
@@ -39,7 +39,7 @@ Page({
         postInfo: null,
         brokerId: null,
         color: "#3A6BDD",
-        bgImg: "https://qiniucdn.udeve.cn/fang2021/6eed67a9-7a5c-4a64-be48-d81221ca3ac0.png",
+        bgImg: "https://tcdn.udeve.net/fang2021/6eed67a9-7a5c-4a64-be48-d81221ca3ac0.png",
         theme: 'theme1',
         showTab: false,
         StatusBarHeight: null,

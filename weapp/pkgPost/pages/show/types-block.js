@@ -29,7 +29,7 @@ Component({
                     item.cover = images_list[0]
                 } else {
                     item.hasImage = false
-                    item.cover = 'https://qiniucdn.udeve.net/fang/pkgPost/image-none.png'
+                    item.cover = 'https://tcdn.udeve.net/fang/pkgPost/image-none.png'
                 }
 
                 if (item.tags) {

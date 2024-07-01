@@ -12,7 +12,7 @@
 <!-- components/pagemaker/noticebar/index.wxml -->
 <view class="notice" style="height: 100rpx;" v-cloak>
     <view class="icon">
-        <image mode="aspectFit" src="https://qiniucdn.udeve.net/udyk/65f282498eca49f426f5c9c1.png" />
+        <image mode="aspectFit" src="https://tcdn.udeve.net/udyk/65f282498eca49f426f5c9c1.png" />
     </view>
     <view class="items">
         <swiper autoplay="true" circular="true" interval="3000" vertical="true" style="width:100%;height:100%;">

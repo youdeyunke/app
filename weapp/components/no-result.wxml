@@ -10,7 +10,7 @@
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
 <view class="wrapper" >
-  <image class="img" src="https://qiniucdn.udeve.net/fang/no-result.png" />
+  <image class="img" src="https://tcdn.udeve.net/fang/no-result.png" />
   <view class="text"> {{ text }}  </view>
   <view class="help">  </view>
 </view>

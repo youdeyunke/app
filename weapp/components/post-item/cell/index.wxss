@@ -191,7 +191,7 @@
 
 .outer .point.default{
     background: rgba(255, 176,64,0.17);
-    background-image:url('https://qiniucdn.udeve.net/fang/post-item-point.png'); 
+    background-image:url('https://tcdn.udeve.net/fang/post-item-point.png'); 
     background-size: 28rpx 28rpx;
     background-repeat: no-repeat;
     background-position: 8rpx 7rpx;
@@ -199,7 +199,7 @@
 
 .outer .point.time{
     background: rgba(255, 176,64,0.17);
-    background-image:url('https://qiniucdn.udeve.net/fang/post-item-point.png'); 
+    background-image:url('https://tcdn.udeve.net/fang/post-item-point.png'); 
     background-size: 28rpx 28rpx;
     background-repeat: no-repeat;
     background-position: 8rpx 7rpx;

@@ -12,7 +12,7 @@
  .coupon{
   width: 643rpx;
   height: 194rpx;
-  background-image:url('https://qiniucdn.udeve.net/fang/coupon-bg.png'); 
+  background-image:url('https://tcdn.udeve.net/fang/coupon-bg.png'); 
   background-size: 100% 100%;
   background-repeat: no-repeat;
   color: #fff;

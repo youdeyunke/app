@@ -14,19 +14,19 @@
 
   <view class="badges">
         <view class="badge-item">
-            <image class="" src="https://qiniucdn.udeve.net/fang/pkgPost/jingji-icon-0.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
+            <image class="" src="https://tcdn.udeve.net/fang/pkgPost/jingji-icon-0.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
             免费带看
         </view>
         <view class="badge-item">
-            <image class="" src="https://qiniucdn.udeve.net/fang/pkgPost/jingji-icon-1.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
+            <image class="" src="https://tcdn.udeve.net/fang/pkgPost/jingji-icon-1.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
             专业服务
         </view>
         <view class="badge-item">
-            <image class="" src="https://qiniucdn.udeve.net/fang/pkgPost/jingji-icon-2.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
+            <image class="" src="https://tcdn.udeve.net/fang/pkgPost/jingji-icon-2.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
             区域解读
         </view>
         <view class="badge-item">
-            <image class="" src="https://qiniucdn.udeve.net/fang/pkgPost/jingji-icon-3.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
+            <image class="" src="https://tcdn.udeve.net/fang/pkgPost/jingji-icon-3.png" style="width:24rpx;height:24rpx;margin-right:8rpx" />
             户型分析
         </view>
     </view>
