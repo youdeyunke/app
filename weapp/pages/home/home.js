@@ -26,8 +26,7 @@ Page({
         btns: [{
                 "size": 100,
                 "public": true,
-                "innerText": "新城",
-                "dynamicInnerText": true,
+                "innerText": "新",
                 "link": "{\"cat\":\"page\",\"opentype\":\"\",\"path\":\"/pkgPost/pages/index/index?district_id=1\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
                 "name": "新城区",
                 "iconUrl": "https://tcdn.udeve.net/udyk/65bb629ee4b0bee2ad943894.png",
@@ -36,8 +35,7 @@ Page({
             {
                 "size": 100,
                 "public": true,
-                "innerText": "雁塔",
-                "dynamicInnerText": true,
+                "innerText": "雁",
                 "link": "{\"cat\":\"page\",\"opentype\":\"\",\"path\":\"/pkgPost/pages/index/index?district_id=4\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
                 "name": "雁塔区",
                 "iconUrl": "https://tcdn.udeve.net/udyk/65bb6290e4b0bee2ad943893.png",
@@ -46,8 +44,7 @@ Page({
             {
                 "size": 100,
                 "public": true,
-                "innerText": "灞桥",
-                "dynamicInnerText": true,
+                "innerText": "灞",
                 "link": "{\"cat\":\"page\",\"opentype\":\"\",\"path\":\"/pkgPost/pages/index/index?district_id=5\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
                 "name": "灞桥区",
                 "iconUrl": "https://tcdn.udeve.net/udyk/65bb6281e4b0bee2ad943892.png",
@@ -56,8 +53,7 @@ Page({
             {
                 "size": 100,
                 "public": true,
-                "innerText": "未央",
-                "dynamicInnerText": true,
+                "innerText": "未",
                 "link": "{\"cat\":\"page\",\"opentype\":\"\",\"path\":\"/pkgPost/pages/index/index?district_id=6\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
                 "name": "未央区",
                 "iconUrl": "https://tcdn.udeve.net/udyk/65bb6272e4b0bee2ad943891.png",
@@ -66,8 +62,7 @@ Page({
             {
                 "size": 100,
                 "public": true,
-                "innerText": "长安",
-                "dynamicInnerText": true,
+                "innerText": "长",
                 "link": "{\"cat\":\"page\",\"opentype\":\"\",\"path\":\"/pkgPost/pages/index/index?district_id=9\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
                 "name": "长安区",
                 "iconUrl": "https://tcdn.udeve.net/udyk/65bb6261e4b0bee2ad943890.png",
