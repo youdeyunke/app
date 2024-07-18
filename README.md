@@ -33,7 +33,7 @@
 
 
 ## 功能对比
-| 功能 | 社区版|  商业版   |
+| 功能 | 社区版|  专业版   |
 | --- | --- | --- |
 | 新房、二手房、租房  | ✅ | ✅  |
 | 短信验证码登录（腾讯、阿里云、云片网）  |  ❌ | ✅  |
@@ -74,11 +74,12 @@
 
 ## 在线演示
 
-| 内容 | 社区版|  商业版   |
+| 内容 | 社区版|  专业版   |
 | --- | --- | --- |
-| 管理后台地址 | https://demo2.youdeyunke.com/ | http://demo.youdeyunke.com/ |
-| 管理后台用户名 | 	`gitee@youdeyunke.com` | `gitee@youdeyunke.com` |
-| 管理后台密码 | `88888888` | [咨询客服获取密码](https://work.weixin.qq.com/kfid/kfc8a0f8817daf2ec01) |
+| 管理端演示地址 | https://demo2.youdeyunke.com/ | https://demo.youdeyunke.com/admin/index.html |
+| 管理端演示用户名 | 	`gitee@youdeyunke.com` | `gitee@youdeyunke.com` |
+| 管理端演示用户密码 | `88888888` | [咨询客服获取密码](https://work.weixin.qq.com/kfid/kfc8a0f8817daf2ec01) |
+| 网站端演示地址 | `不支持` | https://demo.youdeyunke.com |
 | 小程序演示 | ![](https://demo2.youdeyunke.com/filestore/2024/06/21/b690b7dbde84db693701e518d910a856_20240621104716A012.jpg) |  ![](https://tcdn.udeve.net/udyk/65a0d469b33aac0d968a3529.jpg) |
 
 
@@ -86,7 +87,7 @@
 
 ## 版本区别 
 
-|       | 社区版 |  商业版 |
+|       | 社区版 |  专业版 |
 | :---: | :---: | :---:  |
 |   基础功能    |  有  |  有   |
 | 高级功能    | 无  |  有  |

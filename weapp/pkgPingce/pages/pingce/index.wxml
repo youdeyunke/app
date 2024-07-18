@@ -10,8 +10,8 @@
  +- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 -->
 <!--pkgPingce/pages/pingce/index.wxml-->
-<image class="topimg" src="https://qiniucdn.udeve.net/udyk/64c07641e4b0a1cf65fd07cd.png" mode="" />
-<image style="position: absolute;top: 100rpx;width: 50rpx;height: 50rpx;left: 80rpx;" bindtap="goBack" src="https://qiniucdn.udeve.cn/fang2021/a392d2fb-5d3e-486b-923a-a6321fb07674.png" mode="" />
+<image class="topimg" src="https://tcdn.udeve.net/udyk/64c07641e4b0a1cf65fd07cd.png" mode="" />
+<image style="position: absolute;top: 100rpx;width: 50rpx;height: 50rpx;left: 80rpx;" bindtap="goBack" src="https://tcdn.udeve.net/fang2021/a392d2fb-5d3e-486b-923a-a6321fb07674.png" mode="" />
 <view style="display: flex;width: 750rpx;align-items: center;justify-content: center;">
 	<view class="pingceBox">
 

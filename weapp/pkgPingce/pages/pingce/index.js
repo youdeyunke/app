@@ -141,7 +141,7 @@ Page({
                 resolve({
                     title: title + '楼盘评测报告',
                     path: '/pkgPingce/pages/pingce/index?postid=' + postid,
-                    imageUrl: "https://qiniucdn.udeve.cn/fang2021/f52cbf31-f10c-42d9-bfee-21e60c15e217.jpg"
+                    imageUrl: "https://tcdn.udeve.net/fang2021/f52cbf31-f10c-42d9-bfee-21e60c15e217.jpg"
                 })
             }, 2000)
         })

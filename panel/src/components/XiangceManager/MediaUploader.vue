@@ -41,7 +41,7 @@ export default {
     },
     data () {
         return {
-            cdnDomain: "qiniucdn.udeve.cn",
+            cdnDomain: "tcdn.udeve.net",
             cdnProtoco: "http",
             loading: true,
             uploading: false,

@@ -31,7 +31,7 @@ public class User {
     public String mobile;
 
     @Column
-    public String avatar = "https://qiniucdn.udeve.cn/default-avatar.png";
+    public String avatar = "https://tcdn.udeve.net/default-avatar.png";
 
     public LocalDateTime createdAt = LocalDateTime.now();
 

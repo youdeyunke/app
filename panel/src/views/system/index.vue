@@ -153,7 +153,7 @@
                 AppID(小程序ID)
                 <el-popover placement="right-start" width="700" trigger="hover">
                   <div>进入"微信公众平台 - 开发 - 开发设置"查看</div>
-                  <el-image src="https://qiniucdn.udeve.cn/assets/images/xcx_appid.jpg" />
+                  <el-image src="https://tcdn.udeve.net/assets/images/xcx_appid.jpg" />
                   <el-button slot="reference" icon="el-icon-question" type="text" />
                 </el-popover>
               </span>
@@ -169,7 +169,7 @@
                 AppSecret(小程序密钥)
                 <el-popover placement="right-start" width="700" trigger="hover">
                   <div>进入"微信公众平台 - 开发 - 开发设置"查看</div>
-                  <el-image src="https://qiniucdn.udeve.cn/assets/images/xcx_secret.jpg" />
+                  <el-image src="https://tcdn.udeve.net/assets/images/xcx_secret.jpg" />
 
                   <el-button slot="reference" icon="el-icon-question" type="text" />
                 </el-popover>

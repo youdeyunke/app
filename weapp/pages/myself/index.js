@@ -25,7 +25,7 @@ Page({
                 "public": true,
                 "name": "浏览足迹",
                 "link": "{\"cat\":\"page\",\"opentype\":\"navigateTo\",\"path\":\"/pkgMyself/pages/history/index\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
-                "iconUrl": "https://qiniucdn.udeve.cn/udyk/myself_history.png",
+                "iconUrl": "https://tcdn.udeve.net/udyk/myself_history.png",
                 "url": "/pkgMyself/pages/history/index"
             },
             {
@@ -33,7 +33,7 @@ Page({
                 "public": true,
                 "name": "我的收藏",
                 "link": "{\"cat\":\"page\",\"opentype\":\"navigateTo\",\"path\":\"/pkgMyself/pages/favposts/index\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
-                "iconUrl": "https://qiniucdn.udeve.cn/udyk/myself_fav.png",
+                "iconUrl": "https://tcdn.udeve.net/udyk/myself_fav.png",
                 "url": "/pkgMyself/pages/favposts/index"
             },
             {
@@ -41,7 +41,7 @@ Page({
                 "public": true,
                 "name": "我的预约",
                 "link": "{\"cat\":\"page\",\"opentype\":\"navigateTo\",\"path\":\"/pkgMyself/pages/booking/index\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
-                "iconUrl": "https://qiniucdn.udeve.cn/udyk/myself_booking.png",
+                "iconUrl": "https://tcdn.udeve.net/udyk/myself_booking.png",
                 "url": "/pkgMyself/pages/booking/index"
             }
         ],
@@ -52,7 +52,7 @@ Page({
                 "dynamicInnerText": false,
                 "name": "买房问答",
                 "link": "{\"cat\":\"page\",\"opentype\":\"navigateTo\",\"path\":\"/pkgMyself/pages/qa/index\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
-                "iconUrl": "https://qiniucdn.udeve.cn/udyk/myself_qa.png",
+                "iconUrl": "https://tcdn.udeve.net/udyk/myself_qa.png",
                 "badgeText": "",
                 "url": "/pkgMyself/pages/history/index"
             },
@@ -61,7 +61,7 @@ Page({
                 "public": true,
                 "name": "顾问入驻",
                 "link": "{\"cat\":\"page\",\"opentype\":\"navigateTo\",\"path\":\"/pkgBroker/pages/broker/join?group_value=broker\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
-                "iconUrl": "https://qiniucdn.udeve.cn/udyk/myself_join.png",
+                "iconUrl": "https://tcdn.udeve.net/udyk/myself_join.png",
                 "url": "/pkgMyself/pages/favposts/index"
             },
             {
@@ -69,7 +69,7 @@ Page({
                 "public": true,
                 "name": "帮我找房",
                 "link": "{\"cat\":\"page\",\"opentype\":\"navigateTo\",\"path\":\"/pages/want/index\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
-                "iconUrl": "https://qiniucdn.udeve.cn/udyk/help_find_post.png",
+                "iconUrl": "https://tcdn.udeve.net/udyk/help_find_post.png",
                 "url": "/pkgMyself/pages/booking/index"
             },
             {
@@ -77,14 +77,14 @@ Page({
                 "public": true,
                 "link": "{\"cat\":\"page\",\"opentype\":\"navigateTo\",\"path\":\"/pkgJisuanqi/pages/daikuan/index\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\"}",
                 "name": "房贷计算",
-                "iconUrl": "https://qiniucdn.udeve.cn/udyk/loan_calc.png"
+                "iconUrl": "https://tcdn.udeve.net/udyk/loan_calc.png"
             },
             {
                 "size": 100,
                 "public": true,
                 "link": "{\"cat\":\"page\",\"opentype\":\"navigateTo\",\"path\":\"/pkgNews/pages/news/index\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
                 "name": "资讯列表",
-                "iconUrl": "https://qiniucdn.udeve.net/udyk/65f282498eca49f426f5c9c1.png"
+                "iconUrl": "https://tcdn.udeve.net/udyk/65f282498eca49f426f5c9c1.png"
             }
         ],
         commonlist:[
@@ -93,7 +93,7 @@ Page({
                 "public": true,
                 "name": "关于我们",
                 "link": "{\"cat\":\"page\",\"opentype\":\"navigateTo\",\"path\":\"/pkgAbout/pages/about/index\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
-                "iconUrl": "https://qiniucdn.udeve.cn/udyk/myself_about.png",
+                "iconUrl": "https://tcdn.udeve.net/udyk/myself_about.png",
                 "url": "/pkgMyself/pages/history/index"
             },
             {
@@ -101,7 +101,7 @@ Page({
                 "public": true,
                 "name": "联系客服",
                 "link": "{\"cat\":\"page\",\"opentype\":\"navigateTo\",\"path\":\"/pkgAbout/pages/about/index\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
-                "iconUrl": "https://qiniucdn.udeve.cn/udyk/contact_customer_service.png",
+                "iconUrl": "https://tcdn.udeve.net/udyk/contact_customer_service.png",
                 "url": "/pkgMyself/pages/favposts/index"
             },
             {
@@ -109,7 +109,7 @@ Page({
                 "public": true,
                 "name": "问题反馈",
                 "link": "{\"cat\":\"page\",\"opentype\":\"navigateTo\",\"path\":\"/pkgFeedback/pages/Feedback/index\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"\",\"url\":\"\",\"customPath\":true}",
-                "iconUrl": "https://qiniucdn.udeve.cn/udyk/problem_feedback.png",
+                "iconUrl": "https://tcdn.udeve.net/udyk/problem_feedback.png",
                 "url": "/pkgMyself/pages/coupons/index"
             },
             {
@@ -117,7 +117,7 @@ Page({
                 "public": true,
                 "name": "权限设置",
                 "link": "{\"cat\":\"function\",\"opentype\":\"navigateTo\",\"path\":\"/pkgBrokers/pages/brokers/index\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"authsetting\",\"url\":\"\",\"customPath\":true}",
-                "iconUrl": "https://qiniucdn.udeve.cn/udyk/myself_quanxian.png",
+                "iconUrl": "https://tcdn.udeve.net/udyk/myself_quanxian.png",
                 "url": "/pkgMyself/pages/booking/index"
             }
         ],
@@ -126,7 +126,7 @@ Page({
             "public": true,
             "link": "{\"cat\":\"function\",\"opentype\":\"\",\"path\":\"\",\"appid\":\"\",\"apppath\":\"\",\"function\":\"logout\",\"url\":\"\"}",
             "name": "退出登录",
-            "iconUrl": "https://qiniucdn.udeve.cn/udyk/myself_logout.png"
+            "iconUrl": "https://tcdn.udeve.net/udyk/myself_logout.png"
         },
     },
 

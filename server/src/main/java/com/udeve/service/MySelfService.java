@@ -55,13 +55,13 @@ public class MySelfService {
         WeappUserIconVo vo1 = new WeappUserIconVo();
         vo1.setName("我的电子名片");
         vo1.setUrl("/pkgBroker/pages/broker/profile?id=" + userId);
-        vo1.setIconUrl("https://qiniucdn.udeve.cn/udyk/myself_zhuye.png");
+        vo1.setIconUrl("https://tcdn.udeve.net/udyk/myself_zhuye.png");
 
 
         WeappUserIconVo vo3 = new WeappUserIconVo();
         vo3.setName("我的二维码海报");
         vo3.setUrl("/pkgBroker/pages/broker/qr");
-        vo3.setIconUrl("https://qiniucdn.udeve.cn/udyk/myself_minpian.png");
+        vo3.setIconUrl("https://tcdn.udeve.net/udyk/myself_minpian.png");
 
 
         JSONObject result = new JSONObject();

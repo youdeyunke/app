@@ -28,7 +28,7 @@ Component({
                 return
             }
             // 内部地址，替换为cdn地址
-            var cdn = 'https://qiniucdn.udeve.net/fang-weapp-2021-assets'
+            var cdn = 'https://tcdn.udeve.net/fang-weapp-2021-assets'
             var suffix = ''
             src = src.replace('/assets', cdn)
             var url = src + suffix

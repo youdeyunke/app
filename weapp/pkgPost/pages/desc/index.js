@@ -43,17 +43,21 @@ Page({
         var _this = this
         postApi.getPostDetailContent(_this.data.postId).then((resp) => {
             var post = resp.data.data
-            var meta = post.meta.replaceAll("：", ":")
-            var metaItems = meta.split('\n').map((line, index) => {
-                var res = line.split(':')
-                if (res.length == 1) {
-                    // 解析错误
-                    return { label: res[0], text: '-' }
-                }
-                var label = res.splice(0, 1)[0]
-                var text = res.join(':')
-                return { label: label, text: text }
-            })
+            var metaItems = []
+            if(post.meta){
+                var meta = post.meta.replaceAll("：", ":")
+                metaItems = meta.split('\n').map((line, index) => {
+                    var res = line.split(':')
+                    if (res.length == 1) {
+                        // 解析错误
+                        return { label: res[0], text: '-' }
+                    }
+                    var label = res.splice(0, 1)[0]
+                    var text = res.join(':')
+                    return { label: label, text: text }
+                })
+            }
+
             console.log('meta items', metaItems)
             _this.setData({ post: post, metaItems: metaItems })
             wx.setNavigationBarTitle({

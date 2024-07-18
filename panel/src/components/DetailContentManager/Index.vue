@@ -23,7 +23,7 @@
             <div class="line"></div>
             <div class="image-section">
                 <h4>显示效果预览</h4>
-                <img class="main-image" src="https://qiniucdn.udeve.net/udyk/65f794fd8ecae7a61b978140.png" alt="Image">
+                <img class="main-image" src="https://tcdn.udeve.net/udyk/65f794fd8ecae7a61b978140.png" alt="Image">
                 <div class="text-container">
                     <div class="text-content" v-html="detailData.value"></div>
                 </div>

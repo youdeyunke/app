@@ -238,7 +238,7 @@ Page({
         var _this = this
         var tpls = [{
             name: '祥云',
-            bg: 'https://qiniucdn.udeve.cn/poster-templates/6.jpg',
+            bg: 'https://tcdn.udeve.net/poster-templates/6.jpg',
             font_color: '#fff'
         }]
         posterApi.gettPosterList().then((resp) => {

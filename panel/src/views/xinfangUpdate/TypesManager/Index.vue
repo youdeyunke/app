@@ -371,7 +371,7 @@ export default {
       viewMode: "table",
       showTagInput: false,
       tabValue: "merit",
-      cdnDomain: "qiniucdn.udeve.cn",
+      cdnDomain: "tcdn.udeve.net",
       cdnProtoco: "http",
       showForm: false,
       SaleStatusItems: [],

@@ -87,7 +87,7 @@ Page({
             }]
             var tagDict = {}
             items.forEach((item, i) => {
-                item.cover = 'https://qiniucdn.udeve.net/fang/pkgPost/image-none.png'
+                item.cover = 'https://tcdn.udeve.net/fang/pkgPost/image-none.png'
                 if (item.images && item.images_list.length >= 1) {
                     item.cover = item.images_list[0]
                 }

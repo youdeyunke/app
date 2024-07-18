@@ -34,7 +34,7 @@
 	<block wx:else>
 		<view class="avatar">
 			<view class="border"></view>
-			<image class="img" src="https://qiniucdn.udeve.net/fang/myself-21.png"></image>
+			<image class="img" src="https://tcdn.udeve.net/fang/myself-21.png"></image>
 		</view>
 
 		<view class="name-info">
@@ -45,7 +45,7 @@
 		</view>
 
 		<view class="login" bindtap="gotoLoginPage">
-			<image class="img" src="https://qiniucdn.udeve.net/fang/myself-20.png"></image>
+			<image class="img" src="https://tcdn.udeve.net/fang/myself-20.png"></image>
 		</view>
 
 	</block>

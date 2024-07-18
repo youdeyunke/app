@@ -12,7 +12,7 @@
 <!--pkgErshou/pages/index.wxml-->
 <view style="position:relative;width: 100%;height: 1000rpx;">
     <view style="width: 100%;height: 560rpx;display: flex;justify-content: center;">
-        <image style="width: 100%;height: 100%;" src="https://qiniucdn.udeve.cn/fang2021/f89f6a66-652c-4da2-a5ae-e959ed83c9d7.png" mode="" />
+        <image style="width: 100%;height: 100%;" src="https://tcdn.udeve.net/fang2021/f89f6a66-652c-4da2-a5ae-e959ed83c9d7.png" mode="" />
         <view style="position: absolute;top: 156rpx;width: 690rpx;border-radius: 12rpx;overflow: hidden;">
             <van-search v-model="kw" bind:change="kwSearch" placeholder="您想住在哪？" />
         </view>

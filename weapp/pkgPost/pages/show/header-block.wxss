@@ -27,7 +27,7 @@
 }
 
 .title-block {
-    /* background-image: url('https://qiniucdn.udeve.cn/fang2021/6eed67a9-7a5c-4a64-be48-d81221ca3ac0.png');
+    /* background-image: url('https://tcdn.udeve.net/fang2021/6eed67a9-7a5c-4a64-be48-d81221ca3ac0.png');
     background-size: 100% 100%; */
     padding: 30rpx 30rpx 120rpx 30rpx;
     display: flex;

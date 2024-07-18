@@ -12,7 +12,7 @@
 .udicon
 {
  display:block;
- background:url('https://qiniucdn.udeve.cn/fang2021/c3f585fb-4892-4d31-a643-7b87bd703c2b.png')  no-repeat;
+ background:url('https://tcdn.udeve.net/fang2021/c3f585fb-4892-4d31-a643-7b87bd703c2b.png')  no-repeat;
  zoom: 0.33;
 }
 .udicon-1{

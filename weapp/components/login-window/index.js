@@ -52,7 +52,7 @@ Component({
     data: {
         loading: false,
         show: false,
-        bg: 'https://qiniucdn.udeve.net/fang/login-window.png',
+        bg: 'https://tcdn.udeve.net/fang/login-window.png',
         primaryColor: '#1989fa',
         secondaryBtnColor: "#3a67c0",
         primaryBtnColor: 'linear-gradient(270deg, #1989FA 0%, rgba(25, 137, 250, 0.6) 100%)',

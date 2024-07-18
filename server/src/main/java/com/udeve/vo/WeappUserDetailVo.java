@@ -19,5 +19,5 @@ public class WeappUserDetailVo implements Serializable {
     public Integer id;
     public String name;
     public String mobile;
-    public String avatar = "https://qiniucdn.udeve.cn/default-avatar.png";
+    public String avatar = "https://tcdn.udeve.net/default-avatar.png";
 }

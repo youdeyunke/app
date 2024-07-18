@@ -42,7 +42,7 @@ Component({
                     "apppath": ""
                 },
                 "title": "图片1",
-                "url": "https://qiniucdn.udeve.cn/fang2021/4bbe636b-e0e8-4580-8bb0-66bbf61f11bd.png"
+                "url": "https://tcdn.udeve.net/fang2021/4bbe636b-e0e8-4580-8bb0-66bbf61f11bd.png"
             }
         ]
     },

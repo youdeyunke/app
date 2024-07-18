@@ -12,7 +12,7 @@
 <view class="header">
   <view class="user-card">
     <image mode="aspectFill" class="user-card-avatar" bindtap="avatarHandle" src="{{broker.avatar}}"></image>
-    <image class="zhuye-bg" src="https://qiniucdn.udeve.net/udyk/65b0834ab33a04b3d5c4ab29.png"></image>
+    <image class="zhuye-bg" src="https://tcdn.udeve.net/udyk/65b0834ab33a04b3d5c4ab29.png"></image>
     <view class="user-card-details" >
       <view class="user-card-title">
         <view class="user-card-title-name" >{{broker.name}}</view>

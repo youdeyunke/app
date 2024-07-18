@@ -18,7 +18,7 @@ import java.io.Serializable;
 @Data
 public class PostMediaCatVo implements Serializable {
     public String name;
-    public String cover = "https://qiniucdn.udeve.net/fang/pkgPost/image-none.png"; // TODO 设置一张默认封面图
+    public String cover = "https://tcdn.udeve.net/fang/pkgPost/image-none.png"; // TODO 设置一张默认封面图
     public String url;
     public Integer id;
     public Integer targetId;

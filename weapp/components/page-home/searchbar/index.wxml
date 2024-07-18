@@ -15,12 +15,12 @@
     <view class="searchbar  body-style-round" style="height:80rpx;border-color:#cecece;background-color:#ffffff">
     <view bindtap="gotoSearch" class="body">
         <view class="left-part">
-            <search-icon url="https://qiniucdn.udeve.cn/fang2021-pagemaker-assets/search-icon.png" style="margin-right:20rpx;" />
+            <search-icon url="https://tcdn.udeve.net/fang2021-pagemaker-assets/search-icon.png" style="margin-right:20rpx;" />
             <view class="text" style="color: #999999">您想住在哪？</view>
         </view>
     </view>
     <navigator url="/pkgMap/pages/map/index" hover-class="none"  class="footer" >
-        <image src="https://qiniucdn.udeve.cn/fang2021-pagemaker-assets/map-icon.png" />
+        <image src="https://tcdn.udeve.net/fang2021-pagemaker-assets/map-icon.png" />
        <view>地图找房</view> 
     </navigator>
 </view>
