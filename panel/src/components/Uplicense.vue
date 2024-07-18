@@ -6,7 +6,7 @@
       size="small"
       style="margin-right: 10px;margin-top: 5px;"
       @click="gotoPurchaseUrl"
-      >升级到商业授权</el-button
+      >升级到专业授权</el-button
     >
   </div>
 </template>
