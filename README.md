@@ -144,7 +144,11 @@
 * 我们鼓励大家积极参与，相互学习和帮助。通过合作和协作，我们将不断提升项目质量，为用户带来更好的体验。
 
 群二维码：
-![群活码-1-WechatIMG17.jpg](https://raw.gitcode.com/youdeyunlke/fangchan/attachment/uploads/c2a17d48-ae59-4f79-85b5-ede962d81a57/群活码-1-WechatIMG17.jpg '群活码-1-WechatIMG17.jpg')
+<div align="center">
+
+![](https://tcdn.udeve.net/udyk/66064f7e8ecade73b2385bb3.jpg?imageView2/2/w/200)
+</div>    
+
 ## 版权须知
 Apache License 2.0 许可的主要内容包括：
 
@@ -164,4 +168,4 @@ Apache License 2.0 是一种宽松的开源许可，允许人们自由使用、�
 *友得云客®* 商标和著作权所有者为优得（西安）信息科技有限公司。
 侵权必究
 
-**本项目已经取得软件著作权证书，请务必保留原始代码中版权信息、以及小程序页脚底部的版权信息，侵权必究**
+**本软件已登记软著，必须保留原始版权信息，违者将依法追究法律责任。**
