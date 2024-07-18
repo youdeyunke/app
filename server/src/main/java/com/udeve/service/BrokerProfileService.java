@@ -51,8 +51,6 @@ public class BrokerProfileService {
     @Autowired
     private PostRepository postRepository;
     @Autowired
-    private PostBrokerRepository postBrokerRepository;
-    @Autowired
     AdminLogService adminLogService;
     @Autowired
     AdminUserRepository adminUserRepository;
@@ -104,7 +102,6 @@ public class BrokerProfileService {
                 predicates.add(criteriaBuilder.or(
                         criteriaBuilder.like(root.get("name"), "%" + queryDto.getKw() + "%"),
                         criteriaBuilder.like(root.get("mobile"), "%" + queryDto.getKw() + "%"),
-                        //criteriaBuilder.like(root.get("xiaoqu"), "%" + queryDto.getKw() + "%"),
                         criteriaBuilder.like(root.get("postTitle"), "%" + queryDto.getKw() + "%")));
             }
 
@@ -266,33 +263,6 @@ public class BrokerProfileService {
         FileInfo upload = uploadService.Upload(qrcode);
         brokerProfile.setQr(upload.getUrl());
         brokerProfileRepository.save(brokerProfile);
-    }
-
-    public JsonResponse getPostBrokerList(Integer postId){
-        List<PostBroker> postBrokers = postBrokerRepository.findAllByPostIdOrderByNumberAsc(postId);
-        List<BrokerProfile> collect = postBrokers.stream().map(postBroker -> {
-            return brokerProfileRepository.findByUserId(postBroker.getUserId());
-        }).collect(Collectors.toList());
-        return JsonResponse.ok(collect);
-    }
-
-    public JsonResponse appendPostBroker(AdminPostBrokerUpdateRequest request){
-        PostBroker postBroker = new PostBroker();
-        postBroker.setPostId(request.getPostId());
-        postBroker.setUserId(brokerProfileRepository.findById(request.getBrokerProfileId()).get().getUserId());
-        postBroker.setNumber(0);
-        postBroker.setCreatedAt(LocalDateTime.now());
-        postBroker.setUpdatedAt(LocalDateTime.now());
-        postBrokerRepository.saveAndFlush(postBroker);
-        return JsonResponse.ok("添加成功");
-    }
-
-    public JsonResponse deletePostBroker(AdminPostBrokerUpdateRequest request){
-        Integer userId = brokerProfileRepository.findById(request.getBrokerProfileId()).get().getUserId();
-        PostBroker postBroker = postBrokerRepository.findByUserIdAndPostId(userId, request.getPostId());
-        postBrokerRepository.delete(postBroker);
-        return JsonResponse.ok("删除成功");
-
     }
 
     public JsonResponse getWeappBrokerDetail(Integer userId){

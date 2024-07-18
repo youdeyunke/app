@@ -168,6 +168,9 @@ public class AdminUserService {
 
         //如果取消勾选了账号永久有效，则判断选择的账号到期时间是否是今天之前
         if (!updateDto.getIsForever()) {
+            if (ObjectUtil.isEmpty(updateDto.getExpiredAt())){
+                return JsonResponse.error("账号到期时间不能为空");
+            }
             if (updateDto.getExpiredAt().isBefore(LocalDate.now())) {
                 return JsonResponse.error("账号到期时间不能选择之前的日期");
             }

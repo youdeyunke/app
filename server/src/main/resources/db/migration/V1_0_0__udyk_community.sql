@@ -878,23 +878,6 @@ CREATE TABLE `post_banners`
 
 
 
-DROP TABLE IF EXISTS `post_brokers`;
-CREATE TABLE `post_brokers`
-(
-    `id`         bigint   NOT NULL AUTO_INCREMENT,
-    `user_id`    bigint DEFAULT NULL COMMENT '置业顾问的userid',
-    `number`     int    DEFAULT '0' COMMENT '排序',
-    `created_at` datetime NOT NULL,
-    `updated_at` datetime NOT NULL,
-    `post_id`    bigint DEFAULT NULL COMMENT '所属楼盘',
-    PRIMARY KEY (`id`),
-    KEY          `index_post_brokers_on_user_id` (`user_id`),
-    KEY          `post_id` (`post_id`),
-    CONSTRAINT `fk_custom_post_id_to_posts` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='楼盘绑定置业顾问';
-
-
-
 DROP TABLE IF EXISTS `post_cats`;
 CREATE TABLE `post_cats`
 (

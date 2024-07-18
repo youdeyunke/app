@@ -72,21 +72,6 @@ public class AdminBrokerProfileController extends BaseApiController {
         return brokerProfileService.deleteBrokerProfile(id, (Integer) getUser().get("user_id"));
     }
 
-    @GetMapping(value = "/admin6/post_brokers")
-    public JsonResponse getPostBrokerList(@RequestParam("post_id") Integer postId){
-        return brokerProfileService.getPostBrokerList(postId);
-    }
-
-    @PostMapping(value = "/admin6/post_brokers/")
-    public JsonResponse appendPostBroker(@RequestBody AdminPostBrokerUpdateRequest request){
-        return brokerProfileService.appendPostBroker(request);
-    }
-
-    @DeleteMapping(value = "/admin6/post_brokers/0")
-    public JsonResponse deletePostBroker(@RequestBody AdminPostBrokerUpdateRequest request){
-        return brokerProfileService.deletePostBroker(request);
-    }
-
     @GetMapping("/admin6/users/simple_search")
     public JsonResponse getBrokerProfiles(@RequestParam Map<String,Object> params){
         return brokerProfileService.getAdminBrokerProfiles(params);

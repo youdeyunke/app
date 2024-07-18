@@ -14,8 +14,7 @@ Maven >= 3.0
 # 运行系统
 
 1. 导入到`IDEA`或`Eclipse`中。
-2. 创建数据库 `udyk_community`，并导入数据脚本`udyk_community.sql`、`data.sql`。
-3. 打开项目运行`com.udeve.StartApplication.java`，出现如下界面则启动成功。
+2. 打开项目运行`com.udeve.StartApplication.java`，出现如下界面则启动成功。
 
 ~~~bash
  __    __   _______  ____    ____  __  ___
@@ -119,7 +118,7 @@ Spring Boot是一款开箱即用框架，提供各种默认配置来简化项目
 
 ## sa-token
 
-Sa-Token 是一个轻量级 Java 权限认证框架，主要解决：登录认证、权限认证、单点登录、OAuth2.0、分布式Session会话、微服务网关鉴权 等一系列权限相关问题。
+[Sa-Token](https://sa-token.cc/) 是一个轻量级 Java 权限认证框架，主要解决：登录认证、权限认证、单点登录、OAuth2.0、分布式Session会话、微服务网关鉴权 等一系列权限相关问题。
 
-Sa-Token 旨在以简单、优雅的方式完成系统的权限认证部分，以登录认证为例，你只需要：
+Sa-Token 旨在以简单、优雅的方式完成系统的权限认证部分，以登录认证为例，你只需要一句静态代码的调用：`StpUtil.login(1001);`，便可以完成会话登录认证。
 

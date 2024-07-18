@@ -95,8 +95,6 @@ public class PostService {
     @Autowired
     AdminLogService adminLogService;
     @Autowired
-    PostBrokerRepository postBrokerRepository;
-    @Autowired
     BrokerProfileRepository brokerProfileRepository;
     @Autowired
     ModelMapper modelMapper;
