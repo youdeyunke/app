@@ -50,6 +50,8 @@ server.port=8080
 
 # 部署
 
+## 自定义部署，配置灵活
+
 1. 打包工程文件
 
 
@@ -90,11 +92,29 @@ server {
     }
 ~~~
 
+## docker快速部署
+
+1. 下载[docker-compose.yml](https://tcdn.udeve.net/install-ce-1.0.0/docker-compose.yml)文件
+
+    - 可修改端口号
+    - 可修改暴露端口
+    - 可修改挂载目录
+    - ……
+
+2. 使用命令或其他方式启动（宝塔、1panel等）
+
+    ```shell
+    docker-compose up -d
+    ```
+
+3. 快速访问
+    
+    - 开放`docker-compose`中`app`的宿主机端口，使用IP+端口的形式访问
+    - 将域名解析至服务器ip，使用`nginx`反向代理将`80`端口映射到`app`的宿主机端口
+
+
 
 如遇到无法解决的问题请到`Issues`反馈，会不定时进行解答。
-
-
-
 
 
 # 后端技术
