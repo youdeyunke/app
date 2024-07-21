@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[产品官网](https://www.youdeyunke.com/?statId=6) | [在线客服](https://work.weixin.qq.com/kfid/kfc8a0f8817daf2ec01) | [加入群聊](https://tcdn.udeve.net/udyk/66064f7e8ecade73b2385bb3.jpg)
+[商业版](https://www.youdeyunke.com/?statId=6) | [加入群聊](https://tcdn.udeve.net/udyk/66064f7e8ecade73b2385bb3.jpg)
 
 
 </div>
@@ -99,7 +99,6 @@
 
 ## 界面截图
 ![友得云客房产小程序界面截图](https://demo-1255998955.cos.ap-shanghai.myqcloud.com/udyk/screens.png)
-
 
 
 ## 成功案例
