@@ -1,7 +1,0 @@
-{
-    "navigationStyle": "custom",
-    "usingComponents": {
-		"home-item":"/components/post-item/cell/index",
-        "raw-html":"/components/raw-html/index"
-    }
-}

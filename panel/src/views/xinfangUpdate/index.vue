@@ -37,15 +37,6 @@
               </div>
             </el-tab-pane>
   
-            <el-tab-pane label="楼盘评测"  v-if="btns.update_post_review">
-              <div >
-                <PostReviewManager
-                  :post-id="pid"
-                  :reviewEnable="post.review_enable"
-                ></PostReviewManager>
-              </div>
-            </el-tab-pane>
-  
             <el-tab-pane label="楼盘参数"  v-if="btns.update_post_metacontent">
               <div >
                 <meta-content-manager
@@ -126,7 +117,6 @@
   import NewsManager from "./NewsManager/Index";
   import BannerManager from "./BannerManager/Index";
   import PointManager from "./PointsManager/Index.vue";
-  import PostReviewManager from "./PostReviewManager/Index.vue";
   import PostBrokerManager from "./PostBrokerManager/Index.vue";
   import QaManager from "./QaManager/Index.vue";
   import EventManager from "./EventManager/index.vue";
@@ -144,7 +134,6 @@
       NewsManager,
       BannerManager,
       PointManager,
-      PostReviewManager,
       QaManager,
       EventManager,
       PostBrokerManager,

@@ -42,9 +42,6 @@
 <template name="xiangce">
     <xiangce-block value="{{block.value}}" color="{{color}}" id="{{block.name}}" />
 </template>
-<template name="pingce">
-	<pingce-block  value= "{{block.value}}" color="{{color}}"  id="{{block.name}}"></pingce-block>
-</template>
 <!-- 致电售楼处 -->
 <!-- <template name="html">
     <phone-block />

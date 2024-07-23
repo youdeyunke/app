@@ -23,7 +23,6 @@
     "van-tabs": "/vant/tabs/index",
     "van-tab": "/vant/tab/index",
     "raw-html": "/components/raw-html/index",
-    "pingce-block": "./pingce-block/index",
     "recommended-post-items": "/components/recommended-post-items/index"
   }
 }

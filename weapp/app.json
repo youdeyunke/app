@@ -32,13 +32,6 @@
       ]
     },
     {
-      "root": "pkgPingce",
-      "name": "pingce",
-      "pages": [
-        "pages/pingce/index"
-      ]
-    },
-    {
       "root": "pkgPost",
       "name": "pkgpost",
       "pages": [
