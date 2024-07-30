@@ -18,7 +18,7 @@ import Layout from '@/layout'
  * @param routes asyncRoutes
  * @param roles
  */
-export function filterAsyncRoutes (routes, roles) {
+export function filterAsyncRoutes(routes, roles) {
     const res = []
     routes.forEach(route => {
         const tmp = { ...route }
@@ -27,13 +27,13 @@ export function filterAsyncRoutes (routes, roles) {
     return res
 }
 
-export function loadView (path) {
+export function loadView(path) {
     // 根据路径import文件
     return (resolve) => require([`@/views/${path}`], resolve)
     //return import('@/views/' + path )
 }
 
-export function mapMenuItem (menu) {
+export function mapMenuItem(menu) {
     // 对服务端返回的menu数组进行一次包装处理
     if (menu.component == 'Layout') {
         menu.component = Layout
@@ -63,13 +63,185 @@ const mutations = {
 }
 
 const actions = {
-    getMenus ({ commit, state }) {
+    getMenus({ commit, state }) {
         return new Promise((resolve, reject) => {
             getMenus().then((resp) => {
-                const { data } = resp
+                var { data } = resp
                 if (!data) {
                     reject("获取菜单失败")
                 }
+
+                var advancedArr = {
+                    "redirect": "",
+                    "path": "/advanced",
+                    "component": "Layout",
+                    "hidden": false,
+                    "children": [
+                        {
+                            "path": "tupai",
+                            "component": "advanced/tupai/index",
+                            "hidden": false,
+                            "meta": {
+                                "icon": "diamond",
+                                "title": "土拍查询"
+                            },
+                            "name": "tupai",
+                            "props": {
+                                "btns": null,
+                            }
+                        },
+                        {
+                            "path": "scoregood",
+                            "component": "advanced/scoregood/index",
+                            "hidden": false,
+                            "meta": {
+                                "icon": "diamond",
+                                "title": "积分商城"
+                            },
+                            "name": "scoregood",
+                            "props": {
+                                "btns": null,
+                            }
+                        },
+                        {
+                            "path": "gofangrili",
+                            "component": "advanced/gofangrili/index",
+                            "hidden": false,
+                            "meta": {
+                                "icon": "diamond",
+                                "title": "购房日历"
+                            },
+                            "name": "gofangrili",
+                            "props": {
+                                "btns": null,
+                            }
+                        },
+                        {
+                            "path": "bulletin",
+                            "component": "advanced/bulletin/index",
+                            "hidden": false,
+                            "meta": {
+                                "icon": "diamond",
+                                "title": "楼盘快报"
+                            },
+                            "name": "bulletin",
+                            "props": {
+                                "btns": null,
+                            }
+                        },
+                        {
+                            "path": "dealinfo",
+                            "component": "advanced/dealinfo/index",
+                            "hidden": false,
+                            "meta": {
+                                "icon": "diamond",
+                                "title": "成交明细"
+                            },
+                            "name": "dealinfo",
+                            "props": {
+                                "btns": null,
+                            }
+                        },
+                        {
+                            "path": "housesign",
+                            "component": "advanced/housesign/index",
+                            "hidden": false,
+                            "meta": {
+                                "icon": "diamond",
+                                "title": "网签数据"
+                            },
+                            "name": "housesign",
+                            "props": {
+                                "btns": null,
+                            }
+                        },
+                        {
+                            "path": "auctionhouse",
+                            "component": "advanced/auctionhouse/index",
+                            "hidden": false,
+                            "meta": {
+                                "icon": "diamond",
+                                "title": "法拍房源"
+                            },
+                            "name": "auctionhouse",
+                            "props": {
+                                "btns": null,
+                            }
+                        },
+                        {
+                            "path": "website",
+                            "component": "advanced/website/index",
+                            "hidden": false,
+                            "meta": {
+                                "icon": "diamond",
+                                "title": "网站管理"
+                            },
+                            "name": "website",
+                            "props": {
+                                "btns": null,
+                            }
+                        },
+                        {
+                            "path": "visitor",
+                            "component": "advanced/visitor/index",
+                            "hidden": false,
+                            "meta": {
+                                "icon": "diamond",
+                                "title": "访客足迹"
+                            },
+                            "name": "visitor",
+                            "props": {
+                                "btns": null,
+                            }
+                        },
+                        {
+                            "path": "pagemaker",
+                            "component": "advanced/pagemaker/index",
+                            "hidden": false,
+                            "meta": {
+                                "icon": "diamond",
+                                "title": "界面设计器"
+                            },
+                            "name": "pagemaker",
+                            "props": {
+                                "btns": null,
+                            }
+                        },
+                        {
+                            "path": "crm",
+                            "component": "advanced/crm/index",
+                            "hidden": false,
+                            "meta": {
+                                "icon": "diamond",
+                                "title": "CRM"
+                            },
+                            "name": "crm",
+                            "props": {
+                                "btns": null,
+                            }
+                        },
+                        {
+                            "path": "aiimport",
+                            "component": "advanced/aiimport/index",
+                            "hidden": false,
+                            "meta": {
+                                "icon": "diamond",
+                                "title": "AI导入房源"
+                            },
+                            "name": "aiimport",
+                            "props": {
+                                "btns": null,
+                            }
+                        },
+                    ],
+                    "meta": {
+                        "icon": "diamond",
+                        "title": "高级功能"
+                    }
+                }
+
+                data = data.concat(advancedArr)
+
                 data.map((menuItem, i) => {
                     return mapMenuItem(menuItem)
                 })

@@ -10,28 +10,17 @@
 +----------------------------------------------------------------------
 -->
 <template>
-  <div
-    class="map-marker"
-    :style="{ width: widthValue, height: heightValue }"
-    v-cloak
-    v-loading="loading"
-  >
+  <div class="map-marker" v-cloak v-loading="loading">
     <div v-if="appkey" class="search-box">
-      <el-input
-        size="mini"
-        v-model="address"
-        placeholder="输入地址，例如：上海市浦东新区耀华路"
-      >
-        <el-button
-          @click="searchMap"
-          slot="append"
-          icon="el-icon-search"
-        ></el-button>
+      <el-input size="mini" v-model="address" placeholder="输入地址，例如：上海市浦东新区耀华路">
+        <el-button @click="searchMap" slot="append" icon="el-icon-search"></el-button>
       </el-input>
     </div>
     <div v-if="appkey" id="qqmap" :style="{ width: widthValue, height: heightValue }"></div>
     <div v-if="appkey" class="footer">lat {{ lat }}, lng:{{ lng }}</div>
-    <div v-if="!appkey" :style="{ width: widthValue, height: heightValue, 'line-height': heightValue, 'text-align': 'center' }">未配置地图应用的key，无法调用地图定位组件。 请先进入：系统设置-地图 页面进行相关配置。</div>
+    <div v-if="!appkey"
+      :style="{ width: widthValue, height: heightValue, 'line-height': heightValue, 'text-align': 'center' }">
+      未配置地图应用的key，无法调用地图定位组件。 请先进入：系统设置-地图 页面进行相关配置。</div>
   </div>
 </template>
 
@@ -45,8 +34,7 @@
   border: 1px solid #e2e6f0;
 }
 
-.map-marker #qqmap {
-}
+/* .map-marker #qqmap {} */
 
 .map-marker .search-box {
   background: #f6f7fa;
@@ -79,7 +67,6 @@ export default {
     };
   },
   props: {
-    // appkey: { type: String, default: "OH2BZ-7QJK6-L44SI-MEJFO-PJNH2-IABHQ" },
     width: { type: String, default: 500 },
     height: { type: String, default: 500 },
     lat: { type: Number, default: null },
@@ -119,7 +106,7 @@ export default {
       var script = document.createElement("script");
       script.type = "text/javascript";
       script.src =
-        "https://map.qq.com/api/js?v=2.exp&key=" +
+        "https://map.qq.com/api/gljs?v=1.exp&libraries=service&key=" +
         this.appkey +
         "&callback=onMapCallback";
       document.body.appendChild(script);
@@ -127,17 +114,22 @@ export default {
     },
     createMap: function () {
       console.log("map lib loaded");
-      var myOptions = {
-        zoom: 16,
-        mapTypeId: qq.maps.MapTypeId.ROADMAP,
-      };
-      this.map = new qq.maps.Map(document.getElementById("qqmap"), myOptions);
-      // 绑定地图点击事件
       var _this = this;
+
+      var center = new TMap.LatLng(39.984120, 116.307484)
+      this.map = new TMap.Map(document.getElementById('qqmap'), {
+        center: center,//设置地图中心点坐标
+        zoom: 16,   //设置地图缩放级别
+      });
+
+      this.map.on("click", function (evt) {
+        var lat = evt.latLng.getLat().toFixed(6);
+        var lng = evt.latLng.getLng().toFixed(6);
+        _this.setMarker(lat, lng);
+      })
 
       setTimeout(() => {
         _this.initMarker();
-        _this.bindMapClick();
       }, 500);
     },
     initMarker: function () {
@@ -153,14 +145,6 @@ export default {
       this.setMarker(this.lat, this.lng);
     },
 
-    bindMapClick: function () {
-      console.log("bind map click event");
-      var _this = this;
-      qq.maps.event.addListener(_this.map, "click", (event) => {
-        _this.setMarker(event.latLng.lat, event.latLng.lng);
-      });
-    },
-
     setMarker: function (latitude, longitude) {
       latitude = parseFloat(latitude);
       longitude = parseFloat(longitude);
@@ -168,24 +152,43 @@ export default {
       // 触发change事件
       var _this = this;
       // 将视角移动到中介，因为有可能初始坐标并不在默认地图视角内，导致无法显示标记
-      var position = new qq.maps.LatLng(latitude, longitude);
-      this.map.setCenter(position);
+      var center = new TMap.LatLng(latitude, longitude);
+
+      this.map.setCenter(center);
 
       this.marker && this.marker.setMap(null);
-      this.marker = new qq.maps.Marker({
-        position: position,
+      this.marker = null
+
+      this.marker = new TMap.MultiMarker({
+        id: 'marker-layer',
         map: _this.map,
+        styles: {
+          "marker": new TMap.MarkerStyle({
+            "width": 25,
+            "height": 35,
+            "anchor": { x: 16, y: 32 },
+            "src": 'https://mapapi.qq.com/web/lbs/javascriptGL/demo/img/markerDefault.png'
+          })
+        },
+        geometries: [{
+          "id": 'demo',
+          "styleId": 'marker',
+          "position": center,
+          "properties": {
+            "title": "marker"
+          }
+        }]
       });
 
+
       // 只有当坐标值发生变化后才触发事件
-      var oldPosition = new qq.maps.LatLng(this.lat, this.lng);
-      if (
-        oldPosition.lat === position.lat &&
-        oldPosition.lng === position.lng
-      ) {
-        return;
+      if (this.lat && this.lng) {
+        var oldPosition = new TMap.LatLng(this.lat, this.lng);
+        if (oldPosition.lat === center.lat && oldPosition.lng === center.lng) {
+          return;
+        }
       }
-      this.$emit("change", { lat: position.lat, lng: position.lng });
+      this.$emit("change", { lat: center.lat, lng: center.lng });
     },
 
     searchMap: function () {
@@ -200,15 +203,16 @@ export default {
 
       console.log("根据地址搜索地图", address);
       this.marker && this.marker.setMap(null);
-      let geo = new qq.maps.Geocoder({
-        complete: function (result) {
-          var position = result.detail.location;
-          console.log("解析地址", address, position, result);
-          // 解析后，设置地图标记点
-          _this.setMarker(position.lat, position.lng);
-        },
-      });
-      geo.getLocation(address);
+      this.marker = null;
+      var geocoder = new TMap.service.Geocoder()
+      geocoder.getLocation({ address: address }).then((result) => {
+        var position = result.result.location;
+        console.log("解析地址", address, position, result);
+        // 解析后，设置地图标记点
+        _this.setMarker(position.lat, position.lng);
+      })
+
+
     },
 
     loadAppkey: function () {
@@ -217,7 +221,7 @@ export default {
         this.loading = false;
         this.appkey = config.qq_map_key;
         if (!this.appkey) {
-          console.log("没有找到QQ地图的appkey，请先设置");
+          console.log("没有找到腾讯地图的appkey，请先设置");
           return;
         }
         this.initQQMap();
