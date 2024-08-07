@@ -202,7 +202,8 @@
   "requiredPrivateInfos": [
     "choosePoi",
     "chooseAddress",
-    "chooseLocation"
+    "chooseLocation",
+    "getFuzzyLocation"
   ],
   "tabBar": {
     "custom": false,

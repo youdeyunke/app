@@ -21,7 +21,7 @@ Page({
 
     data: {
         loading: true,
-        shareTitle: '友得云客小程序',
+        shareTitle: '友得云客房产小程序',
         shareCover: '',
         btns: [{
                 "size": 100,
@@ -146,7 +146,7 @@ Page({
                 backgroundColor: bgColor,
             });
             wx.setNavigationBarTitle({
-                title: '友得云客小程序',
+                title: '友得云客房产小程序',
             })
         })
 
