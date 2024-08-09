@@ -104,7 +104,10 @@ public class MediaFileService {
             dto.setCanCreateDir(true);
             return dto;
         }
-        MediaFile mediaFile = mediaFileRepository.findById(id).get();
+        MediaFile mediaFile = mediaFileRepository.findById(id).orElse(null);
+        if (mediaFile == null){
+            return new AdminMediaFileListVo();
+        }
         AdminMediaFileListVo dirDto = modelMapper.map(mediaFile, AdminMediaFileListVo.class);
         if(mediaFile.isParentLevelValid()){
             dirDto.setCanCreateDir(true);
@@ -138,7 +141,10 @@ public class MediaFileService {
     }
 
     public JsonResponse updateMediaFile(Integer id, AdminMediaFIleUpdateRequest mediaFIleupdate){
-        MediaFile mediaFile = mediaFileRepository.findById(id).get();
+        MediaFile mediaFile = mediaFileRepository.findById(id).orElse(null);
+        if (mediaFile== null){
+            return JsonResponse.error("文件不存在");
+        }
         modelMapper.map(mediaFIleupdate,mediaFile);
         mediaFileRepository.saveAndFlush(mediaFile);
 
@@ -147,7 +153,10 @@ public class MediaFileService {
 
     public JsonResponse deleteMediaFile(Integer id){
 
-        MediaFile mediaFile = mediaFileRepository.findById(id).get();
+        MediaFile mediaFile = mediaFileRepository.findById(id).orElse(null);
+        if (mediaFile==null){
+            return JsonResponse.error("文件不存在");
+        }
         deletefile(mediaFile);
 
         return JsonResponse.ok();

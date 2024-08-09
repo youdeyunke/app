@@ -27,6 +27,10 @@ Maven >= 3.0
 友得云客:        https://www.youdeyunke.com
 ~~~
 
+> **管理端用户名**：`admin@example.com`
+>
+> **管理端密码**：`8个8`
+
 
 # 必要配置
 

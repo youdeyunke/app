@@ -151,37 +151,55 @@ public class BrokerProfileService {
     }
 
     public JsonResponse getBrokerProfile(Integer id) {
-        BrokerProfile brokerProfile = brokerProfileRepository.findById(id).get();
+        BrokerProfile brokerProfile = brokerProfileRepository.findById(id).orElse(null);
+        if (brokerProfile == null){
+            return JsonResponse.error("置业顾问不存在");
+        }
         AdminBrokerProfileDetailVo map = modelMapper.map(brokerProfile, AdminBrokerProfileDetailVo.class);
         return JsonResponse.ok(map);
     }
 
+    public void genBrokerQr(BrokerProfile brokerProfile){
+        if (ObjectUtil.isNotEmpty(brokerProfile.getQr())){
+            return;
+        }
+
+        try {
+            genQr(brokerProfile);
+        } catch (WxErrorException e) {
+            log.error("置业顾问生成二维码失败",e);
+            log.error("置业顾问：{}",brokerProfile);
+            throw new RuntimeException("生成置业顾问二维码失败");
+        }
+        //发送系统消息
+        sysMessageService.sendSysMessage("broker",
+                "入驻审核通过",
+                "您提交的置业顾问入驻申请已经由管理员审核通过了。",
+                brokerProfile.getUserId(),
+                "/pkgBroker/pages/broker/profile?id="+brokerProfile.getUserId());
+    }
+
     @Transactional
     public JsonResponse updateBrokerProfile(Integer id, AdminBrokerProfileUpdateRequest updateRequest, Integer userId){
-        BrokerProfile brokerProfile = brokerProfileRepository.findById(id).get();
-        boolean flag = false;
-        if (updateRequest.getStatus().equals(brokerProfile.getStatus())) {
-            flag = true;
+        Optional<BrokerProfile> optionalBrokerProfile = brokerProfileRepository.findById(id);
+        if (optionalBrokerProfile.isEmpty()){
+            return JsonResponse.error("置业顾问不存在");
         }
+
+        BrokerProfile brokerProfile = optionalBrokerProfile.get();
+        boolean flag = updateRequest.getStatus().equals(brokerProfile.getStatus());
         modelMapper.map(updateRequest, brokerProfile);
-        brokerProfile.setPostTitle(postRepository.findById(updateRequest.getPostId()).get().getTitle());
+        Optional<Post> postOptional = postRepository.findById(updateRequest.getPostId());
+        if (postOptional.isEmpty()){
+            return JsonResponse.error("楼盘不存在");
+        }
+        Post post = postOptional.get();
+        String title = post.getTitle();
+        brokerProfile.setPostTitle(title);
         brokerProfile.setUpdatedAt(LocalDateTime.now());
         //如果要审核通过该置业顾问，则检查是否有二维码
         if(BrokerProfile.STATUS_SUCCESS == updateRequest.getStatus() || BrokerProfile.STATUS_SUCCESS.equals(updateRequest.getStatus())){
-            if (brokerProfile.getQr()==null || ("").equals(brokerProfile.getQr())) {
-                try {
-                    genQr(brokerProfile);
-                } catch (WxErrorException e) {
-                    log.error("置业顾问生成二维码失败，置业顾问：{}",brokerProfile);
-                    throw new RuntimeException(e);
-                }
-            }
-            //发送系统消息
-            sysMessageService.sendSysMessage("broker",
-                    "入驻审核通过",
-                    "您提交的置业顾问入驻申请已经由管理员审核通过了。",
-                    brokerProfile.getUserId(),
-                    "/pkgBroker/pages/broker/profile?id="+brokerProfile.getUserId());
+            genBrokerQr(brokerProfile);
         }
         //如果要拒绝该置业顾问的审核提交，也发送消息
         if(BrokerProfile.STATUS_REFUSE == updateRequest.getStatus() || BrokerProfile.STATUS_REFUSE.equals(updateRequest.getStatus())){
@@ -211,8 +229,6 @@ public class BrokerProfileService {
             } else {
                 adminName = "" + userId;
             }
-        } catch (NoSuchElementException e) {
-            adminName = "未知账号，ID："+userId;
         } catch (Exception e) {
             adminName = "未知账号，ID："+userId;
         }
@@ -230,30 +246,37 @@ public class BrokerProfileService {
     @Transactional
     public JsonResponse createBrokerProfile(AdminBrokerProfileCreateRequest create, Integer userId){
         BrokerProfile byMobile = brokerProfileRepository.findByMobile(create.getMobile());
-        if (byMobile == null){
-            BrokerProfile map = modelMapper.map(create, BrokerProfile.class);
-            User user = userService.ensureMobile(create.getMobile());
-            map.setUserId(user.id);
-            map.setLikeNums(create.getLikeNums() == null || create.getLikeNums() <= 0 ?1:create.getLikeNums());
-            map.setViewNums(create.getViewNums() == null || create.getLikeNums() <= 0 ?1:create.getViewNums());
-            postRepository.findById(create.getPostId()).ifPresent(post -> {
-                map.setPostTitle(post.getTitle());
-            });
-            map.setCreatedAt(LocalDateTime.now());
-            map.setUpdatedAt(LocalDateTime.now());
-            brokerProfileRepository.saveAndFlush(map);
-            adminLogService.createAdminLog(userId, "置业顾问", "创建置业顾问，名称：【" + map.getName() + "】，ID：【" + map.getId()+"】");
-            try {
-                genQr(map);
-            } catch (WxErrorException e) {
-                log.error("置业顾问生成二维码失败，置业顾问：{}",map);
-                throw new RuntimeException(e);
+        if (byMobile != null){
+
+            Optional<Post> postOptional = postRepository.findById(byMobile.getPostId());
+            if (postOptional.isEmpty()){
+                return JsonResponse.error("楼盘不存在");
             }
-            return JsonResponse.ok("创建成功");
-        } else {
-            String title = postRepository.findById(byMobile.getPostId()).get().getTitle();
+            String title = postOptional.get().getTitle();
             return JsonResponse.error("该置业顾问已经绑定在了楼盘:" + title + "下，无法重复绑定。若需要绑定到此楼盘，请先从" + title + "解绑后再次绑定，或者用一个新的手机号进行绑定");
         }
+
+
+        BrokerProfile map = modelMapper.map(create, BrokerProfile.class);
+        User user = userService.ensureMobile(create.getMobile());
+        map.setUserId(user.getId());
+        map.setLikeNums(create.getLikeNums() == null || create.getLikeNums() <= 0 ?1:create.getLikeNums());
+        map.setViewNums(create.getViewNums() == null || create.getLikeNums() <= 0 ?1:create.getViewNums());
+        postRepository.findById(create.getPostId()).ifPresent(post -> {
+            map.setPostTitle(post.getTitle());
+        });
+        map.setCreatedAt(LocalDateTime.now());
+        map.setUpdatedAt(LocalDateTime.now());
+        brokerProfileRepository.saveAndFlush(map);
+        adminLogService.createAdminLog(userId, "置业顾问", "创建置业顾问，名称：【" + map.getName() + "】，ID：【" + map.getId()+"】");
+        try {
+            genQr(map);
+        } catch (WxErrorException e) {
+            log.error("置业顾问生成二维码失败",e);
+            log.error("置业顾问：{}",map);
+            throw new RuntimeException("生成置业顾问二维码失败");
+        }
+        return JsonResponse.ok("创建成功");
     }
 
     @Async

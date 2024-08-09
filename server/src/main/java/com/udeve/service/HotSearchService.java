@@ -45,19 +45,22 @@ public class HotSearchService {
         List<Integer> ids = new ArrayList<>();
         if (album != null){
             List<AlbumPost> albumPosts = albumPostRepository.findByAlbumId(album.getId());
-            albumPosts.forEach(albumPost -> {
-                Post post = postRepository.findById(albumPost.getPostId()).get();
+            for (AlbumPost albumPost : albumPosts) {
+                Post post = postRepository.findById(albumPost.getPostId()).orElse(null);
+                if (post == null) {
+                    continue;
+                }
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("id", post.getId());
                 jsonObject.put("title", post.getTitle());
                 ids.add(post.getId());
                 collect.add(jsonObject);
-            });
+            }
         }
 
         if (collect.size() < 10) {
             List<Post> postList;
-            if (ids.size() != 0){
+            if (!ids.isEmpty()){
                 postList = postRepository.findTop10ByIdNotInAndIsPublicTrueAndIsDeleteFalseOrderBySearchNumsDesc(ids);
             }else {
                 postList = postRepository.findTop10ByIsPublicTrueAndIsDeleteFalseOrderBySearchNumsDesc();
@@ -75,7 +78,10 @@ public class HotSearchService {
     }
 
     public JsonResponse createHoutSearch(Integer postId){
-        Post post = postRepository.findById(postId).get();
+        Post post = postRepository.findById(postId).orElse(null);
+        if (post == null){
+            return JsonResponse.error("楼盘不存在");
+        }
         post.setSearchNums(post.getSearchNums() + 1);
         postRepository.saveAndFlush(post);
         return JsonResponse.ok("ok");

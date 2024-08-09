@@ -60,7 +60,10 @@ public class QrService {
     }
 
     public JsonResponse updateQr(Integer id,AdminQrUpdateRequest updateRequest){
-        Qr qr = qrRepository.findById(id).get();
+        Qr qr = qrRepository.findById(id).orElse(null);
+        if (qr == null){
+            return JsonResponse.error("数据不存在");
+        }
         modelMapper.map(updateRequest,qr);
         qr.setUpdatedAt(LocalDateTime.now());
         qrRepository.saveAndFlush(qr);
@@ -98,7 +101,10 @@ public class QrService {
     }
 
     public JsonResponse weappGetQrDetail(Integer id){
-        Qr qr = qrRepository.findById(id).get();
+        Qr qr = qrRepository.findById(id).orElse(null);
+        if (qr == null){
+            return JsonResponse.error("数据不存在");
+        }
         WeappQrDetailVo map = modelMapper.map(qr, WeappQrDetailVo.class);
         map.setData(JSONObject.parseObject(qr.getData()));
 

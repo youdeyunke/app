@@ -71,9 +71,16 @@ public class UserController extends BaseApiController {
         Integer userId = (Integer) getUser().get("user_id");
         BrokerProfile brokerProfile = brokerProfileRepository.findByUserId(userId);
         if (brokerProfile==null){
-            User user = userRepository.findById(userId).get();
-            if(request.getName()!=null) user.setName(request.getName());
-            if(request.getAvatar()!=null) user.setAvatar(request.getAvatar());
+            User user = userRepository.findById(userId).orElse(null);
+            if (user == null){
+                return JsonResponse.error("用户不存在");
+            }
+            if(request.getName()!=null) {
+                user.setName(request.getName());
+            }
+            if(request.getAvatar()!=null) {
+                user.setAvatar(request.getAvatar());
+            }
             userRepository.saveAndFlush(user);
             return JsonResponse.ok("更新成功");
         }

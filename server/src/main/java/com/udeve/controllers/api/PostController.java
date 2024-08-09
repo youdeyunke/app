@@ -108,7 +108,10 @@ public class PostController extends BaseApiController {
 
     @GetMapping(value = "/v6/albums/{id}")
     public JsonResponse getAlbumDetail(@PathVariable("id") Integer id){
-        Album album = albumRepository.findById(id).get();
+        Album album = albumRepository.findById(id).orElse(null);
+        if(album==null){
+            return JsonResponse.error("数据不存在");
+        }
         WeappAlbumDetailVo map = modelMapper.map(album, WeappAlbumDetailVo.class);
         map.setPostCount(albumPostRepository.countByAlbumId(id));
         return JsonResponse.ok(map);

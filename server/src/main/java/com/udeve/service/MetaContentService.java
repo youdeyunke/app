@@ -33,13 +33,19 @@ public class MetaContentService {
     ModelMapper modelMapper;
 
     public JsonResponse getMetaContent(Integer Id) {
-        MetaContent metaContent = metaContentRepository.findById(Id).get();
+        MetaContent metaContent = metaContentRepository.findById(Id).orElse(null);
+        if (metaContent == null) {
+            return JsonResponse.error("数据不存在");
+        }
         AdminMetaContentDetailVo map = modelMapper.map(metaContent, AdminMetaContentDetailVo.class);
         return JsonResponse.ok(map);
     }
 
     public JsonResponse updateMetaContent(Integer id, AdminMetaContentUpdateRequest metaContent) {
-        MetaContent map = metaContentRepository.findById(id).get();
+        MetaContent map = metaContentRepository.findById(id).orElse(null);
+        if (map == null) {
+            return JsonResponse.error("数据不存在");
+        }
         modelMapper.map(metaContent, map);
         map.setUpdatedAt(LocalDateTime.now());
         metaContentRepository.saveAndFlush(map);

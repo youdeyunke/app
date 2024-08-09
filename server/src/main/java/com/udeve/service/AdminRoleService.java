@@ -56,7 +56,10 @@ public class AdminRoleService {
 
     @Transactional
     public JsonResponse updateRole(Integer id, AdminRoleUpdateRequest updateDto, Integer userId){
-        Role role = roleRepository.findById(id).get();
+        Role role = roleRepository.findById(id).orElse(null);
+        if (role == null){
+            return JsonResponse.error("角色不存在");
+        }
         modelMapper.map(updateDto, role);
         if (updateDto.getPermissionItemIds() != null){
             rolePermissionItemRepository.deleteAllByRoleId(role.getId());

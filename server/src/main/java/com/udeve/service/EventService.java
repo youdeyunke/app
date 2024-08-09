@@ -107,9 +107,15 @@ public class EventService {
     }
 
     public JsonResponse updateEvent(Integer id, AdminEventUpdateRequest event, Integer userId){
-        Event map = eventRepository.findById(id).get();
+        Event map = eventRepository.findById(id).orElse(null);
+        if (map == null){
+            return JsonResponse.error("未找到此动态");
+        }
         modelMapper.map(event, map);
-        Post post = postRepository.findById(event.getPostId()).get();
+        Post post = postRepository.findById(event.getPostId()).orElse(null);
+        if (post == null) {
+            return JsonResponse.error("未找到此楼盘");
+        }
         map.setPost(post);
         if(event.getStatus().equals(Event.STATUS_PUBLISHED)){//发布上线
             map.setIsPublic(true);
@@ -135,7 +141,10 @@ public class EventService {
         Event map = modelMapper.map(event, Event.class);
         map.setCreatedAt(LocalDateTime.now());
         map.setUpdatedAt(LocalDateTime.now());
-        Post post = postRepository.findById(event.getPostId()).get();
+        Post post = postRepository.findById(event.getPostId()).orElse(null);
+        if (post == null){
+            return JsonResponse.error("未找到此楼盘");
+        }
         map.setPost(post);
         if(event.getStatus().equals(Event.STATUS_PUBLISHED)){//发布上线
             map.setIsPublic(true);
@@ -208,7 +217,7 @@ public class EventService {
      */
     public JsonResponse getEventCatsList(){
         List<EventCat> eventCats = eventCatRepository.findAll();
-        if(eventCats.size()==0){
+        if(eventCats.isEmpty()){
             return JsonResponse.error("楼盘动态分类列表为空");
         }
         List<EventCatVo> eventCatVos = eventCats.stream().map(eventCat -> {
@@ -238,7 +247,10 @@ public class EventService {
             return JsonResponse.error("该置业顾问没有主营楼盘");
         }
         Integer postId = brokerProfileByUserId.getPostId();
-        Post post = postRepository.findById(postId).get();
+        Post post = postRepository.findById(postId).orElse(null);
+        if (post == null){
+            return JsonResponse.error("未找到此楼盘");
+        }
         Event map = modelMapper.map(createEventsRequest, Event.class);
         map.setCreatedAt(LocalDateTime.now());
         map.setUpdatedAt(LocalDateTime.now());
@@ -247,9 +259,6 @@ public class EventService {
         map.setStatus(0);
         map.setPubFrom("小程序");
         Event event = eventRepository.saveAndFlush(map);
-        if(event==null){
-            return JsonResponse.error("发布失败");
-        }
         return JsonResponse.ok("发布成功");
     }
 
@@ -263,7 +272,11 @@ public class EventService {
         if(id==null){
             return JsonResponse.error("楼盘动态id不能为空");
         }
-        Integer postIdByEvent  = eventRepository.findById(id).get().getPostId();
+        Optional<Event> eventOptional = eventRepository.findById(id);
+        if (eventOptional.isEmpty()){
+            return JsonResponse.error("动态不存在");
+        }
+        Integer postIdByEvent = eventOptional.get().getPostId();
         BrokerProfile brokerProfile = brokerProfileRepository.findByUserId(userId);
         if (brokerProfile.getStatus()!=2) {
             return JsonResponse.error("当前置业顾问状态异常");

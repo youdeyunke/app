@@ -47,7 +47,10 @@ public class HouseController extends BaseApiController {
     @SaCheckLogin
     public JsonResponse Create(@RequestBody CreateHouseRequest dto) {
         Integer userId = (Integer) getUser().get("user_id");
-        User userEntity = userRepository.findById(userId).get();
+        User userEntity = userRepository.findById(userId).orElse(null);
+        if (userEntity == null){
+            return JsonResponse.error("当前用户不存在");
+        }
         dto.setUserId((userId));
         dto.setContactMobile(userEntity.getMobile());
         dto.setContactName(userEntity.getName());

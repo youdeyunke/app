@@ -114,7 +114,10 @@ public class AdminWeappUserService {
     }
 
     public JsonResponse banUser(Integer id){
-        User user = userRepository.findById(id).get();
+        User user = userRepository.findById(id).orElse(null);
+        if (user == null){
+            return JsonResponse.error("用户不存在");
+        }
         user.setBan(!user.getBan());
         userRepository.saveAndFlush(user);
         String msg = user.getBan() ? "拉黑成功" : "取消拉黑成功";
@@ -124,7 +127,10 @@ public class AdminWeappUserService {
     public JsonResponse getWeappUserDetail(Integer userId){
         BrokerProfile byUserId = brokerProfileService.isBrokerOrNo(userId);
         if (byUserId == null) {//普通用户
-            User user = userRepository.findById(userId).get();
+            User user = userRepository.findById(userId).orElse(null);
+            if (user == null){
+                return JsonResponse.error("用户不存在");
+            }
             WeappUserDetailVo map = modelMapper.map(user, WeappUserDetailVo.class);
             return JsonResponse.ok(map);
         }

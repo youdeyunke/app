@@ -113,72 +113,18 @@ public class MyconfigService {
         if (this.get() == null) {
             return "";
         }
-        return this.get().xcxSecret;
+        return this.get().getXcxSecret();
     }
 
     public MyconfigForWeappVo getWeappConfig(){
         Myconfig config = this.get();
         MyconfigForWeappVo data = modelMapper.map(config, MyconfigForWeappVo.class);
         data.setTextBanner(this.getTextBanner());
-        data.setServerVersion(getServerVersion());
-        data.setLastServerVersion(getLastServerVersion());
         JSONObject colorJo = new JSONObject();
         colorJo.put("primary_btn","#1d5de2");
         colorJo.put("primary","#ff8c00");
         data.setColor(colorJo);
         return data;
-    }
-
-    public String getServerVersion() {
-        String version = "";
-        // 通过类加载器获取输入流
-        InputStream inputStream = getClass().getResourceAsStream("/version.txt");
-        if (inputStream == null) {
-            log.error("version.txt file not exists");
-            return version;
-        }
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
-            version = reader.readLine();
-        } catch (IOException e) {
-            log.error("IOException: read failed");
-        }
-        return version;
-    }
-
-    public String getLastServerVersion(){
-        //从redis获取，成功获取到的话就直接返回
-        String lastServerVersion = stringRedisTemplate.opsForValue().get("last_server_version");
-        if (ObjectUtil.isNotEmpty(lastServerVersion)) {
-            return lastServerVersion;
-        }
-
-        //redis中的过期了，需要重新获取一下
-        cn.hutool.json.JSONObject res;
-        try {
-
-
-            res = restTemplate.getForObject("https://tcdn.udeve.net/udyk-business-serversion/serversion.json", cn.hutool.json.JSONObject.class);
-        }catch (Exception e){
-            log.error("最新版本获取失败，原因：{}",e.getMessage());
-            return null;
-        }
-        if (res == null || res.isEmpty()) {
-            log.warn("获取到的最新版本为空或空字符串：{}",res);
-            return null;
-        }
-
-        //成功获取到了，存到redis中
-        String latestVersion;
-        try {
-            latestVersion= res.getStr("serversion");
-            stringRedisTemplate.opsForValue().set("last_server_version", latestVersion,5, TimeUnit.MINUTES);
-            log.info("成功获取最新版本：{}",res);
-        }catch (Exception e){
-            log.error("从结果中获取 serversion 或 存入redis 失败，原因：{}",e.getMessage());
-            return null;
-        }
-
-        return latestVersion;
     }
 
     public String getTextBanner() {

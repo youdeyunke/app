@@ -131,10 +131,6 @@ public class AdminMyconfigDetailVo implements Serializable {
 
     public String reportRule;
 
-    public String serverVersion;
-
-    public String lastServerVersion;
-
     public String uploadAllowedExtension;
 
     public String apiHost;

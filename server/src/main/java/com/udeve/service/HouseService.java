@@ -63,7 +63,7 @@ public class HouseService {
             HouseListingVo map = modelMapper.map(houseEntity, HouseListingVo.class);
             if(map.getCover()==null || ("").equals(map.getCover())){
                 // 素材图
-                map.setCover(map.getImageList().size()==0?"https://tcdn.udeve.net/udyk/659e5134e4b04bdf00a71575.png":map.getImageList().get(0));
+                map.setCover(map.getImageList().size()==0?"https://tcdn.udeve.net/udyk/default_post_cover.png":map.getImageList().get(0));
             }
             return map;
         }).collect(Collectors.toList());
@@ -77,21 +77,30 @@ public class HouseService {
         return JsonResponse.success(data);
     }
 
-    public JsonResponse getHouseListAdmin(HouseSearchRequest queryDto){
-        Page<House> pageResult = getListing(queryDto);
+    // 设置二手房创建后set详情页
+    private HouseListingVo setDetailUrl(HouseListingVo map,Integer houseId){
         PermissionItem byComponentPath = permissionItemRepository.findByComponentPath("oldUpdate/index");
-        PermissionItem permissionItem = permissionItemRepository.findById(byComponentPath.getFatherId()).get();
+        PermissionItem permissionItem = permissionItemRepository.findById(byComponentPath.getFatherId()).orElse(null);
+        if (permissionItem == null){
+            log.error("二手房详情页设置异常");
+            return map;
+        }
         String url = permissionItem.getPath() + "/" + byComponentPath.getPath();
         url = url.replace(":id", "");
         String finalUrl = url;
+        map.setUrl(finalUrl + houseId);
+        return map;
+    }
+
+    public JsonResponse getHouseListAdmin(HouseSearchRequest queryDto){
+        Page<House> pageResult = getListing(queryDto);
         List<HouseListingVo> result = pageResult.getContent().stream().map(houseEntity ->{
             HouseListingVo map = modelMapper.map(houseEntity, HouseListingVo.class);
-            map.setUrl(finalUrl+houseEntity.getId());
-            if(map.getCover()==null || ("").equals(map.getCover())){
-                //TODO 改为素材图
-                map.setCover(map.getImageList().size()==0?"https://tcdn.udeve.net/udyk/659e5134e4b04bdf00a71575.png":map.getImageList().get(0));
+            HouseListingVo map1 = setDetailUrl(map, houseEntity.getId());
+            if(map1.getCover()==null || map1.getCover().isEmpty()){
+                map1.setCover(map1.getImageList().isEmpty() ?"https://tcdn.udeve.net/udyk/default_post_cover.png":map1.getImageList().get(0));
             }
-            return map;
+            return map1;
         }).collect(Collectors.toList());
         PageableInfoVo page = new PageableInfoVo(pageResult.getPageable(),  pageResult.getTotalPages(), pageResult.getTotalElements());
         JSONObject data = new JSONObject();
@@ -183,7 +192,10 @@ public class HouseService {
     }
 
     public JsonResponse getHouseDetail(Integer id) {
-        House house = houseRepository.findById(id).get();
+        House house = houseRepository.findById(id).orElse(null);
+        if(house == null){
+            return JsonResponse.error("房源不存在");
+        }
         HouseDetailVo data = modelMapper.map(house, HouseDetailVo.class);
         return JsonResponse.ok(data);
     }
@@ -202,7 +214,10 @@ public class HouseService {
         log.info(dto.toString());
 
         // 根据行政区设置城市信息
-        DistrictEntity dist = districtRepository.findById(dto.getDistrictId()).get();
+        DistrictEntity dist = districtRepository.findById(dto.getDistrictId()).orElse(null);
+        if (dist == null){
+            return JsonResponse.error("区域不存在");
+        }
         City city = dist.getCity();
 
         // 入库

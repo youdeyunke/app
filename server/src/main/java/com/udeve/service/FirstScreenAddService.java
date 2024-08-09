@@ -92,7 +92,10 @@ public class FirstScreenAddService {
     }
 
     public JsonResponse updateFlash(Integer id,AdminFirstScreenAddUpdateRequest createRequest){
-        FirstScreenAdd firstScreenAdd = firstScreenAddRepository.findById(id).get();
+        FirstScreenAdd firstScreenAdd = firstScreenAddRepository.findById(id).orElse(null);
+        if (firstScreenAdd == null){
+            return JsonResponse.ok("数据不存在");
+        }
         modelMapper.map(createRequest, firstScreenAdd);
         firstScreenAdd.setUpdatedAt(LocalDateTime.now());
         firstScreenAddRepository.save(firstScreenAdd);
@@ -116,7 +119,7 @@ public class FirstScreenAddService {
     }
 
     public JsonResponse weappUpdateFirstScreenAdd(Integer id, WeappUpdateFirstScreenAddRequest request){
-        FirstScreenAdd firstScreenAdd = firstScreenAddRepository.findById(id).get();
+        FirstScreenAdd firstScreenAdd = firstScreenAddRepository.findById(id).orElse(null);
         if (firstScreenAdd == null){
             return JsonResponse.ok("暂无数据");
         }

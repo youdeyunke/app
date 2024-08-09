@@ -119,8 +119,14 @@ public class NewService {
     }
 
     public JsonResponse updateNews(Integer id,AdminNewUpdateRequest upnew){
-        New aNew = newRepository.findById(id).get();
-        DetailContent detailContent = detailContentRepository.findById(upnew.getDetailContentId()).get();
+        New aNew = newRepository.findById(id).orElse(null);
+        if (aNew == null){
+            return JsonResponse.error("文章不存在");
+        }
+        DetailContent detailContent = detailContentRepository.findById(upnew.getDetailContentId()).orElse(null);
+        if (detailContent == null){
+            return JsonResponse.error("文章内容不存在");
+        }
         if (upnew.getContentType().equals("html")){
             detailContent.setValue(upnew.getContent());
             detailContent.setUpdatedAt(LocalDateTime.now());
@@ -155,7 +161,10 @@ public class NewService {
 
     @Transactional
     public JsonResponse deleteNew(Integer id){
-        New aNew = newRepository.findById(id).get();
+        New aNew = newRepository.findById(id).orElse(null);
+        if (aNew == null){
+            return JsonResponse.error("文章不存在");
+        }
         newRepository.deleteById(id);
         return JsonResponse.ok("删除成功");
     }
@@ -194,6 +203,9 @@ public class NewService {
             return JsonResponse.error("文章不存在");
         }
         Optional<DetailContent> detailContentRepositoryById = detailContentRepository.findById(aNew.getDetailContentId());
+        if (detailContentRepositoryById.isEmpty()) {
+            return JsonResponse.error("文章不存在");
+        }
         aNew.setContent(detailContentRepositoryById.get().getValue());
         NewDetailVo map = modelMapper.map(aNew, NewDetailVo.class);
         return JsonResponse.ok(map);
@@ -208,10 +220,13 @@ public class NewService {
             }
             List<NewDetailVo> collect = newList.stream().map(aNew -> {
                 Optional<DetailContent> detailContentRepositoryById = detailContentRepository.findById(aNew.getDetailContentId());
+                if (detailContentRepositoryById.isEmpty()) {
+                    return null;
+                }
                 aNew.setContent(detailContentRepositoryById.get().getValue());
                 NewDetailVo map = modelMapper.map(aNew, NewDetailVo.class);
                 return map;
-            }).collect(Collectors.toList());
+            }).filter(Objects::nonNull).collect(Collectors.toList());
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("id", newCat.getId());
             jsonObject.put("name", newCat.getName());
@@ -225,10 +240,13 @@ public class NewService {
         List<New> newList = newRepository.findTop5ByIsPublicTrueOrderByCreatedAt();
         List<NewDetailVo> zuixlist = newList.stream().map(aNew -> {
             Optional<DetailContent> detailContentRepositoryById = detailContentRepository.findById(aNew.getDetailContentId());
+            if (detailContentRepositoryById.isEmpty()) {
+                return null;
+            }
             aNew.setContent(detailContentRepositoryById.get().getValue());
             NewDetailVo map = modelMapper.map(aNew, NewDetailVo.class);
             return map;
-        }).collect(Collectors.toList());
+        }).filter(Objects::nonNull).collect(Collectors.toList());
         zuixin.put("items", zuixlist);
 
         JSONObject zuire = new JSONObject();
@@ -236,10 +254,13 @@ public class NewService {
         List<New> newList2 = newRepository.findTop5ByIsPublicTrueAndIsTopTrueOrderByCreatedAt();
         List<NewDetailVo> zuirelist = newList2.stream().map(aNew -> {
             Optional<DetailContent> detailContentRepositoryById = detailContentRepository.findById(aNew.getDetailContentId());
+            if (detailContentRepositoryById.isEmpty()) {
+                return null;
+            }
             aNew.setContent(detailContentRepositoryById.get().getValue());
             NewDetailVo map = modelMapper.map(aNew, NewDetailVo.class);
             return map;
-        }).collect(Collectors.toList());
+        }).filter(Objects::nonNull).collect(Collectors.toList());
         zuire.put("items", zuirelist);
 
         res.add(0, zuire);

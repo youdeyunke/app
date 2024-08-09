@@ -57,7 +57,10 @@ public class AlbumService {
 
     @Transactional
     public JsonResponse updateAlbum(Integer id, AdminAlbumUpdateRequest dto){
-        Album album = albumRepository.findById(id).get();
+        Album album = albumRepository.findById(id).orElse(null);
+        if (album == null){
+            return JsonResponse.error("楼盘分类不存在");
+        }
         modelMapper.map(dto, album);
 
         albumRepository.save(album);

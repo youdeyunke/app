@@ -44,7 +44,10 @@ public class SysConfigService {
     }
 
     public JsonResponse updateSysConfig(Integer id, AdminSysConfigUpdateRequest updateRequest){
-        SysConfig sysConfig = sysConfigRepository.findById(id).get();
+        SysConfig sysConfig = sysConfigRepository.findById(id).orElse(null);
+        if (sysConfig == null){
+            return JsonResponse.error("配置不存在");
+        }
         modelMapper.map(updateRequest, sysConfig);
         sysConfig.setKey(updateRequest.getKey().toUpperCase());
         sysConfig.setUpdatedAt(LocalDateTime.now());

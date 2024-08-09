@@ -265,8 +265,11 @@ public class AdminUserService {
 
     @Transactional
     public JsonResponse changePassword(Integer id, String oldPassword, String newPassword, Integer userId) {
-        AdminUser adminUser = adminUserEntityRepository.findById(id).get();
-        Boolean checked = BCrypt.checkpw(oldPassword, adminUser.encryptedPassword);
+        AdminUser adminUser = adminUserEntityRepository.findById(id).orElse(null);
+        if (adminUser == null){
+            return JsonResponse.error("管理员不存在！");
+        }
+        boolean checked = BCrypt.checkpw(oldPassword, adminUser.encryptedPassword);
         if (!checked) {
             return JsonResponse.error("旧密码错误");
         }
@@ -279,8 +282,13 @@ public class AdminUserService {
     public List<String> getRolesByUserId(Integer id) {
         List<AdminUserRole> adminUserRoles = adminUserRoleRepository.findAllByAdminUserId(id);
         List<String> roles = adminUserRoles.stream().map(adminUserRole -> {
-            return roleRepository.findById(adminUserRole.getRoleId()).get().getKey();
-        }).collect(Collectors.toList());
+            Integer roleId = adminUserRole.getRoleId();
+            if (ObjectUtil.isEmpty(roleId)){
+                return null;
+            }
+            Optional<Role> optionalRole = roleRepository.findById(adminUserRole.getRoleId());
+            return optionalRole.map(Role::getKey).orElse(null);
+        }).filter(Objects::nonNull).collect(Collectors.toList());
         return roles;
     }
 

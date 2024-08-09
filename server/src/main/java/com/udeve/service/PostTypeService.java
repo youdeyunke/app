@@ -11,6 +11,7 @@ package com.udeve.service;
  * +----------------------------------------------------------------------
  */
 
+import com.udeve.entity.Post;
 import com.udeve.request.AdminTypeCreateRequest;
 import com.udeve.vo.AdminTypeListVo;
 import com.udeve.request.AdminTypeUpdateRequest;
@@ -26,6 +27,7 @@ import com.udeve.repository.PostTypeRepository;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -50,7 +52,10 @@ public class PostTypeService {
     }
 
     public JsonResponse updateType(Integer id,AdminTypeUpdateRequest type) {
-        PostType map = postTypeRepository.findById(id).get();
+        PostType map = postTypeRepository.findById(id).orElse(null);
+        if (map == null){
+            return JsonResponse.error("数据不存在");
+        }
         modelMapper.map(type, map);
         map.setUpdatedAt(LocalDateTime.now());
         postTypeRepository.saveAndFlush(map);
@@ -58,10 +63,15 @@ public class PostTypeService {
     }
 
     public JsonResponse createType(AdminTypeCreateRequest type) {
+        Optional<Post> postOptional = postRepository.findById(type.getPostId());
+        if (postOptional.isEmpty()){
+            return JsonResponse.error("楼盘不存在");
+        }
+        String title = postOptional.get().getTitle();
         PostType map = modelMapper.map(type, PostType.class);
         map.setCreatedAt(LocalDateTime.now());
         map.setUpdatedAt(LocalDateTime.now());
-        map.setPostTitle(postRepository.findById(type.getPostId()).get().getTitle());
+        map.setPostTitle(title);
         postTypeRepository.saveAndFlush(map);
         return JsonResponse.ok("创建成功");
     }
@@ -73,7 +83,10 @@ public class PostTypeService {
 
     public JsonResponse updateTypesOrder(List<Integer> ids) {
         for (int i = 0; i < ids.size(); i++) {
-            PostType postType = postTypeRepository.findById(ids.get(i)).get();
+            PostType postType = postTypeRepository.findById(ids.get(i)).orElse(null);
+            if (postType == null){
+                return JsonResponse.error("数据不存在");
+            }
             postType.setNumber(i);
             postTypeRepository.saveAndFlush(postType);
         }

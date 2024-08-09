@@ -273,26 +273,39 @@ public class PostService {
         return JsonResponse.success(data);
     }
 
+    // 构建详情url
+    private String buildUrl(String componentPath) {
+        PermissionItem byComponentPath = permissionItemRepository.findByComponentPath(componentPath);
+        if (byComponentPath==null) {
+            log.error("菜单不存在：{}！", componentPath);
+            return "";
+        }
+        Optional<PermissionItem> parentOpt = permissionItemRepository.findById(byComponentPath.getFatherId());
+        if (parentOpt.isEmpty()) {
+            log.error("父菜单不存在：{}！", componentPath);
+            return "";
+        }
+
+        PermissionItem parent = parentOpt.get();
+        String fullPath = parent.getPath() + "/" + byComponentPath.getPath();
+        return fullPath.replace(":id", "");
+    }
+
     public JsonResponse getPostList(PostQueryRequest queryDto) {
         Page<Post> pageResult = getListing(queryDto);
 
-        //预约看房url
-        PermissionItem byComponentPathBooking = permissionItemRepository.findByComponentPath("bookings/index");
-        PermissionItem permissionItemBooking = permissionItemRepository.findById(byComponentPathBooking.getFatherId()).get();
-        String bookingsUrl = permissionItemBooking.getPath() + "/" + byComponentPathBooking.getPath();
-        String replaceBookingsUrl = bookingsUrl.replace(":id", "");
+        // 预约看房url
+        String bookingsUrl = buildUrl("bookings/index");
+
+        // 楼盘详情url
+        String xinfangUpdateUrl = buildUrl("xinfangUpdate/index");
 
 
         //楼盘详情url
-        PermissionItem byComponentPath = permissionItemRepository.findByComponentPath("xinfangUpdate/index");
-        PermissionItem permissionItem = permissionItemRepository.findById(byComponentPath.getFatherId()).get();
-        String url = permissionItem.getPath() + "/" + byComponentPath.getPath();
-        url = url.replace(":id", "");
-        String finalUrl = url;
         List<AdminPostListVo> list = pageResult.getContent().stream().map(post -> {
             AdminPostListVo map = modelMapper.map(post, AdminPostListVo.class);
-            map.setUrl(finalUrl + post.getId());
-            map.setBookingsUrl(replaceBookingsUrl + post.getId());
+            map.setUrl(ObjectUtil.isEmpty(xinfangUpdateUrl)?null:xinfangUpdateUrl + post.getId());
+            map.setBookingsUrl(ObjectUtil.isEmpty(bookingsUrl)?null:bookingsUrl + post.getId());
             return map;
         }).collect(Collectors.toList());
         JSONObject data = new JSONObject();
@@ -320,8 +333,14 @@ public class PostService {
     public JsonResponse createPost(AdminPostCreateRequest post, Integer adminUserId) {
         Post newPostEntity = modelMapper.map(post, Post.class);
 
-        DistrictEntity districtEntity = districtRepository.findById(post.getDistrictId()).get();
-        SaleStatusItem saleStatusItem = saleStatusItemRepository.findById(post.getSaleStatusItemId()).get();
+        DistrictEntity districtEntity = districtRepository.findById(post.getDistrictId()).orElse(null);
+        if (districtEntity == null){
+            return JsonResponse.error("区域不存在");
+        }
+        SaleStatusItem saleStatusItem = saleStatusItemRepository.findById(post.getSaleStatusItemId()).orElse(null);
+        if (saleStatusItem == null){
+            return JsonResponse.error("销售状态不存在");
+        }
 
         // 创建默认的详情数据
         DetailContent detailContent = new DetailContent();
@@ -333,7 +352,10 @@ public class PostService {
         metaContent.setCreatedAt(LocalDateTime.now());
         metaContent.setUpdatedAt(LocalDateTime.now());
         metaContentRepository.saveAndFlush(metaContent);
-        Fitment fitment = fitmentRepository.findById(post.getFitmentId()).get();
+        Fitment fitment = fitmentRepository.findById(post.getFitmentId()).orElse(null);
+        if (fitment == null){
+            return JsonResponse.error("装修不存在");
+        }
         City cityEntity = districtEntity.getCity();
 
         newPostEntity.setCreatedAt(LocalDateTime.now());
@@ -420,7 +442,10 @@ public class PostService {
     }
 
     public JsonResponse getPostDetail(Integer postId) {
-        Post post = postRepository.findById(postId).get();
+        Post post = postRepository.findById(postId).orElse(null);
+        if (post == null){
+            return JsonResponse.error("楼盘不存在");
+        }
 
         AdminPostDetailVo postDetailDto = modelMapper.map(post, AdminPostDetailVo.class);
         postDetailDto.setCityId(post.getCity().getId());
@@ -443,7 +468,10 @@ public class PostService {
 
     @Transactional
     public JsonResponse updatePost(Integer id, AdminPostUpdateRequest postUpdateDto, Integer adminUserId) {
-        Post post = postRepository.findById(id).get();
+        Post post = postRepository.findById(id).orElse(null);
+        if (post == null){
+            return JsonResponse.error("楼盘不存在");
+        }
 
         modelMapper.map(postUpdateDto, post);
         post.setUpdatedAt(LocalDateTime.now());
@@ -452,10 +480,19 @@ public class PostService {
             postRepository.saveAndFlush(post);
             return JsonResponse.ok("保存成功");
         }
-        DistrictEntity districtEntity = districtRepository.findById(postUpdateDto.getDistrictId()).get();
+        DistrictEntity districtEntity = districtRepository.findById(postUpdateDto.getDistrictId()).orElse(null);
+        if (districtEntity == null) {
+            return JsonResponse.error("区域不存在");
+        }
         City cityEntity = districtEntity.getCity();
-        Fitment fitment = fitmentRepository.findById(postUpdateDto.getFitmentId()).get();
-        SaleStatusItem saleStatusItem = saleStatusItemRepository.findById(postUpdateDto.getSaleStatusItemId()).get();
+        Fitment fitment = fitmentRepository.findById(postUpdateDto.getFitmentId()).orElse(null);
+        if (fitment == null) {
+            return JsonResponse.error("装修不存在");
+        }
+        SaleStatusItem saleStatusItem = saleStatusItemRepository.findById(postUpdateDto.getSaleStatusItemId()).orElse(null);
+        if (saleStatusItem == null){
+            return JsonResponse.error("销售状态不存在");
+        }
 
         post.setDistrict(districtEntity);
         post.setCity(cityEntity);
@@ -489,7 +526,10 @@ public class PostService {
     }
 
     public JsonResponse isPublicPost(Integer pid, String state, Integer adminUserId) {
-        Post post = postRepository.findById(pid).get();
+        Post post = postRepository.findById(pid).orElse(null);
+        if (post == null){
+            return JsonResponse.error("楼盘不存在");
+        }
         if (state.equals("public")) {
             post.setIsPublic(true);
             try {
@@ -507,7 +547,10 @@ public class PostService {
     }
 
     public JsonResponse isTopPost(Integer pid, String state, Integer adminUserId) {
-        Post post = postRepository.findById(pid).get();
+        Post post = postRepository.findById(pid).orElse(null);
+        if (post == null){
+            return JsonResponse.error("楼盘不存在");
+        }
         if (state.equals("is_top")) {
             post.setIsTop(true);
             adminLogService.createAdminLog(adminUserId, "楼盘管理", "置顶楼盘：" + post.getTitle() + "，ID：" + post.getId());
@@ -521,7 +564,10 @@ public class PostService {
 
     @Transactional
     public JsonResponse deletePost(Integer pid, String state, Integer adminUserId) {
-        Post post = postRepository.findById(pid).get();
+        Post post = postRepository.findById(pid).orElse(null);
+        if (post == null){
+            return JsonResponse.error("楼盘不存在");
+        }
         if (state.equals(("delete"))) {
             post.setIsDelete(true);
             adminLogService.createAdminLog(adminUserId, "楼盘管理", "删除楼盘：" + post.getTitle() + "，ID：" + post.getId());
@@ -548,7 +594,10 @@ public class PostService {
 
 
     public JsonResponse updatePostReviewEnable(Integer id) {
-        Post post = postRepository.findById(id).get();
+        Post post = postRepository.findById(id).orElse(null);
+        if (post == null){
+            return JsonResponse.error("楼盘不存在");
+        }
         post.setReviewEnable(!post.getReviewEnable());
         postRepository.saveAndFlush(post);
         return JsonResponse.ok(post.getReviewEnable());
@@ -588,16 +637,16 @@ public class PostService {
         try {
             String appId = myconfigService.getAppId();
             String appSecret = myconfigService.getAppSecret();
-            if (appId == null || ("").equals(appId) || appSecret == null || ("").equals(appSecret)) {
+            if (appId == null || appId.isEmpty() || appSecret == null || appSecret.isEmpty()) {
                 throw new RuntimeException("未配置小程序ID和秘钥：请在【界面设计器】左上角【设置】处填写相关信息");
-            } else {
-                genQrCode(postId);
-                Optional<Post> postOptional = postRepository.findById(postId);
-                if (postOptional.isEmpty()) {
-                    return JsonResponse.error("未找到ID为：（"+postId+"）的楼盘");
-                }
-                return JsonResponse.ok(postOptional.get().getQr());
             }
+
+            genQrCode(postId);
+            Optional<Post> postOptional = postRepository.findById(postId);
+            if (postOptional.isEmpty()) {
+                return JsonResponse.error("未找到ID为：（"+postId+"）的楼盘");
+            }
+            return JsonResponse.ok(postOptional.get().getQr());
         } catch (WxErrorException e) {
             throw new RuntimeException("生成二维码失败，请重试！");
         }

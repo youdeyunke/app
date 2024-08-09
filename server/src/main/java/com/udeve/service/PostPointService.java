@@ -45,7 +45,10 @@ public class PostPointService {
     }
 
     public JsonResponse updatePostPoint(Integer id,AdminPostPointUpdateRequest postPoint) {
-        PostPoint map = postPointRepository.findById(id).get();
+        PostPoint map = postPointRepository.findById(id).orElse(null);
+        if(map == null){
+            return JsonResponse.error("数据不存在");
+        }
         modelMapper.map(postPoint, map);
         map.setUpdatedAt(LocalDateTime.now());
         postPointRepository.saveAndFlush(map);

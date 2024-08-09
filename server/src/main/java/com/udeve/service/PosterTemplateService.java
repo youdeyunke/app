@@ -59,7 +59,10 @@ public class PosterTemplateService {
     }
 
     public JsonResponse updatePosterTemplate(Integer id,AdminPosterTemplateUpdateRequest updateRequest) {
-        PosterTemplate posterTemplate = posterTemplateRepository.findById(id).get();
+        PosterTemplate posterTemplate = posterTemplateRepository.findById(id).orElse(null);
+        if (posterTemplate == null){
+            return JsonResponse.error("数据不存在");
+        }
         modelMapper.map(updateRequest, posterTemplate);
         posterTemplate.setUpdatedAt(LocalDateTime.now());
         posterTemplateRepository.saveAndFlush(posterTemplate);
@@ -76,7 +79,10 @@ public class PosterTemplateService {
 
     public JsonResponse updateOrder(List<Integer> ids){
         for (int i = 0; i < ids.size(); i++) {
-            PosterTemplate posterTemplate = posterTemplateRepository.findById(ids.get(i)).get();
+            PosterTemplate posterTemplate = posterTemplateRepository.findById(ids.get(i)).orElse(null);
+            if (posterTemplate == null){
+                return JsonResponse.error("数据不存在");
+            }
             posterTemplate.setNumber(i);
             posterTemplateRepository.saveAndFlush(posterTemplate);
         }

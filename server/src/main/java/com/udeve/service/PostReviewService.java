@@ -44,7 +44,10 @@ public class PostReviewService {
     }
 
     public JsonResponse updatePostReview(Integer id, AdminPostReviewUpdateRequest postReview) {
-        PostReview map = postReviewRepository.findById(id).get();
+        PostReview map = postReviewRepository.findById(id).orElse(null);
+        if(map == null){
+            return JsonResponse.error("数据不存在");
+        }
         modelMapper.map(postReview, map);
         postReviewRepository.saveAndFlush(map);
         return JsonResponse.ok("更新成功");

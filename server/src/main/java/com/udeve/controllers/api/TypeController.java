@@ -27,6 +27,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
+
 @RestController
 @Slf4j
 @Api("楼盘户型相关接口")
@@ -48,7 +50,11 @@ public class TypeController extends BaseApiController {
     @Operation(summary = "楼盘户型详情接口",description = "根据户型id查询户型详情")
     @GetMapping(value = "/v6/types/{id}")
     public JsonResponse getTypeDetailById(@PathVariable("id") Integer id){
-        PostType postType = postTypeRepository.findById(id).get();
+        Optional<PostType> optionalPostType = postTypeRepository.findById(id);
+        if (optionalPostType.isEmpty()) {
+            return JsonResponse.error();
+        }
+        PostType postType = optionalPostType.get();
         PostTypesVo map = modelMapper.map(postType, PostTypesVo.class);
         return JsonResponse.ok(map);
     }

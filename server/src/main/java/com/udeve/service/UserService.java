@@ -192,7 +192,7 @@ public class UserService {
         }
         User user = userOptional.get();
         //当前用户如果已经登录过了，并且当前用户的user表上的uid字段没有值，则写入uid到uid字段
-        if (user.getUid()==null ||("").equals(user.getUid())) {
+        if (user.getUid()==null || user.getUid().isEmpty()) {
             user.setUid(uuidParamString);
             userRepository.saveAndFlush(user);
         }

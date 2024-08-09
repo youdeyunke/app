@@ -129,7 +129,10 @@ public class QuestionService {
     }
 
     public JsonResponse getQuestionDetail(Integer id){
-        Question question = questionRepository.findById(id).get();
+        Question question = questionRepository.findById(id).orElse(null);
+        if (question == null){
+            return JsonResponse.error("参数错误，请在楼盘管理中查看问答");
+        }
         AdminQuestionListVo vo = modelMapper.map(question, AdminQuestionListVo.class);
         vo.setAnswersCount(answerRepository.countByQuestionIdAndIsDeleteFalse(question.getId()));
         List<Answer> answerList = answerRepository.findByQuestionIdAndIsDeleteFalse(question.getId());
@@ -158,7 +161,10 @@ public class QuestionService {
     }
 
     public JsonResponse deleteAnswer(Integer id,Integer userId){
-        Answer answer = answerRepository.findById(id).get();
+        Answer answer = answerRepository.findById(id).orElse(null);
+        if (answer == null){
+            return JsonResponse.error("回答不存在");
+        }
         answer.setIsDelete(true);
         answerRepository.saveAndFlush(answer);
         adminLogService.createAdminLog(userId,"回答管理","删除回答：【"+answer.getContent()+"】,ID:【"+answer.getId()+"】");
@@ -167,7 +173,10 @@ public class QuestionService {
 
     @Transactional
     public JsonResponse deleteQuestionAdmin(Integer id,Integer userId){
-        Question question = questionRepository.findById(id).get();
+        Question question = questionRepository.findById(id).orElse(null);
+        if (question == null){
+            return JsonResponse.error("问题不存在");
+        }
         adminLogService.createAdminLog(userId,"问题管理","删除问题：【"+question.getContent()+"】,ID:【"+question.getId()+"】");
         answerRepository.deleteByQuestionId(id);
         questionRepository.deleteById(id);
@@ -246,7 +255,10 @@ public class QuestionService {
     }
 
     public JsonResponse weappDeleteAnswer(Integer id, Integer userId){
-        Answer answer = answerRepository.findById(id).get();
+        Answer answer = answerRepository.findById(id).orElse(null);
+        if (answer == null){
+            return JsonResponse.error("回答不存在");
+        }
         if (!answer.getUserId().equals(userId)){
             return JsonResponse.error("非发布回答用户，无权限删除");
         }
@@ -272,7 +284,10 @@ public class QuestionService {
     }
 
     public JsonResponse likeAnswer(Integer answerId){
-        Answer answer = answerRepository.findById(answerId).get();
+        Answer answer = answerRepository.findById(answerId).orElse(null);
+        if (answer == null){
+            return JsonResponse.error("回答不存在");
+        }
         answer.setLikes(answer.getLikes() + 1);
         answerRepository.saveAndFlush(answer);
         return JsonResponse.ok(answer.getLikes());
@@ -299,17 +314,17 @@ public class QuestionService {
         }
         map.setFollowed(questionFollowerRepository.existsByUserIdAndQuestionId(userId, questionId));
         map.setFollowersCount(questionFollowerRepository.countByQuestionId(questionId));
-        String targetName = "";
         if (question.getTargetType().equals("post")) {
-            Post post = postRepository.findById(question.getTargetId()).get();
-            targetName = post.getTitle();
+            postRepository.findById(question.getTargetId()).ifPresent(post1 -> map.setTargetName(post1.getTitle()));
         }
-        map.setTargetName(targetName);
         return map;
     }
 
     public JsonResponse getWeappUserQuestionDetail(Integer questionId, Integer userId){
-        Question question = questionRepository.findById(questionId).get();
+        Question question = questionRepository.findById(questionId).orElse(null);
+        if (question == null){
+            return JsonResponse.error("数据不存在");
+        }
         WeappQuestionVo questionVo = getQuestionVo(question,questionId,userId);
         return JsonResponse.ok(questionVo);
     }
@@ -358,12 +373,9 @@ public class QuestionService {
                 map.setFirstAnswer(answerVoList.get(0));
                 map.setIsDone(true);
             }
-            String targetName = "";
             if (question.getTargetType().equals("post")) {
-                Post post= postRepository.findById(question.getTargetId()).get();
-                targetName = post.getTitle();
+                postRepository.findById(question.getTargetId()).ifPresent(post -> map.setTargetName(post.getTitle()));
             }
-            map.setTargetName(targetName);
             return map;
         }).collect(Collectors.toList());
 

@@ -83,14 +83,20 @@ public class TagService {
     }
 
     public JsonResponse getTagDetail(Integer id){
-        TagEntity tagEntity = tagsEntityRepository.findById(id).get();
+        TagEntity tagEntity = tagsEntityRepository.findById(id).orElse(null);
+        if (tagEntity == null){
+            return JsonResponse.error("标签不存在");
+        }
         AdminTagListVo adminTagListVo = modelMapper.map(tagEntity, AdminTagListVo.class);
         return JsonResponse.ok(adminTagListVo);
     }
 
     public JsonResponse updateTag(Integer id, AdminTagUpdateRequest adminTagUpdate){
 
-        TagEntity tag = tagsEntityRepository.findById(id).get();
+        TagEntity tag = tagsEntityRepository.findById(id).orElse(null);
+        if (tag == null){
+            return JsonResponse.error("标签不存在");
+        }
         modelMapper.map(adminTagUpdate,tag);
         LocalDateTime time = LocalDateTime.now();
         tag.setUpdatedAt(time);

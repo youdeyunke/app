@@ -59,7 +59,10 @@ public class PermissionItemService {
     }
 
     public JsonResponse updatePermissionItem(Integer id, AdminPermissionUpdateRequest permissionItem){
-        PermissionItem map = permissionItemRepository.findById(id).get();
+        PermissionItem map = permissionItemRepository.findById(id).orElse(null);
+        if(map == null){
+            return JsonResponse.error("数据不存在");
+        }
         map.setUpdatedAt(LocalDateTime.now());
         modelMapper.map(permissionItem, map);
         permissionItemRepository.saveAndFlush(map);

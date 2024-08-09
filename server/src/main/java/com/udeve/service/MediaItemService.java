@@ -29,6 +29,7 @@ import com.udeve.repository.MediaItemRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
@@ -50,14 +51,20 @@ public class MediaItemService{
         map.setCreatedAt(LocalDateTime.now());
         map.setUpdatedAt(LocalDateTime.now());
         mediaItemRepository.saveAndFlush(map);
-        MediaCat mediaCat = mediaCatRepository.findById(mediaItemUpdateDto.getMediaCatId()).get();
+        MediaCat mediaCat = mediaCatRepository.findById(mediaItemUpdateDto.getMediaCatId()).orElse(null);
+        if (mediaCat==null){
+            return JsonResponse.error("相册不存在");
+        }
         mediaCat.setItemsCount(mediaItemRepository.countByMediaCatId(mediaItemUpdateDto.getMediaCatId()));
         mediaCatRepository.saveAndFlush(mediaCat);
         return JsonResponse.ok("创建成功");
     }
 
     public JsonResponse updateMediaItem(Integer id,AdminMediaItemUpdateRequest mediaItemUpdateDto) {
-        MediaItem mediaItem = mediaItemRepository.findById(id).get();
+        MediaItem mediaItem = mediaItemRepository.findById(id).orElse(null);
+        if (mediaItem==null){
+            return JsonResponse.error("要修改的照片不存在");
+        }
         modelMapper.map(mediaItemUpdateDto, mediaItem);
         mediaItem.setUpdatedAt(LocalDateTime.now());
         mediaItemRepository.saveAndFlush(mediaItem);
@@ -71,7 +78,10 @@ public class MediaItemService{
 
     public JsonResponse updateMediaItemsOrder(List<Integer> ids) {
         for (int i = 0; i < ids.size(); i++) {
-            MediaItem mediaItem = mediaItemRepository.findById(ids.get(i)).get();
+            MediaItem mediaItem = mediaItemRepository.findById(ids.get(i)).orElse(null);
+            if (mediaItem==null){
+                return JsonResponse.error("照片不存在");
+            }
             mediaItem.setNumber(i);
             mediaItemRepository.saveAndFlush(mediaItem);
         }
@@ -79,12 +89,16 @@ public class MediaItemService{
     }
     //小程序接口
     public JsonResponse weAppDeleteMediaItems(Integer userId,Integer mediaItemId){
-        MediaItem mediaItem = mediaItemRepository.findById(mediaItemId).get();
+        MediaItem mediaItem = mediaItemRepository.findById(mediaItemId).orElse(null);
         if(mediaItem==null){
             return JsonResponse.ok("要删除的照片不存在");
         }
         Integer mediaCatId = mediaItem.getMediaCatId();
-        Integer targetId = mediaCatRepository.findById(mediaCatId).get().getTargetId();
+        Optional<MediaCat> optionalMediaCat = mediaCatRepository.findById(mediaCatId);
+        if (optionalMediaCat.isEmpty()){
+            return JsonResponse.ok("要删除的照片所在的相册不存在");
+        }
+        Integer targetId = optionalMediaCat.get().getTargetId();
         BrokerProfile brokerProfile = brokerProfileService.isBrokerOrNo(userId);
         if (brokerProfile==null) {
             return JsonResponse.error("当前置业顾问状态异常");
@@ -99,7 +113,7 @@ public class MediaItemService{
 
     public JsonResponse weAppCreateMediaItems(Integer userId, MediaItemCreateRequest mediaItemCreateRequest){
         Integer catId = mediaItemCreateRequest.getMediaCatId();
-        MediaCat mediaCat = mediaCatRepository.findById(catId).get();
+        MediaCat mediaCat = mediaCatRepository.findById(catId).orElse(null);
         if(mediaCat==null){
             return JsonResponse.error("相册不存在");
         }

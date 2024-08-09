@@ -51,13 +51,19 @@ public class CityService {
     }
 
     public JsonResponse getCityDetail(Integer id){
-        City city = cityRepository.findById(id).get();
+        City city = cityRepository.findById(id).orElse(null);
+        if (city == null){
+            return JsonResponse.error("该城市不存在");
+        }
         AdminCityListVo map = modelMapper.map(city, AdminCityListVo.class);
         return JsonResponse.ok(map);
     }
 
     public JsonResponse updateCity(Integer id,AdminCityUpdateRequest city){
-        City map = cityRepository.findById(id).get();
+        City map = cityRepository.findById(id).orElse(null);
+        if (map == null){
+            return JsonResponse.error("该城市不存在");
+        }
         modelMapper.map(city, map);
         cityRepository.saveAndFlush(map);
         return JsonResponse.ok("更新成功");

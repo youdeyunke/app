@@ -68,7 +68,10 @@ public class MyEnumerationService {
 
     public JsonResponse updataEnumeration(Integer id,AdminMyEnumerationUpdateRequest enumeration){
 
-        MyEnumeration myEnumeration = myEnumerationRepository.findById(id).get();
+        MyEnumeration myEnumeration = myEnumerationRepository.findById(id).orElse(null);
+        if (myEnumeration == null){
+            return JsonResponse.error("数据不存在");
+        }
         modelMapper.map(enumeration, myEnumeration);
         myEnumeration.setUpdatedAt(LocalDateTime.now());
         myEnumerationRepository.saveAndFlush(myEnumeration);
@@ -76,7 +79,10 @@ public class MyEnumerationService {
     }
 
     public JsonResponse deleteEnumeration(Integer id){
-        MyEnumeration enumeration = myEnumerationRepository.findById(id).get();
+        MyEnumeration enumeration = myEnumerationRepository.findById(id).orElse(null);
+        if (enumeration == null){
+            return JsonResponse.error("数据不存在");
+        }
         enumeration.setIsDelete(true);
         myEnumerationRepository.saveAndFlush(enumeration);
         return JsonResponse.ok("删除成功");

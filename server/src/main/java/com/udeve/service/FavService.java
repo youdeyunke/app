@@ -62,7 +62,10 @@ public class FavService {
         if (targetId == null) {
             return JsonResponse.error("targetId不能为空");
         }
-        String postTitle = postRepository.findById(targetId).get().getTitle();
+        Optional<Post> postOptional = postRepository.findById(targetId);
+        if (postOptional.isEmpty()) {
+            return JsonResponse.error("楼盘不存在！");
+        }
         Fav fav = favRepository.findByTargetTypeAndTargetIdAndUserId(targetType, targetId,userId);
         //说明已经收藏了，需要取消收藏
         if(fav != null){
@@ -78,10 +81,7 @@ public class FavService {
         fav1.setTargetId(targetId);
         fav1.setUserId(userId);
         fav1.setUpdatedAt(LocalDateTime.now());
-        Fav save = favRepository.save(fav1);
-        if(save == null){
-            return JsonResponse.error("添加收藏失败");
-        }
+        favRepository.save(fav1);
         return JsonResponse.ok(true);
     }
 
@@ -134,7 +134,7 @@ public class FavService {
                     HouseItemForListingVo map = modelMapper.map(house, HouseItemForListingVo.class);
                     if(map.getCover()==null || ("").equals(map.getCover())){
                         //TODO 改为素材图
-                        map.setCover(map.getImageList().size()==0?"https://tcdn.udeve.net/udyk/659e5134e4b04bdf00a71575.png":map.getImageList().get(0));
+                        map.setCover(map.getImageList().size()==0?"https://tcdn.udeve.net/udyk/default_post_cover.png":map.getImageList().get(0));
                     }
                     return map;
                 })

@@ -33,13 +33,19 @@ public class DetailContentService {
     ModelMapper modelMapper;
 
     public JsonResponse getDetailContent(Integer Id) {
-        DetailContent detailContent = detailContentRepository.findById(Id).get();
+        DetailContent detailContent = detailContentRepository.findById(Id).orElse(null);
+        if (detailContent == null){
+            return JsonResponse.error("数据不存在");
+        }
         AdminDetailContentVo map = modelMapper.map(detailContent, AdminDetailContentVo.class);
         return JsonResponse.ok(map);
     }
 
     public JsonResponse updateDetailContent(Integer id, AdminDetailContentUpdateRequest detailContent) {
-        DetailContent map = detailContentRepository.findById(id).get();
+        DetailContent map = detailContentRepository.findById(id).orElse(null);
+        if (map == null){
+            return JsonResponse.error("数据不存在");
+        }
         modelMapper.map(detailContent, map);
         map.setUpdatedAt(LocalDateTime.now());
         detailContentRepository.saveAndFlush(map);

@@ -54,7 +54,10 @@ public class DistrictService {
     }
 
     public JsonResponse getDistrict(Integer id) {
-        DistrictEntity districtEntity = districtRepository.findById(id).get();
+        DistrictEntity districtEntity = districtRepository.findById(id).orElse(null);
+        if (districtEntity == null) {
+            return JsonResponse.error("未找到该区域");
+        }
         AdminDistrictListVo res = modelMapper.map(districtEntity, AdminDistrictListVo.class);
         res.setCityId(districtEntity.getCity().getId());
         res.setFullname(districtEntity.getCity().getName() + "-" + districtEntity.getName());
@@ -62,9 +65,15 @@ public class DistrictService {
     }
 
     public JsonResponse updateDistrict(Integer id,AdminDistrictUpdateRequest district){
-        DistrictEntity districtEntity = districtRepository.findById(id).get();
+        DistrictEntity districtEntity = districtRepository.findById(id).orElse(null);
+        if (districtEntity == null) {
+            return JsonResponse.error("未找到该区域");
+        }
         modelMapper.map(district, districtEntity);
-        City city = cityRepository.findById(district.getCityId()).get();
+        City city = cityRepository.findById(district.getCityId()).orElse(null);
+        if (city == null){
+            return JsonResponse.error("未找到该城市");
+        }
         districtEntity.setCity(city);
         districtRepository.saveAndFlush(districtEntity);
         return JsonResponse.ok("更新成功");
@@ -72,7 +81,10 @@ public class DistrictService {
 
     public JsonResponse createDistrict(AdminDistrictCreateRequest district){
         DistrictEntity districtEntity = modelMapper.map(district, DistrictEntity.class);
-        City city = cityRepository.findById(district.getCityId()).get();
+        City city = cityRepository.findById(district.getCityId()).orElse(null);
+        if (city == null){
+            return JsonResponse.error("未找到该城市");
+        }
         districtEntity.setCity(city);
         districtEntity.setIsPublic(true);
         districtEntity.setNumber(0);

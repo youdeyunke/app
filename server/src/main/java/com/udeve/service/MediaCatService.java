@@ -34,6 +34,7 @@ import com.udeve.repository.MediaItemRepository;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -60,7 +61,10 @@ public class MediaCatService {
     }
 
     public JsonResponse getMediaCatDetail(Integer id) {
-        MediaCat mediaCat = mediaCatRepository.findById(id).get();
+        MediaCat mediaCat = mediaCatRepository.findById(id).orElse(null);
+        if (mediaCat == null) {
+            return JsonResponse.error("相册不存在");
+        }
         AdminMediaCatListVo map = modelMapper.map(mediaCat, AdminMediaCatListVo.class);
         List<MediaItem> byMediaCatId = mediaItemRepository.findByMediaCatIdOrderByNumberAsc(id);
         JSONObject resp = new JSONObject();
@@ -70,7 +74,10 @@ public class MediaCatService {
     }
 
     public JsonResponse updateMediaCat(Integer id,AdminMediaCatUpdateRequest mediaCatUpdateDto) {
-        MediaCat map = mediaCatRepository.findById(id).get();
+        MediaCat map = mediaCatRepository.findById(id).orElse(null);
+        if (map == null) {
+            return JsonResponse.error("相册不存在");
+        }
         modelMapper.map(mediaCatUpdateDto, map);
         map.setUpdatedAt(LocalDateTime.now());
         mediaCatRepository.saveAndFlush(map);
@@ -95,7 +102,10 @@ public class MediaCatService {
 
     public JsonResponse updateMediaCatsOrder(List<Integer> ids) {
         for (int i = 0; i < ids.size(); i++) {
-            MediaCat mediaCat = mediaCatRepository.findById(ids.get(i)).get();
+            MediaCat mediaCat = mediaCatRepository.findById(ids.get(i)).orElse(null);
+            if (mediaCat == null){
+                return JsonResponse.error("相册不存在");
+            }
             mediaCat.setNumber(i);
             mediaCatRepository.saveAndFlush(mediaCat);
         }
@@ -122,7 +132,11 @@ public class MediaCatService {
             return JsonResponse.error("当前置业顾问状态异常");
         }
         Integer postId = brokerProfile.getPostId();
-        Integer targetId = mediaCatRepository.findById(mediaCatId).get().getTargetId();
+        Optional<MediaCat> optionalMediaCat = mediaCatRepository.findById(mediaCatId);
+        if (optionalMediaCat.isEmpty()){
+            return JsonResponse.error("相册不存在");
+        }
+        Integer targetId = optionalMediaCat.get().getTargetId();
         if(!postId.equals(targetId)){
             return JsonResponse.error("删除错误，请重试");
         }
@@ -162,7 +176,10 @@ public class MediaCatService {
         if (brokerProfile.getStatus()!=2) {
             return JsonResponse.error("当前置业顾问状态异常");
         }
-        MediaCat mediaCat = mediaCatRepository.findById(id).get();
+        MediaCat mediaCat = mediaCatRepository.findById(id).orElse(null);
+        if (mediaCat == null){
+            return JsonResponse.error("相册不存在");
+        }
         Integer targetId = mediaCat.getTargetId();
         Integer postId = brokerProfile.getPostId();
         if(!targetId.equals(postId)){

@@ -99,7 +99,10 @@ public class AdminNewController extends BaseApiController {
     @PatchMapping(value = "/admin6/news_cats/{id}")
     @SaCheckPermission("news_cats")
     public JsonResponse updateNewCat(@Validated @RequestBody AdminNewCatUpdateRequest newCat, @PathVariable("id") Integer id){
-        NewCat map = newCatRepository.findById(id).get();
+        NewCat map = newCatRepository.findById(id).orElse(null);
+        if (map == null) {
+            return JsonResponse.error("文章分类不存在");
+        }
         modelMapper.map(newCat, map);
         newCatRepository.saveAndFlush(map);
         return JsonResponse.ok("保存成功");

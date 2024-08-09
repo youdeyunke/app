@@ -66,17 +66,16 @@ public class AdminHouseService {
         house.setSubDistrictName(dto.getSubDistrictName());
 
         if (dto.getDistrictId() != null) {
-            DistrictEntity district = districtRepository.findById(dto.districtId).get();
+            DistrictEntity district = districtRepository.findById(dto.getDistrictId()).orElse(null);
+            if (district == null){
+                return JsonResponse.error("区域未找到");
+            }
             house.setDistrict(district);
             house.setCity(district.getCity());
         }
 
         house.setUpdatedAt(LocalDateTime.now());
-        if ("已发布".equals(dto.getPublishStatus())) {
-            house.setIsPublic(true);
-        }else {
-            house.setIsPublic(false);
-        }
+        house.setIsPublic("已发布".equals(dto.getPublishStatus()));
         houseRepository.saveAndFlush(house);
 
         adminLogService.createAdminLog(userId, "二手房管理", "更新房源，名称：" + house.getTitle() + "，ID：" + house.getId());
@@ -84,7 +83,10 @@ public class AdminHouseService {
     }
 
     public JsonResponse updateInfo(Integer id, AdminHouseUpdateInfoRequest request,Integer userId){
-        House house = houseRepository.findById(id).get();
+        House house = houseRepository.findById(id).orElse(null);
+        if (house == null){
+            return JsonResponse.error("房源未找到");
+        }
         modelMapper.map(request,house);
         house.setUpdatedAt(LocalDateTime.now());
         houseRepository.saveAndFlush(house);
@@ -99,6 +101,9 @@ public class AdminHouseService {
 
         //根据传来的区域id查询到该区域，设置二手房的区域和城市
         DistrictEntity district = districtRepository.findById(dto.getDistrictId()).orElse(null);
+        if (district == null){
+            return JsonResponse.error("区域未找到");
+        }
         house.setCity(district.getCity());
         house.setDistrict(district);
         house.setSubDistrictName(dto.getSubDistrictName());
@@ -130,17 +135,32 @@ public class AdminHouseService {
 
         adminLogService.createAdminLog(userId, "二手房管理", "创建房源，名称：" + house.getTitle() + "，ID：" + house.getId());
         HouseDetailVo map = modelMapper.map(house, HouseDetailVo.class);
+        // 设置详情页url
+        HouseDetailVo houseDetailVo = this.setDetailUrl(map, house.getId());
+        return JsonResponse.ok(houseDetailVo);
+    }
+
+    // 设置二手房创建后set详情页
+    private HouseDetailVo setDetailUrl(HouseDetailVo map,Integer houseId){
         PermissionItem byComponentPath = permissionItemRepository.findByComponentPath("oldUpdate/index");
-        PermissionItem permissionItem = permissionItemRepository.findById(byComponentPath.getFatherId()).get();
+        PermissionItem permissionItem = permissionItemRepository.findById(byComponentPath.getFatherId()).orElse(null);
+        if (permissionItem == null){
+            log.error("二手房详情页设置异常");
+            return map;
+        }
         String url = permissionItem.getPath() + "/" + byComponentPath.getPath();
         url = url.replace(":id", "");
         String finalUrl = url;
-        map.setUrl(finalUrl + house.getId());
-        return JsonResponse.ok(map);
+        map.setUrl(finalUrl + houseId);
+        return map;
     }
 
+
     public JsonResponse updateStatus(Integer id, String publishStatus, Integer userId) {
-        House house = houseRepository.findById(id).get();
+        House house = houseRepository.findById(id).orElse(null);
+        if (house == null){
+            return JsonResponse.error("房源未找到");
+        }
         house.setPublishStatus(publishStatus);
         house.setIsPublic("已发布".equals(publishStatus));
         house.setUpdatedAt(LocalDateTime.now());
@@ -152,7 +172,10 @@ public class AdminHouseService {
 
     // 管理后台编辑楼盘信息时候需要拉取的数据
     public JsonResponse show(Integer id) {
-        House house = houseRepository.findById(id).get();
+        House house = houseRepository.findById(id).orElse(null);
+        if (house == null){
+            return JsonResponse.error("房源未找到");
+        }
         return JsonResponse.ok(house);
     }
 
@@ -176,7 +199,7 @@ public class AdminHouseService {
 
     public JsonResponse getPoi(AdminPoiRequest adminPoiRequest) {
         String lbsKey = myconfigService.getLbsKey();
-        if (lbsKey == null || ("").equals(lbsKey)) {
+        if (lbsKey == null || lbsKey.isEmpty()) {
             return JsonResponse.error("请先配置腾讯地图key");
         }
         LbsUtil lbsUtil = new LbsUtil(lbsKey);
@@ -211,16 +234,16 @@ public class AdminHouseService {
         try {
             String appId = myconfigService.getAppId();
             String appSecret = myconfigService.getAppSecret();
-            if(appId == null || ("").equals(appId) || appSecret == null || ("").equals(appSecret)){
+            if(appId == null || appId.isEmpty() || appSecret == null || appSecret.isEmpty()){
                 throw new RuntimeException("未配置小程序ID和秘钥：请在【界面设计器】左上角【设置】处填写相关信息");
-            }else{
-                genHouseQr(houseId);
-                Optional<House> byId = houseRepository.findById(houseId);
-                if (byId.isEmpty()) {
-                    return JsonResponse.error("房源不存在");
-                }
-                return JsonResponse.ok(byId.get().getQr());
             }
+
+            genHouseQr(houseId);
+            Optional<House> byId = houseRepository.findById(houseId);
+            if (byId.isEmpty()) {
+                return JsonResponse.error("房源不存在");
+            }
+            return JsonResponse.ok(byId.get().getQr());
         } catch (WxErrorException e) {
             log.error("生成二维码失败：{}",e.getMessage());
             return JsonResponse.error("生成二维码失败，请重试！");

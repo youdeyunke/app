@@ -26,6 +26,7 @@ import com.udeve.repository.PostBannerRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -44,15 +45,23 @@ public class PostBannerService {
         List<PostBanner> postBannerList = postBannerRepository.findAllByPostIdOrderByNumberAsc(postId);
         List<AdminPostBannerListVo> list = postBannerList.stream().map(postBanner -> {
             AdminPostBannerListVo map = modelMapper.map(postBanner, AdminPostBannerListVo.class);
-            String catName = postBannerCat.stream().filter(myEnumeration -> myEnumeration.getValue().equals(postBanner.getCat())).findFirst().get().getName();
-            map.setCatName(catName);
+            Optional<MyEnumeration> optionalMyEnumeration = postBannerCat.stream().filter(myEnumeration -> myEnumeration.getValue().equals(postBanner.getCat())).findFirst();
+            if (optionalMyEnumeration.isEmpty()){
+                return map;
+            }
+            String name = optionalMyEnumeration.get().getName();
+            map.setCatName(name);
             return map;
         }).collect(Collectors.toList());
         return JsonResponse.ok(list);
     }
 
     public JsonResponse updatePostBanner(Integer id,AdminPostBannerUpdateRequest postBanner) {
-        PostBanner map = postBannerRepository.findById(id).get();
+        Optional<PostBanner> optionalPostBanner = postBannerRepository.findById(id);
+        if (optionalPostBanner.isEmpty()){
+            return JsonResponse.error("数据不存在");
+        }
+        PostBanner map = optionalPostBanner.get();
         modelMapper.map(postBanner, map);
         map.setUpdatedAt(LocalDateTime.now());
         if (map.getNumber() == null) {

@@ -56,8 +56,6 @@ public class AdminMyConfigsController extends BaseApiController {
     public JsonResponse myconfigs() {
         Myconfig myconfig = myconfigService.get();
         AdminMyconfigDetailVo map = modelMapper.map(myconfig, AdminMyconfigDetailVo.class);
-        map.setServerVersion(myconfigService.getServerVersion());
-        map.setLastServerVersion(myconfigService.getLastServerVersion());
         // demo角色，不返回敏感信息
         String userType = (String) getUser().get("user_type");
         String[] array = userType.split(",");

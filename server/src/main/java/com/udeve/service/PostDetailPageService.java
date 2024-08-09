@@ -126,6 +126,22 @@ public class PostDetailPageService {
 
     public JsonResponse getPostDetail(Integer postId){
         Post post = postRepository.findById(postId).orElse(null);
+        if(post == null){
+            return JsonResponse.error("楼盘不存在");
+        }
+
+        Optional<DetailContent> optionalDetailContent = detailContentRepository.findById(post.getDetailContentId());
+        if (optionalDetailContent.isEmpty()){
+            return JsonResponse.error("楼盘详情不存在！");
+        }
+        String content = optionalDetailContent.get().getValue();
+
+        Optional<MetaContent> optionalMetaContent = metaContentRepository.findById(post.getMetaContentId());
+        if (optionalMetaContent.isEmpty()){
+            return JsonResponse.error("楼盘参数不存在！");
+        }
+        String meta = optionalMetaContent.get().getValue();
+
         PostItemForListingVo postItemVo = modelMapper.map(post, PostItemForListingVo.class);
         JSONObject value = new JSONObject();
         value.put("address", post.getAddress());
@@ -138,8 +154,8 @@ public class PostDetailPageService {
         value.put("phone", post.getPhone());
         value.put("sub_phone", post.getSubPhone());
         value.put("cover", post.getCover());
-        value.put("content", detailContentRepository.findById(post.getDetailContentId()).get().getValue());
-        value.put("meta", metaContentRepository.findById(post.getMetaContentId()).get().getValue());
+        value.put("content", content);
+        value.put("meta", meta);
         List<PostType> types = postTypeRepository.findAllByPostIdOrderByNumber(post.getId());
         value.put("types", types);
         return JsonResponse.ok(value);
