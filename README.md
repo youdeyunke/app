@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[商业版](https://www.youdeyunke.com/?statId=6) | [加入群聊](https://tcdn.udeve.net/udyk/66064f7e8ecade73b2385bb3.jpg)
+[商业版](https://www.youdeyunke.com/?statId=6) | [文档](https://youdeyunke.yuque.com/r/organizations/homepage) | [加入群聊](https://tcdn.udeve.net/udyk/66064f7e8ecade73b2385bb3.jpg)
 
 
 </div>
