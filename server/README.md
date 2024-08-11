@@ -1,4 +1,4 @@
-# 准备工作
+# 部署方式一：编译部署
 
 
 ~~~bash
@@ -11,7 +11,7 @@ Redis >= 3.0
 Maven >= 3.0
 ~~~
 
-# 运行系统
+## 运行系统
 
 1. 导入到`IDEA`或`Eclipse`中。
 2. 打开项目运行`com.udeve.StartApplication.java`，出现如下界面则启动成功。
@@ -32,7 +32,7 @@ Maven >= 3.0
 > **管理端密码**：`8个8`
 
 
-# 必要配置
+## 必要配置
 
 1. 修改数据库连接，编辑`resources`目录下的`application.properties`
 
@@ -52,9 +52,9 @@ server.port=8080
 ~~~
 
 
-# 部署
+## 编译jar包
 
-## 自定义部署，配置灵活
+### 自定义部署，配置灵活
 
 1. 打包工程文件
 
@@ -67,7 +67,7 @@ server.port=8080
 
     使用命令行：`java –jar xxxx.jar`
 
-# nginx配置
+### nginx配置
 
 ~~~
 server {
@@ -96,7 +96,8 @@ server {
     }
 ~~~
 
-## docker快速部署
+
+# 部署方式二：编译部署
 
 1. 下载[docker-compose.yml](https://tcdn.udeve.net/install-ce-1.0.0/docker-compose.yml)文件
 
