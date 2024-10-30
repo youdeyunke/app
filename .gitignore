@@ -11,3 +11,5 @@ ext.json
 *.DS_Store
 project.config.json
 .vscode
+/run_mysql.sh
+scripts
