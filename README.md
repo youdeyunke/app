@@ -2,14 +2,11 @@
 
 <div align="center">
 
-[商业版](https://www.youdeyunke.com/?statId=6) | [文档](https://youdeyunke.yuque.com/r/organizations/homepage) | [加入群聊](https://tcdn.udeve.net/udyk/66064f7e8ecade73b2385bb3.jpg)
+[产品官网](https://www.youdeyunke.com/?statId=6) | [帮助文档](https://youdeyunke.yuque.com/r/organizations/homepage) | [加入群聊](https://tcdn.udeve.net/udyk/66064f7e8ecade73b2385bb3.jpg)
 
 
 </div>
 
-<div align="center">
-    如果对您有帮助，您可以点右上角 "Star" ❤️ 支持一下 谢谢！
-</div>
 
 
 
