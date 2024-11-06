@@ -21,6 +21,7 @@
     "@sentry/vue": "^7.105.0",
     "ace-builds": "^1.4.13",
     "axios": "0.18.1",
+    "cnpm": "^9.4.0",
     "echarts": "^5.3.3",
     "element-ui": "2.15.14",
     "js-cookie": "2.2.0",

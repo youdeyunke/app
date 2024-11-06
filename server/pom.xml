@@ -18,6 +18,19 @@
         <spring-shell.version>2.1.1</spring-shell.version>
     </properties>
 
+  <repositories>
+    <repository>
+      <id>maven-aliyun</id>
+      <url>https://maven.aliyun.com/repository/public</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
     <dependencies>
         <!-- 邮件 -->
         <dependency>
