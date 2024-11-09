@@ -45,6 +45,19 @@
 | 小程序演示 | ![](https://demo2.youdeyunke.com/filestore/2024/06/21/b690b7dbde84db693701e518d910a856_20240621104716A012.jpg) |  ![](https://tcdn.udeve.net/udyk/65a0d469b33aac0d968a3529.jpg) |
 
 
+## 商用须知
+
+社区版允许用于商业用途，而无需取得授权。但需要在小程序首页底部保留“友得云客”品牌露出，未经允许不可移除此标志，否则将构成侵权，我公司将委托律师事务所进行维权。
+示例：
+
+![](https://tcdn.udeve.net/udyk/672eebbfe4b07694cf4cb408.png)
+
+素材图片:https://tcdn.udeve.net/udyk/65ae2b4db33ac5e0e29f7ccf.png
+尺寸规范：宽度不少于120rpx，高度不少于60rpx
+显示位置：小程序首页底部居中显示
+
+
+
 
 ## 界面截图
 ![友得云客房产小程序界面截图](https://demo-1255998955.cos.ap-shanghai.myqcloud.com/udyk/screens.png)
@@ -95,6 +108,7 @@ Apache License 2.0 许可的主要内容包括：
 Apache License 2.0 是一种宽松的开源许可，允许人们自由使用、修改和分发软件。
 
 本项目包含的第三方源码和二进制文件之版权信息另行标注。
+
 *友得云客®* 商标和著作权所有者为优得（西安）信息科技有限公司。侵权必究
 
 **本软件已登记软著，必须保留原始版权文字信息，违者将依法追究法律责任。**
