@@ -48,14 +48,13 @@
 ## 商用须知
 
 社区版允许用于商业用途，而无需取得授权。但需要在小程序首页底部保留“友得云客”品牌露出，未经允许不可移除此标志，否则将构成侵权，我公司将委托律师事务所进行维权。
-示例：
 
+* 示例：
 ![](https://tcdn.udeve.net/udyk/672eebbfe4b07694cf4cb408.png)
 
-素材图片:https://tcdn.udeve.net/udyk/65ae2b4db33ac5e0e29f7ccf.png
-尺寸规范：宽度不少于120rpx，高度不少于60rpx
-显示位置：小程序首页底部居中显示
-
+* 素材图片:https://tcdn.udeve.net/udyk/65ae2b4db33ac5e0e29f7ccf.png
+* 尺寸规范：宽度不少于120rpx，高度不少于60rpx
+* 显示位置：小程序首页底部居中显示
 
 
 
