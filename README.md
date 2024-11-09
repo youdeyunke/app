@@ -4,13 +4,7 @@
 
 [产品官网](https://www.youdeyunke.com/?statId=6) | [帮助文档](https://youdeyunke.yuque.com/r/organizations/homepage) | [加入群聊](https://tcdn.udeve.net/udyk/66064f7e8ecade73b2385bb3.jpg)
 
-
 </div>
-
-
-
-
-
 
 # 友得云客房产小程序【社区版】<span>💯开源</span>
 
@@ -19,19 +13,10 @@
 友得云客房产小程序是一款专为房产行业打造的线上营销获客小程序系统，致力于帮助房产企业搭建私域流量平台，以数字化精准营销提升销售效果，驱动业绩增长。作为行业先行者，我们深谙互联网线上营销的要义，将多年的经验与技术融汇于一身，为您提供完善的、已成型的房产小程序系统。基于此【社区版】您无需授权即可获取全部源代码，并进行二次开发，允许用于商业用途，但需要保留版权信息。
 
 
-| 源码 | 已开源 |    |
-| --- | --- | --- |
-|  微信小程序端  | ✅ |  100% |
-|  PC管理后台前端  | ✅ |  100% |
-|  后端服务器接口  | ✅ |  100% |
+## 安装教程
 
-
-## 安装搭建社区版
-
-*  [服务端安装说明](server/README.md)
-*  [管理面板安装说明](panel/README.md)
-*  [小程序端安装说明](weapp/README.md)
-
+*  [服务端搭建教程](https://youdeyunke.yuque.com/fbxh1v/install/fcq2wmkaxb351ne1)
+*  [小程序端搭建教程](https://youdeyunke.yuque.com/fbxh1v/install/dt57os0gz4dk8h5b)
 
 
 ## 在线演示
@@ -112,5 +97,6 @@ Apache License 2.0 是一种宽松的开源许可，允许人们自由使用、�
 *友得云客®* 商标和著作权所有者为优得（西安）信息科技有限公司。侵权必究
 
 **本软件已登记软著，必须保留原始版权文字信息，违者将依法追究法律责任。**
+
 
 ![](https://tcdn.udeve.net/udyk/672eef97e4b07694cf4cb40a.png)
