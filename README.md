@@ -24,7 +24,9 @@
 
 本项目采用前后端分离部署,你可以选择自行编译后端服务进行部署，但是更建议通过宝塔面板的"Docker应用商店"搜索“友得云客”进行一键安装。
 
-*  服务端部署： [从宝塔面板docker应用商店一键安装服务端教程](https://youdeyunke.yuque.com/fbxh1v/install/bt)
+![通过宝塔面板安装友得云客社区版服务端](https://cdn.nlark.com/yuque/0/2024/png/39035296/1731317106756-3f87ca63-3f6d-4fe0-b706-f571bfe10521.png)
+
+*  服务端部署： [从宝塔面板docker应用商店一键安装友得云客社区版服务端](https://youdeyunke.yuque.com/fbxh1v/install/bt)
 *  小程序端部署： [小程序端搭建教程](https://youdeyunke.yuque.com/fbxh1v/install/dt57os0gz4dk8h5b)
 
 如果是通过宝塔面板一键装，则不需要自行部署服务端，只需要下载weapp目录导入微信开发者工具即可。
