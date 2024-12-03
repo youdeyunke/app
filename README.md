@@ -1,4 +1,4 @@
-![友得云客房产小程序-社区版](https://tcdn.udeve.net/fang2021/4bbe636b-e0e8-4580-8bb0-66bbf61f11bd.png)
+![友得云客房产小程序-社区版](https://tcdn.udeve.net/udyk/readme-free-license.png)
 
 <div align="center">
 
@@ -6,13 +6,13 @@
 
 </div>
 
-# 友得云客房产小程序【社区版】<span>💯开源</span>
+# 友得云客房产营销系统【社区版】
 
 
 ## 系统简介
-友得云客房产小程序是一款专为房产行业打造的线上营销获客小程序系统，致力于帮助房产企业搭建私域流量平台，以数字化精准营销提升销售效果，驱动业绩增长。作为行业先行者，我们深谙互联网线上营销的要义，将多年的经验与技术融汇于一身，为您提供完善的、已成型的房产小程序系统。基于此【社区版】您无需授权即可获取全部源代码，并进行二次开发，允许用于商业用途，但需要保留版权信息。
+友得云客房产营销系统是一款专为房产行业打造的线上营销获客小程序系统，致力于帮助房产企业搭建私域流量平台，以数字化精准营销提升销售效果，驱动业绩增长。作为行业先行者，我们深谙互联网线上营销的要义，将多年的经验与技术融汇于一身，为您提供完善的、已成型的房产小程序系统。基于此【社区版】您无需授权即可获取全部源代码，并进行二次开发，允许用于商业用途，但需要保留版权信息。
 
-## 文件结构说明
+## 文件结构
 
 * panel 管理后台前端代码（vue项目）
 * server 管理后台服务端接口代码（springboot）
@@ -42,17 +42,10 @@
 | 网站端演示地址 | `不支持` | https://demo.youdeyunke.com |
 | 小程序演示 | ![](https://tcdn.udeve.net/udyk/672eec7ae4b07694cf4cb409.png) |  ![](https://tcdn.udeve.net/udyk/65a0d469b33aac0d968a3529.jpg) |
 
+## 功能介绍
 
-## 商用须知
+![友得云客产品功能脑图](https://tcdn.udeve.net/udyk/readme-mind-map.png)
 
-社区版允许用于商业用途，而无需取得授权。但需要在小程序首页底部保留“友得云客”品牌露出，未经允许不可移除此标志，否则将构成侵权，我公司将委托律师事务所进行维权。
-
-* 示例：
-![](https://tcdn.udeve.net/udyk/672eebbfe4b07694cf4cb408.png)
-
-* 素材图片:https://tcdn.udeve.net/udyk/65ae2b4db33ac5e0e29f7ccf.png
-* 尺寸规范：宽度不少于120rpx，高度不少于60rpx
-* 显示位置：小程序首页底部居中显示
 
 
 
@@ -70,6 +63,17 @@
 | ![](https://tcdn.udeve.net/fang2021/0fada889-b400-4b29-bc14-bf2e2202490d.jpg?imageView2/2/w/400) | ![](https://tcdn.udeve.net/fang2021/25eee934-77d9-4492-900f-c2d4259226d7.jpg?imageView2/2/w/400) | ![](https://tcdn.udeve.net/fang2021/58e662ca-e7af-4e57-bed3-d2280831127f.jpg?imageView5/2/w/400) |
 |                           宁波甬房                           |                          特变e享家                           |                         学长看房笔记                         |
 
+
+## 商用须知
+
+社区版允许用于商业用途，而无需取得授权。但需要在小程序首页底部保留“友得云客”标志，未经许可不可移除此标志，否则将构成侵权。
+
+* 示例：
+![](https://tcdn.udeve.net/udyk/readme-footer-remark.png)
+
+* 素材图片:https://tcdn.udeve.net/udyk/65ae2b4db33ac5e0e29f7ccf.png
+* 尺寸规范：宽度不少于120rpx，高度不少于60rpx
+* 显示位置：小程序首页底部居中显示
 
 
 ## 参与贡献
