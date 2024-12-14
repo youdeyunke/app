@@ -11,7 +11,7 @@
 -->
 <template>
     <div class="app-container">
-        <advanced-card title="成交明细-功能介绍" desc="用于在小程序端查询成交明细信息，成交明细由管理员在管理端设置。"></advanced-card>
+        <advanced-card image="assets/images/advanced/dealinfo.jpg" title="成交明细-功能介绍" desc="用于在小程序端查询成交明细信息，成交明细由管理员在管理端设置。"></advanced-card>
     </div>
 </template>
 

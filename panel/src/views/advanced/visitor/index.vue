@@ -11,7 +11,7 @@
 -->
 <template>
     <div class="app-container">
-        <advanced-card title="访客足迹-功能介绍" desc="用于管理员查看小程序用户访问页面记录与时长，并支持对应数据的下载导出。"></advanced-card>
+        <advanced-card image="assets/images/advanced/visitors.png" title="访客足迹-功能介绍" desc="用于管理员查看小程序用户访问页面记录与时长，并支持对应数据的下载导出。"></advanced-card>
     </div>
 </template>
 

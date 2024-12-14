@@ -11,8 +11,8 @@
 -->
 <template>
     <div class="app-container">
-        <advanced-card title="AI导入房源-功能介绍"
-            desc="用于管理端自动导入楼盘，管理员选择需要导入楼盘的城市，系统会自动导入该城市的楼盘。"></advanced-card>
+        <advanced-card image="assets/images/advanced/spider.gif" title="一键智能导入房源-功能介绍"
+            desc="通过抓取公开数据，一键导入房源数据，告别手工录入数据。可智能导入以下数据：楼盘基本信息、楼怕参数、户型、一房一价、楼盘动态、楼盘相册、二手房等"></advanced-card>
     </div>
 </template>
 

@@ -11,7 +11,7 @@
 -->
 <template>
     <div class="app-container">
-        <advanced-card title="积分商城-功能介绍" desc="管理员可以设置积分商品，吸引小程序用户以每日进入小程序签到、分享楼盘等方式获取积分，兑换积分商品。"></advanced-card>
+        <advanced-card image="assets/images/advanced/scoregood.jpg" title="积分商城-功能介绍" desc="管理员可以设置积分商品，吸引小程序用户以每日进入小程序签到、分享楼盘等方式获取积分，兑换积分商品。"></advanced-card>
     </div>
 </template>
 

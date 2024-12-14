@@ -6,7 +6,7 @@
       size="small"
       style="margin-right: 10px;margin-top: 5px;"
       @click="gotoPurchaseUrl"
-      >升级到专业授权</el-button
+      >免费试用专业版</el-button
     >
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     gotoPurchaseUrl() {
-      window.open('https://www.youdeyunke.com/price.html?statId=9');
+      window.open('https://youdeyunke.yuque.com/fbxh1v/install/trial');
     },
   },
 };
@@ -48,6 +48,7 @@ export default {
   background-color: #333333;
   color: #E4BE9E;
   border: 1px solid rgba(228, 190, 158, 0);
+  margin-left:10px;
 }
 .upBtn:hover,
 .upBtn:focus {

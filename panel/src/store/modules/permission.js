@@ -9,9 +9,9 @@
 * | Author: www.youdeyunke.com
 * +----------------------------------------------------------------------
 */
-import { constantRoutes } from '@/router'
 import { getMenus } from '@/api/menus'
 import Layout from '@/layout'
+import { constantRoutes } from '@/router'
 
 /**
  * Filter asynchronous routing tables by recursion
@@ -77,6 +77,45 @@ const actions = {
                     "component": "Layout",
                     "hidden": false,
                     "children": [
+                        {
+                            "path": "aichat",
+                            "component": "advanced/aichat/index",
+                            "hidden": false,
+                            "meta": {
+                                "icon": "diamond",
+                                "title": "AI聊天"
+                            },
+                            "name": "aiimport",
+                            "props": {
+                                "btns": null,
+                            }
+                        },
+                        {
+                            "path": "aiimport",
+                            "component": "advanced/aiimport/index",
+                            "hidden": false,
+                            "meta": {
+                                "icon": "diamond",
+                                "title": "AI导入房源"
+                            },
+                            "name": "aiimport",
+                            "props": {
+                                "btns": null,
+                            }
+                        },
+                        {
+                            "path": "pagemaker",
+                            "component": "advanced/pagemaker/index",
+                            "hidden": false,
+                            "meta": {
+                                "icon": "diamond",
+                                "title": "界面设计器"
+                            },
+                            "name": "pagemaker",
+                            "props": {
+                                "btns": null,
+                            }
+                        },
                         {
                             "path": "tupai",
                             "component": "advanced/tupai/index",
@@ -174,7 +213,7 @@ const actions = {
                             "hidden": false,
                             "meta": {
                                 "icon": "diamond",
-                                "title": "网站管理"
+                                "title": "PC网站"
                             },
                             "name": "website",
                             "props": {
@@ -194,19 +233,7 @@ const actions = {
                                 "btns": null,
                             }
                         },
-                        {
-                            "path": "pagemaker",
-                            "component": "advanced/pagemaker/index",
-                            "hidden": false,
-                            "meta": {
-                                "icon": "diamond",
-                                "title": "界面设计器"
-                            },
-                            "name": "pagemaker",
-                            "props": {
-                                "btns": null,
-                            }
-                        },
+
                         {
                             "path": "crm",
                             "component": "advanced/crm/index",
@@ -219,20 +246,8 @@ const actions = {
                             "props": {
                                 "btns": null,
                             }
-                        },
-                        {
-                            "path": "aiimport",
-                            "component": "advanced/aiimport/index",
-                            "hidden": false,
-                            "meta": {
-                                "icon": "diamond",
-                                "title": "AI导入房源"
-                            },
-                            "name": "aiimport",
-                            "props": {
-                                "btns": null,
-                            }
-                        },
+                        }
+      
                     ],
                     "meta": {
                         "icon": "diamond",

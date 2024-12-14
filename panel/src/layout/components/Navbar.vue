@@ -28,7 +28,7 @@
 
         <div class="right-menu">
             <el-button size="small" icon="el-icon-plus" style="margin-top: 5px;" @click="qrVisible = true">加入群聊</el-button>
-            <el-button size="small" icon="el-icon-chat-round" type="primary" style="margin-right: 10px; margin-top: 5px;" @click="gotoUrl">咨询客服</el-button>
+            <!-- el-button size="small" icon="el-icon-chat-round" type="primary" style="margin-right: 10px; margin-top: 5px;" @click="gotoUrl">咨询客服</!-->
             <Uplicense ref="uplicense"></Uplicense>
             <el-dropdown class="avatar-container" trigger="click">
                 <div class="avatar-wrapper">
@@ -62,11 +62,11 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import AdminPasswordForm from "@/components/AdminPasswordForm";
 import Breadcrumb from "@/components/Breadcrumb";
 import Hamburger from "@/components/Hamburger";
-import AdminPasswordForm from "@/components/AdminPasswordForm";
 import Uplicense from "@/components/Uplicense";
+import { mapGetters } from "vuex";
 var UA = require("ua-device");
 
 export default {

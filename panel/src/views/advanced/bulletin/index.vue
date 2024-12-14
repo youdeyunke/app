@@ -11,7 +11,7 @@
 -->
 <template>
     <div class="app-container">
-        <advanced-card title="楼盘快报-功能介绍" desc="用于在小程序端查询楼盘快报信息，小程序端用户可订阅楼盘快报；订阅后管理端发布新的楼盘快报信息，小程序端会收到消息推送提醒；小程序端可以生成快报图片。"></advanced-card>
+        <advanced-card image="assets/images/advanced/kuaibao.jpg" title="楼盘快报-功能介绍" desc="用于在小程序端查询楼盘快报信息，小程序端用户可订阅楼盘快报；订阅后管理端发布新的楼盘快报信息，小程序端会收到消息推送提醒；小程序端可以生成快报图片。"></advanced-card>
     </div>
 </template>
 

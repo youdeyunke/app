@@ -11,7 +11,7 @@
 -->
 <template>
     <div class="app-container">
-        <advanced-card title="土拍查询-功能介绍" desc="用于在小程序端查询土拍信息，小程序端用户可订阅土拍；订阅后管理端发布新的土拍信息，小程序端会收到消息推送提醒。"></advanced-card>
+        <advanced-card image="assets/images/advanced/tupai.jpg" title="土拍查询-功能介绍" desc="用于在小程序端查询土拍信息，小程序端用户可订阅土拍；订阅后管理端发布新的土拍信息，小程序端会收到消息推送提醒。"></advanced-card>
     </div>
 </template>
 

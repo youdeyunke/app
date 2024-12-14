@@ -11,7 +11,11 @@
 -->
 <template>
     <div class="app-container">
-        <advanced-card title="界面设计器-功能介绍" desc="用于管理员对小程序tab页面进行个性化编辑，支持实时预览编辑效果，并允许利用特定组件灵活调整页面样式。"></advanced-card>
+        <advanced-card 
+            title="界面设计器-功能介绍" 
+            desc="用于管理员对小程序tab页面进行个性化编辑，支持实时预览编辑效果，并允许利用特定组件灵活调整页面样式。" 
+            image="assets/images/advanced/pagemaker.gif">
+        </advanced-card>
     </div>
 </template>
 

@@ -11,7 +11,7 @@
 -->
 <template>
     <div class="app-container">
-        <advanced-card title="网站管理-功能介绍" desc="用于对专业版中的楼盘资讯网站进行管理，包括网站的启闭状态、TDK信息配置、IPC备案号录入及网站Tab栏的设置。"></advanced-card>
+        <advanced-card image="assets/images/advanced/website.png" title="网站端-功能介绍" desc="专业版还提供配套的PC网站端，并自适应兼容手机浏览器访问。"></advanced-card>
     </div>
 </template>
 

@@ -11,7 +11,7 @@
 -->
 <template>
     <div class="app-container">
-        <advanced-card title="网签数据-功能介绍" desc="用于在小程序端查询网签数据信息，数据由管理员设置，以日历形式直观展示，包括近三十天数据及同步环比，并辅以折线图展示最近六个月走势。"></advanced-card>
+        <advanced-card image="assets/images/advanced/wangqian.jpg" title="网签数据-功能介绍" desc="用于在小程序端查询网签数据信息，数据由管理员设置advanced-card近三十天数据及同步环比，并辅以折线图展示最近六个月走势。"></advanced-card>
     </div>
 </template>
 

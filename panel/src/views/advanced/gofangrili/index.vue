@@ -11,7 +11,7 @@
 -->
 <template>
     <div class="app-container">
-        <advanced-card title="购房日历-功能介绍" desc="用于在小程序端查询购房日历信息，管理端设置楼盘开盘、开始认购信息后，会在小程序端以日历的形式展示。"></advanced-card>
+        <advanced-card image="assets/images/advanced/goufangrili.jpg" title="购房日历-功能介绍" desc="用于在小程序端查询购房日历信息，管理端设置楼盘开盘、开始认购信息后，会在小程序端以日历的形式展示。"></advanced-card>
     </div>
 </template>
 
