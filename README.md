@@ -37,7 +37,7 @@
 | 内容 | 社区版|  专业版   |
 | --- | --- | --- |
 | 管理端演示地址 | https://demo2.youdeyunke.com/ | https://demo.youdeyunke.com/admin/index.html |
-| 管理端演示用户名 | 	`gitee@youdeyunke.com` | `demo@youdeyunke.com` |
+| 管理端演示用户名 | 	`gitee@youdeyunke.com` | `pro@youdeyunke.com` |
 | 管理端演示用户密码 | `88888888` | `88888888` |
 | 网站端演示地址 | `不支持` | https://demo.youdeyunke.com |
 | 小程序演示 | ![](https://tcdn.udeve.net/udyk/672eec7ae4b07694cf4cb409.png) |  ![](https://tcdn.udeve.net/udyk/65a0d469b33aac0d968a3529.jpg) |
