@@ -53,15 +53,19 @@
 ![友得云客房产小程序界面截图](https://demo-1255998955.cos.ap-shanghai.myqcloud.com/udyk/screens.png)
 
 
-## 成功案例
+## 明星案例
 
-以下成功案例均基于【友得云客】进行构建，案例中的业务类型包括：线上售楼部、海外房产、房产自媒体、房产分销等多种不同业务类型
+友得云客房产系统深受国内外客户好评，包括房地产开发商、房产自媒体、海外房产中介等，以下明星案例均采用友得云客房产系统源码搭建（排名不分先后）
 
-| ![](https://tcdn.udeve.net/fang2021/2fb1dc49-a444-4d66-8de2-7dac4221f166.jpg?imageView2/2/w/400) | ![](https://tcdn.udeve.net/fang2021/2a013aa5-466e-436a-85fc-aa1c8f62e6d9.jpg?imageView2/2/w/400) | ![](https://tcdn.udeve.net/fang2021/783455da-f320-4ade-bf8a-bc8fbb265236.jpg?imageView2/2/w/400) |
-| :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-|                            汉普顿                            |                          青特云置业                          |                            巧房子                            |
-| ![](https://tcdn.udeve.net/fang2021/0fada889-b400-4b29-bc14-bf2e2202490d.jpg?imageView2/2/w/400) | ![](https://tcdn.udeve.net/fang2021/25eee934-77d9-4492-900f-c2d4259226d7.jpg?imageView2/2/w/400) | ![](https://tcdn.udeve.net/fang2021/58e662ca-e7af-4e57-bed3-d2280831127f.jpg?imageView5/2/w/400) |
-|                           宁波甬房                           |                          特变e享家                           |                         学长看房笔记                         |
+|                  ![](https://tcdn.udeve.net/udyk/6763e9f8e4b0c65a95b09f68.jpg)                   | ![](https://tcdn.udeve.net/fang2021/58e662ca-e7af-4e57-bed3-d2280831127f.jpg) |                  ![](https://tcdn.udeve.net/udyk/6763eac5e4b0c65a95b09f69.jpg)                   |
+|:------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|
+|                                               美聚找房                                               |                                              学长看房笔记                                               |                                              沪上工业通                                               |
+| ![](https://tcdn.udeve.net/fang2021/2fb1dc49-a444-4d66-8de2-7dac4221f166.jpg?imageView2/2/w/400) | ![](https://tcdn.udeve.net/udyk/6763eb8de4b0c65a95b09f6a.jpg)  |                  ![](https://tcdn.udeve.net/udyk/6763ec6ee4b0c65a95b09f6b.jpg)                   |
+|                                             汉普顿英国地产                                              |                                               泰缘之家                                                |                                            洛杉矶NGHOME                                             |
+| ![](https://tcdn.udeve.net/udyk/6763ed19e4b0c65a95b09f6c.jpg?imageView2/2/w/400) | ![](https://tcdn.udeve.net/fang2021/2a013aa5-466e-436a-85fc-aa1c8f62e6d9.jpg?imageView2/2/w/400)  | ![](https://tcdn.udeve.net/fang2021/0fada889-b400-4b29-bc14-bf2e2202490d.jpg?imageView2/2/w/400) |
+|                                                 幸福E家                                                 |                                               青特云置业                                                |                                             宁波甬房摇号助手                                             |
+
+
 
 
 ## 商用须知
