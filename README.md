@@ -44,9 +44,7 @@
 
 ## 功能介绍
 
-![友得云客产品功能脑图](https://tcdn.udeve.net/udyk/readme-mind-map.png)
-
-
+![友得云客社区版与专业版功能对比](https://tcdn.udeve.net/udyk/features.png)
 
 
 ## 界面截图
