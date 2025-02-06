@@ -77,6 +77,20 @@ const actions = {
                     "component": "Layout",
                     "hidden": false,
                     "children": [
+                      {
+                        "path": "shop",
+                        "component": "advanced/shop/index",
+                        "hidden": false,
+                        "meta": {
+                          "icon": "diamond",
+                          "title": "门店入驻"
+                        },
+                        "name": "shop",
+                        "props": {
+                          "btns": null,
+                        }
+                      },
+
                         {
                             "path": "aichat",
                             "component": "advanced/aichat/index",
@@ -247,7 +261,7 @@ const actions = {
                                 "btns": null,
                             }
                         }
-      
+
                     ],
                     "meta": {
                         "icon": "diamond",
