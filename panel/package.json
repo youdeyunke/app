@@ -1,9 +1,9 @@
 {
-  "name": "vue-admin-template",
-  "version": "4.2.1",
-  "description": "A vue admin template with Element UI & axios & iconfont & permission control & lint",
-  "author": "Pan <panfree23@gmail.com>",
-  "license": "MIT",
+  "name": "udyk-ce",
+  "version": "0.1",
+  "description": "www.youdeyunke.com",
+  "author": "www.youdeyunke.com",
+  "license": "Apache-2.0",
   "scripts": {
     "dev": "vue-cli-service serve --port 3000 --host 0.0.0.0",
     "build:prod": "vue-cli-service build",
@@ -21,7 +21,6 @@
     "@sentry/vue": "^7.105.0",
     "ace-builds": "^1.4.13",
     "axios": "0.18.1",
-    "cnpm": "^9.4.0",
     "echarts": "^5.3.3",
     "element-ui": "2.15.14",
     "js-cookie": "2.2.0",
