@@ -2,9 +2,22 @@
 
 <div align="center">
 
+![Static Badge](https://img.shields.io/badge/SrpingBoot-2.7-blue?logo=springboot)  ![Static Badge](https://img.shields.io/badge/VUE-2-blue?&labelColor=green&logo=vue) ![Static Badge](https://img.shields.io/badge/MySQL-8-blue?logo=mysql) ![Static Badge](https://img.shields.io/badge/Redis-blue?logo=redis&labelColor=%23f4f4f4) ![Static Badge](https://img.shields.io/badge/JDK-17-blue?logo=openjdk)
+
+
+
+
 [产品官网](https://www.youdeyunke.com/?statId=6) | [帮助文档](https://youdeyunke.yuque.com/r/organizations/homepage) | [加入群聊](https://tcdn.udeve.net/udyk/66064f7e8ecade73b2385bb3.jpg)
 
 </div>
+
+
+*相关报道* 
+
+* GitCode：[GitCode上的房产营销新星：友得云客](https://mp.weixin.qq.com/s/Lo1pgTEm1hTJmCajdbeISw)
+* 开源驿站： [比优秀更优秀！推荐一款JAVA开源房地产线上营销获客系统](https://mp.weixin.qq.com/s/8MlwdWSC37AMYwF0pyjiOA)
+* CSDN： [开源的房地产行业营销拓客系统，值得推荐！](https://blog.csdn.net/fdoakeif/article/details/140331641)
+
 
 # 友得云客房产营销系统【社区版】
 
