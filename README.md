@@ -2,27 +2,31 @@
 
 <div align="center">
 
+
 ![Static Badge](https://img.shields.io/badge/SrpingBoot-2.7-blue?logo=springboot)  ![Static Badge](https://img.shields.io/badge/VUE-2-blue?&labelColor=green&logo=vue) ![Static Badge](https://img.shields.io/badge/MySQL-8-blue?logo=mysql) ![Static Badge](https://img.shields.io/badge/Redis-blue?logo=redis&labelColor=%23f4f4f4) ![Static Badge](https://img.shields.io/badge/JDK-17-blue?logo=openjdk)
-
-
 
 
 [产品官网](https://www.youdeyunke.com/?statId=6) | [帮助文档](https://youdeyunke.yuque.com/r/organizations/homepage) | [加入群聊](https://tcdn.udeve.net/udyk/66064f7e8ecade73b2385bb3.jpg)
 
 </div>
 
-
 *相关报道* 
 
-* GitCode：[GitCode上的房产营销新星：友得云客](https://mp.weixin.qq.com/s/Lo1pgTEm1hTJmCajdbeISw)
-* 开源驿站： [比优秀更优秀！推荐一款JAVA开源房地产线上营销获客系统](https://mp.weixin.qq.com/s/8MlwdWSC37AMYwF0pyjiOA)
-* CSDN： [开源的房地产行业营销拓客系统，值得推荐！](https://blog.csdn.net/fdoakeif/article/details/140331641)
+* [【开源】房产小程序「友得云客」：助力房产营销获客，支持个性化定制，技术栈Java/SpringBoot + JS/Vue](https://mp.weixin.qq.com/s/FHuVybIQDiyA2ahYhOisdg)
+
+* [GitCode上的房产营销新星：友得云客](https://mp.weixin.qq.com/s/Lo1pgTEm1hTJmCajdbeISw)
+*  [比优秀更优秀！推荐一款JAVA开源房地产线上营销获客系统](https://mp.weixin.qq.com/s/8MlwdWSC37AMYwF0pyjiOA)
+* [开源的房地产行业营销拓客系统，值得推荐！](https://blog.csdn.net/fdoakeif/article/details/140331641)
 
 
-# 友得云客房产营销系统【社区版】
+*产品动态*
+* 专业版 6.2.451 发布，新增 AI 问答功能 [详情](https://youdeyunke.yuque.com/fbxh1v/log/lmiik2h70p830fg6)
+* 友得云客入选 GitCode 优质开源项目 [详情](https://mp.weixin.qq.com/s/Lo1pgTEm1hTJmCajdbeISw)
+* 友得云客受邀参加开源共创大会 [详情](https://mp.weixin.qq.com/s/EuFHcfvI6Pz8JkWZvJeqgA)
 
 
-## 系统简介
+
+## 【社区版】系统简介
 友得云客房产营销系统是一款专为房产行业打造的线上营销获客小程序系统，致力于帮助房产企业搭建私域流量平台，以数字化精准营销提升销售效果，驱动业绩增长。作为行业先行者，我们深谙互联网线上营销的要义，将多年的经验与技术融汇于一身，为您提供完善的、已成型的房产小程序系统。基于此【社区版】您无需授权即可获取全部源代码，并进行二次开发，允许用于商业用途，但需要保留版权信息。
 
 ## 文件结构
