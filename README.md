@@ -17,6 +17,7 @@
 * [GitCode上的房产营销新星：友得云客](https://mp.weixin.qq.com/s/Lo1pgTEm1hTJmCajdbeISw)
 *  [比优秀更优秀！推荐一款JAVA开源房地产线上营销获客系统](https://mp.weixin.qq.com/s/8MlwdWSC37AMYwF0pyjiOA)
 * [开源的房地产行业营销拓客系统，值得推荐！](https://blog.csdn.net/fdoakeif/article/details/140331641)
+* [开源|一款友得云客房产小程序：房产行业线上营销获客的利器](https://mp.weixin.qq.com/s/qDLybzGQD1L5FFJUeMhCVQ)
 
 
 *产品动态*
