@@ -18,6 +18,9 @@
 *  [比优秀更优秀！推荐一款JAVA开源房地产线上营销获客系统](https://mp.weixin.qq.com/s/8MlwdWSC37AMYwF0pyjiOA)
 * [开源的房地产行业营销拓客系统，值得推荐！](https://blog.csdn.net/fdoakeif/article/details/140331641)
 * [开源|一款友得云客房产小程序：房产行业线上营销获客的利器](https://mp.weixin.qq.com/s/qDLybzGQD1L5FFJUeMhCVQ)
+* [一款 Java + Vue 开源、功能齐全的智能房产营销拓客系统，商用免费！](https://mp.weixin.qq.com/s/qkUMo9yIGdnVuPjNAlvqnw)
+* [友得云客：智能房产营销拓客系统的技术深度解析与实践案例](https://mp.weixin.qq.com/s/KHxKl9mFmkmFBgIj1Egqow)
+
 
 
 *产品动态*
@@ -56,7 +59,7 @@
 | --- | --- | --- |
 | 管理端演示地址 | https://demo2.youdeyunke.com/ | https://demo.youdeyunke.com/admin/index.html |
 | 管理端演示用户名 | 	`gitee@youdeyunke.com` | `pro@youdeyunke.com` |
-| 管理端演示用户密码 | `88888888` | `88888888` |
+| 管理端演示用户密码 | `8个8` | `8个8` |
 | 网站端演示地址 | `不支持` | https://demo.youdeyunke.com |
 | 小程序演示 | ![](https://tcdn.udeve.net/udyk/672eec7ae4b07694cf4cb409.png) |  ![](https://tcdn.udeve.net/udyk/65a0d469b33aac0d968a3529.jpg) |
 
