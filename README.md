@@ -20,11 +20,13 @@
 * [开源|一款友得云客房产小程序：房产行业线上营销获客的利器](https://mp.weixin.qq.com/s/qDLybzGQD1L5FFJUeMhCVQ)
 * [一款 Java + Vue 开源、功能齐全的智能房产营销拓客系统，商用免费！](https://mp.weixin.qq.com/s/qkUMo9yIGdnVuPjNAlvqnw)
 * [友得云客：智能房产营销拓客系统的技术深度解析与实践案例](https://mp.weixin.qq.com/s/KHxKl9mFmkmFBgIj1Egqow)
+* [友得云客：打造房产行业的数字化营销利器 —— 开源房产小程序系统深度解析](https://mp.weixin.qq.com/s/nOXQFo_1MrKJ14LP99JUPw)
 
 
 
 *产品动态*
-* 专业版 6.2.451 发布，新增 AI 问答功能 [详情](https://youdeyunke.yuque.com/fbxh1v/log/lmiik2h70p830fg6)
+
+* 专业版 6.2.451 发布，新增 AI找房功能，支持DeepSeekR1大模型 [详情](https://youdeyunke.yuque.com/fbxh1v/log/lmiik2h70p830fg6)
 * 友得云客入选 GitCode 优质开源项目 [详情](https://mp.weixin.qq.com/s/Lo1pgTEm1hTJmCajdbeISw)
 * 友得云客受邀参加开源共创大会 [详情](https://mp.weixin.qq.com/s/EuFHcfvI6Pz8JkWZvJeqgA)
 
@@ -68,23 +70,27 @@
 ![友得云客社区版与专业版功能对比](https://tcdn.udeve.net/udyk/features.png)
 
 
-## 界面截图
-![友得云客房产小程序界面截图](https://demo-1255998955.cos.ap-shanghai.myqcloud.com/udyk/screens.png)
 
 
 ## 明星案例
 
 友得云客房产系统深受国内外客户好评，包括房地产开发商、房产自媒体、海外房产中介等，以下明星案例均采用友得云客房产系统源码搭建（排名不分先后）
 
+｜![](https://tcdn.udeve.net/udyk/67ce5409e4b0f343b84e9db3.jpg) | ![](https://qiniucdn.udeve.net/udyk/67ce5948e4b0f343b84e9db6.jpg) |  ![](https://qiniucdn.udeve.net/udyk/67ce5ab9e4b0f343b84e9db7.jpg) |
+| :---: | :---: | :---: |
+| 一起看房（上海） | 路南住房保障（唐山） | 昌泰全民营销(石家庄) ｜
+
 |                  ![](https://tcdn.udeve.net/udyk/6763e9f8e4b0c65a95b09f68.jpg)                   | ![](https://tcdn.udeve.net/fang2021/58e662ca-e7af-4e57-bed3-d2280831127f.jpg) |                  ![](https://tcdn.udeve.net/udyk/6763eac5e4b0c65a95b09f69.jpg)                   |
 |:------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|
 |                                               美聚找房(上海)                                               |                                              学长看房笔记(上海)                                               |                                              沪上工业通(上海)                                              |
 | ![](https://tcdn.udeve.net/fang2021/2fb1dc49-a444-4d66-8de2-7dac4221f166.jpg?imageView2/2/w/400) | ![](https://tcdn.udeve.net/udyk/6763eb8de4b0c65a95b09f6a.jpg)  |                  ![](https://tcdn.udeve.net/udyk/6763ec6ee4b0c65a95b09f6b.jpg)                   |
 |                                             汉普顿地产(英国)                                              |                                               泰缘之家(泰国)                                                |                                            洛杉矶NHGOME(美国)                                             |
-| ![](https://tcdn.udeve.net/udyk/6763ed19e4b0c65a95b09f6c.jpg?imageView2/2/w/400) | ![](https://tcdn.udeve.net/fang2021/2a013aa5-466e-436a-85fc-aa1c8f62e6d9.jpg?imageView2/2/w/400)  | ![](https://tcdn.udeve.net/fang2021/0fada889-b400-4b29-bc14-bf2e2202490d.jpg?imageView2/2/w/400) |
-|                                                 幸福E家(新疆)                                                 |                                               青特云置业(青岛)                                                |                                             宁波甬房摇号助手(宁波)                                             |
+| ![](https://tcdn.udeve.net/udyk/6763ed19e4b0c65a95b09f6c.jpg?imageView2/2/w/400) | ![](https://tcdn.udeve.net/fang2021/2a013aa5-466e-436a-85fc-aa1c8f62e6d9.jpg?imageView2/2/w/400)  | ![](https://qiniucdn.udeve.net/udyk/67ce58d8e4b0f343b84e9db5.jpg) |
+|                                                 幸福E家(新疆)                                                 |                                               青特云置业(青岛)                                                |                                             天一观房(宁波)                                             |
 
 
+## 界面截图
+![友得云客房产小程序界面截图](https://demo-1255998955.cos.ap-shanghai.myqcloud.com/udyk/screens.png)
 
 
 ## 商用须知
