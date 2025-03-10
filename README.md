@@ -65,28 +65,19 @@
 | 网站端演示地址 | `不支持` | https://demo.youdeyunke.com |
 | 小程序演示 | ![](https://tcdn.udeve.net/udyk/672eec7ae4b07694cf4cb409.png) |  ![](https://tcdn.udeve.net/udyk/65a0d469b33aac0d968a3529.jpg) |
 
+## 明星案例
+
+友得云客房产系统深受国内外客户好评，包括房地产开发商、房产自媒体、海外房产中介等，以下明星案例均采用友得云客房产系统源码搭建（排名不分先后）
+![](https://tcdn.udeve.net/udyk/case.png) 
+
+
+
+
 ## 功能介绍
 
 ![友得云客社区版与专业版功能对比](https://tcdn.udeve.net/udyk/features.png)
 
 
-
-
-## 明星案例
-
-友得云客房产系统深受国内外客户好评，包括房地产开发商、房产自媒体、海外房产中介等，以下明星案例均采用友得云客房产系统源码搭建（排名不分先后）
-
-｜![](https://tcdn.udeve.net/udyk/67ce5409e4b0f343b84e9db3.jpg) | ![](https://qiniucdn.udeve.net/udyk/67ce5948e4b0f343b84e9db6.jpg) |  ![](https://qiniucdn.udeve.net/udyk/67ce5ab9e4b0f343b84e9db7.jpg) |
-| :---: | :---: | :---: |
-| 一起看房（上海） | 路南住房保障（唐山） | 昌泰全民营销(石家庄) ｜
-
-|                  ![](https://tcdn.udeve.net/udyk/6763e9f8e4b0c65a95b09f68.jpg)                   | ![](https://tcdn.udeve.net/fang2021/58e662ca-e7af-4e57-bed3-d2280831127f.jpg) |                  ![](https://tcdn.udeve.net/udyk/6763eac5e4b0c65a95b09f69.jpg)                   |
-|:------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------:|
-|                                               美聚找房(上海)                                               |                                              学长看房笔记(上海)                                               |                                              沪上工业通(上海)                                              |
-| ![](https://tcdn.udeve.net/fang2021/2fb1dc49-a444-4d66-8de2-7dac4221f166.jpg?imageView2/2/w/400) | ![](https://tcdn.udeve.net/udyk/6763eb8de4b0c65a95b09f6a.jpg)  |                  ![](https://tcdn.udeve.net/udyk/6763ec6ee4b0c65a95b09f6b.jpg)                   |
-|                                             汉普顿地产(英国)                                              |                                               泰缘之家(泰国)                                                |                                            洛杉矶NHGOME(美国)                                             |
-| ![](https://tcdn.udeve.net/udyk/6763ed19e4b0c65a95b09f6c.jpg?imageView2/2/w/400) | ![](https://tcdn.udeve.net/fang2021/2a013aa5-466e-436a-85fc-aa1c8f62e6d9.jpg?imageView2/2/w/400)  | ![](https://qiniucdn.udeve.net/udyk/67ce58d8e4b0f343b84e9db5.jpg) |
-|                                                 幸福E家(新疆)                                                 |                                               青特云置业(青岛)                                                |                                             天一观房(宁波)                                             |
 
 
 ## 界面截图
