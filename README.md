@@ -1,5 +1,3 @@
-![友得云客房产小程序-社区版](https://tcdn.udeve.net/udyk/readme-free-license.png)
-
 <div align="center">
 
 
