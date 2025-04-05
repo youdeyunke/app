@@ -47,7 +47,7 @@
 | 内容 | 社区版|  专业版   |
 | --- | --- | --- |
 | 管理端演示地址 | https://demo2.youdeyunke.com/ | https://demo.youdeyunke.com/admin/ |
-| 管理端演示用户名 | 	`gitee@youdeyunke.com` | [咨询客服获取](https://work.weixin.qq.com/kfid/kfc8a0f8817daf2ec01) |
+| 管理端演示用户名 | 	`demo@youdeyunke.com` | [咨询客服获取](https://work.weixin.qq.com/kfid/kfc8a0f8817daf2ec01) |
 | 管理端演示用户密码 | `8个8` | [咨询客服获取](https://work.weixin.qq.com/kfid/kfc8a0f8817daf2ec01) |
 | 网站端演示地址 | `不支持` | https://demo.youdeyunke.com |
 | 小程序演示 | ![](https://tcdn.udeve.net/udyk/672eec7ae4b07694cf4cb409.png) |  ![](https://tcdn.udeve.net/udyk/65a0d469b33aac0d968a3529.jpg) |
