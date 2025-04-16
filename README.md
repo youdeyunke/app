@@ -13,7 +13,11 @@
 ## 明星案例
 
 友得云客房产系统深受国内外客户好评，包括房地产开发商、房产自媒体、海外房产中介等，以下明星案例均采用友得云客房产系统源码搭建（排名不分先后）
-![](https://tcdn.udeve.net/udyk/case.png) 
+![](https://tcdn.udeve.net/case/row1.png) 
+![](https://tcdn.udeve.net/case/row2.png) 
+![](https://tcdn.udeve.net/case/row3.png) 
+![](https://tcdn.udeve.net/case/row4.png) 
+![](https://tcdn.udeve.net/case/row5.png) 
 
 
 ## 文件结构
