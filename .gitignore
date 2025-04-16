@@ -13,4 +13,5 @@ project.config.json
 .vscode
 /run_mysql.sh
 scripts
+panel/www
 .idea

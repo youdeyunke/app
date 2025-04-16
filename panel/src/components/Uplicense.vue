@@ -6,7 +6,7 @@
       size="small"
       style="margin-right: 10px;margin-top: 5px;"
       @click="gotoPurchaseUrl"
-      >免费试用专业版</el-button
+      >购买专业版永久授权（特价798¥）</el-button
     >
   </div>
 </template>
@@ -25,7 +25,8 @@ export default {
   },
   methods: {
     gotoPurchaseUrl() {
-      window.open('https://youdeyunke.yuque.com/fbxh1v/install/trial');
+      var url = "https://item.taobao.com/item.htm?id=769719717145";
+      window.open(url);
     },
   },
 };

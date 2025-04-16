@@ -19,7 +19,7 @@
           <el-button
             class="up-btn"
             @click="gotoPurchaseUrl"
-            >免费试用专业版</el-button
+            >立即购买专业版</el-button
           >
         </div>
         <div class="func-desc">
@@ -56,7 +56,8 @@ export default {
   name: "advancedCard",
   methods: {
     gotoPurchaseUrl() {
-      window.open("https://youdeyunke.yuque.com/fbxh1v/install/trial");
+      var url = "https://item.taobao.com/item.htm?id=769719717145";
+      window.open(url);
     },
     getImageSrc() {
       if (this.image.startsWith("http") || this.image.startsWith("/")) {

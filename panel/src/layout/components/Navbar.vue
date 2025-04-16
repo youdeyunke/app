@@ -19,15 +19,15 @@
             <user-form :form-user="brokerDetail" @change="userChange" @cancle="dialogFormVisible = false" />
         </el-dialog>
 
-        <el-dialog title="加入群聊" :visible.sync="qrVisible" width="500px" :append-to-body="true">
-            <el-image :src="require('@/assets/images/wxqr.jpg')" style="width: 100%;" />
+        <el-dialog title="联系客服" :visible.sync="qrVisible" width="500px" :append-to-body="true">
+            <el-image :src="require('@/assets/images/wxkf.png')" style="width: 100%;" />
         </el-dialog>
 
         <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
         <breadcrumb class="breadcrumb-container" />
 
         <div class="right-menu">
-            <el-button size="small" icon="el-icon-plus" style="margin-top: 5px;" @click="qrVisible = true">加入群聊</el-button>
+            <el-button size="small" icon="el-icon-plus" style="margin-top: 5px;" @click="qrVisible = true">咨询客服</el-button>
             <!-- el-button size="small" icon="el-icon-chat-round" type="primary" style="margin-right: 10px; margin-top: 5px;" @click="gotoUrl">咨询客服</!-->
             <Uplicense ref="uplicense"></Uplicense>
             <el-dropdown class="avatar-container" trigger="click">
