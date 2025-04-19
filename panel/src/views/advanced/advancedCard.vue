@@ -56,7 +56,7 @@ export default {
   name: "advancedCard",
   methods: {
     gotoPurchaseUrl() {
-      var url = "https://item.taobao.com/item.htm?id=769719717145";
+      var url = "https://item.taobao.com/item.htm?ft=t&id=912787633808";
       window.open(url);
     },
     getImageSrc() {

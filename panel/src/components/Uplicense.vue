@@ -6,7 +6,7 @@
       size="small"
       style="margin-right: 10px;margin-top: 5px;"
       @click="gotoPurchaseUrl"
-      >购买专业版永久授权（特价798¥）</el-button
+      >购买专业版</el-button
     >
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     gotoPurchaseUrl() {
-      var url = "https://item.taobao.com/item.htm?id=769719717145";
+      var url = "https://item.taobao.com/item.htm?ft=t&id=912787633808";
       window.open(url);
     },
   },
